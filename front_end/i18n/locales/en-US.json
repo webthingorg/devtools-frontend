@@ -773,115 +773,115 @@
   "color_picker/Spectrum.ts | toggleColorPicker": {
     "message": "Toggle color picker"
   },
-  "common/ResourceType.js | cspviolationreport": {
+  "common/ResourceType.ts | cspviolationreport": {
     "message": "CSPViolationReport"
   },
-  "common/ResourceType.js | css": {
+  "common/ResourceType.ts | css": {
     "message": "CSS"
   },
-  "common/ResourceType.js | doc": {
+  "common/ResourceType.ts | doc": {
     "message": "Doc"
   },
-  "common/ResourceType.js | document": {
+  "common/ResourceType.ts | document": {
     "message": "Document"
   },
-  "common/ResourceType.js | documents": {
+  "common/ResourceType.ts | documents": {
     "message": "Documents"
   },
-  "common/ResourceType.js | eventsource": {
+  "common/ResourceType.ts | eventsource": {
     "message": "EventSource"
   },
-  "common/ResourceType.js | fetch": {
+  "common/ResourceType.ts | fetch": {
     "message": "Fetch"
   },
-  "common/ResourceType.js | font": {
+  "common/ResourceType.ts | font": {
     "message": "Font"
   },
-  "common/ResourceType.js | fonts": {
+  "common/ResourceType.ts | fonts": {
     "message": "Fonts"
   },
-  "common/ResourceType.js | image": {
+  "common/ResourceType.ts | image": {
     "message": "Image"
   },
-  "common/ResourceType.js | images": {
+  "common/ResourceType.ts | images": {
     "message": "Images"
   },
-  "common/ResourceType.js | img": {
+  "common/ResourceType.ts | img": {
     "message": "Img"
   },
-  "common/ResourceType.js | js": {
+  "common/ResourceType.ts | js": {
     "message": "JS"
   },
-  "common/ResourceType.js | manifest": {
+  "common/ResourceType.ts | manifest": {
     "message": "Manifest"
   },
-  "common/ResourceType.js | media": {
+  "common/ResourceType.ts | media": {
     "message": "Media"
   },
-  "common/ResourceType.js | other": {
+  "common/ResourceType.ts | other": {
     "message": "Other"
   },
-  "common/ResourceType.js | ping": {
+  "common/ResourceType.ts | ping": {
     "message": "Ping"
   },
-  "common/ResourceType.js | preflight": {
+  "common/ResourceType.ts | preflight": {
     "message": "Preflight"
   },
-  "common/ResourceType.js | script": {
+  "common/ResourceType.ts | script": {
     "message": "Script"
   },
-  "common/ResourceType.js | scripts": {
+  "common/ResourceType.ts | scripts": {
     "message": "Scripts"
   },
-  "common/ResourceType.js | signedexchange": {
+  "common/ResourceType.ts | signedexchange": {
     "message": "SignedExchange"
   },
-  "common/ResourceType.js | stylesheet": {
+  "common/ResourceType.ts | stylesheet": {
     "message": "Stylesheet"
   },
-  "common/ResourceType.js | stylesheets": {
+  "common/ResourceType.ts | stylesheets": {
     "message": "Stylesheets"
   },
-  "common/ResourceType.js | texttrack": {
+  "common/ResourceType.ts | texttrack": {
     "message": "TextTrack"
   },
-  "common/ResourceType.js | websocket": {
+  "common/ResourceType.ts | websocket": {
     "message": "WebSocket"
   },
-  "common/ResourceType.js | websockets": {
+  "common/ResourceType.ts | websockets": {
     "message": "WebSockets"
   },
-  "common/ResourceType.js | webtransport": {
+  "common/ResourceType.ts | webtransport": {
     "message": "WebTransport"
   },
-  "common/ResourceType.js | ws": {
+  "common/ResourceType.ts | ws": {
     "message": "WS"
   },
-  "common/ResourceType.js | xhr": {
+  "common/ResourceType.ts | xhr": {
     "message": "XHR"
   },
-  "common/ResourceType.js | xhrAndFetch": {
+  "common/ResourceType.ts | xhrAndFetch": {
     "message": "XHR and Fetch"
   },
-  "common/Revealer.js | applicationPanel": {
+  "common/Revealer.ts | applicationPanel": {
     "message": "Application panel"
   },
-  "common/Revealer.js | changesDrawer": {
+  "common/Revealer.ts | changesDrawer": {
     "message": "Changes drawer"
   },
-  "common/Revealer.js | elementsPanel": {
+  "common/Revealer.ts | elementsPanel": {
     "message": "Elements panel"
   },
-  "common/Revealer.js | issuesView": {
+  "common/Revealer.ts | issuesView": {
     "message": "Issues view"
   },
-  "common/Revealer.js | networkPanel": {
+  "common/Revealer.ts | networkPanel": {
     "message": "Network panel"
   },
-  "common/Revealer.js | sourcesPanel": {
+  "common/Revealer.ts | sourcesPanel": {
     "message": "Sources panel"
   },
-  "common/Revealer.js | stylesSidebar": {
+  "common/Revealer.ts | stylesSidebar": {
     "message": "styles sidebar"
   },
   "common/SettingRegistration.ts | appearance": {

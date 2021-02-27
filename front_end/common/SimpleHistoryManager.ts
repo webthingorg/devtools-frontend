@@ -31,24 +31,20 @@
 /**
  * @interface
  */
-export class HistoryEntry {
-  /**
-   * @return {boolean}
-   */
-  valid() {
-    throw new Error('not implemented');
-  }
+/* eslint-disable rulesdir/no_underscored_properties */
 
-  reveal() {
-  }
+export interface HistoryEntry {
+  valid(): boolean;
+
+  reveal(): void;
 }
 
 export class SimpleHistoryManager {
-  /**
-   * @param {number} historyDepth
-   */
-  constructor(historyDepth) {
-    /** @type {!Array<!HistoryEntry>} */
+  _entries: HistoryEntry[];
+  _activeEntryIndex: number;
+  _coalescingReadonly: number;
+  _historyDepth: number;
+  constructor(historyDepth: number) {
     this._entries = [];
     this._activeEntryIndex = -1;
 
@@ -59,25 +55,19 @@ export class SimpleHistoryManager {
     this._historyDepth = historyDepth;
   }
 
-  readOnlyLock() {
+  readOnlyLock(): void {
     ++this._coalescingReadonly;
   }
 
-  releaseReadOnlyLock() {
+  releaseReadOnlyLock(): void {
     --this._coalescingReadonly;
   }
 
-  /**
-   * @return {boolean}
-   */
-  readOnly() {
+  readOnly(): boolean {
     return Boolean(this._coalescingReadonly);
   }
 
-  /**
-   * @param {function(!HistoryEntry):boolean} filterOutCallback
-   */
-  filterOut(filterOutCallback) {
+  filterOut(filterOutCallback: (arg0: HistoryEntry) => boolean): void {
     if (this.readOnly()) {
       return;
     }
@@ -86,7 +76,8 @@ export class SimpleHistoryManager {
     for (let i = 0; i < this._entries.length; ++i) {
       if (!filterOutCallback(this._entries[i])) {
         filteredEntries.push(this._entries[i]);
-      } else if (i <= this._activeEntryIndex) {
+      }
+      else if (i <= this._activeEntryIndex) {
         ++removedBeforeActiveEntry;
       }
     }
@@ -94,24 +85,15 @@ export class SimpleHistoryManager {
     this._activeEntryIndex = Math.max(0, this._activeEntryIndex - removedBeforeActiveEntry);
   }
 
-  /**
-   * @return {boolean}
-   */
-  empty() {
+  empty(): boolean {
     return !this._entries.length;
   }
 
-  /**
-   * @return {?HistoryEntry}
-   */
-  active() {
+  active(): HistoryEntry | null {
     return this.empty() ? null : this._entries[this._activeEntryIndex];
   }
 
-  /**
-   * @param {!HistoryEntry} entry
-   */
-  push(entry) {
+  push(entry: HistoryEntry): void {
     if (this.readOnly()) {
       return;
     }
@@ -125,10 +107,7 @@ export class SimpleHistoryManager {
     this._activeEntryIndex = this._entries.length - 1;
   }
 
-  /**
-   * @return {boolean}
-   */
-  rollback() {
+  rollback(): boolean {
     if (this.empty()) {
       return false;
     }
@@ -149,10 +128,7 @@ export class SimpleHistoryManager {
     return true;
   }
 
-  /**
-   * @return {boolean}
-   */
-  rollover() {
+  rollover(): boolean {
     let revealIndex = this._activeEntryIndex + 1;
 
     while (revealIndex < this._entries.length && !this._entries[revealIndex].valid()) {

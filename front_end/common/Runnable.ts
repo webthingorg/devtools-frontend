@@ -5,11 +5,8 @@
 /**
  * @interface
  */
-export class Runnable {
-  /**
-   * @return {!Promise.<void>}
-   */
-  run() {
-    throw new Error('not implemented');
-  }
+/* eslint-disable rulesdir/no_underscored_properties */
+
+export interface Runnable {
+  run(): Promise<void>;
 }

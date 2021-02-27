@@ -23,30 +23,21 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {EventDescriptor, EventTarget, EventTargetEvent} from './EventTarget.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
 
-/**
- * @typedef {!{thisObject: (!Object|undefined), listener: function(!EventTargetEvent):void, disposed: (boolean|undefined)}}
- */
-let _listenerCallbackTuple;  // eslint-disable-line no-unused-vars
+import { EventDescriptor, EventTarget, EventTargetEvent } from './EventTarget.js'; // eslint-disable-line no-unused-vars
+interface _listenerCallbackTuple {
+  thisObject?: Object;
+  listener: (arg0: EventTargetEvent) => void;
+  disposed?: boolean;
+}
 
-/**
- * @implements {EventTarget}
- */
-export class ObjectWrapper {
+export class ObjectWrapper implements EventTarget {
+  _listeners!: Map<string | symbol, _listenerCallbackTuple[]> | undefined;
   constructor() {
-    /** @type {(!Map<string|symbol, !Array<!_listenerCallbackTuple>>|undefined)} */
-    this._listeners;
   }
 
-  /**
-   * @override
-   * @param {string|symbol} eventType
-   * @param {function(!EventTargetEvent):void} listener
-   * @param {!Object=} thisObject
-   * @return {!EventDescriptor}
-   */
-  addEventListener(eventType, listener, thisObject) {
+  addEventListener(eventType: string | symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object): EventDescriptor {
     if (!listener) {
       console.assert(false);
     }
@@ -60,17 +51,12 @@ export class ObjectWrapper {
     }
     const listenerForEventType = this._listeners.get(eventType);
     if (listenerForEventType) {
-      listenerForEventType.push({thisObject: thisObject, listener: listener, disposed: undefined});
+      listenerForEventType.push({ thisObject: thisObject, listener: listener, disposed: undefined });
     }
-    return {eventTarget: this, eventType: eventType, thisObject: thisObject, listener: listener};
+    return { eventTarget: this, eventType: eventType, thisObject: thisObject, listener: listener };
   }
 
-  /**
-   * @override
-   * @param {string|symbol} eventType
-   * @return {!Promise<*>}
-   */
-  once(eventType) {
+  once(eventType: string | symbol): Promise<any> {
     return new Promise(resolve => {
       const descriptor = this.addEventListener(eventType, event => {
         this.removeEventListener(eventType, descriptor.listener);
@@ -79,13 +65,7 @@ export class ObjectWrapper {
     });
   }
 
-  /**
-   * @override
-   * @param {string|symbol} eventType
-   * @param {function(!EventTargetEvent):void} listener
-   * @param {!Object=} thisObject
-   */
-  removeEventListener(eventType, listener, thisObject) {
+  removeEventListener(eventType: string | symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object): void {
     console.assert(Boolean(listener));
 
     if (!this._listeners || !this._listeners.has(eventType)) {
@@ -104,26 +84,16 @@ export class ObjectWrapper {
     }
   }
 
-  /**
-   * @override
-   * @param {string|symbol} eventType
-   * @return {boolean}
-   */
-  hasEventListeners(eventType) {
+  hasEventListeners(eventType: string | symbol): boolean {
     return Boolean(this._listeners && this._listeners.has(eventType));
   }
 
-  /**
-   * @override
-   * @param {string|symbol} eventType
-   * @param {*=} eventData
-   */
-  dispatchEventToListeners(eventType, eventData) {
+  dispatchEventToListeners(eventType: string | symbol, eventData?: any): void {
     if (!this._listeners || !this._listeners.has(eventType)) {
       return;
     }
 
-    const event = /** @type {!EventTargetEvent} */ ({data: eventData});
+    const event = ({ data: eventData } as EventTargetEvent);
     // @ts-ignore we do the check for undefined above
     const listeners = this._listeners.get(eventType).slice(0) || [];
     for (let i = 0; i < listeners.length; ++i) {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Google Inc. All rights reserved.
+ * Copyright (C) 2013 Google Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -28,65 +28,53 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-export class WorkerWrapper {
-  /**
-   * @private
-   * @param {!URL} workerLocation
-   */
-  constructor(workerLocation) {
-    /** @type {!Promise<!Worker>} */
-    this._workerPromise = new Promise(fulfill => {
-      const worker = new Worker(workerLocation, {type: 'module'});
-      worker.onmessage = event => {
-        console.assert(event.data === 'workerReady');
-        worker.onmessage = null;
-        fulfill(worker);
-      };
-    });
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import { Trie } from './Trie.js';
+
+export class TextDictionary {
+  _words: Map<string, number>;
+  _index: Trie;
+  constructor() {
+    this._words = new Map();
+    this._index = new Trie();
   }
 
-  /**
-   * @param {!URL} url
-   */
-  static fromURL(url) {
-    return new WorkerWrapper(url);
+  addWord(word: string): void {
+    let count = this._words.get(word) || 0;
+    ++count;
+    this._words.set(word, count);
+    this._index.add(word);
   }
 
-  /**
-   * @param {*} message
-   */
-  postMessage(message) {
-    this._workerPromise.then(worker => {
-      if (!this._disposed) {
-        worker.postMessage(message);
-      }
-    });
+  removeWord(word: string): void {
+    let count = this._words.get(word) || 0;
+    if (!count) {
+      return;
+    }
+    if (count === 1) {
+      this._words.delete(word);
+      this._index.remove(word);
+      return;
+    }
+    --count;
+    this._words.set(word, count);
   }
 
-  dispose() {
-    this._disposed = true;
-    this._workerPromise.then(worker => worker.terminate());
+  wordsWithPrefix(prefix: string): string[] {
+    return this._index.words(prefix);
   }
 
-  terminate() {
-    this.dispose();
+  hasWord(word: string): boolean {
+    return this._words.has(word);
   }
 
-  /**
-   * @param {?function(!MessageEvent):void} listener
-   */
-  set onmessage(listener) {
-    this._workerPromise.then(worker => {
-      worker.onmessage = listener;
-    });
+  wordCount(word: string): number {
+    return this._words.get(word) || 0;
   }
 
-  /**
-   * @param {?function(!Event):void} listener
-   */
-  set onerror(listener) {
-    this._workerPromise.then(worker => {
-      worker.onerror = listener;
-    });
+  reset(): void {
+    this._words.clear();
+    this._index.clear();
   }
 }

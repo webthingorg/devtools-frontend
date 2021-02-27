@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Google Inc. All rights reserved.
+ * Copyright (C) 2014 Google Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -28,68 +28,58 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {Trie} from './Trie.js';
+/* eslint-disable rulesdir/no_underscored_properties */
 
-export class TextDictionary {
-  constructor() {
-    /** @type {!Map<string, number>} */
-    this._words = new Map();
-    this._index = new Trie();
+export class WorkerWrapper {
+  _workerPromise: Promise<Worker>;
+  _disposed?: boolean;
+  private constructor(workerLocation: URL) {
+    this._workerPromise = new Promise(fulfill => {
+      const worker = new Worker(workerLocation, { type: 'module' });
+      worker.onmessage = (event: MessageEvent<any>): void => {
+        console.assert(event.data === 'workerReady');
+        worker.onmessage = null;
+        fulfill(worker);
+      };
+    });
+  }
+
+  static fromURL(url: URL): WorkerWrapper {
+    return new WorkerWrapper(url);
+  }
+
+  postMessage(message: any): void {
+    this._workerPromise.then(worker => {
+      if (!this._disposed) {
+        worker.postMessage(message);
+      }
+    });
+  }
+
+  dispose(): void {
+    this._disposed = true;
+    this._workerPromise.then(worker => worker.terminate());
+  }
+
+  terminate(): void {
+    this.dispose();
   }
 
   /**
-   * @param {string} word
+   * @param {?function(!MessageEvent):void} listener
    */
-  addWord(word) {
-    let count = this._words.get(word) || 0;
-    ++count;
-    this._words.set(word, count);
-    this._index.add(word);
+  set onmessage(listener) {
+    this._workerPromise.then(worker => {
+      worker.onmessage = listener;
+    });
   }
 
   /**
-   * @param {string} word
+   * @param {?function(!Event):void} listener
    */
-  removeWord(word) {
-    let count = this._words.get(word) || 0;
-    if (!count) {
-      return;
-    }
-    if (count === 1) {
-      this._words.delete(word);
-      this._index.remove(word);
-      return;
-    }
-    --count;
-    this._words.set(word, count);
-  }
-
-  /**
-   * @param {string} prefix
-   * @return {!Array.<string>}
-   */
-  wordsWithPrefix(prefix) {
-    return this._index.words(prefix);
-  }
-
-  /**
-   * @param {string} word
-   * @return {boolean}
-   */
-  hasWord(word) {
-    return this._words.has(word);
-  }
-
-  /**
-   * @param {string} word
-   * @return {number}
-   */
-  wordCount(word) {
-    return this._words.get(word) || 0;
-  }
-
-  reset() {
-    this._words.clear();
-    this._index.clear();
+  set onerror(listener) {
+    this._workerPromise.then(worker => {
+      worker.onerror = listener;
+    });
   }
 }
