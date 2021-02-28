@@ -11,10 +11,6 @@
       "location": "mainMenuHelp/default",
       "actionId": "help.report-issue",
       "order": 11
-    },
-    {
-      "type": "late-initialization",
-      "className": "Help.HelpLateInitialization"
     }
   ],
   "dependencies": [
