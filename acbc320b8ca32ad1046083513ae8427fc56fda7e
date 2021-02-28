@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e10ecc4_ace4de9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-02-28T19:26:39Z",
+      "side": 1,
+      "message": "@Tim, @Benedikt, ptal at Michael\u0027s comment and confirm if I understood your intentions correctly.\nThanks!",
+      "revId": "acbc320b8ca32ad1046083513ae8427fc56fda7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

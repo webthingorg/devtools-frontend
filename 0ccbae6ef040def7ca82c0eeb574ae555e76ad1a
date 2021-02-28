@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe1a620_93c93979",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-02-28T19:26:39Z",
+      "side": 1,
+      "message": "To me the bug description announces the intention to make this blocking soon: \u0027Before we can move our work over to gate on the `is_official_build` arg ...\u0027",
+      "parentUuid": "698cf827_99ff0ec7",
+      "range": {
+        "startLine": 9,
+        "startChar": 76,
+        "endLine": 9,
+        "endChar": 112
+      },
+      "revId": "0ccbae6ef040def7ca82c0eeb574ae555e76ad1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5f15432f_a3b19e10",
