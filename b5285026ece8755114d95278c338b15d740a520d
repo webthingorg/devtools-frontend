@@ -16,6 +16,24 @@
       "message": "is it not going to be localized anymore?",
       "revId": "b5285026ece8755114d95278c338b15d740a520d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e246c20d_176db9fa",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-01T13:46:14Z",
+      "side": 0,
+      "message": "Not right now,  because I used to add these placeholder strings for the cases where call sites don\u0027t give ARIA labels to these adorners. But now I think making these ARIA labels mandatory at call sites is a better \"contract\" for enabling interactive adorners.",
+      "parentUuid": "3117122c_8930bf28",
+      "revId": "b5285026ece8755114d95278c338b15d740a520d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
