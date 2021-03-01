@@ -14,6 +14,7 @@ import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as WebComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
+import {AffectedBlockedByResponseView} from './AffectedBlockedByResponseView.js';
 
 import {AffectedCookiesView} from './AffectedCookiesView.js';
 import {AffectedElementsView} from './AffectedElementsView.js';
@@ -134,18 +135,6 @@ export const UIStrings = {
   *@description Reason for a Heavy Ad being flagged in issue view
   */
   networkLimit: 'Network limit',
-  /**
-  *@description Label for the category of affected resources in issue view
-  */
-  requestC: 'Request',
-  /**
-  *@description Title for a column in an issue view
-  */
-  parentFrame: 'Parent Frame',
-  /**
-  *@description Title for a column in an issue view
-  */
-  blockedResource: 'Blocked Resource',
   /**
   *@description Header for the section listing affected resources
   */
@@ -540,59 +529,6 @@ class AffectedHeavyAdView extends AffectedResourcesView {
   update(): void {
     this.clear();
     this._appendAffectedHeavyAds(this._issue.heavyAds());
-  }
-}
-
-class AffectedBlockedByResponseView extends AffectedResourcesView {
-  _issue: SDK.Issue.Issue;
-  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
-    super(parent, {singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests)});
-    this._issue = issue;
-  }
-
-  _appendDetails(details: Iterable<Protocol.Audits.BlockedByResponseIssueDetails>): void {
-    const header = document.createElement('tr');
-    this.appendColumnTitle(header, i18nString(UIStrings.requestC));
-    this.appendColumnTitle(header, i18nString(UIStrings.parentFrame));
-    this.appendColumnTitle(header, i18nString(UIStrings.blockedResource));
-
-    this.affectedResources.appendChild(header);
-
-    let count = 0;
-    for (const detail of details) {
-      this._appendDetail(detail);
-      count++;
-    }
-    this.updateAffectedResourceCount(count);
-  }
-
-  _appendDetail(details: Protocol.Audits.BlockedByResponseIssueDetails): void {
-    const element = document.createElement('tr');
-    element.classList.add('affected-resource-row');
-
-    const requestCell = this.createRequestCell(details.request);
-    element.appendChild(requestCell);
-
-    if (details.parentFrame) {
-      const frameUrl = this.createFrameCell(details.parentFrame.frameId, this._issue);
-      element.appendChild(frameUrl);
-    } else {
-      element.appendChild(document.createElement('td'));
-    }
-
-    if (details.blockedFrame) {
-      const frameUrl = this.createFrameCell(details.blockedFrame.frameId, this._issue);
-      element.appendChild(frameUrl);
-    } else {
-      element.appendChild(document.createElement('td'));
-    }
-
-    this.affectedResources.appendChild(element);
-  }
-
-  update(): void {
-    this.clear();
-    this._appendDetails(this._issue.getBlockedByResponseDetails());
   }
 }
 
