@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98af1300_cd0477e6",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T09:35:22Z",
+      "side": 1,
+      "message": "The string \"Current source\" has to be localized because it\u0027s not an attribute name anymore.",
+      "revId": "7d52780c8b9e79a3a2c0a10d0349cb77dfa81548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
