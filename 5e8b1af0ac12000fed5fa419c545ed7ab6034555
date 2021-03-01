@@ -33,6 +33,24 @@
       "message": "nit: maybe add \"rendered\" in this description to better distinguish with \"intrinsicAspectRatio\".",
       "revId": "5e8b1af0ac12000fed5fa419c545ed7ab6034555",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70ee41c5_489aa54f",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T13:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba229214_db1b7b12",
+      "revId": "5e8b1af0ac12000fed5fa419c545ed7ab6034555",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
