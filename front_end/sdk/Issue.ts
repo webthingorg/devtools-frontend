@@ -21,6 +21,8 @@ export const enum IssueCategory {
 
 export const enum IssueKind {
   BreakingChange = 'BreakingChange',
+  PageError = 'PageError',
+  Improvement = 'Improvement',
 }
 
 export function getShowThirdPartyIssuesSetting(): Common.Settings.Setting<boolean> {
@@ -50,14 +52,12 @@ export function resolveLazyDescription(lazyDescription: LazyMarkdownIssueDescrip
 export interface MarkdownIssueDescription {
   file: string;
   substitutions: Map<string, string>|undefined;
-  issueKind: IssueKind;
   links: {link: string, linkTitle: string}[];
 }
 
 export interface LazyMarkdownIssueDescription {
   file: string;
   substitutions: Map<string, () => string>|undefined;
-  issueKind: IssueKind;
   links: {link: string, linkTitle: () => string}[];
 }
 
