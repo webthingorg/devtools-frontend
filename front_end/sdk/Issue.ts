@@ -97,10 +97,6 @@ export abstract class Issue extends Common.ObjectWrapper.ObjectWrapper {
     return [];
   }
 
-  heavyAds(): Iterable<Protocol.Audits.HeavyAdIssueDetails> {
-    return [];
-  }
-
   requests(): Iterable<Protocol.Audits.AffectedRequest> {
     return [];
   }
