@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e5ec974_6f8107d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-01T10:57:23Z",
+      "side": 1,
+      "message": "Can you also update the docs?\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/README.md",
+      "revId": "02ae1559519239c9b1b850ae63b6046c77abf6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15362255_79c50ae7",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-01T10:57:23Z",
+      "side": 1,
+      "message": "nit: Semicolon",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "02ae1559519239c9b1b850ae63b6046c77abf6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "579d89ed_7ce2121f",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-01T10:57:23Z",
+      "side": 1,
+      "message": "slice(-2) returns \u0027js\u0027 for e.g. \u0027foo_test.js\u0027, so this would return \u0027jsjs\u0027 which seems wrong? Maybe you want\n\n    `${spec.slice(0, -2)}ts`;",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "02ae1559519239c9b1b850ae63b6046c77abf6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
