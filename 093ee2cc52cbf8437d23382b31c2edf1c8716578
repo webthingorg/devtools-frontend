@@ -16,6 +16,24 @@
       "message": "Thanks! The property name should start with a lowercase c, i.e., \u0027currentSource\u0027 though. Could you please change that?",
       "revId": "093ee2cc52cbf8437d23382b31c2edf1c8716578",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5bfc0c0_1acc28fe",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-03-01T09:51:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65164eab_ea95a5fc",
+      "revId": "093ee2cc52cbf8437d23382b31c2edf1c8716578",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
