@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d81dac1_0c0db036",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-01T16:28:05Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "b21c7e6f4dd07b5e505d4246743446f10f374ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e96bba_b91de704",
+        "filename": "front_end/platform/number-utilities.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-01T16:28:05Z",
+      "side": 1,
+      "message": "I wasn\u0027t immediately aware that gcd is short for greatest common denominator.\nWDYT about changing the function name to something like greatestCommonDenominator instead?",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "b21c7e6f4dd07b5e505d4246743446f10f374ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f968232_34c559c9",
+        "filename": "front_end/platform/number-utilities.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-01T16:28:05Z",
+      "side": 1,
+      "message": "Maybe change this to a TypeError?",
+      "range": {
+        "startLine": 60,
+        "startChar": 14,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "b21c7e6f4dd07b5e505d4246743446f10f374ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
