@@ -33,6 +33,24 @@
       "message": "Will this error hinder the CL merger?\nhttps://cr-buildbucket.appspot.com/build/8854232531937601136",
       "revId": "caf3f5b5b778c6819a1b553c1bd2fbc57416cabc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "637c01b2_0ac4581b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T09:57:07Z",
+      "side": 1,
+      "message": "No, I have disabled the test for now.",
+      "parentUuid": "8534d0e9_52a446f5",
+      "revId": "caf3f5b5b778c6819a1b553c1bd2fbc57416cabc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
