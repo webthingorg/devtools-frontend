@@ -68,6 +68,24 @@
       "message": "Should background-image be included here?",
       "revId": "5e8b1af0ac12000fed5fa419c545ed7ab6034555",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c799b8_cd1aeae4",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T13:40:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b0067e7_cfab89d5",
+      "revId": "5e8b1af0ac12000fed5fa419c545ed7ab6034555",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
