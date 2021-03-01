@@ -52,6 +52,24 @@
       "parentUuid": "56c2d671_c3c034a1",
       "revId": "81baa03472ea4a9a4fa324e39e979bcc97970301",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "198808d2_56b7e423",
+        "filename": "test/unittests/front_end/platform/NumberUtilities_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T14:19:00Z",
+      "side": 1,
+      "message": "It\u0027s not possible to have a decimal value returned by this method. Also, I believe image sizes can be only in whole pixels. I will check if we get half pixels sometimes.",
+      "parentUuid": "fb0262d2_a7e71238",
+      "revId": "81baa03472ea4a9a4fa324e39e979bcc97970301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
