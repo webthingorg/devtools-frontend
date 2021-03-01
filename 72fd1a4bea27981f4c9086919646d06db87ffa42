@@ -16,6 +16,23 @@
       "message": "Rebased. Looks like +Alex added a feature just now, but globs can subsume that. You can run `TEST_FILE\u003dsources/{a_test.ts,b_test.ts}` now. Minor drawback is that I have to make the .ts suffix non-optional. I\u0027ve also updated the mocha output to include the extension, so people can copy-paste test filenames. WDYT?",
       "revId": "72fd1a4bea27981f4c9086919646d06db87ffa42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4685f430_f8e40659",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T12:21:28Z",
+      "side": 1,
+      "message": ".includes reads a bit better IMO",
+      "revId": "72fd1a4bea27981f4c9086919646d06db87ffa42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
