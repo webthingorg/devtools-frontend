@@ -52,6 +52,24 @@
       "parentUuid": "a17da164_31d76fe3",
       "revId": "aa1ed2900cd52561d8938a01e2a5990c57e3ab46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce5a98a_7023fc45",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-03-01T14:58:36Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "53e1d4e7_fb7856e5",
+      "revId": "aa1ed2900cd52561d8938a01e2a5990c57e3ab46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
