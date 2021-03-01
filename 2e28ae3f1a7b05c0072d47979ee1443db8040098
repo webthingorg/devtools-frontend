@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc65b34a_3bb6a9f3",
+        "filename": ".eslintrc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-01T06:50:11Z",
+      "side": 1,
+      "message": "Should we move these to the .eslintrc.js in front_end? The l10n rules don\u0027t make any sense for code outside of front_end",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 43
+      },
+      "revId": "2e28ae3f1a7b05c0072d47979ee1443db8040098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
