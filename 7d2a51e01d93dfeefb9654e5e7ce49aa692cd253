@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "7d2a51e01d93dfeefb9654e5e7ce49aa692cd253",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c67945_ebb38ceb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-01T13:05:06Z",
+      "side": 1,
+      "message": "I\u0027m just about to convert the IssueCategory to a proper enum here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2727376. \n\nOnce that has landed, you can update this CL to use a function with a switch - that doesn\u0027t need the lazy lookup then.",
+      "revId": "7d2a51e01d93dfeefb9654e5e7ce49aa692cd253",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
