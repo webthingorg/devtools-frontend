@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "298ca5d7_100ead4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-01T08:44:53Z",
+      "side": 1,
+      "message": "This seems to have been superseded by https://crrev.com/c/2683399",
+      "revId": "55a140d69f7488e2700818a321f18a603ec30855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
