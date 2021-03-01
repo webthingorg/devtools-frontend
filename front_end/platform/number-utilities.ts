@@ -54,3 +54,24 @@ export const floor = (value: number, precision: number = 0): number => {
   const mult = Math.pow(10, precision);
   return Math.floor(value * mult) / mult;
 };
+
+export const gcd = (a: number, b: number): number => {
+  if (!Number.isInteger(a) || !Number.isInteger(b)) {
+    throw new Error('gcd accepts only integers values');
+  }
+  while (b !== 0) {
+    const t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+};
+
+export const aspectRatio = (width: number, height: number): string => {
+  const divisor = gcd(width, height);
+  if (divisor !== 0) {
+    width /= divisor;
+    height /= divisor;
+  }
+  return `${width}∶${height}`;
+};
