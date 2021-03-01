@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae9962b3_b967c23b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-01T15:21:14Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "280b4a307e13795730cab1950dd86f6b30bb3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35039b2_0430ed1e",
+        "filename": "front_end/mobile_throttling/mobile_throttling-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-01T15:21:14Z",
+      "side": 1,
+      "message": "should \u00273G\u0027 be locked here and below?",
+      "range": {
+        "startLine": 38,
+        "startChar": 38,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "280b4a307e13795730cab1950dd86f6b30bb3d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
