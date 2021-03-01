@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120ffd2b_a781932c",
+        "filename": "front_end/timeline/TimelineController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-01T11:20:34Z",
+      "side": 1,
+      "message": "Nit: these were `\u003cstring, number\u003e` before. Maybe the inference didn\u0027t fully work?",
+      "range": {
+        "startLine": 262,
+        "startChar": 33,
+        "endLine": 262,
+        "endChar": 43
+      },
+      "revId": "2a35dee8f84b37a9e56b377dbb9b6ef0d7aa0b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dfafb6a_7a94ebd6",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-01T11:20:34Z",
+      "side": 1,
+      "message": "Nit: this was a string before.",
+      "range": {
+        "startLine": 811,
+        "startChar": 46,
+        "endLine": 811,
+        "endChar": 49
+      },
+      "revId": "2a35dee8f84b37a9e56b377dbb9b6ef0d7aa0b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c321128_8fe82bf1",
+        "filename": "front_end/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-01T11:20:34Z",
+      "side": 1,
+      "message": "Nit: clean this up 😊",
+      "range": {
+        "startLine": 86,
+        "startChar": 26,
+        "endLine": 149,
+        "endChar": 85
+      },
+      "revId": "2a35dee8f84b37a9e56b377dbb9b6ef0d7aa0b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e263240_d1b6f3e3",
+        "filename": "front_end/timeline/TimelineUIUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 3478,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-01T11:20:34Z",
+      "side": 1,
+      "message": "Nit: clean these up 😊",
+      "range": {
+        "startLine": 3447,
+        "startChar": 10,
+        "endLine": 3478,
+        "endChar": 118
+      },
+      "revId": "2a35dee8f84b37a9e56b377dbb9b6ef0d7aa0b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
