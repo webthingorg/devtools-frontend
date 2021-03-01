@@ -467,7 +467,7 @@ export class Section {
   _syncTagNameSetting: Common.Settings.Setting<string>;
   _periodicSyncTagNameSetting: Common.Settings.Setting<string>;
   _toolbar: UI.Toolbar.Toolbar;
-  _updateCycleElement: Element;
+  _updateCycleView: ServiceWorkerUpdateCycleView;
   _networkRequests: UI.Toolbar.ToolbarButton;
   _updateButton: UI.Toolbar.ToolbarButton;
   _deleteButton: UI.Toolbar.ToolbarButton;
@@ -496,7 +496,7 @@ export class Section {
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
 
-    this._updateCycleElement = ServiceWorkerUpdateCycleView.createTimingTable(registration);
+    this._updateCycleView = new ServiceWorkerUpdateCycleView(registration);
     this._networkRequests = new UI.Toolbar.ToolbarButton(
         i18nString(UIStrings.networkRequests), undefined, i18nString(UIStrings.networkRequests));
     this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
@@ -688,7 +688,7 @@ export class Section {
       }
     }
 
-    ServiceWorkerUpdateCycleView.refresh(this._updateCycleElement, this._registration);
+    this._updateCycleView.refresh();
 
     return Promise.resolve();
   }
@@ -713,7 +713,7 @@ export class Section {
   _createUpdateCycleField(): void {
     this._updateCycleForm =
         this._wrapWidget(this._section.appendField(i18nString(UIStrings.updateCycle))).createChild('form');
-    this._updateCycleForm.appendChild(this._updateCycleElement);
+    this._updateCycleForm.appendChild(this._updateCycleView.tableElement);
   }
 
   _updateButtonClicked(_event: Common.EventTarget.EventTargetEvent): void {
