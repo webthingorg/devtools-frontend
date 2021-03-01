@@ -34,6 +34,24 @@
       "parentUuid": "e4f015fc_a8c17f60",
       "revId": "7c0bf232acec4da43c1777fb672884f70d226b47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c25c2b_95bdc977",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001310
+      },
+      "writtenOn": "2021-03-01T18:21:47Z",
+      "side": 1,
+      "message": "FYI, a better strategy (not sure how to implement it in typescript) would be to keep the last else if {} and then have an else { NOT_REACHED(); throw(error); }\n\nThen if someone else adds a new type subtype, they\u0027ll be alerted they need to change the code here.  Without such an alert, you\u0027ll be logging the wrong thing.",
+      "parentUuid": "d94b36d7_a565c94d",
+      "revId": "7c0bf232acec4da43c1777fb672884f70d226b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
