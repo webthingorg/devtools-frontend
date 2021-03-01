@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d24fcf_290da4d2",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-03-01T14:12:53Z",
+      "side": 1,
+      "message": "How to display when the width or height is 0?",
+      "revId": "aa1ed2900cd52561d8938a01e2a5990c57e3ab46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
