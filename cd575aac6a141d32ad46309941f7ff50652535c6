@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3734fc0c_4371497d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T08:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46ef72c3_1e5ff9cf",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f76da03f_0754fc3b",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc330ced_4ca6359e",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T08:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f76da03f_0754fc3b",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 60
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6df09f47_a68cd78a",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-26T15:33:22Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 3
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2fb2e7f_aeece02b",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T08:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df09f47_a68cd78a",
       "range": {
         "startLine": 125,
         "startChar": 2,
