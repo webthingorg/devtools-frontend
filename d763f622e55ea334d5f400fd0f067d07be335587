@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "105e0371_6cb869f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-03-01T17:07:06Z",
+      "side": 1,
+      "message": "I have https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2727394 out to disable only on mac.",
+      "revId": "d763f622e55ea334d5f400fd0f067d07be335587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
