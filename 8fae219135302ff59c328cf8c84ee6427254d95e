@@ -52,6 +52,24 @@
       "parentUuid": "503220a1_1379d813",
       "revId": "8fae219135302ff59c328cf8c84ee6427254d95e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e9223b_a17335cf",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-03-01T09:34:16Z",
+      "side": 1,
+      "message": "I have updated it.",
+      "parentUuid": "48be79cf_93b045b7",
+      "revId": "8fae219135302ff59c328cf8c84ee6427254d95e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
