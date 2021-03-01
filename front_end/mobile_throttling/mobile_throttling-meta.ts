@@ -32,11 +32,13 @@ const UIStrings = {
   */
   throttlingTag: 'throttling',
   /**
-   *@description Title of an action in the network conditions tool to network low end mobile
+   * @description Title of an action in the network conditions tool to simulate an environment with a
+   * slow 3G connection, i.e. for a low end mobile device.
   */
   enableSlowGThrottling: 'Enable slow 3G throttling',
   /**
-   *@description Title of an action in the network conditions tool to network mid tier mobile
+   * @description Title of an action in the network conditions tool to simulate an environment with a
+   * medium-speed 3G connection, i.e. for a mid-tier mobile device.
   */
   enableFastGThrottling: 'Enable fast 3G throttling',
   /**
