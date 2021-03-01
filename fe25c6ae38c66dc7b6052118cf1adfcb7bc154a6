@@ -16,6 +16,23 @@
       "message": "Simon, PTAL",
       "revId": "fe25c6ae38c66dc7b6052118cf1adfcb7bc154a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3d65d7_63d2b8db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-01T08:43:55Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "fe25c6ae38c66dc7b6052118cf1adfcb7bc154a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
