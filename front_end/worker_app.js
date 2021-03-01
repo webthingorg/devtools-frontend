@@ -5,7 +5,6 @@ import './shell.js';
 import './browser_debugger/browser_debugger-meta.js';
 import './developer_resources/developer_resources-meta.js';
 import './elements/elements-meta.js';
-import './help/help-meta.js';
 import './issues/issues-meta.js';
 import './layer_viewer/layer_viewer-meta.js';
 import './mobile_throttling/mobile_throttling-meta.js';
