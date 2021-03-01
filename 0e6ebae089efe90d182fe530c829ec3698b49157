@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "186cdf57_47844d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-01T11:36:58Z",
+      "side": 1,
+      "message": "The problem was that the \"Disable cache\" option wasn\u0027t consistently set. PTALA",
+      "revId": "0e6ebae089efe90d182fe530c829ec3698b49157",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d32cb9bd_f3af8266",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-01T11:36:58Z",
+      "side": 1,
+      "message": "Done. I reproduced on my windows laptop, and the tests were timing out there. I guess this can happen on bots as well. Note that some of these tests are doing several reloads of the inspected page.",
+      "parentUuid": "29e90ccf_75d87c5a",
+      "revId": "69a3d9747605dcfd41ac46c416b16ee8c3a7122b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "081f1e08_aa26c8b5",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-01T09:12:45Z",
       "side": 1,
       "message": "Are the entries in the initiator column non-deterministic?",
+      "revId": "69a3d9747605dcfd41ac46c416b16ee8c3a7122b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af033c9f_0555376a",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-01T11:36:58Z",
+      "side": 1,
+      "message": "Yes, they were, but I think this isn\u0027t needed anymore anyway.",
+      "parentUuid": "081f1e08_aa26c8b5",
       "revId": "69a3d9747605dcfd41ac46c416b16ee8c3a7122b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
