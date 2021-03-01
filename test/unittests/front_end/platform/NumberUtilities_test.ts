@@ -87,4 +87,25 @@ describe('NumberUtilities', () => {
       assert.strictEqual(1.99, Platform.NumberUtilities.floor(1.9999, 2));
     });
   });
+
+  describe('gcd', () => {
+    it('it works', () => {
+      assert.strictEqual(0, Platform.NumberUtilities.gcd(0, 0));
+      assert.strictEqual(1, Platform.NumberUtilities.gcd(1, 0));
+      assert.strictEqual(1, Platform.NumberUtilities.gcd(0, 1));
+      assert.strictEqual(200, Platform.NumberUtilities.gcd(800, 600));
+      assert.strictEqual(-200, Platform.NumberUtilities.gcd(-800, -600));
+
+      assert.throws(() => Platform.NumberUtilities.gcd(0.1, 0.1), 'gcd accepts only integers values');
+    });
+  });
+
+  describe('aspectRatio', () => {
+    it('it works', () => {
+      assert.strictEqual('0:0', Platform.NumberUtilities.aspectRatio(0, 0));
+      assert.strictEqual('1:1', Platform.NumberUtilities.aspectRatio(1, 1));
+      assert.strictEqual('4:3', Platform.NumberUtilities.aspectRatio(800, 600));
+      assert.strictEqual('4:3', Platform.NumberUtilities.aspectRatio(-800, -600));
+    });
+  });
 });
