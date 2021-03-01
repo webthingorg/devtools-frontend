@@ -34,6 +34,24 @@
       "parentUuid": "eaf9d55a_8696ce1e",
       "revId": "8fae219135302ff59c328cf8c84ee6427254d95e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48be79cf_93b045b7",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-01T08:25:19Z",
+      "side": 1,
+      "message": "Let\u0027s maybe do that in a follow-up CL. I want to merge this soon.",
+      "parentUuid": "503220a1_1379d813",
+      "revId": "8fae219135302ff59c328cf8c84ee6427254d95e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
