@@ -80,16 +80,16 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('issues/IssuesPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-/* * @type {!Map<!SDK.Issue.IssueCategory, string>}  */
-export const IssueCategoryNames = new Map([
-  [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, i18nString(UIStrings.crossOriginEmbedderPolicy)],
-  [SDK.Issue.IssueCategory.MixedContent, i18nString(UIStrings.mixedContent)],
-  [SDK.Issue.IssueCategory.SameSiteCookie, i18nString(UIStrings.samesiteCookie)],
-  [SDK.Issue.IssueCategory.HeavyAd, i18nString(UIStrings.heavyAds)],
-  [SDK.Issue.IssueCategory.ContentSecurityPolicy, i18nString(UIStrings.contentSecurityPolicy)],
-  [SDK.Issue.IssueCategory.TrustedWebActivity, i18nString(UIStrings.trustedWebActivity)],
-  [SDK.Issue.IssueCategory.Other, i18nString(UIStrings.other)],
+export const IssueCategoryNames = new Map<SDK.Issue.IssueCategory, () => Common.UIString.LocalizedString>([
+  [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, i18nLazyString(UIStrings.crossOriginEmbedderPolicy)],
+  [SDK.Issue.IssueCategory.MixedContent, i18nLazyString(UIStrings.mixedContent)],
+  [SDK.Issue.IssueCategory.SameSiteCookie, i18nLazyString(UIStrings.samesiteCookie)],
+  [SDK.Issue.IssueCategory.HeavyAd, i18nLazyString(UIStrings.heavyAds)],
+  [SDK.Issue.IssueCategory.ContentSecurityPolicy, i18nLazyString(UIStrings.contentSecurityPolicy)],
+  [SDK.Issue.IssueCategory.TrustedWebActivity, i18nLazyString(UIStrings.trustedWebActivity)],
+  [SDK.Issue.IssueCategory.Other, i18nLazyString(UIStrings.other)],
 ]);
 
 class IssueCategoryView extends UI.TreeOutline.TreeElement {
@@ -106,7 +106,8 @@ class IssueCategoryView extends UI.TreeOutline.TreeElement {
   }
 
   getCategoryName(): string {
-    return IssueCategoryNames.get(this.category) || i18nString(UIStrings.other);
+    const maybeCategory = IssueCategoryNames.get(this.category);
+    return maybeCategory ? maybeCategory() : i18nString(UIStrings.other);
   }
 
   onattach(): void {
