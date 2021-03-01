@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf9d55a_8696ce1e",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-03-01T07:50:49Z",
+      "side": 1,
+      "message": "Before that, I renamed currentSrc to Current source. I will re-modify it to Current source and update CL.",
+      "revId": "8fae219135302ff59c328cf8c84ee6427254d95e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
