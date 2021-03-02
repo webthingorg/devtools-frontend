@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7367102f_5613b381",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-02T10:17:51Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "fab7cce63cdc8c2ef6e4190dc9b51a7921d9627e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42661733_6e7f48be",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-02T10:17:51Z",
+      "side": 1,
+      "message": "The CL preserves the behavior that LowContrast and Cors is grouped under other. Is this intended?",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 39
+      },
+      "revId": "fab7cce63cdc8c2ef6e4190dc9b51a7921d9627e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
