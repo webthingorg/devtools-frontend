@@ -255,6 +255,14 @@ export async function loadLegacyModule(module) {
 }
 
 /**
+ * @param {string} modulePath
+ * @return {!Promise<void>}
+ */
+export async function loadLegacyModuleUsingPath(modulePath) {
+  await import(`../${modulePath}.js`);
+}
+
+/**
  * @param {string} panel
  * @return {!Promise.<?UI.Panel.Panel>}
  */
