@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4602830_7aac4836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-02T10:36:00Z",
+      "side": 1,
+      "message": "Abandoned that CL as it would have to be reverted completely anyway and the CL description mostly re-written (I assume you mean this one: https://crrev.com/c/2726571). If you insist I can reactivate and merge the CLs.",
+      "parentUuid": "665c5984_034a9f34",
+      "revId": "fab7cce63cdc8c2ef6e4190dc9b51a7921d9627e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42661733_6e7f48be",
