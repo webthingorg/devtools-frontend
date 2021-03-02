@@ -159,6 +159,54 @@ function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
 }
 
 /**
+ * @param {!Element} el
+ * @param {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} stackTraceRows
+ */
+function updateHiddenRows(el, stackTraceRows) {
+  let hiddenCallFramesCount = 0;
+  let shouldHideSubCount = 0;  // keeps track of number hidden (regular) rows between asyncRows
+  let indexOfAsyncRow = stackTraceRows.length;
+
+  for (let i = stackTraceRows.length - 1; i >= 0; i--) {
+    const row = stackTraceRows[i];
+
+    if ('link' in row && row.link) {
+      const uiLocation = Linkifier.uiLocation(row.link);
+      if (uiLocation &&
+          Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode)) {
+        row.ignoreListHide = true;
+      }
+      if (row.rowCountHide || row.ignoreListHide) {
+        hiddenCallFramesCount++;
+        shouldHideSubCount++;
+      }
+    }
+    if ('asyncDescription' in row) {
+      // hide current row if all (regular) rows since the previous asyncRow are hidden
+      if (shouldHideSubCount > 0 && shouldHideSubCount === indexOfAsyncRow - i - 1) {
+        stackTraceRows[i + 1].rowCountHide ? row.rowCountHide = true : row.ignoreListHide = true;
+      }
+      indexOfAsyncRow = i;
+      shouldHideSubCount = 0;
+    }
+
+    if (row.rowCountHide || row.ignoreListHide) {
+      el.children[i].classList.add('hidden-row');
+    }
+  }
+
+  el.classList.toggle('has-no-hidden-rows', !hiddenCallFramesCount);
+  const showAllLink = el.querySelector('.show-all-link td .link');
+  if (showAllLink) {
+    if (hiddenCallFramesCount === 1) {
+      showAllLink.textContent = i18nString(UIStrings.showMoreFrame);
+    } else {
+      showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: hiddenCallFramesCount});
+    }
+  }
+}
+
+/**
  * @param {?SDK.SDKModel.Target} target
  * @param {!Linkifier} linkifier
  * @param {!Options=} options
@@ -183,6 +231,7 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
     return {element, links};
   }
   const stackTraceRows = buildStackTraceRows(stackTrace, target, linkifier, tabStops);
+  linkifier.setLiveLocationUpdateCallback(() => updateHiddenRows(contentElement, stackTraceRows));
   let hiddenCallFramesCount = 0;
 
   for (const item of stackTraceRows) {
@@ -205,28 +254,29 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
       }
     }
     if (item.rowCountHide || item.ignoreListHide) {
-      row.classList.add('ignore-listed');
+      row.classList.add('hidden-row');
     }
     contentElement.appendChild(row);
   }
 
-  if (hiddenCallFramesCount) {
-    const row = contentElement.createChild('tr', 'show-ignore-listed-link');
-    row.createChild('td').textContent = '\n';
-    const cell = /** @type {!HTMLTableCellElement} */ (row.createChild('td'));
-    cell.colSpan = 4;
-    const showAllLink = cell.createChild('span', 'link');
-    if (hiddenCallFramesCount === 1) {
-      showAllLink.textContent = i18nString(UIStrings.showMoreFrame);
-    } else {
-      showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: hiddenCallFramesCount});
+  const row = contentElement.createChild('tr', 'show-all-link');
+  row.createChild('td').textContent = '\n';
+  const cell = /** @type {!HTMLTableCellElement} */ (row.createChild('td'));
+  cell.colSpan = 4;
+  const showAllLink = cell.createChild('span', 'link');
+  if (hiddenCallFramesCount === 1) {
+    showAllLink.textContent = i18nString(UIStrings.showMoreFrame);
+  } else {
+    showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: hiddenCallFramesCount});
+  }
+  showAllLink.addEventListener('click', () => {
+    contentElement.classList.add('show-hidden-rows');
+    if (contentUpdated) {
+      contentUpdated();
     }
-    showAllLink.addEventListener('click', () => {
-      contentElement.classList.add('show-ignore-listed');
-      if (contentUpdated) {
-        contentUpdated();
-      }
-    }, false);
+  }, false);
+  if (!hiddenCallFramesCount) {
+    contentElement.classList.add('has-no-hidden-rows');
   }
 
   return {element, links};
