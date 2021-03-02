@@ -52,6 +52,24 @@
       "parentUuid": "d94b36d7_a565c94d",
       "revId": "7c0bf232acec4da43c1777fb672884f70d226b47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9bac87_44e47bb3",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-02T08:15:17Z",
+      "side": 1,
+      "message": "Good point. I\u0027ve added a `console.assert` here.",
+      "parentUuid": "48c25c2b_95bdc977",
+      "revId": "7c0bf232acec4da43c1777fb672884f70d226b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
