@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "6f7bd92b53c6089767a12a32cf4f5c480cc5d30d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6428d1eb_56b22796",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-02T11:38:58Z",
+      "side": 1,
+      "message": "The workflows.md document is about setting up a local copy of DevTools. Can we instead move this section into `test/webtests/README`?",
+      "revId": "6f7bd92b53c6089767a12a32cf4f5c480cc5d30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
