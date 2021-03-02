@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "7527afbf8c2f910f1bbc261004cf361d7c4fcd83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a6a31f9_93736e4d",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-02T12:37:40Z",
+      "side": 1,
+      "message": "Responding to your question from the other CL:\n\nPlease make the switch-case exhaustive by including the missing cases. We are not using the issue categorization at this point, and probably would have to overhaul it before we can ship it.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "7527afbf8c2f910f1bbc261004cf361d7c4fcd83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
