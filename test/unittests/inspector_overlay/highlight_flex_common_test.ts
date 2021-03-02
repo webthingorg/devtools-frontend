@@ -4,7 +4,7 @@
 
 const {assert} = chai;
 
-import {distance, getColinearPointAtDistance, getGapQuadBetweenQuads, getLinesAndItemsQuads, getGapQuads, growQuadToEdgesOf, intersectSegments, segmentContains, uniteQuads} from '../../../inspector_overlay/highlight_flex_common.js';
+import {distance, getColinearPointAtDistance, getGapQuadBetweenQuads, getLinesAndItemsQuads, getGapQuads, growQuadToEdgesOf, intersectSegments, isFlexContainerConfigTransparent, segmentContains, uniteQuads} from '../../../inspector_overlay/highlight_flex_common.js';
 import {PathCommands, Position, Quad} from '../../../inspector_overlay/common.js';
 
 function createPathCommands(...points: number[]): PathCommands {
@@ -499,5 +499,56 @@ describe('intersectSegments', () => {
 
   it('works when segments only intersect outside their boundaries', () => {
     assertIntersection([{x: 5, y: 5}, {x: 5, y: 15}], [{x: 15, y: 10}, {x: 25, y: 10}], {x: 5, y: 10});
+  });
+});
+
+describe('isFlexContainerConfigTransparent', () => {
+  function createMockConfig() {
+    return {
+      containerBorder: [],
+      lines: [],
+      isHorizontalFlow: true,
+      isReverse: false,
+      alignItemsStyle: 'center',
+      mainGap: 0,
+      crossGap: 0,
+    };
+  }
+
+  it('returns false if at least one style is defined and not transparent', () => {
+    assert.isFalse(isFlexContainerConfigTransparent(Object.assign(
+        {
+          flexContainerHighlightConfig: {
+            lineSeparator: {color: '#000000'},
+          },
+        },
+        createMockConfig())));
+
+    assert.isFalse(isFlexContainerConfigTransparent(Object.assign(
+        {
+          flexContainerHighlightConfig: {
+            rowGapSpace: {fillColor: 'rgba(0, 200, 100, 0.5)'},
+          },
+        },
+        createMockConfig())));
+  });
+
+  it('returns true if no style is present, or they are all transparent', () => {
+    assert.isTrue(isFlexContainerConfigTransparent(Object.assign(
+        {
+          flexContainerHighlightConfig: {},
+        },
+        createMockConfig())));
+
+    assert.isTrue(isFlexContainerConfigTransparent(Object.assign(
+        {
+          flexContainerHighlightConfig: {
+            containerBorder: {color: 'rgba(0, 0, 0, 0)'},
+            lineSeparator: {color: 'rgba(0, 0, 0, 0)'},
+            itemSeparator: {color: 'rgba(0, 0, 0, 0)'},
+            crossAlignment: {color: 'rgba(0, 0, 0, 0)'},
+          },
+        },
+        createMockConfig())));
   });
 });

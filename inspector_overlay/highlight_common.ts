@@ -287,3 +287,30 @@ export function formatColor(hexa: string, colorFormat: string): string {
 
   return hexa;
 }
+
+export function isBoxStyleTransparent(style: BoxStyle): boolean {
+  return (!style.fillColor || isSerializedColorTransparent(style.fillColor)) &&
+      (!style.hatchColor || isSerializedColorTransparent(style.hatchColor));
+}
+
+export function isLineStyleTransparent(style: LineStyle): boolean {
+  return !style.color || isSerializedColorTransparent(style.color);
+}
+
+/**
+ * Color values, sent as part of overlay configs by the backend can be in either of 2 formats:
+ * - if alpha is 1, then the color is serialized as #rrggbb
+ * - if alpha is < 1, then the color is serialized as rgba(r, g, b, a)
+ * This helper function returns true if the serialized color passed is transparent.
+ */
+function isSerializedColorTransparent(color: string): boolean {
+  if (color.startsWith('rgba')) {
+    const match = color.match(/[0-9.]+\)/);
+    if (!match) {
+      return false;
+    }
+    return parseFloat(match[0]) === 0;
+  }
+
+  return false;
+}
