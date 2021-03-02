@@ -168,8 +168,6 @@ async function main(refactoringNamespace: string, refactoringFileName: string) {
   const rewrittenSource = rewriteSource(source, computeNamespaceName(process.argv[2]), refactoringFileName);
 
   await writeFile(pathName, rewrittenSource);
-
-  // console.log(`Succesfully written source to "${pathName}". Make sure that no other errors are reported before submitting!`);
 }
 
 if (!process.argv[2]) {
