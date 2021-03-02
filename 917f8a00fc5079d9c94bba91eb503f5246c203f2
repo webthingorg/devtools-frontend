@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d519f1_e0665bda",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-02T09:05:50Z",
+      "side": 1,
+      "message": "Does it make sense to include an example how to specify multiple files?",
+      "revId": "917f8a00fc5079d9c94bba91eb503f5246c203f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
