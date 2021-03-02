@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1131f0_cefdb941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-02T08:23:00Z",
+      "side": 1,
+      "message": "My IDE didn\u0027t save my edits when I `git cl upload` so I\u0027m missing these changes :(",
+      "revId": "c42467a0917c67d2e9ea87b637e544d404072fec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
