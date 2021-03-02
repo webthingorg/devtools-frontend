@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df1adfe_94bccc68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-02T14:38:24Z",
+      "side": 1,
+      "message": "PTAL (see the bot run with 100 iteration showing no issues) ",
+      "revId": "55e1e614de67a503f9e393e70f31aee9a6be84d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
