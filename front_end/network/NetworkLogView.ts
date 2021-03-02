@@ -211,7 +211,7 @@ const UIStrings = {
   /**
   *@description Text in Network Log View of the Network panel
   */
-  copyStacktrace: 'Copy stacktrace',
+  copyStacktrace: 'Copy stack trace',
   /**
   *@description Text in Network Log View of the Network panel
   */
