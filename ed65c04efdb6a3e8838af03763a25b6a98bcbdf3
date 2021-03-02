@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6102fc97_e7e9f3c8",
+        "filename": "test/unittests/front_end/platform/NumberUtilities_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-02T07:37:33Z",
+      "side": 1,
+      "message": "I\u0027d have expected a 16∶9 example here :)",
+      "revId": "ed65c04efdb6a3e8838af03763a25b6a98bcbdf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
