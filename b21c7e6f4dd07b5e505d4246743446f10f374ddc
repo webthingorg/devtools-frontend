@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68520f89_fee94353",
+        "filename": "front_end/platform/number-utilities.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-02T07:23:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e96bba_b91de704",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "b21c7e6f4dd07b5e505d4246743446f10f374ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f968232_34c559c9",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-01T16:28:05Z",
       "side": 1,
       "message": "Maybe change this to a TypeError?",
+      "range": {
+        "startLine": 60,
+        "startChar": 14,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "b21c7e6f4dd07b5e505d4246743446f10f374ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f34e0d_9b15c425",
+        "filename": "front_end/platform/number-utilities.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-02T07:23:47Z",
+      "side": 1,
+      "message": "I think I am gonna round here because I am not sure if it\u0027s likely if we get subpixel values from blink.",
+      "parentUuid": "2f968232_34c559c9",
       "range": {
         "startLine": 60,
         "startChar": 14,
