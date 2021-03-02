@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import {PathCommands, Position, Quad} from './common.js';
-import {BoxStyle, buildPath, createPathForQuad, drawPathWithLineStyle, emptyBounds, fillPathWithBoxStyle, hatchFillPath, LineStyle} from './highlight_common.js';
+import {BoxStyle, buildPath, createPathForQuad, drawPathWithLineStyle, emptyBounds, fillPathWithBoxStyle, hatchFillPath, isBoxStyleTransparent, isLineStyleTransparent, LineStyle} from './highlight_common.js';
 
 type FlexLinesData = FlexItemData[][];
 
@@ -876,4 +876,16 @@ export function getColinearPointAtDistance(p1: Position, p2: Position, distance:
     x: p1.x + distance * Math.cos(angle),
     y: p1.y + distance * Math.sin(angle),
   };
+}
+
+export function isFlexContainerConfigTransparent(highlight: FlexContainerHighlight): boolean {
+  const config = highlight.flexContainerHighlightConfig;
+  return (!config.containerBorder || isLineStyleTransparent(config.containerBorder)) &&
+      (!config.lineSeparator || isLineStyleTransparent(config.lineSeparator)) &&
+      (!config.itemSeparator || isLineStyleTransparent(config.itemSeparator)) &&
+      (!config.mainDistributedSpace || isBoxStyleTransparent(config.mainDistributedSpace)) &&
+      (!config.crossDistributedSpace || isBoxStyleTransparent(config.crossDistributedSpace)) &&
+      (!config.crossAlignment || isLineStyleTransparent(config.crossAlignment)) &&
+      (!config.rowGapSpace || isBoxStyleTransparent(config.rowGapSpace)) &&
+      (!config.columnGapSpace || isBoxStyleTransparent(config.columnGapSpace));
 }

@@ -32,7 +32,7 @@ import {contrastRatio, contrastRatioAPCA, getAPCAThreshold, getContrastThreshold
 
 import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, PathCommands, ResetData} from './common.js';
 import {buildPath, emptyBounds, formatColor, formatRgba, parseHexa, PathBounds} from './highlight_common.js';
-import {drawLayoutFlexContainerHighlight, drawLayoutFlexItemHighlight, FlexContainerHighlight, FlexItemHighlight} from './highlight_flex_common.js';
+import {drawLayoutFlexContainerHighlight, drawLayoutFlexItemHighlight, FlexContainerHighlight, FlexItemHighlight, isFlexContainerConfigTransparent} from './highlight_flex_common.js';
 import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js';
 import {PersistentOverlay} from './tool_persistent.js';
 
@@ -183,9 +183,12 @@ export class HighlightOverlay extends Overlay {
       }
     }
 
-    // Draw the highlight for flex item only if the element isn't also a flex container.
-    const isFlexContainer = highlight.flexInfo?.length;
-    if (highlight.flexItemInfo && contentPath && !isFlexContainer) {
+    // Draw the highlight for flex item only if the element isn't also a flex container (and we're drawing it).
+    const isVisibleFlexContainer = highlight.flexInfo?.length && highlight.flexInfo.some(config => {
+      return !isFlexContainerConfigTransparent(config);
+    });
+
+    if (highlight.flexItemInfo && contentPath && !isVisibleFlexContainer) {
       for (const flexItem of highlight.flexItemInfo) {
         // TODO: both flex-basis and width/height determine the base size of the content-box by default, but if
         // box-sizing is set to border-box, then they determine the base size of the border-box. So we should use the
