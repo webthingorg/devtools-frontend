@@ -62,11 +62,11 @@ export async function togglePersistLog() {
   await click('[aria-label="Preserve log"]');
 }
 
-export async function setCacheState(enabled: boolean): Promise<void> {
+export async function setCacheDisabled(disabled: boolean): Promise<void> {
   const checkbox = await waitFor('[aria-label="Disable cache"]');
   const checked = await checkbox.evaluate(box => (box as HTMLInputElement).checked);
-  if (checked !== enabled) {
+  if (checked !== disabled) {
     await click('[aria-label="Disable cache"] + label');
   }
-  assert.strictEqual(await checkbox.evaluate(box => (box as HTMLInputElement).checked), enabled);
+  assert.strictEqual(await checkbox.evaluate(box => (box as HTMLInputElement).checked), disabled);
 }
