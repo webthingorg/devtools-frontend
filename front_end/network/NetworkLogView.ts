@@ -539,12 +539,12 @@ export class NetworkLogView extends UI.Widget.VBox implements
     return !filter(request);
   }
 
-  static _requestPathFilter(regex: RegExp|null, request: SDK.NetworkRequest.NetworkRequest): boolean {
+  static _requestUrlRegExpFilter(regex: RegExp|null, request: SDK.NetworkRequest.NetworkRequest): boolean {
     if (!regex) {
       return false;
     }
 
-    return regex.test(request.path() + '/' + request.name());
+    return regex.test(request.url());
   }
 
   static _subdomains(domain: string): string[] {
@@ -1665,11 +1665,11 @@ export class NetworkLogView extends UI.Widget.VBox implements
       if (key) {
         const defaultText = Platform.StringUtilities.escapeForRegExp(key + ':' + text);
         filter = this._createSpecialFilter((key as FilterType), text) ||
-            NetworkLogView._requestPathFilter.bind(null, new RegExp(defaultText, 'i'));
+            NetworkLogView._requestUrlRegExpFilter.bind(null, new RegExp(defaultText, 'i'));
       } else if (descriptor.regex) {
-        filter = NetworkLogView._requestPathFilter.bind(null, (regex as RegExp));
+        filter = NetworkLogView._requestUrlRegExpFilter.bind(null, (regex as RegExp));
       } else {
-        filter = NetworkLogView._requestPathFilter.bind(
+        filter = NetworkLogView._requestUrlRegExpFilter.bind(
             null, new RegExp(Platform.StringUtilities.escapeForRegExp(text), 'i'));
       }
       return descriptor.negative ? NetworkLogView._negativeFilter.bind(null, filter) : filter;
