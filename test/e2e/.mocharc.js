@@ -15,9 +15,13 @@ const ROOT_DIRECTORY = path.join(__dirname, '..', '..', '..', '..', '..', 'test'
 const allTestFiles = glob.sync(path.join(ROOT_DIRECTORY, '**/*_test.ts'));
 const customPattern = process.env['TEST_FILE'];
 
-const testFiles = !customPattern ?
-    allTestFiles :
-    glob.sync(path.join(ROOT_DIRECTORY, customPattern)).filter(filename => allTestFiles.includes(filename));
+const testFiles = !customPattern ? allTestFiles :
+                                   customPattern.split(';')
+                                       .map(pattern => glob.sync(pattern, {absolute: true, cwd: ROOT_DIRECTORY}))
+                                       .flat()
+                                       .filter(filename => allTestFiles.includes(filename));
+
+
 if (customPattern && testFiles.length === 0) {
   throw new Error(
       `\nNo test found matching --test-file=${process.env['TEST_FILE']}.` +
