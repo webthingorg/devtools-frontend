@@ -39,6 +39,30 @@
       },
       "revId": "7527afbf8c2f910f1bbc261004cf361d7c4fcd83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1850749a_d1f4de93",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-02T12:55:04Z",
+      "side": 1,
+      "message": "Done, removed the final return so TS starts shouting when we add new categories.",
+      "parentUuid": "1a6a31f9_93736e4d",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "7527afbf8c2f910f1bbc261004cf361d7c4fcd83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
