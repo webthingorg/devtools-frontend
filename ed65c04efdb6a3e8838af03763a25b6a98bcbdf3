@@ -70,6 +70,24 @@
       "parentUuid": "98049fb3_4f9b9704",
       "revId": "ed65c04efdb6a3e8838af03763a25b6a98bcbdf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5b535c_46a22a8b",
+        "filename": "test/unittests/front_end/platform/NumberUtilities_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-02T08:20:22Z",
+      "side": 1,
+      "message": "Thanks! I have added a map to resolve 8:5 to the common name 16:10 though. Probably, there will be more cases like this and we can extend the mapping if required.",
+      "parentUuid": "c7940fbf_482dfde3",
+      "revId": "ed65c04efdb6a3e8838af03763a25b6a98bcbdf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
