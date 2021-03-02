@@ -51,6 +51,24 @@
       "message": "LGTM",
       "revId": "c0c8c58afb41f47e3ca90f9a0ee483ed17879a34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc8348e_35837974",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-02T08:22:05Z",
+      "side": 1,
+      "message": "Yes it works, although the linter for the internal pipeline requires \u003d1 and not \u0027one\u0027. I made a note on the presubmits bug to add one for this.\n\nI think it might be due to this: http://cldr.unicode.org/index/cldr-spec/plural-rules#:~:text\u003dA%20common%20mistake%20is%20to%20think%20that%20%22one%22%20is%20only%20for%20only%20the%20number%201\n\nAlthough it makes no difference when you are specifying the strings in English, so either would work. But the internal linter has opinions about it, apparently.",
+      "parentUuid": "d15f26c2_d23acb47",
+      "revId": "c0c8c58afb41f47e3ca90f9a0ee483ed17879a34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
