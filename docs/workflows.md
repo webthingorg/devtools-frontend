@@ -196,6 +196,17 @@ hooks = [
 
 Running `gclient sync` anywhere within `chromium/src/` or `chromium/src/third_party/devtools-frontend/src` will update dependencies for both checkouts. Running `gclient sync -D` will not remove your symlink.
 
+#### Running DevTools layout tests
+
+Some Web Tests exist in the DevTools repository in the `test/webtests` directory.
+In the intregrated checkout workflow, layout tests from the DevTools repository can be run as via the following command:
+
+```bash
+third_party/blink/tools/run_web_tests.py -t Default --layout-tests-directory=third_party/devtools-frontend/src/test/webtests/ http/tests/devtools/lighthouse/
+```
+
+For more information on running layout tests, please refer to the Chromium documentation on Web Tests (formerly known as "Layout Tests" or "LayoutTests").
+
 ### Chromium checkout
 
 DevTools frontend can also be developed as part of the full Chromium checkout.
