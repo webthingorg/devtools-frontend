@@ -22,6 +22,7 @@ function retrieveCodeMirrorEditorContent() {
 async function prettyPrintMinifiedFile(frontend: puppeteer.Page) {
   const previousTextContent = await frontend.evaluate(retrieveCodeMirrorEditorContent);
 
+  await waitFor(PRETTY_PRINT_BUTTON);
   await click(PRETTY_PRINT_BUTTON);
 
   // A separate editor is opened which shows the formatted file
