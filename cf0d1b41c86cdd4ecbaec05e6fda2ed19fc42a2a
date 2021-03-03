@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd4dba7_05050032",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T11:42:50Z",
+      "side": 1,
+      "message": "Can you add a note to docs/localization/locked_terms_V2.md as well?",
+      "revId": "cf0d1b41c86cdd4ecbaec05e6fda2ed19fc42a2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4dc53f_4198a659",
+        "filename": "docs/localization/localization_apis_V2.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T11:42:50Z",
+      "side": 1,
+      "message": "nit: can remove, already at the start of the sentence",
+      "range": {
+        "startLine": 44,
+        "startChar": 46,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "cf0d1b41c86cdd4ecbaec05e6fda2ed19fc42a2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
