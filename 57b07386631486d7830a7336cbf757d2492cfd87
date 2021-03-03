@@ -39,6 +39,30 @@
       },
       "revId": "57b07386631486d7830a7336cbf757d2492cfd87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8af27c07_fa515997",
+        "filename": "scripts/test/run_lint_check_css.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-03T14:34:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "490dc794_3a19bcdd",
+      "range": {
+        "startLine": 51,
+        "startChar": 64,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "57b07386631486d7830a7336cbf757d2492cfd87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
