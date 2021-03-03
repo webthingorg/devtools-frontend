@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d66726f0_26678b3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-03T21:51:13Z",
+      "side": 1,
+      "message": "Done, thanks for pointing that out and sorry for not writing more. Fixed that now!",
+      "parentUuid": "7173c032_1daa8b96",
+      "revId": "1acc1f484f58c08ee75f6150c67fbc25d037d66c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d1656c06_4ef62561",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
