@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e433263a_1f1ab8dd",
+        "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-03T10:20:09Z",
+      "side": 0,
+      "message": "BlockedByResponseReason might be extended to include non-COEP issues as well, right? Shouldn\u0027t this line be kept then?",
+      "revId": "02f0dbb82414478cda281cdd688eb346765508e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
