@@ -54,7 +54,8 @@ export class MarkdownImage extends HTMLElement {
           display: block;
         }
       </style>
-      <img class="markdown-image" src="Images/${iconName}.svg" alt=${this.imageTitle} width=${width} height=${height}/>
+      <img class="markdown-image" src="${new URL(`../Images/${iconName}.svg`, import.meta.url).toString()}" alt=${
+        this.imageTitle} width=${width} height=${height}/>
     `;
   }
 

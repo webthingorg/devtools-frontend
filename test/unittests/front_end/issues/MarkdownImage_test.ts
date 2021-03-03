@@ -5,6 +5,9 @@
 import type * as IssuesModule from '../../../../front_end/issues/issues.js';
 import {assertShadowRoot, renderElementIntoDOM, getElementWithinComponent} from '../helpers/DOMHelpers.js';
 import * as Components from '../../../../front_end/ui/components/components.js';
+import * as Coordinator from '../../../../front_end/render_coordinator/render_coordinator.js';
+
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 const {assert} = chai;
 
@@ -15,6 +18,8 @@ describe('MarkdownImage', () => {
     Issues = await import('../../../../front_end/issues/issues.js');
     Issues.MarkdownImagesMap.markdownImages.set('test-icon', {
       iconName: 'feedback_thin_16x16_icon',
+      width: '16px',
+      height: '16px',
       isIcon: true,
     });
     Issues.MarkdownImagesMap.markdownImages.set('test-image', {
@@ -24,13 +29,17 @@ describe('MarkdownImage', () => {
       isIcon: false,
     });
   });
-  it('renders icon correctly', () => {
+  it('renders icon correctly', async () => {
     const component = new Issues.MarkdownImage.MarkdownImage();
     component.data = {key: 'test-icon', title: 'Test icon'};
     renderElementIntoDOM(component);
-
+    await coordinator.done();
     assertShadowRoot(component.shadowRoot);
-    assert.isNotNull(getElementWithinComponent(component, 'devtools-icon', Components.Icon.Icon));
+    const iconComponent = getElementWithinComponent(component, 'devtools-icon', Components.Icon.Icon);
+    assert.isNotNull(iconComponent);
+    const boundingClient = iconComponent.getBoundingClientRect();
+    assert.strictEqual(boundingClient.width, 16);
+    assert.strictEqual(boundingClient.height, 16);
   });
   it('renders image correctly', () => {
     const component = new Issues.MarkdownImage.MarkdownImage();
