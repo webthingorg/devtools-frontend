@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea8a83d_bc241a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-03T10:26:49Z",
+      "side": 1,
+      "message": "Looks good, with two nits! Thanks!\n\nBefore landing, could you update the commit message please? It\u0027s much more than a reland now and deserves a proper description.",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16155334_143156d8",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-03T10:26:49Z",
+      "side": 1,
+      "message": "This check is redundant, addBreakpointForLine already checks this.",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4dbc245_1feb386f",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-03T10:26:49Z",
+      "side": 1,
+      "message": "As above, no need to check the breakpoint (and this is also missing the assertion on the return value).",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
