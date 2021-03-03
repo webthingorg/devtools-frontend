@@ -39,6 +39,30 @@
       },
       "revId": "c6a2356ce5ed472d1c66cab9464039b4b9d049b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d302b4af_d6ebeac6",
+        "filename": "scripts/eslint_rules/lib/l10n_no_locked_only_phrase.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T14:46:25Z",
+      "side": 1,
+      "message": "SGTM as follow-up. It is lower priority IMO as mostly we are going to be copy-pasting UIStrings from an existing file so it will probably be done correctly",
+      "parentUuid": "3b1092ff_d3bb9980",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "c6a2356ce5ed472d1c66cab9464039b4b9d049b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
