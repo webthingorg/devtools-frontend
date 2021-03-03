@@ -80,6 +80,30 @@
       },
       "revId": "9b3fe5debc11bc674ce2aa78f64adb201f7e59a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b62380f_68d2a8ca",
+        "filename": "scripts/eslint_rules/tests/l10n_no_i18nString_calls_module_instantiation_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-03T07:59:41Z",
+      "side": 1,
+      "message": "Done, also added one where we create a Map on the top-level.",
+      "parentUuid": "d23fcd17_6647b395",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "9b3fe5debc11bc674ce2aa78f64adb201f7e59a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
