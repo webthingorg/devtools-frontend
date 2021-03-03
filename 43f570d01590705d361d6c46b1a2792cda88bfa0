@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "43f570d01590705d361d6c46b1a2792cda88bfa0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cef3364_e90c67ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-03T13:25:40Z",
+      "side": 1,
+      "message": "LGTM. I appreciate the drive-by change from `true` to the more explicit `{capture: true}` as well — nice touch!",
+      "revId": "43f570d01590705d361d6c46b1a2792cda88bfa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
