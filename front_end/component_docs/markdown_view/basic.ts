@@ -12,13 +12,13 @@ await FrontendHelpers.initializeGlobalVars();
 
 // Register images in the markdown image map.
 Issues.MarkdownImagesMap.markdownImages.set('lighthouse-icon', {
-  src: 'Images/lighthouse_logo.svg',
+  iconName: 'lighthouse_logo',
   width: '16px',
   height: '16px',
   isIcon: true,
 });
 Issues.MarkdownImagesMap.markdownImages.set('baseline', {
-  src: 'Images/baseline-icon.svg',
+  iconName: 'baseline-icon',
   width: '200px',
   height: '200px',
   isIcon: false,

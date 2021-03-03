@@ -76,7 +76,7 @@ describeWithEnvironment('MarkdownView', async () => {
 
     it('renders icon with valid key', () => {
       Issues.MarkdownImagesMap.markdownImages.set('testExampleImage', {
-        src: 'largeicon-phone',
+        iconName: 'largeicon-phone',
         isIcon: true,
       });
       const renderResult = Issues.MarkdownView.renderToken({type: 'image', text: 'phone', href: 'testExampleImage'});
@@ -86,7 +86,7 @@ describeWithEnvironment('MarkdownView', async () => {
 
     it('renders image with valid key', () => {
       Issues.MarkdownImagesMap.markdownImages.set('exampleImage', {
-        src: 'Images/phone-logo.png',
+        iconName: 'network_panel_icon',
         isIcon: false,
       });
       const renderResult = Issues.MarkdownView.renderToken({type: 'image', text: 'phone', href: 'exampleImage'});

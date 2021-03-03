@@ -9,7 +9,7 @@
  * Give feedback by clicking ![Feedback icon](feedbackIcon)
 */
 export interface ImageData {
-  src: string;
+  iconName: string;
   isIcon: boolean;
   color?: string;
   width?: string;
@@ -22,7 +22,7 @@ export interface ImageData {
  * [
  *   'feedbackIcon',
  *   {
- *     src: 'Images/feedback_thin_16x16_icon.svg',
+ *     iconName: 'feedback_thin_16x16_icon',
  *     isIcon: true,
  *     width: '20px',
  *     height: '20px',

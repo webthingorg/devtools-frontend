@@ -131,8 +131,7 @@ export class TrustTokensView extends HTMLElement {
         <span class="heading">Trust Tokens</span>
         <devtools-icon class="info-icon" title=${i18nString(UIStrings.allStoredTrustTokensAvailableIn)}
           .data=${
-            {iconName: 'ic_info_black_18dp', color: 'var(--color-link)', width: '14px'} as
-            Components.Icon.IconWithName}>
+            {iconName: 'ic_info_black_18dp', color: 'var(--color-link)', width: '14px'} as Components.Icon.IconData}>
         </devtools-icon>
         ${this.renderGridOrNoDataMessage()}
       </div>

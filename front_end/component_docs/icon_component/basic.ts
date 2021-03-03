@@ -38,9 +38,8 @@ iconName2.textContent = 'breaking_change_icon';
 row2.appendChild(iconName2);
 
 const otherIcon = new UIComponents.Icon.Icon();
-const otherPath = 'http://localhost:8090/Images/breaking_change_icon.svg';
 otherIcon.data = {
-  iconPath: otherPath,
+  iconName: 'breaking_change_icon',
   width: '24px',
   height: '27px',
   color: 'blue',

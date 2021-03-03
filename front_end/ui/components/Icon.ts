@@ -4,21 +4,12 @@
 
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 
-export interface IconWithPath {
-  iconPath: string;
-  color: string;
-  width?: string;
-  height?: string;
-}
-
-export interface IconWithName {
+export interface IconData {
   iconName: string;
   color: string;
   width?: string;
   height?: string;
 }
-
-export type IconData = IconWithPath|IconWithName;
 
 const isString = (value: string|undefined): value is string => value !== undefined;
 
@@ -36,10 +27,8 @@ export class Icon extends HTMLElement {
     this.color = data.color;
     this.width = isString(width) ? width : (isString(height) ? height : this.width);
     this.height = isString(height) ? height : (isString(width) ? width : this.height);
-    this.iconPath = 'iconPath' in data ? data.iconPath : `Images/${data.iconName}.svg`;
-    if ('iconName' in data) {
-      this.iconName = data.iconName;
-    }
+    this.iconPath = `Images/${data.iconName}.svg`;
+    this.iconName = data.iconName;
     this.render();
   }
 
@@ -49,15 +38,9 @@ export class Icon extends HTMLElement {
       width: this.width,
       height: this.height,
     };
-    if (this.iconName) {
-      return {
-        ...commonData,
-        iconName: this.iconName,
-      };
-    }
     return {
       ...commonData,
-      iconPath: this.iconPath,
+      iconName: this.iconName || 'No icon provided',
     };
   }
 
