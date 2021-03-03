@@ -85,6 +85,54 @@
       },
       "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62db009a_0cf61925",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-03T11:43:35Z",
+      "side": 1,
+      "message": "I did that at first, but it turns out that `.` has to be escaped in CSS variable names, which makes it kinda awkward to use. Therefore, I opted for removing the extension, since a name clash is unlikely to occur.",
+      "parentUuid": "9574c06d_e201380a",
+      "range": {
+        "startLine": 12,
+        "startChar": 53,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38988049_a2508d68",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-03T11:43:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7c191d_7c2ed522",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
