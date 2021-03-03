@@ -5,8 +5,8 @@
 const {assert} = chai;
 
 import * as Common from '../../../../front_end/common/common.js';
+import type * as UIString from '../../../../front_end/platform/UIString.js'; // eslint-disable-line rulesdir/es_modules_import
 import type * as ElementsModule from '../../../../front_end/elements/elements.js';
-import {ls} from '../../../../front_end/platform/platform.js';
 import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
 
 const ADORNER_TAG_NAME = 'DEVTOOLS-ADORNER';
@@ -45,8 +45,8 @@ describeWithEnvironment('Adorner', async () => {
       clickCounter++;
     };
 
-    const ariaLabelDefault = ls`adorner toggled on`;
-    const ariaLabelActive = ls`adorner toggled off`;
+    const ariaLabelDefault = 'adorner toggled on' as UIString.LocalizedString;
+    const ariaLabelActive = 'adorner toggled off' as UIString.LocalizedString;
     adorner.addInteraction(clickListener, {
       isToggle: true,
       shouldPropagateOnKeydown: false,
