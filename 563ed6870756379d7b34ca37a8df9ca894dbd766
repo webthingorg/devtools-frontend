@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae04b8d_b31b4242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-03T09:30:01Z",
+      "side": 1,
+      "message": "lgtm % message change that breaks web tests",
+      "revId": "563ed6870756379d7b34ca37a8df9ca894dbd766",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbdafce9_70942e78",
+        "filename": "front_end/security/SecurityPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-03T09:30:01Z",
+      "side": 1,
+      "message": "security web tests print this message. 3-way change required if you want to update the message :(",
+      "range": {
+        "startLine": 323,
+        "startChar": 41,
+        "endLine": 323,
+        "endChar": 45
+      },
+      "revId": "563ed6870756379d7b34ca37a8df9ca894dbd766",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
