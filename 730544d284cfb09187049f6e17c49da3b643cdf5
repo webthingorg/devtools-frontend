@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4f8941_b1ca4982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-03-03T16:11:37Z",
+      "side": 1,
+      "message": "Code lgtm. One follow up question:\n\nOn the edge case, we put alot of effort into calculating if a container overlay is transparent. Are there practical cases where someone would pass a transparent overlay config and not just leave it empty? I\u0027d kind of expect the inspector_overlay to not have to perform checks for transparency, just checks if it exists.",
+      "revId": "730544d284cfb09187049f6e17c49da3b643cdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
