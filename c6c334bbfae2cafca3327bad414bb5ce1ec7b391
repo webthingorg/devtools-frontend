@@ -52,6 +52,24 @@
       "parentUuid": "e4b21fb9_784714d2",
       "revId": "c6c334bbfae2cafca3327bad414bb5ce1ec7b391",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d17e048_3e25a895",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T14:50:23Z",
+      "side": 1,
+      "message": "Interesting, the presubmit has a condition in it to only run in linux. Are you on a mac?",
+      "parentUuid": "aff5a6aa_acf78347",
+      "revId": "c6c334bbfae2cafca3327bad414bb5ce1ec7b391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
