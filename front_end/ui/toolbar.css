@@ -13,6 +13,10 @@
   --accent-color: #4688f1;
 }
 
+devtools-icon {
+  --breaking-change-color: #f29900;
+}
+
 .toolbar-shadow {
   position: relative;
   white-space: nowrap;
@@ -381,7 +385,7 @@ input[is=history-input]:not(:placeholder-shown) {
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
-devtools-icon.breaking-change {
+devtools-icon.leading-issue-icon {
   margin: 0 7px;
 }
 

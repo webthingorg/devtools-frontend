@@ -662,7 +662,7 @@ function getIconClassPerLevel(level) {
     return {color: '', width: '11px', height: '11px', iconName: 'warning_icon'};
   }
   if (level === Workspace.UISourceCode.Message.Level.Issue) {
-    return {color: '', width: '11px', height: '11px', iconName: 'breaking_change_icon'};
+    return {color: '#f29900', width: '11px', height: '11px', iconName: 'issue-exclamation-icon'};
   }
   return {color: '', width: '11px', height: '11px', iconName: 'error_icon'};
 }
