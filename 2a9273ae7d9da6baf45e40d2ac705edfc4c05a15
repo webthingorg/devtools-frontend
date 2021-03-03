@@ -16,6 +16,24 @@
       "message": "The `webkit-html-ignore-list-link` class is only used for adding opacity here (see screenshot) and nowhere else. Any objections to removing it entirely?",
       "revId": "2a9273ae7d9da6baf45e40d2ac705edfc4c05a15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ab75b1c_dd8c36b4",
+        "filename": "front_end/components/jsUtils.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T13:25:46Z",
+      "side": 1,
+      "message": "I think opacity is used to indicate the rows that were hidden before, right? So this seems to convey useful information.",
+      "parentUuid": "21f2024c_85eccd00",
+      "revId": "2a9273ae7d9da6baf45e40d2ac705edfc4c05a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

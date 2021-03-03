@@ -33,6 +33,92 @@
       "message": "setting back to WIP, want to change some things before it\u0027s ready for review.",
       "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e801523_9197bd67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T13:25:46Z",
+      "side": 1,
+      "message": "Overall it seems this would be cleaner if it was a web component. That doesn\u0027t need to happen in this CL, but I\u0027d encourage a follow up.",
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5ed89f6_a91b5d32",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T13:25:46Z",
+      "side": 1,
+      "message": "I suspect this argument is ultimately unused. Could you check and do a clean-up CL that removes it, if this is really the case?",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 28
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b81937_4de47be8",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T13:25:46Z",
+      "side": 1,
+      "message": "If we\u0027d add this always (with display: none if it is not needed) could we remove the argument showAllRow from updateHiddenRows?",
+      "range": {
+        "startLine": 239,
+        "startChar": 8,
+        "endLine": 239,
+        "endChar": 19
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d17aea_5a38b6d6",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T13:25:46Z",
+      "side": 1,
+      "message": "I assume this will trigger once for every location that gets resolved? It would be fine to only do one update every second or so. Let\u0027s keep this in mind for the component version of this.",
+      "range": {
+        "startLine": 253,
+        "startChar": 48,
+        "endLine": 253,
+        "endChar": 64
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
