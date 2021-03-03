@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07711d2_b516d0e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-03T07:34:42Z",
+      "side": 1,
+      "message": "LGTM - thanks! Couple of thoughts but none blocking.",
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "553387b4_3c53d56b",
+        "filename": "front_end/Images/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-03T07:34:42Z",
+      "side": 1,
+      "message": "Oooh this is nice.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc7c191d_7c2ed522",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-03T07:34:42Z",
+      "side": 1,
+      "message": "Took me a minute to figure out what this refers to as it\u0027s the `const style` on line 23, I think? I wonder if we can make that more clear? Maybe it\u0027s fine though!",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9574c06d_e201380a",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-03T07:34:42Z",
+      "side": 1,
+      "message": "Do you think it\u0027s worth including the file extension in the variable name? I think it\u0027s unlikely to have two files with the same name but different extensions but you never know...",
+      "range": {
+        "startLine": 12,
+        "startChar": 53,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "9104d7557a7da959033f8467327f5812f2f3fd96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
