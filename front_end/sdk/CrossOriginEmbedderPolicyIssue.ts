@@ -4,8 +4,8 @@
 
 import * as i18n from '../i18n/i18n.js';
 
-import {Issue, IssueCategory, LazyMarkdownIssueDescription, MarkdownIssueDescription, resolveLazyDescription} from './Issue.js';  // eslint-disable-line no-unused-vars
-import {IssuesModel} from './IssuesModel.js';  // eslint-disable-line no-unused-vars
+import {Issue, IssueCategory, LazyMarkdownIssueDescription, MarkdownIssueDescription, resolveLazyDescription} from './Issue.js';
+import type {IssuesModel} from './IssuesModel.js';
 
 const UIStrings = {
   /**
@@ -33,7 +33,6 @@ export function isCrossOriginEmbedderPolicyIssue(reason: Protocol.Audits.Blocked
     case Protocol.Audits.BlockedByResponseReason.CorpNotSameSite:
       return true;
   }
-  return false;
 }
 
 export class CrossOriginEmbedderPolicyIssue extends Issue {
