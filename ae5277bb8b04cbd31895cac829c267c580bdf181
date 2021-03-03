@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "ae5277bb8b04cbd31895cac829c267c580bdf181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "022fdb4f_0bcf84b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T08:27:12Z",
+      "side": 1,
+      "message": "LGTM with note, thanks",
+      "revId": "ae5277bb8b04cbd31895cac829c267c580bdf181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb3ecc4_5c09d0b0",
+        "filename": "front_end/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T08:27:12Z",
+      "side": 1,
+      "message": "may be?",
+      "range": {
+        "startLine": 206,
+        "startChar": 112,
+        "endLine": 206,
+        "endChar": 114
+      },
+      "revId": "ae5277bb8b04cbd31895cac829c267c580bdf181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
