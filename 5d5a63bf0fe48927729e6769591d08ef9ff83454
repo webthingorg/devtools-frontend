@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "804366a6_e672d136",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-03T09:34:15Z",
+      "side": 1,
+      "message": "does the customPattern arrive via TEST_FILE still?",
+      "revId": "5d5a63bf0fe48927729e6769591d08ef9ff83454",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
