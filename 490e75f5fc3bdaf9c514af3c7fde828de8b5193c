@@ -35,6 +35,74 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dee24cf_59775658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-03T10:31:08Z",
+      "side": 1,
+      "message": "LGTM! % nits",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91d5e48a_e9c8edd2",
+        "filename": "front_end/source_frame/SourceFrame.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-03T10:31:08Z",
+      "side": 1,
+      "message": "can we move this down after `this._wasmDisassembly \u003d null`?",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cdbee35_61f57f03",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-03T10:31:08Z",
+      "side": 1,
+      "message": "Can we add a comment here on what we\u0027re doing here?\n\nE.g.\n\n// If the content has already been set and the current frame is showing\n// the incoming uiSourceCode, then fire the event that the file has been loaded.\n// Otherwise, this event will fire as soon as the content has been set.",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc333d6_73bdf8db",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-03T10:31:08Z",
+      "side": 1,
+      "message": "Can we also add a comment here? Since it\u0027s not obvious that this happens.\n// Navigating to a line will trigger revealing the current \n// uiSourceCodeFrame. Make sure to consume the \u0027source-file-loaded\u0027\n// event for this file.",
+      "revId": "490e75f5fc3bdaf9c514af3c7fde828de8b5193c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16155334_143156d8",
