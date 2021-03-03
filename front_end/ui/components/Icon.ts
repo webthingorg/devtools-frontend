@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Coordinator from '../../render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 
 export interface IconData {
@@ -12,11 +13,11 @@ export interface IconData {
 }
 
 const isString = (value: string|undefined): value is string => value !== undefined;
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 export class Icon extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
 
-  private iconPath: Readonly<string> = '';
   private color: Readonly<string> = 'rgb(110 110 110)';
   private width: Readonly<string> = '100%';
   private height: Readonly<string> = '100%';
@@ -27,7 +28,6 @@ export class Icon extends HTMLElement {
     this.color = data.color;
     this.width = isString(width) ? width : (isString(height) ? height : this.width);
     this.height = isString(height) ? height : (isString(width) ? width : this.height);
-    this.iconPath = `Images/${data.iconName}.svg`;
     this.iconName = data.iconName;
     this.render();
   }
@@ -44,8 +44,8 @@ export class Icon extends HTMLElement {
     };
   }
 
-  private getStyles(): {[key: string]: string} {
-    const {iconPath, width, height, color} = this;
+  private getStyles(iconPath: string): {[key: string]: string} {
+    const {width, height, color} = this;
     const commonStyles = {
       width,
       height,
@@ -73,17 +73,21 @@ export class Icon extends HTMLElement {
   }
 
   private render(): void {
-    // clang-format off
-    LitHtml.render(LitHtml.html`
-      <style>
-        :host {
-          display: inline-block;
-          white-space: nowrap;
-        }
-      </style>
-      <div class="icon-basic" style=${LitHtml.Directives.styleMap(this.getStyles())}></div>
-    `, this.shadow);
-    // clang-format on
+    const iconPath = new URL(`../../Images/${this.iconName}.svg`, import.meta.url).toString();
+
+    coordinator.write(() => {
+      // clang-format off
+      LitHtml.render(LitHtml.html`
+        <style>
+          :host {
+            display: inline-block;
+            white-space: nowrap;
+          }
+        </style>
+        <div class="icon-basic" style=${LitHtml.Directives.styleMap(this.getStyles(iconPath))}></div>
+      `, this.shadow);
+      // clang-format on
+    });
   }
 }
 
