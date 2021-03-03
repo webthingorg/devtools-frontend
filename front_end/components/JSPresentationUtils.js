@@ -93,12 +93,15 @@ function populateContextMenu(link, event) {
  * @param {?SDK.SDKModel.Target} target
  * @param {!Linkifier} linkifier
  * @param {boolean|undefined} tabStops
+ * @param {function((StackTraceRegularRow | StackTraceAsyncRow)[]): void} updateCallback
  * @return {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>}
  */
-function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
+function buildStackTraceRows(stackTrace, target, linkifier, tabStops, updateCallback) {
   /** @type {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} */
   const stackTraceRows = [];
   let regularRowCount = 0;
+
+  linkifier.setLiveLocationUpdateCallback(() => updateCallback(stackTraceRows));
 
   /**
    * @param {!Protocol.Runtime.StackTrace} stackTrace
@@ -159,6 +162,39 @@ function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
 }
 
 /**
+ * @param {function(!Array<!StackTraceRegularRow|!StackTraceAsyncRow>): *} renderCallback
+ * @param {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} stackTraceRows
+ */
+function updateHiddenRows(renderCallback, stackTraceRows) {
+  let shouldHideSubCount = 0;  // keeps track of number hidden (regular) rows between asyncRows
+  let indexOfAsyncRow = stackTraceRows.length;
+
+  for (let i = stackTraceRows.length - 1; i >= 0; i--) {
+    const row = stackTraceRows[i];
+
+    if ('link' in row && row.link) {
+      const uiLocation = Linkifier.uiLocation(row.link);
+      if (uiLocation &&
+          Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode)) {
+        row.ignoreListHide = true;
+      }
+      if (row.rowCountHide || row.ignoreListHide) {
+        shouldHideSubCount++;
+      }
+    }
+    if ('asyncDescription' in row) {
+      // hide current row if all (regular) rows since the previous asyncRow are hidden
+      if (shouldHideSubCount > 0 && shouldHideSubCount === indexOfAsyncRow - i - 1) {
+        stackTraceRows[i + 1].rowCountHide ? row.rowCountHide = true : row.ignoreListHide = true;
+      }
+      indexOfAsyncRow = i;
+      shouldHideSubCount = 0;
+    }
+  }
+  renderCallback(stackTraceRows);
+}
+
+/**
  * @param {?SDK.SDKModel.Target} target
  * @param {!Linkifier} linkifier
  * @param {!Options=} options
@@ -176,17 +212,30 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
   const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
       element, {cssFile: 'components/jsUtils.css', enableLegacyPatching: false, delegatesFocus: undefined});
   const contentElement = shadowRoot.createChild('table', 'stack-preview-container');
+  if (!stackTrace) {
+    return {element, links: []};
+  }
+
+  const updateCallback = updateHiddenRows.bind(null, renderTable.bind(null, contentUpdated, contentElement));
+  const stackTraceRows = buildStackTraceRows(stackTrace, target, linkifier, tabStops, updateCallback);
+  const links = renderTable(contentUpdated, contentElement, stackTraceRows);
+  return {element, links};
+}
+
+/**
+ * @param {(function(): *) | undefined} showAllCallback
+ * @param {!Element} container
+ * @param {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} stackTraceRows
+ * @return {!Array<!HTMLElement>}
+ */
+function renderTable(showAllCallback, container, stackTraceRows) {
+  container.removeChildren();
+  let hiddenCallFramesCount = 0;
   /** @type {!Array<!HTMLElement>} */
   const links = [];
 
-  if (!stackTrace) {
-    return {element, links};
-  }
-  const stackTraceRows = buildStackTraceRows(stackTrace, target, linkifier, tabStops);
-  let hiddenCallFramesCount = 0;
-
   for (const item of stackTraceRows) {
-    const row = contentElement.createChild('tr');
+    const row = container.createChild('tr');
     if ('asyncDescription' in item) {
       row.createChild('td').textContent = '\n';
       row.createChild('td', 'stack-preview-async-description').textContent = item.asyncDescription;
@@ -205,31 +254,31 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
       }
     }
     if (item.rowCountHide || item.ignoreListHide) {
-      row.classList.add('ignore-listed');
+      row.classList.add('hidden-row');
     }
-    contentElement.appendChild(row);
+    container.appendChild(row);
   }
 
   if (hiddenCallFramesCount) {
-    const row = contentElement.createChild('tr', 'show-ignore-listed-link');
-    row.createChild('td').textContent = '\n';
-    const cell = /** @type {!HTMLTableCellElement} */ (row.createChild('td'));
+    const showAllRow = container.createChild('tr', 'show-all-link');
+    showAllRow.createChild('td').textContent = '\n';
+    const cell = /** @type {!HTMLTableCellElement} */ (showAllRow.createChild('td'));
     cell.colSpan = 4;
     const showAllLink = cell.createChild('span', 'link');
+    showAllLink.addEventListener('click', () => {
+      container.classList.add('show-hidden-rows');
+      if (showAllCallback) {
+        showAllCallback();
+      }
+    }, false);
     if (hiddenCallFramesCount === 1) {
       showAllLink.textContent = i18nString(UIStrings.showMoreFrame);
     } else {
       showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: hiddenCallFramesCount});
     }
-    showAllLink.addEventListener('click', () => {
-      contentElement.classList.add('show-ignore-listed');
-      if (contentUpdated) {
-        contentUpdated();
-      }
-    }, false);
+    container.appendChild(showAllRow);
   }
-
-  return {element, links};
+  return links;
 }
 
 /**
