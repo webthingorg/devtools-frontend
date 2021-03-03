@@ -359,10 +359,6 @@ const UIStrings = {
   */
   subject: 'Subject',
   /**
-  *@description Text in Security Panel of the Security panel. Subject Alternative Name.
-  */
-  san: '`SAN`',
-  /**
   *@description Text to show since when an item is valid
   */
   validFrom: 'Valid from',
@@ -1561,7 +1557,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
       table = new SecurityDetailsTable();
       certificateSection.appendChild(table.element());
       table.addRow(i18nString(UIStrings.subject), originState.securityDetails.subjectName);
-      table.addRow(i18nString(UIStrings.san), sanDiv);
+      table.addRow(i18n.i18n.lockedString('SAN'), sanDiv);
       table.addRow(i18nString(UIStrings.validFrom), validFromString);
       table.addRow(i18nString(UIStrings.validUntil), validUntilString);
       table.addRow(i18nString(UIStrings.issuer), originState.securityDetails.issuer);
