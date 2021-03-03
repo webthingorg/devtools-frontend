@@ -3678,7 +3678,7 @@
     "message": "Publisher Ads"
   },
   "lighthouse/LighthouseController.ts | resetStorageLocalstorage": {
-    "message": "Reset storage (localStorage, IndexedDB, etc) before auditing. (Good for performance & PWA testing)"
+    "message": "Reset storage (cache, service workers, etc) before auditing. (Good for performance & PWA testing)"
   },
   "lighthouse/LighthouseController.ts | seo": {
     "message": "SEO"
