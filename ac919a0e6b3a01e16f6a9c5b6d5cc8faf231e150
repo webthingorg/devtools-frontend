@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8f75f8_c5991da9",
+        "filename": "front_end/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-03-03T23:08:57Z",
+      "side": 0,
+      "message": "This call to `extensions()` was missed in the migration of `@UI.SettingUI`, but the call to `revealSettingUI` never executed anything as the only instance of this extension didn\u0027t satisfy the `if` condition inside the implementation (below). Thus, we can safely remove this.",
+      "range": {
+        "startLine": 491,
+        "startChar": 3,
+        "endLine": 491,
+        "endChar": 97
+      },
+      "revId": "ac919a0e6b3a01e16f6a9c5b6d5cc8faf231e150",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
