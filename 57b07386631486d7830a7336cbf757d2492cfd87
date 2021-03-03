@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "57b07386631486d7830a7336cbf757d2492cfd87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "490dc794_3a19bcdd",
+        "filename": "scripts/test/run_lint_check_css.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-03T14:24:36Z",
+      "side": 1,
+      "message": "drive by fix now we\u0027re on Node 14!",
+      "range": {
+        "startLine": 51,
+        "startChar": 64,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "57b07386631486d7830a7336cbf757d2492cfd87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
