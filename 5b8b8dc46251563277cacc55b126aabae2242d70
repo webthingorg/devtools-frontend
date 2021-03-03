@@ -16,6 +16,23 @@
       "message": "PTAL :)",
       "revId": "5b8b8dc46251563277cacc55b126aabae2242d70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "077b1b84_8fa8d6a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-03T15:19:51Z",
+      "side": 1,
+      "message": "I just hit this issue where I was not able to upload my CL. Therefore invoking the autosubmit to unblock me from uploading my CL.",
+      "revId": "5b8b8dc46251563277cacc55b126aabae2242d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
