@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f2024c_85eccd00",
+        "filename": "front_end/components/jsUtils.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-03T12:11:02Z",
+      "side": 1,
+      "message": "The `webkit-html-ignore-list-link` class is only used for adding opacity here (see screenshot) and nowhere else. Any objections to removing it entirely?",
+      "revId": "2a9273ae7d9da6baf45e40d2ac705edfc4c05a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
