@@ -16,6 +16,24 @@
       "message": "Created by running scripts/optimize_svg_images.py",
       "revId": "c6c334bbfae2cafca3327bad414bb5ce1ec7b391",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b21fb9_784714d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-03T14:45:02Z",
+      "side": 1,
+      "message": "Thanks! I remember now that I had a problem with optimize_svg_images.py crashing on my machine. I wanted to follow up on that but forgot.",
+      "parentUuid": "b746d8c9_6a49d928",
+      "revId": "c6c334bbfae2cafca3327bad414bb5ce1ec7b391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
