@@ -10,15 +10,15 @@ const {assert} = chai;
 
 describe('MarkdownImage', () => {
   let Issues: typeof IssuesModule;
-  const imageSource = 'Images/lighthouse_logo.svg';
+  const iconName = 'lighthouse_logo';
   before(async () => {
     Issues = await import('../../../../front_end/issues/issues.js');
     Issues.MarkdownImagesMap.markdownImages.set('test-icon', {
-      src: 'Images/feedback_thin_16x16_icon.svg',
+      iconName: 'feedback_thin_16x16_icon',
       isIcon: true,
     });
     Issues.MarkdownImagesMap.markdownImages.set('test-image', {
-      src: imageSource,
+      iconName,
       width: '100px',
       height: '100px',
       isIcon: false,
@@ -41,7 +41,7 @@ describe('MarkdownImage', () => {
     assertShadowRoot(component.shadowRoot);
     const imageComponent = getElementWithinComponent(component, 'img', HTMLImageElement);
     assert.isNotNull(imageComponent);
-    assert.include(imageComponent.src, imageSource);
+    assert.include(imageComponent.src, `Images/${iconName}.svg`);
     assert.strictEqual(imageComponent.alt, markdownImageTitle);
     assert.strictEqual(imageComponent.width, 100);
     assert.strictEqual(imageComponent.height, 100);

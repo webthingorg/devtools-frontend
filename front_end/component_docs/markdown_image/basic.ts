@@ -11,13 +11,13 @@ await FrontendHelpers.initializeGlobalVars();
 
 // Adding a couple image keys to the image map.
 Issues.MarkdownImagesMap.markdownImages.set('test-icon', {
-  src: 'Images/feedback_thin_16x16_icon.svg',
+  iconName: 'feedback_thin_16x16_icon',
   isIcon: true,
   width: '16px',
   height: '16px',
 });
 Issues.MarkdownImagesMap.markdownImages.set('test-image', {
-  src: 'Images/lighthouse_logo.svg',
+  iconName: 'lighthouse_logo',
   width: '200px',
   height: '200px',
   isIcon: false,

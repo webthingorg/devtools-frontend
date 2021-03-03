@@ -207,7 +207,7 @@ export class FlexboxEditor extends HTMLElement {
         (): void => this.onButtonClick(propertyName, propertyValue, selected)}>
        <devtools-icon style=${transform} .data=${
         {iconName: iconInfo.iconName, color: 'var(--icon-color)', width: '18px', height: '18px'} as
-        Components.Icon.IconWithName}></devtools-icon>
+        Components.Icon.IconData}></devtools-icon>
     </button>`;
   }
 

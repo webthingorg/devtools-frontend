@@ -37,9 +37,9 @@ export class MarkdownImage extends HTMLElement {
     if (!this.imageData) {
       return LitHtml.html``;
     }
-    const {src, color, width = '100%', height = '100%'} = this.imageData;
+    const {iconName, color, width = '100%', height = '100%'} = this.imageData;
     return LitHtml.html`
-      <devtools-icon .data=${{iconPath: src, color, width, height} as Components.Icon.IconData}></devtools-icon>
+      <devtools-icon .data=${{iconName, color, width, height} as Components.Icon.IconData}></devtools-icon>
     `;
   }
 
@@ -47,14 +47,14 @@ export class MarkdownImage extends HTMLElement {
     if (!this.imageData) {
       return LitHtml.html``;
     }
-    const {src, width = '100%', height = '100%'} = this.imageData;
+    const {iconName, width = '100%', height = '100%'} = this.imageData;
     return LitHtml.html`
       <style>
         .markdown-image {
           display: block;
         }
       </style>
-      <img class="markdown-image" src=${src} alt=${this.imageTitle} width=${width} height=${height}/>
+      <img class="markdown-image" src="Images/${iconName}.svg" alt=${this.imageTitle} width=${width} height=${height}/>
     `;
   }
 

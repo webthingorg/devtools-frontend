@@ -243,13 +243,13 @@ export class RequestTrustTokensReport extends HTMLElement {
   }
 }
 
-const SUCCESS_ICON_DATA: Components.Icon.IconWithName = {
+const SUCCESS_ICON_DATA: Components.Icon.IconData = {
   color: 'rgb(12, 164, 12)',
   iconName: 'ic_checkmark_16x16',
   width: '12px',
 };
 
-const FAILURE_ICON_DATA: Components.Icon.IconWithName = {
+const FAILURE_ICON_DATA: Components.Icon.IconData = {
   color: '',
   iconName: 'error_icon',
   width: '12px',
@@ -261,8 +261,7 @@ export function statusConsideredSuccess(status: Protocol.Network.TrustTokenOpera
       status === Protocol.Network.TrustTokenOperationDoneEventStatus.FulfilledLocally;
 }
 
-function getIconForStatusCode(status: Protocol.Network.TrustTokenOperationDoneEventStatus):
-    Components.Icon.IconWithName {
+function getIconForStatusCode(status: Protocol.Network.TrustTokenOperationDoneEventStatus): Components.Icon.IconData {
   return statusConsideredSuccess(status) ? SUCCESS_ICON_DATA : FAILURE_ICON_DATA;
 }
 

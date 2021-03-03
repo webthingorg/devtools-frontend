@@ -212,7 +212,7 @@ export class LinearMemoryNavigator extends HTMLElement {
         data-button=${event.type} title=${title}
         @click=${this.dispatchEvent.bind(this, event)}>
         <devtools-icon .data=${
-        {iconName: name, color: 'var(--color-text-secondary)', width: '14px'} as Components.Icon.IconWithName}>
+        {iconName: name, color: 'var(--color-text-secondary)', width: '14px'} as Components.Icon.IconData}>
         </devtools-icon>
       </button>`;
   }
