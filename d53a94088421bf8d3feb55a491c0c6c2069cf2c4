@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3884351_3e273692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T18:08:15Z",
+      "side": 1,
+      "message": "hmm need to find a fix for this {empty} thing because the presubmit check thinks it\u0027s a placeholder",
+      "revId": "d53a94088421bf8d3feb55a491c0c6c2069cf2c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
