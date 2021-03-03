@@ -34,6 +34,24 @@
       "parentUuid": "804366a6_e672d136",
       "revId": "5d5a63bf0fe48927729e6769591d08ef9ff83454",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d852bd9d_3c65d916",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-03T09:36:01Z",
+      "side": 1,
+      "message": "Yes, TEST_FILE contains a semicolon-separated list of patterns.",
+      "parentUuid": "804366a6_e672d136",
+      "revId": "5d5a63bf0fe48927729e6769591d08ef9ff83454",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
