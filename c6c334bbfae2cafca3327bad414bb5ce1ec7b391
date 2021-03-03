@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b746d8c9_6a49d928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T14:38:03Z",
+      "side": 1,
+      "message": "Created by running scripts/optimize_svg_images.py",
+      "revId": "c6c334bbfae2cafca3327bad414bb5ce1ec7b391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
