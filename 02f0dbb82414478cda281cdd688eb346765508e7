@@ -16,6 +16,24 @@
       "message": "BlockedByResponseReason might be extended to include non-COEP issues as well, right? Shouldn\u0027t this line be kept then?",
       "revId": "02f0dbb82414478cda281cdd688eb346765508e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60100b7c_9f01599c",
+        "filename": "front_end/sdk/CrossOriginEmbedderPolicyIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-03T10:31:31Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e433263a_1f1ab8dd",
+      "revId": "02f0dbb82414478cda281cdd688eb346765508e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
