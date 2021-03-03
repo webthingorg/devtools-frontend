@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {TabbedPane} from './TabbedPane.js';  // eslint-disable-line no-unused-vars
@@ -181,7 +180,7 @@ export class ProvidedView {
    * @return {string}
    */
   title() {
-    return ls(this._extension.title());
+    return this._extension.title();
   }
 
   order() {
