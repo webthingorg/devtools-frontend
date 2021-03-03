@@ -16,6 +16,24 @@
       "message": "Code lgtm. One follow up question:\n\nOn the edge case, we put alot of effort into calculating if a container overlay is transparent. Are there practical cases where someone would pass a transparent overlay config and not just leave it empty? I\u0027d kind of expect the inspector_overlay to not have to perform checks for transparency, just checks if it exists.",
       "revId": "730544d284cfb09187049f6e17c49da3b643cdf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556bcfc3_665e2992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-03T16:58:41Z",
+      "side": 1,
+      "message": "That\u0027s an excellent point. With the way devtools sends requests to the overlay domain right now, I think you are right, we probably could make this check simpler.\n\nI guess I was thinking about it from the backend\u0027s perspective, making sure it would work with whatever CDP clients throw at it. That being said, it would be very weird for a CDP client to send both the flex container and flex item highlight configs but make the container config transparent.",
+      "parentUuid": "2b4f8941_b1ca4982",
+      "revId": "730544d284cfb09187049f6e17c49da3b643cdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
