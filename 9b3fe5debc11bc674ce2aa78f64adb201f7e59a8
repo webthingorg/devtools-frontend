@@ -56,6 +56,30 @@
       },
       "revId": "9b3fe5debc11bc674ce2aa78f64adb201f7e59a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d23fcd17_6647b395",
+        "filename": "scripts/eslint_rules/tests/l10n_no_i18nString_calls_module_instantiation_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-03T07:46:39Z",
+      "side": 1,
+      "message": "i.e. const thingy \u003d { obj : i18nString() }\nconst thingy2 \u003d [ i18nString() ]\n\nas these are patterns we have seen",
+      "parentUuid": "8b68ba5a_5580930b",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "9b3fe5debc11bc674ce2aa78f64adb201f7e59a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
