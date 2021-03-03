@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a3035b4_e5afb1d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-03T12:13:21Z",
+      "side": 1,
+      "message": "The offending tests in Chromium has been temporarily disabled: https://chromium-review.googlesource.com/c/chromium/src/+/2731433",
+      "revId": "a025f24c35d67cc4b9e8a70672ecc7522881509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
