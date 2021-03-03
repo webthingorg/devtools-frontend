@@ -33,6 +33,24 @@
       "message": "LGTM! I wonder do you think it\u0027s worth leaving a comment saying these are the same in dark mode, just in case people think they\u0027ve had their dark mode variants missed by accident?",
       "revId": "4a46afda37d9d3db272f0ec84a6b4474478227c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ab6381_b195ad1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-03-03T13:23:43Z",
+      "side": 1,
+      "message": "I agree. Comment added in the next PS.",
+      "parentUuid": "14f62abe_c0b9dae9",
+      "revId": "4a46afda37d9d3db272f0ec84a6b4474478227c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
