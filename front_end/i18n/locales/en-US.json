@@ -3407,6 +3407,9 @@
   "issues/IssueView.ts | warned": {
     "message": "Warned"
   },
+  "js_main/JsMain.js | main": {
+    "message": "Main"
+  },
   "js_profiler/js_profiler-meta.ts | profiler": {
     "message": "Profiler"
   },
@@ -11464,6 +11467,9 @@
   },
   "webauthn/WebauthnPane.ts | yes": {
     "message": "Yes"
+  },
+  "worker_main/WorkerMain.js | main": {
+    "message": "Main"
   },
   "workspace/UISourceCode.ts | index": {
     "message": "(index)"
