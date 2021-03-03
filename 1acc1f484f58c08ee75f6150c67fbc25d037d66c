@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7173c032_1daa8b96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-03T16:52:07Z",
+      "side": 1,
+      "message": "Can you include more details in the commit message what exactly is accomplished by this CL and how it\u0027s done?\n\nContext is: Longer (informative) CL messages help a lot when (a) couple years later someone is trying to understand what/why was done by a given CL (that someone could be you 😄), (b) it makes reviewing easier since the commit message gives directions and looking through the code is just a matter of validating that basic understanding and the implementation, and (c) it makes life easier for jec@ when compiling the WNDT articles.",
+      "revId": "1acc1f484f58c08ee75f6150c67fbc25d037d66c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d1656c06_4ef62561",
@@ -14,6 +31,23 @@
       "writtenOn": "2021-03-03T09:43:40Z",
       "side": 1,
       "message": "Hi Benedikt!\n\nI\u0027m adding the feature to save the settings. PTAL!",
+      "revId": "1acc1f484f58c08ee75f6150c67fbc25d037d66c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19e95684_00bf91da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-03T16:52:07Z",
+      "side": 1,
+      "message": "Looks good from my side, but I\u0027m not 100% clear whether this is the best way to handle the settings. I\u0027d love to hear Jacks thoughts on this too.",
       "revId": "1acc1f484f58c08ee75f6150c67fbc25d037d66c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
