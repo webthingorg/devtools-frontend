@@ -57,10 +57,8 @@ const UIStrings = {
   *@description Text for the mobile platform, as opposed to desktop
   */
   mobile: 'Mobile',
-  /**
-  *@description Name of a settings category.
-  */
-  emulation: 'Emulation',
+
+
   /**
   *@description Text for the memory of the page
   */
