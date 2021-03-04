@@ -1,0 +1,92 @@
+// Copyright 2021 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+'use strict';
+
+const l10nHelper = require('./l10n_helper.js');
+
+const MODULE_UI_STRINGS_FILENAME_REGEX = /ModuleUIStrings\.(js|ts)$/;
+
+/**
+ * Returns true iff the passed expression is of the form `UIStrings.bar`.
+ */
+function isStandardUIStringsMemberExpression(expr) {
+  if (expr.object.type !== 'Identifier' || expr.object.name !== 'UIStrings') {
+    return false;
+  }
+
+  return expr.property.type === 'Identifier';
+}
+
+module.exports = {
+  meta: {
+    type: 'problem',
+    docs: {
+      description: 'Unused properties on UIStrings objects are not allowed.',
+      category: 'Possible Errors',
+    },
+    fixable: 'code',
+    schema: []  // no options
+  },
+  create: function(context) {
+    const declaredUIStringsKeys = new Map();
+    const usedUIStringsKeys = new Set();
+
+    function removeProperty(fixer, property) {
+      const fixes = [fixer.remove(property)];
+      const source = context.getSourceCode();
+
+      // Remove trailing ',' if there is one.
+      const nextToken = source.getTokenAfter(property);
+      if (nextToken.type === 'Punctuator' && nextToken.value === ',') {
+        fixes.push(fixer.remove(nextToken));
+      }
+
+      // Remove comments before the property.
+      const comments = source.getCommentsBefore(property);
+      const removeCommentFixes = comments.map(comment => fixer.remove(comment));
+      fixes.push(...removeCommentFixes);
+
+      return fixes;
+    }
+
+    return {
+      VariableDeclarator(variableDeclarator) {
+        if (MODULE_UI_STRINGS_FILENAME_REGEX.test(context.getFilename())) {
+          return;
+        }
+
+        if (!l10nHelper.isUIStringsVariableDeclarator(context, variableDeclarator)) {
+          return;
+        }
+
+        for (const property of variableDeclarator.init.properties) {
+          if (property.type !== 'Property' || property.key.type !== 'Identifier') {
+            continue;
+          }
+          declaredUIStringsKeys.set(property.key.name, property);
+        }
+      },
+      MemberExpression(memberExpression) {
+        if (!isStandardUIStringsMemberExpression(memberExpression)) {
+          return;
+        }
+        usedUIStringsKeys.add(memberExpression.property.name);
+      },
+      'Program:exit': function() {
+        for (const usedKey of usedUIStringsKeys) {
+          declaredUIStringsKeys.delete(usedKey);
+        }
+
+        for (const property of declaredUIStringsKeys.values()) {
+          context.report({
+            node: property,
+            message: 'UIStrings message is not used.',
+            fix: fixer => removeProperty(fixer, property),
+          });
+        }
+      },
+    };
+  }
+};
