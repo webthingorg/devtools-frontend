@@ -9,14 +9,14 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCSSPropertyInRule, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
 
 describe('Flexbox Editor', async function() {
-  beforeEach(async function() {
+  async function setup() {
     const {frontend} = getBrowserAndPages();
     await enableExperiment('cssFlexboxFeatures');
     await goToResource('elements/flexbox-editor.html');
     await waitForContentOfSelectedElementsNode('<body>\u200B');
     await frontend.keyboard.press('ArrowDown');
     await waitForCSSPropertyValue('#target', 'display', 'flex');
-  });
+  }
 
   async function clickFlexboxEditorButton() {
     const flexboxEditorButtons = await $$('[title="Open Flexbox editor"]');
@@ -34,6 +34,7 @@ describe('Flexbox Editor', async function() {
   }
 
   it('can be opened and flexbox styles can be edited', async () => {
+    await setup();
     await clickFlexboxEditorButton();
 
     // Clicking once sets the value.
