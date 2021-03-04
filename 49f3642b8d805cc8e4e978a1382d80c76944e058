@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8833b028_64a969b2",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T12:45:46Z",
+      "side": 1,
+      "message": "Exactly!",
+      "parentUuid": "d2677fb5_a8fe4df1",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "223ff919_77c6573b",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "093efc91_eb35cd68",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T12:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "223ff919_77c6573b",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5fbf384_bea1b454",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-03-04T08:35:40Z",
       "side": 1,
       "message": "Is this the correct location for defining a color variable?",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efb20924_7284fb36",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T12:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5fbf384_bea1b454",
       "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
