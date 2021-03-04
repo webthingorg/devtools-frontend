@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a29ca3a_38df0ad8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T09:10:14Z",
+      "side": 1,
+      "message": "I patched this in locally, and it doesn\u0027t look like the in the screen recording. The table looks crammed. Can we use the space we have for the table width? Also, it seems the table is nested in a form tag which seems strange. Do you think that is necessary?",
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d55560e_6c8109d4",
