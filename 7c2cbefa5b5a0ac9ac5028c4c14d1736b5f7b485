@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d08799b4_c6040325",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T13:25:11Z",
+      "side": 1,
+      "message": "We could do just a little bit, check if the token after the \u0027,\u0027 is a newline whitespace and remove that one as well. Wdyt?",
+      "parentUuid": "66c4a03e_933b3ceb",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e559ec0c_015ad3c9",
         "filename": "scripts/eslint_rules/lib/l10n_no_unused_phrase.js",
         "patchSetId": 2
