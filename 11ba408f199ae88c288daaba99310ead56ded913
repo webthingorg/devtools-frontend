@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd0ff1b4_aecfbc41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-03-04T17:09:05Z",
+      "side": 1,
+      "message": "This should be ok for us, all our images currently reside in Images folder and are of svg format.",
+      "parentUuid": "66ef3c41_2e3021f5",
+      "revId": "11ba408f199ae88c288daaba99310ead56ded913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d476d5d_0058f51b",
