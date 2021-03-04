@@ -515,8 +515,11 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     SDK.ConsoleModel.ConsoleModel.instance().messages().forEach(this._addConsoleMessage, this);
 
     const issuesManager = BrowserSDK.IssuesManager.IssuesManager.instance();
-    issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._updateIssuesToolbarItem, this);
+    issuesManager.addPartialObserver(this);
+  }
+
+  onIssueCountUpdated(_numberOfIssues: number): void {
+    this._updateIssuesToolbarItem();
   }
 
   static instance(): ConsoleView {

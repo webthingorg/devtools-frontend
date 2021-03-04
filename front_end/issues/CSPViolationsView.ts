@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
-import type * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -20,7 +19,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('issues/CSPViolationsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let cspViolationsViewInstance: CSPViolationsView;
-export class CSPViolationsView extends UI.Widget.VBox {
+export class CSPViolationsView extends UI.Widget.VBox implements BrowserSDK.IssuesManager.IssueObserver {
   private listView = new CSPViolationsListView();
   private issuesManager = BrowserSDK.IssuesManager.IssuesManager.instance();
 
@@ -57,10 +56,7 @@ export class CSPViolationsView extends UI.Widget.VBox {
     topToolbar.appendToolbarItem(levelMenuButton);
     this.listView.show(this.contentElement);
 
-    this.issuesManager.addEventListener(BrowserSDK.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
-    this.issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.FullUpdateRequired, this.onFullUpdateRequired, this);
-
+    this.issuesManager.addPartialObserver(this);
     this.addAllIssues();
   }
 
@@ -73,15 +69,13 @@ export class CSPViolationsView extends UI.Widget.VBox {
     return cspViolationsViewInstance;
   }
 
-  private onIssueAdded(event: Common.EventTarget.EventTargetEvent): void {
-    const {issue} =
-        /** @type {!{issuesModel: !SDK.IssuesModel.IssuesModel, issue: !SDK.Issue.Issue}} */ (event.data);
+  onIssueAdded(_issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void {
     if (issue instanceof SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue) {
       this.listView.addIssue(issue);
     }
   }
 
-  private onFullUpdateRequired(): void {
+  onFullUpdateRequired(): void {
     this.listView.clearIssues();
     this.addAllIssues();
   }

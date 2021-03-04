@@ -23,6 +23,7 @@ devtools_module("common") {
     "Lazy.js",
     "Linkifier.js",
     "Object.js",
+    "Observable.ts",
     "ParsedURL.js",
     "Progress.js",
     "QueryParamHandler.js",

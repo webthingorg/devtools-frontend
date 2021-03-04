@@ -151,7 +151,7 @@ export function getGroupIssuesByCategorySetting(): Common.Settings.Setting<boole
 
 let issuesPaneInstance: IssuesPane;
 
-export class IssuesPane extends UI.Widget.VBox {
+export class IssuesPane extends UI.Widget.VBox implements BrowserSDK.IssuesManager.IssueCountObserver {
   private categoryViews: Map<SDK.Issue.IssueCategory, IssueCategoryView>;
   private issueViews: Map<string, IssueView>;
   private showThirdPartyCheckbox: UI.Toolbar.ToolbarSettingCheckbox|null;
@@ -190,8 +190,12 @@ export class IssuesPane extends UI.Widget.VBox {
     for (const issue of this.aggregator.aggregatedIssues()) {
       this.updateIssueView(issue);
     }
-    this.issuesManager.addEventListener(BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this.updateCounts, this);
-    this.updateCounts();
+    this.issuesManager.addPartialObserver(this);
+    this.updateCounts(this.issuesManager.numberOfIssues());
+  }
+
+  onIssueCountUpdated(numberOfIssues: number): void {
+    this.updateCounts(numberOfIssues);
   }
 
   static instance(opts: {forceNew: boolean|null} = {forceNew: null}): IssuesPane {
@@ -276,7 +280,7 @@ export class IssuesPane extends UI.Widget.VBox {
       });
     }
     issueView.update();
-    this.updateCounts();
+    this.updateCounts(this.issuesManager.numberOfIssues());
   }
 
   private getIssueViewParent(issue: AggregatedIssue): UI.TreeOutline.TreeOutline|UI.TreeOutline.TreeElement {
@@ -316,13 +320,12 @@ export class IssuesPane extends UI.Widget.VBox {
         this.updateIssueView(issue);
       }
     }
-    this.updateCounts();
+    this.updateCounts(this.issuesManager.numberOfIssues());
   }
 
-  private updateCounts(): void {
-    const count = this.issuesManager.numberOfIssues();
-    this.updateToolbarIssuesCount(count);
-    this.showIssuesTreeOrNoIssuesDetectedMessage(count);
+  private updateCounts(numberOfIssues: number): void {
+    this.updateToolbarIssuesCount(numberOfIssues);
+    this.showIssuesTreeOrNoIssuesDetectedMessage(numberOfIssues);
   }
 
   private showIssuesTreeOrNoIssuesDetectedMessage(issuesCount: number): void {

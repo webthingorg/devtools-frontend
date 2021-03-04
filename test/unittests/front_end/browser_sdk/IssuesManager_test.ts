@@ -27,8 +27,13 @@ describeWithEnvironment('IssuesManager', () => {
     issuesManager.modelAdded(mockModel);
 
     const dispatchedIssues: SDK.Issue.Issue[] = [];
-    issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.IssueAdded, event => dispatchedIssues.push(event.data.issue));
+    issuesManager.addObserver({
+      onIssueAdded(_issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void {
+        dispatchedIssues.push(issue);
+      },
+      onFullUpdateRequired() {},
+      onIssueCountUpdated() {},
+    });
 
     mockModel.dispatchEventToListeners(SDK.IssuesModel.Events.IssueAdded, {issuesModel: mockModel, issue: issue2});
     mockModel.dispatchEventToListeners(SDK.IssuesModel.Events.IssueAdded, {issuesModel: mockModel, issue: issue2b});
@@ -56,8 +61,13 @@ describeWithEnvironment('IssuesManager', () => {
     issuesManager.modelAdded(mockModel);
 
     const firedIssueAddedEventCodes: string[] = [];
-    issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.IssueAdded, event => firedIssueAddedEventCodes.push(event.data.issue.code()));
+    issuesManager.addObserver({
+      onIssueAdded(_issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void {
+        firedIssueAddedEventCodes.push(issue.code());
+      },
+      onFullUpdateRequired() {},
+      onIssueCountUpdated() {},
+    });
 
     for (const issue of issues) {
       mockModel.dispatchEventToListeners(SDK.IssuesModel.Events.IssueAdded, {issuesModel: mockModel, issue: issue});

@@ -13,12 +13,9 @@ import {MockIssuesManager} from '../browser_sdk/MockIssuesManager.js';
 
 describeWithEnvironment('AggregatedIssue', async () => {
   let Issues: typeof IssuesModule;
-  let BrowserSDK: typeof BrowserSDKModule;
   let SDK: typeof SDKModule;
   before(async () => {
     Issues = await import('../../../../front_end/issues/issues.js');
-
-    BrowserSDK = await import('../../../../front_end/browser_sdk/browser_sdk.js');
     SDK = await import('../../../../front_end/sdk/sdk.js');
   });
 
@@ -51,7 +48,7 @@ describeWithEnvironment('AggregatedIssue', async () => {
 
     const aggregator = new Issues.IssueAggregator.IssueAggregator(mockManager);
     for (const issue of issues) {
-      mockManager.dispatchEventToListeners(BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue});
+      mockManager.signal('onIssueAdded', mockModel, issue);
     }
 
     const aggregatedIssues = Array.from(aggregator.aggregatedIssues());

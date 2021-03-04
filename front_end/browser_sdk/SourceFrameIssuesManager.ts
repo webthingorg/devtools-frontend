@@ -8,26 +8,19 @@ import * as SDK from '../sdk/sdk.js';
 import * as Marked from '../third_party/marked/marked.js';
 import * as Workspace from '../workspace/workspace.js';
 
-import * as IssuesManager from './IssuesManager.js';
+import {IssueObserver, IssuesManager} from './IssuesManager.js';
 import {findTitleFromMarkdownAst, getMarkdownFileContent} from './MarkdownHelpers.js';
 
 
-export class SourceFrameIssuesManager {
-  private issuesManager: IssuesManager.IssuesManager;
+export class SourceFrameIssuesManager implements IssueObserver {
+  private issuesManager: IssuesManager;
   private locationPool = new Bindings.LiveLocation.LiveLocationPool();
   private issueMessages = new Array<IssueMessage>();
 
-  constructor(issuesManager: IssuesManager.IssuesManager) {
+  constructor(issuesManager: IssuesManager) {
     this.issuesManager = issuesManager;
 
-    this.issuesManager.addEventListener(IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
-    this.issuesManager.addEventListener(IssuesManager.Events.FullUpdateRequired, this.onFullUpdateRequired, this);
-  }
-
-  private onIssueAdded(event: Common.EventTarget.EventTargetEvent): void {
-    const {issue} =
-        /** @type {!{issue: !SDK.Issue.Issue}} */ (event.data);
-    this.addIssue(issue);
+    this.issuesManager.addPartialObserver(this);
   }
 
   private addIssue(issue: SDK.Issue.Issue): void {
@@ -49,7 +42,11 @@ export class SourceFrameIssuesManager {
     }
   }
 
-  private onFullUpdateRequired(): void {
+  onIssueAdded(_issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void {
+    this.addIssue(issue);
+  }
+
+  onFullUpdateRequired(): void {
     this.resetMessages();
     const issues = this.issuesManager.issues();
     for (const issue of issues) {

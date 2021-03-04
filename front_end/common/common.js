@@ -17,6 +17,7 @@ import * as JavaScriptMetaData from './JavaScriptMetaData.js';
 import * as Lazy from './Lazy.js';
 import * as Linkifier from './Linkifier.js';
 import * as ObjectWrapper from './Object.js';
+import * as Observable from './Observable.js';
 import * as ParsedURL from './ParsedURL.js';
 import * as Progress from './Progress.js';
 import * as QueryParamHandler from './QueryParamHandler.js';
@@ -62,6 +63,7 @@ export {
   Lazy,
   Linkifier,
   ObjectWrapper,
+  Observable,
   ParsedURL,
   Progress,
   QueryParamHandler,

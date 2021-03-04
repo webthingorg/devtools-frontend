@@ -10,6 +10,17 @@ import {SourceFrameIssuesManager} from './SourceFrameIssuesManager.js';
 
 let issuesManagerInstance: IssuesManager|null = null;
 
+export interface IssueObserver {
+  onIssueAdded(issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void;
+  onFullUpdateRequired(): void;
+}
+
+export interface IssueCountObserver {
+  onIssueCountUpdated(numberOfIssues: number): void;
+}
+
+export type IssuesManagerObserver = IssueObserver&IssueCountObserver;
+
 /**
  * The `IssuesManager` is the central storage for issues. It collects issues from all the
  * `IssuesModel` instances in the page, and deduplicates them wrt their primary key.
@@ -21,7 +32,7 @@ let issuesManagerInstance: IssuesManager|null = null;
  * Issues that are accepted by the filter cause events to be fired or are returned by
  * `IssuesManager#issues()`.
  */
-export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
+export class IssuesManager extends Common.Observable.Observable<IssuesManagerObserver> implements
     SDK.SDKModel.SDKModelObserver<SDK.IssuesModel.IssuesModel> {
   _eventListeners: WeakMap<SDK.IssuesModel.IssuesModel, Common.EventTarget.EventDescriptor>;
   _issues: Map<string, SDK.Issue.Issue>;
@@ -122,11 +133,11 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
 
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
-      this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
+      this.signal('onIssueAdded', issuesModel, issue);
     }
     // Always fire the "count" event even if the issue was filtered out.
     // The result of `hasOnlyThirdPartyIssues` could still change.
-    this.dispatchEventToListeners(Events.IssuesCountUpdated);
+    this.signal('onIssueCountUpdated', this.numberOfIssues());
   }
 
   issues(): Iterable<SDK.Issue.Issue> {
@@ -166,18 +177,11 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
       }
     }
 
-    this.dispatchEventToListeners(Events.FullUpdateRequired);
-    this.dispatchEventToListeners(Events.IssuesCountUpdated);
+    this.signal('onFullUpdateRequired');
+    this.signal('onIssueCountUpdated', this.numberOfIssues());
   }
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Events {
-  IssuesCountUpdated = 'IssuesCountUpdated',
-  IssueAdded = 'IssueAdded',
-  FullUpdateRequired = 'FullUpdateRequired',
-}
 
 // @ts-ignore
 globalThis.addIssueForTest = (issue: Protocol.Audits.InspectorIssue): void => {

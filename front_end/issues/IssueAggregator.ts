@@ -168,7 +168,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
   }
 }
 
-export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
+export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper implements
+    BrowserSDK.IssuesManager.IssueObserver {
   private aggregatedIssuesByCode: Map<string, AggregatedIssue>;
   private issuesManager: BrowserSDK.IssuesManager.IssuesManager;
 
@@ -176,23 +177,17 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
     super();
     this.aggregatedIssuesByCode = new Map();
     this.issuesManager = issuesManager;
-    this.issuesManager.addEventListener(BrowserSDK.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
-    this.issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.FullUpdateRequired, this.onFullUpdateRequired, this);
+    this.issuesManager.addPartialObserver(this);
     for (const issue of this.issuesManager.issues()) {
       this.aggregateIssue(issue);
     }
   }
 
-  private onIssueAdded(event: Common.EventTarget.EventTargetEvent): void {
-    const {issue} = (event.data as {
-      issuesModel: SDK.IssuesModel.IssuesModel,
-      issue: SDK.Issue.Issue,
-    });
+  onIssueAdded(_issuesModel: SDK.IssuesModel.IssuesModel, issue: SDK.Issue.Issue): void {
     this.aggregateIssue(issue);
   }
 
-  private onFullUpdateRequired(): void {
+  onFullUpdateRequired(): void {
     this.aggregatedIssuesByCode.clear();
     for (const issue of this.issuesManager.issues()) {
       this.aggregateIssue(issue);

@@ -12,12 +12,10 @@ import {MockIssuesModel} from '../sdk/MockIssuesModel.js';
 import {MockIssuesManager} from '../browser_sdk/MockIssuesManager.js';
 
 describeWithEnvironment('AggregatedIssue', async () => {
-  let BrowserSDK: typeof BrowserSDKModule;
   let Issues: typeof IssuesModule;
   let SDK: typeof SDKModule;
   before(async () => {
     Issues = await import('../../../../front_end/issues/issues.js');
-    BrowserSDK = await import('../../../../front_end/browser_sdk/browser_sdk.js');
     SDK = await import('../../../../front_end/sdk/sdk.js');
   });
 
@@ -38,10 +36,8 @@ describeWithEnvironment('AggregatedIssue', async () => {
     const issue2 = new SDK.TrustedWebActivityIssue.TrustedWebActivityIssue(details2);
 
     const aggregator = new Issues.IssueAggregator.IssueAggregator(mockManager);
-    mockManager.dispatchEventToListeners(
-        BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue: issue1});
-    mockManager.dispatchEventToListeners(
-        BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue: issue2});
+    mockManager.signal('onIssueAdded', mockModel, issue1);
+    mockManager.signal('onIssueAdded', mockModel, issue2);
 
     const issues = Array.from(aggregator.aggregatedIssues());
     assert.strictEqual(issues.length, 1);
@@ -77,12 +73,9 @@ describeWithEnvironment('AggregatedIssue', async () => {
     const issue3 = new SDK.TrustedWebActivityIssue.TrustedWebActivityIssue(details3);
 
     const aggregator = new Issues.IssueAggregator.IssueAggregator(mockManager);
-    mockManager.dispatchEventToListeners(
-        BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue: issue1});
-    mockManager.dispatchEventToListeners(
-        BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue: issue2});
-    mockManager.dispatchEventToListeners(
-        BrowserSDK.IssuesManager.Events.IssueAdded, {issuesModel: mockModel, issue: issue3});
+    mockManager.signal('onIssueAdded', mockModel, issue1);
+    mockManager.signal('onIssueAdded', mockModel, issue2);
+    mockManager.signal('onIssueAdded', mockModel, issue3);
 
     const issues = Array.from(aggregator.aggregatedIssues());
     assert.strictEqual(issues.length, 3);

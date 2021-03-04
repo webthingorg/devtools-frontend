@@ -72,6 +72,7 @@ all_typescript_module_sources = [
   "common/Lazy.js",
   "common/Linkifier.js",
   "common/Object.js",
+  "common/Observable.js",
   "common/ParsedURL.js",
   "common/Progress.js",
   "common/QueryParamHandler.js",

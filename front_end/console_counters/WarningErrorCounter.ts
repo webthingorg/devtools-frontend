@@ -41,7 +41,7 @@ const str_ = i18n.i18n.registerUIStrings('console_counters/WarningErrorCounter.t
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 let warningErrorCounterInstance: WarningErrorCounter;
-export class WarningErrorCounter implements UI.Toolbar.Provider {
+export class WarningErrorCounter implements UI.Toolbar.Provider, BrowserSDK.IssuesManager.IssueCountObserver {
   _toolbarItem: UI.Toolbar.ToolbarItem;
   _consoleCounter: Components.IconButton.IconButton;
   _violationCounter: Components.IconButton.IconButton|null;
@@ -91,9 +91,12 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
         SDK.ConsoleModel.Events.MessageUpdated, this._update, this);
 
-    BrowserSDK.IssuesManager.IssuesManager.instance().addEventListener(
-        BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._update, this);
+    BrowserSDK.IssuesManager.IssuesManager.instance().addPartialObserver(this);
 
+    this._update();
+  }
+
+  onIssueCountUpdated(_numberOfIssues: number): void {
     this._update();
   }
 
