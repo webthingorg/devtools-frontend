@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a553839a_1ba71c87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-03-04T04:01:58Z",
+      "side": 1,
+      "message": "Hi everyone,\nThis is the first CL from the localization cleaning phase. PTAL",
+      "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
