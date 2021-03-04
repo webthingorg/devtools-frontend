@@ -98,7 +98,7 @@ const OTHER_LICENSE_HEADERS = [
   // IBM Corp
   'sources/WatchExpressionsSidebarPane.js',
   // Multiple authors
-  'components/JSPresentationUtils.js',
+  'components/JSPresentationUtils.ts',
   'console/ConsoleView.js',
   'console/ConsoleViewMessage.js',
   'cookie_table/CookiesTable.js',
