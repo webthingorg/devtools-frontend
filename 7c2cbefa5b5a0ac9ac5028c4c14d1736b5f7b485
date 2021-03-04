@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ba1fbb_2bda6237",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T13:00:02Z",
+      "side": 1,
+      "message": "PTAL, once the other CLs have landed, I\u0027ll update this CL to share more code (\"is it the UIStrings object I am looking for?\")\n\nWe can also remove the \"unused UIStrings\" logic from the \"localizationV2Checks\" afterwards.",
+      "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
