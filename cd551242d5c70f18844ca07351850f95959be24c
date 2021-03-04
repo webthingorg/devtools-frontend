@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14fde2a_bf8680a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T13:23:46Z",
+      "side": 1,
+      "message": "PT(another)L, now the rule also shares more code with other l10n rules.",
+      "revId": "cd551242d5c70f18844ca07351850f95959be24c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
