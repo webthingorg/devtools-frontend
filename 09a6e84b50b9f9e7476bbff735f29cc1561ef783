@@ -16,6 +16,138 @@
       "message": "PTAL. Thanks.",
       "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc6dd6c8_6f8c1f11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "Mostly lgtm, some comments though",
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d55560e_6c8109d4",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "nit: Does `startRow.tabIndex \u003d 0;` not work? (Here and below)",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 43
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4af7da7_0bf3e2ac",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "We are lying here to TypeScript. Either `event.target` and `target.parentElement` can be undefined as well, in which case the type in the cast should be HTMLElement|undefined. Or it can\u0027t and we can remove the if checks.",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 5
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ba18ba7_e6b64e4c",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "this.selectedRowIndex \u003d this.rows.indexOf(tr);\n\nWill even return -1 if it doesn\u0027t find tr in the array.",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 5
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d192d5f_b48a5a9c",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "Same argument as above. Here and below.",
+      "range": {
+        "startLine": 299,
+        "startChar": 21,
+        "endLine": 299,
+        "endChar": 48
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "115dabd2_2e16cc50",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T08:56:05Z",
+      "side": 1,
+      "message": "this.rows is typed as an array that can never be null or undefined, no need to check for it here and below (unless we are lying again and indeed remove the array from the object at one point?)",
+      "range": {
+        "startLine": 313,
+        "startChar": 9,
+        "endLine": 313,
+        "endChar": 19
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
