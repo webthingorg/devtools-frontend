@@ -197,6 +197,30 @@
       },
       "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96daf03b_9959c6c9",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-04T15:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4b624ae_6d2bcfb1",
+      "range": {
+        "startLine": 351,
+        "startChar": 18,
+        "endLine": 351,
+        "endChar": 24
+      },
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d724eabc_8342eb26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-04T15:46:43Z",
+      "side": 1,
+      "message": "I updated the patch to use the colors from themeColors.css \nand to also use the new i18n api. PTAL again!",
+      "revId": "69daee64d6ddbb7f71a9fdcc9b1efd078343be1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
