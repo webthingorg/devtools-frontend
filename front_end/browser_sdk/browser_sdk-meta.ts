@@ -7,10 +7,8 @@ import * as i18n from '../i18n/i18n.js';
 
 
 const UIStrings = {
-  /**
-  *@description Title of the Network tool
-  */
-  network: 'Network',
+
+
   /**
  *@description Text to preserve the log after refreshing
  */
