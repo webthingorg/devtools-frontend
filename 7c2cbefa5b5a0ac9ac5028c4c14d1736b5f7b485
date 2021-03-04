@@ -16,6 +16,52 @@
       "message": "PTAL, once the other CLs have landed, I\u0027ll update this CL to share more code (\"is it the UIStrings object I am looking for?\")\n\nWe can also remove the \"unused UIStrings\" logic from the \"localizationV2Checks\" afterwards.",
       "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88078c47_502e402c",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T13:11:37Z",
+      "side": 1,
+      "message": "The script seems to leave blank lines behind, probably should be fixed",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e559ec0c_015ad3c9",
+        "filename": "scripts/eslint_rules/lib/l10n_no_unused_phrase.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T13:11:37Z",
+      "side": 1,
+      "message": "I\u0027d prefer to call it a message or just a string here rather than have another term",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 38
+      },
+      "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
