@@ -16,6 +16,24 @@
       "message": "Why not as a eslint rule? Than we could have tests for it :)\n\nBut lgtm if there is a preference to add it to collect-strings.js.",
       "revId": "80f77d62916462ac52192b1283e2d3d5c1003bbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "924e9b25_05aa87b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T11:10:15Z",
+      "side": 1,
+      "message": "mm I was going to make it interact with the placeholder checking below in _processPlaceholderDirectIcu but it turned out too complicated. Maybe we leave it here until all the checking is moved to eslint?\n\nIdeally in the future we run the l10n eslint checks before/while running collect-strings anyway, to avoid accidentally exporting strings that don\u0027t actually pass linting",
+      "parentUuid": "a5fbd064_626a6167",
+      "revId": "80f77d62916462ac52192b1283e2d3d5c1003bbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
