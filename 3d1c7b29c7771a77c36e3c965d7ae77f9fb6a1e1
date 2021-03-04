@@ -56,6 +56,30 @@
       },
       "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b2038e7_1cadf530",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-03-04T21:37:12Z",
+      "side": 1,
+      "message": "😮, I spent a couple of hours trying to figure out why I was getting the lint error if I was following the same pattern as below (I assumed this was a recent rule turned on). Turns out intellisense suggested the fix and I guess I took it 😐. Never realized it was importing UIStrings instead of platform!, thanks for catching this Simon 😊",
+      "parentUuid": "949c907c_edb96f60",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 126
+      },
+      "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
