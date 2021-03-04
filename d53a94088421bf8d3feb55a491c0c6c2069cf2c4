@@ -16,6 +16,23 @@
       "message": "hmm need to find a fix for this {empty} thing because the presubmit check thinks it\u0027s a placeholder",
       "revId": "d53a94088421bf8d3feb55a491c0c6c2069cf2c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9c1c727_ec677e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T07:04:31Z",
+      "side": 1,
+      "message": "lgtm, no idea how to fix the {empty} thing. We could have a naming convention for place holders (they have to start with \u0027PH\u0027), but then we would have to update all the plurals again, that currently use \u0027n\u0027.",
+      "revId": "d53a94088421bf8d3feb55a491c0c6c2069cf2c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
