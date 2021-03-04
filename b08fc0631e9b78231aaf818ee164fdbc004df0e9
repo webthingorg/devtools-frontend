@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "b08fc0631e9b78231aaf818ee164fdbc004df0e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0961c70c_0d4005d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T09:13:43Z",
+      "side": 1,
+      "message": "LGTM, but please create a \"to TS\" CL to land before this so we can back-merge/revert if we need.",
+      "revId": "b08fc0631e9b78231aaf818ee164fdbc004df0e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "032946e2_866745c9",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-04T09:13:43Z",
+      "side": 1,
+      "message": "Add a TODO and reference to the bug with the race condition (\nhttps://crbug.com/1183325)",
+      "range": {
+        "startLine": 132,
+        "startChar": 10,
+        "endLine": 132,
+        "endChar": 32
+      },
+      "revId": "b08fc0631e9b78231aaf818ee164fdbc004df0e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
