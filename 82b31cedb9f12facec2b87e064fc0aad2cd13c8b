@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc3a44f_abd52572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T14:18:44Z",
+      "side": 1,
+      "message": "PTAL. All of these files had an exception in check_license_headers which got lost when porting from JS to TS. Do we need to double-check with legal that this is ok?",
+      "revId": "82b31cedb9f12facec2b87e064fc0aad2cd13c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
