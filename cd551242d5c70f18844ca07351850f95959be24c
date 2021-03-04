@@ -56,6 +56,30 @@
       },
       "revId": "cd551242d5c70f18844ca07351850f95959be24c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbe8790_a6a39938",
+        "filename": "scripts/eslint_rules/lib/l10n_no_unused_message.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T14:27:17Z",
+      "side": 1,
+      "message": "Well, the \"fixer.*\" calls don\u0027t modify the source code directly, but just produce a transformation that will change the source in the future. So in the end the order here doesn\u0027t really matter as we basically return a list of tokens that should be removed later.\n\nIf you think its clearer, I can order the modifications in the order in which they would appear in the source: Remove comments, remove property, remove trailing slash, remove trailing newline.",
+      "parentUuid": "2158b26d_d729bc5d",
+      "range": {
+        "startLine": 41,
+        "startChar": 24,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "cd551242d5c70f18844ca07351850f95959be24c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
