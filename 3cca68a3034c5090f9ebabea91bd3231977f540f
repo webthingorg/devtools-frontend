@@ -16,6 +16,23 @@
       "message": "PTAL. For the before version, see the bug.",
       "revId": "3cca68a3034c5090f9ebabea91bd3231977f540f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e7d90c_8d1d3178",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-04T13:57:18Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3cca68a3034c5090f9ebabea91bd3231977f540f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
