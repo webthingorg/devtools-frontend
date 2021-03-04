@@ -16,6 +16,69 @@
       "message": "Thanks for the comment Benedikt. PTAL Jack, I\u0027ve added more info on the commit message now :). ",
       "revId": "afc543d60e602c6db59346f1baf258e13acd35c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b0971de_76a893af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-04T14:35:38Z",
+      "side": 1,
+      "message": "LGTM with some tiny thoughts. I really like this approach. Nice work!",
+      "revId": "afc543d60e602c6db59346f1baf258e13acd35c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594cc339_26c7bcc8",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-04T14:35:38Z",
+      "side": 1,
+      "message": "teeeeeeeny nit: I would either use Array.from() or [...x] for both, rather than one of each, just to be consistent.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 49
+      },
+      "revId": "afc543d60e602c6db59346f1baf258e13acd35c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "047ee53b_e19991a9",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-04T14:35:38Z",
+      "side": 1,
+      "message": "do you have to pass in these settings the first time to create one of these components, or does it fall back to sensible defaults otherwise?\n\nIf they are required, maybe we should make the component error if it\u0027s not given them the first time the setter is called?",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 7
+      },
+      "revId": "afc543d60e602c6db59346f1baf258e13acd35c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
