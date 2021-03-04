@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b36cbed6_8057e2ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T14:21:20Z",
+      "side": 1,
+      "message": "PTAL. This is a bit different than the previous CL. Since both are Google-licenses I believe we can just remove the old ones.",
+      "revId": "20bbc2c2f280856b00a7723e4abfc293c29c8aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
