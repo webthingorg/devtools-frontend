@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53fa235_60c55f1b",
+        "filename": "front_end/network/NetworkLogViewColumns.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T09:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2624520e_7bafce39",
+      "range": {
+        "startLine": 1009,
+        "startChar": 4,
+        "endLine": 1010,
+        "endChar": 65
+      },
+      "revId": "69d811e197f8409bc34a1aaa4e3a47b74edfd601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e045673a_469d1552",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-04T09:28:42Z",
       "side": 1,
       "message": "What\u0027s the plan with this one?",
+      "range": {
+        "startLine": 1019,
+        "startChar": 2,
+        "endLine": 1019,
+        "endChar": 18
+      },
+      "revId": "69d811e197f8409bc34a1aaa4e3a47b74edfd601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2864e6be_51662f8d",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T09:38:43Z",
+      "side": 1,
+      "message": "This one is used in conjunction with `getFormatLocalizedString`, that formats and renders directly into HTMLElements. I have to grok my way into that first and see how to resolve that best.",
+      "parentUuid": "e045673a_469d1552",
       "range": {
         "startLine": 1019,
         "startChar": 2,
@@ -100,6 +148,54 @@
       "writtenOn": "2021-03-04T09:28:42Z",
       "side": 1,
       "message": "nit: placeholder-only",
+      "range": {
+        "startLine": 52,
+        "startChar": 31,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "69d811e197f8409bc34a1aaa4e3a47b74edfd601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4e437c_23bbfdda",
+        "filename": "scripts/eslint_rules/lib/l10n_no_locked_only_phrase.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T09:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19c172d9_c41dd95e",
+      "range": {
+        "startLine": 52,
+        "startChar": 48,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "69d811e197f8409bc34a1aaa4e3a47b74edfd601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d60bdad_4fe9ad83",
+        "filename": "scripts/eslint_rules/lib/l10n_no_locked_only_phrase.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T09:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24d513ae_45b8cf0b",
       "range": {
         "startLine": 52,
         "startChar": 31,
