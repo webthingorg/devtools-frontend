@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e0b2e15_c9962ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T06:44:52Z",
+      "side": 1,
+      "message": "PTAL, do you think we should have a regression e2e test for this UX behavior? (Might also be doable in a unit test but that would require some experimenting).",
+      "revId": "956e253937914758e3757a612ae60631d5c3a2a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
