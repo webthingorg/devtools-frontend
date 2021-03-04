@@ -16,6 +16,74 @@
       "message": "Not including a screenshot, as everything looks like before.",
       "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c85d03_81bbf597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T08:35:40Z",
+      "side": 1,
+      "message": "Could you please add a screenshot of the new icon(s)?",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2677fb5_a8fe4df1",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T08:35:40Z",
+      "side": 1,
+      "message": "Am I right to assume that the issue-cross-icon will be used in a follow-up?",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223ff919_77c6573b",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T08:35:40Z",
+      "side": 1,
+      "message": "Could you use `breaking-change-color` here?",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fbf384_bea1b454",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-04T08:35:40Z",
+      "side": 1,
+      "message": "Is this the correct location for defining a color variable?",
+      "revId": "49f3642b8d805cc8e4e978a1382d80c76944e058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
