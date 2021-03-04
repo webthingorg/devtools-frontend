@@ -16,6 +16,46 @@
       "message": "Hi everyone,\nThis is the first CL from the localization cleaning phase. PTAL",
       "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "837a61f2_a4809b78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T07:12:30Z",
+      "side": 1,
+      "message": "lgtm % one comment",
+      "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "949c907c_edb96f60",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T07:12:30Z",
+      "side": 1,
+      "message": "Does the following not work?\n\n import type * as Platform from \u0027../../../../front_end/platform/platform.js\u0027;\n\nand refer to the type below with `Platform.UIString.LocalizedString`. Then we wouldn\u0027t have to disable the linter (and use the standard way of importing, the above could lead to problems, as it doesn\u0027t import an entry point.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 126
+      },
+      "revId": "3d1c7b29c7771a77c36e3c965d7ae77f9fb6a1e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
