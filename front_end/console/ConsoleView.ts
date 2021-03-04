@@ -56,10 +56,8 @@ import type {ConsoleViewportElement, ConsoleViewportProvider} from './ConsoleVie
 import {ConsoleViewport} from './ConsoleViewport.js';
 
 const UIStrings = {
-  /**
-  *@description Label for link to issues tab
-  */
-  viewIssues: 'View issues',
+
+
   /**
   *@description Label for link to issues tab
   */
@@ -90,10 +88,8 @@ const UIStrings = {
   *@example {12} issueCount
   */
   issueToolbarTooltipHaveMultipleIssues: 'Click to view {issueCount} issues',
-  /**
-  *@description Infobar text about messages being on the issues tab
-  */
-  someMessagesHaveBeenMovedToThe: 'Some messages have been moved to the Issues panel.',
+
+
   /**
   *@description Text in Console View of the Console panel
   */
