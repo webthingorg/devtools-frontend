@@ -33,6 +33,24 @@
       "message": "lgtm, no idea how to fix the {empty} thing. We could have a naming convention for place holders (they have to start with \u0027PH\u0027), but then we would have to update all the plurals again, that currently use \u0027n\u0027.",
       "revId": "d53a94088421bf8d3feb55a491c0c6c2069cf2c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b40e7d3_a38b3de7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T07:12:26Z",
+      "side": 1,
+      "message": "Just realised that it isn\u0027t ambiguous because\n\n    \u003d1 {empty}\n\nThere, empty can never be a placeholder, it would have to be\n\n    \u003d1 {{empty}}\n\nBut this is getting harder and harder to regexp and we probably need to actually parse it at this point. The current code doesn\u0027t even know about plurals when it checks for placeholders, which is why it catches `{empty}` in a plural block.\n\nI will change this string to a single string for now with a TODO",
+      "parentUuid": "f9c1c727_ec677e2e",
+      "revId": "d53a94088421bf8d3feb55a491c0c6c2069cf2c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
