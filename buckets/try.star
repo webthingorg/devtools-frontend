@@ -156,7 +156,6 @@ cq_master_builders = [
 cq_master_experiment_builders = [
     # Quarantine a builder here
     # This will make them experiment 100%
-    "dtf_linux_experiments",
     "devtools_frontend_linux_off",
 ]
 
