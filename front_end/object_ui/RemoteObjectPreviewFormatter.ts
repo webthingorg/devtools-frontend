@@ -10,18 +10,16 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 const UIStrings = {
+  // TODO(l10n): The zero-width joiner character after 'empty' is required below to make the
+  // presubmit check think that 'empty' is not a placeholder that is missing. The check does not
+  // properly understand ICU plurals, and thinks this is a placeholder, although it would need to be
+  // {{empty}} in this case.
   /**
   * @description Text shown in the console object preview. Shown when the user is inspecting a
-  * JavaScript object and there are multiple empty properties on the object (x =
+  * JavaScript object and there are multiple empty properties on the object (× =
   * 'times'/'multiply').
-  * @example {3} PH1
   */
-  emptyD: 'empty × {PH1}',
-  /**
-  * @description Shown when the user is inspecting a JavaScript object in the console and there is
-  * an empty property on the object..
-  */
-  empty: 'empty',
+  empty: '{n, plural, =1 {empty\u200D} other {empty × #}}',
   /**
   * @description Text shown when the user is inspecting a JavaScript object, but of the properties
   * is not immediately available because it is a JavaScript 'getter' function, which means we have
@@ -219,8 +217,7 @@ export class RemoteObjectPreviewFormatter {
     function appendUndefined(index: number): void {
       const span = parentElement.createChild('span', 'object-value-undefined');
       const count = index - lastNonEmptyArrayIndex - 1;
-      // TODO(l10n): Plurals
-      span.textContent = count !== 1 ? i18nString(UIStrings.emptyD, {PH1: count}) : i18nString(UIStrings.empty);
+      span.textContent = i18nString(UIStrings.empty, {n: count});
       elementsAdded = true;
     }
   }
