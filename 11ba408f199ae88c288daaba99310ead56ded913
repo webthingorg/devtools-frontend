@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ef3c41_2e3021f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T06:50:17Z",
+      "side": 1,
+      "message": "Chait, can you take a look at this change? Especially the changes to MarkdownImage.ts. Would this break Edge DevTools downstream or can you work around this?",
+      "revId": "11ba408f199ae88c288daaba99310ead56ded913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d476d5d_0058f51b",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-04T06:50:17Z",
+      "side": 1,
+      "message": "This might not work for all users of MarkdownImage.",
+      "range": {
+        "startLine": 57,
+        "startChar": 38,
+        "endLine": 57,
+        "endChar": 62
+      },
+      "revId": "11ba408f199ae88c288daaba99310ead56ded913",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
