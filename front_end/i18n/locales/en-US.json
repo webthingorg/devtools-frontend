@@ -11012,6 +11012,18 @@
   "timeline/UIDevtoolsUtils.js | system": {
     "message": "System"
   },
+  "timeline/WebVitalsTimeline.ts | fcp": {
+    "message": "FCP"
+  },
+  "timeline/WebVitalsTimeline.ts | lcp": {
+    "message": "LCP"
+  },
+  "timeline/WebVitalsTimeline.ts | longTasks": {
+    "message": "Long Tasks"
+  },
+  "timeline/WebVitalsTimeline.ts | ls": {
+    "message": "LS"
+  },
   "ui/components/DataGrid.ts | headerOptions": {
     "message": "Header Options"
   },
