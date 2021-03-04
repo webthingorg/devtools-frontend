@@ -16,6 +16,46 @@
       "message": "PT(another)L, now the rule also shares more code with other l10n rules.",
       "revId": "cd551242d5c70f18844ca07351850f95959be24c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb42b9b8_6dab6180",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T14:17:44Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "cd551242d5c70f18844ca07351850f95959be24c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2158b26d_d729bc5d",
+        "filename": "scripts/eslint_rules/lib/l10n_no_unused_message.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T14:17:44Z",
+      "side": 1,
+      "message": "This looks a bit weird because you remove property, then re-get the source, then say \u0027get token after property\u0027 (which doesn\u0027t exist). I guess it works though?",
+      "range": {
+        "startLine": 41,
+        "startChar": 24,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "cd551242d5c70f18844ca07351850f95959be24c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

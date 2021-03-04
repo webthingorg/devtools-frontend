@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61338b55_f1378a4b",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-04T14:17:44Z",
+      "side": 1,
+      "message": "Well. I guess it depends on interpretation here. That\u0027s because the fixer deleted all of the text on the line, so it\u0027s now blank. But the diff view makes it look like it deleted the lines it doesn\u0027t need, then introduced blank lines. It\u0027s going to do this almost every time it removes a property, unless the original property was weirdly formatted, so yeah either we should take care of it, or the formatter should clean up afterwards.",
+      "parentUuid": "d08799b4_c6040325",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 0
+      },
+      "revId": "7c2cbefa5b5a0ac9ac5028c4c14d1736b5f7b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e559ec0c_015ad3c9",
         "filename": "scripts/eslint_rules/lib/l10n_no_unused_phrase.js",
         "patchSetId": 2
