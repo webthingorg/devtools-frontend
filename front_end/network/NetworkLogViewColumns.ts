@@ -136,11 +136,6 @@ const UIStrings = {
   */
   connectionId: 'Connection ID',
   /**
-  *@description Text that only contain a placeholder
-  *@example {100ms (at 200ms)} PH1
-  */
-  s: '{PH1}',
-  /**
   *@description Text in Network Log View Columns of the Network panel
   */
   remoteAddressSpace: 'Remote Address Space',
@@ -1013,7 +1008,7 @@ const _temporaryDefaultColumns = [
     isResponseHeader: true,
     // until IDs are supported for strings, the placeholder is used to workaround the limitation that
     // having multiple translations for a string is not supported
-    title: i18nLazyString(UIStrings.s, {PH1: 'Connection'}),
+    title: i18n.i18n.lockedLazyString('Connection'),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'connection'),
   },
   {
