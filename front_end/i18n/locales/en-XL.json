@@ -11012,6 +11012,18 @@
   "timeline/UIDevtoolsUtils.js | system": {
     "message": "Ŝýŝt́êḿ"
   },
+  "timeline/WebVitalsTimeline.ts | fcp": {
+    "message": "F̂ĆP̂"
+  },
+  "timeline/WebVitalsTimeline.ts | lcp": {
+    "message": "L̂ĆP̂"
+  },
+  "timeline/WebVitalsTimeline.ts | longTasks": {
+    "message": "L̂ón̂ǵ T̂áŝḱŝ"
+  },
+  "timeline/WebVitalsTimeline.ts | ls": {
+    "message": "L̂Ś"
+  },
   "ui/components/DataGrid.ts | headerOptions": {
     "message": "Ĥéâd́êŕ Ôṕt̂íôńŝ"
   },
