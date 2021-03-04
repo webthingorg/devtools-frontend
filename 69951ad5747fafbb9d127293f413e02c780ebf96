@@ -16,6 +16,29 @@
       "message": "Tim, PTAL at check_license_header",
       "revId": "69951ad5747fafbb9d127293f413e02c780ebf96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c857c3f4_09be91a9",
+        "filename": "scripts/eslint_rules/lib/check_license_header.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-04T14:56:43Z",
+      "side": 1,
+      "message": "For all files that we migrated to `*.ts`, we have kept the licenses. Therefore, I think we should be doing that for this file as well. E.g. revert the change here and add the additional license header to `JSPresentationUtils.ts`.",
+      "range": {
+        "startLine": 101,
+        "startChar": 34,
+        "endLine": 101,
+        "endChar": 36
+      },
+      "revId": "69951ad5747fafbb9d127293f413e02c780ebf96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
