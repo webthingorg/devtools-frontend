@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee9aa1a_e913033a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-05T08:33:23Z",
+      "side": 1,
+      "message": "PTAL again, I rebased on the TSification CL.",
+      "revId": "73f3dd2374ef32e18136e9e1e57fcd06bc571a13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
