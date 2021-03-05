@@ -44,10 +44,9 @@ async function changeNetworkConditions(condition: string) {
 
 describe('Recorder', function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
-  this.timeout(10000);
+  this.timeout(0);
 
-  // Flaky test
-  it.skip('[crbug.com/1173993] should record the interactions with the browser as a script', async () => {
+  it('should record the interactions with the browser as a script', async () => {
     const waitForScriptToChange = getWaitForScriptToChangeFunction();
     await enableExperiment('recorder');
     await goToResource('recorder/recorder.html');
@@ -104,7 +103,6 @@ describe('Recorder', function() {
     await target.click('aria/Back to Page 1');
     await waitForScriptToChange();
     await promise;
-
 
     await frontend.bringToFront();
     await frontend.waitForSelector('aria/Stop');

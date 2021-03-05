@@ -195,6 +195,7 @@ export class RecordingSession {
       }
     `;
 
+
     // This uses the setEventListenerBreakpoint method from the debugger
     // to get notified about new events. Therefor disable the normal debugger
     // while recording.
