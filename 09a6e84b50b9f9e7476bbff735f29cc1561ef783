@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6819a52_4af76f58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "You are right. Resolved the cram and updated recording. Thanks!",
+      "parentUuid": "6a29ca3a_38df0ad8",
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d55560e_6c8109d4",
@@ -65,6 +83,30 @@
       "writtenOn": "2021-03-04T08:56:05Z",
       "side": 1,
       "message": "nit: Does `startRow.tabIndex \u003d 0;` not work? (Here and below)",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 43
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89561405_7f410701",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d55560e_6c8109d4",
       "range": {
         "startLine": 214,
         "startChar": 4,
@@ -98,6 +140,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb61ab4_844797d0",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4af7da7_0bf3e2ac",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 5
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ba18ba7_e6b64e4c",
@@ -111,6 +177,30 @@
       "writtenOn": "2021-03-04T08:56:05Z",
       "side": 1,
       "message": "this.selectedRowIndex \u003d this.rows.indexOf(tr);\n\nWill even return -1 if it doesn\u0027t find tr in the array.",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 5
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d0f0972_69a32293",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ba18ba7_e6b64e4c",
       "range": {
         "startLine": 253,
         "startChar": 0,
@@ -144,6 +234,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be6b97be_97c20439",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d192d5f_b48a5a9c",
+      "range": {
+        "startLine": 299,
+        "startChar": 21,
+        "endLine": 299,
+        "endChar": 48
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "115dabd2_2e16cc50",
@@ -157,6 +271,30 @@
       "writtenOn": "2021-03-04T08:56:05Z",
       "side": 1,
       "message": "this.rows is typed as an array that can never be null or undefined, no need to check for it here and below (unless we are lying again and indeed remove the array from the object at one point?)",
+      "range": {
+        "startLine": 313,
+        "startChar": 9,
+        "endLine": 313,
+        "endChar": 19
+      },
+      "revId": "09a6e84b50b9f9e7476bbff735f29cc1561ef783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88521faa_2c37518f",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-05T07:41:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "115dabd2_2e16cc50",
       "range": {
         "startLine": 313,
         "startChar": 9,
