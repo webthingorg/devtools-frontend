@@ -399,7 +399,7 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
   }
 
   handleAction(_context: UI.Context.Context, actionId: string): boolean {
-    (async(): Promise<void> => {
+    (async (): Promise<void> => {
       const profileViewId = 'live_heap_profile';
       await UI.ViewManager.ViewManager.instance().showView(profileViewId);
       const view = UI.ViewManager.ViewManager.instance().view(profileViewId);

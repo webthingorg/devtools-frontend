@@ -1033,7 +1033,7 @@ export class DebuggerLanguagePluginManager implements SDK.SDKModel.SDKModelObser
       const rawModuleId = rawModuleIdForScript(script);
       let rawModuleHandle = this._rawModuleHandles.get(rawModuleId);
       if (!rawModuleHandle) {
-        const sourceFileURLsPromise = (async(): Promise<string[]> => {
+        const sourceFileURLsPromise = (async (): Promise<string[]> => {
           const console = Common.Console.Console.instance();
           const url = script.sourceURL;
           const symbolsUrl = (script.debugSymbols && script.debugSymbols.externalURL) || '';

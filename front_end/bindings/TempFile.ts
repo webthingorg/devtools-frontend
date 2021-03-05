@@ -118,7 +118,7 @@ export class TempFileBackingStorage implements SDK.TracingModel.BackingStorage {
   appendAccessibleString(string: string): () => Promise<string|null> {
     this._flush();
     if (!this._file) {
-      return async(): Promise<null> => null;
+      return async (): Promise<null> => null;
     }
     const startOffset = this._file.size();
     this._strings.push(string);
