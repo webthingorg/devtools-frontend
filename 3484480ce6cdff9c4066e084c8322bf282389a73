@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab0f6cd_adb35dee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-05T06:59:08Z",
+      "side": 1,
+      "message": "Thanks a lot for the reviews and the feedback, Jack and Benedikt!\n\nAddressed all comments.",
+      "revId": "3484480ce6cdff9c4066e084c8322bf282389a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
