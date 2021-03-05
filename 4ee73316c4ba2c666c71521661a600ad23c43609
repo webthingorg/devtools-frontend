@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b364c319_ab811492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-05T09:31:20Z",
+      "side": 1,
+      "message": "LGTM from the technical side, but please wait for our UX lead Peter to sign off as well.",
+      "revId": "4ee73316c4ba2c666c71521661a600ad23c43609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c2e67472_9c797a65",
         "filename": "front_end/ui/Tooltip.js",
         "patchSetId": 1
@@ -48,6 +65,24 @@
       "writtenOn": "2021-03-05T00:43:49Z",
       "side": 1,
       "message": "This was just a small optimization I noticed; it\u0027s not related to the bug.",
+      "revId": "4ee73316c4ba2c666c71521661a600ad23c43609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e9a4b0_bd60ffa9",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-05T09:31:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2e67472_9c797a65",
       "revId": "4ee73316c4ba2c666c71521661a600ad23c43609",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
