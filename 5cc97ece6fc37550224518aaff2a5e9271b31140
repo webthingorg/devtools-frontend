@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9f8344a_258df51c",
+        "filename": "scripts/eslint_rules/tests/l10n_no_unused_message_test.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-05T11:00:49Z",
+      "side": 1,
+      "message": "Nice, was just about to suggest a test like this",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "5cc97ece6fc37550224518aaff2a5e9271b31140",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

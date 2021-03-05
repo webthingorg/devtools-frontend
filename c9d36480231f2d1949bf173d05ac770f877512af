@@ -16,6 +16,24 @@
       "message": "PT(Another)L, I had to re-do the whole fix thing. In the end I opted for a very simple solution that might not be always correct, in that the CL simply removes the whole lines where the property and the comments in front of it occurs. This works assuming standard UIStrings formatting, but breaks down e.g. for single line UIStrings objects or if multiple properties would be on the same line.\n\nAnything else would require lots of fiddling with tokens and checking if there are newlines inbetween them. Whitespace doesn\u0027t show up in the token stream so its kinda difficult to implement correctly for all cases. This is a good middle ground.",
       "revId": "c9d36480231f2d1949bf173d05ac770f877512af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5529b35_16cfc4f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-05T11:00:49Z",
+      "side": 1,
+      "message": "Nice middle ground, I think this will work great. Thanks!",
+      "parentUuid": "76f7a468_cc042bf8",
+      "revId": "c9d36480231f2d1949bf173d05ac770f877512af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
