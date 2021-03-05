@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49a60c2_c48b8404",
+        "filename": "front_end/component_docs/component_docs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-05T14:17:19Z",
+      "side": 1,
+      "message": "drive by fix that I needed to make the treeoutline look right in the docs.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 0
+      },
+      "revId": "58da51205b812386c8ba2bb6552e4c31954ab5e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
