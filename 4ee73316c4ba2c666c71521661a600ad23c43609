@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4df788d2_690865cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-03-05T00:51:42Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "4ee73316c4ba2c666c71521661a600ad23c43609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c2e67472_9c797a65",
         "filename": "front_end/ui/Tooltip.js",
         "patchSetId": 1
