@@ -16,6 +16,23 @@
       "message": "PTAL. It is passing now on 100 runs on mac.",
       "revId": "cd7221b24ca6cf9e6ab5c09465e4e6df69793992",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "078a9162_c0ce6ebb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-05T08:53:44Z",
+      "side": 1,
+      "message": "Friendly ping on this CL. PTAL when you have a chance.",
+      "revId": "cd7221b24ca6cf9e6ab5c09465e4e6df69793992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
