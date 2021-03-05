@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "20afd474_1c211d2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-03-05T01:30:34Z",
+      "side": 1,
+      "message": "Small accessibility fix, PTAL, thanks!",
+      "revId": "4ee73316c4ba2c666c71521661a600ad23c43609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c2e67472_9c797a65",
         "filename": "front_end/ui/Tooltip.js",
         "patchSetId": 1
