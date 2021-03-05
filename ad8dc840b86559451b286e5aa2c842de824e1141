@@ -16,6 +16,46 @@
       "message": "Jack, could you do an owner\u0027s review of component_docs, thanks!",
       "revId": "ad8dc840b86559451b286e5aa2c842de824e1141",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b83f4e4_60e13b5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-05T09:38:03Z",
+      "side": 1,
+      "message": "LGTM but would love to remove the absolute path URL if possible. If it\u0027s not let\u0027s leave it for now.",
+      "revId": "ad8dc840b86559451b286e5aa2c842de824e1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fbf4a10_abc8dc11",
+        "filename": "front_end/component_docs/icon_component/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-05T09:38:03Z",
+      "side": 1,
+      "message": "I know this was like this before your CL but is there a reason this has to be a full path and not just /Images/... ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 76
+      },
+      "revId": "ad8dc840b86559451b286e5aa2c842de824e1141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
