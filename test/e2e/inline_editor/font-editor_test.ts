@@ -39,7 +39,8 @@ describe('The font editor', async function() {
     assert.deepEqual(hiddenFontEditorButtons.length, 2);
   });
 
-  it('opens when button is clicked', async () => {
+  // Flaky on Linux
+  it.skipOnPlatforms(['linux'], '[crbug.com/1184658]: opens when button is clicked', async () => {
     await openFontEditor(0);
   });
 
@@ -81,14 +82,17 @@ describe('The font editor', async function() {
     await waitForCSSPropertyValue('element.style', 'font-weight', 'inherit');
   });
 
-  it('is properly converting units and applying changes to the styles section', async () => {
-    const {frontend} = getBrowserAndPages();
-    await openFontEditor(0);
-    const fontSizeUnitInput = await waitFor('[aria-label="font-size Unit Input"]');
-    await fontSizeUnitInput.focus();
-    await frontend.keyboard.press('e');
-    await waitForCSSPropertyValue('element.style', 'font-size', '0.6em');
-  });
+  // Flaky on Linux
+  it.skipOnPlatforms(
+      ['linux'], '[crbug.com/1184658]: is properly converting units and applying changes to the styles section',
+      async () => {
+        const {frontend} = getBrowserAndPages();
+        await openFontEditor(0);
+        const fontSizeUnitInput = await waitFor('[aria-label="font-size Unit Input"]');
+        await fontSizeUnitInput.focus();
+        await frontend.keyboard.press('e');
+        await waitForCSSPropertyValue('element.style', 'font-size', '0.6em');
+      });
 
   it('computed font list is being generated correctly', async () => {
     await openFontEditor(0);
