@@ -16,6 +16,23 @@
       "message": "Thanks for the CR.",
       "revId": "135c9ca340051517d68adbb2d5e9b50ebc3c358e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48324939_41d1d6fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-05T07:44:26Z",
+      "side": 1,
+      "message": "lgtm, Sigurd, did you wanted to also have a look?",
+      "revId": "135c9ca340051517d68adbb2d5e9b50ebc3c358e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
