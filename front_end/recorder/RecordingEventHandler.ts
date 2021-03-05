@@ -8,7 +8,7 @@ import {Condition, WaitForNavigationCondition} from './Conditions.js';
 import {RecordingSession} from './RecordingSession.js';
 import {ChangeStep, ClickStep, CloseStep, Step, StepFrameContext, SubmitStep} from './Steps.js';
 
-const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set<string>(['button', 'link', 'textbox', 'checkbox']);
+const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set<string>(['button', 'link', 'textbox', 'checkbox', 'combobox']);
 
 export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatcher {
   private target: SDK.SDKModel.Target;
