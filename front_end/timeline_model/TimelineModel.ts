@@ -976,10 +976,6 @@ export class TimelineModelImpl {
         this._invalidationTracker.didLayout(event);
         const frameId = event.args['beginData']['frame'];
         timelineData.setInitiator(this._layoutInvalidate[frameId]);
-        // In case we have no closing Layout event, endData is not available.
-        if (event.args['endData']) {
-          timelineData.backendNodeId = event.args['endData']['rootNode'];
-        }
         this._layoutInvalidate[frameId] = null;
         if (this._currentScriptEvent) {
           this._currentTaskLayoutAndRecalcEvents.push(event);
