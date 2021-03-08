@@ -29,6 +29,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable */
+
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Coverage from '../coverage/coverage.js';  // eslint-disable-line no-unused-vars
@@ -799,7 +801,10 @@ export class TimelinePanel extends UI.Panel.Panel {
     this._showRecordingStarted();
 
     const enabledTraceProviders = Extensions.ExtensionServer.ExtensionServer.instance().traceProviders().filter(
-        provider => TimelinePanel._settingForTraceProvider(provider).get());
+        /**
+         * @param {!Extensions.ExtensionTraceProvider.ExtensionTraceProvider} provider
+         */
+        (provider) => TimelinePanel._settingForTraceProvider((provider)).get());
 
     const mainTarget = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
     if (UIDevtoolsUtils.isUiDevTools()) {

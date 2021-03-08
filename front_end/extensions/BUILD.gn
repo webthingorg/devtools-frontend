@@ -7,12 +7,12 @@ import("../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("extensions") {
   sources = [
-    "ExtensionAPI.js",
+    "ExtensionAPI.ts",
     "ExtensionPanel.js",
-    "ExtensionServer.js",
+    "ExtensionServer.ts",
     "ExtensionTraceProvider.js",
     "ExtensionView.js",
-    "LanguageExtensionEndpoint.js",
+    "LanguageExtensionEndpoint.ts",
   ]
 
   deps = [

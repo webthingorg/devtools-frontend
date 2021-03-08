@@ -228,11 +228,7 @@ async function formatSourceValue(
     field: FieldInfo[], evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<FormattedValueNode> {
   const location = getRawLocation(callFrame);
 
-  let evalCode: {
-    js: string,
-  }|({
-    js: string,
-  } | null) = await plugin.getFormatter({base, field}, location);
+  let evalCode: {js: string}|undefined = await plugin.getFormatter({base, field}, location);
   if (!evalCode) {
     evalCode = {js: ''};
   }
@@ -1444,7 +1440,7 @@ export class DebuggerLanguagePlugin {
   getTypeInfo(_expression: string, _context: RawLocation): Promise<{
     typeInfos: Array<TypeInfo>,
     base: EvalBase,
-  }|null> {
+  }|undefined> {
     throw new Error('Not implemented yet');
   }
 
@@ -1455,7 +1451,7 @@ export class DebuggerLanguagePlugin {
       },
       _context: RawLocation): Promise<{
     js: string,
-  }|null> {
+  }|undefined> {
     throw new Error('Not implemented yet');
   }
 

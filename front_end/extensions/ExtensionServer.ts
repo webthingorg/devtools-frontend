@@ -29,6 +29,7 @@
  */
 
 // @ts-nocheck
+/* eslint-disable */
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Bindings from '../bindings/bindings.js';
@@ -164,8 +165,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {string} identifier
    * @param {number=} frameIndex
    */
-  notifyViewShown(identifier, frameIndex) {
-    this._postNotification(Extensions.extensionAPI.Events.ViewShown + identifier, frameIndex);
+  notifyViewShown(identifier, frameIndex = 0) {
+    this._postNotification(ExtensionAPI.Events.ViewShown + identifier, frameIndex);
   }
 
   /**

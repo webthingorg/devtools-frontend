@@ -29,6 +29,7 @@
  */
 
 // @ts-nocheck
+/* eslint-disable */
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 export function defineCommonExtensionSymbols(apiPrivate) {
@@ -39,7 +40,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     CancelSearch: 'cancelSearch',
     PerformSearch: 'performSearch',
     NextSearchResult: 'nextSearchResult',
-    PreviousSearchResult: 'previousSearchResult'
+    PreviousSearchResult: 'previousSearchResult',
   };
 
   /** @enum {string} */
@@ -54,7 +55,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     ResourceAdded: 'resource-added',
     ResourceContentCommitted: 'resource-content-committed',
     ViewShown: 'view-shown-',
-    ViewHidden: 'view-hidden-'
+    ViewHidden: 'view-hidden-',
   };
 
   /** @enum {string} */
@@ -84,7 +85,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
     ShowPanel: 'showPanel',
     Unsubscribe: 'unsubscribe',
     UpdateButton: 'updateButton',
-    RegisterLanguageExtensionPlugin: 'registerLanguageExtensionPlugin'
+    RegisterLanguageExtensionPlugin: 'registerLanguageExtensionPlugin',
   };
 
   /** @enum {string} */
@@ -106,7 +107,7 @@ export function defineCommonExtensionSymbols(apiPrivate) {
 
   /** @enum {string} */
   apiPrivate.LanguageExtensionPluginEvents = {
-    UnregisteredLanguageExtensionPlugin: 'unregisteredLanguageExtensionPlugin'
+    UnregisteredLanguageExtensionPlugin: 'unregisteredLanguageExtensionPlugin',
   };
 }
 
@@ -194,7 +195,7 @@ self.injectedExtensionAPI = function(
       } else {
         this._fire.apply(this, request.arguments);
       }
-    }
+    },
   };
 
   /**
@@ -242,7 +243,7 @@ self.injectedExtensionAPI = function(
     addRequestHeaders: function(headers) {
       extensionServer.sendRequest(
           {command: commands.AddRequestHeaders, headers: headers, extensionId: window.location.hostname});
-    }
+    },
   };
 
   /**
@@ -258,7 +259,7 @@ self.injectedExtensionAPI = function(
         callback(response.content, response.encoding);
       }
       extensionServer.sendRequest({command: commands.GetRequestContent, id: this._id}, callback && callbackWrapper);
-    }
+    },
   };
 
   /**
@@ -319,7 +320,7 @@ self.injectedExtensionAPI = function(
 
     get SearchAction() {
       return apiPrivate.panels.SearchAction;
-    }
+    },
   };
 
   /**
@@ -367,7 +368,7 @@ self.injectedExtensionAPI = function(
       extensionServer.sendRequest(request, callback && callbackWrapper);
     },
 
-    __proto__: ExtensionViewImpl.prototype
+    __proto__: ExtensionViewImpl.prototype,
   };
 
   /**
@@ -462,7 +463,7 @@ self.injectedExtensionAPI = function(
       this._plugins.delete(plugin);
       port.postMessage({event: languageExtensionPluginEvents.UnregisteredLanguageExtensionPlugin});
       port.close();
-    }
+    },
   };
 
   function declareInterfaceClass(implConstructor) {
@@ -537,7 +538,7 @@ self.injectedExtensionAPI = function(
         id: id,
         icon: iconPath,
         tooltip: tooltipText,
-        disabled: Boolean(disabled)
+        disabled: Boolean(disabled),
       };
       extensionServer.sendRequest(request);
       return new Button(id);
@@ -552,7 +553,7 @@ self.injectedExtensionAPI = function(
       extensionServer.sendRequest(request);
     },
 
-    __proto__: ExtensionViewImpl.prototype
+    __proto__: ExtensionViewImpl.prototype,
   };
 
   /**
@@ -591,7 +592,7 @@ self.injectedExtensionAPI = function(
       extensionServer.sendRequest({command: commands.SetSidebarPage, id: this._id, page: page});
     },
 
-    __proto__: ExtensionViewImpl.prototype
+    __proto__: ExtensionViewImpl.prototype,
   };
 
   /**
@@ -609,10 +610,10 @@ self.injectedExtensionAPI = function(
         id: this._id,
         icon: iconPath,
         tooltip: tooltipText,
-        disabled: Boolean(disabled)
+        disabled: Boolean(disabled),
       };
       extensionServer.sendRequest(request);
-    }
+    },
   };
 
   /**
@@ -632,7 +633,7 @@ self.injectedExtensionAPI = function(
       extensionServer.sendRequest(
           {command: commands.AddTraceProvider, id: id, categoryName: categoryName, categoryTooltip: categoryTooltip});
       return new TraceProvider(id);
-    }
+    },
   };
 
   /**
@@ -652,7 +653,7 @@ self.injectedExtensionAPI = function(
       const request =
           {command: commands.CompleteTraceSession, id: this._id, url: url || '', timeOffset: timeOffset || 0};
       extensionServer.sendRequest(request);
-    }
+    },
   };
 
   /**
@@ -736,7 +737,7 @@ self.injectedExtensionAPI = function(
         callback(resources.map(wrapResource));
       }
       extensionServer.sendRequest({command: commands.GetPageResources}, callback && callbackWrapper);
-    }
+    },
   };
 
   /**
@@ -767,7 +768,7 @@ self.injectedExtensionAPI = function(
     setContent: function(content, commit, callback) {
       extensionServer.sendRequest(
           {command: commands.SetResourceContent, url: this._url, content: content, commit: commit}, callback);
-    }
+    },
   };
 
   function getTabId() {
@@ -816,7 +817,7 @@ self.injectedExtensionAPI = function(
       key: event.key,
       code: event.code,
       location: event.location,
-      keyCode: event.keyCode
+      keyCode: event.keyCode,
     };
     keyboardEventRequestQueue.push(requestPayload);
     if (!forwardTimer) {
@@ -907,7 +908,7 @@ self.injectedExtensionAPI = function(
       if (handler) {
         handler.call(this, request);
       }
-    }
+    },
   };
 
   function populateInterfaceClass(interfaze, implementation) {
