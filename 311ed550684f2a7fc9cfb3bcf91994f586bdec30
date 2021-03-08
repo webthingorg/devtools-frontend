@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "803506da_d0e61e6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-08T14:19:15Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "311ed550684f2a7fc9cfb3bcf91994f586bdec30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10fc798d_0e71abbf",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-03-08T14:16:29Z",
       "side": 1,
       "message": "nit: not sure on our current convention right now since this has been moved to be a ts file now; the other private functions are still using the \"_\" prefix, maybe we should do this here too?",
+      "revId": "311ed550684f2a7fc9cfb3bcf91994f586bdec30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fd3f9f0_e7a493a1",
+        "filename": "front_end/bindings/CompilerScriptMapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-08T14:19:15Z",
+      "side": 1,
+      "message": "Yes, we should remove the _ eventually, I\u0027ll create a follow-up sometime this week.",
+      "parentUuid": "10fc798d_0e71abbf",
       "revId": "311ed550684f2a7fc9cfb3bcf91994f586bdec30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
