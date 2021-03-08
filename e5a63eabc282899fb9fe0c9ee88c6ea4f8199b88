@@ -22,6 +22,47 @@
       },
       "revId": "e5a63eabc282899fb9fe0c9ee88c6ea4f8199b88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f62e8ed_f87991c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-08T12:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78b6075b_21b8b708",
+      "range": {
+        "startLine": 9,
+        "startChar": 15,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "e5a63eabc282899fb9fe0c9ee88c6ea4f8199b88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d277f414_6d7ed9ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-08T12:53:40Z",
+      "side": 1,
+      "message": "Sure :) Thanks for your help!",
+      "revId": "e5a63eabc282899fb9fe0c9ee88c6ea4f8199b88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
