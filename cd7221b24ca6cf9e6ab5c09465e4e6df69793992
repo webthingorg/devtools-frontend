@@ -33,6 +33,23 @@
       "message": "Friendly ping on this CL. PTAL when you have a chance.",
       "revId": "cd7221b24ca6cf9e6ab5c09465e4e6df69793992",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9652d6_db7c0d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-08T07:43:40Z",
+      "side": 1,
+      "message": "PTAL as well",
+      "revId": "cd7221b24ca6cf9e6ab5c09465e4e6df69793992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
