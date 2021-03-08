@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9442069_b5f04dca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-08T09:10:03Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the pragmatic hover preview fix for member expressions with []s.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "db419f55daa1c2854dd30f37a6a6ccba3f5768d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
