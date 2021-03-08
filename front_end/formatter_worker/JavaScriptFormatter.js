@@ -68,7 +68,8 @@ export class JavaScriptFormatter {
       preserveParens: true,
       allowImportExportEverywhere: true,
       ecmaVersion: ECMA_VERSION,
-      allowHashBang: true
+      allowHashBang: true,
+      sourceType: 'module'
     });
     const walker = new ESTreeWalker(this._beforeVisit.bind(this), this._afterVisit.bind(this));
     // @ts-ignore Technically, the acorn Node type is a subclass of ESTree.Node.
