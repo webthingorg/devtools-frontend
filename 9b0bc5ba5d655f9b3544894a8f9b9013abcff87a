@@ -34,6 +34,29 @@
       "parentUuid": "0c8cb57a_6d5c1a20",
       "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b1fd9c_cee8c41c",
+        "filename": "front_end/ui/SplitWidget.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-08T14:01:27Z",
+      "side": 1,
+      "message": "This accidentally un-did a change from https://crrev.com/c/2705378 (see right-hand side) and causes the Hide/Show to appear twice in the front-end. Could you please create a CL that resolved this issue (and for good measure double-check that this is the only file in this CL where this happened). Thanks!",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 90
+      },
+      "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
