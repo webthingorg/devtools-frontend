@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dfbc124_4b28ef89",
+        "filename": "test/e2e/inline_editor/font-editor_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-08T21:40:50Z",
+      "side": 1,
+      "message": "It seems that the flaky part is in the before each hook. Perhaps a fix similar to this would help https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2735416 Also, there is a new kind of a try job that helps verify if the flakiness is gone https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/README.md;l\u003d56;drc\u003d727f8790aec4b7206ccf6c55c9815ec47d3c05e4",
+      "revId": "8a53dc00fb60bdbf3351baf1db18761c48dceac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
