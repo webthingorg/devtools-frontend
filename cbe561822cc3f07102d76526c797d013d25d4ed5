@@ -16,6 +16,46 @@
       "message": "Hi Brandon! Here is the change Aaron suggested for the warning about non-square icons.",
       "revId": "cbe561822cc3f07102d76526c797d013d25d4ed5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a942308_3d457023",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-03-08T19:16:45Z",
+      "side": 1,
+      "message": "Change lgtm with a small nit. We also should get a crbug open for this to attach. I\u0027ll work with you on that.",
+      "revId": "cbe561822cc3f07102d76526c797d013d25d4ed5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0fb404a_630c7d8d",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-03-08T19:16:45Z",
+      "side": 1,
+      "message": "nit: we can probably break after this if we are just looking for one square",
+      "range": {
+        "startLine": 573,
+        "startChar": 8,
+        "endLine": 573,
+        "endChar": 29
+      },
+      "revId": "cbe561822cc3f07102d76526c797d013d25d4ed5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
