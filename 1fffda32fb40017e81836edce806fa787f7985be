@@ -33,6 +33,23 @@
       "message": "It looks like we do have coverage for this after all, you need to also update\n\nhttp/tests/devtools/tracing/timeline-misc/timeline-node-reference.js",
       "revId": "1fffda32fb40017e81836edce806fa787f7985be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b7d7c7_4740b87d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-08T07:18:31Z",
+      "side": 1,
+      "message": "LGTM.",
+      "revId": "1fffda32fb40017e81836edce806fa787f7985be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
