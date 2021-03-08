@@ -56,6 +56,30 @@
       },
       "revId": "cbe561822cc3f07102d76526c797d013d25d4ed5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd05af2_a72540c9",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-03-08T20:58:48Z",
+      "side": 1,
+      "message": "We have to do _appendImageResourceToSection for each icon (to collect icon-specific errs), so I didn\u0027t break the for loop. But, I rewrote a little to make sure there\u0027s no more computation done for this check after a single square icon is found.",
+      "parentUuid": "c0fb404a_630c7d8d",
+      "range": {
+        "startLine": 573,
+        "startChar": 8,
+        "endLine": 573,
+        "endChar": 29
+      },
+      "revId": "cbe561822cc3f07102d76526c797d013d25d4ed5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
