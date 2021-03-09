@@ -50,6 +50,23 @@
       "message": "Simon, PTAL as owner of NodeStackTraceWidget.js, thanks!",
       "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5018bf_3814bae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-09T10:25:05Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
