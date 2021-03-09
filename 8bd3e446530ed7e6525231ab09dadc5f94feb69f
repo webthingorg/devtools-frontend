@@ -33,6 +33,24 @@
       "message": "Module targets imply strict mode. E.g. with scopes would no longer be allowed. Would this change break pretty printing for with scopes?",
       "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b324fb_05adf9d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-09T09:27:52Z",
+      "side": 1,
+      "message": "\u003e Module targets imply strict mode. E.g. with scopes would no longer be allowed. Would this change break pretty printing for with scopes?\n\nYeah, that\u0027s what I figured. I\u0027ve changed the approach and already have a PR upstream to simply allow import.meta in scripts (https://github.com/acornjs/acorn/pull/1019). Will update this CL as well.",
+      "parentUuid": "c4b785f3_1b81aaa9",
+      "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
