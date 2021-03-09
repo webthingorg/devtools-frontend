@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7035154_539035d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T09:38:16Z",
+      "side": 1,
+      "message": "Given that this doesn\u0027t seem to be used anywhere, LGTM, thanks!",
+      "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
