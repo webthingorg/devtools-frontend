@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "4a3f9d39186399d08e1849533a26ef86899eb587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b0a564_da10ee3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T11:12:05Z",
+      "side": 1,
+      "message": "LGTM with some nits",
+      "revId": "4a3f9d39186399d08e1849533a26ef86899eb587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89359103_d9b925ba",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T11:12:05Z",
+      "side": 1,
+      "message": "I think you could do:\n\n```\nthis.groups \u003d data.groups.map(group \u003d\u003e ({...group}))\n```\n\nIf you wanted. Don\u0027t mind if you\u0027d rather explicitly list all keys",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "4a3f9d39186399d08e1849533a26ef86899eb587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1208c9e_6bdf801e",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T11:12:05Z",
+      "side": 1,
+      "message": "how do you feel about making this `data.withBorder` - and defaulting it to true if `data.withBorder` isn\u0027t supplied? I think that\u0027s a bit nicer than `omitBorder: true`, which takes more work (at least in my head!) to parse than `withBorder: false`.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "revId": "4a3f9d39186399d08e1849533a26ef86899eb587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "defee4c2_f1642e0e",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T11:12:05Z",
+      "side": 1,
+      "message": "classMap makes this much easier:\n\n```\nconst btnClasses \u003d LitHtml.Directives.classMap({\n  \u0027icon-button\u0027: true,\n  \u0027with-border\u0027: this.withBorder,\n})\n\n\u003cbutton classs\u003d${btnClasses}\n```",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 73
+      },
+      "revId": "4a3f9d39186399d08e1849533a26ef86899eb587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
