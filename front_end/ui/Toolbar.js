@@ -569,11 +569,13 @@ export class ToolbarText extends ToolbarItem {
 
 export class ToolbarButton extends ToolbarItem {
   /**
+   * TODO(crbug.com/1126026): remove glyph parameter in favor of icon.
    * @param {string} title
    * @param {string=} glyph
    * @param {string=} text
+   * @param {*=} icon The instance of Components.Icon.Icon (the new icon implementation)
    */
-  constructor(title, glyph, text) {
+  constructor(title, glyph, text, icon) {
     const element = document.createElement('button');
     element.classList.add('toolbar-button');
     super(element);
@@ -587,6 +589,9 @@ export class ToolbarButton extends ToolbarItem {
     this.setTitle(title);
     if (glyph) {
       this.setGlyph(glyph);
+    }
+    if (icon) {
+      this.element.appendChild(icon);
     }
     this.setText(text || '');
     this._title = '';

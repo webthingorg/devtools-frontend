@@ -222,10 +222,24 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   background-color: var(--toolbar-bg-color) !important;
 }
 
+:host-context(.-theme-with-dark-background) .toolbar-button devtools-icon {
+  --icon-color: rgb(145 145 145); /* stylelint-disable-line plugin/use_theme_colors */
+}
+
+.toolbar-button:not(.toolbar-state-on):enabled:hover devtools-icon {
+  --icon-color: #333; /* stylelint-disable-line plugin/use_theme_colors */
+}
+
+:host-context(.-theme-with-dark-background) .toolbar-button:not(.toolbar-state-on):enabled:hover devtools-icon {
+  --icon-color: rgb(204 204 204); /* stylelint-disable-line plugin/use_theme_colors */
+}
+
 :host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-glyph,
 :host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph {
   background-color: hsl(0deg 100% 65%) !important;
 }
+
+
 /* Checkbox */
 
 .toolbar-item.checkbox {
