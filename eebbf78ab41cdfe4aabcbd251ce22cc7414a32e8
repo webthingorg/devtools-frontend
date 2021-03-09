@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4374b75_e87451cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-09T09:38:31Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nThis doesn\u0027t yet fix the problem for `import.meta`, which the referenced bug talks about, but brings up closer to tip-of-tree acorn and thus makes it easier to bridge the gap for the patch.\nFully mechanic change. Please take a look.\n\ncheers,\nBenedikt",
+      "revId": "eebbf78ab41cdfe4aabcbd251ce22cc7414a32e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
