@@ -50,6 +50,24 @@
       "message": "Where non-square icons are used? ",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "748f1fd6_46d1f592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-03-09T19:04:24Z",
+      "side": 1,
+      "message": "The icon generator from PWABuilder (https://www.pwabuilder.com/imageGenerator) produces non-square icons, so they must be used in some cases. Non-square icons are not prohibited per the manifest spec (https://w3c.github.io/manifest/#icons-member), and this is what the new warning message is meant to clarify.",
+      "parentUuid": "86d19ece_bb11e007",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
