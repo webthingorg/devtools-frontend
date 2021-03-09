@@ -355,6 +355,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
         [role="treeitem"]:focus > .arrow-and-key-wrapper {
           /* stylelint-disable-next-line color-named */
           border-color: black;
+          background: var(--selection-bg-color);
         }
       </style>
       <div class="wrapping-container">
