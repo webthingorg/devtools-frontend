@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "d7acb7455ce799b88c0af9524ac112cb280876dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44e603f8_86a0fc17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-09T10:11:26Z",
+      "side": 1,
+      "message": "I keep seeing e2e test failures when trying to land this. They don\u0027t always occur in the same test, and these tests all pass for me locally.\nAre these known failures, or could they be due to my CL?",
+      "revId": "d7acb7455ce799b88c0af9524ac112cb280876dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
