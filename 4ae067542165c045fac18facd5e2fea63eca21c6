@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3141ff37_bb1ecbbd",
+        "filename": "front_end/components/JSPresentationUtils.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T13:00:59Z",
+      "side": 1,
+      "message": "I saw that 50 was used elsewhere and then checked whether using that number did in fact throttle the function calls. Happy to change it to 100.",
+      "parentUuid": "f5fc4cbd_79672d9f",
+      "range": {
+        "startLine": 97,
+        "startChar": 51,
+        "endLine": 97,
+        "endChar": 53
+      },
+      "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0b86dc1_fbcca006",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-09T11:54:45Z",
       "side": 1,
       "message": "nit: 2021",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7239d0d9_ee7e2c92",
+        "filename": "test/e2e/console/console-stack-trace_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T13:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0b86dc1_fbcca006",
       "range": {
         "startLine": 1,
         "startChar": 13,
