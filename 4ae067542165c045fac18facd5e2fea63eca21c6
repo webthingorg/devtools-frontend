@@ -16,6 +16,69 @@
       "message": "PTAL again, thanks!",
       "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "165745b6_6926fb26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T11:54:45Z",
+      "side": 1,
+      "message": "LGTM once final comments are addressed.\n\nPlease also run the e2e_stressor on test/e2e/console/console-stack-trace_test.ts to make sure the tests are solid.",
+      "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5fc4cbd_79672d9f",
+        "filename": "front_end/components/JSPresentationUtils.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T11:54:45Z",
+      "side": 1,
+      "message": "How did you arrive at this number? Grepping the code-base shows that most throttlers are around 100ms. Would that be good enough here as well?",
+      "range": {
+        "startLine": 97,
+        "startChar": 51,
+        "endLine": 97,
+        "endChar": 53
+      },
+      "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0b86dc1_fbcca006",
+        "filename": "test/e2e/console/console-stack-trace_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T11:54:45Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "4ae067542165c045fac18facd5e2fea63eca21c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
