@@ -12,3 +12,6 @@ A tiny, fast JavaScript parser written in JavaScript.
 ```bash
 wget -qO- https://registry.npmjs.org/acorn/-/acorn-8.0.5.tgz | tar xzf -
 ```
+
+Local changes applied:
+- https://github.com/acornjs/acorn/pull/1019 patched on top of 8.0.5 branch

@@ -346,7 +346,8 @@
     // error.
     allowReturnOutsideFunction: false,
     // When enabled, import/export statements are not constrained to
-    // appearing at the top of the program.
+    // appearing at the top of the program, and an import.meta expression
+    // in a script isn't considered an error.
     allowImportExportEverywhere: false,
     // When enabled, await identifiers are allowed to appear at the top-level scope,
     // but they are still not allowed in non-async functions.
@@ -2462,7 +2463,7 @@
       { this.raiseRecoverable(node.property.start, "The only valid meta property for import is 'import.meta'"); }
     if (containsEsc)
       { this.raiseRecoverable(node.start, "'import.meta' must not contain escaped characters"); }
-    if (this.options.sourceType !== "module")
+    if (this.options.sourceType !== "module" && !this.options.allowImportExportEverywhere)
       { this.raiseRecoverable(node.start, "Cannot use 'import.meta' outside a module"); }
 
     return this.finishNode(node, "MetaProperty")
