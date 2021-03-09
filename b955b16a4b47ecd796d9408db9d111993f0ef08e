@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "b955b16a4b47ecd796d9408db9d111993f0ef08e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd27dff0_7619e118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T07:29:19Z",
+      "side": 1,
+      "message": "LGTM with naming suggestion for the test - thanks!",
+      "revId": "b955b16a4b47ecd796d9408db9d111993f0ef08e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ecb476_2f0ddf4b",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-09T07:29:19Z",
+      "side": 1,
+      "message": "\"shows the tooltip when hovering over the property name\" ?",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 23
+      },
+      "revId": "b955b16a4b47ecd796d9408db9d111993f0ef08e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
