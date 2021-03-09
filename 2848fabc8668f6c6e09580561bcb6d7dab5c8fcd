@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9a30d6_4a680988",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5ed89f6_a91b5d32",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 28
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19b81937_4de47be8",
@@ -98,6 +122,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbaec7c4_ec399959",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:51:06Z",
+      "side": 1,
+      "message": "Edit: probably not relevant anymore after refactoring.\n\nThat\u0027s how I had it earlier, but there are a lot of (blink-)tests which would then need to be re-baselined adding a \u0027Show 0 more frames\u0027. I think it\u0027s easier to render conditionally.",
+      "parentUuid": "19b81937_4de47be8",
+      "range": {
+        "startLine": 239,
+        "startChar": 8,
+        "endLine": 239,
+        "endChar": 19
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0d17aea_5a38b6d6",
@@ -111,6 +159,30 @@
       "writtenOn": "2021-03-03T13:25:46Z",
       "side": 1,
       "message": "I assume this will trigger once for every location that gets resolved? It would be fine to only do one update every second or so. Let\u0027s keep this in mind for the component version of this.",
+      "range": {
+        "startLine": 253,
+        "startChar": 48,
+        "endLine": 253,
+        "endChar": 64
+      },
+      "revId": "2848fabc8668f6c6e09580561bcb6d7dab5c8fcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fef93c_9db7af17",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:51:06Z",
+      "side": 1,
+      "message": "Yes, this gets triggered multiple times. Added throttling.",
+      "parentUuid": "b0d17aea_5a38b6d6",
       "range": {
         "startLine": 253,
         "startChar": 48,

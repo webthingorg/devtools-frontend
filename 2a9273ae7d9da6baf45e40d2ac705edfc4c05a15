@@ -34,6 +34,24 @@
       "parentUuid": "21f2024c_85eccd00",
       "revId": "2a9273ae7d9da6baf45e40d2ac705edfc4c05a15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a072a6d_59b0477b",
+        "filename": "front_end/components/jsUtils.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:51:06Z",
+      "side": 1,
+      "message": "Yes, but on the other hand the meaning why the opacity is reduced is not explained anywhere, so the usefulness is limited imo. Anyway, I\u0027ll keep it in but rename the class.",
+      "parentUuid": "6ab75b1c_dd8c36b4",
+      "revId": "2a9273ae7d9da6baf45e40d2ac705edfc4c05a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
