@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c76f26_775b145d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:45:17Z",
+      "side": 1,
+      "message": "Tim, PTAL. I\u0027ve abandoned https://crrev.com/c/2735675 where I wanted to remove the 2nd license headers and created this CL instead.",
+      "revId": "a644884e8374955b81334cd311ce87d8af488e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
