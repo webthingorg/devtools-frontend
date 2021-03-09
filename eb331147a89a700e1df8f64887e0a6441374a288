@@ -33,6 +33,23 @@
       "message": "Given that this doesn\u0027t seem to be used anywhere, LGTM, thanks!",
       "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d173f36c_33ccab5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T09:56:23Z",
+      "side": 1,
+      "message": "Simon, PTAL as owner of NodeStackTraceWidget.js, thanks!",
+      "revId": "eb331147a89a700e1df8f64887e0a6441374a288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
