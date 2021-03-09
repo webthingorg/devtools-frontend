@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52553434_006095a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-09T11:07:19Z",
+      "side": 1,
+      "message": "@argyle I tweaked our strategy to the position-change problem, because setting the CSS property to `white-space: nowrap` will still make the line jump, just in different ways, unless we set the parent box to allow overflow, which isn\u0027t ideal either. Now I\u0027m just fixing the position of the \u003cangle\u003e popover, so that line wrappings won\u0027t affect the popover\u0027s positions. It\u0027ll move to the new (proper) location once user re-opens the popover.",
+      "revId": "b98e32fe02cada9899f48beb40488a4fbaa2f6c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
