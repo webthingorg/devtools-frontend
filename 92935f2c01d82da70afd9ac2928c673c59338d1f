@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd9d3e5_9b44ab8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-09T15:35:18Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the front-end part of the stack scope change we just talked about.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "92935f2c01d82da70afd9ac2928c673c59338d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
