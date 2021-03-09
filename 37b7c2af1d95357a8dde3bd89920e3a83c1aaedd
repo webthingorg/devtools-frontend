@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "37b7c2af1d95357a8dde3bd89920e3a83c1aaedd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "814153bc_1e220ef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T14:38:55Z",
+      "side": 1,
+      "message": "LGTM (rubber-stamp), but please wait for Tim.",
+      "revId": "37b7c2af1d95357a8dde3bd89920e3a83c1aaedd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
