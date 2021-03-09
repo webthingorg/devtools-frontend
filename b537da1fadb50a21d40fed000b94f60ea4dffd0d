@@ -70,6 +70,24 @@
       "parentUuid": "91443885_337e49bc",
       "revId": "b537da1fadb50a21d40fed000b94f60ea4dffd0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b191b214_fce9c650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-09T15:40:19Z",
+      "side": 1,
+      "message": "Then let\u0027s skip those.",
+      "parentUuid": "41a3d95c_9d2bb03d",
+      "revId": "b537da1fadb50a21d40fed000b94f60ea4dffd0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
