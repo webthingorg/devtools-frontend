@@ -16,6 +16,23 @@
       "message": "Hey Yang,\n\nHere\u0027s a pragmatic fix for the `import.meta` support.\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b785f3_1b81aaa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-03-09T08:47:42Z",
+      "side": 1,
+      "message": "Module targets imply strict mode. E.g. with scopes would no longer be allowed. Would this change break pretty printing for with scopes?",
+      "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
