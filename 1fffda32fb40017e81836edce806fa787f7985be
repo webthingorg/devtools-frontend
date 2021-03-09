@@ -67,6 +67,24 @@
       "message": "Is there a design doc for this change? There are some cases where confirming that layout originates at a particular node, e.g., an SVG element vs the document is somewhat useful.\n\nI\u0027ll LGTM because I don\u0027t want to block any work, but I\u0027m a little surprised at this change.",
       "revId": "1fffda32fb40017e81836edce806fa787f7985be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28af18a9_bdd785f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001706
+      },
+      "writtenOn": "2021-03-09T02:26:34Z",
+      "side": 1,
+      "message": "I was too hasty with this. The concept of \"layout root\" got muddled because we sometimes do multiple layout passes, during which the set of layout roots doesn\u0027t remain constant.\n\nAfter further consideration, I\u0027ve decided to do the thing that was suggested previously: support multiple layout roots in the inspector protocol. The layout roots sent from the renderer will be the initial set when the layout update began; that seems intuitively like the thing developers would be interested in.\n\nI\u0027m not sure how to land this, since it has a circular dependency with the chromium patch; any guidance you can offer will be much appreciated.",
+      "parentUuid": "53101b9f_121b9088",
+      "revId": "1fffda32fb40017e81836edce806fa787f7985be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
