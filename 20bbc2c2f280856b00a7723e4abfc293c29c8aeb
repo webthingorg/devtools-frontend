@@ -16,6 +16,23 @@
       "message": "PTAL. This is a bit different than the previous CL. Since both are Google-licenses I believe we can just remove the old ones.",
       "revId": "20bbc2c2f280856b00a7723e4abfc293c29c8aeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9bb496_3e41f143",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-09T10:48:06Z",
+      "side": 1,
+      "message": "My understanding is that we are allowed to replace our own license headers with updated ones. Does that include replacing a Google header with a Chromium one?",
+      "revId": "20bbc2c2f280856b00a7723e4abfc293c29c8aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
