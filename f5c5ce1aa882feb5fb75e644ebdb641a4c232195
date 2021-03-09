@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nPR got merged and Marjin did a release for us, so we don\u0027t need to fiddle with patch here, but can just roll to the next release. :-)\nAgain, fully mechanic. Please take a look.\n\nthanks,\nBenedikt",
       "revId": "f5c5ce1aa882feb5fb75e644ebdb641a4c232195",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2076ed32_1da240ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-09T11:09:04Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "f5c5ce1aa882feb5fb75e644ebdb641a4c232195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
