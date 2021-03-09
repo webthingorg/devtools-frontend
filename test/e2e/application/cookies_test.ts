@@ -94,33 +94,35 @@ describe('The Application Tab', async () => {
     });
   });
 
-  it('[crbug.com/1086462] clears the preview value when clearing cookies', async () => {
-    const {target} = getBrowserAndPages();
-    // This sets a new cookie foo=bar
-    await navigateToApplicationTab(target, 'cookies');
+  // Flaky on windows
+  it.skipOnPlatforms(
+      ['win32'], '[crbug.com/1186150][crbug.com/1086462] clears the preview value when clearing cookies', async () => {
+        const {target} = getBrowserAndPages();
+        // This sets a new cookie foo=bar
+        await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+        await doubleClickSourceTreeItem(COOKIES_SELECTOR);
+        await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    await selectCookieByName('foo');
+        await selectCookieByName('foo');
 
-    // Select a cookie first
-    await waitForFunction(async () => {
-      const previewValueNode1 = await waitFor('.cookie-preview-widget-cookie-value');
-      const previewValue1 = await previewValueNode1.evaluate(e => e.textContent);
-      return previewValue1 === 'bar';
-    });
+        // Select a cookie first
+        await waitForFunction(async () => {
+          const previewValueNode1 = await waitFor('.cookie-preview-widget-cookie-value');
+          const previewValue1 = await previewValueNode1.evaluate(e => e.textContent);
+          return previewValue1 === 'bar';
+        });
 
-    await clearStorageItems();
+        await clearStorageItems();
 
-    // Make sure that the preview resets
-    await waitForFunction(async () => {
-      const previewValueNode2 = await waitFor('.empty-view');
-      const previewValue2 = await previewValueNode2.evaluate(e => e.textContent as string);
+        // Make sure that the preview resets
+        await waitForFunction(async () => {
+          const previewValueNode2 = await waitFor('.empty-view');
+          const previewValue2 = await previewValueNode2.evaluate(e => e.textContent as string);
 
-      return previewValue2.match(/Select a cookie to preview its value/);
-    });
-  });
+          return previewValue2.match(/Select a cookie to preview its value/);
+        });
+      });
 
   it('[crbug.com/978059] only clear currently visible cookies', async () => {
     const {target} = getBrowserAndPages();
