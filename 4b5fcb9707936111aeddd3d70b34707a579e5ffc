@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd041655_ae4290bd",
+        "filename": "front_end/timeline/WebVitalsLane.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-09T10:23:10Z",
+      "side": 1,
+      "message": "Can you wrap this in the render coordinator\u0027s read function? It could trigger a forced sync recalc styles otherwise? Worth checking out the DataGrid stuff: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/components/DataGrid.ts;l\u003d13",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 62
+      },
+      "revId": "4b5fcb9707936111aeddd3d70b34707a579e5ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51107db0_04387c10",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-09T10:23:10Z",
+      "side": 1,
+      "message": "We might need to check that there is width available to accommodate this if the user\u0027s pointer is near the right hand side of the window. What do you think?",
+      "range": {
+        "startLine": 239,
+        "startChar": 4,
+        "endLine": 240,
+        "endChar": 52
+      },
+      "revId": "4b5fcb9707936111aeddd3d70b34707a579e5ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
