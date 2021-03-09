@@ -16,6 +16,24 @@
       "message": "LGTM, but looking at the waterfall this doesn\u0027t seem to be enough.",
       "revId": "b537da1fadb50a21d40fed000b94f60ea4dffd0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718a8c00_ea122ec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-09T15:22:36Z",
+      "side": 1,
+      "message": "Shall we skip them all?",
+      "parentUuid": "58a768c7_ac552212",
+      "revId": "b537da1fadb50a21d40fed000b94f60ea4dffd0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
