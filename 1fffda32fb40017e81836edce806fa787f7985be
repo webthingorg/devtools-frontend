@@ -85,6 +85,24 @@
       "parentUuid": "53101b9f_121b9088",
       "revId": "1fffda32fb40017e81836edce806fa787f7985be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9654b289_de61f1f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-03-09T03:04:25Z",
+      "side": 1,
+      "message": "I think the cleanest option is to add the new values with a different field name (i.e. layoutRoots) while temporarily keeping the old one, then land front-end support for the new value along with dropping the old one, then remove the old one from back-end.\n\nHaving this temporarily broken is also an option -- land the new back-end first along with disabling the tests, then land the front-end support for the new value, then re-enable the tests.",
+      "parentUuid": "28af18a9_bdd785f6",
+      "revId": "1fffda32fb40017e81836edce806fa787f7985be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
