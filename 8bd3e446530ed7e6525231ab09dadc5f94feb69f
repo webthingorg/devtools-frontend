@@ -51,6 +51,24 @@
       "parentUuid": "c4b785f3_1b81aaa9",
       "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bc7bac4_57b07026",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-09T09:45:25Z",
+      "side": 1,
+      "message": "Alright, patched the upstream fix on top of 8.0.5, pretty straightforward. Please take a look.",
+      "parentUuid": "38b324fb_05adf9d7",
+      "revId": "8bd3e446530ed7e6525231ab09dadc5f94feb69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
