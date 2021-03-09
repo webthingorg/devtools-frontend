@@ -147,8 +147,8 @@ describe('Recorder', function() {
     {
         const targetPage = page;
         const frame = targetPage.mainFrame();
-        const element = await frame.waitForSelector("html > body > div > form.form1");
-        await element.evaluate(form => form.submit());
+        const element = await frame.waitForSelector("aria/Form Button");
+        await element.click();
     }
     await browser.close();
 })();`);

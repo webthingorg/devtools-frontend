@@ -37,18 +37,6 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     this.axModel = target.model(SDK.AccessibilityModel.AccessibilityModel) as SDK.AccessibilityModel.AccessibilityModel;
   }
 
-  async isSubmitButton(targetId: string): Promise<unknown> {
-    function innerIsSubmitButton(this: HTMLButtonElement): boolean {
-      return this.tagName === 'BUTTON' && this.type === 'submit' && this.form !== null;
-    }
-
-    const {result} = await this.runtimeAgent.invoke_callFunctionOn({
-      functionDeclaration: innerIsSubmitButton.toString(),
-      objectId: targetId,
-    });
-    return result.value;
-  }
-
   async getSelector(node: SDK.DOMModel.DOMNode): Promise<string|null> {
     const ariaSelector = await this.getAriaSelector(node);
     if (ariaSelector) {
@@ -120,13 +108,6 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     const node = await this.domModel.pushNodeToFrontend(targetId);
     if (!node) {
       throw new Error('Node should not be null.');
-    }
-
-    // Clicking on a submit button will emit a submit event
-    // which will be handled in a different handler.
-    if (node.nodeName() === 'BUTTON' && node.getAttribute('type') === 'submit') {
-      this.skip();
-      return;
     }
 
     const selector = await this.getSelector(node);
