@@ -51,6 +51,41 @@
       "parentUuid": "97624a43_132dc14a",
       "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2ca741_9095030e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-03-10T17:33:18Z",
+      "side": 1,
+      "message": "Hi Simon, left a comment. 😊",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa40aa71_6bbc180f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-03-10T17:33:18Z",
+      "side": 1,
+      "message": "Hi Simon,\nI have two more pending PRs on my side:\n- 2744536: [Loc] Cleaning Localization V1 [Tests] | https://chromium-review.googlesource.com/c/chromium/src/+/2744536\n- 2737659: [Loc] Removing Localization V1 remnants. (ls calls) | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2737659\n\nWe need the first CL to be checked in first, otherwise the removal will fail.",
+      "parentUuid": "96173000_0c90be5f",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
