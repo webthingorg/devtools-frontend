@@ -12,7 +12,7 @@ const fs = require('fs');
 // to instruct Mocha to run the output JavaScript file.
 const ROOT_DIRECTORY = path.join(__dirname, '..', '..', '..', '..', '..', 'test', 'e2e');
 
-const allTestFiles = glob.sync(path.join(ROOT_DIRECTORY, '**/*_test.ts'));
+const allTestFiles = glob.sync(path.join(ROOT_DIRECTORY, 'console/*_test.ts'));
 const customPattern = process.env['TEST_FILE'];
 
 const testFiles = !customPattern ?
@@ -53,4 +53,6 @@ module.exports = {
   timeout,
   parallel,
   jobs,
+  reporter: path.join(__dirname, '..', 'shared', 'mocha-resultsdb-reporter'),
+  suiteName: 'e2e',
 }
