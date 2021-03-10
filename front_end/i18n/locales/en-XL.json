@@ -1700,7 +1700,7 @@
   "developer_resources/DeveloperResourcesView.ts | resourcesCurrentlyLoading": {
     "message": "{PH1} r̂éŝóûŕĉéŝ, {PH2} ćûŕr̂én̂t́l̂ý l̂óâd́îńĝ"
   },
-  "elements/AccessibilityNode.ts | ignored": {
+  "elements/AccessibilityTreeUtils.ts | ignored": {
     "message": "Îǵn̂ór̂éd̂"
   },
   "elements/AdornerSettingsPane.ts | closeButton": {
