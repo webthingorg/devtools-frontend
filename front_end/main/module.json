@@ -3,7 +3,5 @@
     "extensions",
     "persistence"
   ],
-  "modules": [
-    "main-legacy.js"
-  ]
+  "modules": []
 }
