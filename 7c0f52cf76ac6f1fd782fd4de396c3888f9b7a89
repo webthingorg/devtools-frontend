@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "143205da_a5694653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7c0f52cf76ac6f1fd782fd4de396c3888f9b7a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43c5d5f_78910fde",
+        "filename": "front_end/sdk/SharedArrayBufferIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-10T17:15:15Z",
+      "side": 1,
+      "message": "So for SAB it\u0027s (Improvement or BreakingChange) not (BreakingChange or Error)?",
+      "revId": "7c0f52cf76ac6f1fd782fd4de396c3888f9b7a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
