@@ -16,6 +16,41 @@
       "message": "Hey Simon, I think I will need some help to remove the check Localization step in the bot?",
       "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c13c0a_28e31c21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T06:03:18Z",
+      "side": 1,
+      "message": "lgtm, can land once the recipe is updated.\n\nPlease note that a single check hasn\u0027t been moved to ESLint yet, namely one that checks that formatLocalizedStrings receives as its first argument a variable called \u0027str_\u0027. Not sure how important that check is, so IMO we can land this before/without moving that particular check to ESLint.",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96173000_0c90be5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T06:03:18Z",
+      "side": 1,
+      "message": "Thanks for the CL! I filed https://crbug.com/1186523 for this task to our infra team. If you want, you can also take a shot at this, but I don\u0027t know if it\u0027s as simple as removing that one line or if there are test expectations that require updating as well.\n\nOut of curiosity, are you and Vidal planning to follow up with more cleanups/removals? (Like removing `ls` etc.)",
+      "parentUuid": "97624a43_132dc14a",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
