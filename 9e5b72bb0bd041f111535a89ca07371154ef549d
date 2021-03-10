@@ -68,6 +68,24 @@
       "parentUuid": "86d19ece_bb11e007",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6205c7c1_963f2b51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-10T06:47:17Z",
+      "side": 1,
+      "message": "From what I can see in my tests with https://www.pwabuilder.com/imageGenerator, it produces non-square images only for splash screens on Windows and Windows10 (e.g. windows-splashscreen-1116-540.png, Wide310x150Logo.scale-400.png, SplashScreen.scale-400.png). Those are not icons, but splash screens right?",
+      "parentUuid": "748f1fd6_46d1f592",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
