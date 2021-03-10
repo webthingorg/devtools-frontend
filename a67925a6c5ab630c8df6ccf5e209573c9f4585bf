@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73521dc1_26c9253b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T10:09:45Z",
+      "side": 1,
+      "message": "PTAL,\n\nSigurd, kindly review.\nJack, for a question around CSS.",
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd7a25ff_7de40dcf",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T10:09:45Z",
+      "side": 1,
+      "message": "I decided against a fixed width. Relative sizes of 10:5:1 looks ok in various sizes and beats the headache that a complicated \u0027width\u0027 interface would bring (both for implementation as well as using).",
+      "range": {
+        "startLine": 184,
+        "startChar": 10,
+        "endLine": 184,
+        "endChar": 28
+      },
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a771186_7997e25e",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T10:09:45Z",
+      "side": 1,
+      "message": "Is there a way to share this \u003cstyle\u003e between the different buttons?\n\nI can\u0027t declare it in the TrustTokensView component, as these styles don\u0027t pierce the shadowroot boundary of the DataGrid.",
+      "range": {
+        "startLine": 221,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 13
+      },
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
