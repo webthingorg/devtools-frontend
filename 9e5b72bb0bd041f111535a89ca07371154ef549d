@@ -86,6 +86,23 @@
       "parentUuid": "748f1fd6_46d1f592",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47e9d1c_8e37dd37",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-10T07:06:01Z",
+      "side": 1,
+      "message": "Note that here you\u0027re using the sizes attribute of the icon, while before we were using the sizes of the icon image resource.",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
