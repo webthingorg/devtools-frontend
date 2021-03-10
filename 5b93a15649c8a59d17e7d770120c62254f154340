@@ -16,6 +16,24 @@
       "message": "probably a test leftover, but needs to be reverted if you are going to land it.",
       "revId": "5b93a15649c8a59d17e7d770120c62254f154340",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "150e7e2e_7c78453b",
+        "filename": "test/e2e/.mocharc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-10T10:11:44Z",
+      "side": 1,
+      "message": "Nice catch, yeah restricted to console for testing locally.",
+      "parentUuid": "9cb505f7_26f14009",
+      "revId": "5b93a15649c8a59d17e7d770120c62254f154340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
