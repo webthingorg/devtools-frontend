@@ -146,7 +146,9 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
 }
 
 .toolbar-glyph {
-  background-color: #5a5a5a; /* stylelint-disable-line plugin/use_theme_colors */
+  --icon-color: #5a5a5a; /* stylelint-disable-line plugin/use_theme_colors */
+
+  background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
   /* See: crbug.com/1152736 for color variable migration. */
   flex: none;
 }
@@ -156,13 +158,20 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   opacity: 50%;
 }
 
-.toolbar-button.toolbar-state-on .toolbar-glyph {
-  background-color: var(--accent-color);
+.toolbar-button.toolbar-state-on .toolbar-glyph,
+.toolbar-button.toolbar-state-on .toolbar-icon {
+  --icon-color: var(--accent-color);
+
+  background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
 }
 
 .toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-glyph,
-.toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph {
-  background-color: rgb(216 0 0) !important; /* stylelint-disable-line plugin/use_theme_colors */
+.toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph,
+.toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-icon,
+.toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-icon {
+  --icon-color: rgb(216 0 0); /* stylelint-disable-line plugin/use_theme_colors */
+
+  background-color: var(--icon-color) !important; /* stylelint-disable-line plugin/use_theme_colors */
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
@@ -191,8 +200,11 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   color: var(--accent-color);
 }
 
-:not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-glyph {
-  background-color: #333; /* stylelint-disable-line plugin/use_theme_colors */
+:not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-glyph,
+:not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-icon {
+  --icon-color: #333;  /* stylelint-disable-line plugin/use_theme_colors */
+
+  background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
@@ -201,8 +213,11 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
-.toolbar-blue-on-hover .toolbar-button:not(.toolbar-state-on):enabled:hover .toolbar-glyph {
-  background-color: var(--color-background);
+.toolbar-blue-on-hover .toolbar-button:not(.toolbar-state-on):enabled:hover .toolbar-glyph,
+.toolbar-blue-on-hover .toolbar-button:not(.toolbar-state-on):enabled:hover .toolbar-icon {
+  --icon-color: var(--color-background);
+
+  background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
 }
 
 .toolbar-blue-on-hover .toolbar-button:not(.toolbar-state-on):enabled:hover .toolbar-text {
@@ -210,8 +225,11 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
-.toolbar-button.toolbar-state-on:enabled:hover:not(:active) .toolbar-glyph {
-  background-color: var(--accent-color);
+.toolbar-button.toolbar-state-on:enabled:hover:not(:active) .toolbar-glyph,
+.toolbar-button.toolbar-state-on:enabled:hover:not(:active) .toolbar-icon {
+  --icon-color: var(--accent-color);
+
+  background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
 }
 
 .toolbar-button.toolbar-state-on:enabled:hover:not(:active) .toolbar-text {
@@ -223,9 +241,14 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
 }
 
 :host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-glyph,
-:host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph {
-  background-color: hsl(0deg 100% 65%) !important;
+:host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-glyph,
+:host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-on.toolbar-toggle-with-red-color .toolbar-icon,
+:host-context(.-theme-with-dark-background) .toolbar-button.toolbar-state-off.toolbar-default-with-red-color .toolbar-icon {
+  --icon-color: hsl(0deg 100% 65%);
+
+  background-color: var(--icon-color) !important; /* stylelint-disable-line plugin/use_theme_colors */
 }
+
 /* Checkbox */
 
 .toolbar-item.checkbox {
@@ -401,9 +424,13 @@ devtools-icon.leading-issue-icon {
     background-color: Graytext;
   }
 
-  .toolbar-button.toolbar-state-on .toolbar-glyph {
+  .toolbar-button.toolbar-state-on .toolbar-glyph,
+  .toolbar-button.toolbar-state-on .toolbar-icon {
     forced-color-adjust: none;
-    background-color: Highlight;
+
+    --icon-color: Highlight;
+
+    background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
   }
 
   .toolbar-button.toolbar-state-on .toolbar-text {
@@ -421,25 +448,37 @@ devtools-icon.leading-issue-icon {
     color: GrayText;
   }
 
-  :not(.toolbar-render-as-links) .toolbar-button:disabled .toolbar-glyph {
-    background-color: GrayText;
+  :not(.toolbar-render-as-links) .toolbar-button:disabled .toolbar-glyph,
+  :not(.toolbar-render-as-links) .toolbar-button:disabled .toolbar-icon {
+    --icon-color: GrayText;
+
+    background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
     color: GrayText;
   }
 
   .toolbar-button:enabled.hover:not(:active) .toolbar-glyph,
+  .toolbar-button:enabled.hover:not(:active) .toolbar-icon,
   .toolbar-button:focus,
   .toolbar-button:hover:enabled,
   .toolbar-toggled-gray:not(.toolbar-render-as-links) .toolbar-button:not(.toolbar-has-glyph):not(.toolbar-has-dropdown):not(.largeicon-menu):hover {
     forced-color-adjust: none;
-    background-color: Highlight;
+
+    --icon-color: Highlight;
+
+    background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
   }
 
   :not(.toolbar-render-as-links) .toolbar-button:enabled:hover .toolbar-glyph,
   :not(.toolbar-render-as-links) .toolbar-button:enabled:focus .toolbar-glyph,
   :not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-glyph,
+  :not(.toolbar-render-as-links) .toolbar-button:enabled:hover .toolbar-icon,
+  :not(.toolbar-render-as-links) .toolbar-button:enabled:focus .toolbar-icon,
+  :not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-icon,
   .toolbar-button:enabled:hover [is=ui-icon].icon-mask,
   .toolbar-button:enabled:focus [is=ui-icon].icon-mask {
-    background-color: HighlightText;
+    --icon-color: HighlightText;
+
+    background-color: var(--icon-color); /* stylelint-disable-line plugin/use_theme_colors */
   }
 
   .toolbar-input {
