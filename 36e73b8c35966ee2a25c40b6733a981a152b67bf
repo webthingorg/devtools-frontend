@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "217237cb_cac51907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-10T07:08:26Z",
+      "side": 1,
+      "message": "LGTM! A few things I noticed:\n\n1) some overflow issues https://i.imgur.com/CXoysUn.png\n2) is it possible to make double click event to expand/collapse nodes? Like in the Elements tree.\n3) not possible to select a node using the mouse (you can only select using keyboard).\n4) \u003cstyle\u003e element is rendered for every node so the same style is repeated many times (we need to wait till TreeOutline allows configuring styles for nodes). ",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d9441b5_bb343ca7",
