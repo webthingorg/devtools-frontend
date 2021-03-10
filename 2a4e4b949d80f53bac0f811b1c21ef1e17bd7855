@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84ec909b_a3f1ca4c",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-10T09:01:12Z",
+      "side": 1,
+      "message": "If you provide any HTMLElement, the styles would not apply because the styles expect a \u003cdevtools-icon\u003e element. I think if we let the toolbar assign a class to the provided element, we can use any element though.",
+      "parentUuid": "5692f01c_9ddb9290",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 576,
+        "endChar": 88
+      },
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dee311ef_cadb6656",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 2
