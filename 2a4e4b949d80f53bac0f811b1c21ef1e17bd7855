@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c828e3_8e410e71",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-10T12:36:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b37d8a2_7ac8a62a",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 576,
+        "endChar": 88
+      },
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dee311ef_cadb6656",
@@ -119,6 +143,24 @@
       "writtenOn": "2021-03-10T07:29:57Z",
       "side": 1,
       "message": "This is fine as-is, but just FYI, for new code, it’s totally fine to use the more modern DOM APIs, i.e.\n\n    this.element.append(icon);",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1b5ca72_d58057ca",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-10T12:36:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee311ef_cadb6656",
       "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -255,6 +297,24 @@
       "writtenOn": "2021-03-10T07:29:57Z",
       "side": 1,
       "message": ":focus-visible as well as :hover?",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c63983e0_58963325",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-10T12:36:38Z",
+      "side": 1,
+      "message": "That would inconsistent with the rest of the buttons (.toolbar-glyph). I try to minimize differences between the new and old styles because I am not familiar with all use cases toolbar supports.",
+      "parentUuid": "f7da929f_90d98f81",
       "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
