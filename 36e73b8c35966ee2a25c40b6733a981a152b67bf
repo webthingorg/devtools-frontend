@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84030981_81d2d5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-10T04:19:15Z",
+      "side": 1,
+      "message": "Hello, PTAL, thanks!",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5132483_8fd749fb",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-10T04:19:15Z",
+      "side": 1,
+      "message": "@Jack - is this something that can be overridden in the custom renderer?",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
