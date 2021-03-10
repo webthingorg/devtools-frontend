@@ -12,8 +12,11 @@ import * as DataGridRenderers from './DataGridRenderers.js';
   * - `title`: the user visible title.
   * - `visible`: if the column is visible when rendered
   * - `hideable`: if the user is able to show/hide the column via the context menu.
-  * - `width`: a number that denotes the width of the column. This is percentage
-  *   based, out of 100.
+  * - `width`: width in pixels, only use when absolutely necessary.
+  *    Or a number that denotes the width of the column relative to others.
+  *    Example: Two columns with weights 2 and 1. The first gets 66% of the space, the second 33%.
+  *    Please note that columns with an absolute width get space allocated first, while the remaining
+  *    space is divied up between columns with `widthWeighting`.
   * - `sortable`: an optional property to denote if the  column is sortable.
   *   Note, if you're rendering a data-grid yourself you likely  shouldn't set
   *   this. It's set by the `data-grid-controller`, which is the component you
@@ -23,10 +26,13 @@ export interface Column {
   id: string;
   title: string;
   sortable?: boolean;
-  widthWeighting: number;
+  width: ColumnWidth;
   hideable: boolean;
   visible: boolean;
 }
+
+export type ColumnWidth = {absolute: number}|{weight: number};
+export type ColumnWidthResult = {pixel: number}|{percentage: number};
 
 export type CellValue = string|number|boolean|null;
 
@@ -81,7 +87,7 @@ export function renderCellValue(cell: Cell): LitHtml.TemplateResult {
 
 /**
  * When the user passes in columns we want to know how wide each one should be.
- * We don't work in exact percentages, or pixel values, because it's then
+ * We prefer to not work in exact percentages, or pixel values, because it's then
  * unclear what to do in the event that one column is hidden. How do we
  * distribute up the extra space?
  *
@@ -101,21 +107,31 @@ export function renderCellValue(cell: Cell): LitHtml.TemplateResult {
  * @param allColumns
  * @param columnId
  */
-export function calculateColumnWidthPercentageFromWeighting(allColumns: readonly Column[], columnId: string): number {
-  const totalWeights =
-      allColumns.filter(c => c.visible).reduce((sumOfWeights, col) => sumOfWeights + col.widthWeighting, 0);
+export function calculateColumnWidthPercentageFromWeighting(allColumns: readonly Column[], columnId: string): ColumnWidthResult {
   const matchingColumn = allColumns.find(c => c.id === columnId);
   if (!matchingColumn) {
     throw new Error(`Could not find column with ID ${columnId}`);
   }
-  if (matchingColumn.widthWeighting < 1) {
-    throw new Error(`Error with column ${columnId}: width weightings must be >= 1.`);
-  }
   if (!matchingColumn.visible) {
-    return 0;
+    return {percentage: 0};
   }
 
-  return Math.round((matchingColumn.widthWeighting / totalWeights) * 100);
+  if ('absolute' in matchingColumn.width) {
+    return {pixel: matchingColumn.width.absolute};
+  }
+
+  if (matchingColumn.width.weight < 1) {
+    throw new Error(`Error with column ${columnId}: width weightings must be >= 1.`);
+  }
+
+  let totalWeights = 0;
+  for (const column of allColumns) {
+    if (column.visible && 'weight' in column.width) {
+      totalWeights += column.width.weight;
+    }
+  }
+  const percentage = Math.round((matchingColumn.width.weight / totalWeights) * 100);
+  return {percentage};
 }
 
 export interface HandleArrowKeyOptions {
