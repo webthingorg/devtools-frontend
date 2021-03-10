@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97624a43_132dc14a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-10T03:51:32Z",
+      "side": 1,
+      "message": "Hey Simon, I think I will need some help to remove the check Localization step in the bot?",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
