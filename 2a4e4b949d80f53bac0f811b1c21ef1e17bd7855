@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b37d8a2_7ac8a62a",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-10T09:06:59Z",
+      "side": 1,
+      "message": "Hmm, the problem is that we can\u0027t reference Components.Icon.Icon from here (cyclic dependency). So I think using HTMLElement as an approximation would be the best option.",
+      "parentUuid": "84ec909b_a3f1ca4c",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 576,
+        "endChar": 88
+      },
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dee311ef_cadb6656",
         "filename": "front_end/ui/Toolbar.js",
         "patchSetId": 2
@@ -95,6 +119,29 @@
       "writtenOn": "2021-03-10T07:29:57Z",
       "side": 1,
       "message": "This is fine as-is, but just FYI, for new code, it’s totally fine to use the more modern DOM APIs, i.e.\n\n    this.element.append(icon);",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "741ded6d_ec837489",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-10T09:06:59Z",
+      "side": 1,
+      "message": "isn\u0027t there a color variable for this?\n\n(also below?)",
+      "range": {
+        "startLine": 226,
+        "startChar": 16,
+        "endLine": 226,
+        "endChar": 32
+      },
       "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
