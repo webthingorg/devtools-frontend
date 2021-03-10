@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92d5705_196db55c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-03-10T14:13:43Z",
+      "side": 1,
+      "message": "The colors for the light grey text should be \"text-disabled\" btw. Looks a bit tooo light in the screenshots.",
+      "revId": "863a5c37c596c1e1c247828941e8420717b5d0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
