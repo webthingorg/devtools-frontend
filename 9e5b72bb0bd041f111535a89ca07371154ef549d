@@ -139,6 +139,24 @@
       "parentUuid": "e47e9d1c_8e37dd37",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b724c54_cd429f45",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1186534
+      },
+      "writtenOn": "2021-03-10T22:54:26Z",
+      "side": 1,
+      "message": "(Drive-by) for historical context, this warning (back when it was purely in Chrome and not split out in DevTools) checked the \"sizes\" attribute as a shortcut so we would skip downloading if no icon was indicated as being square, with a separate check covering the actual dimensions when we actually fetched the icon.",
+      "parentUuid": "ab2bb97a_a526f695",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
