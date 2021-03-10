@@ -16,6 +16,57 @@
       "message": "PTAL! I have attempted to make the Toolbar buttons work with the new icons but I am not sure if this way is preferred or if it\u0027s better to add a new icon to the sprite sheet? ",
       "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d7f748_704a1fad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-10T07:29:57Z",
+      "side": 1,
+      "message": "Looks slick!",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee311ef_cadb6656",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-10T07:29:57Z",
+      "side": 1,
+      "message": "This is fine as-is, but just FYI, for new code, it’s totally fine to use the more modern DOM APIs, i.e.\n\n    this.element.append(icon);",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7da929f_90d98f81",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-10T07:29:57Z",
+      "side": 1,
+      "message": ":focus-visible as well as :hover?",
+      "revId": "2a4e4b949d80f53bac0f811b1c21ef1e17bd7855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
