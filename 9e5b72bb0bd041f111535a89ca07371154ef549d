@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12aef12_394e1c9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-03-10T18:52:56Z",
+      "side": 1,
+      "message": "There are some wide icons produced for Windows10 (e.g. Wide310x150Logo.scale-400.png), and I believe these can be used in the windows start menu since not all of the tiles are square.",
+      "parentUuid": "6205c7c1_963f2b51",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e47e9d1c_8e37dd37",
@@ -101,6 +119,24 @@
       "writtenOn": "2021-03-10T07:06:01Z",
       "side": 1,
       "message": "Note that here you\u0027re using the sizes attribute of the icon, while before we were using the sizes of the icon image resource.",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab2bb97a_a526f695",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-03-10T18:52:56Z",
+      "side": 1,
+      "message": "Based on lines 799-802 of the original file, it looks like the width and height variables were computed the same way here as in the warning that was replaced (icon.sizes.split...), except that the parameter name in _appendImageResourceToSection (where the old warning was checked) is imageResource, and icon is passed as an argument in this case.\n\nWe could use the size of the image resource, and it looks like we would need to load the image from its url like in lines 785-790 and 803. To me, it seems that using the sizes attribute would be sufficient because the actual dimensions are checked against the size attribute for a different warning, but let me know which approach is preferred!",
+      "parentUuid": "e47e9d1c_8e37dd37",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
