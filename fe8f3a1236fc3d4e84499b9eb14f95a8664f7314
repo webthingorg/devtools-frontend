@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d30574ba_4d2e53b7",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-10T10:57:59Z",
+      "side": 1,
+      "message": "Just to make sure: this is the default spec reporter that provides all usual reporter and we augment the reporter to also do our ResultsDb handling?",
+      "range": {
+        "startLine": 15,
+        "startChar": 32,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "fe8f3a1236fc3d4e84499b9eb14f95a8664f7314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "251ba2cd_301a1e3a",
+        "filename": "test/shared/resultsdb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-10T10:57:59Z",
+      "side": 1,
+      "message": "Ultra-nit: add a link to the code search that shows where this behavior is defined.",
+      "range": {
+        "startLine": 24,
+        "startChar": 50,
+        "endLine": 24,
+        "endChar": 70
+      },
+      "revId": "fe8f3a1236fc3d4e84499b9eb14f95a8664f7314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
