@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7617b97_9396ff4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-10T14:25:04Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd7a25ff_7de40dcf",
@@ -58,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6506f7da_539781a3",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-10T14:25:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd7a25ff_7de40dcf",
+      "range": {
+        "startLine": 184,
+        "startChar": 10,
+        "endLine": 184,
+        "endChar": 28
+      },
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a771186_7997e25e",
@@ -71,6 +112,30 @@
       "writtenOn": "2021-03-10T10:09:45Z",
       "side": 1,
       "message": "Is there a way to share this \u003cstyle\u003e between the different buttons?\n\nI can\u0027t declare it in the TrustTokensView component, as these styles don\u0027t pierce the shadowroot boundary of the DataGrid.",
+      "range": {
+        "startLine": 221,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 13
+      },
+      "revId": "a67925a6c5ab630c8df6ccf5e209573c9f4585bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e26a565_2122a226",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-10T14:25:04Z",
+      "side": 1,
+      "message": "No, I think this is best for now. It\u0027s not great as you say because it means we have the CSS n times, but this is hopefully on the list of things to fix with our intern over the summer, and beyond not using a shadow DOM and having global CSS I think this is our best bet.",
+      "parentUuid": "3a771186_7997e25e",
       "range": {
         "startLine": 221,
         "startChar": 6,
