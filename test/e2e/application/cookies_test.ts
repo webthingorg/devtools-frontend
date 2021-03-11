@@ -50,8 +50,8 @@ describe('The Application Tab', async () => {
   });
 
   // Flaky on windows
-  it.skipOnPlatforms(
-      ['win32'], '[crbug.com/1186150][crbug.com/462370] shows a preview of the cookie value', async () => {
+  it(
+      '[crbug.com/1186150][crbug.com/462370] shows a preview of the cookie value', async () => {
         const {target} = getBrowserAndPages();
         // This sets a new cookie foo=bar
         await navigateToApplicationTab(target, 'cookies');
@@ -69,7 +69,7 @@ describe('The Application Tab', async () => {
       });
 
   // Flaky on windows
-  it.skipOnPlatforms(['win32'], '[crbug.com/1186150][crbug.com/997625] can als show the urldecoded value', async () => {
+  it('[crbug.com/1186150][crbug.com/997625] can als show the urldecoded value', async () => {
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
@@ -98,8 +98,8 @@ describe('The Application Tab', async () => {
   });
 
   // Flaky on windows
-  it.skipOnPlatforms(
-      ['win32'], '[crbug.com/1186150][crbug.com/1086462] clears the preview value when clearing cookies', async () => {
+  it(
+      '[crbug.com/1186150][crbug.com/1086462] clears the preview value when clearing cookies', async () => {
         const {target} = getBrowserAndPages();
         // This sets a new cookie foo=bar
         await navigateToApplicationTab(target, 'cookies');
@@ -128,8 +128,8 @@ describe('The Application Tab', async () => {
       });
 
   // Flaky on windows
-  it.skipOnPlatforms(
-      ['win32'], '[crbug.com/1186150][crbug.com/978059] only clear currently visible cookies', async () => {
+  it(
+      '[crbug.com/1186150][crbug.com/978059] only clear currently visible cookies', async () => {
         const {target} = getBrowserAndPages();
         // This sets a new cookie foo=bar
         await navigateToApplicationTab(target, 'cookies');
