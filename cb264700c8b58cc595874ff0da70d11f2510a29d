@@ -86,6 +86,42 @@
       "parentUuid": "96173000_0c90be5f",
       "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e772b6e_58f3f81f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-11T03:11:24Z",
+      "side": 1,
+      "message": "For me I plan to remove all the scripts in scripts/Localization and some build steps that are using those.",
+      "parentUuid": "fa40aa71_6bbc180f",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7063272_dd21a23d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-11T03:11:24Z",
+      "side": 1,
+      "message": "Sounds good! Thanks :)",
+      "parentUuid": "38c13c0a_28e31c21",
+      "revId": "cb264700c8b58cc595874ff0da70d11f2510a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
