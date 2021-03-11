@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2847ee_453b5415",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-11T07:39:39Z",
+      "side": 1,
+      "message": "Indeed. The system is very flexible, in that it doesn\u0027t rely on inheritance. As seen below, callbacks are installed via `runner.on`. Inheriting from the standard `Spec` reporter allows us to still get the nicely printed stdout/stderr messages while also having ResultsDb reporting.\n\nIt is not ideal, but unfortunately multiple reporters are not supported by mocha out-of-the-box.",
+      "parentUuid": "d30574ba_4d2e53b7",
+      "range": {
+        "startLine": 15,
+        "startChar": 32,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "fe8f3a1236fc3d4e84499b9eb14f95a8664f7314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "251ba2cd_301a1e3a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-10T10:57:59Z",
       "side": 1,
       "message": "Ultra-nit: add a link to the code search that shows where this behavior is defined.",
+      "range": {
+        "startLine": 24,
+        "startChar": 50,
+        "endLine": 24,
+        "endChar": 70
+      },
+      "revId": "fe8f3a1236fc3d4e84499b9eb14f95a8664f7314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c66b82_47a06883",
+        "filename": "test/shared/resultsdb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-11T07:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "251ba2cd_301a1e3a",
       "range": {
         "startLine": 24,
         "startChar": 50,
