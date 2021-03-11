@@ -175,6 +175,24 @@
       "parentUuid": "8b724c54_cd429f45",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01060975_1036d722",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1186534
+      },
+      "writtenOn": "2021-03-11T21:39:08Z",
+      "side": 1,
+      "message": "Yes - for clarity, my comment was in support of this approach :)",
+      "parentUuid": "b59a66d7_54b462ef",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
