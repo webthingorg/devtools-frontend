@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73e12cd6_c7facc2c",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:50:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "05eac459_d3fad4fe",
+      "range": {
+        "startLine": 723,
+        "startChar": 13,
+        "endLine": 723,
+        "endChar": 24
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1edb00b9_02347c89",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 20
@@ -117,6 +141,30 @@
       "writtenOn": "2021-03-11T14:07:20Z",
       "side": 1,
       "message": "This seems to be re-usable; would it make sense to move it to ui/components?\n\nIf so, can we write unittest for this?",
+      "range": {
+        "startLine": 803,
+        "startChar": 13,
+        "endLine": 803,
+        "endChar": 28
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d49db3_95f78699",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:50:13Z",
+      "side": 1,
+      "message": "I was hoping on your opinion on whether to move the components to separate files, Thanks, will do as suggested!",
+      "parentUuid": "fb2d7f68_ec4370c8",
       "range": {
         "startLine": 803,
         "startChar": 13,

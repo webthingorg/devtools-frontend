@@ -22,6 +22,30 @@
       },
       "revId": "b0d9f9d3cf05d7c88aae19e65e8330aac41a912b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77753b29_52ea0c5a",
+        "filename": "scripts/eslint_rules/lib/check_license_header.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:50:13Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "0dcc0e3c_6bcf5d11",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 38
+      },
+      "revId": "b0d9f9d3cf05d7c88aae19e65e8330aac41a912b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
