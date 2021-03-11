@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a500919_2f600d57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T16:17:46Z",
+      "side": 1,
+      "message": "LGTM, but still have a question.",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca83ccac_759e724e",
@@ -102,6 +119,24 @@
       "side": 1,
       "message": "Unfortunately, that isn\u0027t possible as ::before is a pseudo element.",
       "parentUuid": "7c3e2b68_30716fe8",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7936b4aa_46740c86",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T16:17:46Z",
+      "side": 1,
+      "message": "I am confused, what exactly is not possible? Isn\u0027t https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/emulation/sensors.css;l\u003d175?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20sensors.css similar to what I suggested?",
+      "parentUuid": "57e47c46_072b7182",
       "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
