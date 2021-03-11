@@ -16,6 +16,23 @@
       "message": "Remove scripts/localization directory. PTAL, thank you!",
       "revId": "38c650cd05298d86cbc74426d2d89bd4deabf242",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bafa103_c08492b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-11T08:03:11Z",
+      "side": 1,
+      "message": "lgtm 🎉",
+      "revId": "38c650cd05298d86cbc74426d2d89bd4deabf242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
