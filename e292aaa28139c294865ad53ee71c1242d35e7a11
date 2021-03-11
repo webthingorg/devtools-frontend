@@ -16,6 +16,115 @@
       "message": "PTAL",
       "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0cb04b3_4b61bbed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 1,
+      "message": "Looks awesome! Some comments",
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d1b6c6_7723566a",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 1,
+      "message": "Would it be possible to have a tooltip explaining what \"creation stack trace\" means? I\u0027m not sure all users will know.",
+      "range": {
+        "startLine": 506,
+        "startChar": 29,
+        "endLine": 506,
+        "endChar": 72
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05eac459_d3fad4fe",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 1,
+      "message": "Would it make sense to introduce this component in a separate file (in front_end/resources for now)?",
+      "range": {
+        "startLine": 723,
+        "startChar": 13,
+        "endLine": 723,
+        "endChar": 24
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edb00b9_02347c89",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 1,
+      "message": "May this fail? What then?",
+      "range": {
+        "startLine": 733,
+        "startChar": 54,
+        "endLine": 733,
+        "endChar": 73
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2d7f68_ec4370c8",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 1,
+      "message": "This seems to be re-usable; would it make sense to move it to ui/components?\n\nIf so, can we write unittest for this?",
+      "range": {
+        "startLine": 803,
+        "startChar": 13,
+        "endLine": 803,
+        "endChar": 28
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

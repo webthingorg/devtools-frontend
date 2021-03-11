@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcc0e3c_6bcf5d11",
+        "filename": "scripts/eslint_rules/lib/check_license_header.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T14:07:20Z",
+      "side": 0,
+      "message": "I think this change shouldn\u0027t be in here.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 38
+      },
+      "revId": "b0d9f9d3cf05d7c88aae19e65e8330aac41a912b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
