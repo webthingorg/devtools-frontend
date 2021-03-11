@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5716f6_8c6700e6",
+        "filename": "front_end/issues/IssueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T15:47:14Z",
+      "side": 1,
+      "message": "I don\u0027t think so, this will be gone soon when we remove the experiment, so this is the least amount of churn.",
+      "parentUuid": "ca83ccac_759e724e",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fc6b28a_e55230ee",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4145b591_c1871322",
+        "filename": "front_end/issues/IssueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T15:47:14Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "4fc6b28a_e55230ee",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c3e2b68_30716fe8",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-03-11T15:43:25Z",
       "side": 1,
       "message": "Nit: I think it would be cleaner if you put all common attributes into a single block, and then have 3 blocks just containing the color.",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e47c46_072b7182",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T15:47:14Z",
+      "side": 1,
+      "message": "Unfortunately, that isn\u0027t possible as ::before is a pseudo element.",
+      "parentUuid": "7c3e2b68_30716fe8",
       "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
