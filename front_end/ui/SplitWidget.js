@@ -996,9 +996,7 @@ export class SplitWidget extends Widget {
           (this.isSidebarSecond() ? 'largeicon-hide-bottom-sidebar' : 'largeicon-hide-top-sidebar');
     }
     this._showHideSidebarButton.setGlyph(glyph);
-    this._showHideSidebarButton.setTitle(
-        sidebarHidden ? i18nString(UIStrings.showS, {PH1: this._showSidebarButtonTitle}) :
-                        i18nString(UIStrings.hideS, {PH1: this._hideSidebarButtonTitle}));
+    this._showHideSidebarButton.setTitle(sidebarHidden ? this._showSidebarButtonTitle : this._hideSidebarButtonTitle);
   }
 }
 
