@@ -157,6 +157,24 @@
       "parentUuid": "ab2bb97a_a526f695",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59a66d7_54b462ef",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-03-11T17:43:39Z",
+      "side": 1,
+      "message": "Right, the check covering the actual dimensions still happens inside the _appendImageResourceToSection() function, which is called for each icon in the array. But since the hasSquareIcon variable is maintained outside of this function, we have to get the sizes separately, and I think using the sizes attribute is the cheapest way.\n\nWe still download each icon in _appendImageResourceToSection() to check that the actual dimensions match the sizes attribute though.",
+      "parentUuid": "8b724c54_cd429f45",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
