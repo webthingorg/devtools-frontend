@@ -419,6 +419,24 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       }
     });
 
+    // TODO(bmeurer)
+    const resizerWidget = new UI.ResizerWidget.SimpleResizerWidget();
+    resizerWidget.setEnabled(true);
+    const resizerWrapper = this._contentsElement.createChild('div', 'console-view-resizer-wrapper');
+    const resizerElement = resizerWrapper.createChild('div', 'console-view-resizer');
+    resizerWidget.addElement(resizerElement);
+    let pinPaneSize = 0;
+    let maxHeight = 0;
+    resizerWidget.addEventListener(UI.ResizerWidget.Events.ResizeStart, () => {
+      pinPaneSize = this._pinPane.element.clientHeight;
+      maxHeight = this._pinPane.contentElement.scrollHeight;
+    });
+    resizerWidget.addEventListener(UI.ResizerWidget.Events.ResizeUpdate, event => {
+      const offset = event.data.currentPosition - event.data.startPosition;
+      const height = Math.min(pinPaneSize + offset, maxHeight);
+      this._pinPane.element.style.height = `${height}px`;
+    });
+
     this._viewport = new ConsoleViewport(this);
     this._viewport.setStickToBottom(true);
     this._viewport.contentElement().classList.add('console-group', 'console-group-messages');
