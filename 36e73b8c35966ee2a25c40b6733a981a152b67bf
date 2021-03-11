@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5460e551_81845b01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-11T08:35:26Z",
+      "side": 1,
+      "message": "LGTM!\n\nRegarding blockers:\n\n1. I\u0027m working on emitting `itemselected` events today in a CL to enable you to listen to those.\n2. For duplicating styles: I wonder if you could create a `\u003caccessibility-tree-node\u003e` component and render that for each custom node? Then at least that component could house the styles you need.\n3. RE Alex\u0027s point on doubleclicks, I wasn\u0027t aware that behaviour was supported. We can add the ability to double click on a node to expand it - you can also set `clickabletitle` as an attribute and that will make the node expand/contract on a single click.\n4. The overflow issue is a bug in that the TreeOutline removes all white-space, but I\u0027m fixing that in a CL.\n\n\n",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d9441b5_bb343ca7",
@@ -88,6 +105,24 @@
       "writtenOn": "2021-03-10T04:19:15Z",
       "side": 1,
       "message": "@Jack - is this something that can be overridden in the custom renderer?",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbceee6_e0bbc8cd",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-11T08:35:26Z",
+      "side": 1,
+      "message": "Currently not; but we could take an attribute such as focusedbackgroundcolor to enable you to customise this?",
+      "parentUuid": "a5132483_8fd749fb",
       "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
