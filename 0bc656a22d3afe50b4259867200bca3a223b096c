@@ -46,6 +46,30 @@
       },
       "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5deaa14b_9db5ce69",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-03-11T09:41:48Z",
+      "side": 1,
+      "message": "What about adding --dividerline as a darker line color? --hairline is usually a very light and thin line.\n\nWhat I\u0027d like is that color names are semantic – so it\u0027s clear when to use which one.",
+      "parentUuid": "95665155_eb17653f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
