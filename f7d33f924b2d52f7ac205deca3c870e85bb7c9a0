@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd9cc0e0_d9ff7710",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-11T07:08:29Z",
+      "side": 1,
+      "message": "Removing devtools_ui_strings scripts, PTAL :) ",
+      "revId": "f7d33f924b2d52f7ac205deca3c870e85bb7c9a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
