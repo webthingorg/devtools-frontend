@@ -57,6 +57,30 @@
       },
       "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e37de672_021f22ce",
+        "filename": "front_end/ui/SplitWidget.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-11T07:54:26Z",
+      "side": 1,
+      "message": "I have a CL out to fix this :) https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2750945",
+      "parentUuid": "95b1fd9c_cee8c41c",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 90
+      },
+      "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
