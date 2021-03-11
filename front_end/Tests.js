@@ -98,14 +98,16 @@
 
   /**
    * Takes control over execution.
+   * @param {{slownessFactor:number}=} options
    */
-  TestSuite.prototype.takeControl = function() {
+  TestSuite.prototype.takeControl = function(options) {
+    const {slownessFactor} = {slownessFactor: 1, ...options};
     this.controlTaken_ = true;
     // Set up guard timer.
     const self = this;
     this.timerId_ = setTimeout(function() {
       self.reportFailure_('Timeout exceeded: 20 sec');
-    }, 20000);
+    }, 20000 * slownessFactor);
   };
 
   /**
@@ -887,7 +889,8 @@
 
     this.addSniffer(SDK.NetworkDispatcher.prototype, '_finishNetworkRequest', finishRequest);
 
-    test.takeControl();
+    // Allow more time for this test as it needs to reload the inspected page.
+    test.takeControl({slownessFactor: 2});
     test.evaluateInConsole_('window.location.reload(true);', function(resultText) {});
   };
 
