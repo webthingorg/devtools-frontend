@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda00f82_e6cbe0e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:24:03Z",
+      "side": 1,
+      "message": "Thanks for taking the initiative!\n\nThe change looks good and also got approval from the UX-side.\n\nIt seems that the blink-test requires an update (https://test-results.appspot.com/data/layout_results/devtools_frontend_linux_blink_light_rel/13227/blink_web_tests%20%28with%20patch%29/layout-test-results/results.html). Because it lives in the main chromium repo, this will require 3 CLs: disable the test in TestExpectations, this CL, and update/re-enable blink test.",
+      "revId": "587828a4f7589857fe577a3e2564452aa51febc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
