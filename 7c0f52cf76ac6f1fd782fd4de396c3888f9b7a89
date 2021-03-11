@@ -33,6 +33,24 @@
       "message": "So for SAB it\u0027s (Improvement or BreakingChange) not (BreakingChange or Error)?",
       "revId": "7c0f52cf76ac6f1fd782fd4de396c3888f9b7a89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f8cc1e5_d2fb8089",
+        "filename": "front_end/sdk/SharedArrayBufferIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T07:51:41Z",
+      "side": 1,
+      "message": "Great catch!",
+      "parentUuid": "c43c5d5f_78910fde",
+      "revId": "7c0f52cf76ac6f1fd782fd4de396c3888f9b7a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
