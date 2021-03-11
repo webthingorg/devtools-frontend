@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd307a0e_249e4ca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-11T07:32:27Z",
+      "side": 1,
+      "message": "The *.py changes LGTM.\n\nI noticed the SVG files are now less optimally minified, growing in file size. Is there some svgo option that used to be enabled by default but no longer is, or something? Would be nice to not regress in file size.",
+      "revId": "16e660c7c15aaae90fde29ce10d5c10856b84aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
