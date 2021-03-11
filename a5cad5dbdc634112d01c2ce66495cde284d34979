@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11a6284b_8636b13a",
+        "filename": "package-lock.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-11T16:02:58Z",
+      "side": 0,
+      "message": "What is your NPM version? You will need NPM 7+ to run this script. I forgot to file a bug for this, but just did: crbug.com/1187128",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "a5cad5dbdc634112d01c2ce66495cde284d34979",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
