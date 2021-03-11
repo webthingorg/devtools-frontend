@@ -81,6 +81,9 @@ const OTHER_LICENSE_HEADERS = [
   'sources/WatchExpressionsSidebarPane.js',
   // Multiple authors
   'components/JSPresentationUtils.js',
+  'console/ConsoleView.js',
+  'console/ConsoleViewMessage.js',
+  'cookie_table/CookiesTable.js',
   'elements/ComputedStyleWidget.js',
   'elements/ElementsPanel.js',
   'elements/ElementsTreeElement.js',
