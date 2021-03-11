@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca83ccac_759e724e",
+        "filename": "front_end/issues/IssueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:43:25Z",
+      "side": 1,
+      "message": "Would it make sense to turn this into a class field?",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc6b28a_e55230ee",
+        "filename": "front_end/issues/IssueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:43:25Z",
+      "side": 1,
+      "message": "And this one too?",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c3e2b68_30716fe8",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-11T15:43:25Z",
+      "side": 1,
+      "message": "Nit: I think it would be cleaner if you put all common attributes into a single block, and then have 3 blocks just containing the color.",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
