@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d4470998cbb716f2f24aedd59a727747af5b5c1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd4a38f_795cb6f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-11T10:23:53Z",
+      "side": 1,
+      "message": "LGTM, you\u0027ll need to check the chromium side as well and make sure the timeout there will stretch to 40s at least as well.",
+      "revId": "d4470998cbb716f2f24aedd59a727747af5b5c1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
