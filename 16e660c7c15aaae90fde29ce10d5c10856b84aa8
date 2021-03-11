@@ -16,6 +16,24 @@
       "message": "The *.py changes LGTM.\n\nI noticed the SVG files are now less optimally minified, growing in file size. Is there some svgo option that used to be enabled by default but no longer is, or something? Would be nice to not regress in file size.",
       "revId": "16e660c7c15aaae90fde29ce10d5c10856b84aa8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3894429_fc67a297",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-11T08:01:28Z",
+      "side": 1,
+      "message": "Reverted the re-optimization pass for now. Specifying detailed config via commandline is not possible (without a config file), so I think we should wait until this has been ported to node to experiment with different option settings.",
+      "parentUuid": "cd307a0e_249e4ca1",
+      "revId": "16e660c7c15aaae90fde29ce10d5c10856b84aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
