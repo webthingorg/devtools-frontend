@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "436e6ded_c0db5baa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-11T08:45:00Z",
+      "side": 1,
+      "message": "PTAL, this is to unblock CQ/waterfall.",
+      "revId": "3eb42bed175ba1cfa8e9d64b3bb66670fdf32c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
