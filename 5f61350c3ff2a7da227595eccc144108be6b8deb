@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e9baf9_9843aeb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-12T09:46:34Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83120cc_209e0cd8",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-12T09:46:34Z",
+      "side": 1,
+      "message": "Should we lock it? Its an attribute.",
+      "range": {
+        "startLine": 154,
+        "startChar": 21,
+        "endLine": 154,
+        "endChar": 30
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ead59c_4c784483",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-12T09:46:34Z",
+      "side": 1,
+      "message": "AudioContext is an interface and should probably be locked here and below.",
+      "range": {
+        "startLine": 162,
+        "startChar": 30,
+        "endLine": 162,
+        "endChar": 42
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d5f2e6_f600f8a1",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-12T09:46:34Z",
+      "side": 1,
+      "message": "Should we lock \u0027catch\u0027 and \u0027with\u0027 here? Not sure if \"gefangen Block\"/\"mit block\" is a meaningful translation.",
+      "range": {
+        "startLine": 71,
+        "startChar": 14,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
