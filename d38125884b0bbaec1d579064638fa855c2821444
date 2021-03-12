@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8e992c_35f98503",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-12T09:36:28Z",
+      "side": 1,
+      "message": "LGTM, please wait for merge approval on the bug. Thanks!",
+      "revId": "d38125884b0bbaec1d579064638fa855c2821444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
