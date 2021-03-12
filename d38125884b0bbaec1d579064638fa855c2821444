@@ -16,6 +16,24 @@
       "message": "LGTM, please wait for merge approval on the bug. Thanks!",
       "revId": "d38125884b0bbaec1d579064638fa855c2821444",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "269e80c8_fb7310bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-03-12T09:45:09Z",
+      "side": 1,
+      "message": "Will do! Thanks.",
+      "parentUuid": "af8e992c_35f98503",
+      "revId": "d38125884b0bbaec1d579064638fa855c2821444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
