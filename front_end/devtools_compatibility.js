@@ -500,10 +500,12 @@
      * @param {string} headers
      * @param {number} streamId
      * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult): void} callback
+     * @param {boolean=} binary
      */
-    loadNetworkResource(url, headers, streamId, callback) {
+    loadNetworkResource(url, headers, streamId, callback, binary) {
       DevToolsAPI.sendMessageToEmbedder(
-          'loadNetworkResource', [url, headers, streamId], /** @type {function(?Object)} */ (callback));
+          'loadNetworkResource', [url, headers, streamId, Boolean(binary)],
+          /** @type {function(?Object)} */ (callback));
     }
 
     /**
