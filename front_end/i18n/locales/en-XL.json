@@ -477,10 +477,10 @@
     "message": "[{PH1}] L̂óâd́îńĝ d́êb́ûǵ ŝým̂b́ôĺŝ f́ôŕ {PH2} (v̂íâ {PH3})..."
   },
   "bindings/ResourceScriptMapping.ts | liveEditCompileFailed": {
-    "message": "L̂ív̂éÊd́ît́ ĉóm̂ṕîĺê f́âíl̂éd̂: {PH1}"
+    "message": "LiveEdit ĉóm̂ṕîĺê f́âíl̂éd̂: {PH1}"
   },
   "bindings/ResourceScriptMapping.ts | liveEditFailed": {
-    "message": "L̂ív̂éÊd́ît́ f̂áîĺêd́: {PH1}"
+    "message": "LiveEdit f̂áîĺêd́: {PH1}"
   },
   "browser_debugger/browser_debugger-meta.ts | contentScripts": {
     "message": "Ĉón̂t́êńt̂ śĉŕîṕt̂ś"
