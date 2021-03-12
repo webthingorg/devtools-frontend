@@ -16,6 +16,23 @@
       "message": "PTAL, there is a windows stresser run on a previous patchset, so I feel confident enough re-enabling these tests for today (and keeping an eye on the tree).",
       "revId": "bd39bc27ff13da23f8a7c264688cc940f5b183f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b57a52c7_11fb0600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-12T08:04:15Z",
+      "side": 1,
+      "message": "LGTM, but maybe let\u0027s wait for a run of the stressor bots as well?",
+      "revId": "bd39bc27ff13da23f8a7c264688cc940f5b183f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
