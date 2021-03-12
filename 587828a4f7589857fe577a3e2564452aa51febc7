@@ -34,6 +34,24 @@
       "parentUuid": "fda00f82_e6cbe0e7",
       "revId": "587828a4f7589857fe577a3e2564452aa51febc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c96819_c40c4e60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-12T09:37:24Z",
+      "side": 1,
+      "message": "First chromium patch has landed.",
+      "parentUuid": "13cf93fd_4b031587",
+      "revId": "587828a4f7589857fe577a3e2564452aa51febc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
