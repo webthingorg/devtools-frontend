@@ -22,6 +22,30 @@
       },
       "revId": "a5cad5dbdc634112d01c2ce66495cde284d34979",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6101cab1_19f70962",
+        "filename": "package-lock.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T08:48:09Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "11a6284b_8636b13a",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "a5cad5dbdc634112d01c2ce66495cde284d34979",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

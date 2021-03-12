@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c45105_c304a63a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T08:48:09Z",
+      "side": 1,
+      "message": "@Tim PTAL. I\u0027ve updated to npm 7 and re-run.",
+      "revId": "2a478806268769cb86d4e7210af106e248b87717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
