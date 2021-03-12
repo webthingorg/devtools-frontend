@@ -139,6 +139,24 @@
       "parentUuid": "57e47c46_072b7182",
       "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c433e4c9_f5147c96",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-12T07:54:42Z",
+      "side": 1,
+      "message": "Right, now I got what you suggested!",
+      "parentUuid": "7936b4aa_46740c86",
+      "revId": "0ecf04be015cb970aed1b2bff93731d0e4c95c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
