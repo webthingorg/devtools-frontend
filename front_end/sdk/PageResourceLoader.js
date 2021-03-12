@@ -161,9 +161,10 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} url
    * @param {!PageResourceLoadInitiator} initiator
-   * @return {!Promise<!{content: string}>}
+   * @param {{binary?: boolean}} options
+   * @return {!Promise<!{content: string|!ArrayBuffer}>}
    */
-  async loadResource(url, initiator) {
+  async loadResource(url, initiator, options = {}) {
     const key = PageResourceLoader.makeKey(url, initiator);
     /** @type {!PageResource} */
     const pageResource = {success: null, size: null, errorMessage: undefined, url, initiator};
@@ -171,13 +172,14 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
     this.dispatchEventToListeners(Events.Update);
     try {
       await this._acquireLoadSlot();
-      const resultPromise = this._dispatchLoad(url, initiator);
+      const resultPromise = this._dispatchLoad(url, initiator, options);
       const result = await PageResourceLoader._withTimeout(resultPromise, this._loadTimeout);
       pageResource.errorMessage = result.errorDescription.message;
       pageResource.success = result.success;
       if (result.success) {
-        pageResource.size = result.content.length;
-        return {content: result.content};
+        const {content} = result;
+        pageResource.size = (typeof content === 'string') ? content.length : content.byteLength;
+        return {content};
       }
       throw new Error(result.errorDescription.message);
     } catch (e) {
@@ -197,14 +199,16 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} url
    * @param {!PageResourceLoadInitiator} initiator
-   * @return {!Promise<!{success: boolean, content: string, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
+   * @param {{binary?: boolean}} options
+   * @return {!Promise<!{success: boolean, content: string|!ArrayBuffer, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
    */
-  async _dispatchLoad(url, initiator) {
+  async _dispatchLoad(url, initiator, options = {}) {
     /** @type {string|null} */
     let failureReason = null;
     if (this._loadOverride) {
       return this._loadOverride(url);
     }
+
     const parsedURL = new Common.ParsedURL.ParsedURL(url);
     const eligibleForLoadFromTarget = getLoadThroughTargetSetting().get() && parsedURL && parsedURL.isHttpOrHttps();
     Host.userMetrics.developerResourceScheme(this._getDeveloperResourceScheme(parsedURL));
@@ -212,13 +216,14 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
       try {
         if (initiator.target) {
           Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.LoadThroughPageViaTarget);
-          const result = await this._loadFromTarget(initiator.target, initiator.frameId, url);
+          const result = await this._loadFromTarget(initiator.target, initiator.frameId, url, Boolean(options.binary));
           return result;
         }
         const frame = FrameManager.instance().getFrame(initiator.frameId || '');
         if (frame) {
           Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.LoadThroughPageViaFrame);
-          const result = await this._loadFromTarget(frame.resourceTreeModel().target(), initiator.frameId, url);
+          const result = await this._loadFromTarget(
+              frame.resourceTreeModel().target(), initiator.frameId, url, Boolean(options.binary));
           return result;
         }
       } catch (e) {
@@ -235,7 +240,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
       Host.userMetrics.developerResourceLoaded(code);
     }
 
-    const result = await MultitargetNetworkManager.instance().loadResource(url);
+    const result = await MultitargetNetworkManager.instance().loadResource(url, Boolean(options.binary));
     if (eligibleForLoadFromTarget && !result.success) {
       Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.FallbackFailure);
     }
@@ -278,14 +283,16 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Target} target
    * @param {?Protocol.Page.FrameId} frameId
    * @param {string} url
+   * @param {boolean} binary
    */
-  async _loadFromTarget(target, frameId, url) {
+  async _loadFromTarget(target, frameId, url, binary) {
     const networkManager = /** @type {!NetworkManager} */ (target.model(NetworkManager));
     const ioModel = /** @type {!IOModel} */ (target.model(IOModel));
     const resource =
         await networkManager.loadNetworkResource(frameId || '', url, {disableCache: true, includeCredentials: true});
     try {
-      const content = resource.stream ? await ioModel.readToString(resource.stream) : '';
+      const content = binary ? (resource.stream ? await ioModel.readToBuffer(resource.stream) : new ArrayBuffer(0)) :
+                               (resource.stream ? await ioModel.readToString(resource.stream) : '');
       return {
         success: resource.success,
         content,

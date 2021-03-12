@@ -29,6 +29,13 @@ Host.ResourceLoader = HostModule.ResourceLoader.ResourceLoader;
 /**
  * @param {string} url
  * @param {?Object.<string, string>} headers
+ * @param {function(boolean, !Object.<string, string>, ArrayBuffer, !HostModule.ResourceLoader.LoadErrorDescription)} callback
+ */
+Host.ResourceLoader.loadBinary = HostModule.ResourceLoader.loadBinary;
+
+/**
+ * @param {string} url
+ * @param {?Object.<string, string>} headers
  * @param {function(boolean, !Object.<string, string>, string, !HostModule.ResourceLoader.LoadErrorDescription)} callback
  */
 Host.ResourceLoader.load = HostModule.ResourceLoader.load;

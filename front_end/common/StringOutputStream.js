@@ -7,7 +7,7 @@
  */
 export class OutputStream {
   /**
-   * @param {string} data
+   * @param {string|!ArrayBuffer} data
    * @return {!Promise.<void>}
    */
   async write(data) {
@@ -23,31 +23,60 @@ export class OutputStream {
 /**
  * @implements {OutputStream}
  */
-export class StringOutputStream {
+export class MemoryOutputStream {
   constructor() {
-    this._data = '';
+    /** @type {!Array<string|!ArrayBuffer>} */
+    this._data = [];
   }
 
   /**
-   * @override
-   * @param {string} chunk
+   * @param {string|!ArrayBuffer} data
    * @return {!Promise.<void>}
    */
-  async write(chunk) {
-    this._data += chunk;
+  async write(data) {
+    this._data.push(data);
   }
 
   /**
-   * @override
    * @return {!Promise.<void>}
    */
   async close() {
   }
+}
 
+export class BinaryOutputStream extends MemoryOutputStream {
+  /**
+   * @return {!ArrayBuffer}
+   */
+  data() {
+    if (this._data.length === 0) {
+      return new ArrayBuffer(0);
+    }
+
+    const encoder = new TextEncoder();
+    const binary = this._data.map(chunk => typeof chunk === 'string' ? encoder.encode(chunk) : chunk);
+    const totalSize = binary.map(c => c.byteLength).reduce((sum, len) => sum + len);
+    const data = new Uint8Array(totalSize);
+    let offset = 0;
+    for (const chunk of binary) {
+      data.set(new Uint8Array(chunk), offset);
+      offset += chunk.byteLength;
+    }
+    return data.buffer;
+  }
+}
+
+export class StringOutputStream extends MemoryOutputStream {
   /**
    * @return {string}
    */
   data() {
-    return this._data;
+    if (this._data.length === 0) {
+      return '';
+    }
+
+    const decoder = new TextDecoder();
+    const strings = this._data.map(chunk => typeof chunk === 'string' ? chunk : decoder.decode(chunk));
+    return strings.join('');
   }
 }

@@ -259,9 +259,9 @@ export class TextSourceMap {
     let updatedContent;
     try {
       const {content} = await PageResourceLoader.instance().loadResource(sourceMapURL, initiator);
-      updatedContent = content;
+      updatedContent = /** @type {string} */ (content);
       if (content.slice(0, 3) === ')]}') {
-        updatedContent = content.substring(content.indexOf('\n'));
+        updatedContent = updatedContent.substring(updatedContent.indexOf('\n'));
       }
     } catch (error) {
       throw new Error(i18nString(UIStrings.couldNotLoadContentForSS, {PH1: sourceMapURL, PH2: error.message}));

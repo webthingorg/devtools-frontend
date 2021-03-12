@@ -90,7 +90,7 @@ export class CompilerSourceMappingContentProvider {
   async requestContent() {
     try {
       const {content} = await PageResourceLoader.instance().loadResource(this._sourceURL, this._initiator);
-      return {content, isEncoded: false};
+      return {content: /** @type {string} */ (content), isEncoded: false};
     } catch (e) {
       const error = i18nString(UIStrings.couldNotLoadContentForSS, {PH1: this._sourceURL, PH2: e.message});
       console.error(error);

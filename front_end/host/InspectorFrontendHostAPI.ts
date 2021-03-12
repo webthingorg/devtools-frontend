@@ -124,7 +124,8 @@ export interface InspectorFrontendHostAPI {
   isolatedFileSystem(fileSystemId: string, registeredName: string): FileSystem|null;
 
   loadNetworkResource(
-      url: string, headers: string, streamId: number, callback: (arg0: LoadNetworkResourceResult) => void): void;
+      url: string, headers: string, streamId: number, callback: (arg0: LoadNetworkResourceResult) => void,
+      binary: boolean): void;
 
   getPreferences(callback: (arg0: {
                    [x: string]: string,

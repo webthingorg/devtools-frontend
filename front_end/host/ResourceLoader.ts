@@ -87,9 +87,10 @@ const _discardOutputStream = function(id: number): void {
   delete _boundStreams[id];
 };
 
-export const streamWrite = function(id: number, chunk: string): void {
+export const streamWrite = function(id: number, chunk: string|ArrayBuffer): void {
   _boundStreams[id].write(chunk);
 };
+
 export interface LoadErrorDescription {
   statusCode: number;
   netError?: number;
@@ -102,34 +103,30 @@ export let load = function(
     url: string, headers: {
       [x: string]: string,
     }|null,
+    binary: boolean,
     callback: (
-        arg0: boolean, arg1: {
+        success: boolean, headers: {
           [x: string]: string,
         },
-        arg2: string, arg3: LoadErrorDescription) => void): void {
-  const stream = new Common.StringOutputStream.StringOutputStream();
-  loadAsStream(url, headers, stream, mycallback);
-
-  function mycallback(
-      success: boolean, headers: {
-        [x: string]: string,
-      },
-      errorDescription: LoadErrorDescription): void {
+        data: string|ArrayBuffer, errorDesciption: LoadErrorDescription) => void): void {
+  const stream =
+      binary ? new Common.StringOutputStream.BinaryOutputStream() : new Common.StringOutputStream.StringOutputStream();
+  loadAsStream(url, headers, stream, binary, (success, headers, errorDescription) => {
     callback(success, headers, stream.data(), errorDescription);
-  }
+  });
 };
 
 export function setLoadForTest(
     newLoad: (
-        arg0: string, arg1: {
+        url: string, headers: {
           [x: string]: string,
         }|null,
-        arg2: (
-            arg0: boolean, arg1: {
+        callback: (
+            success: boolean, headers: {
               [x: string]: string,
             },
-            arg2: string, arg3: LoadErrorDescription) => void) => void): void {
-  load = newLoad;
+            data: string, errorDescription: LoadErrorDescription) => void) => void): void {
+  load = (url, headers, binary, callback): void => newLoad(url, headers, callback);
 }
 
 function getNetErrorCategory(netError: number): string {
@@ -238,12 +235,12 @@ export const loadAsStream = function(
     url: string, headers: {
       [x: string]: string,
     }|null,
-    stream: Common.StringOutputStream.OutputStream,
-    callback?:
-        ((arg0: boolean, arg1: {
-           [x: string]: string,
-         },
-          arg2: LoadErrorDescription) => void)): void {
+    stream: Common.StringOutputStream.OutputStream, binary: boolean,
+    callback?: (
+        success: boolean, headers: {
+          [x: string]: string,
+        },
+        errorDescription: LoadErrorDescription) => void): void {
   const streamId = _bindOutputStream(stream);
   const parsedURL = new Common.ParsedURL.ParsedURL(url);
   if (parsedURL.isDataURL()) {
@@ -257,7 +254,7 @@ export const loadAsStream = function(
       rawHeaders.push(key + ': ' + headers[key]);
     }
   }
-  InspectorFrontendHostInstance.loadNetworkResource(url, rawHeaders.join('\r\n'), streamId, finishedCallback);
+  InspectorFrontendHostInstance.loadNetworkResource(url, rawHeaders.join('\r\n'), streamId, finishedCallback, binary);
 
   function finishedCallback(response: LoadNetworkResourceResult): void {
     if (callback) {

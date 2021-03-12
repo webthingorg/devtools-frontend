@@ -1484,9 +1484,10 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
 
   /**
    * @param {string} url
-   * @return {!Promise<!{success: boolean, content: string, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
+   * @param {boolean} binary
+   * @return {!Promise<!{success: boolean, content: string|ArrayBuffer, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
    */
-  async loadResource(url) {
+  async loadResource(url, binary) {
     /** @type {!Object<string, string>} */
     const headers = {};
 
@@ -1500,9 +1501,10 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     }
 
     return new Promise(
-        resolve => Host.ResourceLoader.load(url, headers, (success, _responseHeaders, content, errorDescription) => {
-          resolve({success, content, errorDescription});
-        }));
+        resolve =>
+            Host.ResourceLoader.load(url, headers, binary, (success, _responseHeaders, content, errorDescription) => {
+              resolve({success, content, errorDescription});
+            }));
   }
 }
 

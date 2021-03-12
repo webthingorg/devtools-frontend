@@ -67,6 +67,37 @@ export class IOModel extends SDKModel {
    * @param {!Protocol.IO.StreamHandle} handle
    * @throws {!Error}
    */
+  async readToBuffer(handle) {
+    /** @type {!Array<ArrayBuffer>} */
+    const chunks = [];
+    const encoder = new TextEncoder();
+    let totalSize = 0;
+    for (;;) {
+      const data = await this.read(handle, 1024 * 1024);
+      if (!data) {
+        break;
+      }
+      if (data instanceof ArrayBuffer) {
+        chunks.push(data);
+      } else {
+        chunks.push(encoder.encode(data));
+      }
+      totalSize += chunks[chunks.length - 1].byteLength;
+    }
+
+    const buffer = new Uint8Array(totalSize);
+    let offset = 0;
+    for (const chunk of chunks) {
+      buffer.set(new Uint8Array(chunk), offset);
+      offset += chunk.byteLength;
+    }
+    return buffer.buffer;
+  }
+
+  /**
+   * @param {!Protocol.IO.StreamHandle} handle
+   * @throws {!Error}
+   */
   async readToString(handle) {
     /** @type {!Array<string>} */
     const strings = [];
