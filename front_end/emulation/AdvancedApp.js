@@ -219,6 +219,9 @@ export class AdvancedApp {
   }
 }
 
+// Export required for usage in toolbox.ts
+globalThis.Emulation.AdvancedApp = AdvancedApp;
+
 /** @type {!AdvancedAppProvider} */
 let advancedAppProviderInstance;
 
