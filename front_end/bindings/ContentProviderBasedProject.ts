@@ -113,6 +113,11 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
     return mimeType;
   }
 
+  contentURL(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
+    const contentProvider = this._contentProviders.get(uiSourceCode.url());
+    return contentProvider ? contentProvider.contentURL() : uiSourceCode.url();
+  }
+
   canRename(): boolean {
     return false;
   }

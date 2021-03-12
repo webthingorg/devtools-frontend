@@ -308,7 +308,8 @@ export class TextSourceMap {
   sourceContentProvider(sourceURL, contentType) {
     const info = this._sourceInfos.get(sourceURL);
     if (info && info.content) {
-      return TextUtils.StaticContentProvider.StaticContentProvider.fromString(sourceURL, contentType, info.content);
+      const contentURL = `data:,${encodeURIComponent(info.content)}`;
+      return TextUtils.StaticContentProvider.StaticContentProvider.fromString(contentURL, contentType, info.content);
     }
     return new CompilerSourceMappingContentProvider(sourceURL, contentType, this._initiator);
   }

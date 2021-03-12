@@ -429,12 +429,12 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Workspace.UISourceCode.UISourceCode}
    */
   _canonicalUISourceCode(uiSourceCode) {
-    // Check if we have already a UISourceCode for this url
-    if (this._uriToUISourceCode.has(uiSourceCode.url())) {
-      // Ignore incoming uiSourceCode, we already have this file.
-      return this._uriToUISourceCode.get(uiSourceCode.url());
+    const canonicalURL = uiSourceCode.contentURL();
+    const canonicalUISourceCode = this._uriToUISourceCode.get(canonicalURL);
+    if (canonicalUISourceCode) {
+      return canonicalUISourceCode;
     }
-    this._uriToUISourceCode.set(uiSourceCode.url(), uiSourceCode);
+    this._uriToUISourceCode.set(canonicalUISourceCode, uiSourceCode);
     return uiSourceCode;
   }
 

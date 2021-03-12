@@ -196,6 +196,10 @@ export class FileSystem extends Workspace.Workspace.ProjectStore implements Work
     return this._fileSystem.mimeFromPath(uiSourceCode.url());
   }
 
+  contentURL(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
+    return uiSourceCode.url();
+  }
+
   initialGitFolders(): string[] {
     return this._fileSystem.initialGitFolders().map(folder => this._fileSystemPath + '/' + folder);
   }

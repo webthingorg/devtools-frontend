@@ -194,7 +194,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper implements
   }
 
   contentURL(): string {
-    return this.url();
+    return this._project.contentURL(this);
   }
 
   contentType(): Common.ResourceType.ResourceType {

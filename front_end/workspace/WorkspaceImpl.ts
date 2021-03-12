@@ -56,6 +56,7 @@ export abstract class Project {
   abstract setFileContent(uiSourceCode: UISourceCode, newContent: string, isBase64: boolean): Promise<void>;
   abstract fullDisplayName(uiSourceCode: UISourceCode): string;
   abstract mimeType(uiSourceCode: UISourceCode): string;
+  abstract contentURL(uiSourceCode: UISourceCode): string;
   abstract canRename(): boolean;
   rename(
       _uiSourceCode: UISourceCode, _newName: string,
