@@ -50,6 +50,24 @@
       "message": "What a jolly good idea this is.",
       "revId": "f74f01a1c0c810cdb75f3420becd4705cc353d64",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c267ee9d_a1dfd204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-12T09:17:39Z",
+      "side": 1,
+      "message": "Done. Added a section to the README that clarifies that there are two debugging targets when inspecting e2e tests and how each of them can be achieved (either DevTools-on-DevTools or attaching to the node process).",
+      "parentUuid": "c2aa4010_6dbd8594",
+      "revId": "f74f01a1c0c810cdb75f3420becd4705cc353d64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
