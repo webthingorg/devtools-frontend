@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c166e9f_54dc202b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-03-12T08:07:33Z",
+      "side": 1,
+      "message": "Removing all the remaining calls of ls. Requires this to go first on the chromium.src (hence the failing test) but should be ready for review.\n\n2755182: [Loc] Removing Localization V1 remnants. (ls calls on the backend) | https://chromium-review.googlesource.com/c/chromium/src/+/2755182",
+      "revId": "6c1971a2a7e63e5f29b394a42e5f4e8fd7d17d82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
