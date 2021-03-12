@@ -193,6 +193,24 @@
       "parentUuid": "b59a66d7_54b462ef",
       "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4f3274_d2f43111",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-12T08:37:32Z",
+      "side": 1,
+      "message": "Non-owner LGTM then.",
+      "parentUuid": "01060975_1036d722",
+      "revId": "9e5b72bb0bd041f111535a89ca07371154ef549d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
