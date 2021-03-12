@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "f74f01a1c0c810cdb75f3420becd4705cc353d64",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2aa4010_6dbd8594",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T08:46:40Z",
+      "side": 1,
+      "message": "LGTM. Is it worth updating any docs on this / how to use it?",
+      "revId": "f74f01a1c0c810cdb75f3420becd4705cc353d64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
