@@ -16,6 +16,23 @@
       "message": "PTAL, I am unsure if this fixes the rare flakes we see of this test. But looking at the TabbedPane code, it seems we should wait for the tab title to be part of the DOM as well.\n\nThis might also explain why only the first test flakes, but not the second, since the second time around, the tab was already created and the title is readily available in the DOM.",
       "revId": "c5e97100f9f405c3997d23e667ed2eeb20096a90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "837e3501_067c2079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-12T12:09:45Z",
+      "side": 1,
+      "message": "Thanks Simon! LGTM",
+      "revId": "c5e97100f9f405c3997d23e667ed2eeb20096a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
