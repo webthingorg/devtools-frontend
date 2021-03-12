@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c669cc88_ee6828c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "Nice - broadly looks good to me w/ some questions.\n\nI think we should wrap the component with the coordinator too - this should be the default for all new components going forward.",
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a4bb3a8_5ecc5163",
+        "filename": "front_end/component_docs/issue_counter/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "why do you need the `as unknown` first? Is that because this obj isn\u0027t \"fully\" an IssuesManager?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ccee1f7_98829dfd",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "nit: we tend to call this `UIComponents` elsewhere (should probably lint for that).",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3016f1f_4228c146",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "why the need for this?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9666397_cedb2d1b",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "We could just default this to () \u003d\u003e {} and then lose the undefined part of the type - not sure if that\u0027s better or worse, just different. Might simplify it a bit? Up to you.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 59
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7867c0_5ab30aab",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "for ones like this where the type is very obviously a primitive like `boolean`, feel free to leave out the explicit type annotation (no need to update this, just fyi)",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 36
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "311c16e6_73fe8ac0",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "Do you want to be able to render this component without setting any data? I\u0027m not sure if you do - and if you don\u0027t then we should remove this (such that the only way to render it is to call `.data\u003d`)",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e7a2f4d_1643feb1",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "what\u0027s the motivation for throttling like this? Are we likely to get huge bursts of re-renders?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 57
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0ab1a4_2ed95f90",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-12T15:51:48Z",
+      "side": 1,
+      "message": "nit: we tend to go for the more explicit if (this.tooltipCallback) {} here but I don\u0027t know if we have a style-guide that explicitly states that.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 29
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
