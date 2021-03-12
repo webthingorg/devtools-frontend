@@ -153,27 +153,27 @@ const UIStrings = {
   */
   setInnerhtml: 'Set innerHTML',
   /**
-  *@description Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel
+  *@description Name of a breakpoint type in the Sources Panel.
   */
   createCanvasContext: 'Create canvas context',
   /**
-  *@description Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel
+  *@description Name of a breakpoint type in the Sources Panel.
   */
   createAudiocontext: 'Create AudioContext',
   /**
-  *@description Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel
+  *@description Name of a breakpoint type in the Sources Panel.
   */
   closeAudiocontext: 'Close AudioContext',
   /**
-  *@description Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel
+  *@description Name of a breakpoint type in the Sources Panel.
   */
   resumeAudiocontext: 'Resume AudioContext',
   /**
-  *@description Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel
+  *@description Name of a breakpoint type in the Sources Panel.
   */
   suspendAudiocontext: 'Suspend AudioContext',
   /**
-  *@description Text in DOMDebugger Model
+  *@description Error message text
   *@example {Snag Error} PH1
   */
   webglErrorFiredS: 'WebGL Error Fired ({PH1})',

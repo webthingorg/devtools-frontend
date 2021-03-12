@@ -44,7 +44,7 @@ import {SourceMapManager} from './SourceMapManager.js';
 
 const UIStrings = {
   /**
-  *@description Text in Debugger Model
+  *@description Title of a section in the debugger showing local JavaScript variables.
   */
   local: 'Local',
   /**
@@ -52,7 +52,8 @@ const UIStrings = {
   */
   closure: 'Closure',
   /**
-  *@description Text in Debugger Model
+  *@description Title of a section in the debugger showing JavaScript variables from the current
+  *catch block (catch is a JavaScript programming concept).
   */
   catch: 'Catch',
   /**
@@ -64,15 +65,16 @@ const UIStrings = {
   */
   script: 'Script',
   /**
-  *@description Text in Debugger Model
+  *@description Title of a section in the debugger showing JavaScript variables from the a 'with'
+  *block. Block here means section of code, 'with' refers to a JavaScript programming concept.
   */
   withBlock: 'With Block',
   /**
-  *@description Text describing global shortcuts and settings that are available throughout the DevTools
+  *@description Title of a section in the debugger showing JavaScript variables from the global scope.
   */
   global: 'Global',
   /**
-  *@description Text for a module, the programming concept
+  *@description Text for a JavaScript module, the programming concept
   */
   module: 'Module',
   /**
