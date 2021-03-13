@@ -131,15 +131,16 @@ export class TimelineLoader {
    * @param {string} chunk
    * @return {!Promise<void>}
    */
-  write(chunk) {
+  async write(chunk) {
     if (!this._client) {
       return Promise.resolve();
     }
     this._loadedBytes += chunk.length;
     if (this._firstRawChunk) {
-      this._client.loadingStarted();
+      await this._client.loadingStarted();
+      await new Promise(resolve => requestAnimationFrame(_ => requestAnimationFrame(resolve)));
     } else {
-      this._client.loadingProgress(this._totalSize ? this._loadedBytes / this._totalSize : undefined);
+      await this._client.loadingProgress(this._totalSize ? this._loadedBytes / this._totalSize : undefined);
     }
     this._firstRawChunk = false;
 
