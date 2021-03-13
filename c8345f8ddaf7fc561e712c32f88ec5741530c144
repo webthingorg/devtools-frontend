@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06e0a42c_0a24b426",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-03-13T00:13:45Z",
+      "side": 1,
+      "message": "Curious what you think of this....\n\nThe progress bar is broken (the compressed/uncompressed size makes the percentageComplete calc all wrong)\nBut otherwise this is functional. \n\nDo you think this could work if I sort that out? Also architecturally would you suggest any diff approach?\n\nCheers",
+      "revId": "c8345f8ddaf7fc561e712c32f88ec5741530c144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
