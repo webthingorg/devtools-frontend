@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdcdb52a_35e4aec9",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-14T22:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b83120cc_209e0cd8",
+      "range": {
+        "startLine": 154,
+        "startChar": 21,
+        "endLine": 154,
+        "endChar": 30
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9ead59c_4c784483",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a3e91c0_dd67b22f",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-14T22:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9ead59c_4c784483",
+      "range": {
+        "startLine": 162,
+        "startChar": 30,
+        "endLine": 162,
+        "endChar": 42
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51d5f2e6_f600f8a1",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-12T09:46:34Z",
       "side": 1,
       "message": "Should we lock \u0027catch\u0027 and \u0027with\u0027 here? Not sure if \"gefangen Block\"/\"mit block\" is a meaningful translation.",
+      "range": {
+        "startLine": 71,
+        "startChar": 14,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "5f61350c3ff2a7da227595eccc144108be6b8deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10c2614a_06580ebe",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-14T22:59:49Z",
+      "side": 1,
+      "message": "Good call",
+      "parentUuid": "51d5f2e6_f600f8a1",
       "range": {
         "startLine": 71,
         "startChar": 14,
