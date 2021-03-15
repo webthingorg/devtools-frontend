@@ -33,6 +33,23 @@
       "message": "This broadly LGTM. I don\u0027t have any issues with how you\u0027re approaching it at all, save for what you already said re the progress bar 😊",
       "revId": "c8345f8ddaf7fc561e712c32f88ec5741530c144",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed8e276_9b536bdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-15T16:23:49Z",
+      "side": 1,
+      "message": "While I think on it, it would be kinda handy to have a unit test for the decompression, though. Also what happens if you give it a .gz file for – say – an image?",
+      "revId": "c8345f8ddaf7fc561e712c32f88ec5741530c144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
