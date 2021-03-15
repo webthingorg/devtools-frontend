@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a1e96c1_395fe00b",
+        "filename": "front_end/component_docs/issue_counter/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "Yep, it is missing some methods of the interface :)",
+      "parentUuid": "5a4bb3a8_5ecc5163",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 61
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ccee1f7_98829dfd",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-12T15:51:48Z",
       "side": 1,
       "message": "nit: we tend to call this `UIComponents` elsewhere (should probably lint for that).",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68759e88_39f0cd3d",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccee1f7_98829dfd",
       "range": {
         "startLine": 10,
         "startChar": 12,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d499a6_7b54fffc",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "I\u0027ll update the comment. Intl.ListFormat isn\u0027t in the type defs yet.",
+      "parentUuid": "e3016f1f_4228c146",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9666397_cedb2d1b",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-03-12T15:51:48Z",
       "side": 1,
       "message": "We could just default this to () \u003d\u003e {} and then lose the undefined part of the type - not sure if that\u0027s better or worse, just different. Might simplify it a bit? Up to you.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 59
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0554d93_2b3e5468",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "The button will be visually different if the clickHandler is not present: If it is present, it has a border, if it isn\u0027t it won\u0027t (mirroring how IconButton works).",
+      "parentUuid": "a9666397_cedb2d1b",
       "range": {
         "startLine": 100,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa5eeaa_fffc74c4",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b7867c0_5ab30aab",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 36
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "311c16e6_73fe8ac0",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-03-12T15:51:48Z",
       "side": 1,
       "message": "Do you want to be able to render this component without setting any data? I\u0027m not sure if you do - and if you don\u0027t then we should remove this (such that the only way to render it is to call `.data\u003d`)",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a5841c_e5a141cd",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "Right, since I added the issueManager argument in the data, one has to set that to get a reasonable rendering, thanks, removing this.",
+      "parentUuid": "311c16e6_73fe8ac0",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1828e2_020dbb54",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "Yes, cookie issues sometimes come in the 100s, and as we have seen with the data-grid, rendering is quite expensive.",
+      "parentUuid": "0e7a2f4d_1643feb1",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 57
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d0ab1a4_2ed95f90",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-03-12T15:51:48Z",
       "side": 1,
       "message": "nit: we tend to go for the more explicit if (this.tooltipCallback) {} here but I don\u0027t know if we have a style-guide that explicitly states that.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 29
+      },
+      "revId": "9618a42ea327d7c120376e9f35224da0607dd103",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "987bca2b_b7c11aa4",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T08:18:11Z",
+      "side": 1,
+      "message": "It isn\u0027t clear to me what advantage the explicit statement brings? The type already documents that this.tooltipCallback may be undefined.",
+      "parentUuid": "0d0ab1a4_2ed95f90",
       "range": {
         "startLine": 182,
         "startChar": 0,
