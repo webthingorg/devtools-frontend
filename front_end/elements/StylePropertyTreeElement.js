@@ -256,10 +256,14 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
   /**
    * @param {string} variableName
-   * @param {!MouseEvent} event
+   * @param {!MouseEvent|KeyboardEvent} event
    */
   _handleVarDefinitionClick(variableName, event) {
-    if (event.button !== 0) {
+    if (event instanceof MouseEvent && event.button !== 0) {
+      return;
+    }
+
+    if (event instanceof KeyboardEvent && !isEnterOrSpaceKey(event)) {
       return;
     }
 
