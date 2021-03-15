@@ -939,6 +939,7 @@ export class DebuggerPlugin extends Plugin {
     this._textEditor.addDecoration(decorationElement, editorLineNumber);
     dialog.markAsExternallyManaged();
     dialog.show(decorationElement);
+    dialog.focusEditor();
   }
 
   /**
