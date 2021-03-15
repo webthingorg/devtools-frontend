@@ -104,6 +104,24 @@
       "parentUuid": "ce400da0_44b8b935",
       "revId": "877373a27e7ac9aa782764012921f0f67da1416f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "680f4e21_b7ec0522",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-15T17:19:02Z",
+      "side": 1,
+      "message": "Would be great to to distinguish skipped tests and regression bug references better. We do this in other tests as well, so deferring this to a followup!",
+      "parentUuid": "5ea2985f_d0bc27c7",
+      "revId": "877373a27e7ac9aa782764012921f0f67da1416f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
