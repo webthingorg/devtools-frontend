@@ -33,6 +33,23 @@
       "message": "Component docs LGTM",
       "revId": "25c9c83dd8ad98580b3909e8cafcf16439c72060",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7623779f_52698044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T15:53:03Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "25c9c83dd8ad98580b3909e8cafcf16439c72060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
