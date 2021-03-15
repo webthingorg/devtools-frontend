@@ -16,6 +16,23 @@
       "message": "Sigurd, addressed your points.\n\nJack, PTAL as owner of the component_docs, thanks!",
       "revId": "25c9c83dd8ad98580b3909e8cafcf16439c72060",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d151fe3_c771e400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-15T15:23:08Z",
+      "side": 1,
+      "message": "Component docs LGTM",
+      "revId": "25c9c83dd8ad98580b3909e8cafcf16439c72060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
