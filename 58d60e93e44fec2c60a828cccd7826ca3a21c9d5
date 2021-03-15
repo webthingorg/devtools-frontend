@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40bc5e5_39a0f0e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-15T06:46:41Z",
+      "side": 1,
+      "message": "This line means you want Jack to review this, but you added two other reviewers, so I guess it was added by accident. Consider removing?",
+      "revId": "58d60e93e44fec2c60a828cccd7826ca3a21c9d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4466c661_492be62e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-15T06:46:41Z",
+      "side": 1,
+      "message": "Do we need this check, or was it accidentally copied as well? In case we need it, this should describe why we\u0027re disabling these checks, e.g.\n\n    DISABLE_THIRD_PARTY_CHECK\u003droll CSS properties",
+      "revId": "58d60e93e44fec2c60a828cccd7826ca3a21c9d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
