@@ -38,6 +38,20 @@ export class CSSVarSwatch extends HTMLElement {
   private fromFallback: boolean = false;
   private onLinkClick: (varialeName: string, event: MouseEvent) => void = () => undefined;
 
+  constructor() {
+    super();
+
+    this.tabIndex = -1;
+
+    this.addEventListener('focus', () => {
+      const link = this.shadow.querySelector('[role="link"');
+
+      if (link) {
+        (link as HTMLElement).focus();
+      }
+    });
+  }
+
   set data(data: SwatchRenderData) {
     this.text = data.text;
     this.computedValue = data.computedValue;
@@ -82,8 +96,8 @@ export class CSSVarSwatch extends HTMLElement {
     // The this.variableName's space must be removed, otherwise it cannot be triggered when clicked.
     const onClick = isDefined ? this.onLinkClick.bind(this, this.variableName.trim()) : null;
 
-    return html`<span class="${classes}" title="${title}" @mousedown=${onClick} role="link" tabindex="-1">${
-        variableName}</span>`;
+    return html`<span class="${classes}" title="${title}" @mousedown=${onClick} @keydown=${
+        onClick} role="link" tabindex="-1">${variableName}</span>`;
   }
 
   private render(): void {
