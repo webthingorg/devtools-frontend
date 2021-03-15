@@ -68,6 +68,24 @@
       "parentUuid": "d1ceb24f_9f86fa83",
       "revId": "877373a27e7ac9aa782764012921f0f67da1416f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce400da0_44b8b935",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-15T13:22:09Z",
+      "side": 1,
+      "message": "should it be a comment then? otherwise, it looks like a left over from skipping.",
+      "parentUuid": "1455a333_480bab6b",
+      "revId": "877373a27e7ac9aa782764012921f0f67da1416f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
