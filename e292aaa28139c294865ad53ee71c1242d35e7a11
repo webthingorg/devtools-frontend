@@ -202,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3c783b1_d13d0162",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-15T10:20:28Z",
+      "side": 1,
+      "message": "And then the stack-trace would be empty? Should we instead not show it, or surface an error?",
+      "parentUuid": "7bf2f7aa_a7f01ce4",
+      "range": {
+        "startLine": 733,
+        "startChar": 54,
+        "endLine": 733,
+        "endChar": 73
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb2d7f68_ec4370c8",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 20
