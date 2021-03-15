@@ -224,6 +224,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "892586c1_029e60c2",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-15T15:21:07Z",
+      "side": 1,
+      "message": "Added an error message",
+      "parentUuid": "b3c783b1_d13d0162",
+      "range": {
+        "startLine": 733,
+        "startChar": 54,
+        "endLine": 733,
+        "endChar": 73
+      },
+      "revId": "e292aaa28139c294865ad53ee71c1242d35e7a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb2d7f68_ec4370c8",

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e36f1037_332b9fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-15T15:21:07Z",
+      "side": 1,
+      "message": "Sigurd, addressed your points.\n\nJack, PTAL as owner of the component_docs, thanks!",
+      "revId": "25c9c83dd8ad98580b3909e8cafcf16439c72060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
