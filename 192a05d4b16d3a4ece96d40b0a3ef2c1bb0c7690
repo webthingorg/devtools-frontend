@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3431c79_5d425079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T10:00:31Z",
+      "side": 1,
+      "message": "PTAL. Left a comment RE duplicate nodes as per our offline chat.",
+      "revId": "192a05d4b16d3a4ece96d40b0a3ef2c1bb0c7690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
