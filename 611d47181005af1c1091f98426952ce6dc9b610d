@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "493f34f5_ac6e9c78",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T11:59:07Z",
+      "side": 1,
+      "message": "is there a particular reason to do this over .data\u003d{} ? We should always use the data\u003d setter rather than a method unless there\u0027s a compelling reason not to.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 0
+      },
+      "revId": "611d47181005af1c1091f98426952ce6dc9b610d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de733ca6_5e102fc4",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T11:59:07Z",
+      "side": 1,
+      "message": "nit: do you think this is worth defining as a constant? `defaultIconSize` or something?",
+      "range": {
+        "startLine": 159,
+        "startChar": 78,
+        "endLine": 159,
+        "endChar": 83
+      },
+      "revId": "611d47181005af1c1091f98426952ce6dc9b610d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
