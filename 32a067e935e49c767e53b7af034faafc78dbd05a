@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce7dbed_d7a0cdc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-16T13:49:01Z",
+      "side": 1,
+      "message": "Thanks for the review Benedikt!",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78119cc8_248f6f02",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-03-16T13:40:54Z",
       "side": 1,
       "message": "Not sure about the \u0027Other\u0027 here. Technically the pointers are just integers.",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe18536f_edd88c8f",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-16T13:49:01Z",
+      "side": 1,
+      "message": "Youŕe right; I don\u0027t have a strong opinion on this. I would be fine either way, the original UX proposal suggested \"Other\" here, but I could very well see it under Integer too.",
+      "parentUuid": "78119cc8_248f6f02",
       "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
