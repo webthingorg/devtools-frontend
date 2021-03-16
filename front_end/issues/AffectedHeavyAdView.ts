@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -12,13 +13,10 @@ import type {IssueView} from './IssueView.js';
 
 const UIStrings = {
   /**
-  *@description Label for number of affected resources indication in issue view
+  *@description Label for number of affected resources indication in issue view.
+  *A resource is a file from the server.
   */
-  resource: 'resource',
-  /**
-  *@description Label for number of affected resources indication in issue view
-  */
-  resources: 'resources',
+  resource: '{n, plural, =1 {# resource} other {# resources}}',
   /**
   *@description Title for a column in an Heavy Ads issue view
   */
@@ -62,8 +60,12 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class AffectedHeavyAdView extends AffectedResourcesView {
   private issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
-    super(parent, {singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources)});
+    super(parent);
     this.issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.resource, {n: count});
   }
 
   private appendAffectedHeavyAds(heavyAds: Iterable<SDK.HeavyAdIssue.HeavyAdIssue>): void {

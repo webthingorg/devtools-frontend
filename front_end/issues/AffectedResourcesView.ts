@@ -55,7 +55,6 @@ export const extractShortPath = (path: string): string => {
  */
 export class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   private readonly parentView: IssueView;
-  protected readonly resourceName: {singular: string, plural: string};
   private affectedResourcesCountElement: HTMLElement;
   protected affectedResources: HTMLElement;
   private affectedResourcesCount: number;
@@ -64,14 +63,10 @@ export class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   private unresolvedRequestIds: Set<string>;
   private unresolvedFrameIds: Set<string>;
 
-  /**
-   * @param resourceName - Singular and plural of the affected resource name.
-   */
-  constructor(parent: IssueView, resourceName: {singular: string, plural: string}) {
+  constructor(parent: IssueView) {
     super();
     this.toggleOnClick = true;
     this.parentView = parent;
-    this.resourceName = resourceName;
     this.affectedResourcesCountElement = this.createAffectedResourcesCounter();
 
     this.affectedResources = this.createAffectedResources();
@@ -99,16 +94,14 @@ export class AffectedResourcesView extends UI.TreeOutline.TreeElement {
     return affectedResources;
   }
 
-  private getResourceName(count: number): string {
-    if (count === 1) {
-      return this.resourceName.singular;
-    }
-    return this.resourceName.plural;
+  // abstract
+  protected getAffectedResourcesText(_count: number): Common.UIString.LocalizedString {
+    throw new Error('Not implemented');
   }
 
   protected updateAffectedResourceCount(count: number): void {
     this.affectedResourcesCount = count;
-    this.affectedResourcesCountElement.textContent = `${count} ${this.getResourceName(count)}`;
+    this.affectedResourcesCountElement.textContent = this.getAffectedResourcesText(count);
     this.hidden = this.affectedResourcesCount === 0;
     this.parentView.updateAffectedResourceVisibility();
   }

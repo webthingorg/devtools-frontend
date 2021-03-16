@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Network from '../network/network.js';
@@ -13,13 +14,9 @@ import {IssueView} from './IssueView.js';
 
 const UIStrings = {
   /**
-  *@description Noun, singular. Label for the kind and number of affected resources associated with a DevTools issue. A cookie is a small piece of data that a server sends to the user's web browser. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies.
+  *@description Noun. Label for the kind and number of affected resources associated with a DevTools issue. A cookie is a small piece of data that a server sends to the user's web browser. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies.
   */
-  cookie: 'cookie',
-  /**
-  *@description Noun, plural. Label for the kind and number of affected resources associated with a DevTools issue. A cookie is a small piece of data that a server sends to the user's web browser. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies.
-  */
-  cookies: 'cookies',
+  cookie: '{n, plural, =1 {# cookie} other {# cookies}}',
   /**
   *@description Noun, singular. Label for a column in a table which lists cookies in the affected resources section of a DevTools issue. Each cookie has a name.
   */
@@ -39,8 +36,12 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class AffectedCookiesView extends AffectedResourcesView {
   private issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
-    super(parent, {singular: i18nString(UIStrings.cookie), plural: i18nString(UIStrings.cookies)});
+    super(parent);
     this.issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.cookie, {n: count});
   }
 
   private appendAffectedCookies(cookies: Iterable<{cookie: Protocol.Audits.AffectedCookie, hasRequest: boolean}>):

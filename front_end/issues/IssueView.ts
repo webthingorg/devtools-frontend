@@ -35,13 +35,9 @@ const UIStrings = {
   */
   name: 'Name',
   /**
-  *@description Singular label for number of affected directive resource indication in issue view
+  *@description Label for the number of affected directive resources in issue view
   */
-  directive: 'directive',
-  /**
-  *@description Plural label for number of affected directive resource indication in issue view
-  */
-  directives: 'directives',
+  directive: '{n, plural, =1 {# directive} other {# directives}}',
   /**
   *@description Indicates that a CSP error should be treated as a warning
   */
@@ -75,29 +71,17 @@ const UIStrings = {
   */
   resourceC: 'Resource',
   /**
-  *@description Label for a type of issue that can appear in the Issues view. Noun for a singular network request.
+  *@description Label for a type of issue that can appear in the Issues view. Noun for singular network request.
   */
-  request: 'request',
+  request: '{n, plural, =1 {# request} other {# requests}}',
   /**
-  *@description Label for a type of issue that can appear in the Issues view. Noun for plural network requests.
+  *@description Label for number of affected source resource indication in issue view
   */
-  requests: 'requests',
-  /**
-  *@description Singular label for number of affected source resource indication in issue view
-  */
-  source: 'source',
-  /**
-  *@description Plural label for number of affected source resource indication in issue view
-  */
-  sources: 'sources',
+  source: '{n, plural, =1 {# source} other {# sources}}',
   /**
   *@description Label for number of affected resources indication in issue view
   */
-  resource: 'resource',
-  /**
-  *@description Label for number of affected resources indication in issue view
-  */
-  resources: 'resources',
+  resource: '{n, plural, =1 {# resource} other {# resources}}',
   /**
   *@description Label for mixed content issue's restriction status
   */
@@ -143,8 +127,12 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 class AffectedDirectivesView extends AffectedResourcesView {
   _issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
-    super(parent, {singular: i18nString(UIStrings.directive), plural: i18nString(UIStrings.directives)});
+    super(parent);
     this._issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.directive, {n: count});
   }
 
   _appendStatus(element: Element, isReportOnly: boolean): void {
@@ -294,8 +282,12 @@ class AffectedDirectivesView extends AffectedResourcesView {
 class AffectedRequestsView extends AffectedResourcesView {
   _issue: SDK.Issue.Issue;
   constructor(parent: IssueView, issue: SDK.Issue.Issue) {
-    super(parent, {singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests)});
+    super(parent);
     this._issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.request, {n: count});
   }
 
   _appendAffectedRequests(affectedRequests: Iterable<Protocol.Audits.AffectedRequest>): void {
@@ -339,8 +331,12 @@ class AffectedRequestsView extends AffectedResourcesView {
 class AffectedSourcesView extends AffectedResourcesView {
   _issue: SDK.Issue.Issue;
   constructor(parent: IssueView, issue: SDK.Issue.Issue) {
-    super(parent, {singular: i18nString(UIStrings.source), plural: i18nString(UIStrings.sources)});
+    super(parent);
     this._issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.source, {n: count});
   }
 
   _appendAffectedSources(affectedSources: Iterable<Protocol.Audits.SourceCodeLocation>): void {
@@ -385,8 +381,12 @@ const issueTypeToNetworkHeaderMap = new Map<SDK.Issue.IssueCategory, Network.Net
 class AffectedMixedContentView extends AffectedResourcesView {
   _issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
-    super(parent, {singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources)});
+    super(parent);
     this._issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.resource, {n: count});
   }
 
   _appendAffectedMixedContentDetails(mixedContentIssues: Iterable<SDK.MixedContentIssue.MixedContentIssue>): void {
