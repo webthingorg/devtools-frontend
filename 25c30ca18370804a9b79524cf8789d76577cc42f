@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7076da82_9dc92846",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-16T14:19:24Z",
+      "side": 1,
+      "message": "Note that this particular file is actually part of the CodeMirror NPM package. Therefore, we don\u0027t own it and I don\u0027t think we can easily change it either (https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1076825#c17 tracks the move to `third_party` pending CSS resources being loaded in a JavaScript dependency hierarchy). In any case, these changes look fine to me.",
+      "revId": "25c30ca18370804a9b79524cf8789d76577cc42f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
