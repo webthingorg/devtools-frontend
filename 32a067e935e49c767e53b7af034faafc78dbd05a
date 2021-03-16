@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff7f68b_1e6efa89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-16T13:11:02Z",
+      "side": 1,
+      "message": "Hi Jack, hi Benedikt,\n\nthis CL adds pointers to the LMI that can be selected in the interpreter settings and\nviewed in the value display. For 32-bit pointers, it also contains a go-to-link. \n\nPTAL!",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
