@@ -43,6 +43,12 @@ export class AffectedCookiesView extends AffectedResourcesView {
     this.issue = issue;
   }
 
+  // overriding getResourceName
+  protected getResourceName(count: number): string {
+    const localisedString = '{n, plural, = 1 {# cookie} other {# cookies}}';
+    return i18nString(localisedString, {n: count});
+  }
+
   private appendAffectedCookies(cookies: Iterable<{cookie: Protocol.Audits.AffectedCookie, hasRequest: boolean}>):
       void {
     const header = document.createElement('tr');
