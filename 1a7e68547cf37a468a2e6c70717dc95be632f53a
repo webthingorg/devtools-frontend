@@ -16,6 +16,98 @@
       "message": "PTAL.",
       "revId": "1a7e68547cf37a468a2e6c70717dc95be632f53a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c60b2a8_01e99004",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T08:48:27Z",
+      "side": 1,
+      "message": "We should probably make this a general helper 😊",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "1a7e68547cf37a468a2e6c70717dc95be632f53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb4fe40_9754126e",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T08:48:27Z",
+      "side": 1,
+      "message": "Can we use unknown here instead?",
+      "range": {
+        "startLine": 181,
+        "startChar": 53,
+        "endLine": 181,
+        "endChar": 56
+      },
+      "revId": "1a7e68547cf37a468a2e6c70717dc95be632f53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f8fa1c_86a0c55e",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T08:48:27Z",
+      "side": 1,
+      "message": "What happens if you have:\nA\n- B\n  - C\n- D\n  - C\n  - C\n\nDo we enforce unique keys?",
+      "range": {
+        "startLine": 209,
+        "startChar": 3,
+        "endLine": 209,
+        "endChar": 48
+      },
+      "revId": "1a7e68547cf37a468a2e6c70717dc95be632f53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da965119_9b28c7a6",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T08:48:27Z",
+      "side": 1,
+      "message": "Can you add a test here for dupe keys?",
+      "range": {
+        "startLine": 1140,
+        "startChar": 12,
+        "endLine": 1140,
+        "endChar": 29
+      },
+      "revId": "1a7e68547cf37a468a2e6c70717dc95be632f53a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
