@@ -159,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b782b344_4e19e61f",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:16:24Z",
+      "side": 1,
+      "message": "I had no idea. Out of curiosity, where is this specified/documented?\nI think I\u0027d prefer to add the ] since without it it kind of looks like a typo.",
+      "parentUuid": "d613f4c1_f7668079",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d2dbb35_482a339b",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
