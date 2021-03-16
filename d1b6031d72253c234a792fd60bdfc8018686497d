@@ -160,6 +160,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb63b870_332cdb83",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-03-16T23:56:28Z",
+      "side": 1,
+      "message": "Looks like url\u0027s was already supported for the navigation, I have just added the support for the enter key. I have tryied to add support to some other swatches, but looks like the are not accessible anyway (for example the bezierSwatch).  Let me know if you think something else should be supported.",
+      "parentUuid": "421255fa_ce62d506",
+      "range": {
+        "startLine": 1646,
+        "startChar": 0,
+        "endLine": 1649,
+        "endChar": 23
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96daa128_063888bf",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
