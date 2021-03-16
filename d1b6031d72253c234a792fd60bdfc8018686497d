@@ -207,6 +207,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe49a405_aed67066",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T14:09:58Z",
+      "side": 1,
+      "message": "Thanks for the reference. I actually do use this when creating small data-uri test cases, but I never thought this would apply to how selectors are parsed too. Nice to know, thank you.",
+      "parentUuid": "40923b0f_14de79f7",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d2dbb35_482a339b",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
