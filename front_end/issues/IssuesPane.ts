@@ -72,14 +72,9 @@ const UIStrings = {
   includeThirdpartyCookieIssues: 'Include third-party cookie issues',
   /**
    * @description Tooltip shown for the issues count in several places of the UI
-   * @example {1} PH1
    */
-  issuesPertainingToSOperation: 'Issues pertaining to {PH1} operation detected.',
-  /**
-   * @description Tooltip shown for the issues count in several places of the UI
-   * @example {13} PH1
-   */
-  issuesPertainingToSOperations: 'Issues pertaining to {PH1} operations detected.',
+  issuesPertainingToSOperation:
+      '{n, plural, =1 {Issues pertaining to # operation detected.} other {Issues pertaining to # operations detected.}}',
   /**
    * @description Label on the issues tab
    */
@@ -242,11 +237,7 @@ export class IssuesPane extends UI.Widget.VBox {
     rightToolbar.appendToolbarItem(toolbarIssuesItem);
     const updateToolbarIssuesCount = (count: number): void => {
       toolbarIssuesCount.textContent = `${count}`;
-      if (count === 1) {
-        toolbarIssuesItem.setTitle(i18nString(UIStrings.issuesPertainingToSOperation, {PH1: count}));
-      } else {
-        toolbarIssuesItem.setTitle(i18nString(UIStrings.issuesPertainingToSOperations, {PH1: count}));
-      }
+      toolbarIssuesItem.setTitle(i18nString(UIStrings.issuesPertainingToSOperation, {n: count}));
     };
     return {toolbarContainer, updateToolbarIssuesCount};
   }
