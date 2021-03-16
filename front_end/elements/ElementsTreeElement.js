@@ -175,6 +175,16 @@ const UIStrings = {
   *@description Label of the adorner for flex elements in the Elements panel
   */
   disableFlexMode: 'Disable flex mode',
+  /**
+  *@description Label of an adorner in the Elements panel. When clicked, it enables
+  * the overlay showing CSS scroll snapping for the current element.
+  */
+  enableScrollSnap: 'Enable scroll-snap overlay',
+  /**
+  *@description Label of an adorner in the Elements panel. When clicked, it disables
+  * the overlay showing CSS scroll snapping for the current element.
+  */
+  disableScrollSnap: 'Disable scroll-snap overlay',
 };
 const str_ = i18n.i18n.registerUIStrings('elements/ElementsTreeElement.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -2251,6 +2261,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (isFlex) {
       adorner = this.createFlexAdorner();
     }
+    if (styles.get('scroll-snap-type') && styles.get('scroll-snap-type') !== 'none') {
+      adorner = this.createScrollSnapAdorner();
+    }
 
     if (adorner) {
       this._styleAdorners.push(adorner);
@@ -2286,6 +2299,46 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     node.domModel().overlayModel().addEventListener(
         SDK.OverlayModel.Events.PersistentGridOverlayStateChanged, event => {
+          const {nodeId: eventNodeId, enabled} = event.data;
+          if (eventNodeId !== nodeId) {
+            return;
+          }
+          adorner.toggle(enabled);
+        });
+
+    return adorner;
+  }
+
+  /**
+   * @return {?Adorner}
+   */
+  createScrollSnapAdorner() {
+    const node = this.node();
+    const nodeId = node.id;
+    if (!nodeId) {
+      return null;
+    }
+    const adorner = this.adornText('scroll-snap', AdornerCategories.Layout);
+    adorner.classList.add('scroll-snap');
+
+    const onClick = /** @type {!EventListener} */ (() => {
+      const model = node.domModel().overlayModel();
+      if (adorner.isActive()) {
+        model.highlightScrollSnapInPersistentOverlay(nodeId);
+      } else {
+        model.hideScrollSnapInPersistentOverlay(nodeId);
+      }
+    });
+
+    adorner.addInteraction(onClick, {
+      isToggle: true,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
+      ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
+    });
+
+    node.domModel().overlayModel().addEventListener(
+        SDK.OverlayModel.Events.PersistentScrollSnapOverlayStateChanged, event => {
           const {nodeId: eventNodeId, enabled} = event.data;
           if (eventNodeId !== nodeId) {
             return;

@@ -355,7 +355,40 @@ export class OverlayModel extends SDKModel {
       return;
     }
     this._peristentHighlighter.hideGridInOverlay(nodeId);
-    this.dispatchEventToListeners(Events.PersistentGridOverlayStateChanged, {nodeId, enabled: false});
+    this.dispatchEventToListeners(Events.PersistentScrollSnapOverlayStateChanged, {nodeId, enabled: false});
+  }
+
+  /**
+   * @param {number} nodeId
+   */
+  highlightScrollSnapInPersistentOverlay(nodeId) {
+    if (!this._peristentHighlighter) {
+      return;
+    }
+    this._peristentHighlighter.highlightScrollSnapInOverlay(nodeId);
+    this.dispatchEventToListeners(Events.PersistentScrollSnapOverlayStateChanged, {nodeId, enabled: true});
+  }
+
+  /**
+   * @param {number} nodeId
+   * @return {boolean}
+   */
+  isHighlightedScrollSnapInPersistentOverlay(nodeId) {
+    if (!this._peristentHighlighter) {
+      return false;
+    }
+    return this._peristentHighlighter.isScrollSnapHighlighted(nodeId);
+  }
+
+  /**
+   * @param {number} nodeId
+   */
+  hideScrollSnapInPersistentOverlay(nodeId) {
+    if (!this._peristentHighlighter) {
+      return;
+    }
+    this._peristentHighlighter.hideScrollSnapInOverlay(nodeId);
+    this.dispatchEventToListeners(Events.PersistentScrollSnapOverlayStateChanged, {nodeId, enabled: false});
   }
 
   /**
@@ -802,6 +835,7 @@ export const Events = {
   ScreenshotRequested: Symbol('ScreenshotRequested'),
   PersistentGridOverlayStateChanged: Symbol('PersistentGridOverlayStateChanged'),
   PersistentFlexContainerOverlayStateChanged: Symbol('PersistentFlexContainerOverlayStateChanged'),
+  PersistentScrollSnapOverlayStateChanged: Symbol('PersistentScrollSnapOverlayStateChanged'),
 };
 
 /**
