@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f01cc9c0_1a97c535",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-03-16T23:53:12Z",
+      "side": 1,
+      "message": "sounds good.",
+      "parentUuid": "0e290563_a93cc5b5",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ebb320e_542a591c",
         "filename": "front_end/elements/StylePropertyTreeElement.js",
         "patchSetId": 2
@@ -100,6 +124,30 @@
       "writtenOn": "2021-03-16T09:42:35Z",
       "side": 1,
       "message": "What is the reasoning behind navigating vars with arrow keys?\nI\u0027m wondering because vars are similar to links, and I\u0027d sort of expect to be able to navigate through a list of links with the tab key instead (and shift-tab).\nIn fact, I\u0027d probably want to be able to do this for background urls as well, and other types of links present in CSS rules.\n\nThe other thing that comes to mind is that arrow keys are used today to navigate the list of rules (down/right goes to the next rule, up/left goes to the previous).\nWith this change, if you have 50 vars in a rule, you\u0027ll need to press right 50 times to jump to the next rule.\n\nI think we may need a different pattern here for navigation. It\u0027d almost want to do something like this:\n- arrow keys allow to go from rule to rule,\n- once on a rule, pressing enter goes \"into\" it\n- once inside a rule, tabbing goes through all focusable elements (i.e. links, including the stylesheet link)\n- pressing escape goes back to the rule list level, where arrow keys work again to go from rule to rule.\n\nThe problem is: once on a rule, pressing enter goes into edit mode, and we don\u0027t want to break this.\nSo there\u0027s an incompatibility between edit mode and navigation mode. The Styles pane tries really hard to be as close as possible to a text editor, so just starting to type works (enters text in the current rule), which doesn\u0027t work with the navigation model I described.\n\nI understand the need to navigate to variables is important, as currently there\u0027s just no way to do this, so it\u0027s inaccessible. So I don\u0027t want to hold this off on a major keyboard support refactor idea. So I\u0027m ok to +1 this (module my other comments), but I\u0027d at least ask for your change to take other kinds of links into account too (i.e. background urls, things that have the devtools-link class).",
+      "range": {
+        "startLine": 1646,
+        "startChar": 0,
+        "endLine": 1649,
+        "endChar": 23
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421255fa_ce62d506",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-03-16T23:53:12Z",
+      "side": 1,
+      "message": "The idea of using the arrows is to avoid having a lot of \"tab\" items, because if not it can be getting out of the styles panel hehehe.\n\nThe arrow up/down are still working even if you are in a var() value, I mean, if you are focused in a var() value and you click arrow up/down, you go to the next previous/next rule.\n\nI agree it would be nice to have this kind of navigation (or the one you are suggesting) in other clickable items, I\u0027ll take a look.",
+      "parentUuid": "37f82836_7653df8e",
       "range": {
         "startLine": 1646,
         "startChar": 0,
@@ -219,6 +267,30 @@
       "side": 1,
       "message": "Thanks for the reference. I actually do use this when creating small data-uri test cases, but I never thought this would apply to how selectors are parsed too. Nice to know, thank you.",
       "parentUuid": "40923b0f_14de79f7",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d8b3d76_adbf9823",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-03-16T23:53:12Z",
+      "side": 1,
+      "message": "Very interesting, I didn\u0027t do that on purpose hehehehe. I\u0027m adding the \u0027]\u0027 :).",
+      "parentUuid": "fe49a405_aed67066",
       "range": {
         "startLine": 47,
         "startChar": 45,
