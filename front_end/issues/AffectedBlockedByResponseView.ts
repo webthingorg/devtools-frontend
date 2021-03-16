@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -10,13 +11,9 @@ import type {IssueView} from './IssueView.js';
 
 const UIStrings = {
   /**
-  *@description Noun for a singular network request. Label for a the affected resources section in the issue view.
+  *@description Noun for a network request. Label for the number of affected resources in the issue view.
   */
-  request: 'request',
-  /**
-  *@description Noun for plural network requests. Label for a the affected resources section in the issue view.
-  */
-  requests: 'requests',
+  request: '{n, plural, =1 {# request} other {# requests}}',
   /**
   *@description Noun for a singular network request. Label for a column in the affected resources table in the issue view.
   */
@@ -37,8 +34,12 @@ export class AffectedBlockedByResponseView extends AffectedResourcesView {
   private issue: SDK.Issue.Issue;
 
   constructor(parent: IssueView, issue: SDK.Issue.Issue) {
-    super(parent, {singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests)});
+    super(parent);
     this.issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.request, {n: count});
   }
 
   private appendDetails(details: Iterable<Protocol.Audits.BlockedByResponseIssueDetails>): void {

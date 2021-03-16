@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -11,13 +12,9 @@ import {IssueView} from './IssueView.js';
 
 const UIStrings = {
   /**
-  *@description Label for number of affected resources indication in issue view
+  *@description Label for the number of affected resources in issue view. A resource is a file requested from the server.
   */
-  resource: 'resource',
-  /**
-  *@description Label for number of affected resources indication in issue view
-  */
-  resources: 'resources',
+  resource: '{n, plural, =1 {# resource} other {# resources}}',
   /**
   *@description Title for a column in a Trusted Web Activity issue view
   */
@@ -41,8 +38,12 @@ export class AffectedTrustedWebActivityIssueDetailsView extends AffectedResource
   private issue: AggregatedIssue;
 
   constructor(parentView: IssueView, issue: AggregatedIssue) {
-    super(parentView, {singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources)});
+    super(parentView);
     this.issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.resource, {n: count});
   }
 
   private appendDetail(twaIssue: SDK.TrustedWebActivityIssue.TrustedWebActivityIssue): void {

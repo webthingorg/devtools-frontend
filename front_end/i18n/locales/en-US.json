@@ -2616,19 +2616,13 @@
     "message": "Parent Frame"
   },
   "issues/AffectedBlockedByResponseView.ts | request": {
-    "message": "request"
+    "message": "{n, plural, =1 {# request} other {# requests}}"
   },
   "issues/AffectedBlockedByResponseView.ts | requestC": {
     "message": "Request"
   },
-  "issues/AffectedBlockedByResponseView.ts | requests": {
-    "message": "requests"
-  },
   "issues/AffectedCookiesView.ts | cookie": {
-    "message": "cookie"
-  },
-  "issues/AffectedCookiesView.ts | cookies": {
-    "message": "cookies"
+    "message": "{n, plural, =1 {# cookie} other {# cookies}}"
   },
   "issues/AffectedCookiesView.ts | domain": {
     "message": "Domain"
@@ -2641,9 +2635,6 @@
   },
   "issues/AffectedElementsView.ts | element": {
     "message": "element"
-  },
-  "issues/AffectedElementsView.ts | elements": {
-    "message": "elements"
   },
   "issues/AffectedElementsWithLowContrastView.ts | contrastRatio": {
     "message": "Contrast ratio"
@@ -2685,10 +2676,7 @@
     "message": "Resolution Status"
   },
   "issues/AffectedHeavyAdView.ts | resource": {
-    "message": "resource"
-  },
-  "issues/AffectedHeavyAdView.ts | resources": {
-    "message": "resources"
+    "message": "{n, plural, =1 {# resource} other {# resources}}"
   },
   "issues/AffectedHeavyAdView.ts | warned": {
     "message": "Warned"
@@ -2730,10 +2718,7 @@
     "message": "Trigger"
   },
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violation": {
-    "message": "violation"
-  },
-  "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violations": {
-    "message": "violations"
+    "message": "{n, plural, =1 {# violation} other {# violations}}"
   },
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | warning": {
     "message": "warning"
@@ -2745,10 +2730,7 @@
     "message": "Package signature"
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resource": {
-    "message": "resource"
-  },
-  "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resources": {
-    "message": "resources"
+    "message": "{n, plural, =1 {# resource} other {# resources}}"
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | statusCode": {
     "message": "Status code"
@@ -2770,9 +2752,6 @@
   },
   "issues/CorsIssueDetailsView.ts | item": {
     "message": "item"
-  },
-  "issues/CorsIssueDetailsView.ts | items": {
-    "message": "items"
   },
   "issues/CorsIssueDetailsView.ts | request": {
     "message": "Request"
@@ -2871,13 +2850,10 @@
     "message": "Click to reveal the violating DOM node in the Elements panel"
   },
   "issues/IssueView.ts | directive": {
-    "message": "directive"
+    "message": "{n, plural, =1 {# directive} other {# directives}}"
   },
   "issues/IssueView.ts | directiveC": {
     "message": "Directive"
-  },
-  "issues/IssueView.ts | directives": {
-    "message": "directives"
   },
   "issues/IssueView.ts | element": {
     "message": "Element"
@@ -2901,31 +2877,22 @@
     "message": "report-only"
   },
   "issues/IssueView.ts | request": {
-    "message": "request"
-  },
-  "issues/IssueView.ts | requests": {
-    "message": "requests"
+    "message": "{n, plural, =1 {# request} other {# requests}}"
   },
   "issues/IssueView.ts | resource": {
-    "message": "resource"
+    "message": "{n, plural, =1 {# resource} other {# resources}}"
   },
   "issues/IssueView.ts | resourceC": {
     "message": "Resource"
-  },
-  "issues/IssueView.ts | resources": {
-    "message": "resources"
   },
   "issues/IssueView.ts | restrictionStatus": {
     "message": "Restriction Status"
   },
   "issues/IssueView.ts | source": {
-    "message": "source"
+    "message": "{n, plural, =1 {# source} other {# sources}}"
   },
   "issues/IssueView.ts | sourceLocation": {
     "message": "Source Location"
-  },
-  "issues/IssueView.ts | sources": {
-    "message": "sources"
   },
   "issues/IssueView.ts | status": {
     "message": "Status"
@@ -9050,20 +9017,14 @@
   "sources/DebuggerPlugin.js | configure": {
     "message": "Configure"
   },
-  "sources/DebuggerPlugin.js | disableAllBreakpointsInLine": {
-    "message": "Disable all breakpoints in line"
-  },
   "sources/DebuggerPlugin.js | disableBreakpoint": {
-    "message": "Disable breakpoint"
+    "message": "{n, plural, =1 {Disable breakpoint} other {Disable all breakpoints in line}}"
   },
   "sources/DebuggerPlugin.js | editBreakpoint": {
     "message": "Edit breakpoint…"
   },
-  "sources/DebuggerPlugin.js | enableAllBreakpointsInLine": {
-    "message": "Enable all breakpoints in line"
-  },
   "sources/DebuggerPlugin.js | enableBreakpoint": {
-    "message": "Enable breakpoint"
+    "message": "{n, plural, =1 {Enable breakpoint} other {Enable all breakpoints in line}}"
   },
   "sources/DebuggerPlugin.js | neverPauseHere": {
     "message": "Never pause here"
@@ -9077,11 +9038,8 @@
   "sources/DebuggerPlugin.js | prettyprintThisMinifiedFile": {
     "message": "Pretty-print this minified file?"
   },
-  "sources/DebuggerPlugin.js | removeAllBreakpointsInLine": {
-    "message": "Remove all breakpoints in line"
-  },
   "sources/DebuggerPlugin.js | removeBreakpoint": {
-    "message": "Remove breakpoint"
+    "message": "{n, plural, =1 {Remove breakpoint} other {Remove all breakpoints in line}}"
   },
   "sources/DebuggerPlugin.js | removeFromIgnoreList": {
     "message": "Remove from ignore list"
