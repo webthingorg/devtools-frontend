@@ -183,6 +183,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40923b0f_14de79f7",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-16T13:53:30Z",
+      "side": 1,
+      "message": "It’s defined here: https://drafts.csswg.org/selectors/#parse-selector but it’s not exactly obvious from the spec grammar.\n\nYou might be interested in this separated but somewhat related fun fact:\n\n    data:text/html,\u003cstyle\u003ehtml{background:hotpink\n\n(Note: no closing `}`, no closing \u003c/style\u003e)\nhttps://twitter.com/mathias/status/1257682713924034560",
+      "parentUuid": "b782b344_4e19e61f",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d2dbb35_482a339b",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
