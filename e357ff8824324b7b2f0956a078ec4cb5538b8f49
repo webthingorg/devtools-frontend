@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d6314b_1f4499e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T15:18:30Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fdf16ea_f527a8d0",
@@ -84,6 +101,24 @@
       "side": 1,
       "message": "We\u0027ve used this pattern elsewhere so a user is able to do :\n\n```\ncomponent.data \u003d {\n...component.data,\nnewValueOfOneItem: \u0027foo\u0027\n}\n```\n\nSo this is good IMO.",
       "parentUuid": "222ca843_f8a0eda1",
+      "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15885c93_18a11cf5",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T15:18:30Z",
+      "side": 1,
+      "message": "Thanks for being mindful!",
+      "parentUuid": "0c30d4ca_04f5a89e",
       "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

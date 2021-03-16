@@ -39,6 +39,30 @@
       },
       "revId": "0a8b88ea7b7a847ddc95f6be3da77d323d201d4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d998687_9241d925",
+        "filename": "front_end/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T15:18:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "77d47aec_a88e17a5",
+      "range": {
+        "startLine": 598,
+        "startChar": 2,
+        "endLine": 598,
+        "endChar": 32
+      },
+      "revId": "0a8b88ea7b7a847ddc95f6be3da77d323d201d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
