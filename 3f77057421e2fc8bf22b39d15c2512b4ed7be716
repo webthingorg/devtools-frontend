@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e635b02_8a7947c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-16T21:55:43Z",
+      "side": 1,
+      "message": "Just a thought: does it make sense to add a basic e2e test for scroll-snap overlay adorners?",
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c9f5942_064ed309",
