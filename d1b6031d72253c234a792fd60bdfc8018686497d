@@ -16,6 +16,167 @@
       "message": "PTAL.",
       "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e290563_a93cc5b5",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "Maybe rename this handler to _handleVarDefinitionActivate or something, since it\u0027s no longer just clicks.\nIn fact, it would be better to change the CSSVarSwatch API a bit so instead of onLinkClick it\u0027s now onLinkActivate.",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ebb320e_542a591c",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "I think it\u0027d be great to do this filtering in the CSSVarSwatch component instead of here. There may ultimately be several consumers of the component, and if it lets through all click events, and all keyboard events, then that means all consumers need to have this code.",
+      "range": {
+        "startLine": 262,
+        "startChar": 2,
+        "endLine": 268,
+        "endChar": 5
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8bfa8d_1bef6d83",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "This might work too, but up to you, I\u0027m not 100% sure:\n\n  return this.propertiesTreeOutline._shadowRoot.activeElement;",
+      "range": {
+        "startLine": 1575,
+        "startChar": 5,
+        "endLine": 1575,
+        "endChar": 119
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f82836_7653df8e",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "What is the reasoning behind navigating vars with arrow keys?\nI\u0027m wondering because vars are similar to links, and I\u0027d sort of expect to be able to navigate through a list of links with the tab key instead (and shift-tab).\nIn fact, I\u0027d probably want to be able to do this for background urls as well, and other types of links present in CSS rules.\n\nThe other thing that comes to mind is that arrow keys are used today to navigate the list of rules (down/right goes to the next rule, up/left goes to the previous).\nWith this change, if you have 50 vars in a rule, you\u0027ll need to press right 50 times to jump to the next rule.\n\nI think we may need a different pattern here for navigation. It\u0027d almost want to do something like this:\n- arrow keys allow to go from rule to rule,\n- once on a rule, pressing enter goes \"into\" it\n- once inside a rule, tabbing goes through all focusable elements (i.e. links, including the stylesheet link)\n- pressing escape goes back to the rule list level, where arrow keys work again to go from rule to rule.\n\nThe problem is: once on a rule, pressing enter goes into edit mode, and we don\u0027t want to break this.\nSo there\u0027s an incompatibility between edit mode and navigation mode. The Styles pane tries really hard to be as close as possible to a text editor, so just starting to type works (enters text in the current rule), which doesn\u0027t work with the navigation model I described.\n\nI understand the need to navigate to variables is important, as currently there\u0027s just no way to do this, so it\u0027s inaccessible. So I don\u0027t want to hold this off on a major keyboard support refactor idea. So I\u0027m ok to +1 this (module my other comments), but I\u0027d at least ask for your change to take other kinds of links into account too (i.e. background urls, things that have the devtools-link class).",
+      "range": {
+        "startLine": 1646,
+        "startChar": 0,
+        "endLine": 1649,
+        "endChar": 23
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96daa128_063888bf",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "Looks like you missed the closing ] character here.",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2dbb35_482a339b",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "Instead of casting here, you can use the generic querySelector:\n\n  const link \u003d this.shadow.querySelector\u003cHTMLElement\u003e(\u0027[role\u003d\"link\"]\u0027);\n  if (link) {\n    link.focus();\n  }",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26cc7c69_5bc2d689",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T09:42:35Z",
+      "side": 1,
+      "message": "This will make it follow the link on any keydown event. We might want to restrict it to space and enter. Otherwise you\u0027ll have unwanted effects like pressing Escape to toggle the drawer will also follow the link, or pressing F12, or just holding ctrl modifier, etc.\nSo you might want to add a this.onKeyDown handler to filter out non space/enter keys.",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 15
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
