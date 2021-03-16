@@ -31,9 +31,10 @@
 import {contrastRatio, contrastRatioAPCA, getAPCAThreshold, getContrastThreshold} from '../front_end/common/ColorUtils.js';
 
 import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, PathCommands, ResetData} from './common.js';
-import {buildPath, emptyBounds, formatColor, formatRgba, parseHexa, PathBounds} from './highlight_common.js';
+import {drawPath, emptyBounds, formatColor, formatRgba, parseHexa, PathBounds} from './highlight_common.js';
 import {drawLayoutFlexContainerHighlight, drawLayoutFlexItemHighlight, FlexContainerHighlight, FlexItemHighlight} from './highlight_flex_common.js';
 import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js';
+import {ScrollSnapHighlight} from './highlight_scroll_snap.js';
 import {PersistentOverlay} from './tool_persistent.js';
 
 interface Path {
@@ -214,6 +215,10 @@ export class HighlightOverlay extends Overlay {
     if (this.persistentOverlay) {
       this.persistentOverlay.drawFlexContainerHighlight(highlight);
     }
+  }
+
+  drawScrollSnapHighlight(highlight: ScrollSnapHighlight) {
+    this.persistentOverlay?.drawScrollSnapHighlight(highlight);
   }
 
   private drawAxis(context: CanvasRenderingContext2D, rulerAtRight: boolean, rulerAtBottom: boolean) {
@@ -617,24 +622,6 @@ function drawElementTitle(
   // When tooltip is on-top remove 1px from the arrow's top value to get rid of whitespace produced by the tooltip's border.
   tooltipContent.style.setProperty('--arrow-top', (onTop ? titleHeight - 1 : -arrowHalfWidth) + 'px');
   tooltipContent.style.setProperty('--arrow-left', (arrowX - boxX) + 'px');
-}
-
-function drawPath(
-    context: CanvasRenderingContext2D, commands: PathCommands, fillColor: string|undefined,
-    outlineColor: string|undefined, bounds: PathBounds, emulationScaleFactor: number) {
-  context.save();
-  const path = buildPath(commands, bounds, emulationScaleFactor);
-  if (fillColor) {
-    context.fillStyle = fillColor;
-    context.fill(path);
-  }
-  if (outlineColor) {
-    context.lineWidth = 2;
-    context.strokeStyle = outlineColor;
-    context.stroke(path);
-  }
-  context.restore();
-  return path;
 }
 
 const DEFAULT_RULER_COLOR = 'rgba(128, 128, 128, 0.3)';
