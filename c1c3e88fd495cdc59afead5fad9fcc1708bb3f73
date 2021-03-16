@@ -16,6 +16,46 @@
       "message": "PTAL - thanks!",
       "revId": "c1c3e88fd495cdc59afead5fad9fcc1708bb3f73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24cf6ae6_29aa5bbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T09:08:55Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "c1c3e88fd495cdc59afead5fad9fcc1708bb3f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c447fb_3211d7af",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-16T09:08:55Z",
+      "side": 1,
+      "message": "Ideally make this use the third_party/node/node.py so it runs the same independently of which node you have locally.",
+      "range": {
+        "startLine": 25,
+        "startChar": 43,
+        "endLine": 25,
+        "endChar": 88
+      },
+      "revId": "c1c3e88fd495cdc59afead5fad9fcc1708bb3f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
