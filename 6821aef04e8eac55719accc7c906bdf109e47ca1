@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86f2e75_8e9c3372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-16T10:21:24Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "6821aef04e8eac55719accc7c906bdf109e47ca1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a165b24e_f914e3c1",
+        "filename": "scripts/eslint_rules/tests/check_test_definitions_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-16T10:21:24Z",
+      "side": 1,
+      "message": "nit: Add a copy of this test to \"valid\" that has a bug id at the end :)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 6
+      },
+      "revId": "6821aef04e8eac55719accc7c906bdf109e47ca1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
