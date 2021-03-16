@@ -94,6 +94,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38841662_2654aa83",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-16T14:06:14Z",
+      "side": 1,
+      "message": "The event is sent from the ValueInterpreterDisplay, which is a child of ValueInterpreter, which again is a child of the LinearMemoryInspector. I set the event to bubble up (\u003d\u003e `composed: true`), so that the LinearMemoryInspector could listen to it. I used stopPropagation here so that the bubbling would stop here.\n\nWhat do you think? Should I rather not do that here? If we keep it, I\u0027ll add a comment for sure! Otherwise I\u0027ll remove it. Thanks for pointing it out :)!",
+      "parentUuid": "1a601ab8_1fefd7ad",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 21
+      },
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78119cc8_248f6f02",
         "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
         "patchSetId": 8
@@ -140,6 +164,30 @@
       "writtenOn": "2021-03-16T13:52:15Z",
       "side": 1,
       "message": "nit: we normally use the dispatchClickEvent helper here, although the behaviour is the same really. Maybe worth using for consistency?",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 19
+      },
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e927aea2_67c71677",
+        "filename": "test/unittests/front_end/linear_memory_inspector/ValueInterpreterDisplay_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-16T14:06:14Z",
+      "side": 1,
+      "message": "Done, thanks for letting me know, didn\u0027t know about that! :D",
+      "parentUuid": "7d19a722_b5c9f0f3",
       "range": {
         "startLine": 291,
         "startChar": 0,
