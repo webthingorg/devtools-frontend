@@ -1265,9 +1265,6 @@
   "developer_resources/developer_resources-meta.ts | showDeveloperResources": {
     "message": "Show Developer Resources"
   },
-  "developer_resources/DeveloperResourcesListView.ts | Byte": {
-    "message": "1 byte"
-  },
   "developer_resources/DeveloperResourcesListView.ts | copyInitiatorUrl": {
     "message": "Copy initiator URL"
   },
@@ -1290,7 +1287,7 @@
     "message": "pending"
   },
   "developer_resources/DeveloperResourcesListView.ts | sBytes": {
-    "message": "{PH1} bytes"
+    "message": "{n, plural, =1 {# byte} other {# bytes}}"
   },
   "developer_resources/DeveloperResourcesListView.ts | status": {
     "message": "Status"
@@ -1673,11 +1670,8 @@
   "elements/NodeStackTraceWidget.js | noStackTraceAvailable": {
     "message": "No stack trace available"
   },
-  "elements/PlatformFontsWidget.js | dGlyph": {
-    "message": "(1 glyph)"
-  },
   "elements/PlatformFontsWidget.js | dGlyphs": {
-    "message": "({PH1} glyphs)"
+    "message": "{n, plural, =1 {(# glyph)} other {(# glyphs)}}"
   },
   "elements/PlatformFontsWidget.js | localFile": {
     "message": "Local file"
@@ -2808,10 +2802,7 @@
     "message": "Include third-party cookie issues"
   },
   "issues/IssuesPane.ts | issuesPertainingToSOperation": {
-    "message": "Issues pertaining to {PH1} operation detected."
-  },
-  "issues/IssuesPane.ts | issuesPertainingToSOperations": {
-    "message": "Issues pertaining to {PH1} operations detected."
+    "message": "{n, plural, =1 {Issues pertaining to # operation detected.} other {Issues pertaining to # operations detected.}}"
   },
   "issues/IssuesPane.ts | lowTextContrast": {
     "message": "Low Text Contrast"
@@ -10680,7 +10671,7 @@
     "message": "{PH1} (at {PH2})"
   },
   "timeline/TimelineUIUtils.js | sBytes": {
-    "message": "{PH1} Bytes"
+    "message": "{n, plural, =1 {# Byte} other {# Bytes}}"
   },
   "timeline/TimelineUIUtils.js | sCanResultInPoorUserExperiences": {
     "message": "{PH1} can result in poor user experiences."
