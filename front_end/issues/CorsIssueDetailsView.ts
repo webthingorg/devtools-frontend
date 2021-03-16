@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -11,13 +12,9 @@ import {IssueView} from './IssueView.js';
 
 const UIStrings = {
   /**
-  *@description Label for number of affected resources indication in issue view
+  *@description Label for the number of affected resources in issue view
   */
-  item: 'item',
-  /**
-  *@description Label for number of affected resources indication in issue view
-  */
-  items: 'items',
+  item: '{n, plural, =1 {# item} other {# items}}',
   /**
   *@description Value for the status column in Shared Array Buffer issues
   */
@@ -62,8 +59,12 @@ export class CorsIssueDetailsView extends AffectedResourcesView {
   private issue: AggregatedIssue;
 
   constructor(parentView: IssueView, issue: AggregatedIssue) {
-    super(parentView, {singular: i18nString(UIStrings.item), plural: i18nString(UIStrings.items)});
+    super(parentView);
     this.issue = issue;
+  }
+
+  protected getAffectedResourcesText(count: number): Common.UIString.LocalizedString {
+    return i18nString(UIStrings.item, {n: count});
   }
 
   private appendStatus(element: HTMLElement, isWarning: boolean): void {

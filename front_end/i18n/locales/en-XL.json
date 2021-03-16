@@ -2616,19 +2616,13 @@
     "message": "P̂ár̂én̂t́ F̂ŕâḿê"
   },
   "issues/AffectedBlockedByResponseView.ts | request": {
-    "message": "r̂éq̂úêśt̂"
+    "message": "{n, plural, =1 {# r̂éq̂úêśt̂} other {# ŕêq́ûéŝt́ŝ}}"
   },
   "issues/AffectedBlockedByResponseView.ts | requestC": {
     "message": "R̂éq̂úêśt̂"
   },
-  "issues/AffectedBlockedByResponseView.ts | requests": {
-    "message": "r̂éq̂úêśt̂ś"
-  },
   "issues/AffectedCookiesView.ts | cookie": {
-    "message": "ĉóôḱîé"
-  },
-  "issues/AffectedCookiesView.ts | cookies": {
-    "message": "ĉóôḱîéŝ"
+    "message": "{n, plural, =1 {# ĉóôḱîé} other {# ĉóôḱîéŝ}}"
   },
   "issues/AffectedCookiesView.ts | domain": {
     "message": "D̂óm̂áîń"
@@ -2640,10 +2634,7 @@
     "message": "P̂át̂h́"
   },
   "issues/AffectedElementsView.ts | element": {
-    "message": "êĺêḿêńt̂"
-  },
-  "issues/AffectedElementsView.ts | elements": {
-    "message": "êĺêḿêńt̂ś"
+    "message": "{n, plural, =1 {# êĺêḿêńt̂} other {# él̂ém̂én̂t́ŝ}}"
   },
   "issues/AffectedElementsWithLowContrastView.ts | contrastRatio": {
     "message": "Ĉón̂t́r̂áŝt́ r̂át̂íô"
@@ -2685,10 +2676,7 @@
     "message": "R̂éŝól̂út̂íôń Ŝt́ât́ûś"
   },
   "issues/AffectedHeavyAdView.ts | resource": {
-    "message": "r̂éŝóûŕĉé"
-  },
-  "issues/AffectedHeavyAdView.ts | resources": {
-    "message": "r̂éŝóûŕĉéŝ"
+    "message": "{n, plural, =1 {# r̂éŝóûŕĉé} other {# r̂éŝóûŕĉéŝ}}"
   },
   "issues/AffectedHeavyAdView.ts | warned": {
     "message": "Ŵár̂ńêd́"
@@ -2730,10 +2718,7 @@
     "message": "T̂ŕîǵĝér̂"
   },
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violation": {
-    "message": "v̂íôĺât́îón̂"
-  },
-  "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violations": {
-    "message": "v̂íôĺât́îón̂ś"
+    "message": "{n, plural, =1 {# v̂íôĺât́îón̂} other {# v́îól̂át̂íôńŝ}}"
   },
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | warning": {
     "message": "ŵár̂ńîńĝ"
@@ -2745,10 +2730,7 @@
     "message": "P̂áĉḱâǵê śîǵn̂át̂úr̂é"
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resource": {
-    "message": "r̂éŝóûŕĉé"
-  },
-  "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resources": {
-    "message": "r̂éŝóûŕĉéŝ"
+    "message": "{n, plural, =1 {# r̂éŝóûŕĉé} other {# r̂éŝóûŕĉéŝ}}"
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | statusCode": {
     "message": "Ŝt́ât́ûś ĉód̂é"
@@ -2769,10 +2751,7 @@
     "message": "îńŝéĉúr̂é"
   },
   "issues/CorsIssueDetailsView.ts | item": {
-    "message": "ît́êḿ"
-  },
-  "issues/CorsIssueDetailsView.ts | items": {
-    "message": "ît́êḿŝ"
+    "message": "{n, plural, =1 {# ît́êḿ} other {# ît́êḿŝ}}"
   },
   "issues/CorsIssueDetailsView.ts | request": {
     "message": "R̂éq̂úêśt̂"
@@ -2871,13 +2850,10 @@
     "message": "Ĉĺîćk̂ t́ô ŕêv́êál̂ t́ĥé v̂íôĺât́îńĝ D́ÔḾ n̂ód̂é îń t̂h́ê Él̂ém̂én̂t́ŝ ṕâńêĺ"
   },
   "issues/IssueView.ts | directive": {
-    "message": "d̂ír̂éĉt́îv́ê"
+    "message": "{n, plural, =1 {# d̂ír̂éĉt́îv́ê} other {# d́îŕêćt̂ív̂éŝ}}"
   },
   "issues/IssueView.ts | directiveC": {
     "message": "D̂ír̂éĉt́îv́ê"
-  },
-  "issues/IssueView.ts | directives": {
-    "message": "d̂ír̂éĉt́îv́êś"
   },
   "issues/IssueView.ts | element": {
     "message": "Êĺêḿêńt̂"
@@ -2901,31 +2877,22 @@
     "message": "r̂ép̂ór̂t́-ôńl̂ý"
   },
   "issues/IssueView.ts | request": {
-    "message": "r̂éq̂úêśt̂"
-  },
-  "issues/IssueView.ts | requests": {
-    "message": "r̂éq̂úêśt̂ś"
+    "message": "{n, plural, =1 {# r̂éq̂úêśt̂} other {# ŕêq́ûéŝt́ŝ}}"
   },
   "issues/IssueView.ts | resource": {
-    "message": "r̂éŝóûŕĉé"
+    "message": "{n, plural, =1 {# r̂éŝóûŕĉé} other {# r̂éŝóûŕĉéŝ}}"
   },
   "issues/IssueView.ts | resourceC": {
     "message": "R̂éŝóûŕĉé"
-  },
-  "issues/IssueView.ts | resources": {
-    "message": "r̂éŝóûŕĉéŝ"
   },
   "issues/IssueView.ts | restrictionStatus": {
     "message": "R̂éŝt́r̂íĉt́îón̂ Śt̂át̂úŝ"
   },
   "issues/IssueView.ts | source": {
-    "message": "ŝóûŕĉé"
+    "message": "{n, plural, =1 {# ŝóûŕĉé} other {# ŝóûŕĉéŝ}}"
   },
   "issues/IssueView.ts | sourceLocation": {
     "message": "Ŝóûŕĉé L̂óĉát̂íôń"
-  },
-  "issues/IssueView.ts | sources": {
-    "message": "ŝóûŕĉéŝ"
   },
   "issues/IssueView.ts | status": {
     "message": "Ŝt́ât́ûś"
@@ -9050,20 +9017,14 @@
   "sources/DebuggerPlugin.js | configure": {
     "message": "Ĉón̂f́îǵûŕê"
   },
-  "sources/DebuggerPlugin.js | disableAllBreakpointsInLine": {
-    "message": "D̂íŝáb̂ĺê ál̂ĺ b̂ŕêák̂ṕôín̂t́ŝ ín̂ ĺîńê"
-  },
   "sources/DebuggerPlugin.js | disableBreakpoint": {
-    "message": "D̂íŝáb̂ĺê b́r̂éâḱp̂óîńt̂"
+    "message": "{n, plural, =1 {D̂íŝáb̂ĺê b́r̂éâḱp̂óîńt̂} other {D́îśâb́l̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é}}"
   },
   "sources/DebuggerPlugin.js | editBreakpoint": {
     "message": "Êd́ît́ b̂ŕêák̂ṕôín̂t́…"
   },
-  "sources/DebuggerPlugin.js | enableAllBreakpointsInLine": {
-    "message": "Êńâb́l̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é"
-  },
   "sources/DebuggerPlugin.js | enableBreakpoint": {
-    "message": "Êńâb́l̂é b̂ŕêák̂ṕôín̂t́"
+    "message": "{n, plural, =1 {Êńâb́l̂é b̂ŕêák̂ṕôín̂t́} other {Êńâb́l̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é}}"
   },
   "sources/DebuggerPlugin.js | neverPauseHere": {
     "message": "N̂év̂ér̂ ṕâúŝé ĥér̂é"
@@ -9077,11 +9038,8 @@
   "sources/DebuggerPlugin.js | prettyprintThisMinifiedFile": {
     "message": "P̂ŕêt́t̂ý-p̂ŕîńt̂ t́ĥíŝ ḿîńîf́îéd̂ f́îĺê?"
   },
-  "sources/DebuggerPlugin.js | removeAllBreakpointsInLine": {
-    "message": "R̂ém̂óv̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é"
-  },
   "sources/DebuggerPlugin.js | removeBreakpoint": {
-    "message": "R̂ém̂óv̂é b̂ŕêák̂ṕôín̂t́"
+    "message": "{n, plural, =1 {R̂ém̂óv̂é b̂ŕêák̂ṕôín̂t́} other {R̂ém̂óv̂é âĺl̂ b́r̂éâḱp̂óîńt̂ś îń l̂ín̂é}}"
   },
   "sources/DebuggerPlugin.js | removeFromIgnoreList": {
     "message": "R̂ém̂óv̂é f̂ŕôḿ îǵn̂ór̂é l̂íŝt́"
