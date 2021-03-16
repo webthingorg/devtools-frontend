@@ -16,6 +16,121 @@
       "message": "PTAL",
       "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9f5942_064ed309",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:44:38Z",
+      "side": 1,
+      "message": "I think this change was made by accident, it should be PersistentGridOverlayStateChanged.",
+      "range": {
+        "startLine": 358,
+        "startChar": 51,
+        "endLine": 358,
+        "endChar": 61
+      },
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9568641a_5eba2334",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:44:38Z",
+      "side": 1,
+      "message": "Since we really just need the keys in those maps, maybe there\u0027s a way we can simplify this type signature to avoid having this super long @param. Just a suggestion, feel free to ignore.",
+      "range": {
+        "startLine": 264,
+        "startChar": 13,
+        "endLine": 264,
+        "endChar": 193
+      },
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0a8821_ea94a5d2",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:44:38Z",
+      "side": 1,
+      "message": "I thought we now had an eslint typescript rule that made return types mandatory. Do we not have the same rule in the overlay module?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d8a81e2_e54684c9",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:44:38Z",
+      "side": 1,
+      "message": "Suggestion to move this to a module-level const with a self-explanatory name:\n\n  const ALIGNMENT_POINT_STROKE_WIDTH \u003d 5;\n\nSame for other values, if they\u0027re all at the top with nice to read names, it makes it easy to tweak the design later when needed:\n\n  const ALIGNMENT_POINT_STROKE_COLOR \u003d \u0027white\u0027;\n  ...",
+      "range": {
+        "startLine": 72,
+        "startChar": 22,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06334e2_4197981d",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-16T13:44:38Z",
+      "side": 1,
+      "message": "It would be nice to move some of this to drawPath so you only need to pass those values are arguments. There\u0027s a bunch of draw methods in the overlay codebase that do this kind of stuff already. The more we put this in helper functions, the better it is.",
+      "range": {
+        "startLine": 97,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 5
+      },
+      "revId": "3f77057421e2fc8bf22b39d15c2512b4ed7be716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
