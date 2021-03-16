@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "656a0df7_0b9caf8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T15:17:22Z",
+      "side": 1,
+      "message": "LGTM; thanks for making the set data() change. ",
+      "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fdf16ea_f527a8d0",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "I just don\u0027t see why the user should have to keep track of the data; ultimately, that leads to the data being stored twice.",
       "parentUuid": "5fdf16ea_f527a8d0",
+      "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c30d4ca_04f5a89e",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T15:17:22Z",
+      "side": 1,
+      "message": "We\u0027ve used this pattern elsewhere so a user is able to do :\n\n```\ncomponent.data \u003d {\n...component.data,\nnewValueOfOneItem: \u0027foo\u0027\n}\n```\n\nSo this is good IMO.",
+      "parentUuid": "222ca843_f8a0eda1",
       "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
