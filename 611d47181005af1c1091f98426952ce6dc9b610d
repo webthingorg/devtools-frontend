@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c86322f_b0bf1025",
+        "filename": "front_end/console/ConsoleView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T12:36:52Z",
+      "side": 1,
+      "message": "Good point! Let\u0027s keep it for one or two milestones, and then we can remove it (as discussed previously).",
+      "parentUuid": "d5c7550c_3037379b",
+      "revId": "611d47181005af1c1091f98426952ce6dc9b610d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "493f34f5_ac6e9c78",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95c80303_3a859172",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T12:36:52Z",
+      "side": 1,
+      "message": "Removed, tell me if you like it better now.",
+      "parentUuid": "493f34f5_ac6e9c78",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 0
+      },
+      "revId": "611d47181005af1c1091f98426952ce6dc9b610d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de733ca6_5e102fc4",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-03-16T11:59:07Z",
       "side": 1,
       "message": "nit: do you think this is worth defining as a constant? `defaultIconSize` or something?",
+      "range": {
+        "startLine": 159,
+        "startChar": 78,
+        "endLine": 159,
+        "endChar": 83
+      },
+      "revId": "611d47181005af1c1091f98426952ce6dc9b610d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad86a93_dfec3fd6",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T12:36:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de733ca6_5e102fc4",
       "range": {
         "startLine": 159,
         "startChar": 78,
