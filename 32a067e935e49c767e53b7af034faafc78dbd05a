@@ -16,6 +16,40 @@
       "message": "Hi Jack, hi Benedikt,\n\nthis CL adds pointers to the LMI that can be selected in the interpreter settings and\nviewed in the value display. For 32-bit pointers, it also contains a go-to-link. \n\nPTAL!",
       "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a94a81_0e863cd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-16T13:40:54Z",
+      "side": 1,
+      "message": "LGTM modulo comment (with no suggestion) 😊",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78119cc8_248f6f02",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-16T13:40:54Z",
+      "side": 1,
+      "message": "Not sure about the \u0027Other\u0027 here. Technically the pointers are just integers.",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
