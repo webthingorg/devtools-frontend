@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25413c80_d987bede",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-16T14:26:53Z",
+      "side": 1,
+      "message": "I think it could be a comment instead of being a part of the test name. WDYT?",
+      "revId": "92feb60a1acd5fb8a9be021111df077d3d29bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
