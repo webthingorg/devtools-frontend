@@ -135,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d613f4c1_f7668079",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-16T09:51:16Z",
+      "side": 1,
+      "message": "Note that this is actually fine as-is, and we could even drop the trailing `\"` as well if we wanted to:\n\n    document.querySelector(\u0027[role\u003d\"link\u0027);\n\nBut I‘m okay with adding the `\"]` if you prefer so, Patrick. It might be less surprising to read that way.",
+      "parentUuid": "96daa128_063888bf",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d2dbb35_482a339b",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
