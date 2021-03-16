@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "106f2fc8_7b32a147",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-16T08:31:53Z",
+      "side": 1,
+      "message": "Perhaps simply --color-white",
+      "revId": "b6523c071b4f7c6ef2b35c67c2ec7ca51456d7e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ccd29a64_17e5ad94",
