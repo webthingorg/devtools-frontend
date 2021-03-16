@@ -16,6 +16,24 @@
       "message": "This is probably more Jack\u0027s territory, but a data getter in a component feels strange to me. \nThe IssuesCounter is created in the ConsoleView constructor. And later `ConsoleView._updateIssuesToolbarItem()` calls the getter. Could you use the same data again as in the constructor or are some parts not available anymore?",
       "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "222ca843_f8a0eda1",
+        "filename": "front_end/console_counters/IssueCounter.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-16T14:28:05Z",
+      "side": 1,
+      "message": "I just don\u0027t see why the user should have to keep track of the data; ultimately, that leads to the data being stored twice.",
+      "parentUuid": "5fdf16ea_f527a8d0",
+      "revId": "e357ff8824324b7b2f0956a078ec4cb5538b8f49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
