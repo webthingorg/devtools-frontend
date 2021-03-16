@@ -4,6 +4,7 @@
 
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
+import * as Platform from '../platform/platform.js';
 import * as Network from '../network/network.js';
 import * as UI from '../ui/ui.js';
 
@@ -12,6 +13,10 @@ import type {AggregatedIssue} from './IssueAggregator.js';
 import {IssueView} from './IssueView.js';
 
 const UIStrings = {
+  /**
+  *@description Noun, singular or plural.Lable for affected resources in issue tab
+  */
+ nCookie: '{n, plural, =1 { cookie} other { cookies}}',
   /**
   *@description Noun, singular. Label for the kind and number of affected resources associated with a DevTools issue. A cookie is a small piece of data that a server sends to the user's web browser. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies.
   */
@@ -41,6 +46,11 @@ export class AffectedCookiesView extends AffectedResourcesView {
   constructor(parent: IssueView, issue: AggregatedIssue) {
     super(parent, {singular: i18nString(UIStrings.cookie), plural: i18nString(UIStrings.cookies)});
     this.issue = issue;
+  }
+
+  // overriding getResourceName
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nCookie, {n: count});
   }
 
   private appendAffectedCookies(cookies: Iterable<{cookie: Protocol.Audits.AffectedCookie, hasRequest: boolean}>):

@@ -2576,6 +2576,9 @@
   "issues/AffectedCookiesView.ts | name": {
     "message": "N̂ám̂é"
   },
+  "issues/AffectedCookiesView.ts | nCookie": {
+    "message": "{n, plural, =1 { ĉóôḱîé} other { ĉóôḱîéŝ}}"
+  },
   "issues/AffectedCookiesView.ts | path": {
     "message": "P̂át̂h́"
   },
