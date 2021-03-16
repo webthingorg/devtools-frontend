@@ -51,6 +51,24 @@
       "message": "What do you think about using regexp to check for equality, i.e. (use \".*\" whenever \u0027...\u0027 is used)? I feel that copy pasting this function isn\u0027t quite what we want to do, e.g. maxLength may change in the future, and then you always need to keep the usage of this function in the test up to date.",
       "revId": "b12733c3c8dd8a3b709c73b15087d03e6e6457ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba5a0e31_73ead9c1",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-03-16T16:34:57Z",
+      "side": 1,
+      "message": "Done, reversed in https://crrev.com/c/2764411 and now we check the beginning and end of the string when it is trimmed.",
+      "parentUuid": "888cf984_ef12ca6a",
+      "revId": "b12733c3c8dd8a3b709c73b15087d03e6e6457ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
