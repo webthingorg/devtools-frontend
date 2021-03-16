@@ -49,10 +49,10 @@ export function getIssueKindIconData(issueKind: SDK.Issue.IssueKind): UIComponen
   }
 }
 
-function toIconGroup({iconName, color, width, height}: UIComponents.Icon.IconWithName, defaultIconSize: boolean):
+function toIconGroup({iconName, color, width, height}: UIComponents.Icon.IconWithName, sizeOverride?: string):
     UIComponents.IconButton.IconWithTextData {
-  if (defaultIconSize) {
-    return {iconName, iconColor: color};
+  if (sizeOverride) {
+    return {iconName, iconColor: color, iconWidth: sizeOverride, iconHeight: sizeOverride};
   }
   return {iconName, iconColor: color, iconWidth: width, iconHeight: height};
 }
@@ -145,20 +145,19 @@ export class IssueCounter extends HTMLElement {
       this.issuesManager.numberOfIssues(SDK.Issue.IssueKind.BreakingChange),
       this.issuesManager.numberOfIssues(SDK.Issue.IssueKind.Improvement),
     ];
-    const defaultIconSize = Boolean(this.clickHandler);
     const countToString = (count: number): string|undefined => (count > 0 || !this.omitEmpty) ? `${count}` : undefined;
     const data: UIComponents.IconButton.IconButtonData = {
       groups: [
         {
-          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.PageError), defaultIconSize),
+          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.PageError), '2ex'),
           text: countToString(this.counts[0]),
         },
         {
-          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.BreakingChange), defaultIconSize),
+          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.BreakingChange), '2ex'),
           text: countToString(this.counts[1]),
         },
         {
-          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.Improvement), defaultIconSize),
+          ...toIconGroup(getIssueKindIconData(SDK.Issue.IssueKind.Improvement), '2ex'),
           text: countToString(this.counts[2]),
         },
       ],
