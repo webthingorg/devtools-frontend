@@ -36,8 +36,14 @@ ObjectUI.ExpandableTextPropertyValue = ObjectUIModule.ObjectPropertiesSection.Ex
 /** @constructor */
 ObjectUI.ObjectPropertiesSection = ObjectUIModule.ObjectPropertiesSection.ObjectPropertiesSection;
 
-ObjectUI.ObjectPropertiesSection._maxRenderableStringLength =
-    ObjectUIModule.ObjectPropertiesSection.maxRenderableStringLength;
+Object.defineProperty(ObjectUI.ObjectPropertiesSection, '_maxRenderableStringLength', {
+  set(value) {
+    ObjectUIModule.ObjectPropertiesSection.maxRenderableStringLength = value;
+  },
+  get() {
+    return ObjectUIModule.ObjectPropertiesSection.maxRenderableStringLength;
+  },
+});
 
 ObjectUI.ObjectPropertiesSection.getObjectPropertiesSectionFrom =
     ObjectUIModule.ObjectPropertiesSection.getObjectPropertiesSectionFrom;
