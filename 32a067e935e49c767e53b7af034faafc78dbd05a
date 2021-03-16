@@ -52,6 +52,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4ccf5df_6af1e637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T13:52:15Z",
+      "side": 1,
+      "message": "LGTM with a couple of (non blocking) questions!",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a601ab8_1fefd7ad",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T13:52:15Z",
+      "side": 1,
+      "message": "why the need to do this here? Only ask as most of the time we don\u0027t, so it might be worth a quick comment in the code explaining why? Or feel free to disagree if I\u0027m missing something obvious :D",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 21
+      },
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78119cc8_248f6f02",
@@ -83,6 +123,29 @@
       "side": 1,
       "message": "Youŕe right; I don\u0027t have a strong opinion on this. I would be fine either way, the original UX proposal suggested \"Other\" here, but I could very well see it under Integer too.",
       "parentUuid": "78119cc8_248f6f02",
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d19a722_b5c9f0f3",
+        "filename": "test/unittests/front_end/linear_memory_inspector/ValueInterpreterDisplay_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-16T13:52:15Z",
+      "side": 1,
+      "message": "nit: we normally use the dispatchClickEvent helper here, although the behaviour is the same really. Maybe worth using for consistency?",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 19
+      },
       "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
