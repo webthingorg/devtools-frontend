@@ -2615,6 +2615,9 @@
   "issues/AffectedBlockedByResponseView.ts | requestC": {
     "message": "Request"
   },
+  "issues/AffectedBlockedByResponseView.ts | nRequests": {
+    "message": "{n, plural, =1 {request} other {requests}}" 
+  },
   "issues/AffectedBlockedByResponseView.ts | requests": {
     "message": "requests"
   },
@@ -2638,6 +2641,9 @@
   },
   "issues/AffectedElementsView.ts | elements": {
     "message": "elements"
+  },
+  "issues/AffectedElementsView.ts | nElements": {
+    "message": "{n, plural, =1 {element} other {elements}}"
   },
   "issues/AffectedElementsWithLowContrastView.ts | contrastRatio": {
     "message": "Contrast ratio"
@@ -2873,6 +2879,9 @@
   "issues/IssueView.ts | directives": {
     "message": "directives"
   },
+  "issues/IssueView.ts | nDirectives": {
+    "message": "{n, plural, =1 {directive} other {directives}}"
+  },
   "issues/IssueView.ts | element": {
     "message": "Element"
   },
@@ -2900,6 +2909,9 @@
   "issues/IssueView.ts | requests": {
     "message": "requests"
   },
+  "issues/IssueView.ts | nRequests": {
+    "message": "{n, plural, =1 {request} other {requests}}"
+  },
   "issues/IssueView.ts | resource": {
     "message": "resource"
   },
@@ -2908,6 +2920,9 @@
   },
   "issues/IssueView.ts | resources": {
     "message": "resources"
+  },
+  "issues/IssueView.ts | nResources": {
+    "message": "{n, plural, =1 {resource} other {resources}}"
   },
   "issues/IssueView.ts | restrictionStatus": {
     "message": "Restriction Status"
@@ -2920,6 +2935,9 @@
   },
   "issues/IssueView.ts | sources": {
     "message": "sources"
+  },
+  "issues/IssueView.ts | nSources": {
+    "message": "{n, plural, =1 {source} other {sources}}"
   },
   "issues/IssueView.ts | status": {
     "message": "Status"

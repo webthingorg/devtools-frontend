@@ -2618,6 +2618,9 @@
   "issues/AffectedBlockedByResponseView.ts | requests": {
     "message": "r̂éq̂úêśt̂ś"
   },
+  "issues/AffectedBlockedByResponseView.ts | nRequests": {
+    "message": "{n, plural, =1 {r̂éq̂úêśt̂} other {r̂éq̂úêśt̂ś}}"
+  },
   "issues/AffectedCookiesView.ts | cookie": {
     "message": "ĉóôḱîé"
   },
@@ -2638,6 +2641,9 @@
   },
   "issues/AffectedElementsView.ts | elements": {
     "message": "êĺêḿêńt̂ś"
+  },
+  "issues/AffectedElementsView.ts | nElements": {
+    "message": "{n, plural, =1 {êĺêḿêńt̂} other {êĺêḿêńt̂ś}}"
   },
   "issues/AffectedElementsWithLowContrastView.ts | contrastRatio": {
     "message": "Ĉón̂t́r̂áŝt́ r̂át̂íô"
@@ -2873,6 +2879,9 @@
   "issues/IssueView.ts | directives": {
     "message": "d̂ír̂éĉt́îv́êś"
   },
+  "issues/IssueView.ts | nDirectives": {
+    "message": "{n, plural, =1 {d̂ír̂éĉt́îv́ê} other {d̂ír̂éĉt́îv́êś}}"
+  },
   "issues/IssueView.ts | element": {
     "message": "Êĺêḿêńt̂"
   },
@@ -2900,6 +2909,9 @@
   "issues/IssueView.ts | requests": {
     "message": "r̂éq̂úêśt̂ś"
   },
+  "issues/IssueView.ts | nRequests": {
+    "message": "{n, plural, =1 {r̂éq̂úêśt̂} other {r̂éq̂úêśt̂ś}}"
+  },
   "issues/IssueView.ts | resource": {
     "message": "r̂éŝóûŕĉé"
   },
@@ -2908,6 +2920,9 @@
   },
   "issues/IssueView.ts | resources": {
     "message": "r̂éŝóûŕĉéŝ"
+  },
+  "issues/IssueView.ts | nResources": {
+    "message": "{n, plural, =1 {r̂éŝóûŕĉéŝ} other {r̂éŝóûŕĉéŝ}}"
   },
   "issues/IssueView.ts | restrictionStatus": {
     "message": "R̂éŝt́r̂íĉt́îón̂ Śt̂át̂úŝ"
@@ -2920,6 +2935,9 @@
   },
   "issues/IssueView.ts | sources": {
     "message": "ŝóûŕĉéŝ"
+  },
+  "issues/IssueView.ts | nSources": {
+    "message": "{n, plural, =1 {ŝóûŕĉé} other {ŝóûŕĉéŝ}}"
   },
   "issues/IssueView.ts | status": {
     "message": "Ŝt́ât́ûś"

@@ -4,11 +4,14 @@
 
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
-
 import {AffectedResourcesView} from './AffectedResourcesView.js';
 import type {IssueView} from './IssueView.js';
 
 const UIStrings = {
+  /**
+  *@description Noun for singular or plural network requests. Label for a the affected resources section in the issue view.
+  */
+  nRequests: '{n, plural, =1 {request} other {requests}}',
   /**
   *@description Noun for a singular network request. Label for a the affected resources section in the issue view.
   */
@@ -55,6 +58,10 @@ export class AffectedBlockedByResponseView extends AffectedResourcesView {
       count++;
     }
     this.updateAffectedResourceCount(count);
+  }
+
+  protected getResourceName(count: number): string {
+    return i18nString(UIStrings.nRequests, {n: count});
   }
 
   private appendDetail(details: Protocol.Audits.BlockedByResponseIssueDetails): void {
