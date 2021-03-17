@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d63581da_9b39c1c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-17T16:09:17Z",
+      "side": 1,
+      "message": "Thanks for the feedback, I\u0027ll update this cl in a few minutes. I used git cl upload to submit the patch.\nI\u0027m getting 2 errors while running git cl upload. These errors didnt show up when i first uploaded the patch yesterday. In my update i\u0027ve fixed all nits, made all the overridden functions return a LocalizedString and added my name and email to the AUTHORS file in the devtool_frontend/src folder. Before updating the cl, i made sure the checks compile and work as intended. \n\n** Presubmit ERRORS **\nMissing LGTM from an OWNER for these files:\n    AUTHORS\n    front_end/i18n/locales/en-US.json\n    front_end/i18n/locales/en-XL.json\n    front_end/issues/AffectedBlockedByResponseView.ts\n    front_end/issues/AffectedElementsView.ts\n    front_end/issues/AffectedResourcesView.ts\n    front_end/issues/IssueView.ts\n\nScript execution time was 0.7s seconds\n/home/rahat/Documents/gsoc/chromium/depot_tools/src/third_party/devtools-frontend/src/third_party/i18n/collect-strings.js:397\n      throw Error(`Variable \u0027${varName}\u0027 is missing @example comment in message \"${tempMessage}\"`);\n      ^\n\nError: Variable \u0027request\u0027 is missing @example comment in message \"{n, plural, \u003d1 {request} other {requests}}\"\n    at _processPlaceholderDirectIcu (/home/rahat/Documents/gsoc/chromium/depot_tools/src/third_party/devtools-frontend/src/third_party/i18n/collect-strings.js:397:13)\n    at convertMessageToCtc (/home/rahat/Documents/gsoc/chromium/depot_tools/src/third_party/devtools-frontend/src/third_party/i18n/collect-strings.js:145:3)\n    at collectAllStringsInDir (/home/rahat/Documents/gsoc/chromium/depot_tools/src/third_party/devtools-frontend/src/third_party/i18n/collect-strings.js:622:25)\n    at Object.\u003canonymous\u003e (/home/rahat/Documents/gsoc/chromium/depot_tools/src/third_party/devtools-frontend/src/third_party/i18n/collect-strings.js:676:27)\n    at Module._compile (internal/modules/cjs/loader.js:1063:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)\n    at Module.load (internal/modules/cjs/loader.js:928:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:769:14)\n    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)\n    at internal/main/run_main_module.js:17:47",
+      "parentUuid": "c6cc3104_7da932cd",
+      "revId": "d7d695e8016495244c25918c9fe11ba86e0a9602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf96235d_32983f0c",
         "filename": "INFRA_OWNERS",
         "patchSetId": 1
