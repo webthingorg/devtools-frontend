@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94673fd3_b6b67d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-17T14:07:04Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the fix for the createRawLocationByURL() method, and the new unittest.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "744d44e379e57dfb73c2fb247faa1120f22867d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
