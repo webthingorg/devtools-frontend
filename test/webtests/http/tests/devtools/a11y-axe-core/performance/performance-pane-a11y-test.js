@@ -42,7 +42,7 @@
 
   async function testDetailsView() {
     TestRunner.addResult('Tests accessibility in performance Details view using the axe-core linter');
-    const detailsView = runtime.sharedInstance(Timeline.TimelineDetailsView);
+    const detailsView = Timeline.TimelineDetailsView.instance();
 
     // Details pane gets data from the parent TimelineDetails view
     detailsView.setModel(model, PerformanceTestRunner.mainTrack());
