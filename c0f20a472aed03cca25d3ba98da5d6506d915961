@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bdae414_bee4b65e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-17T12:44:13Z",
+      "side": 1,
+      "message": "LGTM modulo code questions. Thanks!",
+      "revId": "c0f20a472aed03cca25d3ba98da5d6506d915961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22104bd3_8dd23029",
+        "filename": "front_end/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-17T12:44:13Z",
+      "side": 1,
+      "message": "How about removing this explicit list if error prefixes? The RegExp is clearly more permissive, and future generations of DevTools engineers might be confused by the duplication 😋",
+      "revId": "c0f20a472aed03cca25d3ba98da5d6506d915961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
