@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0005c34f_16dd30a8",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T17:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31cba239_d04bac98",
+      "range": {
+        "startLine": 1598,
+        "startChar": 2,
+        "endLine": 1598,
+        "endChar": 16
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff92626f_450e6d65",
@@ -82,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e7c19e_35ec72e1",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T17:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff92626f_450e6d65",
+      "range": {
+        "startLine": 39,
+        "startChar": 55,
+        "endLine": 39,
+        "endChar": 65
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7cce890_6c2acf32",
@@ -95,6 +143,30 @@
       "writtenOn": "2021-03-17T08:40:38Z",
       "side": 1,
       "message": "nit: please rename this to onActivate since we use this handler on both mousedown and keydown.",
+      "range": {
+        "startLine": 107,
+        "startChar": 10,
+        "endLine": 107,
+        "endChar": 18
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08ab334_692e7d1a",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T17:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7cce890_6c2acf32",
       "range": {
         "startLine": 107,
         "startChar": 10,
