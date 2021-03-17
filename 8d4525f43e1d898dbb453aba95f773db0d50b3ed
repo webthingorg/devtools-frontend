@@ -33,6 +33,24 @@
       "message": "LGTM, test failure seems to be caused by parent CL",
       "revId": "8d4525f43e1d898dbb453aba95f773db0d50b3ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a151c4fc_ad0478c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-17T12:14:19Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "3c47b917_721d3d54",
+      "revId": "8d4525f43e1d898dbb453aba95f773db0d50b3ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
