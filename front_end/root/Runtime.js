@@ -40,6 +40,7 @@ const constructedInstances = new WeakMap();
 const mappingForLayoutTests = new Map([
   ['panels/animation', 'animation'],
   ['panels/browser_debugger', 'browser_debugger'],
+  ['panels/console', 'console'],
 ]);
 
 export class Runtime {
