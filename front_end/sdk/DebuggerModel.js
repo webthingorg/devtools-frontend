@@ -960,7 +960,7 @@ export class DebuggerModel extends SDKModel {
   /**
    * @param {string} sourceURL
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {?Location}
    */
   createRawLocationByURL(sourceURL, lineNumber, columnNumber) {
@@ -971,10 +971,12 @@ export class DebuggerModel extends SDKModel {
       if (!closestScript) {
         closestScript = script;
       }
-      if (script.lineOffset > lineNumber || (script.lineOffset === lineNumber && script.columnOffset > columnNumber)) {
+      if (script.lineOffset > lineNumber ||
+          (script.lineOffset === lineNumber && columnNumber !== undefined && script.columnOffset > columnNumber)) {
         continue;
       }
-      if (script.endLine < lineNumber || (script.endLine === lineNumber && script.endColumn <= columnNumber)) {
+      if (script.endLine < lineNumber ||
+          (script.endLine === lineNumber && columnNumber !== undefined && script.endColumn <= columnNumber)) {
         continue;
       }
       closestScript = script;
@@ -986,7 +988,7 @@ export class DebuggerModel extends SDKModel {
   /**
    * @param {!Protocol.Runtime.ScriptId} scriptId
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Location}
    */
   createRawLocationByScriptId(scriptId, lineNumber, columnNumber) {
