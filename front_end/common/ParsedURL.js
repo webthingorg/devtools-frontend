@@ -323,8 +323,18 @@ export class ParsedURL {
       columnNumber = isNaN(columnNumber) ? undefined : columnNumber - 1;
     }
 
+    if (!lineColumnMatch[1] && !lineColumnMatch[2]) {
+      const wasmCodeOffsetRegex = /wasm-function\[\d+\]:0x([a-z0-9]+)$/g;
+      const wasmCodeOffsetMatch = wasmCodeOffsetRegex.exec(pathAndAfter);
+      if (wasmCodeOffsetMatch && typeof (wasmCodeOffsetMatch[1]) === 'string') {
+        columnNumber = parseInt(wasmCodeOffsetMatch[1], 16);
+        columnNumber = isNaN(columnNumber) ? undefined : columnNumber;
+      }
+    }
+
     return {
-      url: beforePath + pathAndAfter.substring(0, pathAndAfter.length - lineColumnMatch[0].length),
+      url: ParsedURL.removeWasmFunctionInfoFromURL(
+          beforePath + pathAndAfter.substring(0, pathAndAfter.length - lineColumnMatch[0].length)),
       lineNumber: lineNumber,
       columnNumber: columnNumber
     };
