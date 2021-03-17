@@ -62,6 +62,30 @@
       },
       "revId": "a8e1a807ec59489ab48bfc341d653362be29be78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c90b1e5_8c0cc798",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T17:02:47Z",
+      "side": 1,
+      "message": "This is about finding the nearest ancestor that does have a scrollable overflow. \n\nThe element referenced by `this.element` is the scrollable container in the case of the Sources panel. But in the case of the Elements panel it\u0027s not, and we need to go back up one level to find the right container.",
+      "parentUuid": "9002cf96_320f4fc5",
+      "range": {
+        "startLine": 382,
+        "startChar": 13,
+        "endLine": 382,
+        "endChar": 73
+      },
+      "revId": "a8e1a807ec59489ab48bfc341d653362be29be78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
