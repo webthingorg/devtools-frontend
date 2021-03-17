@@ -70,6 +70,30 @@
       },
       "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6eb0cc9_5c24fff8",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-17T17:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5deaa14b_9db5ce69",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
