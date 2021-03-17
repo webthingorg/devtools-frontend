@@ -2606,6 +2606,9 @@
   "issues/AffectedBlockedByResponseView.ts | blockedResource": {
     "message": "B̂ĺôćk̂éd̂ Ŕêśôúr̂ćê"
   },
+  "issues/AffectedBlockedByResponseView.ts | nRequests": {
+    "message": "{n, plural, =1 {request} other {requests}}"
+  },
   "issues/AffectedBlockedByResponseView.ts | parentFrame": {
     "message": "P̂ár̂én̂t́ F̂ŕâḿê"
   },
@@ -2638,6 +2641,9 @@
   },
   "issues/AffectedElementsView.ts | elements": {
     "message": "êĺêḿêńt̂ś"
+  },
+  "issues/AffectedElementsView.ts | nElements": {
+    "message": "{n, plural, =1 {element} other {elements}}"
   },
   "issues/AffectedElementsWithLowContrastView.ts | contrastRatio": {
     "message": "Ĉón̂t́r̂áŝt́ r̂át̂íô"
@@ -2887,6 +2893,18 @@
   },
   "issues/IssueView.ts | name": {
     "message": "N̂ám̂é"
+  },
+  "issues/IssueView.ts | nDirectives": {
+    "message": "{n, plural, =1 {directive} other {directives}}"
+  },
+  "issues/IssueView.ts | nRequests": {
+    "message": "{n, plural, =1 {request} other {requests}}"
+  },
+  "issues/IssueView.ts | nResources": {
+    "message": "{n, plural, =1 {resource} other {resources}}"
+  },
+  "issues/IssueView.ts | nSources": {
+    "message": "{n, plural, =1 {source} other {sources}}"
   },
   "issues/IssueView.ts | pageErrorIssue": {
     "message": "Â ṕâǵê ér̂ŕôŕ îśŝúê: t́ĥé p̂áĝé îś n̂ót̂ ẃôŕk̂ín̂ǵ ĉór̂ŕêćt̂ĺŷ"
