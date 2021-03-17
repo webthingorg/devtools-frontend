@@ -470,6 +470,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16b02edb_7f121e7c",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-03-17T16:58:36Z",
+      "side": 1,
+      "message": "Totally agree with this change, I forgot querySelector was generic.",
+      "parentUuid": "7d2dbb35_482a339b",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26cc7c69_5bc2d689",
         "filename": "front_end/inline_editor/CSSVarSwatch.ts",
         "patchSetId": 2
