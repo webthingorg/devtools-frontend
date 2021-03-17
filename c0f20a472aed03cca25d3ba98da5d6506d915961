@@ -51,6 +51,24 @@
       "parentUuid": "22104bd3_8dd23029",
       "revId": "c0f20a472aed03cca25d3ba98da5d6506d915961",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db8e2a6a_123862af",
+        "filename": "front_end/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-17T13:26:48Z",
+      "side": 1,
+      "message": "Good point. Thanks for clarifying. Yeah, we\u0027ll clean this up later 👍",
+      "parentUuid": "00252230_1f1b92bd",
+      "revId": "c0f20a472aed03cca25d3ba98da5d6506d915961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
