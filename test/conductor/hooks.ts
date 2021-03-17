@@ -273,7 +273,7 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
     url += `&panel=${queryParams.panel}`;
   }
 
-  await frontend.goto(url, {waitUntil: ['domcontentloaded']});
+  await frontend.goto(url, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
   if (!queryParams.panel && selectedPanel.selector) {
     await frontend.waitForSelector(selectedPanel.selector);
