@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b28043b4_b3acd5b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-17T15:30:05Z",
+      "side": 1,
+      "message": "+1 to this. I would go further: let\u0027s declare these using the exact same constant variable, so that we can make sure they keep in sync.",
+      "range": {
+        "startLine": 27,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "80f37646c765873fe32a6c2b5c077783f287087e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbec26f5_76937f1a",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-17T15:30:05Z",
+      "side": 1,
+      "message": "Nit: let\u0027s extract all usages of this array and use it in both `goto` navigations.",
+      "range": {
+        "startLine": 163,
+        "startChar": 49,
+        "endLine": 163,
+        "endChar": 85
+      },
+      "revId": "80f37646c765873fe32a6c2b5c077783f287087e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fda2989_8b425de8",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-17T15:30:05Z",
+      "side": 1,
+      "message": "Nit: we are using a different set of loading expectations for an empty page. I think that\u0027s what we want, but it might be worthwhile extracting out a function (`loadEmptyPage`) for all of these usages and document why we don\u0027t use `networkidle2` there.",
+      "range": {
+        "startLine": 234,
+        "startChar": 2,
+        "endLine": 234,
+        "endChar": 67
+      },
+      "revId": "80f37646c765873fe32a6c2b5c077783f287087e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
