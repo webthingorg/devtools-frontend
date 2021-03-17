@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4820fc_ec5b4afc",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-17T11:57:03Z",
+      "side": 1,
+      "message": "this does not look correct. Also, why do types not complain? the type for data should be available.",
+      "revId": "830467c64127103a8b8450356d0b6b436744907b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
