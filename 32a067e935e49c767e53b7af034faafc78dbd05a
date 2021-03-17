@@ -116,6 +116,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e95607_2a50be53",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-17T08:18:19Z",
+      "side": 1,
+      "message": "Makes sense - maybe a comment just explaining that nothing further \"up\" needs the event - but to be honest that\u0027s probably something I could have inferred from the code - so feel free to leave as is. Thanks!",
+      "parentUuid": "38841662_2654aa83",
+      "range": {
+        "startLine": 210,
+        "startChar": 6,
+        "endLine": 210,
+        "endChar": 21
+      },
+      "revId": "32a067e935e49c767e53b7af034faafc78dbd05a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78119cc8_248f6f02",
