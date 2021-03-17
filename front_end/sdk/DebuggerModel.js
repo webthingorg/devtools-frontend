@@ -960,33 +960,37 @@ export class DebuggerModel extends SDKModel {
   /**
    * @param {string} sourceURL
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {?Location}
    */
   createRawLocationByURL(sourceURL, lineNumber, columnNumber) {
-    let closestScript = null;
     const scripts = this._scriptsBySourceURL.get(sourceURL) || [];
+    const matchingScripts = [];
     for (let i = 0, l = scripts.length; i < l; ++i) {
       const script = scripts[i];
-      if (!closestScript) {
-        closestScript = script;
-      }
-      if (script.lineOffset > lineNumber || (script.lineOffset === lineNumber && script.columnOffset > columnNumber)) {
+      if (script.lineOffset > lineNumber ||
+          (script.lineOffset === lineNumber && columnNumber !== undefined && script.columnOffset > columnNumber)) {
         continue;
       }
-      if (script.endLine < lineNumber || (script.endLine === lineNumber && script.endColumn <= columnNumber)) {
+      if (script.endLine < lineNumber ||
+          (script.endLine === lineNumber && columnNumber !== undefined && script.endColumn <= columnNumber)) {
         continue;
       }
-      closestScript = script;
+      matchingScripts.push(script);
       break;
     }
-    return closestScript ? new Location(this, closestScript.scriptId, lineNumber, columnNumber) : null;
+    if (!matchingScripts.length) {
+      return null;
+    }
+    const closestScript =
+        matchingScripts.sort((a, b) => a.lineOffset - b.lineOffset || a.columnOffset - b.columnOffset)[0];
+    return new Location(this, closestScript.scriptId, lineNumber, columnNumber);
   }
 
   /**
    * @param {!Protocol.Runtime.ScriptId} scriptId
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Location}
    */
   createRawLocationByScriptId(scriptId, lineNumber, columnNumber) {
