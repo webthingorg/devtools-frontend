@@ -21,6 +21,7 @@ template("node_action") {
                              "inputs",
                              "testonly",
                              "data",
+                             "metadata",
                            ])
 
     _full_script_location = devtools_location_prepend + invoker.script

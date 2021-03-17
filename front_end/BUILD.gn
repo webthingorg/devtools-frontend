@@ -8,6 +8,16 @@ import("../scripts/build/ninja/node.gni")
 import("../scripts/build/ninja/vars.gni")
 import("../third_party/typescript/typescript.gni")
 
+generated_file("grd_metadata") {
+  outputs = [ "$target_gen_dir/grd_metadata.json" ]
+
+  data_keys = [ "grd_files" ]
+
+  output_conversion = "json"
+
+  deps = [ ":front_end" ]
+}
+
 group("front_end") {
   public_deps = [
     ":devtools_app",
