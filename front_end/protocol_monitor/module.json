@@ -5,9 +5,7 @@
     "data_grid",
     "source_frame"
   ],
-  "modules": [
-    "protocol_monitor-legacy.js"
-  ],
+  "modules": [],
   "resources": [
     "protocolMonitor.css"
   ]
