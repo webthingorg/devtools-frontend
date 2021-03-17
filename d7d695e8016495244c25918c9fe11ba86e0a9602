@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4456fc74_5367b93a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-17T17:39:54Z",
+      "side": 1,
+      "message": "The missing LGTM message is not a problem.\n\nThe 2nd error says that the script believes your single word translation strings are a variable instead. I don\u0027t know right now how to best avoid that, will have to think about it.",
+      "parentUuid": "d63581da_9b39c1c4",
+      "revId": "d7d695e8016495244c25918c9fe11ba86e0a9602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf96235d_32983f0c",
         "filename": "INFRA_OWNERS",
         "patchSetId": 1
