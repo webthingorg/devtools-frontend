@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec711059_58be205e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Thanks David. Just a couple final comments, and I think there\u0027s another couple from my previous review that are not addressed yet. Good to go after this.",
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31cba239_d04bac98",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "This should now be renamed since this does not only navigate through vars, but any focusable element.\nMaybe _innerNavigation? Or _ruleNavigation? Or something better you can think of.",
+      "range": {
+        "startLine": 1598,
+        "startChar": 2,
+        "endLine": 1598,
+        "endChar": 16
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff92626f_450e6d65",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Should we change this to MouseEvent|KeyboardEvent now?",
+      "range": {
+        "startLine": 39,
+        "startChar": 55,
+        "endLine": 39,
+        "endChar": 65
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7cce890_6c2acf32",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "nit: please rename this to onActivate since we use this handler on both mousedown and keydown.",
+      "range": {
+        "startLine": 107,
+        "startChar": 10,
+        "endLine": 107,
+        "endChar": 18
+      },
+      "revId": "a36081a84de994cb862fb128e12f7c1d556baf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

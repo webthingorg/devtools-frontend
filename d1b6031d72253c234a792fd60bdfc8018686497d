@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3be816_0c67ec81",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f01cc9c0_1a97c535",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 27
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ebb320e_542a591c",
@@ -88,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "769fdc2d_6a1128df",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ebb320e_542a591c",
+      "range": {
+        "startLine": 262,
+        "startChar": 2,
+        "endLine": 268,
+        "endChar": 5
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af8bfa8d_1bef6d83",
@@ -101,6 +149,30 @@
       "writtenOn": "2021-03-16T09:42:35Z",
       "side": 1,
       "message": "This might work too, but up to you, I\u0027m not 100% sure:\n\n  return this.propertiesTreeOutline._shadowRoot.activeElement;",
+      "range": {
+        "startLine": 1575,
+        "startChar": 5,
+        "endLine": 1575,
+        "endChar": 119
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f23fc16b_b73abfb1",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8bfa8d_1bef6d83",
       "range": {
         "startLine": 1575,
         "startChar": 5,
@@ -172,6 +244,30 @@
       "side": 1,
       "message": "Looks like url\u0027s was already supported for the navigation, I have just added the support for the enter key. I have tryied to add support to some other swatches, but looks like the are not accessible anyway (for example the bezierSwatch).  Let me know if you think something else should be supported.",
       "parentUuid": "421255fa_ce62d506",
+      "range": {
+        "startLine": 1646,
+        "startChar": 0,
+        "endLine": 1649,
+        "endChar": 23
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d54870a_c9717806",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "It\u0027s fine to add support for other focusable things later, not in this CL.\n\nSorry I had misread the code yesterday, I now see that only left/right goes through focusable things within the rule, and up/down still goes through the list of rules.",
+      "parentUuid": "bb63b870_332cdb83",
       "range": {
         "startLine": 1646,
         "startChar": 0,
@@ -325,6 +421,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49baabd7_b80da539",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8b3d76_adbf9823",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d2dbb35_482a339b",
@@ -361,6 +481,30 @@
       "writtenOn": "2021-03-16T09:42:35Z",
       "side": 1,
       "message": "This will make it follow the link on any keydown event. We might want to restrict it to space and enter. Otherwise you\u0027ll have unwanted effects like pressing Escape to toggle the drawer will also follow the link, or pressing F12, or just holding ctrl modifier, etc.\nSo you might want to add a this.onKeyDown handler to filter out non space/enter keys.",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 15
+      },
+      "revId": "d1b6031d72253c234a792fd60bdfc8018686497d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e3edc17_de83b945",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-17T08:40:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26cc7c69_5bc2d689",
       "range": {
         "startLine": 100,
         "startChar": 8,
