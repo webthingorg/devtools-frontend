@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b12353_c534e733",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-17T14:58:11Z",
+      "side": 1,
+      "message": "Fixed in: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2767263",
+      "revId": "830467c64127103a8b8450356d0b6b436744907b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed4820fc_ec5b4afc",
@@ -14,6 +31,24 @@
       "writtenOn": "2021-03-17T11:57:03Z",
       "side": 1,
       "message": "this does not look correct. Also, why do types not complain? the type for data should be available.",
+      "revId": "830467c64127103a8b8450356d0b6b436744907b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "480f333c_863bb073",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-17T14:58:11Z",
+      "side": 1,
+      "message": "Oh yeah, there is a typo here:\nbackgroundcolor \u003c\u003e backgroundColor\nUnfortunately, I had to move this because the linter complained.\nI\u0027ll fix this in a follow up cl.",
+      "parentUuid": "ed4820fc_ec5b4afc",
       "revId": "830467c64127103a8b8450356d0b6b436744907b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
