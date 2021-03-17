@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6b7665b_c7dbf1dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-17T21:16:13Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\nThanks alot for getting back. I have managed to fixed those 2 errors. the presubmit check needed to have @examples added in each description of the new ICU formatted i18n string. I browsed the codebase to look for some examples and modelled the @example for each description on them, which happened to pass the presubmit check. The error was caused in the `_processPlaceholderDirectIcu` function in the collect-strings.js file. \nAnother observation I made is that after running the `git cl upload`, the symbol formatting in en-XL.json changes e.g (from d̂ír̂éĉt́îv́êś to directives). Not sure if that is something that can cause errors? However, the code compiles and works as intended.",
+      "parentUuid": "4456fc74_5367b93a",
+      "revId": "d7d695e8016495244c25918c9fe11ba86e0a9602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf96235d_32983f0c",
         "filename": "INFRA_OWNERS",
         "patchSetId": 1
