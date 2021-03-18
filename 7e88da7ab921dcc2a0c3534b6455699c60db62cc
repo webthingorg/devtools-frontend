@@ -46,6 +46,30 @@
       },
       "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ae47cd_fc777cfd",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T09:24:29Z",
+      "side": 1,
+      "message": "From the issues panel we might get source locations where columnNumber is undefined, and then multiple scripts on the same line (think multiple \u003cscript\u003e tags in an HTML file in one line) trigger the case.",
+      "parentUuid": "651111b9_2e58f6b2",
+      "range": {
+        "startLine": 969,
+        "startChar": 47,
+        "endLine": 969,
+        "endChar": 111
+      },
+      "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
