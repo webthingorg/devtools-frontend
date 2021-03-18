@@ -118,6 +118,30 @@
       },
       "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c1726b_e928ab14",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-18T10:30:51Z",
+      "side": 1,
+      "message": "Uhm, yeah, that needs fixing. We\u0027ve already had other places in V8 where we\u0027d assume that looking for line number is enough. But that doesn\u0027t match reality (anymore), especially with modern web dev stack and minification.",
+      "parentUuid": "eca38c5e_d3c79d8d",
+      "range": {
+        "startLine": 969,
+        "startChar": 47,
+        "endLine": 969,
+        "endChar": 111
+      },
+      "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
