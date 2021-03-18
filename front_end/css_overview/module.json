@@ -1,5 +1,13 @@
 {
   "modules": [],
+  "dependencies": [
+    "elements",
+    "ui",
+    "sdk",
+    "data_grid",
+    "extensions",
+    "color_picker"
+  ],
   "resources": [
     "cssOverview.css",
     "cssOverviewStartView.css",
