@@ -178,8 +178,8 @@ export class RenderCoordinator extends EventTarget {
     return resolverPromise as Promise<T>;
   }
 
-  private handleWork(handler: CoordinatorCallback): void {
-    const data = handler.call(undefined);
+  private async handleWork(handler: CoordinatorCallback): Promise<void> {
+    const data = await handler.call(undefined);
     const resolver = this.resolvers.get(handler);
     if (!resolver) {
       throw new Error('Unable to locate resolver');
@@ -195,7 +195,7 @@ export class RenderCoordinator extends EventTarget {
       return;
     }
 
-    this.scheduledWorkId = requestAnimationFrame(() => {
+    this.scheduledWorkId = requestAnimationFrame(async () => {
       const hasPendingFrames = this.pendingWorkFrames.length > 0;
       if (!hasPendingFrames) {
         // No pending frames means all pending work has completed.
@@ -216,12 +216,12 @@ export class RenderCoordinator extends EventTarget {
 
       for (const reader of frame.readers) {
         this.logIfEnabled(this.labels.get(reader));
-        this.handleWork(reader);
+        await this.handleWork(reader);
       }
 
       for (const writer of frame.writers) {
         this.logIfEnabled(this.labels.get(writer));
-        this.handleWork(writer);
+        await this.handleWork(writer);
       }
 
       // Since there may have been more work requested in
