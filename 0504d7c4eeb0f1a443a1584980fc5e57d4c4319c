@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0504d7c4eeb0f1a443a1584980fc5e57d4c4319c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c22a30cd_54ee2c29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-18T05:36:34Z",
+      "side": 1,
+      "message": "LGTM. Can you add a regression (E2E) test to make sure we catch regressions like these earlier in the future?",
+      "revId": "0504d7c4eeb0f1a443a1584980fc5e57d4c4319c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
