@@ -34,6 +34,24 @@
       "parentUuid": "25413c80_d987bede",
       "revId": "92feb60a1acd5fb8a9be021111df077d3d29bc2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c1729f_236e45f9",
+        "filename": "test/e2e/application/cookies_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-18T06:16:52Z",
+      "side": 1,
+      "message": "I also prefer to have it in the test name. For what its worth, we have some precedence for this in inspector-protocol and V8 inspector tests, where we sometimes add the crbug link to the test description that ends up in the \"-expected.txt\" output.",
+      "parentUuid": "504ab8b6_69146646",
+      "revId": "92feb60a1acd5fb8a9be021111df077d3d29bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
