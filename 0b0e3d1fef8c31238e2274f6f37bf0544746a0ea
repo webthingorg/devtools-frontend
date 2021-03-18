@@ -16,6 +16,46 @@
       "message": "Hi Jack, hi Benedikt,\n\nI\u0027m addressing some UX issues in the ValueInterpreter, mainly changing the\nlook of the select, and the rendering of signed/unsigned values (see Before/After screenshots).\n\nPTAL!",
       "revId": "0b0e3d1fef8c31238e2274f6f37bf0544746a0ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d126b1b6_dbca9769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-18T10:28:35Z",
+      "side": 1,
+      "message": "LGTM with teeeeeeny nit!",
+      "revId": "0b0e3d1fef8c31238e2274f6f37bf0544746a0ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40812daa_d02b0e63",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-18T10:28:35Z",
+      "side": 1,
+      "message": "nit: you can shorthand this to `0 4px`.",
+      "range": {
+        "startLine": 158,
+        "startChar": 18,
+        "endLine": 158,
+        "endChar": 30
+      },
+      "revId": "0b0e3d1fef8c31238e2274f6f37bf0544746a0ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
