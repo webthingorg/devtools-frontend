@@ -51,6 +51,24 @@
       "parentUuid": "877c5986_f1faf6b2",
       "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b9325c_e8cdf1c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-18T13:27:45Z",
+      "side": 1,
+      "message": "Right, perhaps it\u0027s not so simple because bfcache is currently behind a flag, right? Some example of an elements e2e test https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/elements/reveal-correct-node_test.ts;drc\u003d314d6b7155ca554c64b95bbc2ea2bb68f41f0a50 There are also plenty of helpers to inspect the elements tree state but ensuring that bfcache feature is enabled might be tricky. Let\u0027s go with a web test for now.",
+      "parentUuid": "ac7f7ebc_32c76f83",
+      "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
