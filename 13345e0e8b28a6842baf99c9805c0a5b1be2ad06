@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "13345e0e8b28a6842baf99c9805c0a5b1be2ad06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2976a43f_b124f109",
+        "filename": "front_end/resources/StackTrace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T08:19:17Z",
+      "side": 1,
+      "message": "These are only relevant for the LitHTML in L87, so let\u0027s put them there.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 11
+      },
+      "revId": "13345e0e8b28a6842baf99c9805c0a5b1be2ad06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7d756c_67c4764b",
+        "filename": "front_end/resources/StackTrace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T08:19:17Z",
+      "side": 1,
+      "message": "This is even worse than the duplication before. Can we leave the duplication in and address that properly in a follow-up?",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 80
+      },
+      "revId": "13345e0e8b28a6842baf99c9805c0a5b1be2ad06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
