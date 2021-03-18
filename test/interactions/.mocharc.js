@@ -59,7 +59,6 @@ const spec = testFiles.map(fileName => {
 // of the application at the moment of the timeout. Here, 0 denotes "indefinite timeout".
 const timeout = process.env['DEBUG'] ? 0 : 5 * 1000;
 
-process.env.TEST_SERVER_TYPE = 'component-docs';
 module.exports = {
   require: path.join(__dirname, '..', 'conductor', 'mocha_hooks.js'),
   spec,
