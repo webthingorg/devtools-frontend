@@ -51,6 +51,24 @@
       "parentUuid": "37878a2d_8e06326c",
       "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d8a13d_3e9f9464",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-18T12:59:07Z",
+      "side": 1,
+      "message": "HI, I\u0027ve updated the patch. Please review it. Thanks.",
+      "parentUuid": "ad570252_eda46928",
+      "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
