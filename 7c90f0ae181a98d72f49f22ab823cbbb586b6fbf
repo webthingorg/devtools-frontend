@@ -33,6 +33,24 @@
       "message": "That\u0027s one scary typo. How did this happen? Was the migration script explicitly lowercasing these properties for some reason?",
       "revId": "7c90f0ae181a98d72f49f22ab823cbbb586b6fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "663aa934_c5220329",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-18T08:08:53Z",
+      "side": 1,
+      "message": "Unfortunately, this was not the migration script but the auto formatting :/",
+      "parentUuid": "f7af5bea_475bf52a",
+      "revId": "7c90f0ae181a98d72f49f22ab823cbbb586b6fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
