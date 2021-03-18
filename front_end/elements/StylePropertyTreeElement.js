@@ -15,6 +15,7 @@ import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
 import {BezierPopoverIcon, ColorSwatchPopoverIcon, ShadowSwatchPopoverHelper} from './ColorSwatchPopoverIcon.js';
+import {ComputedStyleWidget} from './ComputedStyleWidget.js';
 import {FlexboxEditorWidget} from './FlexboxEditorWidget.js';
 import {CSSPropertyPrompt, StylePropertiesSection, StylesSidebarPane, StylesSidebarPropertyRenderer,} from './StylesSidebarPane.js';  // eslint-disable-line no-unused-vars
 
@@ -66,6 +67,10 @@ const UIStrings = {
   *@description A context menu item in Styles panel to copy all CSS declarations
   */
   copyAllDeclarations: 'Copy all declarations',
+  /**
+  *@description A context menu item in Styles panel to view the computed CSS property value.
+  */
+  viewComputedValue: 'View computed value',
 };
 const str_ = i18n.i18n.registerUIStrings('elements/StylePropertyTreeElement.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -867,7 +872,49 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allDeclarationText);
     });
 
+    contextMenu.defaultSection().appendItem(i18nString(UIStrings.viewComputedValue), () => {
+      this._viewComputedValue();
+    });
+
     contextMenu.show();
+  }
+
+  async _viewComputedValue() {
+    let widget = (await UI.ViewManager.ViewManager.instance().view('Styles').widget());
+    let computedStyleWidget = /** @type {?} */ (findComputedStyleWidget(widget));
+
+    if (!computedStyleWidget) {
+      await UI.ViewManager.ViewManager.instance().showView('Computed');
+      widget = await UI.ViewManager.ViewManager.instance().view('Computed').widget();
+      computedStyleWidget = findComputedStyleWidget(widget);
+    }
+
+    let propertyNamePattern = '';
+    if (this.isShorthand) {
+      propertyNamePattern = '^' + this.property.name + '-';
+    } else {
+      propertyNamePattern = '^' + this.property.name + '$';
+    }
+    const regex = new RegExp(propertyNamePattern, 'i');
+    computedStyleWidget._filterCallback(regex);
+    computedStyleWidget._input.value = this.property.name;
+    computedStyleWidget._input.focus();
+
+    /**
+     * @param {!UI.Widget.Widget} widget
+     */
+    function findComputedStyleWidget(widget) {
+      let currentWidget;
+      const queue = [widget];
+      while (queue.length && !currentWidget) {
+        const children = queue.shift()?._children;
+        currentWidget = children?.find((/** @type {!UI.Widget.Widget} */ child) => {
+          queue.push(child);
+          return child instanceof ComputedStyleWidget;
+        });
+      }
+      return currentWidget;
+    }
   }
 
   /**

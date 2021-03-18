@@ -206,10 +206,11 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
 
     const hbox = this.contentElement.createChild('div', 'hbox styles-sidebar-pane-toolbar');
     const filterContainerElement = hbox.createChild('div', 'styles-sidebar-pane-filter-box');
-    const filterInput =
-        StylesSidebarPane.createPropertyFilterElement(i18nString(UIStrings.filter), hbox, filterCallback.bind(this));
+    const filterInput = StylesSidebarPane.createPropertyFilterElement(
+        i18nString(UIStrings.filter), hbox, this._filterCallback.bind(this));
     UI.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterComputedStyles));
     filterContainerElement.appendChild(filterInput);
+    this._input = filterInput;
     /** @type {?RegExp} */
     this._filterRegex = null;
 
@@ -251,19 +252,6 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
       return null;
     }, () => this._computedStyleModel.node());
-
-    /**
-     * @param {?RegExp} regex
-     * @this {ComputedStyleWidget}
-     */
-    function filterCallback(regex) {
-      this._filterRegex = regex;
-      if (this._groupComputedStylesSetting.get()) {
-        this._filterGroupLists();
-      } else {
-        this._filterAlphabeticalList();
-      }
-    }
 
     const fontsWidget = new PlatformFontsWidget(this._computedStyleModel);
     fontsWidget.show(this.contentElement);
@@ -631,6 +619,19 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
     }
     return result;
+  }
+
+  /**
+  * @param {?RegExp} regex
+  * @this {ComputedStyleWidget}
+  */
+  _filterCallback(regex) {
+    this._filterRegex = regex;
+    if (this._groupComputedStylesSetting.get()) {
+      this._filterGroupLists();
+    } else {
+      this._filterAlphabeticalList();
+    }
   }
 
   _filterAlphabeticalList() {
