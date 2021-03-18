@@ -33,6 +33,23 @@
       "message": "LGTM. Can you add a regression (E2E) test to make sure we catch regressions like these earlier in the future?",
       "revId": "0504d7c4eeb0f1a443a1584980fc5e57d4c4319c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a51a4b5_9968d5e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-03-18T10:14:40Z",
+      "side": 1,
+      "message": "LGTM modulo Benedikt\u0027s comment!",
+      "revId": "0504d7c4eeb0f1a443a1584980fc5e57d4c4319c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
