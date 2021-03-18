@@ -51,6 +51,24 @@
       "parentUuid": "49e0ce52_1d54fb3b",
       "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29b1ce9_13dd4115",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-18T16:05:44Z",
+      "side": 1,
+      "message": "I\u0027ve updated the patch. \nJust out of curiosity, why is this way better than the previous one?\nIn this way we\u0027re changing the type definition of the overridden function. Does that make it safer? or less error prone? than returning the string type cast as a LocalizedString? \nIf this is safer should\u0027nt the original getResourceName function in the `AffectedResourcesView` have a LocalizedString as a return type?\nIn general is okay/safe if we change the type definition of a overridden function?",
+      "parentUuid": "99e3abf4_b96e3142",
+      "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
