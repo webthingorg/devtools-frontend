@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5957f1df_9d09d6fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-03-18T13:10:15Z",
+      "side": 1,
+      "message": "Awesome! Thanks for your help again. Wasn\u0027t sure if it was appropriate to mark as fixed prior to the patch being accepted but will do in the future.",
+      "parentUuid": "60928f6f_23402abe",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 3
+      },
+      "revId": "2ebb54f320e57871a04040eb772ad8fb3412ad58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "30ef8f99_8cadfa17",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
