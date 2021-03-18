@@ -2,13 +2,28 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("../devtools_image_files.gni")
 import("../scripts/build/ninja/copy.gni")
 import("../scripts/build/ninja/devtools_entrypoint.gni")
 import("../scripts/build/ninja/node.gni")
 import("../scripts/build/ninja/vars.gni")
 import("../third_party/typescript/typescript.gni")
 
+generated_file("grd_metadata") {
+  outputs = [ "$target_gen_dir/grd_metadata.json" ]
+
+  data_keys = [ "grd_files" ]
+
+  output_conversion = "json"
+
+  deps = [ ":front_end" ]
+}
+
 group("front_end") {
+  metadata = {
+    grd_files = front_end_image_files
+  }
+
   public_deps = [
     ":devtools_app",
     ":embedder-scripts",
