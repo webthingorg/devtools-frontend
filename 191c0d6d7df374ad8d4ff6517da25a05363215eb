@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6bffe5_6541d5e2",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T07:44:47Z",
+      "side": 1,
+      "message": "This would also trigger if the numbers are zero, is that intended?",
+      "range": {
+        "startLine": 326,
+        "startChar": 8,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "191c0d6d7df374ad8d4ff6517da25a05363215eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d818324b_265d15df",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T07:44:47Z",
+      "side": 1,
+      "message": "This seems pretty specific (more specific than lineColumnRegEx). Would it make sense to do this check unconditionally first and only do the other match if it isn\u0027t a wasm-function?",
+      "range": {
+        "startLine": 327,
+        "startChar": 6,
+        "endLine": 327,
+        "endChar": 73
+      },
+      "revId": "191c0d6d7df374ad8d4ff6517da25a05363215eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d08c63ac_3483de78",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-18T07:44:47Z",
+      "side": 1,
+      "message": "What if we have a wasm-function, but the conditional above doesn\u0027t do anything (e.g. because wasmCodeOffsetRegex doesn\u0027t match): Do we want to remove the wasmFunctionInfo here as well in that case?",
+      "range": {
+        "startLine": 336,
+        "startChar": 21,
+        "endLine": 336,
+        "endChar": 50
+      },
+      "revId": "191c0d6d7df374ad8d4ff6517da25a05363215eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
