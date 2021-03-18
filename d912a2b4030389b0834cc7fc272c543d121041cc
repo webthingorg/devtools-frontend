@@ -33,6 +33,24 @@
       "message": "I think\n`protected getResourceName(count: number): Platform.UIString.LocalizedString {\n  return i18nString(UIStrings.nRequests, {n: count});\n}`\nshould work too. Please change that elsewhere too.",
       "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e3abf4_b96e3142",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-18T15:54:57Z",
+      "side": 1,
+      "message": "I\u0027ll get on it.",
+      "parentUuid": "49e0ce52_1d54fb3b",
+      "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
