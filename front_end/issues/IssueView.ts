@@ -35,6 +35,10 @@ const UIStrings = {
   */
   name: 'Name',
   /**
+  *@description Singular or plural label for number of affected directive resource indication in issue view.
+  */
+  nDirectives: '{n, plural, =1 { directive} other { directives}}',
+  /**
   *@description Singular label for number of affected directive resource indication in issue view
   */
   directive: 'directive',
@@ -75,6 +79,10 @@ const UIStrings = {
   */
   resourceC: 'Resource',
   /**
+  *@description Label for a type of issue that can appear in the Issues view. Noun for singular or plural number of network requests.
+  */
+  nRequests: '{n, plural, =1 { request} other { requests}}',
+  /**
   *@description Label for a type of issue that can appear in the Issues view. Noun for a singular network request.
   */
   request: 'request',
@@ -83,6 +91,10 @@ const UIStrings = {
   */
   requests: 'requests',
   /**
+  *@description Singular or Plural label for number of affected source resource indication in issue view
+  */
+  nSources: '{n, plural, =1 { source} other { sources}}',
+  /**
   *@description Singular label for number of affected source resource indication in issue view
   */
   source: 'source',
@@ -90,6 +102,10 @@ const UIStrings = {
   *@description Plural label for number of affected source resource indication in issue view
   */
   sources: 'sources',
+  /**
+  *@description Label for singular or plural number of affected resources indication in issue view
+  */
+  nResources: '{n, plural, =1 { resource} other { resources}}',
   /**
   *@description Label for number of affected resources indication in issue view
   */
@@ -157,6 +173,10 @@ class AffectedDirectivesView extends AffectedResourcesView {
       status.textContent = i18nString(UIStrings.blocked);
     }
     element.appendChild(status);
+  }
+
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nDirectives, {n: count});
   }
 
   _appendViolatedDirective(element: Element, directive: string): void {
@@ -309,6 +329,10 @@ class AffectedRequestsView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nRequests, {n: count});
+  }
+
   _appendNetworkRequest(request: SDK.NetworkRequest.NetworkRequest): void {
     const nameText = Platform.StringUtilities.trimMiddle(request.name(), 100);
     const nameElement = document.createElement('td');
@@ -350,6 +374,10 @@ class AffectedSourcesView extends AffectedResourcesView {
       count++;
     }
     this.updateAffectedResourceCount(count);
+  }
+
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nSources, {n: count});
   }
 
   _appendAffectedSource({url, lineNumber, columnNumber}: Protocol.Audits.SourceCodeLocation): void {
@@ -410,6 +438,10 @@ class AffectedMixedContentView extends AffectedResourcesView {
       }
     }
     this.updateAffectedResourceCount(count);
+  }
+
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nResources, {n: count});
   }
 
   appendAffectedMixedContent(
