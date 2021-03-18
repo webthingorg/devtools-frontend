@@ -33,6 +33,24 @@
       "message": "There is a bug in our translation pipeline. The presubmit incorrectly handles these plural strings which we only recently started adding. If there is only a single word in curly braces, such as `{request}`, it is incorrectly interpreted as a variable and generates the error message you encountered.\nThis will be fixed eventually, but for now the suggestion was to append a zero-width space as a workaround. Could you please do that and remove the `@example...` syntax again?",
       "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad570252_eda46928",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-18T12:37:51Z",
+      "side": 1,
+      "message": "I will fix this immediately and update the patch. Thank you very much.",
+      "parentUuid": "37878a2d_8e06326c",
+      "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
