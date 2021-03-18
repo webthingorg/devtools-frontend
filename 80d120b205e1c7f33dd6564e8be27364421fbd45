@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3dd26d_43a66255",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-03-18T13:09:14Z",
+      "side": 1,
+      "message": "alexrudenko@: Based on your suggestion in https://crrev.com/c/2739835, I added a util method in ElementsTestRunner, PTAL.",
+      "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
