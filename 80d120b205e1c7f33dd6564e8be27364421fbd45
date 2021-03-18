@@ -16,6 +16,23 @@
       "message": "alexrudenko@: Based on your suggestion in https://crrev.com/c/2739835, I added a util method in ElementsTestRunner, PTAL.",
       "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "877c5986_f1faf6b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-18T13:11:13Z",
+      "side": 1,
+      "message": "Thanks, LGTM! Asking Mathias to review as an owner. \n\nAlternatively, have you considered writing an E2E test in DevTools intead?",
+      "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
