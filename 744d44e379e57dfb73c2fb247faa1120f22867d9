@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s the fix for the createRawLocationByURL() method, and the new unittest.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "744d44e379e57dfb73c2fb247faa1120f22867d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c66916fb_f5459794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-18T06:24:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "744d44e379e57dfb73c2fb247faa1120f22867d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
