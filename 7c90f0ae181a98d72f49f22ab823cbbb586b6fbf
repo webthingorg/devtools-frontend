@@ -51,6 +51,24 @@
       "parentUuid": "f7af5bea_475bf52a",
       "revId": "7c90f0ae181a98d72f49f22ab823cbbb586b6fbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "072936d9_bf5f2b30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-18T08:20:31Z",
+      "side": 1,
+      "message": "Which auto-formatting? `git cl format --js`? It\u0027s a massive bug if it mangles property names",
+      "parentUuid": "663aa934_c5220329",
+      "revId": "7c90f0ae181a98d72f49f22ab823cbbb586b6fbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
