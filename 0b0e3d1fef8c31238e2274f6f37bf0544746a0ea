@@ -56,6 +56,30 @@
       },
       "revId": "0b0e3d1fef8c31238e2274f6f37bf0544746a0ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1967c47b_657db0e9",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-18T10:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40812daa_d02b0e63",
+      "range": {
+        "startLine": 158,
+        "startChar": 18,
+        "endLine": 158,
+        "endChar": 30
+      },
+      "revId": "0b0e3d1fef8c31238e2274f6f37bf0544746a0ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
