@@ -69,6 +69,24 @@
       "parentUuid": "ac7f7ebc_32c76f83",
       "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97076016_2de0ff79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-03-18T13:30:27Z",
+      "side": 1,
+      "message": "Ah the tests are in typescript, I kept searching for .js files :) Yes bf-cache is still disabled by default on desktop.",
+      "parentUuid": "93b9325c_e8cdf1c7",
+      "revId": "80d120b205e1c7f33dd6564e8be27364421fbd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
