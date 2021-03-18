@@ -166,6 +166,30 @@
       },
       "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98f0099_e9a751d8",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-18T10:56:58Z",
+      "side": 1,
+      "message": "Let\u0027s focus on fixing the bug. This has been non-deterministic forever, and even with the `sort` call in there, it\u0027s still non-deterministic, since the order of the calls to `createRawLocationFromURL` and the scriptParsed events is still going to decide which arbitrary script is picked. So this additional logic in here is not sufficient to make this deterministic.",
+      "parentUuid": "09a91dc8_abc374c6",
+      "range": {
+        "startLine": 969,
+        "startChar": 47,
+        "endLine": 969,
+        "endChar": 111
+      },
+      "revId": "7e88da7ab921dcc2a0c3534b6455699c60db62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
