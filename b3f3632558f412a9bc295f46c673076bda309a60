@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe6f52f_6274dd65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T13:49:06Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nmigrating consoleSidebar.css + a drive by fix. PTAL!",
+      "revId": "b3f3632558f412a9bc295f46c673076bda309a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
