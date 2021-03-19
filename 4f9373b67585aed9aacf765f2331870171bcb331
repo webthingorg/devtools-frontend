@@ -16,6 +16,29 @@
       "message": "PTAL, I did not touch the gradients.",
       "revId": "4f9373b67585aed9aacf765f2331870171bcb331",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feaf2b52_5d99345a",
+        "filename": "front_end/resources/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T14:53:31Z",
+      "side": 1,
+      "message": "did you check this in dark \u0026 light mode? Not sure if we still need this because of the colors in the gradients.",
+      "range": {
+        "startLine": 223,
+        "startChar": 99,
+        "endLine": 223,
+        "endChar": 104
+      },
+      "revId": "4f9373b67585aed9aacf765f2331870171bcb331",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
