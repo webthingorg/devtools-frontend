@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d865c815_d6a74e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-19T11:34:35Z",
+      "side": 1,
+      "message": "PTAL, especially at this re-assignment from --divider-color to --color-details-hairline. I did the re-asignment at the definition site of --divider-color in inspectorCommon.css, because I\u0027m not sure if replacing all the usages of --divider-color with --color-details-hairline would be too big of a change to review. WDYT?",
+      "revId": "d26eb2755e4edd70da3436a5ac3494c9bd53d551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
