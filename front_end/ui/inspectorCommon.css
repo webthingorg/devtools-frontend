@@ -22,7 +22,7 @@
    * Chat to jacktfranklin@ or petermueller@ if you have questions.
    * https://crbug.com/1122511
    */
-  --accent-color: var(--color-primary);
+  --accent-color: var(--color-selection-highlight);
   --accent-fg-color: #1a73e8;
   --accent-color-hover: #3b86e8;
   --accent-fg-color-hover: #1567d3;
