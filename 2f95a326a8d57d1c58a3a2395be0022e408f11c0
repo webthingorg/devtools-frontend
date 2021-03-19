@@ -56,6 +56,30 @@
       },
       "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67510f96_8adb4347",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T07:57:42Z",
+      "side": 1,
+      "message": "Thanks for the question Jack! We are going to re-render, but this is triggered from outside (by set data). The resize event might require to fetch more data, so we send out a resize event to the LinearMemoryInspector, which then will trigger fetching (or no fetch if we have enough data to plot), and re-rendering.\n\nPreviously, we needed to directly re-render, as fetching data could take a long time and one would obviously see the delay.\n\nHowever, I could move back to re-rendering anyway so that it\u0027s in some way \"self-contained\" and doesn\u0027t necessarily require a set data from outside. WDYT?",
+      "parentUuid": "42f09004_5af0e48c",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
