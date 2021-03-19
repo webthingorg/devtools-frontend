@@ -50,6 +50,24 @@
       "message": "1) divider color is --color-details-hairline\n\n2) Let\u0027s not hard code this input field style in the theme, we certainly want to use another style for this elsewhere. This one seems to be the exception.\n\n--input--outline: #cacdd1 (for now that\u0027s the hairline color but now we have a seperate selector for input-field outlines)\n\n```\n.authenticator-section-title.editing-name {\n    border-bottom: 1px solid var(--input--outline);\n    // Only 1 px height\n}\n```",
       "revId": "7d8697739728a7dcf8c9ed4ad7159e99438aa69b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc7d951_ed40fb8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-03-19T13:28:32Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure I follow.\n\nAre you saying that instead of --divider-border, I should use --color-details-hairline, and that I should define a local --input-outline in webauthnPane.css?",
+      "parentUuid": "68c39378_e039052d",
+      "revId": "7d8697739728a7dcf8c9ed4ad7159e99438aa69b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
