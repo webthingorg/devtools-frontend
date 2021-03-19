@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f8bee2_e38f6c1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T08:00:22Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nusing theme colors in ConsoleContextSelector, ptal!",
+      "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
