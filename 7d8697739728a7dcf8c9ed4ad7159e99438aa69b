@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609e55e4_ae1b3da7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T09:35:20Z",
+      "side": 1,
+      "message": "LGTM but removing auto-submit to let Peter look",
+      "revId": "7d8697739728a7dcf8c9ed4ad7159e99438aa69b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
