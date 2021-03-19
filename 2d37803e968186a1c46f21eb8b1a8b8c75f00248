@@ -16,6 +16,23 @@
       "message": "Hi Jack,\n\nusing theme colors in ConsoleContextSelector, ptal!",
       "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b93f2f_144ec02c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T08:02:13Z",
+      "side": 1,
+      "message": "I think you also need to update where this file is injected and change `enableLegacyPatching` from `true` to `false` now there are no colors left in the file :)",
+      "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
