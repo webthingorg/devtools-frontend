@@ -17,6 +17,9 @@ export const releaseNoteViewId: string = 'release-note';
 
 let latestReleaseNoteInstance: ReleaseNote;
 
+// @ts-ignore workaround for layout tests.
+self.Help = self.Help || {releaseNoteText};
+
 export function latestReleaseNote(): ReleaseNote {
   // @ts-ignore Included only for layout tests.
   const globalReleaseNotes: ReleaseNote[] = self.Help.releaseNoteText;
