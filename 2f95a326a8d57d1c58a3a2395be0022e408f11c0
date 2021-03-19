@@ -80,6 +80,30 @@
       },
       "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cf726a_48debd3c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T08:04:15Z",
+      "side": 1,
+      "message": "Ah thanks, that makes sense. I\u0027m wondering if we should re-render here in some form, or do we know that for sure on resize something else will also trigger render? In that case we\u0027re probably good - maybe worth leaving a comment explaining that on resize something else will always trigger a render?",
+      "parentUuid": "67510f96_8adb4347",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
