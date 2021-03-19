@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "3bd11d033fae53c9a42fab5e878aa872bade41c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7422c6ab_e64e7b4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T09:28:53Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "3bd11d033fae53c9a42fab5e878aa872bade41c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34144750_7c6ab316",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T09:28:53Z",
+      "side": 1,
+      "message": "did you mean to swap this from false to true?",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 95
+      },
+      "revId": "3bd11d033fae53c9a42fab5e878aa872bade41c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
