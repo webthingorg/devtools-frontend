@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6211b6e3_ccdcf491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T07:55:15Z",
+      "side": 1,
+      "message": "Nice!  \n\nDoes this mean we might not have to disable the rule when importing from `ui/components/components.js` ? I can follow up with a CL to find and remove those.",
+      "revId": "391ea3087b195203f3a81a761850d26dfbea66d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
