@@ -50,6 +50,23 @@
       "message": "Just realised `enableLegacyPatching` is already `false` for this. LGTM!",
       "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad9a3da_50e1a82a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T08:09:23Z",
+      "side": 1,
+      "message": "Thanks for the review Jack, submitting!",
+      "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
