@@ -16,6 +16,23 @@
       "message": "PTAL. I took some liberties with the cookies table in that they did use a yellow-ish color to highlight errors but this doesn\u0027t fit with the rest of DevTools where we tend to use red, so I\u0027ve updated it to that.\n\nhttps://imgur.com/a/nQ8vlTf",
       "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "200db2fb_6922c31d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-19T09:25:30Z",
+      "side": 1,
+      "message": "CL updates the cookie table errors/warnings from yellow to red. Wdyt about this change Sigurd?",
+      "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
