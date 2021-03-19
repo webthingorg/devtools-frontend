@@ -16,6 +16,24 @@
       "message": "This seems to already be added through inspectorCommon.css, with the same background, so taking this out",
       "revId": "608b3bf7713ba232dd6cc4013f65a962d96a4587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43906bf8_be58f171",
+        "filename": "front_end/panels/console/consoleSidebar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-19T13:57:20Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "9f7f69a2_c0216f7b",
+      "revId": "608b3bf7713ba232dd6cc4013f65a962d96a4587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
