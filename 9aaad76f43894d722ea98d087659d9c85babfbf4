@@ -16,6 +16,46 @@
       "message": "PTAL again",
       "revId": "9aaad76f43894d722ea98d087659d9c85babfbf4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa54c3e_2b0b2de1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-19T10:14:15Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "9aaad76f43894d722ea98d087659d9c85babfbf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ee8d3d_10ff2b3e",
+        "filename": "front_end/resources/StackTrace.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-19T10:14:15Z",
+      "side": 1,
+      "message": "Do we need to persist this value? So that going back and forth doesn\u0027t collapse things again? I guess the same question applies to the expandable lists\u0027 expanded status as well. This can be considered in a follow-up.",
+      "range": {
+        "startLine": 68,
+        "startChar": 15,
+        "endLine": 68,
+        "endChar": 26
+      },
+      "revId": "9aaad76f43894d722ea98d087659d9c85babfbf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
