@@ -16,6 +16,24 @@
       "message": "Thanks, looks good! There is a conflict when I try to automatically rebase, can you please do that locally (`git rebase-update` via depot tools) and re-upload?\nI\u0027ll +1 then.",
       "revId": "db2bd09f40f97edd3b52440ef15a9ee59a59b8c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f319be3_d24c69ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-19T14:15:47Z",
+      "side": 1,
+      "message": "Hello Wolfgang, I\u0027ve rebased and re-uploaded. Please review it. Thanks",
+      "parentUuid": "f70bd258_e663f31a",
+      "revId": "db2bd09f40f97edd3b52440ef15a9ee59a59b8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
