@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "331479e9_a5cad3fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-19T13:04:12Z",
+      "side": 1,
+      "message": "Nice. I\u0027m a bit concerned with the all the additional code in _tryFormatAsError, but I\u0027m hoping that we can clean this up later. It\u0027s generally a good idea to show the correct information!\n\n",
+      "revId": "db1dea85c31abcf5eb39a95d8d4d5a14898e009e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
