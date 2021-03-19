@@ -50,6 +50,29 @@
       "message": "Simon also clarified that these probably aren\u0027t full errors worth shouting about in red. I\u0027m thinking of using --issue-color-yellow instead which is closer to what it was originally.",
       "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d5a08c_fc983218",
+        "filename": "front_end/cookie_table/cookiesTable.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-19T09:30:39Z",
+      "side": 1,
+      "message": "This is just now the case, but might change (as no one changing the colors in the future will know that --color-background should constrast with --color-accent-red).",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
