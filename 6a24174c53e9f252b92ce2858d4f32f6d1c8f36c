@@ -33,6 +33,23 @@
       "message": "CL updates the cookie table errors/warnings from yellow to red. Wdyt about this change Sigurd?",
       "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70cbb29e_f157d46e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T09:27:19Z",
+      "side": 1,
+      "message": "Simon also clarified that these probably aren\u0027t full errors worth shouting about in red. I\u0027m thinking of using --issue-color-yellow instead which is closer to what it was originally.",
+      "revId": "6a24174c53e9f252b92ce2858d4f32f6d1c8f36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
