@@ -104,6 +104,30 @@
       },
       "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c274ee40_95c9d11b",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T08:18:32Z",
+      "side": 1,
+      "message": "In this usage, it is guaranteed that it will be updated. But you\u0027re right that it might be better to make sure that it is resized. I\u0027ve now used `update` instead of `updateDimensions`. Thanks Jack!",
+      "parentUuid": "94cf726a_48debd3c",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
