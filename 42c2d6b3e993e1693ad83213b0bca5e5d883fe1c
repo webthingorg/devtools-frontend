@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b682e85c_d070ce99",
+        "filename": "front_end/ui/radioButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T10:20:55Z",
+      "side": 0,
+      "message": "these colors are so similar to the original that you could barely see this change, so for now I\u0027ve removed it.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "42c2d6b3e993e1693ad83213b0bca5e5d883fe1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
