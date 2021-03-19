@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "076f2575_b7191847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-19T15:29:34Z",
+      "side": 1,
+      "message": "This is still pending the filtering highlights in darkmode.",
+      "revId": "3d4861de6928eb3cd41798c7adca33d11d903d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
