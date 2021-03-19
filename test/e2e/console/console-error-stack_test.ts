@@ -36,7 +36,8 @@ describe('The Console\'s error stack formatting', () => {
       const [{message}] = messages;
       return message === `Error
     at foo (async.js:2)
-    at async async.js:3`;
+    at async async.js:3
+`;
     });
   });
 });
