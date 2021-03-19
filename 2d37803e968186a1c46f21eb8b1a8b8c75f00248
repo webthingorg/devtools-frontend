@@ -67,6 +67,24 @@
       "message": "Thanks for the review Jack, submitting!",
       "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8347853f_a19912e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T08:10:01Z",
+      "side": 1,
+      "message": "Should have mentioned it! Will do that next time to be more clear :), sorry for that!",
+      "parentUuid": "877e11e3_0fbcc817",
+      "revId": "2d37803e968186a1c46f21eb8b1a8b8c75f00248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
