@@ -16,6 +16,46 @@
       "message": "Hi Jack,\n\nI\u0027m fixing a responsiveness issue in the LMI that was caused due to using a value that has been rounded. PTAL!",
       "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bfe76a0_43884169",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T07:48:01Z",
+      "side": 1,
+      "message": "LGTM but I have a Q just to clarify my understanding :)",
+      "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f09004_5af0e48c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-19T07:48:01Z",
+      "side": 1,
+      "message": "Please could you explain why we don\u0027t have to re-render after setting these values? I don\u0027t follow how that works and just want to make sure I understand. Thanks!",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "2f95a326a8d57d1c58a3a2395be0022e408f11c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
