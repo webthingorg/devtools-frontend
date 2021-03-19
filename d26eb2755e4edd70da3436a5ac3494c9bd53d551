@@ -33,6 +33,24 @@
       "message": "LGTM. We should follow up and find-and-replace --divider-color with --color-details-hairline and then delete it.",
       "revId": "d26eb2755e4edd70da3436a5ac3494c9bd53d551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ee30742_2c04f105",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-19T14:20:03Z",
+      "side": 1,
+      "message": "Do you think it\u0027s better to happen in a separate CL or we can do that in this CL together?",
+      "parentUuid": "5b8cf238_1360b711",
+      "revId": "d26eb2755e4edd70da3436a5ac3494c9bd53d551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
