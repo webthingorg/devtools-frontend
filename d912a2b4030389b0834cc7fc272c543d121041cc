@@ -69,6 +69,24 @@
       "parentUuid": "99e3abf4_b96e3142",
       "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee2c5f4_f80612bf",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-19T09:45:40Z",
+      "side": 1,
+      "message": "You are correct here: usually you cannot change the signature when overriding a function, it then would not be an override anymore. In this case it only works because LocalizedString is a type alias for string.\nAnd yes, the return type of `getResourceName()` in `AffectedResourcesView` should be of type LocalizedString. But it\u0027s only possible to change that towards the end of this migration. Right now, you\u0027d get an error because `this.resourceName.singular` and `this.resourceName.plural` are plain strings and not localized strings.",
+      "parentUuid": "a29b1ce9_13dd4115",
+      "revId": "d912a2b4030389b0834cc7fc272c543d121041cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

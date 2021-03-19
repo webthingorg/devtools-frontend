@@ -69,6 +69,24 @@
       "parentUuid": "ad570252_eda46928",
       "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b17eefe_e3f5a460",
+        "filename": "front_end/issues/AffectedBlockedByResponseView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-19T09:45:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d8a13d_3e9f9464",
+      "revId": "4009ebef1718b67f8bb53e28b23a870a21b84cd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

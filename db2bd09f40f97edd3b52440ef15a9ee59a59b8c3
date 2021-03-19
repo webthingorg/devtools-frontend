@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f70bd258_e663f31a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-19T09:45:40Z",
+      "side": 1,
+      "message": "Thanks, looks good! There is a conflict when I try to automatically rebase, can you please do that locally (`git rebase-update` via depot tools) and re-upload?\nI\u0027ll +1 then.",
+      "revId": "db2bd09f40f97edd3b52440ef15a9ee59a59b8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
