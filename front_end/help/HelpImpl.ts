@@ -19,7 +19,7 @@ let latestReleaseNoteInstance: ReleaseNote;
 
 export function latestReleaseNote(): ReleaseNote {
   // @ts-ignore Included only for layout tests.
-  const globalReleaseNotes: ReleaseNote[] = self.Help.releaseNoteText;
+  const globalReleaseNotes: ReleaseNote[] = releaseNoteText;
   if (!latestReleaseNoteInstance) {
     latestReleaseNoteInstance =
         (globalReleaseNotes || releaseNoteText).reduce((acc, note) => note.version > acc.version ? note : acc);
