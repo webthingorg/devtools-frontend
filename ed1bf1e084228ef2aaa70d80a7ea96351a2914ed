@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea915348_7382597a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-19T11:19:02Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nI\u0027m updating consolePinPane.css partly, please take a look! It\u0027s only partly updated because I think that the error colors should be reflected in the themeColors first.\n\nPTAL!",
+      "revId": "ed1bf1e084228ef2aaa70d80a7ea96351a2914ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
