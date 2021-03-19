@@ -143,6 +143,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
           display: flex;
           width: 20px;
           height: 20px;
+          background: transparent;
           border: none;
           padding: 0;
           outline: none;
