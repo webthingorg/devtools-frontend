@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16f9eaeb_050db5b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-03-19T09:30:07Z",
+      "side": 1,
+      "message": "Please take a look.\n\nPeter, I\u0027m introducing an entry to themeColors.css!",
+      "revId": "da7a6f639dd5de900629a4dbfe4738b2c92c1795",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
