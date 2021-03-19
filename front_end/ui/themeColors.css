@@ -63,6 +63,8 @@
   --issue-color-red: #eb3941;
   --issue-color-yellow: #f29900;
   --issue-color-blue: #1a73e8;
+  /** Used to indicate an input box */
+  --input-box-underline: 2px solid rgb(127 127 127);
 }
 
 .-theme-with-dark-background {
