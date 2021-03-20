@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92a4055_6e38ceea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-20T20:19:51Z",
+      "side": 1,
+      "message": "Hey,\nI have done the advised changes and updated the patch.\nPlease Review it",
+      "parentUuid": "80d46a5e_e9585fe5",
+      "revId": "6c6a87ce87e5152eb7c5a9f2082c1f0979d397b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a491ce01_e5cba4b5",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a70d8407_3dae21fa",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-20T20:19:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a491ce01_e5cba4b5",
+      "revId": "6c6a87ce87e5152eb7c5a9f2082c1f0979d397b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32414e13_6c4bc931",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-03-16T10:11:33Z",
       "side": 1,
       "message": "Could you move this definition into UIStrings and add a description (this is to provide translators with context to help the with correctly translating the string)",
+      "revId": "6c6a87ce87e5152eb7c5a9f2082c1f0979d397b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e40f1ae_a410da99",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-20T20:19:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32414e13_6c4bc931",
       "revId": "6c6a87ce87e5152eb7c5a9f2082c1f0979d397b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
