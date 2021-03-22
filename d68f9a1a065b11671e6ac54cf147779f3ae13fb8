@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af197cd5_52be62f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T10:00:46Z",
+      "side": 1,
+      "message": "I believe that changing the accent-color (and with it selection-bg-color) has unintended effects on lots of other places. I noticed there is now very little contrast when selecting tree items (https://i.imgur.com/YrrS2Xt.png) and I suspect there are other similar effects elsewhere.",
+      "revId": "d68f9a1a065b11671e6ac54cf147779f3ae13fb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
