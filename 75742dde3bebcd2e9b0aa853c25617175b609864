@@ -22,6 +22,30 @@
       },
       "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd4d406_7f4fa5b3",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-22T09:22:36Z",
+      "side": 1,
+      "message": "Hi sigurd, thanks for getting back. \nEvery class that extends AffectedResourcesView has a method called `this.updateAffectedResourceCount(count)` which is responsible for prefixing count to the string returned by `getResourceName`. If the UIString is initialzed is as `{# requests}` then the resulting output in chrome devtools frontend is something like: `3 3 requests`.",
+      "parentUuid": "c51b9d36_7857686c",
+      "range": {
+        "startLine": 1923,
+        "startChar": 31,
+        "endLine": 1923,
+        "endChar": 41
+      },
+      "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
