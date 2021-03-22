@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nI\u0027m changing the LMI to only show unsigned values when it comes to octal/hexadecimal numbers, ptal!",
       "revId": "51d8a26f6198599bbebd0f38f53de5c1e7636748",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aeb0ac3_6f98a62b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-22T14:08:53Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "51d8a26f6198599bbebd0f38f53de5c1e7636748",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
