@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c51b9d36_7857686c",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-22T08:41:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be {# request} so that the machinery inserts n for the # and the resulting string would be \u00271 request\u0027?",
+      "range": {
+        "startLine": 1923,
+        "startChar": 31,
+        "endLine": 1923,
+        "endChar": 41
+      },
+      "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
