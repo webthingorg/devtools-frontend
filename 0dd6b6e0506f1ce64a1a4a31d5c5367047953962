@@ -16,6 +16,23 @@
       "message": "LOL, I just had my presubmit fail because I was trying to add exactly the same patch (https://crrev.com/c/2776018).",
       "revId": "0dd6b6e0506f1ce64a1a4a31d5c5367047953962",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f806c413_8e9f3eaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-22T10:50:45Z",
+      "side": 1,
+      "message": "Thanks Andres!",
+      "revId": "0dd6b6e0506f1ce64a1a4a31d5c5367047953962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
