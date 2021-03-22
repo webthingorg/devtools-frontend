@@ -20,14 +20,6 @@ const UIStrings = {
   *@description Label for the link for Schemeful Same-Site Issues
   */
   howSchemefulSamesiteWorks: 'How Schemeful Same-Site Works',
-  /**
-  *@description Phrase used to describe the security of a context. Substitued like 'a secure context' or 'a secure origin'.
-  */
-  aSecure: 'a secure',
-  /**
-  *@description Phrase used to describe the security of a context. Substitued like 'an insecure context' or 'an insecure origin'.
-  */
-  anInsecure: 'an insecure',
 };
 const str_ = i18n.i18n.registerUIStrings('sdk/SameSiteCookieIssue.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -325,9 +317,16 @@ const schemefulSameSiteArticles =
     [{link: 'https://web.dev/schemeful-samesite/', linkTitle: i18nLazyString(UIStrings.howSchemefulSamesiteWorks)}];
 
 function sameSiteWarnStrictLaxDowngradeStrict(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_destination',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_origin',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteWarnStrictLaxDowngradeStrict.md',
@@ -337,9 +336,16 @@ function sameSiteWarnStrictLaxDowngradeStrict(isSecure: boolean): LazyMarkdownIs
 }
 
 function sameSiteExcludeNavigationContextDowngrade(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_destination',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_origin',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteExcludeNavigationContextDowngrade.md',
@@ -349,9 +355,16 @@ function sameSiteExcludeNavigationContextDowngrade(isSecure: boolean): LazyMarkd
 }
 
 function sameSiteWarnCrossDowngradeRead(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_destination',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_origin',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteWarnCrossDowngradeRead.md',
@@ -361,9 +374,16 @@ function sameSiteWarnCrossDowngradeRead(isSecure: boolean): LazyMarkdownIssueDes
 }
 
 function sameSiteExcludeContextDowngradeRead(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_destination',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_origin',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteExcludeContextDowngradeRead.md',
@@ -373,9 +393,16 @@ function sameSiteExcludeContextDowngradeRead(isSecure: boolean): LazyMarkdownIss
 }
 
 function sameSiteWarnCrossDowngradeSet(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_ORIGIN', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_DESTINATION', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_ORIGIN',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_DESTINATION',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteWarnCrossDowngradeSet.md',
@@ -385,9 +412,16 @@ function sameSiteWarnCrossDowngradeSet(isSecure: boolean): LazyMarkdownIssueDesc
 }
 
 function sameSiteExcludeContextDowngradeSet(isSecure: boolean): LazyMarkdownIssueDescription {
+  // TODO(1168438): Localize this text without concatenation.
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    [
+      'PLACEHOLDER_destination',
+      isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
+    [
+      'PLACEHOLDER_origin',
+      !isSecure ? i18n.i18n.lockedLazyString('a secure') : i18n.i18n.lockedLazyString('an insecure'),
+    ],
   ]);
   return {
     file: 'issues/descriptions/SameSiteExcludeContextDowngradeSet.md',
