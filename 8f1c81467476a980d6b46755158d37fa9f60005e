@@ -16,6 +16,91 @@
       "message": "Hello Wolfgang,\nI have done the advised changes can you please review it.",
       "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e6fea82_96620c93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T15:50:09Z",
+      "side": 1,
+      "message": "Thanks, this is great! Only have 2 minor suggestions.\n\nThe first CL for this bug was just merged. This caused a merge conflict with your change, so I can\u0027t rebase it here via the UI. Could you please rebase locally and upload again (`git rebase-update` should do it).",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24aa2b49_0a6901a1",
+        "filename": "AUTHORS",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T15:50:09Z",
+      "side": 1,
+      "message": "Great! Thanks for signing the license agreement already!",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d548f2b7_cb6af087",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T15:50:09Z",
+      "side": 1,
+      "message": "It looks like the descriptions for `cookie` and `cookies` has been updated. Could you please copy/adapt from those descriptions?",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9048a7af_2ae762c1",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T15:50:09Z",
+      "side": 1,
+      "message": "nit: I think that in general we\u0027re not using such comments/annotations in ts files.",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e21b4502_1985bc94",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T15:50:09Z",
+      "side": 1,
+      "message": "Perfect!",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
