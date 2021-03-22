@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc7e5cf_7a4fe496",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-22T10:39:19Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nI\u0027m reverting the change to use the themeColors for accentColor, ptal!\n\nKim",
+      "revId": "d52e5c303a4d5eb03172d5c12f00d3c62754fd28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
