@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12f0c1e_785ca9a0",
+        "filename": "front_end/profiler/HeapSnapshotDataGrids.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-22T06:45:12Z",
+      "side": 0,
+      "message": "drive-by ripped this out because it isn\u0027t used",
+      "range": {
+        "startLine": 279,
+        "startChar": 9,
+        "endLine": 292,
+        "endChar": 0
+      },
+      "revId": "02d384884a4f26dffbaf79d14129a34f3f04d460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1751da2a_e6628953",
+        "filename": "front_end/profiler/profilesPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-22T06:45:12Z",
+      "side": 0,
+      "message": "All gets overridden by datagrid anyway",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "02d384884a4f26dffbaf79d14129a34f3f04d460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
