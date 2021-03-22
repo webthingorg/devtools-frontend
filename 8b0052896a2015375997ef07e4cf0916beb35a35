@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c01e4b_4781aa5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-22T06:06:26Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "8b0052896a2015375997ef07e4cf0916beb35a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46473890_9e894caa",
+        "filename": "front_end/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-22T06:06:26Z",
+      "side": 1,
+      "message": "Should this description be copied verbatim to the next entry \"Disable tab moves focus\"?",
+      "range": {
+        "startLine": 256,
+        "startChar": 3,
+        "endLine": 259,
+        "endChar": 15
+      },
+      "revId": "8b0052896a2015375997ef07e4cf0916beb35a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
