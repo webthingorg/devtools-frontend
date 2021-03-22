@@ -118,6 +118,30 @@
       },
       "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3cbfec5_28f8f2d8",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-22T14:22:31Z",
+      "side": 1,
+      "message": "I have updated the patch with neccessary changes. Please review it.",
+      "parentUuid": "9809d980_d34f9c2c",
+      "range": {
+        "startLine": 1923,
+        "startChar": 31,
+        "endLine": 1923,
+        "endChar": 41
+      },
+      "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
