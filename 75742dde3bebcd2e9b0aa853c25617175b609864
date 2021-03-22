@@ -46,6 +46,30 @@
       },
       "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c534d43_e58d5c81",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-22T09:43:32Z",
+      "side": 1,
+      "message": "Sigurd, what you are suggesting would imo result in a slightly cleaner final state of the code. But as Rahat described, when splitting up the changes over multiple CLs, we\u0027d need to patch `UpdateAffectedResourcesCount()` (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/issues/AffectedResourcesView.ts;l\u003d109?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20affectedresourcesview), so that it can handle both the already updated code as well as the one still in its original state.\nTherefore I think the chosen approach is fine.\n\nWhat complicates the issue is that there is a bug in our translation presubmit check which does not handle this new plural syntax correctly if there is only a single word to be \"pluralized\". This is why the empty space was added in the translation strings. Rahat, this is the reason one of our e2e tests is failing. You will need to add a 2nd empty space between \u00273\u0027 and \u0027elements\u0027 here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/issues/low-text-contrast-issues_test.ts;l\u003d21?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20low-tex. Please also add a TODO there: \"// TODO(crbug.com/1189877): Remove 2nd space after fixing l10n presubmit check\"",
+      "parentUuid": "0fd4d406_7f4fa5b3",
+      "range": {
+        "startLine": 1923,
+        "startChar": 31,
+        "endLine": 1923,
+        "endChar": 41
+      },
+      "revId": "75742dde3bebcd2e9b0aa853c25617175b609864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
