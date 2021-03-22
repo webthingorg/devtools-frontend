@@ -33,6 +33,23 @@
       "message": "LGTM, thanks for such a fast reaction!",
       "revId": "d52e5c303a4d5eb03172d5c12f00d3c62754fd28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08b7099_69a992eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-22T10:49:38Z",
+      "side": 1,
+      "message": "Thanks for the review and for pointing out the contrast issues!",
+      "revId": "d52e5c303a4d5eb03172d5c12f00d3c62754fd28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
