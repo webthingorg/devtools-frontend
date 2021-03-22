@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {$$, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {focusOnSelectedElementsNode, getCSSPropertyInRule, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
+import {focusElementsTree, getCSSPropertyInRule, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
 
 describe('Flexbox Editor', async function() {
   beforeEach(async function() {
@@ -14,7 +14,7 @@ describe('Flexbox Editor', async function() {
     await enableExperiment('cssFlexboxFeatures');
     await goToResource('elements/flexbox-editor.html');
     await waitForContentOfSelectedElementsNode('<body>\u200B');
-    await focusOnSelectedElementsNode();
+    await focusElementsTree();
     await frontend.keyboard.press('ArrowRight');
     await waitForCSSPropertyValue('#target', 'display', 'flex');
   });
