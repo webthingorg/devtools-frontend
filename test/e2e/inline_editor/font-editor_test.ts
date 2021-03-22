@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {focusOnSelectedElementsNode, getFontEditorButtons, getHiddenFontEditorButtons, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
+import {focusElementsTree, getFontEditorButtons, getHiddenFontEditorButtons, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
 
 
 async function goToTestPageAndSelectTestElement(path: string = 'inline_editor/fontEditor.html') {
@@ -14,7 +14,7 @@ async function goToTestPageAndSelectTestElement(path: string = 'inline_editor/fo
 
   await goToResource(path);
   await waitForContentOfSelectedElementsNode('<body>\u200B');
-  await focusOnSelectedElementsNode();
+  await focusElementsTree();
   await frontend.keyboard.press('ArrowRight');
 }
 
