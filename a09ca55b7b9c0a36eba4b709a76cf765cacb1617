@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nI\u0027m fixing a bug in the history of the LMI, which would lead to the same address to be recorded several times in a row. PTAL!",
       "revId": "a09ca55b7b9c0a36eba4b709a76cf765cacb1617",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34de1712_050cff55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-22T16:20:47Z",
+      "side": 1,
+      "message": "Nice catch! LGTM",
+      "revId": "a09ca55b7b9c0a36eba4b709a76cf765cacb1617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
