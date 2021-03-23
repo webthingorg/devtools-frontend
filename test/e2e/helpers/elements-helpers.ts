@@ -29,6 +29,7 @@ const ADORNER_SELECTOR = 'devtools-adorner';
 export const INACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Enable grid mode"]';
 export const ACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Disable grid mode"]';
 const ELEMENT_CHECKBOX_IN_LAYOUT_PANE_SELECTOR = '.elements input[type=checkbox]';
+const ELEMENT_STYLE_SECTION_SELECTOR = '[aria-label="element.style, css selector"]';
 
 export const openLayoutPane = async () => {
   await step('Open Layout pane', async () => {
@@ -369,6 +370,14 @@ export const shiftClickColorSwatch = async (ruleSection: puppeteer.ElementHandle
   await frontend.keyboard.down('Shift');
   await click(swatch);
   await frontend.keyboard.up('Shift');
+};
+
+export const getElementStyleFontEditorButton = async () => {
+  const section = await waitFor(ELEMENT_STYLE_SECTION_SELECTOR);
+  if (!section) {
+    throw new Error('No element.style section found');
+  }
+  return await $(FONT_EDITOR_SELECTOR, section);
 };
 
 export const getFontEditorButtons = async () => {
