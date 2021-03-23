@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73531ffd_e017ccce",
+        "filename": "test/e2e/inline_editor/font-editor_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-23T14:59:37Z",
+      "side": 1,
+      "message": "it looks like any test in this file can flake because all of them has similar first steps (getBrowserAndPages -\u003e openFontEditor)",
+      "revId": "8ad13aac10716b25a16505e855bd8923b4fd2e4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
