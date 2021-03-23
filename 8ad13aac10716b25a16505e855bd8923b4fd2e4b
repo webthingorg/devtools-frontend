@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fc690f4_0ae56dce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-23T15:00:42Z",
+      "side": 1,
+      "message": "is it the right bug number?",
+      "revId": "8ad13aac10716b25a16505e855bd8923b4fd2e4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73531ffd_e017ccce",
         "filename": "test/e2e/inline_editor/font-editor_test.ts",
         "patchSetId": 3
