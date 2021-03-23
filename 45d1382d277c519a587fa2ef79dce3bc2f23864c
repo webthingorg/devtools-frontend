@@ -68,6 +68,23 @@
       "parentUuid": "672e0aca_94f0f2c1",
       "revId": "45d1382d277c519a587fa2ef79dce3bc2f23864c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d460f36d_7de7bb4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-03-23T11:18:21Z",
+      "side": 1,
+      "message": "LGTM. Is there anything we can do if we\u0027re seeing this case occur? I guess I\u0027m not clear about the phrase \"when there is no matched style for a css variable declaration\". How do we get to the point where we have a CSS var showing up without any matches?",
+      "revId": "45d1382d277c519a587fa2ef79dce3bc2f23864c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
