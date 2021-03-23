@@ -6977,6 +6977,9 @@
   "resources/FrameDetailsView.ts | aFrameAncestorIsAnInsecure": {
     "message": "A frame ancestor is an insecure context"
   },
+  "resources/FrameDetailsView.ts | allowedFeatures": {
+    "message": "Allowed Features"
+  },
   "resources/FrameDetailsView.ts | apiAvailability": {
     "message": "API availability"
   },
@@ -7022,11 +7025,17 @@
   "resources/FrameDetailsView.ts | crossoriginOpenerPolicy": {
     "message": "Cross-Origin Opener Policy"
   },
+  "resources/FrameDetailsView.ts | disallowedFeatures": {
+    "message": "Disallowed Features"
+  },
   "resources/FrameDetailsView.ts | document": {
     "message": "Document"
   },
   "resources/FrameDetailsView.ts | frameId": {
     "message": "Frame ID"
+  },
+  "resources/FrameDetailsView.ts | hideDetails": {
+    "message": "Hide details"
   },
   "resources/FrameDetailsView.ts | learnMore": {
     "message": "Learn more"
@@ -7045,6 +7054,9 @@
   },
   "resources/FrameDetailsView.ts | ownerElement": {
     "message": "Owner Element"
+  },
+  "resources/FrameDetailsView.ts | permissionsPolicy": {
+    "message": "Permissions Policy"
   },
   "resources/FrameDetailsView.ts | reportingTo": {
     "message": "reporting to"
@@ -7066,6 +7078,9 @@
   },
   "resources/FrameDetailsView.ts | sharedarraybufferConstructorIsAvailable": {
     "message": "SharedArrayBuffer constructor is available but SABs cannot be transferred via postMessage"
+  },
+  "resources/FrameDetailsView.ts | showDetails": {
+    "message": "Show details"
   },
   "resources/FrameDetailsView.ts | theFramesSchemeIsInsecure": {
     "message": "The frame's scheme is insecure"
