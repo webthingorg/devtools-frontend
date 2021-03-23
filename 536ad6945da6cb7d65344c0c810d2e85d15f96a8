@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "728ee288_a8cc1888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-23T10:51:33Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding two fields to the LinearMemoryNavigator.ts: canGoBackInHistory, canGoForwardInHistory, in order to be able to render the buttons as disabled/enabled if we actually cannot navigate the history. This required a change to SimpleHistoryManager. PTAL!",
+      "revId": "536ad6945da6cb7d65344c0c810d2e85d15f96a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
