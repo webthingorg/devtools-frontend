@@ -16,6 +16,41 @@
       "message": "Tim PTAL, not really sure what I\u0027m doing but debug build still seems to think the tsconfig file exists.\nMy understanding is that e2e depends on front_end? Although I can\u0027t find this link anywhere.\nThat should mean locale changes are pulled when rebuilding tests?",
       "revId": "69872c9009fc3a8fb297847791ded99ae2659b92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11518c05_01a6e0a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-23T10:48:08Z",
+      "side": 1,
+      "message": "The `i18n_test_locales` is a dependency of `test/e2e/i18n`: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/i18n/BUILD.gn;l\u003d11;drc\u003d983f142ef200c7fa4685b7e884bc4037725e79c3\n\nI think for now we can keep this link (e.g. reinstate `i18n_test_locales-tsconfig.json`) and solely fix the issue with `i18n_locales-tsconfig.json`. At a later point we can reconsider the structure here if we still see a massive build performance hit (but I am not expecting the impact to be large here).",
+      "parentUuid": "d928ee07_887efbb4",
+      "revId": "69872c9009fc3a8fb297847791ded99ae2659b92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f44b6bc_3cb2161e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-23T10:48:08Z",
+      "side": 1,
+      "message": "LGTM given we revert the `i18n_test_locales` changes, since apparently we can\u0027t make that change. Thanks for working on this so quickly!",
+      "revId": "69872c9009fc3a8fb297847791ded99ae2659b92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
