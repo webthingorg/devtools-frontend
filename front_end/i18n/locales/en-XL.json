@@ -6977,6 +6977,9 @@
   "resources/FrameDetailsView.ts | aFrameAncestorIsAnInsecure": {
     "message": "Â f́r̂ám̂é âńĉéŝt́ôŕ îś âń îńŝéĉúr̂é ĉón̂t́êx́t̂"
   },
+  "resources/FrameDetailsView.ts | allowedFeatures": {
+    "message": "Âĺl̂óŵéd̂ F́êát̂úr̂éŝ"
+  },
   "resources/FrameDetailsView.ts | apiAvailability": {
     "message": "ÂṔÎ áv̂áîĺâb́îĺît́ŷ"
   },
@@ -7022,11 +7025,17 @@
   "resources/FrameDetailsView.ts | crossoriginOpenerPolicy": {
     "message": "Ĉŕôśŝ-Ór̂íĝín̂ Óp̂én̂ér̂ Ṕôĺîćŷ"
   },
+  "resources/FrameDetailsView.ts | disallowedFeatures": {
+    "message": "D̂íŝál̂ĺôẃêd́ F̂éât́ûŕêś"
+  },
   "resources/FrameDetailsView.ts | document": {
     "message": "D̂óĉúm̂én̂t́"
   },
   "resources/FrameDetailsView.ts | frameId": {
     "message": "F̂ŕâḿê ÍD̂"
+  },
+  "resources/FrameDetailsView.ts | hideDetails": {
+    "message": "Ĥíd̂é d̂ét̂áîĺŝ"
   },
   "resources/FrameDetailsView.ts | learnMore": {
     "message": "L̂éâŕn̂ ḿôŕê"
@@ -7045,6 +7054,9 @@
   },
   "resources/FrameDetailsView.ts | ownerElement": {
     "message": "Ôẃn̂ér̂ Él̂ém̂én̂t́"
+  },
+  "resources/FrameDetailsView.ts | permissionsPolicy": {
+    "message": "P̂ér̂ḿîśŝíôńŝ Ṕôĺîćŷ"
   },
   "resources/FrameDetailsView.ts | reportingTo": {
     "message": "r̂ép̂ór̂t́îńĝ t́ô"
@@ -7066,6 +7078,9 @@
   },
   "resources/FrameDetailsView.ts | sharedarraybufferConstructorIsAvailable": {
     "message": "Ŝh́âŕêd́Âŕr̂áŷB́ûf́f̂ér̂ ćôńŝt́r̂úĉt́ôŕ îś âv́âíl̂áb̂ĺê b́ût́ ŜÁB̂ś ĉán̂ńôt́ b̂é t̂ŕâńŝf́êŕr̂éd̂ v́îá p̂óŝt́M̂éŝśâǵê"
+  },
+  "resources/FrameDetailsView.ts | showDetails": {
+    "message": "Ŝh́ôẃ d̂ét̂áîĺŝ"
   },
   "resources/FrameDetailsView.ts | theFramesSchemeIsInsecure": {
     "message": "T̂h́ê f́r̂ám̂é'ŝ śĉh́êḿê íŝ ín̂śêćûŕê"
