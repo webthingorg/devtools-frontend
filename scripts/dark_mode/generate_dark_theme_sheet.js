@@ -15,6 +15,28 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const {argv} = require('yargs');
 const devtoolsPaths = require('../devtools_paths.js');
+const postcss = require('postcss');
+
+/**
+ *
+ * @param {string} contents
+ * @returns {string} all the dark mode override rules
+ */
+
+function findDarkModeOverridesInSourceContents(contents) {
+  const parsedCSS = postcss.parse(contents);
+  const overrideRules = [];
+  parsedCSS.walkRules(rule => {
+    const ruleIsDarkModeOverride = rule.selector.includes('.-theme-with-dark-background');
+    if (ruleIsDarkModeOverride) {
+      overrideRules.push(rule);
+    }
+  });
+
+  return overrideRules.map(rule => {
+    return rule.toString() + '\n';
+  });
+}
 
 /**
  * @param {string} chromeBinary
@@ -24,6 +46,7 @@ async function generateDarkModeStyleSheet(chromeBinary, sheetFilePath) {
   console.log(
       'IMPORTANT: for the dark mode generator to work, the hosted server must be running on https://localhost:8090.');
   const contents = fs.readFileSync(path.join(process.cwd(), sheetFilePath), 'utf-8');
+
 
   const browser = await puppeteer.launch({executablePath: chromeBinary, args: ['--ignore-certificate-errors']});
   const page = await browser.newPage();
@@ -59,10 +82,10 @@ async function generateDarkModeStyleSheet(chromeBinary, sheetFilePath) {
           `.-theme-with-dark-background ${selector.trim()}`,
         ];
       });
-      return scopedSelectors.join(', ') + '{\n' + rules;
+      return scopedSelectors.join(',\n') + ' {\n' + rules.split(';').map(r => `  ${r}`).join(';\n');
     });
 
-    return withHostSelector.join('\n');
+    return withHostSelector.join('\n\n');
   }, contents);
 
   await browser.close();
@@ -72,12 +95,29 @@ async function generateDarkModeStyleSheet(chromeBinary, sheetFilePath) {
 
   const outputFilePath = path.join(process.cwd(), path.dirname(sheetFilePath), outputFileName);
 
+  /**
+   * Any dark mode overrides found in the original source code should take
+   * priority over any automatically generated overrides. So we parse the
+   * original CSS to find any overrides (rules with .-theme-with-dark-background
+   * in their selector) and append them to the end of the document, to ensure
+   * that they override any automatic rules generated above them in the cascade.
+   */
+  const darkModeOverridesInOriginal = findDarkModeOverridesInSourceContents(contents);
+
   const output = `/* This file was automatically generated via:
 npm run generate-dark-mode-styles ${path.relative(process.cwd(), inputFile)}
 * Last Updated: ${String(new Date())}
 */
 /* stylelint-disable */
 ${darkModeStyles}
+
+/*
+ * Dark mode overrides from original.
+ * These are purposefully placed at the end so that they override
+ * any automatically generated dark mode styles placed above.
+ */
+
+${darkModeOverridesInOriginal}
 /* stylelint-enable */\n`;
 
   fs.writeFileSync(outputFilePath, output, {encoding: 'utf-8'});
