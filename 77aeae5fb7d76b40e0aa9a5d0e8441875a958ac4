@@ -16,6 +16,46 @@
       "message": "@Tim this is ready for another look, I\u0027ve changed the approach as we discussed. Thanks!",
       "revId": "77aeae5fb7d76b40e0aa9a5d0e8441875a958ac4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd77fee7_68dd23c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-23T15:06:34Z",
+      "side": 1,
+      "message": "I am loving the comments and tests, nice! The whitespace makes the diff a bit more difficult, but as I understand it, this CL mostly removed the problematic selectors, which is what it was supposed to do. There were only these two selectors that I spotted with regards to the keyframes that might need another look. This still LGTM after double-checking these changes are intended.",
+      "revId": "77aeae5fb7d76b40e0aa9a5d0e8441875a958ac4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d68290f_227677d9",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-23T15:06:34Z",
+      "side": 1,
+      "message": "If I am not mistaken, these were generated from the `@keyframes` rules as defined in https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/text_editor/cmdevtools.css;l\u003d200-218;drc\u003d6131ab5a586fa77e885b4729e9a4e05aa9c2575a\n\nI don\u0027t see them defined in the previous darkmode sheet. Is that an issue or are they intended to be here and the keyframes will work as-is?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "77aeae5fb7d76b40e0aa9a5d0e8441875a958ac4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
