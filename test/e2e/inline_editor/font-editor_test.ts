@@ -16,6 +16,7 @@ async function goToTestPageAndSelectTestElement(path: string = 'inline_editor/fo
 
 async function openFontEditor(index: number) {
   const fontEditorButtons = await getFontEditorButtons();
+  assert.deepEqual(fontEditorButtons.length, 5);
   const fontEditorButton = fontEditorButtons[index];
   assert.exists(fontEditorButton);
   await fontEditorButtons[index].click();
@@ -40,8 +41,7 @@ describe('The font editor', async function() {
     await openFontEditor(0);
   });
 
-  // Flaky test.
-  it.skip('[crbug.com/1184627] is properly applying font family changes to the style section', async () => {
+  it('is properly applying font family changes to the style section', async () => {
     const {frontend} = getBrowserAndPages();
     await openFontEditor(0);
     const fontFamilySelector = await waitFor('[aria-label="Font Family"]');
@@ -68,8 +68,7 @@ describe('The font editor', async function() {
     await waitForCSSPropertyValue('element.style', 'font-size', '11px');
   });
 
-  // Flaky test.
-  it.skip('[crbug.com/1184627] is properly applying selector key values to the style section', async () => {
+  it('is properly applying selector key values to the style section', async () => {
     const {frontend} = getBrowserAndPages();
     await openFontEditor(0);
     const fontWeightSelectorInput = await waitFor('[aria-label="font-weight Key Value Selector"]');
