@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e552fbc8_f77845f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-23T11:32:35Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "41ac81ea4db48db50e83314632780d194216415f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25bdd898_f7517536",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-23T11:32:35Z",
+      "side": 1,
+      "message": "all the changes from here up to the top are purely whitespace - just tried to make the output slightly nicer. It\u0027s not perfect but it\u0027ll do!",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 3
+      },
+      "revId": "41ac81ea4db48db50e83314632780d194216415f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
