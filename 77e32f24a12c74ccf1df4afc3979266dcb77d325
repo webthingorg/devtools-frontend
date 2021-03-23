@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43dfd17_22ccb1fc",
+        "filename": "test/unittests/front_end/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-23T10:23:47Z",
+      "side": 1,
+      "message": "This is a drive-by fix to use the correct name for this unit test.",
+      "revId": "77e32f24a12c74ccf1df4afc3979266dcb77d325",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
