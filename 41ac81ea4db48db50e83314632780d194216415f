@@ -39,6 +39,30 @@
       },
       "revId": "41ac81ea4db48db50e83314632780d194216415f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae92ba2_74bc448f",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-23T14:33:34Z",
+      "side": 1,
+      "message": "Done (no longer relevant following code changes)",
+      "parentUuid": "25bdd898_f7517536",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 3
+      },
+      "revId": "41ac81ea4db48db50e83314632780d194216415f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
