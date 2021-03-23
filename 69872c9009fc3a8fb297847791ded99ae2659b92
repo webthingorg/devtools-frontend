@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d928ee07_887efbb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-23T02:38:17Z",
+      "side": 1,
+      "message": "Tim PTAL, not really sure what I\u0027m doing but debug build still seems to think the tsconfig file exists.\nMy understanding is that e2e depends on front_end? Although I can\u0027t find this link anywhere.\nThat should mean locale changes are pulled when rebuilding tests?",
+      "revId": "69872c9009fc3a8fb297847791ded99ae2659b92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
