@@ -73,6 +73,30 @@
       },
       "revId": "536ad6945da6cb7d65344c0c810d2e85d15f96a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b5be57_89981056",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-23T11:55:58Z",
+      "side": 1,
+      "message": "SG, updated in the patch! :) Thanks Jack!",
+      "parentUuid": "6f594a37_4ec30000",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 177
+      },
+      "revId": "536ad6945da6cb7d65344c0c810d2e85d15f96a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
