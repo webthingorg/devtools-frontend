@@ -22,6 +22,30 @@
       },
       "revId": "9aaf144670afb76340fd68b9a2149d121d838a6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f92026_203a7afd",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-24T12:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "672726ec_e93b4aec",
+      "range": {
+        "startLine": 243,
+        "startChar": 67,
+        "endLine": 243,
+        "endChar": 81
+      },
+      "revId": "9aaf144670afb76340fd68b9a2149d121d838a6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
