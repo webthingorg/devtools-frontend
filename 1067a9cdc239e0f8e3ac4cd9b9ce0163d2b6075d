@@ -56,6 +56,30 @@
       },
       "revId": "1067a9cdc239e0f8e3ac4cd9b9ce0163d2b6075d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84fdb52e_f1374e51",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-24T07:02:37Z",
+      "side": 1,
+      "message": "Right, I had $ instead of waitFor in the previous version. Removed the if check now.",
+      "parentUuid": "80c72fd7_938130d7",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 3
+      },
+      "revId": "1067a9cdc239e0f8e3ac4cd9b9ce0163d2b6075d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
