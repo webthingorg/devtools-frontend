@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdbe04bc_b09d00d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T08:02:40Z",
+      "side": 1,
+      "message": "This is different from the draft in the doc, let\u0027s first align on the text, and then we can rubber stamp this.",
+      "revId": "3976ae49ec7718fefeebe34c52c137cd19f6476f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
