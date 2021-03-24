@@ -2333,6 +2333,9 @@
   "main/main-meta.ts | bottom": {
     "message": "Bottom"
   },
+  "main/main-meta.ts | browserUILanguage": {
+    "message": "Browser UI language"
+  },
   "main/main-meta.ts | cancelSearch": {
     "message": "Cancel search"
   },
@@ -2363,6 +2366,12 @@
   "main/main-meta.ts | enableShortcutToSwitchPanels": {
     "message": "Enable ⌘ + 1-9 shortcut to switch panels"
   },
+  "main/main-meta.ts | enGB": {
+    "message": "English — GB (en-GB)"
+  },
+  "main/main-meta.ts | enUS": {
+    "message": "English — US (en-US)"
+  },
   "main/main-meta.ts | findNextResult": {
     "message": "Find next result"
   },
@@ -2375,6 +2384,9 @@
   "main/main-meta.ts | horizontal": {
     "message": "horizontal"
   },
+  "main/main-meta.ts | language": {
+    "message": "Language"
+  },
   "main/main-meta.ts | left": {
     "message": "Left"
   },
@@ -2383,6 +2395,9 @@
   },
   "main/main-meta.ts | lightLower": {
     "message": "light"
+  },
+  "main/main-meta.ts | locale": {
+    "message": "locale"
   },
   "main/main-meta.ts | nextPanel": {
     "message": "Next panel"
@@ -2420,8 +2435,17 @@
   "main/main-meta.ts | setColorFormatToRgb": {
     "message": "Set color format to RGB"
   },
+  "main/main-meta.ts | switchToBrowserLanguage": {
+    "message": "Switch to the same language as the browser UI"
+  },
   "main/main-meta.ts | switchToDarkTheme": {
     "message": "Switch to dark theme"
+  },
+  "main/main-meta.ts | switchToEnglishGB": {
+    "message": "Switch to English — GB"
+  },
+  "main/main-meta.ts | switchToEnglishUS": {
+    "message": "Switch to English — US"
   },
   "main/main-meta.ts | switchToLightTheme": {
     "message": "Switch to light theme"

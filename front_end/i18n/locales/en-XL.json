@@ -2333,6 +2333,9 @@
   "main/main-meta.ts | bottom": {
     "message": "B̂ót̂t́ôḿ"
   },
+  "main/main-meta.ts | browserUILanguage": {
+    "message": "B̂ŕôẃŝér̂ ÚÎ ĺâńĝúâǵê"
+  },
   "main/main-meta.ts | cancelSearch": {
     "message": "Ĉán̂ćêĺ ŝéâŕĉh́"
   },
@@ -2363,6 +2366,12 @@
   "main/main-meta.ts | enableShortcutToSwitchPanels": {
     "message": "Êńâb́l̂é ⌘ + 1-9 ŝh́ôŕt̂ćût́ t̂ó ŝẃît́ĉh́ p̂án̂él̂ś"
   },
+  "main/main-meta.ts | enGB": {
+    "message": "Êńĝĺîśĥ — ǴB̂ (én̂-ǴB̂)"
+  },
+  "main/main-meta.ts | enUS": {
+    "message": "Êńĝĺîśĥ — ÚŜ (én̂-ÚŜ)"
+  },
   "main/main-meta.ts | findNextResult": {
     "message": "F̂ín̂d́ n̂éx̂t́ r̂éŝúl̂t́"
   },
@@ -2375,6 +2384,9 @@
   "main/main-meta.ts | horizontal": {
     "message": "ĥór̂íẑón̂t́âĺ"
   },
+  "main/main-meta.ts | language": {
+    "message": "L̂án̂ǵûáĝé"
+  },
   "main/main-meta.ts | left": {
     "message": "L̂éf̂t́"
   },
@@ -2383,6 +2395,9 @@
   },
   "main/main-meta.ts | lightLower": {
     "message": "l̂íĝh́t̂"
+  },
+  "main/main-meta.ts | locale": {
+    "message": "l̂óĉál̂é"
   },
   "main/main-meta.ts | nextPanel": {
     "message": "N̂éx̂t́ p̂án̂él̂"
@@ -2420,8 +2435,17 @@
   "main/main-meta.ts | setColorFormatToRgb": {
     "message": "Ŝét̂ ćôĺôŕ f̂ór̂ḿât́ t̂ó R̂ǴB̂"
   },
+  "main/main-meta.ts | switchToBrowserLanguage": {
+    "message": "Ŝẃît́ĉh́ t̂ó t̂h́ê śâḿê ĺâńĝúâǵê áŝ t́ĥé b̂ŕôẃŝér̂ ÚÎ"
+  },
   "main/main-meta.ts | switchToDarkTheme": {
     "message": "Ŝẃît́ĉh́ t̂ó d̂ár̂ḱ t̂h́êḿê"
+  },
+  "main/main-meta.ts | switchToEnglishGB": {
+    "message": "Ŝẃît́ĉh́ t̂ó Êńĝĺîśĥ — ǴB̂"
+  },
+  "main/main-meta.ts | switchToEnglishUS": {
+    "message": "Ŝẃît́ĉh́ t̂ó Êńĝĺîśĥ — ÚŜ"
   },
   "main/main-meta.ts | switchToLightTheme": {
     "message": "Ŝẃît́ĉh́ t̂ó l̂íĝh́t̂ t́ĥém̂é"

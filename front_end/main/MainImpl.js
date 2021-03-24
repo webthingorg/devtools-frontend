@@ -152,17 +152,33 @@ export class MainImpl {
     this._createAppUI();
   }
 
+  /**
+   * @param {string} locale
+   */
+  async loadAndRegisterLocale(locale) {
+    const data =
+        await Root.Runtime.loadResourcePromise(new URL(`../i18n/locales/${locale}.json`, import.meta.url).toString());
+    if (data) {
+      const localizedStrings = JSON.parse(data);
+      i18n.i18n.registerLocaleData(locale, localizedStrings);
+    }
+  }
+
   async requestAndRegisterLocaleData() {
-    const hostLocale = navigator.language || 'en-US';
+    const defaultLanguageSetting = 'en-US';
+    const languageSetting = Common.Settings.Settings.instance().createSetting('language', defaultLanguageSetting);
+    let hostLocale = languageSetting.get();
+    if (hostLocale === 'browserLanguage') {
+      hostLocale = navigator.language || 'en-US';
+    }
     i18n.i18n.registerLocale(hostLocale);
     const locale = i18n.i18n.registeredLocale;
     if (locale) {
-      const data =
-          await Root.Runtime.loadResourcePromise(new URL(`../i18n/locales/${locale}.json`, import.meta.url).toString());
-      if (data) {
-        const localizedStrings = JSON.parse(data);
-        i18n.i18n.registerLocaleData(locale, localizedStrings);
-      }
+      await this.loadAndRegisterLocale(locale);
+    }
+    if (locale !== 'en-US') {
+      // We also need to load en-US for fallback strings. It's bundled so it won't take long.
+      await this.loadAndRegisterLocale('en-US');
     }
   }
 
