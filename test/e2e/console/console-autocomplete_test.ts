@@ -42,6 +42,10 @@ describe('The Console Tab', async () => {
     // we wait for so that we don't end the test/navigate with an open
     // Runtime.evaluate CDP request, which causes an error. crbug.com/1134579.
     await waitFor('.console-eager-inner-preview');
+    // Accept first auto-complete entry.
+    await frontend.keyboard.press('Enter');
+    // Evaluate the autocompleted expression.
+    await frontend.keyboard.press('Enter');
   }
 
   it('triggers autocompletion for `object.`', async () => {
