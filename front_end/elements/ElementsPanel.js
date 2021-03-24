@@ -259,6 +259,7 @@ export class ElementsPanel extends UI.Panel.Panel {
   }
 
   _showDOMTree() {
+    // TODO(meredithl): Scroll to inspected DOM node.
     this._splitWidget.setMainWidget(this._searchableView);
   }
 
