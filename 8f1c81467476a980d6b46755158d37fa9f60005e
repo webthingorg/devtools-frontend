@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd34b78_7e455c9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-24T05:10:57Z",
+      "side": 1,
+      "message": "Thanks for getting back,\nI will update the CL in a few minutes.",
+      "parentUuid": "8e6fea82_96620c93",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24aa2b49_0a6901a1",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-22T15:50:09Z",
       "side": 1,
       "message": "Great! Thanks for signing the license agreement already!",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363aa87c_15418716",
+        "filename": "AUTHORS",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-24T05:10:57Z",
+      "side": 1,
+      "message": "Thank you :)",
+      "parentUuid": "24aa2b49_0a6901a1",
       "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c9aaf7_0ed59780",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-24T05:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d548f2b7_cb6af087",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9048a7af_2ae762c1",
@@ -82,6 +136,24 @@
       "writtenOn": "2021-03-22T15:50:09Z",
       "side": 1,
       "message": "nit: I think that in general we\u0027re not using such comments/annotations in ts files.",
+      "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e5c6718_a165c0d7",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-24T05:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9048a7af_2ae762c1",
       "revId": "8f1c81467476a980d6b46755158d37fa9f60005e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

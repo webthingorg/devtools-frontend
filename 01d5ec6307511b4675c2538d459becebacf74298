@@ -16,6 +16,24 @@
       "message": "Thanks,almost LGTM. The problem the presubmit bots are complaining about is the order of the imports from what I can tell. This should usually already be checked during the upload, so I\u0027m a bit surprised. Are you adding `--bypass-hooks` when uploading?",
       "revId": "01d5ec6307511b4675c2538d459becebacf74298",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6459ece6_d02c2a96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-03-24T05:10:57Z",
+      "side": 1,
+      "message": "Thanks for the feedback,\nActually I am not using --bypass-hooks.\nI will update the CL with correct order of imports.",
+      "parentUuid": "f530e5ef_3039754e",
+      "revId": "01d5ec6307511b4675c2538d459becebacf74298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
