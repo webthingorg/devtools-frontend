@@ -32,7 +32,7 @@
    * Used when selecting a range of a section, for example when
    * selecting a range in the performance panel timeline.
    */
-  --color-selection-highlight: rgb(56 121 217 / 30%);
+  --color-selection-highlight: #dee1e6;
   --color-selection-highlight-border: rgb(16 81 177);
   /**
    * When showing matching elements of a particular search filter (for example
@@ -111,7 +111,7 @@
   --color-background-highlight: #4b4c4f;
   --divider-line: rgb(255 255 255 / 10%);
   --color-background-hover-overlay: rgb(56 121 217 / 10%);
-  --color-selection-highlight: rgb(251 202 70 / 20%);
+  --color-selection-highlight: #4b4c4f;
   --color-selection-highlight-border: rgb(251 202 70);
   --color-match-highlight: rgb(56 121 217 / 35%);
   --color-text-primary: #e8eaed;
