@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d899cb_672790ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T04:07:56Z",
+      "side": 1,
+      "message": "\u003e I wonder if you could create a `\u003caccessibility-tree-node\u003e` component and render that for each custom node? Then at least that component could house the styles you need.\n\nI can give this a crack! Be good to keep some of Annabel\u0027s code around 😄",
+      "parentUuid": "5460e551_81845b01",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d9441b5_bb343ca7",
@@ -123,6 +141,24 @@
       "side": 1,
       "message": "Currently not; but we could take an attribute such as focusedbackgroundcolor to enable you to customise this?",
       "parentUuid": "a5132483_8fd749fb",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e586e80_5d092a8d",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T04:07:56Z",
+      "side": 1,
+      "message": "I guess it depends on your plans for the component. Should the highlight colour be customizable?\n\nThe black border isn\u0027t quite sufficient, but if you were planning to change this default I\u0027d be happy with that, otherwise attribute sgtm.",
+      "parentUuid": "6cbceee6_e0bbc8cd",
       "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
