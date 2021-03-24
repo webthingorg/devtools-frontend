@@ -215,9 +215,6 @@
   "common/ResourceType.js | ws": {
     "message": "WS"
   },
-  "common/ResourceType.js | xhr": {
-    "message": "XHR"
-  },
   "common/ResourceType.js | xhrAndFetch": {
     "message": "XHR and Fetch"
   },
@@ -8229,7 +8226,7 @@
     "message": "Could not parse content for {PH1}: {PH2}"
   },
   "sdk/SourceMapManager.js | devtoolsFailedToLoadSourcemapS": {
-    "message": "DevTools failed to load SourceMap: {PH1}"
+    "message": "DevTools failed to load Source Map: {PH1}"
   },
   "sdk/TrustedWebActivityIssue.ts | changesToQualityCriteriaForPwas": {
     "message": "Changes to quality criteria for PWAs using Trusted Web Activity"
@@ -9910,9 +9907,6 @@
   },
   "timeline/TimelineFlameChartDataProvider.js | timings": {
     "message": "Timings"
-  },
-  "timeline/TimelineFlameChartDataProvider.js | unexpectedEntryindexD": {
-    "message": "Unexpected entryIndex {PH1}"
   },
   "timeline/TimelineFlameChartNetworkDataProvider.js | network": {
     "message": "Network"
