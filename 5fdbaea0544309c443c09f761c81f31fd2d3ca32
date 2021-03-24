@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0640579_e4fbde6a",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T15:03:58Z",
+      "side": 1,
+      "message": "No, the sentence has enough non-letter characters already :) I think it covers both cases, I guess people can figure out that if we are telling them it\u0027s missing in an attribute that is not present, that they need to add it there.",
+      "parentUuid": "dffac021_83b2fa5d",
+      "range": {
+        "startLine": 235,
+        "startChar": 20,
+        "endLine": 235,
+        "endChar": 55
+      },
+      "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcad55a7_1fb9dbb2",
