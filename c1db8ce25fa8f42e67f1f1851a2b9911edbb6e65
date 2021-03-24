@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "c1db8ce25fa8f42e67f1f1851a2b9911edbb6e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9841565f_76a50a5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T14:28:19Z",
+      "side": 1,
+      "message": "LGTM % fixing tests",
+      "revId": "c1db8ce25fa8f42e67f1f1851a2b9911edbb6e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe7998a_4920f731",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T14:28:19Z",
+      "side": 1,
+      "message": "nit: `this._range \u003d TextUtils...`",
+      "revId": "c1db8ce25fa8f42e67f1f1851a2b9911edbb6e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
