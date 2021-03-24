@@ -215,9 +215,6 @@
   "common/ResourceType.js | ws": {
     "message": "WS"
   },
-  "common/ResourceType.js | xhr": {
-    "message": "XHR"
-  },
   "common/ResourceType.js | xhrAndFetch": {
     "message": "XHR and Fetch"
   },
@@ -7790,99 +7787,6 @@
   "sdk/NetworkManager.js | slowG": {
     "message": "Slow 3G"
   },
-  "sdk/NetworkRequest.js | anUnknownErrorWasEncounteredWhenTrying": {
-    "message": "An unknown error was encountered when trying to store this cookie."
-  },
-  "sdk/NetworkRequest.js | binary": {
-    "message": "(binary)"
-  },
-  "sdk/NetworkRequest.js | blockedReasonInvalidDomain": {
-    "message": "This Set-Cookie was blocked because its Domain attribute was invalid with regards to the current host url."
-  },
-  "sdk/NetworkRequest.js | blockedReasonInvalidPrefix": {
-    "message": "This Set-Cookie was blocked because it used the \"__Secure-\" or \"__Host-\" prefix in its name and broke the additional rules applied to cookies with these prefixes as defined in https://tools.ietf.org/html/draft-west-cookie-prefixes-05."
-  },
-  "sdk/NetworkRequest.js | blockedReasonOverwriteSecure": {
-    "message": "This Set-Cookie was blocked because it was not sent over a secure connection and would have overwritten a cookie with the Secure attribute."
-  },
-  "sdk/NetworkRequest.js | blockedReasonSameSiteLax": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Lax\" attribute but came from a cross-site response which was not the response to a top-level navigation."
-  },
-  "sdk/NetworkRequest.js | blockedReasonSameSiteNoneInsecure": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=None\" attribute but did not have the \"Secure\" attribute, which is required in order to use \"SameSite=None\"."
-  },
-  "sdk/NetworkRequest.js | blockedReasonSameSiteStrict": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Strict\" attribute but came from a cross-site response which was not the response to a top-level navigation."
-  },
-  "sdk/NetworkRequest.js | blockedReasonSameSiteUnspecifiedTreatedAsLax": {
-    "message": "This Set-Cookie didn't specify a \"SameSite\" attribute and was defaulted to \"SameSite=Lax,\" and was blocked because it came from a cross-site response which was not the response to a top-level navigation. The Set-Cookie had to have been set with \"SameSite=None\" to enable cross-site usage."
-  },
-  "sdk/NetworkRequest.js | blockedReasonSecureOnly": {
-    "message": "This Set-Cookie was blocked because it had the \"Secure\" attribute but was not received over a secure connection."
-  },
-  "sdk/NetworkRequest.js | domainMismatch": {
-    "message": "This cookie was blocked because neither did the request URL's domain exactly match the cookie's domain, nor was the request URL's domain a subdomain of the cookie's Domain attribute value."
-  },
-  "sdk/NetworkRequest.js | notOnPath": {
-    "message": "This cookie was blocked because its path was not an exact match for or a superdirectory of the request url's path."
-  },
-  "sdk/NetworkRequest.js | samePartyFromCrossPartyContext": {
-    "message": "This cookie was blocked because it had the \"SameParty\" attribute but the request was cross-party. The request was considered cross-party because the domain of the resource's URL and the domains of the resource's enclosing frames/documents are neither owners nor members in the same First-Party Set."
-  },
-  "sdk/NetworkRequest.js | sameSiteLax": {
-    "message": "This cookie was blocked because it had the \"SameSite=Lax\" attribute and the request was made from a different site and was not initiated by a top-level navigation."
-  },
-  "sdk/NetworkRequest.js | sameSiteNoneInsecure": {
-    "message": "This cookie was blocked because it had the \"SameSite=None\" attribute but was not marked \"Secure\". Cookies without SameSite restrictions must be marked \"Secure\" and sent over a secure connection."
-  },
-  "sdk/NetworkRequest.js | sameSiteStrict": {
-    "message": "This cookie was blocked because it had the \"SameSite=Strict\" attribute and the request was made from a different site. This includes top-level navigation requests initiated by other sites."
-  },
-  "sdk/NetworkRequest.js | sameSiteUnspecifiedTreatedAsLax": {
-    "message": "This cookie didn't specify a \"SameSite\" attribute when it was stored and was defaulted to \"SameSite=Lax,\" and was blocked because the request was made from a different site and was not initiated by a top-level navigation. The cookie had to have been set with \"SameSite=None\" to enable cross-site usage."
-  },
-  "sdk/NetworkRequest.js | schemefulSameSiteLax": {
-    "message": "This cookie was blocked because it had the \"SameSite=Lax\" attribute but the request was cross-site and was not initiated by a top-level navigation. This request is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | schemefulSameSiteStrict": {
-    "message": "This cookie was blocked because it had the \"SameSite=Strict\" attribute but the request was cross-site. This includes top-level navigation requests initiated by other sites. This request is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | schemefulSameSiteUnspecifiedTreatedAsLax": {
-    "message": "This cookie didn't specify a \"SameSite\" attribute when it was stored, was defaulted to \"SameSite=Lax\", and was blocked because the request was cross-site and was not initiated by a top-level navigation. This request is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | secureOnly": {
-    "message": "This cookie was blocked because it had the \"Secure\" attribute and the connection was not secure."
-  },
-  "sdk/NetworkRequest.js | theSchemeOfThisConnectionIsNot": {
-    "message": "The scheme of this connection is not allowed to store cookies."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieDidntSpecifyASamesite": {
-    "message": "This Set-Cookie didn't specify a \"SameSite\" attribute, was defaulted to \"SameSite=Lax\", and was blocked because it came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieHadInvalidSyntax": {
-    "message": "This Set-Cookie had invalid syntax."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieWasBlockedBecauseItHadTheSameparty": {
-    "message": "This Set-Cookie was blocked because it had the \"SameParty\" attribute but the request was cross-party. The request was considered cross-party because the domain of the resource's URL and the domains of the resource's enclosing frames/documents are neither owners nor members in the same First-Party Set."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieWasBlockedBecauseItHadTheSamepartyAttribute": {
-    "message": "This Set-Cookie was blocked because it had the \"SameParty\" attribute but also had other conflicting attributes. Chrome requires cookies that use the \"SameParty\" attribute to also have the \"Secure\" attribute, and to not be restricted to \"SameSite=Strict\"."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieWasBlockedBecauseItHadTheSamesitelax": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Lax\" attribute but came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieWasBlockedBecauseItHadTheSamesitestrict": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Strict\" attribute but came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site."
-  },
-  "sdk/NetworkRequest.js | thisSetcookieWasBlockedDueToUser": {
-    "message": "This Set-Cookie was blocked due to user preferences."
-  },
-  "sdk/NetworkRequest.js | unknownError": {
-    "message": "An unknown error was encountered when trying to send this cookie."
-  },
-  "sdk/NetworkRequest.js | userPreferences": {
-    "message": "This cookie was blocked due to user preferences."
-  },
   "sdk/OverlayModel.js | pausedInDebugger": {
     "message": "Paused in debugger"
   },
@@ -8229,7 +8133,7 @@
     "message": "Could not parse content for {PH1}: {PH2}"
   },
   "sdk/SourceMapManager.js | devtoolsFailedToLoadSourcemapS": {
-    "message": "DevTools failed to load SourceMap: {PH1}"
+    "message": "DevTools failed to load Source Map: {PH1}"
   },
   "sdk/TrustedWebActivityIssue.ts | changesToQualityCriteriaForPwas": {
     "message": "Changes to quality criteria for PWAs using Trusted Web Activity"
@@ -9910,9 +9814,6 @@
   },
   "timeline/TimelineFlameChartDataProvider.js | timings": {
     "message": "Timings"
-  },
-  "timeline/TimelineFlameChartDataProvider.js | unexpectedEntryindexD": {
-    "message": "Unexpected entryIndex {PH1}"
   },
   "timeline/TimelineFlameChartNetworkDataProvider.js | network": {
     "message": "Network"
