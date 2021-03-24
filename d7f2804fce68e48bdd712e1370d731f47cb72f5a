@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2623875_87a331e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-24T14:57:06Z",
+      "side": 1,
+      "message": "Thanks for contributing! I just have one part I need to take a deeper look at, but in general it looks good. Thanks :) ",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d67e679b_e0b72ed0",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-24T14:57:06Z",
+      "side": 1,
+      "message": "nit: I would suggest name this function to something verb, e.g. `_filter(regex)`, or `_filterComputedStyles(regex)` to be more precise, because it\u0027s also called directly.",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2f3aae_9dc75ae6",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-24T14:57:06Z",
+      "side": 1,
+      "message": "Since we invoke `_filterCallback` here, we should remove the prefix \u0027_\u0027 because it shouldn\u0027t be private (I admit the legacy naming pattern is a bit confusing).",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38616ece_fb36f333",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-24T14:57:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is the best way to get the computed style widget. Let me try something else and get back to this CL.",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
