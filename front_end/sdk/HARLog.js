@@ -239,6 +239,8 @@ export class Entry {
    */
   async _buildRequest() {
     const headersText = this._request.requestHeadersText();
+    const blockedCookies = this._request.blockedRequestCookies().map(cookieWithReason => cookieWithReason.cookie);
+    const cookies = [...this._request.includedRequestCookies(), ...blockedCookies];
     /** @type {!Request} */
     const res = {
       method: this._request.requestMethod,
@@ -246,7 +248,7 @@ export class Entry {
       httpVersion: this._request.requestHttpVersion(),
       headers: this._request.requestHeaders(),
       queryString: this._buildParameters(this._request.queryParameters || []),
-      cookies: this._buildCookies(this._request.requestCookies),
+      cookies: this._buildCookies(cookies),
       headersSize: headersText ? headersText.length : -1,
       bodySize: await this._requestBodySize(),
       postData: undefined,
