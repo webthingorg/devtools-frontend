@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dffac021_83b2fa5d",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T14:55:01Z",
+      "side": 1,
+      "message": "Changed to \u0027missing in iframe \"allow\" attribute\u0027.\n\nThere are 2 cases: either there is no \"allow\" attribute at all or the \"allow\" attribute does not contain this specific permission. The string should cover both cases. Do you think \u0027missing (in) iframe \"allow\" attribute\u0027 would be better?",
+      "parentUuid": "4b478c80_aadeb214",
+      "range": {
+        "startLine": 235,
+        "startChar": 20,
+        "endLine": 235,
+        "endChar": 55
+      },
+      "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcad55a7_1fb9dbb2",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 10
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-24T14:22:46Z",
       "side": 1,
       "message": "Should this also be \n\u0027missing Permissions-Policy header\u0027 ? I\u0027m unsure because I don\u0027t know if a Permissions-Policy header can also be used to restrict API access?\n\nIn any case, please lock the phrase \u0027Permissions-Policy\u0027.",
+      "range": {
+        "startLine": 239,
+        "startChar": 20,
+        "endLine": 239,
+        "endChar": 58
+      },
+      "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eae7ff4_04411ba7",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T14:55:01Z",
+      "side": 1,
+      "message": "Headers are (almost?) always restricting, now allowing, so \"blocked by header\" sounds ok to me.",
+      "parentUuid": "fcad55a7_1fb9dbb2",
       "range": {
         "startLine": 239,
         "startChar": 20,
