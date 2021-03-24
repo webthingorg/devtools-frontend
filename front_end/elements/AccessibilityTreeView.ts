@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 import * as Components from '../ui/components/components.js';
@@ -26,6 +27,35 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     this.toggleButton = toggleButton;
     this.contentElement.appendChild(this.toggleButton);
     this.contentElement.appendChild(this.accessibilityTreeComponent);
+
+    // The DOM tree and accessibility are kept in sync as much as possible, so
+    // on node selection, update the currently inspected node and reveal in the
+    // DOM tree.
+    this.accessibilityTreeComponent.addEventListener('itemselected', (event: Event) => {
+      const evt = event as Components.TreeOutline.ItemMouseOverEvent<SDK.AccessibilityModel.AccessibilityNode>;
+      const axNode = evt.data.node.treeNodeData;
+      if (!axNode.isDOMNode()) {
+        return;
+      }
+      const deferredNode = axNode.deferredDOMNode();
+      if (deferredNode) {
+        deferredNode.resolve(domNode => {
+          Common.Revealer.reveal(domNode, true /* omitFocus */);
+        });
+      }
+
+      // Highlight the node as well, for keyboard navigation.
+      evt.data.node.treeNodeData.highlightDOMNode();
+    });
+
+    this.accessibilityTreeComponent.addEventListener('itemmouseover', (event: Event) => {
+      const evt = event as Components.TreeOutline.ItemMouseOverEvent<SDK.AccessibilityModel.AccessibilityNode>;
+      evt.data.node.treeNodeData.highlightDOMNode();
+    });
+
+    this.accessibilityTreeComponent.addEventListener('itemmouseout', () => {
+      SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+    });
   }
 
   async refreshAccessibilityTree(node: SDK.DOMModel.DOMNode): Promise<SDK.AccessibilityModel.AccessibilityNode|null> {
