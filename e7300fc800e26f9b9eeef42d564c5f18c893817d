@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e464af8a_22255daa",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T06:15:43Z",
+      "side": 1,
+      "message": "Comment done.\n\nAnd i\u0027ve added the call to highlight on selection, for keyboard navigation. It doesn\u0027t matter so much for if a node is clicked, because it would be really hard to mouse away without triggering another nodes mouse over.",
+      "parentUuid": "065ce7a8_5c5c6950",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32130119_d2039bf7",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-03-24T05:36:58Z",
       "side": 1,
       "message": "I\u0027d probably put blank lines before each of the addEventListener() lines.",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb46a0d9_bc0befdc",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T06:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93df3451_6a52ff2c",
       "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
