@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "065ce7a8_5c5c6950",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-03-24T05:36:58Z",
+      "side": 1,
+      "message": "Maybe add a comment explaining what this is *meant* to be doing (i.e. setting the inspected DOM node to be the node corresponding to this accessibility node).\n\nAlso remind me... does this also highlight the DOM node in the inspected page?",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32130119_d2039bf7",
         "filename": "front_end/elements/AccessibilityTreeView.ts",
         "patchSetId": 4
@@ -31,6 +48,40 @@
       "writtenOn": "2021-03-24T04:22:04Z",
       "side": 1,
       "message": "this should reveal the node in the DOM tree, although I assume it doesn\u0027t work because the panel isn\u0027t actually visible at this point? Is there someone knowledgeable about this I can add to advise how to make sure the inspected node is scrolled into view when the DOM tree is activated?\n\nInterestingly, if you swap to a completely different pane (like console, network etc) and then back to Elements, the inspected node is still in view. Must be something to do with the call the splitWidget.setMainWidget() that makes it scroll to the top by default.",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93df3451_6a52ff2c",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-03-24T05:36:58Z",
+      "side": 1,
+      "message": "I\u0027d probably put blank lines before each of the addEventListener() lines.",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4ef545_8a18fc23",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-03-24T05:36:58Z",
+      "side": 1,
+      "message": "To contextualise this for other reviewers: putting these listeners on the \u003cli\u003e element means that the events get fired for every ancestor node as well as the target node, because the \u003cli\u003es are nested inside one another. \n\nMoving it down to the wrapper node means that it is only fired on the target node.",
       "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
