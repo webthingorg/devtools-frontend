@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "ab95bad2984ec38ff323db485bbcced596d8f910",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d8d01b6_95190136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-24T10:33:19Z",
+      "side": 1,
+      "message": "Looks good to me.",
+      "revId": "ab95bad2984ec38ff323db485bbcced596d8f910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a35c8190_2834a862",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-24T10:33:19Z",
+      "side": 1,
+      "message": "nit: seems like you need to remove one indentation level now that you removed the if around this block",
+      "range": {
+        "startLine": 563,
+        "startChar": 1,
+        "endLine": 563,
+        "endChar": 8
+      },
+      "revId": "ab95bad2984ec38ff323db485bbcced596d8f910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
