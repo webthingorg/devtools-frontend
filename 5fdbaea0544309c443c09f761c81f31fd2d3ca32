@@ -16,6 +16,52 @@
       "message": "Updated, PTAL again",
       "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b478c80_aadeb214",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T14:22:46Z",
+      "side": 1,
+      "message": "How about just \u0027missing iframe allow attribute\u0027? IIUC an iframe can only allow, but not disallow features?\n\nAlso please lock the word allow.",
+      "range": {
+        "startLine": 235,
+        "startChar": 20,
+        "endLine": 235,
+        "endChar": 55
+      },
+      "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcad55a7_1fb9dbb2",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T14:22:46Z",
+      "side": 1,
+      "message": "Should this also be \n\u0027missing Permissions-Policy header\u0027 ? I\u0027m unsure because I don\u0027t know if a Permissions-Policy header can also be used to restrict API access?\n\nIn any case, please lock the phrase \u0027Permissions-Policy\u0027.",
+      "range": {
+        "startLine": 239,
+        "startChar": 20,
+        "endLine": 239,
+        "endChar": 58
+      },
+      "revId": "5fdbaea0544309c443c09f761c81f31fd2d3ca32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
