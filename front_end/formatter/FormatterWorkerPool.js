@@ -165,49 +165,23 @@ export class FormatterWorkerPool {
 
   /**
    * @param {string} content
-   * @param {function(boolean, !Array<!CSSRule>):void} callback
-   */
-  parseCSS(content, callback) {
-    this._runChunkedTask(FormatterActions.FormatterActions.PARSE_CSS, {content: content}, onDataChunk);
-
-    /**
-     * @param {boolean} isLastChunk
-     * @param {*} data
-     */
-    function onDataChunk(isLastChunk, data) {
-      const rules = /** @type {!Array<!CSSRule>} */ (data || []);
-      callback(isLastChunk, rules);
-    }
-  }
-
-  /**
-   * @param {string} content
    * @param {string} mimeType
    * @param {function(boolean, !Array<!OutlineItem>):void} callback
    * @return {boolean}
    */
   outlineForMimetype(content, mimeType, callback) {
     switch (mimeType) {
-      case 'text/html':
-      case 'text/javascript':
-        this._runChunkedTask(FormatterActions.FormatterActions.JAVASCRIPT_OUTLINE, {content: content}, callback);
-        return true;
       case 'text/css':
-        this.parseCSS(content, cssCallback);
+        this._runChunkedTask(FormatterActions.FormatterActions.CSS_OUTLINE, {content}, callback);
+        return true;
+      case 'text/html':
+        this._runChunkedTask(FormatterActions.FormatterActions.HTML_OUTLINE, {content}, callback);
+        return true;
+      case 'text/javascript':
+        this._runChunkedTask(FormatterActions.FormatterActions.JAVASCRIPT_OUTLINE, {content}, callback);
         return true;
     }
     return false;
-
-    /**
-     * @param {boolean} isLastChunk
-     * @param {!Array<!CSSRule>} rules
-     */
-    function cssCallback(isLastChunk, rules) {
-      callback(isLastChunk, rules.map(rule => {
-        const title = 'selectorText' in rule ? rule.selectorText : rule.atRule;
-        return {line: rule.lineNumber, subtitle: undefined, column: rule.columnNumber, title};
-      }));
-    }
   }
 
   /**
@@ -262,50 +236,6 @@ export class FormatResult {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
-class CSSProperty {
-  constructor() {
-    /** @type {string} */
-    this.name;
-    /** @type {!TextRange} */
-    this.nameRange;
-    /** @type {string} */
-    this.value;
-    /** @type {!TextRange} */
-    this.valueRange;
-    /** @type {!TextRange} */
-    this.range;
-    /** @type {(boolean|undefined)} */
-    this.disabled;
-  }
-}
-
-// eslint-disable-next-line no-unused-vars
-class SCSSProperty {
-  constructor() {
-    /** @type {!TextRange} */
-    this.range;
-    /** @type {!TextRange} */
-    this.name;
-    /** @type {!TextRange} */
-    this.value;
-    /** @type {boolean} */
-    this.disabled;
-  }
-}
-
-// eslint-disable-next-line no-unused-vars
-class SCSSRule {
-  constructor() {
-    /** @type {!Array<!TextRange>} */
-    this.selectors;
-    /** @type {!Array<!SCSSProperty>} */
-    this.properties;
-    /** @type {!TextRange} */
-    this.styleRange;
-  }
-}
-
 /**
  * @return {!FormatterWorkerPool}
  */
@@ -320,22 +250,6 @@ export let OutlineItem;
 /** @typedef {{original: !Array<number>, formatted: !Array<number>}} */
 // @ts-ignore typedef
 export let FormatMapping;
-
-/** @typedef {{selectorText: string, styleRange: !TextRange, lineNumber: number, columnNumber: number, properties: !Array<!CSSProperty>}} */
-// @ts-ignore typedef
-export let CSSStyleRule;
-
-/**
- * @typedef {{atRule: string, lineNumber: number, columnNumber: number}}
- */
-// @ts-ignore typedef
-export let CSSAtRule;
-
-/**
- * @typedef {(CSSStyleRule|CSSAtRule)}
- */
-// @ts-ignore typedef
-export let CSSRule;
 
 /**
  * @typedef {{startLine: number, startColumn: number, endLine: number, endColumn: number}}

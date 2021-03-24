@@ -22,8 +22,11 @@ self.onmessage = function(event: MessageEvent): void {
     case FormatterActions.FORMAT:
       self.postMessage(FormatterWorker.FormatterWorker.format(params.mimeType, params.content, params.indentString));
       break;
-    case FormatterActions.PARSE_CSS:
-      FormatterWorker.CSSRuleParser.parseCSS(params.content, self.postMessage);
+    case FormatterActions.CSS_OUTLINE:
+      FormatterWorker.CSSOutline.cssOutline(params.content, self.postMessage);
+      break;
+    case FormatterActions.HTML_OUTLINE:
+      FormatterWorker.HTMLOutline.htmlOutline(params.content, self.postMessage);
       break;
     case FormatterActions.JAVASCRIPT_OUTLINE:
       FormatterWorker.JavaScriptOutline.javaScriptOutline(params.content, self.postMessage);
