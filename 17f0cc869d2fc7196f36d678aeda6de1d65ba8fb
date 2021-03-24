@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "17f0cc869d2fc7196f36d678aeda6de1d65ba8fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "772bbb0d_03635bde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T10:07:57Z",
+      "side": 1,
+      "message": "Looks good, thanks! Summarizing offline discussion\n  - Please move the show more link behind the feature list\n  - Please add a description to each line e.g. blocked by frame attribute / blocked by HTTP header,\n    which also servers as description of the link icon.\n  - Please add a better description for the tooltip of the link icons that explains /why/ the link\u0027s destination matters.",
+      "revId": "17f0cc869d2fc7196f36d678aeda6de1d65ba8fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
