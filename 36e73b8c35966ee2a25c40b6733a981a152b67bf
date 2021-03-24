@@ -161,6 +161,24 @@
       "parentUuid": "6cbceee6_e0bbc8cd",
       "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a552cca5_42fa3fd0",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-24T08:42:31Z",
+      "side": 1,
+      "message": "I think let\u0027s change the default highlighting to be whatever suits you, and we can make it configurable in the future if we need to. So feel free to make the change directly in TreeOutline :)",
+      "parentUuid": "8e586e80_5d092a8d",
+      "revId": "36e73b8c35966ee2a25c40b6733a981a152b67bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
