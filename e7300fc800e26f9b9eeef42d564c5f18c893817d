@@ -120,6 +120,24 @@
       "message": "To contextualise this for other reviewers: putting these listeners on the \u003cli\u003e element means that the events get fired for every ancestor node as well as the target node, because the \u003cli\u003es are nested inside one another. \n\nMoving it down to the wrapper node means that it is only fired on the target node.",
       "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "765b0e23_2998b3be",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-24T08:48:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5b4ef545_8a18fc23",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
