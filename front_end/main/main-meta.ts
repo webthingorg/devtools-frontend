@@ -92,6 +92,34 @@ const UIStrings = {
   */
   switchToDarkTheme: 'Switch to dark theme',
   /**
+  * @description Title of a setting to changes the UI language of DevTools.
+  */
+  language: 'Language',
+  /**
+  * @description Title of a setting that switches the language for DevTools to whatever the browser is using.
+  */
+  switchToBrowserLanguage: 'Switch to the same language as the browser UI',
+  /**
+  * @description Title of a setting that switches the language for DevTools to whatever the browser is using.
+  */
+  browserUILanguage: 'Browser UI language',
+  /**
+  * @description Decription for a setting that changes the language to US English.
+  */
+  switchToEnglishUS: 'Switch to English — US',
+  /**
+  * @description Title for a setting that changes the language to US English.
+  */
+  enUS: 'English — US (en-US)',
+  /**
+  * @description Decription for a setting that changes the language to US English.
+  */
+  switchToEnglishGB: 'Switch to English — GB',
+  /**
+  * @description Title for a setting that changes the language to GB English.
+  */
+  enGB: 'English — GB (en-GB)',
+  /**
   *@description A drop-down menu option to switch to dark theme
   */
   darkCapital: 'Dark',
@@ -592,6 +620,36 @@ Common.Settings.registerSettingExtension({
       title: i18nLazyString(UIStrings.switchToDarkTheme),
       text: i18nLazyString(UIStrings.darkCapital),
       value: 'dark',
+    },
+  ],
+  tags: [
+    i18nLazyString(UIStrings.darkLower),
+    i18nLazyString(UIStrings.lightLower),
+  ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.APPEARANCE,
+  title: i18nLazyString(UIStrings.language),
+  settingName: 'language',
+  settingType: Common.Settings.SettingType.ENUM,
+  defaultValue: 'en-US',
+  reloadRequired: true,
+  options: [
+    {
+      title: i18nLazyString(UIStrings.switchToBrowserLanguage),
+      text: i18nLazyString(UIStrings.browserUILanguage),
+      value: 'browserLanguage',
+    },
+    {
+      title: i18nLazyString(UIStrings.switchToEnglishUS),
+      text: i18nLazyString(UIStrings.enUS),
+      value: 'en-US',
+    },
+    {
+      title: i18nLazyString(UIStrings.switchToEnglishGB),
+      text: i18nLazyString(UIStrings.enGB),
+      value: 'en-GB',
     },
   ],
   tags: [
