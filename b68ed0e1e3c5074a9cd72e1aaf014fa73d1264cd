@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8af6b4e_1bbaee42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-24T07:35:24Z",
+      "side": 1,
+      "message": "Hey folks,\n\nI don\u0027t have a super strong opinion here (since I could still use my ~/.npmrc fallback), but I think this would generally benefit everyone.\nOpinions?\n\ncheers,\nBenedikt",
+      "revId": "b68ed0e1e3c5074a9cd72e1aaf014fa73d1264cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
