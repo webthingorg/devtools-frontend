@@ -56,6 +56,30 @@
       },
       "revId": "77aeae5fb7d76b40e0aa9a5d0e8441875a958ac4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03427498_280c09f1",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-24T09:35:53Z",
+      "side": 1,
+      "message": "Good catch, thanks! I have updated the generator to exclude @keyframes. It looks like the legacy patching doesn\u0027t touch them.",
+      "parentUuid": "0d68290f_227677d9",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "77aeae5fb7d76b40e0aa9a5d0e8441875a958ac4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
