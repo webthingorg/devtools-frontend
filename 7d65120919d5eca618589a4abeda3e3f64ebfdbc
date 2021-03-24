@@ -50,6 +50,23 @@
       "message": "LGTM! Weird that it was added but never used.",
       "revId": "7d65120919d5eca618589a4abeda3e3f64ebfdbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edec0de_7fd509fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-24T12:33:40Z",
+      "side": 1,
+      "message": "Thanks both! Seems like an accidental oversight that it turns out no one needed :)",
+      "revId": "7d65120919d5eca618589a4abeda3e3f64ebfdbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
