@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18beed9f_8bf56bc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T04:22:04Z",
+      "side": 1,
+      "message": "Hey Jack, PTAL.\n\nI had to move the mouseover/out events to fire on the arrow and key wrapper, otherwise they kept firing all the way up to the root web area. Also updated the tests, lmk if okay!",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32130119_d2039bf7",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-03-24T04:22:04Z",
+      "side": 1,
+      "message": "this should reveal the node in the DOM tree, although I assume it doesn\u0027t work because the panel isn\u0027t actually visible at this point? Is there someone knowledgeable about this I can add to advise how to make sure the inspected node is scrolled into view when the DOM tree is activated?\n\nInterestingly, if you swap to a completely different pane (like console, network etc) and then back to Elements, the inspected node is still in view. Must be something to do with the call the splitWidget.setMainWidget() that makes it scroll to the top by default.",
+      "revId": "e7300fc800e26f9b9eeef42d564c5f18c893817d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
