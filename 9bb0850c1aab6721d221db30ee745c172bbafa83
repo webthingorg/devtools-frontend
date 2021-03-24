@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s a refactoring to eventually improve Ctrl+Shift+O for HTML. Important part is the interface alignment and moving the tests from Chromium (bots should trigger green once Chromium CL lands).\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "9bb0850c1aab6721d221db30ee745c172bbafa83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ef36ed_e558cd6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-24T09:12:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9bb0850c1aab6721d221db30ee745c172bbafa83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
