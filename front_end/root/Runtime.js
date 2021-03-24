@@ -745,6 +745,7 @@ export const ExperimentName = {
   PROTOCOL_MONITOR: 'protocolMonitor',
   WEBAUTHN_PANE: 'webauthnPane',
   RECORDER: 'recorder',
+  FORCED_COLORS_EMULATION: 'forcedColorsEmulation',
 };
 
 /** @enum {string} */
