@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c786a07_b42bc927",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T15:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e293d5d_f3b123b0",
+      "range": {
+        "startLine": 227,
+        "startChar": 22,
+        "endLine": 227,
+        "endChar": 85
+      },
+      "revId": "7d6070556750809621ef8dd8c7ed9175a947a954",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0a1a8c2_cd698663",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7877996d_3f15f010",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T15:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0a1a8c2_cd698663",
+      "range": {
+        "startLine": 231,
+        "startChar": 22,
+        "endLine": 231,
+        "endChar": 103
+      },
+      "revId": "7d6070556750809621ef8dd8c7ed9175a947a954",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b606683_d740da10",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-03-24T15:03:58Z",
       "side": 1,
       "message": "You are writing blocked here, but this morning on chat you convinced me that we should use the term disabled, is this intended?",
+      "range": {
+        "startLine": 239,
+        "startChar": 20,
+        "endLine": 239,
+        "endChar": 28
+      },
+      "revId": "7d6070556750809621ef8dd8c7ed9175a947a954",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd445075_c97f059b",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-03-24T15:33:53Z",
+      "side": 1,
+      "message": "You\u0027re right, updated to be consistent.",
+      "parentUuid": "5b606683_d740da10",
       "range": {
         "startLine": 239,
         "startChar": 20,
