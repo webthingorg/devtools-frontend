@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "406dcab8_68608ad2",
+        "filename": "front_end/legacy_test_runner/test_runner/TestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-24T15:42:28Z",
+      "side": 1,
+      "message": "Since this dynamic import is relative to this file location, we have to do the move atomically for all test runners involved. Therefore, we can\u0027t split up this CL (but luckily it is still manageable).",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 269,
+        "endChar": 44
+      },
+      "revId": "a25381ec083c0aeb498760c02014593e191708be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
