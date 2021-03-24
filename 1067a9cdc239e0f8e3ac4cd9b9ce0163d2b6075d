@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "1067a9cdc239e0f8e3ac4cd9b9ce0163d2b6075d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76080b1e_b3c5c442",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T06:54:17Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "1067a9cdc239e0f8e3ac4cd9b9ce0163d2b6075d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80c72fd7_938130d7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-24T06:54:17Z",
+      "side": 1,
+      "message": "How is this possible? Wouldn\u0027t waitFor time out if the selector isn\u0027t matched?",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 379,
+        "endChar": 3
+      },
+      "revId": "1067a9cdc239e0f8e3ac4cd9b9ce0163d2b6075d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
