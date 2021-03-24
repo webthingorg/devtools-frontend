@@ -1140,7 +1140,8 @@ describe('TreeOutline', () => {
           tree: basicTreeData,
         });
         await coordinator.done();
-        const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
+        const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices').querySelector('.arrow-and-key-wrapper');
+        assertElement(officeNode, HTMLSpanElement);
         const itemMouseOverEvent =
             getEventPromise<UIComponents.TreeOutline.ItemMouseOverEvent<string>>(component, 'itemmouseover');
         dispatchMouseOverEvent(officeNode);
@@ -1155,7 +1156,8 @@ describe('TreeOutline', () => {
           tree: basicTreeData,
         });
         await coordinator.done();
-        const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
+        const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices').querySelector('.arrow-and-key-wrapper');
+        assertElement(officeNode, HTMLSpanElement);
         dispatchMouseOverEvent(officeNode);
         const itemMouseOutEvent =
             getEventPromise<UIComponents.TreeOutline.ItemMouseOutEvent<string>>(component, 'itemmouseout');
