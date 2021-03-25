@@ -240,7 +240,7 @@ export class IssuesPane extends UI.Widget.VBox {
     this.updateIssueView(issue);
   }
 
-  private updateIssueView(issue: AggregatedIssue): void {
+  private async updateIssueView(issue: AggregatedIssue): Promise<void> {
     let issueView = this.issueViews.get(issue.code());
     if (!issueView) {
       const description = issue.getDescription();
@@ -248,7 +248,7 @@ export class IssuesPane extends UI.Widget.VBox {
         console.warn('Could not find description for issue code:', issue.code());
         return;
       }
-      const markdownDescription = createIssueDescriptionFromMarkdown(description);
+      const markdownDescription = await createIssueDescriptionFromMarkdown(description);
       issueView = new IssueView(this, issue, markdownDescription);
       this.issueViews.set(issue.code(), issueView);
       const parent = this.getIssueViewParent(issue);
