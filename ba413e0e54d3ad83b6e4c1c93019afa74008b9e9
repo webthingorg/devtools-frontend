@@ -57,6 +57,30 @@
       },
       "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cae8a44_185761c1",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T08:00:11Z",
+      "side": 1,
+      "message": "Ah, I was wondering why TS wasn\u0027t complaining because i remember that second call-site in the back of my mind.\n\nYeah, I have a local CL that switches the \"getMarkdownFileContent\" call to a fetch. Currently looking into how we can enable devtools:// schemes for fetch for the DevTools renderer.",
+      "parentUuid": "a5c90a0f_0a359dde",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
