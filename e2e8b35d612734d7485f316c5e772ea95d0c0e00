@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7318a42c_2f1faf98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-25T18:18:47Z",
+      "side": 1,
+      "message": "Seems like per our Workflow guideline, I can submit it once the merge-request is approved, so I\u0027ll just submit this directly.",
+      "revId": "e2e8b35d612734d7485f316c5e772ea95d0c0e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
