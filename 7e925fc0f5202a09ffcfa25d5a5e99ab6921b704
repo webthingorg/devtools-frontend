@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "397d1771_460f41bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-25T09:19:54Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nsorry, I missed your mail address on the first run, I\u0027m adding the 64 bit pointer jump-to-pointer button and enable/disable them depending on whether it\u0027s a valid address or not. PTAL!",
+      "revId": "7e925fc0f5202a09ffcfa25d5a5e99ab6921b704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
