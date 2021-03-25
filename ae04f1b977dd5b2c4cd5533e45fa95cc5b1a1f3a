@@ -33,6 +33,24 @@
       "message": "LGTM",
       "revId": "ae04f1b977dd5b2c4cd5533e45fa95cc5b1a1f3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23decba2_958c1c34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-03-25T05:43:35Z",
+      "side": 1,
+      "message": "Apparently, the parseCSS logic is used in web tests, so I\u0027m going to limit this change to just HTML. We should have a closer look at CSS later (changehaohan@ is currently looking into CSS parsing in the front-end anyways).",
+      "parentUuid": "32df38de_430718ab",
+      "revId": "ae04f1b977dd5b2c4cd5533e45fa95cc5b1a1f3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
