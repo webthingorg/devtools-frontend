@@ -105,6 +105,30 @@
       },
       "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36028436_8602f36b",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T11:13:34Z",
+      "side": 1,
+      "message": "Asyncified the second call-site and also both \"getMarkdownFileContent\", as they are basically our version of \"fetch\". PT(another)L.\n\nI tried to get rid of one version of the function by using `MarkdownHelpers` by importing `BrowserSDK` here, but then unit tests started failing with weird loading/import issues. Maybe we can clean that up once the folder restructuring around IssuesManager is done.",
+      "parentUuid": "588291da_c4c837ef",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
