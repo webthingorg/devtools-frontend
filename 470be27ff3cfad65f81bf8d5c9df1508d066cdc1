@@ -39,6 +39,30 @@
       },
       "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4856639_938d7942",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T12:07:09Z",
+      "side": 1,
+      "message": "Alternatively, we could make `updateIssueView` re-entrant safe by storing its async promise and schedule updates with something like:\n\n private updatePromise: Promise\u003cvoid\u003e \u003d Promise.resolve();\n\n private scheduleIssueViewUpdate(issue) {\n   this.updatePromise \u003d this.updatePromise.then(() \u003d\u003e this.updateIssueView(issue));\n }\n\nwdyt?",
+      "parentUuid": "9dead549_0f7c2aeb",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
