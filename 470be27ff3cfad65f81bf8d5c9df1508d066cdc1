@@ -135,6 +135,30 @@
       },
       "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5437a7ea_f235abc8",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T13:26:43Z",
+      "side": 1,
+      "message": "Ack, implemented now without a throttler.",
+      "parentUuid": "0b9acef4_a0e0c0af",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
