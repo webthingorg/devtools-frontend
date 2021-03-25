@@ -67,6 +67,24 @@
       "message": "I\u0027m not sure if this is the best way to get the computed style widget. Let me try something else and get back to this CL.",
       "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b8878dd_9af6f8cc",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-03-25T23:05:16Z",
+      "side": 1,
+      "message": "I would suggest that instead of looping widgets from the Styles widget, we can let Elements panel expose its computedStyleWidget instance. Possible steps are:\n1. we get the current Elements panel instance via `ElementsPanel.instance()` because it is a global singleton; you can find similar usages from other panels/widgets in the codebase;\n2. we get the current Elements panel\u0027s computedStyleWidget by calling something like `ElementsPanel.instance().getComputedStyleWidget()`, which simply returns its private `_computedStyleWidget`.\n\nThis would also eliminates the unlikely scenario where the loop would give us a wrong computedStyleWidget instance, although it\u0027s quite unlikely now.",
+      "parentUuid": "38616ece_fb36f333",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
