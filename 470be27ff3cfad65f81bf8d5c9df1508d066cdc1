@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6122e110_1fd95828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T11:48:20Z",
+      "side": 1,
+      "message": "Almost LGTM, only one concern.",
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dead549_0f7c2aeb",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T11:48:20Z",
+      "side": 1,
+      "message": "I think it might be possible that this event is fired in short succession (think of two issues being filed quickly after one another), and then we could have two calls for updateIssueView racing (because the first was trying to create the issue and is stuck loading the description in L251).\n\nI would suggest repeating the this.issueViews.get(issue.code()) check before L252, and if an issue has been added for that code, just update it.",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
