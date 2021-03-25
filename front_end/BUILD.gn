@@ -44,6 +44,7 @@ group("front_end") {
     "inline_editor:bundle",
     "javascript_metadata:bundle",
     "js_main:bundle",
+    "legacy_test_runner/test_runner:bundle",
     "lighthouse_worker:bundle",
     "panels/event_listeners:bundle",
     "protocol_client:bundle",
@@ -71,25 +72,26 @@ group("front_end") {
 
 group("legacy_test-resources") {
   public_deps = [
-    "accessibility_test_runner:bundle",
-    "application_test_runner:bundle",
-    "axe_core_test_runner:bundle",
-    "bindings_test_runner:bundle",
-    "console_test_runner:bundle",
-    "coverage_test_runner:bundle",
-    "cpu_profiler_test_runner:bundle",
-    "data_grid_test_runner:bundle",
-    "device_mode_test_runner:bundle",
-    "elements_test_runner:bundle",
-    "extensions_test_runner:bundle",
-    "heap_profiler_test_runner:bundle",
-    "layers_test_runner:bundle",
-    "lighthouse_test_runner:bundle",
-    "network_test_runner:bundle",
-    "performance_test_runner:bundle",
-    "sdk_test_runner:bundle",
-    "security_test_runner:bundle",
-    "sources_test_runner:bundle",
+    "legacy_test_runner/accessibility_test_runner:bundle",
+    "legacy_test_runner/application_test_runner:bundle",
+    "legacy_test_runner/axe_core_test_runner:bundle",
+    "legacy_test_runner/bindings_test_runner:bundle",
+    "legacy_test_runner/console_test_runner:bundle",
+    "legacy_test_runner/coverage_test_runner:bundle",
+    "legacy_test_runner/cpu_profiler_test_runner:bundle",
+    "legacy_test_runner/data_grid_test_runner:bundle",
+    "legacy_test_runner/device_mode_test_runner:bundle",
+    "legacy_test_runner/elements_test_runner:bundle",
+    "legacy_test_runner/extensions_test_runner:bundle",
+    "legacy_test_runner/heap_profiler_test_runner:bundle",
+    "legacy_test_runner/layers_test_runner:bundle",
+    "legacy_test_runner/lighthouse_test_runner:bundle",
+    "legacy_test_runner/network_test_runner:bundle",
+    "legacy_test_runner/performance_test_runner:bundle",
+    "legacy_test_runner/sdk_test_runner:bundle",
+    "legacy_test_runner/security_test_runner:bundle",
+    "legacy_test_runner/sources_test_runner:bundle",
+    "legacy_test_runner/test_runner:bundle",
   ]
 }
 
@@ -321,8 +323,36 @@ ts_library("worker_app") {
   ]
 }
 
+ts_library("integration_test_runner-source") {
+  sources = [ "integration_test_runner.ts" ]
+
+  deps = [
+    ":devtools_app",
+    "bindings:legacy",
+    "color_picker:legacy",
+    "common:legacy",
+    "data_grid:legacy",
+    "diff:legacy",
+    "extensions:legacy",
+    "formatter:legacy",
+    "har_importer:legacy",
+    "host:legacy",
+    "inline_editor:legacy",
+    "legacy_test_runner/test_runner:bundle",
+    "panels/accessibility:legacy",
+    "panels/animation:legacy",
+    "panels/developer_resources:legacy",
+    "panels/event_listeners:legacy",
+    "root:legacy",
+    "sdk:legacy",
+  ]
+}
+
 group("integration_test_runner") {
-  public_deps = [ ":integration_test_runner-gen" ]
+  public_deps = [
+    ":integration_test_runner-gen",
+    ":integration_test_runner-source",
+  ]
   data_deps = public_deps
 }
 

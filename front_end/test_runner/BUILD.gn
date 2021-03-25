@@ -3,23 +3,9 @@
 # found in the LICENSE file.
 
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
-import("../../scripts/build/ninja/devtools_module.gni")
-
-devtools_module("test_runner") {
-  sources = [ "TestRunner.js" ]
-
-  deps = [
-    "../bindings:bundle",
-    "../common:bundle",
-    "../protocol_client:bundle",
-    "../text_editor:bundle",
-    "../ui:bundle",
-    "../workspace:bundle",
-  ]
-}
 
 devtools_entrypoint("bundle") {
   entrypoint = "test_runner.js"
 
-  deps = [ ":test_runner" ]
+  deps = [ "../legacy_test_runner/test_runner:bundle" ]
 }
