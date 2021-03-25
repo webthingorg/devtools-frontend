@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8fea3c_da71ff1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-25T07:14:36Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding the jump-to-address button for 64-bit pointers. The buttons (32-bit and 64-bit) are enabled if the address is within range, otherwise they are disabled.\n\nPTAL!",
+      "revId": "6b6de096670400565c77b6bc2ca01eb60a9f3c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
