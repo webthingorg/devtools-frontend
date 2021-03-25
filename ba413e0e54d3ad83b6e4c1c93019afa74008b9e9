@@ -81,6 +81,30 @@
       },
       "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "588291da_c4c837ef",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T08:02:06Z",
+      "side": 1,
+      "message": "Let\u0027s update this the CL to add all the asyncs and land the fetch later.",
+      "parentUuid": "6cae8a44_185761c1",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
