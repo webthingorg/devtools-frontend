@@ -16,6 +16,46 @@
       "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding the jump-to-address button for 64-bit pointers. The buttons (32-bit and 64-bit) are enabled if the address is within range, otherwise they are disabled.\n\nPTAL!",
       "revId": "6b6de096670400565c77b6bc2ca01eb60a9f3c8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875a5671_cbbcd208",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-25T08:57:50Z",
+      "side": 1,
+      "message": "LGTM with a teeeeeeeeny nit! Thanks Kim :)",
+      "revId": "6b6de096670400565c77b6bc2ca01eb60a9f3c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb263066_d6a27963",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-25T08:57:50Z",
+      "side": 1,
+      "message": "Tiny nit: could we name this `iconColor` ? Took me a moment to figure what color this was.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 88
+      },
+      "revId": "6b6de096670400565c77b6bc2ca01eb60a9f3c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
