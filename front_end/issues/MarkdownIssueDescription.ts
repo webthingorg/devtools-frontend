@@ -14,7 +14,8 @@ export interface IssueDescription {
   links: {link: string, linkTitle: string}[];
 }
 
-export function createIssueDescriptionFromMarkdown(description: SDK.Issue.MarkdownIssueDescription): IssueDescription {
+export async function createIssueDescriptionFromMarkdown(description: SDK.Issue.MarkdownIssueDescription):
+    Promise<IssueDescription> {
   const rawMarkdown = getMarkdownFileContent(description.file);
   const rawMarkdownWithPlaceholdersReplaced = substitutePlaceholders(rawMarkdown, description.substitutions);
   return createIssueDescriptionFromRawMarkdown(rawMarkdownWithPlaceholdersReplaced, description);
