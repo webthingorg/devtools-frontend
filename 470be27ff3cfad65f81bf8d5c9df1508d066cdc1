@@ -87,6 +87,30 @@
       },
       "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfbe2ad_fabcb656",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T12:20:10Z",
+      "side": 1,
+      "message": "I am not sure that I understand fully, what would be the purpose of the Throttler?\n\n1) In case of a full update, we want to update all aggregated issues in a row as fast as possible. So having a timeout in between updates would lead to jank\n2) IIUC then we can\u0027t really skip any calls to `updateIssueView` as the method takes a specific AggregatedIssue.",
+      "parentUuid": "e3e11d63_91f52587",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
