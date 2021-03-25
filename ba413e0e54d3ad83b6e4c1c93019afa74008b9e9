@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4c8c96_6682eebd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-25T06:19:56Z",
+      "side": 1,
+      "message": "PTAL, I don\u0027t think we need to make Issue#getDescription async (as the bug description says). Issue#getDescription does no loading. The file is later resolved directly before an IssuesView is created.",
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
