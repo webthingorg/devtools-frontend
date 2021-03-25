@@ -16,6 +16,47 @@
       "message": "PTAL, I don\u0027t think we need to make Issue#getDescription async (as the bug description says). Issue#getDescription does no loading. The file is later resolved directly before an IssuesView is created.",
       "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58dc7a06_56e88d1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T07:46:50Z",
+      "side": 1,
+      "message": "SGTM, we can make the loading itself async; please see my inline comment.",
+      "parentUuid": "8b4c8c96_6682eebd",
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c90a0f_0a359dde",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T07:46:50Z",
+      "side": 1,
+      "message": "I think ultimately we need to make this async.\n\nYou need to modify \n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/browser_sdk/SourceFrameIssuesManager.ts;l\u003d67;drc\u003d1d23a0a88290fd799c37ced093de9e735009fa9f\n\nas well.",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "ba413e0e54d3ad83b6e4c1c93019afa74008b9e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
