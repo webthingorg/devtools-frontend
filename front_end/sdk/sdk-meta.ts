@@ -782,25 +782,29 @@ Common.Settings.registerSettingExtension({
   title: i18nLazyString(UIStrings.emulateCssMediaFeaturePrefersreducedmotion),
 });
 
-Common.Settings.registerSettingExtension({
-  settingName: 'emulatedCSSMediaFeaturePrefersReducedData',
-  settingType: Common.Settings.SettingType.ENUM,
-  storageType: Common.Settings.SettingStorageType.Session,
-  defaultValue: '',
-  options: [
-    {
-      title: i18nLazyString(UIStrings.doNotEmulateCssPrefersreduceddata),
-      text: i18nLazyString(UIStrings.noEmulation),
-      value: '',
-    },
-    {
-      title: i18nLazyString(UIStrings.emulateCssPrefersreduceddata),
-      text: i18n.i18n.lockedLazyString('prefers-reduced-data: reduce'),
-      value: 'reduce',
-    },
-  ],
-  title: i18nLazyString(UIStrings.emulateCssMediaFeaturePrefersreduceddata),
-});
+// TODO(1096068): remove this feature detection and expose the UI
+// unconditionally once prefers-reduced-data ships unflagged.
+if (Common.MediaFeatureDetector.isSupported('(prefers-reduced-data: reduce)')) {
+  Common.Settings.registerSettingExtension({
+    settingName: 'emulatedCSSMediaFeaturePrefersReducedData',
+    settingType: Common.Settings.SettingType.ENUM,
+    storageType: Common.Settings.SettingStorageType.Session,
+    defaultValue: '',
+    options: [
+      {
+        title: i18nLazyString(UIStrings.doNotEmulateCssPrefersreduceddata),
+        text: i18nLazyString(UIStrings.noEmulation),
+        value: '',
+      },
+      {
+        title: i18nLazyString(UIStrings.emulateCssPrefersreduceddata),
+        text: i18n.i18n.lockedLazyString('prefers-reduced-data: reduce'),
+        value: 'reduce',
+      },
+    ],
+    title: i18nLazyString(UIStrings.emulateCssMediaFeaturePrefersreduceddata),
+  });
+}
 
 Common.Settings.registerSettingExtension({
   settingName: 'emulatedCSSMediaFeatureColorGamut',

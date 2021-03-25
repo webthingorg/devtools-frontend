@@ -459,6 +459,7 @@ grd_files_debug_sources = [
   "front_end/common/JavaScriptMetaData.js",
   "front_end/common/Lazy.js",
   "front_end/common/Linkifier.js",
+  "front_end/common/MediaFeatureDetector.js",
   "front_end/common/Object.js",
   "front_end/common/ParsedURL.js",
   "front_end/common/Progress.js",

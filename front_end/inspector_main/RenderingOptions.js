@@ -176,20 +176,6 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-// TODO(1096068): remove this feature detection and expose the UI
-// unconditionally once prefers-reduced-data ships unflagged. At that
-// point, we can also add `category` and `tags` to the entry in
-// `front_end/sdk/module.json` to make this feature available in the
-// Command Menu.
-/**
- * @return {boolean}
- */
-const supportsPrefersReducedData = () => {
-  const query = '(prefers-reduced-data: reduce)';
-  // Note: `media` serializes to `'not all'` for unsupported queries.
-  return window.matchMedia(query).media === query;
-};
-
 /** @type {!RenderingOptionsView} */
 let renderingOptionsViewInstance;
 
@@ -242,7 +228,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this._appendSelect(
         i18nString(UIStrings.forcesCssPrefersreducedmotion),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
-    if (supportsPrefersReducedData()) {
+    // TODO(1096068): remove this feature detection and expose the UI
+    // unconditionally once prefers-reduced-data ships unflagged.
+    if (Common.MediaFeatureDetector.isSupported('(prefers-reduced-data: reduce)')) {
       this._appendSelect(
           i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
           Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedData'));
