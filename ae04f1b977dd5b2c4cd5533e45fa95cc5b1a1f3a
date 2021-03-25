@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s the follow-up change to handle HTML inline \u003cscript\u003es better.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "ae04f1b977dd5b2c4cd5533e45fa95cc5b1a1f3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32df38de_430718ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-03-25T05:39:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ae04f1b977dd5b2c4cd5533e45fa95cc5b1a1f3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
