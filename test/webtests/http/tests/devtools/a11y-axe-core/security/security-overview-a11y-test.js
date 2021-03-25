@@ -4,7 +4,7 @@
 
 (async function() {
   await TestRunner.loadModule('security_test_runner');
-  await TestRunner.loadModule('axe_core_test_runner');
+  await TestRunner.loadTestModule('axe_core_test_runner');
   await TestRunner.showPanel('security');
 
   const pageVisibleSecurityState = new Security.PageVisibleSecurityState(
