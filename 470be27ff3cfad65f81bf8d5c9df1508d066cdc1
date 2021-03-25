@@ -111,6 +111,30 @@
       },
       "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9acef4_a0e0c0af",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T12:24:18Z",
+      "side": 1,
+      "message": "We\u0027d have to throttle per AggregatedIssue, yes. I suggested using a Throttler because initially I was assuming that the update would now always take longer, and I wanted to prevent a situation, where we are working through a chain of updates when it would be sufficient to just do one every 100ms or so.\n\nIn fact, however, only the first update needs to load the issue, and all following updates will still be relatively quick, so I\u0027m OK with not using a Throttler in this CL.",
+      "parentUuid": "ecfbe2ad_fabcb656",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
