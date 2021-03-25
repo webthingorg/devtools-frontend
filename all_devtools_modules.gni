@@ -47,6 +47,7 @@ all_typescript_module_sources = [
   "common/JavaScriptMetaData.js",
   "common/Lazy.js",
   "common/Linkifier.js",
+  "common/MediaFeatureDetector.js",
   "common/Object.js",
   "common/ParsedURL.js",
   "common/Progress.js",

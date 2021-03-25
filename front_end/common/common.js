@@ -14,6 +14,7 @@ import * as EventTarget from './EventTarget.js';
 import * as JavaScriptMetaData from './JavaScriptMetaData.js';
 import * as Lazy from './Lazy.js';
 import * as Linkifier from './Linkifier.js';
+import * as MediaFeatureDetector from './MediaFeatureDetector.js';
 import * as ObjectWrapper from './Object.js';
 import * as ParsedURL from './ParsedURL.js';
 import * as Progress from './Progress.js';
@@ -57,6 +58,7 @@ export {
   JavaScriptMetaData,
   Lazy,
   Linkifier,
+  MediaFeatureDetector,
   ObjectWrapper,
   ParsedURL,
   Progress,

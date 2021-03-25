@@ -22,6 +22,7 @@ devtools_module("common") {
     "JavaScriptMetaData.js",
     "Lazy.js",
     "Linkifier.js",
+    "MediaFeatureDetector.js",
     "Object.js",
     "ParsedURL.js",
     "Progress.js",
