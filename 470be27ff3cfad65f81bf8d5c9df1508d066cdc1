@@ -63,6 +63,30 @@
       },
       "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e11d63_91f52587",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T12:08:32Z",
+      "side": 1,
+      "message": "SGTM, but if we do this, consider using a Throttler.",
+      "parentUuid": "d4856639_938d7942",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "470be27ff3cfad65f81bf8d5c9df1508d066cdc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
