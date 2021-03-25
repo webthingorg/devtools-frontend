@@ -50,6 +50,24 @@
       "message": "nit: `this._range \u003d TextUtils...`",
       "revId": "c1db8ce25fa8f42e67f1f1851a2b9911edbb6e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0426f7_1954b870",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-25T09:54:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfe7998a_4920f731",
+      "revId": "c1db8ce25fa8f42e67f1f1851a2b9911edbb6e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
