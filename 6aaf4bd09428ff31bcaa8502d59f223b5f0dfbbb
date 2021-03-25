@@ -52,6 +52,24 @@
       "parentUuid": "6f213424_88ae601d",
       "revId": "6aaf4bd09428ff31bcaa8502d59f223b5f0dfbbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3057c927_699711c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-25T16:47:29Z",
+      "side": 1,
+      "message": "Hey wolfgang, there still seem to be some failing tests even after the update.\nFor the issues/cors-private-network-issues_test.ts failing test, I suspect it the this code: `const section \u003d await getResourcesElement(\u00272 resources\u0027, issueElement);` that is causing the test to fail, whereas for the `issues/heavy-ad-issues_test.ts` test I think it\u0027s the `const section \u003d await getResourcesElement(\u00272 items\u0027, issueElement);` code that\u0027s causinig it to fail. However, for the issues/sab-issues_test.ts test, I\u0027m not sure why the test is failing even after updated the assert.",
+      "parentUuid": "aa422ff8_5aa581c9",
+      "revId": "6aaf4bd09428ff31bcaa8502d59f223b5f0dfbbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
