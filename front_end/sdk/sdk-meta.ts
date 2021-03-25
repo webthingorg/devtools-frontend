@@ -3,8 +3,9 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-
 import * as i18n from '../i18n/i18n.js';
+import * as Root from '../root/root.js';
+
 const UIStrings = {
   /**
   *@description Title of a setting under the Console category that can be invoked through the Command Menu
@@ -214,6 +215,22 @@ const UIStrings = {
   *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
   */
   emulateCssMediaFeature: 'Emulate CSS media feature `prefers-color-scheme`',
+  /**
+  *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
+  */
+  doNotEmulateCssForcedColors: 'Do not emulate CSS `forced-colors`',
+  /**
+  *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
+  */
+  emulateCssForcedColors: 'Emulate CSS `forced-colors: active`',
+  /**
+  *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
+  */
+  emulateCssForcedColorsNone: 'Emulate CSS `forced-colors: none`',
+  /**
+  *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
+  */
+  emulateCssMediaFeatureForcedColors: 'Emulate CSS media feature `forced-colors`',
   /**
   *@description Title of a setting under the Rendering drawer that can be invoked through the Command Menu
   */
@@ -756,6 +773,36 @@ Common.Settings.registerSettingExtension({
     i18nLazyString(UIStrings.query),
   ],
   title: i18nLazyString(UIStrings.emulateCssMediaFeature),
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.RENDERING,
+  settingName: 'emulatedCSSMediaFeatureForcedColors',
+  settingType: Common.Settings.SettingType.ENUM,
+  storageType: Common.Settings.SettingStorageType.Session,
+  defaultValue: '',
+  options: [
+    {
+      title: i18nLazyString(UIStrings.doNotEmulateCssForcedColors),
+      text: i18nLazyString(UIStrings.noEmulation),
+      value: '',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCssForcedColorsNone),
+      text: i18n.i18n.lockedLazyString('forced-colors: none'),
+      value: 'none',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCssForcedColors),
+      text: i18n.i18n.lockedLazyString('forced-colors: active'),
+      value: 'active',
+    },
+  ],
+  tags: [
+    i18nLazyString(UIStrings.query),
+  ],
+  title: i18nLazyString(UIStrings.emulateCssMediaFeatureForcedColors),
+  experiment: Root.Runtime.ExperimentName.FORCED_COLORS_EMULATION,
 });
 
 Common.Settings.registerSettingExtension({

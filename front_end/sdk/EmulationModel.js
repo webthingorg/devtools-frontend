@@ -57,6 +57,8 @@ export class EmulationModel extends SDKModel {
     const mediaTypeSetting = Common.Settings.Settings.instance().moduleSetting('emulatedCSSMedia');
     const mediaFeaturePrefersColorSchemeSetting =
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme');
+    const mediaFeatureForcedColorsSetting =
+        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureForcedColors');
     const mediaFeaturePrefersReducedMotionSetting =
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion');
     const mediaFeaturePrefersReducedDataSetting =
@@ -70,6 +72,7 @@ export class EmulationModel extends SDKModel {
     this._mediaConfiguration = new Map([
       ['type', mediaTypeSetting.get()],
       ['prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get()],
+      ['forced-colors', mediaFeatureForcedColorsSetting.get()],
       ['prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get()],
       ['prefers-reduced-data', mediaFeaturePrefersReducedDataSetting.get()],
       ['color-gamut', mediaFeatureColorGamutSetting.get()],
@@ -80,6 +83,10 @@ export class EmulationModel extends SDKModel {
     });
     mediaFeaturePrefersColorSchemeSetting.addChangeListener(() => {
       this._mediaConfiguration.set('prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get());
+      this._updateCssMedia();
+    });
+    mediaFeatureForcedColorsSetting.addChangeListener(() => {
+      this._mediaConfiguration.set('forced-colors', mediaFeatureForcedColorsSetting.get());
       this._updateCssMedia();
     });
     mediaFeaturePrefersReducedMotionSetting.addChangeListener(() => {
@@ -94,6 +101,7 @@ export class EmulationModel extends SDKModel {
       this._mediaConfiguration.set('color-gamut', mediaFeatureColorGamutSetting.get());
       this._updateCssMedia();
     });
+
     this._updateCssMedia();
 
     const visionDeficiencySetting = Common.Settings.Settings.instance().moduleSetting('emulatedVisionDeficiency');
@@ -360,6 +368,10 @@ export class EmulationModel extends SDKModel {
         value: this._mediaConfiguration.get('prefers-color-scheme'),
       },
       {
+        name: 'forced-colors',
+        value: this._mediaConfiguration.get('forced-colors'),
+      },
+      {
         name: 'prefers-reduced-motion',
         value: this._mediaConfiguration.get('prefers-reduced-motion'),
       },
@@ -372,6 +384,7 @@ export class EmulationModel extends SDKModel {
         value: this._mediaConfiguration.get('color-gamut'),
       },
     ];
+
     this._emulateCSSMedia(type, features);
   }
 }

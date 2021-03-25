@@ -30,6 +30,7 @@
 
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
+import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
 const UIStrings = {
@@ -172,20 +173,19 @@ const UIStrings = {
   * page from loading images with the WebP format.
   */
   disableWebpImageFormat: 'Disable `WebP` image format',
+  /**
+   * @description Explanation text for the 'Forces CSS forced-colors' setting in the Rendering tool.
+   */
+  forcesCssForcedColors: 'Forces CSS forced-colors media feature',
 };
 const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-// TODO(1096068): remove this feature detection and expose the UI
-// unconditionally once prefers-reduced-data ships unflagged. At that
-// point, we can also add `category` and `tags` to the entry in
-// `front_end/sdk/module.json` to make this feature available in the
-// Command Menu.
 /**
+ * @param {string} query
  * @return {boolean}
  */
-const supportsPrefersReducedData = () => {
-  const query = '(prefers-reduced-data: reduce)';
+const supportMediaFeature = (query) => {
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
 };
@@ -239,10 +239,20 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this._appendSelect(
         i18nString(UIStrings.forcesCssPreferscolorschemeMedia),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme'));
+    if (Root.Runtime.experiments.isEnabled('forcedColorsEmulation') && supportMediaFeature('(forced-colors: active)')) {
+      this._appendSelect(
+          i18nString(UIStrings.forcesCssForcedColors),
+          Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureForcedColors'));
+    }
     this._appendSelect(
         i18nString(UIStrings.forcesCssPrefersreducedmotion),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
-    if (supportsPrefersReducedData()) {
+    // TODO(1096068): remove this feature detection and expose the UI
+    // unconditionally once prefers-reduced-data ships unflagged. At that
+    // point, we can also add `category` and `tags` to the entry in
+    // `front_end/sdk/module.json` to make this feature available in the
+    // Command Menu.
+    if (supportMediaFeature('(prefers-reduced-data: reduce)')) {
       this._appendSelect(
           i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
           Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedData'));
@@ -250,6 +260,7 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this._appendSelect(
         i18nString(UIStrings.forcesCssColorgamutMediaFeature),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureColorGamut'));
+
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this._appendSelect(

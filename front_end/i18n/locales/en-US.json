@@ -662,6 +662,9 @@
   "inspector_main/RenderingOptions.js | forcesCssColorgamutMediaFeature": {
     "message": "Forces CSS color-gamut media feature"
   },
+  "inspector_main/RenderingOptions.js | forcesCssForcedColors": {
+    "message": "Forces CSS forced-colors media feature"
+  },
   "inspector_main/RenderingOptions.js | forcesCssPreferscolorschemeMedia": {
     "message": "Forces CSS prefers-color-scheme media feature"
   },
@@ -7982,6 +7985,9 @@
   "sdk/sdk-meta.ts | doNotEmulateCssColorgamut": {
     "message": "Do not emulate CSS color-gamut"
   },
+  "sdk/sdk-meta.ts | doNotEmulateCssForcedColors": {
+    "message": "Do not emulate CSS forced-colors"
+  },
   "sdk/sdk-meta.ts | doNotEmulateCssMediaType": {
     "message": "Do not emulate CSS media type"
   },
@@ -8027,11 +8033,20 @@
   "sdk/sdk-meta.ts | emulateCssColorgamutSrgb": {
     "message": "Emulate CSS color-gamut: srgb"
   },
+  "sdk/sdk-meta.ts | emulateCssForcedColors": {
+    "message": "Emulate CSS forced-colors: active"
+  },
+  "sdk/sdk-meta.ts | emulateCssForcedColorsNone": {
+    "message": "Emulate CSS forced-colors: none"
+  },
   "sdk/sdk-meta.ts | emulateCssMediaFeature": {
     "message": "Emulate CSS media feature prefers-color-scheme"
   },
   "sdk/sdk-meta.ts | emulateCssMediaFeatureColorgamut": {
     "message": "Emulate CSS media feature color-gamut"
+  },
+  "sdk/sdk-meta.ts | emulateCssMediaFeatureForcedColors": {
+    "message": "Emulate CSS media feature forced-colors"
   },
   "sdk/sdk-meta.ts | emulateCssMediaFeaturePrefersreduceddata": {
     "message": "Emulate CSS media feature prefers-reduced-data"
