@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a14de8e9_1b9e655e",
+        "filename": "front_end/sources/javaScriptBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-03-26T23:17:32Z",
+      "side": 1,
+      "message": "Two things:\n  1. I think we can get rid of the border-right styling. It\u0027s very subtle and I don\u0027t think it adds anything to the visual of a bp being hit.\n  2. This color doesn\u0027t have a variable equivalent.\n\nHere\u0027s how this UI element looks: https://imgur.com/a/ywBAdnn",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
