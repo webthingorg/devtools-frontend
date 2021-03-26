@@ -8,8 +8,7 @@
   padding: 3px 8px 3px 8px;
   min-height: 18px;
   line-height: 15px;
-  border-top: 1px solid #efefef; /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  border-top: 1px solid var(--color-details-hairline-light);
 }
 
 .breakpoint-entry:focus {
@@ -22,8 +21,7 @@
 }
 
 :not(.breakpoints-list-deactivated) > .breakpoint-entry:hover {
-  background-color: #eee; /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--color-background-elevation-1);
 }
 
 .breakpoint-entry > .source-text {
@@ -35,8 +33,7 @@
 }
 
 .breakpoints-list-deactivated {
-  background-color: #eee; /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  background-color: var(--color-background-elevation-1);
   opacity: 30%;
 }
 
@@ -49,7 +46,7 @@
 
 :host-context(.-theme-with-dark-background) .breakpoint-hit {
   background-color: hsl(46deg 98% 22%);
-  color: #ccc;
+  color: var(--color-text-primary);
 }
 
 @media (forced-colors: active) {
