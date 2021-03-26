@@ -88,6 +88,24 @@
       "parentUuid": "3057c927_699711c1",
       "revId": "6aaf4bd09428ff31bcaa8502d59f223b5f0dfbbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5336ec09_5a1620a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-03-26T15:44:33Z",
+      "side": 1,
+      "message": "Hello, I have updated the patch. Please review it. Thanks",
+      "parentUuid": "57b9a09f_415d58e5",
+      "revId": "6aaf4bd09428ff31bcaa8502d59f223b5f0dfbbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
