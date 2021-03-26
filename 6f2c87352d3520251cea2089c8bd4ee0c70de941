@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca9a815_b97d40c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-03-26T22:15:30Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "6f2c87352d3520251cea2089c8bd4ee0c70de941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af88ea80_13c44464",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-03-26T22:15:30Z",
+      "side": 1,
+      "message": "Using `--color-background-hover-overlay` was very subtle in this case",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 55
+      },
+      "revId": "6f2c87352d3520251cea2089c8bd4ee0c70de941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
