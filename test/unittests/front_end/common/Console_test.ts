@@ -25,9 +25,9 @@ describe('Console', () => {
 
   it('adds handles messages of all types', () => {
     const messageTypes = new Map<Common.Console.MessageLevel, string>([
-      ['Info', 'log'],
-      ['Warning', 'warn'],
-      ['Error', 'error'],
+      [Common.Console.MessageLevel.Info, 'log'],
+      [Common.Console.MessageLevel.Warning, 'warn'],
+      [Common.Console.MessageLevel.Error, 'error'],
     ]);
 
     for (const [type, method] of messageTypes) {

@@ -5,18 +5,12 @@
 const UNINITIALIZED = Symbol('uninitialized');
 const ERROR_STATE = Symbol('error');
 
-/**
- * @template T
- * @param {function():T} producer
- * @return {function():symbol|T}
- */
-export function lazy(producer) {
-  /** @type {symbol|T} */
-  let value = UNINITIALIZED;
-  /** @type {?Error} */
-  let error = null;
+export function lazy<T>(producer: () => T): () => symbol | T {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  let value: T|typeof ERROR_STATE|typeof UNINITIALIZED = UNINITIALIZED;
+  let error: null = null;
 
-  return () => {
+  return (): symbol|T => {
     if (value === ERROR_STATE) {
       throw error;
     } else if (value !== UNINITIALIZED) {
