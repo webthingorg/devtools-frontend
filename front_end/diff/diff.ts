@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './DiffWrapper.js';
-import './diff_match_patch.js';
+import './DiffWrapper.ts';
+import './diff_match_patch.ts';
 
-import * as Diff from './DiffWrapper.js';
+import * as Diff from './DiffWrapper';
 
 export {
   Diff,
