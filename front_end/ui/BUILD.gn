@@ -18,7 +18,7 @@ devtools_module("ui") {
     "DropTarget.js",
     "EmptyWidget.js",
     "FilterBar.js",
-    "FilterSuggestionBuilder.js",
+    "FilterSuggestionBuilder.ts",
     "ForwardedInputEventHandler.js",
     "Fragment.js",
     "Geometry.js",
