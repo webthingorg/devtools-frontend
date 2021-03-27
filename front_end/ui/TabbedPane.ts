@@ -69,7 +69,7 @@ const UIStrings = {
   */
   closeAll: 'Close all',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/TabbedPane.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/TabbedPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TabbedPane extends VBox {
   constructor() {

@@ -21,7 +21,7 @@ const UIStrings = {
   */
   noItemSelected: '(no item selected)',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SoftDropDown.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SoftDropDown.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @template T

@@ -58,7 +58,7 @@ const UIStrings = {
   */
   undockIntoSeparateWindow: 'Undock into separate window',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/DockController.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/DockController.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /** @type {!DockController} */
 let dockControllerInstance;

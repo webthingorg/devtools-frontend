@@ -25,7 +25,7 @@ const UIStrings = {
   */
   close: 'Close',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/Infobar.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/Infobar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class Infobar {
   /**

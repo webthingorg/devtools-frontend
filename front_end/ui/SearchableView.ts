@@ -89,7 +89,7 @@ const UIStrings = {
   */
   dMatches: '{PH1} matches',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SearchableView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SearchableView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SearchableView extends VBox {
   /**

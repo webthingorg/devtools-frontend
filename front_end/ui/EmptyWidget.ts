@@ -39,7 +39,7 @@ const UIStrings = {
   */
   learnMore: 'Learn more',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/EmptyWidget.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/EmptyWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class EmptyWidget extends VBox {
