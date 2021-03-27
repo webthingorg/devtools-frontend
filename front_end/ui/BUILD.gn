@@ -10,7 +10,7 @@ devtools_module("ui") {
     "ARIAUtils.js",
     "ActionRegistration.ts",
     "ActionRegistry.js",
-    "Context.js",
+    "Context.ts",
     "ContextFlavorListener.js",
     "ContextMenu.js",
     "Dialog.js",
