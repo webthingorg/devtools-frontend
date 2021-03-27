@@ -11,7 +11,7 @@ devtools_pre_built("Images") {
 }
 
 node_action("generate_css_vars") {
-  script = "front_end/Images/generate-css-vars.js"
+  script = "front_end/Images/generate-css-vars.ts"
 
   args = [
            rebase_path(target_gen_dir, root_build_dir),
