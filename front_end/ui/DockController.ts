@@ -28,13 +28,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 
-import {ActionDelegate} from './ActionRegistration.js';             // eslint-disable-line no-unused-vars
-import {Context} from './Context.js';                               // eslint-disable-line no-unused-vars
-import {Provider, ToolbarButton, ToolbarItem} from './Toolbar.js';  // eslint-disable-line no-unused-vars
+import { ActionDelegate } from './ActionRegistration.js'; // eslint-disable-line no-unused-vars
+import { Context } from './Context.js'; // eslint-disable-line no-unused-vars
+import { Provider, ToolbarButton, ToolbarItem } from './Toolbar.js'; // eslint-disable-line no-unused-vars
 
 const UIStrings = {
   /**
@@ -58,30 +60,27 @@ const UIStrings = {
   */
   undockIntoSeparateWindow: 'Undock into separate window',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/DockController.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/DockController.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/** @type {!DockController} */
-let dockControllerInstance;
+let dockControllerInstance: DockController;
 
 export class DockController extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {boolean} canDock
-   */
-  constructor(canDock) {
+  _canDock: boolean;
+  _closeButton: ToolbarButton;
+  _currentDockStateSetting: Common.Settings.Setting<any>;
+  _lastDockStateSetting: Common.Settings.Setting<any>;
+  _dockSide!: string;
+  _titles?: Common.UIString.LocalizedString[];
+  _savedFocus?: Element | null;
+  constructor(canDock: boolean) {
     super();
     this._canDock = canDock;
 
     this._closeButton = new ToolbarButton(i18nString(UIStrings.close), 'largeicon-delete');
-    this._closeButton.addEventListener(
-        ToolbarButton.Events.Click,
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.closeWindow.bind(
-            Host.InspectorFrontendHost.InspectorFrontendHostInstance));
+    this._closeButton.addEventListener(ToolbarButton.Events.Click, Host.InspectorFrontendHost.InspectorFrontendHostInstance.closeWindow.bind(Host.InspectorFrontendHost.InspectorFrontendHostInstance));
 
     this._currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('currentDockState');
     this._lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', 'bottom');
-
-    /** @type {string} */
-    this._dockSide;
 
     if (!canDock) {
       this._dockSide = State.Undocked;
@@ -98,12 +97,11 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {{forceNew: ?boolean, canDock: boolean}} opts
-   * @return {!DockController}
-   */
-  static instance(opts = {forceNew: null, canDock: false}) {
-    const {forceNew, canDock} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+    canDock: boolean;
+  } = { forceNew: null, canDock: false }): DockController {
+    const { forceNew, canDock } = opts;
     if (!dockControllerInstance || forceNew) {
       dockControllerInstance = new DockController(canDock);
     }
@@ -111,7 +109,7 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     return dockControllerInstance;
   }
 
-  initialize() {
+  initialize(): void {
     if (!this._canDock) {
       return;
     }
@@ -123,35 +121,23 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     this._dockSideChanged();
   }
 
-  _dockSideChanged() {
+  _dockSideChanged(): void {
     this.setDockSide(this._currentDockStateSetting.get());
   }
 
-  /**
-   * @return {string}
-   */
-  dockSide() {
+  dockSide(): string {
     return this._dockSide;
   }
 
-  /**
-   * @return {boolean}
-   */
-  canDock() {
+  canDock(): boolean {
     return this._canDock;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isVertical() {
+  isVertical(): boolean {
     return this._dockSide === State.DockedToRight || this._dockSide === State.DockedToLeft;
   }
 
-  /**
-   * @param {string} dockSide
-   */
-  setDockSide(dockSide) {
+  setDockSide(dockSide: string): void {
     if (states.indexOf(dockSide) === -1) {
       dockSide = states[0];
     }
@@ -165,29 +151,28 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this._savedFocus = document.deepActiveElement();
-    const eventData = {from: this._dockSide, to: dockSide};
+    const eventData = { from: this._dockSide, to: dockSide };
     this.dispatchEventToListeners(Events.BeforeDockSideChanged, eventData);
     console.timeStamp('DockController.setIsDocked');
     this._dockSide = dockSide;
     this._currentDockStateSetting.set(dockSide);
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.setIsDocked(
-        dockSide !== State.Undocked, this._setIsDockedResponse.bind(this, eventData));
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.setIsDocked(dockSide !== State.Undocked, this._setIsDockedResponse.bind(this, eventData));
     this._closeButton.setVisible(this._dockSide !== State.Undocked);
     this.dispatchEventToListeners(Events.DockSideChanged, eventData);
   }
 
-  /**
-   * @param {{from: string, to: string}} eventData
-   */
-  _setIsDockedResponse(eventData) {
+  _setIsDockedResponse(eventData: {
+    from: string;
+    to: string;
+  }): void {
     this.dispatchEventToListeners(Events.AfterDockSideChanged, eventData);
     if (this._savedFocus) {
-      /** @type {!HTMLElement} */ (this._savedFocus).focus();
+      (this._savedFocus as HTMLElement).focus();
       this._savedFocus = null;
     }
   }
 
-  _toggleDockSide() {
+  _toggleDockSide(): void {
     if (this._lastDockStateSetting.get() === this._currentDockStateSetting.get()) {
       const index = states.indexOf(this._currentDockStateSetting.get()) || 0;
       this._lastDockStateSetting.set(states[(index + 1) % states.length]);
@@ -209,25 +194,20 @@ const states = [State.DockedToRight, State.DockedToBottom, State.DockedToLeft, S
 // DockSideChanged to update UI, and AfterDockSideChanged to perform actions
 // after frontend is docked/undocked in the browser.
 
-/** @enum {symbol} */
-export const Events = {
-  BeforeDockSideChanged: Symbol('BeforeDockSideChanged'),
-  DockSideChanged: Symbol('DockSideChanged'),
-  AfterDockSideChanged: Symbol('AfterDockSideChanged')
-};
+export const enum Events {
+  BeforeDockSideChanged = 'BeforeDockSideChanged',
+  DockSideChanged = 'DockSideChanged',
+  AfterDockSideChanged = 'AfterDockSideChanged'
+}
+;
 
-/** @type {!ToggleDockActionDelegate} */
-let toggleDockActionDelegateInstance;
+let toggleDockActionDelegateInstance: ToggleDockActionDelegate;
 
-/**
- * @implements {ActionDelegate}
- */
-export class ToggleDockActionDelegate {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+export class ToggleDockActionDelegate implements ActionDelegate {
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): ToggleDockActionDelegate {
+    const { forceNew } = opts;
     if (!toggleDockActionDelegateInstance || forceNew) {
       toggleDockActionDelegateInstance = new ToggleDockActionDelegate();
     }
@@ -235,30 +215,19 @@ export class ToggleDockActionDelegate {
     return toggleDockActionDelegateInstance;
   }
 
-  /**
-   * @override
-   * @param {!Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+  handleAction(context: Context, actionId: string): boolean {
     DockController.instance()._toggleDockSide();
     return true;
   }
 }
 
-/** @type {!CloseButtonProvider} */
-let closeButtonProviderInstance;
+let closeButtonProviderInstance: CloseButtonProvider;
 
-/**
- * @implements {Provider}
- */
-export class CloseButtonProvider {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+export class CloseButtonProvider implements Provider {
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): CloseButtonProvider {
+    const { forceNew } = opts;
     if (!closeButtonProviderInstance || forceNew) {
       closeButtonProviderInstance = new CloseButtonProvider();
     }
@@ -266,11 +235,7 @@ export class CloseButtonProvider {
     return closeButtonProviderInstance;
   }
 
-  /**
-   * @override
-   * @return {?ToolbarItem}
-   */
-  item() {
+  item(): ToolbarItem | null {
     return DockController.instance()._closeButton;
   }
 }
