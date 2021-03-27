@@ -1052,7 +1052,7 @@
   "issues/IssueView.ts | warned": {
     "message": "Warned"
   },
-  "js_main/JsMain.js | main": {
+  "js_main/JsMain.ts | main": {
     "message": "Main"
   },
   "js_profiler/js_profiler-meta.ts | profiler": {

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
@@ -15,20 +17,15 @@ const UIStrings = {
   main: 'Main',
 };
 
-const str_ = i18n.i18n.registerUIStrings('js_main/JsMain.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('js_main/JsMain.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {!JsMainImpl} */
-let jsMainImplInstance;
+let jsMainImplInstance: JsMainImpl;
 
-/**
- * @implements {Common.Runnable.Runnable}
- */
-export class JsMainImpl extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
+export class JsMainImpl extends Common.ObjectWrapper.ObjectWrapper implements Common.Runnable.Runnable {
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): JsMainImpl {
     const {forceNew} = opts;
     if (!jsMainImplInstance || forceNew) {
       jsMainImplInstance = new JsMainImpl();
@@ -36,10 +33,7 @@ export class JsMainImpl extends Common.ObjectWrapper.ObjectWrapper {
 
     return jsMainImplInstance;
   }
-  /**
-   * @override
-   */
-  run() {
+  run(): Promise<void> {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.ConnectToNodeJSDirectly);
     SDK.Connections.initMainConnection(() => {
       const target = SDK.SDKModel.TargetManager.instance().createTarget(
