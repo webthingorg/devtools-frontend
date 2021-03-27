@@ -28,7 +28,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
 
@@ -41,8 +43,7 @@ const UIStrings = {
   /**
   * @description Explanation text for the 'Paint flashing' setting in the Rendering tool.
   */
-  highlightsAreasOfThePageGreen:
-      'Highlights areas of the page (green) that need to be repainted. May not be suitable for people prone to photosensitive epilepsy.',
+  highlightsAreasOfThePageGreen: 'Highlights areas of the page (green) that need to be repainted. May not be suitable for people prone to photosensitive epilepsy.',
   /**
   * @description The name of a checkbox setting in the Rendering tool. This setting highlights areas
   * (regions) of the page that were shifted (where a 'layout shift' occurred). A layout shift is
@@ -52,8 +53,7 @@ const UIStrings = {
   /**
   * @description Explanation text for the 'Layout Shift Regions' setting in the Rendering tool.
   */
-  highlightsAreasOfThePageBlueThat:
-      'Highlights areas of the page (blue) that were shifted. May not be suitable for people prone to photosensitive epilepsy.',
+  highlightsAreasOfThePageBlueThat: 'Highlights areas of the page (blue) that were shifted. May not be suitable for people prone to photosensitive epilepsy.',
   /**
   * @description The name of a checkbox setting in the Rendering tool. This setting shows the
   * borders of layers on the page. Layer is a noun.
@@ -81,8 +81,7 @@ const UIStrings = {
   /**
   * @description Explanation text for the 'Scrolling performance issues' setting in the Rendering tool.
   */
-  highlightsElementsTealThatCan:
-      'Highlights elements (teal) that can slow down scrolling, including touch & wheel event handlers and other main-thread scrolling situations.',
+  highlightsElementsTealThatCan: 'Highlights elements (teal) that can slow down scrolling, including touch & wheel event handlers and other main-thread scrolling situations.',
   /**
   * @description The name of a checkbox setting in the Rendering tool. This setting highlights the
   * rendering frames for ads that are found on the page.
@@ -173,7 +172,7 @@ const UIStrings = {
   */
   disableWebpImageFormat: 'Disable `WebP` image format',
 };
-const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 // TODO(1096068): remove this feature detection and expose the UI
@@ -181,99 +180,55 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 // point, we can also add `category` and `tags` to the entry in
 // `front_end/sdk/module.json` to make this feature available in the
 // Command Menu.
-/**
- * @return {boolean}
- */
-const supportsPrefersReducedData = () => {
+const supportsPrefersReducedData = (): boolean => {
   const query = '(prefers-reduced-data: reduce)';
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
 };
 
-/** @type {!RenderingOptionsView} */
-let renderingOptionsViewInstance;
+let renderingOptionsViewInstance: RenderingOptionsView;
 
 export class RenderingOptionsView extends UI.Widget.VBox {
-  /**
-     * @private
-     */
-  constructor() {
+  private constructor() {
     super(true);
-    this.registerRequiredCSS('inspector_main/renderingOptions.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('inspector_main/renderingOptions.css', { enableLegacyPatching: false });
 
-    this._appendCheckbox(
-        i18nString(UIStrings.paintFlashing), i18nString(UIStrings.highlightsAreasOfThePageGreen),
-        Common.Settings.Settings.instance().moduleSetting('showPaintRects'));
-    this._appendCheckbox(
-        i18nString(UIStrings.layoutShiftRegions), i18nString(UIStrings.highlightsAreasOfThePageBlueThat),
-        Common.Settings.Settings.instance().moduleSetting('showLayoutShiftRegions'));
-    this._appendCheckbox(
-        i18nString(UIStrings.layerBorders), i18nString(UIStrings.showsLayerBordersOrangeoliveAnd),
-        Common.Settings.Settings.instance().moduleSetting('showDebugBorders'));
-    this._appendCheckbox(
-        i18nString(UIStrings.frameRenderingStats), i18nString(UIStrings.plotsFrameThroughputDropped),
-        Common.Settings.Settings.instance().moduleSetting('showFPSCounter'));
-    this._appendCheckbox(
-        i18nString(UIStrings.scrollingPerformanceIssues), i18nString(UIStrings.highlightsElementsTealThatCan),
-        Common.Settings.Settings.instance().moduleSetting('showScrollBottleneckRects'));
-    this._appendCheckbox(
-        i18nString(UIStrings.highlightAdFrames), i18nString(UIStrings.highlightsFramesRedDetectedToBe),
-        Common.Settings.Settings.instance().moduleSetting('showAdHighlights'));
-    this._appendCheckbox(
-        i18nString(UIStrings.hittestBorders), i18nString(UIStrings.showsBordersAroundHittestRegions),
-        Common.Settings.Settings.instance().moduleSetting('showHitTestBorders'));
-    this._appendCheckbox(
-        i18nString(UIStrings.coreWebVitals), i18nString(UIStrings.showsAnOverlayWithCoreWebVitals),
-        Common.Settings.Settings.instance().moduleSetting('showWebVitals'));
-    this._appendCheckbox(
-        i18nString(UIStrings.disableLocalFonts), i18nString(UIStrings.disablesLocalSourcesInFontface),
-        Common.Settings.Settings.instance().moduleSetting('localFontsDisabled'));
-    this._appendCheckbox(
-        i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage),
-        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
+    this._appendCheckbox(i18nString(UIStrings.paintFlashing), i18nString(UIStrings.highlightsAreasOfThePageGreen), Common.Settings.Settings.instance().moduleSetting('showPaintRects'));
+    this._appendCheckbox(i18nString(UIStrings.layoutShiftRegions), i18nString(UIStrings.highlightsAreasOfThePageBlueThat), Common.Settings.Settings.instance().moduleSetting('showLayoutShiftRegions'));
+    this._appendCheckbox(i18nString(UIStrings.layerBorders), i18nString(UIStrings.showsLayerBordersOrangeoliveAnd), Common.Settings.Settings.instance().moduleSetting('showDebugBorders'));
+    this._appendCheckbox(i18nString(UIStrings.frameRenderingStats), i18nString(UIStrings.plotsFrameThroughputDropped), Common.Settings.Settings.instance().moduleSetting('showFPSCounter'));
+    this._appendCheckbox(i18nString(UIStrings.scrollingPerformanceIssues), i18nString(UIStrings.highlightsElementsTealThatCan), Common.Settings.Settings.instance().moduleSetting('showScrollBottleneckRects'));
+    this._appendCheckbox(i18nString(UIStrings.highlightAdFrames), i18nString(UIStrings.highlightsFramesRedDetectedToBe), Common.Settings.Settings.instance().moduleSetting('showAdHighlights'));
+    this._appendCheckbox(i18nString(UIStrings.hittestBorders), i18nString(UIStrings.showsBordersAroundHittestRegions), Common.Settings.Settings.instance().moduleSetting('showHitTestBorders'));
+    this._appendCheckbox(i18nString(UIStrings.coreWebVitals), i18nString(UIStrings.showsAnOverlayWithCoreWebVitals), Common.Settings.Settings.instance().moduleSetting('showWebVitals'));
+    this._appendCheckbox(i18nString(UIStrings.disableLocalFonts), i18nString(UIStrings.disablesLocalSourcesInFontface), Common.Settings.Settings.instance().moduleSetting('localFontsDisabled'));
+    this._appendCheckbox(i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage), Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
-    this._appendSelect(
-        i18nString(UIStrings.forcesMediaTypeForTestingPrint),
-        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMedia'));
-    this._appendSelect(
-        i18nString(UIStrings.forcesCssPreferscolorschemeMedia),
-        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme'));
-    this._appendSelect(
-        i18nString(UIStrings.forcesCssPrefersreducedmotion),
-        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
+    this._appendSelect(i18nString(UIStrings.forcesMediaTypeForTestingPrint), Common.Settings.Settings.instance().moduleSetting('emulatedCSSMedia'));
+    this._appendSelect(i18nString(UIStrings.forcesCssPreferscolorschemeMedia), Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersColorScheme'));
+    this._appendSelect(i18nString(UIStrings.forcesCssPrefersreducedmotion), Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
     if (supportsPrefersReducedData()) {
-      this._appendSelect(
-          i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
-          Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedData'));
+      this._appendSelect(i18nString(UIStrings.forcesCssPrefersreduceddataMedia), Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedData'));
     }
-    this._appendSelect(
-        i18nString(UIStrings.forcesCssColorgamutMediaFeature),
-        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureColorGamut'));
+    this._appendSelect(i18nString(UIStrings.forcesCssColorgamutMediaFeature), Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureColorGamut'));
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
-    this._appendSelect(
-        i18nString(UIStrings.forcesVisionDeficiencyEmulation),
-        Common.Settings.Settings.instance().moduleSetting('emulatedVisionDeficiency'));
+    this._appendSelect(i18nString(UIStrings.forcesVisionDeficiencyEmulation), Common.Settings.Settings.instance().moduleSetting('emulatedVisionDeficiency'));
 
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
-    this._appendCheckbox(
-        i18nString(UIStrings.disableAvifImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
-        Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled'));
+    this._appendCheckbox(i18nString(UIStrings.disableAvifImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd), Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled'));
 
-    this._appendCheckbox(
-        i18nString(UIStrings.disableWebpImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
-        Common.Settings.Settings.instance().moduleSetting('webpFormatDisabled'));
+    this._appendCheckbox(i18nString(UIStrings.disableWebpImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd), Common.Settings.Settings.instance().moduleSetting('webpFormatDisabled'));
 
     this.contentElement.createChild('div').classList.add('panel-section-separator');
   }
 
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): RenderingOptionsView {
+    const { forceNew } = opts;
     if (!renderingOptionsViewInstance || forceNew) {
       renderingOptionsViewInstance = new RenderingOptionsView();
     }
@@ -281,22 +236,13 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     return renderingOptionsViewInstance;
   }
 
-  /**
-   * @param {string} label
-   * @param {string} subtitle
-   * @param {!Common.Settings.Setting<boolean>} setting
-   */
-  _appendCheckbox(label, subtitle, setting) {
+  _appendCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>): void {
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(label, false, subtitle);
     UI.SettingsUI.bindCheckbox(checkboxLabel.checkboxElement, setting);
     this.contentElement.appendChild(checkboxLabel);
   }
 
-  /**
-   * @param {string} label
-   * @param {!Common.Settings.Setting<*>} setting
-   */
-  _appendSelect(label, setting) {
+  _appendSelect(label: string, setting: Common.Settings.Setting<any>): void {
     const control = UI.SettingsUI.createControlForSetting(setting, label);
     if (control) {
       this.contentElement.appendChild(control);
