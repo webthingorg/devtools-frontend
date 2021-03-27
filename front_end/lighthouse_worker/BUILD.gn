@@ -11,8 +11,8 @@ group("bundle") {
 
 copy_to_gen("gen") {
   sources = [
-    "LighthouseService.js",
-    "lighthouse_worker.js",
+    "LighthouseService.ts",
+    "lighthouse_worker.ts",
   ]
 
   deps = [ "../third_party/lighthouse" ]
