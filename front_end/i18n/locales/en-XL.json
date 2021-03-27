@@ -11057,19 +11057,19 @@
   "ui/components/SurveyLink.ts | thankYouForYourFeedback": {
     "message": "T̂h́âńk̂ ýôú f̂ór̂ ýôúr̂ f́êéd̂b́âćk̂"
   },
-  "ui/DockController.js | close": {
+  "ui/DockController.ts | close": {
     "message": "Ĉĺôśê"
   },
-  "ui/DockController.js | dockToBottom": {
+  "ui/DockController.ts | dockToBottom": {
     "message": "D̂óĉḱ t̂ó b̂ót̂t́ôḿ"
   },
-  "ui/DockController.js | dockToLeft": {
+  "ui/DockController.ts | dockToLeft": {
     "message": "D̂óĉḱ t̂ó l̂éf̂t́"
   },
-  "ui/DockController.js | dockToRight": {
+  "ui/DockController.ts | dockToRight": {
     "message": "D̂óĉḱ t̂ó r̂íĝh́t̂"
   },
-  "ui/DockController.js | undockIntoSeparateWindow": {
+  "ui/DockController.ts | undockIntoSeparateWindow": {
     "message": "Ûńd̂óĉḱ îńt̂ó ŝép̂ár̂át̂é ŵín̂d́ôẃ"
   },
   "ui/EmptyWidget.js | learnMore": {

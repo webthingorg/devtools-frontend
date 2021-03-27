@@ -11057,19 +11057,19 @@
   "ui/components/SurveyLink.ts | thankYouForYourFeedback": {
     "message": "Thank you for your feedback"
   },
-  "ui/DockController.js | close": {
+  "ui/DockController.ts | close": {
     "message": "Close"
   },
-  "ui/DockController.js | dockToBottom": {
+  "ui/DockController.ts | dockToBottom": {
     "message": "Dock to bottom"
   },
-  "ui/DockController.js | dockToLeft": {
+  "ui/DockController.ts | dockToLeft": {
     "message": "Dock to left"
   },
-  "ui/DockController.js | dockToRight": {
+  "ui/DockController.ts | dockToRight": {
     "message": "Dock to right"
   },
-  "ui/DockController.js | undockIntoSeparateWindow": {
+  "ui/DockController.ts | undockIntoSeparateWindow": {
     "message": "Undock into separate window"
   },
   "ui/EmptyWidget.js | learnMore": {
