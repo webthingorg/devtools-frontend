@@ -2,52 +2,40 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ExtensionServer} from './ExtensionServer.js';
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import { ExtensionServer } from './ExtensionServer.js';
 
 export class ExtensionTraceProvider {
-  /**
-   * @param {string} extensionOrigin
-   * @param {string} id
-   * @param {string} categoryName
-   * @param {string} categoryTooltip
-   */
-  constructor(extensionOrigin, id, categoryName, categoryTooltip) {
+  _extensionOrigin: string;
+  _id: string;
+  _categoryName: string;
+  _categoryTooltip: string;
+  constructor(extensionOrigin: string, id: string, categoryName: string, categoryTooltip: string) {
     this._extensionOrigin = extensionOrigin;
     this._id = id;
     this._categoryName = categoryName;
     this._categoryTooltip = categoryTooltip;
   }
 
-  /**
-   * @param {!TracingSession} session
-   */
-  start(session) {
+  start(session: TracingSession): void {
     const sessionId = String(++_lastSessionId);
     ExtensionServer.instance().startTraceRecording(this._id, sessionId, session);
   }
 
-  stop() {
+  stop(): void {
     ExtensionServer.instance().stopTraceRecording(this._id);
   }
 
-  /**
-   * @return {string}
-   */
-  shortDisplayName() {
+  shortDisplayName(): string {
     return this._categoryName;
   }
 
-  /**
-   * @return {string}
-   */
-  longDisplayName() {
+  longDisplayName(): string {
     return this._categoryTooltip;
   }
 
-  /**
-   * @return {string}
-   */
-  persistentIdentifier() {
+  persistentIdentifier(): string {
     return `${this._extensionOrigin}/${this._categoryName}`;
   }
 }
@@ -57,11 +45,6 @@ let _lastSessionId = 0;
 /**
  * @interface
  */
-export class TracingSession {
-  /**
-   * @param {string} url
-   * @param {number} timeOffsetMicroseconds
-   */
-  complete(url, timeOffsetMicroseconds) {
-  }
+export interface TracingSession {
+  complete(url: string, timeOffsetMicroseconds: number): void;
 }
