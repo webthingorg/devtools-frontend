@@ -16,7 +16,7 @@ const UIStrings = {
   */
   oncePageIsReloadedDevtoolsWill: 'Once page is reloaded, DevTools will automatically reconnect.',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/TargetCrashedScreen.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/TargetCrashedScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TargetCrashedScreen extends VBox {
   /**

@@ -62,7 +62,7 @@ const UIStrings = {
   */
   allStrings: 'All',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/FilterBar.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/FilterBar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class FilterBar extends HBox {
   /**

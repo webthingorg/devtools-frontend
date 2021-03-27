@@ -23,7 +23,7 @@ const UIStrings = {
   */
   sPanel: '{PH1} panel',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/ViewManager.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/ViewManager.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @implements {View}

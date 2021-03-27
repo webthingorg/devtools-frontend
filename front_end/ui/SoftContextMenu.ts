@@ -60,7 +60,7 @@ const UIStrings = {
   */
   sS: '{PH1}, {PH2}',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SoftContextMenu.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SoftContextMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SoftContextMenu {
   /**

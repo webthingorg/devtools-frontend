@@ -33,7 +33,7 @@ const UIStrings = {
   */
   cancelString: 'Cancel',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/ListWidget.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/ListWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @template T

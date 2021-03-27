@@ -47,7 +47,7 @@ const UIStrings = {
   */
   oneOrMoreSettingsHaveChanged: 'One or more settings have changed which requires a reload to take effect.',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SettingsUI.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SettingsUI.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @param {string} name

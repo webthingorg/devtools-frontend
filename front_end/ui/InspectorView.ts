@@ -77,7 +77,7 @@ const UIStrings = {
   */
   moveToBottom: 'Move to bottom',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/InspectorView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/InspectorView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /** @type {!InspectorView} */
 let inspectorViewInstance;

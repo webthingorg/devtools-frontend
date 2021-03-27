@@ -133,7 +133,7 @@ const UIStrings = {
   */
   cancel: 'Cancel',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/UIUtils.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/UIUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export const highlightedSearchResultClassName = 'highlighted-search-result';
 export const highlightedCurrentSearchResultClassName = 'current-search-result';

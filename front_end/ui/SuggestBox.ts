@@ -51,7 +51,7 @@ const UIStrings = {
   */
   sSuggestionSOfS: '{PH1}, suggestion {PH2} of {PH3}',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SuggestBox.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SuggestBox.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @interface
