@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as RootModule from '../root/root.js';
 
 // Legacy runtime namespace definitions
@@ -41,15 +43,12 @@ Root.allDescriptors = Root.allDescriptors || [];
 // @ts-ignore
 Root.applicationDescriptor = Root.applicationDescriptor || undefined;
 
-/**
- * @param {string} appName
- * @return {!Promise.<void>}
- */
-export async function startApplication(appName) {
+export async function startApplication(appName: string): Promise<void> {
   console.timeStamp('Root.Runtime.startApplication');
 
-  /** @type {!Object<string, RootModule.Runtime.ModuleDescriptor>} */
-  const allDescriptorsByName = {};
+  const allDescriptorsByName: {
+    [x: string]: RootModule.Runtime.ModuleDescriptor;
+  } = {};
   for (let i = 0; i < Root.allDescriptors.length; ++i) {
     const d = Root.allDescriptors[i];
     allDescriptorsByName[d['name']] = d;
@@ -71,7 +70,7 @@ export async function startApplication(appName) {
     moduleDescriptors[i].name = configuration[i]['name'];
     moduleDescriptors[i].condition = configuration[i]['condition'];
   }
-  const runtimeInstance = RootModule.Runtime.Runtime.instance({forceNew: true, moduleDescriptors});
+  const runtimeInstance = RootModule.Runtime.Runtime.instance({ forceNew: true, moduleDescriptors });
   // @ts-ignore Exposed for legacy layout tests
   self.runtime = runtimeInstance;
   if (coreModuleNames) {
@@ -80,14 +79,10 @@ export async function startApplication(appName) {
   RootModule.Runtime.appStartedPromiseCallback();
 }
 
-/**
- * @param {string} appName
- * @return {!Promise.<void>}
- */
-export async function startWorker(appName) {
+export async function startWorker(appName: string): Promise<void> {
   return startApplication(appName).then(sendWorkerReady);
 
-  function sendWorkerReady() {
+  function sendWorkerReady(): void {
     // @ts-ignore
     self.postMessage('workerReady');
   }
