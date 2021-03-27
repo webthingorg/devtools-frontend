@@ -7,21 +7,21 @@ import("../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("diff") {
   sources = [
-    "DiffWrapper.js",
-    "diff_match_patch.js",
+    "DiffWrapper.ts",
+    "diff_match_patch.ts",
   ]
 
   deps = [ "../common:bundle" ]
 }
 
 devtools_entrypoint("bundle") {
-  entrypoint = "diff.js"
+  entrypoint = "diff.ts"
 
   deps = [ ":diff" ]
 }
 
 devtools_entrypoint("legacy") {
-  entrypoint = "diff-legacy.js"
+  entrypoint = "diff-legacy.ts"
 
   deps = [ ":bundle" ]
 }
