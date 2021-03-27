@@ -11174,16 +11174,16 @@
   "ui/SettingsUI.js | srequiresReload": {
     "message": "{PH1}R̂éq̂úîŕêś r̂él̂óâd́"
   },
-  "ui/SoftContextMenu.js | checked": {
+  "ui/SoftContextMenu.ts | checked": {
     "message": "ĉh́êćk̂éd̂"
   },
-  "ui/SoftContextMenu.js | sS": {
+  "ui/SoftContextMenu.ts | sS": {
     "message": "{PH1}, {PH2}"
   },
-  "ui/SoftContextMenu.js | sSS": {
+  "ui/SoftContextMenu.ts | sSS": {
     "message": "{PH1}, {PH2}, {PH3}"
   },
-  "ui/SoftContextMenu.js | unchecked": {
+  "ui/SoftContextMenu.ts | unchecked": {
     "message": "ûńĉh́êćk̂éd̂"
   },
   "ui/SoftDropDown.js | noItemSelected": {
