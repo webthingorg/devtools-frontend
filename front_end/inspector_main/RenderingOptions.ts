@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
@@ -173,7 +175,7 @@ const UIStrings = {
   */
   disableWebpImageFormat: 'Disable `WebP` image format',
 };
-const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('inspector_main/RenderingOptions.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 // TODO(1096068): remove this feature detection and expose the UI
@@ -181,23 +183,16 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 // point, we can also add `category` and `tags` to the entry in
 // `front_end/sdk/module.json` to make this feature available in the
 // Command Menu.
-/**
- * @return {boolean}
- */
-const supportsPrefersReducedData = () => {
+const supportsPrefersReducedData = (): boolean => {
   const query = '(prefers-reduced-data: reduce)';
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
 };
 
-/** @type {!RenderingOptionsView} */
-let renderingOptionsViewInstance;
+let renderingOptionsViewInstance: RenderingOptionsView;
 
 export class RenderingOptionsView extends UI.Widget.VBox {
-  /**
-     * @private
-     */
-  constructor() {
+  private constructor() {
     super(true);
     this.registerRequiredCSS('inspector_main/renderingOptions.css', {enableLegacyPatching: false});
 
@@ -269,10 +264,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
   }
 
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): RenderingOptionsView {
     const {forceNew} = opts;
     if (!renderingOptionsViewInstance || forceNew) {
       renderingOptionsViewInstance = new RenderingOptionsView();
@@ -281,22 +275,15 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     return renderingOptionsViewInstance;
   }
 
-  /**
-   * @param {string} label
-   * @param {string} subtitle
-   * @param {!Common.Settings.Setting<boolean>} setting
-   */
-  _appendCheckbox(label, subtitle, setting) {
+  _appendCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>): void {
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(label, false, subtitle);
     UI.SettingsUI.bindCheckbox(checkboxLabel.checkboxElement, setting);
     this.contentElement.appendChild(checkboxLabel);
   }
 
-  /**
-   * @param {string} label
-   * @param {!Common.Settings.Setting<*>} setting
-   */
-  _appendSelect(label, setting) {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _appendSelect(label: string, setting: Common.Settings.Setting<any>): void {
     const control = UI.SettingsUI.createControlForSetting(setting, label);
     if (control) {
       this.contentElement.appendChild(control);
