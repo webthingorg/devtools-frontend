@@ -28,24 +28,27 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
 import * as Root from '../root/root.js';
 
-import {ActionRegistry} from './ActionRegistry.js';
-import {ShortcutRegistry} from './ShortcutRegistry.js';
-import {SoftContextMenu, SoftContextMenuDescriptor} from './SoftContextMenu.js';  // eslint-disable-line no-unused-vars
-import {deepElementFromEvent} from './UIUtils.js';
+import { ActionRegistry } from './ActionRegistry.js';
+import { ShortcutRegistry } from './ShortcutRegistry.js';
+import { SoftContextMenu, SoftContextMenuDescriptor } from './SoftContextMenu.js'; // eslint-disable-line no-unused-vars
+import { deepElementFromEvent } from './UIUtils.js';
 
 export class Item {
-  /**
-   * @param {?ContextMenu} contextMenu
-   * @param {string} type
-   * @param {string=} label
-   * @param {boolean=} disabled
-   * @param {boolean=} checked
-   */
-  constructor(contextMenu, type, label, disabled, checked) {
+  _type: string;
+  _label: string | undefined;
+  _disabled: boolean | undefined;
+  _checked: boolean | undefined;
+  _contextMenu: ContextMenu | null;
+  _id: number | undefined;
+  _customElement!: any;
+  _shortcut?: string;
+  constructor(contextMenu: ContextMenu | null, type: string, label?: string, disabled?: boolean, checked?: boolean) {
     this._type = type;
     this._label = label;
     this._disabled = disabled;
@@ -55,46 +58,28 @@ export class Item {
     if (type === 'item' || type === 'checkbox') {
       this._id = contextMenu ? contextMenu._nextId() : 0;
     }
-
-    /** @type {*} */
-    this._customElement;
   }
 
-  /**
-   * @return {number}
-   */
-  id() {
+  id(): number {
     if (this._id === undefined) {
       throw new Error('Tried to access a ContextMenu Item ID but none was set.');
     }
     return this._id;
   }
 
-  /**
-   * @return {string}
-   */
-  type() {
+  type(): string {
     return this._type;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isEnabled() {
+  isEnabled(): boolean {
     return !this._disabled;
   }
 
-  /**
-   * @param {boolean} enabled
-   */
-  setEnabled(enabled) {
+  setEnabled(enabled: boolean): void {
     this._disabled = !enabled;
   }
 
-  /**
-   * @return {!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor}
-   */
-  _buildDescriptor() {
+  _buildDescriptor(): SoftContextMenuDescriptor | Host.InspectorFrontendHostAPI.ContextMenuDescriptor {
     switch (this._type) {
       case 'item': {
         const result = {
@@ -106,11 +91,11 @@ export class Item {
           subItems: undefined
         };
         if (this._customElement) {
-          const resultAsSoftContextMenuItem = /** @type {!SoftContextMenuDescriptor} */ (result);
-          resultAsSoftContextMenuItem.element = /** @type {!Element} */ (this._customElement);
+          const resultAsSoftContextMenuItem = (result as SoftContextMenuDescriptor);
+          resultAsSoftContextMenuItem.element = (this._customElement as Element);
         }
         if (this._shortcut) {
-          const resultAsSoftContextMenuItem = /** @type {!SoftContextMenuDescriptor} */ (result);
+          const resultAsSoftContextMenuItem = (result as SoftContextMenuDescriptor);
           resultAsSoftContextMenuItem.shortcut = this._shortcut;
         }
         return result;
@@ -139,32 +124,20 @@ export class Item {
     throw new Error('Invalid item type:' + this._type);
   }
 
-  /**
-   * @param {string} shortcut
-   */
-  setShortcut(shortcut) {
+  setShortcut(shortcut: string): void {
     this._shortcut = shortcut;
   }
 }
 
-
 export class Section {
-  /**
-   * @param {?ContextMenu} contextMenu
-   */
-  constructor(contextMenu) {
+  _contextMenu: ContextMenu | null;
+  _items: Item[];
+  constructor(contextMenu: ContextMenu | null) {
     this._contextMenu = contextMenu;
-    /** @type {!Array<!Item>} */
     this._items = [];
   }
 
-  /**
-   * @param {string} label
-   * @param {function():*} handler
-   * @param {boolean=} disabled
-   * @return {!Item}
-   */
-  appendItem(label, handler, disabled) {
+  appendItem(label: string, handler: () => any, disabled?: boolean): Item {
     const item = new Item(this._contextMenu, 'item', label, disabled);
     this._items.push(item);
     if (this._contextMenu) {
@@ -173,32 +146,20 @@ export class Section {
     return item;
   }
 
-  /**
-   * @param {!Element} element
-   * @return {!Item}
-   */
-  appendCustomItem(element) {
+  appendCustomItem(element: Element): Item {
     const item = new Item(this._contextMenu, 'item', '<custom>');
     item._customElement = element;
     this._items.push(item);
     return item;
   }
 
-  /**
-   * @return {!Item}
-   */
-  appendSeparator() {
+  appendSeparator(): Item {
     const item = new Item(this._contextMenu, 'separator');
     this._items.push(item);
     return item;
   }
 
-  /**
-   * @param {string} actionId
-   * @param {string=} label
-   * @param {boolean=} optional
-   */
-  appendAction(actionId, label, optional) {
+  appendAction(actionId: string, label?: string, optional?: boolean): void {
     const action = ActionRegistry.instance().action(actionId);
     if (!action) {
       if (!optional) {
@@ -216,26 +177,14 @@ export class Section {
     }
   }
 
-  /**
-   * @param {string} label
-   * @param {boolean=} disabled
-   * @return {!SubMenu}
-   */
-  appendSubMenuItem(label, disabled) {
+  appendSubMenuItem(label: string, disabled?: boolean): SubMenu {
     const item = new SubMenu(this._contextMenu, label, disabled);
     item._init();
     this._items.push(item);
     return item;
   }
 
-  /**
-   * @param {string} label
-   * @param {function():*} handler
-   * @param {boolean=} checked
-   * @param {boolean=} disabled
-   * @return {!Item}
-   */
-  appendCheckboxItem(label, handler, checked, disabled) {
+  appendCheckboxItem(label: string, handler: () => any, checked?: boolean, disabled?: boolean): Item {
     const item = new Item(this._contextMenu, 'checkbox', label, disabled, checked);
     this._items.push(item);
     if (this._contextMenu) {
@@ -245,120 +194,76 @@ export class Section {
   }
 }
 
-
 export class SubMenu extends Item {
-  /**
-   * @param {?ContextMenu} contextMenu
-   * @param {string=} label
-   * @param {boolean=} disabled
-   */
-  constructor(contextMenu, label, disabled) {
+  _sections: Map<string, Section>;
+  _sectionList: Section[];
+  constructor(contextMenu: ContextMenu | null, label?: string, disabled?: boolean) {
     super(contextMenu, 'subMenu', label, disabled);
-    /** @type {!Map<string, !Section>} */
     this._sections = new Map();
-    /** @type {!Array<!Section>} */
     this._sectionList = [];
   }
 
-  _init() {
+  _init(): void {
     _groupWeights.forEach(name => this.section(name));
   }
 
-  /**
-   * @param {string=} name
-   * @return {!Section}
-   */
-  section(name) {
-    let section = name ? this._sections.get(name) : null;
+  section(name?: string): Section {
+    let section: Section | (Section | null | undefined) = name ? this._sections.get(name) : null;
     if (!section) {
       section = new Section(this._contextMenu);
       if (name) {
         this._sections.set(name, section);
         this._sectionList.push(section);
-      } else {
+      }
+      else {
         this._sectionList.splice(ContextMenu._groupWeights.indexOf('default'), 0, section);
       }
     }
     return section;
   }
 
-  /**
-   * @return {!Section}
-   */
-  headerSection() {
+  headerSection(): Section {
     return this.section('header');
   }
 
-  /**
-   * @return {!Section}
-   */
-  newSection() {
+  newSection(): Section {
     return this.section('new');
   }
 
-  /**
-   * @return {!Section}
-   */
-  revealSection() {
+  revealSection(): Section {
     return this.section('reveal');
   }
 
-  /**
-   * @return {!Section}
-   */
-  clipboardSection() {
+  clipboardSection(): Section {
     return this.section('clipboard');
   }
 
-  /**
-   * @return {!Section}
-   */
-  editSection() {
+  editSection(): Section {
     return this.section('edit');
   }
 
-  /**
-   * @return {!Section}
-   */
-  debugSection() {
+  debugSection(): Section {
     return this.section('debug');
   }
 
-  /**
-   * @return {!Section}
-   */
-  viewSection() {
+  viewSection(): Section {
     return this.section('view');
   }
 
-  /**
-   * @return {!Section}
-   */
-  defaultSection() {
+  defaultSection(): Section {
     return this.section('default');
   }
 
-  /**
-   * @return {!Section}
-   */
-  saveSection() {
+  saveSection(): Section {
     return this.section('save');
   }
 
-  /**
-   * @return {!Section}
-   */
-  footerSection() {
+  footerSection(): Section {
     return this.section('footer');
   }
 
-  /**
-   * @override
-   * @return {!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor}
-   */
-  _buildDescriptor() {
-    /** @type {!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor} */
-    const result = {
+  _buildDescriptor(): SoftContextMenuDescriptor | Host.InspectorFrontendHostAPI.ContextMenuDescriptor {
+    const result: Host.InspectorFrontendHostAPI.ContextMenuDescriptor | SoftContextMenuDescriptor = {
       type: 'subMenu',
       label: this._label,
       enabled: !this._disabled,
@@ -392,12 +297,8 @@ export class SubMenu extends Item {
     return result;
   }
 
-  /**
-   * @param {string} location
-   */
-  appendItemsAtLocation(location) {
-    /** @type {!Array<!ContextMenuItemRegistration>} */
-    const items = getRegisteredItems();
+  appendItemsAtLocation(location: string): void {
+    const items: ContextMenuItemRegistration[] = getRegisteredItems();
     items.sort((firstItem, secondItem) => {
       const order1 = firstItem.order || 0;
       const order2 = secondItem.order || 0;
@@ -425,75 +326,62 @@ export class SubMenu extends Item {
 Item._uniqueSectionName = 0;
 
 export class ContextMenu extends SubMenu {
-  /**
-   * @param {!Event} event
-   * @param {boolean=} useSoftMenu
-   * @param {number=} x
-   * @param {number=} y
-   */
-  constructor(event, useSoftMenu, x, y) {
+  _contextMenu: this;
+  _defaultSection: Section;
+  _pendingPromises: Promise<Provider[]>[];
+  _pendingTargets: Object[];
+  _event: MouseEvent;
+  _useSoftMenu: boolean;
+  _x: number;
+  _y: number;
+  _handlers: Map<number, () => any>;
+  _id: number;
+  _softMenu?: SoftContextMenu;
+  constructor(event: Event, useSoftMenu?: boolean, x?: number, y?: number) {
     super(null);
-    const mouseEvent = /** @type {!MouseEvent} */ (event);
+    const mouseEvent = (event as MouseEvent);
     this._contextMenu = this;
     super._init();
     this._defaultSection = this.defaultSection();
-    /** @type {!Array.<!Promise.<!Array.<!Provider>>>} */
     this._pendingPromises = [];
-    /** @type {!Array<!Object>} */
     this._pendingTargets = [];
-    /** @type {!MouseEvent} */
     this._event = mouseEvent;
     this._useSoftMenu = Boolean(useSoftMenu);
     this._x = x === undefined ? mouseEvent.x : x;
     this._y = y === undefined ? mouseEvent.y : y;
-    /** @type {!Map<number, function():*>} */
     this._handlers = new Map();
     this._id = 0;
 
     const target = deepElementFromEvent(event);
     if (target) {
-      this.appendApplicableItems(/** @type {!Object} */ (target));
+      this.appendApplicableItems((target as Object));
     }
   }
 
-  static initialize() {
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-        Host.InspectorFrontendHostAPI.Events.SetUseSoftMenu, setUseSoftMenu);
-    /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
-     */
-    function setUseSoftMenu(event) {
-      ContextMenu._useSoftMenu = /** @type {boolean} */ (event.data);
+  static initialize(): void {
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(Host.InspectorFrontendHostAPI.Events.SetUseSoftMenu, setUseSoftMenu);
+    function setUseSoftMenu(event: Common.EventTarget.EventTargetEvent): void {
+      ContextMenu._useSoftMenu = (event.data as boolean);
     }
   }
 
-  /**
-   * @param {!Document} doc
-   */
-  static installHandler(doc) {
+  static installHandler(doc: Document): void {
     doc.body.addEventListener('contextmenu', handler, false);
 
-    /**
-     * @param {!Event} event
-     */
-    function handler(event) {
+    function handler(event: Event): void {
       const contextMenu = new ContextMenu(event);
       contextMenu.show();
     }
   }
 
-  /**
-   * @return {number}
-   */
-  _nextId() {
+  _nextId(): number {
     return this._id++;
   }
 
-  async show() {
+  async show(): Promise<void> {
     ContextMenu._pendingMenu = this;
     this._event.consume(true);
-    /** @type {!Array<!Array<!Provider>>} */
-    const loadedProviders = await Promise.all(this._pendingPromises);
+    const loadedProviders: Provider[][] = await Promise.all(this._pendingPromises);
 
     // After loading all providers, the contextmenu might be hidden again, so bail out.
     if (ContextMenu._pendingMenu !== this) {
@@ -516,36 +404,30 @@ export class ContextMenu extends SubMenu {
     this._innerShow();
   }
 
-  discard() {
+  discard(): void {
     if (this._softMenu) {
       this._softMenu.discard();
     }
   }
 
-  _innerShow() {
+  _innerShow(): void {
     const menuObject = this._buildMenuDescriptors();
     const eventTarget = this._event.target;
     if (!eventTarget) {
       return;
     }
-    const ownerDocument = /** @type {!HTMLElement} */ (eventTarget).ownerDocument;
+    const ownerDocument = (eventTarget as HTMLElement).ownerDocument;
     if (this._useSoftMenu || ContextMenu._useSoftMenu ||
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.isHostedMode()) {
-      this._softMenu = new SoftContextMenu(
-          /** @type {!Array<!SoftContextMenuDescriptor>} */ (menuObject), this._itemSelected.bind(this));
-      this._softMenu.show(/** @type {!Document} */ (ownerDocument), new AnchorBox(this._x, this._y, 0, 0));
-    } else {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.showContextMenuAtPoint(
-          this._x, this._y, menuObject, /** @type {!Document}*/ (ownerDocument));
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.isHostedMode()) {
+      this._softMenu = new SoftContextMenu((menuObject as SoftContextMenuDescriptor[]), this._itemSelected.bind(this));
+      this._softMenu.show((ownerDocument as Document), new AnchorBox(this._x, this._y, 0, 0));
+    }
+    else {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.showContextMenuAtPoint(this._x, this._y, menuObject, (ownerDocument as Document));
 
-      /**
-       * @this {ContextMenu}
-       */
-      function listenToEvents() {
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-            Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this._menuCleared, this);
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-            Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this._onItemSelected, this);
+      function listenToEvents(this: ContextMenu): void {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this._menuCleared, this);
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this._onItemSelected, this);
       }
 
       // showContextMenuAtPoint call above synchronously issues a clear event for previous context menu (if any),
@@ -554,49 +436,29 @@ export class ContextMenu extends SubMenu {
     }
   }
 
-  /**
-   * @param {number} x
-   */
-  setX(x) {
+  setX(x: number): void {
     this._x = x;
   }
 
-  /**
-   * @param {number} y
-   */
-  setY(y) {
+  setY(y: number): void {
     this._y = y;
   }
 
-  /**
-   * @param {number} id
-   * @param {function():*} handler
-   */
-  _setHandler(id, handler) {
+  _setHandler(id: number, handler: () => any): void {
     if (handler) {
       this._handlers.set(id, handler);
     }
   }
 
-  /**
-   * @return {!Array.<!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor>}
-   */
-  _buildMenuDescriptors() {
-    return /** @type {!Array.<!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor>} */ (
-        super._buildDescriptor().subItems);
+  _buildMenuDescriptors(): (SoftContextMenuDescriptor | Host.InspectorFrontendHostAPI.ContextMenuDescriptor)[] {
+    return /** @type {!Array.<!Host.InspectorFrontendHostAPI.ContextMenuDescriptor|!SoftContextMenuDescriptor>} */ super._buildDescriptor().subItems as (SoftContextMenuDescriptor | Host.InspectorFrontendHostAPI.ContextMenuDescriptor)[];
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onItemSelected(event) {
-    this._itemSelected(/** @type {number} */ (event.data));
+  _onItemSelected(event: Common.EventTarget.EventTargetEvent): void {
+    this._itemSelected((event.data as number));
   }
 
-  /**
-   * @param {number} id
-   */
-  _itemSelected(id) {
+  _itemSelected(id: number): void {
     const handler = this._handlers.get(id);
     if (handler) {
       handler.call(this);
@@ -604,25 +466,16 @@ export class ContextMenu extends SubMenu {
     this._menuCleared();
   }
 
-  _menuCleared() {
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(
-        Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this._menuCleared, this);
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(
-        Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this._onItemSelected, this);
+  _menuCleared(): void {
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this._menuCleared, this);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this._onItemSelected, this);
   }
 
-  /**
-   * @param {!Object} target
-   * @return {boolean}
-   */
-  containsTarget(target) {
+  containsTarget(target: Object): boolean {
     return this._pendingTargets.indexOf(target) >= 0;
   }
 
-  /**
-   * @param {!Object} target
-   */
-  appendApplicableItems(target) {
+  appendApplicableItems(target: Object): void {
     this._pendingPromises.push(loadApplicableRegisteredProviders(target));
     this._pendingTargets.push(target);
   }
@@ -632,46 +485,26 @@ ContextMenu._useSoftMenu = false;
 /** @type {?ContextMenu} */
 ContextMenu._pendingMenu = null;
 
-export const _groupWeights =
-    ['header', 'new', 'reveal', 'edit', 'clipboard', 'debug', 'view', 'default', 'save', 'footer'];
+export const _groupWeights = ['header', 'new', 'reveal', 'edit', 'clipboard', 'debug', 'view', 'default', 'save', 'footer'];
 
 /**
  * @interface
  */
-export class Provider {
-  /**
-   * @param {!Event} event
-   * @param {!ContextMenu} contextMenu
-   * @param {!Object} target
-   */
-  appendApplicableItems(event, contextMenu, target) {}
+export interface Provider {
+  appendApplicableItems(event: Event, contextMenu: ContextMenu, target: Object): void;
 }
 
-/** @type {!Array<!ProviderRegistration>} */
-const registeredProviders = [];
+const registeredProviders: ProviderRegistration[] = [];
 
-/**
- * @param {!ProviderRegistration} registration
- */
-export function registerProvider(registration) {
+export function registerProvider(registration: ProviderRegistration): void {
   registeredProviders.push(registration);
 }
 
-/**
- * @param {!Object} target
- * @return {!Promise<Array<Provider>>}
- */
-async function loadApplicableRegisteredProviders(target) {
-  return Promise.all(
-      registeredProviders.filter(isProviderApplicableToContextTypes).map(registration => registration.loadProvider()));
+async function loadApplicableRegisteredProviders(target: Object): Promise<Provider[]> {
+  return Promise.all(registeredProviders.filter(isProviderApplicableToContextTypes).map(registration => registration.loadProvider()));
 
-  /**
-   * @param {!ProviderRegistration} providerRegistration
-   * @return {boolean}
-   */
-  function isProviderApplicableToContextTypes(providerRegistration) {
-    if (!Root.Runtime.Runtime.isDescriptorEnabled(
-            {experiment: providerRegistration.experiment, condition: undefined})) {
+  function isProviderApplicableToContextTypes(providerRegistration: ProviderRegistration): boolean {
+    if (!Root.Runtime.Runtime.isDescriptorEnabled({ experiment: providerRegistration.experiment, condition: undefined })) {
       return false;
     }
     if (!providerRegistration.contextTypes) {
@@ -686,50 +519,35 @@ async function loadApplicableRegisteredProviders(target) {
   }
 }
 
-/** @type {!Array<!ContextMenuItemRegistration>} */
-const registeredItemsProviders = [];
+const registeredItemsProviders: ContextMenuItemRegistration[] = [];
 
-/**
- * @param {!ContextMenuItemRegistration} registration
- */
-export function registerItem(registration) {
+export function registerItem(registration: ContextMenuItemRegistration): void {
   registeredItemsProviders.push(registration);
 }
 
-/**
- * @return {!Array<!ContextMenuItemRegistration>}
- */
-function getRegisteredItems() {
+function getRegisteredItems(): ContextMenuItemRegistration[] {
   return registeredItemsProviders;
 }
 
-/** @enum {string} */
-export const ItemLocation = {
-  DEVICE_MODE_MENU_SAVE: 'deviceModeMenu/save',
-  MAIN_MENU: 'mainMenu',
-  MAIN_MENU_DEFAULT: 'mainMenu/default',
-  MAIN_MENU_FOOTER: 'mainMenu/footer',
-  MAIN_MENU_HELP_DEFAULT: 'mainMenuHelp/default',
-  NAVIGATOR_MENU_DEFAULT: 'navigatorMenu/default',
-  TIMELINE_MENU_OPEN: 'timelineMenu/open',
-};
-
-/**
- * @typedef {{
- *  contextTypes: function(): !Array<?>,
- *  loadProvider: function(): !Promise<!Provider>,
- *  experiment: (undefined|Root.Runtime.ExperimentName)
- * }} */
-// @ts-ignore typedef
-export let ProviderRegistration;
-
-/**
- * @typedef {{
-  *  location: !ItemLocation,
-  *  actionId: string,
-  *  order: (undefined|number)
-  * }} */
-// @ts-ignore typedef
-export let ContextMenuItemRegistration;
+export const enum ItemLocation {
+  DEVICE_MODE_MENU_SAVE = 'deviceModeMenu/save',
+  MAIN_MENU = 'mainMenu',
+  MAIN_MENU_DEFAULT = 'mainMenu/default',
+  MAIN_MENU_FOOTER = 'mainMenu/footer',
+  MAIN_MENU_HELP_DEFAULT = 'mainMenuHelp/default',
+  NAVIGATOR_MENU_DEFAULT = 'navigatorMenu/default',
+  TIMELINE_MENU_OPEN = 'timelineMenu/open'
+}
+;
+export interface ProviderRegistration {
+  contextTypes: () => Array<unknown>;
+  loadProvider: () => Promise<Provider>;
+  experiment?: string;
+}
+export interface ContextMenuItemRegistration {
+  location: ItemLocation;
+  actionId: string;
+  order?: number;
+}
 
 ContextMenu._groupWeights = _groupWeights;
