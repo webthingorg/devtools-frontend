@@ -28,36 +28,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Acorn from '../third_party/acorn/acorn.js';
 
-import {AcornTokenizer, ECMA_VERSION, TokenOrComment} from './AcornTokenizer.js';  // eslint-disable-line no-unused-vars
-import {ESTreeWalker} from './ESTreeWalker.js';
-import {FormattedContentBuilder} from './FormattedContentBuilder.js';  // eslint-disable-line no-unused-vars
+import { AcornTokenizer, ECMA_VERSION, TokenOrComment } from './AcornTokenizer.js'; // eslint-disable-line no-unused-vars
+import { ESTreeWalker } from './ESTreeWalker.js';
+import { FormattedContentBuilder } from './FormattedContentBuilder.js'; // eslint-disable-line no-unused-vars
 
 export class JavaScriptFormatter {
-  /**
-   * @param {!FormattedContentBuilder} builder
-   */
-  constructor(builder) {
+  _builder: FormattedContentBuilder;
+  _tokenizer!: AcornTokenizer;
+  _content!: string;
+  _fromOffset!: number;
+  _lastLineNumber!: number;
+  _toOffset?: number;
+  constructor(builder: FormattedContentBuilder) {
     this._builder = builder;
-
-    /** @type {!AcornTokenizer} */
-    this._tokenizer;
-    /** @type {string} */
-    this._content;
-    /** @type {number} */
-    this._fromOffset;
-    /** @type {number} */
-    this._lastLineNumber;
   }
 
-  /**
-   * @param {string} text
-   * @param {!Array<number>} lineEndings
-   * @param {number} fromOffset
-   * @param {number} toOffset
-   */
-  format(text, lineEndings, fromOffset, toOffset) {
+  format(text: string, lineEndings: number[], fromOffset: number, toOffset: number): void {
     this._fromOffset = fromOffset;
     this._toOffset = toOffset;
     this._content = text.substring(this._fromOffset, this._toOffset);
@@ -78,23 +68,24 @@ export class JavaScriptFormatter {
     walker.walk(ast);
   }
 
-  /**
-   * @param {?TokenOrComment} token
-   * @param {string} format
-   */
-  _push(token, format) {
+  _push(token: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/front_end/third_party/acorn/package/dist/acorn").Token | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/front_end/third_party/acorn/package/dist/acorn").Comment | null, format: string): void {
     for (let i = 0; i < format.length; ++i) {
       if (format[i] === 's') {
         this._builder.addSoftSpace();
-      } else if (format[i] === 'S') {
+      }
+      else if (format[i] === 'S') {
         this._builder.addHardSpace();
-      } else if (format[i] === 'n') {
+      }
+      else if (format[i] === 'n') {
         this._builder.addNewLine();
-      } else if (format[i] === '>') {
+      }
+      else if (format[i] === '>') {
         this._builder.increaseNestingLevel();
-      } else if (format[i] === '<') {
+      }
+      else if (format[i] === '<') {
         this._builder.decreaseNestingLevel();
-      } else if (format[i] === 't') {
+      }
+      else if (format[i] === 't') {
         if (this._tokenizer.tokenLineStart() - this._lastLineNumber > 1) {
           this._builder.addNewLine(true);
         }
@@ -106,17 +97,13 @@ export class JavaScriptFormatter {
     }
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   * @return {undefined}
-   */
-  _beforeVisit(node) {
+  _beforeVisit(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): undefined {
     if (!node.parent) {
       return;
     }
     let token;
     while ((token = this._tokenizer.peekToken()) && token.start < node.start) {
-      const token = /** @type {!TokenOrComment} */ (this._tokenizer.nextToken());
+      const token = (this._tokenizer.nextToken() as TokenOrComment);
       // @ts-ignore Same reason as above about Acorn types and ESTree types
       const format = this._formatToken(node.parent, token);
       this._push(token, format);
@@ -124,45 +111,33 @@ export class JavaScriptFormatter {
     return;
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   */
-  _afterVisit(node) {
+  _afterVisit(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): void {
     let token;
     while ((token = this._tokenizer.peekToken()) && token.start < node.end) {
-      const token = /** @type {!TokenOrComment} */ (this._tokenizer.nextToken());
+      const token = (this._tokenizer.nextToken() as TokenOrComment);
       const format = this._formatToken(node, token);
       this._push(token, format);
     }
     this._push(null, this._finishNode(node));
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   * @return {boolean}
-   */
-  _inForLoopHeader(node) {
+  _inForLoopHeader(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): boolean {
     const parent = node.parent;
     if (!parent) {
       return false;
     }
     if (parent.type === 'ForStatement') {
-      const parentNode = /** @type {!ESTree.ForStatement} */ (parent);
+      const parentNode = (parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").ForStatement);
       return node === parentNode.init || node === parentNode.test || node === parentNode.update;
     }
     if (parent.type === 'ForInStatement' || parent.type === 'ForOfStatement') {
-      const parentNode = /** @type {(!ESTree.ForInStatement|!ESTree.ForOfStatement)} */ (parent);
+      const parentNode = (parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").ForInStatement | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").ForOfStatement);
       return node === parentNode.left || node === parentNode.right;
     }
     return false;
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   * @param {!TokenOrComment} tokenOrComment
-   * @return {string}
-   */
-  _formatToken(node, tokenOrComment) {
+  _formatToken(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node, tokenOrComment: TokenOrComment): string {
     const AT = AcornTokenizer;
     if (AT.lineComment(tokenOrComment)) {
       return 'tn';
@@ -170,7 +145,7 @@ export class JavaScriptFormatter {
     if (AT.blockComment(tokenOrComment)) {
       return 'tn';
     }
-    const token = /** @type {!Acorn.Token} */ (tokenOrComment);
+    const token = (tokenOrComment as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/front_end/third_party/acorn/package/dist/acorn").Token);
     if (node.type === 'ContinueStatement' || node.type === 'BreakStatement') {
       return node.label && AT.keyword(token) ? 'ts' : 't';
     }
@@ -205,42 +180,49 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ':')) {
         return 'ts';
       }
-    } else if (
-        node.type === 'LogicalExpression' || node.type === 'AssignmentExpression' || node.type === 'BinaryExpression') {
+    }
+    else if (node.type === 'LogicalExpression' || node.type === 'AssignmentExpression' || node.type === 'BinaryExpression') {
       if (AT.punctuator(token) && !AT.punctuator(token, '()')) {
         return 'sts';
       }
-    } else if (node.type === 'ConditionalExpression') {
+    }
+    else if (node.type === 'ConditionalExpression') {
       if (AT.punctuator(token, '?:')) {
         return 'sts';
       }
-    } else if (node.type === 'VariableDeclarator') {
+    }
+    else if (node.type === 'VariableDeclarator') {
       if (AT.punctuator(token, '=')) {
         return 'sts';
       }
-    } else if (node.type === 'ObjectPattern') {
+    }
+    else if (node.type === 'ObjectPattern') {
       if (node.parent && node.parent.type === 'VariableDeclarator' && AT.punctuator(token, '{')) {
         return 'st';
       }
       if (AT.punctuator(token, ',')) {
         return 'ts';
       }
-    } else if (node.type === 'FunctionDeclaration') {
+    }
+    else if (node.type === 'FunctionDeclaration') {
       if (AT.punctuator(token, ',)')) {
         return 'ts';
       }
-    } else if (node.type === 'FunctionExpression') {
+    }
+    else if (node.type === 'FunctionExpression') {
       if (AT.punctuator(token, ',)')) {
         return 'ts';
       }
       if (AT.keyword(token, 'function')) {
         return node.id ? 'ts' : 't';
       }
-    } else if (node.type === 'WithStatement') {
+    }
+    else if (node.type === 'WithStatement') {
       if (AT.punctuator(token, ')')) {
         return node.body && node.body.type === 'BlockStatement' ? 'ts' : 'tn>';
       }
-    } else if (node.type === 'SwitchStatement') {
+    }
+    else if (node.type === 'SwitchStatement') {
       if (AT.punctuator(token, '{')) {
         return 'tn>';
       }
@@ -250,7 +232,8 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ')')) {
         return 'ts';
       }
-    } else if (node.type === 'SwitchCase') {
+    }
+    else if (node.type === 'SwitchCase') {
       if (AT.keyword(token, 'case')) {
         return 'n<ts';
       }
@@ -260,10 +243,11 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ':')) {
         return 'tn>';
       }
-    } else if (node.type === 'VariableDeclaration') {
+    }
+    else if (node.type === 'VariableDeclaration') {
       if (AT.punctuator(token, ',')) {
         let allVariablesInitialized = true;
-        const declarations = /** @type {!Array.<!ESTree.Node>} */ (node.declarations);
+        const declarations = (node.declarations as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node[]);
         for (let i = 0; i < declarations.length; ++i) {
           // @ts-ignore We are doing a subtype check, without properly checking whether
           // it exists. We can't fix that, unless we use proper typechecking
@@ -271,18 +255,21 @@ export class JavaScriptFormatter {
         }
         return !this._inForLoopHeader(node) && allVariablesInitialized ? 'nSSts' : 'ts';
       }
-    } else if (node.type === 'BlockStatement') {
+    }
+    else if (node.type === 'BlockStatement') {
       if (AT.punctuator(token, '{')) {
         return node.body.length ? 'tn>' : 't';
       }
       if (AT.punctuator(token, '}')) {
         return node.body.length ? 'n<t' : 't';
       }
-    } else if (node.type === 'CatchClause') {
+    }
+    else if (node.type === 'CatchClause') {
       if (AT.punctuator(token, ')')) {
         return 'ts';
       }
-    } else if (node.type === 'ObjectExpression') {
+    }
+    else if (node.type === 'ObjectExpression') {
       if (!node.properties.length) {
         return 't';
       }
@@ -295,7 +282,8 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ',')) {
         return 'tn';
       }
-    } else if (node.type === 'IfStatement') {
+    }
+    else if (node.type === 'IfStatement') {
       if (AT.punctuator(token, ')')) {
         return node.consequent && node.consequent.type === 'BlockStatement' ? 'ts' : 'tn>';
       }
@@ -308,13 +296,16 @@ export class JavaScriptFormatter {
         }
         return preFormat + postFormat;
       }
-    } else if (node.type === 'CallExpression') {
+    }
+    else if (node.type === 'CallExpression') {
       if (AT.punctuator(token, ',')) {
         return 'ts';
       }
-    } else if (node.type === 'SequenceExpression' && AT.punctuator(token, ',')) {
+    }
+    else if (node.type === 'SequenceExpression' && AT.punctuator(token, ',')) {
       return node.parent && node.parent.type === 'SwitchCase' ? 'ts' : 'tn';
-    } else if (node.type === 'ForStatement' || node.type === 'ForOfStatement' || node.type === 'ForInStatement') {
+    }
+    else if (node.type === 'ForStatement' || node.type === 'ForOfStatement' || node.type === 'ForInStatement') {
       if (AT.punctuator(token, ';')) {
         return 'ts';
       }
@@ -325,11 +316,13 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ')')) {
         return node.body && node.body.type === 'BlockStatement' ? 'ts' : 'tn>';
       }
-    } else if (node.type === 'WhileStatement') {
+    }
+    else if (node.type === 'WhileStatement') {
       if (AT.punctuator(token, ')')) {
         return node.body && node.body.type === 'BlockStatement' ? 'ts' : 'tn>';
       }
-    } else if (node.type === 'DoWhileStatement') {
+    }
+    else if (node.type === 'DoWhileStatement') {
       const blockBody = node.body && node.body.type === 'BlockStatement';
       if (AT.keyword(token, 'do')) {
         return blockBody ? 'ts' : 'tn>';
@@ -340,7 +333,8 @@ export class JavaScriptFormatter {
       if (AT.punctuator(token, ';')) {
         return 'tn';
       }
-    } else if (node.type === 'ClassBody') {
+    }
+    else if (node.type === 'ClassBody') {
       if (AT.punctuator(token, '{')) {
         return 'stn>';
       }
@@ -348,18 +342,23 @@ export class JavaScriptFormatter {
         return '<ntn';
       }
       return 't';
-    } else if (node.type === 'YieldExpression') {
+    }
+    else if (node.type === 'YieldExpression') {
       return 't';
-    } else if (node.type === 'Super') {
+    }
+    else if (node.type === 'Super') {
       return 't';
-    } else if (node.type === 'ImportExpression') {
+    }
+    else if (node.type === 'ImportExpression') {
       return 't';
-    } else if (node.type === 'ExportAllDeclaration') {
+    }
+    else if (node.type === 'ExportAllDeclaration') {
       if (AT.punctuator(token, '*')) {
         return 'sts';
       }
       return 't';
-    } else if (node.type === 'ExportNamedDeclaration' || node.type === 'ImportDeclaration') {
+    }
+    else if (node.type === 'ExportNamedDeclaration' || node.type === 'ImportDeclaration') {
       if (AT.punctuator(token, '{')) {
         return 'st';
       }
@@ -377,53 +376,52 @@ export class JavaScriptFormatter {
     return AT.keyword(token) && !AT.keyword(token, 'this') ? 'ts' : 't';
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   * @return {string}
-   */
-  _finishNode(node) {
+  _finishNode(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): string {
     if (node.type === 'WithStatement') {
       if (node.body && node.body.type !== 'BlockStatement') {
         return 'n<';
       }
-    } else if (node.type === 'VariableDeclaration') {
+    }
+    else if (node.type === 'VariableDeclaration') {
       if (!this._inForLoopHeader(node)) {
         return 'n';
       }
-    } else if (node.type === 'ForStatement' || node.type === 'ForOfStatement' || node.type === 'ForInStatement') {
+    }
+    else if (node.type === 'ForStatement' || node.type === 'ForOfStatement' || node.type === 'ForInStatement') {
       if (node.body && node.body.type !== 'BlockStatement') {
         return 'n<';
       }
-    } else if (node.type === 'BlockStatement') {
+    }
+    else if (node.type === 'BlockStatement') {
       if (node.parent && node.parent.type === 'IfStatement') {
-        const parentNode = /** @type {!ESTree.IfStatement} */ (node.parent);
+        const parentNode = (node.parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").IfStatement);
         if (parentNode.alternate && parentNode.consequent === node) {
           return '';
         }
       }
       if (node.parent && node.parent.type === 'FunctionExpression' && node.parent.parent &&
-          node.parent.parent.type === 'Property') {
+        node.parent.parent.type === 'Property') {
         return '';
       }
       if (node.parent && node.parent.type === 'FunctionExpression' && node.parent.parent &&
-          node.parent.parent.type === 'VariableDeclarator') {
+        node.parent.parent.type === 'VariableDeclarator') {
         return '';
       }
       if (node.parent && node.parent.type === 'FunctionExpression' && node.parent.parent &&
-          node.parent.parent.type === 'CallExpression') {
+        node.parent.parent.type === 'CallExpression') {
         return '';
       }
       if (node.parent && node.parent.type === 'DoWhileStatement') {
         return '';
       }
       if (node.parent && node.parent.type === 'TryStatement') {
-        const parentNode = /** @type {!ESTree.TryStatement} */ (node.parent);
+        const parentNode = (node.parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").TryStatement);
         if (parentNode.block === node) {
           return 's';
         }
       }
       if (node.parent && node.parent.type === 'CatchClause') {
-        const parentNode = /** @type {!ESTree.CatchClause} */ (node.parent);
+        const parentNode = (node.parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").CatchClause);
         // @ts-ignore We are doing a subtype check, without properly checking whether
         // it exists. We can't fix that, unless we use proper typechecking
         if (parentNode.parent && parentNode.parent.finalizer) {
@@ -431,27 +429,30 @@ export class JavaScriptFormatter {
         }
       }
       return 'n';
-    } else if (node.type === 'WhileStatement') {
+    }
+    else if (node.type === 'WhileStatement') {
       if (node.body && node.body.type !== 'BlockStatement') {
         return 'n<';
       }
-    } else if (node.type === 'IfStatement') {
+    }
+    else if (node.type === 'IfStatement') {
       if (node.alternate) {
         if (node.alternate.type !== 'BlockStatement' && node.alternate.type !== 'IfStatement') {
           return '<';
         }
-      } else if (node.consequent) {
+      }
+      else if (node.consequent) {
         if (node.consequent.type !== 'BlockStatement') {
           return '<';
         }
       }
-    } else if (
-        node.type === 'BreakStatement' || node.type === 'ContinueStatement' || node.type === 'ThrowStatement' ||
-        node.type === 'ReturnStatement' || node.type === 'ExpressionStatement') {
+    }
+    else if (node.type === 'BreakStatement' || node.type === 'ContinueStatement' || node.type === 'ThrowStatement' ||
+      node.type === 'ReturnStatement' || node.type === 'ExpressionStatement') {
       return 'n';
-    } else if (
-        node.type === 'ImportDeclaration' || node.type === 'ExportAllDeclaration' ||
-        node.type === 'ExportDefaultDeclaration' || node.type === 'ExportNamedDeclaration') {
+    }
+    else if (node.type === 'ImportDeclaration' || node.type === 'ExportAllDeclaration' ||
+      node.type === 'ExportDefaultDeclaration' || node.type === 'ExportNamedDeclaration') {
       return 'n';
     }
     return '';

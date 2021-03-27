@@ -28,27 +28,28 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Platform from '../platform/platform.js';
 
-import {FormattedContentBuilder} from './FormattedContentBuilder.js';  // eslint-disable-line no-unused-vars
-import {createTokenizer} from './FormatterWorker.js';
+import { FormattedContentBuilder } from './FormattedContentBuilder.js'; // eslint-disable-line no-unused-vars
+import { createTokenizer } from './FormatterWorker.js';
 
 export class CSSFormatter {
-  /**
-   * @param {!FormattedContentBuilder} builder
-   */
-  constructor(builder) {
+  _builder: FormattedContentBuilder;
+  _toOffset!: number;
+  _fromOffset!: number;
+  _lineEndings!: number[];
+  _lastLine: number;
+  _state: {
+    eatWhitespace: (boolean | undefined);
+    seenProperty: (boolean | undefined);
+    inPropertyValue: (boolean | undefined);
+    afterClosingBrace: (boolean | undefined);
+  };
+  constructor(builder: FormattedContentBuilder) {
     this._builder = builder;
-
-    /** @type {number} */
-    this._toOffset;
-    /** @type {number} */
-    this._fromOffset;
-    /** @type {!Array.<number>} */
-    this._lineEndings;
-    /** @type {number} */
     this._lastLine = -1;
-    /** @type {{ eatWhitespace: (boolean|undefined), seenProperty: (boolean|undefined), inPropertyValue: (boolean|undefined), afterClosingBrace: (boolean|undefined)}} */
     this._state = {
       eatWhitespace: undefined,
       seenProperty: undefined,
@@ -57,13 +58,7 @@ export class CSSFormatter {
     };
   }
 
-  /**
-   * @param {string} text
-   * @param {!Array.<number>} lineEndings
-   * @param {number} fromOffset
-   * @param {number} toOffset
-   */
-  format(text, lineEndings, fromOffset, toOffset) {
+  format(text: string, lineEndings: number[], fromOffset: number, toOffset: number): void {
     this._lineEndings = lineEndings;
     this._fromOffset = fromOffset;
     this._toOffset = toOffset;
@@ -80,15 +75,9 @@ export class CSSFormatter {
     this._builder.setEnforceSpaceBetweenWords(oldEnforce);
   }
 
-  /**
-   * @param {string} token
-   * @param {?string} type
-   * @param {number} startPosition
-   */
-  _tokenCallback(token, type, startPosition) {
+  _tokenCallback(token: string, type: string | null, startPosition: number): void {
     startPosition += this._fromOffset;
-    const startLine = Platform.ArrayUtilities.lowerBound(
-        this._lineEndings, startPosition, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
+    const startLine = Platform.ArrayUtilities.lowerBound(this._lineEndings, startPosition, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
     if (startLine !== this._lastLine) {
       this._state.eatWhitespace = true;
     }
@@ -123,14 +112,16 @@ export class CSSFormatter {
       this._builder.decreaseNestingLevel();
       this._state.afterClosingBrace = true;
       this._state.inPropertyValue = false;
-    } else if (token === ':' && !this._state.inPropertyValue && this._state.seenProperty) {
+    }
+    else if (token === ':' && !this._state.inPropertyValue && this._state.seenProperty) {
       this._builder.addToken(token, startPosition);
       this._builder.addSoftSpace();
       this._state.eatWhitespace = true;
       this._state.inPropertyValue = true;
       this._state.seenProperty = false;
       return;
-    } else if (token === '{') {
+    }
+    else if (token === '{') {
       this._builder.addSoftSpace();
       this._builder.addToken(token, startPosition);
       this._builder.addNewLine();
@@ -146,7 +137,8 @@ export class CSSFormatter {
     if (token === ';' && this._state.inPropertyValue) {
       this._state.inPropertyValue = false;
       this._builder.addNewLine();
-    } else if (token === '}') {
+    }
+    else if (token === '}') {
       this._builder.addNewLine();
     }
   }

@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {createTokenizer} from './FormatterWorker.js';
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import { createTokenizer } from './FormatterWorker.js';
 
 export const CSSParserStates = {
   Initial: 'Initial',
@@ -14,48 +16,33 @@ export const CSSParserStates = {
 };
 
 /** @typedef {*} */
-let Rule;  // eslint-disable-line no-unused-vars
+let Rule; // eslint-disable-line no-unused-vars
+interface Chunk {
+  chunk: any[];
+  isLastChunk: boolean;
+}
 
-/**
- * @typedef {{ chunk: Array.<!Rule>, isLastChunk: boolean }} */
-let Chunk;  // eslint-disable-line no-unused-vars
-
-/**
- * @param {string} text
- * @param {function({ chunk: !Array.<!Rule>, isLastChunk:boolean}):void} chunkCallback
- */
-export function parseCSS(text, chunkCallback) {
-  const chunkSize = 100000;  // characters per data chunk
+export function parseCSS(text: string, chunkCallback: (arg0: {
+  chunk: Array<Rule>;
+  isLastChunk: boolean;
+}) => void): void {
+  const chunkSize = 100000; // characters per data chunk
   const lines = text.split('\n');
-  /** @type {!Array.<!Rule>} */
-  let rules = [];
+  let rules:  = [];
   let processedChunkCharacters = 0;
 
-  let state = CSSParserStates.Initial;
-  /** @type {!Rule} */
+  let state: string = CSSParserStates.Initial;
   let rule;
-  /** @type {*} */
   let property;
   const UndefTokenType = new Set();
 
-  /** @type {!Array.<!Rule>} */
-  let disabledRules = [];
+  let disabledRules:  = [];
 
-  /**
-   *
-   * @param {!Chunk} chunk
-   */
-  function disabledRulesCallback(chunk) {
+  function disabledRulesCallback(chunk: Chunk): void {
     disabledRules = disabledRules.concat(chunk.chunk);
   }
 
-  /**
-   * @param {string} tokenValue
-   * @param {?string} tokenTypes
-   * @param {number} column
-   * @param {number} newColumn
-   */
-  function processToken(tokenValue, tokenTypes, column, newColumn) {
+  function processToken(tokenValue: string, tokenTypes: string | null, column: number, newColumn: number): void {
     const tokenType = tokenTypes ? new Set(tokenTypes.split(' ')) : UndefTokenType;
     switch (state) {
       case CSSParserStates.Initial:
@@ -67,7 +54,8 @@ export function parseCSS(text, chunkCallback) {
             properties: [],
           };
           state = CSSParserStates.Selector;
-        } else if (tokenType.has('def')) {
+        }
+        else if (tokenType.has('def')) {
           rule = {
             atRule: tokenValue,
             lineNumber: lineNumber,
@@ -81,7 +69,8 @@ export function parseCSS(text, chunkCallback) {
           rule.selectorText = rule.selectorText.trim();
           rule.styleRange = createRange(lineNumber, newColumn);
           state = CSSParserStates.Style;
-        } else {
+        }
+        else {
           rule.selectorText += tokenValue;
         }
         break;
@@ -90,7 +79,8 @@ export function parseCSS(text, chunkCallback) {
           rule.atRule = rule.atRule.trim();
           rules.push(rule);
           state = CSSParserStates.Initial;
-        } else {
+        }
+        else {
           rule.atRule += tokenValue;
         }
         break;
@@ -103,12 +93,14 @@ export function parseCSS(text, chunkCallback) {
             nameRange: createRange(lineNumber, column)
           };
           state = CSSParserStates.PropertyName;
-        } else if (tokenValue === '}' && tokenType === UndefTokenType) {
+        }
+        else if (tokenValue === '}' && tokenType === UndefTokenType) {
           rule.styleRange.endLine = lineNumber;
           rule.styleRange.endColumn = column;
           rules.push(rule);
           state = CSSParserStates.Initial;
-        } else if (tokenType.has('comment')) {
+        }
+        else if (tokenType.has('comment')) {
           // The |processToken| is called per-line, so no token spans more than one line.
           // Support only a one-line comments.
           if (tokenValue.substring(0, 2) !== '/*' || tokenValue.substring(tokenValue.length - 2) !== '*/') {
@@ -144,7 +136,8 @@ export function parseCSS(text, chunkCallback) {
           property.nameRange.endColumn = column;
           property.valueRange = createRange(lineNumber, newColumn);
           state = CSSParserStates.PropertyValue;
-        } else if (tokenType.has('property')) {
+        }
+        else if (tokenType.has('property')) {
           property.name += tokenValue;
         }
         break;
@@ -161,10 +154,12 @@ export function parseCSS(text, chunkCallback) {
             rule.styleRange.endColumn = column;
             rules.push(rule);
             state = CSSParserStates.Initial;
-          } else {
+          }
+          else {
             state = CSSParserStates.Style;
           }
-        } else if (!tokenType.has('comment')) {
+        }
+        else if (!tokenType.has('comment')) {
           property.value += tokenValue;
         }
         break;
@@ -173,27 +168,26 @@ export function parseCSS(text, chunkCallback) {
     }
     processedChunkCharacters += newColumn - column;
     if (processedChunkCharacters > chunkSize) {
-      chunkCallback({chunk: rules, isLastChunk: false});
+      chunkCallback({ chunk: rules, isLastChunk: false });
       rules = [];
       processedChunkCharacters = 0;
     }
   }
   const tokenizer = createTokenizer('text/css');
-  /** @type {number} */
-  let lineNumber;
+  let lineNumber: number;
   for (lineNumber = 0; lineNumber < lines.length; ++lineNumber) {
     const line = lines[lineNumber];
     tokenizer(line, processToken);
     processToken('\n', null, line.length, line.length + 1);
   }
-  chunkCallback({chunk: rules, isLastChunk: true});
+  chunkCallback({ chunk: rules, isLastChunk: true });
 
-  /**
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {!{startLine: number, startColumn: number, endLine: number, endColumn: number}}
-   */
-  function createRange(lineNumber, columnNumber) {
-    return {startLine: lineNumber, startColumn: columnNumber, endLine: lineNumber, endColumn: columnNumber};
+  function createRange(lineNumber: number, columnNumber: number): {
+    startLine: number;
+    startColumn: number;
+    endLine: number;
+    endColumn: number;
+  } {
+    return { startLine: lineNumber, startColumn: columnNumber, endLine: lineNumber, endColumn: columnNumber };
   }
 }

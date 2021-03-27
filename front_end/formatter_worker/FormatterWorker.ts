@@ -28,24 +28,22 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as Acorn from '../third_party/acorn/acorn.js';
 
-import {AcornTokenizer, ECMA_VERSION} from './AcornTokenizer.js';
-import {CSSFormatter} from './CSSFormatter.js';
-import {ESTreeWalker} from './ESTreeWalker.js';
-import {FormattedContentBuilder} from './FormattedContentBuilder.js';
-import {HTMLFormatter} from './HTMLFormatter.js';
-import {IdentityFormatter} from './IdentityFormatter.js';
-import {JavaScriptFormatter} from './JavaScriptFormatter.js';
+import { AcornTokenizer, ECMA_VERSION } from './AcornTokenizer.js';
+import { CSSFormatter } from './CSSFormatter.js';
+import { ESTreeWalker } from './ESTreeWalker.js';
+import { FormattedContentBuilder } from './FormattedContentBuilder.js';
+import { HTMLFormatter } from './HTMLFormatter.js';
+import { IdentityFormatter } from './IdentityFormatter.js';
+import { JavaScriptFormatter } from './JavaScriptFormatter.js';
 
-/**
- * @param {string} mimeType
- * @return {function(string, function(string, ?string, number, number):(!Object|undefined|void))}
- */
-export function createTokenizer(mimeType) {
-  const mode = CodeMirror.getMode({indentUnit: 2}, mimeType);
+export function createTokenizer(mimeType: string): (arg0: string, arg1: (arg0: string, arg1: string | null, arg2: number, arg3: number) => (Object | undefined | void)) => any {
+  const mode = CodeMirror.getMode({ indentUnit: 2 }, mimeType);
   const state = CodeMirror.startState(mode);
 
   if (!mode || mode.name === 'null') {
@@ -60,7 +58,7 @@ export function createTokenizer(mimeType) {
    * @param {string} line
    * @param {function(string, ?string, number, number):?} callback
    */
-  return (line, callback) => {
+  return (line: string, callback: (arg0: string, arg1: string | null, arg2: number, arg3: number) => void | Object | undefined): void => {
     const stream = new CodeMirror.StringStream(line);
     while (!stream.eol()) {
       // @ts-expect-error TypeScript can't determine that `mode.token` is defined based on lines above
@@ -76,12 +74,8 @@ export function createTokenizer(mimeType) {
 
 export const AbortTokenization = {};
 
-/**
- * @param {string} content
- * @return {string}
- */
-export function evaluatableJavaScriptSubstring(content) {
-  const tokenizer = Acorn.tokenizer(content, {ecmaVersion: ECMA_VERSION});
+export function evaluatableJavaScriptSubstring(content: string): string {
+  const tokenizer = Acorn.tokenizer(content, { ecmaVersion: ECMA_VERSION });
   let result = '';
   try {
     let token = tokenizer.getToken();
@@ -90,7 +84,7 @@ export function evaluatableJavaScriptSubstring(content) {
     }
 
     const startIndex = token.start;
-    let endIndex = token.end;
+    let endIndex: number = token.end;
     let openBracketsCounter = 0;
     while (token.type !== Acorn.tokTypes.eof) {
       const isIdentifier = AcornTokenizer.identifier(token);
@@ -116,42 +110,41 @@ export function evaluatableJavaScriptSubstring(content) {
       }
     }
     result = content.substring(startIndex, endIndex);
-  } catch (e) {
+  }
+  catch (e) {
     console.error(e);
   }
   return result;
 }
 
-/**
- * @param {string} content
- * @return {!Array<!{name: (string|undefined), offset: number}>}
- */
-export function javaScriptIdentifiers(content) {
-  /** @type {?ESTree.Node} */
-  let root = null;
+export function javaScriptIdentifiers(content: string): {
+  name: (string | undefined);
+  offset: number;
+}[] {
+  let root: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Identifier | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | ;
+  68;
+  more;
+    | null;
+  null;
   try {
-    root = /** @type {?ESTree.Node} */ (Acorn.parse(content, {ecmaVersion: ECMA_VERSION, ranges: false}));
-  } catch (e) {
+    root = (Acorn.parse(content, { ecmaVersion: ECMA_VERSION, ranges: false }) as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").TemplateLiteral | );
+    68;
+    more;
+      | null;
+    ;
+  }
+  catch (e) {
   }
 
-  /** @type {!Array<!ESTree.Node>} */
-  const identifiers = [];
+  const identifiers: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node[] = [];
   const walker = new ESTreeWalker(beforeVisit);
 
-  /**
-   * @param {!ESTree.Node} node
-   * @return {boolean}
-   */
-  function isFunction(node) {
+  function isFunction(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): boolean {
     return node.type === 'FunctionDeclaration' || node.type === 'FunctionExpression' ||
-        node.type === 'ArrowFunctionExpression';
+      node.type === 'ArrowFunctionExpression';
   }
 
-  /**
-   * @param {!ESTree.Node} node
-   * @return {!(Object | undefined)}
-   */
-  function beforeVisit(node) {
+  function beforeVisit(node: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): Object | undefined {
     if (isFunction(node)) {
       if (node.id) {
         identifiers.push(node.id);
@@ -164,7 +157,7 @@ export function javaScriptIdentifiers(content) {
     }
 
     if (node.parent && node.parent.type === 'MemberExpression') {
-      const parent = /** @type {!ESTree.MemberExpression} */ (node.parent);
+      const parent = (node.parent as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").MemberExpression);
       if (parent.property === node && !parent.computed) {
         return;
       }
@@ -177,21 +170,21 @@ export function javaScriptIdentifiers(content) {
     return [];
   }
 
-  const functionNode = /** @type {!ESTree.FunctionDeclaration} */ (root.body[0]);
+  const functionNode = (root.body[0] as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").FunctionDeclaration);
   for (const param of functionNode.params) {
     walker.walk(param);
   }
   walker.walk(functionNode.body);
-  return identifiers.map(id => ({name: 'name' in id && id.name || undefined, offset: id.start}));
+  return identifiers.map(id => ({ name: 'name' in id && id.name || undefined, offset: id.start }));
 }
 
-/**
- * @param {string} mimeType
- * @param {string} text
- * @param {string=} indentString
- * @return {{mapping: {original: !Array<number>, formatted: !Array<number>}, content: string}}
- */
-export function format(mimeType, text, indentString) {
+export function format(mimeType: string, text: string, indentString?: string): {
+  mapping: {
+    original: Array<number>;
+    formatted: Array<number>;
+  };
+  content: string;
+} {
   // Default to a 4-space indent.
   indentString = indentString || '    ';
   const result = {};
@@ -222,27 +215,30 @@ export function format(mimeType, text, indentString) {
     }
     result.mapping = builder.mapping;
     result.content = builder.content();
-  } catch (e) {
+  }
+  catch (e) {
     console.error(e);
-    result.mapping = {original: [0], formatted: [0]};
+    result.mapping = { original: [0], formatted: [0] };
     result.content = text;
   }
   return result;
 }
 
-/**
- * @param {string} content
- * @return {?{baseExpression: string, receiver: string, argumentIndex: number, functionName: string}}
- */
-export function findLastFunctionCall(content) {
+export function findLastFunctionCall(content: string): {
+  baseExpression: string;
+  receiver: string;
+  argumentIndex: number;
+  functionName: string;
+} | null {
   if (content.length > 10000) {
     return null;
   }
   try {
-    const tokenizer = Acorn.tokenizer(content, {ecmaVersion: ECMA_VERSION});
+    const tokenizer = Acorn.tokenizer(content, { ecmaVersion: ECMA_VERSION });
     while (tokenizer.getToken().type !== Acorn.tokTypes.eof) {
     }
-  } catch (e) {
+  }
+  catch (e) {
     return null;
   }
 
@@ -257,56 +253,62 @@ export function findLastFunctionCall(content) {
   const callee = base.baseNode['callee'];
 
   let functionName = '';
-  const functionProperty =
-      callee.type === 'Identifier' ? callee : /** @type {!ESTree.MemberExpression} */ (callee).property;
+  const functionProperty = callee.type === 'Identifier' ? callee : (callee as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").MemberExpression).property;
   if (functionProperty) {
     if (functionProperty.type === 'Identifier') {
       functionName = functionProperty.name;
-    } else if (functionProperty.type === 'Literal') {
-      functionName = /** @type {string} */ (functionProperty.value);
+    }
+    else if (functionProperty.type === 'Literal') {
+      functionName = (functionProperty.value as string);
     }
   }
 
   const argumentIndex = base.baseNode['arguments'].length - 1;
-  const baseExpression =
-      `(${base.baseExpression.substring(callee.start - base.baseNode.start, callee.end - base.baseNode.start)})`;
+  const baseExpression = `(${base.baseExpression.substring(callee.start - base.baseNode.start, callee.end - base.baseNode.start)})`;
   let receiver = '(function(){return this})()';
   if (callee.type === 'MemberExpression') {
     const receiverBase = callee['object'];
     receiver =
-        base.baseExpression.substring(receiverBase.start - base.baseNode.start, receiverBase.end - base.baseNode.start);
+      base.baseExpression.substring(receiverBase.start - base.baseNode.start, receiverBase.end - base.baseNode.start);
   }
-  return {baseExpression, receiver, argumentIndex, functionName};
+  return { baseExpression, receiver, argumentIndex, functionName };
 }
 
-/**
- * @param {string} content
- * @return {!Array<string>}
- */
-export function argumentsList(content) {
+export function argumentsList(content: string): string[] {
   if (content.length > 10000) {
     return [];
   }
-  /** @type {?ESTree.Node} */
-  let parsed = null;
+  let parsed: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Identifier | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | ;
+  68;
+  more;
+    | null;
+  null;
   try {
-    // Try to parse as a function, anonymous function, or arrow function.
-    parsed = /** @type {?ESTree.Node} */ (Acorn.parse(`(${content})`, {ecmaVersion: ECMA_VERSION}));
-  } catch (e) {
+    parsed = (Acorn.parse(`(${content})`, { ecmaVersion: ECMA_VERSION }) as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").TemplateLiteral | );
+    68;
+    more;
+      | null;
+    ;
+  }
+  catch (e) {
   }
   if (!parsed) {
     try {
-      // Try to parse as a method.
-      parsed = /** @type {?ESTree.Node} */ (Acorn.parse(`({${content}})`, {ecmaVersion: ECMA_VERSION}));
-    } catch (e) {
+      parsed = (Acorn.parse(`({${content}})`, { ecmaVersion: ECMA_VERSION }) as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").TemplateLiteral | );
+      68;
+      more;
+        | null;
+      ;
+    }
+    catch (e) {
     }
   }
   if (!parsed || !('body' in parsed) || !Array.isArray(parsed.body) || !parsed.body[0] ||
-      !('expression' in parsed.body[0])) {
+    !('expression' in parsed.body[0])) {
     return [];
   }
   const expression = parsed.body[0].expression;
-  let params = null;
+  let params: null = null;
   switch (expression.type) {
     case 'ClassExpression': {
       if (!expression.body.body) {
@@ -320,7 +322,7 @@ export function argumentsList(content) {
     }
     case 'ObjectExpression': {
       if (!expression.properties[0] || !('value' in expression.properties[0]) ||
-          !('params' in expression.properties[0].value)) {
+        !('params' in expression.properties[0].value)) {
         break;
       }
       params = expression.properties[0].value.params;
@@ -337,11 +339,7 @@ export function argumentsList(content) {
   }
   return params.map(paramName);
 
-  /**
-   * @param {!ESTree.Node} param
-   * @return {string}
-   */
-  function paramName(param) {
+  function paramName(param: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node): string {
     switch (param.type) {
       case 'Identifier':
         return param.name;
@@ -358,26 +356,24 @@ export function argumentsList(content) {
   }
 }
 
-/**
- * @param {string} content
- * @return {?string}
- */
-export function findLastExpression(content) {
+export function findLastExpression(content: string): string | null {
   if (content.length > 10000) {
     return null;
   }
   try {
-    const tokenizer = Acorn.tokenizer(content, {ecmaVersion: ECMA_VERSION});
+    const tokenizer = Acorn.tokenizer(content, { ecmaVersion: ECMA_VERSION });
     while (tokenizer.getToken().type !== Acorn.tokTypes.eof) {
     }
-  } catch (e) {
+  }
+  catch (e) {
     return null;
   }
 
   const suffix = '.DEVTOOLS';
   try {
-    Acorn.parse(content + suffix, {ecmaVersion: ECMA_VERSION});
-  } catch (parseError) {
+    Acorn.parse(content + suffix, { ecmaVersion: ECMA_VERSION });
+  }
+  catch (parseError) {
     // If this is an invalid location for a '.', don't attempt to give autocomplete
     if (parseError.message.startsWith('Unexpected token') && parseError.pos === content.length) {
       return null;
@@ -390,31 +386,35 @@ export function findLastExpression(content) {
   return null;
 }
 
-/**
- * @param {string} content
- * @param {string} suffix
- * @param {!Set<string>} types
- * @return {?{baseNode: !ESTree.Node, baseExpression: string}}
- */
-export function _lastCompleteExpression(content, suffix, types) {
-  /** @type {?ESTree.Node} */
-  let ast = null;
+export function _lastCompleteExpression(content: string, suffix: string, types: Set<string>): {
+  baseNode: ESTree.Node;
+  baseExpression: string;
+} | null {
+  let ast: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Identifier | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | ;
+  68;
+  more;
+    | null;
+  null;
   let parsedContent = '';
   for (let i = 0; i < content.length; i++) {
     try {
       // Wrap content in paren to successfully parse object literals
       parsedContent = content[i] === '{' ? `(${content.substring(i)})${suffix}` : `${content.substring(i)}${suffix}`;
-      ast = /** @type {!ESTree.Node} */ (Acorn.parse(parsedContent, {ecmaVersion: ECMA_VERSION}));
+      ast = (Acorn.parse(parsedContent, { ecmaVersion: ECMA_VERSION }) as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node);
       break;
-    } catch (e) {
+    }
+    catch (e) {
     }
   }
   if (!ast) {
     return null;
   }
   const astEnd = ast.end;
-  /** @type {?ESTree.Node} */
-  let baseNode = null;
+  let baseNode: import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Identifier | import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").SimpleLiteral | ;
+  68;
+  more;
+    | null;
+  null;
   const walker = new ESTreeWalker(node => {
     if (baseNode || node.end < astEnd) {
       return ESTreeWalker.SkipSubtree;
@@ -428,16 +428,15 @@ export function _lastCompleteExpression(content, suffix, types) {
   if (!baseNode) {
     return null;
   }
-  let baseExpression =
-      parsedContent.substring(/** @type {!ESTree.Node} */ (baseNode).start, parsedContent.length - suffix.length);
+  let baseExpression = parsedContent.substring((baseNode as import("/usr/local/google/home/janscheffler/dev/devtools/devtools-frontend/node_modules/@types/estree/index").Node).start, parsedContent.length - suffix.length);
   if (baseExpression.startsWith('{')) {
     baseExpression = `(${baseExpression})`;
   }
-  return {baseNode, baseExpression};
+  return { baseNode, baseExpression };
 }
 
-(function disableLoggingForTest() {
+(function disableLoggingForTest(): void {
   if (Root.Runtime.Runtime.queryParam('test')) {
-    console.error = () => undefined;
+    console.error = (): undefined => undefined;
   }
 })();
