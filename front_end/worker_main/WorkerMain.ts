@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as i18n from '../i18n/i18n.js';
@@ -15,21 +17,16 @@ const UIStrings = {
   main: 'Main',
 };
 
-const str_ = i18n.i18n.registerUIStrings('worker_main/WorkerMain.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('worker_main/WorkerMain.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {!WorkerMainImpl} */
-let workerMainImplInstance;
+let workerMainImplInstance: WorkerMainImpl;
 
-/**
- * @implements {Common.Runnable.Runnable}
- */
-export class WorkerMainImpl extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+export class WorkerMainImpl extends Common.ObjectWrapper.ObjectWrapper implements Common.Runnable.Runnable {
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): WorkerMainImpl {
+    const { forceNew } = opts;
     if (!workerMainImplInstance || forceNew) {
       workerMainImplInstance = new WorkerMainImpl();
     }
@@ -37,13 +34,9 @@ export class WorkerMainImpl extends Common.ObjectWrapper.ObjectWrapper {
     return workerMainImplInstance;
   }
 
-  /**
-   * @override
-   */
-  async run() {
+  async run(): Promise<void> {
     SDK.Connections.initMainConnection(async () => {
-      SDK.SDKModel.TargetManager.instance().createTarget(
-          'main', i18nString(UIStrings.main), SDK.SDKModel.Type.ServiceWorker, null);
+      SDK.SDKModel.TargetManager.instance().createTarget('main', i18nString(UIStrings.main), SDK.SDKModel.Type.ServiceWorker, null);
     }, Components.TargetDetachedDialog.TargetDetachedDialog.webSocketConnectionLost);
     new MobileThrottling.NetworkPanelIndicator.NetworkPanelIndicator();
   }
@@ -51,7 +44,7 @@ export class WorkerMainImpl extends Common.ObjectWrapper.ObjectWrapper {
 
 Common.Runnable.registerEarlyInitializationRunnable(WorkerMainImpl.instance);
 
-SDK.ChildTargetManager.ChildTargetManager.install(async ({target, waitingForDebugger}) => {
+SDK.ChildTargetManager.ChildTargetManager.install(async ({ target, waitingForDebugger }) => {
   // Only pause the new worker if debugging SW - we are going through the pause on start checkbox.
   if (target.parentTarget() || target.type() !== SDK.SDKModel.Type.ServiceWorker || !waitingForDebugger) {
     return;
