@@ -25,7 +25,7 @@ devtools_module("ui") {
     "GlassPane.js",
     "HistoryInput.js",
     "Icon.js",
-    "Infobar.js",
+    "Infobar.ts",
     "InplaceEditor.js",
     "InspectorView.js",
     "KeyboardShortcut.js",

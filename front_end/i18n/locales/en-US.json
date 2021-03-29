@@ -11087,13 +11087,13 @@
   "ui/FilterBar.js | sclickToSelectMultipleTypes": {
     "message": "{PH1}Click to select multiple types"
   },
-  "ui/Infobar.js | close": {
+  "ui/Infobar.ts | close": {
     "message": "Close"
   },
-  "ui/Infobar.js | dontShowAgain": {
+  "ui/Infobar.ts | dontShowAgain": {
     "message": "Don't show again"
   },
-  "ui/Infobar.js | learnMore": {
+  "ui/Infobar.ts | learnMore": {
     "message": "Learn more"
   },
   "ui/InspectorView.js | closeDrawer": {

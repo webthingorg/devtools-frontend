@@ -11087,13 +11087,13 @@
   "ui/FilterBar.js | sclickToSelectMultipleTypes": {
     "message": "{PH1}Ĉĺîćk̂ t́ô śêĺêćt̂ ḿûĺt̂íp̂ĺê t́ŷṕêś"
   },
-  "ui/Infobar.js | close": {
+  "ui/Infobar.ts | close": {
     "message": "Ĉĺôśê"
   },
-  "ui/Infobar.js | dontShowAgain": {
+  "ui/Infobar.ts | dontShowAgain": {
     "message": "D̂ón̂'t́ ŝh́ôẃ âǵâín̂"
   },
-  "ui/Infobar.js | learnMore": {
+  "ui/Infobar.ts | learnMore": {
     "message": "L̂éâŕn̂ ḿôŕê"
   },
   "ui/InspectorView.js | closeDrawer": {
