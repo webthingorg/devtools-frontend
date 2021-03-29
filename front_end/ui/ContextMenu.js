@@ -415,6 +415,10 @@ export class SubMenu extends Item {
         continue;
       }
 
+      if (item.experiment && !Root.Runtime.experiments.isEnabled(item.experiment)) {
+        continue;
+      }
+
       if (actionId) {
         this.section(section).appendAction(actionId);
       }
@@ -741,7 +745,8 @@ export let ProviderRegistration;
  * @typedef {{
   *  location: !ItemLocation,
   *  actionId: string,
-  *  order: (undefined|number)
+  *  order: (undefined|number),
+  *  experiment?: Root.Runtime.ExperimentName,
   * }} */
 // @ts-ignore typedef
 export let ContextMenuItemRegistration;
