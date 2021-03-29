@@ -32,7 +32,7 @@ devtools_module("ui") {
     "ListControl.js",
     "ListModel.js",
     "ListWidget.js",
-    "Panel.js",
+    "Panel.ts",
     "PopoverHelper.js",
     "ProgressIndicator.js",
     "RemoteDebuggingTerminatedScreen.js",
