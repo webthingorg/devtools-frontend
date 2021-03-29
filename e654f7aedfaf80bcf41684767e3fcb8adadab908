@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6351a5e7_c52c9078",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-03-29T18:32:17Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "e654f7aedfaf80bcf41684767e3fcb8adadab908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c0d1af_ccdcc526",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-03-29T18:32:17Z",
+      "side": 1,
+      "message": "@Andres - For type `ProviderRegistration` we force entries to set `experiment` to `undefined` if there isn\u0027t one. Is there a reason we do that instead of making the property optional like we do here?",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 46
+      },
+      "revId": "e654f7aedfaf80bcf41684767e3fcb8adadab908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
