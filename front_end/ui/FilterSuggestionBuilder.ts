@@ -2,29 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Platform from '../platform/platform.js';
 
-import {Suggestion, Suggestions} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
+import {Suggestion} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
 
 export class FilterSuggestionBuilder {
-  /**
-   * @param {!Array<string>} keys
-   * @param {function(string, !Array<string>):void=} valueSorter
-   */
-  constructor(keys, valueSorter) {
+  _keys: string[];
+  _valueSorter: ((arg0: string, arg1: Array<string>) => void)|((key: string, result: string[]) => string[]);
+  _valuesMap: Map<string, Set<string>>;
+
+  constructor(keys: string[], valueSorter?: ((arg0: string, arg1: Array<string>) => void)) {
     this._keys = keys;
-    this._valueSorter = valueSorter || ((key, result) => result.sort());
-    /** @type {!Map<string, !Set<string>>} */
+    this._valueSorter = valueSorter || ((key: string, result: string[]): string[] => result.sort());
     this._valuesMap = new Map();
   }
 
-  /**
-   * @param {string} expression
-   * @param {string} prefix
-   * @param {boolean=} force
-   * @return {!Promise<!Suggestions>}
-   */
-  completions(expression, prefix, force) {
+  completions(expression: string, prefix: string, force?: boolean): Promise<Suggestion[]> {
     if (!prefix && !force) {
       return Promise.resolve([]);
     }
@@ -36,48 +31,43 @@ export class FilterSuggestionBuilder {
     const modifier = negative ? '-' : '';
     const valueDelimiterIndex = prefix.indexOf(':');
 
-    /** @type {!Suggestions} */
-    const suggestions = [];
+    const suggestions: Suggestion[] = [];
     if (valueDelimiterIndex === -1) {
       const matcher = new RegExp('^' + Platform.StringUtilities.escapeForRegExp(prefix), 'i');
       for (const key of this._keys) {
         if (matcher.test(key)) {
-          suggestions.push(/** @type {!Suggestion} */ ({text: modifier + key + ':'}));
+          suggestions.push(({text: modifier + key + ':'} as Suggestion));
         }
       }
     } else {
       const key = prefix.substring(0, valueDelimiterIndex).toLowerCase();
       const value = prefix.substring(valueDelimiterIndex + 1);
       const matcher = new RegExp('^' + Platform.StringUtilities.escapeForRegExp(value), 'i');
-      const values = Array.from(this._valuesMap.get(key) || new Set());
+      const values = Array.from(this._valuesMap.get(key) || new Set<string>());
       this._valueSorter(key, values);
       for (const item of values) {
         if (matcher.test(item) && (item !== value)) {
-          suggestions.push(/** @type {!Suggestion} */ ({text: modifier + key + ':' + item}));
+          suggestions.push(({text: modifier + key + ':' + item} as Suggestion));
         }
       }
     }
     return Promise.resolve(suggestions);
   }
 
-  /**
-   * @param {string} key
-   * @param {?string=} value
-   */
-  addItem(key, value) {
+  addItem(key: string, value?: string|null): void {
     if (!value) {
       return;
     }
 
     let set = this._valuesMap.get(key);
     if (!set) {
-      set = /** @type {!Set<string>} */ (new Set());
+      set = (new Set() as Set<string>);
       this._valuesMap.set(key, set);
     }
     set.add(value);
   }
 
-  clear() {
+  clear(): void {
     this._valuesMap.clear();
   }
 }
