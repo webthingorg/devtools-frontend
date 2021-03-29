@@ -28,13 +28,21 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
 
-/**
- * @implements {Common.Progress.Progress}
- */
-export class ProgressIndicator {
+export class ProgressIndicator implements Common.Progress.Progress {
+  element: HTMLDivElement;
+  _shadowRoot: ShadowRoot;
+  _contentElement: Element;
+  _labelElement: Element;
+  _progressElement: HTMLProgressElement;
+  _stopButton: Element;
+  _isCanceled: boolean;
+  _worked: number;
+  _isDone?: boolean;
   constructor() {
     this.element = document.createElement('div');
     this.element.classList.add('progress-indicator');
@@ -43,8 +51,7 @@ export class ProgressIndicator {
     this._contentElement = this._shadowRoot.createChild('div', 'progress-indicator-shadow-container');
 
     this._labelElement = this._contentElement.createChild('div', 'title');
-    /** @type {!HTMLProgressElement} */
-    this._progressElement = /** @type {!HTMLProgressElement} */ (this._contentElement.createChild('progress'));
+    this._progressElement = (this._contentElement.createChild('progress') as HTMLProgressElement);
     this._progressElement.value = 0;
     this._stopButton = this._contentElement.createChild('button', 'progress-indicator-shadow-stop-button');
     this._stopButton.addEventListener('click', this.cancel.bind(this));
@@ -53,17 +60,11 @@ export class ProgressIndicator {
     this._worked = 0;
   }
 
-  /**
-   * @param {!Element} parent
-   */
-  show(parent) {
+  show(parent: Element): void {
     parent.appendChild(this.element);
   }
 
-  /**
-   * @override
-   */
-  done() {
+  done(): void {
     if (this._isDone) {
       return;
     }
@@ -71,40 +72,23 @@ export class ProgressIndicator {
     this.element.remove();
   }
 
-  cancel() {
+  cancel(): void {
     this._isCanceled = true;
   }
 
-  /**
-   * @override
-   * @return {boolean}
-   */
-  isCanceled() {
+  isCanceled(): boolean {
     return this._isCanceled;
   }
 
-  /**
-   * @override
-   * @param {string} title
-   */
-  setTitle(title) {
+  setTitle(title: string): void {
     this._labelElement.textContent = title;
   }
 
-  /**
-   * @override
-   * @param {number} totalWork
-   */
-  setTotalWork(totalWork) {
+  setTotalWork(totalWork: number): void {
     this._progressElement.max = totalWork;
   }
 
-  /**
-   * @override
-   * @param {number} worked
-   * @param {string=} title
-   */
-  setWorked(worked, title) {
+  setWorked(worked: number, title?: string): void {
     this._worked = worked;
     this._progressElement.value = worked;
     if (title) {
@@ -112,11 +96,7 @@ export class ProgressIndicator {
     }
   }
 
-  /**
-   * @override
-   * @param {number=} worked
-   */
-  worked(worked) {
+  worked(worked?: number): void {
     this.setWorked(this._worked + (worked || 1));
   }
 }

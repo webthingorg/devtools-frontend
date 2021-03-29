@@ -34,7 +34,7 @@ devtools_module("ui") {
     "ListWidget.js",
     "Panel.js",
     "PopoverHelper.js",
-    "ProgressIndicator.js",
+    "ProgressIndicator.ts",
     "RemoteDebuggingTerminatedScreen.js",
     "ReportView.js",
     "ResizerWidget.js",
