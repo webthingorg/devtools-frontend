@@ -11129,10 +11129,10 @@
   "ui/ListWidget.js | saveString": {
     "message": "Ŝáv̂é"
   },
-  "ui/RemoteDebuggingTerminatedScreen.js | reconnectDevtools": {
+  "ui/RemoteDebuggingTerminatedScreen.ts | reconnectDevtools": {
     "message": "R̂éĉón̂ńêćt̂ D́êv́T̂óôĺŝ"
   },
-  "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
+  "ui/RemoteDebuggingTerminatedScreen.ts | reconnectWhenReadyByReopening": {
     "message": "R̂éĉón̂ńêćt̂ ẃĥén̂ ŕêád̂ý b̂ý r̂éôṕêńîńĝ D́êv́T̂óôĺŝ."
   },
   "ui/SearchableView.js | cancel": {
