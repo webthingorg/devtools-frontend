@@ -39,6 +39,30 @@
       },
       "revId": "e654f7aedfaf80bcf41684767e3fcb8adadab908",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a522c142_906408b0",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-03-29T21:01:24Z",
+      "side": 1,
+      "message": "No, there is not at the moment. The reason why several of these typedefs define union types with `undefined` is because this was type-checked by Closure, which doesn\u0027t support the `?` notation for optional fields in typedefs. Now that TS compiler is in place, we can safely use `?`.",
+      "parentUuid": "e8c0d1af_ccdcc526",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 46
+      },
+      "revId": "e654f7aedfaf80bcf41684767e3fcb8adadab908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
