@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "8ed19c61b8554f88c64184ef02ccd116057a3be3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b1088a_4ce23cac",
+        "filename": "front_end/ui/Context.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-29T09:02:50Z",
+      "side": 1,
+      "message": "Is there a particular reason this `enum` isn\u0027t exported? It\u0027s good if we don\u0027t have to export it, but I would have assumed that it would need to be, as it is an event.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 4
+      },
+      "revId": "8ed19c61b8554f88c64184ef02ccd116057a3be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
