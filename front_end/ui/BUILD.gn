@@ -38,7 +38,7 @@ devtools_module("ui") {
     "RemoteDebuggingTerminatedScreen.js",
     "ReportView.js",
     "ResizerWidget.js",
-    "RootView.js",
+    "RootView.ts",
     "SearchableView.js",
     "SettingsUI.js",
     "ShortcutRegistry.js",
