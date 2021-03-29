@@ -2,18 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
-import * as Platform from '../platform/platform.js';  // eslint-disable-line no-unused-vars
+import * as Platform from '../platform/platform.js'; // eslint-disable-line no-unused-vars
 
 import * as ARIAUtils from './ARIAUtils.js';
-import {Size} from './Geometry.js';
-import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior} from './GlassPane.js';
-import {Icon} from './Icon.js';
-import {ListControl, ListDelegate, ListMode} from './ListControl.js';  // eslint-disable-line no-unused-vars
-import {Events as ListModelEvents, ListModel} from './ListModel.js';   // eslint-disable-line no-unused-vars
-import {appendStyle} from './utils/append-style.js';
-import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
+import { Size } from './Geometry.js';
+import { AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior } from './GlassPane.js';
+import { Icon } from './Icon.js';
+import { ListControl, ListDelegate, ListMode } from './ListControl.js'; // eslint-disable-line no-unused-vars
+import { Events as ListModelEvents, ListModel } from './ListModel.js'; // eslint-disable-line no-unused-vars
+import { appendStyle } from './utils/append-style.js';
+import { createShadowRootWithCoreStyles } from './utils/create-shadow-root-with-core-styles.js';
 
 const UIStrings = {
   /**
@@ -21,18 +23,24 @@ const UIStrings = {
   */
   noItemSelected: '(no item selected)',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SoftDropDown.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SoftDropDown.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @template T
- * @implements {ListDelegate<T>}
  */
-export class SoftDropDown {
-  /**
-   * @param {!ListModel<T>} model
-   * @param {!Delegate<T>} delegate
-   */
-  constructor(model, delegate) {
+export class SoftDropDown implements ListDelegate {
+  _delegate: Delegate<T>;
+  _selectedItem: T | null;
+  _model: ListModel<T>;
+  _placeholderText: Common.UIString.LocalizedString;
+  element: HTMLButtonElement;
+  _titleElement: HTMLElement;
+  _glassPane: GlassPane;
+  _list: ListControl<T>;
+  _rowHeight: number;
+  _width: number;
+  _listWasShowing200msAgo: boolean;
+  constructor(model: ListModel<T>, delegate: Delegate<T>) {
     this._delegate = delegate;
     this._selectedItem = null;
     this._model = model;
@@ -41,7 +49,7 @@ export class SoftDropDown {
 
     this.element = document.createElement('button');
     this.element.classList.add('soft-dropdown');
-    appendStyle(this.element, 'ui/softDropDownButton.css', {enableLegacyPatching: true});
+    appendStyle(this.element, 'ui/softDropDownButton.css', { enableLegacyPatching: true });
     this._titleElement = this.element.createChild('span', 'title');
     const dropdownArrowIcon = Icon.create('smallicon-triangle-down');
     this.element.appendChild(dropdownArrowIcon);
@@ -67,7 +75,8 @@ export class SoftDropDown {
     this.element.addEventListener('mousedown', event => {
       if (this._listWasShowing200msAgo) {
         this._hide(event);
-      } else if (!this.element.disabled) {
+      }
+      else if (!this.element.disabled) {
         this._show(event);
       }
     }, false);
@@ -89,15 +98,12 @@ export class SoftDropDown {
     model.addEventListener(ListModelEvents.ItemsReplaced, this._itemsReplaced, this);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _show(event) {
+  _show(event: Event): void {
     if (this._glassPane.isShowing()) {
       return;
     }
     this._glassPane.setContentAnchorBox(this.element.boxInWindow());
-    this._glassPane.show(/** @type {!Document} **/ (this.element.ownerDocument));
+    this._glassPane.show((this.element.ownerDocument as Document));
     this._list.element.focus();
     ARIAUtils.setExpanded(this.element, true);
     this._updateGlasspaneSize();
@@ -110,16 +116,13 @@ export class SoftDropDown {
     }, 200);
   }
 
-  _updateGlasspaneSize() {
+  _updateGlasspaneSize(): void {
     const maxHeight = this._rowHeight * (Math.min(this._model.length, 9));
     this._glassPane.setMaxContentSize(new Size(this._width, maxHeight));
     this._list.viewportResized();
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _hide(event) {
+  _hide(event: Event): void {
     setTimeout(() => {
       this._listWasShowing200msAgo = false;
     }, 200);
@@ -130,11 +133,8 @@ export class SoftDropDown {
     event.consume(true);
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _onKeyDownButton(ev) {
-    const event = /** @type {!KeyboardEvent} */ (ev);
+  _onKeyDownButton(ev: Event): void {
+    const event = (ev as KeyboardEvent);
     let handled = false;
     switch (event.key) {
       case 'ArrowUp':
@@ -161,11 +161,8 @@ export class SoftDropDown {
     }
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _onKeyDownList(ev) {
-    const event = /** @type {!KeyboardEvent} */ (ev);
+  _onKeyDownList(ev: Event): void {
+    const event = (ev as KeyboardEvent);
     let handled = false;
     switch (event.key) {
       case 'ArrowLeft':
@@ -224,36 +221,24 @@ export class SoftDropDown {
     }
   }
 
-  /**
-   * @param {number} width
-   */
-  setWidth(width) {
+  setWidth(width: number): void {
     this._width = width;
     this._updateGlasspaneSize();
   }
 
-  /**
-   * @param {number} rowHeight
-   */
-  setRowHeight(rowHeight) {
+  setRowHeight(rowHeight: number): void {
     this._rowHeight = rowHeight;
   }
 
-  /**
-   * @param {Platform.UIString.LocalizedString} text
-   */
-  setPlaceholderText(text) {
+  setPlaceholderText(text: Common.UIString.LocalizedString): void {
     this._placeholderText = text;
     if (!this._selectedItem) {
       this._titleElement.textContent = this._placeholderText;
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _itemsReplaced(event) {
-    const removed = /** @type {!Array<T>} */ (event.data.removed);
+  _itemsReplaced(event: Common.EventTarget.EventTargetEvent): void {
+    const removed = (event.data.removed as T[]);
     if (this._selectedItem && removed.indexOf(this._selectedItem) !== -1) {
       this._selectedItem = null;
       this._selectHighlightedItem();
@@ -261,25 +246,18 @@ export class SoftDropDown {
     this._updateGlasspaneSize();
   }
 
-  /**
-   * @param {?T} item
-   */
-  selectItem(item) {
+  selectItem(item: T | null): void {
     this._selectedItem = item;
     if (this._selectedItem) {
       this._titleElement.textContent = this._delegate.titleFor(this._selectedItem);
-    } else {
+    }
+    else {
       this._titleElement.textContent = this._placeholderText;
     }
     this._delegate.itemSelected(this._selectedItem);
   }
 
-  /**
-   * @override
-   * @param {T} item
-   * @return {!Element}
-   */
-  createElementForItem(item) {
+  createElementForItem(item: T): Element {
     const element = document.createElement('div');
     element.classList.add('item');
     element.addEventListener('mousemove', e => {
@@ -296,32 +274,15 @@ export class SoftDropDown {
     return element;
   }
 
-  /**
-   * @override
-   * @param {T} item
-   * @return {number}
-   */
-  heightForItem(item) {
+  heightForItem(item: T): number {
     return this._rowHeight;
   }
 
-  /**
-   * @override
-   * @param {T} item
-   * @return {boolean}
-   */
-  isItemSelectable(item) {
+  isItemSelectable(item: T): boolean {
     return this._delegate.isItemSelectable(item);
   }
 
-  /**
-   * @override
-   * @param {?T} from
-   * @param {?T} to
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   */
-  selectedItemChanged(from, to, fromElement, toElement) {
+  selectedItemChanged(from: T | null, to: T | null, fromElement: Element | null, toElement: Element | null): void {
     if (fromElement) {
       fromElement.classList.remove('highlighted');
     }
@@ -330,28 +291,18 @@ export class SoftDropDown {
     }
 
     ARIAUtils.setActiveDescendant(this._list.element, toElement);
-    this._delegate.highlightedItemChanged(
-        from, to, fromElement && fromElement.firstElementChild, toElement && toElement.firstElementChild);
+    this._delegate.highlightedItemChanged(from, to, fromElement && fromElement.firstElementChild, toElement && toElement.firstElementChild);
   }
 
-  /**
-   * @override
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   * @return {boolean}
-   */
-  updateSelectedItemARIA(fromElement, toElement) {
+  updateSelectedItemARIA(fromElement: Element | null, toElement: Element | null): boolean {
     return false;
   }
 
-  _selectHighlightedItem() {
+  _selectHighlightedItem(): void {
     this.selectItem(this._list.selectedItem());
   }
 
-  /**
-   * @param {T} item
-   */
-  refreshItem(item) {
+  refreshItem(item: T): void {
     this._list.refreshItem(item);
   }
 }
@@ -360,43 +311,14 @@ export class SoftDropDown {
  * @interface
  * @template T
  */
-export class Delegate {
-  /**
-   * @param {T} item
-   * @return {string}
-   */
-  titleFor(item) {
-    throw new Error('not implemented yet');
-  }
+export interface Delegate {
+  titleFor(item: T): string;
 
-  /**
-   * @param {T} item
-   * @return {!Element}
-   */
-  createElementForItem(item) {
-    throw new Error('not implemented yet');
-  }
+  createElementForItem(item: T): Element;
 
-  /**
-   * @param {T} item
-   * @return {boolean}
-   */
-  isItemSelectable(item) {
-    throw new Error('not implemented yet');
-  }
+  isItemSelectable(item: T): boolean;
 
-  /**
-   * @param {?T} item
-   */
-  itemSelected(item) {
-  }
+  itemSelected(item: T | null): void;
 
-  /**
-   * @param {?T} from
-   * @param {?T} to
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   */
-  highlightedItemChanged(from, to, fromElement, toElement) {
-  }
+  highlightedItemChanged(from: T | null, to: T | null, fromElement: Element | null, toElement: Element | null): void;
 }
