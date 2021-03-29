@@ -30,7 +30,7 @@ devtools_module("ui") {
     "InspectorView.js",
     "KeyboardShortcut.js",
     "ListControl.js",
-    "ListModel.js",
+    "ListModel.ts",
     "ListWidget.js",
     "Panel.js",
     "PopoverHelper.js",
