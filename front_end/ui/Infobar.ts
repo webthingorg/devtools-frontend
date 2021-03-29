@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
 
@@ -25,23 +27,37 @@ const UIStrings = {
   */
   close: 'Close',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/Infobar.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/Infobar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class Infobar {
-  /**
-   * @param {!Type} type
-   * @param {string} text
-   * @param {!Array<!InfobarAction>=} actions
-   * @param {!Common.Settings.Setting<*>=} disableSetting
-   */
-  constructor(type, text, actions, disableSetting) {
-    this.element = /** @type {!HTMLElement} */ (document.createElement('div'));
+  element: HTMLElement;
+  _shadowRoot: ShadowRoot;
+  _contentElement: HTMLDivElement;
+  _mainRow: HTMLElement;
+  _detailsRows: HTMLElement;
+  _hasDetails: boolean;
+  _infoContainer: HTMLElement;
+  _infoMessage: HTMLElement;
+  _infoText: HTMLElement;
+  _actionContainer: HTMLElement;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _disableSetting: Common.Settings.Setting<any>|null;
+  _closeContainer: HTMLElement;
+  _toggleElement: HTMLButtonElement;
+  _closeButton: HTMLElement;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _closeCallback: (() => any)|null;
+  _parentView?: Widget;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(type: Type, text: string, actions?: InfobarAction[], disableSetting?: Common.Settings.Setting<any>) {
+    this.element = (document.createElement('div') as HTMLElement);
     this.element.classList.add('flex-none');
     this._shadowRoot = createShadowRootWithCoreStyles(
         this.element, {cssFile: 'ui/infobar.css', enableLegacyPatching: true, delegatesFocus: undefined});
-    /** @type {!HTMLDivElement} */
-    this._contentElement =
-        /** @type {!HTMLDivElement} */ (this._shadowRoot.createChild('div', 'infobar infobar-' + type));
+    this._contentElement = (this._shadowRoot.createChild('div', 'infobar infobar-' + type) as HTMLDivElement);
 
     this._mainRow = this._contentElement.createChild('div', 'infobar-main-row');
     this._detailsRows = this._contentElement.createChild('div', 'infobar-details-rows hidden');
@@ -72,7 +88,6 @@ export class Infobar {
       }
     }
 
-    /** @type {?Common.Settings.Setting<*>} */
     this._disableSetting = disableSetting || null;
     if (disableSetting) {
       const disableButton =
@@ -113,25 +128,20 @@ export class Infobar {
       }
     });
 
-    /** @type {?function():*} */
     this._closeCallback = null;
   }
 
-  /**
-   * @param {!Type} type
-   * @param {string} text
-   * @param {!Array<!InfobarAction>=} actions
-   * @param {!Common.Settings.Setting<*>=} disableSetting
-   * @return {?Infobar}
-   */
-  static create(type, text, actions, disableSetting) {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static create(type: Type, text: string, actions?: InfobarAction[], disableSetting?: Common.Settings.Setting<any>):
+      Infobar|null {
     if (disableSetting && disableSetting.get()) {
       return null;
     }
     return new Infobar(type, text, actions, disableSetting);
   }
 
-  dispose() {
+  dispose(): void {
     this.element.remove();
     this._onResize();
     if (this._closeCallback) {
@@ -139,74 +149,58 @@ export class Infobar {
     }
   }
 
-  /**
-   * @param {string} text
-   */
-  setText(text) {
+  setText(text: string): void {
     this._infoText.textContent = text;
     this._onResize();
   }
 
-  /**
-   * @param {?function():*} callback
-   */
-  setCloseCallback(callback) {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setCloseCallback(callback: (() => any)|null): void {
     this._closeCallback = callback;
   }
 
-  /**
-   * @param {!Widget} parentView
-   */
-  setParentView(parentView) {
+  setParentView(parentView: Widget): void {
     this._parentView = parentView;
   }
 
-  /**
-   * @param {!InfobarAction} action
-   * @returns {!function():void}
-   */
-  _actionCallbackFactory(action) {
+  _actionCallbackFactory(action: InfobarAction): () => void {
     if (!action.delegate) {
-      return action.dismiss ? this.dispose.bind(this) : () => {};
+      return action.dismiss ? this.dispose.bind(this) : (): void => {};
     }
 
     if (!action.dismiss) {
       return action.delegate;
     }
 
-    return (() => {
+    return ((): void => {
              if (action.delegate) {
                action.delegate();
              }
              this.dispose();
-           })
-        .bind(this);
+           }).bind(this);
   }
 
-  _onResize() {
+  _onResize(): void {
     if (this._parentView) {
       this._parentView.doResize();
     }
   }
 
-  _onDisable() {
+  _onDisable(): void {
     if (this._disableSetting) {
       this._disableSetting.set(true);
     }
     this.dispose();
   }
 
-  _onToggleDetails() {
+  _onToggleDetails(): void {
     this._detailsRows.classList.remove('hidden');
     this._toggleElement.remove();
     this._onResize();
   }
 
-  /**
-   * @param {string=} message
-   * @return {!Element}
-   */
-  createDetailsRowMessage(message) {
+  createDetailsRowMessage(message?: string): Element {
     this._hasDetails = true;
     this._toggleElement.classList.remove('hidden');
     const infobarDetailsRow = this._detailsRows.createChild('div', 'infobar-details-row');
@@ -215,20 +209,17 @@ export class Infobar {
     return detailsRowMessage;
   }
 }
+export interface InfobarAction {
+  text: string;
+  highlight: boolean;
+  delegate: (() => void)|null;
+  dismiss: boolean;
+}
 
-/** @typedef {{
- *        text: !string,
- *        highlight: !boolean,
- *        delegate: ?function():void,
- *        dismiss: !boolean
- * }}
- */
-// @ts-ignore typedef
-export let InfobarAction;
-
-/** @enum {string} */
-export const Type = {
-  Warning: 'warning',
-  Info: 'info',
-  Issue: 'issue',
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Type {
+  Warning = 'warning',
+  Info = 'info',
+  Issue = 'issue',
+}
