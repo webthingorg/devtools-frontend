@@ -10,6 +10,7 @@
  */
 
 const locales = {
+  'en-GB': {'title': 'value'},
   'en-US': {'title': 'value'}, // The 'source' strings, with descriptions
   'en-XL': {'title': 'value'}, // local pseudolocalization
 };
