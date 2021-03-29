@@ -2,80 +2,65 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as Platform from '../platform/platform.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
-import {Events as ListModelEvents, ListModel} from './ListModel.js';  // eslint-disable-line no-unused-vars
-import {measurePreferredSize} from './UIUtils.js';
+import { Events as ListModelEvents, ListModel } from './ListModel.js'; // eslint-disable-line no-unused-vars
+import { measurePreferredSize } from './UIUtils.js';
 
 /**
  * @template T
  * @interface
  */
-export class ListDelegate {
-  /**
-   * @param {T} item
-   * @return {!Element}
-   */
-  createElementForItem(item) {
-    throw new Error('not implemented yet');
-  }
+export interface ListDelegate {
+  createElementForItem(item: T): Element;
 
   /**
    * This method is not called in NonViewport mode.
    * Return zero to make list measure the item (only works in SameHeight mode).
-   * @param {T} item
-   * @return {number}
    */
-  heightForItem(item) {
-    throw new Error('not implemented yet');
-  }
+  heightForItem(item: T): number;
 
-  /**
-   * @param {T} item
-   * @return {boolean}
-   */
-  isItemSelectable(item) {
-    throw new Error('not implemented yet');
-  }
+  isItemSelectable(item: T): boolean;
 
-  /**
-   * @param {?T} from
-   * @param {?T} to
-   * @param {?HTMLElement} fromElement
-   * @param {?HTMLElement} toElement
-   */
-  selectedItemChanged(from, to, fromElement, toElement) {
-  }
+  selectedItemChanged(from: T | null, to: T | null, fromElement: HTMLElement | null, toElement: HTMLElement | null): void;
 
-  /**
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   * @return {boolean}
-   */
-  updateSelectedItemARIA(fromElement, toElement) {
-    throw new Error('not implemented yet');
-  }
+  updateSelectedItemARIA(fromElement: Element | null, toElement: Element | null): boolean;
 }
 
-/** @enum {symbol} */
-export const ListMode = {
-  NonViewport: Symbol('UI.ListMode.NonViewport'),
-  EqualHeightItems: Symbol('UI.ListMode.EqualHeightItems'),
-  VariousHeightItems: Symbol('UI.ListMode.VariousHeightItems')
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum ListMode {
+  NonViewport = 'UI.ListMode.NonViewport',
+  EqualHeightItems = 'UI.ListMode.EqualHeightItems',
+  VariousHeightItems = 'UI.ListMode.VariousHeightItems'
+}
+;
 
 /**
  * @template T
  */
 export class ListControl {
-  /**
-   * @param {!ListModel<T>} model
-   * @param {!ListDelegate<T>} delegate
-   * @param {!ListMode=} mode
-   */
-  constructor(model, delegate, mode) {
+  element: HTMLDivElement;
+  _topElement: HTMLElement;
+  _bottomElement: HTMLElement;
+  _firstIndex: number;
+  _lastIndex: number;
+  _renderedHeight: number;
+  _topHeight: number;
+  _bottomHeight: number;
+  _model: ListModel<T>;
+  _itemToElement: Map<T, Element>;
+  _selectedIndex: number;
+  _selectedItem: T | null;
+  _delegate: ListDelegate<T>;
+  _mode: ListMode;
+  _fixedHeight: number;
+  _variableOffsets: Int32Array;
+  constructor(model: ListModel<T>, delegate: ListDelegate<T>, mode?: ListMode) {
     this.element = document.createElement('div');
     this.element.style.overflowY = 'auto';
     this._topElement = this.element.createChild('div');
@@ -83,17 +68,13 @@ export class ListControl {
     this._firstIndex = 0;
     this._lastIndex = 0;
     this._renderedHeight = 0;
-    /** @type {number} */
     this._topHeight = 0;
-    /** @type {number} */
     this._bottomHeight = 0;
 
     this._model = model;
     this._model.addEventListener(ListModelEvents.ItemsReplaced, this._replacedItemsInRange, this);
-    /** @type {!Map<T, !Element>} */
     this._itemToElement = new Map();
     this._selectedIndex = -1;
-    /** @type {?T} */
     this._selectedItem = null;
 
     this.element.tabIndex = -1;
@@ -104,7 +85,6 @@ export class ListControl {
     this._delegate = delegate;
     this._mode = mode || ListMode.EqualHeightItems;
     this._fixedHeight = 0;
-    /** @type {!Int32Array} */
     this._variableOffsets = new Int32Array(0);
     this._clearContents();
 
@@ -115,10 +95,7 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {!ListModel<T>} model
-   */
-  setModel(model) {
+  setModel(model: ListModel<T>): void {
     this._itemToElement.clear();
     const length = this._model.length;
     this._model.removeEventListener(ListModelEvents.ItemsReplaced, this._replacedItemsInRange, this);
@@ -127,13 +104,13 @@ export class ListControl {
     this.invalidateRange(0, length);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _replacedItemsInRange(event) {
-    const data =
-        /** @type {{index: number, removed: !Array<T>, inserted: number, keepSelectedIndex: (boolean|undefined)}} */ (
-            event.data);
+  _replacedItemsInRange(event: Common.EventTarget.EventTargetEvent): void {
+    const data = (event.data as {
+      index: number;
+      removed: Array<T>;
+      inserted: number;
+      keepSelectedIndex: (boolean | undefined);
+    });
     const from = data.index;
     const to = from + data.removed.length;
     const keepSelectedIndex = data.keepSelectedIndex;
@@ -148,7 +125,8 @@ export class ListControl {
     if (this._selectedIndex >= to) {
       this._selectedIndex += data.inserted - (to - from);
       this._selectedItem = this._model.at(this._selectedIndex);
-    } else if (this._selectedIndex >= from) {
+    }
+    else if (this._selectedIndex >= from) {
       const selectableIndex = keepSelectedIndex ? from : from + data.inserted;
       let index = this._findFirstSelectable(selectableIndex, +1, false);
       if (index === -1) {
@@ -159,10 +137,7 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {T} item
-   */
-  refreshItem(item) {
+  refreshItem(item: T): void {
     const index = this._model.indexOf(item);
     if (index === -1) {
       console.error('Item to refresh is not present');
@@ -171,10 +146,7 @@ export class ListControl {
     this.refreshItemByIndex(index);
   }
 
-  /**
-   * @param {number} index
-   */
-  refreshItemByIndex(index) {
+  refreshItemByIndex(index: number): void {
     const item = this._model.at(index);
     this._itemToElement.delete(item);
     this.invalidateRange(index, index + 1);
@@ -183,7 +155,7 @@ export class ListControl {
     }
   }
 
-  refreshAllItems() {
+  refreshAllItems(): void {
     this._itemToElement.clear();
     this.invalidateRange(0, this._model.length);
     if (this._selectedIndex !== -1) {
@@ -191,15 +163,11 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {number} from
-   * @param {number} to
-   */
-  invalidateRange(from, to) {
+  invalidateRange(from: number, to: number): void {
     this._invalidate(from, to, to - from);
   }
 
-  viewportResized() {
+  viewportResized(): void {
     if (this._mode === ListMode.NonViewport) {
       return;
     }
@@ -207,11 +175,10 @@ export class ListControl {
     const scrollTop = this.element.scrollTop;
     const viewportHeight = this.element.offsetHeight;
     this._clearViewport();
-    this._updateViewport(
-        Platform.NumberUtilities.clamp(scrollTop, 0, this._totalHeight() - viewportHeight), viewportHeight);
+    this._updateViewport(Platform.NumberUtilities.clamp(scrollTop, 0, this._totalHeight() - viewportHeight), viewportHeight);
   }
 
-  invalidateItemHeight() {
+  invalidateItemHeight(): void {
     if (this._mode !== ListMode.EqualHeightItems) {
       console.error('Only supported in equal height items mode');
       return;
@@ -223,27 +190,19 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {?Node} node
-   * @return {?T}
-   */
-  itemForNode(node) {
+  itemForNode(node: Node | null): T | null {
     while (node && node.parentNodeOrShadowHost() !== this.element) {
       node = node.parentNodeOrShadowHost();
     }
     if (!node) {
       return null;
     }
-    const element = /** @type {!Element} */ (node);
+    const element = (node as Element);
     const index = this._model.findIndex(item => this._itemToElement.get(item) === element);
     return index !== -1 ? this._model.at(index) : null;
   }
 
-  /**
-   * @param {T} item
-   * @param {boolean=} center
-   */
-  scrollItemIntoView(item, center) {
+  scrollItemIntoView(item: T, center?: boolean): void {
     const index = this._model.indexOf(item);
     if (index === -1) {
       console.error('Attempt to scroll onto missing item');
@@ -252,26 +211,15 @@ export class ListControl {
     this._scrollIntoView(index, center);
   }
 
-  /**
-   * @return {?T}
-   */
-  selectedItem() {
+  selectedItem(): T | null {
     return this._selectedItem;
   }
 
-  /**
-   * @return {number}
-   */
-  selectedIndex() {
+  selectedIndex(): number {
     return this._selectedIndex;
   }
 
-  /**
-   * @param {?T} item
-   * @param {boolean=} center
-   * @param {boolean=} dontScroll
-   */
-  selectItem(item, center, dontScroll) {
+  selectItem(item: T | null, center?: boolean, dontScroll?: boolean): void {
     let index = -1;
     if (item !== null) {
       index = this._model.indexOf(item);
@@ -293,16 +241,11 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {boolean=} canWrap
-   * @param {boolean=} center
-   * @return {boolean}
-   */
-  selectPreviousItem(canWrap, center) {
+  selectPreviousItem(canWrap?: boolean, center?: boolean): boolean {
     if (this._selectedIndex === -1 && !canWrap) {
       return false;
     }
-    let index = this._selectedIndex === -1 ? this._model.length - 1 : this._selectedIndex - 1;
+    let index: number = this._selectedIndex === -1 ? this._model.length - 1 : this._selectedIndex - 1;
     index = this._findFirstSelectable(index, -1, Boolean(canWrap));
     if (index !== -1) {
       this._scrollIntoView(index, center);
@@ -312,16 +255,11 @@ export class ListControl {
     return false;
   }
 
-  /**
-   * @param {boolean=} canWrap
-   * @param {boolean=} center
-   * @return {boolean}
-   */
-  selectNextItem(canWrap, center) {
+  selectNextItem(canWrap?: boolean, center?: boolean): boolean {
     if (this._selectedIndex === -1 && !canWrap) {
       return false;
     }
-    let index = this._selectedIndex === -1 ? 0 : this._selectedIndex + 1;
+    let index: number = this._selectedIndex === -1 ? 0 : this._selectedIndex + 1;
     index = this._findFirstSelectable(index, +1, Boolean(canWrap));
     if (index !== -1) {
       this._scrollIntoView(index, center);
@@ -331,15 +269,11 @@ export class ListControl {
     return false;
   }
 
-  /**
-   * @param {boolean=} center
-   * @return {boolean}
-   */
-  selectItemPreviousPage(center) {
+  selectItemPreviousPage(center?: boolean): boolean {
     if (this._mode === ListMode.NonViewport) {
       return false;
     }
-    let index = this._selectedIndex === -1 ? this._model.length - 1 : this._selectedIndex;
+    let index: number = this._selectedIndex === -1 ? this._model.length - 1 : this._selectedIndex;
     index = this._findPageSelectable(index, -1);
     if (index !== -1) {
       this._scrollIntoView(index, center);
@@ -349,15 +283,11 @@ export class ListControl {
     return false;
   }
 
-  /**
-   * @param {boolean=} center
-   * @return {boolean}
-   */
-  selectItemNextPage(center) {
+  selectItemNextPage(center?: boolean): boolean {
     if (this._mode === ListMode.NonViewport) {
       return false;
     }
-    let index = this._selectedIndex === -1 ? 0 : this._selectedIndex;
+    let index: number = this._selectedIndex === -1 ? 0 : this._selectedIndex;
     index = this._findPageSelectable(index, +1);
     if (index !== -1) {
       this._scrollIntoView(index, center);
@@ -367,11 +297,7 @@ export class ListControl {
     return false;
   }
 
-  /**
-   * @param {number} index
-   * @param {boolean=} center
-   */
-  _scrollIntoView(index, center) {
+  _scrollIntoView(index: number, center?: boolean): void {
     if (this._mode === ListMode.NonViewport) {
       this._elementAtIndex(index).scrollIntoViewIfNeeded(Boolean(center));
       return;
@@ -382,34 +308,28 @@ export class ListControl {
     const viewportHeight = this.element.offsetHeight;
     if (center) {
       const scrollTo = (top + bottom) / 2 - viewportHeight / 2;
-      this._updateViewport(
-          Platform.NumberUtilities.clamp(scrollTo, 0, this._totalHeight() - viewportHeight), viewportHeight);
+      this._updateViewport(Platform.NumberUtilities.clamp(scrollTo, 0, this._totalHeight() - viewportHeight), viewportHeight);
       return;
     }
 
     const scrollTop = this.element.scrollTop;
     if (top < scrollTop) {
       this._updateViewport(top, viewportHeight);
-    } else if (bottom > scrollTop + viewportHeight) {
+    }
+    else if (bottom > scrollTop + viewportHeight) {
       this._updateViewport(bottom - viewportHeight, viewportHeight);
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onClick(event) {
-    const item = this.itemForNode(/** @type {?Node} */ (event.target));
+  _onClick(event: Event): void {
+    const item = this.itemForNode((event.target as Node | null));
     if (item && this._delegate.isItemSelectable(item)) {
       this.selectItem(item);
     }
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _onKeyDown(ev) {
-    const event = /** @type {!KeyboardEvent} */ (ev);
+  _onKeyDown(ev: Event): void {
+    const event = (ev as KeyboardEvent);
     let selected = false;
     switch (event.key) {
       case 'ArrowUp':
@@ -430,18 +350,11 @@ export class ListControl {
     }
   }
 
-  /**
-   * @return {number}
-   */
-  _totalHeight() {
+  _totalHeight(): number {
     return this._offsetAtIndex(this._model.length);
   }
 
-  /**
-   * @param {number} offset
-   * @return {number}
-   */
-  _indexAtOffset(offset) {
+  _indexAtOffset(offset: number): number {
     if (this._mode === ListMode.NonViewport) {
       throw 'There should be no offset conversions in non-viewport mode';
     }
@@ -449,10 +362,7 @@ export class ListControl {
       return 0;
     }
     if (this._mode === ListMode.VariousHeightItems) {
-      return Math.min(
-          this._model.length - 1,
-          Platform.ArrayUtilities.lowerBound(
-              this._variableOffsets, offset, Platform.ArrayUtilities.DEFAULT_COMPARATOR, 0, this._model.length));
+      return Math.min(this._model.length - 1, Platform.ArrayUtilities.lowerBound(this._variableOffsets, offset, Platform.ArrayUtilities.DEFAULT_COMPARATOR, 0, this._model.length));
     }
     if (!this._fixedHeight) {
       this._measureHeight();
@@ -460,11 +370,7 @@ export class ListControl {
     return Math.min(this._model.length - 1, Math.floor(offset / this._fixedHeight));
   }
 
-  /**
-   * @param {number} index
-   * @return {!Element}
-   */
-  _elementAtIndex(index) {
+  _elementAtIndex(index: number): Element {
     const item = this._model.at(index);
     let element = this._itemToElement.get(item);
     if (!element) {
@@ -475,7 +381,7 @@ export class ListControl {
     return element;
   }
 
-  _refreshARIA() {
+  _refreshARIA(): void {
     for (let index = this._firstIndex; index <= this._lastIndex; index++) {
       const item = this._model.at(index);
       const element = this._itemToElement.get(item);
@@ -485,11 +391,7 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {!Element} element
-   * @param {number} index
-   */
-  _updateElementARIA(element, index) {
+  _updateElementARIA(element: Element, index: number): void {
     if (!ARIAUtils.hasRole(element)) {
       ARIAUtils.markAsOption(element);
     }
@@ -497,11 +399,7 @@ export class ListControl {
     ARIAUtils.setPositionInSet(element, index + 1);
   }
 
-  /**
-   * @param {number} index
-   * @return {number}
-   */
-  _offsetAtIndex(index) {
+  _offsetAtIndex(index: number): number {
     if (this._mode === ListMode.NonViewport) {
       throw new Error('There should be no offset conversions in non-viewport mode');
     }
@@ -517,33 +415,26 @@ export class ListControl {
     return index * this._fixedHeight;
   }
 
-  _measureHeight() {
+  _measureHeight(): void {
     this._fixedHeight = this._delegate.heightForItem(this._model.at(0));
     if (!this._fixedHeight) {
       this._fixedHeight = measurePreferredSize(this._elementAtIndex(0), this.element).height;
     }
   }
 
-  /**
-   * @param {number} index
-   * @param {?T=} oldItem
-   * @param {?Element=} oldElement
-   */
-  _select(index, oldItem, oldElement) {
+  _select(index: number, oldItem?: T | null, oldElement?: Element | null): void {
     if (oldItem === undefined) {
       oldItem = this._selectedItem;
     }
     if (oldElement === undefined) {
-      oldElement = this._itemToElement.get(/** @type {!T} */ (oldItem)) || null;
+      oldElement = this._itemToElement.get((oldItem as T)) || null;
     }
     this._selectedIndex = index;
     this._selectedItem = index === -1 ? null : this._model.at(index);
     const newItem = this._selectedItem;
     const newElement = this._selectedIndex !== -1 ? this._elementAtIndex(index) : null;
-
-    this._delegate.selectedItemChanged(
-        oldItem, newItem, /** @type {?HTMLElement} */ (oldElement), /** @type {?HTMLElement} */ (newElement));
-    if (!this._delegate.updateSelectedItemARIA(/** @type {?Element} */ (oldElement), newElement)) {
+    this._delegate.selectedItemChanged(oldItem, newItem, (oldElement as HTMLElement | null), (newElement as HTMLElement | null));
+    if (!this._delegate.updateSelectedItemARIA((oldElement as Element | null), newElement)) {
       if (oldElement) {
         ARIAUtils.setSelected(oldElement, false);
       }
@@ -554,13 +445,7 @@ export class ListControl {
     }
   }
 
-  /**
-   * @param {number} index
-   * @param {number} direction
-   * @param {boolean} canWrap
-   * @return {number}
-   */
-  _findFirstSelectable(index, direction, canWrap) {
+  _findFirstSelectable(index: number, direction: number, canWrap: boolean): number {
     const length = this._model.length;
     if (!length) {
       return -1;
@@ -580,12 +465,7 @@ export class ListControl {
     return -1;
   }
 
-  /**
-   * @param {number} index
-   * @param {number} direction
-   * @return {number}
-   */
-  _findPageSelectable(index, direction) {
+  _findPageSelectable(index: number, direction: number): number {
     let lastSelectable = -1;
     const startOffset = this._offsetAtIndex(index);
     // Compensate for zoom rounding errors with -1.
@@ -602,28 +482,20 @@ export class ListControl {
     return lastSelectable;
   }
 
-  /**
-   * @param {number} length
-   * @param {number} copyTo
-   */
-  _reallocateVariableOffsets(length, copyTo) {
+  _reallocateVariableOffsets(length: number, copyTo: number): void {
     if (this._variableOffsets.length < length) {
       const variableOffsets = new Int32Array(Math.max(length, this._variableOffsets.length * 2));
       variableOffsets.set(this._variableOffsets.slice(0, copyTo), 0);
       this._variableOffsets = variableOffsets;
-    } else if (this._variableOffsets.length >= 2 * length) {
+    }
+    else if (this._variableOffsets.length >= 2 * length) {
       const variableOffsets = new Int32Array(length);
       variableOffsets.set(this._variableOffsets.slice(0, copyTo), 0);
       this._variableOffsets = variableOffsets;
     }
   }
 
-  /**
-   * @param {number} from
-   * @param {number} to
-   * @param {number} inserted
-   */
-  _invalidate(from, to, inserted) {
+  _invalidate(from: number, to: number, inserted: number): void {
     if (this._mode === ListMode.NonViewport) {
       this._invalidateNonViewportMode(from, to - from, inserted);
       return;
@@ -674,25 +546,20 @@ export class ListControl {
     this._refreshARIA();
   }
 
-  /**
-   * @param {number} start
-   * @param {number} remove
-   * @param {number} add
-   */
-  _invalidateNonViewportMode(start, remove, add) {
-    let startElement = this._topElement;
+  _invalidateNonViewportMode(start: number, remove: number, add: number): void {
+    let startElement: HTMLElement = this._topElement;
     for (let index = 0; index < start; index++) {
-      startElement = /** @type {!HTMLElement} */ (startElement.nextElementSibling);
+      startElement = (startElement.nextElementSibling as HTMLElement);
     }
     while (remove--) {
-      /** @type {!HTMLElement} */ (startElement.nextElementSibling).remove();
+      (startElement.nextElementSibling as HTMLElement).remove();
     }
     while (add--) {
       this.element.insertBefore(this._elementAtIndex(start + add), startElement.nextElementSibling);
     }
   }
 
-  _clearViewport() {
+  _clearViewport(): void {
     if (this._mode === ListMode.NonViewport) {
       console.error('There should be no viewport updates in non-viewport mode');
       return;
@@ -705,7 +572,7 @@ export class ListControl {
     this._clearContents();
   }
 
-  _clearContents() {
+  _clearContents(): void {
     // Note: this method should not force layout. Be careful.
     this._topElement.style.height = '0';
     this._bottomElement.style.height = '0';
@@ -714,11 +581,7 @@ export class ListControl {
     this.element.appendChild(this._bottomElement);
   }
 
-  /**
-   * @param {number} scrollTop
-   * @param {number} viewportHeight
-   */
-  _updateViewport(scrollTop, viewportHeight) {
+  _updateViewport(scrollTop: number, viewportHeight: number): void {
     // Note: this method should not force layout. Be careful.
     if (this._mode === ListMode.NonViewport) {
       console.error('There should be no viewport updates in non-viewport mode');
