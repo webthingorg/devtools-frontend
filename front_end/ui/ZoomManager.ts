@@ -2,31 +2,28 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';  // eslint-disable-line no-unused-vars
 
-/**
- * @type {!ZoomManager|undefined}
- */
-let zoomManagerInstance;
+let zoomManagerInstance: ZoomManager|undefined;
 
 export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @private
-   * @param {!Window} window
-   * @param {!Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI} frontendHost
-   */
-  constructor(window, frontendHost) {
+  _frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI;
+  _zoomFactor: number;
+  private constructor(window: Window, frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI) {
     super();
     this._frontendHost = frontendHost;
     this._zoomFactor = this._frontendHost.zoomFactor();
     window.addEventListener('resize', this._onWindowResize.bind(this), true);
   }
 
-  /**
-   * @param {{forceNew: ?boolean, win: ?Window, frontendHost: ?Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI}} opts
-   */
-  static instance(opts = {forceNew: null, win: null, frontendHost: null}) {
+  static instance(opts: {
+    forceNew: boolean|null,
+    win: Window|null,
+    frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI|null,
+  } = {forceNew: null, win: null, frontendHost: null}): ZoomManager {
     const {forceNew, win, frontendHost} = opts;
     if (!zoomManagerInstance || forceNew) {
       if (!win || !frontendHost) {
@@ -40,34 +37,23 @@ export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper {
     return zoomManagerInstance;
   }
 
-  static removeInstance() {
+  static removeInstance(): void {
     zoomManagerInstance = undefined;
   }
 
-  /**
-   * @return {number}
-   */
-  zoomFactor() {
+  zoomFactor(): number {
     return this._zoomFactor;
   }
 
-  /**
-   * @param {number} value
-   * @return {number}
-   */
-  cssToDIP(value) {
+  cssToDIP(value: number): number {
     return value * this._zoomFactor;
   }
 
-  /**
-   * @param {number} valueDIP
-   * @return {number}
-   */
-  dipToCSS(valueDIP) {
+  dipToCSS(valueDIP: number): number {
     return valueDIP / this._zoomFactor;
   }
 
-  _onWindowResize() {
+  _onWindowResize(): void {
     const oldZoomFactor = this._zoomFactor;
     this._zoomFactor = this._frontendHost.zoomFactor();
     if (oldZoomFactor !== this._zoomFactor) {
@@ -76,7 +62,6 @@ export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  ZoomChanged: Symbol('ZoomChanged')
-};
+export const enum Events {
+  ZoomChanged = 'ZoomChanged',
+}
