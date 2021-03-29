@@ -2,9 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 
-import {VBox} from './Widget.js';
+import { VBox } from './Widget.js';
 
 const UIStrings = {
   /**
@@ -16,26 +18,21 @@ const UIStrings = {
   */
   oncePageIsReloadedDevtoolsWill: 'Once page is reloaded, DevTools will automatically reconnect.',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/TargetCrashedScreen.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/TargetCrashedScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TargetCrashedScreen extends VBox {
-  /**
-   * @param {function():*} hideCallback
-   */
-  constructor(hideCallback) {
+  _hideCallback: () => any;
+  constructor(hideCallback: () => any) {
     super(true);
-    this.registerRequiredCSS('ui/targetCrashedScreen.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('ui/targetCrashedScreen.css', { enableLegacyPatching: false });
     this.contentElement.createChild('div', 'message').textContent =
-        i18nString(UIStrings.devtoolsWasDisconnectedFromThe);
+      i18nString(UIStrings.devtoolsWasDisconnectedFromThe);
     this.contentElement.createChild('div', 'message').textContent =
-        i18nString(UIStrings.oncePageIsReloadedDevtoolsWill);
+      i18nString(UIStrings.oncePageIsReloadedDevtoolsWill);
     this._hideCallback = hideCallback;
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     this._hideCallback.call(null);
   }
 }
