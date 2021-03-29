@@ -22,6 +22,30 @@
       },
       "revId": "ce4865088d055b3997b62f397d220babc5c294d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb27291_2eb9c235",
+        "filename": "front_end/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-29T09:57:26Z",
+      "side": 0,
+      "message": "Good catch, thanks!",
+      "parentUuid": "3eb0f795_97cf52b2",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 116
+      },
+      "revId": "ce4865088d055b3997b62f397d220babc5c294d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
