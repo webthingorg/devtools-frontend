@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "b43c4d262c281742a9a960a0bed5965892b3809b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e4c0ee_7f853716",
+        "filename": "front_end/third_party/acorn/acorn.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-29T08:59:55Z",
+      "side": 1,
+      "message": "I think we can remove these two let-declarations now, since they were formerly typedefs?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "b43c4d262c281742a9a960a0bed5965892b3809b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
