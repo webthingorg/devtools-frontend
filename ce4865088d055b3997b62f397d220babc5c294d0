@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa9a8f1_30ff0d74",
+        "filename": "front_end/diff/diff_match_patch.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-29T08:53:26Z",
+      "side": 0,
+      "message": "This is third_party code actually (we still need to move this into front_end/third_party, which I will do soonish). Therefore. let\u0027s revert the changes in this file.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "ce4865088d055b3997b62f397d220babc5c294d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
