@@ -2,40 +2,38 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
-import {ContextMenu, Provider} from './ContextMenu.js';  // eslint-disable-line no-unused-vars
-import {html} from './Fragment.js';
-import {Tooltip} from './Tooltip.js';
-import {addReferrerToURLIfNecessary, copyLinkAddressLabel, MaxLengthForDisplayedURLs, openLinkExternallyLabel} from './UIUtils.js';
-import {XElement} from './XElement.js';
+import { ContextMenu, Provider } from './ContextMenu.js'; // eslint-disable-line no-unused-vars
+import { html } from './Fragment.js';
+import { Tooltip } from './Tooltip.js';
+import { addReferrerToURLIfNecessary, copyLinkAddressLabel, MaxLengthForDisplayedURLs, openLinkExternallyLabel } from './UIUtils.js';
+import { XElement } from './XElement.js';
 
-
-/**
- * @extends {XElement}
- */
 export class XLink extends XElement {
-  /**
-   * @param {string} url
-   * @param {string=} linkText
-   * @param {string=} className
-   * @param {boolean=} preventClick
-   * @return {!HTMLElement}
-   */
-  static create(url, linkText, className, preventClick) {
+  tabIndex: number;
+  target: string;
+  rel: string;
+  _href: string | null;
+  _clickable: boolean;
+  _onClick: (arg0: Event) => void;
+  _onKeyDown: (arg0: Event) => void;
+  static create(url: string, linkText?: string, className?: string, preventClick?: boolean): HTMLElement {
     if (!linkText) {
       linkText = url;
     }
     className = className || '';
     // clang-format off
     // TODO(dgozman): migrate css from 'devtools-link' to 'x-link'.
-    const element = html`
-        <x-link href='${url}' class='${className} devtools-link' ${preventClick ? 'no-click' : ''}
-        >${Platform.StringUtilities.trimMiddle(linkText, MaxLengthForDisplayedURLs)}</x-link>`;
+    const element = html `
+  <x-link href='${url}' class='${className} devtools-link' ${preventClick ? 'no-click' : ''}
+  >${Platform.StringUtilities.trimMiddle(linkText, MaxLengthForDisplayedURLs)}</x-link>`;
     // clang-format on
-    return /** @type {!HTMLElement} */ (element);
+    return /** @type {!HTMLElement} */ element as HTMLElement;
   }
 
   constructor() {
@@ -47,28 +45,24 @@ export class XLink extends XElement {
     this.target = '_blank';
     this.rel = 'noopener';
 
-    /** @type {?string} */
     this._href = null;
     this._clickable = true;
 
-    /** @type {function(!Event):void} */
-    this._onClick = event => {
+    this._onClick = (event: Event): void => {
       event.consume(true);
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(/** @type {string} */ (this._href));
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab((this._href as string));
       this.dispatchEvent(new Event('x-link-invoke'));
     };
-    /** @type {function(!Event):void} */
-    this._onKeyDown = event => {
+    this._onKeyDown = (event: Event): void => {
       if (isEnterOrSpaceKey(event)) {
         event.consume(true);
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(/** @type {string} */ (this._href));
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab((this._href as string));
       }
       this.dispatchEvent(new Event('x-link-invoke'));
     };
   }
 
   /**
-   * @override
    * @return {!Array<string>}
    */
   static get observedAttributes() {
@@ -80,13 +74,7 @@ export class XLink extends XElement {
     return this._href;
   }
 
-  /**
-   * @param {string} attr
-   * @param {?string} oldValue
-   * @param {?string} newValue
-   * @override
-   */
-  attributeChangedCallback(attr, oldValue, newValue) {
+  attributeChangedCallback(attr: string, oldValue: string | null, newValue: string | null): void {
     if (attr === 'no-click') {
       this._clickable = !newValue;
       this._updateClick();
@@ -98,12 +86,13 @@ export class XLink extends XElement {
       if (!newValue) {
         newValue = '';
       }
-      let href = null;
-      let url = null;
+      let href: string | null = null;
+      let url: URL | null = null;
       try {
         url = new URL(addReferrerToURLIfNecessary(newValue));
         href = url.toString();
-      } catch {
+      }
+      catch {
       }
       if (url && url.protocol === 'javascript:') {
         href = null;
@@ -118,12 +107,13 @@ export class XLink extends XElement {
     super.attributeChangedCallback(attr, oldValue, newValue);
   }
 
-  _updateClick() {
+  _updateClick(): void {
     if (this._href !== null && this._clickable) {
       this.addEventListener('click', this._onClick, false);
       this.addEventListener('keydown', this._onKeyDown, false);
       this.style.setProperty('cursor', 'pointer');
-    } else {
+    }
+    else {
       this.removeEventListener('click', this._onClick, false);
       this.removeEventListener('keydown', this._onKeyDown, false);
       this.style.removeProperty('cursor');
@@ -131,20 +121,13 @@ export class XLink extends XElement {
   }
 }
 
-/**
- * @type {ContextMenuProvider}
- */
-let contextMenuProviderInstance;
+let contextMenuProviderInstance: ContextMenuProvider;
 
-/**
- * @implements {Provider}
- */
-export class ContextMenuProvider {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+export class ContextMenuProvider implements Provider {
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): ContextMenuProvider {
+    const { forceNew } = opts;
     if (!contextMenuProviderInstance || forceNew) {
       contextMenuProviderInstance = new ContextMenuProvider();
     }
@@ -152,22 +135,15 @@ export class ContextMenuProvider {
     return contextMenuProviderInstance;
   }
 
-  /**
-   * @override
-   * @param {!Event} event
-   * @param {!ContextMenu} contextMenu
-   * @param {!Object} target
-   */
-  appendApplicableItems(event, contextMenu, target) {
-    let targetNode = /** @type {?Node} */ (target);
+  appendApplicableItems(event: Event, contextMenu: ContextMenu, target: Object): void {
+    let targetNode: (Node | null) = (target as Node | null);
     while (targetNode && !(targetNode instanceof XLink)) {
       targetNode = targetNode.parentNodeOrShadowHost();
     }
     if (!targetNode || !targetNode._href) {
       return;
     }
-    /** @type {!XLink} */
-    const node = targetNode;
+    const node: XLink = targetNode;
     contextMenu.revealSection().appendItem(openLinkExternallyLabel(), () => {
       if (node._href) {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(node._href);
