@@ -28,31 +28,25 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @type {number}
- */
-export const _Eps = 1e-5;
+/* eslint-disable rulesdir/no_underscored_properties */
+
+export const _Eps: number = 1e-5;
 
 export class Vector {
-  /**
-   * @param {number} x
-   * @param {number} y
-   * @param {number} z
-   */
-  constructor(x, y, z) {
+  x: number;
+  y: number;
+  z: number;
+  constructor(x: number, y: number, z: number) {
     this.x = x;
     this.y = y;
     this.z = z;
   }
 
-  /**
-   * @return {number}
-   */
-  length() {
+  length(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
   }
 
-  normalize() {
+  normalize(): void {
     const length = this.length();
     if (length <= _Eps) {
       return;
@@ -64,72 +58,45 @@ export class Vector {
   }
 }
 
-
 export class Point {
-  /**
-   * @param {number} x
-   * @param {number} y
-   */
-  constructor(x, y) {
+  x: number;
+  y: number;
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 
-  /**
-   * @param {!Point} p
-   * @return {number}
-   */
-  distanceTo(p) {
+  distanceTo(p: Point): number {
     return Math.sqrt(Math.pow(p.x - this.x, 2) + Math.pow(p.y - this.y, 2));
   }
 
-  /**
-   * @param {!Point} line
-   * @return {!Point}
-   */
-  projectOn(line) {
+  projectOn(line: Point): Point {
     if (line.x === 0 && line.y === 0) {
       return new Point(0, 0);
     }
     return line.scale((this.x * line.x + this.y * line.y) / (Math.pow(line.x, 2) + Math.pow(line.y, 2)));
   }
 
-  /**
-   * @param {number} scalar
-   * @return {!Point}
-   */
-  scale(scalar) {
+  scale(scalar: number): Point {
     return new Point(this.x * scalar, this.y * scalar);
   }
 
-  /**
-   * @override
-   * @return {string}
-   */
-  toString() {
+  toString(): string {
     return Math.round(this.x * 100) / 100 + ', ' + Math.round(this.y * 100) / 100;
   }
 }
 
-
 export class CubicBezier {
-  /**
-   * @param {!Point} point1
-   * @param {!Point} point2
-   */
-  constructor(point1, point2) {
+  controlPoints: Point[];
+  constructor(point1: Point, point2: Point) {
     this.controlPoints = [point1, point2];
   }
 
-  /**
-   * @param {string} text
-   * @return {?CubicBezier}
-   */
-  static parse(text) {
+  static parse(text: string): CubicBezier | null {
     const keywordValues = CubicBezier.KeywordValues;
     const value = text.toLowerCase().replace(/\s+/g, '');
     if (keywordValues.has(value)) {
-      return CubicBezier.parse(/** @type {string} */ (keywordValues.get(value)));
+      return CubicBezier.parse((keywordValues.get(value) as string));
     }
     const bezierRegex = /^cubic-bezier\(([^,]+),([^,]+),([^,]+),([^,]+)\)$/;
     const match = value.match(bezierRegex);
@@ -141,17 +108,8 @@ export class CubicBezier {
     return null;
   }
 
-  /**
-   * @param {number} t
-   * @return {!Point}
-   */
-  evaluateAt(t) {
-    /**
-     * @param {number} v1
-     * @param {number} v2
-     * @param {number} t
-     */
-    function evaluate(v1, v2, t) {
+  evaluateAt(t: number): Point {
+    function evaluate(v1: number, v2: number, t: number): number {
       return 3 * (1 - t) * (1 - t) * t * v1 + 3 * (1 - t) * t * t * v2 + Math.pow(t, 3);
     }
 
@@ -160,10 +118,7 @@ export class CubicBezier {
     return new Point(x, y);
   }
 
-  /**
-   * @return {string}
-   */
-  asCSSText() {
+  asCSSText(): string {
     const raw = 'cubic-bezier(' + this.controlPoints.join(', ') + ')';
     const keywordValues = CubicBezier.KeywordValues;
     for (const [keyword, value] of keywordValues) {
@@ -187,14 +142,11 @@ CubicBezier.KeywordValues = new Map([
   ['ease-out', 'cubic-bezier(0, 0, 0.58, 1)'],
 ]);
 
-
 export class EulerAngles {
-  /**
-   * @param {number} alpha
-   * @param {number} beta
-   * @param {number} gamma
-   */
-  constructor(alpha, beta, gamma) {
+  alpha: number;
+  beta: number;
+  gamma: number;
+  constructor(alpha: number, beta: number, gamma: number) {
     this.alpha = alpha;
     this.beta = beta;
     this.gamma = gamma;
@@ -225,11 +177,8 @@ export class EulerAngles {
    * differences is that the 'pitch' angle beta is allowed to be within [-180,
    * 180). A mobile device with pitch angle greater than 90 could
    * correspond to a user lying down and looking upward at the screen.
-   *
-   * @param {!DOMMatrixReadOnly} rotationMatrix
-   * @return {!EulerAngles}
    */
-  static fromDeviceOrientationRotationMatrix(rotationMatrix) {
+  static fromDeviceOrientationRotationMatrix(rotationMatrix: DOMMatrixReadOnly): EulerAngles {
     let alpha, beta, gamma;
 
     // A few implementation notes:
@@ -252,39 +201,43 @@ export class EulerAngles {
     //   rotation around the Z axis by 360 degrees will correctly return
     //   alpha=0, but a rotation around the Z axis by 360 * 20000000000000000
     //   will return alpha=~75 degrees, for example.
-    if (Math.abs(rotationMatrix.m33) < _Eps) {    // m33 == 0
-      if (Math.abs(rotationMatrix.m13) < _Eps) {  // m13 == 0, cos(beta) == 0
+    if (Math.abs(rotationMatrix.m33) < _Eps) { // m33 == 0
+      if (Math.abs(rotationMatrix.m13) < _Eps) { // m13 == 0, cos(beta) == 0
         // Gimbal lock discontinuity: in the Z-X'-Y'' angle system used here, a
         // rotation of 90 or -90 degrees around the X axis (beta) causes a
         // Gimbal lock, which we handle by always setting gamma = 0 and
         // handling the rotation in alpha.
         alpha = Math.atan2(rotationMatrix.m12, rotationMatrix.m11);
-        beta = (rotationMatrix.m23 > 0) ? (Math.PI / 2) : -(Math.PI / 2);  // beta = +-pi/2
-        gamma = 0;                                                         // gamma = 0
-      } else if (rotationMatrix.m13 > 0) {                                 // cos(gamma) == 0, cos(beta) > 0
+        beta = (rotationMatrix.m23 > 0) ? (Math.PI / 2) : -(Math.PI / 2); // beta = +-pi/2
+        gamma = 0; // gamma = 0
+      }
+      else if (rotationMatrix.m13 > 0) { // cos(gamma) == 0, cos(beta) > 0
         alpha = Math.atan2(-rotationMatrix.m21, rotationMatrix.m22);
-        beta = Math.asin(rotationMatrix.m23);  // beta [-pi/2, pi/2]
-        gamma = -(Math.PI / 2);                // gamma = -pi/2
-      } else {                                 // cos(gamma) == 0, cos(beta) < 0
+        beta = Math.asin(rotationMatrix.m23); // beta [-pi/2, pi/2]
+        gamma = -(Math.PI / 2); // gamma = -pi/2
+      }
+      else { // cos(gamma) == 0, cos(beta) < 0
         alpha = Math.atan2(rotationMatrix.m21, -rotationMatrix.m22);
         beta = -Math.asin(rotationMatrix.m23);
-        beta += (beta > 0 || Math.abs(beta) < _Eps) ? -Math.PI : Math.PI;  // beta [-pi,-pi/2) U (pi/2,pi)
-        gamma = -(Math.PI / 2);                                            // gamma = -pi/2
+        beta += (beta > 0 || Math.abs(beta) < _Eps) ? -Math.PI : Math.PI; // beta [-pi,-pi/2) U (pi/2,pi)
+        gamma = -(Math.PI / 2); // gamma = -pi/2
       }
-    } else if (rotationMatrix.m33 > 0) {  // cos(beta) > 0
+    }
+    else if (rotationMatrix.m33 > 0) { // cos(beta) > 0
       alpha = Math.atan2(-rotationMatrix.m21, rotationMatrix.m22);
-      beta = Math.asin(rotationMatrix.m23);                         // beta (-pi/2, pi/2)
-      gamma = Math.atan2(-rotationMatrix.m13, rotationMatrix.m33);  // gamma (-pi/2, pi/2)
-    } else {                                                        // cos(beta) < 0
+      beta = Math.asin(rotationMatrix.m23); // beta (-pi/2, pi/2)
+      gamma = Math.atan2(-rotationMatrix.m13, rotationMatrix.m33); // gamma (-pi/2, pi/2)
+    }
+    else { // cos(beta) < 0
       alpha = Math.atan2(rotationMatrix.m21, -rotationMatrix.m22);
       beta = -Math.asin(rotationMatrix.m23);
-      beta += (beta > 0 || Math.abs(beta) < _Eps) ? -Math.PI : Math.PI;  // beta [-pi,-pi/2) U (pi/2,pi)
-      gamma = Math.atan2(rotationMatrix.m13, -rotationMatrix.m33);       // gamma (-pi/2, pi/2)
+      beta += (beta > 0 || Math.abs(beta) < _Eps) ? -Math.PI : Math.PI; // beta [-pi,-pi/2) U (pi/2,pi)
+      gamma = Math.atan2(rotationMatrix.m13, -rotationMatrix.m33); // gamma (-pi/2, pi/2)
     }
 
     // alpha is in [-pi, pi], make sure it is in [0, 2*pi).
     if (alpha < -_Eps) {
-      alpha += 2 * Math.PI;  // alpha [0, 2*pi)
+      alpha += 2 * Math.PI; // alpha [0, 2*pi)
     }
 
     // We do not need a lot of precision in degrees. Arbitrarily set it to 6
@@ -298,45 +251,25 @@ export class EulerAngles {
   }
 }
 
-/**
- * @param {!Vector} u
- * @param {!Vector} v
- * @return {number}
- */
-export const scalarProduct = function(u, v) {
+export const scalarProduct = function (u: Vector, v: Vector): number {
   return u.x * v.x + u.y * v.y + u.z * v.z;
 };
 
-/**
- * @param {!Vector} u
- * @param {!Vector} v
- * @return {!Vector}
- */
-export const crossProduct = function(u, v) {
+export const crossProduct = function (u: Vector, v: Vector): Vector {
   const x = u.y * v.z - u.z * v.y;
   const y = u.z * v.x - u.x * v.z;
   const z = u.x * v.y - u.y * v.x;
   return new Vector(x, y, z);
 };
 
-/**
- * @param {!Vector} u
- * @param {!Vector} v
- * @return {!Vector}
- */
-export const subtract = function(u, v) {
+export const subtract = function (u: Vector, v: Vector): Vector {
   const x = u.x - v.x;
   const y = u.y - v.y;
   const z = u.z - v.z;
   return new Vector(x, y, z);
 };
 
-/**
- * @param {!Vector} v
- * @param {!DOMMatrix} m
- * @return {!Vector}
- */
-export const multiplyVectorByMatrixAndNormalize = function(v, m) {
+export const multiplyVectorByMatrixAndNormalize = function (v: Vector, m: DOMMatrix): Vector {
   const t = v.x * m.m14 + v.y * m.m24 + v.z * m.m34 + m.m44;
   const x = (v.x * m.m11 + v.y * m.m21 + v.z * m.m31 + m.m41) / t;
   const y = (v.x * m.m12 + v.y * m.m22 + v.z * m.m32 + m.m42) / t;
@@ -344,12 +277,7 @@ export const multiplyVectorByMatrixAndNormalize = function(v, m) {
   return new Vector(x, y, z);
 };
 
-/**
- * @param {!Vector} u
- * @param {!Vector} v
- * @return {number}
- */
-export const calculateAngle = function(u, v) {
+export const calculateAngle = function (u: Vector, v: Vector): number {
   const uLength = u.length();
   const vLength = v.length();
   if (uLength <= _Eps || vLength <= _Eps) {
@@ -362,85 +290,57 @@ export const calculateAngle = function(u, v) {
   return radiansToDegrees(Math.acos(cos));
 };
 
-/**
- * @param {number} deg
- * @return {number}
- */
-export const degreesToRadians = function(deg) {
+export const degreesToRadians = function (deg: number): number {
   return deg * Math.PI / 180;
 };
 
-/**
- * @param {number} deg
- * @return {number}
- */
-export const degreesToGradians = function(deg) {
+export const degreesToGradians = function (deg: number): number {
   return deg / 9 * 10;
 };
 
-/**
- * @param {number} deg
- * @return {number}
- */
-export const degreesToTurns = function(deg) {
+export const degreesToTurns = function (deg: number): number {
   return deg / 360;
 };
 
-/**
- * @param {number} rad
- * @return {number}
- */
-export const radiansToDegrees = function(rad) {
+export const radiansToDegrees = function (rad: number): number {
   return rad * 180 / Math.PI;
 };
 
-/**
- * @param {number} rad
- * @return {number}
- */
-export const radiansToGradians = function(rad) {
+export const radiansToGradians = function (rad: number): number {
   return rad * 200 / Math.PI;
 };
 
-/**
- * @param {number} rad
- * @return {number}
- */
-export const radiansToTurns = function(rad) {
+export const radiansToTurns = function (rad: number): number {
   return rad / (2 * Math.PI);
 };
 
-/**
- * @param {number} grad
- * @return {number}
- */
-export const gradiansToRadians = function(grad) {
+export const gradiansToRadians = function (grad: number): number {
   return grad * Math.PI / 200;
 };
 
-/**
- * @param {number} turns
- * @return {number}
- */
-export const turnsToRadians = function(turns) {
+export const turnsToRadians = function (turns: number): number {
   return turns * 2 * Math.PI;
 };
 
-/**
- * @param {!DOMMatrix} matrix
- * @param {!Array.<number>} points
- * @param {{minX: number, maxX: number, minY: number, maxY: number}=} aggregateBounds
- * @return {!{minX: number, maxX: number, minY: number, maxY: number}}
- */
-export const boundsForTransformedPoints = function(matrix, points, aggregateBounds) {
+export const boundsForTransformedPoints = function (matrix: DOMMatrix, points: number[], aggregateBounds?: {
+  minX: number;
+  maxX: number;
+  minY: number;
+  maxY: number;
+}): {
+  minX: number;
+  maxX: number;
+  minY: number;
+  maxY: number;
+} {
   if (!aggregateBounds) {
-    aggregateBounds = {minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity};
+    aggregateBounds = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
   }
   if (points.length % 3) {
     console.warn('Invalid size of points array');
   }
   for (let p = 0; p < points.length; p += 3) {
-    let vector = new Vector(points[p], points[p + 1], points[p + 2]);
+    let vector: Vector = new Vector(points[p], points[p + 1], points[p + 2]);
     vector = multiplyVectorByMatrixAndNormalize(vector, matrix);
     aggregateBounds.minX = Math.min(aggregateBounds.minX, vector.x);
     aggregateBounds.maxX = Math.max(aggregateBounds.maxX, vector.x);
@@ -450,173 +350,104 @@ export const boundsForTransformedPoints = function(matrix, points, aggregateBoun
   return aggregateBounds;
 };
 
-
 export class Size {
-  /**
-   * @param {number} width
-   * @param {number} height
-   */
-  constructor(width, height) {
+  width: number;
+  height: number;
+  constructor(width: number, height: number) {
     this.width = width;
     this.height = height;
   }
 
-  /**
-   * @param {?Size=} size
-   * @return {!Size}
-   */
-  clipTo(size) {
+  clipTo(size?: Size | null): Size {
     if (!size) {
       return this;
     }
     return new Size(Math.min(this.width, size.width), Math.min(this.height, size.height));
   }
 
-  /**
-   * @param {number} scale
-   * @return {!Size}
-   */
-  scale(scale) {
+  scale(scale: number): Size {
     return new Size(this.width * scale, this.height * scale);
   }
 
-  /**
-   * @param {?Size} size
-   * @return {boolean}
-   */
-  isEqual(size) {
+  isEqual(size: Size | null): boolean {
     return size !== null && this.width === size.width && this.height === size.height;
   }
 
-  /**
- * @param {!Size|number} size
- * @return {!Size}
- */
-  widthToMax(size) {
+  widthToMax(size: number | Size): Size {
     return new Size(Math.max(this.width, (typeof size === 'number' ? size : size.width)), this.height);
   }
 
-  /**
- * @param {!Size|number} size
- * @return {!Size}
- */
-  addWidth(size) {
+  addWidth(size: number | Size): Size {
     return new Size(this.width + (typeof size === 'number' ? size : size.width), this.height);
   }
 
-  /**
-   * @param {!Size|number} size
-   * @return {!Size}
-   */
-  heightToMax(size) {
+  heightToMax(size: number | Size): Size {
     return new Size(this.width, Math.max(this.height, (typeof size === 'number' ? size : size.height)));
   }
 
-  /**
-   * @param {!Size|number} size
-   * @return {!Size}
-   */
-  addHeight(size) {
+  addHeight(size: number | Size): Size {
     return new Size(this.width, this.height + (typeof size === 'number' ? size : size.height));
   }
 }
 
-
 export class Insets {
-  /**
-   * @param {number} left
-   * @param {number} top
-   * @param {number} right
-   * @param {number} bottom
-   */
-  constructor(left, top, right, bottom) {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+  constructor(left: number, top: number, right: number, bottom: number) {
     this.left = left;
     this.top = top;
     this.right = right;
     this.bottom = bottom;
   }
 
-  /**
-   * @param {?Insets} insets
-   * @return {boolean}
-   */
-  isEqual(insets) {
+  isEqual(insets: Insets | null): boolean {
     return insets !== null && this.left === insets.left && this.top === insets.top && this.right === insets.right &&
-        this.bottom === insets.bottom;
+      this.bottom === insets.bottom;
   }
 }
 
-
 export class Rect {
-  /**
-   * @param {number} left
-   * @param {number} top
-   * @param {number} width
-   * @param {number} height
-   */
-  constructor(left, top, width, height) {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  constructor(left: number, top: number, width: number, height: number) {
     this.left = left;
     this.top = top;
     this.width = width;
     this.height = height;
   }
 
-  /**
-   * @param {?Rect} rect
-   * @return {boolean}
-   */
-  isEqual(rect) {
+  isEqual(rect: Rect | null): boolean {
     return rect !== null && this.left === rect.left && this.top === rect.top && this.width === rect.width &&
-        this.height === rect.height;
+      this.height === rect.height;
   }
 
-  /**
-   * @param {number} scale
-   * @return {!Rect}
-   */
-  scale(scale) {
+  scale(scale: number): Rect {
     return new Rect(this.left * scale, this.top * scale, this.width * scale, this.height * scale);
   }
 
-  /**
-   * @return {!Size}
-   */
-  size() {
+  size(): Size {
     return new Size(this.width, this.height);
   }
 
-  /**
-   * @param {!Rect} origin
-   * @return {!Rect}
-   */
-  relativeTo(origin) {
+  relativeTo(origin: Rect): Rect {
     return new Rect(this.left - origin.left, this.top - origin.top, this.width, this.height);
   }
 
-  /**
-   * @param {!Rect} origin
-   * @return {!Rect}
-   */
-  rebaseTo(origin) {
+  rebaseTo(origin: Rect): Rect {
     return new Rect(this.left + origin.left, this.top + origin.top, this.width, this.height);
   }
 }
 
-
 export class Constraints {
-  /**
-   * @param {!Size=} minimum
-   * @param {?Size=} preferred
-   */
-  constructor(minimum, preferred) {
-    /**
-     * @type {!Size}
-     */
+  minimum: Size;
+  preferred: Size;
+  constructor(minimum?: Size, preferred?: Size | null) {
     this.minimum = minimum || new Size(0, 0);
 
-    /**
-     * @type {!Size}
-     */
     this.preferred = preferred || this.minimum;
 
     if (this.minimum.width > this.preferred.width || this.minimum.height > this.preferred.height) {
@@ -624,53 +455,33 @@ export class Constraints {
     }
   }
 
-  /**
-   * @param {?Constraints} constraints
-   * @return {boolean}
-   */
-  isEqual(constraints) {
+  isEqual(constraints: Constraints | null): boolean {
     return constraints !== null && this.minimum.isEqual(constraints.minimum) &&
-        this.preferred.isEqual(constraints.preferred);
+      this.preferred.isEqual(constraints.preferred);
   }
 
-  /**
-   * @param {!Constraints|number} value
-   * @return {!Constraints}
-   */
-  widthToMax(value) {
+  widthToMax(value: number | Constraints): Constraints {
     if (typeof value === 'number') {
       return new Constraints(this.minimum.widthToMax(value), this.preferred.widthToMax(value));
     }
     return new Constraints(this.minimum.widthToMax(value.minimum), this.preferred.widthToMax(value.preferred));
   }
 
-  /**
-   * @param {!Constraints|number} value
-   * @return {!Constraints}
-   */
-  addWidth(value) {
+  addWidth(value: number | Constraints): Constraints {
     if (typeof value === 'number') {
       return new Constraints(this.minimum.addWidth(value), this.preferred.addWidth(value));
     }
     return new Constraints(this.minimum.addWidth(value.minimum), this.preferred.addWidth(value.preferred));
   }
 
-  /**
-   * @param {!Constraints|number} value
-   * @return {!Constraints}
-   */
-  heightToMax(value) {
+  heightToMax(value: number | Constraints): Constraints {
     if (typeof value === 'number') {
       return new Constraints(this.minimum.heightToMax(value), this.preferred.heightToMax(value));
     }
     return new Constraints(this.minimum.heightToMax(value.minimum), this.preferred.heightToMax(value.preferred));
   }
 
-  /**
-   * @param {!Constraints|number} value
-   * @return {!Constraints}
-   */
-  addHeight(value) {
+  addHeight(value: number | Constraints): Constraints {
     if (typeof value === 'number') {
       return new Constraints(this.minimum.addHeight(value), this.preferred.addHeight(value));
     }
