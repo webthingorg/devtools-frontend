@@ -11192,22 +11192,22 @@
   "ui/SuggestBox.js | sSuggestionSOfS": {
     "message": "{PH1}, suggestion {PH2} of {PH3}"
   },
-  "ui/TabbedPane.js | close": {
+  "ui/TabbedPane.ts | close": {
     "message": "Close"
   },
-  "ui/TabbedPane.js | closeAll": {
+  "ui/TabbedPane.ts | closeAll": {
     "message": "Close all"
   },
-  "ui/TabbedPane.js | closeOthers": {
+  "ui/TabbedPane.ts | closeOthers": {
     "message": "Close others"
   },
-  "ui/TabbedPane.js | closeS": {
+  "ui/TabbedPane.ts | closeS": {
     "message": "Close {PH1}"
   },
-  "ui/TabbedPane.js | closeTabsToTheRight": {
+  "ui/TabbedPane.ts | closeTabsToTheRight": {
     "message": "Close tabs to the right"
   },
-  "ui/TabbedPane.js | moreTabs": {
+  "ui/TabbedPane.ts | moreTabs": {
     "message": "More tabs"
   },
   "ui/TargetCrashedScreen.js | devtoolsWasDisconnectedFromThe": {
