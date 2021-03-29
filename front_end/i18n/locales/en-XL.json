@@ -11096,22 +11096,22 @@
   "ui/Infobar.js | learnMore": {
     "message": "L̂éâŕn̂ ḿôŕê"
   },
-  "ui/InspectorView.js | closeDrawer": {
+  "ui/InspectorView.ts | closeDrawer": {
     "message": "Ĉĺôśê d́r̂áŵér̂"
   },
-  "ui/InspectorView.js | moreTools": {
+  "ui/InspectorView.ts | moreTools": {
     "message": "M̂ór̂é T̂óôĺŝ"
   },
-  "ui/InspectorView.js | moveToBottom": {
+  "ui/InspectorView.ts | moveToBottom": {
     "message": "M̂óv̂é t̂ó b̂ót̂t́ôḿ"
   },
-  "ui/InspectorView.js | moveToTop": {
+  "ui/InspectorView.ts | moveToTop": {
     "message": "M̂óv̂é t̂ó t̂óp̂"
   },
-  "ui/InspectorView.js | panels": {
+  "ui/InspectorView.ts | panels": {
     "message": "P̂án̂él̂ś"
   },
-  "ui/InspectorView.js | reloadDevtools": {
+  "ui/InspectorView.ts | reloadDevtools": {
     "message": "R̂él̂óâd́ D̂év̂T́ôól̂ś"
   },
   "ui/ListWidget.js | addString": {
@@ -11135,37 +11135,37 @@
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
     "message": "R̂éĉón̂ńêćt̂ ẃĥén̂ ŕêád̂ý b̂ý r̂éôṕêńîńĝ D́êv́T̂óôĺŝ."
   },
-  "ui/SearchableView.js | cancel": {
+  "ui/SearchableView.ts | cancel": {
     "message": "Ĉán̂ćêĺ"
   },
-  "ui/SearchableView.js | dMatches": {
+  "ui/SearchableView.ts | dMatches": {
     "message": "{PH1} m̂át̂ćĥéŝ"
   },
-  "ui/SearchableView.js | dOfD": {
+  "ui/SearchableView.ts | dOfD": {
     "message": "{PH1} ôf́ {PH2}"
   },
-  "ui/SearchableView.js | findString": {
+  "ui/SearchableView.ts | findString": {
     "message": "F̂ín̂d́"
   },
-  "ui/SearchableView.js | matchCase": {
+  "ui/SearchableView.ts | matchCase": {
     "message": "M̂át̂ćĥ Ćâśê"
   },
-  "ui/SearchableView.js | matchString": {
+  "ui/SearchableView.ts | matchString": {
     "message": "1 m̂át̂ćĥ"
   },
-  "ui/SearchableView.js | replace": {
+  "ui/SearchableView.ts | replace": {
     "message": "R̂ép̂ĺâćê"
   },
-  "ui/SearchableView.js | replaceAll": {
+  "ui/SearchableView.ts | replaceAll": {
     "message": "R̂ép̂ĺâćê ál̂ĺ"
   },
-  "ui/SearchableView.js | searchNext": {
+  "ui/SearchableView.ts | searchNext": {
     "message": "Ŝéâŕĉh́ n̂éx̂t́"
   },
-  "ui/SearchableView.js | searchPrevious": {
+  "ui/SearchableView.ts | searchPrevious": {
     "message": "Ŝéâŕĉh́ p̂ŕêv́îóûś"
   },
-  "ui/SearchableView.js | useRegularExpression": {
+  "ui/SearchableView.ts | useRegularExpression": {
     "message": "Ûśê Ŕêǵûĺâŕ Êx́p̂ŕêśŝíôń"
   },
   "ui/SettingsUI.js | oneOrMoreSettingsHaveChanged": {
@@ -11270,7 +11270,7 @@
   "ui/UIUtils.js | sAsync": {
     "message": "{PH1} (âśŷńĉ)"
   },
-  "ui/ViewManager.js | sPanel": {
+  "ui/ViewManager.ts | sPanel": {
     "message": "{PH1} p̂án̂él̂"
   },
   "web_audio/AudioContextContentBuilder.ts | callbackBufferSize": {

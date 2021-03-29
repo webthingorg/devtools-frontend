@@ -11096,22 +11096,22 @@
   "ui/Infobar.js | learnMore": {
     "message": "Learn more"
   },
-  "ui/InspectorView.js | closeDrawer": {
+  "ui/InspectorView.ts | closeDrawer": {
     "message": "Close drawer"
   },
-  "ui/InspectorView.js | moreTools": {
+  "ui/InspectorView.ts | moreTools": {
     "message": "More Tools"
   },
-  "ui/InspectorView.js | moveToBottom": {
+  "ui/InspectorView.ts | moveToBottom": {
     "message": "Move to bottom"
   },
-  "ui/InspectorView.js | moveToTop": {
+  "ui/InspectorView.ts | moveToTop": {
     "message": "Move to top"
   },
-  "ui/InspectorView.js | panels": {
+  "ui/InspectorView.ts | panels": {
     "message": "Panels"
   },
-  "ui/InspectorView.js | reloadDevtools": {
+  "ui/InspectorView.ts | reloadDevtools": {
     "message": "Reload DevTools"
   },
   "ui/ListWidget.js | addString": {
@@ -11135,37 +11135,37 @@
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
     "message": "Reconnect when ready by reopening DevTools."
   },
-  "ui/SearchableView.js | cancel": {
+  "ui/SearchableView.ts | cancel": {
     "message": "Cancel"
   },
-  "ui/SearchableView.js | dMatches": {
+  "ui/SearchableView.ts | dMatches": {
     "message": "{PH1} matches"
   },
-  "ui/SearchableView.js | dOfD": {
+  "ui/SearchableView.ts | dOfD": {
     "message": "{PH1} of {PH2}"
   },
-  "ui/SearchableView.js | findString": {
+  "ui/SearchableView.ts | findString": {
     "message": "Find"
   },
-  "ui/SearchableView.js | matchCase": {
+  "ui/SearchableView.ts | matchCase": {
     "message": "Match Case"
   },
-  "ui/SearchableView.js | matchString": {
+  "ui/SearchableView.ts | matchString": {
     "message": "1 match"
   },
-  "ui/SearchableView.js | replace": {
+  "ui/SearchableView.ts | replace": {
     "message": "Replace"
   },
-  "ui/SearchableView.js | replaceAll": {
+  "ui/SearchableView.ts | replaceAll": {
     "message": "Replace all"
   },
-  "ui/SearchableView.js | searchNext": {
+  "ui/SearchableView.ts | searchNext": {
     "message": "Search next"
   },
-  "ui/SearchableView.js | searchPrevious": {
+  "ui/SearchableView.ts | searchPrevious": {
     "message": "Search previous"
   },
-  "ui/SearchableView.js | useRegularExpression": {
+  "ui/SearchableView.ts | useRegularExpression": {
     "message": "Use Regular Expression"
   },
   "ui/SettingsUI.js | oneOrMoreSettingsHaveChanged": {
@@ -11270,7 +11270,7 @@
   "ui/UIUtils.js | sAsync": {
     "message": "{PH1} (async)"
   },
-  "ui/ViewManager.js | sPanel": {
+  "ui/ViewManager.ts | sPanel": {
     "message": "{PH1} panel"
   },
   "web_audio/AudioContextContentBuilder.ts | callbackBufferSize": {
