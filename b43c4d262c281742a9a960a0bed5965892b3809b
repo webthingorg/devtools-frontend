@@ -39,6 +39,30 @@
       },
       "revId": "b43c4d262c281742a9a960a0bed5965892b3809b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193e1124_ec0463f5",
+        "filename": "front_end/third_party/acorn/acorn.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-03-29T10:04:00Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure if they might be needed elsewhere but it seems like this is not the case :)",
+      "parentUuid": "45e4c0ee_7f853716",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "b43c4d262c281742a9a960a0bed5965892b3809b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
