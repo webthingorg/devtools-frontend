@@ -31,7 +31,7 @@ devtools_module("ui") {
     "KeyboardShortcut.js",
     "ListControl.js",
     "ListModel.js",
-    "ListWidget.js",
+    "ListWidget.ts",
     "Panel.js",
     "PopoverHelper.js",
     "ProgressIndicator.js",

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as i18n from '../i18n/i18n.js';
 
@@ -33,17 +34,22 @@ const UIStrings = {
   */
   cancelString: 'Cancel',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/ListWidget.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/ListWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @template T
- */
-export class ListWidget extends VBox {
-  /**
-   * @param {!Delegate<T>} delegate
-   * @param {boolean=} delegatesFocus
-   */
-  constructor(delegate, delegatesFocus = true) {
+
+export class ListWidget<T> extends VBox {
+  _delegate: Delegate<T>;
+  _list: HTMLElement;
+  _lastSeparator: boolean;
+  _focusRestorer: ElementFocusRestorer|null;
+  _items: T[];
+  _editable: boolean[];
+  _elements: Element[];
+  _editor: Editor<T>|null;
+  _editItem: T|null;
+  _editElement: Element|null;
+  _emptyPlaceholder: Element|null;
+  constructor(delegate: Delegate<T>, delegatesFocus: boolean|undefined = true) {
     super(true, delegatesFocus);
     this.registerRequiredCSS('ui/listWidget.css', {enableLegacyPatching: true});
     this._delegate = delegate;
@@ -51,28 +57,20 @@ export class ListWidget extends VBox {
     this._list = this.contentElement.createChild('div', 'list');
 
     this._lastSeparator = false;
-    /** @type {?ElementFocusRestorer} */
     this._focusRestorer = null;
-    /** @type {!Array<T>} */
     this._items = [];
-    /** @type {!Array<boolean>} */
     this._editable = [];
-    /** @type {!Array<!Element>} */
     this._elements = [];
-    /** @type {?Editor<T>} */
     this._editor = null;
-    /** @type {?T} */
     this._editItem = null;
-    /** @type {?Element} */
     this._editElement = null;
 
-    /** @type {?Element} */
     this._emptyPlaceholder = null;
 
     this._updatePlaceholder();
   }
 
-  clear() {
+  clear(): void {
     this._items = [];
     this._editable = [];
     this._elements = [];
@@ -82,11 +80,7 @@ export class ListWidget extends VBox {
     this._stopEditing();
   }
 
-  /**
-   * @param {!T} item
-   * @param {boolean} editable
-   */
-  appendItem(item, editable) {
+  appendItem(item: T, editable: boolean): void {
     if (this._lastSeparator && this._items.length) {
       const element = document.createElement('div');
       element.classList.add('list-separator');
@@ -108,14 +102,11 @@ export class ListWidget extends VBox {
     this._updatePlaceholder();
   }
 
-  appendSeparator() {
+  appendSeparator(): void {
     this._lastSeparator = true;
   }
 
-  /**
-   * @param {number} index
-   */
-  removeItem(index) {
+  removeItem(index: number): void {
     if (this._editItem === this._items[index]) {
       this._stopEditing();
     }
@@ -129,10 +120,10 @@ export class ListWidget extends VBox {
     const nextIsSeparator = next && next.classList.contains('list-separator');
 
     if (previousIsSeparator && (nextIsSeparator || !next)) {
-      /** @type {!Element} */ (previous).remove();
+      (previous as Element).remove();
     }
     if (nextIsSeparator && !previous) {
-      /** @type {!Element} */ (next).remove();
+      (next as Element).remove();
     }
     element.remove();
 
@@ -142,28 +133,16 @@ export class ListWidget extends VBox {
     this._updatePlaceholder();
   }
 
-  /**
-   * @param {number} index
-   * @param {!T} item
-   */
-  addNewItem(index, item) {
+  addNewItem(index: number, item: T): void {
     this._startEditing(item, null, this._elements[index] || null);
   }
 
-  /**
-   * @param {?Element} element
-   */
-  setEmptyPlaceholder(element) {
+  setEmptyPlaceholder(element: Element|null): void {
     this._emptyPlaceholder = element;
     this._updatePlaceholder();
   }
 
-  /**
-   * @param {!T} item
-   * @param {!Element} element
-   * @return {!Element}
-   */
-  _createControls(item, element) {
+  _createControls(item: T, element: Element): Element {
     const controls = document.createElement('div');
     controls.classList.add('controls-container');
     controls.classList.add('fill');
@@ -183,34 +162,25 @@ export class ListWidget extends VBox {
 
     return controls;
 
-    /**
-     * @this {!ListWidget<?>}
-     */
-    function onEditClicked() {
+    function onEditClicked(this: ListWidget<T>): void {
       const index = this._elements.indexOf(element);
       const insertionPoint = this._elements[index + 1] || null;
       this._startEditing(item, element, insertionPoint);
     }
 
-    /**
-     * @this {!ListWidget<?>}
-     */
-    function onRemoveClicked() {
+    function onRemoveClicked(this: ListWidget<T>): void {
       const index = this._elements.indexOf(element);
       this.element.focus();
       this._delegate.removeItemRequested(this._items[index], index);
     }
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     super.wasShown();
     this._stopEditing();
   }
 
-  _updatePlaceholder() {
+  _updatePlaceholder(): void {
     if (!this._emptyPlaceholder) {
       return;
     }
@@ -222,12 +192,7 @@ export class ListWidget extends VBox {
     }
   }
 
-  /**
-   * @param {!T} item
-   * @param {?Element} element
-   * @param {?Element} insertionPoint
-   */
-  _startEditing(item, element, insertionPoint) {
+  _startEditing(item: T, element: Element|null, insertionPoint: Element|null): void {
     if (element && this._editElement === element) {
       return;
     }
@@ -251,17 +216,17 @@ export class ListWidget extends VBox {
         this._commitEditing.bind(this), this._stopEditing.bind(this));
   }
 
-  _commitEditing() {
+  _commitEditing(): void {
     const editItem = this._editItem;
     const isNew = !this._editElement;
-    const editor = /** @type {!Editor<T>} */ (this._editor);
+    const editor = (this._editor as Editor<T>);
     this._stopEditing();
     if (editItem) {
       this._delegate.commitEdit(editItem, editor, isNew);
     }
   }
 
-  _stopEditing() {
+  _stopEditing(): void {
     this._list.classList.remove('list-editing');
     if (this._focusRestorer) {
       this._focusRestorer.restore();
@@ -280,47 +245,29 @@ export class ListWidget extends VBox {
   }
 }
 
-/**
- * @template T
- * @interface
- */
-export class Delegate {
-  /**
-   * @param {!T} item
-   * @param {boolean} editable
-   * @return {!Element}
-   */
-  renderItem(item, editable) {
-    throw new Error('not implemented yet');
-  }
+export interface Delegate<T> {
+  renderItem(item: T, editable: boolean): Element;
 
-  /**
-   * @param {!T} item
-   * @param {number} index
-   */
-  removeItemRequested(item, index) {
-  }
+  removeItemRequested(item: T, index: number): void;
 
-  /**
-   * @param {!T} item
-   * @return {!Editor<T>}
-   */
-  beginEdit(item) {
-    throw new Error('not implemented yet');
-  }
+  beginEdit(item: T): Editor<T>;
 
-  /**
-   * @param {!T} item
-   * @param {!Editor<T>} editor
-   * @param {boolean} isNew
-   */
-  commitEdit(item, editor, isNew) {}
+  commitEdit(item: T, editor: Editor<T>, isNew: boolean): void;
 }
 
-/**
- * @template T
- */
-export class Editor {
+export class Editor<T> {
+  element: HTMLDivElement;
+  _contentElement: HTMLElement;
+  _commitButton: HTMLButtonElement;
+  _cancelButton: HTMLButtonElement;
+  _errorMessageContainer: HTMLElement;
+  _controls: (HTMLInputElement|HTMLSelectElement)[];
+  _controlByName: Map<string, HTMLInputElement|HTMLSelectElement>;
+  _validators: ((arg0: T, arg1: number, arg2: (HTMLInputElement|HTMLSelectElement)) => ValidatorResult)[];
+  _commit: (() => void)|null;
+  _cancel: (() => void)|null;
+  _item: T|null;
+  _index: number;
   constructor() {
     this.element = document.createElement('div');
     this.element.classList.add('editor-container');
@@ -342,51 +289,32 @@ export class Editor {
     this._errorMessageContainer = this.element.createChild('div', 'list-widget-input-validation-error');
     ARIAUtils.markAsAlert(this._errorMessageContainer);
 
-    /**
-     * @param {function(!KeyboardEvent):boolean} predicate
-     * @param {function():void} callback
-     * @param {!KeyboardEvent} event
-     */
-    function onKeyDown(predicate, callback, event) {
+    function onKeyDown(predicate: (arg0: KeyboardEvent) => boolean, callback: () => void, event: KeyboardEvent): void {
       if (predicate(event)) {
         event.consume(true);
         callback();
       }
     }
 
-    /** @type {!Array<!HTMLInputElement|!HTMLSelectElement>} */
     this._controls = [];
-    /** @type {!Map<string, !HTMLInputElement|!HTMLSelectElement>} */
     this._controlByName = new Map();
-    /** @type {!Array<function(!T, number, (!HTMLInputElement|!HTMLSelectElement)): !ValidatorResult>} */
     this._validators = [];
 
-    /** @type {?function():void} */
     this._commit = null;
-    /** @type {?function():void} */
     this._cancel = null;
-    /** @type {?T} */
     this._item = null;
-    /** @type {number} */
     this._index = -1;
   }
 
-  /**
-   * @return {!Element}
-   */
-  contentElement() {
+  contentElement(): Element {
     return this._contentElement;
   }
 
-  /**
-   * @param {string} name
-   * @param {string} type
-   * @param {string} title
-   * @param {function(!T, number, (!HTMLInputElement|!HTMLSelectElement)): !ValidatorResult} validator
-   * @return {!HTMLInputElement}
-   */
-  createInput(name, type, title, validator) {
-    const input = /** @type {!HTMLInputElement} */ (createInput('', type));
+  createInput(
+      name: string, type: string, title: string,
+      validator: (arg0: T, arg1: number, arg2: (HTMLInputElement|HTMLSelectElement)) => ValidatorResult):
+      HTMLInputElement {
+    const input = (createInput('', type) as HTMLInputElement);
     input.placeholder = title;
     input.addEventListener('input', this._validateControls.bind(this, false), false);
     input.addEventListener('blur', this._validateControls.bind(this, false), false);
@@ -397,18 +325,14 @@ export class Editor {
     return input;
   }
 
-  /**
-   * @param {string} name
-   * @param {!Array<string>} options
-   * @param {function(!T, number, (!HTMLInputElement|!HTMLSelectElement)): !ValidatorResult} validator
-   * @param {string=} title
-   * @return {!HTMLSelectElement}
-   */
-  createSelect(name, options, validator, title) {
-    const select = /** @type {!HTMLSelectElement} */ (document.createElement('select'));
+  createSelect(
+      name: string, options: string[],
+      validator: (arg0: T, arg1: number, arg2: (HTMLInputElement|HTMLSelectElement)) => ValidatorResult,
+      title?: string): HTMLSelectElement {
+    const select = (document.createElement('select') as HTMLSelectElement);
     select.classList.add('chrome-select');
     for (let index = 0; index < options.length; ++index) {
-      const option = /** @type {!HTMLOptionElement} */ (select.createChild('option'));
+      const option = (select.createChild('option') as HTMLOptionElement);
       option.value = options[index];
       option.textContent = options[index];
     }
@@ -424,24 +348,17 @@ export class Editor {
     return select;
   }
 
-  /**
-   * @param {string} name
-   * @return {!HTMLInputElement|!HTMLSelectElement}
-   */
-  control(name) {
-    return /** @type {!HTMLInputElement|!HTMLSelectElement} */ (this._controlByName.get(name));
+  control(name: string): HTMLInputElement|HTMLSelectElement {
+    return /** @type {!HTMLInputElement|!HTMLSelectElement} */ this._controlByName.get(name) as HTMLInputElement |
+        HTMLSelectElement;
   }
 
-  /**
-   * @param {boolean} forceValid
-   */
-  _validateControls(forceValid) {
+  _validateControls(forceValid: boolean): void {
     let allValid = true;
     this._errorMessageContainer.textContent = '';
     for (let index = 0; index < this._controls.length; ++index) {
       const input = this._controls[index];
-      const {valid, errorMessage} =
-          this._validators[index].call(null, /** @type {!T} */ (this._item), this._index, input);
+      const {valid, errorMessage} = this._validators[index].call(null, (this._item as T), this._index, input);
 
       input.classList.toggle('error-input', !valid && !forceValid);
       if (valid || forceValid) {
@@ -459,14 +376,7 @@ export class Editor {
     this._commitButton.disabled = !allValid;
   }
 
-  /**
-   * @param {!T} item
-   * @param {number} index
-   * @param {string} commitButtonTitle
-   * @param {function():void} commit
-   * @param {function():void} cancel
-   */
-  beginEdit(item, index, commitButtonTitle, commit, cancel) {
+  beginEdit(item: T, index: number, commitButtonTitle: string, commit: () => void, cancel: () => void): void {
     this._commit = commit;
     this._cancel = cancel;
     this._item = item;
@@ -480,7 +390,7 @@ export class Editor {
     this._validateControls(true);
   }
 
-  _commitClicked() {
+  _commitClicked(): void {
     if (this._commitButton.disabled) {
       return;
     }
@@ -495,7 +405,7 @@ export class Editor {
     }
   }
 
-  _cancelClicked() {
+  _cancelClicked(): void {
     const cancel = this._cancel;
     this._commit = null;
     this._cancel = null;
@@ -506,7 +416,7 @@ export class Editor {
     }
   }
 }
-
-/** @typedef {{valid: boolean, errorMessage: (string|undefined)}} */
-// @ts-ignore typedef
-export let ValidatorResult;
+export interface ValidatorResult {
+  valid: boolean;
+  errorMessage?: string;
+}
