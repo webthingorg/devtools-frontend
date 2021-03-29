@@ -27,7 +27,7 @@ devtools_module("ui") {
     "Icon.js",
     "Infobar.js",
     "InplaceEditor.js",
-    "InspectorView.js",
+    "InspectorView.ts",
     "KeyboardShortcut.js",
     "ListControl.js",
     "ListModel.js",
