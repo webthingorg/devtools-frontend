@@ -39,7 +39,7 @@ devtools_module("ui") {
     "ReportView.js",
     "ResizerWidget.js",
     "RootView.js",
-    "SearchableView.js",
+    "SearchableView.ts",
     "SettingsUI.js",
     "ShortcutRegistry.js",
     "SoftContextMenu.js",
