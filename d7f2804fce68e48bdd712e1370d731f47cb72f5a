@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6b31e4b_152353ad",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2021-03-29T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67e679b_e0b72ed0",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d2f3aae_9dc75ae6",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-24T14:57:06Z",
       "side": 1,
       "message": "Since we invoke `_filterCallback` here, we should remove the prefix \u0027_\u0027 because it shouldn\u0027t be private (I admit the legacy naming pattern is a bit confusing).",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0359260_d00589a3",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2021-03-29T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d2f3aae_9dc75ae6",
       "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -83,6 +119,42 @@
       "side": 1,
       "message": "I would suggest that instead of looping widgets from the Styles widget, we can let Elements panel expose its computedStyleWidget instance. Possible steps are:\n1. we get the current Elements panel instance via `ElementsPanel.instance()` because it is a global singleton; you can find similar usages from other panels/widgets in the codebase;\n2. we get the current Elements panel\u0027s computedStyleWidget by calling something like `ElementsPanel.instance().getComputedStyleWidget()`, which simply returns its private `_computedStyleWidget`.\n\nThis would also eliminates the unlikely scenario where the loop would give us a wrong computedStyleWidget instance, although it\u0027s quite unlikely now.",
       "parentUuid": "38616ece_fb36f333",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450b5dad_35358394",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2021-03-29T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b8878dd_9af6f8cc",
+      "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e578620_76c55594",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2021-03-29T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b8878dd_9af6f8cc",
       "revId": "d7f2804fce68e48bdd712e1370d731f47cb72f5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

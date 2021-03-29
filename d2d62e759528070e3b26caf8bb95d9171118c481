@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f585f41c_855913f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2021-03-29T11:23:55Z",
+      "side": 1,
+      "message": "Thank you for the review.\n\nI agree with the function naming so I changed it.\nI also go with the suggestion and created a getComputedStyleWidget function in ElementsPanel to get the computedStyleWidget instance.",
+      "revId": "d2d62e759528070e3b26caf8bb95d9171118c481",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
