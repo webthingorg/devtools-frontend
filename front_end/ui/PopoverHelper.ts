@@ -28,26 +28,34 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {GlassPane, MarginBehavior, SizeBehavior} from './GlassPane.js';
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import { GlassPane, MarginBehavior, SizeBehavior } from './GlassPane.js';
 
 export class PopoverHelper {
-  /**
-   * @param {!Element} container
-   * @param {function(!MouseEvent):?PopoverRequest} getRequest
-   */
-  constructor(container, getRequest) {
+  _disableOnClick: boolean;
+  _hasPadding: boolean;
+  _getRequest: (arg0: MouseEvent) => PopoverRequest | null;
+  _scheduledRequest: PopoverRequest | null;
+  _hidePopoverCallback: (() => void) | null;
+  _container: Element;
+  _showTimeout: number;
+  _hideTimeout: number;
+  _hidePopoverTimer: number | null;
+  _showPopoverTimer: number | null;
+  _boundMouseDown: (event: Event) => void;
+  _boundMouseMove: (ev: Event) => void;
+  _boundMouseOut: (event: Event) => void;
+  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null) {
     this._disableOnClick = false;
     this._hasPadding = false;
     this._getRequest = getRequest;
     this._scheduledRequest = null;
-    /** @type {?function():void} */
     this._hidePopoverCallback = null;
     this._container = container;
     this._showTimeout = 0;
     this._hideTimeout = 0;
-    /** @type {?number} */
     this._hidePopoverTimer = null;
-    /** @type {?number} */
     this._showPopoverTimer = null;
     this._boundMouseDown = this._mouseDown.bind(this);
     this._boundMouseMove = this._mouseMove.bind(this);
@@ -58,42 +66,25 @@ export class PopoverHelper {
     this.setTimeout(1000);
   }
 
-  /**
-   * @param {number} showTimeout
-   * @param {number=} hideTimeout
-   */
-  setTimeout(showTimeout, hideTimeout) {
+  setTimeout(showTimeout: number, hideTimeout?: number): void {
     this._showTimeout = showTimeout;
     this._hideTimeout = typeof hideTimeout === 'number' ? hideTimeout : showTimeout / 2;
   }
 
-  /**
-   * @param {boolean} hasPadding
-   */
-  setHasPadding(hasPadding) {
+  setHasPadding(hasPadding: boolean): void {
     this._hasPadding = hasPadding;
   }
 
-  /**
-   * @param {boolean} disableOnClick
-   */
-  setDisableOnClick(disableOnClick) {
+  setDisableOnClick(disableOnClick: boolean): void {
     this._disableOnClick = disableOnClick;
   }
 
-  /**
-   * @param {!Event} ev
-   * @return {boolean}
-   */
-  _eventInScheduledContent(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _eventInScheduledContent(ev: Event): boolean {
+    const event = (ev as MouseEvent);
     return this._scheduledRequest ? this._scheduledRequest.box.contains(event.clientX, event.clientY) : false;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _mouseDown(event) {
+  _mouseDown(event: Event): void {
     if (this._disableOnClick) {
       this.hidePopover();
       return;
@@ -104,14 +95,11 @@ export class PopoverHelper {
 
     this._startHidePopoverTimer(0);
     this._stopShowPopoverTimer();
-    this._startShowPopoverTimer(/** @type {!MouseEvent} */ (event), 0);
+    this._startShowPopoverTimer((event as MouseEvent), 0);
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _mouseMove(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _mouseMove(ev: Event): void {
+    const event = (ev as MouseEvent);
     // Pretend that nothing has happened.
     if (this._eventInScheduledContent(event)) {
       return;
@@ -125,32 +113,22 @@ export class PopoverHelper {
     this._startShowPopoverTimer(event, this.isPopoverVisible() ? this._showTimeout * 0.6 : this._showTimeout);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _popoverMouseMove(event) {
+  _popoverMouseMove(event: Event): void {
     this._stopHidePopoverTimer();
   }
 
-  /**
-   * @param {!GlassPane} popover
-   * @param {!Event} ev
-   */
-  _popoverMouseOut(popover, ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _popoverMouseOut(popover: GlassPane, ev: Event): void {
+    const event = (ev as MouseEvent);
     if (!popover.isShowing()) {
       return;
     }
-    const node = /** @type {?Node} */ (event.relatedTarget);
+    const node = (event.relatedTarget as Node | null);
     if (node && !node.isSelfOrDescendant(popover.contentElement)) {
       this._startHidePopoverTimer(this._hideTimeout);
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _mouseOut(event) {
+  _mouseOut(event: Event): void {
     if (!this.isPopoverVisible()) {
       return;
     }
@@ -159,10 +137,7 @@ export class PopoverHelper {
     }
   }
 
-  /**
-   * @param {number} timeout
-   */
-  _startHidePopoverTimer(timeout) {
+  _startHidePopoverTimer(timeout: number): void {
     // User has |timeout| ms to reach the popup.
     if (!this._hidePopoverCallback || this._hidePopoverTimer) {
       return;
@@ -174,11 +149,7 @@ export class PopoverHelper {
     }, timeout);
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @param {number} timeout
-   */
-  _startShowPopoverTimer(event, timeout) {
+  _startShowPopoverTimer(event: MouseEvent, timeout: number): void {
     this._scheduledRequest = this._getRequest.call(null, event);
     if (!this._scheduledRequest) {
       return;
@@ -188,12 +159,12 @@ export class PopoverHelper {
       this._showPopoverTimer = null;
       this._stopHidePopoverTimer();
       this._hidePopover();
-      const document = /** @type {!Document} */ (/** @type {!Node} */ (event.target).ownerDocument);
+      const document = ((event.target as Node).ownerDocument);
       this._showPopover(document);
     }, timeout);
   }
 
-  _stopShowPopoverTimer() {
+  _stopShowPopoverTimer(): void {
     if (!this._showPopoverTimer) {
       return;
     }
@@ -201,19 +172,16 @@ export class PopoverHelper {
     this._showPopoverTimer = null;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isPopoverVisible() {
+  isPopoverVisible(): boolean {
     return Boolean(this._hidePopoverCallback);
   }
 
-  hidePopover() {
+  hidePopover(): void {
     this._stopShowPopoverTimer();
     this._hidePopover();
   }
 
-  _hidePopover() {
+  _hidePopover(): void {
     if (!this._hidePopoverCallback) {
       return;
     }
@@ -221,12 +189,9 @@ export class PopoverHelper {
     this._hidePopoverCallback = null;
   }
 
-  /**
-   * @param {!Document} document
-   */
-  _showPopover(document) {
+  _showPopover(document: Document): void {
     const popover = new GlassPane();
-    popover.registerRequiredCSS('ui/popover.css', {enableLegacyPatching: false});
+    popover.registerRequiredCSS('ui/popover.css', { enableLegacyPatching: false });
     popover.setSizeBehavior(SizeBehavior.MeasureContent);
     popover.setMarginBehavior(MarginBehavior.Arrow);
     const request = this._scheduledRequest;
@@ -258,7 +223,7 @@ export class PopoverHelper {
       popover.setContentAnchorBox(request.box);
       popover.show(document);
 
-      this._hidePopoverCallback = () => {
+      this._hidePopoverCallback = (): void => {
         if (request.hide) {
           request.hide.call(null);
         }
@@ -268,7 +233,7 @@ export class PopoverHelper {
     });
   }
 
-  _stopHidePopoverTimer() {
+  _stopHidePopoverTimer(): void {
     if (!this._hidePopoverTimer) {
       return;
     }
@@ -280,16 +245,16 @@ export class PopoverHelper {
     this._stopShowPopoverTimer();
   }
 
-  dispose() {
+  dispose(): void {
     this._container.removeEventListener('mousedown', this._boundMouseDown, false);
     this._container.removeEventListener('mousemove', this._boundMouseMove, false);
     this._container.removeEventListener('mouseout', this._boundMouseOut, false);
   }
 }
 
-/** @type {?PopoverHelper} */
-let popoverHelperInstance = null;
-
-/** @typedef {{box: !AnchorBox, show:(function(!GlassPane):!Promise<boolean>), hide:((function():void)|undefined)}} */
-// @ts-ignore typedef
-export let PopoverRequest;
+let popoverHelperInstance: PopoverHelper | null = null;
+export interface PopoverRequest {
+  box: AnchorBox;
+  show: (arg0: GlassPane) => Promise<boolean>;
+  hide?: (() => void);
+}

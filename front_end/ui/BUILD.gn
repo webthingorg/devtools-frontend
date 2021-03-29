@@ -33,7 +33,7 @@ devtools_module("ui") {
     "ListModel.js",
     "ListWidget.js",
     "Panel.js",
-    "PopoverHelper.js",
+    "PopoverHelper.ts",
     "ProgressIndicator.js",
     "RemoteDebuggingTerminatedScreen.js",
     "ReportView.js",
