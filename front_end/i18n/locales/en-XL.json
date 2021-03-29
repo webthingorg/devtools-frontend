@@ -1529,6 +1529,9 @@
   "mobile_throttling/MobileThrottlingSelector.ts | presets": {
     "message": "P̂ŕêśêt́ŝ"
   },
+  "mobile_throttling/NetworkPanelIndicator.ts | acceptedEncodingOverrideSet": {
+    "message": "T̂h́ê śêt́ ôf́ âćĉép̂t́êd́ êńĉód̂ín̂ǵŝ h́âś b̂éêń m̂ód̂íf̂íêd́ b̂ý D̂év̂T́ôól̂ś. Ŝéê t́ĥé N̂ét̂ẃôŕk̂ Ćôńd̂ít̂íôńŝ ṕâńêĺ."
+  },
   "mobile_throttling/NetworkPanelIndicator.ts | networkThrottlingIsEnabled": {
     "message": "N̂ét̂ẃôŕk̂ t́ĥŕôt́t̂ĺîńĝ íŝ én̂áb̂ĺêd́"
   },
@@ -1795,6 +1798,9 @@
   },
   "network/network-meta.ts | useDefaultColors": {
     "message": "Ûśê d́êf́âúl̂t́ ĉól̂ór̂ś"
+  },
+  "network/NetworkConfigView.ts | acceptedEncoding": {
+    "message": "Âćĉép̂t́êd́ êńĉód̂ín̂ǵŝ"
   },
   "network/NetworkConfigView.ts | caching": {
     "message": "Ĉáĉh́îńĝ"
