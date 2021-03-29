@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eb0f795_97cf52b2",
+        "filename": "front_end/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-29T09:00:23Z",
+      "side": 0,
+      "message": "Let\u0027s maintain this comment for documentation.",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 116
+      },
+      "revId": "ce4865088d055b3997b62f397d220babc5c294d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
