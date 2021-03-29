@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
@@ -47,7 +49,7 @@ import {SplitWidget} from './SplitWidget.js';
 import {Events as TabbedPaneEvents} from './TabbedPane.js';
 import {TabbedPane, TabbedPaneTabDelegate} from './TabbedPane.js';  // eslint-disable-line no-unused-vars
 import {ToolbarButton} from './Toolbar.js';
-import {View, ViewLocation, ViewLocationResolver} from './View.js';  // eslint-disable-line no-unused-vars
+import {TabbedViewLocation, View, ViewLocation, ViewLocationResolver} from './View.js';  // eslint-disable-line no-unused-vars
 import {ViewManager} from './ViewManager.js';
 import {VBox, Widget, WidgetFocusRestorer} from './Widget.js';  // eslint-disable-line no-unused-vars
 
@@ -77,15 +79,24 @@ const UIStrings = {
   */
   moveToBottom: 'Move to bottom',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/InspectorView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/InspectorView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/** @type {!InspectorView} */
-let inspectorViewInstance;
+let inspectorViewInstance: InspectorView;
 
-/**
- * @implements {ViewLocationResolver}
- */
-export class InspectorView extends VBox {
+export class InspectorView extends VBox implements ViewLocationResolver {
+  _drawerSplitWidget: SplitWidget;
+  _tabDelegate: InspectorViewTabDelegate;
+  _drawerTabbedLocation: TabbedViewLocation;
+  _drawerTabbedPane: TabbedPane;
+  _infoBarDiv!: HTMLDivElement|null;
+  _tabbedLocation: TabbedViewLocation;
+  _tabbedPane: TabbedPane;
+  _keyDownBound: (event: Event) => void;
+  _currentPanelLocked?: boolean;
+  _focusRestorer?: WidgetFocusRestorer|null;
+  _ownerSplitWidget?: SplitWidget;
+  _reloadRequiredInfobar?: Infobar;
+
   constructor() {
     super();
     GlassPane.setContainer(this.element);
@@ -116,13 +127,6 @@ export class InspectorView extends VBox {
     this._drawerSplitWidget.setSidebarWidget(this._drawerTabbedPane);
     this._drawerTabbedPane.rightToolbar().appendToolbarItem(closeDrawerButton);
 
-    /**
-     * Lazily-initialized in {_attachReloadRequiredInfobar} because we only need it
-     * if the InfoBar is presented.
-     * @type {?HTMLDivElement}
-     */
-    this._infoBarDiv;
-
     // Create main area tabbed pane.
     this._tabbedLocation = ViewManager.instance().createTabbedLocation(
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront.bind(
@@ -148,21 +152,15 @@ export class InspectorView extends VBox {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.ShowPanel, showPanel.bind(this));
 
-    /**
-     * @this {InspectorView}
-     * @param {!Common.EventTarget.EventTargetEvent} event
-     */
-    function showPanel(event) {
-      const panelName = /** @type {string} */ (event.data);
+    function showPanel(this: InspectorView, event: Common.EventTarget.EventTargetEvent): void {
+      const panelName = (event.data as string);
       this.showPanel(panelName);
     }
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!InspectorView}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {
+    forceNew: boolean|null,
+  }|undefined = {forceNew: null}): InspectorView {
     const {forceNew} = opts;
     if (!inspectorViewInstance || forceNew) {
       inspectorViewInstance = new InspectorView();
@@ -171,26 +169,15 @@ export class InspectorView extends VBox {
     return inspectorViewInstance;
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this.element.ownerDocument.addEventListener('keydown', this._keyDownBound, false);
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     this.element.ownerDocument.removeEventListener('keydown', this._keyDownBound, false);
   }
 
-  /**
-   * @override
-   * @param {string} locationName
-   * @return {?ViewLocation}
-   */
-  resolveLocation(locationName) {
+  resolveLocation(locationName: string): ViewLocation|null {
     if (locationName === 'drawer-view') {
       return this._drawerTabbedLocation;
     }
@@ -200,69 +187,43 @@ export class InspectorView extends VBox {
     return null;
   }
 
-  async createToolbars() {
+  async createToolbars(): Promise<void> {
     await this._tabbedPane.leftToolbar().appendItemsAtLocation('main-toolbar-left');
     await this._tabbedPane.rightToolbar().appendItemsAtLocation('main-toolbar-right');
   }
 
-  /**
-   * @param {!View} view
-   */
-  addPanel(view) {
+  addPanel(view: View): void {
     this._tabbedLocation.appendView(view);
   }
 
-  /**
-   * @param {string} panelName
-   * @return {boolean}
-   */
-  hasPanel(panelName) {
+  hasPanel(panelName: string): boolean {
     return this._tabbedPane.hasTab(panelName);
   }
 
-  /**
-   * @param {string} panelName
-   * @return {!Promise.<!Panel>}
-   */
-  async panel(panelName) {
+  async panel(panelName: string): Promise<Panel> {
     const view = ViewManager.instance().view(panelName);
     if (!view) {
       throw new Error(`Expected view for panel '${panelName}'`);
     }
-    return /** @type {!Promise.<!Panel>} */ (view.widget());
+    return /** @type {!Promise.<!Panel>} */ view.widget() as Promise<Panel>;
   }
 
-  /**
-   * @param {boolean} allTargetsSuspended
-   */
-  onSuspendStateChanged(allTargetsSuspended) {
+  onSuspendStateChanged(allTargetsSuspended: boolean): void {
     this._currentPanelLocked = allTargetsSuspended;
     this._tabbedPane.setCurrentTabLocked(this._currentPanelLocked);
     this._tabbedPane.leftToolbar().setEnabled(!this._currentPanelLocked);
     this._tabbedPane.rightToolbar().setEnabled(!this._currentPanelLocked);
   }
 
-  /**
-   * @param {string} panelName
-   * @return {boolean}
-   */
-  canSelectPanel(panelName) {
+  canSelectPanel(panelName: string): boolean {
     return !this._currentPanelLocked || this._tabbedPane.selectedTabId === panelName;
   }
 
-  /**
-   * @param {string} panelName
-   * @return {!Promise<void>}
-   */
-  async showPanel(panelName) {
+  async showPanel(panelName: string): Promise<void> {
     await ViewManager.instance().showView(panelName);
   }
 
-  /**
-   * @param {string} tabId
-   * @param {?Icon} icon
-   */
-  setPanelIcon(tabId, icon) {
+  setPanelIcon(tabId: string, icon: Icon|null): void {
     // Find the tabbed location where the panel lives
     const tabbedPane = this._getTabbedPaneForTabId(tabId);
     if (tabbedPane) {
@@ -270,19 +231,12 @@ export class InspectorView extends VBox {
     }
   }
 
-  /**
-   * @param {boolean} isDrawerOpen
-   */
-  _emitDrawerChangeEvent(isDrawerOpen) {
+  _emitDrawerChangeEvent(isDrawerOpen: boolean): void {
     const evt = new CustomEvent(Events.DrawerChange, {bubbles: true, cancelable: true, detail: {isDrawerOpen}});
     document.body.dispatchEvent(evt);
   }
 
-  /**
-   * @param {string} tabId
-   * @return {?TabbedPane}
-   */
-  _getTabbedPaneForTabId(tabId) {
+  _getTabbedPaneForTabId(tabId: string): TabbedPane|null {
     // Tab exists in the main panel
     if (this._tabbedPane.hasTab(tabId)) {
       return this._tabbedPane;
@@ -297,18 +251,11 @@ export class InspectorView extends VBox {
     return null;
   }
 
-  /**
-   * @return {?Widget}
-   */
-  currentPanelDeprecated() {
-    return (
-        /** @type {?Widget} */ (ViewManager.instance().materializedWidget(this._tabbedPane.selectedTabId || '')));
+  currentPanelDeprecated(): Widget|null {
+    return (ViewManager.instance().materializedWidget(this._tabbedPane.selectedTabId || '') as Widget | null);
   }
 
-  /**
-   * @param {boolean} focus
-   */
-  _showDrawer(focus) {
+  _showDrawer(focus: boolean): void {
     if (this._drawerTabbedPane.isShowing()) {
       return;
     }
@@ -321,14 +268,11 @@ export class InspectorView extends VBox {
     this._emitDrawerChangeEvent(true);
   }
 
-  /**
-   * @return {boolean}
-   */
-  drawerVisible() {
+  drawerVisible(): boolean {
     return this._drawerTabbedPane.isShowing();
   }
 
-  _closeDrawer() {
+  _closeDrawer(): void {
     if (!this._drawerTabbedPane.isShowing()) {
       return;
     }
@@ -340,35 +284,22 @@ export class InspectorView extends VBox {
     this._emitDrawerChangeEvent(false);
   }
 
-  /**
-   * @param {boolean} minimized
-   */
-  setDrawerMinimized(minimized) {
+  setDrawerMinimized(minimized: boolean): void {
     this._drawerSplitWidget.setSidebarMinimized(minimized);
     this._drawerSplitWidget.setResizable(!minimized);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isDrawerMinimized() {
+  isDrawerMinimized(): boolean {
     return this._drawerSplitWidget.isSidebarMinimized();
   }
 
-  /**
-   * @param {string} id
-   * @param {boolean=} userGesture
-   */
-  closeDrawerTab(id, userGesture) {
+  closeDrawerTab(id: string, userGesture?: boolean): void {
     this._drawerTabbedPane.closeTab(id, userGesture);
     Host.userMetrics.panelClosed(id);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _keyDown(event) {
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
+  _keyDown(event: Event): void {
+    const keyboardEvent = (event as KeyboardEvent);
     if (!KeyboardShortcut.eventHasCtrlOrMeta(keyboardEvent) || keyboardEvent.altKey || keyboardEvent.shiftKey) {
       return;
     }
@@ -396,74 +327,56 @@ export class InspectorView extends VBox {
     }
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  onResize(): void {
     GlassPane.containerMoved(this.element);
   }
 
-  /**
-   * @return {!Element}
-   */
-  topResizerElement() {
+  topResizerElement(): Element {
     return this._tabbedPane.headerElement();
   }
 
-  toolbarItemResized() {
+  toolbarItemResized(): void {
     this._tabbedPane.headerResized();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _tabSelected(event) {
-    const tabId = /** @type {string} */ (event.data['tabId']);
+  _tabSelected(event: Common.EventTarget.EventTargetEvent): void {
+    const tabId = (event.data['tabId'] as string);
     Host.userMetrics.panelShown(tabId);
   }
 
-  /**
-   * @param {!SplitWidget} splitWidget
-   */
-  setOwnerSplit(splitWidget) {
+  setOwnerSplit(splitWidget: SplitWidget): void {
     this._ownerSplitWidget = splitWidget;
   }
 
-  /**
-   * @return {?SplitWidget}
-   */
-  ownerSplit() {
+  ownerSplit(): SplitWidget|null {
     return this._ownerSplitWidget || null;
   }
 
-  minimize() {
+  minimize(): void {
     if (this._ownerSplitWidget) {
       this._ownerSplitWidget.setSidebarMinimized(true);
     }
   }
 
-  restore() {
+  restore(): void {
     if (this._ownerSplitWidget) {
       this._ownerSplitWidget.setSidebarMinimized(false);
     }
   }
 
-  /**
-   * @param {string} message
-   */
-  displayReloadRequiredWarning(message) {
+  displayReloadRequiredWarning(message: string): void {
     if (!this._reloadRequiredInfobar) {
       const infobar = new Infobar(InfobarType.Info, message, [
         {
           text: i18nString(UIStrings.reloadDevtools),
           highlight: true,
-          delegate: () => {
+          delegate: (): void => {
             if (DockController.instance().canDock() && DockController.instance().dockSide() === State.Undocked) {
               Host.InspectorFrontendHost.InspectorFrontendHostInstance.setIsDocked(true, function() {});
             }
             Host.InspectorFrontendHost.InspectorFrontendHostInstance.reattach(() => window.location.reload());
           },
-          dismiss: false
+          dismiss: false,
         },
       ]);
       infobar.setParentView(this);
@@ -475,12 +388,9 @@ export class InspectorView extends VBox {
     }
   }
 
-  /**
-   * @param {!Infobar} infobar
-   */
-  _attachReloadRequiredInfobar(infobar) {
+  _attachReloadRequiredInfobar(infobar: Infobar): void {
     if (!this._infoBarDiv) {
-      this._infoBarDiv = /** @type {!HTMLDivElement} */ (document.createElement('div'));
+      this._infoBarDiv = (document.createElement('div') as HTMLDivElement);
       this._infoBarDiv.classList.add('flex-none');
       this.contentElement.insertBefore(this._infoBarDiv, this.contentElement.firstChild);
     }
@@ -488,17 +398,12 @@ export class InspectorView extends VBox {
   }
 }
 
-/** @type {!ActionDelegate} */
-let actionDelegateInstance;
+let actionDelegateInstance: ActionDelegate;
 
-/**
- * @implements {ActionDelegateInterface}
- */
-export class ActionDelegate {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
+export class ActionDelegate implements ActionDelegateInterface {
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): ActionDelegate {
     const {forceNew} = opts;
     if (!actionDelegateInstance || forceNew) {
       actionDelegateInstance = new ActionDelegate();
@@ -507,13 +412,7 @@ export class ActionDelegate {
     return actionDelegateInstance;
   }
 
-  /**
-   * @override
-   * @param {!Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+  handleAction(context: Context, actionId: string): boolean {
     switch (actionId) {
       case 'main.toggle-drawer':
         if (InspectorView.instance().drawerVisible()) {
@@ -535,16 +434,8 @@ export class ActionDelegate {
   }
 }
 
-/**
- * @implements {TabbedPaneTabDelegate}
- */
-export class InspectorViewTabDelegate {
-  /**
-   * @override
-   * @param {!TabbedPane} tabbedPane
-   * @param {!Array.<string>} ids
-   */
-  closeTabs(tabbedPane, ids) {
+export class InspectorViewTabDelegate implements TabbedPaneTabDelegate {
+  closeTabs(tabbedPane: TabbedPane, ids: string[]): void {
     tabbedPane.closeTabs(ids, true);
     // Log telemetry about the closure
     ids.forEach(id => {
@@ -552,28 +443,17 @@ export class InspectorViewTabDelegate {
     });
   }
 
-  /**
-   * @param {string} tabId
-   */
-  moveToDrawer(tabId) {
+  moveToDrawer(tabId: string): void {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.TabMovedToDrawer);
     ViewManager.instance().moveView(tabId, 'drawer-view');
   }
 
-  /**
-   * @param {string} tabId
-   */
-  moveToMainPanel(tabId) {
+  moveToMainPanel(tabId: string): void {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.TabMovedToMainPanel);
     ViewManager.instance().moveView(tabId, 'panel');
   }
 
-  /**
-   * @override
-   * @param {string} tabId
-   * @param {!ContextMenu} contextMenu
-   */
-  onContextMenu(tabId, contextMenu) {
+  onContextMenu(tabId: string, contextMenu: ContextMenu): void {
     // Special case for console, we don't show the movable context panel for this two tabs
     if (tabId === 'console' || tabId === 'console-view') {
       return;
@@ -588,7 +468,8 @@ export class InspectorViewTabDelegate {
   }
 }
 
-/** @enum {string} */
-export const Events = {
-  DrawerChange: 'drawerchange',
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Events {
+  DrawerChange = 'drawerchange',
+}

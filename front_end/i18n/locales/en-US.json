@@ -11096,22 +11096,22 @@
   "ui/Infobar.js | learnMore": {
     "message": "Learn more"
   },
-  "ui/InspectorView.js | closeDrawer": {
+  "ui/InspectorView.ts | closeDrawer": {
     "message": "Close drawer"
   },
-  "ui/InspectorView.js | moreTools": {
+  "ui/InspectorView.ts | moreTools": {
     "message": "More Tools"
   },
-  "ui/InspectorView.js | moveToBottom": {
+  "ui/InspectorView.ts | moveToBottom": {
     "message": "Move to bottom"
   },
-  "ui/InspectorView.js | moveToTop": {
+  "ui/InspectorView.ts | moveToTop": {
     "message": "Move to top"
   },
-  "ui/InspectorView.js | panels": {
+  "ui/InspectorView.ts | panels": {
     "message": "Panels"
   },
-  "ui/InspectorView.js | reloadDevtools": {
+  "ui/InspectorView.ts | reloadDevtools": {
     "message": "Reload DevTools"
   },
   "ui/ListWidget.js | addString": {
