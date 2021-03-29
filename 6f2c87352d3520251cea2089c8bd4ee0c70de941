@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99df626a_2dc8d020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-29T08:48:17Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "6f2c87352d3520251cea2089c8bd4ee0c70de941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af88ea80_13c44464",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-03-26T22:15:30Z",
       "side": 1,
       "message": "Using `--color-background-hover-overlay` was very subtle in this case",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 55
+      },
+      "revId": "6f2c87352d3520251cea2089c8bd4ee0c70de941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "192a6180_d31dba2b",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-29T08:48:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "af88ea80_13c44464",
       "range": {
         "startLine": 64,
         "startChar": 20,
