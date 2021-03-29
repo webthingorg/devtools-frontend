@@ -41,7 +41,7 @@ devtools_module("ui") {
     "RootView.js",
     "SearchableView.js",
     "SettingsUI.js",
-    "ShortcutRegistry.js",
+    "ShortcutRegistry.ts",
     "SoftContextMenu.js",
     "SoftDropDown.js",
     "SplitWidget.js",
