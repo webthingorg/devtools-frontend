@@ -37,7 +37,7 @@ devtools_module("ui") {
     "ProgressIndicator.js",
     "RemoteDebuggingTerminatedScreen.js",
     "ReportView.js",
-    "ResizerWidget.js",
+    "ResizerWidget.ts",
     "RootView.js",
     "SearchableView.js",
     "SettingsUI.js",

@@ -2,46 +2,42 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import {elementDragStart} from './UIUtils.js';
 
 export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
+  _isEnabled: boolean;
+  _elements: Set<HTMLElement>;
+  _installDragOnMouseDownBound: (event: Event) => false | undefined;
+  _cursor: string;
+  _startX?: number;
+  _startY?: number;
+
   constructor() {
     super();
 
     this._isEnabled = true;
-    /** @type {!Set<!HTMLElement>} */
     this._elements = new Set();
     this._installDragOnMouseDownBound = this._installDragOnMouseDown.bind(this);
     this._cursor = 'nwse-resize';
   }
 
-  /**
-   * @return {boolean}
-   */
-  isEnabled() {
+  isEnabled(): boolean {
     return this._isEnabled;
   }
 
-  /**
-   * @param {boolean} enabled
-   */
-  setEnabled(enabled) {
+  setEnabled(enabled: boolean): void {
     this._isEnabled = enabled;
     this.updateElementCursors();
   }
 
-  /**
-   * @return {!Array.<!Element>}
-   */
-  elements() {
+  elements(): Element[] {
     return [...this._elements];
   }
 
-  /**
-   * @param {!HTMLElement} element
-   */
-  addElement(element) {
+  addElement(element: HTMLElement): void {
     if (!this._elements.has(element)) {
       this._elements.add(element);
       element.addEventListener('mousedown', this._installDragOnMouseDownBound, false);
@@ -49,10 +45,7 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {!HTMLElement} element
-   */
-  removeElement(element) {
+  removeElement(element: HTMLElement): void {
     if (this._elements.has(element)) {
       this._elements.delete(element);
       element.removeEventListener('mousedown', this._installDragOnMouseDownBound, false);
@@ -60,14 +53,11 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  updateElementCursors() {
+  updateElementCursors(): void {
     this._elements.forEach(this._updateElementCursor.bind(this));
   }
 
-  /**
-   * @param {!HTMLElement} element
-   */
-  _updateElementCursor(element) {
+  _updateElementCursor(element: HTMLElement): void {
     if (this._isEnabled) {
       element.style.setProperty('cursor', this.cursor());
     } else {
@@ -75,26 +65,17 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @return {string}
-   */
-  cursor() {
+  cursor(): string {
     return this._cursor;
   }
 
-  /**
-   * @param {string} cursor
-   */
-  setCursor(cursor) {
+  setCursor(cursor: string): void {
     this._cursor = cursor;
     this.updateElementCursors();
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _installDragOnMouseDown(event) {
-    const element = /** @type {!HTMLElement} */ (event.target);
+  _installDragOnMouseDown(event: Event): false|undefined {
+    const element = (event.target as HTMLElement);
     // Only handle drags of the nodes specified.
     if (!this._elements.has(element)) {
       return false;
@@ -105,11 +86,7 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     return undefined;
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @return {boolean}
-   */
-  _dragStart(event) {
+  _dragStart(event: MouseEvent): boolean {
     if (!this._isEnabled) {
       return false;
     }
@@ -119,111 +96,71 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper {
     return true;
   }
 
-  /**
-   * @param {number} x
-   * @param {number} y
-   */
-  sendDragStart(x, y) {
+  sendDragStart(x: number, y: number): void {
     this.dispatchEventToListeners(Events.ResizeStart, {startX: x, currentX: x, startY: y, currentY: y});
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @return {boolean}
-   */
-  _drag(event) {
+  _drag(event: MouseEvent): boolean {
     if (!this._isEnabled) {
       this._dragEnd(event);
       return true;  // Cancel drag.
     }
-
-    this.sendDragMove(
-        /** @type {number} */ (this._startX), event.pageX, /** @type {number} */ (this._startY), event.pageY,
-        event.shiftKey);
+    this.sendDragMove((this._startX as number), event.pageX, (this._startY as number), event.pageY, event.shiftKey);
     event.preventDefault();
     return false;  // Continue drag.
   }
 
-  /**
-   * @param {number} startX
-   * @param {number} currentX
-   * @param {number} startY
-   * @param {number} currentY
-   * @param {boolean} shiftKey
-   */
-  sendDragMove(startX, currentX, startY, currentY, shiftKey) {
+  sendDragMove(startX: number, currentX: number, startY: number, currentY: number, shiftKey: boolean): void {
     this.dispatchEventToListeners(
         Events.ResizeUpdate,
         {startX: startX, currentX: currentX, startY: startY, currentY: currentY, shiftKey: shiftKey});
   }
 
-  /**
-   * @param {!MouseEvent} event
-   */
-  _dragEnd(event) {
+  _dragEnd(_event: MouseEvent): void {
     this.dispatchEventToListeners(Events.ResizeEnd);
     delete this._startX;
     delete this._startY;
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  ResizeStart: Symbol('ResizeStart'),
-  ResizeUpdate: Symbol('ResizeUpdate'),
-  ResizeEnd: Symbol('ResizeEnd')
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Events {
+  ResizeStart = 'ResizeStart',
+  ResizeUpdate = 'ResizeUpdate',
+  ResizeEnd = 'ResizeEnd',
+}
 
 
 export class SimpleResizerWidget extends ResizerWidget {
+  _isVertical: boolean;
   constructor() {
     super();
     this._isVertical = true;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isVertical() {
+  isVertical(): boolean {
     return this._isVertical;
   }
 
   /**
    * Vertical widget resizes height (along y-axis).
-   * @param {boolean} vertical
    */
-  setVertical(vertical) {
+  setVertical(vertical: boolean): void {
     this._isVertical = vertical;
     this.updateElementCursors();
   }
 
-  /**
-   * @override
-   * @return {string}
-   */
-  cursor() {
+  cursor(): string {
     return this._isVertical ? 'ns-resize' : 'ew-resize';
   }
 
-  /**
-   * @override
-   * @param {number} x
-   * @param {number} y
-   */
-  sendDragStart(x, y) {
+  sendDragStart(x: number, y: number): void {
     const position = this._isVertical ? y : x;
     this.dispatchEventToListeners(Events.ResizeStart, {startPosition: position, currentPosition: position});
   }
 
-  /**
-   * @override
-   * @param {number} startX
-   * @param {number} currentX
-   * @param {number} startY
-   * @param {number} currentY
-   * @param {boolean} shiftKey
-   */
-  sendDragMove(startX, currentX, startY, currentY, shiftKey) {
+  sendDragMove(startX: number, currentX: number, startY: number, currentY: number, shiftKey: boolean): void {
     if (this._isVertical) {
       this.dispatchEventToListeners(
           Events.ResizeUpdate, {startPosition: startY, currentPosition: currentY, shiftKey: shiftKey});
