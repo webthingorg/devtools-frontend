@@ -11114,19 +11114,19 @@
   "ui/InspectorView.js | reloadDevtools": {
     "message": "Reload DevTools"
   },
-  "ui/ListWidget.js | addString": {
+  "ui/ListWidget.ts | addString": {
     "message": "Add"
   },
-  "ui/ListWidget.js | cancelString": {
+  "ui/ListWidget.ts | cancelString": {
     "message": "Cancel"
   },
-  "ui/ListWidget.js | editString": {
+  "ui/ListWidget.ts | editString": {
     "message": "Edit"
   },
-  "ui/ListWidget.js | removeString": {
+  "ui/ListWidget.ts | removeString": {
     "message": "Remove"
   },
-  "ui/ListWidget.js | saveString": {
+  "ui/ListWidget.ts | saveString": {
     "message": "Save"
   },
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectDevtools": {

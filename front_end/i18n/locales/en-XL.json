@@ -11114,19 +11114,19 @@
   "ui/InspectorView.js | reloadDevtools": {
     "message": "R̂él̂óâd́ D̂év̂T́ôól̂ś"
   },
-  "ui/ListWidget.js | addString": {
+  "ui/ListWidget.ts | addString": {
     "message": "Âd́d̂"
   },
-  "ui/ListWidget.js | cancelString": {
+  "ui/ListWidget.ts | cancelString": {
     "message": "Ĉán̂ćêĺ"
   },
-  "ui/ListWidget.js | editString": {
+  "ui/ListWidget.ts | editString": {
     "message": "Êd́ît́"
   },
-  "ui/ListWidget.js | removeString": {
+  "ui/ListWidget.ts | removeString": {
     "message": "R̂ém̂óv̂é"
   },
-  "ui/ListWidget.js | saveString": {
+  "ui/ListWidget.ts | saveString": {
     "message": "Ŝáv̂é"
   },
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectDevtools": {
