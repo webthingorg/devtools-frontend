@@ -27,102 +27,70 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Host from '../host/host.js';
-import {DefaultShortcutSetting} from './ShortcutRegistry.js';
+/* eslint-disable rulesdir/no_underscored_properties */
 
+import * as Host from '../host/host.js';
+import { DefaultShortcutSetting } from './ShortcutRegistry.js';
 
 export class KeyboardShortcut {
-  /**
-   * @param {!Array.<!Descriptor>} descriptors
-   * @param {string} action
-   * @param {!Type} type
-   * @param {!Set.<string>=} keybindSets
-   */
-  constructor(descriptors, action, type, keybindSets) {
+  descriptors: Descriptor[];
+  action: string;
+  type: Type;
+  keybindSets: Set<string>;
+  constructor(descriptors: Descriptor[], action: string, type: Type, keybindSets?: Set<string>) {
     this.descriptors = descriptors;
     this.action = action;
     this.type = type;
     this.keybindSets = keybindSets || new Set();
   }
 
-  /**
-   * @return {string}
-   */
-  title() {
+  title(): string {
     return this.descriptors.map(descriptor => descriptor.name).join(' ');
   }
 
-  /**
-  * @return {boolean}
-  */
-  isDefault() {
+  isDefault(): boolean {
     return this.type === Type.DefaultShortcut || this.type === Type.DisabledDefault ||
-        (this.type === Type.KeybindSetShortcut && this.keybindSets.has(DefaultShortcutSetting));
+      (this.type === Type.KeybindSetShortcut && this.keybindSets.has(DefaultShortcutSetting));
   }
 
-  /**
-   * @param {!Type} type
-   * @return {!KeyboardShortcut}
-   */
-  changeType(type) {
+  changeType(type: Type): KeyboardShortcut {
     return new KeyboardShortcut(this.descriptors, this.action, type);
   }
 
-  /**
-   * @param {!Array.<!Descriptor>} descriptors
-   * @return {!KeyboardShortcut}
-   */
-  changeKeys(descriptors) {
+  changeKeys(descriptors: Descriptor[]): KeyboardShortcut {
     this.descriptors = descriptors;
     return this;
   }
 
-  /**
-   * @param {!Array.<!Descriptor>} descriptors
-   * @return {boolean}
-   */
-  descriptorsMatch(descriptors) {
+  descriptorsMatch(descriptors: Descriptor[]): boolean {
     if (descriptors.length !== this.descriptors.length) {
       return false;
     }
     return descriptors.every((descriptor, index) => descriptor.key === this.descriptors[index].key);
   }
 
-  /**
-   * @param {string} keybindSet
-   * @return {boolean}
-   */
-  hasKeybindSet(keybindSet) {
+  hasKeybindSet(keybindSet: string): boolean {
     return !this.keybindSets || this.keybindSets.has(keybindSet);
   }
 
-  /**
-   * @param {!KeyboardShortcut} shortcut
-   * @return {boolean}
-   */
-  equals(shortcut) {
+  equals(shortcut: KeyboardShortcut): boolean {
     return this.descriptorsMatch(shortcut.descriptors) && this.type === shortcut.type &&
-        this.action === shortcut.action;
+      this.action === shortcut.action;
   }
 
-  /**
-   * @param {!{action: string, descriptors: !Array.<!Descriptor>, type: !Type}} settingObject
-   * @return {!KeyboardShortcut}
-   */
-  static createShortcutFromSettingObject(settingObject) {
+  static createShortcutFromSettingObject(settingObject: {
+    action: string;
+    descriptors: Array<Descriptor>;
+    type: Type;
+  }): KeyboardShortcut {
     return new KeyboardShortcut(settingObject.descriptors, settingObject.action, settingObject.type);
   }
-
 
   /**
    * Creates a number encoding keyCode in the lower 8 bits and modifiers mask in the higher 8 bits.
    * It is useful for matching pressed keys.
-   *
-   * @param {number|string} keyCode The code of the key, or a character "a-z" which is converted to a keyCode value.
-   * @param {number=} modifiers Optional list of modifiers passed as additional parameters.
-   * @return {number}
    */
-  static makeKey(keyCode, modifiers) {
+  static makeKey(keyCode: string | number, modifiers?: number): number {
     if (typeof keyCode === 'string') {
       keyCode = keyCode.charCodeAt(0) - (/^[a-z]/.test(keyCode) ? 32 : 0);
     }
@@ -130,11 +98,7 @@ export class KeyboardShortcut {
     return KeyboardShortcut._makeKeyFromCodeAndModifiers(keyCode, modifiers);
   }
 
-  /**
-   * @param {!KeyboardEvent} keyboardEvent
-   * @return {number}
-   */
-  static makeKeyFromEvent(keyboardEvent) {
+  static makeKeyFromEvent(keyboardEvent: KeyboardEvent): number {
     let modifiers = Modifiers.None;
     if (keyboardEvent.shiftKey) {
       modifiers |= Modifiers.Shift;
@@ -155,84 +119,53 @@ export class KeyboardShortcut {
     return KeyboardShortcut._makeKeyFromCodeAndModifiers(keyCode, modifiers);
   }
 
-  /**
-   * @param {!KeyboardEvent} keyboardEvent
-   * @return {number}
-   */
-  static makeKeyFromEventIgnoringModifiers(keyboardEvent) {
+  static makeKeyFromEventIgnoringModifiers(keyboardEvent: KeyboardEvent): number {
     // @ts-ignore ExtensionServer.js installs '__keyCode' on some events.
     const keyCode = keyboardEvent.keyCode || keyboardEvent['__keyCode'];
     return KeyboardShortcut._makeKeyFromCodeAndModifiers(keyCode, Modifiers.None);
   }
 
-  /**
-   * @param {(!KeyboardEvent|!MouseEvent)} event
-   * @return {boolean}
-   */
-  static eventHasCtrlOrMeta(event) {
+  static eventHasCtrlOrMeta(event: KeyboardEvent | MouseEvent): boolean {
     return Host.Platform.isMac() ? event.metaKey && !event.ctrlKey : event.ctrlKey && !event.metaKey;
   }
 
-  /**
-   * @param {!Event} event
-   * @return {boolean}
-   */
-  static hasNoModifiers(event) {
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
+  static hasNoModifiers(event: Event): boolean {
+    const keyboardEvent = (event as KeyboardEvent);
     return !keyboardEvent.ctrlKey && !keyboardEvent.shiftKey && !keyboardEvent.altKey && !keyboardEvent.metaKey;
   }
 
-  /**
-   * @param {string|!Key} key
-   * @param {number=} modifiers
-   * @return {!Descriptor}
-   */
-  static makeDescriptor(key, modifiers) {
+  static makeDescriptor(key: string | Key, modifiers?: number): Descriptor {
     return {
       key: KeyboardShortcut.makeKey(typeof key === 'string' ? key : key.code, modifiers),
       name: KeyboardShortcut.shortcutToString(key, modifiers)
     };
   }
 
-  /**
-   * @param {string} shortcut
-   * @return {!Descriptor}
-   */
-  static makeDescriptorFromBindingShortcut(shortcut) {
+  static makeDescriptorFromBindingShortcut(shortcut: string): Descriptor {
     const [keyString, ...modifierStrings] = shortcut.split(/\+(?!$)/).reverse();
     let modifiers = 0;
     for (const modifierString of modifierStrings) {
       const modifier = Modifiers[modifierString];
-      console.assert(
-          typeof modifier !== 'undefined', `Only one key other than modifier is allowed in shortcut <${shortcut}>`);
+      console.assert(typeof modifier !== 'undefined', `Only one key other than modifier is allowed in shortcut <${shortcut}>`);
       modifiers |= modifier;
     }
     console.assert(keyString.length > 0, `Modifiers-only shortcuts are not allowed (encountered <${shortcut}>)`);
 
     const key = Keys[keyString] || KeyBindings[keyString];
-    if (key && 'shiftKey' in key && /** @type {*} */ (key).shiftKey) {
+    if (key && 'shiftKey' in key && (key as any).shiftKey) {
       modifiers |= Modifiers.Shift;
     }
     return KeyboardShortcut.makeDescriptor(key ? key : keyString, modifiers);
   }
 
-  /**
-   * @param {string|!Key} key
-   * @param {number=} modifiers
-   * @return {string}
-   */
-  static shortcutToString(key, modifiers) {
+  static shortcutToString(key: string | Key, modifiers?: number): string {
     if (typeof key !== 'string' && KeyboardShortcut.isModifier(key.code)) {
       return KeyboardShortcut._modifiersToString(modifiers);
     }
     return KeyboardShortcut._modifiersToString(modifiers) + KeyboardShortcut._keyName(key);
   }
 
-  /**
-   * @param {string|!Key} key
-   * @return {string}
-   */
-  static _keyName(key) {
+  static _keyName(key: string | Key): string {
     if (typeof key === 'string') {
       return key.toUpperCase();
     }
@@ -242,38 +175,24 @@ export class KeyboardShortcut {
     return key.name[Host.Platform.platform()] || key.name.other || '';
   }
 
-  /**
-   * @param {number} keyCode
-   * @param {?number} modifiers
-   * @return {number}
-   */
-  static _makeKeyFromCodeAndModifiers(keyCode, modifiers) {
+  static _makeKeyFromCodeAndModifiers(keyCode: number, modifiers: number | null): number {
     return (keyCode & 255) | ((modifiers || 0) << 8);
   }
 
-  /**
-   * @param {number} key
-   * @return {!{keyCode: number, modifiers: number}}
-   */
-  static keyCodeAndModifiersFromKey(key) {
-    return {keyCode: key & 255, modifiers: key >> 8};
+  static keyCodeAndModifiersFromKey(key: number): {
+    keyCode: number;
+    modifiers: number;
+  } {
+    return { keyCode: key & 255, modifiers: key >> 8 };
   }
 
-  /**
-   * @param {number} key
-   * @return {boolean}
-   */
-  static isModifier(key) {
-    const {keyCode} = KeyboardShortcut.keyCodeAndModifiersFromKey(key);
+  static isModifier(key: number): boolean {
+    const { keyCode } = KeyboardShortcut.keyCodeAndModifiersFromKey(key);
     return keyCode === Keys.Shift.code || keyCode === Keys.Ctrl.code || keyCode === Keys.Alt.code ||
-        keyCode === Keys.Meta.code;
+      keyCode === Keys.Meta.code;
   }
 
-  /**
-   * @param {number|undefined} modifiers
-   * @return {string}
-   */
-  static _modifiersToString(modifiers) {
+  static _modifiersToString(modifiers: number | undefined): string {
     const isMac = Host.Platform.isMac();
     const m = Modifiers;
     const modifierNames = new Map([
@@ -282,27 +201,24 @@ export class KeyboardShortcut {
     ]);
     return [m.Meta, m.Ctrl, m.Alt, m.Shift].map(mapModifiers).join('');
 
-    /**
-     * @param {number} m
-     * @return {string}
-     */
-    function mapModifiers(m) {
-      return (modifiers || 0) & m ? /** @type {string} */ (modifierNames.get(m)) : '';
+    function mapModifiers(m: number): string {
+      return (modifiers || 0) & m ? /** @type {string} */ modifierNames.get(m) as string : '';
     }
   }
 }
 
 /**
  * Constants for encoding modifier key set as a bit mask.
- * @type {!Object<string, number>}
  * see #_makeKeyFromCodeAndModifiers
  */
-export const Modifiers = {
-  None: 0,  // Constant for empty modifiers set.
+export const Modifiers: {
+  [x: string]: number;
+} = {
+  None: 0,
   Shift: 1,
   Ctrl: 2,
   Alt: 4,
-  Meta: 8,  // Command key on Mac, Win key on other platforms.
+  Meta: 8,
   // "default" command/ctrl key for platform, Command on Mac, Ctrl on other platforms
   CtrlOrMeta: Host.Platform.isMac() ? 8 /* Meta */ : 2 /* Ctrl */,
   // Option on Mac, Shift on other platforms
@@ -350,67 +266,68 @@ const quoteKey = {
   name: '\''
 };
 
-/** @type {!Object.<string, !Key>} */
-export const Keys = {
-  Backspace: {code: 8, name: '\u21a4'},
-  Tab: {code: 9, name: {mac: '\u21e5', other: 'Tab'}},
-  Enter: {code: 13, name: {mac: '\u21a9', other: 'Enter'}},
-  Shift: {code: 16, name: {mac: '\u21e7', other: 'Shift'}},
+export const Keys: {
+  [x: string]: Key;
+} = {
+  Backspace: { code: 8, name: '\u21a4' },
+  Tab: { code: 9, name: { mac: '\u21e5', other: 'Tab' } },
+  Enter: { code: 13, name: { mac: '\u21a9', other: 'Enter' } },
+  Shift: { code: 16, name: { mac: '\u21e7', other: 'Shift' } },
   Ctrl: ctrlKey,
   Control: ctrlKey,
-  Alt: {code: 18, name: 'Alt'},
+  Alt: { code: 18, name: 'Alt' },
   Esc: escKey,
   Escape: escKey,
   Space: spaceKey,
   ' ': spaceKey,
-  PageUp: {code: 33, name: {mac: '\u21de', other: 'PageUp'}},      // also NUM_NORTH_EAST
-  PageDown: {code: 34, name: {mac: '\u21df', other: 'PageDown'}},  // also NUM_SOUTH_EAST
-  End: {code: 35, name: {mac: '\u2197', other: 'End'}},            // also NUM_SOUTH_WEST
-  Home: {code: 36, name: {mac: '\u2196', other: 'Home'}},          // also NUM_NORTH_WEST
-  Left: leftKey,                                                   // also NUM_WEST
-  Up: upKey,                                                       // also NUM_NORTH
-  Right: rightKey,                                                 // also NUM_EAST
-  Down: downKey,                                                   // also NUM_SOUTH
+  PageUp: { code: 33, name: { mac: '\u21de', other: 'PageUp' } },
+  PageDown: { code: 34, name: { mac: '\u21df', other: 'PageDown' } },
+  End: { code: 35, name: { mac: '\u2197', other: 'End' } },
+  Home: { code: 36, name: { mac: '\u2196', other: 'Home' } },
+  Left: leftKey,
+  Up: upKey,
+  Right: rightKey,
+  Down: downKey,
   ArrowLeft: leftKey,
   ArrowUp: upKey,
   ArrowRight: rightKey,
   ArrowDown: downKey,
-  Delete: {code: 46, name: 'Del'},
-  Zero: {code: 48, name: '0'},
-  H: {code: 72, name: 'H'},
-  N: {code: 78, name: 'N'},
-  P: {code: 80, name: 'P'},
-  Meta: {code: 91, name: 'Meta'},
-  F1: {code: 112, name: 'F1'},
-  F2: {code: 113, name: 'F2'},
-  F3: {code: 114, name: 'F3'},
-  F4: {code: 115, name: 'F4'},
-  F5: {code: 116, name: 'F5'},
-  F6: {code: 117, name: 'F6'},
-  F7: {code: 118, name: 'F7'},
-  F8: {code: 119, name: 'F8'},
-  F9: {code: 120, name: 'F9'},
-  F10: {code: 121, name: 'F10'},
-  F11: {code: 122, name: 'F11'},
-  F12: {code: 123, name: 'F12'},
-  Semicolon: {code: 186, name: ';'},
-  NumpadPlus: {code: 107, name: 'Numpad +'},
-  NumpadMinus: {code: 109, name: 'Numpad -'},
-  Numpad0: {code: 96, name: 'Numpad 0'},
+  Delete: { code: 46, name: 'Del' },
+  Zero: { code: 48, name: '0' },
+  H: { code: 72, name: 'H' },
+  N: { code: 78, name: 'N' },
+  P: { code: 80, name: 'P' },
+  Meta: { code: 91, name: 'Meta' },
+  F1: { code: 112, name: 'F1' },
+  F2: { code: 113, name: 'F2' },
+  F3: { code: 114, name: 'F3' },
+  F4: { code: 115, name: 'F4' },
+  F5: { code: 116, name: 'F5' },
+  F6: { code: 117, name: 'F6' },
+  F7: { code: 118, name: 'F7' },
+  F8: { code: 119, name: 'F8' },
+  F9: { code: 120, name: 'F9' },
+  F10: { code: 121, name: 'F10' },
+  F11: { code: 122, name: 'F11' },
+  F12: { code: 123, name: 'F12' },
+  Semicolon: { code: 186, name: ';' },
+  NumpadPlus: { code: 107, name: 'Numpad +' },
+  NumpadMinus: { code: 109, name: 'Numpad -' },
+  Numpad0: { code: 96, name: 'Numpad 0' },
   Plus: plusKey,
   Equal: plusKey,
-  Comma: {code: 188, name: ','},
-  Minus: {code: 189, name: '-'},
-  Period: {code: 190, name: '.'},
-  Slash: {code: 191, name: '/'},
-  QuestionMark: {code: 191, name: '?'},
+  Comma: { code: 188, name: ',' },
+  Minus: { code: 189, name: '-' },
+  Period: { code: 190, name: '.' },
+  Slash: { code: 191, name: '/' },
+  QuestionMark: { code: 191, name: '?' },
   Apostrophe: backquoteKey,
-  Tilde: {code: 192, name: 'Tilde'},
+  Tilde: { code: 192, name: 'Tilde' },
   Backquote: backquoteKey,
   IntlBackslash: backquoteKey,
-  LeftSquareBracket: {code: 219, name: '['},
-  RightSquareBracket: {code: 221, name: ']'},
-  Backslash: {code: 220, name: '\\'},
+  LeftSquareBracket: { code: 219, name: '[' },
+  RightSquareBracket: { code: 221, name: ']' },
+  Backslash: { code: 220, name: '\\' },
   SingleQuote: quoteKey,
   Quote: quoteKey,
   get CtrlOrMeta() {
@@ -419,32 +336,37 @@ export const Keys = {
   },
 };
 
-/** @enum {string} */
-export const Type = {
-  UserShortcut: 'UserShortcut',
-  DefaultShortcut: 'DefaultShortcut',
-  DisabledDefault: 'DisabledDefault',
-  UnsetShortcut: 'UnsetShortcut',
-  KeybindSetShortcut: 'KeybindSetShortcut',
-};
-
-/** @type {!Object.<string, !Key>} */
-export const KeyBindings = {};
-
-(function() {
-for (const key in Keys) {
-  const descriptor = Keys[key];
-  if (typeof descriptor === 'object' && descriptor['code']) {
-    const name = typeof descriptor['name'] === 'string' ? descriptor['name'] : key;
-    KeyBindings[name] = descriptor;
-  }
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Type {
+  UserShortcut = 'UserShortcut',
+  DefaultShortcut = 'DefaultShortcut',
+  DisabledDefault = 'DisabledDefault',
+  UnsetShortcut = 'UnsetShortcut',
+  KeybindSetShortcut = 'KeybindSetShortcut'
 }
+;
+
+export const KeyBindings: {
+  [x: string]: Key;
+} = {};
+
+(function (): void {
+  for (const key in Keys) {
+    const descriptor = Keys[key];
+    if (typeof descriptor === 'object' && descriptor['code']) {
+      const name = typeof descriptor['name'] === 'string' ? descriptor['name'] : key;
+      KeyBindings[name] = descriptor;
+    }
+  }
 })();
-
-/** @typedef {!{code: number, name: (string|!Object.<string, string>)}} */
-// @ts-ignore typedef
-export let Key;
-
-/** @typedef {!{key: number, name: string}} */
-// @ts-ignore typedef
-export let Descriptor;
+export interface Key {
+  code: number;
+  name: string | {
+    [x: string]: string;
+  };
+}
+export interface Descriptor {
+  key: number;
+  name: string;
+}
