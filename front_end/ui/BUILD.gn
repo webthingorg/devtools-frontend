@@ -19,7 +19,7 @@ devtools_module("ui") {
     "EmptyWidget.js",
     "FilterBar.js",
     "FilterSuggestionBuilder.js",
-    "ForwardedInputEventHandler.js",
+    "ForwardedInputEventHandler.ts",
     "Fragment.js",
     "Geometry.js",
     "GlassPane.js",
