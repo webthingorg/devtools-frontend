@@ -23,7 +23,7 @@ devtools_module("ui") {
     "Fragment.js",
     "Geometry.js",
     "GlassPane.js",
-    "HistoryInput.js",
+    "HistoryInput.ts",
     "Icon.js",
     "Infobar.js",
     "InplaceEditor.js",
