@@ -51,7 +51,7 @@ devtools_module("ui") {
     "TextEditor.js",
     "TextPrompt.js",
     "ThrottledWidget.js",
-    "Toolbar.js",
+    "Toolbar.ts",
     "Tooltip.js",
     "Treeoutline.js",
     "UIUtils.js",
