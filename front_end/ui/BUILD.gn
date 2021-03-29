@@ -49,7 +49,7 @@ devtools_module("ui") {
     "TabbedPane.js",
     "TargetCrashedScreen.js",
     "TextEditor.js",
-    "TextPrompt.js",
+    "TextPrompt.ts",
     "ThrottledWidget.js",
     "Toolbar.js",
     "Tooltip.js",
