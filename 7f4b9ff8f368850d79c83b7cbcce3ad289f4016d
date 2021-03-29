@@ -16,6 +16,24 @@
       "message": "This will break layout tests as well. The correct way would probably have been to disable tests on the chromium side.",
       "revId": "7f4b9ff8f368850d79c83b7cbcce3ad289f4016d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c600f05_74f46447",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-29T07:28:45Z",
+      "side": 1,
+      "message": "What layout tests will be affected by the revert? We can disable them before restarting the auto-roller.",
+      "parentUuid": "18c9589f_c1c512c7",
+      "revId": "7f4b9ff8f368850d79c83b7cbcce3ad289f4016d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
