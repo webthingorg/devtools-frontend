@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as ARIAUtils from './ARIAUtils.js';
 import {Toolbar} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
@@ -12,10 +14,13 @@ import {VBox} from './Widget.js';
  *             (`ui/components/ReportView.ts`) for new code.
  */
 export class ReportView extends VBox {
-  /**
-   * @param {string=} title
-   */
-  constructor(title) {
+  _contentBox: HTMLElement;
+  _headerElement: HTMLElement;
+  _titleElement: HTMLElement;
+  _sectionList: HTMLElement;
+  _subtitleElement?: HTMLElement;
+  _urlElement?: HTMLElement;
+  constructor(title?: string) {
     super(true);
     this.registerRequiredCSS('ui/reportView.css', {enableLegacyPatching: false});
 
@@ -32,10 +37,7 @@ export class ReportView extends VBox {
     this._sectionList = this._contentBox.createChild('div', 'vbox');
   }
 
-  /**
-   * @param {string} title
-   */
-  setTitle(title) {
+  setTitle(title: string): void {
     if (this._titleElement.textContent === title) {
       return;
     }
@@ -43,10 +45,7 @@ export class ReportView extends VBox {
     this._headerElement.classList.toggle('hidden', Boolean(title));
   }
 
-  /**
-   * @param {string} subtitle
-   */
-  setSubtitle(subtitle) {
+  setSubtitle(subtitle: string): void {
     if (this._subtitleElement && this._subtitleElement.textContent === subtitle) {
       return;
     }
@@ -56,10 +55,7 @@ export class ReportView extends VBox {
     this._subtitleElement.textContent = subtitle;
   }
 
-  /**
-   * @param {?Element} link
-   */
-  setURL(link) {
+  setURL(link: Element|null): void {
     if (!this._urlElement) {
       this._urlElement = this._headerElement.createChild('div', 'report-url link');
     }
@@ -69,31 +65,20 @@ export class ReportView extends VBox {
     }
   }
 
-  /**
-   * @return {!Toolbar}
-   */
-  createToolbar() {
+  createToolbar(): Toolbar {
     const toolbar = new Toolbar('');
     this._headerElement.appendChild(toolbar.element);
     return toolbar;
   }
 
-  /**
-   * @param {string} title
-   * @param {string=} className
-   * @return {!Section}
-   */
-  appendSection(title, className) {
+  appendSection(title: string, className?: string): Section {
     const section = new Section(title, className);
     section.show(this._sectionList);
     return section;
   }
 
-  /**
-   * @param {function(!Section, !Section): number} comparator
-   */
-  sortSections(comparator) {
-    const sections = /** @type {!Array<!Section>} */ (this.children().slice());
+  sortSections(comparator: (arg0: Section, arg1: Section) => number): void {
+    const sections = (this.children().slice() as Section[]);
     const sorted = sections.every((e, i, a) => !i || comparator(a[i - 1], a[i]) <= 0);
     if (sorted) {
       return;
@@ -106,28 +91,21 @@ export class ReportView extends VBox {
     }
   }
 
-  /**
-   * @param {boolean} visible
-   */
-  setHeaderVisible(visible) {
+  setHeaderVisible(visible: boolean): void {
     this._headerElement.classList.toggle('hidden', !visible);
   }
 
-  /**
-   * @param {boolean} scrollable
-   */
-  setBodyScrollable(scrollable) {
+  setBodyScrollable(scrollable: boolean): void {
     this._contentBox.classList.toggle('no-scroll', !scrollable);
   }
 }
 
-
 export class Section extends VBox {
-  /**
-   * @param {string} title
-   * @param {string=} className
-   */
-  constructor(title, className) {
+  _headerElement: HTMLElement;
+  _titleElement: HTMLElement;
+  _fieldList: HTMLElement;
+  _fieldMap: Map<string, Element>;
+  constructor(title: string, className?: string) {
     super();
     this.element.classList.add('report-section');
     if (className) {
@@ -138,22 +116,14 @@ export class Section extends VBox {
     this.setTitle(title);
     ARIAUtils.markAsHeading(this._titleElement, 2);
     this._fieldList = this.element.createChild('div', 'vbox');
-    /** @type {!Map.<string, !Element>} */
     this._fieldMap = new Map();
   }
 
-  /**
-   * @return {string}
-   */
-  title() {
+  title(): string {
     return this._titleElement.textContent || '';
   }
 
-  /**
-   * @param {string} title
-   * @param {string=} tooltip
-   */
-  setTitle(title, tooltip) {
+  setTitle(title: string, tooltip?: string): void {
     if (this._titleElement.textContent !== title) {
       this._titleElement.textContent = title;
     }
@@ -163,28 +133,19 @@ export class Section extends VBox {
 
   /**
    * Declares the overall container to be a group and assigns a title.
-   * @param {string} groupTitle
    */
-  setUiGroupTitle(groupTitle) {
+  setUiGroupTitle(groupTitle: string): void {
     ARIAUtils.markAsGroup(this.element);
     ARIAUtils.setAccessibleName(this.element, groupTitle);
   }
 
-  /**
-   * @return {!Toolbar}
-   */
-  createToolbar() {
+  createToolbar(): Toolbar {
     const toolbar = new Toolbar('');
     this._headerElement.appendChild(toolbar.element);
     return toolbar;
   }
 
-  /**
-   * @param {string} title
-   * @param {string=} textValue
-   * @return {!HTMLElement}
-   */
-  appendField(title, textValue) {
+  appendField(title: string, textValue?: string): HTMLElement {
     let row = this._fieldMap.get(title);
     if (!row) {
       row = this._fieldList.createChild('div', 'report-field');
@@ -195,24 +156,16 @@ export class Section extends VBox {
     if (textValue && row.lastElementChild) {
       row.lastElementChild.textContent = textValue;
     }
-    return /** @type {!HTMLElement} */ (row.lastElementChild);
+    return /** @type {!HTMLElement} */ row.lastElementChild as HTMLElement;
   }
 
-  /**
-  * @param {string} title
-  * @param {string=} textValue
-  * @return {!Element}
-  */
-  appendFlexedField(title, textValue) {
+  appendFlexedField(title: string, textValue?: string): Element {
     const field = this.appendField(title, textValue);
     field.classList.add('report-field-value-is-flexed');
     return field;
   }
 
-  /**
-   * @param {string} title
-   */
-  removeField(title) {
+  removeField(title: string): void {
     const row = this._fieldMap.get(title);
     if (row) {
       row.remove();
@@ -220,54 +173,38 @@ export class Section extends VBox {
     this._fieldMap.delete(title);
   }
 
-  /**
-   * @param {string} title
-   * @param {boolean} visible
-   */
-  setFieldVisible(title, visible) {
+  setFieldVisible(title: string, visible: boolean): void {
     const row = this._fieldMap.get(title);
     if (row) {
       row.classList.toggle('hidden', !visible);
     }
   }
 
-  /**
-   * @param {string} title
-   * @return {?Element}
-   */
-  fieldValue(title) {
+  fieldValue(title: string): Element|null {
     const row = this._fieldMap.get(title);
     return row ? row.lastElementChild : null;
   }
 
-  /**
-   * @return {!HTMLElement}
-   */
-  appendRow() {
-    return /** @type {!HTMLElement} */ (this._fieldList.createChild('div', 'report-row'));
+  appendRow(): HTMLElement {
+    return /** @type {!HTMLElement} */ this._fieldList.createChild('div', 'report-row') as HTMLElement;
   }
 
-  /**
-   * @return {!HTMLElement}
-   */
-  appendSelectableRow() {
-    return /** @type {!HTMLElement} */ (this._fieldList.createChild('div', 'report-row report-row-selectable'));
+  appendSelectableRow(): HTMLElement {
+    return /** @type {!HTMLElement} */ this._fieldList.createChild('div', 'report-row report-row-selectable') as
+        HTMLElement;
   }
 
-  clearContent() {
+  clearContent(): void {
     this._fieldList.removeChildren();
     this._fieldMap.clear();
   }
 
-  markFieldListAsGroup() {
+  markFieldListAsGroup(): void {
     ARIAUtils.markAsGroup(this._fieldList);
     ARIAUtils.setAccessibleName(this._fieldList, this.title());
   }
 
-  /**
-   * @param {boolean} masked
-   */
-  setIconMasked(masked) {
+  setIconMasked(masked: boolean): void {
     this.element.classList.toggle('show-mask', masked);
   }
 }
