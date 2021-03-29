@@ -1529,6 +1529,9 @@
   "mobile_throttling/MobileThrottlingSelector.ts | presets": {
     "message": "Presets"
   },
+  "mobile_throttling/NetworkPanelIndicator.ts | acceptedEncodingOverrideSet": {
+    "message": "The set of accepted encodings has been modified by DevTools. See the Network Conditions panel."
+  },
   "mobile_throttling/NetworkPanelIndicator.ts | networkThrottlingIsEnabled": {
     "message": "Network throttling is enabled"
   },
@@ -1795,6 +1798,9 @@
   },
   "network/network-meta.ts | useDefaultColors": {
     "message": "Use default colors"
+  },
+  "network/NetworkConfigView.ts | acceptedEncoding": {
+    "message": "Accepted encodings"
   },
   "network/NetworkConfigView.ts | caching": {
     "message": "Caching"
