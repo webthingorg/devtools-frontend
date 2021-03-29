@@ -27,27 +27,48 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as DOMExtension from '../dom_extension/dom_extension.js';
 import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
-import {SuggestBox, SuggestBoxDelegate, Suggestion, Suggestions} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
-import {Tooltip} from './Tooltip.js';
-import {ElementFocusRestorer} from './UIUtils.js';
-import {appendStyle} from './utils/append-style.js';
+import { SuggestBox, SuggestBoxDelegate, Suggestion, Suggestions } from './SuggestBox.js'; // eslint-disable-line no-unused-vars
+import { Tooltip } from './Tooltip.js';
+import { ElementFocusRestorer } from './UIUtils.js';
+import { appendStyle } from './utils/append-style.js';
 
-/**
- * @implements {SuggestBoxDelegate}
- */
-export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
+export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper implements SuggestBoxDelegate {
+  _proxyElement!: HTMLElement | undefined;
+  _proxyElementDisplay: string;
+  _autocompletionTimeout: number;
+  _title: string;
+  _queryRange: TextUtils.TextRange.TextRange | null;
+  _previousText: string;
+  _currentSuggestion: Suggestion | null;
+  _completionRequestId: number;
+  _ghostTextElement: HTMLSpanElement;
+  _leftParenthesesIndices: number[];
+  _loadCompletions!: (this: null, arg1: string, arg2: string, arg3?: boolean | undefined) => Promise<Suggestion[]>;
+  _completionStopCharacters!: string;
+  _usesSuggestionBuilder!: boolean;
+  _element?: Element;
+  _boundOnKeyDown?: ((ev: Event) => void);
+  _boundOnInput?: ((ev: Event) => void);
+  _boundOnMouseWheel?: ((event: Event) => void);
+  _boundClearAutocomplete?: (() => void);
+  _contentElement?: HTMLElement;
+  _suggestBox?: SuggestBox;
+  _isEditing?: boolean;
+  _focusRestorer?: ElementFocusRestorer;
+  _blurListener?: ((arg0: Event) => any);
+  _oldTabIndex?: number;
+  _completeTimeout?: number;
+  _disableDefaultSuggestionForEmptyInput?: boolean;
   constructor() {
     super();
-    /**
-     * @type {!HTMLElement|undefined}
-     */
-    this._proxyElement;
     this._proxyElementDisplay = 'inline-block';
     this._autocompletionTimeout = DefaultAutocompletionTimeout;
     this._title = '';
@@ -58,50 +79,29 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this._ghostTextElement = document.createElement('span');
     this._ghostTextElement.classList.add('auto-complete-text');
     this._ghostTextElement.setAttribute('contenteditable', 'false');
-    /**
-     * @type {!Array<number>}
-     */
     this._leftParenthesesIndices = [];
     ARIAUtils.markAsHidden(this._ghostTextElement);
-
-    /** @type {function(this:null, string, string, boolean=):!Promise<!Suggestions>} */
-    this._loadCompletions;
-    /** @type {string} */
-    this._completionStopCharacters;
-    /** @type {boolean} */
-    this._usesSuggestionBuilder;
   }
 
-  /**
-   * @param {function(this:null, string, string, boolean=):!Promise<!Suggestions>} completions
-   * @param {string=} stopCharacters
-   * @param {boolean=} usesSuggestionBuilder
-   */
-  initialize(completions, stopCharacters, usesSuggestionBuilder) {
+  initialize(completions: (this: null, arg1: string, arg2: string, arg3?: boolean | undefined) => Promise<Suggestion[]>, stopCharacters?: string, usesSuggestionBuilder?: boolean): void {
     this._loadCompletions = completions;
     this._completionStopCharacters = stopCharacters || ' =:[({;,!+-*/&|^<>.';
     this._usesSuggestionBuilder = usesSuggestionBuilder || false;
   }
 
-  /**
-   * @param {number} timeout
-   */
-  setAutocompletionTimeout(timeout) {
+  setAutocompletionTimeout(timeout: number): void {
     this._autocompletionTimeout = timeout;
   }
 
-  renderAsBlock() {
+  renderAsBlock(): void {
     this._proxyElementDisplay = 'block';
   }
 
   /**
    * Clients should never attach any event listeners to the |element|. Instead,
    * they should use the result of this method to attach listeners for bubbling events.
-   *
-   * @param {!Element} element
-   * @return {!Element}
    */
-  attach(element) {
+  attach(element: Element): Element {
     return this._attachInternal(element);
   }
 
@@ -110,22 +110,14 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
    * they should use the result of this method to attach listeners for bubbling events
    * or the |blurListener| parameter to register a "blur" event listener on the |element|
    * (since the "blur" event does not bubble.)
-   *
-   * @param {!Element} element
-   * @param {function(!Event):*} blurListener
-   * @return {!Element}
    */
-  attachAndStartEditing(element, blurListener) {
+  attachAndStartEditing(element: Element, blurListener: (arg0: Event) => any): Element {
     const proxyElement = this._attachInternal(element);
     this._startEditing(blurListener);
     return proxyElement;
   }
 
-  /**
-   * @param {!Element} element
-   * @return {!Element}
-   */
-  _attachInternal(element) {
+  _attachInternal(element: Element): Element {
     if (this._proxyElement) {
       throw 'Cannot attach an attached TextPrompt';
     }
@@ -135,8 +127,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this._boundOnInput = this.onInput.bind(this);
     this._boundOnMouseWheel = this.onMouseWheel.bind(this);
     this._boundClearAutocomplete = this.clearAutocomplete.bind(this);
-    this._proxyElement = /** @type {!HTMLElement} */ (element.ownerDocument.createElement('span'));
-    appendStyle(this._proxyElement, 'ui/textPrompt.css', {enableLegacyPatching: false});
+    this._proxyElement = (element.ownerDocument.createElement('span') as HTMLElement);
+    appendStyle(this._proxyElement, 'ui/textPrompt.css', { enableLegacyPatching: false });
     this._contentElement = this._proxyElement.createChild('div', 'text-prompt-root');
     this._proxyElement.style.display = this._proxyElementDisplay;
     if (element.parentElement) {
@@ -161,18 +153,14 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return this._proxyElement;
   }
 
-  /**
-   * @private
-   * @return {!HTMLElement}
-   */
-  element() {
+  element(): HTMLElement {
     if (!this._element) {
       throw new Error('Expected an already attached element!');
     }
-    return /** @type {!HTMLElement} */ (this._element);
+    return /** @type {!HTMLElement} */ this._element as HTMLElement;
   }
 
-  detach() {
+  detach(): void {
     this._removeFromElement();
     if (this._focusRestorer) {
       this._focusRestorer.restore();
@@ -187,10 +175,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this.element().removeAttribute('role');
   }
 
-  /**
-   * @return {string}
-   */
-  textWithCurrentSuggestion() {
+  textWithCurrentSuggestion(): string {
     const text = this.text();
     if (!this._queryRange || !this._currentSuggestion) {
       return text;
@@ -199,11 +184,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return text.substring(0, this._queryRange.startColumn) + suggestion + text.substring(this._queryRange.endColumn);
   }
 
-  /**
-   * @return {string}
-   */
-  text() {
-    let text = this.element().textContent || '';
+  text(): string {
+    let text: string = this.element().textContent || '';
     if (this._ghostTextElement.parentNode) {
       const addition = this._ghostTextElement.textContent || '';
       text = text.substring(0, text.length - addition.length);
@@ -211,10 +193,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return text;
   }
 
-  /**
-   * @param {string} text
-   */
-  setText(text) {
+  setText(text: string): void {
     this.clearAutocomplete();
     this.element().textContent = text;
     this._previousText = this.text();
@@ -224,11 +203,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {number} startIndex
-   * @param {number} endIndex
-   */
-  setSelectedRange(startIndex, endIndex) {
+  setSelectedRange(startIndex: number, endIndex: number): void {
     if (startIndex < 0) {
       throw new RangeError('Selected range start must be a nonnegative integer');
     }
@@ -241,7 +216,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
       endIndex = startIndex;
     }
 
-    const textNode = /** @type {!Node} */ (this.element().childNodes[0]);
+    const textNode = (this.element().childNodes[0] as Node);
     const range = new Range();
     range.setStart(textNode, startIndex);
     range.setEnd(textNode, endIndex);
@@ -252,65 +227,50 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  focus() {
+  focus(): void {
     this.element().focus();
   }
 
-  /**
-   * @return {string}
-   */
-  title() {
+  title(): string {
     return this._title;
   }
 
-  /**
-   * @param {string} title
-   */
-  setTitle(title) {
+  setTitle(title: string): void {
     this._title = title;
     if (this._proxyElement) {
       Tooltip.install(this._proxyElement, title);
     }
   }
 
-  /**
-   * @param {string} placeholder
-   * @param {string=} ariaPlaceholder
-   */
-  setPlaceholder(placeholder, ariaPlaceholder) {
+  setPlaceholder(placeholder: string, ariaPlaceholder?: string): void {
     if (placeholder) {
       this.element().setAttribute('data-placeholder', placeholder);
       // TODO(https://github.com/nvaccess/nvda/issues/10164): Remove ariaPlaceholder once the NVDA bug is fixed
       // ariaPlaceholder and placeholder may differ, like in case the placeholder contains a '?'
       ARIAUtils.setPlaceholder(this.element(), ariaPlaceholder || placeholder);
-    } else {
+    }
+    else {
       this.element().removeAttribute('data-placeholder');
       ARIAUtils.setPlaceholder(this.element(), null);
     }
   }
 
-  /**
-   * @param {boolean} enabled
-   */
-  setEnabled(enabled) {
+  setEnabled(enabled: boolean): void {
     if (enabled) {
       this.element().setAttribute('contenteditable', 'plaintext-only');
-    } else {
+    }
+    else {
       this.element().removeAttribute('contenteditable');
     }
     this.element().classList.toggle('disabled', !enabled);
   }
 
-  _removeFromElement() {
+  _removeFromElement(): void {
     this.clearAutocomplete();
-    this.element().removeEventListener(
-        'keydown', /** @type {function(this:HTMLElement, !Event):void} */ (this._boundOnKeyDown), false);
-    this.element().removeEventListener(
-        'input', /** @type {function(this:HTMLElement, !Event):void} */ (this._boundOnInput), false);
-    this.element().removeEventListener(
-        'selectstart', /** @type {function(this:HTMLElement, !Event):void} */ (this._boundClearAutocomplete), false);
-    this.element().removeEventListener(
-        'blur', /** @type {function(this:HTMLElement, !Event):void} */ (this._boundClearAutocomplete), false);
+    this.element().removeEventListener('keydown', (this._boundOnKeyDown as (this: HTMLElement, arg1: Event) => void), false);
+    this.element().removeEventListener('input', (this._boundOnInput as (this: HTMLElement, arg1: Event) => void), false);
+    this.element().removeEventListener('selectstart', (this._boundClearAutocomplete as (this: HTMLElement, arg1: Event) => void), false);
+    this.element().removeEventListener('blur', (this._boundClearAutocomplete as (this: HTMLElement, arg1: Event) => void), false);
     if (this._isEditing) {
       this._stopEditing();
     }
@@ -319,10 +279,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {function(!Event):*=} blurListener
-   */
-  _startEditing(blurListener) {
+  _startEditing(blurListener?: ((arg0: Event) => any)): void {
     this._isEditing = true;
     if (this._contentElement) {
       this._contentElement.classList.add('text-prompt-editing');
@@ -341,8 +298,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  _stopEditing() {
-    this.element().tabIndex = /** @type {number} */ (this._oldTabIndex);
+  _stopEditing(): void {
+    this.element().tabIndex = (this._oldTabIndex as number);
     if (this._blurListener) {
       this.element().removeEventListener('blur', this._blurListener, false);
     }
@@ -352,19 +309,13 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     delete this._isEditing;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  onMouseWheel(event) {
+  onMouseWheel(event: Event): void {
     // Subclasses can implement.
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  onKeyDown(ev) {
+  onKeyDown(ev: Event): void {
     let handled = false;
-    const event = /** @type {!KeyboardEvent} */ (ev);
+    const event = (ev as KeyboardEvent);
     if (this.isSuggestBoxVisible() && this._suggestBox && this._suggestBox.keyPressed(event)) {
       event.consume(true);
       return;
@@ -386,7 +337,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
       case 'End':
         if (this._isCaretAtEndOfPrompt()) {
           handled = this.acceptAutoComplete();
-        } else {
+        }
+        else {
           this.clearAutocomplete();
         }
         break;
@@ -396,7 +348,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
           handled = true;
         }
         break;
-      case ' ':  // Space
+      case ' ': // Space
         if (event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey) {
           this.autoCompleteSoon(true);
           handled = true;
@@ -413,13 +365,9 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {string} key
-   * @return {boolean}
-   */
-  _acceptSuggestionOnStopCharacters(key) {
+  _acceptSuggestionOnStopCharacters(key: string): boolean {
     if (!this._currentSuggestion || !this._queryRange || key.length !== 1 || !this._completionStopCharacters ||
-        !this._completionStopCharacters.includes(key)) {
+      !this._completionStopCharacters.includes(key)) {
       return false;
     }
 
@@ -431,11 +379,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return false;
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  onInput(ev) {
-    const event = /** @type {!InputEvent} */ (ev);
+  onInput(ev: Event): void {
+    const event = (ev as InputEvent);
     let text = this.text();
     const currentEntry = event.data;
 
@@ -474,10 +419,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this.autoCompleteSoon();
   }
 
-  /**
-   * @return {boolean}
-   */
-  acceptAutoComplete() {
+  acceptAutoComplete(): boolean {
     let result = false;
     if (this.isSuggestBoxVisible() && this._suggestBox) {
       result = this._suggestBox.acceptSuggestion();
@@ -492,7 +434,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return result;
   }
 
-  clearAutocomplete() {
+  clearAutocomplete(): void {
     const beforeText = this.textWithCurrentSuggestion();
 
     if (this.isSuggestBoxVisible() && this._suggestBox) {
@@ -507,22 +449,23 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  _refreshGhostText() {
+  _refreshGhostText(): void {
     if (this._currentSuggestion && this._currentSuggestion.hideGhostText) {
       this._ghostTextElement.remove();
       return;
     }
     if (this._queryRange && this._currentSuggestion && this._isCaretAtEndOfPrompt() &&
-        this._currentSuggestion.text.startsWith(this.text().substring(this._queryRange.startColumn))) {
+      this._currentSuggestion.text.startsWith(this.text().substring(this._queryRange.startColumn))) {
       this._ghostTextElement.textContent =
-          this._currentSuggestion.text.substring(this._queryRange.endColumn - this._queryRange.startColumn);
+        this._currentSuggestion.text.substring(this._queryRange.endColumn - this._queryRange.startColumn);
       this.element().appendChild(this._ghostTextElement);
-    } else {
+    }
+    else {
       this._ghostTextElement.remove();
     }
   }
 
-  _clearAutocompleteTimeout() {
+  _clearAutocompleteTimeout(): void {
     if (this._completeTimeout) {
       clearTimeout(this._completeTimeout);
       delete this._completeTimeout;
@@ -530,21 +473,15 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this._completionRequestId++;
   }
 
-  /**
-   * @param {boolean=} force
-   */
-  autoCompleteSoon(force) {
+  autoCompleteSoon(force?: boolean): void {
     const immediately = this.isSuggestBoxVisible() || force;
     if (!this._completeTimeout) {
       this._completeTimeout =
-          setTimeout(this.complete.bind(this, force), immediately ? 0 : this._autocompletionTimeout);
+        setTimeout(this.complete.bind(this, force), immediately ? 0 : this._autocompletionTimeout);
     }
   }
 
-  /**
-   * @param {boolean=} force
-   */
-  async complete(force) {
+  async complete(force?: boolean): Promise<void> {
     this._clearAutocompleteTimeout();
     const selection = this.element().getComponentSelection();
     if (!selection || selection.rangeCount === 0) {
@@ -556,7 +493,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
 
     if (!force && !this._isCaretAtEndOfPrompt() && !this.isSuggestBoxVisible()) {
       shouldExit = true;
-    } else if (!selection.isCollapsed) {
+    }
+    else if (!selection.isCollapsed) {
       shouldExit = true;
     }
 
@@ -565,29 +503,21 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
 
-    const wordQueryRange = DOMExtension.DOMExtension.rangeOfWord(
-        selectionRange.startContainer, selectionRange.startOffset, this._completionStopCharacters, this.element(),
-        'backward');
+    const wordQueryRange = DOMExtension.DOMExtension.rangeOfWord(selectionRange.startContainer, selectionRange.startOffset, this._completionStopCharacters, this.element(), 'backward');
 
     const expressionRange = wordQueryRange.cloneRange();
     expressionRange.collapse(true);
     expressionRange.setStartBefore(this.element());
     const completionRequestId = ++this._completionRequestId;
-    const completions =
-        await this._loadCompletions.call(null, expressionRange.toString(), wordQueryRange.toString(), Boolean(force));
-    this._completionsReady(
-        completionRequestId, /** @type {!Selection} */ (selection), wordQueryRange, Boolean(force), completions);
+    const completions = await this._loadCompletions.call(null, expressionRange.toString(), wordQueryRange.toString(), Boolean(force));
+    this._completionsReady(completionRequestId, (selection as Selection), wordQueryRange, Boolean(force), completions);
   }
 
-  disableDefaultSuggestionForEmptyInput() {
+  disableDefaultSuggestionForEmptyInput(): void {
     this._disableDefaultSuggestionForEmptyInput = true;
   }
 
-  /**
-   * @param {!Selection} selection
-   * @param {!Range} textRange
-   */
-  _boxForAnchorAtStart(selection, textRange) {
+  _boxForAnchorAtStart(selection: Selection, textRange: Range): AnchorBox {
     const rangeCopy = selection.getRangeAt(0).cloneRange();
     const anchorElement = document.createElement('span');
     anchorElement.textContent = '\u200B';
@@ -599,22 +529,11 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return box;
   }
 
-  /**
-   * @param {string} query
-   * @return {!Suggestions}
-   */
-  additionalCompletions(query) {
+  additionalCompletions(query: string): Suggestion[] {
     return [];
   }
 
-  /**
-   * @param {number} completionRequestId
-   * @param {!Selection} selection
-   * @param {!Range} originalWordQueryRange
-   * @param {boolean} force
-   * @param {!Suggestions} completions
-   */
-  _completionsReady(completionRequestId, selection, originalWordQueryRange, force, completions) {
+  _completionsReady(completionRequestId: number, selection: Selection, originalWordQueryRange: Range, force: boolean, completions: Suggestion[]): void {
     if (this._completionRequestId !== completionRequestId) {
       return;
     }
@@ -622,13 +541,14 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     const query = originalWordQueryRange.toString();
 
     // Filter out dupes.
-    const store = new Set();
+    const store = new Set<string>();
     completions = completions.filter(item => !store.has(item.text) && Boolean(store.add(item.text)));
 
     if (query || force) {
       if (query) {
         completions = completions.concat(this.additionalCompletions(query));
-      } else {
+      }
+      else {
         completions = this.additionalCompletions(query).concat(completions);
       }
     }
@@ -651,23 +571,15 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     const beforeRange = document.createRange();
     beforeRange.setStart(this.element(), 0);
     beforeRange.setEnd(fullWordRange.startContainer, fullWordRange.startOffset);
-    this._queryRange = new TextUtils.TextRange.TextRange(
-        0, beforeRange.toString().length, 0, beforeRange.toString().length + fullWordRange.toString().length);
+    this._queryRange = new TextUtils.TextRange.TextRange(0, beforeRange.toString().length, 0, beforeRange.toString().length + fullWordRange.toString().length);
 
     const shouldSelect = !this._disableDefaultSuggestionForEmptyInput || Boolean(this.text());
     if (this._suggestBox) {
-      this._suggestBox.updateSuggestions(
-          this._boxForAnchorAtStart(selection, fullWordRange), completions, shouldSelect, !this._isCaretAtEndOfPrompt(),
-          this.text());
+      this._suggestBox.updateSuggestions(this._boxForAnchorAtStart(selection, fullWordRange), completions, shouldSelect, !this._isCaretAtEndOfPrompt(), this.text());
     }
   }
 
-  /**
-   * @override
-   * @param {?Suggestion} suggestion
-   * @param {boolean=} isIntermediateSuggestion
-   */
-  applySuggestion(suggestion, isIntermediateSuggestion) {
+  applySuggestion(suggestion: Suggestion | null, isIntermediateSuggestion?: boolean): void {
     this._currentSuggestion = suggestion;
     this._refreshGhostText();
     if (isIntermediateSuggestion) {
@@ -675,17 +587,11 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @override
-   */
-  acceptSuggestion() {
+  acceptSuggestion(): void {
     this._acceptSuggestionInternal();
   }
 
-  /**
-   * @return {boolean}
-   */
-  _acceptSuggestionInternal() {
+  _acceptSuggestionInternal(): boolean {
     if (!this._queryRange) {
       return false;
     }
@@ -704,11 +610,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return true;
   }
 
-  /**
-   * @param {number} startColumn
-   * @param {number} endColumn
-   */
-  setDOMSelection(startColumn, endColumn) {
+  setDOMSelection(startColumn: number, endColumn: number): void {
     this.element().normalize();
     const node = this.element().childNodes[0];
     if (!node || node === this._ghostTextElement) {
@@ -724,18 +626,11 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @protected
-   * @return {boolean}
-   */
-  isSuggestBoxVisible() {
+  isSuggestBoxVisible(): boolean {
     return this._suggestBox !== undefined && this._suggestBox.visible();
   }
 
-  /**
-   * @return {boolean}
-   */
-  isCaretInsidePrompt() {
+  isCaretInsidePrompt(): boolean {
     const selection = this.element().getComponentSelection();
     if (!selection || selection.rangeCount === 0 || !selection.isCollapsed) {
       return false;
@@ -745,18 +640,14 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return selectionRange.startContainer.isSelfOrDescendant(this.element());
   }
 
-  /**
-   * @return {boolean}
-   */
-  _isCaretAtEndOfPrompt() {
+  _isCaretAtEndOfPrompt(): boolean {
     const selection = this.element().getComponentSelection();
     if (!selection || selection.rangeCount === 0 || !selection.isCollapsed) {
       return false;
     }
 
     const selectionRange = selection.getRangeAt(0);
-    /** @type {?Node} */
-    let node = selectionRange.startContainer;
+    let node: (Node | null) | Node = selectionRange.startContainer;
     if (!node.isSelfOrDescendant(this.element())) {
       return false;
     }
@@ -784,18 +675,17 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return true;
   }
 
-  moveCaretToEndOfPrompt() {
+  moveCaretToEndOfPrompt(): void {
     const selection = this.element().getComponentSelection();
     const selectionRange = document.createRange();
 
-    /** @type {!Node} */
-    let container = this.element();
+    let container: Node = this.element();
     while (container.lastChild) {
       container = container.lastChild;
     }
     let offset = 0;
     if (container.nodeType === Node.TEXT_NODE) {
-      const textNode = /** @type {!Text} */ (container);
+      const textNode = (container as Text);
       offset = (textNode.textContent || '').length;
     }
     selectionRange.setStart(container, offset);
@@ -807,10 +697,9 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @return {number} -1 if no caret can be found in text prompt
-   */
-  _getCaretPosition() {
+  /** -1 if no caret can be found in text prompt
+     */
+  _getCaretPosition(): number {
     if (!this.element().hasFocus()) {
       return -1;
     }
@@ -826,18 +715,11 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return selectionRange.startOffset;
   }
 
-  /**
-   * @param {!Event} event
-   * @return {boolean}
-   */
-  tabKeyPressed(event) {
+  tabKeyPressed(event: Event): boolean {
     return this.acceptAutoComplete();
   }
 
-  /**
-   * @return {?Element}
-   */
-  proxyElementForTests() {
+  proxyElementForTests(): Element | null {
     return this._proxyElement || null;
   }
 
@@ -845,10 +727,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
    * Try matching the most recent open parenthesis with the given right
    * parenthesis, and closes the matched left parenthesis if found.
    * Return the result of the matching.
-   * @param {number} rightParenthesisIndex
-   * @return {boolean}
    */
-  _tryMatchingLeftParenthesis(rightParenthesisIndex) {
+  _tryMatchingLeftParenthesis(rightParenthesisIndex: number): boolean {
     const leftParenthesesIndices = this._leftParenthesesIndices;
     if (leftParenthesesIndices.length === 0 || rightParenthesisIndex < 0) {
       return false;
@@ -864,10 +744,9 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     return false;
   }
 
-  _updateLeftParenthesesIndices() {
+  _updateLeftParenthesesIndices(): void {
     const text = this.text();
-    /** @type {!Array<number>} */
-    const leftParenthesesIndices = this._leftParenthesesIndices = [];
+    const leftParenthesesIndices: number[] = this._leftParenthesesIndices = [];
     for (let i = 0; i < text.length; ++i) {
       if (text[i] === '(') {
         leftParenthesesIndices.push(i);
@@ -878,7 +757,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
 
 const DefaultAutocompletionTimeout = 250;
 
-/** @enum {symbol} */
-export const Events = {
-  TextChanged: Symbol('TextChanged')
-};
+export const enum Events {
+  TextChanged = 'TextChanged'
+}
+;
