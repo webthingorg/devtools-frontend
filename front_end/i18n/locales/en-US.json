@@ -11129,10 +11129,10 @@
   "ui/ListWidget.js | saveString": {
     "message": "Save"
   },
-  "ui/RemoteDebuggingTerminatedScreen.js | reconnectDevtools": {
+  "ui/RemoteDebuggingTerminatedScreen.ts | reconnectDevtools": {
     "message": "Reconnect DevTools"
   },
-  "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
+  "ui/RemoteDebuggingTerminatedScreen.ts | reconnectWhenReadyByReopening": {
     "message": "Reconnect when ready by reopening DevTools."
   },
   "ui/SearchableView.js | cancel": {
