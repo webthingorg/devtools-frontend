@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d5bce9023cb01f15f9479fbc7ce7bc2d6a37af6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9984ec60_eff2dae7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-29T09:43:04Z",
+      "side": 1,
+      "message": "rubberstamping, seems to be a straight-up reland ",
+      "revId": "d5bce9023cb01f15f9479fbc7ce7bc2d6a37af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
