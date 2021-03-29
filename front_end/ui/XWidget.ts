@@ -2,19 +2,26 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {appendStyle} from './utils/append-style.js';
-import {XElement} from './XElement.js';
+/* eslint-disable rulesdir/no_underscored_properties */
 
-/** @type {?ResizeObserver} */
+import { appendStyle } from './utils/append-style.js';
+import { XElement } from './XElement.js';
+
 let _observer = null;
 
-/** @type {!WeakMap<!Element, !{scrollLeft: number, scrollTop: number}>} */
-const _storedScrollPositions = new WeakMap();
+const _storedScrollPositions = new WeakMap<Element, {
+  scrollLeft: number;
+  scrollTop: number;
+}>();
 
-/**
- * @extends {XElement}
- */
 export class XWidget extends XElement {
+  _visible: boolean;
+  _shadowRoot!: DocumentFragment | null;
+  _defaultFocusedElement: Element | null;
+  _elementsToRestoreScrollPositionsFor: Element[];
+  _onShownCallback!: (() => void) | null;
+  _onHiddenCallback!: (() => void) | null;
+  _onResizedCallback!: (() => void) | null;
   constructor() {
     super();
     this.style.setProperty('display', 'flex');
@@ -24,23 +31,13 @@ export class XWidget extends XElement {
     this.style.setProperty('contain', 'layout style');
 
     this._visible = false;
-    /** @type {?DocumentFragment} */
-    this._shadowRoot;
-    /** @type {?Element} */
     this._defaultFocusedElement = null;
-    /** @type {!Array<!Element>} */
     this._elementsToRestoreScrollPositionsFor = [];
-    /** @type {?function():void} */
-    this._onShownCallback;
-    /** @type {?function():void} */
-    this._onHiddenCallback;
-    /** @type {?function():void} */
-    this._onResizedCallback;
 
     if (!_observer) {
       _observer = new ResizeObserver(entries => {
         for (const entry of entries) {
-          const widget = /** @type {!XWidget} */ (entry.target);
+          const widget = (entry.target as XWidget);
           if (widget._visible && widget._onResizedCallback) {
             widget._onResizedCallback.call(null);
           }
@@ -53,56 +50,39 @@ export class XWidget extends XElement {
     this.setElementsToRestoreScrollPositionsFor([this]);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isShowing() {
+  isShowing(): boolean {
     return this._visible;
   }
 
-  /**
-   * @param {string} cssFile
-   * @param {!{enableLegacyPatching:boolean}} options
-   */
-  registerRequiredCSS(cssFile, options) {
+  registerRequiredCSS(cssFile: string, options: {
+    enableLegacyPatching: boolean;
+  }): void {
     appendStyle(this._shadowRoot || this, cssFile, options);
   }
 
-  /**
-   * @param {?function():void} callback
-   */
-  setOnShown(callback) {
+  setOnShown(callback: (() => void) | null): void {
     this._onShownCallback = callback;
   }
 
-  /**
-   * @param {?function():void} callback
-   */
-  setOnHidden(callback) {
+  setOnHidden(callback: (() => void) | null): void {
     this._onHiddenCallback = callback;
   }
 
-  /**
-   * @param {?function():void} callback
-   */
-  setOnResized(callback) {
+  setOnResized(callback: (() => void) | null): void {
     this._onResizedCallback = callback;
   }
 
-  /**
-   * @param {!Array<!Element>} elements
-   */
-  setElementsToRestoreScrollPositionsFor(elements) {
+  setElementsToRestoreScrollPositionsFor(elements: Element[]): void {
     for (const element of this._elementsToRestoreScrollPositionsFor) {
-      element.removeEventListener('scroll', XWidget._storeScrollPosition, {capture: false});
+      element.removeEventListener('scroll', XWidget._storeScrollPosition, { capture: false });
     }
     this._elementsToRestoreScrollPositionsFor = elements;
     for (const element of this._elementsToRestoreScrollPositionsFor) {
-      element.addEventListener('scroll', XWidget._storeScrollPosition, {passive: true, capture: false});
+      element.addEventListener('scroll', XWidget._storeScrollPosition, { passive: true, capture: false });
     }
   }
 
-  restoreScrollPositions() {
+  restoreScrollPositions(): void {
     for (const element of this._elementsToRestoreScrollPositionsFor) {
       const storedPositions = _storedScrollPositions.get(element);
       if (storedPositions) {
@@ -112,28 +92,19 @@ export class XWidget extends XElement {
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  static _storeScrollPosition(event) {
-    const element = /** @type {!Element} */ (event.currentTarget);
-    _storedScrollPositions.set(element, {scrollLeft: element.scrollLeft, scrollTop: element.scrollTop});
+  static _storeScrollPosition(event: Event): void {
+    const element = (event.currentTarget as Element);
+    _storedScrollPositions.set(element, { scrollLeft: element.scrollLeft, scrollTop: element.scrollTop });
   }
 
-  /**
-   * @param {?Element} element
-   */
-  setDefaultFocusedElement(element) {
+  setDefaultFocusedElement(element: Element | null): void {
     if (element && !this.isSelfOrAncestor(element)) {
       throw new Error('Default focus must be descendant');
     }
     this._defaultFocusedElement = element;
   }
 
-  /**
-   * @override
-   */
-  focus() {
+  focus(): void {
     if (!this._visible) {
       return;
     }
@@ -141,9 +112,11 @@ export class XWidget extends XElement {
     let element;
     if (this._defaultFocusedElement && this.isSelfOrAncestor(this._defaultFocusedElement)) {
       element = this._defaultFocusedElement;
-    } else if (this.tabIndex !== -1) {
+    }
+    else if (this.tabIndex !== -1) {
       element = this;
-    } else {
+    }
+    else {
       let child = this.traverseNextNode(this);
       while (child) {
         if ((child instanceof XWidget) && child._visible) {
@@ -159,15 +132,13 @@ export class XWidget extends XElement {
     }
     if (element === this) {
       HTMLElement.prototype.focus.call(this);
-    } else {
-      /** @type {!HTMLElement} */ (element).focus();
+    }
+    else {
+      (element as HTMLElement).focus();
     }
   }
 
-  /**
-   * @override
-   */
-  connectedCallback() {
+  connectedCallback(): void {
     this._visible = true;
     this.restoreScrollPositions();
     if (this._onShownCallback) {
@@ -175,10 +146,7 @@ export class XWidget extends XElement {
     }
   }
 
-  /**
-   * @override
-   */
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this._visible = false;
     if (this._onHiddenCallback) {
       this._onHiddenCallback.call(null);
