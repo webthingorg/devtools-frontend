@@ -28,12 +28,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
+import * as Platform from '../platform/platform.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
-import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior, SizeBehavior,} from './GlassPane.js';  // eslint-disable-line no-unused-vars
+import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';  // eslint-disable-line no-unused-vars
 import {Icon} from './Icon.js';
 import {createTextChild, ElementFocusRestorer} from './UIUtils.js';
 
@@ -60,32 +63,32 @@ const UIStrings = {
   */
   sS: '{PH1}, {PH2}',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/SoftContextMenu.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/SoftContextMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SoftContextMenu {
-  /**
-   * @param {!Array.<!SoftContextMenuDescriptor>} items
-   * @param {function(number):void} itemSelectedCallback
-   * @param {!SoftContextMenu=} parentMenu
-   */
-  constructor(items, itemSelectedCallback, parentMenu) {
+  _items: SoftContextMenuDescriptor[];
+  _itemSelectedCallback: (arg0: number) => void;
+  _parentMenu: SoftContextMenu|undefined;
+  _highlightedMenuItemElement: HTMLElement|null;
+  detailsForElementMap: WeakMap<HTMLElement, ElementMenuDetails>;
+  _document?: Document;
+  _glassPane?: GlassPane;
+  _contextMenuElement?: HTMLElement;
+  _focusRestorer?: ElementFocusRestorer;
+  _hideOnUserGesture?: ((event: Event) => void);
+  _activeSubMenuElement?: HTMLElement;
+  _subMenu?: SoftContextMenu;
+  constructor(
+      items: SoftContextMenuDescriptor[], itemSelectedCallback: (arg0: number) => void, parentMenu?: SoftContextMenu) {
     this._items = items;
     this._itemSelectedCallback = itemSelectedCallback;
     this._parentMenu = parentMenu;
-    /** @type {?HTMLElement} */
     this._highlightedMenuItemElement = null;
 
-    /**
-     * @type {!WeakMap<!HTMLElement, !ElementMenuDetails>}
-     */
     this.detailsForElementMap = new WeakMap();
   }
 
-  /**
-   * @param {!Document} document
-   * @param {!AnchorBox} anchorBox
-   */
-  show(document, anchorBox) {
+  show(document: Document, anchorBox: AnchorBox): void {
     if (!this._items.length) {
       return;
     }
@@ -115,12 +118,9 @@ export class SoftContextMenu {
     this._focusRestorer = new ElementFocusRestorer(this._contextMenuElement);
 
     if (!this._parentMenu) {
-      /**
-       * @param {!Event} event
-       */
-      this._hideOnUserGesture = event => {
+      this._hideOnUserGesture = (event: Event): void => {
         // If a user clicks on any submenu, prevent the menu system from closing.
-        let subMenu = this._subMenu;
+        let subMenu: (SoftContextMenu|undefined) = this._subMenu;
         while (subMenu) {
           if (subMenu._contextMenuElement === event.composedPath()[0]) {
             return;
@@ -138,7 +138,7 @@ export class SoftContextMenu {
     }
   }
 
-  discard() {
+  discard(): void {
     if (this._subMenu) {
       this._subMenu.discard();
     }
@@ -167,10 +167,7 @@ export class SoftContextMenu {
     }
   }
 
-  /**
-   * @param {!SoftContextMenuDescriptor} item
-   */
-  _createMenuItem(item) {
+  _createMenuItem(item: SoftContextMenuDescriptor): HTMLElement {
     if (item.type === 'separator') {
       return this._createSeparator();
     }
@@ -179,7 +176,7 @@ export class SoftContextMenu {
       return this._createSubMenu(item);
     }
 
-    const menuItemElement = /** @type {!HTMLElement} */ (document.createElement('div'));
+    const menuItemElement = (document.createElement('div') as HTMLElement);
     menuItemElement.classList.add('soft-context-menu-item');
     menuItemElement.tabIndex = -1;
     ARIAUtils.markAsMenuItem(menuItemElement);
@@ -188,8 +185,7 @@ export class SoftContextMenu {
     if (!item.checked) {
       checkMarkElement.style.opacity = '0';
     }
-    /** @type {!ElementMenuDetails} */
-    const detailsForElement = {
+    const detailsForElement: ElementMenuDetails = {
       actionId: undefined,
       isSeparator: undefined,
       customElement: undefined,
@@ -200,7 +196,7 @@ export class SoftContextMenu {
     if (item.element) {
       const wrapper = menuItemElement.createChild('div', 'soft-context-menu-custom-item');
       wrapper.appendChild(item.element);
-      detailsForElement.customElement = /** @type {!HTMLElement} */ (item.element);
+      detailsForElement.customElement = (item.element as HTMLElement);
       this.detailsForElementMap.set(menuItemElement, detailsForElement);
       return menuItemElement;
     }
@@ -216,12 +212,11 @@ export class SoftContextMenu {
 
     // Manually manage hover highlight since :hover does not work in case of click-and-hold menu invocation.
     menuItemElement.addEventListener('mouseover', this._menuItemMouseOver.bind(this), false);
-    menuItemElement.addEventListener(
-        'mouseleave', /** @type {!EventListener} */ (this._menuItemMouseLeave.bind(this)), false);
+    menuItemElement.addEventListener('mouseleave', (this._menuItemMouseLeave.bind(this) as EventListener), false);
 
     detailsForElement.actionId = item.id;
 
-    let accessibleName = item.label || '';
+    let accessibleName: Platform.UIString.LocalizedString|string = item.label || '';
 
     if (item.type === 'checkbox') {
       const checkedState = item.checked ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);
@@ -239,11 +234,8 @@ export class SoftContextMenu {
     return menuItemElement;
   }
 
-  /**
-   * @param {!SoftContextMenuDescriptor} item
-   */
-  _createSubMenu(item) {
-    const menuItemElement = /** @type {!HTMLElement} */ (document.createElement('div'));
+  _createSubMenu(item: SoftContextMenuDescriptor): HTMLElement {
+    const menuItemElement = (document.createElement('div') as HTMLElement);
     menuItemElement.classList.add('soft-context-menu-item');
     menuItemElement.tabIndex = -1;
     ARIAUtils.markAsMenuItemSubMenu(menuItemElement);
@@ -279,14 +271,13 @@ export class SoftContextMenu {
 
     // Manually manage hover highlight since :hover does not work in case of click-and-hold menu invocation.
     menuItemElement.addEventListener('mouseover', this._menuItemMouseOver.bind(this), false);
-    menuItemElement.addEventListener(
-        'mouseleave', /** @type {!EventListener} */ (this._menuItemMouseLeave.bind(this)), false);
+    menuItemElement.addEventListener('mouseleave', (this._menuItemMouseLeave.bind(this) as EventListener), false);
 
     return menuItemElement;
   }
 
-  _createSeparator() {
-    const separatorElement = /** @type {!HTMLElement} */ (document.createElement('div'));
+  _createSeparator(): HTMLElement {
+    const separatorElement = (document.createElement('div') as HTMLElement);
     separatorElement.classList.add('soft-context-menu-separator');
     this.detailsForElementMap.set(separatorElement, {
       subItems: undefined,
@@ -299,38 +290,25 @@ export class SoftContextMenu {
     return separatorElement;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _menuItemMouseDown(event) {
+  _menuItemMouseDown(event: Event): void {
     // Do not let separator's mouse down hit menu's handler - we need to receive mouse up!
     event.consume(true);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _menuItemMouseUp(event) {
-    this._triggerAction(/** @type {!HTMLElement} */ (event.target), event);
+  _menuItemMouseUp(event: Event): void {
+    this._triggerAction((event.target as HTMLElement), event);
     event.consume();
   }
 
-  /**
-   * @return {!SoftContextMenu}
-   */
-  _root() {
-    let root = /** @type {!SoftContextMenu} */ (this);
+  _root(): SoftContextMenu {
+    let root: SoftContextMenu = (this as SoftContextMenu);
     while (root._parentMenu) {
       root = root._parentMenu;
     }
     return root;
   }
 
-  /**
-   * @param {!HTMLElement} menuItemElement
-   * @param {!Event} event
-   */
-  _triggerAction(menuItemElement, event) {
+  _triggerAction(menuItemElement: HTMLElement, event: Event): void {
     const detailsForElement = this.detailsForElementMap.get(menuItemElement);
     if (detailsForElement) {
       if (!detailsForElement.subItems) {
@@ -348,10 +326,7 @@ export class SoftContextMenu {
     event.consume();
   }
 
-  /**
-   * @param {!HTMLElement} menuItemElement
-   */
-  _showSubMenu(menuItemElement) {
+  _showSubMenu(menuItemElement: HTMLElement): void {
     const detailsForElement = this.detailsForElementMap.get(menuItemElement);
     if (!detailsForElement) {
       return;
@@ -379,17 +354,11 @@ export class SoftContextMenu {
     this._subMenu.show(this._document, anchorBox);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _menuItemMouseOver(event) {
-    this._highlightMenuItem(/** @type {!HTMLElement} */ (event.target), true);
+  _menuItemMouseOver(event: Event): void {
+    this._highlightMenuItem((event.target as HTMLElement), true);
   }
 
-  /**
-   * @param {!MouseEvent} event
-   */
-  _menuItemMouseLeave(event) {
+  _menuItemMouseLeave(event: MouseEvent): void {
     if (!this._subMenu || !event.relatedTarget) {
       this._highlightMenuItem(null, true);
       return;
@@ -401,11 +370,7 @@ export class SoftContextMenu {
     }
   }
 
-  /**
-   * @param {?HTMLElement} menuItemElement
-   * @param {boolean} scheduleSubMenu
-   */
-  _highlightMenuItem(menuItemElement, scheduleSubMenu) {
+  _highlightMenuItem(menuItemElement: HTMLElement|null, scheduleSubMenu: boolean): void {
     if (this._highlightedMenuItemElement === menuItemElement) {
       return;
     }
@@ -441,52 +406,43 @@ export class SoftContextMenu {
     }
   }
 
-  _highlightPrevious() {
-    let menuItemElement = this._highlightedMenuItemElement ?
+  _highlightPrevious(): void {
+    let menuItemElement: (ChildNode|null) = this._highlightedMenuItemElement ?
         this._highlightedMenuItemElement.previousSibling :
         this._contextMenuElement ? this._contextMenuElement.lastChild : null;
-    let menuItemDetails =
-        menuItemElement ? this.detailsForElementMap.get(/** @type {!HTMLElement} */ (menuItemElement)) : undefined;
+    let menuItemDetails: (ElementMenuDetails|undefined) =
+        menuItemElement ? this.detailsForElementMap.get((menuItemElement as HTMLElement)) : undefined;
     while (menuItemElement && menuItemDetails &&
            (menuItemDetails.isSeparator ||
-            /** @type {!HTMLElement} */ (menuItemElement).classList.contains('soft-context-menu-disabled'))) {
+            (menuItemElement as HTMLElement).classList.contains('soft-context-menu-disabled'))) {
       menuItemElement = menuItemElement.previousSibling;
-      menuItemDetails =
-          menuItemElement ? this.detailsForElementMap.get(/** @type {!HTMLElement} */ (menuItemElement)) : undefined;
+      menuItemDetails = menuItemElement ? this.detailsForElementMap.get((menuItemElement as HTMLElement)) : undefined;
     }
     if (menuItemElement) {
-      this._highlightMenuItem(/** @type {!HTMLElement} */ (menuItemElement), false);
+      this._highlightMenuItem((menuItemElement as HTMLElement), false);
     }
   }
 
-  _highlightNext() {
-    let menuItemElement = this._highlightedMenuItemElement ?
+  _highlightNext(): void {
+    let menuItemElement: (ChildNode|null) = this._highlightedMenuItemElement ?
         this._highlightedMenuItemElement.nextSibling :
         this._contextMenuElement ? this._contextMenuElement.firstChild : null;
-    let menuItemDetails =
-        menuItemElement ? this.detailsForElementMap.get(/** @type {!HTMLElement} */ (menuItemElement)) : undefined;
+    let menuItemDetails: (ElementMenuDetails|undefined) =
+        menuItemElement ? this.detailsForElementMap.get((menuItemElement as HTMLElement)) : undefined;
     while (menuItemElement &&
            (menuItemDetails && menuItemDetails.isSeparator ||
-            /** @type {!HTMLElement} */ (menuItemElement).classList.contains('soft-context-menu-disabled'))) {
+            (menuItemElement as HTMLElement).classList.contains('soft-context-menu-disabled'))) {
       menuItemElement = menuItemElement.nextSibling;
-      menuItemDetails =
-          menuItemElement ? this.detailsForElementMap.get(/** @type {!HTMLElement} */ (menuItemElement)) : undefined;
+      menuItemDetails = menuItemElement ? this.detailsForElementMap.get((menuItemElement as HTMLElement)) : undefined;
     }
     if (menuItemElement) {
-      this._highlightMenuItem(/** @type {!HTMLElement} */ (menuItemElement), false);
+      this._highlightMenuItem((menuItemElement as HTMLElement), false);
     }
   }
 
-  /**
-   *
-   * @param {!Event} event
-   */
-  _menuKeyDown(event) {
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
-    /**
-     * @this {!SoftContextMenu}
-     */
-    function onEnterOrSpace() {
+  _menuKeyDown(event: Event): void {
+    const keyboardEvent = (event as KeyboardEvent);
+    function onEnterOrSpace(this: SoftContextMenu): void {
       if (!this._highlightedMenuItemElement) {
         return;
       }
@@ -555,29 +511,20 @@ export class SoftContextMenu {
     }
   }
 }
-
-/** @typedef
-{{
-    type: string,
-    id: (number|undefined),
-    label: (string|undefined),
-    enabled: (boolean|undefined),
-    checked: (boolean|undefined),
-    subItems: (!Array.<!SoftContextMenuDescriptor>|undefined),
-    element: (Element|undefined),
-    shortcut: (string|undefined),
-}} */
-// @ts-ignore typedef
-export let SoftContextMenuDescriptor;
-
-/** @typedef
-{{
-    customElement: (HTMLElement|undefined),
-    isSeparator: (boolean|undefined),
-    subMenuTimer: (number|undefined),
-    subItems: (!Array.<!SoftContextMenuDescriptor>|undefined),
-    actionId: (number|undefined),
-}} */
-// @ts-ignore typedef
-// eslint-disable-next-line no-unused-vars
-let ElementMenuDetails;
+export interface SoftContextMenuDescriptor {
+  type: string;
+  id?: number;
+  label?: string;
+  enabled?: boolean;
+  checked?: boolean;
+  subItems?: SoftContextMenuDescriptor[];
+  element?: Element;
+  shortcut?: string;
+}
+interface ElementMenuDetails {
+  customElement?: HTMLElement;
+  isSeparator?: boolean;
+  subMenuTimer?: number;
+  subItems?: SoftContextMenuDescriptor[];
+  actionId?: number;
+}
