@@ -11135,37 +11135,37 @@
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
     "message": "R̂éĉón̂ńêćt̂ ẃĥén̂ ŕêád̂ý b̂ý r̂éôṕêńîńĝ D́êv́T̂óôĺŝ."
   },
-  "ui/SearchableView.js | cancel": {
+  "ui/SearchableView.ts | cancel": {
     "message": "Ĉán̂ćêĺ"
   },
-  "ui/SearchableView.js | dMatches": {
+  "ui/SearchableView.ts | dMatches": {
     "message": "{PH1} m̂át̂ćĥéŝ"
   },
-  "ui/SearchableView.js | dOfD": {
+  "ui/SearchableView.ts | dOfD": {
     "message": "{PH1} ôf́ {PH2}"
   },
-  "ui/SearchableView.js | findString": {
+  "ui/SearchableView.ts | findString": {
     "message": "F̂ín̂d́"
   },
-  "ui/SearchableView.js | matchCase": {
+  "ui/SearchableView.ts | matchCase": {
     "message": "M̂át̂ćĥ Ćâśê"
   },
-  "ui/SearchableView.js | matchString": {
+  "ui/SearchableView.ts | matchString": {
     "message": "1 m̂át̂ćĥ"
   },
-  "ui/SearchableView.js | replace": {
+  "ui/SearchableView.ts | replace": {
     "message": "R̂ép̂ĺâćê"
   },
-  "ui/SearchableView.js | replaceAll": {
+  "ui/SearchableView.ts | replaceAll": {
     "message": "R̂ép̂ĺâćê ál̂ĺ"
   },
-  "ui/SearchableView.js | searchNext": {
+  "ui/SearchableView.ts | searchNext": {
     "message": "Ŝéâŕĉh́ n̂éx̂t́"
   },
-  "ui/SearchableView.js | searchPrevious": {
+  "ui/SearchableView.ts | searchPrevious": {
     "message": "Ŝéâŕĉh́ p̂ŕêv́îóûś"
   },
-  "ui/SearchableView.js | useRegularExpression": {
+  "ui/SearchableView.ts | useRegularExpression": {
     "message": "Ûśê Ŕêǵûĺâŕ Êx́p̂ŕêśŝíôń"
   },
   "ui/SettingsUI.js | oneOrMoreSettingsHaveChanged": {

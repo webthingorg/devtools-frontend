@@ -11135,37 +11135,37 @@
   "ui/RemoteDebuggingTerminatedScreen.js | reconnectWhenReadyByReopening": {
     "message": "Reconnect when ready by reopening DevTools."
   },
-  "ui/SearchableView.js | cancel": {
+  "ui/SearchableView.ts | cancel": {
     "message": "Cancel"
   },
-  "ui/SearchableView.js | dMatches": {
+  "ui/SearchableView.ts | dMatches": {
     "message": "{PH1} matches"
   },
-  "ui/SearchableView.js | dOfD": {
+  "ui/SearchableView.ts | dOfD": {
     "message": "{PH1} of {PH2}"
   },
-  "ui/SearchableView.js | findString": {
+  "ui/SearchableView.ts | findString": {
     "message": "Find"
   },
-  "ui/SearchableView.js | matchCase": {
+  "ui/SearchableView.ts | matchCase": {
     "message": "Match Case"
   },
-  "ui/SearchableView.js | matchString": {
+  "ui/SearchableView.ts | matchString": {
     "message": "1 match"
   },
-  "ui/SearchableView.js | replace": {
+  "ui/SearchableView.ts | replace": {
     "message": "Replace"
   },
-  "ui/SearchableView.js | replaceAll": {
+  "ui/SearchableView.ts | replaceAll": {
     "message": "Replace all"
   },
-  "ui/SearchableView.js | searchNext": {
+  "ui/SearchableView.ts | searchNext": {
     "message": "Search next"
   },
-  "ui/SearchableView.js | searchPrevious": {
+  "ui/SearchableView.ts | searchPrevious": {
     "message": "Search previous"
   },
-  "ui/SearchableView.js | useRegularExpression": {
+  "ui/SearchableView.ts | useRegularExpression": {
     "message": "Use Regular Expression"
   },
   "ui/SettingsUI.js | oneOrMoreSettingsHaveChanged": {
