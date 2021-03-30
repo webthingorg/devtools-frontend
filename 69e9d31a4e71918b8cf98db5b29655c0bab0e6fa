@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "780475e9_f034ca93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T07:04:19Z",
+      "side": 1,
+      "message": "Code LGTM\n\nSome minor bikeshedding/suggestions regarding the strings, PTAL :) ",
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ecaba63_2b440923",
+        "filename": "front_end/mobile_throttling/NetworkPanelIndicator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T07:04:19Z",
+      "side": 1,
+      "message": "How about encodings → `Content-Encoding`s?\n\n(to make it clear that this is not about document-level encodings such as UTF-8, UTF-16, etc.)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 103
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac495ce6_0fc74622",
+        "filename": "front_end/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T07:04:19Z",
+      "side": 1,
+      "message": "(Kind of unrelated to this patch) I appreciate that we\u0027re re-using this pre-existing string here, but I wonder if phrasing it as something like “Use browser default” would be more clear — both for the old User Agent and the new Content-Encodings setting.",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 44
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f402e76a_dfe5db21",
+        "filename": "front_end/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T07:04:19Z",
+      "side": 1,
+      "message": "Same here about making it clear that this is about Content-Encoding",
+      "range": {
+        "startLine": 50,
+        "startChar": 30,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
