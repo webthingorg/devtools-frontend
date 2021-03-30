@@ -39,6 +39,7 @@ import {CSSModel} from './CSSModel.js';
 import {FrameManager} from './FrameManager.js';
 import {OverlayModel} from './OverlayModel.js';
 import {RemoteObject} from './RemoteObject.js';  // eslint-disable-line no-unused-vars
+import {ResourceTreeModel} from './ResourceTreeModel.js';
 import {RuntimeModel} from './RuntimeModel.js';
 import {Capability, SDKModel, Target, TargetManager} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
@@ -169,11 +170,14 @@ export class DOMNode {
       this._contentDocument.parentNode = this;
       this._children = [];
     } else if ((payload.nodeName === 'IFRAME' || payload.nodeName === 'PORTAL') && payload.frameId) {
-      const childTarget = TargetManager.instance().targetById(payload.frameId);
-      const childModel = childTarget ? childTarget.model(DOMModel) : null;
-      if (childModel) {
-        this._childDocumentPromiseForTesting = childModel.requestDocument();
-      }
+      this._childDocumentPromiseForTesting = FrameManager.instance().getFrameAsync(payload.frameId).then(childFrame => {
+        const childTarget = childFrame.resourceTreeModel().target();
+        const childModel = childTarget ? childTarget.model(DOMModel) : null;
+        if (!childModel) {
+          return Promise.reject();
+        }
+        return childModel.requestDocument();
+      });
       this._children = [];
     }
 
@@ -1383,9 +1387,13 @@ export class DOMModel extends SDKModel {
     const parentModel = this.parentModel();
     if (parentModel && !this._frameOwnerNode) {
       await parentModel.requestDocument();
-      const response = await parentModel._agent.invoke_getFrameOwner({frameId: this.target().id()});
-      if (!response.getError() && response.nodeId) {
-        this._frameOwnerNode = parentModel.nodeForId(response.nodeId);
+      const resourceTreeModel = this.target().model(ResourceTreeModel);
+      if (resourceTreeModel) {
+        const mainFrame = await resourceTreeModel.getMainFrameAsync();
+        const response = await parentModel._agent.invoke_getFrameOwner({frameId: mainFrame.id});
+        if (!response.getError() && response.nodeId) {
+          this._frameOwnerNode = parentModel.nodeForId(response.nodeId);
+        }
       }
     }
 
