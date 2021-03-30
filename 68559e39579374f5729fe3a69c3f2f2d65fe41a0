@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb97455b_695465a2",
+        "filename": "ARCHITECTURE.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2021-03-30T14:06:49Z",
+      "side": 1,
+      "message": "Ah yes, good catch. I later started explicitly using \"application entrypoints\", but forgot to update this one 👍",
+      "parentUuid": "1c2643bb_b74a4912",
+      "range": {
+        "startLine": 118,
+        "startChar": 12,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "68559e39579374f5729fe3a69c3f2f2d65fe41a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a301d0e4_9a85ee24",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-30T13:56:26Z",
       "side": 1,
       "message": "network",
+      "range": {
+        "startLine": 246,
+        "startChar": 19,
+        "endLine": 246,
+        "endChar": 26
+      },
+      "revId": "68559e39579374f5729fe3a69c3f2f2d65fe41a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36eb9aad_0613503b",
+        "filename": "ARCHITECTURE.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2021-03-30T14:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a301d0e4_9a85ee24",
       "range": {
         "startLine": 246,
         "startChar": 19,
