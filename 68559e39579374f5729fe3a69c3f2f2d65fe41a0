@@ -16,6 +16,52 @@
       "message": "LGTM!",
       "revId": "68559e39579374f5729fe3a69c3f2f2d65fe41a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c2643bb_b74a4912",
+        "filename": "ARCHITECTURE.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-03-30T13:56:26Z",
+      "side": 1,
+      "message": "Would it be worth mentioning the difference from these entrypoints and the \u0027build entrypoints\u0027? (Although the term \u0027build entrypoints\u0027 is not used in this doc, it is in other docs [like https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/scripts/build/ninja/README.md])",
+      "range": {
+        "startLine": 118,
+        "startChar": 12,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "68559e39579374f5729fe3a69c3f2f2d65fe41a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a301d0e4_9a85ee24",
+        "filename": "ARCHITECTURE.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-03-30T13:56:26Z",
+      "side": 1,
+      "message": "network",
+      "range": {
+        "startLine": 246,
+        "startChar": 19,
+        "endLine": 246,
+        "endChar": 26
+      },
+      "revId": "68559e39579374f5729fe3a69c3f2f2d65fe41a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
