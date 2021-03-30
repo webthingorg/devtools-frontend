@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3117c201_e208bb1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-30T11:00:36Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
+      "revId": "9df4a05510520aaf61bfb4eacfa6864d29bd21ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9e0094_99adbac9",
+        "filename": "front_end/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-30T11:00:36Z",
+      "side": 1,
+      "message": "wdyt about introducing a helper `getIconDataForIssueKind` and use it here as well as in the other helper above? Then the `12px` dimension would be hardcoded only in one place.",
+      "range": {
+        "startLine": 865,
+        "startChar": 16,
+        "endLine": 865,
+        "endChar": 115
+      },
+      "revId": "9df4a05510520aaf61bfb4eacfa6864d29bd21ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016e17c3_b783cb15",
+        "filename": "front_end/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-30T11:00:36Z",
+      "side": 1,
+      "message": "I assume usage of this comparator is rather limited so freshly constructing the object on each call is Ok?\n\nOnly nit then would be to name the variable lowercase.",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 4
+      },
+      "revId": "9df4a05510520aaf61bfb4eacfa6864d29bd21ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
