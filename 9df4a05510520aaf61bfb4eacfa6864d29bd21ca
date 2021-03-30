@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc60f0c9_bbf207fa",
+        "filename": "front_end/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-30T11:10:36Z",
+      "side": 1,
+      "message": "getIconDataForLevel also has the 12px. I agree it isn\u0027t perfect, but I don\u0027t think adding more helpers makes it a lot better.",
+      "parentUuid": "4e9e0094_99adbac9",
+      "range": {
+        "startLine": 865,
+        "startChar": 16,
+        "endLine": 865,
+        "endChar": 115
+      },
+      "revId": "9df4a05510520aaf61bfb4eacfa6864d29bd21ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "016e17c3_b783cb15",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-30T11:00:36Z",
       "side": 1,
       "message": "I assume usage of this comparator is rather limited so freshly constructing the object on each call is Ok?\n\nOnly nit then would be to name the variable lowercase.",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 4
+      },
+      "revId": "9df4a05510520aaf61bfb4eacfa6864d29bd21ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bfb97a6_10eca390",
+        "filename": "front_end/sources/UISourceCodeFrame.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-03-30T11:10:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "016e17c3_b783cb15",
       "range": {
         "startLine": 920,
         "startChar": 0,
