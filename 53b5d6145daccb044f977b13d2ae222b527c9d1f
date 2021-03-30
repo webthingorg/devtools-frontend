@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "53b5d6145daccb044f977b13d2ae222b527c9d1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56bf3695_da50dcad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T12:25:17Z",
+      "side": 1,
+      "message": "LGTM, but if we\u0027re moving this to a common utility, it would be nice to also add some tests. We could even check that `prefers-reduced-data: reduce` is not supported in those tests, so that we get notified through failing tests once it ships by default. WDYT?",
+      "revId": "53b5d6145daccb044f977b13d2ae222b527c9d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
