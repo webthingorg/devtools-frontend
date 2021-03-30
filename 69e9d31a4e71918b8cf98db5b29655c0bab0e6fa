@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac0a659_a488f667",
+        "filename": "front_end/mobile_throttling/NetworkPanelIndicator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-30T08:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ecaba63_2b440923",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 103
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac495ce6_0fc74622",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "568e1c9c_30a166b1",
+        "filename": "front_end/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-30T08:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac495ce6_0fc74622",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 44
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f402e76a_dfe5db21",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-03-30T07:04:19Z",
       "side": 1,
       "message": "Same here about making it clear that this is about Content-Encoding",
+      "range": {
+        "startLine": 50,
+        "startChar": 30,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "69e9d31a4e71918b8cf98db5b29655c0bab0e6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ed022e_9195ce93",
+        "filename": "front_end/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-03-30T08:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f402e76a_dfe5db21",
       "range": {
         "startLine": 50,
         "startChar": 30,
