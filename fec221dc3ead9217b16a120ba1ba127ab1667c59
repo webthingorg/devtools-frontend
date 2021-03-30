@@ -87,6 +87,30 @@
       },
       "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42762fd4_c42f6e98",
+        "filename": "front_end/sources/javaScriptBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-03-30T07:38:54Z",
+      "side": 1,
+      "message": "LGTM!",
+      "parentUuid": "e5a26cf1_176f37b8",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
