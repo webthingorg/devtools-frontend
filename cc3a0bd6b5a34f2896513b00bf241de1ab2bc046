@@ -16,6 +16,23 @@
       "message": "@Jack - PTAL. Not sure if you\u0027re the best person to review this, feel free to rope the correct dev in. Thanks!",
       "revId": "cc3a0bd6b5a34f2896513b00bf241de1ab2bc046",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "670a3253_7a595e3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-03-30T06:30:04Z",
+      "side": 1,
+      "message": "LGTM - based on https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button it seems we would only want to allow `0`. I\u0027m a bit hesitant that it wasn\u0027t done like that originally but could well just be an oversight.",
+      "revId": "cc3a0bd6b5a34f2896513b00bf241de1ab2bc046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
