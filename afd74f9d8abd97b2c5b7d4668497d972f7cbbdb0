@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8de17963_755a0604",
+        "filename": "front_end/network/NetworkConfigView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-30T10:09:44Z",
+      "side": 1,
+      "message": "I think we can merge the two loops here, like this: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2792589",
+      "revId": "afd74f9d8abd97b2c5b7d4668497d972f7cbbdb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
