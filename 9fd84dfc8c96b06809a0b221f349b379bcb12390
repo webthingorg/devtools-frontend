@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f27141_ce11e90b",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-03-31T16:33:59Z",
+      "side": 1,
+      "message": "@Jack, FYI, because you made this change with a bunch of node modules, all the lines where you added the space between async and () now fail `git cl format`. The check is skipped when you make node module changes. Now anyone who touches this file will be stuck in infinite presubmit loop where cl format and eslint disagree on these lines and will make changes back and forth until you add a comment like this:\n\n    // TODO: Remove next line once crbug.com/1177242 is solved.\n    // eslint-disable-next-line @typescript-eslint/space-before-function-paren",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
