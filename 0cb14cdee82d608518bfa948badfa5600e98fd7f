@@ -33,6 +33,24 @@
       "message": "lgtm, does this mean the en-GB locale is bundled with DevTools for shipping?",
       "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9c1d65_14fd5f97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-31T06:07:08Z",
+      "side": 1,
+      "message": "Yeah this is the bit we need to fix. Probably need to talk to Tim to figure out how to do this. Can you take that on? Alternatively we could land it and see which alerts trigger/fix before branch point",
+      "parentUuid": "cb649f33_1e23a79f",
+      "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
