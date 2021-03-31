@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0c7e6aeaf3bcd939b03aaba213e6ef3dc6441bc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "842802ba_2d63308c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-03-31T09:08:20Z",
+      "side": 1,
+      "message": "Perfect! I didn\u0027t remember this was going to be so simple. Thanks.",
+      "revId": "0c7e6aeaf3bcd939b03aaba213e6ef3dc6441bc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
