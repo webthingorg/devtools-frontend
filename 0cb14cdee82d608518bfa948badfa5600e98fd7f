@@ -87,6 +87,24 @@
       "parentUuid": "ecb7c259_05735cac",
       "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de63fed_d331a925",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-31T10:21:52Z",
+      "side": 1,
+      "message": "Not sure what the impact on the .pak is or how to check it, but with ~80 of these files we will definitely need to remote host them",
+      "parentUuid": "608d0b54_3e724b22",
+      "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
