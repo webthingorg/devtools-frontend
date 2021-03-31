@@ -171,7 +171,9 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
       }
       const n = lines.length;
       context.beginPath();
-      context.strokeStyle = RequestTimeRangeNameToColor[type];
+      context.strokeStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--neutral-layer-l4');
+      context.lineWidth = BORDER_WIDTH;
+      context.fillStyle = RequestTimeRangeNameToColor[type];
       for (let i = 0; i < n;) {
         const y = lines[i++] * _bandHeight + paddingTop;
         const startTime = lines[i++];
@@ -179,10 +181,11 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
         if (endTime === Number.MAX_VALUE) {
           endTime = calculator.maximumBoundary();
         }
-        context.moveTo(calculator.computePosition(startTime), y);
-        context.lineTo(calculator.computePosition(endTime) + 1, y);
+        const startX = calculator.computePosition(startTime);
+        const endX = calculator.computePosition(endTime) + 1;
+        context.fillRect(startX, y, endX - startX, _bandHeight);
+        context.strokeRect(startX, y, endX - startX, _bandHeight);
       }
-      context.stroke();
     }
 
     function addLine(type: string, y: number, start: number, end: number): void {
@@ -294,19 +297,19 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
 }
 
 export const RequestTimeRangeNameToColor = {
-  [RequestTimeRangeNames.Total]: '#CCCCCC',
-  [RequestTimeRangeNames.Blocking]: '#AAAAAA',
-  [RequestTimeRangeNames.Connecting]: '#FF9800',
-  [RequestTimeRangeNames.ServiceWorker]: '#FF9800',
-  [RequestTimeRangeNames.ServiceWorkerPreparation]: '#FF9800',
-  [RequestTimeRangeNames.ServiceWorkerRespondWith]: '#00FFFF',
-  [RequestTimeRangeNames.Push]: '#8CDBff',
+  [RequestTimeRangeNames.Total]: '#919191',
+  [RequestTimeRangeNames.Blocking]: '#858585',
+  [RequestTimeRangeNames.Connecting]: '#D68100',
+  [RequestTimeRangeNames.ServiceWorker]: '#D68100',
+  [RequestTimeRangeNames.ServiceWorkerPreparation]: '#D68100',
+  [RequestTimeRangeNames.ServiceWorkerRespondWith]: '#00A3A3',
+  [RequestTimeRangeNames.Push]: '#0099E0',
   [RequestTimeRangeNames.Proxy]: '#A1887F',
   [RequestTimeRangeNames.DNS]: '#009688',
-  [RequestTimeRangeNames.SSL]: '#9C27B0',
-  [RequestTimeRangeNames.Sending]: '#B0BEC5',
-  [RequestTimeRangeNames.Waiting]: '#00C853',
-  [RequestTimeRangeNames.Receiving]: '#03A9F4',
+  [RequestTimeRangeNames.SSL]: '#B52DCD',
+  [RequestTimeRangeNames.Sending]: '#74979A',
+  [RequestTimeRangeNames.Waiting]: '#00A846',
+  [RequestTimeRangeNames.Receiving]: '#0299DE',
 } as {[key: string]: string};
 
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
@@ -316,3 +319,6 @@ export const _bandHeight: number = 3;
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const _padding: number = 5;
+
+// Border between bars in network overview panel for accessibility.
+const BORDER_WIDTH = 1;
