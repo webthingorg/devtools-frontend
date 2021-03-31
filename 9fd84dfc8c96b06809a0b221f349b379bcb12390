@@ -22,6 +22,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09826878_c347cae7",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-31T16:48:53Z",
+      "side": 1,
+      "message": "I thought we already fixed this in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2690528 did we not? Do you mind opening a CL that fixes this issue so that we don\u0027t create any disagreements between clang and ESLint?",
+      "parentUuid": "46f27141_ce11e90b",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
