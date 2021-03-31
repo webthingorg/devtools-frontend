@@ -39,6 +39,30 @@
       },
       "revId": "d2e7cc8c9deed43425da4eb996bf6187d119f017",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a810097_555ec9f0",
+        "filename": "front_end/network/NetworkItemView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T09:31:53Z",
+      "side": 1,
+      "message": "This value was already used before this CL.\n\"super.wasShown()\" was executed before NetworkItemView#wasShown, so we always selected \"Preview\" in case no initialTab was specified or the setting wasn\u0027t created yet.",
+      "parentUuid": "cbe4d20c_f9cc5a44",
+      "range": {
+        "startLine": 141,
+        "startChar": 104,
+        "endLine": 141,
+        "endChar": 113
+      },
+      "revId": "d2e7cc8c9deed43425da4eb996bf6187d119f017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
