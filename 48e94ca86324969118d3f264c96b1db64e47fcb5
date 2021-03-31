@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "875ced41_ade0241b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-31T05:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cef60e14_716cf392",
+      "revId": "48e94ca86324969118d3f264c96b1db64e47fcb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3ad9ab48_7e1e1b19",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-31T05:52:32Z",
       "side": 1,
       "message": "[non-blocking] I\u0027d personally prefer to be more explicit so readers don\u0027t have to think about operator precedence:\n\n    width \u003e (height * 2.3)\n\nAnd similar below.\n\nWDYT?",
+      "revId": "48e94ca86324969118d3f264c96b1db64e47fcb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2389b496_77e0b455",
+        "filename": "front_end/resources/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-03-31T05:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85391efb_01829095",
       "revId": "48e94ca86324969118d3f264c96b1db64e47fcb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
