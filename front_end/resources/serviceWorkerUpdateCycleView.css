@@ -19,6 +19,7 @@
   line-height: initial;
   table-layout: auto;
   overflow: hidden;
+  /* min-width: 290px; */
 }
 
 .service-worker-update-timing-row {
