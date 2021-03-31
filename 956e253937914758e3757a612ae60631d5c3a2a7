@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "097d94a3_657b1e41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T06:15:59Z",
+      "side": 1,
+      "message": "Calling `setAutoSelectFirstItemOnShow` is the clean way to do this, to let NetworkItemView handle tab selection.\n\nRegardless however, we still need to manually select the initial tab the first time the view is shown after construction. This is done via `_initialTab`. Re-showing the view afterwards should keep the existing tab selection, or whatever was forced via revealer. That is why `initialTab` is reset and never set again in the first call to `wasShown`.\n\nPlease note that the only reason `selectTab` was called unconditionally previously was because I made the wrong assumption that a view will always be reconstructed before being show, which is not true.",
+      "parentUuid": "2846e7dc_90fdde94",
+      "revId": "956e253937914758e3757a612ae60631d5c3a2a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "069a94df_606ceb7b",
         "filename": "front_end/network/NetworkItemView.ts",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2021-03-04T08:30:28Z",
       "side": 1,
       "message": "Did you test that this works? Note that super.wasShown() has logic for showing the first tab in it (which can be disabled).",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 21
+      },
+      "revId": "956e253937914758e3757a612ae60631d5c3a2a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93134d40_d9395d77",
+        "filename": "front_end/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T06:15:59Z",
+      "side": 1,
+      "message": "Disabled the superclass\u0027s behavior for selecting the first tab.",
+      "parentUuid": "069a94df_606ceb7b",
       "range": {
         "startLine": 188,
         "startChar": 4,
@@ -71,6 +113,30 @@
       "writtenOn": "2021-03-04T08:30:28Z",
       "side": 1,
       "message": "Note that this may cause _selectTab to not be called at all, which is probably not what we want on first show.",
+      "range": {
+        "startLine": 202,
+        "startChar": 3,
+        "endLine": 202,
+        "endChar": 27
+      },
+      "revId": "956e253937914758e3757a612ae60631d5c3a2a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24af24e_6aceeba4",
+        "filename": "front_end/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T06:15:59Z",
+      "side": 1,
+      "message": "`_selectTab` is guaranteed to be called the first time `wasShown` is called. `_initialTab` is guaranteed to be set in the constructor, because _resourceViewTabSetting is always initialized and has a value.",
+      "parentUuid": "e95fef0b_134dc601",
       "range": {
         "startLine": 202,
         "startChar": 3,
