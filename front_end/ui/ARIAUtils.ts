@@ -154,6 +154,11 @@ export function markAsPoliteLiveRegion(element: Element, isAtomic: boolean): voi
   }
 }
 
+export function markAsLog(element: Element): void {
+  element.setAttribute('role', 'log');
+}
+
+
 export function hasRole(element: Element): boolean {
   return element.hasAttribute('role');
 }
@@ -257,6 +262,28 @@ export function setAutocomplete(
     element: Element,
     interactionModel: AutocompleteInteractionModel|undefined = AutocompleteInteractionModel.none): void {
   element.setAttribute('aria-autocomplete', interactionModel);
+}
+
+export function clearAutocomplete(element: Element): void {
+  element.removeAttribute('aria-autocomplete');
+}
+
+export const enum PopupRole {
+  False = 'false',      // (default) Indicates the element does not have a popup.
+  True = 'true',        // Indicates the popup is a menu.
+  Menu = 'menu',        // Indicates the popup is a menu.
+  ListBox = 'listbox',  // Indicates the popup is a listbox.
+  Tree = 'tree',        // Indicates the popup is a tree.
+  Grid = 'grid',        // Indicates the popup is a grid.
+  Dialog = 'dialog',    // Indicates the popup is a dialog.
+}
+
+export function setHasPopup(element: Element, value = PopupRole.False): void {
+  if (value !== PopupRole.False) {
+    element.setAttribute('aria-haspopup', value.toString());
+  } else {
+    element.removeAttribute('aria-haspopup');
+  }
 }
 
 export function setSelected(element: Element, value: boolean): void {
