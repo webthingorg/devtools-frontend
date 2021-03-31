@@ -16,6 +16,23 @@
       "message": "Mathias, PTAL.",
       "revId": "a72c6bcbe819fce33f94e3bdb4849d910692c3ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f889a6a7_1113a8da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-03-31T06:19:47Z",
+      "side": 1,
+      "message": "I discussed this with François. His contributions are already covered through his employment contract with Google. The bots don’t know this though, and he should (and now will) use his @chromium.org account (or his @google.com account) instead of his personal account for future CLs to solve the problem of presubmit checks not knowing whether the patch is acceptable or not.\n\nThis is an easier solution as it requires no current changes, and it doesn’t set the precedent of having to add new entries to AUTHORS for every Googler accidentally submitting a CL using the wrong account.",
+      "revId": "a72c6bcbe819fce33f94e3bdb4849d910692c3ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
