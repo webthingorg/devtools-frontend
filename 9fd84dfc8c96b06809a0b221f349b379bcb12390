@@ -46,6 +46,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eada7db_07e3e401",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-03-31T16:54:00Z",
+      "side": 1,
+      "message": "See the check-in message of the CL: the disagreement with clang was noticed even then.",
+      "parentUuid": "09826878_c347cae7",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
