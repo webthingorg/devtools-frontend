@@ -69,6 +69,24 @@
       "parentUuid": "aa9c1d65_14fd5f97",
       "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608d0b54_3e724b22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-03-31T10:11:03Z",
+      "side": 1,
+      "message": "Do you have some numbers on how big the increase on `resources.pak` will be in Chromium with this json file included? It is probably too big indeed and will need to be hosted remotely. Let me know if you would like to pair work on that.",
+      "parentUuid": "ecb7c259_05735cac",
+      "revId": "0cb14cdee82d608518bfa948badfa5600e98fd7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
