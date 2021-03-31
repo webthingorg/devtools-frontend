@@ -70,6 +70,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "991582eb_9bd1ac58",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-03-31T16:56:21Z",
+      "side": 1,
+      "message": "I think that \u0027Note that there is currently a bug in clang-format, so we have to disable the rule in a couple of places.\u0027 (from the CL description linked) is in effect here. However, it was hidden because this particular CL bypassed cl format, so it wasn\u0027t apparent.\n\nThe only fix I know of would be to go back and add these comments similar to those in the linked CL. I\u0027m currently on a branch health rotation and wont have time to add these. But I wanted to raise awareness that this can be hidden when code changes happen at the same time as node_module updates.\n\nOut of curiosity, should we consider moving to just eslint for js/ts files and avoiding these kind of bugs/disagreements altogether?",
+      "parentUuid": "4eada7db_07e3e401",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
