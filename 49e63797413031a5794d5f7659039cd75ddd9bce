@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78307162_aff74fd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T09:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22e590fd_c57fb198",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "49e63797413031a5794d5f7659039cd75ddd9bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4007f3d1_21867c7b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-31T09:19:10Z",
       "side": 1,
       "message": "please link 1192052 here as well.",
+      "range": {
+        "startLine": 59,
+        "startChar": 80,
+        "endLine": 59,
+        "endChar": 81
+      },
+      "revId": "49e63797413031a5794d5f7659039cd75ddd9bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6102c34a_a48b07ce",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-03-31T09:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a645c2f1_ad2690e2",
       "range": {
         "startLine": 59,
         "startChar": 80,
