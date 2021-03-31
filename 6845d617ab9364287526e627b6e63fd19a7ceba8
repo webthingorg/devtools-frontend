@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cf004b_a1615b0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-03-31T10:29:33Z",
+      "side": 1,
+      "message": "Hey, here is another WIP one I didn\u0027t finish. I was still working on the test, which needs to change now. We would need to set the locale in the settings view before running the test, and we don\u0027t have a helper for enum settings I don\u0027t think.",
+      "revId": "6845d617ab9364287526e627b6e63fd19a7ceba8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
