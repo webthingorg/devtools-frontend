@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de22a5b_c27bbf94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107338
+      },
+      "writtenOn": "2021-03-31T07:33:45Z",
+      "side": 1,
+      "message": "This CL replaces https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2794605",
+      "revId": "257c725b52d82cf7a2367c198a8c17977b4be593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
