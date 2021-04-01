@@ -34,6 +34,24 @@
       "parentUuid": "eea9557c_bfe932bd",
       "revId": "9327dc31d27d2a5061636ce35e726dfd755a6dd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a1af2f8_1915a678",
+        "filename": "front_end/legacy_test_runner/BUILD.gn",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-01T10:26:13Z",
+      "side": 1,
+      "message": "Ah yes you are correct. Fix has been uploaded in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2797197/",
+      "parentUuid": "b51e4881_646b9cdb",
+      "revId": "9327dc31d27d2a5061636ce35e726dfd755a6dd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
