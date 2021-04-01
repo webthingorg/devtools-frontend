@@ -190,6 +190,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ec7d21_01f5cbd5",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-01T13:38:08Z",
+      "side": 1,
+      "message": "I think we can fix ESLint to not cause the inconsistency: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2799753/",
+      "parentUuid": "5eaa8493_abc4db4b",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
