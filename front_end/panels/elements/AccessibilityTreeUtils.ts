@@ -18,7 +18,9 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
 
   return {
     treeNodeData: node,
-    children: async (): Promise<AXTreeNode[]> => {
+    children: async(): Promise<AXTreeNode[]> => {
+      // eslint-disable-next-line no-console
+      console.log('test');
       let children: SDK.AccessibilityModel.AccessibilityNode[] = node.children() || [];
       if (node.numChildren() !== children.length) {
         children = await node.accessibilityModel().requestAXChildren(node.id());
