@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2043b6a2_9b31b43a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-04-01T18:45:00Z",
+      "side": 1,
+      "message": "Updated, moved to CSS variables.",
+      "parentUuid": "48aa714b_9943befd",
+      "revId": "6e49fcfb45ecebd50850114b31b1dfee3404c9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c317e6c_b6fe9730",
@@ -65,6 +83,30 @@
       "writtenOn": "2021-04-01T07:22:29Z",
       "side": 1,
       "message": "Shouldn\u0027t these be color variables as well? Also the ones in the CSS file below?",
+      "range": {
+        "startLine": 300,
+        "startChar": 35,
+        "endLine": 300,
+        "endChar": 41
+      },
+      "revId": "6e49fcfb45ecebd50850114b31b1dfee3404c9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16123d08_aa8e1efe",
+        "filename": "front_end/panels/network/NetworkOverview.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-04-01T18:45:00Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "7c317e6c_b6fe9730",
       "range": {
         "startLine": 300,
         "startChar": 35,
