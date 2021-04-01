@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72291a06_e3afad9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2021-04-01T15:49:05Z",
+      "side": 1,
+      "message": "I can confirm that this fixes the issue; the file is gone in the latest Fuchsia Deterministic build check:\n\nhttps://logs.chromium.org/logs/chromium/buildbucket/cr-buildbucket.appspot.com/8851148164521674384/+/steps/compare_build_artifacts/0/stdout",
+      "revId": "91ad31ff7ac2c8c4a0e4e9f26629e7438f74ca8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
