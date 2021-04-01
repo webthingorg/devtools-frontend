@@ -16,6 +16,24 @@
       "message": "I\u0027m not totally sure I\u0027m following the logic in this CL, but I suspect this\nline is wrong and is introducing a build determinism failure in chrome (see crbug.com/1190355).\n\nBy setting data_deps \u003d public_deps, you\u0027re saying that every file that is a\ncompile-time dependency is also a runtime_dependency.\n\nIf you combine this with the logic on line 160 of \n//third_party/typescript/typescript.gni, which declares the *.tsbuildinfo\nfile as an output of a target, you\u0027re saying that the *.tsbuildinfo file\nis a runtime dependency of the frontend, which (a) I doubt is correct, and\n(b) is causing issues, since it looks like TSC is producing non-deterministic\nfiles for that.\n\nHowever, I\u0027m not sure what the best way to fix this is. I\u0027m not sure if\nthe .tsbuildinfo files really need to be declared as outputs; do other\ntargets depend on them?",
       "revId": "9327dc31d27d2a5061636ce35e726dfd755a6dd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51e4881_646b9cdb",
+        "filename": "front_end/legacy_test_runner/BUILD.gn",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2021-04-01T04:18:26Z",
+      "side": 1,
+      "message": "Note that I didn\u0027t try an older version of devtools if it also had the same issue.",
+      "parentUuid": "eea9557c_bfe932bd",
+      "revId": "9327dc31d27d2a5061636ce35e726dfd755a6dd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
