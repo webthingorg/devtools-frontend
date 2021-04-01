@@ -299,6 +299,9 @@ async function requestHandler(request, response) {
     } else if (fullPath.endsWith('.avif')) {
       response.setHeader('Content-Type', 'image/avif');
       encoding = 'binary';
+    } else if (fullPath.endsWith('.gz')) {
+      response.setHeader('Content-Type', 'application/gzip');
+      encoding = 'binary';
     }
 
     response.writeHead(200);
