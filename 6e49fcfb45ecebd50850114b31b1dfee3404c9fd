@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eae3b01_279f507b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-01T05:55:43Z",
+      "side": 1,
+      "message": "LGTM, but I’d like Jack to take a look given his work on dark mode migration. Does this seem like the right approach to you, Jack?",
+      "revId": "6e49fcfb45ecebd50850114b31b1dfee3404c9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
