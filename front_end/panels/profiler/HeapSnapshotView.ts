@@ -1249,11 +1249,13 @@ export class HeapSnapshotProfileType extends ProfileType implements
     profile.updateStatus(i18nString(UIStrings.snapshotting));
 
     await heapProfilerModel.takeHeapSnapshot(true, this._treatGlobalObjectsAsRoots.get());
-    profile = (this.profileBeingRecorded() as HeapProfileHeader);
-    profile.title = i18nString(UIStrings.snapshotD, {PH1: profile.uid});
-    profile._finishLoad();
+    profile = this.profileBeingRecorded() as HeapProfileHeader;
+    if (profile) {
+      profile.title = i18nString(UIStrings.snapshotD, {PH1: profile.uid});
+      profile._finishLoad();
+      this.dispatchEventToListeners(ProfileTypeEvents.ProfileComplete, profile);
+    }
     this.setProfileBeingRecorded(null);
-    this.dispatchEventToListeners(ProfileTypeEvents.ProfileComplete, profile);
   }
 
   _addHeapSnapshotChunk(event: Common.EventTarget.EventTargetEvent): void {
