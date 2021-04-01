@@ -52,6 +52,12 @@
   white-space: pre;
 }
 
+.toolbar-shadow.vertical .toolbar-item {
+  height: auto;
+  min-height: 26px;
+  white-space: normal;
+}
+
 .toolbar-item,
 .toolbar-item .devtools-link {
   color: #5a5a5a; /* stylelint-disable-line plugin/use_theme_colors */
