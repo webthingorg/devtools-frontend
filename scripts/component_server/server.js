@@ -272,14 +272,6 @@ async function requestHandler(request, response) {
       return;
     }
 
-    let encoding = 'utf8';
-    if (fullPath.endsWith('.wasm') || fullPath.endsWith('.png') || fullPath.endsWith('.jpg') ||
-        fullPath.endsWith('.avif')) {
-      encoding = 'binary';
-    }
-
-    const fileContents = await fs.promises.readFile(fullPath, encoding);
-
     encoding = 'utf8';
     if (fullPath.endsWith('.js')) {
       response.setHeader('Content-Type', 'text/javascript; charset=utf-8');
@@ -299,8 +291,12 @@ async function requestHandler(request, response) {
     } else if (fullPath.endsWith('.avif')) {
       response.setHeader('Content-Type', 'image/avif');
       encoding = 'binary';
+    } else if (fullPath.endsWith('.gz')) {
+      response.setHeader('Content-Type', 'application/gzip');
+      encoding = 'binary';
     }
 
+    const fileContents = await fs.promises.readFile(fullPath, encoding);
     response.writeHead(200);
     response.write(fileContents, encoding);
     response.end();
