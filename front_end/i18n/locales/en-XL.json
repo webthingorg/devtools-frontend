@@ -7457,6 +7457,9 @@
   "resources/StorageItemsView.ts | refresh": {
     "message": "R̂éf̂ŕêśĥ"
   },
+  "resources/StorageItemsView.ts | refreshedStatus": {
+    "message": "T̂áb̂ĺê ŕêf́r̂éŝh́êd́"
+  },
   "resources/StorageView.ts | application": {
     "message": "Âṕp̂ĺîćât́îón̂"
   },

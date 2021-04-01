@@ -7457,6 +7457,9 @@
   "resources/StorageItemsView.ts | refresh": {
     "message": "Refresh"
   },
+  "resources/StorageItemsView.ts | refreshedStatus": {
+    "message": "Table refreshed"
+  },
   "resources/StorageView.ts | application": {
     "message": "Application"
   },
