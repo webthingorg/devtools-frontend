@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37d5c9c2_d54c9287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-01T14:31:05Z",
+      "side": 1,
+      "message": "PTAL.\n\nEnabling this rule locally reveals 22 violations. I will work on those violations and start removing them, and then enable the rule.",
+      "revId": "e8f66e351f2c2b1494b87b82158159d72e681a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
