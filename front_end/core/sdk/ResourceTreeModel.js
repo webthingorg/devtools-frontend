@@ -591,6 +591,24 @@ export class ResourceTreeModel extends SDKModel {
     const data = this._getSecurityOriginData();
     return data.mainSecurityOrigin || data.unreachableMainSecurityOrigin;
   }
+
+  /**
+   * @return {Promise<ResourceTreeFrame>}
+   */
+  async getMainFrameAsync() {
+    if (this.mainFrame) {
+      return this.mainFrame;
+    }
+    return new Promise(resolve => {
+      const onFrameAdded = () => {
+        if (this.mainFrame) {
+          this.removeEventListener(Events.FrameAdded, onFrameAdded);
+          resolve(this.mainFrame);
+        }
+      };
+      this.addEventListener(Events.FrameAdded, onFrameAdded, this);
+    });
+  }
 }
 
 /** @enum {symbol} */
