@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "abc57f61_4a24b44b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-01T15:37:46Z",
+      "side": 1,
+      "message": "Nice suggestions, thanks!",
+      "revId": "77059d5fd5ffd613cbfbac35c92c27985f65a7ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "22f3521c_3cd469cc",
         "filename": "scripts/eslint_rules/lib/render_coordinator_write.js",
         "patchSetId": 2
@@ -47,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe849e9_988ddf34",
+        "filename": "scripts/eslint_rules/lib/render_coordinator_write.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-01T15:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "951a2756_b8c868a1",
+      "range": {
+        "startLine": 49,
+        "startChar": 84,
+        "endLine": 49,
+        "endChar": 101
+      },
+      "revId": "77059d5fd5ffd613cbfbac35c92c27985f65a7ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b09256dd_b9271784",
@@ -70,6 +111,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6855a7d_d91b8d55",
+        "filename": "scripts/eslint_rules/tests/render_coordinator_write_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-01T15:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09256dd_b9271784",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "77059d5fd5ffd613cbfbac35c92c27985f65a7ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b6b282_bf39b392",
@@ -83,6 +148,30 @@
       "writtenOn": "2021-04-01T14:48:37Z",
       "side": 1,
       "message": "Can we have another case for a template definition in a helper function?\n\n```\nexport function helper() {\n  return LitHtml.render(\u003c...\u003e);\n}\n```",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "77059d5fd5ffd613cbfbac35c92c27985f65a7ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc869dbe_f86178db",
+        "filename": "scripts/eslint_rules/tests/render_coordinator_write_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-01T15:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82b6b282_bf39b392",
       "range": {
         "startLine": 25,
         "startChar": 2,
