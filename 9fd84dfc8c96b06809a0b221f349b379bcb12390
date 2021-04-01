@@ -166,6 +166,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eaa8493_abc4db4b",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-04-01T13:20:37Z",
+      "side": 1,
+      "message": "Thanks for looking into this. I performed a similar test, and I think I have a better understanding of what is occuring, my apologies for the confusion.\n\nI was able to repro what you are seeing: first run of presubmit removes the space, same as you. \n\nI gained more understanding during a second run of presubmit, the eslint rules run first. The `\u0027space-before-function-paren\u0027: [2, {\u0027anonymous\u0027: \u0027never\u0027, \u0027named\u0027: \u0027never\u0027, \u0027asyncArrow\u0027: \u0027always\u0027}],` rule is applied in an \"autofix\" manner, adding the space back in, however it does not throw an error. Then cl format removes the space when it runs. You can see this happen if you watch the file during presubmit: the space appears and then disappears.\n\nThe result is that nothing is blocking. My second run of presubmit was also successful, and wouldn\u0027t block for the same cl you created on windows. Therefore I don\u0027t think anything really needs to be done. These spaces will just be removed next time someone runs presubmit on this file (except for the case below)\n\n\nI guess I\u0027ll go back to my original comment, which was intended in more of an FYI:\nBecause this particular CL modified node_modules And front_end UI code, `cl format` was disabled, the spaces were added by eslint during presubmit, and then never removed by `cl format`. So, we have this very small corner case where eslint can add spaces that presubmit will want to remove in the future if we are also changing node_modules.\n\nThanks for taking a closer look at this Tim!",
+      "parentUuid": "4130ae08_034b2fc2",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
