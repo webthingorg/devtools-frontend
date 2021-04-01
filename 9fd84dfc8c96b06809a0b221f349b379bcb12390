@@ -142,6 +142,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4130ae08_034b2fc2",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-01T12:50:24Z",
+      "side": 1,
+      "message": "I am running on Mac, added a `console.log` statement to `AccessibilityTreeUtils.ts` and successfully uploaded to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2799751/ Note that I did not touch the original formatting. The formatting was corrected as part of the presubmit I ran when executing `git cl upload`.\n\nTherefore, based on my understanding and the linked CL, this issue is not blocking anyone contributing on Mac. I will verify the same is true for Linux, but sadly am not in the position to test that for Windows machines.",
+      "parentUuid": "71b8fbe7_17cb6e05",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
