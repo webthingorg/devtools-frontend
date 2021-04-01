@@ -189,6 +189,30 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * Similar to above method, except instead of returning null if the frame
+   * hasn't been added, it returns a promise and waits for the frame to be added.
+   * @param {string} frameId
+   * @return {Promise<ResourceTreeFrame>}
+   */
+  async getFrameAsync(frameId) {
+    const frame = this.getFrame(frameId);
+    if (frame) {
+      return frame;
+    }
+
+    return new Promise(resolve => {
+      const onFrameAddedToTarget = () => {
+        const frame = this.getFrame(frameId);
+        if (frame) {
+          this.removeEventListener(Events.FrameAddedToTarget, onFrameAddedToTarget);
+          resolve(frame);
+        }
+      };
+      this.addEventListener(Events.FrameAddedToTarget, onFrameAddedToTarget, this);
+    });
+  }
+
+  /**
    * @return {!Array<!ResourceTreeFrame>}
    */
   getAllFrames() {
