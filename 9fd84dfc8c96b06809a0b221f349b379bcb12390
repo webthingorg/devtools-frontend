@@ -118,6 +118,30 @@
       },
       "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b8fbe7_17cb6e05",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-04-01T12:41:54Z",
+      "side": 1,
+      "message": "Hi Tim,\n\nas I explained above, this is not a windows only issue. it will affect any users. the reason this CL was successful is because you have disabled clang format for node modules changes (see Check format in PRESUBMIT.PY), which means only eslint ran during presubmit on this cl. You should be able to reproduce the problem described on any OS by trying to create a cl that changes any of the .ts files on this CL, and then running presubmit.\n\nAlso mentioned above, the cl you described does not address this but, in fact, specifically mentions this issue is still present in the description and adds required exemptions in other places.",
+      "parentUuid": "a6abd8af_e12aabf5",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "9fd84dfc8c96b06809a0b221f349b379bcb12390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
