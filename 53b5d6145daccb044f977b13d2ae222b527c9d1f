@@ -33,6 +33,24 @@
       "message": "LGTM, but if we\u0027re moving this to a common utility, it would be nice to also add some tests. We could even check that `prefers-reduced-data: reduce` is not supported in those tests, so that we get notified through failing tests once it ships by default. WDYT?",
       "revId": "53b5d6145daccb044f977b13d2ae222b527c9d1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8eeb754_100d3d78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-04-01T15:00:38Z",
+      "side": 1,
+      "message": "That\u0027s reasonable. I\u0027ll add a couple unit tests and a comment about how to handle the `prefers-reduced-data: reduce` test failure.",
+      "parentUuid": "56bf3695_da50dcad",
+      "revId": "53b5d6145daccb044f977b13d2ae222b527c9d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
