@@ -449,6 +449,8 @@ export class MainImpl {
     UI.DockController.DockController.instance().initialize();
     app.presentUI(document);
 
+    // Setting the ownerDocument in ARIAUtils for ARIAUtils.alert functionality.
+    UI.ARIAUtils.setOwnerDocument(document);
     const toggleSearchNodeAction = UI.ActionRegistry.ActionRegistry.instance().action('elements.toggle-element-search');
     // TODO: we should not access actions from other modules.
     if (toggleSearchNodeAction) {

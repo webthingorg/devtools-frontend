@@ -10,6 +10,8 @@ import * as Platform from '../core/platform/platform.js';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 let _id = 0;
 
+let ownerDocument: Document|null = null;
+
 export function nextId(prefix: string): string {
   return (prefix || '') + ++_id;
 }
@@ -429,20 +431,26 @@ function hideFromLayout(element: HTMLElement): void {
  */
 const alertsMap = new WeakMap<Document, HTMLElement>();
 
+export function setOwnerDocument(document: Document): void {
+  ownerDocument = document;
+}
+
 /**
  * This function is used to announce a message with the screen reader.
  * Setting the textContent would allow the SR to access the offscreen element via browse mode
  */
-export function alert(message: string, element: Element): void {
-  const document = (element.ownerDocument as Document);
+export function alert(message: string): void {
+  if (!ownerDocument) {
+    throw new Error('Owner document not set.');
+  }
 
-  let alertElement = alertsMap.get(document);
+  let alertElement = alertsMap.get(ownerDocument);
   if (!alertElement) {
-    alertElement = (document.body.createChild('div') as HTMLElement);
+    alertElement = (ownerDocument.body.createChild('div') as HTMLElement);
     hideFromLayout(alertElement);
     alertElement.setAttribute('role', 'alert');
     alertElement.setAttribute('aria-atomic', 'true');
-    alertsMap.set(document, alertElement);
+    alertsMap.set(ownerDocument, alertElement);
   }
   // We first set the textContent to blank so that the string will announce even if it is replaced
   // with the same string.
