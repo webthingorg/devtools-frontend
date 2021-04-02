@@ -399,6 +399,7 @@ export class CSSMetadata {
 }
 
 export const VariableRegex = /(var\(\s*--.*?\))/g;
+export const CustomVariableRegex = /([a-z]+-[a-z]+)/g;
 export const URLRegex = /url\(\s*('.+?'|".+?"|[^)]+)\s*\)/g;
 
 /**
