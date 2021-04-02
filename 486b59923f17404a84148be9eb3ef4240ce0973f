@@ -16,6 +16,29 @@
       "message": "+Reviewers\n\nPTAL when you can!  Thanks",
       "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a405fe_02fbc6cc",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-04-02T19:10:58Z",
+      "side": 1,
+      "message": "I\u0027m a little confused why we need this. All refs to `ARIAUtils.alert` are called in the same document. I think we can just store the ref to the `alertElement` instead.\n\nThis would also remove the need for `ARIAUtils.setOwnerDocument` since the alert function can reference `document` directly.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 55
+      },
+      "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
