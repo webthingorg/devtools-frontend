@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ff7b1f_da7672ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-02T21:50:43Z",
+      "side": 1,
+      "message": "Addressing feedback",
+      "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62a405fe_02fbc6cc",
@@ -65,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b391fabf_ae716763",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-02T21:50:43Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ea678fa4_e426776b",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 55
+      },
+      "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "451c565d_6433d121",
@@ -78,6 +119,24 @@
       "writtenOn": "2021-04-02T20:25:10Z",
       "side": 1,
       "message": "Going off the above comment, I suggest rather: \n\n    // get rid of alertsMap\n    let alertElement: HTMLElement | undefined;\n    export function initializeAriaAlert(document: Document): void {\n      alertElement \u003d document.body.createChild(\u0027div\u0027) as HTMLElement;\n      hideFromLayout(alertElement);\n      alertElement.setAttribute(\u0027role\u0027, \u0027alert\u0027);\n      alertElement.setAttribute(\u0027aria-atomic\u0027, \u0027true\u0027);\n    }\n    \n    export function alert(message: string): void {\n      if (!alertElement) {\n        throw new Error(\u0027Aria-Alert not initialized.\u0027);\n      }\n      // ...\n    }",
+      "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da019c21_f8a8ded2",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-02T21:50:43Z",
+      "side": 1,
+      "message": "Thanks for the feedback.  I more or less implemented this solution with some minor tweaks.\n\nFirst, I removed the document parameter and just referenced it directly.\n\nNext, I removed the export on the initializeAriaAlert function and will just call it in the !alertElement if statement in ARIAUtils.alert.\n\nNext, I modified the initializeAriaAlert function to return the element and set it inside the !alertElement condition inside ARIAUtils.alert.\n\nLet me know if these changes work for you.",
+      "parentUuid": "451c565d_6433d121",
       "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
