@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as i18n from '../core/i18n/i18n.js';
 import * as Platform from '../core/platform/platform.js';
@@ -69,9 +71,38 @@ const UIStrings = {
   */
   closeAll: 'Close all',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/TabbedPane.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/TabbedPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TabbedPane extends VBox {
+  _headerElement: HTMLElement;
+  _headerContentsElement: HTMLElement;
+  _tabSlider: HTMLDivElement;
+  _tabsElement: HTMLElement;
+  _contentElement: HTMLElement;
+  _tabs: TabbedPaneTab[];
+  _tabsHistory: TabbedPaneTab[];
+  _tabsById: Map<string, TabbedPaneTab>;
+  _currentTabLocked: boolean;
+  _autoSelectFirstItemOnShow: boolean;
+  _triggerDropDownTimeout: number|null;
+  _dropDownButton: HTMLDivElement;
+  _currentDevicePixelRatio: number;
+  _shrinkableTabs?: boolean;
+  _verticalTabLayout?: boolean;
+  _closeableTabs?: boolean;
+  _delegate?: TabbedPaneTabDelegate;
+  _currentTab?: TabbedPaneTab;
+  _sliderEnabled?: boolean;
+  _placeholderElement?: Element;
+  _focusedPlaceholderElement?: Element;
+  _placeholderContainerElement?: HTMLElement;
+  _lastSelectedOverflowTab?: TabbedPaneTab;
+  _overflowDisabled?: boolean;
+  _measuredDropDownButtonWidth?: number;
+  _leftToolbar?: Toolbar;
+  _rightToolbar?: Toolbar;
+  _allowTabReorder?: boolean;
+  _automaticReorder?: boolean;
   constructor() {
     super(true);
     this.registerRequiredCSS('ui/tabbedPane.css', {enableLegacyPatching: true});
@@ -88,11 +119,8 @@ export class TabbedPane extends VBox {
     this._tabsElement.addEventListener('keydown', this._keyDown.bind(this), false);
     this._contentElement = this.contentElement.createChild('div', 'tabbed-pane-content');
     this._contentElement.createChild('slot');
-    /** @type {!Array.<!TabbedPaneTab>} */
     this._tabs = [];
-    /** @type {!Array.<!TabbedPaneTab>} */
     this._tabsHistory = [];
-    /** @type {!Map<string, !TabbedPaneTab>} */
     this._tabsById = new Map();
     this._currentTabLocked = false;
     this._autoSelectFirstItemOnShow = true;
@@ -104,98 +132,60 @@ export class TabbedPane extends VBox {
     this.makeTabSlider();
   }
 
-  /**
-   * @param {string} name
-   */
-  setAccessibleName(name) {
+  setAccessibleName(name: string): void {
     ARIAUtils.setAccessibleName(this._tabsElement, name);
   }
 
-  /**
-   * @param {boolean} locked
-   */
-  setCurrentTabLocked(locked) {
+  setCurrentTabLocked(locked: boolean): void {
     this._currentTabLocked = locked;
     this._headerElement.classList.toggle('locked', this._currentTabLocked);
   }
 
-  /**
-   * @param {boolean} autoSelect
-   */
-  setAutoSelectFirstItemOnShow(autoSelect) {
+  setAutoSelectFirstItemOnShow(autoSelect: boolean): void {
     this._autoSelectFirstItemOnShow = autoSelect;
   }
 
-  /**
-   * @return {?Widget}
-   */
-  get visibleView() {
+  get visibleView(): Widget|null {
     return this._currentTab ? this._currentTab.view : null;
   }
 
-  /**
-   * @return {!Array.<string>}
-   */
-  tabIds() {
+  tabIds(): string[] {
     return this._tabs.map(tab => tab._id);
   }
 
-  /**
-   * @param {string} tabId
-   * @return {number}
-   */
-  tabIndex(tabId) {
+  tabIndex(tabId: string): number {
     return this._tabs.findIndex(tab => tab.id === tabId);
   }
 
-  /**
-   * @return {!Array.<!Widget>}
-   */
-  tabViews() {
+  tabViews(): Widget[] {
     return this._tabs.map(tab => tab.view);
   }
 
-  /**
-   * @param {string} tabId
-   * @return {?Widget}
-   */
-  tabView(tabId) {
+  tabView(tabId: string): Widget|null {
     const tab = this._tabsById.get(tabId);
     return tab ? tab.view : null;
   }
 
-  /**
-   * @return {?string}
-   */
-  get selectedTabId() {
+  get selectedTabId(): string|null {
     return this._currentTab ? this._currentTab.id : null;
   }
 
-  /**
-   * @param {boolean} shrinkableTabs
-   */
-  setShrinkableTabs(shrinkableTabs) {
+  setShrinkableTabs(shrinkableTabs: boolean): void {
     this._shrinkableTabs = shrinkableTabs;
   }
 
-  makeVerticalTabLayout() {
+  makeVerticalTabLayout(): void {
     this._verticalTabLayout = true;
     this._setTabSlider(false);
     this.contentElement.classList.add('vertical-tab-layout');
     this.invalidateConstraints();
   }
 
-  /**
-   * @param {boolean} closeableTabs
-   */
-  setCloseableTabs(closeableTabs) {
+  setCloseableTabs(closeableTabs: boolean): void {
     this._closeableTabs = closeableTabs;
   }
 
-  /**
-   * @override
-   */
-  focus() {
+  focus(): void {
     if (this.visibleView) {
       this.visibleView.focus();
     } else {
@@ -203,33 +193,23 @@ export class TabbedPane extends VBox {
     }
   }
 
-  focusSelectedTabHeader() {
+  focusSelectedTabHeader(): void {
     const selectedTab = this._currentTab;
     if (selectedTab) {
       selectedTab.tabElement.focus();
     }
   }
 
-  /**
-   * @return {!Element}
-   */
-  headerElement() {
+  headerElement(): Element {
     return this._headerElement;
   }
 
-  /**
-   * @param {string} id
-   * @return {boolean}
-   */
-  isTabCloseable(id) {
+  isTabCloseable(id: string): boolean {
     const tab = this._tabsById.get(id);
     return tab ? tab.isCloseable() : false;
   }
 
-  /**
-   * @param {!TabbedPaneTabDelegate} delegate
-   */
-  setTabDelegate(delegate) {
+  setTabDelegate(delegate: TabbedPaneTabDelegate): void {
     const tabs = this._tabs.slice();
     for (let i = 0; i < tabs.length; ++i) {
       tabs[i].setDelegate(delegate);
@@ -237,19 +217,12 @@ export class TabbedPane extends VBox {
     this._delegate = delegate;
   }
 
-  /**
-   * @param {string} id
-   * @param {string} tabTitle
-   * @param {!Widget} view
-   * @param {string=} tabTooltip
-   * @param {boolean=} userGesture
-   * @param {boolean=} isCloseable
-   * @param {number=} index
-   */
-  appendTab(id, tabTitle, view, tabTooltip, userGesture, isCloseable, index) {
+  appendTab(
+      id: string, tabTitle: string, view: Widget, tabTooltip?: string, userGesture?: boolean, isCloseable?: boolean,
+      index?: number): void {
     const closeable = typeof isCloseable === 'boolean' ? isCloseable : Boolean(this._closeableTabs);
     const tab = new TabbedPaneTab(this, id, tabTitle, closeable, view, tabTooltip);
-    tab.setDelegate(/** @type {!TabbedPaneTabDelegate} */ (this._delegate));
+    tab.setDelegate((this._delegate as TabbedPaneTabDelegate));
     console.assert(!this._tabsById.has(id), `Tabbed pane already contains a tab with id '${id}'`);
     this._tabsById.set(id, tab);
     if (index !== undefined) {
@@ -264,20 +237,11 @@ export class TabbedPane extends VBox {
     this._updateTabElements();
   }
 
-  /**
-   * @param {string} id
-   * @param {boolean=} userGesture
-   */
-  closeTab(id, userGesture) {
+  closeTab(id: string, userGesture?: boolean): void {
     this.closeTabs([id], userGesture);
   }
 
-
-  /**
-   * @param {!Array.<string>} ids
-   * @param {boolean=} userGesture
-   */
-  closeTabs(ids, userGesture) {
+  closeTabs(ids: string[], userGesture?: boolean): void {
     const focused = this.hasFocus();
     for (let i = 0; i < ids.length; ++i) {
       this._innerCloseTab(ids[i], userGesture);
@@ -291,11 +255,7 @@ export class TabbedPane extends VBox {
     }
   }
 
-  /**
-   * @param {string} id
-   * @param {boolean=} userGesture
-   */
-  _innerCloseTab(id, userGesture) {
+  _innerCloseTab(id: string, userGesture?: boolean): true|undefined {
     const tab = this._tabsById.get(id);
     if (!tab) {
       return;
@@ -315,25 +275,16 @@ export class TabbedPane extends VBox {
       this._hideTabElement(tab);
     }
 
-    /** @type {!EventData} */
-    const eventData = {prevTabId: undefined, tabId: id, view: tab.view, isUserGesture: userGesture};
+    const eventData: EventData = {prevTabId: undefined, tabId: id, view: tab.view, isUserGesture: userGesture};
     this.dispatchEventToListeners(Events.TabClosed, eventData);
     return true;
   }
 
-  /**
-   * @param {string} tabId
-   * @return {boolean}
-   */
-  hasTab(tabId) {
+  hasTab(tabId: string): boolean {
     return this._tabsById.has(tabId);
   }
 
-  /**
-   * @param {string} id
-   * @return {!Array.<string>}
-   */
-  otherTabs(id) {
+  otherTabs(id: string): string[] {
     const result = [];
     for (let i = 0; i < this._tabs.length; ++i) {
       if (this._tabs[i].id !== id) {
@@ -343,11 +294,7 @@ export class TabbedPane extends VBox {
     return result;
   }
 
-  /**
-   * @param {string} id
-   * @return {!Array.<string>}
-   */
-  _tabsToTheRight(id) {
+  _tabsToTheRight(id: string): string[] {
     let index = -1;
     for (let i = 0; i < this._tabs.length; ++i) {
       if (this._tabs[i].id === id) {
@@ -363,7 +310,7 @@ export class TabbedPane extends VBox {
     });
   }
 
-  _viewHasFocus() {
+  _viewHasFocus(): boolean {
     if (this.visibleView && this.visibleView.hasFocus()) {
       return true;
     }
@@ -371,13 +318,7 @@ export class TabbedPane extends VBox {
     return root instanceof Document && this.contentElement === root.activeElement;
   }
 
-  /**
-   * @param {string} id
-   * @param {boolean=} userGesture
-   * @param {boolean=} forceFocus
-   * @return {boolean}
-   */
-  selectTab(id, userGesture, forceFocus) {
+  selectTab(id: string, userGesture?: boolean, forceFocus?: boolean): boolean {
     if (this._currentTabLocked) {
       return false;
     }
@@ -387,8 +328,7 @@ export class TabbedPane extends VBox {
       return false;
     }
 
-    /** @type {!EventData} */
-    const eventData = {
+    const eventData: EventData = {
       prevTabId: this._currentTab ? this._currentTab.id : undefined,
       tabId: id,
       view: tab.view,
@@ -417,36 +357,27 @@ export class TabbedPane extends VBox {
     return true;
   }
 
-  selectNextTab() {
-    const index = this._tabs.indexOf(/** @type {!TabbedPaneTab} */ (this._currentTab));
+  selectNextTab(): void {
+    const index = this._tabs.indexOf((this._currentTab as TabbedPaneTab));
     const nextIndex = Platform.NumberUtilities.mod(index + 1, this._tabs.length);
     this.selectTab(this._tabs[nextIndex].id, true);
   }
 
-  selectPrevTab() {
-    const index = this._tabs.indexOf(/** @type {!TabbedPaneTab} */ (this._currentTab));
+  selectPrevTab(): void {
+    const index = this._tabs.indexOf((this._currentTab as TabbedPaneTab));
     const nextIndex = Platform.NumberUtilities.mod(index - 1, this._tabs.length);
     this.selectTab(this._tabs[nextIndex].id, true);
   }
 
-  /**
-   * @param {number} tabsCount
-   * @return {!Array.<string>}
-   */
-  lastOpenedTabIds(tabsCount) {
-    /** @param {!TabbedPaneTab} tab */
-    function tabToTabId(tab) {
+  lastOpenedTabIds(tabsCount: number): string[] {
+    function tabToTabId(tab: TabbedPaneTab): string {
       return tab.id;
     }
 
     return this._tabsHistory.slice(0, tabsCount).map(tabToTabId);
   }
 
-  /**
-   * @param {string} id
-   * @param {?Icon} icon
-   */
-  setTabIcon(id, icon) {
+  setTabIcon(id: string, icon: Icon|null): void {
     const tab = this._tabsById.get(id);
     if (!tab) {
       return;
@@ -455,51 +386,34 @@ export class TabbedPane extends VBox {
     this._updateTabElements();
   }
 
-  /**
-   * @param {string} id
-   * @param {boolean} enabled
-   */
-  setTabEnabled(id, enabled) {
+  setTabEnabled(id: string, enabled: boolean): void {
     const tab = this._tabsById.get(id);
     if (tab) {
       tab.tabElement.classList.toggle('disabled', !enabled);
     }
   }
 
-  /**
-   * @param {string} id
-   * @param {string} className
-   * @param {boolean=} force
-   */
-  toggleTabClass(id, className, force) {
+  toggleTabClass(id: string, className: string, force?: boolean): void {
     const tab = this._tabsById.get(id);
     if (tab && tab._toggleClass(className, force)) {
       this._updateTabElements();
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _zoomChanged(event) {
+  _zoomChanged(_event: Common.EventTarget.EventTargetEvent): void {
     this._clearMeasuredWidths();
     if (this.isShowing()) {
       this._updateTabElements();
     }
   }
 
-  _clearMeasuredWidths() {
+  _clearMeasuredWidths(): void {
     for (let i = 0; i < this._tabs.length; ++i) {
       delete this._tabs[i]._measuredWidth;
     }
   }
 
-  /**
-   * @param {string} id
-   * @param {string} tabTitle
-   * @param {string=} tabTooltip
-   */
-  changeTabTitle(id, tabTitle, tabTooltip) {
+  changeTabTitle(id: string, tabTitle: string, tabTooltip?: string): void {
     const tab = this._tabsById.get(id);
     if (tab && tabTooltip !== undefined) {
       tab.tooltip = tabTooltip;
@@ -511,11 +425,7 @@ export class TabbedPane extends VBox {
     }
   }
 
-  /**
-   * @param {string} id
-   * @param {!Widget} view
-   */
-  changeTabView(id, view) {
+  changeTabView(id: string, view: Widget): void {
     const tab = this._tabsById.get(id);
     if (!tab || tab.view === view) {
       return;
@@ -537,10 +447,7 @@ export class TabbedPane extends VBox {
     this.resumeInvalidations();
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  onResize(): void {
     if (this._currentDevicePixelRatio !== window.devicePixelRatio) {
       // Force recalculation of all tab widths on a DPI change
       this._clearMeasuredWidths();
@@ -549,40 +456,30 @@ export class TabbedPane extends VBox {
     this._updateTabElements();
   }
 
-  headerResized() {
+  headerResized(): void {
     this._updateTabElements();
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     const effectiveTab = this._currentTab || this._tabsHistory[0];
     if (effectiveTab && this._autoSelectFirstItemOnShow) {
       this.selectTab(effectiveTab.id);
     }
   }
 
-  makeTabSlider() {
+  makeTabSlider(): void {
     if (this._verticalTabLayout) {
       return;
     }
     this._setTabSlider(true);
   }
 
-  /**
-   * @param {boolean} enable
-   */
-  _setTabSlider(enable) {
+  _setTabSlider(enable: boolean): void {
     this._sliderEnabled = enable;
     this._tabSlider.classList.toggle('enabled', enable);
   }
 
-  /**
-   * @override
-   * @return {!Constraints}
-   */
-  calculateConstraints() {
+  calculateConstraints(): Constraints {
     let constraints = super.calculateConstraints();
     const minContentConstraints = new Constraints(new Size(0, 0), new Size(50, 50));
     constraints = constraints.widthToMax(minContentConstraints).heightToMax(minContentConstraints);
@@ -594,15 +491,11 @@ export class TabbedPane extends VBox {
     return constraints;
   }
 
-  _updateTabElements() {
+  _updateTabElements(): void {
     invokeOnceAfterBatchUpdate(this, this._innerUpdateTabElements);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {!Element=} focusedElement
-   */
-  setPlaceholderElement(element, focusedElement) {
+  setPlaceholderElement(element: Element, focusedElement?: Element): void {
     this._placeholderElement = element;
     if (focusedElement) {
       this._focusedPlaceholderElement = focusedElement;
@@ -613,11 +506,11 @@ export class TabbedPane extends VBox {
     }
   }
 
-  async waitForTabElementUpdate() {
+  async waitForTabElementUpdate(): Promise<void> {
     this._innerUpdateTabElements();
   }
 
-  _innerUpdateTabElements() {
+  _innerUpdateTabElements(): void {
     if (!this.isShowing()) {
       return;
     }
@@ -646,11 +539,7 @@ export class TabbedPane extends VBox {
     this._updateTabSlider();
   }
 
-  /**
-   * @param {number} index
-   * @param {!TabbedPaneTab} tab
-   */
-  _showTabElement(index, tab) {
+  _showTabElement(index: number, tab: TabbedPaneTab): void {
     if (index >= this._tabsElement.children.length) {
       this._tabsElement.appendChild(tab.tabElement);
     } else {
@@ -659,15 +548,12 @@ export class TabbedPane extends VBox {
     tab._shown = true;
   }
 
-  /**
-   * @param {!TabbedPaneTab} tab
-   */
-  _hideTabElement(tab) {
+  _hideTabElement(tab: TabbedPaneTab): void {
     this._tabsElement.removeChild(tab.tabElement);
     tab._shown = false;
   }
 
-  _createDropDownButton() {
+  _createDropDownButton(): HTMLDivElement {
     const dropDownContainer = document.createElement('div');
     dropDownContainer.classList.add('tabbed-pane-header-tabs-drop-down-container');
     const chevronIcon = Icon.create('largeicon-chevron', 'chevron-icon');
@@ -681,16 +567,13 @@ export class TabbedPane extends VBox {
       if (event.which !== 1 || this._triggerDropDownTimeout) {
         return;
       }
-      this._triggerDropDownTimeout = setTimeout(this._dropDownClicked.bind(this, event), 200);
+      this._triggerDropDownTimeout = window.setTimeout(this._dropDownClicked.bind(this, event), 200);
     });
     return dropDownContainer;
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _dropDownClicked(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _dropDownClicked(ev: Event): void {
+    const event = (ev as MouseEvent);
     if (event.which !== 1) {
       return;
     }
@@ -714,32 +597,23 @@ export class TabbedPane extends VBox {
     menu.show();
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _dropDownKeydown(event) {
+  _dropDownKeydown(event: Event): void {
     if (isEnterOrSpaceKey(event)) {
       this._dropDownButton.click();
       event.consume(true);
     }
   }
 
-  /**
-   * @param {!TabbedPaneTab} tab
-   */
-  _dropDownMenuItemSelected(tab) {
+  _dropDownMenuItemSelected(tab: TabbedPaneTab): void {
     this._lastSelectedOverflowTab = tab;
     this.selectTab(tab.id, true, true);
   }
 
-  _totalWidth() {
+  _totalWidth(): number {
     return this._headerContentsElement.getBoundingClientRect().width;
   }
 
-  /**
-   * @return {number}
-   */
-  _numberOfTabsShown() {
+  _numberOfTabsShown(): number {
     let numTabsShown = 0;
     for (const tab of this._tabs) {
       if (tab._shown) {
@@ -749,11 +623,11 @@ export class TabbedPane extends VBox {
     return numTabsShown;
   }
 
-  disableOverflowMenu() {
+  disableOverflowMenu(): void {
     this._overflowDisabled = true;
   }
 
-  _updateTabsDropDown() {
+  _updateTabsDropDown(): void {
     const tabsToShowIndexes = this._tabsToShowIndexes(
         this._tabs, this._tabsHistory, this._totalWidth(), this._measuredDropDownButtonWidth || 0);
     if (this._lastSelectedOverflowTab && this._numberOfTabsShown() !== tabsToShowIndexes.length) {
@@ -779,10 +653,7 @@ export class TabbedPane extends VBox {
     }
   }
 
-  /**
-   * @param {boolean} hasMoreTabs
-   */
-  _maybeShowDropDown(hasMoreTabs) {
+  _maybeShowDropDown(hasMoreTabs: boolean): void {
     if (hasMoreTabs && !this._dropDownButton.parentElement) {
       this._headerContentsElement.appendChild(this._dropDownButton);
     } else if (!hasMoreTabs && this._dropDownButton.parentElement) {
@@ -790,7 +661,7 @@ export class TabbedPane extends VBox {
     }
   }
 
-  _measureDropDownButton() {
+  _measureDropDownButton(): void {
     if (this._overflowDisabled || this._measuredDropDownButtonWidth) {
       return;
     }
@@ -801,7 +672,7 @@ export class TabbedPane extends VBox {
     this._dropDownButton.classList.remove('measuring');
   }
 
-  _updateWidths() {
+  _updateWidths(): void {
     const measuredWidths = this._measureWidths();
     const maxWidth =
         this._shrinkableTabs ? this._calculateMaxWidth(measuredWidths.slice(), this._totalWidth()) : Number.MAX_VALUE;
@@ -812,11 +683,10 @@ export class TabbedPane extends VBox {
     }
   }
 
-  _measureWidths() {
+  _measureWidths(): number[] {
     // Add all elements to measure into this._tabsElement
     this._tabsElement.style.setProperty('width', '2000px');
-    /** @type {!Map<!HTMLElement, !TabbedPaneTab>} */
-    const measuringTabElements = new Map();
+    const measuringTabElements = new Map<HTMLElement, TabbedPaneTab>();
     for (const tab of this._tabs) {
       if (typeof tab._measuredWidth === 'number') {
         continue;
@@ -847,11 +717,7 @@ export class TabbedPane extends VBox {
     return measuredWidths;
   }
 
-  /**
-   * @param {!Array.<number>} measuredWidths
-   * @param {number} totalWidth
-   */
-  _calculateMaxWidth(measuredWidths, totalWidth) {
+  _calculateMaxWidth(measuredWidths: number[], totalWidth: number): number {
     if (!measuredWidths.length) {
       return 0;
     }
@@ -883,14 +749,9 @@ export class TabbedPane extends VBox {
     return totalWidth / measuredWidths.length;
   }
 
-  /**
-   * @param {!Array.<!TabbedPaneTab>} tabsOrdered
-   * @param {!Array.<!TabbedPaneTab>} tabsHistory
-   * @param {number} totalWidth
-   * @param {number} measuredDropDownButtonWidth
-   * @return {!Array.<number>}
-   */
-  _tabsToShowIndexes(tabsOrdered, tabsHistory, totalWidth, measuredDropDownButtonWidth) {
+  _tabsToShowIndexes(
+      tabsOrdered: TabbedPaneTab[], tabsHistory: TabbedPaneTab[], totalWidth: number,
+      measuredDropDownButtonWidth: number): number[] {
     const tabsToShowIndexes = [];
 
     let totalTabsWidth = 0;
@@ -922,7 +783,7 @@ export class TabbedPane extends VBox {
     return tabsToShowIndexes;
   }
 
-  _hideCurrentTab() {
+  _hideCurrentTab(): void {
     if (!this._currentTab) {
       return;
     }
@@ -931,10 +792,7 @@ export class TabbedPane extends VBox {
     delete this._currentTab;
   }
 
-  /**
-   * @param {!TabbedPaneTab} tab
-   */
-  _showTab(tab) {
+  _showTab(tab: TabbedPaneTab): void {
     tab.tabElement.tabIndex = 0;
     tab.tabElement.classList.add('selected');
     ARIAUtils.setSelected(tab.tabElement, true);
@@ -942,7 +800,7 @@ export class TabbedPane extends VBox {
     this._updateTabSlider();
   }
 
-  _updateTabSlider() {
+  _updateTabSlider(): void {
     if (!this._sliderEnabled) {
       return;
     }
@@ -966,29 +824,18 @@ export class TabbedPane extends VBox {
     }
   }
 
-  /**
-   * @param {!TabbedPaneTab} tab
-   */
-  _hideTab(tab) {
+  _hideTab(tab: TabbedPaneTab): void {
     tab.tabElement.removeAttribute('tabIndex');
     tab.tabElement.classList.remove('selected');
     tab.tabElement.setAttribute('aria-selected', 'false');
     tab.view.detach();
   }
 
-  /**
-   * @override
-   * @return {!Array.<!Element>}
-   */
-  elementsToRestoreScrollPositionsFor() {
+  elementsToRestoreScrollPositionsFor(): Element[] {
     return [this._contentElement];
   }
 
-  /**
-   * @param {!TabbedPaneTab} tab
-   * @param {number} index
-   */
-  _insertBefore(tab, index) {
+  _insertBefore(tab: TabbedPaneTab, index: number): void {
     this._tabsElement.insertBefore(tab.tabElement, this._tabsElement.childNodes[index]);
     const oldIndex = this._tabs.indexOf(tab);
     this._tabs.splice(oldIndex, 1);
@@ -997,15 +844,11 @@ export class TabbedPane extends VBox {
     }
     this._tabs.splice(index, 0, tab);
 
-    /** @type {!EventData} */
-    const eventData = {prevTabId: undefined, tabId: tab.id, view: tab.view, isUserGesture: undefined};
+    const eventData: EventData = {prevTabId: undefined, tabId: tab.id, view: tab.view, isUserGesture: undefined};
     this.dispatchEventToListeners(Events.TabOrderChanged, eventData);
   }
 
-  /**
-   * @return {!Toolbar}
-   */
-  leftToolbar() {
+  leftToolbar(): Toolbar {
     if (!this._leftToolbar) {
       this._leftToolbar = new Toolbar('tabbed-pane-left-toolbar');
       this._headerElement.insertBefore(this._leftToolbar.element, this._headerElement.firstChild);
@@ -1013,10 +856,7 @@ export class TabbedPane extends VBox {
     return this._leftToolbar;
   }
 
-  /**
-   * @return {!Toolbar}
-   */
-  rightToolbar() {
+  rightToolbar(): Toolbar {
     if (!this._rightToolbar) {
       this._rightToolbar = new Toolbar('tabbed-pane-right-toolbar');
       this._headerElement.appendChild(this._rightToolbar.element);
@@ -1024,25 +864,17 @@ export class TabbedPane extends VBox {
     return this._rightToolbar;
   }
 
-  /**
-   * @param {boolean} allow
-   * @param {boolean=} automatic
-   */
-  setAllowTabReorder(allow, automatic) {
+  setAllowTabReorder(allow: boolean, automatic?: boolean): void {
     this._allowTabReorder = allow;
     this._automaticReorder = automatic;
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _keyDown(ev) {
+  _keyDown(ev: Event): void {
     if (!this._currentTab) {
       return;
     }
-    const event = /** @type {!KeyboardEvent} */ (ev);
-    /** @type {?Element} */
-    let nextTabElement = null;
+    const event = (ev as KeyboardEvent);
+    let nextTabElement: (Element|null)|null = null;
     switch (event.key) {
       case 'ArrowUp':
       case 'ArrowLeft':
@@ -1077,72 +909,62 @@ export class TabbedPane extends VBox {
     if (tab) {
       this.selectTab(tab.id, true);
     }
-    /** @type {!HTMLElement} */ (nextTabElement).focus();
+    (nextTabElement as HTMLElement).focus();
   }
 }
+export interface EventData {
+  prevTabId?: string;
+  tabId: string;
+  view?: Widget;
+  isUserGesture?: boolean;
+}
 
-/** @typedef {{
- *    prevTabId: (string|undefined),
- *    tabId: string,
- *    view: (!Widget|undefined),
- *    isUserGesture: (boolean|undefined)
- * }}
- */
-// @ts-ignore typedef
-export let EventData;
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Events {
+  TabInvoked = 'TabInvoked',
+  TabSelected = 'TabSelected',
+  TabClosed = 'TabClosed',
+  TabOrderChanged = 'TabOrderChanged',
+}
 
-/** @enum {symbol} */
-export const Events = {
-  TabInvoked: Symbol('TabInvoked'),
-  TabSelected: Symbol('TabSelected'),
-  TabClosed: Symbol('TabClosed'),
-  TabOrderChanged: Symbol('TabOrderChanged')
-};
 
 export class TabbedPaneTab {
-  /**
-   * @param {!TabbedPane} tabbedPane
-   * @param {string} id
-   * @param {string} title
-   * @param {boolean} closeable
-   * @param {!Widget} view
-   * @param {string=} tooltip
-   */
-  constructor(tabbedPane, id, title, closeable, view, tooltip) {
+  _closeable: boolean;
+  _tabbedPane: TabbedPane;
+  _id: string;
+  _title: string;
+  _tooltip: string|undefined;
+  _view: Widget;
+  _shown: boolean;
+  _measuredWidth!: number|undefined;
+  _tabElement!: HTMLElement|undefined;
+  _iconContainer: Element|null;
+  _icon?: Icon|null;
+  _width?: number;
+  _delegate?: TabbedPaneTabDelegate;
+  _titleElement?: HTMLElement;
+  _dragStartX?: number;
+  constructor(tabbedPane: TabbedPane, id: string, title: string, closeable: boolean, view: Widget, tooltip?: string) {
     this._closeable = closeable;
     this._tabbedPane = tabbedPane;
     this._id = id;
-    /** @type {string} */
     this._title = title;
     this._tooltip = tooltip;
     this._view = view;
     this._shown = false;
-    /** @type {number|undefined} */
-    this._measuredWidth;
-    /** @type {!HTMLElement|undefined} */
-    this._tabElement;
-    /** @type {?Element} */
     this._iconContainer = null;
   }
 
-  /**
-   * @return {string}
-   */
-  get id() {
+  get id(): string {
     return this._id;
   }
 
-  /**
-   * @return {string}
-   */
-  get title() {
+  get title(): string {
     return this._title;
   }
 
-  /**
-   * @param {string} title
-   */
-  set title(title) {
+  set title(title: string) {
     if (title === this._title) {
       return;
     }
@@ -1153,17 +975,11 @@ export class TabbedPaneTab {
     delete this._measuredWidth;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isCloseable() {
+  isCloseable(): boolean {
     return this._closeable;
   }
 
-  /**
-   * @param {?Icon} icon
-   */
-  _setIcon(icon) {
+  _setIcon(icon: Icon|null): void {
     this._icon = icon;
     if (this._tabElement && this._titleElement) {
       this._createIconElement(this._tabElement, this._titleElement, false);
@@ -1171,12 +987,7 @@ export class TabbedPaneTab {
     delete this._measuredWidth;
   }
 
-  /**
-   * @param {string} className
-   * @param {boolean=} force
-   * @return {boolean}
-   */
-  _toggleClass(className, force) {
+  _toggleClass(className: string, force?: boolean): boolean {
     const element = this.tabElement;
     const hasClass = element.classList.contains(className);
     if (hasClass === force) {
@@ -1187,41 +998,26 @@ export class TabbedPaneTab {
     return true;
   }
 
-  /**
-   * @return {!Widget}
-   */
-  get view() {
+  get view(): Widget {
     return this._view;
   }
 
-  /**
-   * @param {!Widget} view
-   */
-  set view(view) {
+  set view(view: Widget) {
     this._view = view;
   }
 
-  /**
-   * @return {string|undefined}
-   */
-  get tooltip() {
+  get tooltip(): string|undefined {
     return this._tooltip;
   }
 
-  /**
-   * @param {string|undefined} tooltip
-   */
-  set tooltip(tooltip) {
+  set tooltip(tooltip: string|undefined) {
     this._tooltip = tooltip;
     if (this._titleElement) {
       Tooltip.install(this._titleElement, tooltip || '');
     }
   }
 
-  /**
-   * @return {!HTMLElement}
-   */
-  get tabElement() {
+  get tabElement(): HTMLElement {
     if (!this._tabElement) {
       this._tabElement = this._createTabElement(false);
     }
@@ -1229,34 +1025,20 @@ export class TabbedPaneTab {
     return this._tabElement;
   }
 
-  /**
-   * @return {number}
-   */
-  width() {
+  width(): number {
     return this._width || 0;
   }
 
-  /**
-   * @param {number} width
-   */
-  setWidth(width) {
+  setWidth(width: number): void {
     this.tabElement.style.width = width === -1 ? '' : (width + 'px');
     this._width = width;
   }
 
-  /**
-   * @param {!TabbedPaneTabDelegate} delegate
-   */
-  setDelegate(delegate) {
+  setDelegate(delegate: TabbedPaneTabDelegate): void {
     this._delegate = delegate;
   }
 
-  /**
-   * @param {!Element} tabElement
-   * @param {!Element} titleElement
-   * @param {boolean} measuring
-   */
-  _createIconElement(tabElement, titleElement, measuring) {
+  _createIconElement(tabElement: Element, titleElement: Element, measuring: boolean): void {
     const iconElement = tabIcons.get(tabElement);
     if (iconElement) {
       iconElement.remove();
@@ -1274,11 +1056,7 @@ export class TabbedPaneTab {
     tabIcons.set(tabElement, iconContainer);
   }
 
-  /**
-   * @param {boolean} measuring
-   * @return {!HTMLElement}
-   */
-  _createTabElement(measuring) {
+  _createTabElement(measuring: boolean): HTMLElement {
     const tabElement = document.createElement('div');
     tabElement.classList.add('tabbed-pane-header-tab');
     tabElement.id = 'tab-' + this._id;
@@ -1319,17 +1097,14 @@ export class TabbedPaneTab {
       }
     }
 
-    return /** @type {!HTMLElement} */ (tabElement);
+    return tabElement as HTMLElement;
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _tabClicked(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _tabClicked(ev: Event): void {
+    const event = (ev as MouseEvent);
     const middleButton = event.button === 1;
     const shouldClose = this._closeable &&
-        (middleButton || /** @type {!HTMLElement} */ (event.target).classList.contains('tabbed-pane-close-button'));
+        (middleButton || (event.target as HTMLElement).classList.contains('tabbed-pane-close-button'));
     if (!shouldClose) {
       this._tabbedPane.focus();
       return;
@@ -1338,33 +1113,23 @@ export class TabbedPaneTab {
     event.consume(true);
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _tabMouseDown(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
-    if (/** @type {!HTMLElement} */ (event.target).classList.contains('tabbed-pane-close-button') ||
-        event.button !== 0) {
+  _tabMouseDown(ev: Event): void {
+    const event = ev as MouseEvent;
+    if ((event.target as HTMLElement).classList.contains('tabbed-pane-close-button') || event.button !== 0) {
       return;
     }
     this._tabbedPane.selectTab(this.id, true);
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _tabMouseUp(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _tabMouseUp(ev: Event): void {
+    const event = (ev as MouseEvent);
     // This is needed to prevent middle-click pasting on linux when tabs are clicked.
     if (event.button === 1) {
       event.consume(true);
     }
   }
 
-  /**
-   * @param {!Array.<string>} ids
-   */
-  _closeTabs(ids) {
+  _closeTabs(ids: string[]): void {
     if (this._delegate) {
       this._delegate.closeTabs(this._tabbedPane, ids);
       return;
@@ -1372,33 +1137,20 @@ export class TabbedPaneTab {
     this._tabbedPane.closeTabs(ids, true);
   }
 
-  /** @param {!Event} event */
-  _tabContextMenu(event) {
-    /**
-     * @this {TabbedPaneTab}
-     */
-    function close() {
+  _tabContextMenu(event: Event): void {
+    function close(this: TabbedPaneTab): void {
       this._closeTabs([this.id]);
     }
 
-    /**
-     * @this {TabbedPaneTab}
-     */
-    function closeOthers() {
+    function closeOthers(this: TabbedPaneTab): void {
       this._closeTabs(this._tabbedPane.otherTabs(this.id));
     }
 
-    /**
-     * @this {TabbedPaneTab}
-     */
-    function closeAll() {
+    function closeAll(this: TabbedPaneTab): void {
       this._closeTabs(this._tabbedPane.tabIds());
     }
 
-    /**
-     * @this {TabbedPaneTab}
-     */
-    function closeToTheRight() {
+    function closeToTheRight(this: TabbedPaneTab): void {
       this._closeTabs(this._tabbedPane._tabsToTheRight(this.id));
     }
 
@@ -1415,13 +1167,9 @@ export class TabbedPaneTab {
     contextMenu.show();
   }
 
-  /**
-   * @param {!Event} ev
-   * @return {boolean}
-   */
-  _startTabDragging(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
-    if (/** @type {!HTMLElement} */ (event.target).classList.contains('tabbed-pane-close-button')) {
+  _startTabDragging(ev: Event): boolean {
+    const event = (ev as MouseEvent);
+    if ((event.target as HTMLElement).classList.contains('tabbed-pane-close-button')) {
       return false;
     }
     this._dragStartX = event.pageX;
@@ -1432,14 +1180,11 @@ export class TabbedPaneTab {
     return true;
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _tabDragging(ev) {
-    const event = /** @type {!MouseEvent} */ (ev);
+  _tabDragging(ev: Event): void {
+    const event = (ev as MouseEvent);
     const tabElements = this._tabbedPane._tabsElement.childNodes;
     for (let i = 0; i < tabElements.length; ++i) {
-      let tabElement = /** @type {!HTMLElement} */ (tabElements[i]);
+      let tabElement: HTMLElement = (tabElements[i] as HTMLElement);
       if (!this._tabElement || tabElement === this._tabElement) {
         continue;
       }
@@ -1450,13 +1195,13 @@ export class TabbedPaneTab {
         continue;
       }
 
-      const dragStartX = /** @type {number} */ (this._dragStartX);
+      const dragStartX = (this._dragStartX as number);
       if (Math.abs(event.pageX - dragStartX) < tabElement.clientWidth / 2 + 5) {
         break;
       }
 
       if (event.pageX - dragStartX > 0) {
-        tabElement = /** @type {!HTMLElement} */ (tabElement.nextSibling);
+        tabElement = (tabElement.nextSibling as HTMLElement);
         ++i;
       }
 
@@ -1466,8 +1211,8 @@ export class TabbedPaneTab {
       break;
     }
 
-    const dragStartX = /** @type {number} */ (this._dragStartX);
-    const tabElement = /** @type {!HTMLElement} */ (this._tabElement);
+    const dragStartX = (this._dragStartX as number);
+    const tabElement = (this._tabElement as HTMLElement);
     if (!tabElement.previousSibling && event.pageX - dragStartX < 0) {
       tabElement.style.setProperty('left', '0px');
       return;
@@ -1480,11 +1225,8 @@ export class TabbedPaneTab {
     tabElement.style.setProperty('left', (event.pageX - dragStartX) + 'px');
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _endTabDragging(event) {
-    const tabElement = /** @type {!HTMLElement} */ (this._tabElement);
+  _endTabDragging(_event: Event): void {
+    const tabElement = (this._tabElement as HTMLElement);
     tabElement.classList.remove('dragging');
     tabElement.style.removeProperty('left');
     delete this._dragStartX;
@@ -1492,23 +1234,9 @@ export class TabbedPaneTab {
   }
 }
 
-/** @type {!WeakMap<!Element, !Element>} */
-const tabIcons = new WeakMap();
+const tabIcons = new WeakMap<Element, Element>();
 
-/**
- * @interface
- */
-export class TabbedPaneTabDelegate {
-  /**
-   * @param {!TabbedPane} tabbedPane
-   * @param {!Array.<string>} ids
-   */
-  closeTabs(tabbedPane, ids) {
-  }
-
-  /**
-   * @param {string} tabId
-   * @param {!ContextMenu} contextMenu
-   */
-  onContextMenu(tabId, contextMenu) {}
+export interface TabbedPaneTabDelegate {
+  closeTabs(tabbedPane: TabbedPane, ids: string[]): void;
+  onContextMenu(tabId: string, contextMenu: ContextMenu): void;
 }
