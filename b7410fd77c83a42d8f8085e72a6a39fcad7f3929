@@ -33,6 +33,23 @@
       "message": "+Owner to review\n\nHi, Jan! PTAL when you can.",
       "revId": "b7410fd77c83a42d8f8085e72a6a39fcad7f3929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe48771_0553fffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-05T17:04:48Z",
+      "side": 1,
+      "message": "+Alex as another owner to review\n\nPTAL when you can.  Thanks!",
+      "revId": "b7410fd77c83a42d8f8085e72a6a39fcad7f3929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
