@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ead8c45_2c9b9fe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-04-05T16:57:32Z",
+      "side": 1,
+      "message": "@jacktfranklin@chromium.org can you please take a look at this PR when you get a chance, I have added colors to CSS variables and using them instead of defining in place.",
+      "revId": "88b95887419dd38c3fe63b8291a8c21504dccadf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
