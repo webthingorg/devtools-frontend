@@ -21,7 +21,7 @@ devtools_module("ui") {
     "FilterSuggestionBuilder.js",
     "ForwardedInputEventHandler.ts",
     "Fragment.ts",
-    "Geometry.js",
+    "Geometry.ts",
     "GlassPane.ts",
     "HistoryInput.js",
     "Icon.ts",
