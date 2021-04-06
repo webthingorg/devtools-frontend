@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "509f711be4e1bc50b160e0cbc1e4d139261dc486",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4ccae9_b2eb06d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2021-04-06T22:03:36Z",
+      "side": 1,
+      "message": "Works well for me locally, LGTM",
+      "revId": "509f711be4e1bc50b160e0cbc1e4d139261dc486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
