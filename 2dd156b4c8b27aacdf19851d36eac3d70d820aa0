@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c11d1769_4452e700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-06T10:18:29Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a trivial follow up fix for the string escaping.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "2dd156b4c8b27aacdf19851d36eac3d70d820aa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
