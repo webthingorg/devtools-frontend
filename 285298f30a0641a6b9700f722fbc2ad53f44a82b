@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d0dc65_ac9b7941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-06T15:00:21Z",
+      "side": 1,
+      "message": "caseq: This removes dependency #1 in https://docs.google.com/document/d/1UzCTrkSJJZGELq3P784DNgFrw8fLsmkxFMtmSUdqUqA/edit#heading\u003dh.7nki9mck5t64, WDYT?",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
