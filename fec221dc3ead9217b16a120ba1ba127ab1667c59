@@ -111,6 +111,30 @@
       },
       "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb5b413_c01d8055",
+        "filename": "front_end/sources/javaScriptBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-04-06T04:55:47Z",
+      "side": 1,
+      "message": "Hey Peter - could you provide color variable names for these values? I don\u0027t want to merge this file with hard-coded colors.",
+      "parentUuid": "42762fd4_c42f6e98",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
