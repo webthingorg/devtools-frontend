@@ -27,7 +27,7 @@ export const history: string[] = [];
 export class QuickOpenImpl {
   _prefix: string|null;
   _query: string;
-  _providers: Map<string, () => Provider>;
+  _providers: Map<string, () => Promise<Provider>>;
   _prefixes: string[];
   _filteredListWidget: FilteredListWidget|null;
   constructor() {
@@ -51,10 +51,10 @@ export class QuickOpenImpl {
     filteredListWidget.setQuery(query);
   }
 
-  _addProvider(extension: {
+  async _addProvider(extension: {
     prefix: string,
-    provider: () => Provider,
-  }): void {
+    provider: () => Promise<Provider>,
+  }): Promise<void> {
     const prefix = extension.prefix;
     if (prefix === null) {
       return;
@@ -63,7 +63,7 @@ export class QuickOpenImpl {
     this._providers.set(prefix, extension.provider);
   }
 
-  _queryChanged(query: string): void {
+  async _queryChanged(query: string): Promise<void> {
     const prefix = this._prefixes.find(prefix => query.startsWith(prefix));
     if (typeof prefix !== 'string' || this._prefix === prefix) {
       return;
@@ -79,7 +79,7 @@ export class QuickOpenImpl {
     if (!providerFunction) {
       return;
     }
-    const provider = providerFunction();
+    const provider = await providerFunction();
     if (this._prefix !== prefix || !this._filteredListWidget) {
       return;
     }
