@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06fb30c_f4396640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-06T07:16:25Z",
+      "side": 1,
+      "message": "LGTM with two tiny comments. Thanks!",
+      "revId": "c5ad5eaca59c75ad2e2272bae4d4666144686441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6096e43_94f4ef89",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-06T07:16:25Z",
+      "side": 1,
+      "message": "nit: please could we explicitly type the param? value: PopupRole \u003d PopupRole.False",
+      "range": {
+        "startLine": 276,
+        "startChar": 46,
+        "endLine": 276,
+        "endChar": 51
+      },
+      "revId": "c5ad5eaca59c75ad2e2272bae4d4666144686441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278e4336_584a49ff",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-06T07:16:25Z",
+      "side": 1,
+      "message": "do you need the toString here? I think `value` itself will always be a string based on the values you\u0027ve defined for the PopupRole enum.",
+      "range": {
+        "startLine": 278,
+        "startChar": 48,
+        "endLine": 278,
+        "endChar": 56
+      },
+      "revId": "c5ad5eaca59c75ad2e2272bae4d4666144686441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
