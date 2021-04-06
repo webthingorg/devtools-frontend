@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eb90930_dd82a877",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-06T12:54:58Z",
+      "side": 1,
+      "message": "Hi Sigurd,\n\nadding the check for SAB. PTAL!",
+      "revId": "89f92f9c6a815c59b92fe8be9abd85d9ce734002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
