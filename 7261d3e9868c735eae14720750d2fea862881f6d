@@ -33,6 +33,23 @@
       "message": "WDYT about using “kbit” / “Mbit” here, like on https://en.wikipedia.org/wiki/Kilobit? IMHO  it makes the distinction more clear.",
       "revId": "7261d3e9868c735eae14720750d2fea862881f6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60c49df_bc4ea334",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-06T13:01:34Z",
+      "side": 1,
+      "message": "Also: should we use the same labels in the Settings -\u003e Throttling placeholder text?",
+      "revId": "7261d3e9868c735eae14720750d2fea862881f6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
