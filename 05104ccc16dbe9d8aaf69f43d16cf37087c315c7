@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0649029e_faf5e133",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-06T08:22:26Z",
+      "side": 1,
+      "message": "Sorry for the delay, I\u0027ve been on vacation.\n\nThe updated test seem fine. The automatic rebase fails with merge conflicts, could you please rebase locally (`git rebase-update`) and upload again?",
+      "revId": "05104ccc16dbe9d8aaf69f43d16cf37087c315c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
