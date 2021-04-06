@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "b4c29d040025f9098ee240074927576cb8074781",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dbe76fe_be6c29e7",
+        "filename": "front_end/quick_open/QuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-06T12:44:54Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t think this function needs to be `async`",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "b4c29d040025f9098ee240074927576cb8074781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67fe5abe_07958cd3",
+        "filename": "front_end/quick_open/QuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-06T12:44:54Z",
+      "side": 1,
+      "message": "Are we sure we can make this function `async`? The usage in `FilteredListWidget` appears to be synchronous and therefore probably can\u0027t handle it. Should we make `FilteredListWidget._queryChanged` async as well?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "b4c29d040025f9098ee240074927576cb8074781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
