@@ -300,15 +300,15 @@ const UIStrings = {
   */
   gcEvent: 'GC Event',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to perform a full Garbage Collection pass
   */
   majorGc: 'Major GC',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to perform a quick Garbage Collection pass
   */
   minorGc: 'Minor GC',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to execute JavaScript
   */
   jsFrame: 'JS Frame',
   /**
@@ -352,19 +352,19 @@ const UIStrings = {
   */
   destroyWebsocket: 'Destroy WebSocket',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent in the embedder of the WebView
   */
   embedderCallback: 'Embedder Callback',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent decoding an image
   */
   imageDecode: 'Image Decode',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to resize an image
   */
   imageResize: 'Image Resize',
   /**
-  *@description Text in Timeline Flame Chart Data Provider of the Performance panel
+  *@description Event category in the Performance panel for time spent in the GPU
   */
   gpu: 'GPU',
   /**
@@ -372,11 +372,11 @@ const UIStrings = {
   */
   inputLatency: 'Input Latency',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to perform Garbage Collection for the Document Object Model
   */
   domGc: 'DOM GC',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to perform encryption
   */
   encrypt: 'Encrypt',
   /**
@@ -384,7 +384,7 @@ const UIStrings = {
   */
   encryptReply: 'Encrypt Reply',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Event category in the Performance panel for time spent to perform decryption
   */
   decrypt: 'Decrypt',
   /**
@@ -611,7 +611,7 @@ const UIStrings = {
   */
   selfTime: 'Self Time',
   /**
-  *@description Text in Timeline UIUtils of the Performance panel
+  *@description Label in the summary view in the Performance panel for a number which indicates how much managed memory has been reclaimed by performing Garbage Collection
   */
   collected: 'Collected',
   /**
