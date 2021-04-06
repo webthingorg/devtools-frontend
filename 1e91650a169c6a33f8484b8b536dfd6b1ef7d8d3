@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9095d32d_29c63453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-06T14:22:46Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "049fd2be_abd0cfe2",
@@ -65,6 +82,24 @@
       "writtenOn": "2021-04-06T14:06:56Z",
       "side": 1,
       "message": "Ah, do the backticks mark “locked” substrings?",
+      "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4c9590_9899f8ad",
+        "filename": "front_end/panels/mobile_throttling/ThrottlingSettingsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-06T14:22:46Z",
+      "side": 1,
+      "message": "Exactly (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/locked_terms.md?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20locked_terms)",
+      "parentUuid": "64d51c0c_5fb3f0c7",
       "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
