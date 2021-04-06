@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96602b71_778899e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-06T13:00:41Z",
+      "side": 1,
+      "message": "Please file a bug about this; I expect that we need to follow-up by either removing the case, or making sure DevTools front-end has access to SABs.",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 8
+      },
+      "revId": "89f92f9c6a815c59b92fe8be9abd85d9ce734002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8eb90930_dd82a877",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-04-06T12:54:58Z",
       "side": 1,
       "message": "Hi Sigurd,\n\nadding the check for SAB. PTAL!",
+      "revId": "89f92f9c6a815c59b92fe8be9abd85d9ce734002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ba9725_fc494611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-06T13:00:41Z",
+      "side": 1,
+      "message": "LGTM % adding a bug.",
       "revId": "89f92f9c6a815c59b92fe8be9abd85d9ce734002",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
