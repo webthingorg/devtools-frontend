@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2bc68d_ffab222b",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-06T12:59:28Z",
+      "side": 1,
+      "message": "Could you point me to how it would come about that this._value is an Array buffer? Is there a place in V8 where these would originate from?",
+      "range": {
+        "startLine": 1078,
+        "startChar": 46,
+        "endLine": 1078,
+        "endChar": 86
+      },
+      "revId": "c278b88085c7cf035b087647ef23877d92a27d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
