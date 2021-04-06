@@ -76,13 +76,13 @@ const UIStrings = {
   * upload speed that will be applied in kilobytes per second.
   * @example {25} PH1
   */
-  dskbs: '{PH1} kB/s',
+  dskbs: '{PH1} kb/s',
   /**
   * @description Text in Throttling Settings Tab of the Network panel, indicating the download or
   * upload speed that will be applied in megabytes per second.
   * @example {25.4} PH1
   */
-  fsmbs: '{PH1} MB/s',
+  fsmbs: '{PH1} Mb/s',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/mobile_throttling/ThrottlingSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
