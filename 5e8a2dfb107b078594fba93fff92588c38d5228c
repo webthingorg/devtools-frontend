@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf0e0d4_033489f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-06T11:29:29Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthis is the CL to always expand the \u0027memories\u0027 part, ptal!",
+      "revId": "5e8a2dfb107b078594fba93fff92588c38d5228c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
