@@ -16,6 +16,29 @@
       "message": "Tim, Paul is OOO, maybe you can review this CL?",
       "revId": "db1c23b17d90b18c7a25944ed2e9a4e87a2f2340",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04dbd0e7_e680c053",
+        "filename": "front_end/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-06T10:35:16Z",
+      "side": 1,
+      "message": "Should this maybe be a `this._recordingFailed(response.getError())` as well? I don\u0027t know if we can handle thrown errors in this codepath.",
+      "range": {
+        "startLine": 798,
+        "startChar": 8,
+        "endLine": 798,
+        "endChar": 45
+      },
+      "revId": "db1c23b17d90b18c7a25944ed2e9a4e87a2f2340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
