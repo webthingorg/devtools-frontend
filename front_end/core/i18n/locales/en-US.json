@@ -9137,9 +9137,6 @@
   "sources/GoToLineQuickOpen.ts | currentPositionXsTypeAnOffset": {
     "message": "Current position: 0x{PH1}. Type an offset between 0x{PH2} and 0x{PH3} to navigate to."
   },
-  "sources/GoToLineQuickOpen.ts | goToLine": {
-    "message": "Go to line"
-  },
   "sources/GoToLineQuickOpen.ts | goToLineS": {
     "message": "Go to line {PH1}."
   },
@@ -9259,12 +9256,6 @@
   },
   "sources/NavigatorView.ts | sFromSourceMap": {
     "message": "{PH1} (from source map)"
-  },
-  "sources/OpenFileQuickOpen.ts | openFile": {
-    "message": "Open file"
-  },
-  "sources/OutlineQuickOpen.ts | goToSymbol": {
-    "message": "Go to symbol"
   },
   "sources/OutlineQuickOpen.ts | noFileSelected": {
     "message": "No file selected."
@@ -9440,6 +9431,9 @@
   "sources/sources-meta.ts | goToLine": {
     "message": "Go to line"
   },
+  "sources/sources-meta.ts | goToSymbol": {
+    "message": "Go to symbol"
+  },
   "sources/sources-meta.ts | incrementCssUnitByTen": {
     "message": "Increment CSS unit by 10"
   },
@@ -9454,6 +9448,9 @@
   },
   "sources/sources-meta.ts | none": {
     "message": "None"
+  },
+  "sources/sources-meta.ts | openFile": {
+    "message": "Open file"
   },
   "sources/sources-meta.ts | pauseScriptExecution": {
     "message": "Pause script execution"
