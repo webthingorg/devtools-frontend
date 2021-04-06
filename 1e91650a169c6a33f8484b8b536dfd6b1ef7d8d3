@@ -16,6 +16,57 @@
       "message": "PTAL again",
       "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebef733_e189628d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-06T14:06:56Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "049fd2be_abd0cfe2",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 6108,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-06T14:06:56Z",
+      "side": 1,
+      "message": "nice!",
+      "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d51c0c_5fb3f0c7",
+        "filename": "front_end/panels/mobile_throttling/ThrottlingSettingsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-06T14:06:56Z",
+      "side": 1,
+      "message": "Ah, do the backticks mark “locked” substrings?",
+      "revId": "1e91650a169c6a33f8484b8b536dfd6b1ef7d8d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
