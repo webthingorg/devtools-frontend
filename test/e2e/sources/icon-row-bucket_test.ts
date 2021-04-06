@@ -40,9 +40,23 @@ async function openFileInSourceTab(fileName: string) {
   await element.click();
 }
 
-async function getExpandedIssuesTitle(): Promise<Set<string>> {
+async function waitForExpandedIssuesTitle(): Promise<Set<string>> {
   const expandedIssues = new Set<string>();
   await waitFor('.issue');
+  const issues = await $$('.issue');
+  for (const issue of issues) {
+    const expanded = await issue.evaluate(x => x.classList.contains('expanded'));
+    if (expanded) {
+      const titleHandler = await waitFor('.title', issue);
+      const title = await titleHandler.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+      expandedIssues.add(title);
+    }
+  }
+  return expandedIssues;
+}
+
+async function getExpandedIssuesTitle(): Promise<Set<string>> {
+  const expandedIssues = new Set<string>();
   const issues = await $$('.issue');
   for (const issue of issues) {
     const expanded = await issue.evaluate(x => x.classList.contains('expanded'));
@@ -149,7 +163,7 @@ describe('The row\'s icon bucket', async function() {
     const issueIcon = await waitFor('.text-editor-row-message-icon', rowMessage);
     await issueIcon.click();
 
-    const expandedIssues = await getExpandedIssuesTitle();
+    const expandedIssues = await waitForExpandedIssuesTitle();
     assert.isTrue(expandedIssues.has(issueTitle));
   });
 });
