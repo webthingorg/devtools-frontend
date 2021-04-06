@@ -16,6 +16,46 @@
       "message": "@jacktfranklin@chromium.org can you please take a look at this PR when you get a chance, I have added colors to CSS variables and using them instead of defining in place.",
       "revId": "88b95887419dd38c3fe63b8291a8c21504dccadf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e12bec8_a0fe66c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-06T07:18:28Z",
+      "side": 1,
+      "message": "Thanks for taking this on! Left a comment.",
+      "revId": "88b95887419dd38c3fe63b8291a8c21504dccadf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4523012_d7c02e7e",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-06T07:18:28Z",
+      "side": 1,
+      "message": "I don\u0027t think we should define these colors here given that they are specific to a single part of DevTools.\n\nCan we define them somewhere closer to their usage in the Network CSS file?\n\nAlso if we name them with `--override-network-...` then the stylelint plugin will allow them and we can remove the `stylelint-disable` lines.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 0
+      },
+      "revId": "88b95887419dd38c3fe63b8291a8c21504dccadf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
