@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af24649d_fca904ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-06T12:50:07Z",
+      "side": 1,
+      "message": "Mathias, PTAL. It seems that I originally introduced this bug in https://crrev.com/c/2485085. Do you think it would make sense to change the units to \u0027kbit/s\u0027 and \u0027Mbit/s\u0027 instead, so that it\u0027s clearer what these units stand for? I believe the throttling settings are the only place in DevTools where these unit labels are being used.",
+      "revId": "7261d3e9868c735eae14720750d2fea862881f6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
