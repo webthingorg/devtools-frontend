@@ -5,7 +5,9 @@
 import {$$, click, getBrowserAndPages, platform, typeText, waitFor} from '../../shared/helper.js';
 
 export const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
-const QUICK_OPEN_ITEMS_SELECTOR = '.filtered-list-widget-item';
+export const QUICK_OPEN_ITEMS_SELECTOR = '.filtered-list-widget-item';
+const QUICK_OPEN_ITEMS_TITLES_SELECTOR = '.filtered-list-widget-title';
+
 const QUICK_OPEN_SELECTED_ITEM_SELECTOR = `${QUICK_OPEN_ITEMS_SELECTOR}.selected`;
 
 export const openCommandMenu = async () => {
@@ -42,6 +44,36 @@ export const openCommandMenu = async () => {
   await waitFor(QUICK_OPEN_SELECTOR);
 };
 
+export const openFileQuickOpen = async () => {
+  const {frontend} = getBrowserAndPages();
+
+  switch (platform) {
+    case 'mac':
+      await frontend.keyboard.down('Meta');
+      break;
+
+    case 'linux':
+    case 'win32':
+      await frontend.keyboard.down('Control');
+      break;
+  }
+
+  await frontend.keyboard.press('P');
+
+  switch (platform) {
+    case 'mac':
+      await frontend.keyboard.up('Meta');
+      break;
+
+    case 'linux':
+    case 'win32':
+      await frontend.keyboard.up('Control');
+      break;
+  }
+
+  await waitFor(QUICK_OPEN_SELECTOR);
+};
+
 export const showSnippetsAutocompletion = async () => {
   const {frontend} = getBrowserAndPages();
 
@@ -56,6 +88,18 @@ export async function getAvailableSnippets() {
   const snippetsDOMElements = await $$(QUICK_OPEN_ITEMS_SELECTOR, quickOpenElement);
   const snippets = await Promise.all(snippetsDOMElements.map(elem => elem.evaluate(elem => elem.textContent)));
   return snippets;
+}
+
+export async function getMenuItemTitleAtPosition(position: number) {
+  const quickOpenElement = await waitFor(QUICK_OPEN_SELECTOR);
+  await waitFor(QUICK_OPEN_ITEMS_TITLES_SELECTOR);
+  const itemsHandles = await $$(QUICK_OPEN_ITEMS_TITLES_SELECTOR, quickOpenElement);
+  const item = itemsHandles[position];
+  if (!item) {
+    assert.fail(`Quick open: could not find item at position: ${position}.`);
+  }
+  const title = await item.evaluate(elem => elem.textContent);
+  return title;
 }
 
 export const closeDrawer = async () => {
