@@ -39,6 +39,30 @@
       },
       "revId": "db1c23b17d90b18c7a25944ed2e9a4e87a2f2340",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c953c51d_5e5c5bf4",
+        "filename": "front_end/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-06T11:14:45Z",
+      "side": 1,
+      "message": "As discussed offline, the catch below will handle this.",
+      "parentUuid": "04dbd0e7_e680c053",
+      "range": {
+        "startLine": 798,
+        "startChar": 8,
+        "endLine": 798,
+        "endChar": 45
+      },
+      "revId": "db1c23b17d90b18c7a25944ed2e9a4e87a2f2340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
