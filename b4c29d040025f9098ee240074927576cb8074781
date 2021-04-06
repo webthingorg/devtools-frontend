@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f89de361_e569d85a",
+        "filename": "front_end/quick_open/QuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-04-06T14:52:03Z",
+      "side": 1,
+      "message": "Good catch! This is a left over of a previous approach",
+      "parentUuid": "5dbe76fe_be6c29e7",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "b4c29d040025f9098ee240074927576cb8074781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67fe5abe_07958cd3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-06T12:44:54Z",
       "side": 1,
       "message": "Are we sure we can make this function `async`? The usage in `FilteredListWidget` appears to be synchronous and therefore probably can\u0027t handle it. Should we make `FilteredListWidget._queryChanged` async as well?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "b4c29d040025f9098ee240074927576cb8074781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "941ed6b9_b2592a0a",
+        "filename": "front_end/quick_open/QuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-04-06T14:52:03Z",
+      "side": 1,
+      "message": "Before these extensions were migrated, this relied on using Promise.then to obtain the providers instances. It seems usages of this function in FilteredListWidget relied on this behaviour. Restoring back to original implementation to avoid introducing inconsistencies as discussed in our chat.",
+      "parentUuid": "67fe5abe_07958cd3",
       "range": {
         "startLine": 66,
         "startChar": 2,
