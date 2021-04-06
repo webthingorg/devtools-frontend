@@ -46,6 +46,30 @@
       },
       "revId": "c278b88085c7cf035b087647ef23877d92a27d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3845eb8c_d30585ff",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-06T14:28:13Z",
+      "side": 1,
+      "message": "I see, thanks!",
+      "parentUuid": "01ced99f_760d4c31",
+      "range": {
+        "startLine": 1078,
+        "startChar": 46,
+        "endLine": 1078,
+        "endChar": 86
+      },
+      "revId": "c278b88085c7cf035b087647ef23877d92a27d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
