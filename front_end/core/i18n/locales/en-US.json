@@ -6111,10 +6111,10 @@
     "message": "Download"
   },
   "panels/mobile_throttling/ThrottlingSettingsTab.ts | dskbs": {
-    "message": "{PH1} kB/s"
+    "message": "{PH1} kb/s"
   },
   "panels/mobile_throttling/ThrottlingSettingsTab.ts | fsmbs": {
-    "message": "{PH1} MB/s"
+    "message": "{PH1} Mb/s"
   },
   "panels/mobile_throttling/ThrottlingSettingsTab.ts | kbs": {
     "message": "kb/s"
