@@ -16,6 +16,24 @@
       "message": "Sorry for the delay, I\u0027ve been on vacation.\n\nThe updated test seem fine. The automatic rebase fails with merge conflicts, could you please rebase locally (`git rebase-update`) and upload again?",
       "revId": "05104ccc16dbe9d8aaf69f43d16cf37087c315c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "484de3fa_67e80be5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499141
+      },
+      "writtenOn": "2021-04-06T10:53:45Z",
+      "side": 1,
+      "message": "Thanks for the review\nI will update the CL.",
+      "parentUuid": "0649029e_faf5e133",
+      "revId": "05104ccc16dbe9d8aaf69f43d16cf37087c315c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
