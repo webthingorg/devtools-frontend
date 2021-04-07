@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44380d4a_c836bd7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-07T11:51:38Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nHere\u0027s the fix for the CSS sourcemap reloading problem (we basically had fixed the same problem for JS before, but unfortunately the code is somewhat duplicated).\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "33801ca98eff6f85d21605d00aeeca95f20b290b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
