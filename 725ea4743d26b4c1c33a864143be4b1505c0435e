@@ -70,6 +70,30 @@
       },
       "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69412ca1_dc68445d",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-07T12:44:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "062d636e_4d3f4238",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 3
+      },
+      "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
