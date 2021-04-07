@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as i18n from '../core/i18n/i18n.js';
-import * as SDK from '../core/sdk/sdk.js';
+import * as i18n from '../i18n/i18n.js';
+import * as Platform from '../platform/platform.js';
+import * as SDK from '../sdk/sdk.js';
 
 import {AffectedResourcesView} from './AffectedResourcesView.js';
 
@@ -12,6 +13,10 @@ import type {IssueView} from './IssueView.js';
 
 
 const UIStrings = {
+  /**
+  *@description Label for number of affected resources indication in issue view
+  */
+  nResources: '{n, plural, =1 { resource} other { resources}}',
   /**
   *@description Label for number of affected resources indication in issue view
   */
@@ -81,6 +86,10 @@ export class AffectedHeavyAdView extends AffectedResourcesView {
       count++;
     }
     this.updateAffectedResourceCount(count);
+  }
+
+  protected getResourceName(count: number): Platform.UIString.LocalizedString {
+    return i18nString(UIStrings.nResources, {n: count});
   }
 
   private statusToString(status: Protocol.Audits.HeavyAdResolutionStatus): string {
