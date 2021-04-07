@@ -97,10 +97,7 @@ export function drawScrollSnapHighlight(
   drawPath(context, highlight.snapport, 'white', undefined, undefined, emptyBounds(), emulationScaleFactor);
   context.restore();
 
-  drawPath(
-      context, highlight.snapport, undefined, highlight.snapportBorder.color, undefined, emptyBounds(),
-      emulationScaleFactor);
-
+  const alignmentPoints = [];
   for (const area of highlight.snapAreas) {
     const areaBounds = emptyBounds();
     drawPath(
@@ -116,10 +113,18 @@ export function drawScrollSnapHighlight(
     const inlinePoint = area.alignInline ? getSnapAlignInlinePoint(areaBounds, area.alignInline) : null;
     const blockPoint = area.alignBlock ? getSnapAlignBlockPoint(areaBounds, area.alignBlock) : null;
     if (inlinePoint) {
-      drawAlignment(context, inlinePoint);
+      alignmentPoints.push(inlinePoint);
     }
     if (blockPoint) {
-      drawAlignment(context, blockPoint);
+      alignmentPoints.push(blockPoint);
     }
+  }
+
+  drawPath(
+      context, highlight.snapport, undefined, highlight.snapportBorder.color, undefined, emptyBounds(),
+      emulationScaleFactor);
+
+  for (const point of alignmentPoints) {
+    drawAlignment(context, point);
   }
 }
