@@ -46,6 +46,30 @@
       },
       "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062d636e_4d3f4238",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-07T12:27:52Z",
+      "side": 1,
+      "message": "Yeah, I think this would be ok. I was mostly concerned about the initial code being a bit hard to parse, and therefore easy to accidentally break in the future.\nWhat you propose seems fine.",
+      "parentUuid": "cee8af6f_c01a8481",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 3
+      },
+      "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
