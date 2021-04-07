@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbdfc6c5_642475a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-04-07T16:10:45Z",
+      "side": 1,
+      "message": "Please review. This CL includes an important fix to correctly align dropped frames with presented frames so should preferably be made into DevTools as soon as possible.\n\nDesign doc: https://docs.google.com/document/d/1p0SgrATYh8VEilScS6X9DwgmFt7VnYQpwbHOW_n8mWo",
+      "revId": "3ebfa1202e92ea1aa991efe1df8663144df429e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5aa1995_a37c10ff",
+        "filename": "front_end/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-04-07T16:10:45Z",
+      "side": 1,
+      "message": "[Explanation] If this BeginFrame does not have associated DroppedFrame / DrawFrame events later, then no new frame box will be created on the Frame timeline, and this frame will just be shown as a continuation of the previous frame box. This logic handles case 5 in the design doc: https://docs.google.com/document/d/1p0SgrATYh8VEilScS6X9DwgmFt7VnYQpwbHOW_n8mWo/",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 18
+      },
+      "revId": "3ebfa1202e92ea1aa991efe1df8663144df429e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25eaebf8_503f6e1e",
+        "filename": "front_end/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-04-07T16:10:45Z",
+      "side": 1,
+      "message": "[Explanation] Every dropped frame event must correspond to a frame box on the Frames timeline, so we always create a new frame box in handleDroppedFrame. This logic handles case 1, 2 and (partly) 4 in the design doc:\nhttps://docs.google.com/document/d/1p0SgrATYh8VEilScS6X9DwgmFt7VnYQpwbHOW_n8mWo/",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 32
+      },
+      "revId": "3ebfa1202e92ea1aa991efe1df8663144df429e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d0138a_48358a87",
+        "filename": "front_end/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-04-07T16:10:45Z",
+      "side": 1,
+      "message": "[Explanation] This means handleBeginFrame() and handleDroppedFrame() have both been invoked for the current drawn frame. In this situation, a frame box must have been already created in handleDroppedFrame(). So we just need to mark it as non-dropped instead of creating a new frame box. This logic handles case 4 in the design doc: https://docs.google.com/document/d/1p0SgrATYh8VEilScS6X9DwgmFt7VnYQpwbHOW_n8mWo/\n\nIn following CLs, we would like to give such frames a more proper label (e.g. partially presented).",
+      "range": {
+        "startLine": 174,
+        "startChar": 10,
+        "endLine": 174,
+        "endChar": 56
+      },
+      "revId": "3ebfa1202e92ea1aa991efe1df8663144df429e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4285791_6369925a",
+        "filename": "front_end/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-04-07T16:10:45Z",
+      "side": 1,
+      "message": "[Explanation] This means only handleBeginFrame() was invoked and no frame box has been created, so we should create a new frame box here. This logic handles case 3 in the design doc: https://docs.google.com/document/d/1p0SgrATYh8VEilScS6X9DwgmFt7VnYQpwbHOW_n8mWo/",
+      "range": {
+        "startLine": 184,
+        "startChar": 17,
+        "endLine": 184,
+        "endChar": 37
+      },
+      "revId": "3ebfa1202e92ea1aa991efe1df8663144df429e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
