@@ -139,6 +139,24 @@
       "parentUuid": "451c565d_6433d121",
       "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff4651a2_2e4cee48",
+        "filename": "front_end/ui/ARIAUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-07T18:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da019c21_f8a8ded2",
+      "revId": "486b59923f17404a84148be9eb3ef4240ce0973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
