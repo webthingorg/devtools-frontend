@@ -33,6 +33,23 @@
       "message": "LGTM.\n\nDo you think it\u0027s worth the effort to have a central place for links, so that we can also periodically check reachability via script?",
       "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f9ef7c_c4ab114c",
+        "filename": "front_end/panels/application/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T07:09:10Z",
+      "side": 1,
+      "message": "The canonical developer.chrome.com URLs always end in slashes, e.g.\n\n    https://developer.chrome.com/docs/devtools/storage/cache?utm_source\u003ddevtools\n\nshould be\n\n    https://developer.chrome.com/docs/devtools/storage/cache/?utm_source\u003ddevtools\n\nto avoid needless redirects.\n\n(This applies to all the new links in the patch.)\n\n(P.S. I don’t like the trailing slashes either :P)",
+      "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
