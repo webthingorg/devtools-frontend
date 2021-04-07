@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3be48fd_21df40c6",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-07T07:23:24Z",
+      "side": 1,
+      "message": "nit: this is fine, but in order to make the drawing logic a little bit easier to read and therefore harder to accidentally break in the future, it would be good to export some of these to other functions, so that this main function reads easily:\n\n  export function drawScrollSnapHighlight(...) {\n    ...\n    // The order of the following draw calls is important, don\u0027t change it.\n    drawSnapAreas(...);\n    drawSnapport(...);\n    drawAlignments(...);\n  }\n\nEven if that means re-running some of the for loops in these other functions, I don\u0027t think it\u0027s a big deal, we\u0027re not expecting that many snap areas that it would become a performance bottleneck.",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 3
+      },
+      "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
