@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02bb0bef_d497a56b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-07T10:03:33Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nDiscovered some confusing dead code along the way of fixing the CSS sourcemap reloading bug.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "9ea9d094cc4272977eab1b0f8865307c51fae08a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
