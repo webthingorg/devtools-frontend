@@ -22,6 +22,30 @@
       },
       "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cee8af6f_c01a8481",
+        "filename": "inspector_overlay/highlight_scroll_snap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-07T11:32:39Z",
+      "side": 1,
+      "message": "Thanks for the suggestion! A couple of points: 1) to draw alignments we need area bounds which are produced by drawing the areas (in drawPath) 2) the snapport background is drawn before everything else and only the border is drawn after the areas. So I think it won\u0027t be possible to structure the code so nicely unless we do something like this:\n\n```\n    // The order of the following draw calls is important, don\u0027t change it.\n    drawSnapportArea(...);\n    const areaBounds \u003d drawSnapAreas(...);\n    drawSnapport(...);\n    drawAlignments(areaBounds, ...);\n```\n\nWDYT?",
+      "parentUuid": "e3be48fd_21df40c6",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 3
+      },
+      "revId": "725ea4743d26b4c1c33a864143be4b1505c0435e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
