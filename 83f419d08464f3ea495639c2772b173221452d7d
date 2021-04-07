@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "83f419d08464f3ea495639c2772b173221452d7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "764313d9_63dad3e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-07T12:08:41Z",
+      "side": 1,
+      "message": "LGTM modulo comments, thanks!",
+      "revId": "83f419d08464f3ea495639c2772b173221452d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a82e07d_c81798ec",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-07T12:08:41Z",
+      "side": 1,
+      "message": "Can you define this arrow before the LitHTML template? That would make it more readable, and you can possibly remove the comment in L417.",
+      "range": {
+        "startLine": 439,
+        "startChar": 18,
+        "endLine": 439,
+        "endChar": 45
+      },
+      "revId": "83f419d08464f3ea495639c2772b173221452d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd1e55b_339f159d",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-07T12:08:41Z",
+      "side": 1,
+      "message": "Please file a bug explainig why Common.Revealer doesn\u0027t work here, and add a TODO to fix this.",
+      "range": {
+        "startLine": 447,
+        "startChar": 20,
+        "endLine": 447,
+        "endChar": 106
+      },
+      "revId": "83f419d08464f3ea495639c2772b173221452d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
