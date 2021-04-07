@@ -16,6 +16,8 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   private treeData: AXTreeNode[] = [];
   private readonly toggleButton: HTMLButtonElement;
   private accessibilityModel: SDK.AccessibilityModel.AccessibilityModel|null = null;
+  private sdkNodeToTreeNodeMap = new Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode>();
+  private rootNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
 
   constructor(toggleButton: HTMLButtonElement) {
     super();
@@ -66,17 +68,59 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     }
 
     const root = await this.accessibilityModel.requestRootNode();
-
     if (!root) {
       return;
     }
 
-    this.treeData = [sdkNodeToAXTreeNode(root)];
+    this.rootNode = root;
+    this.treeData = [sdkNodeToAXTreeNode(this.sdkNodeToTreeNodeMap, this.rootNode)];
 
     this.accessibilityTreeComponent.data = {
       defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
       tree: this.treeData,
     };
+
     this.accessibilityTreeComponent.expandRecursively(2);
+  }
+
+  // Given a selected DOM node, asks the model to load the missing subtree from the root to the
+  // selected node and then re-renders the tree.
+  async loadSubTreeIntoAccessibilityModel(selectedNode: SDK.DOMModel.DOMNode): Promise<void> {
+    if (!this.accessibilityModel) {
+      return;
+    }
+
+    // If this node has been loaded previously, the accessibility tree will return it's cached node.
+    // Eventually we'll need some mechanism for forcing it to fetch a new node when we are subscribing
+    // for updates, but TBD later.
+    const inspectedAXNode = await this.accessibilityModel.requestAndLoadSubTreeToNode(selectedNode);
+    if (!inspectedAXNode) {
+      return;
+    }
+
+    // There is a chance we might have already loaded this node into the tree, if so there should
+    // be an entry in this map, and we can just expand the tree to that node.
+    let treeNode = this.sdkNodeToTreeNodeMap.get(inspectedAXNode) || null;
+    if (treeNode) {
+      this.accessibilityTreeComponent.expandToAndSelectTreeNode(treeNode);
+    }
+
+    // Create the TreeNode<..> for this SDK Node.
+    treeNode = sdkNodeToAXTreeNode(this.sdkNodeToTreeNodeMap, inspectedAXNode);
+
+    if (!treeNode) {
+      return;
+    }
+
+    // Is there a way of searching the tree by <TreeNodeDataType> than the TreeNode?
+    // We dynamically create the TreeNodes as the AccessibilityModel gets populated
+    // and the tree gets rendered.
+    this.accessibilityTreeComponent.expandToAndSelectTreeNode(treeNode);
+  }
+
+  // Selected node in the DOM has changed, and the corresponding accessibility node may be
+  // unloaded. We probably only want to do this when the AccessibilityTree is visible.
+  async selectedNodeChanged(inspectedNode: SDK.DOMModel.DOMNode): Promise<void> {
+    await this.loadSubTreeIntoAccessibilityModel(inspectedNode);
   }
 }
