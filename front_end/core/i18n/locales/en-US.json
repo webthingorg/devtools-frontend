@@ -4434,7 +4434,7 @@
     "message": "Close"
   },
   "panels/elements/AdornerSettingsPane.ts | settingsTitle": {
-    "message": "Show adorners"
+    "message": "Show badges"
   },
   "panels/elements/ClassesPaneWidget.js | addNewClass": {
     "message": "Add new class"
@@ -4701,7 +4701,7 @@
     "message": "<value is too large to edit>"
   },
   "panels/elements/ElementsTreeOutline.js | adornerSettings": {
-    "message": "Adorner settings…"
+    "message": "Badge settings…"
   },
   "panels/elements/ElementsTreeOutline.js | pageDom": {
     "message": "Page DOM"
