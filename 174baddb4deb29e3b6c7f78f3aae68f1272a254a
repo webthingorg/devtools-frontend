@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47093acf_65900339",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-07T06:38:48Z",
+      "side": 1,
+      "message": "Should I update the files in the third-party/ folder or it should be updated in Lighthouse?",
+      "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
