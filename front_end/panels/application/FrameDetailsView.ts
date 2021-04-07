@@ -414,6 +414,8 @@ export class FrameDetailsReportView extends HTMLElement {
             i18nString(UIStrings.disabledByIframe) :
             blockReason === Protocol.Page.PermissionsPolicyBlockReason.Header ? i18nString(UIStrings.disabledByHeader) :
                                                                                 '';
+        // Disabled until https://crbug.com/1079231 is fixed.
+        // clang-format off
         return LitHtml.html`
           <div class="permissions-row">
             <div>
@@ -426,24 +428,29 @@ export class FrameDetailsReportView extends HTMLElement {
             </div>
             <div class="block-reason">${blockReasonText}</div>
             <div>
-              ${
-            linkTargetDOMNode ? this.renderIconLink(
-                                    'elements_panel_icon',
-                                    i18nString(UIStrings.clickToShowIframe),
-                                    (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode),
-                                    ) :
-                                LitHtml.nothing}
-            ${
-            linkTargetRequest ? this.renderIconLink(
-                                    'network_panel_icon',
-                                    i18nString(UIStrings.clickToShowHeader),
-                                    (): Promise<void> => Network.NetworkPanel.NetworkPanel.selectAndShowRequest(
-                                        linkTargetRequest, Network.NetworkItemView.Tabs.Headers),
-                                    ) :
-                                LitHtml.nothing}
+              ${linkTargetDOMNode ? this.renderIconLink(
+                  'elements_panel_icon',
+                  i18nString(UIStrings.clickToShowIframe),
+                  (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode),
+                ) : LitHtml.nothing}
+              ${linkTargetRequest ? this.renderIconLink(
+                  'network_panel_icon',
+                  i18nString(UIStrings.clickToShowHeader),
+                  async(): Promise<void> => {
+                    const headerName = linkTargetRequest.responseHeaderValue('permissions-policy') ?
+                      'permissions-policy' :
+                      'feature-policy';
+                    const requestLocation = Network.NetworkSearchScope.UIRequestLocation.responseHeaderMatch(
+                      linkTargetRequest,
+                      {name: headerName, value: ''},
+                    );
+                    await Network.NetworkPanel.RequestLocationRevealer.instance().reveal(requestLocation);
+                  },
+                ) : LitHtml.nothing}
             </div>
           </div>
         `;
+        // clang-format on
       }));
 
       return LitHtml.html`
