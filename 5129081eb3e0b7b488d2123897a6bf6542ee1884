@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9378783d_205a764d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "WDYT about creating a tracking bug for all “what’s new in DevTools” commits, and referring to it here? We do the same thing for e.g. Test262 rolls in V8.",
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77184289_9f89f9be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "LGTM with some minor suggestions",
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ca5ca5_4024c0a6",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "nit: Instead of\n\n    \\\u0027s\n\n…we can use:\n\n    ’s\n\nper go/punctuation-standards",
+      "range": {
+        "startLine": 26,
+        "startChar": 91,
+        "endLine": 26,
+        "endChar": 94
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93719cdb_88744bbf",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "similar to the above:\n\n    “scroll-snap”",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e3770bb_bd79a21f",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "I’d suggest “`Content-Encoding`s”, since it’s more specific. “Encodings” makes it sound like a document-level encoding like UTF-8 IMHO.",
+      "range": {
+        "startLine": 36,
+        "startChar": 90,
+        "endLine": 36,
+        "endChar": 99
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdee302f_87f8aea8",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-07T12:11:12Z",
+      "side": 1,
+      "message": "preview → previews\n\n(otherwise we have to change “display” into “displays”, but I think the above works better)\n\nI think we could also remove “of the images”",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
