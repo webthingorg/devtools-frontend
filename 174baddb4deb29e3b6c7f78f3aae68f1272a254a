@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43fae333_65e3ee52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-07T08:47:22Z",
+      "side": 1,
+      "message": "I think it worth the effort. Created a crbug to track that crbug.com/1196604",
+      "parentUuid": "3f44ccac_cf3a85d2",
+      "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03f9ef7c_c4ab114c",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-07T07:09:10Z",
       "side": 1,
       "message": "The canonical developer.chrome.com URLs always end in slashes, e.g.\n\n    https://developer.chrome.com/docs/devtools/storage/cache?utm_source\u003ddevtools\n\nshould be\n\n    https://developer.chrome.com/docs/devtools/storage/cache/?utm_source\u003ddevtools\n\nto avoid needless redirects.\n\n(This applies to all the new links in the patch.)\n\n(P.S. I don’t like the trailing slashes either :P)",
+      "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca7ba72b_e4f686eb",
+        "filename": "front_end/panels/application/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-07T08:47:22Z",
+      "side": 1,
+      "message": "Haha, I know!:p https://twitter.com/mathias/status/1261392833992429570\nGood spot, fixed.",
+      "parentUuid": "03f9ef7c_c4ab114c",
       "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
