@@ -84,6 +84,24 @@
       "message": "Nit: Please add parens around the `typeof ... \u0026\u0026 .. instanceof ...` part to make this easier to parse for humans.",
       "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1962b24_fb76eccf",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-07T10:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c445d238_ed5f4a6a",
+      "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
