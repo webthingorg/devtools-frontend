@@ -16,6 +16,23 @@
       "message": "PTAL. This is the back-merge of the CL you reviewed.",
       "revId": "e45dc2dd1403b31dbf00ace5c89776ec16e6e2cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6e512b8_ff30d4e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-07T14:42:59Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e45dc2dd1403b31dbf00ace5c89776ec16e6e2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
