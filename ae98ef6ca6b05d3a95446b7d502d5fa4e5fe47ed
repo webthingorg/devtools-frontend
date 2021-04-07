@@ -16,6 +16,23 @@
       "message": "Hi Alex, \n\nfixing missing ticks, ptal!",
       "revId": "ae98ef6ca6b05d3a95446b7d502d5fa4e5fe47ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e14baab_dd6412f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-07T06:55:04Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "ae98ef6ca6b05d3a95446b7d502d5fa4e5fe47ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
