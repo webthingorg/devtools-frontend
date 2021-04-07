@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c22d799e_693493fa",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-07T14:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a82e07d_c81798ec",
+      "range": {
+        "startLine": 439,
+        "startChar": 18,
+        "endLine": 439,
+        "endChar": 45
+      },
+      "revId": "83f419d08464f3ea495639c2772b173221452d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dd1e55b_339f159d",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-04-07T12:08:41Z",
       "side": 1,
       "message": "Please file a bug explainig why Common.Revealer doesn\u0027t work here, and add a TODO to fix this.",
+      "range": {
+        "startLine": 447,
+        "startChar": 20,
+        "endLine": 447,
+        "endChar": 106
+      },
+      "revId": "83f419d08464f3ea495639c2772b173221452d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1be164c_80e4c5dc",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-07T14:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dd1e55b_339f159d",
       "range": {
         "startLine": 447,
         "startChar": 20,
