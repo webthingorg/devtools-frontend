@@ -18,6 +18,86 @@ const commandMenuShortcut = Host.Platform.isMac() ? 'Command+Shift+P' : 'Control
 
 export const releaseNoteText: ReleaseNote[] = [
   {
+    version: 33,
+    header: 'Highlights from the Chrome 91 update',
+    highlights: [
+      {
+        title: 'Web Vitals information pop up',
+        subtitle: 'Hover on a Web Vitals marker in the Performance panel to understand what\'s the indicator about.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#web-vitals',
+      },
+      {
+        title: 'Visualize CSS scroll snap',
+        subtitle: 'Toggle the "scroll-snap" badge in the Elements panel to inspect the CSS scroll-snap alignment.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#css-scroll-snap',
+      },
+      {
+        title: 'Network panel enhancements',
+        subtitle: 'A new network conditions button with new options to configure accepted encodings.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#network-panel',
+      },
+      {
+        title: 'New badge settings pane',
+        subtitle: 'Selectively enable or disable badges via the Elements panel context menu.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#badge-settings',
+      },
+      {
+        title: 'Enhanced image preview with aspect ratio information',
+        subtitle:
+            'Image preview in the Elements panel now display intrinsic/rendered file size and aspect ratio of the images.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#image-preview',
+      },
+      {
+        title: 'Categorize issue types with colors and icons',
+        subtitle: 'Categorize issues into errors, warnings, and possible improvements for better severity indication.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-91#issue-category',
+      },
+    ],
+    link: 'https://developer.chrome.com/blog/new-in-devtools-91/',
+  },
+  {
+    version: 32,
+    header: 'Highlights from the Chrome 90 update',
+    highlights: [
+      {
+        title: 'New CSS Flexbox debugging tools',
+        subtitle: 'Debug and inspect CSS Flexbox with the new CSS Flexbox debugging tools.',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#flexbox',
+      },
+      {
+        title: 'New Core Web Vitals overlay',
+        subtitle: 'Visualize page performance with the new Core Web Vitals overlay.',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#cwv',
+      },
+      {
+        title: 'Report Trusted Web Activity issues',
+        subtitle: 'Debug Trusted Web Activity issues in the Issues panel.',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#twa',
+      },
+      {
+        title: 'New Trust Token pane',
+        subtitle: 'New Trust Token pane in the Application Panel.',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#trust-token-pane',
+      },
+      {
+        title: 'Emulate the CSS color-gamut media feature',
+        subtitle: 'Emulate color-gamut to test different color standards.',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#css-gamut',
+      },
+      {
+        title: 'Format strings as (valid) JavaScript string literals in the Console',
+        subtitle: 'Display string with escaped double quotes in the Console',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#double-quotes',
+      },
+      {
+        title: 'Improved PWA tooling',
+        subtitle: 'Improved PWA installability warning message, new warnings for manifest screenshots, and more. ',
+        link: 'https://developers.google.com/web/updates/2021/02/devtools#pwa',
+      },
+    ],
+    link: 'https://developers.google.com/web/updates/2021/02/devtools',
+  },
+  {
     version: 32,
     header: 'Highlights from the Chrome 90 update',
     highlights: [
