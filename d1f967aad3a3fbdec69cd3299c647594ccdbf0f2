@@ -33,6 +33,23 @@
       "message": "Thanks Sigurd!",
       "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3641df7_87b4ef72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-07T09:54:08Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\napplying the same fix as for RemoteObject (SAB) for LMI, requiring owners approval. PTAL!",
+      "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
