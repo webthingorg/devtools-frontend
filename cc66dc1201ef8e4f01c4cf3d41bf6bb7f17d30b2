@@ -16,6 +16,23 @@
       "message": "Hi Benedikt, hi Andrés,\n\nI\u0027m removing the wasm experiment flag requirement for the LMI, ptal!",
       "revId": "cc66dc1201ef8e4f01c4cf3d41bf6bb7f17d30b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f379d42d_af3f46c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-04-07T13:35:14Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "cc66dc1201ef8e4f01c4cf3d41bf6bb7f17d30b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
