@@ -8,7 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Coordinator from '../../render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import * as UI from '../../ui/ui.js';
+import * as UI from '../legacy/legacy.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
