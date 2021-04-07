@@ -16,6 +16,23 @@
       "message": "Should I update the files in the third-party/ folder or it should be updated in Lighthouse?",
       "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f44ccac_cf3a85d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-07T06:41:00Z",
+      "side": 1,
+      "message": "LGTM.\n\nDo you think it\u0027s worth the effort to have a central place for links, so that we can also periodically check reachability via script?",
+      "revId": "174baddb4deb29e3b6c7f78f3aae68f1272a254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
