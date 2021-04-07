@@ -50,6 +50,40 @@
       "message": "Hi Benedikt,\n\napplying the same fix as for RemoteObject (SAB) for LMI, requiring owners approval. PTAL!",
       "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a87d28_de539b7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-07T09:58:19Z",
+      "side": 1,
+      "message": "LGTM with nit.",
+      "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c445d238_ed5f4a6a",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-07T09:58:19Z",
+      "side": 1,
+      "message": "Nit: Please add parens around the `typeof ... \u0026\u0026 .. instanceof ...` part to make this easier to parse for humans.",
+      "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
