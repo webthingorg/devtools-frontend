@@ -98,6 +98,7 @@
   --issue-color-blue: #1a73e8;
   /** Used to indicate an input box */
   --input-outline: #cacdd1;
+  /** These colors have the same value in dark mode */
 }
 
 .-theme-with-dark-background {
