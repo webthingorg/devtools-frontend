@@ -9,24 +9,26 @@ import * as UIComponents from '../../ui/components/components.js';
 
 export type AXTreeNode = UIComponents.TreeOutlineUtils.TreeNode<SDK.AccessibilityModel.AccessibilityNode>;
 
-export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
+export function sdkNodeToAXTreeNode(map: Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode>, node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
   if (!node.numChildren()) {
     return {
       treeNodeData: node,
     };
   }
 
-  return {
+  const treeData = {
     treeNodeData: node,
     children: async(): Promise<AXTreeNode[]> => {
-      let children: SDK.AccessibilityModel.AccessibilityNode[] = node.children() || [];
+      let children: SDK.AccessibilityModel.AccessibilityNode[] = node.children();
       if (node.numChildren() !== children.length) {
         children = await node.accessibilityModel().requestAXChildren(node.id());
       }
-      const treeNodeChildren = (children || []).map(child => sdkNodeToAXTreeNode(child));
+      const treeNodeChildren = (children || []).map(child => sdkNodeToAXTreeNode(map, child));
       return Promise.resolve(treeNodeChildren);
     },
   };
+  map.set(node, treeData);
+  return treeData;
 }
 
 // This function is a variant of setTextContentTruncatedIfNeeded found in DOMExtension.
@@ -58,6 +60,9 @@ export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateRes
     nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
     nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name.value}"</span>`);
   }
+
+  nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
+  nodeContent.push(LitHtml.html`<span class='monospace'>"${axNode.id()}"</span>`);
 
   return LitHtml.html`
       <style>

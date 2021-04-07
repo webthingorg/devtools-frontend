@@ -288,15 +288,16 @@ export class AccessibilityModel extends SDKModel {
       return;
     }
 
-    const axNodes = nodes.map(node => new AccessibilityNode(this, node));
+    // const axNodes = nodes.map(node => new AccessibilityNode(this, node));
 
-    for (const axNode of this._axIdToAXNode.values()) {
-      for (const axChild of axNode.children()) {
-        axChild._setParentNode(axNode);
-      }
-    }
+    // for (const axNode of this._axIdToAXNode.values()) {
+    //   for (const axChild of axNode.children()) {
+    //     axChild._setParentNode(axNode);
+    //   }
+    // }
 
-    return axNodes[0];
+    this.rootAXNode = new AccessibilityNode(this, nodes[0]);
+    return this.rootAXNode;
   }
 
   /**
@@ -311,7 +312,9 @@ export class AccessibilityModel extends SDKModel {
 
     const axNodes = [];
     for (const payload of nodes) {
-      axNodes.push(new AccessibilityNode(this, payload));
+      if (!this._axIdToAXNode.has(payload.nodeId)) {
+        axNodes.push(new AccessibilityNode(this, payload));
+      }
     }
 
     for (const axNode of this._axIdToAXNode.values()) {
@@ -322,6 +325,46 @@ export class AccessibilityModel extends SDKModel {
 
     return axNodes;
   }
+
+  /**
+   *
+   * @param {!DOMNode} node
+   * @return ?{!Promise<!AccessibilityNode[]>}
+   */
+
+   async requestAndLoadSubTreeToNode(node) {
+     // Node may have already been loaded, so don't bother requesting it again.
+    const loadedAXNode = this.axNodeForDOMNode(node);
+    if (loadedAXNode) {
+      return loadedAXNode;
+    }
+
+    const {nodes} = await this._agent.invoke_getPartialAXTree(
+        {nodeId: node.id, backendNodeId: undefined, objectId: undefined, fetchRelatives: true});
+    if (!nodes) {
+      return;
+    }
+
+    const ancestors = [];
+    for (const payload of nodes) {
+      if (!this._axIdToAXNode.has(payload.nodeId)) {
+        ancestors.push(new AccessibilityNode(this, payload));
+      }
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+
+    // Request top level children nodes.
+    for (const node of ancestors) {
+      await this.requestAXChildren(node.id());
+    }
+
+    return this.axNodeForDOMNode(node);
+   }
 
   /**
    * @param {string} axId
