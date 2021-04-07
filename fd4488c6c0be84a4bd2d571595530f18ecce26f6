@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "413ae469_e6e4e226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-07T06:57:02Z",
+      "side": 1,
+      "message": "LGTM.\n\nI wonder whether this doc should be entirely in doc/ and linked from README.md though. We put all the other docs there too, and rely on README.md as entry point.",
+      "revId": "fd4488c6c0be84a4bd2d571595530f18ecce26f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
