@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091536db_62883ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-07T09:38:39Z",
+      "side": 1,
+      "message": "Hi Sigurd,\n\napplying the same fix as in RemoteObject to the LMI.\n\nPTAL!",
+      "revId": "d1f967aad3a3fbdec69cd3299c647594ccdbf0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
