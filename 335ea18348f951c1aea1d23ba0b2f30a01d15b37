@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a3a48f_1e45e451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-04-07T12:30:59Z",
+      "side": 1,
+      "message": "Hello, sorry I missed that. I have updated the patch",
+      "parentUuid": "7c982983_b5ef497b",
+      "revId": "335ea18348f951c1aea1d23ba0b2f30a01d15b37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d3387f0_f6a4c762",
