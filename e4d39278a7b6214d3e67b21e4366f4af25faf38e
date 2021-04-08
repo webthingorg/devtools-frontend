@@ -69,6 +69,24 @@
       "parentUuid": "00b297f2_3da9b197",
       "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ed4460_c0b107be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-08T15:45:18Z",
+      "side": 1,
+      "message": "Yes let\u0027s merge after branchpoint. I will also update the limit 😊",
+      "parentUuid": "3865701c_3c66a47c",
+      "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
