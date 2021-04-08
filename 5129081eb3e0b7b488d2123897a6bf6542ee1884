@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "930cfd75_e6c7e762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-08T04:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9378783d_205a764d",
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77184289_9f89f9be",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e64caa16_e36bfbd5",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-08T04:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9ca5ca5_4024c0a6",
+      "range": {
+        "startLine": 26,
+        "startChar": 91,
+        "endLine": 26,
+        "endChar": 94
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93719cdb_88744bbf",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-04-07T12:11:12Z",
       "side": 1,
       "message": "similar to the above:\n\n    “scroll-snap”",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c650033_6ae48c63",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-08T04:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93719cdb_88744bbf",
       "range": {
         "startLine": 31,
         "startChar": 30,
@@ -104,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "420a2f0d_92fee3fb",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-08T04:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e3770bb_bd79a21f",
+      "range": {
+        "startLine": 36,
+        "startChar": 90,
+        "endLine": 36,
+        "endChar": 99
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdee302f_87f8aea8",
@@ -117,6 +207,30 @@
       "writtenOn": "2021-04-07T12:11:12Z",
       "side": 1,
       "message": "preview → previews\n\n(otherwise we have to change “display” into “displays”, but I think the above works better)\n\nI think we could also remove “of the images”",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "5129081eb3e0b7b488d2123897a6bf6542ee1884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe47670_8a15ded8",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-04-08T04:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdee302f_87f8aea8",
       "range": {
         "startLine": 47,
         "startChar": 19,
