@@ -16,6 +16,24 @@
       "message": "LGTM.\n\nAre you planning to add more things to `config`? I\u0027m just wondering why we need to nest `owner` under it.",
       "revId": "f32ed4e6b77122cc05a685a358cc0d8c062ca015",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3eb1462_373992c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-08T12:45:20Z",
+      "side": 1,
+      "message": "Yeah I would like to move the `.gni` files in there at some point. Not sure when is the best time though.",
+      "parentUuid": "6fd53f46_2251ad04",
+      "revId": "f32ed4e6b77122cc05a685a358cc0d8c062ca015",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
