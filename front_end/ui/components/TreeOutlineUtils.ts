@@ -194,7 +194,7 @@ export const getPathToTreeNode =
 const getPathToTreeNodeRecursively = async<TreeNodeDataType>(
     currentNode: TreeNode<TreeNodeDataType>, nodeToFind: TreeNode<TreeNodeDataType>,
     pathToNode: TreeNode<TreeNodeDataType>[]): Promise<TreeNode<TreeNodeDataType>[]|null> => {
-  if (currentNode === nodeToFind) {
+  if (currentNode.treeNodeData === nodeToFind.treeNodeData) {
     return pathToNode;
   }
   if (currentNode.children) {
