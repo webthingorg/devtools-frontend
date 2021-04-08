@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd53f46_2251ad04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-08T12:02:54Z",
+      "side": 1,
+      "message": "LGTM.\n\nAre you planning to add more things to `config`? I\u0027m just wondering why we need to nest `owner` under it.",
+      "revId": "f32ed4e6b77122cc05a685a358cc0d8c062ca015",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
