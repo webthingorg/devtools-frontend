@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1123ef11_0a425e33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-08T14:46:08Z",
+      "side": 1,
+      "message": "Not sure how I can locally test this, but I am assuming CQ has test coverage for this?",
+      "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
