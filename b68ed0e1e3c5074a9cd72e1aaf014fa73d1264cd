@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "b68ed0e1e3c5074a9cd72e1aaf014fa73d1264cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "896e9804_039bc53d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-08T06:40:03Z",
+      "side": 1,
+      "message": "We discussed this offline. If my reading of the chat thread is correct, it seems we landed on the following:\n\n- devtools-frontend/.npmrc should only contain settings that should never be overridden for devtools-frontend specifically, i.e. that are required for our scripts to function\n- any personal preferences can go in ~/.npmrc\n\nBenedikt, WDYT — should we mark this CL as abandoned?\n",
+      "revId": "b68ed0e1e3c5074a9cd72e1aaf014fa73d1264cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
