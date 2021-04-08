@@ -19,11 +19,24 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
   return {
     treeNodeData: node,
     children: async(): Promise<AXTreeNode[]> => {
-      let children: SDK.AccessibilityModel.AccessibilityNode[] = node.children() || [];
-      if (node.numChildren() !== children.length) {
-        children = await node.accessibilityModel().requestAXChildren(node.id());
+      if (node.numChildren() === node.children().length) {
+        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child)));
       }
-      const treeNodeChildren = (children || []).map(child => sdkNodeToAXTreeNode(child));
+      // numChildren returns the number of children that this node has, whereas node.children()
+      // returns only children that have been loaded. If these two don't match, that means that
+      // there are backend children that need to be loaded into the model, so request them now.
+      await node.accessibilityModel().requestAXChildren(node.id());
+
+      if (node.numChildren() !== node.children().length) {
+        throw new Error('Once loaded, number of children and length of children must match.');
+      }
+
+      const treeNodeChildren: AXTreeNode[] = [];
+
+      for (const child of node.children()) {
+        treeNodeChildren.push(sdkNodeToAXTreeNode(child));
+      }
+
       return Promise.resolve(treeNodeChildren);
     },
   };
@@ -40,8 +53,6 @@ function truncateTextIfNeeded(text: string): string {
 }
 
 export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateResult {
-  // Left in for ease of reaching this file when doing DT on DT debugging
-  // eslint-disable-next-line no-console
   const nodeContent: LitHtml.TemplateResult[] = [];
   const axNode = node.treeNodeData;
 
@@ -58,6 +69,11 @@ export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateRes
     nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
     nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name.value}"</span>`);
   }
+
+  // Useful for debugging.
+  // TODO: remove these before land.
+  nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
+  nodeContent.push(LitHtml.html`<span class='monospace'>"${axNode.id()}"</span>`);
 
   return LitHtml.html`
       <style>
