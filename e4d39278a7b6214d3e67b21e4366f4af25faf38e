@@ -51,6 +51,24 @@
       "parentUuid": "24663519_01f93559",
       "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3865701c_3c66a47c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-08T15:07:36Z",
+      "side": 1,
+      "message": "it looks like we can change the limit to 65000 bytes (from 110000 bytes)!!!",
+      "parentUuid": "00b297f2_3da9b197",
+      "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
