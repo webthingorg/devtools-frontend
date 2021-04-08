@@ -16,6 +16,24 @@
       "message": "PTAL.\n\nI\u0027m not sure why the dark mode script has so many changes; it looks like someone updated the source file but didn\u0027t update the dark mode script. But at that point the PRESUBMIT should have failed (like it did for me when I tried to update it).\n\nI\u0027ve checked the changes and they look legit, so I\u0027ll try to find the CL that edited cmdevtools.css and managed to avoid updating the dark mode version.",
       "revId": "7c9277bfa95f5d97f18e46957d787e87695d6365",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7efae6b_6253b9f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-08T11:38:22Z",
+      "side": 1,
+      "message": "Ah, I figured out what happened and it\u0027s not an issue.\n\n1. I generated darkmode.css from the script\n2. I fixed a bug in the script that meant it generated CSS that wasn\u0027t needed\n3. I didn\u0027t re-run the script.\n\nI should therefore update the PRESUBMIT to enforce that if the script itself has been modified more recently than the darkmode.css file, it should fail.\n\nhttps://crbug.com/1197060",
+      "parentUuid": "9fa477c8_8cd5a458",
+      "revId": "7c9277bfa95f5d97f18e46957d787e87695d6365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
