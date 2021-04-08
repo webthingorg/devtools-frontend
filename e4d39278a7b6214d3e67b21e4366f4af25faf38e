@@ -33,6 +33,24 @@
       "message": "Thanks. It LGTM and layout tests should catch issues. But let\u0027s merge this after a branch point? Is there an improvement in terms of the file size? We might want to decrease the size limit in BUILD.gn in this case.",
       "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b297f2_3da9b197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-08T15:04:15Z",
+      "side": 1,
+      "message": "Also, locally you could follow instructions in the README.md and open debug files to see if there are any problems.",
+      "parentUuid": "24663519_01f93559",
+      "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
