@@ -134,12 +134,17 @@ export class TimelineFrameModel {
       this._startFrame(startTime);
     }
     this._lastBeginFrame = startTime;
+    // Whether this frame is dropped is yet to be decided.
+    this._lastDroppedFrame = null;
   }
 
   handleDroppedFrame(startTime: number): void {
-    if (!this._lastFrame) {
-      this._startFrame(startTime);
+    // Always add a dropped frame when encountering a DroppedFrame event.
+    this._startFrame(startTime);
+    if (this._lastFrame) {
+      this._lastFrame.dropped = true;
     }
+
     this._lastDroppedFrame = startTime;
   }
 
@@ -165,12 +170,21 @@ export class TimelineFrameModel {
         }
         this._lastNeedsBeginFrame = null;
       }
-      if (this._lastDroppedFrame) {
-        this._lastFrame.dropped = true;
-        this._startFrame(this._lastDroppedFrame);
-        this._lastDroppedFrame = null;
+
+      if (this._lastBeginFrame == this._lastDroppedFrame) {
+        // If this frame is reported dropped even though it is drawn, then it
+        // is "partially presented". Such frames are not suitable to be
+        // visualized as regular dropped frames. In this case, a visualization
+        // for this frame was already created in the most recent
+        // handleDroppedFrame(); we just need to mark it as non dropped.
+        //
+        // TODO(mjzhang): Use a unique style (or color, help text, etc) for
+        // partially dropped frames.
+        this._lastFrame.dropped = false;
+      } else if (this._lastBeginFrame) {
+        // If this frame is not dropped, start a regular frame.
+        this._startFrame(this._lastBeginFrame);
       }
-      this._startFrame(startTime);
     }
     this._mainFrameCommitted = false;
   }
