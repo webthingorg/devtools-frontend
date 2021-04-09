@@ -33,6 +33,24 @@
       "message": "Could you CC me on the bug please?",
       "revId": "a8ab45d9ec83d949768bcbad507bcba6b45ecaa5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cac86af_f241f452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-09T08:14:15Z",
+      "side": 1,
+      "message": "\u003e Could you CC me on the bug please?\n\ndone",
+      "parentUuid": "16759eec_b9624274",
+      "revId": "a8ab45d9ec83d949768bcbad507bcba6b45ecaa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
