@@ -3,6 +3,7 @@ load(
     "acls",
     "builder",
     "builder_coverage",
+    "default_timeout",
     "defaults",
     "dimensions",
 )
@@ -59,7 +60,7 @@ try_builder(
     name = "devtools_frontend_linux_blink_rel",
     recipe_name = "chromium_trybot",
     dimensions = dimensions.default_ubuntu,
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     build_numbers = True,
 )
 
@@ -67,7 +68,7 @@ try_builder(
     name = "devtools_frontend_linux_blink_light_rel",
     recipe_name = "chromium_trybot",
     dimensions = dimensions.beefy_ubuntu,
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     build_numbers = True,
 )
 
@@ -75,7 +76,7 @@ try_builder(
     name = "dtf_linux_experiments",
     recipe_name = "devtools/devtools-frontend",
     dimensions = dimensions.default_ubuntu,
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     build_numbers = True,
     properties = { "run_experimental_steps" : True }
 )
@@ -85,7 +86,7 @@ builder_coverage(
     builder_factory = try_builder,
     builder_name_pattern = "devtools_frontend_%s_rel",
     recipe_name = "devtools/devtools-frontend",
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
 )
 
 builder_coverage(
@@ -93,7 +94,7 @@ builder_coverage(
     builder_factory = try_builder,
     builder_name_pattern = "devtools_frontend_%s_dbg",
     recipe_name = "devtools/devtools-frontend",
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     properties = {"builder_config": "Debug"},
 )
 
@@ -102,7 +103,7 @@ builder_coverage(
     builder_factory = try_builder,
     builder_name_pattern = "devtools_frontend_%s_off",
     recipe_name = "devtools/devtools-frontend",
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     properties = {"is_official_build": True},
 )
 
@@ -111,7 +112,7 @@ builder_coverage(
     builder_factory = try_builder,
     builder_name_pattern = "e2e_stressor_%s",
     recipe_name = "devtools/devtools-frontend",
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     properties = {"builder_config": "Debug"},
 )
 

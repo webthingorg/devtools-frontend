@@ -46,6 +46,9 @@ dimensions = struct(
     },
 )
 
+
+default_timeout = 1 * time.hour
+
 def recipe(
         name,
         cipd_package = defaults.cipd_package,
@@ -120,7 +123,8 @@ def config_section(
         notifiers = notifiers,
     )
 
-def builder_descriptor(name, recipe_name, dims = dimensions.default_ubuntu, excluded_from = [], notification_muted = False, properties = None):
+def builder_descriptor(name, recipe_name, dims = dimensions.default_ubuntu, excluded_from = [],
+        notification_muted = False, properties = None, execution_timeout = default_timeout):
     return struct(
         name = name,
         recipe_name = recipe_name,
@@ -128,6 +132,7 @@ def builder_descriptor(name, recipe_name, dims = dimensions.default_ubuntu, excl
         excluded_from = excluded_from,
         notification_muted = notification_muted,
         properties = properties,
+        execution_timeout = execution_timeout,
     )
 
 def generate_ci_configs(configurations, builders):
@@ -177,7 +182,7 @@ def generate_ci_configs(configurations, builders):
                     name = b.name + c.name_suffix,
                     recipe_name = b.recipe_name,
                     dimensions = b.dims,
-                    execution_timeout = 2 * time.hour,
+                    execution_timeout = b.execution_timeout,
                     console_category = "Linux",
                     notifies = [] if b.notification_muted else c.notifiers,
                     properties = b.properties or {},

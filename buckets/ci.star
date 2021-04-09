@@ -4,6 +4,7 @@ load(
     "builder_descriptor",
     "config_section",
     "defaults",
+    "default_timeout",
     "dimensions",
     "generate_ci_configs",
 )
@@ -43,6 +44,7 @@ generate_ci_configs(
             name = "DevTools Linux",
             recipe_name = "chromium_integration",
             excluded_from = ["beta", "stable"],
+            execution_timeout = 2 * time.hour,
         ),
         builder_descriptor(
             name = "Stand-alone Linux",
@@ -99,7 +101,7 @@ builder(
     schedule = "0 3,12 * * *",
     recipe_name = "v8/auto_roll_v8_deps",
     dimensions = dimensions.default_ubuntu,
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     properties = {
         'autoroller_config' : {
             'target_config': target_config,
@@ -122,7 +124,7 @@ builder(
     schedule = "0 6 * * *",
     recipe_name = "v8/auto_roll_v8_deps",
     dimensions = dimensions.default_ubuntu,
-    execution_timeout = 2 * time.hour,
+    execution_timeout = default_timeout,
     properties = {
         'autoroller_config': {
             'target_config': target_config,
