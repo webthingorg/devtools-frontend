@@ -16,6 +16,57 @@
       "message": "caseq: This removes dependency #1 in https://docs.google.com/document/d/1UzCTrkSJJZGELq3P784DNgFrw8fLsmkxFMtmSUdqUqA/edit#heading\u003dh.7nki9mck5t64, WDYT?",
       "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f8c55a_bc585ef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-09T04:15:13Z",
+      "side": 1,
+      "message": "Thanks for the patch! We need some proper front-end owners here, my front-end memories are a bit rusty and I\u0027m not event an owner these days, so +Sigurd and Benedikt.",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d292cc4_0c5b5bc1",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-09T04:15:13Z",
+      "side": 1,
+      "message": "Why does this have to be async? Considering we\u0027re talking to the same target, I would expect the frame already be reported, is that not the case?",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88bd93c7_5654ebb8",
+        "filename": "front_end/core/sdk/FrameManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-09T04:15:13Z",
+      "side": 1,
+      "message": "This looks fine to me for test usage, but feels a bit scary for the prod usage, considering it may never resolve if we pass a wrong id, or if the same is gone as a result of some race. Can we avoid exposing it for general use and instead implement within its only client (Node._childDocumentPromiseForTesting) instead, so that it\u0027s not accidentally used in production code? We may also want to convert the latter into a function, considering it\u0027s becoming non-trivial to compute.",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
