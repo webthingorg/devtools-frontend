@@ -1364,20 +1364,8 @@
   "issues/AffectedBlockedByResponseView.ts | parentFrame": {
     "message": "Parent Frame"
   },
-  "issues/AffectedBlockedByResponseView.ts | request": {
-    "message": "request"
-  },
   "issues/AffectedBlockedByResponseView.ts | requestC": {
     "message": "Request"
-  },
-  "issues/AffectedBlockedByResponseView.ts | requests": {
-    "message": "requests"
-  },
-  "issues/AffectedCookiesView.ts | cookie": {
-    "message": "cookie"
-  },
-  "issues/AffectedCookiesView.ts | cookies": {
-    "message": "cookies"
   },
   "issues/AffectedCookiesView.ts | domain": {
     "message": "Domain"
@@ -1390,12 +1378,6 @@
   },
   "issues/AffectedCookiesView.ts | path": {
     "message": "Path"
-  },
-  "issues/AffectedElementsView.ts | element": {
-    "message": "element"
-  },
-  "issues/AffectedElementsView.ts | elements": {
-    "message": "elements"
   },
   "issues/AffectedElementsView.ts | nElements": {
     "message": "{n, plural, =1 { element} other { elements}}"
@@ -1442,12 +1424,6 @@
   "issues/AffectedHeavyAdView.ts | resolutionStatus": {
     "message": "Resolution Status"
   },
-  "issues/AffectedHeavyAdView.ts | resource": {
-    "message": "resource"
-  },
-  "issues/AffectedHeavyAdView.ts | resources": {
-    "message": "resources"
-  },
   "issues/AffectedHeavyAdView.ts | warned": {
     "message": "Warned"
   },
@@ -1490,12 +1466,6 @@
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | trigger": {
     "message": "Trigger"
   },
-  "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violation": {
-    "message": "violation"
-  },
-  "issues/AffectedSharedArrayBufferIssueDetailsView.ts | violations": {
-    "message": "violations"
-  },
   "issues/AffectedSharedArrayBufferIssueDetailsView.ts | warning": {
     "message": "warning"
   },
@@ -1507,12 +1477,6 @@
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | packageSignature": {
     "message": "Package signature"
-  },
-  "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resource": {
-    "message": "resource"
-  },
-  "issues/AffectedTrustedWebActivityIssueDetailsView.ts | resources": {
-    "message": "resources"
   },
   "issues/AffectedTrustedWebActivityIssueDetailsView.ts | statusCode": {
     "message": "Status code"
@@ -1531,12 +1495,6 @@
   },
   "issues/CorsIssueDetailsView.ts | insecure": {
     "message": "insecure"
-  },
-  "issues/CorsIssueDetailsView.ts | item": {
-    "message": "item"
-  },
-  "issues/CorsIssueDetailsView.ts | items": {
-    "message": "items"
   },
   "issues/CorsIssueDetailsView.ts | nItems": {
     "message": "{n, plural, =1 { item} other { items}}"
@@ -1628,14 +1586,8 @@
   "issues/IssueView.ts | clickToRevealTheViolatingDomNode": {
     "message": "Click to reveal the violating DOM node in the Elements panel"
   },
-  "issues/IssueView.ts | directive": {
-    "message": "directive"
-  },
   "issues/IssueView.ts | directiveC": {
     "message": "Directive"
-  },
-  "issues/IssueView.ts | directives": {
-    "message": "directives"
   },
   "issues/IssueView.ts | element": {
     "message": "Element"
@@ -1661,32 +1613,14 @@
   "issues/IssueView.ts | reportonly": {
     "message": "report-only"
   },
-  "issues/IssueView.ts | request": {
-    "message": "request"
-  },
-  "issues/IssueView.ts | requests": {
-    "message": "requests"
-  },
-  "issues/IssueView.ts | resource": {
-    "message": "resource"
-  },
   "issues/IssueView.ts | resourceC": {
     "message": "Resource"
-  },
-  "issues/IssueView.ts | resources": {
-    "message": "resources"
   },
   "issues/IssueView.ts | restrictionStatus": {
     "message": "Restriction Status"
   },
-  "issues/IssueView.ts | source": {
-    "message": "source"
-  },
   "issues/IssueView.ts | sourceLocation": {
     "message": "Source Location"
-  },
-  "issues/IssueView.ts | sources": {
-    "message": "sources"
   },
   "issues/IssueView.ts | status": {
     "message": "Status"
