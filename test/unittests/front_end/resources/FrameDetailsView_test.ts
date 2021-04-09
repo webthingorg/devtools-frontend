@@ -46,6 +46,7 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
             },
           }),
         }),
+        parentTarget: () => null,
       }),
     }),
     _creationStackTrace: {

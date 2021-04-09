@@ -14,7 +14,9 @@ const makeFrame =
     (overrides: Partial<SDK.ResourceTreeModel.ResourceTreeFrame> = {}): SDK.ResourceTreeModel.ResourceTreeFrame => {
       const newFrame: SDK.ResourceTreeModel.ResourceTreeFrame = {
         resourceTreeModel: () => ({
-          target: () => ({}),
+          target: () => ({
+            parentTarget: () => null,
+          }),
         }),
         ...overrides,
       } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
