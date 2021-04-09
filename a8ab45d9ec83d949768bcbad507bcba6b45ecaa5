@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3cc4e64_f9524aac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-09T07:59:48Z",
+      "side": 1,
+      "message": "Hey Sigurd,\n\nFix to restore compatibility with old Node versions.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "a8ab45d9ec83d949768bcbad507bcba6b45ecaa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
