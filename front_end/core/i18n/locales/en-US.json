@@ -4802,6 +4802,9 @@
   "panels/elements/ElementsTreeElement.js | scrollIntoView": {
     "message": "Scroll into view"
   },
+  "panels/elements/ElementsTreeElement.js | showFrameDetails": {
+    "message": "Show frame details"
+  },
   "panels/elements/ElementsTreeElement.js | thisFrameWasIdentifiedAsAnAd": {
     "message": "This frame was identified as an ad frame"
   },

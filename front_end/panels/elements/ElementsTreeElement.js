@@ -155,6 +155,10 @@ const UIStrings = {
   */
   captureNodeScreenshot: 'Capture node screenshot',
   /**
+  *@description Title of a context menu item. When clicked DevTools goes to the Application panel and shows this specific frame's details
+  */
+  showFrameDetails: 'Show frame details',
+  /**
   *@description Text in Elements Tree Element of the Elements panel
   */
   valueIsTooLargeToEdit: '<value is too large to edit>',
@@ -765,6 +769,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       contextMenu.editSection().appendItem(i18nString(UIStrings.editAsHtml), this._editAsHTML.bind(this));
     }
     const isShadowRoot = this._node.isShadowRoot();
+    const frameOwnerFrameId = this._node.frameOwnerFrameId();
 
     // Place it here so that all "Copy"-ing items stick together.
     const copyMenu = contextMenu.clipboardSection().appendSubMenuItem(i18nString(UIStrings.copy));
@@ -828,6 +833,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         i18nString(UIStrings.captureNodeScreenshot),
         deviceModeWrapperAction.handleAction.bind(
             null, UI.Context.Context.instance(), 'emulation.capture-node-screenshot'));
+    if (frameOwnerFrameId) {
+      contextMenu.viewSection().appendItem(i18nString(UIStrings.showFrameDetails), () => {
+        const frame = SDK.FrameManager.FrameManager.instance().getFrame(frameOwnerFrameId);
+        Common.Revealer.reveal(frame);
+      });
+    }
   }
 
   _startEditing() {
