@@ -210,6 +210,7 @@ export class ResourceRevealer implements Common.Revealer.Revealer {
     await sidebar.showResource(resource);
   }
 }
+
 let cookieReferenceRevealerInstance: CookieReferenceRevealer;
 
 export class CookieReferenceRevealer implements Common.Revealer.Revealer {
@@ -249,5 +250,31 @@ export class CookieReferenceRevealer implements Common.Revealer.Revealer {
       return true;
     }
     return false;
+  }
+}
+
+let frameDetailsRevealerInstance: FrameDetailsRevealer;
+
+export class FrameDetailsRevealer implements Common.Revealer.Revealer {
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): FrameDetailsRevealer {
+    const {forceNew} = opts;
+    if (!frameDetailsRevealerInstance || forceNew) {
+      frameDetailsRevealerInstance = new FrameDetailsRevealer();
+    }
+
+    return frameDetailsRevealerInstance;
+  }
+
+  async reveal(frame: Object): Promise<void> {
+    if (!(frame instanceof SDK.ResourceTreeModel.ResourceTreeFrame)) {
+      return Promise.reject(new Error('Internal error: not a frame'));
+    }
+    const sidebar = ResourcesPanel._instance()._sidebar;
+    await UI.ViewManager.ViewManager.instance().showView('resources');
+    const frameTreeElement = sidebar._resourcesSection.getTreeElementforFrame(frame);
+    frameTreeElement?.reveal();
+    frameTreeElement?.select();
   }
 }

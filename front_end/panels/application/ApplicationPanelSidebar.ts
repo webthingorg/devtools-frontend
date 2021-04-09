@@ -1628,6 +1628,10 @@ export class ResourcesSection implements SDK.SDKModel.Observer {
     }
   }
 
+  getTreeElementforFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): FrameTreeElement|undefined {
+    return this._treeElementForFrameId.get(frame.id);
+  }
+
   targetAdded(target: SDK.SDKModel.Target): void {
     if (target.type() === SDK.SDKModel.Type.Worker || target.type() === SDK.SDKModel.Type.ServiceWorker) {
       this._workerAdded(target);
