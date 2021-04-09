@@ -730,6 +730,13 @@ export class DOMNode {
   /**
    * @return {?Protocol.Page.FrameId}
    */
+  frameOwnerFrameId() {
+    return this._frameOwnerFrameId;
+  }
+
+  /**
+   * @return {?Protocol.Page.FrameId}
+   */
   frameId() {
     let node = this.parentNode || this;
     while (!node._frameOwnerFrameId && node.parentNode) {
