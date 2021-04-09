@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2015b4b_671ae998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115999
+      },
+      "writtenOn": "2021-04-09T05:16:12Z",
+      "side": 1,
+      "message": "Heads up: I don\u0027t think this is going to fly. Both |targetId| and |frameId| are constants - CDP assumes main frame is retained throughout navigations. There is no event that would say \u0027Main frame in this target was swapped\u0027 and introducing one would be a breaking CDP change. The coupling was due to the matching lifetimes of the objects, so it was baked into CDP.\n\nI don\u0027t have a solution for you, just pointing out that the current one is incompatible with CDP. So I guess you need to draw how the new CDP contract would look like and what transition / opt-in into the new mode would look like. +dgozman for ideas.",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
