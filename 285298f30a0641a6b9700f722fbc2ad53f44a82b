@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1126b582_e60d9785",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-09T12:40:57Z",
+      "side": 1,
+      "message": "Thanks Pavel! I\u0027m not sure if you\u0027ve already read this document [1], but a breaking change of some kind is necessary due to MPArch and activation. There\u0027s also a discussion thread in devtools-dev about this. I\u0027m hoping we can stage any such breaking changes behind feature flags (initially prerendering, which will be the main consumer of MPArch that actually does activation). I\u0027d really appreciate your thoughts/ideas on that doc as well.\n\n[1] https://docs.google.com/document/d/1l-SeBl7m8zESdJMJlT4oNVFiJ65bjfPa8RHF_WYFuIQ/edit?pli\u003d1#heading\u003dh.6bhxt8glx2jg",
+      "parentUuid": "c2015b4b_671ae998",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2021-04-09T04:15:13Z",
       "side": 1,
       "message": "Why does this have to be async? Considering we\u0027re talking to the same target, I would expect the frame already be reported, is that not the case?",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d00f02_5ab56b72",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-09T12:40:57Z",
+      "side": 1,
+      "message": "That is not the case, it seems like responses from different domains can race (I had some tests flaking).",
+      "parentUuid": "9d292cc4_0c5b5bc1",
       "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -82,6 +118,24 @@
       "writtenOn": "2021-04-09T04:15:13Z",
       "side": 1,
       "message": "This looks fine to me for test usage, but feels a bit scary for the prod usage, considering it may never resolve if we pass a wrong id, or if the same is gone as a result of some race. Can we avoid exposing it for general use and instead implement within its only client (Node._childDocumentPromiseForTesting) instead, so that it\u0027s not accidentally used in production code? We may also want to convert the latter into a function, considering it\u0027s becoming non-trivial to compute.",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "032ff1c2_a22609b9",
+        "filename": "front_end/core/sdk/FrameManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-09T12:40:57Z",
+      "side": 1,
+      "message": "Yeah, the wrong id case is worrisome, and one of the main advantages to adding frameId to TargetInfo (a main frame\u0027s frameId would be available immediately and we wouldn\u0027t have to wait for the Page.getFrameTree roundtrip). But I\u0027ll move this into the file itself.",
+      "parentUuid": "88bd93c7_5654ebb8",
       "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
