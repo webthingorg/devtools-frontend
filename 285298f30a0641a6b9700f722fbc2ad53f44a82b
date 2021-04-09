@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b47cb78_3b109e72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115999
+      },
+      "writtenOn": "2021-04-09T17:30:41Z",
+      "side": 1,
+      "message": "A breaking change behind a feature flag would mean that this flag will not be enabled by default, which I don\u0027t think it the plan. I wonder if there is a way to opt into this new behavior, so that CDP does not break. Persistent frame is very core to CDP, we can\u0027t just add a new event - it will simply break the world.\n\nI would encourage you to speak to the CDP owners that maintain target infrastructure - dgozman@ and caseq@. This is not the first challenging problem that we face in this area, so I am sure we work something out to unblock you.",
+      "parentUuid": "1126b582_e60d9785",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
