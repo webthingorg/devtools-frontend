@@ -16,6 +16,23 @@
       "message": "LGTM (rubber-stamp, I don\u0027t have context). Maybe caseq would have been a better reviewer?",
       "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "341ec9e8_32133cc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-09T08:54:34Z",
+      "side": 1,
+      "message": "Andrey, please take a look.",
+      "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
