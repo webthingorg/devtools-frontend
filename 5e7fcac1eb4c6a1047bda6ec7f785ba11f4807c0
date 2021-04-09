@@ -69,6 +69,23 @@
       "message": "CL LGTM but share Rob\u0027s point about the 99th percentile boot being slower. I guess that was just variability running it on a powerful machine?",
       "revId": "5e7fcac1eb4c6a1047bda6ec7f785ba11f4807c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb788427_75769887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-09T11:01:40Z",
+      "side": 1,
+      "message": "Suggested way forward: we land this CL after branchpoint so that we can monitor the performance improvements on your side. If it doesn\u0027t help enough, we can revert prior to the next branchpoint.",
+      "revId": "5e7fcac1eb4c6a1047bda6ec7f785ba11f4807c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
