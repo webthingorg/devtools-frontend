@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f971f5_70aad1eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-09T13:36:00Z",
+      "side": 1,
+      "message": "This general approach LGTM to me. As discussed in our email we can update the TreeOutline to make the equality checks better - either by comparing data like you have here or by making each tree node take some string/number that is a unique identifier, kinda like a key function.\n\nRE focus, sounds like a bug in the TreeOutline that needs to be fixed. After first render I guess we should call focus on one of the dom nodes? Probably the first root node?",
+      "revId": "11d91925a2a1ef2ffba5ff36dd36af66005576f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
