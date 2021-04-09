@@ -43,9 +43,11 @@ export class StackTrace extends HTMLElement {
   set data(data: StackTraceData) {
     const frame = data.frame;
     if (frame && frame._creationStackTrace) {
+      // For OOPIFs the frame creation stacktrace was transferred from its parent target.
+      // For iframes in the same process, target and parentTarget are the same anyway.
+      const target = frame.resourceTreeModel().target().parentTarget();
       this.stackTraceRows = data.buildStackTraceRows(
-          frame._creationStackTrace, frame.resourceTreeModel().target(), this.linkifier, true,
-          this.onStackTraceRowsUpdated.bind(this));
+          frame._creationStackTrace, target, this.linkifier, true, this.onStackTraceRowsUpdated.bind(this));
     }
     this.render();
   }
