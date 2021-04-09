@@ -276,6 +276,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   _muteViewportUpdates?: boolean;
   _waitForScrollTimeout?: number;
   _issueCounter: ConsoleCounters.IssueCounter.IssueCounter;
+  private pendingSidebarMessages: ConsoleViewMessage[] = [];
 
   constructor() {
     super();
@@ -304,6 +305,10 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this._filter.setLevelMenuOverridden(this._isSidebarOpen);
     this._splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, event => {
       this._isSidebarOpen = event.data === UI.SplitWidget.ShowMode.Both;
+      this.pendingSidebarMessages.forEach(message => {
+        this._sidebar.onMessageAdded(message);
+      });
+      this.pendingSidebarMessages.length = 0;
       this._filter.setLevelMenuOverridden(this._isSidebarOpen);
       this._onFilterChanged();
     });
@@ -754,7 +759,11 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this._consoleMessages.splice(insertAt, 0, viewMessage);
 
     this._filter.onMessageAdded(message);
-    this._sidebar.onMessageAdded(viewMessage);
+    if (this._isSidebarOpen) {
+      this._sidebar.onMessageAdded(viewMessage);
+    } else {
+      this.pendingSidebarMessages.push(viewMessage);
+    }
 
     // If we already have similar messages, go slow path.
     let shouldGoIntoGroup = false;
