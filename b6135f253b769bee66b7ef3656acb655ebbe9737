@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3faaa051_54a685d7",
+        "filename": "front_end/core/sdk/EmulationModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-12T10:33:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bb9de04_bd474413",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81e7beff_7513993d",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-12T09:57:55Z",
       "side": 1,
       "message": "Do we want to make this `_appendCheckbox()` call conditional on JPEG XL being supported?",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfaa489f_bd8965f3",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-12T10:33:43Z",
+      "side": 1,
+      "message": "Oh, right, forgot about it :-) I have added it now. WDYT about doing async rendering in the constructor? It seems odd but I am not sure there is an async API in the widget system?",
+      "parentUuid": "81e7beff_7513993d",
       "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
