@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a980f560_ef29efe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-12T09:53:44Z",
+      "side": 1,
+      "message": "Sigurd, what do you think of the approach I chose? I believe that it works as intended, but it feels like a shortcut.",
+      "revId": "cc3e52241c780e3c1aab937a73f4d70f763bf095",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
