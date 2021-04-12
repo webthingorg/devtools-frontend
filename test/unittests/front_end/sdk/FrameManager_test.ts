@@ -62,6 +62,8 @@ describe('FrameManager', () => {
       frameManager: FrameManager, events: SDK.FrameManager.Events[]): Array<{type: string, data: any}> {
     const dispatchedEvents: Array<{type: string, data: {}}> = [];
     for (const event of events) {
+      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+      // @ts-expect-error
       frameManager.addEventListener(event, e => dispatchedEvents.push({type: event.description || '', data: e.data}));
     }
     return dispatchedEvents;
