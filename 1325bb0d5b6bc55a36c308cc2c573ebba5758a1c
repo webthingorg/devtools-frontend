@@ -39,6 +39,30 @@
       },
       "revId": "1325bb0d5b6bc55a36c308cc2c573ebba5758a1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6801cd39_ccec0832",
+        "filename": "front_end/panels/elements/metricsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-12T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5019037_e745bce9",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 5
+      },
+      "revId": "1325bb0d5b6bc55a36c308cc2c573ebba5758a1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
