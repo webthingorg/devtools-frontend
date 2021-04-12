@@ -16,6 +16,23 @@
       "message": "Paul, please do a post-commit review.",
       "revId": "ab1f2b587d714feadec38f536b45621d26c023cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a3b3ef8_635c59ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-04-12T07:38:43Z",
+      "side": 1,
+      "message": "Post-submit LGTM. Curious about which targets these are, though!",
+      "revId": "ab1f2b587d714feadec38f536b45621d26c023cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
