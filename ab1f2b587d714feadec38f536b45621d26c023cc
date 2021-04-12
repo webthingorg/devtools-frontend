@@ -33,6 +33,24 @@
       "message": "Post-submit LGTM. Curious about which targets these are, though!",
       "revId": "ab1f2b587d714feadec38f536b45621d26c023cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a15bb3_c0b075cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-12T08:47:52Z",
+      "side": 1,
+      "message": "All targets except frames, see https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/core/sdk/SDKModel.js;l\u003d97?q\u003dSDKModel.js%20front_end\u0026ss\u003dchromium",
+      "parentUuid": "0a3b3ef8_635c59ea",
+      "revId": "ab1f2b587d714feadec38f536b45621d26c023cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
