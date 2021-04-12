@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22fba69_3f596617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-12T06:16:51Z",
+      "side": 1,
+      "message": "Sigurd probably has a better understanding of this than I do.",
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
