@@ -163,6 +163,11 @@ const UIStrings = {
   */
   disableAvifImageFormat: 'Disable `AVIF` image format',
   /**
+  * @description The name of a checkbox setting in the Rendering tool. This setting disables the
+  * page from loading images with the JPEG XL format.
+  */
+  disableJxlImageFormat: 'Disable `JPEG XL` image format',
+  /**
   * @description Explanation text for both the 'Disable AVIF image format' and 'Disable WebP image
   * format' settings in the Rendering tool.
   */
@@ -261,6 +266,10 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this._appendCheckbox(
         i18nString(UIStrings.disableAvifImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
         Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled'));
+
+    this._appendCheckbox(
+        i18nString(UIStrings.disableJxlImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
+        Common.Settings.Settings.instance().moduleSetting('jxlFormatDisabled'));
 
     this._appendCheckbox(
         i18nString(UIStrings.disableWebpImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
