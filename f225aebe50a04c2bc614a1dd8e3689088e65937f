@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b87242d_716dc96c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-12T06:36:19Z",
+      "side": 1,
+      "message": "Thanks, only nits. Can we add a test for this feature?",
+      "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d2b608c_e4b94b27",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-12T06:36:19Z",
+      "side": 1,
+      "message": "This seems to be reaching into the implementation details of several classes; would it be an option to call a (static?) method on the ResourcesPanel instead? \n\nOnce you do that, it might be practical to have a revealAndSelectElementFromFrame function in the ResourcesSection class (to avoid having to expose getTreeElementforFrame).",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 31
+      },
+      "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc0f85aa_7fa01f09",
+        "filename": "front_end/panels/elements/ElementsTreeElement.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-12T06:36:19Z",
+      "side": 1,
+      "message": "You are using a fixed value here; I\u0027m not sure whether this._node can change, in any case, I suggest moving the definition of \nconst frameOwnerFrameId \u003d this._node.frameOwnerFrameId();\ninto the arrow function.",
+      "range": {
+        "startLine": 838,
+        "startChar": 72,
+        "endLine": 838,
+        "endChar": 89
+      },
+      "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
