@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5aa00b_a3e4eac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-04-12T23:28:23Z",
+      "side": 1,
+      "message": "Minor UI icon tweak! PTAL\n\nI can get you a screenshot if you\u0027d like, but its very hard to notice the difference (just a circle around the play arrow)",
+      "revId": "8b113454a65d228bf1908ac27d8787b2c99f7747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
