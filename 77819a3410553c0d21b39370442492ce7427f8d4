@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "77819a3410553c0d21b39370442492ce7427f8d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67971f1_1a1ed5bd",
+        "filename": "front_end/browser_sdk/LogManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-12T14:19:53Z",
+      "side": 1,
+      "message": "Nit: `private constructor`",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "77819a3410553c0d21b39370442492ce7427f8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
