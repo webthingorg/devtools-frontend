@@ -163,6 +163,11 @@ const UIStrings = {
   */
   disableAvifImageFormat: 'Disable `AVIF` image format',
   /**
+  * @description The name of a checkbox setting in the Rendering tool. This setting disables the
+  * page from loading images with the JPEG XL format.
+  */
+  disableJxlImageFormat: 'Disable `JPEG XL` image format',
+  /**
   * @description Explanation text for both the 'Disable AVIF image format' and 'Disable WebP image
   * format' settings in the Rendering tool.
   */
@@ -188,6 +193,23 @@ const supportsPrefersReducedData = () => {
   const query = '(prefers-reduced-data: reduce)';
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
+};
+
+const supportsJXL = async () => {
+  const jxlImageUrl =
+      'data:image/jxl;base64,/woAEJBQXAgAEogCALQAVQ8AAKhQGWXc4OVcz5cfOiymbVxnaKttC0sSRcaxSTqBQ5JYIwFkZDDYr5IE';
+  const img = document.createElement('img');
+  /**
+   * @type {(value: any) => void}
+   */
+  let pResolve = () => {};
+  const promise = new Promise(resolve => {
+    pResolve = resolve;
+  });
+  img.onload = pResolve.bind(null, true);
+  img.onerror = pResolve.bind(null, false);
+  img.src = jxlImageUrl;
+  return promise;
 };
 
 /** @type {!RenderingOptionsView} */
@@ -258,15 +280,30 @@ export class RenderingOptionsView extends UI.Widget.VBox {
 
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
-    this._appendCheckbox(
-        i18nString(UIStrings.disableAvifImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
-        Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled'));
+    /**
+     * @param {boolean} includeJXL
+     */
+    const renderImageTypes = includeJXL => {
+      this._appendCheckbox(
+          i18nString(UIStrings.disableAvifImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
+          Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled'));
 
-    this._appendCheckbox(
-        i18nString(UIStrings.disableWebpImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
-        Common.Settings.Settings.instance().moduleSetting('webpFormatDisabled'));
+      if (includeJXL) {
+        this._appendCheckbox(
+            i18nString(UIStrings.disableJxlImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
+            Common.Settings.Settings.instance().moduleSetting('jxlFormatDisabled'));
+      }
 
-    this.contentElement.createChild('div').classList.add('panel-section-separator');
+      this._appendCheckbox(
+          i18nString(UIStrings.disableWebpImageFormat), i18nString(UIStrings.requiresAPageReloadToApplyAnd),
+          Common.Settings.Settings.instance().moduleSetting('webpFormatDisabled'));
+
+      this.contentElement.createChild('div').classList.add('panel-section-separator');
+    };
+
+    supportsJXL().then(jxlSupported => {
+      renderImageTypes(jxlSupported);
+    });
   }
 
   /**
