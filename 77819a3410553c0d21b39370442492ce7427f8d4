@@ -39,6 +39,30 @@
       },
       "revId": "77819a3410553c0d21b39370442492ce7427f8d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a42582a_9cbc8b1c",
+        "filename": "front_end/browser_sdk/LogManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-12T14:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67971f1_1a1ed5bd",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "77819a3410553c0d21b39370442492ce7427f8d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
