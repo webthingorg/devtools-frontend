@@ -86,6 +86,24 @@
       "parentUuid": "81e7beff_7513993d",
       "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90d570f2_b970dd9a",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-12T10:59:05Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to schedule an async task from the constructor, but let’s not block rendering of unrelated UI elements on it. The current patch only renders any image type checkboxes after we learn whether or not JPEG XL is supported. Instead, we should 1) render all current image type checkboxes synchronously, and 2) kick off a task that adds one more checkbox in the right place if JPEG XL is supported. WDYT?",
+      "parentUuid": "bfaa489f_bd8965f3",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
