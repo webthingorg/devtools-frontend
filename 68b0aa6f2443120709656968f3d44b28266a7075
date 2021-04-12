@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98402ce1_f21d4b5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-12T11:25:27Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "68b0aa6f2443120709656968f3d44b28266a7075",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5fda097_10532236",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-12T11:25:27Z",
+      "side": 1,
+      "message": "Have you considered\n\n    webpCheckbox.before(…)\n\n?\n\nhttps://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before",
+      "revId": "68b0aa6f2443120709656968f3d44b28266a7075",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
