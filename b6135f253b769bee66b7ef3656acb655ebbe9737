@@ -104,6 +104,24 @@
       "parentUuid": "bfaa489f_bd8965f3",
       "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569f6ba7_ccb336d6",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-12T11:19:06Z",
+      "side": 1,
+      "message": "Changed the logic to insert the jxl checkbox in the right position.",
+      "parentUuid": "90d570f2_b970dd9a",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
