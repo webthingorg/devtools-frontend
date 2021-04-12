@@ -87,6 +87,24 @@
       "parentUuid": "3865701c_3c66a47c",
       "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e77fad9_534f1daa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-12T13:34:35Z",
+      "side": 1,
+      "message": "Nice, -5,17 KiB binary size on Android.",
+      "parentUuid": "e4ed4460_c0b107be",
+      "revId": "e4d39278a7b6214d3e67b21e4366f4af25faf38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
