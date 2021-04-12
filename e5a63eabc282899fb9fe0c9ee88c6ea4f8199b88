@@ -63,6 +63,23 @@
       "message": "Sure :) Thanks for your help!",
       "revId": "e5a63eabc282899fb9fe0c9ee88c6ea4f8199b88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a13c3bf6_d78d718c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1456107
+      },
+      "writtenOn": "2021-04-12T09:09:21Z",
+      "side": 1,
+      "message": "Hm, it seems like this is not integrated yet - is there anything more I need to do (more versed in the Qt Gerrit than the Chromium Gerrit 😊 )",
+      "revId": "e5a63eabc282899fb9fe0c9ee88c6ea4f8199b88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
