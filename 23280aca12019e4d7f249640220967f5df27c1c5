@@ -16,6 +16,52 @@
       "message": "PTAL!",
       "revId": "23280aca12019e4d7f249640220967f5df27c1c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cef7915_55a12f43",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-12T10:45:25Z",
+      "side": 1,
+      "message": "Ultra-nit: hence",
+      "range": {
+        "startLine": 314,
+        "startChar": 73,
+        "endLine": 314,
+        "endChar": 77
+      },
+      "revId": "23280aca12019e4d7f249640220967f5df27c1c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf0d5a46_11c4c7cc",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-12T10:45:25Z",
+      "side": 1,
+      "message": "Ultra-nit: move into if-statement",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 52
+      },
+      "revId": "23280aca12019e4d7f249640220967f5df27c1c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
