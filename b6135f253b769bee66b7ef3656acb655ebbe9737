@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb9de04_bd474413",
+        "filename": "front_end/core/sdk/EmulationModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-12T09:57:55Z",
+      "side": 1,
+      "message": "nit: let\u0027s sort these, so the order is consistent with the ordering above",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e7beff_7513993d",
+        "filename": "front_end/inspector_main/RenderingOptions.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-12T09:57:55Z",
+      "side": 1,
+      "message": "Do we want to make this `_appendCheckbox()` call conditional on JPEG XL being supported?",
+      "revId": "b6135f253b769bee66b7ef3656acb655ebbe9737",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
