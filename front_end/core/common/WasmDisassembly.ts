@@ -6,12 +6,18 @@
  * Metadata to map between bytecode offsets and line numbers in the
  * disassembly for WebAssembly modules.
  */
+/* eslint-disable rulesdir/no_underscored_properties */
+
 export class WasmDisassembly {
-  /**
-   * @param {!Array<number>} offsets mapping of line numbers to bytecode offsets
-   * @param {!Array<{start: number, end: number}>} functionBodyOffsets mapping of function indices to start/end bytecode offsets
-   */
-  constructor(offsets, functionBodyOffsets) {
+  _offsets: number[];
+  _functionBodyOffsets: {
+    start: number;
+    end: number;
+  }[];
+  constructor(offsets: number[], functionBodyOffsets: {
+    start: number;
+    end: number;
+  }[]) {
     this._offsets = offsets;
     this._functionBodyOffsets = functionBodyOffsets;
   }
@@ -21,38 +27,31 @@ export class WasmDisassembly {
     return this._offsets.length;
   }
 
-  /**
-   * @param {number} bytecodeOffset
-   * @return {number}
-   */
-  bytecodeOffsetToLineNumber(bytecodeOffset) {
-    let l = 0, r = this._offsets.length - 1;
+  bytecodeOffsetToLineNumber(bytecodeOffset: number): number {
+    let l = 0, r: number = this._offsets.length - 1;
     while (l <= r) {
       const m = Math.floor((l + r) / 2);
       const offset = this._offsets[m];
       if (offset < bytecodeOffset) {
         l = m + 1;
-      } else if (offset > bytecodeOffset) {
+      }
+      else if (offset > bytecodeOffset) {
         r = m - 1;
-      } else {
+      }
+      else {
         return m;
       }
     }
     return l;
   }
 
-  /**
-   * @param {number} lineNumber
-   * @return {number}
-   */
-  lineNumberToBytecodeOffset(lineNumber) {
+  lineNumberToBytecodeOffset(lineNumber: number): number {
     return this._offsets[lineNumber];
   }
 
-  /**
-   * @return {!Iterable<number>} an iterable enumerating all the non-breakable line numbers in the disassembly
-   */
-  * nonBreakableLineNumbers() {
+  /** an iterable enumerating all the non-breakable line numbers in the disassembly
+     */
+  *nonBreakableLineNumbers(): Iterable<number> {
     let lineNumber = 0;
     let functionIndex = 0;
     while (lineNumber < this.lineNumbers) {

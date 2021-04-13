@@ -4,11 +4,10 @@
 
 /**
  * Combine the two given colors according to alpha blending.
- * @param {!Array<number>} fgRGBA
- * @param {!Array<number>} bgRGBA
- * @return {!Array<number>}
  */
-export function blendColors(fgRGBA, bgRGBA) {
+/* eslint-disable rulesdir/no_underscored_properties */
+
+export function blendColors(fgRGBA: number[], bgRGBA: number[]): number[] {
   const alpha = fgRGBA[3];
   return [
     ((1 - alpha) * bgRGBA[0]) + (alpha * fgRGBA[0]),
@@ -18,11 +17,7 @@ export function blendColors(fgRGBA, bgRGBA) {
   ];
 }
 
-/**
- * @param {!Array<number>} rgba
- * @return {!Array<number>}
- */
-export function rgbaToHsla([r, g, b, a]) {
+export function rgbaToHsla([r, g, b, a]: number[]): number[] {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const diff = max - min;
@@ -31,11 +26,14 @@ export function rgbaToHsla([r, g, b, a]) {
   let h;
   if (min === max) {
     h = 0;
-  } else if (r === max) {
+  }
+  else if (r === max) {
     h = ((1 / 6 * (g - b) / diff) + 1) % 1;
-  } else if (g === max) {
+  }
+  else if (g === max) {
     h = (1 / 6 * (b - r) / diff) + 1 / 3;
-  } else {
+  }
+  else {
     h = (1 / 6 * (r - g) / diff) + 2 / 3;
   }
 
@@ -44,11 +42,14 @@ export function rgbaToHsla([r, g, b, a]) {
   let s;
   if (l === 0) {
     s = 0;
-  } else if (l === 1) {
+  }
+  else if (l === 1) {
     s = 0;
-  } else if (l <= 0.5) {
+  }
+  else if (l <= 0.5) {
     s = diff / sum;
-  } else {
+  }
+  else {
     s = diff / (2 - sum);
   }
 
@@ -58,10 +59,8 @@ export function rgbaToHsla([r, g, b, a]) {
 /**
 * Calculate the luminance of this color using the WCAG algorithm.
 * See http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-* @param {!Array<number>} rgba
-* @return {number}
 */
-export function luminance([rSRGB, gSRGB, bSRGB]) {
+export function luminance([rSRGB, gSRGB, bSRGB]: number[]): number {
   const r = rSRGB <= 0.03928 ? rSRGB / 12.92 : Math.pow(((rSRGB + 0.055) / 1.055), 2.4);
   const g = gSRGB <= 0.03928 ? gSRGB / 12.92 : Math.pow(((gSRGB + 0.055) / 1.055), 2.4);
   const b = bSRGB <= 0.03928 ? bSRGB / 12.92 : Math.pow(((bSRGB + 0.055) / 1.055), 2.4);
@@ -73,11 +72,8 @@ export function luminance([rSRGB, gSRGB, bSRGB]) {
  * Calculate the contrast ratio between a foreground and a background color.
  * Returns the ratio to 1, for example for two two colors with a contrast ratio of 21:1, this function will return 21.
  * See http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
- * @param {!Array<number>} fgRGBA
- * @param {!Array<number>} bgRGBA
- * @return {number}
  */
-export function contrastRatio(fgRGBA, bgRGBA) {
+export function contrastRatio(fgRGBA: number[], bgRGBA: number[]): number {
   const blendedFg = blendColors(fgRGBA, bgRGBA);
   const fgLuminance = luminance(blendedFg);
   const bgLuminance = luminance(bgRGBA);
@@ -105,10 +101,8 @@ const loClip = 0.001;
 /**
 * Calculate relative luminance of a color.
 * See https://github.com/Myndex/SAPC-APCA
-* @param {!Array<number>} rgba
-* @return {number}
 */
-export function luminanceAPCA([rSRGB, gSRGB, bSRGB]) {
+export function luminanceAPCA([rSRGB, gSRGB, bSRGB]: number[]): number {
   const r = Math.pow(rSRGB, mainTRC);
   const g = Math.pow(gSRGB, mainTRC);
   const b = Math.pow(bSRGB, mainTRC);
@@ -120,44 +114,34 @@ export function luminanceAPCA([rSRGB, gSRGB, bSRGB]) {
  * Calculate the contrast ratio between a foreground and a background color.
  * Returns the percentage of the predicted visual contrast.
  * See https://github.com/Myndex/SAPC-APCA
- *
- * @param {!Array<number>} fgRGBA
- * @param {!Array<number>} bgRGBA
- * @return {number}
  */
-export function contrastRatioAPCA(fgRGBA, bgRGBA) {
+export function contrastRatioAPCA(fgRGBA: number[], bgRGBA: number[]): number {
   return contrastRatioByLuminanceAPCA(luminanceAPCA(fgRGBA), luminanceAPCA(bgRGBA));
 }
 
-/**
- * @param {number} value
- */
-function clampLuminance(value) {
+function clampLuminance(value: number): number {
   return value > blkThrs ? value : (value + Math.pow(blkThrs - value, blkClmp));
 }
 
-/**
- * @param {number} fgLuminance
- * @param {number} bgLuminance
- */
-export function contrastRatioByLuminanceAPCA(fgLuminance, bgLuminance) {
+export function contrastRatioByLuminanceAPCA(fgLuminance: number, bgLuminance: number): number {
   fgLuminance = clampLuminance(fgLuminance);
   bgLuminance = clampLuminance(bgLuminance);
   if (Math.abs(fgLuminance - bgLuminance) < deltaLuminanceMin) {
     return 0;
   }
   let result = 0;
-  if (bgLuminance >= fgLuminance) {  // Black text on white.
+  if (bgLuminance >= fgLuminance) { // Black text on white.
     result = (Math.pow(bgLuminance, normBgExp) - Math.pow(fgLuminance, normFgExp)) * scaleBoW;
     result = result < loClip ?
-        0 :
-        (result < loConThresh ? result - result * loConFactor * loConOffset : result - loConOffset);
-  } else {
+      0 :
+      (result < loConThresh ? result - result * loConFactor * loConOffset : result - loConOffset);
+  }
+  else {
     // White text on black.
     result = (Math.pow(bgLuminance, revBgExp) - Math.pow(fgLuminance, revFgExp)) * scaleWoB;
     result = result > -loClip ?
-        0 :
-        (result > -loConThresh ? result - result * loConFactor * loConOffset : result + loConOffset);
+      0 :
+      (result > -loConThresh ? result - result * loConFactor * loConOffset : result + loConOffset);
   }
   return result * 100;
 }
@@ -165,19 +149,12 @@ export function contrastRatioByLuminanceAPCA(fgLuminance, bgLuminance) {
 /**
  * Compute a desired luminance given a given luminance and a desired contrast
  * percentage according to APCA.
- * @param {number} luminance The given luminance.
- * @param {number} contrast The desired contrast percentage.
- * @param {boolean} lighter Whether the desired luminance is lighter or darker
- * than the given luminance. If no luminance can be found which meets this
- * requirement, a luminance which meets the inverse requirement will be
- * returned.
- * @return {number} The desired luminance.
  */
-export function desiredLuminanceAPCA(luminance, contrast, lighter) {
+export function desiredLuminanceAPCA(luminance: number, contrast: number, lighter: boolean): number {
   luminance = clampLuminance(luminance);
   contrast /= 100;
-  function computeLuminance() {
-    if (!lighter) {  // Black text on white.
+  function computeLuminance(): number {
+    if (!lighter) { // Black text on white.
       return Math.pow(Math.abs(Math.pow(luminance, normBgExp) - (contrast + loConOffset) / scaleBoW), 1 / normFgExp);
     }
     // White text on black.
@@ -212,12 +189,7 @@ const contrastAPCALookupTable = [
 
 contrastAPCALookupTable.reverse();
 
-/**
- * @param {string} fontSize
- * @param {string} fontWeight
- * @return {?number}
- */
-export function getAPCAThreshold(fontSize, fontWeight) {
+export function getAPCAThreshold(fontSize: string, fontWeight: string): number | null {
   const size = parseFloat(fontSize.replace('px', ''));
   const weight = parseFloat(fontWeight);
 
@@ -238,12 +210,7 @@ export function getAPCAThreshold(fontSize, fontWeight) {
   return null;
 }
 
-/**
- * @param {string} fontSize
- * @param {string} fontWeight
- * @return {boolean}
- */
-export function isLargeFont(fontSize, fontWeight) {
+export function isLargeFont(fontSize: string, fontWeight: string): boolean {
   const boldWeights = ['bold', 'bolder', '600', '700', '800', '900'];
 
   const fontSizePx = parseFloat(fontSize.replace('px', ''));
@@ -257,16 +224,14 @@ export function isLargeFont(fontSize, fontWeight) {
 }
 
 const contrastThresholds = {
-  largeFont: {aa: 3.0, aaa: 4.5},
-  normalFont: {aa: 4.5, aaa: 7.0}
+  largeFont: { aa: 3.0, aaa: 4.5 },
+  normalFont: { aa: 4.5, aaa: 7.0 }
 };
 
-/**
- * @param {string} fontSize
- * @param {string} fontWeight
- * @return {!{aa: number, aaa: number}}
- */
-export function getContrastThreshold(fontSize, fontWeight) {
+export function getContrastThreshold(fontSize: string, fontWeight: string): {
+  aa: number;
+  aaa: number;
+} {
   if (isLargeFont(fontSize, fontWeight)) {
     return contrastThresholds.largeFont;
   }

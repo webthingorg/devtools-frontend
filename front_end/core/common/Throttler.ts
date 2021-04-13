@@ -4,18 +4,23 @@
 
 /** @typedef {function(!Error=):void} */
 // @ts-ignore Typedef.
+/* eslint-disable rulesdir/no_underscored_properties */
+
 export let FinishCallback;
 
 export class Throttler {
-  /**
-   * @param {number} timeout
-   */
-  constructor(timeout) {
+  _timeout: number;
+  _isRunningProcess: boolean;
+  _asSoonAsPossible: boolean;
+  _process: (() => (Promise<void>)) | null;
+  _lastCompleteTime: number;
+  _schedulePromise: Promise<any>;
+  _scheduleResolve: (value: any) => void;
+  _processTimeout?: number;
+  constructor(timeout: number) {
     this._timeout = timeout;
     this._isRunningProcess = false;
-    /** @type {boolean} */
     this._asSoonAsPossible = false;
-    /** @type {?function():(!Promise<void>)} */
     this._process = null;
     this._lastCompleteTime = 0;
 
@@ -24,7 +29,7 @@ export class Throttler {
     });
   }
 
-  _processCompleted() {
+  _processCompleted(): void {
     this._lastCompleteTime = this._getTime();
     this._isRunningProcess = false;
     if (this._process) {
@@ -33,32 +38,27 @@ export class Throttler {
     this._processCompletedForTests();
   }
 
-  _processCompletedForTests() {
+  _processCompletedForTests(): void {
     // For sniffing in tests.
   }
 
-  _onTimeout() {
+  _onTimeout(): void {
     delete this._processTimeout;
     this._asSoonAsPossible = false;
     this._isRunningProcess = true;
 
     Promise.resolve()
-        .then(this._process)
-        .catch(console.error.bind(console))
-        .then(this._processCompleted.bind(this))
-        .then(this._scheduleResolve);
+      .then(this._process)
+      .catch(console.error.bind(console))
+      .then(this._processCompleted.bind(this))
+      .then(this._scheduleResolve);
     this._schedulePromise = new Promise(fulfill => {
       this._scheduleResolve = fulfill;
     });
     this._process = null;
   }
 
-  /**
-   * @param {function():(!Promise<?>)} process
-   * @param {boolean=} asSoonAsPossible
-   * @return {!Promise<void>}
-   */
-  schedule(process, asSoonAsPossible) {
+  schedule(process: () => (Promise<unknown>), asSoonAsPossible?: boolean): Promise<void> {
     // Deliberately skip previous process.
     this._process = process;
 
@@ -75,10 +75,7 @@ export class Throttler {
     return this._schedulePromise;
   }
 
-  /**
-   * @param {boolean} forceTimerUpdate
-   */
-  _innerSchedule(forceTimerUpdate) {
+  _innerSchedule(forceTimerUpdate: boolean): void {
     if (this._isRunningProcess) {
       return;
     }
@@ -93,26 +90,15 @@ export class Throttler {
     this._processTimeout = this._setTimeout(this._onTimeout.bind(this), timeout);
   }
 
-  /**
-   *  @param {number} timeoutId
-   */
-  _clearTimeout(timeoutId) {
+  _clearTimeout(timeoutId: number): void {
     clearTimeout(timeoutId);
   }
 
-  /**
-   * @param {function():void} operation
-   * @param {number} timeout
-   * @return {number}
-   */
-  _setTimeout(operation, timeout) {
+  _setTimeout(operation: () => void, timeout: number): number {
     return window.setTimeout(operation, timeout);
   }
 
-  /**
-   * @return {number}
-   */
-  _getTime() {
+  _getTime(): number {
     return window.performance.now();
   }
 }
