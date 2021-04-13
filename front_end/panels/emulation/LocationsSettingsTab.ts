@@ -2,12 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-/** @type {!LocationsSettingsTab} */
-let locationsSettingsTabInstance;
+let locationsSettingsTabInstance: LocationsSettingsTab;
 
 const UIStrings = {
   /**
@@ -96,36 +97,27 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/emulation/LocationsSettingsTab.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/**
- * @implements {UI.ListWidget.Delegate<Item>}
- */
-export class LocationsSettingsTab extends UI.Widget.VBox {
-  /** @private */
-  constructor() {
+export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidget.Delegate {
+  _list: UI.ListWidget.ListWidget<any>;
+  _customSetting: Common.Settings.Setting<LocationDescription[]>;
+  _editor?: UI.ListWidget.Editor<any>;
+  private constructor() {
     super(true);
-    this.registerRequiredCSS('panels/emulation/locationsSettingsTab.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('panels/emulation/locationsSettingsTab.css', { enableLegacyPatching: false });
 
     this.contentElement.createChild('div', 'header').textContent = i18nString(UIStrings.customLocations);
 
-    const addButton = UI.UIUtils.createTextButton(
-        i18nString(UIStrings.addLocation), this._addButtonClicked.bind(this), 'add-locations-button');
+    const addButton = UI.UIUtils.createTextButton(i18nString(UIStrings.addLocation), this._addButtonClicked.bind(this), 'add-locations-button');
     this.contentElement.appendChild(addButton);
 
     this._list = new UI.ListWidget.ListWidget(this);
     this._list.element.classList.add('locations-list');
-    this._list.registerRequiredCSS('panels/emulation/locationsSettingsTab.css', {enableLegacyPatching: false});
+    this._list.registerRequiredCSS('panels/emulation/locationsSettingsTab.css', { enableLegacyPatching: false });
     this._list.show(this.contentElement);
-    /** @type {Common.Settings.Setting<Array<LocationDescription>>} */
-    this._customSetting = /** @type {Common.Settings.Setting<Array<LocationDescription>>} */ (
-        Common.Settings.Settings.instance().moduleSetting('emulation.locations'));
-    const list = /** @type {Array<*>} */ (this._customSetting.get())
-                     .map(location => replaceLocationTitles(location, this._customSetting.defaultValue()));
+    this._customSetting = (Common.Settings.Settings.instance().moduleSetting('emulation.locations') as Common.Settings.Setting<LocationDescription[]>);
+    const list = (this._customSetting.get() as any[]).map(location => replaceLocationTitles(location, this._customSetting.defaultValue()));
 
-    /**
-       * @param {LocationDescription} location
-       * @param {Array<LocationDescription>} defaultValues
-       */
-    function replaceLocationTitles(location, defaultValues) {
+    function replaceLocationTitles(location: LocationDescription, defaultValues: LocationDescription[]): LocationDescription {
       // This check is done for locations that might had been cached wrongly due to crbug.com/1171670.
       // Each of the default values would have been stored without a title if the user had added a new location
       // while the bug was present in the application. This means that getting the setting's default value with the `get`
@@ -133,12 +125,12 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
       // preemptively checked and corrected so that any default value mistakenly stored without a title is replaced
       // with the corresponding declared value in the pre-registered setting.
       if (!location.title) {
-        const replacement = defaultValues.find(
-            defaultLocation => defaultLocation.lat === location.lat && defaultLocation.long === location.long &&
-                defaultLocation.timezoneId === location.timezoneId && defaultLocation.locale === location.locale);
+        const replacement = defaultValues.find(defaultLocation => defaultLocation.lat === location.lat && defaultLocation.long === location.long &&
+          defaultLocation.timezoneId === location.timezoneId && defaultLocation.locale === location.locale);
         if (!replacement) {
           console.error('Could not determine a location setting title');
-        } else {
+        }
+        else {
           return replacement;
         }
       }
@@ -151,7 +143,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     this.setDefaultFocusedElement(addButton);
   }
 
-  static instance() {
+  static instance(): LocationsSettingsTab {
     if (!locationsSettingsTabInstance) {
       locationsSettingsTabInstance = new LocationsSettingsTab();
     }
@@ -159,15 +151,12 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     return locationsSettingsTabInstance;
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     super.wasShown();
     this._locationsUpdated();
   }
 
-  _locationsUpdated() {
+  _locationsUpdated(): void {
     this._list.clear();
 
     const conditions = this._customSetting.get();
@@ -178,17 +167,11 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     this._list.appendSeparator();
   }
 
-  _addButtonClicked() {
-    this._list.addNewItem(this._customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: '', locale: ''});
+  _addButtonClicked(): void {
+    this._list.addNewItem(this._customSetting.get().length, { title: '', lat: 0, long: 0, timezoneId: '', locale: '' });
   }
 
-  /**
-   * @override
-   * @param {!Item} location
-   * @param {boolean} editable
-   * @return {!Element}
-   */
-  renderItem(location, editable) {
+  renderItem(location: Item, editable: boolean): Element {
     const element = document.createElement('div');
     element.classList.add('locations-list-item');
     const title = element.createChild('div', 'locations-list-text locations-list-title');
@@ -206,24 +189,13 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     return element;
   }
 
-  /**
-   * @override
-   * @param {*} item
-   * @param {number} index
-   */
-  removeItemRequested(item, index) {
+  removeItemRequested(item: any, index: number): void {
     const list = this._customSetting.get();
     list.splice(index, 1);
     this._customSetting.set(list);
   }
 
-  /**
-   * @override
-   * @param {!Item} location
-   * @param {!UI.ListWidget.Editor<!Item>} editor
-   * @param {boolean} isNew
-   */
-  commitEdit(location, editor, isNew) {
+  commitEdit(location: Item, editor: UI.ListWidget.Editor<Item>, isNew: boolean): void {
     location.title = editor.control('title').value.trim();
     const lat = editor.control('lat').value.trim();
     location.lat = lat ? parseFloat(lat) : 0;
@@ -241,12 +213,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     this._customSetting.set(list);
   }
 
-  /**
-   * @override
-   * @param {!Item} location
-   * @return {!UI.ListWidget.Editor<!Item>}
-   */
-  beginEdit(location) {
+  beginEdit(location: Item): UI.ListWidget.Editor<Item> {
     const editor = this._createEditor();
     editor.control('title').value = location.title;
     editor.control('lat').value = String(location.lat);
@@ -256,10 +223,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
     return editor;
   }
 
-  /**
-   * @return {!UI.ListWidget.Editor<!Item>}
-   */
-  _createEditor() {
+  _createEditor(): UI.ListWidget.Editor<Item> {
     if (this._editor) {
       return this._editor;
     }
@@ -270,7 +234,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
 
     const titles = content.createChild('div', 'locations-edit-row');
     titles.createChild('div', 'locations-list-text locations-list-title').textContent =
-        i18nString(UIStrings.locationName);
+      i18nString(UIStrings.locationName);
     titles.createChild('div', 'locations-list-separator locations-list-separator-invisible');
     titles.createChild('div', 'locations-list-text').textContent = i18nString(UIStrings.lat);
     titles.createChild('div', 'locations-list-separator locations-list-separator-invisible');
@@ -282,7 +246,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
 
     const fields = content.createChild('div', 'locations-edit-row');
     fields.createChild('div', 'locations-list-text locations-list-title locations-input-container')
-        .appendChild(editor.createInput('title', 'text', i18nString(UIStrings.locationName), titleValidator));
+      .appendChild(editor.createInput('title', 'text', i18nString(UIStrings.locationName), titleValidator));
     fields.createChild('div', 'locations-list-separator locations-list-separator-invisible');
 
     let cell = fields.createChild('div', 'locations-list-text locations-input-container');
@@ -302,98 +266,79 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
 
     return editor;
 
-    /**
-     * @param {*} item
-     * @param {number} index
-     * @param {!HTMLInputElement|!HTMLSelectElement} input
-     * @return {!UI.ListWidget.ValidatorResult}
-     */
-    function titleValidator(item, index, input) {
+    function titleValidator(item: any, index: number, input: HTMLInputElement | HTMLSelectElement): UI.ListWidget.ValidatorResult {
       const maxLength = 50;
       const value = input.value.trim();
 
       let errorMessage;
       if (!value.length) {
         errorMessage = i18nString(UIStrings.locationNameCannotBeEmpty);
-      } else if (value.length > maxLength) {
-        errorMessage = i18nString(UIStrings.locationNameMustBeLessThanS, {PH1: maxLength});
+      }
+      else if (value.length > maxLength) {
+        errorMessage = i18nString(UIStrings.locationNameMustBeLessThanS, { PH1: maxLength });
       }
 
       if (errorMessage) {
-        return {valid: false, errorMessage};
+        return { valid: false, errorMessage };
       }
-      return {valid: true, errorMessage: undefined};
+      return { valid: true, errorMessage: undefined };
     }
 
-    /**
-     * @param {*} item
-     * @param {number} index
-     * @param {!HTMLInputElement|!HTMLSelectElement} input
-     * @return {!UI.ListWidget.ValidatorResult}
-     */
-    function latValidator(item, index, input) {
+    function latValidator(item: any, index: number, input: HTMLInputElement | HTMLSelectElement): UI.ListWidget.ValidatorResult {
       const minLat = -90;
       const maxLat = 90;
       const value = input.value.trim();
       const parsedValue = Number(value);
 
       if (!value) {
-        return {valid: true, errorMessage: undefined};
+        return { valid: true, errorMessage: undefined };
       }
 
       let errorMessage;
       if (Number.isNaN(parsedValue)) {
         errorMessage = i18nString(UIStrings.latitudeMustBeANumber);
-      } else if (parseFloat(value) < minLat) {
-        errorMessage = i18nString(UIStrings.latitudeMustBeGreaterThanOrEqual, {PH1: minLat});
-      } else if (parseFloat(value) > maxLat) {
-        errorMessage = i18nString(UIStrings.latitudeMustBeLessThanOrEqualToS, {PH1: maxLat});
+      }
+      else if (parseFloat(value) < minLat) {
+        errorMessage = i18nString(UIStrings.latitudeMustBeGreaterThanOrEqual, { PH1: minLat });
+      }
+      else if (parseFloat(value) > maxLat) {
+        errorMessage = i18nString(UIStrings.latitudeMustBeLessThanOrEqualToS, { PH1: maxLat });
       }
 
       if (errorMessage) {
-        return {valid: false, errorMessage};
+        return { valid: false, errorMessage };
       }
-      return {valid: true, errorMessage: undefined};
+      return { valid: true, errorMessage: undefined };
     }
 
-    /**
-     * @param {*} item
-     * @param {number} index
-     * @param {!HTMLInputElement|!HTMLSelectElement} input
-     * @return {!UI.ListWidget.ValidatorResult}
-     */
-    function longValidator(item, index, input) {
+    function longValidator(item: any, index: number, input: HTMLInputElement | HTMLSelectElement): UI.ListWidget.ValidatorResult {
       const minLong = -180;
       const maxLong = 180;
       const value = input.value.trim();
       const parsedValue = Number(value);
 
       if (!value) {
-        return {valid: true, errorMessage: undefined};
+        return { valid: true, errorMessage: undefined };
       }
 
       let errorMessage;
       if (Number.isNaN(parsedValue)) {
         errorMessage = i18nString(UIStrings.longitudeMustBeANumber);
-      } else if (parseFloat(value) < minLong) {
-        errorMessage = i18nString(UIStrings.longitudeMustBeGreaterThanOr, {PH1: minLong});
-      } else if (parseFloat(value) > maxLong) {
-        errorMessage = i18nString(UIStrings.longitudeMustBeLessThanOrEqualTo, {PH1: maxLong});
+      }
+      else if (parseFloat(value) < minLong) {
+        errorMessage = i18nString(UIStrings.longitudeMustBeGreaterThanOr, { PH1: minLong });
+      }
+      else if (parseFloat(value) > maxLong) {
+        errorMessage = i18nString(UIStrings.longitudeMustBeLessThanOrEqualTo, { PH1: maxLong });
       }
 
       if (errorMessage) {
-        return {valid: false, errorMessage};
+        return { valid: false, errorMessage };
       }
-      return {valid: true, errorMessage: undefined};
+      return { valid: true, errorMessage: undefined };
     }
 
-    /**
-     * @param {*} item
-     * @param {number} index
-     * @param {!HTMLInputElement|!HTMLSelectElement} input
-     * @return {!UI.ListWidget.ValidatorResult}
-     */
-    function timezoneIdValidator(item, index, input) {
+    function timezoneIdValidator(item: any, index: number, input: HTMLInputElement | HTMLSelectElement): UI.ListWidget.ValidatorResult {
       const value = input.value.trim();
       // Chromium uses ICU's timezone implementation, which is very
       // liberal in what it accepts. ICU does not simply use an allowlist
@@ -403,19 +348,13 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
       // alphabetic character. The empty string resets the override,
       // and is accepted as well.
       if (value === '' || /[a-zA-Z]/.test(value)) {
-        return {valid: true, errorMessage: undefined};
+        return { valid: true, errorMessage: undefined };
       }
       const errorMessage = i18nString(UIStrings.timezoneIdMustContainAlphabetic);
-      return {valid: false, errorMessage};
+      return { valid: false, errorMessage };
     }
 
-    /**
-     * @param {*} item
-     * @param {number} index
-     * @param {!HTMLInputElement|!HTMLSelectElement} input
-     * @return {!UI.ListWidget.ValidatorResult}
-     */
-    function localeValidator(item, index, input) {
+    function localeValidator(item: any, index: number, input: HTMLInputElement | HTMLSelectElement): UI.ListWidget.ValidatorResult {
       const value = input.value.trim();
       // Similarly to timezone IDs, there's not much point in validating
       // input locales other than checking if it contains at least two
@@ -424,26 +363,24 @@ export class LocationsSettingsTab extends UI.Widget.VBox {
       // The empty string resets the override, and is accepted as
       // well.
       if (value === '' || /[a-zA-Z]{2}/.test(value)) {
-        return {valid: true, errorMessage: undefined};
+        return { valid: true, errorMessage: undefined };
       }
       const errorMessage = i18nString(UIStrings.localeMustContainAlphabetic);
-      return {valid: false, errorMessage};
+      return { valid: false, errorMessage };
     }
   }
 }
-
-/** @typedef {{title: string, lat: number, long: number, timezoneId: string, locale: string}} */
-// @ts-ignore typedef
-export let Item;
-
-/**
-  * @typedef {{
-  * title: (undefined | string ),
-  * lat: number,
-  * long: number,
-  * timezoneId: string,
-  * locale: string
-  * }}
-  */
-// @ts-ignore typedef
-export let LocationDescription;
+export interface Item {
+  title: string;
+  lat: number;
+  long: number;
+  timezoneId: string;
+  locale: string;
+}
+export interface LocationDescription {
+  title?: string;
+  lat: number;
+  long: number;
+  timezoneId: string;
+  locale: string;
+}

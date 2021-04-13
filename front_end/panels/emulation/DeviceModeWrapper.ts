@@ -2,49 +2,45 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../../core/common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {DeviceModeModel} from './DeviceModeModel.js';
-import {DeviceModeView} from './DeviceModeView.js';
-import {InspectedPagePlaceholder} from './InspectedPagePlaceholder.js';  // eslint-disable-line no-unused-vars
+import { DeviceModeModel } from './DeviceModeModel.js';
+import { DeviceModeView } from './DeviceModeView.js';
+import { InspectedPagePlaceholder } from './InspectedPagePlaceholder.js'; // eslint-disable-line no-unused-vars
 
-
-/** @type {!DeviceModeWrapper} */
-let deviceModeWrapperInstance;
+let deviceModeWrapperInstance: DeviceModeWrapper;
 
 export class DeviceModeWrapper extends UI.Widget.VBox {
-  /**
-   * @param {!InspectedPagePlaceholder} inspectedPagePlaceholder
-   * @private
-   */
-  constructor(inspectedPagePlaceholder) {
+  _inspectedPagePlaceholder: InspectedPagePlaceholder;
+  _deviceModeView: DeviceModeView | null;
+  _toggleDeviceModeAction: UI.ActionRegistration.Action | null;
+  _showDeviceModeSetting: Common.Settings.Setting<boolean>;
+  private constructor(inspectedPagePlaceholder: InspectedPagePlaceholder) {
     super();
     this._inspectedPagePlaceholder = inspectedPagePlaceholder;
-    /** @type {?DeviceModeView} */
     this._deviceModeView = null;
     this._toggleDeviceModeAction = UI.ActionRegistry.ActionRegistry.instance().action('emulation.toggle-device-mode');
     const model = DeviceModeModel.instance();
     this._showDeviceModeSetting = model.enabledSetting();
     this._showDeviceModeSetting.setRequiresUserAction(Boolean(Root.Runtime.Runtime.queryParam('hasOtherClients')));
     this._showDeviceModeSetting.addChangeListener(this._update.bind(this, false));
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.ScreenshotRequested,
-        this._screenshotRequestedFromOverlay, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.ScreenshotRequested, this._screenshotRequestedFromOverlay, this);
     this._update(true);
   }
 
-  /**
-   * @param {{forceNew: ?boolean, inspectedPagePlaceholder: ?InspectedPagePlaceholder}} opts
-   */
-  static instance(opts = {forceNew: null, inspectedPagePlaceholder: null}) {
-    const {forceNew, inspectedPagePlaceholder} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+    inspectedPagePlaceholder: InspectedPagePlaceholder | null;
+  } = { forceNew: null, inspectedPagePlaceholder: null }): DeviceModeWrapper {
+    const { forceNew, inspectedPagePlaceholder } = opts;
     if (!deviceModeWrapperInstance || forceNew) {
       if (!inspectedPagePlaceholder) {
-        throw new Error(
-            `Unable to create DeviceModeWrapper: inspectedPagePlaceholder must be provided: ${new Error().stack}`);
+        throw new Error(`Unable to create DeviceModeWrapper: inspectedPagePlaceholder must be provided: ${new Error().stack}`);
       }
 
       deviceModeWrapperInstance = new DeviceModeWrapper(inspectedPagePlaceholder);
@@ -53,42 +49,35 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
     return deviceModeWrapperInstance;
   }
 
-  _toggleDeviceMode() {
+  _toggleDeviceMode(): void {
     this._showDeviceModeSetting.set(!this._showDeviceModeSetting.get());
   }
 
-  /**
-   * @param {boolean=} fullSize
-   * @param {!Protocol.Page.Viewport=} clip
-   * @return {boolean}
-   */
-  _captureScreenshot(fullSize, clip) {
+  _captureScreenshot(fullSize?: boolean, clip?: Protocol.Page.Viewport): boolean {
     if (!this._deviceModeView) {
       this._deviceModeView = new DeviceModeView();
     }
     this._deviceModeView.setNonEmulatedAvailableSize(this._inspectedPagePlaceholder.element);
     if (fullSize) {
       this._deviceModeView.captureFullSizeScreenshot();
-    } else if (clip) {
+    }
+    else if (clip) {
       this._deviceModeView.captureAreaScreenshot(clip);
-    } else {
+    }
+    else {
       this._deviceModeView.captureScreenshot();
     }
     return true;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _screenshotRequestedFromOverlay(event) {
-    const clip = /** @type {!Protocol.Page.Viewport} */ (event.data);
+  _screenshotRequestedFromOverlay(event: {
+    data: any;
+  }): void {
+    const clip = (event.data as Protocol.Page.Viewport);
     this._captureScreenshot(false, clip);
   }
 
-  /**
-   * @param {boolean} force
-   */
-  _update(force) {
+  _update(force: boolean): void {
     if (this._toggleDeviceModeAction) {
       this._toggleDeviceModeAction.setToggled(this._showDeviceModeSetting.get());
     }
@@ -106,7 +95,8 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
       this._deviceModeView.show(this.element);
       this._inspectedPagePlaceholder.clearMinimumSize();
       this._inspectedPagePlaceholder.show(this._deviceModeView.element);
-    } else {
+    }
+    else {
       if (this._deviceModeView) {
         this._deviceModeView.exitHingeMode();
         this._deviceModeView.detach();
@@ -117,20 +107,10 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
   }
 }
 
-/** @type {!ActionDelegate} */
-let actionDelegateInstance;
+let actionDelegateInstance: ActionDelegate;
 
-/**
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class ActionDelegate {
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     if (DeviceModeWrapper.instance()) {
       switch (actionId) {
         case 'emulation.capture-screenshot':
@@ -141,7 +121,7 @@ export class ActionDelegate {
           if (!node) {
             return true;
           }
-          async function captureClip() {
+          async function captureClip(): Promise<void> {
             if (!node) {
               return;
             }
@@ -150,9 +130,9 @@ export class ActionDelegate {
             if (!object) {
               return;
             }
-            const result = await object.callFunction(function() {
-              const rect = /** @type {!Element} */ (this).getBoundingClientRect();
-              const docRect = /** @type {!Element} */ (this).ownerDocument.documentElement.getBoundingClientRect();
+            const result = await object.callFunction(function () {
+              const rect = (this as Element).getBoundingClientRect();
+              const docRect = (this as Element).ownerDocument.documentElement.getBoundingClientRect();
               return JSON.stringify({
                 x: rect.left - docRect.left,
                 y: rect.top - docRect.top,
@@ -164,8 +144,7 @@ export class ActionDelegate {
             if (!result.object) {
               throw new Error('Clipping error: could not get object data.');
             }
-            const clip =
-                /** @type {!Protocol.Page.Viewport} */ (JSON.parse(/** @type {string} */ (result.object.value)));
+            const clip = (JSON.parse((result.object.value as string)));
             const response = await node.domModel().target().pageAgent().invoke_getLayoutMetrics();
             const error = response.getError();
             const page_zoom = !error && response.visualViewport.zoom || 1;
@@ -189,11 +168,10 @@ export class ActionDelegate {
     }
     return false;
   }
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): ActionDelegate {
+    const { forceNew } = opts;
     if (!actionDelegateInstance || forceNew) {
       actionDelegateInstance = new ActionDelegate();
     }
