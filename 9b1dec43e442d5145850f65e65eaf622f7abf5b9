@@ -16,6 +16,23 @@
       "message": "Small change to PRESUBMIT to match file limits in the JS and CSS style checks",
       "revId": "9b1dec43e442d5145850f65e65eaf622f7abf5b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5af6e28e_d62276c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-13T06:22:36Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "9b1dec43e442d5145850f65e65eaf622f7abf5b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
