@@ -16,6 +16,23 @@
       "message": "Thanks 😊",
       "revId": "97323fa8e53f2235a72cc520726738510b62170b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d31a48_fc3cbd54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-04-13T07:05:01Z",
+      "side": 1,
+      "message": "I reached out to the team to learn more about why this change hasn\u0027t landed yet: It seems like the upstream is not currently set to master.\nCould you change your local upstream to master and then upload the patch again?",
+      "revId": "97323fa8e53f2235a72cc520726738510b62170b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
