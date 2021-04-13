@@ -16,6 +16,23 @@
       "message": "Jack, do you have some time to review this change please?",
       "revId": "33d6e27d9313d52af1711cb8ec60817d51cb8faa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0d192e_9f12058a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-13T09:03:03Z",
+      "side": 1,
+      "message": "Nice! LGTM",
+      "revId": "33d6e27d9313d52af1711cb8ec60817d51cb8faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
