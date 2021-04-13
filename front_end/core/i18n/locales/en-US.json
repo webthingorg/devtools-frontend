@@ -8823,7 +8823,7 @@
     "message": "Paused on exception"
   },
   "sources/DebuggerPausedMessage.ts | pausedOnPromiseRejection": {
-    "message": "Paused on promise rejection"
+    "message": "Paused on Promise rejection"
   },
   "sources/DebuggerPausedMessage.ts | pausedOnS": {
     "message": "Paused on {PH1}"
