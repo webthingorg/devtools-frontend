@@ -22,6 +22,30 @@
       },
       "revId": "17bdf206cf1494947dff0c296ba14d3c63f9d0f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c201ba83_c03a0290",
+        "filename": "front_end/core/i18n/locales/en-XL.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 8826,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-13T10:43:20Z",
+      "side": 1,
+      "message": "Not sure I fully understand the question. en-XL is auto-generated. The CL updates \"Promise\" in this string to be upper-cased and locked, hence the change. Similar to XHR down below. en-XL does not \"obfuscate\" locked terms.",
+      "parentUuid": "04f947f4_5ad0e306",
+      "range": {
+        "startLine": 8826,
+        "startChar": 34,
+        "endLine": 8826,
+        "endChar": 41
+      },
+      "revId": "17bdf206cf1494947dff0c296ba14d3c63f9d0f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
