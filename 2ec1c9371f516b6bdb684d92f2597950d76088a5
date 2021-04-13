@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d3e679_05ecad1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-13T11:52:57Z",
+      "side": 1,
+      "message": "PTAL (it\u0027s ready to be reviewed but not ready to get merged because Chrome binary roll has not happened yet)",
+      "revId": "2ec1c9371f516b6bdb684d92f2597950d76088a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
