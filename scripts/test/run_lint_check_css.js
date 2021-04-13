@@ -53,7 +53,8 @@ function run() {
   const args = [
     stylelintExecutablePath(), ...getCSSFilesOrGlobList(), '--fix', '--allow-empty-input', ...extraFlagsForStylelint
   ];
-  const result = childProcess.spawnSync(nodePath(), args, {encoding: 'utf-8', cwd, stdio: 'inherit'});
+  const result = childProcess.spawnSync(nodePath() + 'f', args, {encoding: 'utf-8', cwd, stdio: 'inherit'});
+  console.log(result.status);
   process.exit(result.status);
 }
 
