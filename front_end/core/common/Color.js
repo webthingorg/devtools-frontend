@@ -770,6 +770,16 @@ export class Color {
   }
 
   /**
+   * @param {number} alpha
+   * @return {!Color}
+   */
+  blendWithAlpha(alpha) {
+    const rgba = this._rgba.slice();
+    rgba[3] *= alpha;
+    return new Color(rgba, Format.RGBA);
+  }
+
+  /**
    * @param {!Color} fgColor
    * @return {!Color}
    */
