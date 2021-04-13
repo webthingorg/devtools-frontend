@@ -16,6 +16,23 @@
       "message": "I guess the net effect here is that we go from infinite duration rasterize tasks to zero-length rasterize tasks? Still wrong, but less worrisome from a dev perspective, I guess?",
       "revId": "0b546e08931f3002d27dfb5cb9f8600d620dcb5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e01ef84_b6f64e4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-04-13T19:18:27Z",
+      "side": 1,
+      "message": "LGTM with a certain amount of sadness that we\u0027re not fixing this in the tracing.",
+      "revId": "0b546e08931f3002d27dfb5cb9f8600d620dcb5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
