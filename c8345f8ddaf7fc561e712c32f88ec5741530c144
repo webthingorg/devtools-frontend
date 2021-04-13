@@ -50,6 +50,24 @@
       "message": "While I think on it, it would be kinda handy to have a unit test for the decompression, though. Also what happens if you give it a .gz file for – say – an image?",
       "revId": "c8345f8ddaf7fc561e712c32f88ec5741530c144",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c806fdb_7c16fdab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-04-13T20:53:48Z",
+      "side": 1,
+      "message": "\u003e Also what happens if you give it a .gz file for – say – an image?\n\nsame thing as trying to drop in an image now, you get a console message saying \"Malformed timeline data: Unknown JSON format\"\n\n\u003e While I think on it, it would be kinda handy to have a unit test for the decompression, though. \n\ndone!\n\nalso ported over https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/components/chunked-file-reader.js while i was at it.",
+      "parentUuid": "3ed8e276_9b536bdb",
+      "revId": "c8345f8ddaf7fc561e712c32f88ec5741530c144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
