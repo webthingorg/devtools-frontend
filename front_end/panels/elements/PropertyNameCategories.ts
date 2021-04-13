@@ -2,21 +2,23 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as SDK from '../../core/sdk/sdk.js';
 
-/** @enum {string} */
-export const Category = {
-  Layout: 'Layout',
-  Text: 'Text',
-  Appearance: 'Appearance',
-  Animation: 'Animation',
-  Grid: 'Grid',
-  Flex: 'Flex',
-  Table: 'Table',
-  CSSVariables: 'CSS Variables',
-  GeneratedContent: 'Generated Content',
-  Other: 'Other',
-};
+export const enum Category {
+  Layout = 'Layout',
+  Text = 'Text',
+  Appearance = 'Appearance',
+  Animation = 'Animation',
+  Grid = 'Grid',
+  Flex = 'Flex',
+  Table = 'Table',
+  CSSVariables = 'CSS Variables',
+  GeneratedContent = 'Generated Content',
+  Other = 'Other'
+}
+;
 
 export const DefaultCategoryOrder = [
   Category.Layout,
@@ -39,13 +41,13 @@ const CategorizedProperties = new Map([
   [
     Category.Layout,
     [
-      'display',       'margin',      'padding',         'height',         'width',           'position',
-      'top',           'right',       'bottom',          'left',           'z-index',         'float',
-      'clear',         'overflow',    'resize',          'clip',           'visibility',      'box-sizing',
-      'align-content', 'align-items', 'align-self',      'flex',           'flex-basis',      'flex-direction',
-      'flex-flow',     'flex-grow',   'flex-shrink',     'flex-wrap',      'justify-content', 'order',
-      'inline-size',   'block-size',  'min-inline-size', 'min-block-size', 'max-inline-size', 'max-block-size',
-      'min-width',     'max-width',   'min-height',      'max-height',
+      'display', 'margin', 'padding', 'height', 'width', 'position',
+      'top', 'right', 'bottom', 'left', 'z-index', 'float',
+      'clear', 'overflow', 'resize', 'clip', 'visibility', 'box-sizing',
+      'align-content', 'align-items', 'align-self', 'flex', 'flex-basis', 'flex-direction',
+      'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'justify-content', 'order',
+      'inline-size', 'block-size', 'min-inline-size', 'min-block-size', 'max-inline-size', 'max-block-size',
+      'min-width', 'max-width', 'min-height', 'max-height',
     ]
   ],
   [
@@ -163,33 +165,25 @@ const CategorizedProperties = new Map([
   ],
 ]);
 
-/** @type {!Map<string, !Array<!Category>>} */
-const CategoriesByPropertyName = new Map();
+const CategoriesByPropertyName = new Map<string, never[]>();
 
 for (const [category, styleNames] of CategorizedProperties) {
   for (const styleName of styleNames) {
     if (!CategoriesByPropertyName.has(styleName)) {
       CategoriesByPropertyName.set(styleName, []);
     }
-    const categories = /** @type Array<Category> */ (CategoriesByPropertyName.get(styleName));
+    const categories = (CategoriesByPropertyName.get(styleName) as Category[]);
     categories.push(category);
   }
 }
 
-/**
- * @param {string} propertyName
- * @return {!Array<!Category>}
- */
-const matchCategoriesByPropertyName = propertyName => {
+const matchCategoriesByPropertyName = (propertyName: string): Category[] => {
   if (CategoriesByPropertyName.has(propertyName)) {
-    return /** @type {!Array<!Category>} */ (CategoriesByPropertyName.get(propertyName));
+    return CategoriesByPropertyName.get(propertyName) as Category[];
   }
-
-  // dynamic rules can be appended here
   if (propertyName.startsWith('--')) {
     return [Category.CSSVariables];
   }
-
   return [];
 };
 
@@ -200,11 +194,8 @@ const matchCategoriesByPropertyName = propertyName => {
  * matches against several dynamic rules. It then tries to use the canonical
  * name's shorthands for matching. If nothing matches, it returns the "Other"
  * category.
- *
- * @param {string} propertyName
- * @return {!Array<!Category>}
  */
-export const categorizePropertyName = propertyName => {
+export const categorizePropertyName = (propertyName: string): Category[] => {
   const cssMetadata = SDK.CSSMetadata.cssMetadata();
   const canonicalName = cssMetadata.canonicalPropertyName(propertyName);
   const categories = matchCategoriesByPropertyName(canonicalName);

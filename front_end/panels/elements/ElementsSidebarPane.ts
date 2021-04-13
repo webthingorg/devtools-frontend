@@ -2,17 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../../core/common/common.js';
-import * as SDK from '../../core/sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../../core/sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {ComputedStyleModel, Events} from './ComputedStyleModel.js';
+import { ComputedStyleModel, Events } from './ComputedStyleModel.js';
 
 export class ElementsSidebarPane extends UI.Widget.VBox {
-  /**
-   * @param {boolean=} delegatesFocus
-   */
-  constructor(delegatesFocus) {
+  _computedStyleModel: ComputedStyleModel;
+  _updateThrottler: Common.Throttler.Throttler;
+  _updateWhenVisible: boolean;
+  constructor(delegatesFocus?: boolean) {
     super(true, delegatesFocus);
     this.element.classList.add('flex-none');
     this._computedStyleModel = new ComputedStyleModel();
@@ -22,64 +24,41 @@ export class ElementsSidebarPane extends UI.Widget.VBox {
     this._updateWhenVisible = false;
   }
 
-  /**
-   * @return {?SDK.DOMModel.DOMNode}
-   */
-  node() {
+  node(): SDK.DOMModel.DOMNode | null {
     return this._computedStyleModel.node();
   }
 
-  /**
-   * @return {?SDK.CSSModel.CSSModel}
-   */
-  cssModel() {
+  cssModel(): SDK.CSSModel.CSSModel | null {
     return this._computedStyleModel.cssModel();
   }
 
-  /**
-   * @return {!ComputedStyleModel}
-   */
-  computedStyleModel() {
+  computedStyleModel(): ComputedStyleModel {
     return this._computedStyleModel;
   }
 
-  /**
-   * @protected
-   * @return {!Promise.<?>}
-   */
-  async doUpdate() {
+  async doUpdate(): Promise<any> {
     return;
   }
 
-  update() {
+  update(): void {
     this._updateWhenVisible = !this.isShowing();
     if (this._updateWhenVisible) {
       return;
     }
     this._updateThrottler.schedule(innerUpdate.bind(this));
 
-    /**
-     * @return {!Promise.<?>}
-     * @this {ElementsSidebarPane}
-     */
-    function innerUpdate() {
+    function innerUpdate(this: ElementsSidebarPane): Promise<any> {
       return this.isShowing() ? this.doUpdate() : Promise.resolve();
     }
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     super.wasShown();
     if (this._updateWhenVisible) {
       this.update();
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  onCSSModelChanged(event) {
+  onCSSModelChanged(event: Common.EventTarget.EventTargetEvent): void {
   }
 }

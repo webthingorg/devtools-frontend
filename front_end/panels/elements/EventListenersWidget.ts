@@ -31,6 +31,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -77,13 +79,15 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/EventListenersWidget.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/** @type {!EventListenersWidget} */
-let eventListenersWidgetInstance;
+let eventListenersWidgetInstance: EventListenersWidget;
 
-/**
- * @implements {UI.Toolbar.ItemsProvider}
- */
-export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
+export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget implements UI.Toolbar.ItemsProvider {
+  _toolbarItems: (UI.Toolbar.ToolbarButton | UI.Toolbar.ToolbarSettingCheckbox | UI.Toolbar.ToolbarComboBox)[];
+  _showForAncestorsSetting: Common.Settings.Setting<any>;
+  _dispatchFilterBySetting: Common.Settings.Setting<any>;
+  _showFrameworkListenersSetting: Common.Settings.Setting<any>;
+  _eventListenersView: EventListeners.EventListenersView.EventListenersView;
+  _lastRequestedNode?: SDK.DOMModel.DOMNode;
   constructor() {
     super();
     this._toolbarItems = [];
@@ -92,11 +96,11 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     this._showForAncestorsSetting.addChangeListener(this.update.bind(this));
 
     this._dispatchFilterBySetting =
-        Common.Settings.Settings.instance().createSetting('eventListenerDispatchFilterType', DispatchFilterBy.All);
+      Common.Settings.Settings.instance().createSetting('eventListenerDispatchFilterType', DispatchFilterBy.All);
     this._dispatchFilterBySetting.addChangeListener(this.update.bind(this));
 
     this._showFrameworkListenersSetting =
-        Common.Settings.Settings.instance().createSetting('showFrameowkrListeners', true);
+      Common.Settings.Settings.instance().createSetting('showFrameowkrListeners', true);
     this._showFrameworkListenersSetting.setTitle(i18nString(UIStrings.frameworkListeners));
     this._showFrameworkListenersSetting.addChangeListener(this._showFrameworkListenersChanged.bind(this));
     this._eventListenersView = new EventListeners.EventListenersView.EventListenersView(this.update.bind(this));
@@ -105,18 +109,10 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     const refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'largeicon-refresh');
     refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.update.bind(this));
     this._toolbarItems.push(refreshButton);
-    this._toolbarItems.push(new UI.Toolbar.ToolbarSettingCheckbox(
-        this._showForAncestorsSetting, i18nString(UIStrings.showListenersOnTheAncestors),
-        i18nString(UIStrings.ancestors)));
-    const dispatchFilter = new UI.Toolbar.ToolbarComboBox(
-        this._onDispatchFilterTypeChanged.bind(this), i18nString(UIStrings.eventListenersCategory));
+    this._toolbarItems.push(new UI.Toolbar.ToolbarSettingCheckbox(this._showForAncestorsSetting, i18nString(UIStrings.showListenersOnTheAncestors), i18nString(UIStrings.ancestors)));
+    const dispatchFilter = new UI.Toolbar.ToolbarComboBox(this._onDispatchFilterTypeChanged.bind(this), i18nString(UIStrings.eventListenersCategory));
 
-    /**
-     * @param {string} name
-     * @param {string} value
-     * @this {EventListenersWidget}
-     */
-    function addDispatchFilterOption(name, value) {
+    function addDispatchFilterOption(this: EventListenersWidget, name: string, value: string): void {
       const option = dispatchFilter.createOption(name, value);
       if (value === this._dispatchFilterBySetting.get()) {
         dispatchFilter.select(option);
@@ -127,19 +123,16 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     addDispatchFilterOption.call(this, i18nString(UIStrings.blocking), DispatchFilterBy.Blocking);
     dispatchFilter.setMaxWidth(200);
     this._toolbarItems.push(dispatchFilter);
-    this._toolbarItems.push(new UI.Toolbar.ToolbarSettingCheckbox(
-        this._showFrameworkListenersSetting, i18nString(UIStrings.resolveEventListenersBoundWith)));
+    this._toolbarItems.push(new UI.Toolbar.ToolbarSettingCheckbox(this._showFrameworkListenersSetting, i18nString(UIStrings.resolveEventListenersBoundWith)));
 
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
     this.update();
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!EventListenersWidget}
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } | undefined = { forceNew: null }): EventListenersWidget {
+    const { forceNew } = opts;
     if (!eventListenersWidgetInstance || forceNew) {
       eventListenersWidgetInstance = new EventListenersWidget();
     }
@@ -147,12 +140,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     return eventListenersWidgetInstance;
   }
 
-  /**
-   * @override
-   * @protected
-   * @return {!Promise.<?>}
-   */
-  doUpdate() {
+  doUpdate(): Promise<any> {
     if (this._lastRequestedNode) {
       this._lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(_objectGroupName);
       delete this._lastRequestedNode;
@@ -168,7 +156,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     const promises = [];
     promises.push(node.resolveToObject(_objectGroupName));
     if (!selectedNodeOnly) {
-      let currentNode = node.parentNode;
+      let currentNode: (SDK.DOMModel.DOMNode | null) = node.parentNode;
       while (currentNode) {
         promises.push(currentNode.resolveToObject(_objectGroupName));
         currentNode = currentNode.parentNode;
@@ -176,41 +164,29 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
       promises.push(this._windowObjectInNodeContext(node));
     }
     return Promise.all(promises)
-        .then(this._eventListenersView.addObjects.bind(this._eventListenersView))
-        .then(this._showFrameworkListenersChanged.bind(this));
+      .then(this._eventListenersView.addObjects.bind(this._eventListenersView))
+      .then(this._showFrameworkListenersChanged.bind(this));
   }
 
-  /**
-   * @override
-   * @return {!Array<!UI.Toolbar.ToolbarItem>}
-   */
-  toolbarItems() {
+  toolbarItems(): UI.Toolbar.ToolbarItem[] {
     return this._toolbarItems;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onDispatchFilterTypeChanged(event) {
-    const filter = /** @type {!HTMLInputElement} */ (event.target);
+  _onDispatchFilterTypeChanged(event: Event): void {
+    const filter = (event.target as HTMLInputElement);
     this._dispatchFilterBySetting.set(filter.value);
   }
 
-  _showFrameworkListenersChanged() {
+  _showFrameworkListenersChanged(): void {
     const dispatchFilter = this._dispatchFilterBySetting.get();
     const showPassive = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Passive;
     const showBlocking = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Blocking;
-    this._eventListenersView.showFrameworkListeners(
-        this._showFrameworkListenersSetting.get(), showPassive, showBlocking);
+    this._eventListenersView.showFrameworkListeners(this._showFrameworkListenersSetting.get(), showPassive, showBlocking);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
-   */
-  _windowObjectInNodeContext(node) {
+  _windowObjectInNodeContext(node: SDK.DOMModel.DOMNode): Promise<SDK.RemoteObject.RemoteObject | null> {
     const executionContexts = node.domModel().runtimeModel().executionContexts();
-    let context = executionContexts[0];
+    let context: SDK.RuntimeModel.ExecutionContext = executionContexts[0];
     if (node.frameId()) {
       for (let i = 0; i < executionContexts.length; ++i) {
         const executionContext = executionContexts[i];
@@ -221,31 +197,30 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     }
 
     return context
-        .evaluate(
-            {
-              expression: 'self',
-              objectGroup: _objectGroupName,
-              includeCommandLineAPI: false,
-              silent: true,
-              returnByValue: false,
-              generatePreview: false,
-              throwOnSideEffect: undefined,
-              timeout: undefined,
-              disableBreaks: undefined,
-              replMode: undefined,
-              allowUnsafeEvalBlockedByCSP: undefined,
-            },
-            /* userGesture */ false,
-            /* awaitPromise */ false)
-        .then(result => {
-          if ('object' in result) {
-            return result.object;
-          }
-          return null;
-        });
+      .evaluate({
+      expression: 'self',
+      objectGroup: _objectGroupName,
+      includeCommandLineAPI: false,
+      silent: true,
+      returnByValue: false,
+      generatePreview: false,
+      throwOnSideEffect: undefined,
+      timeout: undefined,
+      disableBreaks: undefined,
+      replMode: undefined,
+      allowUnsafeEvalBlockedByCSP: undefined,
+    }, 
+    /* userGesture */ false, 
+    /* awaitPromise */ false)
+      .then(result => {
+      if ('object' in result) {
+        return result.object;
+      }
+      return null;
+    });
   }
 
-  _eventListenersArrivedForTest() {
+  _eventListenersArrivedForTest(): void {
   }
 }
 
