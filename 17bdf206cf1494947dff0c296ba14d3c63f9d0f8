@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f947f4_5ad0e306",
+        "filename": "front_end/core/i18n/locales/en-XL.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 8826,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-13T10:38:09Z",
+      "side": 1,
+      "message": "Is this auto-generated? If yes, why does this need to be edited?",
+      "range": {
+        "startLine": 8826,
+        "startChar": 34,
+        "endLine": 8826,
+        "endChar": 41
+      },
+      "revId": "17bdf206cf1494947dff0c296ba14d3c63f9d0f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
