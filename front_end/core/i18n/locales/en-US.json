@@ -9770,6 +9770,9 @@
   "timeline/TimelineUIUtils.ts | compositeLayers": {
     "message": "Composite Layers"
   },
+  "timeline/TimelineUIUtils.ts | computeIntersections": {
+    "message": "Compute Intersections"
+  },
   "timeline/TimelineUIUtils.ts | consoleTime": {
     "message": "Console Time"
   },
