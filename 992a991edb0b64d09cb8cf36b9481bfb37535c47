@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde0ca99_776bbeb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-14T13:59:35Z",
+      "side": 1,
+      "message": "nit: could this be more specific about which test it\u0027s unflaking?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "992a991edb0b64d09cb8cf36b9481bfb37535c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7f003c9_37299b01",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-04-14T13:55:29Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "992a991edb0b64d09cb8cf36b9481bfb37535c47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee375940_0ac3757c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-14T13:59:35Z",
+      "side": 1,
+      "message": "LGTM with nit.",
       "revId": "992a991edb0b64d09cb8cf36b9481bfb37535c47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
