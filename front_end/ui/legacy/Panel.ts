@@ -30,16 +30,16 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import {SearchableView} from './SearchableView.js';  // eslint-disable-line no-unused-vars
 import {SplitWidget} from './SplitWidget.js';
 import {VBox} from './Widget.js';
 
-
 export class Panel extends VBox {
-  /**
-   * @param {string} name
-   */
-  constructor(name) {
+  _panelName: string;
+
+  constructor(name: string) {
     super();
 
     this.element.classList.add('panel');
@@ -52,32 +52,25 @@ export class Panel extends VBox {
     UI.panels[name] = this;
   }
 
-  get name() {
+  get name(): string {
     return this._panelName;
   }
 
-  /**
-   * @return {?SearchableView}
-   */
-  searchableView() {
+  searchableView(): SearchableView|null {
     return null;
   }
 
-  /**
-   * @override
-   * @return {!Array.<!Element>}
-   */
-  elementsToRestoreScrollPositionsFor() {
+  elementsToRestoreScrollPositionsFor(): Element[] {
     return [];
   }
 }
 
 export class PanelWithSidebar extends Panel {
-  /**
-   * @param {string} name
-   * @param {number=} defaultWidth
-   */
-  constructor(name, defaultWidth) {
+  _panelSplitWidget: SplitWidget;
+  _mainWidget: VBox;
+  _sidebarWidget: VBox;
+
+  constructor(name: string, defaultWidth?: number) {
     super(name);
 
     this._panelSplitWidget = new SplitWidget(true, false, this._panelName + 'PanelSplitViewState', defaultWidth || 200);
@@ -93,24 +86,15 @@ export class PanelWithSidebar extends Panel {
     this._sidebarWidget.element.classList.add('panel-sidebar');
   }
 
-  /**
-   * @return {!Element}
-   */
-  panelSidebarElement() {
+  panelSidebarElement(): Element {
     return this._sidebarWidget.element;
   }
 
-  /**
-   * @return {!Element}
-   */
-  mainElement() {
+  mainElement(): Element {
     return this._mainWidget.element;
   }
 
-  /**
-   * @return {!SplitWidget}
-   */
-  splitWidget() {
+  splitWidget(): SplitWidget {
     return this._panelSplitWidget;
   }
 }

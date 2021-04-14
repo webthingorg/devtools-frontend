@@ -2,6 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
+
 import * as Platform from '../../core/platform/platform.js';
 
 import {GlassPane} from './GlassPane.js';
@@ -10,16 +13,19 @@ import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-co
 import {Events as ZoomManagerEvents, ZoomManager} from './ZoomManager.js';
 
 export class Tooltip {
-  /**
-   * @param {!Document} doc
-   */
-  constructor(doc) {
+  element: HTMLElement;
+  _shadowRoot: ShadowRoot;
+  _tooltipElement: HTMLElement;
+  _anchorElement?: Element;
+  _tooltipLastOpened?: number;
+  _tooltipLastClosed?: number;
+
+  constructor(doc: Document) {
     this.element = doc.body.createChild('div');
     this._shadowRoot = createShadowRootWithCoreStyles(
         this.element, {cssFile: 'ui/legacy/tooltip.css', enableLegacyPatching: true, delegatesFocus: undefined});
 
-    /** @type {!HTMLElement} */
-    this._tooltipElement = /** @type {!HTMLElement} */ (this._shadowRoot.createChild('div', 'tooltip'));
+    this._tooltipElement = this._shadowRoot.createChild('div', 'tooltip') as HTMLDivElement;
     doc.addEventListener('mousemove', this._mouseMove.bind(this), true);
     doc.addEventListener('mousedown', this._hide.bind(this, true), true);
     doc.addEventListener('mouseleave', this._hide.bind(this, false), true);
@@ -32,20 +38,12 @@ export class Tooltip {
     }
   }
 
-  /**
-   * @param {!Document} doc
-   */
-  static installHandler(doc) {
+  static installHandler(doc: Document): void {
     new Tooltip(doc);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {?Element|string} tooltipContent
-   * @param {string=} actionId
-   * @param {?TooltipOptions=} options
-   */
-  static install(element, tooltipContent, actionId, options) {
+  static install(
+      element: Element, tooltipContent: string|Element|null, actionId?: string, options?: TooltipOptions|null): void {
     if (!tooltipContent) {
       // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
       delete element[_symbol];
@@ -53,20 +51,63 @@ export class Tooltip {
     }
     // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
     element[_symbol] = {content: tooltipContent, actionId: actionId, options: options || {}};
-    /** @type {?number} */
-    let timeout;
-    element.addEventListener('focus', /** @param {!Event} event */ event => {
-      // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
-      const tooltipInstance = element.ownerDocument[_symbol];
-      if (tooltipInstance) {
-        timeout = window.setTimeout(() => {
-          if (element.matches(':focus-visible')) {
-            tooltipInstance._show(element, event);
+    let timeout: number|null;
+    element.addEventListener(
+        'focus', /** @param {!Event} event */ /** @param {!Event} event */ /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+        /** @param {!Event} event */ /** @param {!Event} event */          /** @param {!Event} event */
+                                                                           /** @param {!Event} event */
+        (/** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ /** @param {!Event} event */         /** @param {!Event} event */
+         /** @param {!Event} event */ event: Event) => {
+          // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
+          const tooltipInstance = element.ownerDocument[_symbol];
+          if (tooltipInstance) {
+            timeout = window.setTimeout(() => {
+              if (element.matches(':focus-visible')) {
+                tooltipInstance._show(element, event);
+              }
+              timeout = null;
+            }, Timing.OpeningDelay);
           }
-          timeout = null;
-        }, Timing.OpeningDelay);
-      }
-    });
+        });
     element.addEventListener('blur', () => {
       if (timeout) {
         clearTimeout(timeout);
@@ -80,28 +121,18 @@ export class Tooltip {
     });
   }
 
-  /**
-   * @param {(!Element|!Document)} element
-   * @return {string}
-   */
-  static getContent(element) {
+  static getContent(element: Document|Element): string {
     // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
     const tooltip = element[_symbol];
     return tooltip ? tooltip.content : '';
   }
 
-  /**
-   * @param {!Element} element
-   */
-  static addNativeOverrideContainer(element) {
+  static addNativeOverrideContainer(element: Element): void {
     _nativeOverrideContainer.push(element);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _mouseMove(event) {
-    const mouseEvent = /** @type {!MouseEvent} */ (event);
+  _mouseMove(event: Event): void {
+    const mouseEvent = (event as MouseEvent);
     const path = mouseEvent.composedPath();
     if (!path || mouseEvent.buttons !== 0 || (mouseEvent.movementX === 0 && mouseEvent.movementY === 0)) {
       return;
@@ -126,33 +157,26 @@ export class Tooltip {
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _keyDown(event) {
+  _keyDown(event: Event): void {
     if (!this._anchorElement) {
       return;
     }
 
     this._hide(true);
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
+    const keyboardEvent = (event as KeyboardEvent);
     if (keyboardEvent.key === 'Escape') {
       keyboardEvent.consume(true);
     }
   }
 
-  /**
-   * @param {!Element} anchorElement
-   * @param {!MouseEvent} event
-   */
-  _reposition(anchorElement, event) {
+  _reposition(anchorElement: Element, event: MouseEvent): void {
     // Reposition to ensure text doesn't overflow unnecessarily.
     this._tooltipElement.positionAt(0, 0);
     // Get container element.
-    const container = GlassPane.container(/** @type {!Document} */ (anchorElement.ownerDocument));
+    const container = GlassPane.container((anchorElement.ownerDocument as Document));
     // Position tooltip based on the anchor element.
     const containerBox = container.boxInWindow(this.element.window());
-    const anchorBox = /** @type {!Element} */ (this._anchorElement).boxInWindow(this.element.window());
+    const anchorBox = (this._anchorElement as Element).boxInWindow(this.element.window());
     const anchorOffset = 2;
     const pageMargin = 2;
     const cursorOffset = 10;
@@ -163,7 +187,7 @@ export class Tooltip {
     const tooltipWidth = this._tooltipElement.offsetWidth;
     const tooltipHeight = this._tooltipElement.offsetHeight;
     const anchorTooltipAtElement = this._anchorTooltipAtElement() || event.x === undefined;
-    let tooltipX = anchorTooltipAtElement ? anchorBox.x : event.x + cursorOffset;
+    let tooltipX: number = anchorTooltipAtElement ? anchorBox.x : event.x + cursorOffset;
     tooltipX = Platform.NumberUtilities.clamp(
         tooltipX, containerBox.x + pageMargin, containerBox.x + containerBox.width - tooltipWidth - pageMargin);
     let tooltipY;
@@ -179,10 +203,7 @@ export class Tooltip {
     this._tooltipElement.positionAt(tooltipX, tooltipY);
   }
 
-  /**
-   * @returns {boolean}
-   */
-  _anchorTooltipAtElement() {
+  _anchorTooltipAtElement(): boolean {
     if (!this._anchorElement) {
       throw new Error('No _anchorElement set');
     }
@@ -197,11 +218,7 @@ export class Tooltip {
     return this._anchorElement.nodeName === 'BUTTON' || this._anchorElement.nodeName === 'LABEL';
   }
 
-  /**
-   * @param {!Element} anchorElement
-   * @param {!MouseEvent} event
-   */
-  _show(anchorElement, event) {
+  _show(anchorElement: Element, event: MouseEvent): void {
     // @ts-ignore crbug.com/1150762: HTMLElement#title magic override.
     const tooltip = anchorElement[_symbol];
     this._anchorElement = anchorElement;
@@ -237,10 +254,7 @@ export class Tooltip {
     this._tooltipElement.classList.add('shown');
   }
 
-  /**
-   * @return {boolean}
-   */
-  _shouldUseNativeTooltips() {
+  _shouldUseNativeTooltips(): boolean {
     for (const element of _nativeOverrideContainer) {
       if (this._anchorElement && this._anchorElement.isSelfOrDescendant(element)) {
         return true;
@@ -249,10 +263,7 @@ export class Tooltip {
     return false;
   }
 
-  /**
-   * @param {boolean} removeInstant
-   */
-  _hide(removeInstant) {
+  _hide(removeInstant: boolean): void {
     delete this._anchorElement;
     this._tooltipElement.classList.remove('shown');
     if (removeInstant) {
@@ -262,33 +273,31 @@ export class Tooltip {
     }
   }
 
-  _reset() {
+  _reset(): void {
     this._hide(true);
     this._tooltipElement.positionAt(0, 0);
     this._tooltipElement.style.maxWidth = '0';
     this._tooltipElement.style.maxHeight = '0';
   }
 }
-
-/**
- * @typedef {{
- * anchorTooltipAtElement: (boolean|undefined)
- * }}
- */
-// @ts-ignore typedef
-export let TooltipOptions;
+export interface TooltipOptions {
+  anchorTooltipAtElement?: boolean;
+}
 
 const Timing = {
   // Max time between tooltips showing that no opening delay is required.
   'InstantThreshold': 300,
   // Wait time before opening a tooltip.
-  'OpeningDelay': 600
+  'OpeningDelay': 600,
 };
 
+// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const _symbol = Symbol('Tooltip');
 
 // Exported for layout tests.
 export const TooltipSymbol = _symbol;
 
-/** @type {!Array.<!Element>} */
-const _nativeOverrideContainer = [];
+// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _nativeOverrideContainer: Element[] = [];

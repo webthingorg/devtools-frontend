@@ -2,10 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import {VBox} from './Widget.js';
 import {ZoomManager} from './ZoomManager.js';
 
 export class RootView extends VBox {
+  _window?: (Window&typeof globalThis)|null;
   constructor() {
     super();
     this.markAsRoot();
@@ -14,22 +17,16 @@ export class RootView extends VBox {
     this.element.setAttribute('spellcheck', 'false');
   }
 
-  /**
-   * @param {!Document} document
-   */
-  attachToDocument(document) {
+  attachToDocument(document: Document): void {
     if (document.defaultView) {
       document.defaultView.addEventListener('resize', this.doResize.bind(this), false);
     }
     this._window = document.defaultView;
     this.doResize();
-    this.show(/** @type {!Element} */ (document.body));
+    this.show((document.body as Element));
   }
 
-  /**
-   * @override
-   */
-  doResize() {
+  doResize(): void {
     if (this._window) {
       const size = this.constraints().minimum;
       const zoom = ZoomManager.instance().zoomFactor();
