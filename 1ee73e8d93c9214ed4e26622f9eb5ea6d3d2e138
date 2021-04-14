@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ca07be_7e0655c6",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T12:53:57Z",
+      "side": 1,
+      "message": "Can we use `devtools_pre_built` instead and specify both its sources and `data` in here? As an example, see `front_end/i18n:i18n_locales`: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/core/i18n/BUILD.gn;l\u003d27-34;drc\u003d732be58da1590cba615ac11805f20f4c45c97fc9\n\nThen you will also need to add these files to the `grd_files_release_sources` array in `devtools_grd_files.gni`, otherwise you can\u0027t fetch them in a Chromium binary.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccffec0_927537c3",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T12:53:57Z",
+      "side": 1,
+      "message": "Can we move this array to a separate file? I think it would make sense to put them in `config/gni/all_devtools_files.gni`",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6530420a_cb317194",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T12:53:57Z",
+      "side": 1,
+      "message": "When using `devtools_pre_built`, this is no longer required.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "508a9437_bbbdb465",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T12:53:57Z",
+      "side": 1,
+      "message": "Awesome!",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 65
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52fca757_40c636a1",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T12:53:57Z",
+      "side": 1,
+      "message": "Same with these changes and the one in `typescript.gni`",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 54
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
