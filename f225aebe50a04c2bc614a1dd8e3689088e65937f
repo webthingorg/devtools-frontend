@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "927d2b20_6e0e99f3",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-14T10:14:07Z",
+      "side": 1,
+      "message": "Did some restructuring, let me know if you think further changes are needed.",
+      "parentUuid": "1d2b608c_e4b94b27",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 31
+      },
+      "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc0f85aa_7fa01f09",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-04-12T06:36:19Z",
       "side": 1,
       "message": "You are using a fixed value here; I\u0027m not sure whether this._node can change, in any case, I suggest moving the definition of \nconst frameOwnerFrameId \u003d this._node.frameOwnerFrameId();\ninto the arrow function.",
+      "range": {
+        "startLine": 838,
+        "startChar": 72,
+        "endLine": 838,
+        "endChar": 89
+      },
+      "revId": "f225aebe50a04c2bc614a1dd8e3689088e65937f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c63eb47_f867d7b9",
+        "filename": "front_end/panels/elements/ElementsTreeElement.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-14T10:14:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc0f85aa_7fa01f09",
       "range": {
         "startLine": 838,
         "startChar": 72,
