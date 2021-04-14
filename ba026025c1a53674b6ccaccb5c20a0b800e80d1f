@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ec2e0f_21f5ddc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-04-14T22:08:18Z",
+      "side": 1,
+      "message": "Dependent on https://chromium-review.googlesource.com/c/chromium/src/+/2827319 for recording new traces to work.",
+      "revId": "ba026025c1a53674b6ccaccb5c20a0b800e80d1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
