@@ -33,6 +33,23 @@
       "message": "LGTM, Jack could you PTAL as well?",
       "revId": "ba5de2fdba5b205b5139a398784261db94546a1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d075d27e_bfeb8ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-14T11:44:13Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "ba5de2fdba5b205b5139a398784261db94546a1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
