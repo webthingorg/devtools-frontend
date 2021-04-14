@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7181e40e_daf17f78",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-14T08:08:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c9a2047a_4b3b5c3a",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b475a53_3e7fe592",
@@ -67,6 +85,24 @@
       "side": 0,
       "message": "I don\u0027t know. I think it was a nice way to walk back through parent directories without having to care about separators.",
       "parentUuid": "3b475a53_3e7fe592",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf95bf79_feeff842",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-14T08:08:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1eb8a67d_805eb918",
       "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

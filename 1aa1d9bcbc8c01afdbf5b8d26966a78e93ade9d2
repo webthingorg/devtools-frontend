@@ -34,6 +34,24 @@
       "parentUuid": "74228937_eb8e91bc",
       "revId": "1aa1d9bcbc8c01afdbf5b8d26966a78e93ade9d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "182b54ac_831de00e",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-14T08:08:56Z",
+      "side": 1,
+      "message": "Interesting, it does not look so according to the node\u0027s doc https://nodejs.org/api/path.html#path_path_parse_path",
+      "parentUuid": "8d2be76d_d9b60d7b",
+      "revId": "1aa1d9bcbc8c01afdbf5b8d26966a78e93ade9d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
