@@ -22,6 +22,30 @@
       },
       "revId": "19c612703068b7febd404cc9c37bc1a842d23e8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb627172_bc2a36f4",
+        "filename": "front_end/ui/legacy/KeyboardShortcut.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-04-14T15:59:13Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "5d543a47_041dd552",
+      "range": {
+        "startLine": 370,
+        "startChar": 67,
+        "endLine": 370,
+        "endChar": 89
+      },
+      "revId": "19c612703068b7febd404cc9c37bc1a842d23e8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
