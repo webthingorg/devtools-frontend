@@ -50,6 +50,24 @@
       "message": "I don\u0027t think it\u0027s a problem for this CL, but in the future, do we need to pay attention to not overwrite an existing Linkifier\u0027s `onLiveLocationUpdate` callback with another one?",
       "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "536ec2ac_46c1a9b8",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-14T08:51:53Z",
+      "side": 1,
+      "message": "Indeed, I checked the call sites for the setter to make sure it\u0027s not overwritten in this case. Do you know why the setter was introduced in the first place? If the only place to provide the callback is the constructor, then it\u0027s safe by definition.",
+      "parentUuid": "8fba51aa_b14f14e1",
+      "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
