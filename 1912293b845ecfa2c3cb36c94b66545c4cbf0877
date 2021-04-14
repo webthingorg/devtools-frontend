@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a76b5d5_36681fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-04-14T22:13:32Z",
+      "side": 1,
+      "message": "LGTM. \nsorry for the delay. merge conflict now. :/",
+      "revId": "1912293b845ecfa2c3cb36c94b66545c4cbf0877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
