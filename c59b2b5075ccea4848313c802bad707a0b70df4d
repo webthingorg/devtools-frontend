@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9a2047a_4b3b5c3a",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-14T08:04:34Z",
+      "side": 0,
+      "message": "Yes it is used in the devtoolsRootPath function below.",
+      "parentUuid": "99e12afc_678f79a0",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b475a53_3e7fe592",
         "filename": "scripts/devtools_paths.js",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-04-14T06:14:58Z",
       "side": 0,
       "message": "any ideas why it was written this way in the first place?",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eb8a67d_805eb918",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-14T08:04:34Z",
+      "side": 0,
+      "message": "I don\u0027t know. I think it was a nice way to walk back through parent directories without having to care about separators.",
+      "parentUuid": "3b475a53_3e7fe592",
       "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
