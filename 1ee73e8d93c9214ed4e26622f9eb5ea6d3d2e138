@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c6a4de_6499b815",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-14T13:35:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ca07be_7e0655c6",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ccffec0_927537c3",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10caa16_6768083d",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-14T13:35:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ccffec0_927537c3",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6530420a_cb317194",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-04-14T12:53:57Z",
       "side": 1,
       "message": "When using `devtools_pre_built`, this is no longer required.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ea552e_7d6d4f1b",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-14T13:35:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6530420a_cb317194",
       "range": {
         "startLine": 92,
         "startChar": 2,
@@ -106,6 +178,30 @@
       "writtenOn": "2021-04-14T12:53:57Z",
       "side": 1,
       "message": "Same with these changes and the one in `typescript.gni`",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 54
+      },
+      "revId": "1ee73e8d93c9214ed4e26622f9eb5ea6d3d2e138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75230033_6c4100c8",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-14T13:35:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52fca757_40c636a1",
       "range": {
         "startLine": 46,
         "startChar": 6,
