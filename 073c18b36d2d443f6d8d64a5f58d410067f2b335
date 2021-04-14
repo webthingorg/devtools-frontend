@@ -94,6 +94,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8598cc2_960bced3",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-14T11:35:23Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "823f15c6_e8986e9c",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 70
+      },
+      "revId": "073c18b36d2d443f6d8d64a5f58d410067f2b335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "332f8783_a097b28d",
         "filename": "front_end/panels/elements/ElementsTreeElement.js",
         "patchSetId": 5
