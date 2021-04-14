@@ -33,6 +33,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 
@@ -93,15 +95,35 @@ const UIStrings = {
   */
   dMatches: '{PH1} matches',
 };
-const str_ = i18n.i18n.registerUIStrings('ui/legacy/SearchableView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('ui/legacy/SearchableView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SearchableView extends VBox {
-  /**
-   * @param {!Searchable} searchable
-   * @param {?Replaceable} replaceable
-   * @param {string=} settingName
-   */
-  constructor(searchable, replaceable, settingName) {
+  _searchProvider: Searchable;
+  _replaceProvider: Replaceable|null;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _setting: Common.Settings.Setting<any>|null;
+  _replaceable: boolean;
+  _footerElementContainer: HTMLElement;
+  _footerElement: HTMLElement;
+  _replaceToggleButton: ToolbarToggle;
+  _searchInputElement: HistoryInput;
+  _matchesElement: HTMLElement;
+  _searchNavigationPrevElement: HTMLElement;
+  _searchNavigationNextElement: HTMLElement;
+  _replaceInputElement: HTMLInputElement;
+  _buttonsContainer: HTMLElement;
+  _caseSensitiveButton: ToolbarToggle|undefined;
+  _regexButton: ToolbarToggle|undefined;
+  _secondRowButtons: HTMLElement;
+  _replaceButtonElement: HTMLButtonElement;
+  _replaceAllButtonElement: HTMLButtonElement;
+  _minimalSearchQuerySize: number;
+  _searchIsVisible?: boolean;
+  _currentQuery?: string;
+  _valueChangedTimeoutId?: number;
+
+  constructor(searchable: Searchable, replaceable: Replaceable|null, settingName?: string) {
     super(true);
     this.registerRequiredCSS('ui/legacy/searchableView.css', {enableLegacyPatching: false});
     searchableViewsByElement.set(this.element, this);
@@ -151,11 +173,8 @@ export class SearchableView extends VBox {
 
     this._searchInputElement.addEventListener('keydown', this._onSearchKeyDown.bind(this), true);
     this._searchInputElement.addEventListener('input', this._onInput.bind(this), false);
-
-    /** @type {!HTMLInputElement} */
     this._replaceInputElement =
-        /** @type {!HTMLInputElement} */ (
-            searchInputElements.createChild('input', 'search-replace toolbar-replace-control hidden'));
+        (searchInputElements.createChild('input', 'search-replace toolbar-replace-control hidden') as HTMLInputElement);
     this._replaceInputElement.addEventListener('keydown', this._onReplaceKeyDown.bind(this), true);
     this._replaceInputElement.placeholder = i18nString(UIStrings.replace);
 
@@ -198,13 +217,8 @@ export class SearchableView extends VBox {
     this._loadSetting();
   }
 
-  /**
-   * @param {?Element} element
-   * @return {?SearchableView}
-   */
-  static fromElement(element) {
-    /** @type {?SearchableView} */
-    let view = null;
+  static fromElement(element: Element|null): SearchableView|null {
+    let view: (SearchableView|null)|null = null;
     while (element && !view) {
       view = searchableViewsByElement.get(element) || null;
       element = element.parentElementOrShadowHost();
@@ -212,7 +226,7 @@ export class SearchableView extends VBox {
     return view;
   }
 
-  _toggleCaseSensitiveSearch() {
+  _toggleCaseSensitiveSearch(): void {
     if (this._caseSensitiveButton) {
       this._caseSensitiveButton.setToggled(!this._caseSensitiveButton.toggled());
     }
@@ -220,7 +234,7 @@ export class SearchableView extends VBox {
     this._performSearch(false, true);
   }
 
-  _toggleRegexSearch() {
+  _toggleRegexSearch(): void {
     if (this._regexButton) {
       this._regexButton.setToggled(!this._regexButton.toggled());
     }
@@ -228,12 +242,12 @@ export class SearchableView extends VBox {
     this._performSearch(false, true);
   }
 
-  _toggleReplace() {
+  _toggleReplace(): void {
     this._replaceToggleButton.setToggled(!this._replaceToggleButton.toggled());
     this._updateSecondRowVisibility();
   }
 
-  _saveSetting() {
+  _saveSetting(): void {
     if (!this._setting) {
       return;
     }
@@ -247,7 +261,7 @@ export class SearchableView extends VBox {
     this._setting.set(settingValue);
   }
 
-  _loadSetting() {
+  _loadSetting(): void {
     const settingValue = this._setting ? (this._setting.get() || {}) : {};
     if (this._searchProvider.supportsCaseSensitiveSearch() && this._caseSensitiveButton) {
       this._caseSensitiveButton.setToggled(Boolean(settingValue.caseSensitive));
@@ -257,36 +271,25 @@ export class SearchableView extends VBox {
     }
   }
 
-  /**
-   * @param {number} minimalSearchQuerySize
-   */
-  setMinimalSearchQuerySize(minimalSearchQuerySize) {
+  setMinimalSearchQuerySize(minimalSearchQuerySize: number): void {
     this._minimalSearchQuerySize = minimalSearchQuerySize;
   }
 
-  /**
-   * @param {string} placeholder
-   * @param {string=} ariaLabel
-   */
-  setPlaceholder(placeholder, ariaLabel) {
+  setPlaceholder(placeholder: string, ariaLabel?: string): void {
     this._searchInputElement.placeholder = placeholder;
     if (ariaLabel) {
       ARIAUtils.setAccessibleName(this._searchInputElement, ariaLabel);
     }
   }
 
-  /**
-   * @param {boolean} replaceable
-   */
-  setReplaceable(replaceable) {
+  setReplaceable(replaceable: boolean): void {
     this._replaceable = replaceable;
   }
 
-  /**
-   * @param {number} matches
-   */
-  updateSearchMatchesCount(matches) {
-    const untypedSearchProvider = /** @type {*} */ (this._searchProvider);
+  updateSearchMatchesCount(matches: number): void {
+    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const untypedSearchProvider = (this._searchProvider as any);
     if (untypedSearchProvider.currentSearchMatches === matches) {
       return;
     }
@@ -294,35 +297,30 @@ export class SearchableView extends VBox {
     this._updateSearchMatchesCountAndCurrentMatchIndex(untypedSearchProvider.currentQuery ? matches : 0, -1);
   }
 
-  /**
-   * @param {number} currentMatchIndex
-   */
-  updateCurrentMatchIndex(currentMatchIndex) {
-    const untypedSearchProvider = /** @type {*} */ (this._searchProvider);
+  updateCurrentMatchIndex(currentMatchIndex: number): void {
+    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const untypedSearchProvider = (this._searchProvider as any);
     this._updateSearchMatchesCountAndCurrentMatchIndex(untypedSearchProvider.currentSearchMatches, currentMatchIndex);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isSearchVisible() {
+  isSearchVisible(): boolean {
     return Boolean(this._searchIsVisible);
   }
 
-  closeSearch() {
+  closeSearch(): void {
     this.cancelSearch();
     if (this._footerElementContainer.hasFocus()) {
       this.focus();
     }
   }
 
-  /** @param {boolean} toggled */
-  _toggleSearchBar(toggled) {
+  _toggleSearchBar(toggled: boolean): void {
     this._footerElementContainer.classList.toggle('hidden', !toggled);
     this.doResize();
   }
 
-  cancelSearch() {
+  cancelSearch(): void {
     if (!this._searchIsVisible) {
       return;
     }
@@ -331,13 +329,13 @@ export class SearchableView extends VBox {
     this._toggleSearchBar(false);
   }
 
-  resetSearch() {
+  resetSearch(): void {
     this._clearSearch();
     this._updateReplaceVisibility();
     this._matchesElement.textContent = '';
   }
 
-  refreshSearch() {
+  refreshSearch(): void {
     if (!this._searchIsVisible) {
       return;
     }
@@ -345,10 +343,7 @@ export class SearchableView extends VBox {
     this._performSearch(false, false);
   }
 
-  /**
-   * @return {boolean}
-   */
-  handleFindNextShortcut() {
+  handleFindNextShortcut(): boolean {
     if (!this._searchIsVisible) {
       return false;
     }
@@ -356,10 +351,7 @@ export class SearchableView extends VBox {
     return true;
   }
 
-  /**
-   * @return {boolean}
-   */
-  handleFindPreviousShortcut() {
+  handleFindPreviousShortcut(): boolean {
     if (!this._searchIsVisible) {
       return false;
     }
@@ -367,18 +359,12 @@ export class SearchableView extends VBox {
     return true;
   }
 
-  /**
-   * @return {boolean}
-   */
-  handleFindShortcut() {
+  handleFindShortcut(): boolean {
     this.showSearchField();
     return true;
   }
 
-  /**
-   * @return {boolean}
-   */
-  handleCancelSearchShortcut() {
+  handleCancelSearchShortcut(): boolean {
     if (!this._searchIsVisible) {
       return false;
     }
@@ -386,21 +372,14 @@ export class SearchableView extends VBox {
     return true;
   }
 
-  /**
-   * @param {boolean} enabled
-   */
-  _updateSearchNavigationButtonState(enabled) {
+  _updateSearchNavigationButtonState(enabled: boolean): void {
     this._replaceButtonElement.disabled = !enabled;
     this._replaceAllButtonElement.disabled = !enabled;
     this._searchNavigationPrevElement.classList.toggle('enabled', enabled);
     this._searchNavigationNextElement.classList.toggle('enabled', enabled);
   }
 
-  /**
-   * @param {number} matches
-   * @param {number} currentMatchIndex
-   */
-  _updateSearchMatchesCountAndCurrentMatchIndex(matches, currentMatchIndex) {
+  _updateSearchMatchesCountAndCurrentMatchIndex(matches: number, currentMatchIndex: number): void {
     if (!this._currentQuery) {
       this._matchesElement.textContent = '';
     } else if (matches === 0 || currentMatchIndex >= 0) {
@@ -413,7 +392,7 @@ export class SearchableView extends VBox {
     this._updateSearchNavigationButtonState(matches > 0);
   }
 
-  showSearchField() {
+  showSearchField(): void {
     if (this._searchIsVisible) {
       this.cancelSearch();
     }
@@ -437,7 +416,7 @@ export class SearchableView extends VBox {
     this._searchIsVisible = true;
   }
 
-  _updateReplaceVisibility() {
+  _updateReplaceVisibility(): void {
     this._replaceToggleButton.setVisible(this._replaceable);
     if (!this._replaceable) {
       this._replaceToggleButton.setToggled(false);
@@ -445,11 +424,8 @@ export class SearchableView extends VBox {
     }
   }
 
-  /**
-   * @param {!Event} ev
-   */
-  _onSearchKeyDown(ev) {
-    const event = /** @type {!KeyboardEvent} */ (ev);
+  _onSearchKeyDown(ev: Event): void {
+    const event = (ev as KeyboardEvent);
     if (isEscKey(event)) {
       this.closeSearch();
       event.consume(true);
@@ -466,19 +442,13 @@ export class SearchableView extends VBox {
     }
   }
 
-  /**
-   * @param {!KeyboardEvent} event
-   */
-  _onReplaceKeyDown(event) {
+  _onReplaceKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this._replace();
     }
   }
 
-  /**
-   * @param {boolean=} isBackwardSearch
-   */
-  _jumpToNextSearchResult(isBackwardSearch) {
+  _jumpToNextSearchResult(isBackwardSearch?: boolean): void {
     if (!this._currentQuery) {
       return;
     }
@@ -490,8 +460,7 @@ export class SearchableView extends VBox {
     }
   }
 
-  /** @param {!Event} event */
-  _onNextButtonSearch(event) {
+  _onNextButtonSearch(_event: Event): void {
     if (!this._searchNavigationNextElement.classList.contains('enabled')) {
       return;
     }
@@ -499,8 +468,7 @@ export class SearchableView extends VBox {
     this._searchInputElement.focus();
   }
 
-  /** @param {!Event} event */
-  _onPrevButtonSearch(event) {
+  _onPrevButtonSearch(_event: Event): void {
     if (!this._searchNavigationPrevElement.classList.contains('enabled')) {
       return;
     }
@@ -508,8 +476,7 @@ export class SearchableView extends VBox {
     this._searchInputElement.focus();
   }
 
-  /** @param {!Event} event */
-  _onFindClick(event) {
+  _onFindClick(_event: Event): void {
     if (!this._currentQuery) {
       this._performSearch(true, true);
     } else {
@@ -518,8 +485,7 @@ export class SearchableView extends VBox {
     this._searchInputElement.focus();
   }
 
-  /** @param {!Event} event */
-  _onPreviousClick(event) {
+  _onPreviousClick(_event: Event): void {
     if (!this._currentQuery) {
       this._performSearch(true, true, true);
     } else {
@@ -528,8 +494,10 @@ export class SearchableView extends VBox {
     this._searchInputElement.focus();
   }
 
-  _clearSearch() {
-    const untypedSearchProvider = /** @type {*} */ (this._searchProvider);
+  _clearSearch(): void {
+    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const untypedSearchProvider = (this._searchProvider as any);
     delete this._currentQuery;
     if (Boolean(untypedSearchProvider.currentQuery)) {
       delete untypedSearchProvider.currentQuery;
@@ -538,12 +506,7 @@ export class SearchableView extends VBox {
     this._updateSearchMatchesCountAndCurrentMatchIndex(0, -1);
   }
 
-  /**
-   * @param {boolean} forceSearch
-   * @param {boolean} shouldJump
-   * @param {boolean=} jumpBackwards
-   */
-  _performSearch(forceSearch, shouldJump, jumpBackwards) {
+  _performSearch(forceSearch: boolean, shouldJump: boolean, jumpBackwards?: boolean): void {
     const query = this._searchInputElement.value;
     if (!query || (!forceSearch && query.length < this._minimalSearchQuerySize && !this._currentQuery)) {
       this._clearSearch();
@@ -551,23 +514,22 @@ export class SearchableView extends VBox {
     }
 
     this._currentQuery = query;
-    /** @type {*} */ (this._searchProvider).currentQuery = query;
+    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (this._searchProvider as any).currentQuery = query;
 
     const searchConfig = this._currentSearchConfig();
     this._searchProvider.performSearch(searchConfig, shouldJump, jumpBackwards);
   }
 
-  /**
-   * @return {!SearchConfig}
-   */
-  _currentSearchConfig() {
+  _currentSearchConfig(): SearchConfig {
     const query = this._searchInputElement.value;
     const caseSensitive = this._caseSensitiveButton ? this._caseSensitiveButton.toggled() : false;
     const isRegex = this._regexButton ? this._regexButton.toggled() : false;
     return new SearchConfig(query, caseSensitive, isRegex);
   }
 
-  _updateSecondRowVisibility() {
+  _updateSecondRowVisibility(): void {
     const secondRowVisible = this._replaceToggleButton.toggled();
     this._footerElementContainer.classList.toggle('replaceable', secondRowVisible);
     this._secondRowButtons.classList.toggle('hidden', !secondRowVisible);
@@ -581,7 +543,7 @@ export class SearchableView extends VBox {
     this.doResize();
   }
 
-  _replace() {
+  _replace(): void {
     if (!this._replaceProvider) {
       throw new Error('No \'replacable\' provided to SearchableView!');
     }
@@ -591,7 +553,7 @@ export class SearchableView extends VBox {
     this._performSearch(true, true);
   }
 
-  _replaceAll() {
+  _replaceAll(): void {
     if (!this._replaceProvider) {
       throw new Error('No \'replacable\' provided to SearchableView!');
     }
@@ -599,10 +561,7 @@ export class SearchableView extends VBox {
     this._replaceProvider.replaceAllWith(searchConfig, this._replaceInputElement.value);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onInput(event) {
+  _onInput(_event: Event): void {
     if (this._valueChangedTimeoutId) {
       clearTimeout(this._valueChangedTimeoutId);
     }
@@ -610,7 +569,7 @@ export class SearchableView extends VBox {
     this._valueChangedTimeoutId = setTimeout(this._onValueChanged.bind(this), timeout);
   }
 
-  _onValueChanged() {
+  _onValueChanged(): void {
     if (!this._searchIsVisible) {
       return;
     }
@@ -619,83 +578,38 @@ export class SearchableView extends VBox {
   }
 }
 
+// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const _symbol = Symbol('searchableView');
 
-/** @type {!WeakMap<!Element, !SearchableView>} */
-const searchableViewsByElement = new WeakMap();
+const searchableViewsByElement = new WeakMap<Element, SearchableView>();
 
-/**
- * @interface
- */
-export class Searchable {
-  searchCanceled() {
-  }
-
-  /**
-   * @param {!SearchConfig} searchConfig
-   * @param {boolean} shouldJump
-   * @param {boolean=} jumpBackwards
-   */
-  performSearch(searchConfig, shouldJump, jumpBackwards) {
-  }
-
-  jumpToNextSearchResult() {
-  }
-
-  jumpToPreviousSearchResult() {
-  }
-
-  /**
-   * @return {boolean}
-   */
-  supportsCaseSensitiveSearch() {
-    throw new Error('not implemented yet');
-  }
-
-  /**
-   * @return {boolean}
-   */
-  supportsRegexSearch() {
-    throw new Error('not implemented yet');
-  }
+export interface Searchable {
+  searchCanceled(): void;
+  performSearch(searchConfig: SearchConfig, shouldJump: boolean, jumpBackwards?: boolean): void;
+  jumpToNextSearchResult(): void;
+  jumpToPreviousSearchResult(): void;
+  supportsCaseSensitiveSearch(): boolean;
+  supportsRegexSearch(): boolean;
 }
 
-/**
- * @interface
- */
-export class Replaceable {
-  /**
-   * @param {!SearchConfig} searchConfig
-   * @param {string} replacement
-   */
-  replaceSelectionWith(searchConfig, replacement) {
-  }
-
-  /**
-   * @param {!SearchConfig} searchConfig
-   * @param {string} replacement
-   */
-  replaceAllWith(searchConfig, replacement) {
-  }
+export interface Replaceable {
+  replaceSelectionWith(searchConfig: SearchConfig, replacement: string): void;
+  replaceAllWith(searchConfig: SearchConfig, replacement: string): void;
 }
 
 export class SearchConfig {
-  /**
-   * @param {string} query
-   * @param {boolean} caseSensitive
-   * @param {boolean} isRegex
-   */
-  constructor(query, caseSensitive, isRegex) {
+  query: string;
+  caseSensitive: boolean;
+  isRegex: boolean;
+
+  constructor(query: string, caseSensitive: boolean, isRegex: boolean) {
     this.query = query;
     this.caseSensitive = caseSensitive;
     this.isRegex = isRegex;
   }
 
-  /**
-   * @param {boolean=} global
-   * @return {!RegExp}
-   */
-  toSearchRegex(global) {
+  toSearchRegex(global?: boolean): RegExp {
     let modifiers = this.caseSensitive ? '' : 'i';
     if (global) {
       modifiers += 'g';
