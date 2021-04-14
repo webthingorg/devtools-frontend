@@ -43,6 +43,8 @@ template("devtools_entrypoint") {
 
       deps = invoker.deps
 
+      forward_variables_from(invoker, [ "data_deps" ])
+
       is_web_worker = _is_web_worker
     }
 
@@ -119,6 +121,8 @@ template("devtools_entrypoint") {
       deps = invoker.deps
 
       public_deps = [ ":$_copy_target_name" ]
+
+      forward_variables_from(invoker, [ "data_deps" ])
 
       is_web_worker = _is_web_worker
 

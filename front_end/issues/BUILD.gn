@@ -2,6 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("../../scripts/build/ninja/copy.gni")
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../scripts/build/ninja/devtools_module.gni")
 
@@ -47,10 +48,48 @@ devtools_module("issues") {
   visibility = [ "../../test/unittests/front_end/issues" ]
 }
 
+copy_to_gen("descriptions") {
+  sources = [
+    "descriptions/CoepCoopSandboxedIframeCannotNavigateToCoopPage.md",
+    "descriptions/CoepCorpNotSameOrigin.md",
+    "descriptions/CoepCorpNotSameOriginAfterDefaultedToSameOriginByCoep.md",
+    "descriptions/CoepCorpNotSameSite.md",
+    "descriptions/CoepFrameResourceNeedsCoepHeader.md",
+    "descriptions/LowTextContrast.md",
+    "descriptions/SameSiteExcludeContextDowngradeRead.md",
+    "descriptions/SameSiteExcludeContextDowngradeSet.md",
+    "descriptions/SameSiteExcludeNavigationContextDowngrade.md",
+    "descriptions/SameSiteNoneInsecureErrorRead.md",
+    "descriptions/SameSiteNoneInsecureErrorSet.md",
+    "descriptions/SameSiteNoneInsecureWarnRead.md",
+    "descriptions/SameSiteNoneInsecureWarnSet.md",
+    "descriptions/SameSiteUnspecifiedLaxAllowUnsafeRead.md",
+    "descriptions/SameSiteUnspecifiedLaxAllowUnsafeSet.md",
+    "descriptions/SameSiteUnspecifiedTreatedAsLaxRead.md",
+    "descriptions/SameSiteUnspecifiedTreatedAsLaxSet.md",
+    "descriptions/SameSiteWarnCrossDowngradeRead.md",
+    "descriptions/SameSiteWarnCrossDowngradeSet.md",
+    "descriptions/SameSiteWarnStrictLaxDowngradeStrict.md",
+    "descriptions/TwaDigitalAssetLinksFailed.md",
+    "descriptions/TwaHttpError.md",
+    "descriptions/TwaPageUnavailableOffline.md",
+    "descriptions/corsInsecurePrivateNetwork.md",
+    "descriptions/cspEvalViolation.md",
+    "descriptions/cspInlineViolation.md",
+    "descriptions/cspTrustedTypesPolicyViolation.md",
+    "descriptions/cspTrustedTypesSinkViolation.md",
+    "descriptions/cspURLViolation.md",
+    "descriptions/heavyAd.md",
+    "descriptions/mixedContent.md",
+    "descriptions/sharedArrayBuffer.md",
+  ]
+}
+
 devtools_entrypoint("bundle") {
   entrypoint = "issues.ts"
 
   deps = [ ":issues" ]
+  data_deps = [ ":descriptions" ]
 }
 
 devtools_entrypoint("meta") {

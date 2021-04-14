@@ -48,6 +48,7 @@ template("ts_library") {
                              "visibility",
                              "deps",
                              "public_deps",
+                             "data_deps",
                            ])
 
     inputs = [
