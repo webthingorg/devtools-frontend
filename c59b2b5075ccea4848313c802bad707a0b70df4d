@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e12afc_678f79a0",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-14T06:14:58Z",
+      "side": 0,
+      "message": "Is pathIsMostTopLevelPath still used somewhere?",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b475a53_3e7fe592",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-14T06:14:58Z",
+      "side": 0,
+      "message": "any ideas why it was written this way in the first place?",
+      "revId": "c59b2b5075ccea4848313c802bad707a0b70df4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
