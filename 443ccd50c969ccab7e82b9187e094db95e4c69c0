@@ -16,6 +16,115 @@
       "message": "Before this can land, I need to prepare some tests for the load delay that the XMLHttpRequest introduces: https://crrev.com/c/2804261",
       "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81c52ee0_2b8b46c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T14:12:14Z",
+      "side": 1,
+      "message": "We are almost there!",
+      "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469ff505_e23bb0bf",
+        "filename": "config/gni/all_devtools_files.gni",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T14:12:14Z",
+      "side": 1,
+      "message": "Nit: `issues/descriptions/$file` so that you can remove the `descriptions/` from `devtools_issue_description_files`",
+      "range": {
+        "startLine": 471,
+        "startChar": 48,
+        "endLine": 471,
+        "endChar": 56
+      },
+      "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26eb18a9_06a61ae0",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T14:12:14Z",
+      "side": 1,
+      "message": "The `target_gen_dir` already correctly maps to the relative directory in `gen/`. E.g. it will be equivalent to `out/Default/gen/front_end/issues/`. Therefore, we should remove the `front_end/issues/` from here. That\u0027s why you are seeing CQ failures on this: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8849971164604101392/+/u/isolate_tests__with_patch_/stdout\n\nIf you want to verify you have the correct locations, you can run the following command to inspect the paths:\n\n```\ngn desc out/Default front_end/issues:descriptions runtime_deps\n```",
+      "range": {
+        "startLine": 56,
+        "startChar": 16,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b87acd5_1b244a01",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T14:12:14Z",
+      "side": 1,
+      "message": "Ultra-nit: `description.file`",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 43
+      },
+      "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b1445b_4637120b",
+        "filename": "front_end/models/issues_manager/ContentSecurityPolicyIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T14:12:14Z",
+      "side": 1,
+      "message": "If every file already exists in `descriptions/`, can we remove the `descriptions/` from these properties and instead include that in the URL in `MarkdownIssueDescription.ts`?",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 21
+      },
+      "revId": "443ccd50c969ccab7e82b9187e094db95e4c69c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
