@@ -50,6 +50,69 @@
       "message": "Simon, PTAL at ElementsTreeElement as owner, thanks!",
       "revId": "073c18b36d2d443f6d8d64a5f58d410067f2b335",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103292c1_d924d2f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-14T11:24:34Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "073c18b36d2d443f6d8d64a5f58d410067f2b335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823f15c6_e8986e9c",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-14T11:24:34Z",
+      "side": 1,
+      "message": "nit:\n throw new Error(\u0027Internal error: not a frame\u0027)\n\nhas the same effect without a nested promise I think",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 70
+      },
+      "revId": "073c18b36d2d443f6d8d64a5f58d410067f2b335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332f8783_a097b28d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-14T11:24:34Z",
+      "side": 1,
+      "message": "couple of nits for the description:\n1) IIUC then the menu item is shown when right-clicking any HTML element. Maybe we can explain it\n2) Translators also won\u0027t know what \"frame\" is. Maybe we can link to an MDN explainer or leave a quick sentence?",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 137
+      },
+      "revId": "073c18b36d2d443f6d8d64a5f58d410067f2b335",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
