@@ -68,6 +68,24 @@
       "parentUuid": "8fba51aa_b14f14e1",
       "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28136f64_3c9109dd",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-14T13:23:43Z",
+      "side": 1,
+      "message": "For stacktraces we set the callback here https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/components/JSPresentationUtils.ts;l\u003d99?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20jspresentationutils. And the `Linkifier` is passed in as a parameter from a bunch of different places.\nCould we turn it into `Linkifier.addLiveLocationUpdateCallback()` instead and have multiple callbacks?",
+      "parentUuid": "536ec2ac_46c1a9b8",
+      "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
