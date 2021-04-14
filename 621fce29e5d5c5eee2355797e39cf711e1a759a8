@@ -86,6 +86,24 @@
       "parentUuid": "536ec2ac_46c1a9b8",
       "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "438163d1_5dfba33a",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-14T13:47:00Z",
+      "side": 1,
+      "message": "In the above example, how do you ensure that the callback doesn\u0027t get overwritten?\n\nBut yes I agree, this should just be a standard event subscription model instead. We should fix this in a follow-up.",
+      "parentUuid": "28136f64_3c9109dd",
+      "revId": "621fce29e5d5c5eee2355797e39cf711e1a759a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
