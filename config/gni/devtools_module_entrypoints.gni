@@ -188,6 +188,7 @@ devtools_module_entrypoint_sources = [
   "ui/components/data_grid/data_grid.js",
   "ui/components/icon_button/icon_button.js",
   "ui/components/linkifier/linkifier.js",
+  "ui/components/markdown_view/markdown_view.js",
   "ui/components/tree_outline/tree_outline.js",
   "ui/legacy/components/color_picker/color_picker-legacy.js",
   "ui/legacy/components/color_picker/color_picker.js",
