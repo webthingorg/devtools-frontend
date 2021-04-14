@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bb77d78_25a58eb6",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T10:01:39Z",
+      "side": 1,
+      "message": "Nit: clean this up",
+      "range": {
+        "startLine": 873,
+        "startChar": 37,
+        "endLine": 894,
+        "endChar": 69
+      },
+      "revId": "938e4e0ebd43b79bd2f8bc2c02ea1e382d84ec93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8f7ae98_ff028475",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T10:01:39Z",
+      "side": 1,
+      "message": "Nit: clean this up",
+      "range": {
+        "startLine": 901,
+        "startChar": 21,
+        "endLine": 944,
+        "endChar": 37
+      },
+      "revId": "938e4e0ebd43b79bd2f8bc2c02ea1e382d84ec93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
