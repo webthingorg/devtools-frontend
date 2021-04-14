@@ -36,7 +36,7 @@ export class HeavyAdIssue extends Issue {
 
   getDescription(): MarkdownIssueDescription {
     return {
-      file: 'issues/descriptions/heavyAd.md',
+      file: 'descriptions/heavyAd.md',
       substitutions: undefined,
       links: [
         {

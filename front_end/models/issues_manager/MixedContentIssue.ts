@@ -42,7 +42,7 @@ export class MixedContentIssue extends Issue {
 
   getDescription(): MarkdownIssueDescription {
     return {
-      file: 'issues/descriptions/mixedContent.md',
+      file: 'descriptions/mixedContent.md',
       substitutions: undefined,
       links:
           [{link: 'https://web.dev/what-is-mixed-content/', linkTitle: i18nString(UIStrings.preventingMixedContent)}],
