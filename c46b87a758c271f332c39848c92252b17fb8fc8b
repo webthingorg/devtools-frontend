@@ -16,6 +16,23 @@
       "message": "Hope I did this correctly - thanks for checking and helping 😊",
       "revId": "c46b87a758c271f332c39848c92252b17fb8fc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbeadb87_5c1d038f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-04-14T16:15:39Z",
+      "side": 1,
+      "message": "LGTM, thanks for reuploading!",
+      "revId": "c46b87a758c271f332c39848c92252b17fb8fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
