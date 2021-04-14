@@ -429,3 +429,44 @@ copied_devtools_locale_files = []
 foreach(locale, devtools_locale_files) {
   copied_devtools_locale_files += [ "core/i18n/locales/$locale" ]
 }
+
+devtools_issue_description_files = [
+  "descriptions/CoepCoopSandboxedIframeCannotNavigateToCoopPage.md",
+  "descriptions/CoepCorpNotSameOrigin.md",
+  "descriptions/CoepCorpNotSameOriginAfterDefaultedToSameOriginByCoep.md",
+  "descriptions/CoepCorpNotSameSite.md",
+  "descriptions/CoepFrameResourceNeedsCoepHeader.md",
+  "descriptions/LowTextContrast.md",
+  "descriptions/SameSiteExcludeContextDowngradeRead.md",
+  "descriptions/SameSiteExcludeContextDowngradeSet.md",
+  "descriptions/SameSiteExcludeNavigationContextDowngrade.md",
+  "descriptions/SameSiteNoneInsecureErrorRead.md",
+  "descriptions/SameSiteNoneInsecureErrorSet.md",
+  "descriptions/SameSiteNoneInsecureWarnRead.md",
+  "descriptions/SameSiteNoneInsecureWarnSet.md",
+  "descriptions/SameSiteUnspecifiedLaxAllowUnsafeRead.md",
+  "descriptions/SameSiteUnspecifiedLaxAllowUnsafeSet.md",
+  "descriptions/SameSiteUnspecifiedTreatedAsLaxRead.md",
+  "descriptions/SameSiteUnspecifiedTreatedAsLaxSet.md",
+  "descriptions/SameSiteWarnCrossDowngradeRead.md",
+  "descriptions/SameSiteWarnCrossDowngradeSet.md",
+  "descriptions/SameSiteWarnStrictLaxDowngradeStrict.md",
+  "descriptions/TwaDigitalAssetLinksFailed.md",
+  "descriptions/TwaHttpError.md",
+  "descriptions/TwaPageUnavailableOffline.md",
+  "descriptions/corsInsecurePrivateNetwork.md",
+  "descriptions/cspEvalViolation.md",
+  "descriptions/cspInlineViolation.md",
+  "descriptions/cspTrustedTypesPolicyViolation.md",
+  "descriptions/cspTrustedTypesSinkViolation.md",
+  "descriptions/cspURLViolation.md",
+  "descriptions/heavyAd.md",
+  "descriptions/mixedContent.md",
+  "descriptions/sharedArrayBuffer.md",
+]
+
+copied_devtools_issue_description_files = []
+
+foreach(file, devtools_issue_description_files) {
+  copied_devtools_issue_description_files += [ "issues/$file" ]
+}
