@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd512ff0_69feb1a8",
+        "filename": "front_end/i18n/locales/en-XL.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T15:36:32Z",
+      "side": 1,
+      "message": "This file should be removed (probably a mistake in rebasing?)",
+      "range": {
+        "startLine": 2,
+        "startChar": 4,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "618f319640f0185b80b12b838c78030025c24dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0acea600_221d1311",
+        "filename": "front_end/ui/legacy/Tooltip.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-14T15:36:32Z",
+      "side": 1,
+      "message": "Nit: remove this comment",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 99,
+        "endChar": 37
+      },
+      "revId": "618f319640f0185b80b12b838c78030025c24dbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
