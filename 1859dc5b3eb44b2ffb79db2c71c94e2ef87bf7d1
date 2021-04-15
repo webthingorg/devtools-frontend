@@ -22,6 +22,30 @@
       },
       "revId": "1859dc5b3eb44b2ffb79db2c71c94e2ef87bf7d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0026d142_35f80309",
+        "filename": "front_end/models/issues_manager/MarkdownIssueDescription.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-15T14:58:31Z",
+      "side": 1,
+      "message": "Will do this in a follow-up, thanks!",
+      "parentUuid": "27a1b2a4_59e354e9",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "1859dc5b3eb44b2ffb79db2c71c94e2ef87bf7d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
