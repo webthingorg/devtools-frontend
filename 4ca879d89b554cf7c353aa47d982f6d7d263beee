@@ -16,6 +16,23 @@
       "message": "Dirk: This is matching what chromium does, so your feedback would be much appreciated. Is there any probable fallout we need to be wary of? What impact should we expect?",
       "revId": "4ca879d89b554cf7c353aa47d982f6d7d263beee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81db9196_6acc16f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-15T11:42:41Z",
+      "side": 1,
+      "message": "LGTM given Dirks approval and we know what the impact of this change is.",
+      "revId": "4ca879d89b554cf7c353aa47d982f6d7d263beee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
