@@ -52,6 +52,24 @@
       "parentUuid": "13ddc692_80651c1c",
       "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d793f107_223fdcc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-15T15:13:17Z",
+      "side": 1,
+      "message": "We might be able to enable bfcache in our e2e test suite; but I have to check.\n\nI don\u0027t seem to find the relevant comment on the CL you liked? Did you talk about enabling bfcache for e2e tests?",
+      "parentUuid": "8a3350a9_586fd3e8",
+      "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
