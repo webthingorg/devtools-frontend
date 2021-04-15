@@ -539,6 +539,7 @@ export class ResourceTreeFrame {
   _crossOriginIsolatedContextType: Protocol.Page.CrossOriginIsolatedContextType|null;
   _gatedAPIFeatures: Protocol.Page.GatedAPIFeatures[]|null;
   _creationStackTrace: Protocol.Runtime.StackTrace|null;
+  _creationStackTraceTarget: Target|null;
   _childFrames: Set<ResourceTreeFrame>;
   _resourcesMap: Map<string, Resource>;
   restoredFromBackForwardCache: boolean|undefined = undefined;
@@ -564,6 +565,7 @@ export class ResourceTreeFrame {
     this._gatedAPIFeatures = payload && payload.gatedAPIFeatures;
 
     this._creationStackTrace = creationStackTrace;
+    this._creationStackTraceTarget = null;
 
     this._childFrames = new Set();
 
