@@ -157,9 +157,9 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
       }
     });
 
-    await this.render();
     // Mark the node as pending focus so when it is rendered into the DOM we can focus it
     this.nodePendingFocus = targetTreeNode;
+    await this.render();
   }
 
   async collapseChildrenOfNode(domNode: HTMLLIElement): Promise<void> {
@@ -393,7 +393,12 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
           if (!(domNode instanceof HTMLLIElement)) {
             return;
           }
-          if (node === this.nodePendingFocus) {
+
+          // If an id key was supplied for the node, match on that.
+          // Otherwise default to object equality.
+          if (node.id && this.nodePendingFocus && this.nodePendingFocus.id && node.id === this.nodePendingFocus.id) {
+            this.focusPendingNode(domNode);
+          } else if (node === this.nodePendingFocus) {
             this.focusPendingNode(domNode);
           }
         })}
@@ -510,7 +515,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
 
         [role="treeitem"]:focus-visible > .arrow-and-key-wrapper {
           /* stylelint-disable-next-line color-named */
-          border-color: black;
+          background-color: var(--color-syntax-7);
         }
       </style>
       <div class="wrapping-container">
