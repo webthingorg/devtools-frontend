@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6361a577_3b7ddb17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-04-15T11:25:21Z",
+      "side": 1,
+      "message": "Dirk: This is matching what chromium does, so your feedback would be much appreciated. Is there any probable fallout we need to be wary of? What impact should we expect?",
+      "revId": "4ca879d89b554cf7c353aa47d982f6d7d263beee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
