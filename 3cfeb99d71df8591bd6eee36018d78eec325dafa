@@ -34,6 +34,24 @@
       "parentUuid": "87fa0878_fd8809e5",
       "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a3350a9_586fd3e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-15T14:00:30Z",
+      "side": 1,
+      "message": "It needs bfcache to be enabled (which is still behind a flag), can I do this inside the frontend repo (had a similar discussion with alexrudenko@ in https://crrev.com/c/2739835)?",
+      "parentUuid": "13ddc692_80651c1c",
+      "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
