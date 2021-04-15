@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67345ca4_479c2ee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-15T21:18:06Z",
+      "side": 1,
+      "message": "Andrey/Dmitry, do you have anything to add to this? If having a constant frameId associated to a target is an invariant we cannot break, I might have to try another way to handle activation: probably update the frame token in the activated page\u0027s renderer when it activates, so that the main target always reports the same frameId. This might break some features that rely on a renderer always reporting the same frameId throughout its lifetime (but I guess we can fix them incrementally) and they would only break during activation.",
+      "parentUuid": "1b47cb78_3b109e72",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
