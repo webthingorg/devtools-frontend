@@ -13,6 +13,7 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
   if (!node.numChildren()) {
     return {
       treeNodeData: node,
+      id: node.id(),
     };
   }
 
@@ -26,6 +27,7 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
       const treeNodeChildren = (children || []).map(child => sdkNodeToAXTreeNode(child));
       return Promise.resolve(treeNodeChildren);
     },
+    id: node.id(),
   };
 }
 
