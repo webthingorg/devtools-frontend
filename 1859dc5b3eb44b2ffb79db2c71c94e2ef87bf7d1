@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27a1b2a4_59e354e9",
+        "filename": "front_end/models/issues_manager/MarkdownIssueDescription.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-15T14:00:47Z",
+      "side": 1,
+      "message": "Nit: I didn\u0027t spot this in the previous CL (sorry), but I think the following is a little bit clearer in handling the promise:\n\n```\nreturn new Promise\u003cstring\u003e(resolve \u003d\u003e {\n  const oReq \u003d new XMLHttpRequest();\n  oReq.addEventListener(\u0027load\u0027, function() {\n    if (this.status !\u003d\u003d 200) {\n      throw new Error(`Markdown file ${\n          url.toString()} not found. Make sure it is correctly listed in the relevant BUILD.gn files.`);\n    }\n    resolve(this.responseText);\n  });\n  oReq.open(\u0027GET\u0027, url.toString());\n  oReq.send();\n});\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "1859dc5b3eb44b2ffb79db2c71c94e2ef87bf7d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
