@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bfc1e7f_538f5b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-04-15T14:58:31Z",
+      "side": 1,
+      "message": "This is a forward fix of https://crrev.com/c/2698615, PTAL!",
+      "revId": "e1462f30770e11d1f815112b2c462998c62df6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
