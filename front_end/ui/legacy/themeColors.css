@@ -21,6 +21,7 @@
   /** Used when the elevation is visible only on dark theme */
   --color-background-elevation-dark-only: var(--color-background);
   --color-background-highlight: rgb(202 205 209);
+  --color-background-red: rgb(238 68 47 / 7%);
   /** To draw grid lines behind elements */
   --divider-line: rgb(0 0 0 / 10%);
   /**
