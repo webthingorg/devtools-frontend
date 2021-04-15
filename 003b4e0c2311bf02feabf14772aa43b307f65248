@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "003b4e0c2311bf02feabf14772aa43b307f65248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30529535_938f1e82",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-15T15:08:21Z",
+      "side": 1,
+      "message": "This seems brittle: Whenever the implementation changes, then this string will block the roll. \n\nCan you instead sanity check this particular string? I.e. contains \"ch-width\" or similar?",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 755
+      },
+      "revId": "003b4e0c2311bf02feabf14772aa43b307f65248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
