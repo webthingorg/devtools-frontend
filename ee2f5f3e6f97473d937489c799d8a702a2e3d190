@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1277fff_bb695602",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-15T10:05:41Z",
+      "side": 1,
+      "message": "LGTM after the color is clarified - thanks so much Alex!",
+      "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3abea6_6311f9bb",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-15T10:05:41Z",
+      "side": 1,
+      "message": "If this color is just a one off for the toolbar, let\u0027s define it in the toolbar css file as:\n\n.toolbar {\n  --override-toolbar-warning-red: rgb(...)\n}\n\nAnd use it there. Else if you think this is a color that should be a theme color as we\u0027ll use it a bunch, please could you chat to Peter M about it? Thanks!",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
