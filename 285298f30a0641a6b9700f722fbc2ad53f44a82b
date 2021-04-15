@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4e0587d_53850fd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-15T22:23:24Z",
+      "side": 1,
+      "message": "\u003e We discussed this offline with Andrey. Some thoughts:\n\u003e \n\u003e - IIUC, with the proposed changes, in the case of BFCache navigation the main frame gets a new RFH and thus a new frameId? This breaks the invariant that main frame id stays the same, and this is even more fundamental then targetId\u003d\u003dframeId assumption made by clients. I do not think this is ever going to fly.\n\u003e \n\nActually BFCache navigations on their own aren\u0027t problematic (or rather it isn\u0027t why I wrote this change). The new RFH is just restored to the same FrameTreeNode that it used to be the current_render_frame_host for (so it doesn\u0027t move between targets). The problematic scenario is activations (so prerendering/portals) where a RFH moves from one FTN to another (so it effectively moves between two targets). So the way things currently are, the main frame id reported from the main target to clients, changes when we activate a prerendered page. \n \n\u003e - Based on the above, there could be two solutions:\n\u003e   1. Disable BFCache when DevTools client attaches. Then we can probably enable it over protocol and make specific clients (mostly DevTools frontend) work with whatever changes that requires, like changing main frame id.\n\u003e   2. Treat BFCache similarly to cross-process navigation, where we already have two RFHs (old and new) that share the same frameId (equal to FTN\u0027s devtools_frame_token). With BFCache, we\u0027ll get a similar navigation from one RFH to another RFH, and the only difference is that the new RFH is not empty (while it is empty in regular cross-process navigation). We can try reattaching to this new RFH like we do today, and make sure that all domains handle that as expected (e.g. report the new frame tree on attach).\n\u003e   Variant 1 seems like more work, but variant 2 has some unknowns around various inspector agents not handling reattach properly.\n\nVariant 2 is actually exactly what\u0027s happening for BFCache right now, and I\u0027ve been slowly landing a few fixes to the frontend to make it handle things correctly.\n\n\u003e \n\u003e - For portals and other frame tree reshakes, it seems like a separate event that will inform about frame tree reordering is necessary anyway. Therefore, most clients should be able to handle this case based on the event, and we can try to keep targetId\u003d\u003dframeId invariant. For example, when portal is activated, the client should treat another target as a \"tab\" target, and the old \"tab\" target becomes a \"portal child\". WDYT? Note that clients that do not handle this event will break anyway, and I don\u0027t see a sane way around that. Given that these features are rare, perhaps that\u0027s ok.\n\nI think portals currently do this actually (they have to because we use a multiple WebContents architecture right now, so we\u0027re actually connecting to a new tab). But there are things that completely break (like remote debugging for example) because we are creating a new session when we switch targets, instead of reusing an existing session which is what happens when we do a regular navigation. So we\u0027d have to implement a way to change the main target associated with a devtools session without closing the session (might not be impossible, its just that we don\u0027t currently have a way of doing it).\n\nAlso with this, I think we\u0027d still have the problem of the main target reporting a different main frame id before and after activation (the target_id \u003d\u003d frame_id will not break however).",
+      "parentUuid": "242aaff6_ce0310a2",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
