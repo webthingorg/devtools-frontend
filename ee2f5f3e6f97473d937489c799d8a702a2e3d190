@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d365db2b_495724c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-15T10:10:58Z",
+      "side": 1,
+      "message": "Peter, PTAL.",
+      "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf3abea6_6311f9bb",
@@ -48,6 +65,30 @@
       "writtenOn": "2021-04-15T10:05:41Z",
       "side": 1,
       "message": "If this color is just a one off for the toolbar, let\u0027s define it in the toolbar css file as:\n\n.toolbar {\n  --override-toolbar-warning-red: rgb(...)\n}\n\nAnd use it there. Else if you think this is a color that should be a theme color as we\u0027ll use it a bunch, please could you chat to Peter M about it? Thanks!",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102cfc9d_e53f6cea",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-15T10:10:58Z",
+      "side": 1,
+      "message": "Yes, I have talked to Peter M already. I will add him to this CL to have a final look.",
+      "parentUuid": "cf3abea6_6311f9bb",
       "range": {
         "startLine": 24,
         "startChar": 0,
