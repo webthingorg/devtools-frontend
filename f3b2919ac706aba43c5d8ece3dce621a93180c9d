@@ -73,6 +73,30 @@
       },
       "revId": "f3b2919ac706aba43c5d8ece3dce621a93180c9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4829e558_4028b1eb",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-15T07:09:29Z",
+      "side": 1,
+      "message": "This has been resolved on the team-chat.",
+      "parentUuid": "3f95ab5d_5b182f8b",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 42
+      },
+      "revId": "f3b2919ac706aba43c5d8ece3dce621a93180c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
