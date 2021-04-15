@@ -32,7 +32,7 @@ describe('The Application Tab', async () => {
   });
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
-  it.skip('[crbug.com/1165710]: shows details for a frame when clicked on in the frame tree', async () => {
+  it('shows details for a frame when clicked on in the frame tree', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'frame-tree');
     await click('#tab-resources');
@@ -53,8 +53,9 @@ describe('The Application Tab', async () => {
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable ⚠️ will require cross-origin isolated context in the future',
+        'unavailable requires cross-origin isolated context',
         'unavailable Learn more',
+        'accelerometer, ambient-light-sensor, autoplay, camera, ch-device-memory, ch-downlink, ch-dpr, ch-ect, ch-lang, ch-rtt, ch-ua, ch-ua-arch, ch-ua-full-version, ch-ua-mobile, ch-ua-model, ch-ua-platform, ch-ua-platform-version, ch-viewport-width, ch-width, clipboard-read, clipboard-write, conversion-measurement, cross-origin-isolated, display-capture, document-domain, encrypted-media, execution-while-not-rendered, execution-while-out-of-viewport, focus-without-user-activation, fullscreen, gamepad, geolocation, gyroscope, hid, idle-detection, interest-cohort, magnetometer, microphone, midi, otp-credentials, payment, picture-in-picture, publickey-credentials-get, screen-wake-lock, serial, sync-xhr, usb, vertical-scroll, xr-spatial-tracking',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
     });
@@ -128,7 +129,7 @@ describe('The Application Tab', async () => {
   });
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
-  it.skip('[crbug.com/1165710]: can handle when JS writes to frame', async () => {
+  it('can handle when JS writes to frame', async () => {
     const {target} = getBrowserAndPages();
     await goToResource('application/main-frame.html');
     await click('#tab-resources');
@@ -151,8 +152,9 @@ describe('The Application Tab', async () => {
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable ⚠️ will require cross-origin isolated context in the future',
+        'unavailable requires cross-origin isolated context',
         'unavailable Learn more',
+        'accelerometer, ambient-light-sensor, autoplay, camera, ch-device-memory, ch-downlink, ch-dpr, ch-ect, ch-lang, ch-rtt, ch-ua, ch-ua-arch, ch-ua-full-version, ch-ua-mobile, ch-ua-model, ch-ua-platform, ch-ua-platform-version, ch-viewport-width, ch-width, clipboard-read, clipboard-write, conversion-measurement, cross-origin-isolated, display-capture, document-domain, encrypted-media, execution-while-not-rendered, execution-while-out-of-viewport, focus-without-user-activation, fullscreen, gamepad, geolocation, gyroscope, hid, idle-detection, interest-cohort, magnetometer, microphone, midi, otp-credentials, payment, picture-in-picture, publickey-credentials-get, screen-wake-lock, serial, sync-xhr, usb, vertical-scroll, xr-spatial-tracking',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
     });
@@ -185,8 +187,9 @@ describe('The Application Tab', async () => {
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable ⚠️ will require cross-origin isolated context in the future',
+        'unavailable requires cross-origin isolated context',
         'unavailable Learn more',
+        'accelerometer, ambient-light-sensor, autoplay, camera, ch-device-memory, ch-downlink, ch-dpr, ch-ect, ch-lang, ch-rtt, ch-ua, ch-ua-arch, ch-ua-full-version, ch-ua-mobile, ch-ua-model, ch-ua-platform, ch-ua-platform-version, ch-viewport-width, ch-width, clipboard-read, clipboard-write, conversion-measurement, cross-origin-isolated, display-capture, document-domain, encrypted-media, execution-while-not-rendered, execution-while-out-of-viewport, focus-without-user-activation, fullscreen, gamepad, geolocation, gyroscope, hid, idle-detection, interest-cohort, magnetometer, microphone, midi, otp-credentials, payment, picture-in-picture, publickey-credentials-get, screen-wake-lock, serial, sync-xhr, usb, vertical-scroll, xr-spatial-tracking',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
     });
