@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "833557bd_9d7942ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000379
+      },
+      "writtenOn": "2021-04-15T22:45:28Z",
+      "side": 1,
+      "message": "\u003e So the way things currently are, the main frame id reported from the main target to clients, changes when we activate a prerendered page.\n\nIs that because we attach to both the \"current\" page (whatever that means for prerendering) and the prerendered page? If not, perhaps (a wild idea) we can inherit devtools_frame_token and thus the frame id to the prerender page, similar to BFCache?\n\n\u003e Variant 2 is actually exactly what\u0027s happening for BFCache right now, and I\u0027ve been slowly landing a few fixes to the frontend to make it handle things correctly.\n\nWonderful! Looking forward to it. I am surprised that changes are on the frontend side - that means every other client will break. Could you point me to some examples?\n\n\u003e I think portals currently do this actually (they have to because we use a multiple WebContents architecture right now, so we\u0027re actually connecting to a new tab). But there are things that completely break (like remote debugging for example) because we are creating a new session when we switch targets, instead of reusing an existing session which is what happens when we do a regular navigation. So we\u0027d have to implement a way to change the main target associated with a devtools session without closing the session (might not be impossible, its just that we don\u0027t currently have a way of doing it).\n\nI see, this is an interesting observation. I can imagine something like Target.childTargetBecameTheRoot event, and then moving sessions between RFDTAH? Sounds somewhat scary, but worth exploring.\n\n\u003e Also with this, I think we\u0027d still have the problem of the main target reporting a different main frame id before and after activation (the target_id \u003d\u003d frame_id will not break however).\n\nYep, but at least that would be in the much more rare case of portals and such, with a dedicated event.",
+      "parentUuid": "b4e0587d_53850fd2",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
