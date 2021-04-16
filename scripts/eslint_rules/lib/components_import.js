@@ -32,6 +32,10 @@ module.exports = {
       ImportDeclaration(node) {
         const importPath = node.source.value;
 
+        if (importPath.startsWith('./')) {
+          return;
+        }
+
         if (node.specifiers.length === 0) {
           seenImportDeclarations.add(importPath);
           return;
