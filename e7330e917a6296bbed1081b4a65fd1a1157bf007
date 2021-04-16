@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8726af4_708f9c69",
+        "filename": "front_end/entrypoints/formatter_worker/CSSFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-16T10:36:59Z",
+      "side": 1,
+      "message": "would it make sense to use cssTrim here?",
+      "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1461670e_e436a338",
         "filename": "front_end/entrypoints/formatter_worker/CSSRuleParser.ts",
         "patchSetId": 1
