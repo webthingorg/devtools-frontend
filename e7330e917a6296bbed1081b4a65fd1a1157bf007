@@ -86,6 +86,24 @@
       "parentUuid": "1461670e_e436a338",
       "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e079e4cb_c0ee03b1",
+        "filename": "front_end/entrypoints/formatter_worker/CSSRuleParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-16T11:02:20Z",
+      "side": 1,
+      "message": "It\u0027s the former for me -- I\u0027m mainly just curious about if we have a central place for them, and if it\u0027s worth it to actually export them. Thanks for the explanation!",
+      "parentUuid": "74000644_d5906f34",
+      "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
