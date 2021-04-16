@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19caf9af_158b0b5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-16T07:50:12Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b748ff94_3b4fb5f3",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-04-16T07:25:47Z",
       "side": 1,
       "message": "Is \"sab-issue.html\" still needed elsewhere?",
+      "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd113d7_74fa93f3",
+        "filename": "test/e2e/resources/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-16T07:50:12Z",
+      "side": 1,
+      "message": "Coincidently, it is still used in a couple of other places that need a COI page. I\u0027ll leave it in for now and clean that up later on.",
+      "parentUuid": "b748ff94_3b4fb5f3",
       "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
