@@ -16,6 +16,46 @@
       "message": "Rebased! Is there any action I can take here?",
       "revId": "fdf8909edd82ac03f0f6b1815badfa9d0f98b930",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19eacd7e_5b32a22f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-16T11:40:31Z",
+      "side": 1,
+      "message": "Direction LGTM but I\u0027m not clear why we need both focusable and selected node - I think maybe focusable should just be renamed. But I\u0027m not 100% confident.\n\nAlso be nice to add a test that checks the TreeOutline does the right thing if it\u0027s given a node that\u0027s a different object with the same ID. I\u0027m happy to take that on if you don\u0027t have time - just LMK!",
+      "revId": "fdf8909edd82ac03f0f6b1815badfa9d0f98b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62ba4986_cf44e4e1",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-16T11:40:31Z",
+      "side": 1,
+      "message": "could we just have focusableTreeNode or selectedTreeNode? I\u0027m not sure if we need both. At what times should these be different?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "fdf8909edd82ac03f0f6b1815badfa9d0f98b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
