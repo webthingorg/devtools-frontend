@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c994e93d_27d7ca68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-16T13:29:23Z",
+      "side": 1,
+      "message": "@Kalon for now we could merge this CL if you update ",
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a14de8e9_1b9e655e",
@@ -127,6 +144,30 @@
       "side": 1,
       "message": "Hey Peter - could you provide color variable names for these values? I don\u0027t want to merge this file with hard-coded colors.",
       "parentUuid": "42762fd4_c42f6e98",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56edb843_b114c88d",
+        "filename": "front_end/sources/javaScriptBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-16T13:29:23Z",
+      "side": 1,
+      "message": "@Kalon for now if this feels like a one off color we could define it inline with an --override-* variable which the linting rule allows:\n\n```\n.breakpoint-hit {\n  --override-breakpoint-hit-background: rgb(...)\n  background-color: var(--override-breakpoint-hit-background);\n}\n```\n\nIt\u0027s not perfect but lets us remove some hard coded colours which is the main priority right now.",
+      "parentUuid": "dbb5b413_c01d8055",
       "range": {
         "startLine": 41,
         "startChar": 0,
