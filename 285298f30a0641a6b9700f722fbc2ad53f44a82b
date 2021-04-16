@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b339878c_52912304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-16T19:21:08Z",
+      "side": 1,
+      "message": "\u003e I was thinking about creating a prerendering FTN with the same token as the old page\u0027s FTN.\n\nAh okay, in that case, if we do attach devtools to a prerendering page (while it\u0027s prerendering), we\u0027d have two targets reporting a root frame with the same frame id. Maybe clients can differentiate between them based on the target that\u0027s reporting them, but it seems over-complicated.\n \n\u003e Hmm... I was thinking about switching from one RFDTAH to another (IIRC, that\u0027s what we do today for portals already), so that we keep FTN\u003d\u003dRFDTAH. Changing FTN on the fly sounds pretty bad - it does not reflect what the browser does under the hood (changing RFH and keeping the same FTN).\n\nThe reason it works for portals today is that activation is actually swapping WebContents, so swapping the frame trees entirely. We have the same RFDAH observing the activated page\u0027s FTN before and after activation, we just tell the browser devtools_ui_bindings to disconnect from the old FTN\u0027s RFDAH and connect to the activated page\u0027s RFDAH. But in the case of MPArch, we actually delete the activated page\u0027s FTN during activation (which probably means its RFDAH will either be deleted or we change the FTN the RFDAH is associated with).",
+      "parentUuid": "bde8a069_c1154e82",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
