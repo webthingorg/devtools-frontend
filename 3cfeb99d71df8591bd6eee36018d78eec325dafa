@@ -88,6 +88,23 @@
       "parentUuid": "d793f107_223fdcc2",
       "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab504b6_18847ab1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000379
+      },
+      "writtenOn": "2021-04-16T17:33:59Z",
+      "side": 1,
+      "message": "Note that if we want all other clients except for frontend to work with BFCache out of the box, we should instead issue frameAttached events for the new tree upon bfcache navigation. This way any client that did Page.enable will get a correct frame tree, without the call to Page.getResourceTree.\n\n+Andrey to correct me if I am wrong.",
+      "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
