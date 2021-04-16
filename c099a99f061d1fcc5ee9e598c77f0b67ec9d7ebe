@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea25de28_616c94df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-16T07:25:47Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b748ff94_3b4fb5f3",
+        "filename": "test/e2e/resources/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-16T07:25:47Z",
+      "side": 1,
+      "message": "Is \"sab-issue.html\" still needed elsewhere?",
+      "revId": "c099a99f061d1fcc5ee9e598c77f0b67ec9d7ebe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
