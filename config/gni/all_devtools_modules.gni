@@ -229,6 +229,7 @@ all_typescript_module_sources = [
   "models/recorder/RecordingFileSystem.js",
   "models/recorder/RecordingScriptWriter.js",
   "models/recorder/RecordingSession.js",
+  "models/recorder/RecordingPlayer.js",
   "models/recorder/Steps.js",
   "models/text_utils/CodeMirrorUtils.js",
   "models/text_utils/ContentProvider.js",

@@ -8,8 +8,10 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Workspace from '../workspace/workspace.js';
+import { RecordingPlayer } from './RecordingPlayer.js';
 
-import {RecordingSession} from './RecordingSession.js';
+import { RecordingSession } from './RecordingSession.js';
+import { ClickStep, NavigationStep, StepFrameContext } from './Steps.js';
 
 const enum RecorderState {
   Recording = 'Recording',
@@ -23,7 +25,7 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
   _accessibilityAgent: ProtocolProxyApi.AccessibilityApi;
   _toggleRecordAction: UI.ActionRegistration.Action;
   _state: RecorderState;
-  _currentRecordingSession: RecordingSession|null;
+  _currentRecordingSession: RecordingSession | null;
   _indentation: string;
 
   constructor(target: SDK.SDKModel.Target) {
@@ -33,7 +35,7 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
     this._runtimeAgent = target.runtimeAgent();
     this._accessibilityAgent = target.accessibilityAgent();
     this._toggleRecordAction =
-        UI.ActionRegistry.ActionRegistry.instance().action('recorder.toggle-recording') as UI.ActionRegistration.Action;
+      UI.ActionRegistry.ActionRegistry.instance().action('recorder.toggle-recording') as UI.ActionRegistration.Action;
 
     this._state = RecorderState.Idle;
     this._currentRecordingSession = null;
@@ -50,6 +52,9 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
   }
 
   async toggleRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    this.playRecording();
+    return;
+    
     if (this._state === RecorderState.Idle) {
       await this.startRecording(uiSourceCode);
       await this.updateState(RecorderState.Recording);
@@ -71,6 +76,18 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
 
     this._currentRecordingSession.stop();
     this._currentRecordingSession = null;
+  }
+
+
+  async playRecording(): Promise<void> {
+    const recording = [
+      new NavigationStep('http://localhost:8000/test/e2e/resources/recorder/recorder.html'),
+      new ClickStep(new StepFrameContext('main', []), 'aria/Page 2'),
+      new ClickStep(new StepFrameContext('main', []), 'aria/Back to Page 1'),
+    ];
+
+    const player = new RecordingPlayer(recording);
+    await player.play();
   }
 }
 

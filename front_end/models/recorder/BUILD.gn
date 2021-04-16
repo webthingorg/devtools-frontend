@@ -13,6 +13,7 @@ devtools_module("recorder") {
     "RecordingFileSystem.ts",
     "RecordingScriptWriter.ts",
     "RecordingSession.ts",
+    "RecordingPlayer.ts",
     "Steps.ts",
   ]
 
@@ -23,6 +24,7 @@ devtools_module("recorder") {
     "../../panels/accessibility:bundle",
     "../../panels/elements:bundle",
     "../../ui/legacy:bundle",
+    "../../third_party/puppeteer:bundle",
   ]
 }
 

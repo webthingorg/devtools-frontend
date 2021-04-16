@@ -4,8 +4,10 @@
 
 import {Browser} from './package/lib/esm/puppeteer/common/Browser.js';
 import {Connection} from './package/lib/esm/puppeteer/common/Connection.js';
+import {Page} from './package/lib/esm/puppeteer/common/Page.js';
 
 export {
   Browser,
   Connection,
+  Page,
 };
