@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "463f9a37_e0033771",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-16T13:11:08Z",
+      "side": 1,
+      "message": "\u003e Is that because we attach to both the \"current\" page (whatever that means for prerendering) and the prerendered page? If not, perhaps (a wild idea) we can inherit devtools_frame_token and thus the frame id to the prerender page, similar to BFCache?\n\u003e \n\nWe send a devtools_frame_token to the renderer regardless of whether DevTools is attached or not. So currently, we don\u0027t attach to the prerendering page until we activate it (although we probably will have to support this in the future, but maybe not my default). But we do still give it a separate frame token while it is still a prerendering page (it has its own FrameTreeNode at this point). During activation time, we move it from its old FTN to a new FTN (the old main page\u0027s FTN). https://docs.google.com/document/d/1l-SeBl7m8zESdJMJlT4oNVFiJ65bjfPa8RHF_WYFuIQ/edit?pli\u003d1#heading\u003dh.6bhxt8glx2jg has a couple of diagrams that try to illustrate this.\n\nSo inheriting the devtools_frame_token is actually what I meant by \"update the frame token in the activated page\u0027s renderer when it activates\" a couple of comments earlier (if I understand what you mean by \"inherit\" correctly).\n\n\u003e Wonderful! Looking forward to it. I am surprised that changes are on the frontend side - that means every other client will break. Could you point me to some examples?\n\u003e \n\nAh sorry that was a misleading statement, there have been both frontend \u0026 backend changes involved so far:\n\nhttps://crrev.com/c/2727915\nhttps://crrev.com/c/2739835\nhttps://crrev.com/c/2784921\nhttps://crrev.com/c/2826573\n\n\u003e I see, this is an interesting observation. I can imagine something like Target.childTargetBecameTheRoot event, and then moving sessions between RFDTAH? Sounds somewhat scary, but worth exploring.\n\u003e \n\nAnother problem with this approach is the fact that RFDAH are 1:1 with a FTN, and this approach requires reassociating a RFDAH with a new FTN which would also break a bunch of other invariants in our code.\n\n\u003e Yep, but at least that would be in the much more rare case of portals and such, with a dedicated event.\n\nAh I see, that makes sense.",
+      "parentUuid": "833557bd_9d7942ef",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
