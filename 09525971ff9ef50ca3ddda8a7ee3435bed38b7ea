@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d89296eb_7d8d8449",
+        "filename": "scripts/eslint_rules/lib/components_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-04-16T13:49:01Z",
+      "side": 1,
+      "message": "I actually don\u0027t know why they are exempt. I\u0027ll ask Tim why we did this.",
+      "parentUuid": "f0963467_13c370e6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "09525971ff9ef50ca3ddda8a7ee3435bed38b7ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77cdadd6_aa771f22",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-16T13:31:22Z",
       "side": 1,
       "message": "nit: I wouldn\u0027t mind a comment explaining what these are doing - and also what `node.specifiers.length \u003d\u003d\u003d 0` denotes - I assume it\u0027s a side-effecty import statement, but might be nice to add some comments. WDYT?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 0
+      },
+      "revId": "09525971ff9ef50ca3ddda8a7ee3435bed38b7ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f69d0a47_ad1dab4c",
+        "filename": "scripts/eslint_rules/lib/components_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-04-16T13:49:01Z",
+      "side": 1,
+      "message": "Sounds good to me!",
+      "parentUuid": "77cdadd6_aa771f22",
       "range": {
         "startLine": 34,
         "startChar": 0,
