@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d5f583f_fad8a691",
+        "filename": "front_end/entrypoints/formatter_worker/CSSFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-16T11:05:07Z",
+      "side": 1,
+      "message": "Marking as resolved",
+      "parentUuid": "b3636f98_755e3c90",
+      "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1461670e_e436a338",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "It\u0027s the former for me -- I\u0027m mainly just curious about if we have a central place for them, and if it\u0027s worth it to actually export them. Thanks for the explanation!",
       "parentUuid": "74000644_d5906f34",
+      "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54b6f304_f141f100",
+        "filename": "front_end/entrypoints/formatter_worker/CSSRuleParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-16T11:05:07Z",
+      "side": 1,
+      "message": "\u003e It\u0027s the former for me -- I\u0027m mainly just curious about if we have a central place for them, and if it\u0027s worth it to actually export them. Thanks for the explanation!\n\nThanks! I\u0027ve also checked with Paul offline and he said it was just a drive-by thought for him as well. So I’ll land this as-is for now. If we find other use cases for CSS whitespace trimming across the codebase I’ll turn this into more general utilities.",
+      "parentUuid": "e079e4cb_c0ee03b1",
       "revId": "e7330e917a6296bbed1081b4a65fd1a1157bf007",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
