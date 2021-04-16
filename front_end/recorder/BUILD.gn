@@ -9,10 +9,14 @@ devtools_module("recorder") {
   sources = [
     "Conditions.ts",
     "RecorderModel.ts",
+    "RecorderPanel.ts",
+    "Recording.ts",
+    "RecordingClient.ts",
     "RecordingEventHandler.ts",
     "RecordingFileSystem.ts",
     "RecordingScriptWriter.ts",
     "RecordingSession.ts",
+    "RecordingView.ts",
     "Steps.ts",
   ]
 
@@ -30,4 +34,14 @@ devtools_entrypoint("bundle") {
   entrypoint = "recorder.ts"
 
   deps = [ ":recorder" ]
+}
+
+devtools_entrypoint("meta") {
+  entrypoint = "recorder-meta.ts"
+
+ deps = [
+    ":bundle",
+    "../core/i18n:bundle",
+    "../core/sdk:bundle",
+ ]
 }

@@ -6059,8 +6059,19 @@
   "panels/network/NetworkDataGridNode.ts | data": {
     "message": "(d̂át̂á)"
   },
+<<<<<<< HEAD:front_end/core/i18n/locales/en-XL.json
   "panels/network/NetworkDataGridNode.ts | devtools": {
     "message": "d̂év̂t́ôól̂ś"
+=======
+  "recorder/recorder-meta.ts | recorder": {
+    "message": "R̂éĉór̂d́êŕ"
+  },
+  "recorder/recorder-meta.ts | showRecorder": {
+    "message": "R̂éĉór̂d́êŕ"
+  },
+  "recorder/RecordingFileSystem.ts | defaultRecordingName": {
+    "message": "R̂éĉór̂d́îńĝ #{nextId}"
+>>>>>>> c4bb63d62 (Started to add UI):front_end/i18n/locales/en-XL.json
   },
   "panels/network/NetworkDataGridNode.ts | diskCache": {
     "message": "(d̂íŝḱ ĉáĉh́ê)"

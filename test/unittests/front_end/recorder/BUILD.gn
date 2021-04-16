@@ -2,7 +2,14 @@ import("../../../../third_party/typescript/typescript.gni")
 
 ts_library("recorder") {
   testonly = true
-  sources = [ "recording_script_writer_test.ts" ]
+  sources = [
+    "recorder_client_test.ts",
+    "recorder_test.ts",
+    "recording_script_writer_test.ts",
+  ]
 
-  deps = [ "../../../../front_end/recorder:bundle" ]
+  deps = [
+    "../../../../front_end/recorder:bundle",
+    "../helpers",
+  ]
 }

@@ -5,5 +5,7 @@
     "panels/accessibility",
     "panels/elements"
   ],
-    "resources": []
+  "resources": [
+    "recorderPanel.css"
+  ]
 }

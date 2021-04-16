@@ -6059,8 +6059,19 @@
   "panels/network/NetworkDataGridNode.ts | data": {
     "message": "(data)"
   },
+<<<<<<< HEAD:front_end/core/i18n/locales/en-US.json
   "panels/network/NetworkDataGridNode.ts | devtools": {
     "message": "devtools"
+=======
+  "recorder/recorder-meta.ts | recorder": {
+    "message": "Recorder"
+  },
+  "recorder/recorder-meta.ts | showRecorder": {
+    "message": "Recorder"
+  },
+  "recorder/RecordingFileSystem.ts | defaultRecordingName": {
+    "message": "Recording #{nextId}"
+>>>>>>> c4bb63d62 (Started to add UI):front_end/i18n/locales/en-US.json
   },
   "panels/network/NetworkDataGridNode.ts | diskCache": {
     "message": "(disk cache)"

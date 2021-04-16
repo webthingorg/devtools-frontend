@@ -59,8 +59,8 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
     }
   }
 
-  async startRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    this._currentRecordingSession = new RecordingSession(this.target(), uiSourceCode, this._indentation);
+  async startRecording(_uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    this._currentRecordingSession = new RecordingSession(this.target());
     await this._currentRecordingSession.start();
   }
 

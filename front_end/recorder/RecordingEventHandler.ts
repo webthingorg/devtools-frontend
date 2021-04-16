@@ -6,14 +6,14 @@ import * as SDK from '../core/sdk/sdk.js';
 import * as Elements from '../panels/elements/elements.js';
 
 import {Condition, WaitForNavigationCondition} from './Conditions.js';
-import {RecordingSession} from './RecordingSession.js';
+// import {RecordingSession2} from './RecordingSession.js';
 import {ChangeStep, ClickStep, CloseStep, Step, StepFrameContext, SubmitStep} from './Steps.js';
 
 const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set<string>(['button', 'link', 'textbox', 'checkbox']);
 
 export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatcher {
   private target: SDK.SDKModel.Target;
-  private session: RecordingSession;
+  private session: any;
   private runtimeModel: SDK.RuntimeModel.RuntimeModel;
   private resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel;
   private debuggerAgent: ProtocolProxyApi.DebuggerApi;
@@ -23,7 +23,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
   private lastStep: Step|null;
   private lastStepTimeout: number|null;
 
-  constructor(session: RecordingSession, target: SDK.SDKModel.Target) {
+  constructor(session: any, target: SDK.SDKModel.Target) {
     this.target = target;
     this.session = session;
     this.lastStep = null;
@@ -270,7 +270,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
   }
 
   appendStep(step: Step): void {
-    this.session.appendStep(step);
+    // this.session.appendStep(step);
     this.lastStep = step;
     if (this.lastStepTimeout) {
       window.clearTimeout(this.lastStepTimeout);

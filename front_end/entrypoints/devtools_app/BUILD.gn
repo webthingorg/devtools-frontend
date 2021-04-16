@@ -30,6 +30,7 @@ devtools_entrypoint("devtools_app-meta-files") {
     "../../timeline:meta",
     "../../web_audio:meta",
     "../../webauthn:meta",
+    "../../recorder:meta",
   ]
 }
 

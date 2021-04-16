@@ -20,6 +20,7 @@
     { "name": "panels/network" },
     { "name": "panels/performance_monitor" },
     { "name": "panels/application" },
+    { "name": "recorder"},
     { "name": "security" },
     { "name": "timeline" },
     { "name": "web_audio" },
