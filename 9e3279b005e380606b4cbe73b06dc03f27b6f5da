@@ -22,6 +22,30 @@
       },
       "revId": "9e3279b005e380606b4cbe73b06dc03f27b6f5da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb83ff5_9b9a3565",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-16T10:03:14Z",
+      "side": 0,
+      "message": "This can stay private, thanks!",
+      "parentUuid": "61552473_87fbfb24",
+      "range": {
+        "startLine": 247,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 9
+      },
+      "revId": "9e3279b005e380606b4cbe73b06dc03f27b6f5da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
