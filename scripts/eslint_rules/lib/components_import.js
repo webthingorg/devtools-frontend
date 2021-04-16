@@ -1,0 +1,55 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+'use strict';
+
+const path = require('path');
+
+const COMPONENTS_DIRECTORY = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'components');
+
+module.exports = {
+  meta: {
+    type: 'problem',
+
+    docs: {
+      description:
+          'for any import of ui/components/ checks that there is a corresponding side-effect import in the same file',
+      category: 'Possible Errors',
+    },
+    fixable: 'code',
+    schema: []  // no options
+  },
+  create: function(context) {
+    const importingFileName = path.resolve(context.getFilename());
+    const seenImportDeclarations = new Set();
+
+    return {
+      ImportDeclaration(node) {
+        const importPath = node.source.value;
+
+        if (node.specifiers.length === 0) {
+          seenImportDeclarations.add(importPath);
+          return;
+        }
+
+        if (seenImportDeclarations.has(importPath)) {
+          return;
+        }
+
+        const exportingFileName = path.resolve(path.dirname(importingFileName), importPath);
+        const isUIComponent = exportingFileName.startsWith(COMPONENTS_DIRECTORY);
+
+        if (isUIComponent) {
+          context.report({
+            node: node,
+            message:
+                'Every component should have a corresponding side-effect import in the same file (i.e. import \'../../ui/components/...\')',
+            fix(fixer) {
+              return fixer.insertTextBefore(node, `import '${importPath}';\n`);
+            }
+          });
+        }
+      }
+    };
+  }
+};
