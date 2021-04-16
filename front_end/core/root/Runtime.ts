@@ -48,6 +48,7 @@ export const mappingForLayoutTests = new Map<string, string>([
   ['panels/search', 'search'],
   ['panels/sources', 'sources'],
   ['models/persistence', 'persistence'],
+  ['entrypoints/main', 'main'],
   ['third_party/diff', 'diff'],
   ['ui/legacy/components/inline_editor', 'inline_editor'],
   ['ui/legacy/components/data_grid', 'data_grid'],
