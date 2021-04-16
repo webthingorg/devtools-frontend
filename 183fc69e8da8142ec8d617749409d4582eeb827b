@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "183fc69e8da8142ec8d617749409d4582eeb827b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6021c0_ed6f35a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-16T12:42:17Z",
+      "side": 1,
+      "message": "lgtm % cleanup suggestion",
+      "revId": "183fc69e8da8142ec8d617749409d4582eeb827b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c51377f4_bf291317",
+        "filename": "front_end/models/logs/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-16T12:42:17Z",
+      "side": 1,
+      "message": "LogManager seems to only import \"common\", \"i18n\" and \"sdk\", can we remove the rest?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "183fc69e8da8142ec8d617749409d4582eeb827b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
