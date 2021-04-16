@@ -3,12 +3,12 @@
 // found in the LICENSE file.
 
 /* eslint-disable rulesdir/no_underscored_properties */
-import * as Common from '../core/common/common.js';
-import * as Host from '../core/host/host.js';
-import * as i18n from '../core/i18n/i18n.js';
-import * as SDK from '../core/sdk/sdk.js';
-import * as DataGrid from '../ui/legacy/components/data_grid/data_grid.js';
-import * as UI from '../ui/legacy/legacy.js';
+import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
+import * as i18n from '../../core/i18n/i18n.js';
+import * as SDK from '../../core/sdk/sdk.js';
+import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
   /**
@@ -132,7 +132,7 @@ const UIStrings = {
   */
   setSAsTheActiveAuthenticator: 'Set {PH1} as the active authenticator',
 };
-const str_ = i18n.i18n.registerUIStrings('webauthn/WebauthnPane.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/webauthn/WebauthnPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const TIMEOUT = 1000;
 
@@ -230,7 +230,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
 
   constructor() {
     super(true);
-    this.registerRequiredCSS('webauthn/webauthnPane.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('panels/webauthn/webauthnPane.css', {enableLegacyPatching: false});
     this.contentElement.classList.add('webauthn-pane');
     this._enabled = false;
     this._activeAuthId = null;
