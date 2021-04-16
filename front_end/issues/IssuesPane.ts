@@ -244,7 +244,7 @@ export class IssuesPane extends UI.Widget.VBox {
   }
 
   /** Don't call directly. Use `scheduleIssueViewUpdate` instead. */
-  private async updateIssueView(issue: AggregatedIssue): Promise<void> {
+  async updateIssueView(issue: AggregatedIssue): Promise<void> {
     let issueView = this.issueViews.get(issue.code());
     if (!issueView) {
       const description = issue.getDescription();
