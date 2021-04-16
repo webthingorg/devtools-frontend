@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61552473_87fbfb24",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-16T09:51:31Z",
+      "side": 0,
+      "message": "q: Left-over or does this really need to be public now?",
+      "range": {
+        "startLine": 247,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 9
+      },
+      "revId": "9e3279b005e380606b4cbe73b06dc03f27b6f5da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
