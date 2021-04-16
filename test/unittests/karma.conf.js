@@ -46,7 +46,7 @@ target with is_debug = true in the args.gn file.`;
 
 const GEN_DIRECTORY = path.join(__dirname, '..', '..');
 const ROOT_DIRECTORY = path.join(GEN_DIRECTORY, '..', '..', '..');
-const browsers = DEBUG_ENABLED ? ['Chrome'] : ['ChromeHeadless'];
+const browsers = DEBUG_ENABLED ? ['ChromeWithAccessibility'] : ['ChromeHeadlessWithAccessibility'];
 const singleRun = !(DEBUG_ENABLED || REPEAT_ENABLED);
 
 const coverageReporters = COVERAGE_ENABLED ? ['coverage'] : [];
@@ -182,6 +182,20 @@ module.exports = function(config) {
     coverageReporter: {dir: COVERAGE_OUTPUT_DIRECTORY, subdir: '.', reporters: istanbulReportOutputs},
 
     singleRun,
+    customLaunchers: {
+      ChromeWithAccessibility: {
+        base: 'Chrome',
+        flags: [
+          '--enable-accessibility-object-model',
+        ]
+      },
+      ChromeHeadlessWithAccessibility: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--enable-accessibility-object-model',
+        ]
+      }
+    }
   };
 
   config.set(options);

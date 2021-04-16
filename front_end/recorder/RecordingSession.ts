@@ -13,7 +13,82 @@ import {EmulateNetworkConditions, NavigationStep, Step} from './Steps.js';
 
 const DOM_BREAKPOINTS = new Set<string>(['Mouse:click', 'Control:change', 'Control:submit']);
 
-export class RecordingSession {
+declare global {
+  interface Window {
+    addStep(step: string): void;
+  }
+}
+
+export class RecordingSession implements ProtocolProxyApi.RuntimeDispatcher {
+  private target: SDK.SDKModel.Target;
+  private pageAgent: ProtocolProxyApi.PageApi;
+  private scriptIdentifier!: Protocol.Page.ScriptIdentifier;
+  private runtimeAgent: ProtocolProxyApi.RuntimeApi;
+  private frameByExecutionId: Map<number, string>;
+
+  constructor(target: SDK.SDKModel.Target, uiSourceCode?: Workspace.UISourceCode.UISourceCode, indentation?: string) {
+    this.target = target;
+    this.pageAgent = target.pageAgent();
+    this.runtimeAgent = target.runtimeAgent();
+    this.target.registerRuntimeDispatcher(this);
+
+    this.frameByExecutionId = new Map();
+  }
+
+  async start() {
+    const {identifier} = await this.pageAgent.invoke_addScriptToEvaluateOnNewDocument({
+      source: `
+        window.addEventListener('click', () => {
+            window.addStep(document.bodyElement);
+        });
+      `,
+      worldName: 'recorder',
+    });
+    this.scriptIdentifier = identifier;
+
+    await this.pageAgent.invoke_reload({});
+    await this.runtimeAgent.invoke_addBinding({
+      name: 'addStep',
+      executionContextName: 'recorder',
+    });
+  }
+
+  async stop() {
+    await this.pageAgent.invoke_removeScriptToEvaluateOnNewDocument({identifier: this.scriptIdentifier});
+  }
+
+  async appendStep(step: Step): Promise<void> {
+  }
+
+  bindingCalled(params: Protocol.Runtime.BindingCalledEvent): void {
+    const frame = this.frameByExecutionId.get(params.executionContextId);
+    console.log(params.name, frame);
+    debugger;
+  }
+
+  executionContextCreated(params: Protocol.Runtime.ExecutionContextCreatedEvent): void {
+    this.frameByExecutionId.set(params.context.id, params.context.auxData.frameId);
+  }
+
+  executionContextDestroyed(params: Protocol.Runtime.ExecutionContextDestroyedEvent): void {
+    this.frameByExecutionId.delete(params.executionContextId);
+  }
+
+  executionContextsCleared(): void {
+    this.frameByExecutionId.clear();
+  }
+
+  consoleAPICalled(params: Protocol.Runtime.ConsoleAPICalledEvent): void {
+  }
+  exceptionRevoked(params: Protocol.Runtime.ExceptionRevokedEvent): void {
+  }
+  exceptionThrown(params: Protocol.Runtime.ExceptionThrownEvent): void {
+  }
+  inspectRequested(params: Protocol.Runtime.InspectRequestedEvent): void {
+  }
+}
+
+export class RecordingSession2 {
   _target: SDK.SDKModel.Target;
   _uiSourceCode: Workspace.UISourceCode.UISourceCode;
   _debuggerAgent: ProtocolProxyApi.DebuggerApi;
@@ -174,6 +249,7 @@ export class RecordingSession {
 
   async attachToTarget(target: SDK.SDKModel.Target): Promise<void> {
     this._targets.set(target.id(), target);
+    // @ts-ignore
     const eventHandler = new RecordingEventHandler(this, target);
     this._eventHandlers.set(target.id(), eventHandler);
     target.registerDebuggerDispatcher(eventHandler);

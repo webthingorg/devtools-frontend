@@ -480,6 +480,7 @@ all_typescript_module_sources = [
   "quick_open/QuickPick.js",
   "recorder/Conditions.js",
   "recorder/RecorderModel.js",
+  "recorder/RecordingClient.js",
   "recorder/RecordingEventHandler.js",
   "recorder/RecordingFileSystem.js",
   "recorder/RecordingScriptWriter.js",
