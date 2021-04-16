@@ -180,6 +180,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bde8a069_c1154e82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000379
+      },
+      "writtenOn": "2021-04-16T17:39:45Z",
+      "side": 1,
+      "message": "\u003e So inheriting the devtools_frame_token is actually what I meant by \"update the frame token in the activated page\u0027s renderer when it activates\" a couple of comments earlier (if I understand what you mean by \"inherit\" correctly).\n\nI was thinking about creating a prerendering FTN with the same token as the old page\u0027s FTN.\n\n\u003e Another problem with this approach is the fact that RFDAH are 1:1 with a FTN, and this approach requires reassociating a RFDAH with a new FTN which would also break a bunch of other invariants in our code.\n\nHmm... I was thinking about switching from one RFDTAH to another (IIRC, that\u0027s what we do today for portals already), so that we keep FTN\u003d\u003dRFDTAH. Changing FTN on the fly sounds pretty bad - it does not reflect what the browser does under the hood (changing RFH and keeping the same FTN).",
+      "parentUuid": "463f9a37_e0033771",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
