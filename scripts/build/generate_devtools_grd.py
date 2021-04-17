@@ -157,8 +157,15 @@ def main(argv):
             add_file_to_grd(doc, path.join('Images', filename),
                             parsed_args.compress)
 
-    with open(parsed_args.output_filename, 'wb') as output_file:
-        output_file.write(doc.toxml(encoding='UTF-8'))
+    new_contents = doc.toxml(encoding='UTF-8')
+    old_contents = None
+    if os.path.exists(parsed_args.output_filename):
+        with open(parsed_args.output_filename) as output_file:
+            old_contents = output_file.read()
+
+    if old_contents is None or old_contents != new_contents:
+        with open(parsed_args.output_filename) as output_file:
+            output_file.write(new_contents)
 
 
 if __name__ == '__main__':

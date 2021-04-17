@@ -178,9 +178,16 @@ def main():
         opts.is_web_worker and ['webworker', 'webworker.iterable']
         or ['dom', 'dom.iterable'])
 
-    with open(tsconfig_output_location, 'w') as generated_tsconfig:
+    old_contents = None
+    if os.path.exists(tsconfig_output_location):
+        with open(tsconfig_output_location) as fp:
+            old_contents = fp.read()
+
+    new_contents = json.dumps(tsconfig)
+    if old_contents is None or new_contents != old_contents:
         try:
-            json.dump(tsconfig, generated_tsconfig)
+            with open(tsconfig_output_location, 'w') as fp:
+                fp.write(new_contents)
         except Exception as e:
             print('Encountered error while writing generated tsconfig in location %s:' % tsconfig_output_location)
             print(e)
@@ -191,6 +198,17 @@ def main():
     # the tsconfig.json
     if len(sources) == 0 and not opts.verify_lib_check:
         return 0
+
+    gen_files = {}
+    for src_fname in sources:
+        for ext in ['.d.ts', '.js', '.map']:
+            gen_fname = os.path.basename(src_fname.replace('.ts', ext))
+            gen_path = os.path.join(tsconfig_output_directory, gen_fname)
+            if os.path.exists(gen_path):
+                mtime = os.stat(gen_path).st_mtime
+                with open(gen_path) as fp:
+                    contents = fp.read()
+                gen_files[gen_fname] = (mtime, contents)
 
     use_remote_execution = opts.use_rbe and (opts.deps is None
                                              or len(opts.deps) == 0)
@@ -205,6 +223,16 @@ def main():
     else:
         found_errors, stderr = runTsc(
             tsconfig_location=tsconfig_output_location)
+
+    for gen_fname in gen_files:
+        gen_path = os.path.join(tsconfig_output_directory, gen_fname)
+        if os.path.exists(gen_path):
+            old_mtime, old_contents = gen_files[gen_fname]
+            with open(gen_path) as fp:
+                new_contents = fp.read()
+            if new_contents == old_contents:
+                os.utime(gen_path, (old_mtime, old_mtime))
+
     if found_errors:
         print('')
         print('TypeScript compilation failed. Used tsconfig %s' % opts.tsconfig_output_location)
