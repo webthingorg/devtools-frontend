@@ -176,6 +176,30 @@
       },
       "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b33eaa0_e90629f7",
+        "filename": "front_end/sources/javaScriptBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-04-19T16:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56edb843_b114c88d",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "fec221dc3ead9217b16a120ba1ba127ab1667c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
