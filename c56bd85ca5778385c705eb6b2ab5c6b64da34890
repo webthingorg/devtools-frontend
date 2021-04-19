@@ -16,6 +16,40 @@
       "message": "+Rob since Patrick is oof\n\nCould you please take a look when you get the chance?  Thanks!",
       "revId": "c56bd85ca5778385c705eb6b2ab5c6b64da34890",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ae4cb3_6cb8a003",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-04-19T22:55:52Z",
+      "side": 1,
+      "message": "This change LGTM modulo the localized-string concatenation issue I raised below.",
+      "revId": "c56bd85ca5778385c705eb6b2ab5c6b64da34890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff503512_796f482b",
+        "filename": "front_end/panels/browser_debugger/DOMBreakpointsSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-04-19T22:55:52Z",
+      "side": 1,
+      "message": "I\u0027d ask that you check with +vidorteg@microsoft.com - This might concatenate localized strings in a way that is invalid. (Normally I would expect this to be in the format of \"Breakpoint removed: Node removed\" instead of \"Node removed Breakpoint removed\".",
+      "revId": "c56bd85ca5778385c705eb6b2ab5c6b64da34890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
