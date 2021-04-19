@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f92bce1_e0e05d2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-19T07:52:35Z",
+      "side": 1,
+      "message": "associate",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8da16758_1478081d",
@@ -14,6 +37,69 @@
       "writtenOn": "2021-04-19T07:33:19Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06046ddc_3b1589f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-19T07:52:35Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b66994_0f61c8ec",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-19T07:52:35Z",
+      "side": 1,
+      "message": "super-nit: Since the initialization is trivial (empty set), we could just do:\n\n private pendingBackFrowardCacheNotUsedEvents \u003d\n   new Set\u003cProtocol.Page.BackForwardCacheNotUsedEvent\u003e()\n\nand remove the initialization in the constructor.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 96
+      },
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08343128_a2e7e311",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-19T07:52:35Z",
+      "side": 1,
+      "message": "I assume that this will contain more detailed information in the future provided by the backend? Will this be a protocol type? If not, we could introduce our own interface/type already instead of the inline definition.",
+      "range": {
+        "startLine": 571,
+        "startChar": 27,
+        "endLine": 571,
+        "endChar": 65
+      },
       "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
