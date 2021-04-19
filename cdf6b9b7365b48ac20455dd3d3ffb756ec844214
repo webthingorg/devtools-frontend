@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f8f914_e7ad1381",
+        "filename": "front_end/core/sdk/SDKModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-19T10:12:35Z",
+      "side": 1,
+      "message": "Can we make an options bag for this? A call with `SDKModel.register(ResourceTreeModel, Capability.DOM, true, true)` doesn\u0027t immediately make it obvious which one is which. This reads a bit nicer I think:\n\n```\nSDKModel.register(ResourceTreeModel, {\n  capabilities: Capability.DOM,\n  autostart: true,\n  early: true\n});\n```",
+      "range": {
+        "startLine": 54,
+        "startChar": 59,
+        "endLine": 54,
+        "endChar": 118
+      },
+      "revId": "cdf6b9b7365b48ac20455dd3d3ffb756ec844214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac53b6bb_8437d7b1",
+        "filename": "front_end/core/sdk/SDKModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-19T10:12:35Z",
+      "side": 1,
+      "message": "Nit: you can do `early \u003d false` to by default initialize to false. This also makes the argument optional in TypeScript.",
+      "range": {
+        "startLine": 59,
+        "startChar": 63,
+        "endLine": 59,
+        "endChar": 84
+      },
+      "revId": "cdf6b9b7365b48ac20455dd3d3ffb756ec844214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
