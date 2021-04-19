@@ -478,9 +478,13 @@ export async function getPausedMessages() {
 
 export async function getWatchExpressionsValues() {
   const {frontend} = getBrowserAndPages();
-  await click('[aria-label="Watch"]');
-  await frontend.keyboard.press('ArrowRight');
-  await waitFor(WATCH_EXPRESSION_VALUE_SELECTOR);
+  await step('open Watch', async () => {
+    await click('[aria-label="Watch"]');
+    await frontend.keyboard.press('ArrowRight');
+  });
+  await step('Wait for expression', async () => {
+    await waitFor(WATCH_EXPRESSION_VALUE_SELECTOR);
+  });
   const values = await $$(WATCH_EXPRESSION_VALUE_SELECTOR);
   return await Promise.all(values.map(value => value.evaluate(element => element.innerText)));
 }
@@ -504,11 +508,13 @@ export async function evaluateSelectedTextInConsole() {
 }
 
 export async function addSelectedTextToWatches() {
-  const {frontend} = getBrowserAndPages();
-  const modifierKey = platform === 'mac' ? 'Meta' : 'Control';
-  await frontend.keyboard.down(modifierKey);
-  await frontend.keyboard.down('Shift');
-  await frontend.keyboard.press('A');
-  await frontend.keyboard.up(modifierKey);
-  await frontend.keyboard.up('Shift');
+  await step('add text to watches', async () => {
+    const {frontend} = getBrowserAndPages();
+    const modifierKey = platform === 'mac' ? 'Meta' : 'Control';
+    await frontend.keyboard.down(modifierKey);
+    await frontend.keyboard.down('Shift');
+    await frontend.keyboard.press('A');
+    await frontend.keyboard.up(modifierKey);
+    await frontend.keyboard.up('Shift');
+  });
 }
