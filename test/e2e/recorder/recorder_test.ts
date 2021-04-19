@@ -44,7 +44,7 @@ async function changeNetworkConditions(condition: string) {
 
 describe('Recorder', function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
-  this.timeout(5000);
+  this.timeout(10000);
 
   it('should capture the initial page as a navigation step', async () => {
     const waitForScriptToChange = getWaitForScriptToChangeFunction();
@@ -115,7 +115,7 @@ describe('Recorder', function() {
 })();`);
   });
 
-  it('should capture clicks on submit buttons inside of forms as submit steps', async () => {
+  it('should capture clicks on submit buttons inside of forms as click steps', async () => {
     const waitForScriptToChange = getWaitForScriptToChangeFunction();
     await enableExperiment('recorder');
     await goToResource('recorder/recorder.html');
@@ -147,8 +147,8 @@ describe('Recorder', function() {
     {
         const targetPage = page;
         const frame = targetPage.mainFrame();
-        const element = await frame.waitForSelector("html > body > div > form.form1");
-        await element.evaluate(form => form.submit());
+        const element = await frame.waitForSelector("aria/Form Button");
+        await element.click();
     }
     await browser.close();
 })();`);
@@ -319,9 +319,7 @@ describe('Recorder', function() {
 })();`);
   });
 
-  // Skipped due to flakines during creation already
-  // eslint-disable-next-line rulesdir/check_test_definitions
-  it.skip('should record interactions with popups', async () => {
+  it('should record interactions with popups', async () => {
     const waitForScriptToChange = getWaitForScriptToChangeFunction();
     await enableExperiment('recorder');
     await goToResource('recorder/recorder.html');
@@ -341,6 +339,8 @@ describe('Recorder', function() {
     const newTarget = await newTargetPromise;
     const newPage = await newTarget.page() as typeof target;
     await newPage.waitForSelector('aria/Button in Popup');
+    // TODO: fix race condition by auto attach functionality via the browser target.
+    await newPage.waitForTimeout(500);
     await newPage.click('aria/Button in Popup');
     await waitForScriptToChange();
     await newPage.close();
