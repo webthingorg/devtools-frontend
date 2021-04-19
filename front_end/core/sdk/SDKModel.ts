@@ -9,12 +9,12 @@ import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const _registeredModels = new Map<new (arg1: Target) => SDKModel, {
-  capabilities: number,
-  autostart: boolean,
-}>();
+interface ModelInfo {
+  capabilities: number;
+  autostart: boolean;
+  early: boolean;
+}
+const registeredModels = new Map<new (arg1: Target) => SDKModel, ModelInfo>();
 
 export class SDKModel extends Common.ObjectWrapper.ObjectWrapper {
   _target: Target;
@@ -51,12 +51,13 @@ export class SDKModel extends Common.ObjectWrapper.ObjectWrapper {
   dispose(): void {
   }
 
-  static register(modelClass: new(arg1: Target) => SDKModel, capabilities: number, autostart: boolean): void {
-    _registeredModels.set(modelClass, {capabilities, autostart});
+  static register(modelClass: new(arg1: Target) => SDKModel, capabilities: number, autostart: boolean, early?: boolean):
+      void {
+    registeredModels.set(modelClass, {capabilities, autostart, early: early ?? false});
   }
 
-  static get registeredModels(): typeof _registeredModels {
-    return _registeredModels;
+  static get registeredModels(): typeof registeredModels {
+    return registeredModels;
   }
 }
 
@@ -127,15 +128,15 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
 
   createModels(required: Set<new(arg1: Target) => SDKModel>): void {
     this._creatingModels = true;
-    // TODO(dgozman): fix this in bindings layer.
-    // @ts-ignore ResourceTreeModel inherits from SDKModel introducing a cyclic dependency. Use the global for now.
-    this.model(SDK.ResourceTreeModel);
-    const registered = Array.from(SDKModel.registeredModels.keys());
-    for (const modelClass of registered) {
-      const info = (SDKModel.registeredModels.get(modelClass) as {
-        capabilities: number,
-        autostart: boolean,
-      });
+    const registeredModels = Array.from(SDKModel.registeredModels.entries());
+    // Create early models.
+    for (const [modelClass, info] of registeredModels) {
+      if (info.autostart || required.has(modelClass)) {
+        this.model(modelClass);
+      }
+    }
+    // Create autostart and required models.
+    for (const [modelClass, info] of registeredModels) {
       if (info.autostart || required.has(modelClass)) {
         this.model(modelClass);
       }
