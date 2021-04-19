@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "13be66fb_c52fa6af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-19T07:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f92bce1_e0e05d2d",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8da16758_1478081d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7812af8_e12a8a7b",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-19T07:56:55Z",
+      "side": 1,
+      "message": "Good suggestion, there are a couple of other properties that we could also initialize in this way; I\u0027ll consider this for a future cleanup.",
+      "parentUuid": "11b66994_0f61c8ec",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 96
+      },
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08343128_a2e7e311",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-04-19T07:52:35Z",
       "side": 1,
       "message": "I assume that this will contain more detailed information in the future provided by the backend? Will this be a protocol type? If not, we could introduce our own interface/type already instead of the inline definition.",
+      "range": {
+        "startLine": 571,
+        "startChar": 27,
+        "endLine": 571,
+        "endChar": 65
+      },
+      "revId": "9cce6eadc390060dd1e977ef5873f9babde6f3be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e84887_8273e8c1",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-19T07:56:55Z",
+      "side": 1,
+      "message": "Good suggestion, at the moment it looks like it could be a protocol type, so I\u0027ll leave this to the follow-up when we actually add the information.",
+      "parentUuid": "08343128_a2e7e311",
       "range": {
         "startLine": 571,
         "startChar": 27,
