@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "325f9879_61b172f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-19T11:04:44Z",
+      "side": 1,
+      "message": "PTAL. This is what you suggested on the other CL split into a prequel CL.",
+      "revId": "c6f8a3ac4d8a0ee73b9b7241b0ad62b1396118b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
