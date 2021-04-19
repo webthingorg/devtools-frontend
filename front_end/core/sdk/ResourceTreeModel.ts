@@ -985,7 +985,8 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
   }
 }
 
-SDKModel.register(ResourceTreeModel, Capability.DOM, true);
+SDKModel.register(ResourceTreeModel, Capability.DOM, true, true);
+
 export interface SecurityOriginData {
   securityOrigins: Set<string>;
   mainSecurityOrigin: string|null;
