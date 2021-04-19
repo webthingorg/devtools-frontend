@@ -22,6 +22,30 @@
       },
       "revId": "b1e4edfe16debbced9edfc9dc560aac45007aff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb65b3f_9d78b54b",
+        "filename": "front_end/core/sdk/SDKModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-19T11:12:44Z",
+      "side": 0,
+      "message": "Thanks, done!",
+      "parentUuid": "3dfaf98b_57a04513",
+      "range": {
+        "startLine": 132,
+        "startChar": 15,
+        "endLine": 132,
+        "endChar": 36
+      },
+      "revId": "b1e4edfe16debbced9edfc9dc560aac45007aff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
