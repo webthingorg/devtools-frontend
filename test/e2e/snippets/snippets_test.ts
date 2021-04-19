@@ -4,13 +4,13 @@
 
 import {assert} from 'chai';
 
-import {getBrowserAndPages, timeout, typeText, waitFor} from '../../shared/helper.js';
+import {getBrowserAndPages, step, typeText, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {getAvailableSnippets, openCommandMenu, showSnippetsAutocompletion} from '../helpers/quick_open-helpers.js';
 import {addSelectedTextToWatches, createNewSnippet, evaluateSelectedTextInConsole, getWatchExpressionsValues, openSnippetsSubPane, openSourcesPanel, runSnippet} from '../helpers/sources-helpers.js';
 
-describe.skip('[crbug.com/1198160]: Snippet creation', () => {
+describe.skip('Snippet creation', () => {
   it('can show newly created snippets show up in command menu', async () => {
     const {frontend} = getBrowserAndPages();
 
@@ -40,7 +40,7 @@ describe.skip('[crbug.com/1198160]: Snippet creation', () => {
   });
 });
 
-describe.skip('[crbug.com/1198160]: Expression evaluation', () => {
+describe('Expression evaluation', () => {
   const message = '"Hello"';
 
   beforeEach(async () => {
@@ -67,10 +67,12 @@ describe.skip('[crbug.com/1198160]: Expression evaluation', () => {
     await frontend.reload();
   });
 
-  it('evaluates a selected expression in the console', async () => {
+  /**
+   *temporarily disabled.
+    */
+  it.skip('[crbug.com/1198160]: evaluates a selected expression in the console', async () => {
     await evaluateSelectedTextInConsole();
-    // Prevent flakyness by awaiting some time for the text to be evaluated
-    await timeout(200);
+    // Prevent flakiness by awaiting some time for the text to be evaluated
     const messages = await getCurrentConsoleMessages();
     assert.deepEqual(messages, [
       message,
@@ -79,9 +81,11 @@ describe.skip('[crbug.com/1198160]: Expression evaluation', () => {
 
   it('adds an expression to watches', async () => {
     await addSelectedTextToWatches();
-    const watchExpressions = await getWatchExpressionsValues();
-    assert.deepEqual(watchExpressions, [
-      message,
-    ]);
+    await step('get watch', async () => {
+      const watchExpressions = await getWatchExpressionsValues();
+      assert.deepEqual(watchExpressions, [
+        message,
+      ]);
+    });
   });
 });
