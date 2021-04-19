@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9812e66_04fb6ca7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-04-19T05:38:57Z",
+      "side": 1,
+      "message": "Take a look at the hometown themed test I added, it\u0027s just a rehash of the existing one but with IDs.",
+      "parentUuid": "19eacd7e_5b32a22f",
+      "revId": "fdf8909edd82ac03f0f6b1815badfa9d0f98b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62ba4986_cf44e4e1",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-04-16T11:40:31Z",
       "side": 1,
       "message": "could we just have focusableTreeNode or selectedTreeNode? I\u0027m not sure if we need both. At what times should these be different?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "fdf8909edd82ac03f0f6b1815badfa9d0f98b930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d94138d_872121af",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-04-19T05:38:57Z",
+      "side": 1,
+      "message": "Removed!",
+      "parentUuid": "62ba4986_cf44e4e1",
       "range": {
         "startLine": 75,
         "startChar": 0,

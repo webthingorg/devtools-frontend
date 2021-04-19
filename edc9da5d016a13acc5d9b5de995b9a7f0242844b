@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b08ee12_c818c4ce",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-04-19T05:38:57Z",
+      "side": 1,
+      "message": "todo: remove line",
+      "revId": "edc9da5d016a13acc5d9b5de995b9a7f0242844b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
