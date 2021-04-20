@@ -200,6 +200,10 @@ NetworkTestRunner.HARPropertyFormatters = {
 NetworkTestRunner.HARPropertyFormattersWithSize = JSON.parse(JSON.stringify(NetworkTestRunner.HARPropertyFormatters));
 NetworkTestRunner.HARPropertyFormattersWithSize.size = 'formatAsTypeName';
 
+NetworkTestRunner.buildHARLog = SDK.HARLog.build;
+NetworkTestRunner.buildHARLogEntry = SDK.HARLog.Entry.build;
+NetworkTestRunner.networkLog = () => SDK.NetworkLog.instance();
+
 TestRunner.deprecatedInitAsync(`
   let lastXHRIndex = 0;
 
