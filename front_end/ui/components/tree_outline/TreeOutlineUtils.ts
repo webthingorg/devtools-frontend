@@ -151,14 +151,14 @@ const getParentListItemForDOMNode = (currentDOMNode: HTMLLIElement): HTMLLIEleme
  * this WeakMap easily generic as it's a top level variable.
  */
 const treeNodeChildrenWeakMap = new WeakMap<TreeNode<unknown>, TreeNode<unknown>[]>();
-export const getNodeChildren =
-    async<TreeNodeDataType>(node: TreeNode<TreeNodeDataType>): Promise<TreeNode<TreeNodeDataType>[]> => {
+export const getNodeChildren = async<TreeNodeDataType>(
+    node: TreeNode<TreeNodeDataType>, cached: boolean): Promise<TreeNode<TreeNodeDataType>[]> => {
   if (!node.children) {
     throw new Error('Asked for children of node that does not have any children.');
   }
 
   const cachedChildren = treeNodeChildrenWeakMap.get(node as TreeNode<unknown>);
-  if (cachedChildren) {
+  if (cached && cachedChildren) {
     return cachedChildren as unknown as TreeNode<TreeNodeDataType>[];
   }
 
@@ -203,7 +203,7 @@ const getPathToTreeNodeRecursively = async<TreeNodeDataType>(
     return pathToNode;
   }
   if (currentNode.children) {
-    const children = await getNodeChildren(currentNode);
+    const children = await getNodeChildren(currentNode, false);
     for (const child of children) {
       const foundPathOrNull = await getPathToTreeNodeRecursively(child, nodeToFind, [...pathToNode, child]);
       if (foundPathOrNull !== null) {

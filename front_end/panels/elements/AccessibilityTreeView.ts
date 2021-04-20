@@ -21,6 +21,8 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   private rootAXNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
   private selectedTreeNode: AXTreeNode|null = null;
   private inspectedDOMNode: SDK.DOMModel.DOMNode|null = null;
+  private sdkNodeToAXTreeNodeMap: Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode> = new Map();
+  private ignoredNodesToRemove: SDK.AccessibilityModel.AccessibilityNode[] = [];
 
   constructor(toggleButton: HTMLButtonElement) {
     super();
@@ -85,7 +87,7 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     }
 
     this.rootAXNode = root;
-    this.treeData = [sdkNodeToAXTreeNode(this.rootAXNode)];
+    this.treeData = [sdkNodeToAXTreeNode(this.rootAXNode, this.sdkNodeToAXTreeNodeMap)];
 
     this.accessibilityTreeComponent.data = {
       defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
@@ -138,13 +140,66 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
       return;
     }
 
-    this.selectedTreeNode = sdkNodeToAXTreeNode(inspectedAXNode);
+    this.selectedTreeNode = sdkNodeToAXTreeNode(inspectedAXNode, this.sdkNodeToAXTreeNodeMap);
+
+    // If the node is ignored, that means it will not exist in the tree, as only unignored
+    // nodes are returned from the CDP methods. We want to temporarily create a TreeNode for
+    // ignored nodes, inspect them, and then clear them and remove from the tree.
+    if (inspectedAXNode.ignored()) {
+      this.ignoredNodesToRemove.push(inspectedAXNode);
+
+      const axNodeParent = inspectedAXNode.parentNode();
+      if (!axNodeParent) {
+        return;
+      }
+
+      const ignoredTreeNodeParent = this.sdkNodeToAXTreeNodeMap.get(axNodeParent);
+
+      if (!ignoredTreeNodeParent || !ignoredTreeNodeParent.children) {
+        return;
+      }
+
+      const children = await ignoredTreeNodeParent.children();
+
+      children.unshift(this.selectedTreeNode);
+    }
+
     this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
+  }
+
+  clearIgnoredNodes(): void {
+    this.ignoredNodesToRemove.forEach(async node => {
+      const axNodeParent = node.parentNode();
+      if (!node || !axNodeParent) {
+        return;
+      }
+
+      const axTreeNode = this.sdkNodeToAXTreeNodeMap.get(node);
+      const axTreeParent = this.sdkNodeToAXTreeNodeMap.get(axNodeParent);
+
+      if (!axTreeNode) {
+        return;
+      }
+
+      if (!axTreeParent || !axTreeParent.children) {
+        return;
+      }
+
+      const children = await axTreeParent.children();
+
+      // Remove the ignored children from their parents.
+      children.filter(obj => obj !== axTreeNode);
+    });
+
+    this.ignoredNodesToRemove.length = 0;
   }
 
   // Selected node in the DOM has changed, and the corresponding accessibility node may be
   // unloaded. We probably only want to do this when the AccessibilityTree is visible.
   async selectedNodeChanged(inspectedNode: SDK.DOMModel.DOMNode): Promise<void> {
+    if (this.ignoredNodesToRemove.length) {
+      this.clearIgnoredNodes();
+    }
     if (inspectedNode === this.inspectedDOMNode) {
       return;
     }
