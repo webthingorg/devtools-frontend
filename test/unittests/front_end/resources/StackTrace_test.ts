@@ -46,7 +46,7 @@ describe('StackTrace', () => {
 
   it('generates rows from stack trace data', () => {
     const frame = makeFrame({
-      _creationStackTrace: {
+      getCreationStackTrace: () => ({
         callFrames: [
           {
             functionName: 'function1',
@@ -63,7 +63,8 @@ describe('StackTrace', () => {
             scriptId: 'someScriptId',
           },
         ],
-      },
+      }),
+      getCreationStackTraceTarget: () => null,
     });
     const component = new Resources.StackTrace.StackTrace();
     renderElementIntoDOM(component);
@@ -89,7 +90,7 @@ describe('StackTrace', () => {
 
   it('hides hidden rows behind "show all" button', () => {
     const frame = makeFrame({
-      _creationStackTrace: {
+      getCreationStackTrace: () => ({
         callFrames: [
           {
             functionName: 'function1',
@@ -106,7 +107,8 @@ describe('StackTrace', () => {
             scriptId: 'someScriptId',
           },
         ],
-      },
+      }),
+      getCreationStackTraceTarget: () => null,
     });
     const component = new Resources.StackTrace.StackTrace();
     renderElementIntoDOM(component);

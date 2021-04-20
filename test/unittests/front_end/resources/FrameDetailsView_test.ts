@@ -49,7 +49,7 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
         }),
       }),
     }),
-    _creationStackTrace: {
+    getCreationStackTrace: () => ({
       callFrames: [{
         functionName: 'function1',
         url: 'http://www.example.com/script.js',
@@ -57,7 +57,8 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
         columnNumber: 10,
         scriptId: 'someScriptId',
       }],
-    },
+    }),
+    getCreationStackTraceTarget: () => null,
   } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
   return newFrame;
 };

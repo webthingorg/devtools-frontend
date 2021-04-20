@@ -44,10 +44,11 @@ export class StackTrace extends HTMLElement {
 
   set data(data: StackTraceData) {
     const frame = data.frame;
-    if (frame && frame._creationStackTrace) {
+    const creationStackTrace = frame.getCreationStackTrace();
+    if (creationStackTrace) {
+      const creationStackTraceTarget = frame.getCreationStackTraceTarget() || frame.resourceTreeModel().target();
       this.stackTraceRows = data.buildStackTraceRows(
-          frame._creationStackTrace, frame.resourceTreeModel().target(), this.linkifier, true,
-          this.onStackTraceRowsUpdated.bind(this));
+          creationStackTrace, creationStackTraceTarget, this.linkifier, true, this.onStackTraceRowsUpdated.bind(this));
     }
     this.render();
   }
