@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30a916a2_9e9ae0ec",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T10:49:37Z",
+      "side": 1,
+      "message": "I locked CORS, but Cross-Origin Resource Sharing is 跨源资源共享 in 中文.",
+      "parentUuid": "80db833d_3aa316b0",
+      "revId": "fbadfedeafc91b0a1aa1f36a4b6ebce5a336d0f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f86a47e_d146afd2",
