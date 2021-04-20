@@ -22,7 +22,9 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/AccessibilityTreeUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
+export function sdkNodeToAXTreeNode(
+    node: SDK.AccessibilityModel.AccessibilityNode,
+    nodeMap: Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode>): AXTreeNode {
   if (!node.numChildren()) {
     return {
       treeNodeData: node,
@@ -30,11 +32,22 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
     };
   }
 
-  return {
+  const axTreeNode = {
     treeNodeData: node,
     children: async(): Promise<AXTreeNode[]> => {
       if (node.numChildren() === node.children().length) {
-        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child)));
+        const cachedChildren = [];
+
+        for (const child of node.children()) {
+          const axTreeChild = nodeMap.get(child);
+          if (!axTreeChild) {
+            continue;
+          }
+
+          cachedChildren.push(axTreeChild);
+        }
+
+        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child, nodeMap)));
       }
       // numChildren returns the number of children that this node has, whereas node.children()
       // returns only children that have been loaded. If these two don't match, that means that
@@ -48,13 +61,15 @@ export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNo
       const treeNodeChildren: AXTreeNode[] = [];
 
       for (const child of node.children()) {
-        treeNodeChildren.push(sdkNodeToAXTreeNode(child));
+        treeNodeChildren.push(sdkNodeToAXTreeNode(child, nodeMap));
       }
 
       return Promise.resolve(treeNodeChildren);
     },
     id: node.id(),
   };
+  nodeMap.set(node, axTreeNode);
+  return axTreeNode;
 }
 
 // This function is a variant of setTextContentTruncatedIfNeeded found in DOMExtension.
