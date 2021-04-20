@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db7cf89_be28e7d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-20T13:37:15Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the CodeMirror support for EH.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "20afc93856024a73f3cd1ecdb9cfaf1c100f4662",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
