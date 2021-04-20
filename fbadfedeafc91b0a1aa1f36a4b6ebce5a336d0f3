@@ -16,6 +16,57 @@
       "message": "Wolfgang PTAL\n\nJack, please take a look at markdown_view",
       "revId": "fbadfedeafc91b0a1aa1f36a4b6ebce5a336d0f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9789680c_bedcac79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-20T09:52:28Z",
+      "side": 1,
+      "message": "LGTM with a nit",
+      "revId": "fbadfedeafc91b0a1aa1f36a4b6ebce5a336d0f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80db833d_3aa316b0",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-20T09:52:28Z",
+      "side": 1,
+      "message": "nit: Both `CORS` and `Cross-Origin Resource Sharing` could be locked terms.",
+      "revId": "fbadfedeafc91b0a1aa1f36a4b6ebce5a336d0f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f86a47e_d146afd2",
+        "filename": "front_end/models/issues_manager/descriptions/corsInvalidHeaderValues.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-20T09:52:28Z",
+      "side": 1,
+      "message": "remove \u0027contain\u0027",
+      "revId": "fbadfedeafc91b0a1aa1f36a4b6ebce5a336d0f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
