@@ -16,6 +16,115 @@
       "message": "Sigurd, PTAL again, thanks!",
       "revId": "994fe6ca639c9445526920064ad647b96850e88a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "853fac33_380304aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T13:06:02Z",
+      "side": 1,
+      "message": "Approach LG now, just some nits.",
+      "revId": "994fe6ca639c9445526920064ad647b96850e88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e2e4991_4a75fb8b",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T13:06:02Z",
+      "side": 1,
+      "message": "Let\u0027s add a helper on frame setCreationStackTraceFrom(frame: ResourceTreeFrame) that does this.",
+      "range": {
+        "startLine": 92,
+        "startChar": 5,
+        "endLine": 95,
+        "endChar": 7
+      },
+      "revId": "994fe6ca639c9445526920064ad647b96850e88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af19219_e8ef4028",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T13:06:02Z",
+      "side": 1,
+      "message": "nit: private creationStackTrace\nnit: private creationStackTraceTarget",
+      "range": {
+        "startLine": 569,
+        "startChar": 2,
+        "endLine": 569,
+        "endChar": 27
+      },
+      "revId": "994fe6ca639c9445526920064ad647b96850e88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b978cf86_4395da97",
+        "filename": "front_end/panels/application/StackTrace.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T13:06:02Z",
+      "side": 1,
+      "message": "Nit: can we have a public helper on frame that returns {creationStackTrace, target}?",
+      "range": {
+        "startLine": 48,
+        "startChar": 39,
+        "endLine": 48,
+        "endChar": 109
+      },
+      "revId": "994fe6ca639c9445526920064ad647b96850e88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0250d1c4_978d0207",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T13:06:02Z",
+      "side": 1,
+      "message": "Is this the trace after the transfer? Also, did you check manually that the source locations are resolved correctly?",
+      "range": {
+        "startLine": 82,
+        "startChar": 9,
+        "endLine": 84,
+        "endChar": 41
+      },
+      "revId": "994fe6ca639c9445526920064ad647b96850e88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
