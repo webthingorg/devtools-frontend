@@ -16,6 +16,23 @@
       "message": "Hi Sigurd!\n\nI\u0027m disabling the icon-row-bucket-test. I\u0027m using the old bug\u0027s reference here now :-).\n\nPTAL!",
       "revId": "19bb83f9a8a38bae3e167a348ea5a2a065065869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "029ff7ce_c026e045",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-20T11:00:13Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "19bb83f9a8a38bae3e167a348ea5a2a065065869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
