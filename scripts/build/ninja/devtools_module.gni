@@ -50,6 +50,13 @@ template("devtools_module") {
                             "*.js",
                             "*.map",
                           ])
+    if (is_debug) {
+      metadata = {
+        grd_files = invoker.data +
+                    filter_include(get_target_outputs(_typescript_target_dep),
+                                   [ "*.js" ])
+      }
+    }
   }
 }
 
