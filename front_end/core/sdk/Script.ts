@@ -78,15 +78,20 @@ export class Script implements TextUtils.ContentProvider.ContentProvider {
   _language: string|null;
   _contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
   _embedderName: string|null;
+  url: string;
   constructor(
-      debuggerModel: DebuggerModel, scriptId: string, sourceURL: string, startLine: number, startColumn: number,
+      debuggerModel: DebuggerModel, scriptId: string, url: string, startLine: number, startColumn: number,
       endLine: number, endColumn: number, executionContextId: number, hash: string, isContentScript: boolean,
       isLiveEdit: boolean, sourceMapURL: string|undefined, hasSourceURL: boolean, length: number,
       originStackTrace: Protocol.Runtime.StackTrace|null, codeOffset: number|null, scriptLanguage: string|null,
       debugSymbols: Protocol.Debugger.DebugSymbols|null, embedderName: string|null) {
     this.debuggerModel = debuggerModel;
     this.scriptId = scriptId;
-    this.sourceURL = sourceURL;
+    // When `url` is derived from a `//# sourceURL=foo` annotation, we complete it relative to the `embedderName`
+    // to properly deal with relative paths, falling back to using whatever is in `url` as the sourceURL for this
+    // Script instance. This is a backwards compatible way to mitigate https://crbug.com/1183990 (b/180404336),
+    // but long-term we need to make V8 not use the `//# sourceURL` annotation internally to get this right.
+    this.sourceURL = (hasSourceURL && Common.ParsedURL.ParsedURL.completeURL(embedderName ?? '', url)) || url;
     this.lineOffset = startLine;
     this.columnOffset = startColumn;
     this.endLine = endLine;
@@ -106,6 +111,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider {
     this._language = scriptLanguage;
     this._contentPromise = null;
     this._embedderName = embedderName;
+    this.url = url;
   }
 
   embedderName(): string|null {

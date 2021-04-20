@@ -616,7 +616,7 @@ export class ModelBreakpoint {
         const positions = debuggerLocations.map(loc => {
           const script = loc.script() as SDK.Script.Script;
           return {
-            url: script.sourceURL,
+            url: script.url,
             scriptId: script.scriptId,
             scriptHash: script.hash,
             lineNumber: loc.lineNumber,
