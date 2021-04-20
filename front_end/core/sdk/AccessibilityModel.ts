@@ -85,6 +85,10 @@ export class AccessibilityNode {
     return this._role || null;
   }
 
+  resetChildIds(ids: Array<string>): void {
+    this._childIds = ids;
+  }
+
   coreProperties(): CoreOrProtocolAxProperty[] {
     const properties: CoreOrProtocolAxProperty[] = [];
 
@@ -267,16 +271,10 @@ export class AccessibilityModel extends SDKModel {
   /**
    *
    * @param {!DOMNode} node
-   * @return ?{!Promise<!AccessibilityNode[]>}
+   * @return ?{!Promise<!AccessibilityNode>}
    */
 
   async requestAndLoadSubTreeToNode(node: DOMNode): Promise<AccessibilityNode|null> {
-    // Node may have already been loaded, so don't bother requesting it again.
-    const loadedAXNode = this.axNodeForDOMNode(node);
-    if (loadedAXNode) {
-      return loadedAXNode;
-    }
-
     const {nodes} = await this._agent.invoke_getPartialAXTree(
         {nodeId: node.id, backendNodeId: undefined, objectId: undefined, fetchRelatives: true});
     if (!nodes) {
@@ -287,6 +285,17 @@ export class AccessibilityModel extends SDKModel {
     for (const payload of nodes) {
       if (!this._axIdToAXNode.has(payload.nodeId)) {
         ancestors.push(new AccessibilityNode(this, payload));
+      } else if (payload.childIds?.length) {
+        const someNode = this._axIdToAXNode.get(payload.nodeId);
+        if (!someNode) {
+          continue;
+        }
+
+        // We have potentially fetched an ignored node, and it's parent needs to know to change
+        // its internal number of children.
+        if (someNode.numChildren() !== payload.childIds.length) {
+          someNode.resetChildIds(payload.childIds);
+        }
       }
     }
 
