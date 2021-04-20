@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff619658_cf6221b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-04-20T07:59:46Z",
+      "side": 1,
+      "message": "smol one for you, just to avoid the AXBreadcrumbsPane clearing out the AXObjectCache from underneath the new accessibility tree.",
+      "revId": "bcb4980571bc81145589358e2d6715b41e97bdad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
