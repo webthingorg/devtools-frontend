@@ -33,6 +33,23 @@
       "message": "Andrey, please take a look.",
       "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16411734_736250d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-20T14:49:57Z",
+      "side": 1,
+      "message": "caseq@ friendly ping",
+      "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
