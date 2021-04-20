@@ -1006,6 +1006,25 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     return uaString;
   }
 
+  static patchUserAgentMetadataWithChromeVersion(userAgentMetadata: Protocol.Emulation.UserAgentMetadata): void {
+    // Patches Chrome/CriOS version from user agent metadata ("1.2.3.4" when user agent is: "Chrome/1.2.3.4").
+    // Edge also contains an appVersion which should be patched to match the Chrome major version.
+    // Otherwise, ignore it. This assumes additional appVersions appear after the Chrome version.
+    if (!userAgentMetadata.brands) {
+      return;
+    }
+    const chromeVersion = MultitargetNetworkManager.getChromeVersion();
+    if (chromeVersion.length === 0) {
+      return;
+    }
+
+    for (const brand of userAgentMetadata.brands) {
+      if (brand.version.includes('%s')) {
+        brand.version = Platform.StringUtilities.sprintf(brand.version, chromeVersion);
+      }
+    }
+  }
+
   modelAdded(networkManager: NetworkManager): void {
     const networkAgent = networkManager.target().networkAgent();
     if (this._extraHeaders) {
@@ -1102,7 +1121,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   setUserAgentOverride(userAgent: string, userAgentMetadataOverride: Protocol.Emulation.UserAgentMetadata|null): void {
     const uaChanged = (this._userAgentOverride !== userAgent);
     this._userAgentOverride = userAgent;
-    if (!this._customUserAgent) {
+    if (this._customUserAgent) {
       this._userAgentMetadataOverride = userAgentMetadataOverride;
       this._updateUserAgentOverride();
     } else {
@@ -1118,9 +1137,10 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     return this._userAgentOverride;
   }
 
-  setCustomUserAgentOverride(userAgent: string): void {
+  setCustomUserAgentOverride(userAgent: string, userAgentMetadataOverride: Protocol.Emulation.UserAgentMetadata|null):
+      void {
     this._customUserAgent = userAgent;
-    this._userAgentMetadataOverride = null;
+    this._userAgentMetadataOverride = userAgentMetadataOverride;
     this._updateUserAgentOverride();
   }
 
