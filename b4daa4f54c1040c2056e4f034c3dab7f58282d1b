@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b844601a_6c18cbcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-20T11:03:58Z",
+      "side": 1,
+      "message": "Dirk FYI, this is the rename of the variable that we talked about yesterday. Thanks Simon for fixing it so quickly!",
+      "revId": "b4daa4f54c1040c2056e4f034c3dab7f58282d1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
