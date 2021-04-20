@@ -123,6 +123,24 @@
       "parentUuid": "8ab504b6_18847ab1",
       "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558bdc2f_95ede769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000379
+      },
+      "writtenOn": "2021-04-20T17:40:55Z",
+      "side": 1,
+      "message": "Yep, this is still needed for resources. That is unfortunate though, because it will probably mask protocol issues related to emitted frameAttached events. Or not? We\u0027ll see 😊",
+      "parentUuid": "aa4aec8b_c594f350",
+      "revId": "3cfeb99d71df8591bd6eee36018d78eec325dafa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
