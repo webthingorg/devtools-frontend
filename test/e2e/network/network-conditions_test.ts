@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import {ElementHandle} from 'puppeteer';
 
-import {waitFor, waitForAria} from '../../shared/helper.js';
+import {getBrowserAndPages, waitFor, waitForAria} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
 
@@ -18,6 +18,12 @@ describe('The Network Tab', async function() {
     const networkConditionsButton = await waitForAria('More network conditions…');
     await networkConditionsButton.click();
     return await waitFor('.network-config-accepted-encoding');
+  }
+
+  async function openNetworkConditionsUA() {
+    const networkConditionsButton = await waitForAria('More network conditions…');
+    await networkConditionsButton.click();
+    return await waitFor('.network-config-ua');
   }
 
   async function assertDisabled(checkbox: ElementHandle<Element>, expected: boolean) {
@@ -72,5 +78,63 @@ describe('The Network Tab', async function() {
     await assertDisabled(deflateCheckbox, true);
     await assertDisabled(gzipCheckbox, true);
     await assertDisabled(brotliCheckbox, true);
+  });
+
+  it('can override userAgentMetadata', async () => {
+    const {target, browser} = getBrowserAndPages();
+    const version = (await browser.version()).split('/')[1];
+
+    const option1Value =
+        'Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30';
+    const option2Value =
+        'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/%s Safari/537.36'.replace(
+            '%s', version);
+    const option3Value = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
+
+    const userAgentMetadata1Expected = JSON.stringify({
+      'brands': [
+        {'brand': 'Not A;Brand', 'version': '99'},
+        {'brand': 'Chromium', 'version': version},
+        {'brand': 'Google Chrome', 'version': version},
+      ],
+      'mobile': true,
+    });
+    const userAgentMetadata2Expected = JSON.stringify({
+      'brands': [
+        {'brand': 'Not A;Brand', 'version': '99'},
+        {'brand': 'Chromium', 'version': version},
+        {'brand': 'Google Chrome', 'version': version},
+      ],
+      'mobile': false,
+    });
+    const userAgentMetadata3Expected = JSON.stringify({'brands': [], mobile: false});
+
+    const getUserAgentMetaData =
+        'JSON.stringify({brands: navigator.userAgentData.brands, mobile: navigator.userAgentData.mobile})';
+
+    const section = await openNetworkConditionsUA();
+    const autoCheckbox = await waitForAria('Use browser default', section);
+    const uaDropdown = await waitForAria('User agent', section);
+    await assertChecked(autoCheckbox, true);
+    await autoCheckbox.click();
+    await assertChecked(autoCheckbox, false);
+
+    await uaDropdown.click();
+    await uaDropdown.select(option1Value);
+    await uaDropdown.click();
+    const userAgentMetadata1 = await target.evaluate(getUserAgentMetaData);
+    assert.strictEqual(userAgentMetadata1, userAgentMetadata1Expected);
+
+    await uaDropdown.click();
+    await uaDropdown.select(option2Value);
+    await uaDropdown.click();
+    const userAgentMetadata2 = await target.evaluate(getUserAgentMetaData);
+    assert.strictEqual(userAgentMetadata2, userAgentMetadata2Expected);
+
+    await uaDropdown.click();
+    await uaDropdown.select(option3Value);
+    await uaDropdown.click();
+    const userAgentMetadata3 = await target.evaluate(getUserAgentMetaData);
+    assert.strictEqual(userAgentMetadata3, userAgentMetadata3Expected);
   });
 });
