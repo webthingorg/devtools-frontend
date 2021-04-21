@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2c0223_58e20cca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-21T13:33:04Z",
+      "side": 1,
+      "message": "(but it\u0027s also possible that I\u0027m wrong about this)",
+      "parentUuid": "91b3836a_e5367967",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "745c616d_08359f57",
