@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4743bbf4_99d4ff14",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-21T20:34:23Z",
+      "side": 1,
+      "message": "reverted the change in this line.",
+      "parentUuid": "6563f248_ecbbcf31",
+      "range": {
+        "startLine": 1124,
+        "startChar": 0,
+        "endLine": 1124,
+        "endChar": 32
+      },
+      "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7381c160_d4c86dd1",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-20T19:32:55Z",
       "side": 1,
       "message": "This is almost the same as openNetworkConditions. Can we re-use openNetworkConditions and add a parameter to choose which element to wait for?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b528f578_0ee1cfd2",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-21T20:34:23Z",
+      "side": 1,
+      "message": "merged the two functions.",
+      "parentUuid": "7381c160_d4c86dd1",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29bfab6_27a07c35",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-21T20:34:23Z",
+      "side": 1,
+      "message": "renamed variables as suggested.",
+      "parentUuid": "8df2d806_ec22326b",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 0
+      },
+      "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0abb691_97d6467e",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-04-20T19:32:55Z",
       "side": 1,
       "message": "It should be possible to get the userAgentMetadata from the target without using JSON.stringify.\n\nFor the asserts, you can use deepEqual instead of strictEqual to compare objects.",
+      "range": {
+        "startLine": 94,
+        "startChar": 39,
+        "endLine": 94,
+        "endChar": 53
+      },
+      "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53b9378_69ff5d77",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-21T20:34:23Z",
+      "side": 1,
+      "message": "updated the test to not use JSON.stringify.",
+      "parentUuid": "a0abb691_97d6467e",
       "range": {
         "startLine": 94,
         "startChar": 39,
