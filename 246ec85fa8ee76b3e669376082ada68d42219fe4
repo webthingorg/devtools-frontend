@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "246ec85fa8ee76b3e669376082ada68d42219fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b2a956_c599e7e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T13:22:45Z",
+      "side": 1,
+      "message": "This CL rests on the assumption that it\u0027s only UMA events that are left-over from the previous session, and that we can discard them. Unfortunately I don\u0027t know if either of these assumptions is true.",
+      "revId": "246ec85fa8ee76b3e669376082ada68d42219fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
