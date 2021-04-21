@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a0159c_0b5fba7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-21T10:07:57Z",
+      "side": 1,
+      "message": "Can you switch the `script_executable` to Python 3 in line with DevTools (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2828111) and Chromium (https://chromium-review.googlesource.com/c/chromium/src/+/2824170)? It probably is good if the Python versions of the headless roller match with Chromium.\n\nIf that is not possible, could you let me know how `ts_library` is included in the roller?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "4ee752abb06e858f8a71ef58a1ac4a95a53bfd70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
