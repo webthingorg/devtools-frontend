@@ -12,7 +12,7 @@ import type * as SDK from '../../../../front_end/core/sdk/sdk.js';
 type ProtocolCommand = keyof ProtocolMapping.Commands;
 type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['paramsType'];
 type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['returnType'];
-type ProtocolCommandHandler<C extends ProtocolCommand> = (params: ProtocolCommandParams<C>) =>
+type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
     Omit<ProtocolResponse<C>, 'getError'>;
 type MessageCallback = (result: string|Object) => void;
 
