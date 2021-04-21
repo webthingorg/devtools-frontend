@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a486f9e_f5f53b97",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-04-21T09:41:11Z",
+      "side": 1,
+      "message": "Here it is best to use the user\u0027s indentation setting, in the Copy Object function, use `Common.Settings.Settings.instance().moduleSetting(\u0027textEditorIndent\u0027).get()`\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2560322",
+      "revId": "5a7aa17a34fe373f66125e91c39ae540b1657ec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
