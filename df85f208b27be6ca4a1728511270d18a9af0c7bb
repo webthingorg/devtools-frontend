@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ba0767_f3345cc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-21T07:17:09Z",
+      "side": 1,
+      "message": "Paul, here\u0027s the CL that runs into the ProtocolCommandParams typing issue.",
+      "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc57085d_332959e6",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-04-21T06:12:00Z",
       "side": 1,
       "message": "Can we change it in MockConnections.ts, or does it require more work? If more work, can we mention a bug here so that it is not forgotten about when it\u0027s fixed?",
+      "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bde516b8_90d8893e",
+        "filename": "test/unittests/front_end/sdk/DebuggerModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-21T07:17:09Z",
+      "side": 1,
+      "message": "Already pinged Paul about it.",
+      "parentUuid": "dc57085d_332959e6",
       "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
