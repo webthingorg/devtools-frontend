@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd2e274_2c285ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-04-21T21:55:49Z",
+      "side": 1,
+      "message": "+Vidal to look at localized phrase.",
+      "revId": "1f1fdc141280a621bec6d02fba62b8ef05571319",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
