@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef8cbc6_5ff4f2df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-21T13:04:35Z",
+      "side": 1,
+      "message": "LGTM with a tiny nit.",
+      "revId": "f62337df097c57e6d31bc2c4fa8386caf35c6544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf28c898_7d82f464",
+        "filename": "test/e2e/resources/issues/origin-wildcard.rawresponse",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-21T13:04:35Z",
+      "side": 1,
+      "message": "nit: missing new line at end of file",
+      "revId": "f62337df097c57e6d31bc2c4fa8386caf35c6544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
