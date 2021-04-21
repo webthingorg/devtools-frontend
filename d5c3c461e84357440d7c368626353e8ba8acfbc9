@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebe8514_07307b70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-21T17:34:03Z",
+      "side": 1,
+      "message": "LGTM but it appears that some resources are included twice according to the bot failure? I could not spot which change causes it.",
+      "revId": "d5c3c461e84357440d7c368626353e8ba8acfbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
