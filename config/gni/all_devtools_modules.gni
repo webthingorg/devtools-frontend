@@ -211,6 +211,7 @@ all_typescript_module_sources = [
   "models/persistence/WorkspaceSettingsTab.js",
   "models/recorder/Conditions.js",
   "models/recorder/RecorderModel.js",
+  "models/recorder/RecordingClient.js",
   "models/recorder/RecordingEventHandler.js",
   "models/recorder/RecordingFileSystem.js",
   "models/recorder/RecordingScriptWriter.js",
