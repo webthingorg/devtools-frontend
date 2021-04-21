@@ -15,20 +15,25 @@ template("devtools_pre_built") {
     deps = invoker.deps
   }
 
+  _target_outputs = get_target_outputs(_copy_gen_target_dep)
+  _javascript_implementation_files =
+      invoker.data + filter_include(_target_outputs,
+                                    [
+                                      "*.js",
+                                      "*.mjs",
+                                    ])
+
   group(target_name) {
     public_deps = [ _copy_gen_target_dep ]
 
-    data =
-        invoker.data + filter_include(get_target_outputs(_copy_gen_target_dep),
-                                      [
-                                        "*.js",
-                                        "*.mjs",
-                                        "*.map",
-                                      ])
+    data = _javascript_implementation_files +
+           filter_include(_target_outputs, [ "*.map" ])
+    metadata = {
+      grd_files = _javascript_implementation_files
+    }
   }
 
   if (is_debug) {
-    _target_outputs = get_target_outputs(_copy_gen_target_dep)
     _filtered_target_outputs =
         filter_include(
             filter_exclude(_target_outputs, generated_typescript_modules),

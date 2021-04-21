@@ -588,6 +588,7 @@ all_typescript_module_sources = [
   "third_party/diff/DiffWrapper.js",
   "third_party/diff/diff_match_patch.js",
   "third_party/i18n/i18n-bundle.js",
+  "third_party/lighthouse/lighthouse-dt-bundle.js",
   "third_party/lighthouse/report-assets/report-generator.js",
   "third_party/lighthouse/report-assets/report.js",
   "third_party/lit-html/directives.js",
