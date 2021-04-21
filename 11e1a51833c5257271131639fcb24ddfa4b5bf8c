@@ -50,6 +50,23 @@
       "message": "caseq@ friendly ping",
       "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c57101c2_3f535fad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-21T01:54:11Z",
+      "side": 1,
+      "message": "Ouch, sorry, missed this one. lgtm!",
+      "revId": "11e1a51833c5257271131639fcb24ddfa4b5bf8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
