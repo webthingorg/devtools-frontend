@@ -216,6 +216,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27493d46_7448c00c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-21T05:25:25Z",
+      "side": 1,
+      "message": "Adithya, would it be possible for you to summarize this discussion in your design doc -- perhaps outline the protocol events and invariants that client may assume about target and frame ids in your proposed model during each type of transaction (regular navigation / bfCache navigation / portal activation / activation of pre-rendered frame). I\u0027m mostly concerned with us retaining compatibility for basic navigation scenarios, even if it implies disabling some features by default when DevTools are attached. So perhaps we should have something like this (please correct me if I\u0027m not capturing this correctly):\n\n- for regular navigations, we would be able to retain current protocol, where both the main frame and the target remain the same;\n- BFCache navigations also retain both main frame ids and do not require any target switches (so presumable the cached frames have devtools id duplicate to that of active frames?);\n- Portal activations could probably be treated specially (on the account of them being relatively rare) and produce a new event that would cause frame tree being updated while keeping existing sessions?\n- Allowing pre-rendering with DevTools attached sounds rather impractical to me, as we would have to pick between confusing the user with multiple unrelated targets running concurrently if we attach early or miss the loading entirely.",
+      "parentUuid": "b339878c_52912304",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
