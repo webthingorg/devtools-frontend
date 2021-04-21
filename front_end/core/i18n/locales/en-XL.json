@@ -5024,6 +5024,12 @@
   "panels/issues/CorsIssueDetailsView.ts | nRequests": {
     "message": "{n, plural, =1 { r̂éq̂úêśt̂} other { ŕêq́ûéŝt́ŝ}}"
   },
+  "panels/issues/CorsIssueDetailsView.ts | preflightDisallowedRedirect": {
+    "message": "P̂ŕêf́l̂íĝh́t̂ ẃâś r̂éŝṕôńd̂éd̂ ẃît́ĥ ŕêd́îŕêćt̂"
+  },
+  "panels/issues/CorsIssueDetailsView.ts | preflightInvalidStatus": {
+    "message": "P̂ŕêf́l̂íĝh́t̂ H́T̂T́P̂ śt̂át̂úŝ ćôd́ê ẃâś n̂ót̂ 200 (ÓK̂)"
+  },
   "panels/issues/CorsIssueDetailsView.ts | preflightRequestIfProblematic": {
     "message": "P̂ŕêf́l̂íĝh́t̂ Ŕêq́ûéŝt́ (îf́ p̂ŕôb́l̂ém̂át̂íĉ)"
   },

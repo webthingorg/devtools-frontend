@@ -5024,6 +5024,12 @@
   "panels/issues/CorsIssueDetailsView.ts | nRequests": {
     "message": "{n, plural, =1 { request} other { requests}}"
   },
+  "panels/issues/CorsIssueDetailsView.ts | preflightDisallowedRedirect": {
+    "message": "Preflight was responded with redirect"
+  },
+  "panels/issues/CorsIssueDetailsView.ts | preflightInvalidStatus": {
+    "message": "Preflight HTTP status code was not 200 (OK)"
+  },
   "panels/issues/CorsIssueDetailsView.ts | preflightRequestIfProblematic": {
     "message": "Preflight Request (if problematic)"
   },
