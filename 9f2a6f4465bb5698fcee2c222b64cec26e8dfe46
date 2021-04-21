@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcab9dea_5a0dba05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T08:06:23Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "9f2a6f4465bb5698fcee2c222b64cec26e8dfe46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b555758_e2b1062b",
+        "filename": "config/gni/all_devtools_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T08:06:23Z",
+      "side": 1,
+      "message": "Note: I sorted this list.",
+      "range": {
+        "startLine": 439,
+        "startChar": 1,
+        "endLine": 439,
+        "endChar": 34
+      },
+      "revId": "9f2a6f4465bb5698fcee2c222b64cec26e8dfe46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
