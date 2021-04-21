@@ -269,7 +269,7 @@ const emitEvent = (event: Protocol.Event) => {
 const getEventMapping =
     (event: Protocol.Event, domainName: string, modulePrefix: string): Protocol.RefType&Protocol.PropertyBaseType => {
       // Use TS3.0+ tuples
-      const payloadType = event.parameters ? `[${modulePrefix}.${domainName}.${toEventPayloadName(event.name)}]` : '[]';
+      const payloadType = event.parameters ? `${modulePrefix}.${domainName}.${toEventPayloadName(event.name)}` : '[]';
 
       return {
         // domain-prefixed name since it will be used outside of the module.
@@ -290,7 +290,7 @@ const getCommandMapping = (command: Protocol.Command, domainName: string,
   let requestType = '[]';
   if (command.parameters) {
     const optional = isWeakInterface(command.parameters) ? '?' : '';
-    requestType = '[' + prefix + toCmdRequestName(command.name) + optional + ']';
+    requestType = prefix + toCmdRequestName(command.name) + optional;
   }
   const responseType = command.returns ? prefix + toCmdResponseName(command.name) : 'void';
 
