@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6db3c9bb_5cb7d9ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-21T05:51:23Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nStraight-forward adoption of kozy@\u0027s CL with unittest coverage.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
