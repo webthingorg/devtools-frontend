@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "695231f0_fab601b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-21T18:21:57Z",
+      "side": 1,
+      "message": "\u003e Adithya, would it be possible for you to summarize this discussion in your design doc -- perhaps outline the protocol events and invariants that client may assume about target and frame ids in your proposed model during each type of transaction (regular navigation / bfCache navigation / portal activation / activation of pre-rendered frame). \n\nYup, I was planning on doing so!\n\n\u003e - for regular navigations, we would be able to retain current protocol, where both the main frame and the target remain the same;\n\u003e - BFCache navigations also retain both main frame ids and do not require any target switches (so presumable the cached frames have devtools id duplicate to that of active frames?);\n\nAgreed with the above two (and yes cached frames have the same devtools id as active frames).\n\n\u003e - Portal activations could probably be treated specially (on the account of them being relatively rare) and produce a new event that would cause frame tree being updated while keeping existing sessions?\n\nI\u0027m still unsure about what this means and if it\u0027s feasible (FWIW, I don\u0027t think portal activations will be that much more rare than prerender activations - impossible to prove though as they haven\u0027t shipped :)). But for this to be supported, we will need the targets to swap, but targets are currently tightly coupled with FTNs that won\u0027t swap during a portal activation. If we don\u0027t swap the targets, we\u0027d have to break the frameId-targetId equality, which is also problematic. \n\n\u003e - Allowing pre-rendering with DevTools attached sounds rather impractical to me, as we would have to pick between confusing the user with multiple unrelated targets running concurrently if we attach early or miss the loading entirely.\n\nDo you mean actually attaching to a prerendering page is impractical? I think I would agree with that. But I don\u0027t think we should cancel a prerender when DevTools attaches to an active page.\n\nBut yes, if we don\u0027t support attaching to a prerendering page, I think Dmitry\u0027s idea to give a prerendering fram the same frame id as the active frame is promising (it should work for DevTools, but I\u0027m a little concerned about tracing which I believe also uses the frame_token as an identifier).",
+      "parentUuid": "27493d46_7448c00c",
+      "revId": "285298f30a0641a6b9700f722fbc2ad53f44a82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d292cc4_0c5b5bc1",
         "filename": "front_end/core/sdk/DOMModel.js",
         "patchSetId": 3
