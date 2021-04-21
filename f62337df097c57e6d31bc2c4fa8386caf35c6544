@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f5d9c50_632d7632",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T13:13:23Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "f62337df097c57e6d31bc2c4fa8386caf35c6544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf28c898_7d82f464",
@@ -31,6 +48,24 @@
       "writtenOn": "2021-04-21T13:04:35Z",
       "side": 1,
       "message": "nit: missing new line at end of file",
+      "revId": "f62337df097c57e6d31bc2c4fa8386caf35c6544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ba422d_89dae552",
+        "filename": "test/e2e/resources/issues/origin-wildcard.rawresponse",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T13:13:23Z",
+      "side": 1,
+      "message": "These files (.rawresponse) don\u0027t have newlines at the end, as they are verbatim what the server is supposed to answer.",
+      "parentUuid": "bf28c898_7d82f464",
       "revId": "f62337df097c57e6d31bc2c4fa8386caf35c6544",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
