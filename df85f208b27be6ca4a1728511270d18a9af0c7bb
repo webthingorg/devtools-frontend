@@ -16,6 +16,40 @@
       "message": "Hey Kim,\n\nStraight-forward adoption of kozy@\u0027s CL with unittest coverage.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee4cdcae_5f50834c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-21T06:12:00Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc57085d_332959e6",
+        "filename": "test/unittests/front_end/sdk/DebuggerModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-21T06:12:00Z",
+      "side": 1,
+      "message": "Can we change it in MockConnections.ts, or does it require more work? If more work, can we mention a bug here so that it is not forgotten about when it\u0027s fixed?",
+      "revId": "df85f208b27be6ca4a1728511270d18a9af0c7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
