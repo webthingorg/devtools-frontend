@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5a9682_4ac1262b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-21T16:23:02Z",
+      "side": 1,
+      "message": "I will do some additional checks tomorrow to see if this is actually correct with respect to the LightHouse files.",
+      "revId": "61dcc50f8c03c759ae06c418754c8814fc85aa13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
