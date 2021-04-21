@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dfb367e_bf4922e6",
+        "filename": "front_end/models/issues_manager/descriptions/corsPreflightResponseInvalid.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T14:19:28Z",
+      "side": 1,
+      "message": "Great, thanks!",
+      "parentUuid": "745c616d_08359f57",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e968a4c_e2598ba3",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-04-21T13:31:32Z",
       "side": 1,
       "message": "...indicates that the response to the preflight request was a redirect.",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40bacfc7_dc241997",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T14:19:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e968a4c_e2598ba3",
       "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -87,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb33a135_eca141e1",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T14:19:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05453a0f_24a50129",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d40748c_e0d02946",
@@ -104,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3c1338_9c2e3a37",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T14:19:28Z",
+      "side": 1,
+      "message": "I discovered that other 2xx status codes are also accepted and rephrased.",
+      "parentUuid": "8d40748c_e0d02946",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d265c8d_eef7fca9",
@@ -117,6 +189,24 @@
       "writtenOn": "2021-04-21T13:31:32Z",
       "side": 1,
       "message": "Is the \u0027(if problematic)\u0027 part of the column title even needed here? Shouldn\u0027t we always have a problematic preflight request in the current case?",
+      "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81adc551_738aaf92",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-21T14:19:28Z",
+      "side": 1,
+      "message": "Good point, done! Also removed the conditional below.",
+      "parentUuid": "1d265c8d_eef7fca9",
       "revId": "828c196b19388ea0e0fe51ac0fe84e751444b266",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
