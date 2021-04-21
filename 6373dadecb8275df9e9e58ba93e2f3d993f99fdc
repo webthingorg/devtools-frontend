@@ -204,6 +204,24 @@
       "message": "Please add some tests for the other metadata values (platform, device model, etc). This page explains how to access them from navigator.userAgentData: https://web.dev/user-agent-client-hints/",
       "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d62cbd2_ba63f4d1",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-21T23:29:28Z",
+      "side": 1,
+      "message": "extra fields added and verified in test cases.",
+      "parentUuid": "15f318f7_ebee58e4",
+      "revId": "6373dadecb8275df9e9e58ba93e2f3d993f99fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
