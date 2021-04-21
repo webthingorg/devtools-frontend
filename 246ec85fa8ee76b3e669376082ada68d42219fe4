@@ -33,6 +33,23 @@
       "message": "This CL rests on the assumption that it\u0027s only UMA events that are left-over from the previous session, and that we can discard them. Unfortunately I don\u0027t know if either of these assumptions is true.",
       "revId": "246ec85fa8ee76b3e669376082ada68d42219fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2e3d69_3071794a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-04-21T15:08:31Z",
+      "side": 1,
+      "message": "LGTM. I agree that we don\u0027t know that UMA records are the only ones here, but they\u0027re definitely suitable to be ignored from a perf panel perspective; they\u0027re mostly an artifact of having the loading category switched on.",
+      "revId": "246ec85fa8ee76b3e669376082ada68d42219fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
