@@ -75,6 +75,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6aa95d1_01c68e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-22T09:13:55Z",
+      "side": 1,
+      "message": "I agree that we should turn on that setting, but I am unsure whether we should block the TS update on enabling the flag.\n\nI\u0027d suggest we land 4.3 now. Then fix up all override errors incrementally, and then turn on the flag. Wdyt?",
+      "parentUuid": "c335504e_bcff6367",
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4df8c6fe_3519750f",
