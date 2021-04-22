@@ -224,13 +224,10 @@ action("generate_devtools_grd") {
   }
 
   response_file_contents = rebase_path(inputs, root_build_dir)
-  outfile = "$root_gen_dir/devtools/devtools_resources.grd"
+  outfile = "$target_gen_dir/devtools_resources.grd"
   outputs = [ outfile ]
 
-  relative_path_dirs = [
-    "$target_gen_dir/front_end",
-    "front_end",
-  ]
+  relative_path_dirs = [ target_gen_dir ]
 
   args = [
            "--file_list",

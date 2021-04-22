@@ -130,10 +130,6 @@ def main(argv):
         if relative_filename in written_filenames:
             raise Exception("Duplicate file detected: %s" % relative_filename)
         written_filenames.add(relative_filename)
-        target_dir = path.join(output_directory, path.dirname(relative_filename))
-        if not path.exists(target_dir):
-            os.makedirs(target_dir)
-        shutil.copy(filename, target_dir)
         add_file_to_grd(doc, relative_filename, parsed_args.compress)
 
     with open(parsed_args.output_filename, 'wb') as output_file:
