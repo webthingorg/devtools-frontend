@@ -16,6 +16,23 @@
       "message": "PTAL, split out from https://crrev.com/c/2846324",
       "revId": "efce792bef3a05972e6f68bae0d391b41190141e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb6d7cc9_c6b3cc8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-22T09:03:17Z",
+      "side": 1,
+      "message": "Thanks for taking this on!",
+      "revId": "efce792bef3a05972e6f68bae0d391b41190141e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
