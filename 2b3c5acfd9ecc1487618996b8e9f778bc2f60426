@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb07d78_a494546b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-22T08:32:41Z",
+      "side": 1,
+      "message": "Nit: 1196203",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5e1440c3_8037905d",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-04-22T08:25:25Z",
       "side": 1,
       "message": "PTAL, especially at the changes in front_end.",
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c35f90b_e4f118ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-22T08:32:41Z",
+      "side": 1,
+      "message": "Thanks for the upgrade! Do you mind splitting up the `front_end/` fixes, so that we don\u0027t have to add the `DISABLE_THIRD_PARTY_CHECK` and have an easier time reverting? Also adding Jack as a reviewer, who was working on the TS 4.3.0 upgrade before",
       "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
