@@ -111,6 +111,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c026bac_d6b91f92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-22T09:16:37Z",
+      "side": 1,
+      "message": "Doing the flag in a follow-up SGTM! Thanks",
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4df8c6fe_3519750f",
