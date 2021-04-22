@@ -50,6 +50,24 @@
       "message": "I\u0027d ask that you check with +vidorteg@microsoft.com - This might concatenate localized strings in a way that is invalid. (Normally I would expect this to be in the format of \"Breakpoint removed: Node removed\" instead of \"Node removed Breakpoint removed\".",
       "revId": "c56bd85ca5778385c705eb6b2ab5c6b64da34890",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e72169f_d1fab469",
+        "filename": "front_end/panels/browser_debugger/DOMBreakpointsSidebarPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-04-22T16:27:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff503512_796f482b",
+      "revId": "c56bd85ca5778385c705eb6b2ab5c6b64da34890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
