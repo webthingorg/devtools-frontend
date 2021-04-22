@@ -58,6 +58,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c335504e_bcff6367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-22T09:02:49Z",
+      "side": 1,
+      "message": "Could we also add the noImplicitOverrides flag and fix those warnings too? (https://devblogs.microsoft.com/typescript/announcing-typescript-4-3-beta/#override-and-the-noimplicitoverride-flag).\n\nHappy if you want to do that in a follow-up CL but I do think it\u0027s a setting that we should turn on.",
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4df8c6fe_3519750f",
