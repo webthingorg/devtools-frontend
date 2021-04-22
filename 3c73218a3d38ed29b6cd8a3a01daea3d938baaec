@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8567ae8_d221f17b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-04-22T18:34:23Z",
+      "side": 1,
+      "message": "LGTM with suggestions",
+      "revId": "3c73218a3d38ed29b6cd8a3a01daea3d938baaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ce62ac_8985bf26",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-04-22T18:34:23Z",
+      "side": 1,
+      "message": "nit: \u0027Chrome/CriOS\u0027 \u003d\u003e \u0027Chrome/ChrOS\u0027",
+      "revId": "3c73218a3d38ed29b6cd8a3a01daea3d938baaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad1b3a50_81a2f5df",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-04-22T18:34:23Z",
+      "side": 1,
+      "message": "I would remove this line.\n\nSo far the devtools code has avoided brands (outside of compat and browser lists). As for usages of \u0027Chrome\u0027, I think of it as shorthand for \u0027Chromium\u0027.\n\nhttps://source.chromium.org/search?q\u003d%22Microsoft%20Edge%22%20f:devtools-frontend%20-f:out\u0026ss\u003dchromium",
+      "range": {
+        "startLine": 1011,
+        "startChar": 7,
+        "endLine": 1011,
+        "endChar": 16
+      },
+      "revId": "3c73218a3d38ed29b6cd8a3a01daea3d938baaec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
