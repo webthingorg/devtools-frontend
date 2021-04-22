@@ -16,6 +16,24 @@
       "message": "We need to figure out how we are going to update the backend and DevTools non-atomically. I think the easiest might be to generate both GRDs for a while, until the backend can be switched? I would prefer if we keep the time minimal while we generate two GRD files, to keep it simpler for us. Let me know what your thoughts/suggestions are Alex.",
       "revId": "07dd6365f6b3274dfe29c5ca87979fc3e941b980",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "948b64c8_b520f4f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-22T16:50:20Z",
+      "side": 1,
+      "message": "Yes, I think we should generate two copies until we update the backend. The backend can be updated once DevTools rolls (and does not get reverted).",
+      "parentUuid": "dea057f9_a39184bc",
+      "revId": "07dd6365f6b3274dfe29c5ca87979fc3e941b980",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
