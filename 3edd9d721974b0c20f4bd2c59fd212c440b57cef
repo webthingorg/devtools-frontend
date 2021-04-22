@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "416a6018_9ebc43df",
+        "filename": "BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-22T20:01:50Z",
+      "side": 1,
+      "message": "Should not the stamp file go to the obj dir?",
+      "revId": "3edd9d721974b0c20f4bd2c59fd212c440b57cef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
