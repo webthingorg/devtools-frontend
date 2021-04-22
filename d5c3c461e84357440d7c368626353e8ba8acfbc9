@@ -16,6 +16,23 @@
       "message": "LGTM but it appears that some resources are included twice according to the bot failure? I could not spot which change causes it.",
       "revId": "d5c3c461e84357440d7c368626353e8ba8acfbc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a5684c_910c3c85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-04-22T07:41:50Z",
+      "side": 1,
+      "message": "Broadly looking good, but I\u0027d like to understand a couple of things: 1) when these changes land will we still be comparing the list of files included in the GRD with a golden list? (I think we need to to avoid missing or extra files), and 2) Are we anticipating any period of time where we don\u0027t have any safety checks in place?",
+      "revId": "d5c3c461e84357440d7c368626353e8ba8acfbc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
