@@ -46,6 +46,30 @@
       },
       "revId": "4ee752abb06e858f8a71ef58a1ac4a95a53bfd70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09aee5e_1bcf335f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-22T08:34:52Z",
+      "side": 1,
+      "message": "Thanks for the additional context. Let\u0027s abandon this fix, but we can always make a follow-up that makes `ts_library` work with Python 2 in the event that Chromium reverts its change.",
+      "parentUuid": "c4a4dcc1_8c35b186",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "4ee752abb06e858f8a71ef58a1ac4a95a53bfd70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
