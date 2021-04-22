@@ -38,6 +38,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as TextEditor from '../../ui/legacy/components/text_editor/text_editor.js';  // eslint-disable-line no-unused-vars
@@ -193,6 +194,16 @@ const UIStrings = {
   * the overlay showing CSS scroll snapping for the current element.
   */
   disableScrollSnap: 'Disable scroll-snap overlay',
+  /**
+  *@description Label of an adorner in the Elements panel. When clicked, it enables
+  * the overlay showing CSS Container Queries' Containment Context for the current element.
+  */
+  enableContainmentContext: 'Enable Containment Context overlay',
+  /**
+  *@description Label of an adorner in the Elements panel. When clicked, it disables
+  * the overlay showing CSS Container Queries' Containment Context for the current element.
+  */
+  disableContainmentContext: 'Disable Containment Context overlay',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementsTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -2005,6 +2016,59 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (styles.get('scroll-snap-type') && styles.get('scroll-snap-type') !== 'none') {
       appendAdorner(this.createScrollSnapAdorner());
     }
+
+    if (Root.Runtime.experiments.isEnabled('containerQueries')) {
+      const contain = styles.get('contain')?.toString() ?? '';
+      if (contain && contain.includes('layout') &&
+          (contain.includes('inline-size') || contain.includes('block-size') || contain.includes('size'))) {
+        appendAdorner(this.createContainmentContextAdorner(contain));
+      }
+    }
+  }
+
+  createContainmentContextAdorner(containStyle: string): Adorner|null {
+    const node = this.node();
+    const nodeId = node.id;
+    if (!nodeId) {
+      return null;
+    }
+
+    let containmentContext = 'both';
+    if (containStyle.includes('inline-size')) {
+      containmentContext = 'inline';
+    }
+    if (containStyle.includes('block-size')) {
+      containmentContext = 'block';
+    }
+
+    const adorner = this.adornText('containment-context', AdornerCategories.Layout);
+    adorner.classList.add('containment-context');
+    adorner.classList.add(`containment-context--${containmentContext}`);
+
+    const onClick = (((): void => {
+                       if (adorner.isActive()) {
+                         node.domModel().overlayModel().highlightContainmentContextInPersistentOverlay(nodeId);
+                       } else {
+                         node.domModel().overlayModel().hideContainmentContextInPersistentOverlay(nodeId);
+                       }
+                     }) as EventListener);
+    adorner.addInteraction(onClick, {
+      isToggle: true,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.enableContainmentContext),
+      ariaLabelActive: i18nString(UIStrings.disableContainmentContext),
+    });
+
+    node.domModel().overlayModel().addEventListener(
+        SDK.OverlayModel.Events.PersistentContainmentContextOverlayStateChanged, event => {
+          const {nodeId: eventNodeId, enabled} = event.data;
+          if (eventNodeId !== nodeId) {
+            return;
+          }
+          adorner.toggle(enabled);
+        });
+
+    return adorner;
   }
 
   createGridAdorner(): Adorner|null {
