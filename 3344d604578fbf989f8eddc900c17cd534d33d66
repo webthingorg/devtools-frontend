@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab7ef76_3b3ad442",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-22T08:25:25Z",
+      "side": 0,
+      "message": "I think in this case, TS was like \"Hey, Promise\u003cvoid\u003e is always true, why do you make a logic comparison here?\" And it ignored the fact that we simply wanted to force the value to be always false.",
+      "range": {
+        "startLine": 491,
+        "startChar": 48,
+        "endLine": 491,
+        "endChar": 89
+      },
+      "revId": "3344d604578fbf989f8eddc900c17cd534d33d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1440c3_8037905d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-22T08:25:25Z",
+      "side": 1,
+      "message": "PTAL, especially at the changes in front_end.",
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df8c6fe_3519750f",
+        "filename": "front_end/ui/legacy/ShortcutRegistry.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-22T08:25:25Z",
+      "side": 1,
+      "message": "I\u0027m assuming that we forgot to await this, as the function returns a `Promise\u003cboolean\u003e` whether it was handled or not.\n\nIf we don\u0027t await, then the `if` on line 197 will always be true (as a Promise\u003cboolean\u003e is truthy).",
+      "range": {
+        "startLine": 194,
+        "startChar": 22,
+        "endLine": 194,
+        "endChar": 27
+      },
+      "revId": "2b3c5acfd9ecc1487618996b8e9f778bc2f60426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
