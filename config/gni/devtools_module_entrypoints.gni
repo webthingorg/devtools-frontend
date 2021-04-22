@@ -173,7 +173,6 @@ devtools_module_entrypoint_sources = [
   "third_party/diff/diff-legacy.js",
   "third_party/diff/diff.js",
   "third_party/i18n/i18n-bundle.js",
-  "third_party/lighthouse/lighthouse-dt-bundle.js",
   "third_party/lit-html/lit-html.js",
   "third_party/marked/marked.js",
   "third_party/puppeteer/puppeteer.js",
