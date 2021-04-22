@@ -33,6 +33,23 @@
       "message": "LGTM thanks! ",
       "revId": "61dcc50f8c03c759ae06c418754c8814fc85aa13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "370f7ad4_2d362572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-04-22T07:43:03Z",
+      "side": 1,
+      "message": "LGTM. You can ignore my previous question on the other CL; I reviewed them out of order and I see we have the Python file here to check that lists match 😊",
+      "revId": "61dcc50f8c03c759ae06c418754c8814fc85aa13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
