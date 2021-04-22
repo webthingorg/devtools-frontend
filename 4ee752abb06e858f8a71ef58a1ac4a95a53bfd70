@@ -22,6 +22,30 @@
       },
       "revId": "4ee752abb06e858f8a71ef58a1ac4a95a53bfd70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4a4dcc1_8c35b186",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-04-22T04:08:22Z",
+      "side": 1,
+      "message": "It turned out the problem was specific to the roller environment, which leaked python virtual environment used to run build bot into the build itself, which resulted in \"python3\" referring to a python2 binary. This is fixed now, so I don\u0027t think this fix is relevant.\n\nThat said, you probably want to avoid python3-specific code for now as per Dirk (please see the comments here: https://chromium-review.googlesource.com/c/chromium/deps/icu/+/2842863) as there\u0027s still a risk of transition to python3 being reverted, at least the history there was a bit difficult.",
+      "parentUuid": "66a0159c_0b5fba7d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "4ee752abb06e858f8a71ef58a1ac4a95a53bfd70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
