@@ -16,6 +16,23 @@
       "message": "This CL is to apply the user agent client hint data populated in the previous CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2830581. Please take a look. Thanks.",
       "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa16898f_216b37c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-04-23T04:27:35Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
