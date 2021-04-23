@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5c2b29_47327e80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-23T07:41:27Z",
+      "side": 1,
+      "message": "LGTM with 1 remark",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06954b6_ccd23d14",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-23T07:41:27Z",
+      "side": 1,
+      "message": "nit: maybe \u0027`Allow-Credentials` Value from Header\u0027?",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac103f62_2ab75e03",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-23T07:41:27Z",
+      "side": 1,
+      "message": "We probably don\u0027t want the console.log in here.",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
