@@ -16,6 +16,40 @@
       "message": "+Alex to review.\n\nPTAL when you can.  Thanks!",
       "revId": "64d1c5e6e88d3c5ca0a6284a03e4a797e26a3c0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15581f27_8f120849",
+        "filename": "front_end/panels/browser_debugger/DOMBreakpointsSidebarPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-23T06:30:48Z",
+      "side": 1,
+      "message": "It seems that label is a lazy 18n function? so the resulting alert string is, for example, `\"Breakpoint set: () \u003d\u003e getLocalizedString(str_, id, values)\"`",
+      "revId": "64d1c5e6e88d3c5ca0a6284a03e4a797e26a3c0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4afc469c_137bbddc",
+        "filename": "front_end/panels/browser_debugger/DOMBreakpointsSidebarPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-23T06:30:48Z",
+      "side": 1,
+      "message": "Is there a way to test this in E2E tests?",
+      "revId": "64d1c5e6e88d3c5ca0a6284a03e4a797e26a3c0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
