@@ -16,6 +16,24 @@
       "message": "Should not the stamp file go to the obj dir?",
       "revId": "3edd9d721974b0c20f4bd2c59fd212c440b57cef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0383f038_7b11386a",
+        "filename": "BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-23T08:36:55Z",
+      "side": 1,
+      "message": "Since it is listed in the `outputs`, I don\u0027t think we can. The stamp file is only used here to tell GN that it ran the action. Any `action` always has to include `outputs`. If we don\u0027t generate the file in the `outputs`, then Ninja thinks that it should rerun the action indefinitely. Therefore, we have to write an empty file somewhere, list it in the `outputs` and then Ninja will properly run the action only when necessary. As far as I am aware, anything listed in `outputs` should be in `gen/`.",
+      "parentUuid": "416a6018_9ebc43df",
+      "revId": "3edd9d721974b0c20f4bd2c59fd212c440b57cef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
