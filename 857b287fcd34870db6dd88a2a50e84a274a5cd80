@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f92038a_0163d739",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T08:44:05Z",
+      "side": 1,
+      "message": "Opted for the longer `Access-Control-Allow-Credentials` to avoid potential confusion.",
+      "parentUuid": "e06954b6_ccd23d14",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac103f62_2ab75e03",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64520985_f71e267b",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T08:44:05Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "ac103f62_2ab75e03",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cd12432_64dd949d",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-04-23T07:54:12Z",
       "side": 1,
       "message": "Could the definition of `url` be moved out of the try block such that it can be re-used here instead of `url2`?",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd1ce69_58e72744",
+        "filename": "test/e2e/issues/cors-issues_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T08:44:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd12432_64dd949d",
       "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
