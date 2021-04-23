@@ -455,6 +455,7 @@ let alertElement: HTMLElement|undefined;
 
 function createAriaAlertElement(): HTMLElement {
   const element = document.body.createChild('div') as HTMLElement;
+  element.id = 'ariaUtilsAlertElement';
   hideFromLayout(element);
   element.setAttribute('role', 'alert');
   element.setAttribute('aria-atomic', 'true');
