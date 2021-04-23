@@ -67,6 +67,23 @@
       "message": "We probably don\u0027t want the console.log in here.",
       "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd12432_64dd949d",
+        "filename": "test/e2e/issues/cors-issues_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-23T07:54:12Z",
+      "side": 1,
+      "message": "Could the definition of `url` be moved out of the try block such that it can be re-used here instead of `url2`?",
+      "revId": "857b287fcd34870db6dd88a2a50e84a274a5cd80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
