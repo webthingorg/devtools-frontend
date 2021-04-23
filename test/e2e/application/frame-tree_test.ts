@@ -67,6 +67,7 @@ describe('The Application Tab', async () => {
     });
   });
 
+
   it('shows stack traces for OOPIF', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'js-oopif');
