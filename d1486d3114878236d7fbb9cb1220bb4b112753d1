@@ -16,6 +16,46 @@
       "message": "Jack, please take a look at hosted_mode/server.js",
       "revId": "d1486d3114878236d7fbb9cb1220bb4b112753d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bc0b3f_6dc1bde4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-23T08:59:40Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "d1486d3114878236d7fbb9cb1220bb4b112753d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27540dcc_1ad90d71",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-23T08:59:40Z",
+      "side": 1,
+      "message": "this looks fine, but out of interest, what was the need for this change?",
+      "range": {
+        "startLine": 154,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 71
+      },
+      "revId": "d1486d3114878236d7fbb9cb1220bb4b112753d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
