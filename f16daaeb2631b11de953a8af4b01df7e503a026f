@@ -16,6 +16,24 @@
       "message": "PTAL. As it looks, I don\u0027t seem to need a logs-legacy file. Please let me know if you\u0027d prefer one.",
       "revId": "f16daaeb2631b11de953a8af4b01df7e503a026f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25616287_cabf3d0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-23T08:25:36Z",
+      "side": 1,
+      "message": "If we can, we should not introduce any more `*-legacy.js` files. So this looks good!",
+      "parentUuid": "48617f27_df9e5a46",
+      "revId": "f16daaeb2631b11de953a8af4b01df7e503a026f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
