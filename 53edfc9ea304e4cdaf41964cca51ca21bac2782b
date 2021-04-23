@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57cf7015_2ec650fa",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-23T17:07:44Z",
+      "side": 1,
+      "message": "Updated in patchset 13. Thanks.",
+      "parentUuid": "5a54287f_b12f050f",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c246cf24_3086c5f6",
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "162710aa_e29a74b1",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-23T17:07:44Z",
+      "side": 1,
+      "message": "Updated in patchset 13. Thanks.",
+      "parentUuid": "c246cf24_3086c5f6",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eba01e0a_96c63578",
@@ -99,6 +135,24 @@
       "writtenOn": "2021-04-23T06:37:10Z",
       "side": 1,
       "message": "To make this more readable + lintable + formattable, let’s define it as an actual async function, and then do:\n\n    const getUserAgentMetaData \u003d fn.toString();",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a276ed04_32765577",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-04-23T17:07:44Z",
+      "side": 1,
+      "message": "Thanks for the suggestions. We will get some build errors if we convert the string to a function, because navigator.userAgentData is unavailable in the test function. I also tried to use \u0027\\\u0027 as line continuation to make the string more readable, it built and passed in local test but failed in presubmit.",
+      "parentUuid": "eba01e0a_96c63578",
       "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
