@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3b3c1a_7a54f439",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-23T07:05:26Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nI\u0027m disabling a flaky frame tree test, ptal!",
+      "revId": "1187c008e4fcce425c26ced65819bbef9056c985",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
