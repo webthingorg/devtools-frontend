@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea73413_abe4a79d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T13:47:20Z",
+      "side": 1,
+      "message": "PTAL. This is the issue for private network requests from secure contexts: They will require a preflight request at some point in the future.\n\nEiji: Please take a look at the wording in front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md\n\nLutz: Please figure out the time-frame for the deprecation. My current assumption is that we want to show this issue starting in M92, but we can add a flag in the back-end if we want to delay further.",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
