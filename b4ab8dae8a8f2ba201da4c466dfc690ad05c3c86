@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e64a20a_994db313",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-23T10:15:40Z",
+      "side": 0,
+      "message": "so `front_end/third_party/puppeteer/puppeteer.js` was not actually used, right?",
+      "revId": "b4ab8dae8a8f2ba201da4c466dfc690ad05c3c86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
