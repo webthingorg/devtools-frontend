@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd297902_74344f1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-23T09:19:58Z",
+      "side": 1,
+      "message": "Hi Tim,\n\nthe fix for build.gn worked :-), ptal!",
+      "revId": "bb4e82573b3302e83ecfd611cc19ea969f3f0d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
