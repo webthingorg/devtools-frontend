@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang,\n\nI\u0027m disabling a flaky frame tree test, ptal!",
       "revId": "1187c008e4fcce425c26ced65819bbef9056c985",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2616ba87_18915703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-23T07:06:30Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1187c008e4fcce425c26ced65819bbef9056c985",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
