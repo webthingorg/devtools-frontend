@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, getTestServerPort, goToResource, pressKey, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getTestServerPort, goToResource, pressKey, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {doubleClickSourceTreeItem, getFrameTreeTitles, getTrimmedTextContent, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
@@ -67,16 +67,23 @@ describe('The Application Tab', async () => {
     });
   });
 
-  // Flaky test
-  it.skipOnPlatforms(['mac'], '[crbug.com/1202024]: shows stack traces for OOPIF', async () => {
+
+  it('shows stack traces for OOPIF', async () => {
     const {target} = getBrowserAndPages();
-    await navigateToApplicationTab(target, 'js-oopif');
+    await goToResource('application/js-oopif.html');
     await waitForFunction(async () => {
-      await target.reload();
       await click('#tab-resources');
+      const foo = await $$(TOP_FRAME_SELECTOR);
+      return foo.length === 1;
+    });
+    await waitForFunction(async () => {
       await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
       await doubleClickSourceTreeItem(IFRAME_SELECTOR);
-      await waitFor(EXPAND_STACKTRACE_BUTTON_SELECTOR);
+      await waitForFunction(async () => {
+        await target.reload();
+        const foo = await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR);
+        return foo.length === 1;
+      });
       await click(EXPAND_STACKTRACE_BUTTON_SELECTOR);
       const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
       const expected = [
