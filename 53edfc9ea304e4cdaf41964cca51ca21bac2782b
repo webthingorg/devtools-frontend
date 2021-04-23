@@ -33,6 +33,74 @@
       "message": "LGTM!",
       "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5d0412_581e8d68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-23T06:37:10Z",
+      "side": 1,
+      "message": "LGTM % some suggestions",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a54287f_b12f050f",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-23T06:37:10Z",
+      "side": 1,
+      "message": "While we’re here, let’s avoid the indirection through new RegExp:\n\n    const chromeRegex \u003d /(?:^|\\W)(Chrome|HeadlessChrome)\\/(\\S+)/",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c246cf24_3086c5f6",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-23T06:37:10Z",
+      "side": 1,
+      "message": "Sounds like you want the (Chrome|HeadlessChrome) part to be a non-capturing group? In that case, let’s fix it in the pattern instead:\n\n    const chromeRegex \u003d /(?:^|\\W)(?:Chrome|HeadlessChrome)\\/(\\S+)/\n\nThen this line can remain unchanged.",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eba01e0a_96c63578",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-23T06:37:10Z",
+      "side": 1,
+      "message": "To make this more readable + lintable + formattable, let’s define it as an actual async function, and then do:\n\n    const getUserAgentMetaData \u003d fn.toString();",
+      "revId": "53edfc9ea304e4cdaf41964cca51ca21bac2782b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
