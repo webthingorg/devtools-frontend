@@ -51,6 +51,24 @@
       "message": "I believe the backend would require this file to be in $target_gen_dir/front_end/devtools_resources.grd with the relative_path_dirs \u003d [\"$target_gen_dir/front_end\"].\n\nOtherwise, LGTM. Here is a backend CL https://chromium-review.googlesource.com/c/chromium/src/+/2844838",
       "revId": "07dd6365f6b3274dfe29c5ca87979fc3e941b980",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "126a4aa5_5bd1d8d6",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-23T09:24:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f41e0801_f3533633",
+      "revId": "07dd6365f6b3274dfe29c5ca87979fc3e941b980",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
