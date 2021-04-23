@@ -14,11 +14,5 @@ devtools_module("startup") {
 devtools_entrypoint("bundle") {
   entrypoint = "startup.ts"
 
-  deps = [
-    ":startup",
-    "../../core/common:legacy",
-    "../../core/platform:bundle",
-    "../../core/root:legacy",
-    "../../models/text_utils:legacy",
-  ]
+  deps = [ ":startup" ]
 }
