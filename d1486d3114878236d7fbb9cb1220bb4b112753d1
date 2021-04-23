@@ -56,6 +56,30 @@
       },
       "revId": "d1486d3114878236d7fbb9cb1220bb4b112753d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f476d53c_2390f0b9",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T09:02:56Z",
+      "side": 1,
+      "message": "I need to whitelist an origin (which includes the port) via an HTTP header. Since the port we host on changes every time, I introduced this placeholder. See test/e2e/resources/issues/acac-invalid.rawresponse for how I use it.",
+      "parentUuid": "27540dcc_1ad90d71",
+      "range": {
+        "startLine": 154,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 71
+      },
+      "revId": "d1486d3114878236d7fbb9cb1220bb4b112753d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
