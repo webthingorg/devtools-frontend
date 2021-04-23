@@ -50,6 +50,24 @@
       "message": "Could the definition of `url` be moved out of the try block such that it can be re-used here instead of `url2`?",
       "revId": "ef954d4a794af48af08854c45e2b76627d599b19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15cce4cb_8a31c3be",
+        "filename": "test/e2e/issues/cors-issues_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-23T08:00:20Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "d7544331_dade2b81",
+      "revId": "ef954d4a794af48af08854c45e2b76627d599b19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
