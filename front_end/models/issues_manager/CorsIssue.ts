@@ -71,7 +71,14 @@ export class CorsIssue extends Issue {
     switch (this.issueDetails.corsErrorStatus.corsError) {
       case Protocol.Network.CorsError.InsecurePrivateNetwork:
         if (this.issueDetails.clientSecurityState?.initiatorIsSecureContext) {
-          return null;
+          return {
+            file: 'corsInsecurePrivateNetworkPreflight.md',
+            substitutions: undefined,
+            links: [{
+              link: 'https://web.dev/cors-rfc1918-guide',
+              linkTitle: i18nString(UIStrings.corsForPrivateNetworksRfc),
+            }],
+          };
         }
         return {
           file: 'corsInsecurePrivateNetwork.md',
