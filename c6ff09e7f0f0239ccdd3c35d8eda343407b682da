@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc945bc2_d616f2a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-26T07:48:33Z",
+      "side": 1,
+      "message": "Hey Mathias,\n\nHere\u0027s the proper fix for the UTF-8 decoding issue with local overrides.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "c6ff09e7f0f0239ccdd3c35d8eda343407b682da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
