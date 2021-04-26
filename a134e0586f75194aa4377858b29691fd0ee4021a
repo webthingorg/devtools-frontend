@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00931fb_23d00e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-26T08:43:54Z",
+      "side": 1,
+      "message": "LGTM % suggestion",
+      "revId": "a134e0586f75194aa4377858b29691fd0ee4021a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e6a9b2_191f0621",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-26T08:43:54Z",
+      "side": 1,
+      "message": "Rather than create a new decoder instance every time, let’s just create a single one and re-use it here?",
+      "revId": "a134e0586f75194aa4377858b29691fd0ee4021a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
