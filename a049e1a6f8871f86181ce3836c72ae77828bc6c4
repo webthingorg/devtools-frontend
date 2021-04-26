@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e65cae62_e930db01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-26T07:37:28Z",
+      "side": 1,
+      "message": "PTAL. This is the most basic of all tests; it just ensures the canvas elements gets drawn (but in the associated bug, we weren\u0027t doing that).",
+      "revId": "a049e1a6f8871f86181ce3836c72ae77828bc6c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
