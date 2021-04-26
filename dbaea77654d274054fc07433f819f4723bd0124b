@@ -87,6 +87,24 @@
       "message": "Are you planning to add a link to an article from here? It\u0027s not there yet, but we can prepare a placeholder URL and redirect to an existing article as an interim.",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8021b01_9a0ae622",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-26T11:22:43Z",
+      "side": 1,
+      "message": "If you could provide a placeholder URL that would be great; if it is still a bit to early for that, I\u0027m linking to https://web.dev/cors-rfc1918-guide in the meantime.",
+      "parentUuid": "a52420d4_a790301a",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
