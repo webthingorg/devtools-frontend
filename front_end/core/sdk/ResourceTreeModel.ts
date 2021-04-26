@@ -76,9 +76,7 @@ export class ResourceTreeModel extends SDKModel {
     this._isInterstitialShowing = false;
     this.mainFrame = null;
 
-    this._agent.invoke_getResourceTree().then(event => {
-      this._processCachedResources(event.getError() ? null : event.frameTree);
-    });
+    this.getCachedResources();
   }
 
   static frameForRequest(request: NetworkRequest): ResourceTreeFrame|null {
@@ -119,6 +117,12 @@ export class ResourceTreeModel extends SDKModel {
 
   domModel(): DOMModel {
     return this.target().model(DOMModel) as DOMModel;
+  }
+
+  async getCachedResources(): Promise<void> {
+    this._cachedResourcesProcessed = false;
+    const eventData = await this._agent.invoke_getResourceTree();
+    this._processCachedResources(eventData.getError() ? null : eventData.frameTree);
   }
 
   _processCachedResources(mainFramePayload: Protocol.Page.FrameResourceTree|null): void {
@@ -187,6 +191,11 @@ export class ResourceTreeModel extends SDKModel {
     if (!this._cachedResourcesProcessed && sameTargetParentFrame) {
       return;
     }
+
+    if (type === Protocol.Page.NavigationType.BackForwardCacheRestore) {
+      this.getCachedResources();
+    }
+
     let frame: (ResourceTreeFrame|null) = this._frames.get(framePayload.id) || null;
     if (!frame) {
       // Simulate missed "frameAttached" for a main frame navigation to the new backend process.
@@ -315,11 +324,15 @@ export class ResourceTreeModel extends SDKModel {
   _addFramesRecursively(
       sameTargetParentFrame: ResourceTreeFrame|null, frameTreePayload: Protocol.Page.FrameResourceTree): void {
     const framePayload = frameTreePayload.frame;
-    const frame = new ResourceTreeFrame(this, sameTargetParentFrame, framePayload.id, framePayload, null);
-    if (!sameTargetParentFrame && framePayload.parentId) {
-      frame._crossTargetParentFrameId = framePayload.parentId;
+
+    let frame = this._frames.get(framePayload.id);
+    if (!frame) {
+      frame = new ResourceTreeFrame(this, sameTargetParentFrame, framePayload.id, framePayload, null);
+      if (!sameTargetParentFrame && framePayload.parentId) {
+        frame._crossTargetParentFrameId = framePayload.parentId;
+      }
+      this._addFrame(frame);
     }
-    this._addFrame(frame);
 
     for (const childFrame of frameTreePayload.childFrames || []) {
       this._addFramesRecursively(frame, childFrame);
