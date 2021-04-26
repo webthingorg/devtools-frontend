@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, getTestServerPort, goToResource, pressKey, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getTestServerPort, goToResource, pressKey, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {doubleClickSourceTreeItem, getFrameTreeTitles, getTrimmedTextContent, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
@@ -21,6 +21,17 @@ const STACKTRACE_ROW_SELECTOR = '.stack-trace-row';
 const getTrailingURL = (text: string): string => {
   const match = text.match(/http.*$/);
   return match ? match[0] : '';
+};
+
+const ensureApplicationPanel = async () => {
+  const foo = await $$('.tabbed-pane-header-tab.selected[aria-label="Application"]');
+  if (foo.length === 0) {
+    await waitForFunction(async () => {
+      await click('#tab-resources');
+      const bar = await $$('.tabbed-pane-header-tab.selected[aria-label="Application"]');
+      return bar.length === 1;
+    });
+  }
 };
 
 describe('The Application Tab', async () => {
@@ -67,16 +78,28 @@ describe('The Application Tab', async () => {
     });
   });
 
-  // Flaky test
-  it.skipOnPlatforms(['mac'], '[crbug.com/1202024]: shows stack traces for OOPIF', async () => {
-    const {target} = getBrowserAndPages();
-    await navigateToApplicationTab(target, 'js-oopif');
+
+  it('shows stack traces for OOPIF', async () => {
+    // const {target} = getBrowserAndPages();
+    // await goToResource('empty.html');
+    // await click('#tab-resources');
+    // await waitFor('.storage-group-list-item');
+
     await waitForFunction(async () => {
-      await target.reload();
-      await click('#tab-resources');
+      await goToResource('application/js-oopif.html');
+      // await target.reload();
+      // await timeout(100);
+      await ensureApplicationPanel();
+      // await click('#tab-resources');
       await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
       await doubleClickSourceTreeItem(IFRAME_SELECTOR);
-      await waitFor(EXPAND_STACKTRACE_BUTTON_SELECTOR);
+      // const foo = await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR);
+      // return foo.length === 1;
+      return (await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR)).length === 1;
+    });
+
+    await waitForFunction(async () => {
+      await ensureApplicationPanel();
       await click(EXPAND_STACKTRACE_BUTTON_SELECTOR);
       const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
       const expected = [
