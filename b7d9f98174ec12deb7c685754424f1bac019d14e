@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f2b9ea_daf1ea7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-04-26T05:23:25Z",
+      "side": 1,
+      "message": "Found some more code to delete for Loc V1 ;) PTAL, thanks!",
+      "revId": "b7d9f98174ec12deb7c685754424f1bac019d14e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
