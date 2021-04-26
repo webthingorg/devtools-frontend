@@ -16,6 +16,24 @@
       "message": "PTAL. This is the issue for private network requests from secure contexts: They will require a preflight request at some point in the future.\n\nEiji: Please take a look at the wording in front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md\n\nLutz: Please figure out the time-frame for the deprecation. My current assumption is that we want to show this issue starting in M92, but we can add a flag in the back-end if we want to delay further.",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ef24004_64add428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-04-26T08:29:36Z",
+      "side": 1,
+      "message": "We don\u0027t have a firm date for the preflight launch to announce, and the code to perform the preflights is not yet implemented, so I think we should not show this message just yet. Happy to see this CL land behind a flag we can turn on later once things are ready, if that\u0027s possible?\n\nOnce we have the CORS code in place + API owners preliminary approval to show a deprecation message (much like we did for the secure context restriction), we can turn this on and fix the date strings?",
+      "parentUuid": "4ea73413_abe4a79d",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
