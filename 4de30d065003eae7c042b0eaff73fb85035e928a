@@ -63,6 +63,30 @@
       },
       "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b427cb71_d06f7d12",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-26T13:25:05Z",
+      "side": 1,
+      "message": "ensureApplicatonPanel seems fine (it is just repeatedly clicking on the application panel until the panel is open, which is something an---admittedly very quick---user could also be doing.\n\nI am a little concerned about the stack-trace not showing up in some runs. Do we have a race condition here? We inserted the code to transfer the stack-trace in the FrameManager, and I think we assume a particular order or events there. Could it be that events happen in a different order in the runs where this test flakes?",
+      "parentUuid": "a245043f_f84cd0e2",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
