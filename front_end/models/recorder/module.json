@@ -3,7 +3,10 @@
     "ui/legacy",
     "models/persistence",
     "panels/accessibility",
-    "panels/elements"
+    "panels/bindings",
+    "panels/elements",
+    "panels/timeline",
+    "third_party/puppeteer"
   ],
     "resources": []
 }

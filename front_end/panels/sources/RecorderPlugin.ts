@@ -17,6 +17,10 @@ const UIStrings = {
   *@description Text to record a series of actions for analysis
   */
   record: 'Record',
+  /**
+  *@description Text to replay a recording
+  */
+  play: 'Replay',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/RecorderPlugin.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -37,7 +41,9 @@ export class RecorderPlugin extends Plugin {
   leftToolbarItems(): UI.Toolbar.ToolbarItem[] {
     const toggleRecording = UI.Toolbar.Toolbar.createActionButtonForId('recorder.toggle-recording');
     toggleRecording.setText(i18nString(UIStrings.record));
+    const replayRecording = UI.Toolbar.Toolbar.createActionButtonForId('recorder.replay-recording');
+    replayRecording.setText(i18nString(UIStrings.play));
 
-    return [toggleRecording];
+    return [toggleRecording, replayRecording];
   }
 }

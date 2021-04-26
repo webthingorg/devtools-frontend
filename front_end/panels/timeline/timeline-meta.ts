@@ -3,15 +3,16 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
+import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
-
-// eslint-disable-next-line rulesdir/es_modules_import
-import type * as Timeline from './timeline.js';
 
 import type * as Profiler from '../profiler/profiler.js';
 
-import * as i18n from '../../core/i18n/i18n.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import * as Timeline from './timeline.js';
+
 const UIStrings = {
   /**
   *@description Text for the performance of something
@@ -419,4 +420,31 @@ UI.ContextMenu.registerItem({
   location: UI.ContextMenu.ItemLocation.TIMELINE_MENU_OPEN,
   actionId: 'timeline.save-to-file',
   order: 15,
+});
+
+Common.Revealer.registerRevealer({
+  contextTypes() {
+    return [
+      SDK.TracingModel.TracingModel,
+    ];
+  },
+  destination: Common.Revealer.RevealerDestination.PERFORMANCE_PANEL,
+  async loadRevealer() {
+    const Timeline = await loadTimelineModule();
+    return Timeline.TimelinePanel.TracingModelRevealer.instance();
+  },
+});
+
+
+Common.Revealer.registerRevealer({
+  contextTypes() {
+    return [
+      Timeline.PerformanceModel.PerformanceModel,
+    ];
+  },
+  destination: Common.Revealer.RevealerDestination.PERFORMANCE_PANEL,
+  async loadRevealer() {
+    const Timeline = await loadTimelineModule();
+    return Timeline.TimelinePanel.PerformanceModelRevealer.instance();
+  },
 });
