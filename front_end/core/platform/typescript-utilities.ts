@@ -12,3 +12,19 @@ export function assertNotNull<T>(val: T): asserts val is NonNullable<T> {
     throw new Error(`Expected given value to not be null but it was: ${val}`);
   }
 }
+
+/**
+ * This is useful to check exhaustiveness of, e.g., a switch statement.
+ * @param caseVariable
+ */
+export function assertUnreachable(_caseVariable: never): never {
+  throw new Error('Unreachable');
+}
+
+/**
+ * This is useful to check on the type-level that the unhandled cases of
+ * a switch are exactly `T` (where T is usually a union type of enum values).
+ * @param caseVariable
+ */
+export function assertUnhandled<T>(_caseVariable: T): void {
+}
