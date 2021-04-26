@@ -16,6 +16,23 @@
       "message": "PTAL. A mechanical roll as usual: updated the `wget` command line in README.chromium and executed it.",
       "revId": "05d237073d7c88bdcd48884feb498f062ccce39a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28506502_c955c0ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-26T13:10:17Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "05d237073d7c88bdcd48884feb498f062ccce39a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
