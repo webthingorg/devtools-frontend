@@ -470,11 +470,17 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const project = fileSystemUISourceCode.project() as FileSystem;
 
     this._originalResponseContentPromises.set(
-        fileSystemUISourceCode, interceptedRequest.responseBody().then(response => {
+        fileSystemUISourceCode, interceptedRequest.responseBody().then(async response => {
           if (response.error || response.content === null) {
             return null;
           }
-          return response.encoded ? atob(response.content) : response.content;
+          if (response.encoded) {
+            const fetchResponse = await fetch(`data:text/plain;base64,${response.content}`, {method: 'GET'});
+            if (fetchResponse.ok) {
+              return await fetchResponse.text();
+            }
+          }
+          return response.content;
         }));
 
     const blob = await project.requestFileBlob(fileSystemUISourceCode);
