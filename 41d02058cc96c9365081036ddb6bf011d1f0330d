@@ -16,6 +16,29 @@
       "message": "PTAL\nThanks!",
       "revId": "41d02058cc96c9365081036ddb6bf011d1f0330d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204f87ac_d6e68e3d",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1114919
+      },
+      "writtenOn": "2021-04-26T15:04:22Z",
+      "side": 1,
+      "message": "qq: is this such a large group as to justify being separate from v8-infra?\n\nOTOH, if it\u0027s small and has very very trusted + infra-knowledgeable people, why bother with per-ci/try access?",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 37
+      },
+      "revId": "41d02058cc96c9365081036ddb6bf011d1f0330d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
