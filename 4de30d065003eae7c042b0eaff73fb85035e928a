@@ -39,6 +39,30 @@
       },
       "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a245043f_f84cd0e2",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-26T12:49:52Z",
+      "side": 1,
+      "message": "I have seen flakes on the Mac bot for which after navigating to the correct frame details panel, it did not show a stack trace at all. The screenshot in https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8849181739321981840/+/u/E2E_tests/stdout is an example. I do not know what causes this and I have not seen it outside of a Mac e2e test run. This can be mitigated by reloading the page (the old version contained `target.reload()` for the same reason).\n\nThe `ensureApplicationPanel()` is a bit mysterious to me as well. I\u0027ve seen runs where the test progressed correctly but then times out because it does not find the element referred to in next step\u0027s selector. The screenshots in this case show DevTools not on the Application panel but on the Elements panel instead - even though previous steps that passed were happening on the Application panel. I suspect that this is triggered by the e2e test already progressing before the panel has fully loaded. `ensureApplicationPanel()` prevents the test from timing out in this scenario by navigating back to the Application panel.",
+      "parentUuid": "a20413d5_0862928c",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
