@@ -36,6 +36,10 @@ const UIStrings = {
   *@description The UI destination when right clicking an item that can be revealed
   */
   sourcesPanel: 'Sources panel',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  performancePanel: 'Performance panel',
 };
 const str_ = i18n.i18n.registerUIStrings('core/common/Revealer.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -110,6 +114,7 @@ export const RevealerDestination = {
   NETWORK_PANEL: i18nLazyString(UIStrings.networkPanel),
   APPLICATION_PANEL: i18nLazyString(UIStrings.applicationPanel),
   SOURCES_PANEL: i18nLazyString(UIStrings.sourcesPanel),
+  PERFORMANCE_PANEL: i18nLazyString(UIStrings.performancePanel),
 };
 
 export type RevealerDestination = () => Platform.UIString.LocalizedString;
