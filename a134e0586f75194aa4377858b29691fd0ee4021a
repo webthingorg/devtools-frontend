@@ -68,6 +68,24 @@
       "parentUuid": "c1e6a9b2_191f0621",
       "revId": "a134e0586f75194aa4377858b29691fd0ee4021a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe01660_7b44498d",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-26T09:14:53Z",
+      "side": 1,
+      "message": "\u003e This is called only occasionally and creating a TextDecoder is extremely cheap, so I\u0027d rather allocate it only on demand.\n\nIt’s not either-or — re-using a single instance doesn’t prevent us from allocating it only when needed.\n\n    let utf8Decoder \u003d null;\n    …\n    if (!utf8Decoder) {\n      utf8Decoder \u003d new TextDecoder(\u0027utf-8\u0027);\n    }\n    utf8Decoder.decode(…);\n\nSome background here is that I’ve been surprised by performance characteristics of TextEncoder (not *Decoder) in the past: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2134308/1..5/front_end/platform/string-utilities.js#b370 If you’re sure constructing TextDecoders is “extremely cheap” though this is fine 👍",
+      "parentUuid": "d7237cc2_0e8a839b",
+      "revId": "a134e0586f75194aa4377858b29691fd0ee4021a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
