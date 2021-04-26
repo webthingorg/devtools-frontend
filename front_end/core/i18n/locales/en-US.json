@@ -7319,6 +7319,9 @@
   "panels/profiler/HeapSnapshotView.ts | baseSnapshot": {
     "message": "Base snapshot"
   },
+  "panels/profiler/HeapSnapshotView.ts | captureNumericValue": {
+    "message": "Include numerical values in capture"
+  },
   "panels/profiler/HeapSnapshotView.ts | classFilter": {
     "message": "Class filter"
   },
