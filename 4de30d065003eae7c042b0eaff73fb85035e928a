@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20413d5_0862928c",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-26T11:06:44Z",
+      "side": 1,
+      "message": "This looks funky, could you explain why would you need to do \n\n  await goToResource(\u0027application/js-oopif.html\u0027);\n  await ensureApplicationPanel();\n\nrepeatedly?",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
