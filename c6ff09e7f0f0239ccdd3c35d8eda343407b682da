@@ -16,6 +16,23 @@
       "message": "Hey Mathias,\n\nHere\u0027s the proper fix for the UTF-8 decoding issue with local overrides.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "c6ff09e7f0f0239ccdd3c35d8eda343407b682da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "522ab168_33c26ff7",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-26T08:21:48Z",
+      "side": 1,
+      "message": "Does this approach work with files larger than kMaxURLChars (2 MiB)? https://source.chromium.org/chromium/chromium/src/+/master:url/url_constants.cc;l\u003d37;drc\u003d68b984d3e0d1789a21433a314ec6202785c757f6 If not, we could instead use TextDecoder to do the UTF-8-decoding.\n\nIn case we stick with `fetch`, we could omit the options bag altogether here since `method: \u0027GET\u0027` is the implicit default.",
+      "revId": "c6ff09e7f0f0239ccdd3c35d8eda343407b682da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
