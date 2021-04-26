@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6aa436b_9663597e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-26T07:25:24Z",
+      "side": 1,
+      "message": "LGTM with a quesiton",
+      "revId": "a0a43ad25f22e974d2cb2003372cbdb43bf3fe48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6997818a_c41fdf88",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-26T07:25:24Z",
+      "side": 1,
+      "message": "Does removing the catch-all \u0027else\u0027 mean that all cases are covered now?",
+      "revId": "a0a43ad25f22e974d2cb2003372cbdb43bf3fe48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
