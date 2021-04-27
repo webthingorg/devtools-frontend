@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86c8abc7_f9ac9a3d",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T10:57:26Z",
+      "side": 1,
+      "message": "I\u0027ll remove this one then, since I\u0027m not using it. Considering the rename you suggested for a potential follow-up.",
+      "parentUuid": "d791e7c0_cb4bb968",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "444c2aab_8c589b3f",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-04-27T09:08:47Z",
       "side": 1,
       "message": "Nit: should this be `never` maybe?",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 58
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf98f329_cb4eae3b",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T10:57:26Z",
+      "side": 1,
+      "message": "No, never doesn\u0027t work (you can\u0027t get `never` from an arbitrary type `T`), but I changed it to `T`.",
+      "parentUuid": "444c2aab_8c589b3f",
       "range": {
         "startLine": 29,
         "startChar": 54,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29610757_f597fe93",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T10:57:26Z",
+      "side": 1,
+      "message": "We don\u0027t need that since the return type is IssueCode (if we forget to handle a case, that won\u0027t be true anymore and TypeScript will point it out).",
+      "parentUuid": "f3b18784_90bfe129",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d48ba416_47d26289",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-04-27T09:08:47Z",
       "side": 1,
       "message": "Since we are casting here, should `this.issue.code()` maybe return `IssuesManager.CorsIssue.IssueCode` instead of a `string`? E.g. the generic type defined on `Issue` would remove the generic type initialization to `string` and remove the `extends string` clause.",
+      "range": {
+        "startLine": 325,
+        "startChar": 44,
+        "endLine": 325,
+        "endChar": 77
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "115002b2_351c71fa",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T10:57:26Z",
+      "side": 1,
+      "message": "This is actually AggregatedIssue.code() and casting here is a bit of a hack. Found a way to do it without a cast.",
+      "parentUuid": "d48ba416_47d26289",
       "range": {
         "startLine": 325,
         "startChar": 44,
