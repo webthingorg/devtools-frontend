@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b186c0_f2904320",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-27T15:37:46Z",
+      "side": 0,
+      "message": "@Kim, is there a reason we had these fallback values? I removed them as I\u0027d expect these variables to be always defined, but I might be missing a use case. Thanks!",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 102,
+        "endChar": 68
+      },
+      "revId": "68076dc55ebaffa38cacf174e042fd170749f586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
