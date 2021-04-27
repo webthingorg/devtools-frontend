@@ -36,7 +36,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
         ['justify-content', 'flex-start'],
         ['align-items', 'flex-start'],
       ]),
-      computedProperties: new Map(),
+      computedProperties: new Map([['display', 'flex']]),
     };
     assertValues(component, [
       'flex-direction: row',
@@ -48,6 +48,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
     component.data = {
       authoredProperties: new Map(),
       computedProperties: new Map([
+        ['display', 'flex'],
         ['flex-direction', 'row'],
         ['flex-wrap', 'wrap'],
         ['align-content', 'flex-end'],
@@ -64,7 +65,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
     ]);
     component.data = {
       authoredProperties: new Map(),
-      computedProperties: new Map(),
+      computedProperties: new Map([['display', 'flex']]),
     };
     assertValues(component, ['flex-direction:', 'flex-wrap:', 'align-content:', 'justify-content:', 'align-items:']);
   });
@@ -76,7 +77,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
       authoredProperties: new Map([
         ['flex-direction', 'row'],
       ]),
-      computedProperties: new Map(),
+      computedProperties: new Map([['display', 'flex']]),
     };
     assertValues(
         component, ['flex-direction: row', 'flex-wrap:', 'align-content:', 'justify-content:', 'align-items:']);
@@ -97,7 +98,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
       authoredProperties: new Map([
         ['flex-direction', 'column'],
       ]),
-      computedProperties: new Map(),
+      computedProperties: new Map([['display', 'flex']]),
     };
     assertValues(
         component, ['flex-direction: column', 'flex-wrap:', 'align-content:', 'justify-content:', 'align-items:']);
