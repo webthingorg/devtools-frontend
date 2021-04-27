@@ -142,6 +142,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eddd039_cd5d3977",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T11:44:49Z",
+      "side": 1,
+      "message": "Replaced with https://developer.chrome.com/blog/private-network-access-update",
+      "parentUuid": "5be078cc_15ddc090",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "721617c8_e0cb78c4",
@@ -155,6 +173,24 @@
       "writtenOn": "2021-04-27T08:00:58Z",
       "side": 1,
       "message": "A site requested a resource [remove: from a network as this is obvious?] that it could only access because of its users\u0027 privileged network position.",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ffd5bc_61d775c0",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T11:44:49Z",
+      "side": 1,
+      "message": "We have this wording in the old issue, and I\u0027d like to keep it.",
+      "parentUuid": "721617c8_e0cb78c4",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -229,6 +265,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2fb1226_afd4e1ef",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T11:44:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57c0c0ac_cfc93361",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a52420d4_a790301a",
@@ -278,6 +332,24 @@
       "side": 1,
       "message": "I think that URL is reasonable.",
       "parentUuid": "c8021b01_9a0ae622",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8fc8b85_7761a0a1",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-27T11:44:49Z",
+      "side": 1,
+      "message": "Replaced with https://developer.chrome.com/blog/private-network-access-update",
+      "parentUuid": "cadffa61_695ead0a",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
