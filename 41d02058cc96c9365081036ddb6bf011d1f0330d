@@ -39,6 +39,30 @@
       },
       "revId": "41d02058cc96c9365081036ddb6bf011d1f0330d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0972df3b_77d33db1",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-04-27T12:04:37Z",
+      "side": 1,
+      "message": "The group does not contain only infra people. We had people willing to update recipe code and I think I want to be able to quickly allow them to led test as well.",
+      "parentUuid": "204f87ac_d6e68e3d",
+      "range": {
+        "startLine": 101,
+        "startChar": 14,
+        "endLine": 101,
+        "endChar": 37
+      },
+      "revId": "41d02058cc96c9365081036ddb6bf011d1f0330d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
