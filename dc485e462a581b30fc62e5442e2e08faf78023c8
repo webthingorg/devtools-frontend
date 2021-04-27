@@ -16,6 +16,23 @@
       "message": "As discussed today in the sync, this seems to be the better link.",
       "revId": "dc485e462a581b30fc62e5442e2e08faf78023c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3628290c_a329091c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:36:45Z",
+      "side": 1,
+      "message": "Based on offline discussion. Adjusting the link is fine, we might need to re-adjust as soon as the final blog post is available.",
+      "revId": "dc485e462a581b30fc62e5442e2e08faf78023c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
