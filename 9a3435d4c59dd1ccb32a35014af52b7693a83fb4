@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "927e462f_fde4c37f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-27T13:10:01Z",
+      "side": 1,
+      "message": "LGTM - worth pinging or CCing an Edge person on this CL for awareness?",
+      "revId": "9a3435d4c59dd1ccb32a35014af52b7693a83fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
