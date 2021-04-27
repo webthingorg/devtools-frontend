@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94601e10_f6c2c798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-27T09:05:03Z",
+      "side": 1,
+      "message": "LGTM with nits, but please also have Tim take a look.",
+      "revId": "888b3422ada9c9e65ebabd54601035e43f729b20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d55e45f3_84d90f0a",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-04-27T09:05:03Z",
+      "side": 1,
+      "message": "Please use a more descriptive string. Other string descriptions are not great either but we\u0027d like to improve. Please imagine yourselve in the position of a translator who needs to make sense of this string in order to translate to another language.",
+      "range": {
+        "startLine": 177,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 4
+      },
+      "revId": "888b3422ada9c9e65ebabd54601035e43f729b20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
