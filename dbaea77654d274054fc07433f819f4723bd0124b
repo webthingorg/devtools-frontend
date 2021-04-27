@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad6661ee_1b9cc372",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2021-04-27T09:21:58Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to change this URL in Chrome code at the moment. We are aready redirecting from https://web.dev/cors-rfc1918-guide to https://web.dev/cors-rfc1918-feedback. I can set up a redirect to https://developer.chrome.com/blog/private-network-access-update instead if that makes sense.",
+      "parentUuid": "bd5a9e9a_38549264",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "721617c8_e0cb78c4",
         "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
         "patchSetId": 1
@@ -136,6 +154,24 @@
       "writtenOn": "2021-04-27T08:00:58Z",
       "side": 1,
       "message": "+Eiji can we add a link to CSRF as well?",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c62f628_6ac6e441",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2021-04-27T09:21:58Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any Google properties that explains CSRF. If it\u0027s ok to link to external resources, this might be good https://portswigger.net/web-security/csrf",
+      "parentUuid": "e35bed8b_3f5de93f",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -188,6 +224,24 @@
       "side": 1,
       "message": "If you could provide a placeholder URL that would be great; if it is still a bit to early for that, I\u0027m linking to https://web.dev/cors-rfc1918-guide in the meantime.",
       "parentUuid": "a52420d4_a790301a",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cadffa61_695ead0a",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2021-04-27T09:21:58Z",
+      "side": 1,
+      "message": "I think that URL is reasonable.",
+      "parentUuid": "c8021b01_9a0ae622",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
