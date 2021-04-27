@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45df8e50_0c89f7f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-27T14:24:25Z",
+      "side": 1,
+      "message": "Thanks! I removed the test; it was only there as the first interaction test to prove that the infra was working, and we\u0027ve proved that now.",
+      "revId": "347ea8297cea6ef0cdf0dc42ebae7c2f28a86bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
