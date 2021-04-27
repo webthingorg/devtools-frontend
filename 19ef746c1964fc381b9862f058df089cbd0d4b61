@@ -16,6 +16,23 @@
       "message": "ptal!",
       "revId": "19ef746c1964fc381b9862f058df089cbd0d4b61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9310e1d0_ecb711ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T11:57:06Z",
+      "side": 1,
+      "message": "Stamping, as I am assuming you checked both light and dark mode for the console.",
+      "revId": "19ef746c1964fc381b9862f058df089cbd0d4b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
