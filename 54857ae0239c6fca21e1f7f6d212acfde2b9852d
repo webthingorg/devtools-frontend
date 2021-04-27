@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a7878c1_94149d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T14:11:19Z",
+      "side": 1,
+      "message": "Seems like there are also some interaction test failures",
+      "revId": "54857ae0239c6fca21e1f7f6d212acfde2b9852d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab121738_63a5b54a",
+        "filename": "front_end/ui/components/docs/theme_colors/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T14:11:19Z",
+      "side": 1,
+      "message": "Should we consider throwing here, if a variable is not found?",
+      "range": {
+        "startLine": 70,
+        "startChar": 46,
+        "endLine": 70,
+        "endChar": 62
+      },
+      "revId": "54857ae0239c6fca21e1f7f6d212acfde2b9852d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
