@@ -16,6 +16,144 @@
       "message": "PTAL",
       "revId": "240ee4490472494045e4331a63c112af891973ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa462d2_25f66e30",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "Might want to rename this to PhysicalDirection too, while we\u0027re at it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 38
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8821548a_e8464ddb",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "Do we want to also make this comment more generic?",
+      "range": {
+        "startLine": 58,
+        "startChar": 60,
+        "endLine": 58,
+        "endChar": 74
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88854deb_db0c54c8",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "Now that you are separating the container and items properties in different maps, I think these should be removed. These properties only apply to items.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 77
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea9a8299_3c5cd26c",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "So, if I understand correctly, we return the first icon resolver in the list that\u0027s not null. \nIn that case, I would find the function easier to read if we had several return statements, instead of pushing to the icons array.\n\n if (flex container)\n   if (resolver)\n     return resolver\n \n if (flex item)\n   if (resolver)\n     return resolver\n \n ...\n \n return null",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 390,
+        "endChar": 51
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4362c5c_b36a1ea5",
+        "filename": "front_end/panels/elements/FlexboxEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "Can you explain why we need this? The editor does not display this particular property as an editable property in the UI, so I\u0027m confused as to why we need it here.\nIf this is for findIcon, I would expect the FlexboxEditor to handle this on its own instead. Maybe there should actually be a findFlexIcon and a findGridIcon to avoid this.",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 54
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55342936_a94ffafa",
+        "filename": "test/unittests/front_end/panels/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-04-27T12:35:13Z",
+      "side": 1,
+      "message": "Having 2 specific findIcon functions, one for grid and one for flex, would avoid having to pass the display value every time in these test cases.",
+      "range": {
+        "startLine": 762,
+        "startChar": 10,
+        "endLine": 762,
+        "endChar": 26
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
