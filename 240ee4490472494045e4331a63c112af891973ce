@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed0a7d1_be157da0",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fa462d2_25f66e30",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 38
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8821548a_e8464ddb",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-27T12:35:13Z",
       "side": 1,
       "message": "Do we want to also make this comment more generic?",
+      "range": {
+        "startLine": 58,
+        "startChar": 60,
+        "endLine": 58,
+        "endChar": 74
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2e1fbc_7b1b6c98",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8821548a_e8464ddb",
       "range": {
         "startLine": 58,
         "startChar": 60,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa61cc7_82b53caa",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88854deb_db0c54c8",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 77
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea9a8299_3c5cd26c",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-04-27T12:35:13Z",
       "side": 1,
       "message": "So, if I understand correctly, we return the first icon resolver in the list that\u0027s not null. \nIn that case, I would find the function easier to read if we had several return statements, instead of pushing to the icons array.\n\n if (flex container)\n   if (resolver)\n     return resolver\n \n if (flex item)\n   if (resolver)\n     return resolver\n \n ...\n \n return null",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 390,
+        "endChar": 51
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d4d30cc_a1c9a331",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "Thanks, I refactored that part. Note the code was not returning the resolvers but the results of running a resolver.",
+      "parentUuid": "ea9a8299_3c5cd26c",
       "range": {
         "startLine": 390,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab0e2c7_e216e781",
+        "filename": "front_end/panels/elements/FlexboxEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "I have refactored this part. PTAL.",
+      "parentUuid": "d4362c5c_b36a1ea5",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 54
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55342936_a94ffafa",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-04-27T12:35:13Z",
       "side": 1,
       "message": "Having 2 specific findIcon functions, one for grid and one for flex, would avoid having to pass the display value every time in these test cases.",
+      "range": {
+        "startLine": 762,
+        "startChar": 10,
+        "endLine": 762,
+        "endChar": 26
+      },
+      "revId": "240ee4490472494045e4331a63c112af891973ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4033cb80_79273136",
+        "filename": "test/unittests/front_end/panels/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-27T13:04:49Z",
+      "side": 1,
+      "message": "In this case, the style panel does not check the computed styles to know which function to invoke because the feature is generic from the styles panel perspective: e.g., there could be icons for non-flex or non-grid properties. But I have separated the logic into sub-functions and I think the editor can use the flex specific function. PTAL.",
+      "parentUuid": "55342936_a94ffafa",
       "range": {
         "startLine": 762,
         "startChar": 10,
