@@ -38,7 +38,7 @@ export class FlexboxEditorWidget extends UI.Widget.VBox {
     this.editor = new FlexboxEditor();
     this.editor.data = {
       authoredProperties: new Map(),
-      computedProperties: new Map(),
+      computedProperties: new Map([['display', 'flex']]),
     };
     this.contentElement.appendChild(this.editor);
     this.onPropertySelected = this.onPropertySelected.bind(this);
@@ -86,7 +86,7 @@ export class FlexboxEditorWidget extends UI.Widget.VBox {
   async render(): Promise<void> {
     this.editor.data = {
       authoredProperties: this.section ? getAuthoredStyles(this.section) : new Map(),
-      computedProperties: this.pane ? await fetchComputedStyles(this.pane) : new Map(),
+      computedProperties: this.pane ? await fetchComputedStyles(this.pane) : new Map([['display', 'flex']]),
     };
   }
 

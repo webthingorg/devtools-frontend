@@ -58,7 +58,7 @@ function extendWithReverseDirections(directions: DirectionsDict): DirectionsDict
  * Returns absolute directions for row and column values of flex-direction
  * taking into account the direction and writing-mode attributes.
  */
-export function getPhysicalFlexDirections(computedStyles: ComputedStyles): DirectionsDict {
+export function getPhysicalDirections(computedStyles: ComputedStyles): DirectionsDict {
   const isRtl = computedStyles.get('direction') === 'rtl';
   const writingMode = computedStyles.get('writing-mode');
   const isVertical = writingMode && writingModesAffectingFlexDirection.has(writingMode);
@@ -146,7 +146,7 @@ export function rotateAlignItemsIcon(iconName: string, direction: PhysicalFlexDi
 
 function flexDirectionIcon(value: string): (styles: ComputedStyles) => IconInfo {
   function getIcon(computedStyles: ComputedStyles): IconInfo {
-    const directions = getPhysicalFlexDirections(computedStyles);
+    const directions = getPhysicalDirections(computedStyles);
     return rotateFlexDirectionIcon(directions[value]);
   }
   return getIcon;
@@ -154,7 +154,7 @@ function flexDirectionIcon(value: string): (styles: ComputedStyles) => IconInfo 
 
 function flexAlignContentIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
   function getIcon(computedStyles: ComputedStyles): IconInfo {
-    const directions = getPhysicalFlexDirections(computedStyles);
+    const directions = getPhysicalDirections(computedStyles);
     const flexDirectionToPhysicalDirection = new Map([
       ['column', directions.row],
       ['row', directions.column],
@@ -171,17 +171,33 @@ function flexAlignContentIcon(iconName: string): (styles: ComputedStyles) => Ico
   return getIcon;
 }
 
+function gridAlignContentIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
+  function getIcon(computedStyles: ComputedStyles): IconInfo {
+    const directions = getPhysicalDirections(computedStyles);
+    return rotateAlignContentIcon(iconName, directions.column);
+  }
+  return getIcon;
+}
+
 function flexJustifyContentIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
   function getIcon(computedStyles: ComputedStyles): IconInfo {
-    const directions = getPhysicalFlexDirections(computedStyles);
+    const directions = getPhysicalDirections(computedStyles);
     return rotateJustifyContentIcon(iconName, directions[computedStyles.get('flex-direction') || 'row']);
+  }
+  return getIcon;
+}
+
+function gridJustifyContentIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
+  function getIcon(computedStyles: ComputedStyles): IconInfo {
+    const directions = getPhysicalDirections(computedStyles);
+    return rotateJustifyContentIcon(iconName, directions.row);
   }
   return getIcon;
 }
 
 function flexAlignItemsIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
   function getIcon(computedStyles: ComputedStyles): IconInfo {
-    const directions = getPhysicalFlexDirections(computedStyles);
+    const directions = getPhysicalDirections(computedStyles);
     const flexDirectionToPhysicalDirection = new Map([
       ['column', directions.row],
       ['row', directions.column],
@@ -194,6 +210,14 @@ function flexAlignItemsIcon(iconName: string): (styles: ComputedStyles) => IconI
       throw new Error('Unknown direction for flex-align icon');
     }
     return rotateAlignItemsIcon(iconName, iconDirection);
+  }
+  return getIcon;
+}
+
+function gridAlignItemsIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
+  function getIcon(computedStyles: ComputedStyles): IconInfo {
+    const directions = getPhysicalDirections(computedStyles);
+    return rotateAlignItemsIcon(iconName, directions.column);
   }
   return getIcon;
 }
@@ -219,6 +243,13 @@ function flexAlignSelfIcon(iconName: string): (styles: ComputedStyles, parentSty
   return getIcon;
 }
 
+function gridAlignSelfIcon(iconName: string): (styles: ComputedStyles, parentStyles: ComputedStyles) => IconInfo {
+  function getIcon(computedStyles: ComputedStyles, parentComputedStyles: ComputedStyles): IconInfo {
+    return gridAlignItemsIcon(iconName)(parentComputedStyles);
+  }
+  return getIcon;
+}
+
 export function roateFlexWrapIcon(iconName: string, direction: PhysicalFlexDirection): IconInfo {
   return {
     iconName,
@@ -231,14 +262,14 @@ export function roateFlexWrapIcon(iconName: string, direction: PhysicalFlexDirec
 
 function flexWrapIcon(iconName: string): (styles: ComputedStyles) => IconInfo {
   function getIcon(computedStyles: ComputedStyles): IconInfo {
-    const directions = getPhysicalFlexDirections(computedStyles);
+    const directions = getPhysicalDirections(computedStyles);
     const computedFlexDirection = computedStyles.get('flex-direction') || 'row';
     return roateFlexWrapIcon(iconName, directions[computedFlexDirection]);
   }
   return getIcon;
 }
 
-const textToIconResolver = new Map([
+const flexContainerIcons = new Map([
   ['flex-direction: row', flexDirectionIcon('row')],
   ['flex-direction: column', flexDirectionIcon('column')],
   ['flex-direction: column-reverse', flexDirectionIcon('column-reverse')],
@@ -281,11 +312,80 @@ const textToIconResolver = new Map([
   ['flex-wrap: nowrap', flexWrapIcon('flex-nowrap-icon')],
 ]);
 
+const flexItemIcons = new Map([
+  ['align-self: baseline', baselineIcon],
+  ['align-self: center', flexAlignSelfIcon('flex-align-self-center-icon')],
+  ['align-self: flex-start', flexAlignSelfIcon('flex-align-self-flex-start-icon')],
+  ['align-self: flex-end', flexAlignSelfIcon('flex-align-self-flex-end-icon')],
+  ['align-self: stretch', flexAlignSelfIcon('flex-align-self-stretch-icon')],
+]);
+
+const gridContainerIcons = new Map([
+  ['align-content: center', gridAlignContentIcon('flex-align-content-center-icon')],
+  ['align-content: space-around', gridAlignContentIcon('flex-align-content-space-around-icon')],
+  ['align-content: space-between', gridAlignContentIcon('flex-align-content-space-between-icon')],
+  ['align-content: stretch', gridAlignContentIcon('flex-align-content-stretch-icon')],
+  ['align-content: space-evenly', gridAlignContentIcon('flex-align-content-space-evenly-icon')],
+  ['align-content: end', gridAlignContentIcon('flex-align-content-end-icon')],
+  ['align-content: start', gridAlignContentIcon('flex-align-content-start-icon')],
+  ['justify-content: center', gridJustifyContentIcon('flex-justify-content-center-icon')],
+  ['justify-content: space-around', gridJustifyContentIcon('flex-justify-content-space-around-icon')],
+  ['justify-content: space-between', gridJustifyContentIcon('flex-justify-content-space-between-icon')],
+  ['justify-content: space-evenly', gridJustifyContentIcon('flex-justify-content-space-evenly-icon')],
+  ['justify-content: end', gridJustifyContentIcon('flex-justify-content-flex-end-icon')],
+  ['justify-content: start', gridJustifyContentIcon('flex-justify-content-flex-start-icon')],
+  ['align-items: stretch', gridAlignItemsIcon('flex-align-items-stretch-icon')],
+  ['align-items: end', gridAlignItemsIcon('flex-align-items-flex-end-icon')],
+  ['align-items: start', gridAlignItemsIcon('flex-align-items-flex-start-icon')],
+  ['align-items: center', gridAlignItemsIcon('flex-align-items-center-icon')],
+  ['align-items: baseline', baselineIcon],
+  ['align-content: baseline', baselineIcon],
+]);
+
+const gridItemIcons = new Map([
+  ['align-self: baseline', baselineIcon],
+  ['align-self: center', gridAlignSelfIcon('flex-align-self-center-icon')],
+  ['align-self: start', gridAlignSelfIcon('flex-align-self-flex-start-icon')],
+  ['align-self: end', gridAlignSelfIcon('flex-align-self-flex-end-icon')],
+  ['align-self: stretch', gridAlignSelfIcon('flex-align-self-stretch-icon')],
+]);
+
+const isFlexContainer = (computedStyles?: ComputedStyles|null): boolean => {
+  const display = computedStyles?.get('display');
+  return display === 'flex' || display === 'inline-flex';
+};
+
+const isGridContainer = (computedStyles?: ComputedStyles|null): boolean => {
+  const display = computedStyles?.get('display');
+  return display === 'grid' || display === 'inline-grid';
+};
+
 export function findIcon(
     text: string, computedStyles: ComputedStyles|null, parentComputedStyles?: ComputedStyles|null): IconInfo|null {
-  const resolver = textToIconResolver.get(text);
-  if (!resolver) {
-    return null;
+  const icons: IconInfo[] = [];
+  if (isFlexContainer(computedStyles)) {
+    const resolver = flexContainerIcons.get(text);
+    if (resolver) {
+      icons.push(resolver(computedStyles || new Map(), parentComputedStyles || new Map()));
+    }
   }
-  return resolver(computedStyles || new Map(), parentComputedStyles || new Map());
+  if (isFlexContainer(parentComputedStyles)) {
+    const resolver = flexItemIcons.get(text);
+    if (resolver) {
+      icons.push(resolver(parentComputedStyles || new Map(), new Map()));
+    }
+  }
+  if (isGridContainer(computedStyles)) {
+    const resolver = gridContainerIcons.get(text);
+    if (resolver) {
+      icons.push(resolver(computedStyles || new Map()));
+    }
+  }
+  if (isGridContainer(parentComputedStyles)) {
+    const resolver = gridItemIcons.get(text);
+    if (resolver) {
+      icons.push(resolver(parentComputedStyles || new Map(), new Map()));
+    }
+  }
+  return icons.find(icon => icon !== null) || null;
 }
