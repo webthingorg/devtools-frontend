@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5be078cc_15ddc090",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396536
+      },
+      "writtenOn": "2021-04-27T09:36:39Z",
+      "side": 1,
+      "message": "+1 to adjust the redirect.\n\nsigurds@ feel free to adjust the URL in DevTools as well",
+      "parentUuid": "ad6661ee_1b9cc372",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "721617c8_e0cb78c4",
         "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
         "patchSetId": 1
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "I\u0027m not aware of any Google properties that explains CSRF. If it\u0027s ok to link to external resources, this might be good https://portswigger.net/web-security/csrf",
       "parentUuid": "e35bed8b_3f5de93f",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26e07bb_e63db1c3",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396536
+      },
+      "writtenOn": "2021-04-27T09:36:39Z",
+      "side": 1,
+      "message": "OK, let\u0027s keep it without any link",
+      "parentUuid": "1c62f628_6ac6e441",
       "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
