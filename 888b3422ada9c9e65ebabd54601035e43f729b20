@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d653a28_688c9152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:16:09Z",
+      "side": 1,
+      "message": "Only 1 nit with a request for a follow-up cleanup CL.",
+      "revId": "888b3422ada9c9e65ebabd54601035e43f729b20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b51921_fe6d8bd7",
+        "filename": "front_end/core/sdk/HeapProfilerModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:16:09Z",
+      "side": 1,
+      "message": "Can we use an option bag for these booleans? It will be difficult to understand which is one which, given a call of `takeHeapSnapshot(true, false, true)`, whereas `takeHeapSnapshot({reportProgress: true, treatGlobalObjectsAsRoots: false, captureNumericValue: true})` makes that clearer.\n\nI am okay with doing this is a follow-up cleanup.",
+      "range": {
+        "startLine": 105,
+        "startChar": 25,
+        "endLine": 105,
+        "endChar": 114
+      },
+      "revId": "888b3422ada9c9e65ebabd54601035e43f729b20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d55e45f3_84d90f0a",
