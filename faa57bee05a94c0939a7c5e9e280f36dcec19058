@@ -33,6 +33,98 @@
       "message": "Tim, PTAL",
       "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d791e7c0_cb4bb968",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:08:47Z",
+      "side": 1,
+      "message": "We already have `Platform.assertNever` defined in `platform/utilities.ts` that implements this function. I like `assertUnreachable` more, so could you send a follow-up CL that removes all usages of `assertNever` and replaces it with `assertUnreachable`?",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "444c2aab_8c589b3f",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:08:47Z",
+      "side": 1,
+      "message": "Nit: should this be `never` maybe?",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 58
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b18784_90bfe129",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:08:47Z",
+      "side": 1,
+      "message": "Nit: do we want a `default` statement with `Platform.assertUnreachable` here?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 8
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48ba416_47d26289",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-27T09:08:47Z",
+      "side": 1,
+      "message": "Since we are casting here, should `this.issue.code()` maybe return `IssuesManager.CorsIssue.IssueCode` instead of a `string`? E.g. the generic type defined on `Issue` would remove the generic type initialization to `string` and remove the `extends string` clause.",
+      "range": {
+        "startLine": 325,
+        "startChar": 44,
+        "endLine": 325,
+        "endChar": 77
+      },
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
