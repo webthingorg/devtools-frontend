@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe458899_a808b972",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-27T22:03:08Z",
+      "side": 1,
+      "message": "This looks quite complete already, especially given that we\u0027re not so sure what to pursue in our CQ tooling. I\u0027ll add myself to CC here, and hopefully we\u0027ll iterate on the adorner + LayoutPane related stuff based on this CL.",
+      "revId": "43f91ad6afa037c374d1b27a5efca442d25f5d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
