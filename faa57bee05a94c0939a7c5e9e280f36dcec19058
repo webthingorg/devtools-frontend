@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c81545_726c626c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-27T08:37:53Z",
+      "side": 1,
+      "message": "Issue code LGTM, for the TS-utils you\u0027ll need approval by one of our TS experts anyway.",
+      "revId": "faa57bee05a94c0939a7c5e9e280f36dcec19058",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
