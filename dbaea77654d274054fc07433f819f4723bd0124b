@@ -72,6 +72,91 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eaa7683_8e3bdce0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:00:58Z",
+      "side": 1,
+      "message": "Thanks for doing this, Sigurd!",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5a9e9a_38549264",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:00:58Z",
+      "side": 1,
+      "message": "+Eiji IIRC the plan was to redirect https://web.dev/cors-rfc1918-guide to https://developer.chrome.com/blog/private-network-access-update?\n\nsigurds@ No change needed on your end",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "721617c8_e0cb78c4",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:00:58Z",
+      "side": 1,
+      "message": "A site requested a resource [remove: from a network as this is obvious?] that it could only access because of its users\u0027 privileged network position.",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35bed8b_3f5de93f",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:00:58Z",
+      "side": 1,
+      "message": "+Eiji can we add a link to CSRF as well?",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57c0c0ac_cfc93361",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetworkPreflight.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396747
+      },
+      "writtenOn": "2021-04-27T08:00:58Z",
+      "side": 1,
+      "message": "We didn\u0027t come up yet with a timeline. So we\u0027re not able to mention the Chrome version.",
+      "revId": "dbaea77654d274054fc07433f819f4723bd0124b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a52420d4_a790301a",
