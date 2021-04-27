@@ -84,7 +84,6 @@ export class CorsIssue extends Issue {
         }
         return {
           file: 'corsInsecurePrivateNetwork.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cors-rfc1918-guide',
             linkTitle: i18nString(UIStrings.corsForPrivateNetworksRfc),
@@ -100,7 +99,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.InvalidAllowOriginValue:
         return {
           file: 'corsInvalidHeaderValues.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -110,7 +108,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.WildcardOriginNotAllowed:
         return {
           file: 'corsWildcardOriginNotAllowed.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -120,7 +117,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.PreflightDisallowedRedirect:
         return {
           file: 'corsPreflightResponseInvalid.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -130,7 +126,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.PreflightAllowOriginMismatch:
         return {
           file: 'corsOriginMismatch.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -140,7 +135,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.PreflightInvalidAllowCredentials:
         return {
           file: 'corsAllowCredentialsRequired.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -149,7 +143,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.MethodDisallowedByPreflightResponse:
         return {
           file: 'corsMethodDisallowedByPreflightResponse.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -158,7 +151,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.HeaderDisallowedByPreflightResponse:
         return {
           file: 'corsHeaderDisallowedByPreflightResponse.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
@@ -167,7 +159,6 @@ export class CorsIssue extends Issue {
       case Protocol.Network.CorsError.RedirectContainsCredentials:
         return {
           file: 'corsRedirectContainsCredentials.md',
-          substitutions: undefined,
           links: [{
             link: 'https://web.dev/cross-origin-resource-sharing',
             linkTitle: i18nString(UIStrings.CORS),
