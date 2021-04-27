@@ -16,6 +16,23 @@
       "message": "+Mathias as DOMBreakpointsSidebarPane owner to review\n\nHey Mathias!  PTAL when you can, thanks.",
       "revId": "a668868c93607fc886e7f4abda1e67543bfa73c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71feafd_c67e925f",
+        "filename": "front_end/panels/browser_debugger/DOMBreakpointsSidebarPane.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-04-27T06:32:37Z",
+      "side": 1,
+      "message": "We could also just inline this so it can be const:\n\n    const labelString \u003d label ? label() : \u0027\u0027;",
+      "revId": "a668868c93607fc886e7f4abda1e67543bfa73c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
