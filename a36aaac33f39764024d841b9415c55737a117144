@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2117f68b_8566dbc6",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-28T08:50:52Z",
+      "side": 1,
+      "message": "I see. So basically we rely on the fact that there would only be one result from *the combination of conditional checks and `findXXIcon()` calls*, regardless of their calling order. Then I guess it\u0027s ok.",
+      "parentUuid": "c07a5c90_06968ff4",
+      "revId": "a36aaac33f39764024d841b9415c55737a117144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb1ac609_e53a7862",
