@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c07a5c90_06968ff4",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-28T08:25:26Z",
+      "side": 1,
+      "message": "so say we have an element that is both a container and an item and the text is \"align-self: center\". First, the text will be checked against the container icons, and since nothing will be found it goes to checking the item icons. Do you see a problem here?",
+      "parentUuid": "f29c7ff0_b284a2f6",
+      "revId": "a36aaac33f39764024d841b9415c55737a117144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb1ac609_e53a7862",
         "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-28T08:07:48Z",
       "side": 1,
       "message": "Maybe I misread some code here: do we push anything to `icons` in this function?",
+      "revId": "a36aaac33f39764024d841b9415c55737a117144",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edbad9ac_4204f0d7",
+        "filename": "front_end/panels/elements/CSSPropertyIconResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-28T08:25:26Z",
+      "side": 1,
+      "message": "ah sorry, a left over from the previous version.",
+      "parentUuid": "bb1ac609_e53a7862",
       "revId": "a36aaac33f39764024d841b9415c55737a117144",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
