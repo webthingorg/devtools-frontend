@@ -8,7 +8,10 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import {EmulatedDevice} from '../emulation/EmulatedDevices.js';
+import {parseBrandsList, validateAsStructuredHeadersString} from '../emulation/UserAgentMetadata.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+
 
 const UIStrings = {
   /**
@@ -48,6 +51,54 @@ const UIStrings = {
    * a set of checkboxes to override the content encodings supported by the browser.
    */
   acceptedEncoding: 'Accepted `Content-Encoding`s',
+  /**
+  *@description Title of foldable group of options in Devices pane letting users customize what
+  *information is sent about the browser and device via user agent client hints functionality. 'user
+  *agent' refers to the browser/unique ID the user is using. 'hints' is a noun.
+  */
+  userAgentClient: 'User agent client hints',
+  /**
+  *@description Tooltip text for the foldable 'User agent client hints' section's help button
+  */
+  userAgentClientHintsAre:
+      'User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more.',
+  /**
+  *@description Field in Devices pane letting users customize which browser names and major versions
+  * edited device presents via User Agent Client Hints. Placeholder is locked text.
+  */
+  UABrands: 'UA brands list (e.g. `"Chromium";v="87"`)',
+  /**
+  *@description Field in the Devices pane letting customize precise browser version the edited device presents via User Agent Client Hints.
+  */
+  fullBrowserVersion: 'Full browser version (e.g. 87.0.4280.88)',
+  /**
+  *@description Field in Devices pane letting customize which operating system the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  platform: 'Platform (e.g. Android)',
+  /**
+  *@description Field in Devices pane letting customize which operating system version the edited device presents via User Agent Client Hints
+  */
+  platformVersion: 'Platform version',
+  /**
+  *@description Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  architecture: 'Architecture (e.g. x86)',
+  /**
+  *@description Field Field in the Devices pane letting customize the name the edited device presents via User Agent Client Hints
+  */
+  deviceModel: 'Device model',
+  /**
+  *@description Field Error message in the Device settings pane that shows that the entered value has characters that can't be represented in the corresponding User Agent Client Hints
+  */
+  notRepresentable: 'Not representable as structured headers string.',
+  /**
+  *@description Field Error message in the Device settings pane that shows that the entered brands list has wrong syntax
+  */
+  brandsList: 'Brands list is not a valid structured fields list.',
+  /**
+  *@description Field Error message in the Device settings pane that shows that the entered brands list includes the wrong information
+  */
+  brandsListMust: 'Brands list must consist of strings, each with a v parameter with a string value.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkConfigView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -83,6 +134,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     select: HTMLSelectElement,
     input: HTMLInputElement,
     error: HTMLElement,
+    clientHint: HTMLElement,
   } {
     const userAgentSetting = Common.Settings.Settings.instance().createSetting('customUserAgent', '');
     const userAgentSelectElement = (document.createElement('select') as HTMLSelectElement);
@@ -120,6 +172,80 @@ export class NetworkConfigView extends UI.Widget.VBox {
     settingChanged();
     userAgentSelectElement.addEventListener('change', userAgentSelected, false);
     otherUserAgentElement.addEventListener('input', applyOtherUserAgent, false);
+
+    // create user agent client hing
+    const clientHint = (document.createElement('div') as HTMLElement);
+
+    const uaChFields = clientHint.createChild('div', 'devices-edit-client-hints-heading');
+    UI.UIUtils.createTextChild(uaChFields.createChild('b'), i18nString(UIStrings.userAgentClient));
+
+    const helpIconWrapper = document.createElement('a');
+    helpIconWrapper.href = 'https://web.dev/user-agent-client-hints/';
+    helpIconWrapper.target = '_blank';
+    const icon = UI.Icon.Icon.create('mediumicon-info', 'help-icon');
+    helpIconWrapper.appendChild(icon);
+    helpIconWrapper.title = i18nString(UIStrings.userAgentClientHintsAre);
+    // Prevent the editor grabbing the enter key, letting the default behavior happen.
+    helpIconWrapper.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.stopPropagation();
+      }
+    });
+    uaChFields.appendChild(helpIconWrapper);
+
+    const tree = new UI.TreeOutline.TreeOutlineInShadow();
+    tree.registerRequiredCSS('panels/emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
+    tree.setShowSelectionOnKeyboardFocus(true, false);
+    const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
+    tree.appendChild(treeRoot);
+    // Select the folder to make left/right arrows work as expected; don't change focus, however, since it should start with the device name field.
+    treeRoot.select(true, false);
+    clientHint.appendChild(tree.element);
+
+    function addToTree(input: HTMLInputElement|HTMLSelectElement): void {
+      const treeNode = new UI.TreeOutline.TreeElement(input, false);
+      // The inputs themselves are selectable, no need for the tree nodes to be.
+      treeNode.selectable = false;
+      treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
+      treeRoot.appendChild(treeNode);
+    }
+
+    const editor = new UI.ListWidget.Editor<EmulatedDevice>();
+    const brands = editor.createInput('brands', 'text', i18nString(UIStrings.UABrands), brandListValidator);
+    addToTree(brands);
+
+    const fullVersion =
+        editor.createInput('full-version', 'text', i18nString(UIStrings.fullBrowserVersion), chStringValidator);
+    addToTree(fullVersion);
+
+    const platform = editor.createInput('platform', 'text', i18nString(UIStrings.platform), chStringValidator);
+    addToTree(platform);
+
+    const platformVersion =
+        editor.createInput('platform-version', 'text', i18nString(UIStrings.platformVersion), chStringValidator);
+    addToTree(platformVersion);
+
+    const arch = editor.createInput('arch', 'text', i18nString(UIStrings.architecture), chStringValidator);
+    addToTree(arch);
+
+    const model = editor.createInput('model', 'text', i18nString(UIStrings.deviceModel), chStringValidator);
+    addToTree(model);
+
+    function chStringValidator(
+        item: EmulatedDevice, index: number, input: HTMLInputElement|HTMLSelectElement): UI.ListWidget.ValidatorResult {
+      return validateAsStructuredHeadersString(input.value, i18nString(UIStrings.notRepresentable));
+    }
+
+    function brandListValidator(
+        item: EmulatedDevice, index: number, input: HTMLInputElement|HTMLSelectElement): UI.ListWidget.ValidatorResult {
+      const syntaxError = i18nString(UIStrings.brandsList);
+      const structError = i18nString(UIStrings.brandsListMust);
+      const errorOrResult = parseBrandsList(input.value, syntaxError, structError);
+      if (typeof errorOrResult === 'string') {
+        return {valid: false, errorMessage: errorOrResult};
+      }
+      return {valid: true, errorMessage: undefined};
+    }
 
     function userAgentSelected(): void {
       const value = userAgentSelectElement.options[userAgentSelectElement.selectedIndex].value;
@@ -165,7 +291,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       }
     }
 
-    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement};
+    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement, clientHint: clientHint};
   }
 
   _createSection(title: string, className?: string): Element {
@@ -214,6 +340,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     customUserAgentSelectBox.appendChild(customSelectAndInput.select);
     customUserAgentSelectBox.appendChild(customSelectAndInput.input);
     customUserAgentSelectBox.appendChild(customSelectAndInput.error);
+    customUserAgentSelectBox.appendChild(customSelectAndInput.clientHint);
     userAgentSelectBoxChanged();
 
     function userAgentSelectBoxChanged(): void {
