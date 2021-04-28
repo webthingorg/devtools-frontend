@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "dc862f7375574befd6d8c6412afc0be68ab3a586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a39dcd7_d31e9f42",
+        "filename": "front_end/models/har_importer/HARWriter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-28T09:24:47Z",
+      "side": 1,
+      "message": "Looking at this again, I am not sure if putting HARWriter in a folder called `har_importer` is the best, as it can be confusing for future readers of the codebase. As I understand it, both HARImporter and HARWriter depend on the HARLog (its model), but don\u0027t depend on each other.\n\nAdditionally, the usage in `NetworkLogView` currently is `HARImporter.HARWriter.HARWriter.write`. If we restructure the code here, we could refactor it to the following: `HAR.Writer.Writer.write` and the importer could be HAR.Importer.Importer.requestsFromHARLog`. Then, both importer and writer are namespaced on HAR and it is probably easier to figure out how the code is separated.\n\nThis would mostly be an internal code restructure in `har_importer` (e.g. renaming to `har` and refactoring `HARImporter` to `har/importer` and `HARWriter` to `har/writer`), so I would be fine with doing that in a follow-up CL. The follow-up CL would then also update the usages to use `HAR` rather than `HARImporter`.\n\nWDYT?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 45
+      },
+      "revId": "dc862f7375574befd6d8c6412afc0be68ab3a586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
