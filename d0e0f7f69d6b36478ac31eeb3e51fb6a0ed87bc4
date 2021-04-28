@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab44549e_43f077f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-04-28T07:34:40Z",
+      "side": 1,
+      "message": "Removing message for deprecated Chrome Data Saver, PTAL, thank you!",
+      "revId": "d0e0f7f69d6b36478ac31eeb3e51fb6a0ed87bc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
