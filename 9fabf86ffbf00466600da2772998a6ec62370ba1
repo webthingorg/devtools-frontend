@@ -16,6 +16,29 @@
       "message": "PTAL\nThanks!",
       "revId": "9fabf86ffbf00466600da2772998a6ec62370ba1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4ce5b6_fe437d5b",
+        "filename": "main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-04-28T19:25:43Z",
+      "side": 1,
+      "message": "We don\u0027t need this one here I think. We don\u0027t do GPU testing with DevTools, so let\u0027s rather not permit too much.",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 81
+      },
+      "revId": "9fabf86ffbf00466600da2772998a6ec62370ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
