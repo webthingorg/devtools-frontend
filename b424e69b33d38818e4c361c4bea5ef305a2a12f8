@@ -33,6 +33,24 @@
       "message": "Note that regarding your suggestion to rename HARImporter to Importer:\n\nIf we do that, I feel we should rename all other files in har/ as well, so I didn\u0027t do it yet.",
       "revId": "b424e69b33d38818e4c361c4bea5ef305a2a12f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b7f2757_622d82e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-28T14:02:23Z",
+      "side": 1,
+      "message": "Yeah we should rename the files too. Can we do that in this CL or do you prefer to do that in a separate CL? I am fine with either.",
+      "parentUuid": "97c3342a_f51fdf3c",
+      "revId": "b424e69b33d38818e4c361c4bea5ef305a2a12f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
