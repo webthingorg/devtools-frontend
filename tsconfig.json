@@ -20,3 +20,10 @@
     "front_end/**/*-legacy.js"
   ]
 }
+{
+  "modules": [
+    { "name": "platform", "type": "autostart" },
+    { "name": "dom_extension","type": "autostart" },
+    { "name": "toolbox_bootstrap", "type": "autostart" }
+  ]
+}
