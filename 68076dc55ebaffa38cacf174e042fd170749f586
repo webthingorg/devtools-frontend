@@ -22,6 +22,30 @@
       },
       "revId": "68076dc55ebaffa38cacf174e042fd170749f586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1868bdb_cbe75fad",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-28T06:19:00Z",
+      "side": 0,
+      "message": "I *think* the fallback values were defined for the components server and example to show. At that time one couldn\u0027t see the colors that were defined in the common css files, if I\u0027m not mistaken. I tried to check, but currently the LMI example (and a few others) doesn\u0027t open for the docs right now because of localization issues it seems (will file a bug). However, the colors problem should not be relevant anymore, thanks for checking!",
+      "parentUuid": "d4b186c0_f2904320",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 102,
+        "endChar": 68
+      },
+      "revId": "68076dc55ebaffa38cacf174e042fd170749f586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

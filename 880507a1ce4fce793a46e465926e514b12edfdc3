@@ -16,6 +16,23 @@
       "message": "Paul, PTAL generally.\n\n@Kim I left a comment highlighting a change I made in the LMI, please could you have a look at that? Thanks!",
       "revId": "880507a1ce4fce793a46e465926e514b12edfdc3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3f378b_b29baaf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-04-28T06:19:00Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "880507a1ce4fce793a46e465926e514b12edfdc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
