@@ -16,6 +16,29 @@
       "message": "ping for review!",
       "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b81afad2_26876e63",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-28T09:14:38Z",
+      "side": 1,
+      "message": "DevTools doesn\u0027t expect to get this message more than once per target, and this is causing issues. I\u0027m looking into how to fix this.",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 70
+      },
+      "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
