@@ -23,4 +23,10 @@ devtools_entrypoint("bundle") {
   entrypoint = "har_importer.ts"
 
   deps = [ ":har_importer" ]
+
+  visibility = [
+    "../../../test/unittests/front_end/models/har_importer/*",
+    "../../panels/network/*",
+    "../extensions/*",
+  ]
 }
