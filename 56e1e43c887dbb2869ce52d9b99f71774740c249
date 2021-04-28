@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ce6a80_95b7c8dc",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-28T11:55:37Z",
+      "side": 0,
+      "message": "My understanding is that `ApplicationPanelSidebar._initialize()` can be called multiple times, which in turn each time then calls other `_initialize()` methods. It is not obvious to me why `indexedDBListTreeElement._initialize()` needs to be prevented from being called multiple times.\nWould just moving the `addModelListener()` in `IndexedDBTreeElement.initialize()` calls into its constructor be an option as well?",
+      "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
