@@ -34,6 +34,24 @@
       "parentUuid": "d5ce6a80_95b7c8dc",
       "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97efc117_c2f7ecff",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-28T12:35:21Z",
+      "side": 0,
+      "message": "Correct, I meant the resetting and refilling of `_idbDatabaseTreeElements`. It\u0027s not that I know that this needs to happen again, I was just questioning whether not resetting/refilling it could potentially break something.",
+      "parentUuid": "c5517d61_b2d20638",
+      "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
