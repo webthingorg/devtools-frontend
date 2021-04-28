@@ -16,6 +16,24 @@
       "message": "My understanding is that `ApplicationPanelSidebar._initialize()` can be called multiple times, which in turn each time then calls other `_initialize()` methods. It is not obvious to me why `indexedDBListTreeElement._initialize()` needs to be prevented from being called multiple times.\nWould just moving the `addModelListener()` in `IndexedDBTreeElement.initialize()` calls into its constructor be an option as well?",
       "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5517d61_b2d20638",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-28T12:02:19Z",
+      "side": 0,
+      "message": "Your observation is correct, it doesn\u0027t need to be prevented. However, it also doesn\u0027t need to be initialized anymore (see my change below): By calling IndexedDBTreeElement.initialize in IndexedDBTreeElement\u0027s constructor, the initialization will be done up-front, and doesn\u0027t need to be repeated. Note that IndexedDBTreeElement sets up model listeners (i.e. it is listening to all models in all targets) in the constructor now, so it shouldn\u0027t miss anything.\n\nOr are you worried that we need to initialize IndexedDBTreeElement to re-set _idbDatabaseTreeElements ?",
+      "parentUuid": "d5ce6a80_95b7c8dc",
+      "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
