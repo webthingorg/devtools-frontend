@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1bd0a5a_534e86ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-28T08:42:48Z",
+      "side": 1,
+      "message": "Hey Yang,\n\nHere\u0027s the front-end side change to remove \"Restart frame\".\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "9855f19c02951b9b2ce80289044866b2f732cf6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
