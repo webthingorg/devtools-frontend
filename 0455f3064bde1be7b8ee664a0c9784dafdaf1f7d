@@ -16,6 +16,23 @@
       "message": "Hi Jack,\n\nadding the missing import and initialization of variables in the component docs, as Alex suggested, ptal!",
       "revId": "0455f3064bde1be7b8ee664a0c9784dafdaf1f7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40f8531_13ed72e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-28T08:46:53Z",
+      "side": 1,
+      "message": "Nice, thanks for sorting!",
+      "revId": "0455f3064bde1be7b8ee664a0c9784dafdaf1f7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
