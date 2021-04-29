@@ -7,7 +7,7 @@ import * as LitHtml from '../../../third_party/lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
 
-import {findNextNodeForTreeOutlineKeyboardNavigation, getNodeChildren, getPathToTreeNode, isExpandableNode, trackDOMNodeToTreeNode, TreeNode, TreeNodeWithChildren} from './TreeOutlineUtils.js';
+import {findNextNodeForTreeOutlineKeyboardNavigation, getNodeChildren, getPathToTreeNode, isExpandableNode,  trackDOMNodeToTreeNode, TreeNode, TreeNodeWithChildren} from './TreeOutlineUtils.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -541,7 +541,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
       </ul>
       </div>
       `, this.shadow, {
-        eventContext: this,
+        host: this,
       });
     });
     // clang-format on
