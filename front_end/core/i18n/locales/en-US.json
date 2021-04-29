@@ -7712,6 +7712,9 @@
   "panels/protocol_monitor/ProtocolMonitor.ts | documentation": {
     "message": "Documentation"
   },
+  "panels/protocol_monitor/ProtocolMonitor.ts | download": {
+    "message": "Download"
+  },
   "panels/protocol_monitor/ProtocolMonitor.ts | filter": {
     "message": "Filter"
   },
@@ -7729,6 +7732,9 @@
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | response": {
     "message": "Response"
+  },
+  "panels/protocol_monitor/ProtocolMonitor.ts | session": {
+    "message": "Session"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | sMs": {
     "message": "{PH1} ms"
