@@ -37,7 +37,7 @@ class MockResourceTreeFrame {
 
   isMainFrame = () => true;
   isTopFrame = () => true;
-  setCreationStackTraceFrom = () => {};
+  setCreationStackTraceFromFrame = () => {};
 }
 
 describe('FrameManager', () => {
@@ -88,7 +88,8 @@ describe('FrameManager', () => {
     const mockModel = attachMockModel(frameManager, 'target-id');
     addMockFrame(mockModel, 'parent-frame-id');
     const mockChildFrame = addMockFrame(mockModel, 'child-frame-id');
-    mockModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameDetached, mockChildFrame);
+    mockModel.dispatchEventToListeners(
+        SDK.ResourceTreeModel.Events.FrameDetached, {frame: mockChildFrame, isSwap: false});
 
     const expectation = [
       {type: 'FrameAddedToTarget', data: {frame: {id: 'parent-frame-id', targetId: 'target-id'}}},
@@ -135,7 +136,8 @@ describe('FrameManager', () => {
     const mockChildModel = attachMockModel(frameManager, 'child-target-id');
     const mockChildFrameParentTarget = addMockFrame(mockParentModel, 'child-frame-id');
     addMockFrame(mockChildModel, 'child-frame-id');
-    mockParentModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameDetached, mockChildFrameParentTarget);
+    mockParentModel.dispatchEventToListeners(
+        SDK.ResourceTreeModel.Events.FrameDetached, {frame: mockChildFrameParentTarget, isSwap: true});
 
     const expectation = [
       {type: 'FrameAddedToTarget', data: {frame: {id: 'parent-frame-id', targetId: 'parent-target-id'}}},
