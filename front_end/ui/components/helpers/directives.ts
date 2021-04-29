@@ -12,13 +12,25 @@ import * as LitHtml from '../../../third_party/lit-html/lit-html.js';
  * <p on-render=${nodeRenderedCallback(node => ...)}>
  * ```
  */
-export const nodeRenderedCallback = LitHtml.directive((callback: (domNode: Element) => void) => {
-  return (part: LitHtml.Part): void => {
-    if (!(part instanceof LitHtml.AttributePart)) {
-      throw new Error('Directive must be used as an attribute.');
+class NodeRenderedCallback extends LitHtml.Directive.Directive {
+  constructor(partInfo: LitHtml.Directive.PartInfo) {
+    super(partInfo);
+
+    if (partInfo.type !== LitHtml.Directive.PartType.ATTRIBUTE)
+      {throw new Error('Node rendered callback directive must be used as an attribute.');}
     }
 
-    const elem = part.committer.element;
-    callback(elem);
-  };
-});
+  update(part: LitHtml.Directive.ElementPart, [callback]: LitHtml.Directive.DirectiveParameters<this>): void {
+    callback(part.element);
+  }
+
+  /*
+   * Because this directive doesn't render anything, there's no implementation
+   * here for the render method. But we need it to state that it takes in a
+   * callback function at the callsite. Without this definition, the types in
+   * the update() method above don't get correctly picked up.
+   */
+  render(_callback: (domNode: Element) => void): void {}
+}
+
+export const nodeRenderedCallback = LitHtml.Directive.directive(NodeRenderedCallback);
