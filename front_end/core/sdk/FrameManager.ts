@@ -84,15 +84,21 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper implements 
 
   _frameAdded(event: Common.EventTarget.EventTargetEvent): void {
     const frame = (event.data as ResourceTreeFrame);
+    console.error(  // eslint-disable-line no-console
+        '_frameAdded', frame.id, frame.getCreationStackTraceData().creationStackTrace);
     const frameData = this._frames.get(frame.id);
     // If the frame is already in the map, increase its count, otherwise add it to the map.
     if (frameData) {
+      console.error(  // eslint-disable-line no-console
+          'has frameData', frameData.frame.getCreationStackTraceData().creationStackTrace);
       // In order to not lose frame creation stack trace information during
       // an OOPIF transfer we need to copy it to the new frame
       frame.setCreationStackTraceFrom(frameData.frame);
       this._frames.set(frame.id, {frame, count: frameData.count + 1});
     } else {
+      console.error('about to set frame');  // eslint-disable-line no-console
       this._frames.set(frame.id, {frame, count: 1});
+      console.error('frame is set');  // eslint-disable-line no-console
     }
     this._resetTopFrame();
 
