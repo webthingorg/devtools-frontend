@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a2fc4a_e14705c3",
+        "filename": "front_end/panels/elements/AdornerManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-29T07:25:56Z",
+      "side": 1,
+      "message": "Fly-by changes to conform with TS style guide.",
+      "range": {
+        "startLine": 6,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 22
+      },
+      "revId": "f66981785e486c930aead7a373277b4da4db80cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
