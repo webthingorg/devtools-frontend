@@ -13,7 +13,7 @@ describe('HARLog', () => {
     const issueTime = new Date(2020, 1, 3).getTime() / 1000;
     request.setIssueTime(issueTime, issueTime);
     request.endTime = issueTime + 5;
-    const entry = await HAR.HARLog.Entry.build(request);
+    const entry = await HAR.Log.Entry.build(request);
 
     assert.strictEqual(entry.timings.blocked, 5000, 'HARLog entry\'s blocked time is incorrect');
   });
