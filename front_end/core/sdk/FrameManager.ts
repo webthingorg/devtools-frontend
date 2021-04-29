@@ -84,15 +84,21 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper implements 
 
   _frameAdded(event: Common.EventTarget.EventTargetEvent): void {
     const frame = (event.data as ResourceTreeFrame);
+    console.log(  // eslint-disable-line no-console
+        '_frameAdded', frame.id, frame.getCreationStackTraceData().creationStackTrace, this._frames.size);
     const frameData = this._frames.get(frame.id);
     // If the frame is already in the map, increase its count, otherwise add it to the map.
     if (frameData) {
+      console.log(  // eslint-disable-line no-console
+          'has frameData', frameData.frame.getCreationStackTraceData().creationStackTrace);
       // In order to not lose frame creation stack trace information during
       // an OOPIF transfer we need to copy it to the new frame
       frame.setCreationStackTraceFrom(frameData.frame);
       this._frames.set(frame.id, {frame, count: frameData.count + 1});
     } else {
+      console.log('about to set frame', this._frames.size);  // eslint-disable-line no-console
       this._frames.set(frame.id, {frame, count: 1});
+      console.log('frame is set', this._frames.size);  // eslint-disable-line no-console
     }
     this._resetTopFrame();
 
@@ -109,6 +115,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper implements 
     const frame = (event.data as ResourceTreeFrame);
     // Decrease the frame's count or remove it entirely from the map.
     this._decreaseOrRemoveFrame(frame.id);
+    console.log('_frameDetached', frame.id, this._frames.size);  // eslint-disable-line no-console
 
     // Remove the frameId from the target's set of frameIds.
     const frameSet = this._framesForTarget.get(frame.resourceTreeModel().target().id());
