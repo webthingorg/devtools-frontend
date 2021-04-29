@@ -7712,6 +7712,9 @@
   "panels/protocol_monitor/ProtocolMonitor.ts | documentation": {
     "message": "D̂óĉúm̂én̂t́ât́îón̂"
   },
+  "panels/protocol_monitor/ProtocolMonitor.ts | download": {
+    "message": "D̂óŵńl̂óâd́"
+  },
   "panels/protocol_monitor/ProtocolMonitor.ts | filter": {
     "message": "F̂íl̂t́êŕ"
   },
@@ -7729,6 +7732,9 @@
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | response": {
     "message": "R̂éŝṕôńŝé"
+  },
+  "panels/protocol_monitor/ProtocolMonitor.ts | session": {
+    "message": "Ŝéŝśîón̂"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | sMs": {
     "message": "{PH1} m̂ś"
