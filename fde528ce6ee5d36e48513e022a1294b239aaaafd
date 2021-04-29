@@ -16,6 +16,115 @@
       "message": "Sigurd probably has a better understanding of this than I do.",
       "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f19dcce3_0b621b50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-29T06:28:19Z",
+      "side": 1,
+      "message": "Thanks for the general discussion. Independently of whether we are going to remove the targetId-frameId coupling, I thought a little bit about whether we can remove the two explicit occurences below. I\u0027ve added some questions, which at the least will be useful for my understanding.",
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fee81bc_86e00f47",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-29T06:28:19Z",
+      "side": 1,
+      "message": "I think here we are sure that we are handling an OOPIF, because otherwise contentDocument would have been set.",
+      "range": {
+        "startLine": 176,
+        "startChar": 14,
+        "endLine": 176,
+        "endChar": 99
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d296eb7_06a350c6",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-29T06:28:19Z",
+      "side": 1,
+      "message": "Consider a frame that just navigated OOP: Then I don\u0027t know whether it is possible that we are getting the \"old\" (in process) version of the frame here.\n\nTo avoid this, we would need to make sure we are only considering the frame if it isn\u0027t in the target of its parent.",
+      "range": {
+        "startLine": 222,
+        "startChar": 6,
+        "endLine": 222,
+        "endChar": 54
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271a1145_c50587bc",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-29T06:28:19Z",
+      "side": 1,
+      "message": "Could we have a new method on FrameManager that does this for us?",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 236,
+        "endChar": 97
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70610e4_ee50eb01",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-29T06:28:19Z",
+      "side": 1,
+      "message": "Do you think this is necessary? Can we just use .mainFrame? \n\nI was under the impression that frameAttached/frameNavigated would always be dispatched before _requestDocument can get called, but I might be mistaken.\n\nDo you have an example (or even a repro) where getMainFrameAsync would be necessary?",
+      "range": {
+        "startLine": 1420,
+        "startChar": 50,
+        "endLine": 1420,
+        "endChar": 67
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
