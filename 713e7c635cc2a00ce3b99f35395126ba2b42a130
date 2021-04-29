@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25610c85_61d58412",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-29T08:45:36Z",
+      "side": 1,
+      "message": "LGTM with `private` keyword added. Thanks!",
+      "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a67fcf3c_464c0ed5",
@@ -48,6 +65,52 @@
       "writtenOn": "2021-04-29T07:59:29Z",
       "side": 1,
       "message": "I think new descriptions should be more specific. E.g., if it\u0027s used in buttons etc.",
+      "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0806f55b_fce3930d",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-29T08:45:36Z",
+      "side": 1,
+      "message": "could we consider making these `private messages: LogMessage[] \u003d []` ? I know it wouldn\u0027t align with the rest of the class but it\u0027s what we\u0027d do if we were writing this class from scratch, and I do think we should move away from having all these instance variables public to be got at from outside.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 32
+      },
+      "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b4225e3_18b38987",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-29T08:45:36Z",
+      "side": 1,
+      "message": "again, could make this `private`",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 36
+      },
       "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
