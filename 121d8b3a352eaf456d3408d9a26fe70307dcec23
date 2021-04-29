@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02790d1_f28ad9da",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-29T15:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7856a017_c79e8f41",
+      "range": {
+        "startLine": 487,
+        "startChar": 37,
+        "endLine": 487,
+        "endChar": 46
+      },
+      "revId": "121d8b3a352eaf456d3408d9a26fe70307dcec23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34a5bf14_9ec864c3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-29T14:36:47Z",
       "side": 1,
       "message": "Should this really be HAR.Log.Log ? (I.e. rename the class HARLog to Log?)",
+      "range": {
+        "startLine": 489,
+        "startChar": 25,
+        "endLine": 489,
+        "endChar": 39
+      },
+      "revId": "121d8b3a352eaf456d3408d9a26fe70307dcec23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95674de_ef968f84",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-29T15:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34a5bf14_9ec864c3",
       "range": {
         "startLine": 489,
         "startChar": 25,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60d490f1_87eb75e2",
+        "filename": "front_end/models/har/Log.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-29T15:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca258e1a_892af032",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "121d8b3a352eaf456d3408d9a26fe70307dcec23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a36fd57_90953f9d",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5722691b_daa0609d",
+        "filename": "front_end/models/har/Log.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-29T15:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a36fd57_90953f9d",
+      "range": {
+        "startLine": 515,
+        "startChar": 17,
+        "endLine": 515,
+        "endChar": 27
+      },
+      "revId": "121d8b3a352eaf456d3408d9a26fe70307dcec23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77524b57_a00fcf04",
@@ -123,6 +219,30 @@
       "writtenOn": "2021-04-29T14:36:47Z",
       "side": 1,
       "message": "HAR.Log?",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "121d8b3a352eaf456d3408d9a26fe70307dcec23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e6190f_5236f79d",
+        "filename": "test/unittests/front_end/models/har/HARLog_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-29T15:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77524b57_a00fcf04",
       "range": {
         "startLine": 10,
         "startChar": 10,
