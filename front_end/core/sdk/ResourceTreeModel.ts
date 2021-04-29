@@ -175,7 +175,7 @@ export class ResourceTreeModel extends SDKModel {
     }
     if (frame.isMainFrame() && this.mainFrame) {
       // Navigation to the new backend process.
-      this._frameDetached(this.mainFrame.id);
+      this._frameDetached(this.mainFrame.id, false);
     }
     this._addFrame(frame, true);
     return frame;
@@ -233,7 +233,7 @@ export class ResourceTreeModel extends SDKModel {
     }
   }
 
-  _frameDetached(frameId: string): void {
+  _frameDetached(frameId: string, isSwap: boolean): void {
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
     if (!this._cachedResourcesProcessed) {
       return;
@@ -246,9 +246,9 @@ export class ResourceTreeModel extends SDKModel {
 
     const sameTargetParentFrame = frame.sameTargetParentFrame();
     if (sameTargetParentFrame) {
-      sameTargetParentFrame._removeChildFrame(frame);
+      sameTargetParentFrame._removeChildFrame(frame, isSwap);
     } else {
-      frame._remove();
+      frame._remove(isSwap);
     }
     this._updateSecurityOrigins();
   }
@@ -747,23 +747,23 @@ export class ResourceTreeFrame {
     return !this._model.target().parentTarget() && !this._sameTargetParentFrame && !this._crossTargetParentFrameId;
   }
 
-  _removeChildFrame(frame: ResourceTreeFrame): void {
+  _removeChildFrame(frame: ResourceTreeFrame, isSwap: boolean): void {
     this._childFrames.delete(frame);
-    frame._remove();
+    frame._remove(isSwap);
   }
 
   _removeChildFrames(): void {
     const frames = this._childFrames;
     this._childFrames = new Set();
     for (const frame of frames) {
-      frame._remove();
+      frame._remove(false);
     }
   }
 
-  _remove(): void {
+  _remove(isSwap: boolean): void {
     this._removeChildFrames();
     this._model._frames.delete(this.id);
-    this._model.dispatchEventToListeners(Events.FrameDetached, this);
+    this._model.dispatchEventToListeners(Events.FrameDetached, {resourceTreeFrame: this, isSwap});
   }
 
   addResource(resource: Resource): void {
@@ -899,6 +899,11 @@ export class ResourceTreeFrame {
       this.creationStackTraceTarget = frame.resourceTreeModel().target();
     }
   }
+
+  setCreationStackTrace(creationStackTrace: Protocol.Runtime.StackTrace, creationStackTraceTarget: Target|null): void {
+    this.creationStackTrace = creationStackTrace;
+    this.creationStackTraceTarget = creationStackTraceTarget;
+  }
 }
 
 export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
@@ -935,8 +940,8 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
     this._resourceTreeModel._documentOpened(frame);
   }
 
-  frameDetached({frameId}: Protocol.Page.FrameDetachedEvent): void {
-    this._resourceTreeModel._frameDetached(frameId);
+  frameDetached({frameId, reason}: Protocol.Page.FrameDetachedEvent): void {
+    this._resourceTreeModel._frameDetached(frameId, reason === 'swap');
   }
 
   frameStartedLoading({}: Protocol.Page.FrameStartedLoadingEvent): void {
