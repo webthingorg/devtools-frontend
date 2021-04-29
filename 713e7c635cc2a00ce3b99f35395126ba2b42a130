@@ -16,6 +16,40 @@
       "message": "PTAL, thanks!",
       "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9fb4759_44893098",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-29T07:59:29Z",
+      "side": 1,
+      "message": "Jack, could you please take a look? ",
+      "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67fcf3c_464c0ed5",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-29T07:59:29Z",
+      "side": 1,
+      "message": "I think new descriptions should be more specific. E.g., if it\u0027s used in buttons etc.",
+      "revId": "713e7c635cc2a00ce3b99f35395126ba2b42a130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
