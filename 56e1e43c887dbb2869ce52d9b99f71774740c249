@@ -52,6 +52,24 @@
       "parentUuid": "c5517d61_b2d20638",
       "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b8a9b6a_04e0ff59",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T08:11:47Z",
+      "side": 0,
+      "message": "I\u0027ve looked into the IndexedDBModel and I *think* that model will issue add/remove events correctly (i.e. it is not the case that upon navigation, some DBs that were added are not also removed). This means that we shoudn\u0027t need to clear at this point, because the normal update logic will handle things correctly.\n\nIt also means that it isn\u0027t important at which point in time IndexedDBTreeElement.initialize is called: As long as we setup the listeners and at the same time sync state (L1066) we should be good.\n\nDo you agree with my reasoning? Please also double-check that you agree with my assessment that IndexedDBModel send the add/remove events as I described above.",
+      "parentUuid": "97efc117_c2f7ecff",
+      "revId": "56e1e43c887dbb2869ce52d9b99f71774740c249",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
