@@ -16,6 +16,24 @@
       "message": "Ugh, it does not work as I expected. It seems there are some conditions on whether the user has the focus in the grid?",
       "revId": "b2c21763fcf407e20286085977d8f93f0f3cca51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6265ffe4_62351d9d",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T15:15:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand your question - in what sense is it not working? Are the numbers just off? Or is it not firing? Or something else? :)",
+      "parentUuid": "2fb5e11e_cf390ef9",
+      "revId": "b2c21763fcf407e20286085977d8f93f0f3cca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
