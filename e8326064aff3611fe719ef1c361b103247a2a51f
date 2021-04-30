@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7599b8f_7264c3a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T14:09:20Z",
+      "side": 1,
+      "message": "PTAL.\n\nTested locally with a few different trace files in light and dark mode.",
+      "revId": "e8326064aff3611fe719ef1c361b103247a2a51f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
