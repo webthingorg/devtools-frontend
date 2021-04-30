@@ -7730,6 +7730,9 @@
   "panels/protocol_monitor/ProtocolMonitor.ts | response": {
     "message": "R̂éŝṕôńŝé"
   },
+  "panels/protocol_monitor/ProtocolMonitor.ts | sendRawCDPCommand": {
+    "message": "Ŝén̂d́ â ŕâẃ CDP ĉóm̂ḿâńd̂"
+  },
   "panels/protocol_monitor/ProtocolMonitor.ts | sMs": {
     "message": "{PH1} m̂ś"
   },
