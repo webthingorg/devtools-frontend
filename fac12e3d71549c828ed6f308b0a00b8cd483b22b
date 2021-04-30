@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f81735c1_776a43fd",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-30T12:19:25Z",
+      "side": 1,
+      "message": "Thanks! I did notice one console error with ApplicationPanel that I have a fix for, but I thought the other sites that listen to this event would be able to handle this.",
+      "parentUuid": "b81afad2_26876e63",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 70
+      },
+      "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30502f03_73b79c61",
         "filename": "front_end/core/sdk/ResourceTreeModel.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-30T08:40:45Z",
       "side": 1,
       "message": "This will clear all resources and races with the completion of the call to this.getCachedResources(); above. I\u0027m thinking about a way to handle this better.",
+      "range": {
+        "startLine": 213,
+        "startChar": 4,
+        "endLine": 213,
+        "endChar": 34
+      },
+      "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcb18e5_1c8dd7d0",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-04-30T12:19:25Z",
+      "side": 1,
+      "message": "Interesting, what exactly is the race here? I thought frame._navigate is a synchronous call and I made some changes to getCachedResources to avoid overwriting the main frame and its resource if it already exists.",
+      "parentUuid": "30502f03_73b79c61",
       "range": {
         "startLine": 213,
         "startChar": 4,
