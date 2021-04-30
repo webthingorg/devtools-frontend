@@ -276,6 +276,30 @@
       },
       "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10842a0e_40af30ff",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T08:09:50Z",
+      "side": 1,
+      "message": "Indeed, but getIssueCode is an implementation detail of the file and not exported. Writing the test like this tests the public API boundary of the unit. Which feels cleaner.",
+      "parentUuid": "c5037139_7a49dc6a",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
