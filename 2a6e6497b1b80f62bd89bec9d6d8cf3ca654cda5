@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8807f831_a48e55b3",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:52:14Z",
+      "side": 1,
+      "message": "To clarify: it wasn\u0027t causing an actual node to be rendered (phew, XSS!) but it was being changed so it didn\u0027t render the string, hence the change from \u003c and \u003e to \u0026lt; and \u0026gt; to make sure we render it all as a literal string to the user.",
+      "parentUuid": "3c0efb6a_75888ff6",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 73
+      },
+      "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1699480c_5d5765a1",
         "filename": "front_end/ui/components/docs/report/basic.ts",
         "patchSetId": 3
