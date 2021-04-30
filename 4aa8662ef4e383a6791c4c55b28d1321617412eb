@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e246c3a7_73cd5907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-30T12:50:29Z",
+      "side": 1,
+      "message": "I\u0027ll go through the rest later. Overall I like this direction 😊",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227c4a12_e7fa41f3",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-04-30T12:50:29Z",
+      "side": 1,
+      "message": "I\u0027m just thinking here: we call this `PopoverEditorWidget`. Could this be used for other things we currently call `popover` as well? Or if we\u0027re not trying to make it generic, maybe we can name it to be `LayoutEditorWidget` or something like `StyleEditorWidget`, to be more precise?",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abe2ee05_9cd5bfbe",
