@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08abd484_99be5e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T09:13:09Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "3e0d396d956ff00f4f3239b228f390878baf7a94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f4bef2b_d5bdf3b9",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-04-30T09:12:15Z",
       "side": 1,
       "message": "This is using the issues manager, and we just discussed that the issues manager uses the environment for the third party cookie setting.",
+      "range": {
+        "startLine": 21,
+        "startChar": 50,
+        "endLine": 21,
+        "endChar": 70
+      },
+      "revId": "3e0d396d956ff00f4f3239b228f390878baf7a94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d1249cf_f8a73b7f",
+        "filename": "test/unittests/front_end/models/issues_manager/RelatedIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T09:13:09Z",
+      "side": 1,
+      "message": "Disregard, hasIssues uses the issues manager, not this helper.",
+      "parentUuid": "4f4bef2b_d5bdf3b9",
       "range": {
         "startLine": 21,
         "startChar": 50,
