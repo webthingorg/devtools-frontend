@@ -33,6 +33,24 @@
       "message": "Looks like a pragmatic work-around to me. My first impression here would be that the tools generate incorrect sourcemaps, but then again, it might be the only way to also support dynamically inserted \u003cstyle\u003e tags. So let\u0027s go your fix.\n\n",
       "revId": "76bce68acf9ac6280c34e0aebf3e67cb229d49d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36147b3_a80cf4bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T10:50:03Z",
+      "side": 1,
+      "message": "Thanks! If we get reports that this breaks currently existing source maps we need to do something about it anyway.",
+      "parentUuid": "54a64af4_b98f57bb",
+      "revId": "76bce68acf9ac6280c34e0aebf3e67cb229d49d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
