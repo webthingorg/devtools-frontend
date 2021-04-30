@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cad0b24_f925dcc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T07:53:05Z",
+      "side": 1,
+      "message": "Good point, ask DevRel what they prefer. If they are OK with the code review here, then let them do a first pass of reviews on this CL.",
+      "parentUuid": "50c60742_7be53ff4",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7e8cf29_63e23b7c",
