@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec87af8_a9e10d53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:17:55Z",
+      "side": 1,
+      "message": "PTAL! Going to go through the diff and try to highlight the main bits that are worth your attention.",
+      "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
