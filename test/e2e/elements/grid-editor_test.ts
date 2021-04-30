@@ -8,21 +8,21 @@ import {$$, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {clickNthChildOfSelectedElementNode, focusElementsTree, getCSSPropertyInRule, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
 
-describe('Flexbox Editor', async function() {
+describe('Grid Editor', async function() {
   beforeEach(async function() {
-    await goToResource('elements/flexbox-editor.html');
+    await goToResource('elements/grid-editor.html');
     await waitForContentOfSelectedElementsNode('<body>\u200B');
     await focusElementsTree();
     await clickNthChildOfSelectedElementNode(1);
-    await waitForCSSPropertyValue('#target', 'display', 'flex');
+    await waitForCSSPropertyValue('#target', 'display', 'grid');
   });
 
   async function clickStylePropertyEditorButton() {
-    const flexboxEditorButtons = await $$('[title="Open flexbox editor"]');
-    assert.deepEqual(flexboxEditorButtons.length, 1);
-    const flexboxEditorButton = flexboxEditorButtons[0];
-    flexboxEditorButton.click();
-    await waitFor('devtools-flexbox-editor');
+    const gridEditorButtons = await $$('[title="Open grid editor"]');
+    assert.deepEqual(gridEditorButtons.length, 1);
+    const gridEditorButton = gridEditorButtons[0];
+    gridEditorButton.click();
+    await waitFor('devtools-grid-editor');
   }
 
   async function clickFlexEditButton(selector: string) {
@@ -33,19 +33,19 @@ describe('Flexbox Editor', async function() {
     button.click();
   }
 
-  it('can be opened and flexbox styles can be edited', async () => {
+  it('can be opened and grid styles can be edited', async () => {
     await clickStylePropertyEditorButton();
 
     // Clicking once sets the value.
-    await clickFlexEditButton('[title="Add flex-direction: column"]');
-    await waitForCSSPropertyValue('#target', 'flex-direction', 'column');
+    await clickFlexEditButton('[title="Add align-items: start"]');
+    await waitForCSSPropertyValue('#target', 'align-items', 'start');
 
     // Clicking again removes the value.
-    await clickFlexEditButton('[title="Remove flex-direction: column"]');
+    await clickFlexEditButton('[title="Remove align-items: start"]');
     // Wait for the button's title to be updated so that we know the change
     // was made.
-    await waitFor('[title="Add flex-direction: column"]');
-    const property = await getCSSPropertyInRule('#target', 'flex-direction');
+    await waitFor('[title="Add align-items: start"]');
+    const property = await getCSSPropertyInRule('#target', 'align-items');
     assert.isUndefined(property);
   });
 });
