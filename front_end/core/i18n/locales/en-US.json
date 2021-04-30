@@ -7730,6 +7730,9 @@
   "panels/protocol_monitor/ProtocolMonitor.ts | response": {
     "message": "Response"
   },
+  "panels/protocol_monitor/ProtocolMonitor.ts | sendRawCDPCommand": {
+    "message": "Send a raw CDP command"
+  },
   "panels/protocol_monitor/ProtocolMonitor.ts | sMs": {
     "message": "{PH1} ms"
   },
