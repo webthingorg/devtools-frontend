@@ -111,6 +111,30 @@
       },
       "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d8ec46_a15f3cd7",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-04-30T13:47:02Z",
+      "side": 1,
+      "message": "The test used to flake when not reloading the page. This lead us to discover an actual bug: the FrameManager\u0027s assumption about the order of events during OOPIF transition is not always correct. The whole CL has been rewritten such that the FrameManager is able to handle the CDP events arriving in any of the 2 possible orders.",
+      "parentUuid": "05107340_ac2a1bd7",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "4de30d065003eae7c042b0eaff73fb85035e928a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
