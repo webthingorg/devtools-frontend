@@ -43,6 +43,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as ClientVariations from '../../third_party/chromium/client-variations/client-variations.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import {UIHeaderSection} from './NetworkSearchScope.js';
 
 const UIStrings = {
   /**
@@ -981,28 +982,42 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this._highlightedElement = null;
   }
 
-  _revealAndHighlight(category: UI.TreeOutline.TreeElement|null, name: string): void {
+  _revealAndHighlight(category: UI.TreeOutline.TreeElement|null, name?: string): void {
     this._clearHighlight();
     if (!category) {
       return;
     }
-    for (const element of category.children()) {
-      if (headerNames.get(element) !== name) {
-        continue;
+    if (name) {
+      for (const element of category.children()) {
+        // HTTP headers are case insensitive.
+        if (headerNames.get(element)?.toUpperCase() !== name.toUpperCase()) {
+          continue;
+        }
+        this._highlightedElement = element;
+        element.reveal();
+        element.listItemElement.classList.add('header-highlight');
+        return;
       }
-      this._highlightedElement = element;
-      element.reveal();
-      element.listItemElement.classList.add('header-highlight');
-      return;
+    }
+    // If there wasn't a match, reveal the first element of the category (without highlighting it).
+    if (category.childCount() > 0) {
+      category.childAt(0)?.reveal();
     }
   }
 
-  revealRequestHeader(header: string): void {
-    this._revealAndHighlight(this._requestHeadersCategory, header);
+  private getCategoryForSection(section: UIHeaderSection): Category {
+    switch (section) {
+      case UIHeaderSection.General:
+        return this._root;
+      case UIHeaderSection.Request:
+        return this._requestHeadersCategory;
+      case UIHeaderSection.Response:
+        return this._responseHeadersCategory;
+    }
   }
 
-  revealResponseHeader(header: string): void {
-    this._revealAndHighlight(this._responseHeadersCategory, header);
+  revealHeader(section: UIHeaderSection, header?: string): void {
+    this._revealAndHighlight(this.getCategoryForSection(section), header);
   }
 }
 
