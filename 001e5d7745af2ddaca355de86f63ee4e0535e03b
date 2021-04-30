@@ -159,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec62f8b4_0975f769",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T08:40:21Z",
+      "side": 1,
+      "message": "As per offline clarifications, this can be removed here.",
+      "parentUuid": "200a907e_11c6bae9",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 101
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "098a2501_05d84245",
@@ -220,6 +244,30 @@
       "side": 1,
       "message": "Hmm, I had imagined that the following would work. Note that you get type checking at the call to fromInspectorIssue.\n\n const attributionReportingIssueDetails \u003d {\n      violationType: Protocol.[...].InvalidAttributionData,\n      failedParameter: \u0027NotANumber\u0027,\n    };\n       \n const invalidDataFrontendIssue \u003d IssuesManager.[...].fromInspectorIssue(\n            mockModel, {attributionReportingIssueDetails});",
       "parentUuid": "2b13843b_19a3eb6d",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 113
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1db39a20_e367d35d",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T08:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "269b17c7_a0d3694d",
       "range": {
         "startLine": 22,
         "startChar": 8,
