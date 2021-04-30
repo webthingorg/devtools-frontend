@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb5e11e_cf390ef9",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-30T12:38:11Z",
+      "side": 1,
+      "message": "Ugh, it does not work as I expected. It seems there are some conditions on whether the user has the focus in the grid?",
+      "revId": "b2c21763fcf407e20286085977d8f93f0f3cca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
