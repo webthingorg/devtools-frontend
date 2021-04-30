@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nPTAL. I was unsure whether we will break someone if we don\u0027t preserve the old behavior (as described), and my research into build tools like inline-css and style-loader/css-loader is inconclusive: From what I could determine, both *seem* to produce source map positions relative to the start of the style tag, but I\u0027m not sure if I got everything right.",
       "revId": "76bce68acf9ac6280c34e0aebf3e67cb229d49d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54a64af4_b98f57bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-04-30T10:16:37Z",
+      "side": 1,
+      "message": "Looks like a pragmatic work-around to me. My first impression here would be that the tools generate incorrect sourcemaps, but then again, it might be the only way to also support dynamically inserted \u003cstyle\u003e tags. So let\u0027s go your fix.\n\n",
+      "revId": "76bce68acf9ac6280c34e0aebf3e67cb229d49d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
