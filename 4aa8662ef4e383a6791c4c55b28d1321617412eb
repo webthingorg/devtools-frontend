@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e146589a_a6822683",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-04-30T13:33:39Z",
+      "side": 1,
+      "message": "Yes, I agree we could name it StyleEditorWidget",
+      "parentUuid": "227c4a12_e7fa41f3",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abe2ee05_9cd5bfbe",
         "filename": "test/e2e/elements/grid-editor_test.ts",
         "patchSetId": 1
