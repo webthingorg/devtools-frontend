@@ -39,6 +39,29 @@
       },
       "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30502f03_73b79c61",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T08:40:45Z",
+      "side": 1,
+      "message": "This will clear all resources and races with the completion of the call to this.getCachedResources(); above. I\u0027m thinking about a way to handle this better.",
+      "range": {
+        "startLine": 213,
+        "startChar": 4,
+        "endLine": 213,
+        "endChar": 34
+      },
+      "revId": "fac12e3d71549c828ed6f308b0a00b8cd483b22b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
