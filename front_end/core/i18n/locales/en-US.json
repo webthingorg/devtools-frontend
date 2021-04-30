@@ -4112,15 +4112,6 @@
   "panels/elements/EventListenersWidget.ts | showListenersOnTheAncestors": {
     "message": "Show listeners on the ancestors"
   },
-  "panels/elements/FlexboxEditor.ts | deselectButton": {
-    "message": "Remove {propertyName}: {propertyValue}"
-  },
-  "panels/elements/FlexboxEditor.ts | selectButton": {
-    "message": "Add {propertyName}: {propertyValue}"
-  },
-  "panels/elements/FlexboxEditorWidget.ts | editorButton": {
-    "message": "Open Flexbox editor"
-  },
   "panels/elements/LayoutPane.ts | feedback": {
     "message": "Feedback"
   },
@@ -4169,6 +4160,12 @@
   "panels/elements/PlatformFontsWidget.ts | renderedFonts": {
     "message": "Rendered Fonts"
   },
+  "panels/elements/StylePropertyEditor.ts | deselectButton": {
+    "message": "Remove {propertyName}: {propertyValue}"
+  },
+  "panels/elements/StylePropertyEditor.ts | selectButton": {
+    "message": "Add {propertyName}: {propertyValue}"
+  },
   "panels/elements/StylePropertyTreeElement.ts | copyAllDeclarations": {
     "message": "Copy all declarations"
   },
@@ -4183,6 +4180,12 @@
   },
   "panels/elements/StylePropertyTreeElement.ts | copyValue": {
     "message": "Copy value"
+  },
+  "panels/elements/StylePropertyTreeElement.ts | flexboxEditorButton": {
+    "message": "Open flexbox editor"
+  },
+  "panels/elements/StylePropertyTreeElement.ts | gridEditorButton": {
+    "message": "Open grid editor"
   },
   "panels/elements/StylePropertyTreeElement.ts | openColorPickerS": {
     "message": "Open color picker. {PH1}"

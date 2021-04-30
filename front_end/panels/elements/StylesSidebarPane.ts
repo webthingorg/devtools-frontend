@@ -53,8 +53,8 @@ import {ComputedStyleModel} from './ComputedStyleModel.js';
 import {findIcon} from './CSSPropertyIconResolver.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
-import {FlexboxEditorWidget} from './FlexboxEditorWidget.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
+import {PopoverEditorWidget} from './PopoverEditorWidget.js';
 import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
 import {Context, StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
 
@@ -743,7 +743,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     // With the following code we re-bind the flexbox editor to the new
     // section with the same index as the previous section had.
     const newSections = this._sectionBlocks.map(block => block.sections).flat();
-    const flexEditorWidget = FlexboxEditorWidget.instance();
+    const flexEditorWidget = PopoverEditorWidget.instance();
     const boundSection = flexEditorWidget.getSection();
     if (boundSection) {
       flexEditorWidget.unbindContext();

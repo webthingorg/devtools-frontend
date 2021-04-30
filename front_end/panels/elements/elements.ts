@@ -49,7 +49,6 @@ import * as ElementsTreeElement from './ElementsTreeElement.js';
 import * as ElementsTreeElementHighlighter from './ElementsTreeElementHighlighter.js';
 import * as ElementsTreeOutline from './ElementsTreeOutline.js';
 import * as EventListenersWidget from './EventListenersWidget.js';
-import * as FlexboxEditor from './FlexboxEditor.js';
 import * as InspectElementModeController from './InspectElementModeController.js';
 import * as LayoutPane from './LayoutPane.js';
 import * as LayoutPaneUtils from './LayoutPaneUtils.js';
@@ -60,6 +59,7 @@ import * as NodeStackTraceWidget from './NodeStackTraceWidget.js';
 import * as NodeText from './NodeText.js';
 import * as PlatformFontsWidget from './PlatformFontsWidget.js';
 import * as PropertiesWidget from './PropertiesWidget.js';
+import * as StylePropertyEditor from './StylePropertyEditor.js';
 import * as StylePropertyHighlighter from './StylePropertyHighlighter.js';
 import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
@@ -88,7 +88,6 @@ export {
   ElementsTreeElementHighlighter,
   ElementsTreeOutline,
   EventListenersWidget,
-  FlexboxEditor,
   InspectElementModeController,
   LayoutPane,
   LayoutPaneUtils,
@@ -99,6 +98,7 @@ export {
   NodeText,
   PlatformFontsWidget,
   PropertiesWidget,
+  StylePropertyEditor,
   StylePropertyHighlighter,
   StylePropertyTreeElement,
   StylesSidebarPane,
