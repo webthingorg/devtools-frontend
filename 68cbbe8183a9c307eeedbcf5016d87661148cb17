@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9238a6a_a53a9bea",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:21:03Z",
+      "side": 0,
+      "message": "this cast now does not work - hence updating the return of the function.",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 55
+      },
+      "revId": "68cbbe8183a9c307eeedbcf5016d87661148cb17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -16,6 +16,75 @@
       "message": "PTAL! Going to go through the diff and try to highlight the main bits that are worth your attention.",
       "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0efb6a_75888ff6",
+        "filename": "front_end/panels/application/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:21:03Z",
+      "side": 1,
+      "message": "this is a fun change! Presumably because Lit now supports dynamic tags (\u003c${myElem.name}\u003e) this was causing an actual node to be rendered, but here we want the actual text representing the element.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 73
+      },
+      "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1699480c_5d5765a1",
+        "filename": "front_end/ui/components/docs/report/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:21:03Z",
+      "side": 1,
+      "message": "Lit\u0027s render method now expects HTMLElement, not Element",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 68
+      },
+      "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "855da3ae_02fc8f4d",
+        "filename": "front_end/ui/components/helpers/directives.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T07:21:03Z",
+      "side": 1,
+      "message": "this API took me a bit of time to get used to - let me know if you want to chat it through. Hopefully the comment helps though!",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "2a6e6497b1b80f62bd89bec9d6d8cf3ca654cda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
