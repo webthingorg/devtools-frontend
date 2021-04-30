@@ -185,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "269b17c7_a0d3694d",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T08:05:27Z",
+      "side": 1,
+      "message": "Hmm, I had imagined that the following would work. Note that you get type checking at the call to fromInspectorIssue.\n\n const attributionReportingIssueDetails \u003d {\n      violationType: Protocol.[...].InvalidAttributionData,\n      failedParameter: \u0027NotANumber\u0027,\n    };\n       \n const invalidDataFrontendIssue \u003d IssuesManager.[...].fromInspectorIssue(\n            mockModel, {attributionReportingIssueDetails});",
+      "parentUuid": "2b13843b_19a3eb6d",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 113
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d6f19c3_34c61311",
         "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
         "patchSetId": 1
@@ -220,6 +244,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "1d6f19c3_34c61311",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5037139_7a49dc6a",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T08:05:27Z",
+      "side": 1,
+      "message": "Looking at this again: This whole file basically checks that getIssueCode works correctly?",
+      "parentUuid": "0d356d18_dffdbd6b",
       "range": {
         "startLine": 33,
         "startChar": 11,
