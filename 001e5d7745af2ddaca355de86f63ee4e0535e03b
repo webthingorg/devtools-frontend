@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e0b8ef_98e30410",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T07:45:19Z",
+      "side": 1,
+      "message": "If this is about the issue descriptions, please consider creating a document based on Peter\u0027s draft format and sharing it with the relevant DevRels.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7e8cf29_63e23b7c",
@@ -20,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e89306c6_44f9b2c3",
+        "filename": "front_end/models/issues_manager/AttributionReportingIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T07:45:19Z",
+      "side": 1,
+      "message": "Do we have no link yet?",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "098a2501_05d84245",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T07:45:19Z",
+      "side": 1,
+      "message": "ultra-nit: Wouldn\u0027t a string literal be easier to read than the helper createARProtocolIssue (as the reader would immediately know what NotANumber is)?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 113
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d6f19c3_34c61311",
         "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
         "patchSetId": 1
@@ -31,6 +100,30 @@
       "writtenOn": "2021-04-30T07:39:57Z",
       "side": 1,
       "message": "I didn\u0027t want to assert on the concrete codes. This way, the test has to be only updated if we change CDP, but not when we e.g. change the frontend IssueCodes enum.",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d356d18_dffdbd6b",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-04-30T07:45:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d6f19c3_34c61311",
       "range": {
         "startLine": 33,
         "startChar": 11,
