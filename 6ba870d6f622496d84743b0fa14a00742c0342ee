@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0254d80e_cfb637d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T11:30:18Z",
+      "side": 1,
+      "message": "Leave this as is, but then also if you add:\n\n```\nFixed: 1204096\n```\n\nThen once this CL lands the bot will mark the bug I assigned you as done :)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "6ba870d6f622496d84743b0fa14a00742c0342ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dc630e33_7ebe61bb",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-04-30T11:13:45Z",
       "side": 1,
       "message": "let me know what you think!",
+      "revId": "6ba870d6f622496d84743b0fa14a00742c0342ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f94890_a733ab0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-04-30T11:30:18Z",
+      "side": 1,
+      "message": "LGTM! Nice work :) \nOne suggestion for the cl description so we can auto-fix the bug I assigned you then this is good to go.",
       "revId": "6ba870d6f622496d84743b0fa14a00742c0342ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
