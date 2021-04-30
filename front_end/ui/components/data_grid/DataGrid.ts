@@ -580,7 +580,12 @@ export class DataGrid extends HTMLElement {
     menu.show();
   }
 
-  private onScroll(): void {
+  private onScroll(event: Event): void {
+    const element = event.target as HTMLElement;
+    // See https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#determine_if_an_element_has_been_totally_scrolled
+    if (element.scrollHeight - Math.abs(element.scrollTop) === element.clientHeight) {
+      this.userHasScrolled = false;
+    }
     this.render();
   }
 
