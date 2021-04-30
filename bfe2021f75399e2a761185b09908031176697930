@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f2bf6a_cd151f8c",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-30T12:34:52Z",
+      "side": 1,
+      "message": "I kindof didn\u0027t want to do it, since it was technically private, but I missed the corresponding getter. Will do 👍",
+      "parentUuid": "32302c3f_0625b97f",
+      "range": {
+        "startLine": 273,
+        "startChar": 23,
+        "endLine": 273,
+        "endChar": 35
+      },
+      "revId": "bfe2021f75399e2a761185b09908031176697930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45707d7f_094e0cc6",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-04-30T11:48:22Z",
       "side": 1,
       "message": "why not setting._storage.remove(name)?\n\nI think we should either have the map and then remove the private \"_storage\" field from setting, or leave the private field but not both at the same time. That runs the risk of the two diverging.",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 278,
+        "endChar": 47
+      },
+      "revId": "bfe2021f75399e2a761185b09908031176697930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eb0dcf3_69c0b861",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-04-30T12:34:52Z",
+      "side": 1,
+      "message": "Since `_storage` was technically private. But I will refactor it, as it indeed simplifies the code quite a bit.",
+      "parentUuid": "45707d7f_094e0cc6",
       "range": {
         "startLine": 278,
         "startChar": 2,
