@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7653b551_201dfe9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115935
+      },
+      "writtenOn": "2021-04-30T14:51:39Z",
+      "side": 1,
+      "message": "Benedikt: PTAL.\n\nTim: FYI. Thanks for fixing the issue that caused the revert!",
+      "revId": "bd89abeacb01e7860aa9683a2a96c7bcb0fcbdd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
