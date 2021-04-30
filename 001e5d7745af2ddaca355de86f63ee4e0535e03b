@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c60742_7be53ff4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T07:52:09Z",
+      "side": 1,
+      "message": "I was hoping we could try a single source of truth for the issue descriptions around AR and have discussions around wording on CLs to reduce overhead.\n\nI\u0027m happy to copy everything into a Doc template though if thats preferred by DevRel.",
+      "parentUuid": "96e0b8ef_98e30410",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7e8cf29_63e23b7c",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b5edd22_f6bf5ffb",
+        "filename": "front_end/models/issues_manager/AttributionReportingIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T07:52:09Z",
+      "side": 1,
+      "message": "There are web.dev articles, but they use the old terminology, waiting for DevRel guidance here.",
+      "parentUuid": "e89306c6_44f9b2c3",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "098a2501_05d84245",
         "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
         "patchSetId": 1
@@ -77,6 +125,30 @@
       "writtenOn": "2021-04-30T07:45:19Z",
       "side": 1,
       "message": "ultra-nit: Wouldn\u0027t a string literal be easier to read than the helper createARProtocolIssue (as the reader would immediately know what NotANumber is)?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 113
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b13843b_19a3eb6d",
+        "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-04-30T07:52:09Z",
+      "side": 1,
+      "message": "I don\u0027t fully get the comment. A string literal for the whole CDP message? Then we loose TS type checking support. We could also change the parameters to an options bag, but thats even more verbose.",
+      "parentUuid": "098a2501_05d84245",
       "range": {
         "startLine": 22,
         "startChar": 8,
