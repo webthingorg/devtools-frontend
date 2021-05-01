@@ -10,6 +10,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
+
 const UIStrings = {
   /**
   *@description Text in Network Config View of the Network panel
@@ -48,6 +49,42 @@ const UIStrings = {
    * a set of checkboxes to override the content encodings supported by the browser.
    */
   acceptedEncoding: 'Accepted `Content-Encoding`s',
+  /**
+  *@description Title of foldable group of options in Devices pane letting users customize what
+  *information is sent about the browser and device via user agent client hints functionality. 'user
+  *agent' refers to the browser/unique ID the user is using. 'hints' is a noun.
+  */
+  userAgentClient: 'User agent client hints',
+  /**
+  *@description Tooltip text for the foldable 'User agent client hints' section's help button
+  */
+  userAgentClientHintsAre:
+      'User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more.',
+  /**
+  *@description Field in Devices pane letting users customize which browser names and major versions
+  * edited device presents via User Agent Client Hints. Placeholder is locked text.
+  */
+  UABrands: 'UA brands list (e.g. `"Chromium";v="87"`)',
+  /**
+  *@description Field in the Devices pane letting customize precise browser version the edited device presents via User Agent Client Hints.
+  */
+  fullBrowserVersion: 'Full browser version (e.g. 87.0.4280.88)',
+  /**
+  *@description Field in Devices pane letting customize which operating system the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  platform: 'Platform (e.g. Android)',
+  /**
+  *@description Field in Devices pane letting customize which operating system version the edited device presents via User Agent Client Hints
+  */
+  platformVersion: 'Platform version',
+  /**
+  *@description Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  architecture: 'Architecture (e.g. x86)',
+  /**
+  *@description Field Field in the Devices pane letting customize the name the edited device presents via User Agent Client Hints
+  */
+  deviceModel: 'Device model',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkConfigView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -83,6 +120,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     select: HTMLSelectElement,
     input: HTMLInputElement,
     error: HTMLElement,
+    clientHint: HTMLElement,
   } {
     const userAgentSetting = Common.Settings.Settings.instance().createSetting('customUserAgent', '');
     const userAgentSelectElement = (document.createElement('select') as HTMLSelectElement);
@@ -120,6 +158,74 @@ export class NetworkConfigView extends UI.Widget.VBox {
     settingChanged();
     userAgentSelectElement.addEventListener('change', userAgentSelected, false);
     otherUserAgentElement.addEventListener('input', applyOtherUserAgent, false);
+
+    // create user agent client hing
+    const clientHint = (document.createElement('div') as HTMLElement);
+
+    const uaChFields = clientHint.createChild('div', 'devices-edit-client-hints-heading');
+    UI.UIUtils.createTextChild(uaChFields.createChild('b'), i18nString(UIStrings.userAgentClient));
+
+    const helpIconWrapper = document.createElement('a');
+    helpIconWrapper.href = 'https://web.dev/user-agent-client-hints/';
+    helpIconWrapper.target = '_blank';
+    const icon = UI.Icon.Icon.create('mediumicon-info', 'help-icon');
+    helpIconWrapper.appendChild(icon);
+    helpIconWrapper.title = i18nString(UIStrings.userAgentClientHintsAre);
+    // Prevent the editor grabbing the enter key, letting the default behavior happen.
+    helpIconWrapper.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.stopPropagation();
+      }
+    });
+    uaChFields.appendChild(helpIconWrapper);
+
+    const tree = new UI.TreeOutline.TreeOutlineInShadow();
+    tree.registerRequiredCSS('panels/network/networkConfigView.css', {enableLegacyPatching: true});
+    tree.registerRequiredCSS('panels/emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
+    tree.setShowSelectionOnKeyboardFocus(true, false);
+    const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
+    tree.appendChild(treeRoot);
+    // Select the folder to make left/right arrows work as expected; don't change focus, however, since it should start with the device name field.
+    treeRoot.select(true, false);
+    clientHint.appendChild(tree.element);
+
+    function addToTree(title: string, placeholder: string, suggestions: Array<string>): void {
+      const container = document.createElement('div');
+      const label = document.createElement('span');
+      label.classList.add('network-config-ua-client-hints-label');
+      label.appendChild(document.createTextNode(title));
+      container.appendChild(label);
+      const input = document.createElement('div');
+      container.appendChild(input);
+      input.classList.add('network-config-ua-client-hints');
+      const treeNode = new UI.TreeOutline.TreeElement(container, false);
+      // The inputs themselves are selectable, no need for the tree nodes to be.
+      treeNode.selectable = false;
+      treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
+      treeRoot.appendChild(treeNode);
+
+      const prompt = new UI.TextPrompt.TextPrompt();
+      prompt.initialize(
+          async(expression: string, prefix: string, _force?: boolean): Promise<UI.SuggestBox.Suggestions> => {
+            if (!prefix) {
+              return [];
+            }
+
+            prefix = prefix.toLowerCase();
+            return suggestions.filter(proposal => proposal.toLowerCase().startsWith(prefix))
+                .map(completion => ({text: completion} as UI.SuggestBox.Suggestion));
+          }, ' ');
+      prompt.attach(input);
+      prompt.setTitle(title);
+      prompt.setPlaceholder(placeholder);
+    }
+
+    addToTree('brands', i18nString(UIStrings.UABrands), ['Chrome', 'Chromium', 'Chroooomium']);
+    addToTree('full-version', i18nString(UIStrings.fullBrowserVersion), []);
+    addToTree('platform', i18nString(UIStrings.platform), []);
+    addToTree('platform-version', i18nString(UIStrings.platformVersion), []),
+        addToTree('arch', i18nString(UIStrings.architecture), []);
+    addToTree('model', i18nString(UIStrings.deviceModel), []);
 
     function userAgentSelected(): void {
       const value = userAgentSelectElement.options[userAgentSelectElement.selectedIndex].value;
@@ -165,7 +271,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       }
     }
 
-    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement};
+    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement, clientHint: clientHint};
   }
 
   _createSection(title: string, className?: string): Element {
@@ -214,6 +320,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     customUserAgentSelectBox.appendChild(customSelectAndInput.select);
     customUserAgentSelectBox.appendChild(customSelectAndInput.input);
     customUserAgentSelectBox.appendChild(customSelectAndInput.error);
+    customUserAgentSelectBox.appendChild(customSelectAndInput.clientHint);
     userAgentSelectBoxChanged();
 
     function userAgentSelectBoxChanged(): void {
