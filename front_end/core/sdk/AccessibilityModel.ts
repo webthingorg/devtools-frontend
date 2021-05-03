@@ -85,6 +85,30 @@ export class AccessibilityNode {
     return this._role || null;
   }
 
+  pushIgnoredChildId(id: string): void {
+    if (!this._childIds) {
+      // Error?
+      return;
+    }
+
+    this._childIds.unshift(id);
+  }
+
+  // Ignored ids are always added into the start position of the
+  // array, so they appear as the parent nodes first child.
+  removeIgnoredChildId(id: string): void {
+    if (!this._childIds) {
+      return;
+    }
+
+    const idx = this._childIds.indexOf(id);
+    if (idx < 0) {
+      return;
+    }
+
+    this._childIds.splice(idx, 1);
+  }
+
   coreProperties(): CoreOrProtocolAxProperty[] {
     const properties: CoreOrProtocolAxProperty[] = [];
 
@@ -250,7 +274,8 @@ export class AccessibilityModel extends SDKModel {
 
     const axNodes = [];
     for (const payload of nodes) {
-      if (!this._axIdToAXNode.has(payload.nodeId)) {
+      const axNode = this._axIdToAXNode.get(payload.nodeId);
+      if (!axNode) {
         axNodes.push(new AccessibilityNode(this, payload));
       }
     }
@@ -264,6 +289,18 @@ export class AccessibilityModel extends SDKModel {
     return axNodes;
   }
 
+  // Ignored nodes appear transiently in the accessibility tree, if they are directly
+  // inspected via the DOM. Once they are no longer inspected, they need to be removed
+  // so they can no longer be navigated to. They act as more of a placeholder to
+  // indicate to the user that DOM node has no corresponding accessibility node, and
+  // provide the reasons as to why (aria hidden, not rendered, uninteresting for accessibility)
+  removeIgnoredNode(node: AccessibilityNode): void {
+    if (!node) {
+      return;
+    }
+    this._axIdToAXNode.delete(node.id());
+  }
+
   /**
    *
    * @param {!DOMNode} node
@@ -271,12 +308,6 @@ export class AccessibilityModel extends SDKModel {
    */
 
   async requestAndLoadSubTreeToNode(node: DOMNode): Promise<AccessibilityNode|null> {
-    // Node may have already been loaded, so don't bother requesting it again.
-    const loadedAXNode = this.axNodeForDOMNode(node);
-    if (loadedAXNode) {
-      return loadedAXNode;
-    }
-
     const {nodes} = await this._agent.invoke_getPartialAXTree(
         {nodeId: node.id, backendNodeId: undefined, objectId: undefined, fetchRelatives: true});
     if (!nodes) {
@@ -285,8 +316,26 @@ export class AccessibilityModel extends SDKModel {
 
     const ancestors = [];
     for (const payload of nodes) {
-      if (!this._axIdToAXNode.has(payload.nodeId)) {
+      const cachedAXNode = this._axIdToAXNode.get(payload.nodeId);
+      // Avoid recreating AccessibilityNodes.
+      if (!cachedAXNode) {
         ancestors.push(new AccessibilityNode(this, payload));
+      } else {
+        // Node may be a parent of an ignored one, and need to have
+        // the ignored ID inserted into its childIDs array.
+        const newChildIds = payload.childIds || [];
+
+        // Ignored node new child IDs should only be a single id, as get
+        // PartialAXTree does not populate fully.
+        if (newChildIds.length !== 1) {
+          continue;
+        }
+
+        // If its a new ID, add it to the front of it's child list.
+        const cachedChildIds = cachedAXNode._childIds || [];
+        if (cachedChildIds.indexOf(newChildIds[0]) === -1) {
+          cachedAXNode.pushIgnoredChildId(newChildIds[0]);
+        }
       }
     }
 
@@ -301,7 +350,7 @@ export class AccessibilityModel extends SDKModel {
       await this.requestAXChildren(node.id());
     }
 
-    return this.axNodeForDOMNode(node);
+    return this.axNodeForDOMNode(node) || null;
   }
 
   /**
