@@ -1517,3 +1517,29 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
 
 const traceProviderToSetting =
     new WeakMap<Extensions.ExtensionTraceProvider.ExtensionTraceProvider, Common.Settings.Setting<boolean>>();
+
+
+let tracingModelRevealer: TracingModelRevealer;
+
+export class TracingModelRevealer implements Common.Revealer.Revealer {
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): TracingModelRevealer {
+    const {forceNew} = opts;
+    if (!tracingModelRevealer || forceNew) {
+      tracingModelRevealer = new TracingModelRevealer();
+    }
+
+    return tracingModelRevealer;
+  }
+
+  async reveal(tracingModel: Object, _omitFocus?: boolean): Promise<void> {
+    if (!(tracingModel instanceof SDK.TracingModel.TracingModel)) {
+      return Promise.reject(new Error('Internal error: not a ui location'));
+    }
+    await UI.ViewManager.ViewManager.instance().showView('timeline');
+    const panel = TimelinePanel.instance();
+    await panel.loadingStarted();
+    await panel.loadingComplete(tracingModel);
+  }
+}

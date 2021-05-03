@@ -2,12 +2,36 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Timeline from '../../panels/timeline/timeline.js';
 import * as puppeteer from '../../third_party/puppeteer/puppeteer.js';
+
 import {WaitForNavigationCondition} from './Conditions.js';
 import {getPuppeteerConnection as getPuppeteerConnectionToCurrentPage} from './PuppeteerConnection.js';
-
 import {ChangeStep, ClickStep, NavigationStep, Step, StepFrameContext, StepWithContext, SubmitStep} from './Steps.js';
+
+class TracingManagerClient implements SDK.TracingManager.TracingManagerClient {
+  traceEventsCollected(_events: SDK.TracingManager.EventPayload[]): void {
+  }
+  tracingComplete(): void {
+  }
+  tracingBufferUsage(_usage: number): void {
+  }
+  eventsRetrievalProgress(_progress: number): void {
+  }
+
+  recordingProgress(_usage: number): void {
+  }
+  loadingStarted(): void {
+  }
+  processingStarted(): void {
+  }
+  loadingProgress(_progress?: number): void {
+  }
+  loadingComplete(_tracingModel: SDK.TracingModel.TracingModel|null): void {
+  }
+}
 
 export class RecordingPlayer {
   recording: Step[];
@@ -16,7 +40,10 @@ export class RecordingPlayer {
     this.recording = recording;
   }
 
-  async play(): Promise<void> {
+  async play(runWithTracingEnabled: boolean = false): Promise<void> {
+    const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget() as SDK.SDKModel.Target;
+    const controller = new Timeline.UIDevtoolsController.UIDevtoolsController(mainTarget, new TracingManagerClient());
+
     await SDK.SDKModel.TargetManager.instance().suspendAllTargets();
 
     const {page, browser} = await getPuppeteerConnectionToCurrentPage();
@@ -25,6 +52,9 @@ export class RecordingPlayer {
     }
 
     try {
+      if (runWithTracingEnabled) {
+        await controller.startRecording({}, []);
+      }
       page.setDefaultTimeout(5000);
 
       for (const step of this.recording) {
@@ -34,6 +64,11 @@ export class RecordingPlayer {
     } catch (err) {
       console.error('ERROR', err.message);
     } finally {
+      if (runWithTracingEnabled) {
+        await controller.stopRecording();
+        Common.Revealer.reveal(controller.tracingModel());
+      }
+
       // TODO(crbug.com/1203602)
       // Disconnect the puppeteer connection
       await SDK.SDKModel.TargetManager.instance().resumeAllTargets();
