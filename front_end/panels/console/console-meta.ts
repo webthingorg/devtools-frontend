@@ -103,6 +103,14 @@ const UIStrings = {
   *@description Title of a setting under the Console category that can be invoked through the Command Menu
   */
   doNotTreatEvaluationAsUser: 'Do not treat evaluation as user activation',
+  /**
+  *@description Title of a setting under the Console category in Settings
+  */
+  displayStringsAsTemplateLiteral: 'Display strings as template literal',
+  /**
+  *@description Title of a setting under the Console category that can be invoked through the Command Menu
+  */
+  doNotDisplayStringsAsTemplateLiteral: 'Do not display strings as template literal',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/console/console-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -342,6 +350,24 @@ Common.Settings.registerSettingExtension({
     {
       value: false,
       title: i18nLazyString(UIStrings.doNotTreatEvaluationAsUser),
+    },
+  ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.CONSOLE,
+  title: i18nLazyString(UIStrings.displayStringsAsTemplateLiteral),
+  settingName: 'displayStringsAsTemplateLiteral',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: false,
+  options: [
+    {
+      value: true,
+      title: i18nLazyString(UIStrings.displayStringsAsTemplateLiteral),
+    },
+    {
+      value: false,
+      title: i18nLazyString(UIStrings.doNotDisplayStringsAsTemplateLiteral),
     },
   ],
 });

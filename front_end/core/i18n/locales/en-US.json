@@ -3134,8 +3134,14 @@
   "panels/console/console-meta.ts | createLiveExpression": {
     "message": "Create live expression"
   },
+  "panels/console/console-meta.ts | displayStringsAsTemplateLiteral": {
+    "message": "Display strings as template literal"
+  },
   "panels/console/console-meta.ts | doNotAutocompleteFromHistory": {
     "message": "Do not autocomplete from history"
+  },
+  "panels/console/console-meta.ts | doNotDisplayStringsAsTemplateLiteral": {
+    "message": "Do not display strings as template literal"
   },
   "panels/console/console-meta.ts | doNotEagerlyEvaluateConsole": {
     "message": "Do not eagerly evaluate console prompt text"

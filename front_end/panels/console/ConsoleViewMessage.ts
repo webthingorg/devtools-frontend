@@ -755,12 +755,20 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   _formatParameterAsString(output: SDK.RemoteObject.RemoteObject): HTMLElement {
-    // Properly escape double quotes here, so users don't get surprised
-    // when they copy strings from the console (https://crbug.com/1178530).
-    const description = output.description ?? '';
-    const text = JSON.stringify(description);
     const result = (document.createElement('span') as HTMLElement);
-    result.appendChild(this._linkifyStringAsFragment(text));
+    if (Common.Settings.Settings.instance().moduleSetting('displayStringsAsTemplateLiteral').get()) {
+      const span = (document.createElement('span') as HTMLElement);
+      span.appendChild(this._linkifyStringAsFragment(output.description || ''));
+      result.createChild('span', 'object-value-string-backtick').textContent = '`';
+      result.appendChild(span);
+      result.createChild('span', 'object-value-string-backtick').textContent = '`';
+    } else {
+      // Properly escape double quotes here, so users don't get surprised
+      // when they copy strings from the console (https://crbug.com/1178530).
+      const description = output.description ?? '';
+      const text = JSON.stringify(description);
+      result.appendChild(this._linkifyStringAsFragment(text));
+    }
     return result;
   }
 

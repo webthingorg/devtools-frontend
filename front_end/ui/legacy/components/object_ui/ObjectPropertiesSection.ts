@@ -435,14 +435,27 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
     function createStringElement(): ObjectPropertyValue {
       const valueElement = document.createElement('span');
       valueElement.classList.add('object-value-string');
-      const text = JSON.stringify(description);
+      const displayAsLiteral =
+          Common.Settings.Settings.instance().moduleSetting('displayStringsAsTemplateLiteral').get();
+      let text;
+      if (displayAsLiteral) {
+        text = description;
+      } else {
+        text = JSON.stringify(description);
+      }
       let propertyValue;
+      if (displayAsLiteral) {
+        valueElement.createChild('span', 'object-value-string-backtick').textContent = '`';
+      }
       if (description.length > maxRenderableStringLength) {
         propertyValue = new ExpandableTextPropertyValue(valueElement, text, EXPANDABLE_MAX_LENGTH);
       } else {
         UI.UIUtils.createTextChild(valueElement, text);
         propertyValue = new ObjectPropertyValue(valueElement);
         UI.Tooltip.Tooltip.install(valueElement, description);
+      }
+      if (displayAsLiteral) {
+        valueElement.createChild('span', 'object-value-string-backtick').textContent = '`';
       }
       return propertyValue;
     }

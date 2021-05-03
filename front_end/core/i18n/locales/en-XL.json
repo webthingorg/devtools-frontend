@@ -3134,8 +3134,14 @@
   "panels/console/console-meta.ts | createLiveExpression": {
     "message": "Ĉŕêát̂é l̂ív̂é êx́p̂ŕêśŝíôń"
   },
+  "panels/console/console-meta.ts | displayStringsAsTemplateLiteral": {
+    "message": "D̂íŝṕl̂áŷ śt̂ŕîńĝś âś t̂ém̂ṕl̂át̂é l̂ít̂ér̂ál̂"
+  },
   "panels/console/console-meta.ts | doNotAutocompleteFromHistory": {
     "message": "D̂ó n̂ót̂ áût́ôćôḿp̂ĺêt́ê f́r̂óm̂ h́îśt̂ór̂ý"
+  },
+  "panels/console/console-meta.ts | doNotDisplayStringsAsTemplateLiteral": {
+    "message": "D̂ó n̂ót̂ d́îśp̂ĺâý ŝt́r̂ín̂ǵŝ áŝ t́êḿp̂ĺât́ê ĺît́êŕâĺ"
   },
   "panels/console/console-meta.ts | doNotEagerlyEvaluateConsole": {
     "message": "D̂ó n̂ót̂ éâǵêŕl̂ý êv́âĺûát̂é ĉón̂śôĺê ṕr̂óm̂ṕt̂ t́êx́t̂"
