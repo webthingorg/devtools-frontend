@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd8ac247_aae99cbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-03T20:37:11Z",
+      "side": 1,
+      "message": "This is a prototype of a setting for the changes that were made for crbug.com/1178530\nI didn\u0027t write any tests because I\u0027m not very familiar with them in devtools and I wasn\u0027t sure if they are needed for this change. Let me know if I should add some tests for this.\n\nI decided to go with the term `template literal` to make it clear that these strings are not meant to be copied and pasted as javascript. The backticks instead of double quotes should also make this clear. Though admittedly this might still be a bit confusing when the strings themselves contain backticks, since these won\u0027t be escaped.\n\nLet me know if you think it would be better to use different terminology or quote style here.",
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
