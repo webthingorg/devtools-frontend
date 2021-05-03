@@ -23,9 +23,13 @@ devtools_module("recorder") {
     "../../core/common:bundle",
     "../../core/i18n:bundle",
     "../../core/sdk:bundle",
+    "../../core/sdk:bundle",
+    "../../models/bindings:bundle",
     "../../models/persistence:bundle",
     "../../panels/elements:bundle",
+    "../../panels/timeline:bundle",
     "../../third_party/puppeteer:bundle",
+    "../../ui/legacy:bundle",
     "../../ui/legacy:bundle",
   ]
 }

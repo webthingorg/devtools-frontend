@@ -210,6 +210,10 @@ export class TimelineController implements SDK.SDKModel.SDKModelObserver<SDK.CPU
     this._tracingModel.addEvents(events);
   }
 
+  tracingModel(): SDK.TracingModel.TracingModel {
+    return this._tracingModel;
+  }
+
   tracingComplete(): void {
     if (!this._tracingCompleteCallback) {
       return;
