@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf21b80_eaf0a9df",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-03T12:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a859be51_2a72f71e",
+      "range": {
+        "startLine": 102,
+        "startChar": 36,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32fb0a68_aed7d16b",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-05-03T08:55:20Z",
       "side": 1,
       "message": "Can this be moved into the else-branch?",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 69
+      },
+      "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69715668_0f517fcc",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-03T12:48:53Z",
+      "side": 1,
+      "message": "It can. My reasoning for placing it outside of the if-else was that this way we can be sure that the `creationStackTraceDataForTransferringFrame` entry is definitely removed even though placing it in the else-branch should already cover that.",
+      "parentUuid": "32fb0a68_aed7d16b",
       "range": {
         "startLine": 109,
         "startChar": 4,
