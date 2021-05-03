@@ -72,6 +72,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f2da1f4_1534db92",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1438458
+      },
+      "writtenOn": "2021-05-03T09:12:56Z",
+      "side": 1,
+      "message": "Is it possible/worthwhile to add tests to these standalone functions? They don\u0027t seem to require legacy dependencies.",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c2fe30_e5593b25",
+        "filename": "front_end/panels/elements/StylePropertyEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1438458
+      },
+      "writtenOn": "2021-05-03T09:12:56Z",
+      "side": 1,
+      "message": "I think maybe we can either say\n```\ncomputed \u003d !authoredValue\n```\nor directly with\n```\ncomputed \u003d this.computedProperties.has(...);\n```\nI\u0027m also curious about the difference between these two. I feel like directly checking if it\u0027s `computed` from `this.computedProperties` is more accurate, but maybe I\u0027m missing something.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 73
+      },
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57acae8e_1de4ca21",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1438458
+      },
+      "writtenOn": "2021-05-03T09:12:56Z",
+      "side": 1,
+      "message": "Do we need to rename `flexEditorWidget` to something more general as well?",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abe2ee05_9cd5bfbe",
         "filename": "test/e2e/elements/grid-editor_test.ts",
         "patchSetId": 1
@@ -83,6 +140,23 @@
       "writtenOn": "2021-04-30T07:15:18Z",
       "side": 1,
       "message": "Probably I have to extract these into helpers!",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbd4c2b_5c96ff19",
+        "filename": "test/unittests/front_end/panels/elements/FlexboxEditor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1438458
+      },
+      "writtenOn": "2021-05-03T09:12:56Z",
+      "side": 1,
+      "message": "Do we maybe want to either rename this to be more general, or write a separate file for GridEditor_test?",
       "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
