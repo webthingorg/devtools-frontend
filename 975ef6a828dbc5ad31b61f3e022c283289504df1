@@ -16,6 +16,24 @@
       "message": "Not sure if this applies to this situation but in general, we try to keep\nthe resourceTypes in sync with WebCore::InspectorPageAgent::resourceTypeJson.\nIf this is an exception to this rule, please add a comment to explain why.",
       "revId": "975ef6a828dbc5ad31b61f3e022c283289504df1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b54ba7b_c9eab8f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-03T17:06:29Z",
+      "side": 1,
+      "message": "Ah I didn\u0027t notice that comment above the resourceTypes. I understood from the comments in http://crbug.com/1103638 that using the mimetypes to filter would be sufficient.\nUnfortunately I don\u0027t have the time and disk space available to make any changes to the backend Chromium codebase. So I\u0027d prefer adding a comment.\n\nAnother approach I thought of was to not actually change the resource type of wasm requests, and instead change the logic of the category filter buttons so that it supports filtering by mime type. I went for the former because it will also display wasm instead of xhr in the type column, which seemed nice.\n\nI\u0027ve added the comment for now but if you\u0027d like me to use a different approach let me know.",
+      "parentUuid": "8c311f48_645a63f7",
+      "revId": "975ef6a828dbc5ad31b61f3e022c283289504df1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
