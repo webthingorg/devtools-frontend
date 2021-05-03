@@ -3,18 +3,12 @@
 // found in the LICENSE file.
 
 import * as Common from '../../../../../front_end/core/common/common.js';
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
 import {assertElement, assertShadowRoot, getEventPromise, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-describeWithEnvironment('LayoutPane', async () => {
-  let Elements: typeof ElementsModule;
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('LayoutPane', async () => {
   function queryLabels(component: HTMLElement, selector: string) {
     assertShadowRoot(component.shadowRoot);
     return Array.from(component.shadowRoot.querySelectorAll(selector)).map(label => {
@@ -107,7 +101,7 @@ describeWithEnvironment('LayoutPane', async () => {
     const input = component.shadowRoot.querySelector('[data-input]');
     assertElement(input, HTMLInputElement);
 
-    const eventPromise = getEventPromise<ElementsModule.LayoutPane.SettingChangedEvent>(component, 'setting-changed');
+    const eventPromise = getEventPromise<Elements.LayoutPane.SettingChangedEvent>(component, 'setting-changed');
 
     input.click();
 

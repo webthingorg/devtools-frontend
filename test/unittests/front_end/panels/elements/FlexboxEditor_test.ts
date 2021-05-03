@@ -2,19 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
 import {assertElement, assertShadowRoot, getEventPromise, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-describeWithEnvironment('FlexboxEditor', async () => {
-  let Elements: typeof ElementsModule;
-
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('FlexboxEditor', async () => {
   function assertValues(component: HTMLElement, values: string[]) {
     assertShadowRoot(component.shadowRoot);
     const propertyElements = component.shadowRoot.querySelectorAll('.property');
@@ -80,8 +73,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
     };
     assertValues(
         component, ['flex-direction: row', 'flex-wrap:', 'align-content:', 'justify-content:', 'align-items:']);
-    const eventPromise =
-        getEventPromise<ElementsModule.FlexboxEditor.PropertySelectedEvent>(component, 'property-selected');
+    const eventPromise = getEventPromise<Elements.FlexboxEditor.PropertySelectedEvent>(component, 'property-selected');
     assertShadowRoot(component.shadowRoot);
     const flexDirectionColumnButton = component.shadowRoot.querySelector('.row .buttons .button:nth-child(2)');
     assertElement(flexDirectionColumnButton, HTMLButtonElement);
@@ -102,7 +94,7 @@ describeWithEnvironment('FlexboxEditor', async () => {
     assertValues(
         component, ['flex-direction: column', 'flex-wrap:', 'align-content:', 'justify-content:', 'align-items:']);
     const eventPromise =
-        getEventPromise<ElementsModule.FlexboxEditor.PropertyDeselectedEvent>(component, 'property-deselected');
+        getEventPromise<Elements.FlexboxEditor.PropertyDeselectedEvent>(component, 'property-deselected');
     assertShadowRoot(component.shadowRoot);
     const flexDirectionColumnButton = component.shadowRoot.querySelector('.row .buttons .button:nth-child(2)');
     assertElement(flexDirectionColumnButton, HTMLButtonElement);
