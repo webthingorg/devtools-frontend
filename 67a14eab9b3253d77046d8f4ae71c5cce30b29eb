@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d00968_c497a89c",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T06:29:19Z",
+      "side": 0,
+      "message": "Did you find any other spots where we rely on this ordering?",
+      "range": {
+        "startLine": 35,
+        "startChar": 19,
+        "endLine": 35,
+        "endChar": 89
+      },
+      "revId": "67a14eab9b3253d77046d8f4ae71c5cce30b29eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
