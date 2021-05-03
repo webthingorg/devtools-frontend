@@ -2016,7 +2016,8 @@ export function registerCommands(inspectorBackend) {
       'Page.addScriptToEvaluateOnNewDocument',
       [
         {'name': 'source', 'type': 'string', 'optional': false},
-        {'name': 'worldName', 'type': 'string', 'optional': true}
+        {'name': 'worldName', 'type': 'string', 'optional': true},
+        {'name': 'includeCommandLineAPI', 'type': 'boolean', 'optional': true}
       ],
       ['identifier']);
   inspectorBackend.registerCommand('Page.bringToFront', [], []);
