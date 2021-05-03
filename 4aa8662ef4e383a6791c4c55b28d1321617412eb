@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f119e057_cc4c7ef5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-05-03T09:36:33Z",
+      "side": 1,
+      "message": "It\u0027d be great to add a screenshot in the commit message here.",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b965024_8f9a9b9c",
@@ -129,6 +146,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3427daf_8f79b197",
+        "filename": "test/e2e/elements/grid-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-05-03T09:36:33Z",
+      "side": 1,
+      "message": "Do we really derive any value of getting all buttons and asserting that there\u0027s only one?\nIs this a case we want to test. If not, we could just use $ and not $$ and remove a bit of code.\nIn fact we could call click(editor) directly too.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 3
+      },
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abe2ee05_9cd5bfbe",
         "filename": "test/e2e/elements/grid-editor_test.ts",
         "patchSetId": 1
@@ -140,6 +180,24 @@
       "writtenOn": "2021-04-30T07:15:18Z",
       "side": 1,
       "message": "Probably I have to extract these into helpers!",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f6c5bd5_4cee3e9b",
+        "filename": "test/e2e/elements/grid-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-05-03T09:36:33Z",
+      "side": 1,
+      "message": "yeah that\u0027d be great, and also rename it to something other than Flex, since this is used for grid too.",
+      "parentUuid": "abe2ee05_9cd5bfbe",
       "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
