@@ -109,8 +109,12 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     if (!accessibilityModel) {
       return;
     }
-    accessibilityModel.clear();
-    await accessibilityModel.requestPartialAXTree(node);
+    // Only re-request the tree if we are using the AXBreadcrumbsPane. For the fuller accessibility
+    // tree experiment, the AccessibilityTreeView will have already requested nodes from the back
+    // end, so we don't need to re-request the partial tree.
+    if (this._breadcrumbsSubPane) {
+      await accessibilityModel.requestPartialAXTree(node);
+    }
     this.accessibilityNodeCallback(accessibilityModel.axNodeForDOMNode(node));
   }
 

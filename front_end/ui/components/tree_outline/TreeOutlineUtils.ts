@@ -174,10 +174,10 @@ export const getNodeChildren =
     throw new Error('Asked for children of node that does not have any children.');
   }
 
-  const cachedChildren = treeNodeChildrenWeakMap.get(node as TreeNode<unknown>);
-  if (cachedChildren) {
-    return cachedChildren as unknown as TreeNode<TreeNodeDataType>[];
-  }
+  // const cachedChildren = treeNodeChildrenWeakMap.get(node as TreeNode<unknown>);
+  // if (cachedChildren) {
+  //   return cachedChildren as unknown as TreeNode<TreeNodeDataType>[];
+  // }
 
   const children = await node.children();
   treeNodeChildrenWeakMap.set(node as TreeNode<unknown>, children as TreeNode<unknown>[]);
