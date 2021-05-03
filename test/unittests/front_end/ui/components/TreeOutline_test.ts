@@ -1269,13 +1269,13 @@ describe('TreeOutline', () => {
 describe('TreeOutlineUtils', () => {
   describe('getPathToTreeNode', () => {
     it('can find the path to the given node', async () => {
-      const path = await TreeOutline.TreeOutlineUtils.getPathToTreeNode(basicTreeData, nodeBelgraveHouse);
+      const path = await TreeOutline.TreeOutlineUtils.getPathToTreeNode(basicTreeData, nodeBelgraveHouse, true);
       assert.deepEqual(path, [nodeOffices, nodeEurope, nodeUK, nodeLondon, nodeBelgraveHouse]);
     });
 
     it('returns null if no path is found', async () => {
       const path =
-          await TreeOutline.TreeOutlineUtils.getPathToTreeNode(basicTreeData, {treeNodeData: 'does-not-exist'});
+          await TreeOutline.TreeOutlineUtils.getPathToTreeNode(basicTreeData, {treeNodeData: 'does-not-exist'}, true);
       assert.strictEqual(path, null);
     });
   });

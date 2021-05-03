@@ -20,6 +20,7 @@ export interface TreeOutlineData<TreeNodeDataType> {
    * cause issues in the TreeOutline.
    */
   tree: readonly TreeNode<TreeNodeDataType>[];
+  doNotCacheChildren?: boolean;
 }
 
 export function defaultRenderer(node: TreeNode<string>): LitHtml.TemplateResult {
@@ -84,6 +85,9 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
         return LitHtml.html`${String(node.treeNodeData)}`;
       };
 
+  // Whether or not to cache children once requested.
+  private doNotCacheChildren: boolean = false;
+
   /**
    * scheduledRender = render() has been called and scheduled a render.
    */
@@ -128,6 +132,9 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
     if (!this.hasRenderedAtLeastOnce) {
       this.selectedTreeNode = this.treeData[0];
     }
+    if (data.doNotCacheChildren) {
+      this.doNotCacheChildren = data.doNotCacheChildren;
+    }
     this.render();
   }
 
@@ -145,7 +152,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
    * Takes a TreeNode, expands the outline to reveal it, and focuses it.
    */
   async expandToAndSelectTreeNode(targetTreeNode: TreeNode<TreeNodeDataType>): Promise<void> {
-    const pathToTreeNode = await getPathToTreeNode(this.treeData, targetTreeNode);
+    const pathToTreeNode = await getPathToTreeNode(this.treeData, targetTreeNode, this.doNotCacheChildren);
 
     if (pathToTreeNode === null) {
       throw new Error(`Could not find node ${JSON.stringify(targetTreeNode)} in the tree.`);
@@ -199,7 +206,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   private async fetchNodeChildren(node: TreeNodeWithChildren<TreeNodeDataType>): Promise<TreeNode<TreeNodeDataType>[]> {
-    return getNodeChildren(node);
+    return getNodeChildren(node, this.doNotCacheChildren);
   }
 
   private setNodeExpandedState(node: TreeNode<TreeNodeDataType>, newExpandedState: boolean): void {
