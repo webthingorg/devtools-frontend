@@ -459,6 +459,9 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _affectedResourceViews: AffectedResourcesView[];
   _aggregatedIssuesCount: HTMLElement|null;
   _hasBeenExpandedBefore: boolean;
+  private throttle: Common.Throttler.Throttler;
+  private needsUpdateOnExpand = true;
+
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
       description: IssuesManager.MarkdownIssueDescription.IssueDescription) {
@@ -466,6 +469,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this._parent = parent;
     this._issue = issue;
     this._description = description;
+    this.throttle = new Common.Throttler.Throttler(250);
 
     this.toggleOnClick = true;
     this.listItemElement.classList.add('issue');
@@ -555,6 +559,10 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   onexpand(): void {
     Host.userMetrics.issuesPanelIssueExpanded(this._issue.getCategory());
 
+    if (this.needsUpdateOnExpand) {
+      this.doUpdate();
+    }
+
     if (!this._hasBeenExpandedBefore) {
       this._hasBeenExpandedBefore = true;
       for (const view of this._affectedResourceViews) {
@@ -619,10 +627,19 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.appendChild(linkWrapper);
   }
 
-  update(): void {
-    this._affectedResourceViews.forEach(view => view.update());
-    this.updateAffectedResourceVisibility();
+  private async doUpdate(): Promise<void> {
+    if (this.expanded) {
+      this._affectedResourceViews.forEach(view => view.update());
+      this.updateAffectedResourceVisibility();
+      this.needsUpdateOnExpand = false;
+    } else {
+      this.needsUpdateOnExpand = true;
+    }
     this._updateAggregatedIssuesCount();
+  }
+
+  update(): void {
+    this.throttle.schedule(() => this.doUpdate());
   }
 
   toggle(expand?: boolean): void {
