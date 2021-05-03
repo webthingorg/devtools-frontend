@@ -16,6 +16,52 @@
       "message": "Jan, PTAL (backend is still pending).",
       "revId": "05e6fc9be928b852f9ad0d19bf35f667f25edab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f79d8b_229eff4f",
+        "filename": "front_end/models/recorder/RecordingSession.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T08:38:20Z",
+      "side": 1,
+      "message": "WDYT about moving this into the RuntimeModel too as you already added the binding called event there?",
+      "range": {
+        "startLine": 179,
+        "startChar": 32,
+        "endLine": 179,
+        "endChar": 49
+      },
+      "revId": "05e6fc9be928b852f9ad0d19bf35f667f25edab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f945271_7ea49bf0",
+        "filename": "front_end/models/recorder/RecordingSession.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T08:38:20Z",
+      "side": 1,
+      "message": "WDYT about changing _processEvent to something like _queueEvent and pass the new event as an argument instead of pushing it on a queue first? That way, the actual pushing could be an implementation detail of the queue handling.",
+      "range": {
+        "startLine": 259,
+        "startChar": 9,
+        "endLine": 259,
+        "endChar": 20
+      },
+      "revId": "05e6fc9be928b852f9ad0d19bf35f667f25edab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
