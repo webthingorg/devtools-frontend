@@ -459,6 +459,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _affectedResourceViews: AffectedResourcesView[];
   _aggregatedIssuesCount: HTMLElement|null;
   _hasBeenExpandedBefore: boolean;
+  private throttle: Common.Throttler.Throttler;
+
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
       description: IssuesManager.MarkdownIssueDescription.IssueDescription) {
@@ -466,6 +468,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this._parent = parent;
     this._issue = issue;
     this._description = description;
+    this.throttle = new Common.Throttler.Throttler(250);
 
     this.toggleOnClick = true;
     this.listItemElement.classList.add('issue');
@@ -619,10 +622,14 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.appendChild(linkWrapper);
   }
 
-  update(): void {
+  private async doUpdate(): Promise<void> {
     this._affectedResourceViews.forEach(view => view.update());
     this.updateAffectedResourceVisibility();
     this._updateAggregatedIssuesCount();
+  }
+
+  update(): void {
+    this.throttle.schedule(() => this.doUpdate());
   }
 
   toggle(expand?: boolean): void {
