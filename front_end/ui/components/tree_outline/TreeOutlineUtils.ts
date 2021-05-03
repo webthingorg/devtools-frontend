@@ -168,10 +168,15 @@ const getParentListItemForDOMNode = (currentDOMNode: HTMLLIElement): HTMLLIEleme
  * this WeakMap easily generic as it's a top level variable.
  */
 const treeNodeChildrenWeakMap = new WeakMap<TreeNode<unknown>, TreeNode<unknown>[]>();
-export const getNodeChildren =
-    async<TreeNodeDataType>(node: TreeNode<TreeNodeDataType>): Promise<TreeNode<TreeNodeDataType>[]> => {
+export const getNodeChildren = async<TreeNodeDataType>(
+    node: TreeNode<TreeNodeDataType>, skipCaching: boolean): Promise<TreeNode<TreeNodeDataType>[]> => {
   if (!node.children) {
     throw new Error('Asked for children of node that does not have any children.');
+  }
+
+  if (skipCaching) {
+    const children = await node.children();
+    return children;
   }
 
   const cachedChildren = treeNodeChildrenWeakMap.get(node as TreeNode<unknown>);
@@ -197,21 +202,21 @@ export const getNodeChildren =
  *
  * And you look for F, you'll get back [A, D, F]
  */
-export const getPathToTreeNode =
-    async<TreeNodeDataType>(tree: readonly TreeNode<TreeNodeDataType>[], nodeToFind: TreeNode<TreeNodeDataType>):
-        Promise<TreeNode<TreeNodeDataType>[]|null> => {
-          for (const rootNode of tree) {
-            const foundPathOrNull = await getPathToTreeNodeRecursively(rootNode, nodeToFind, [rootNode]);
-            if (foundPathOrNull !== null) {
-              return foundPathOrNull;
-            }
-          }
-          return null;
-        };
+export const getPathToTreeNode = async<TreeNodeDataType>(
+    tree: readonly TreeNode<TreeNodeDataType>[], nodeToFind: TreeNode<TreeNodeDataType>,
+    skipCaching: boolean): Promise<TreeNode<TreeNodeDataType>[]|null> => {
+  for (const rootNode of tree) {
+    const foundPathOrNull = await getPathToTreeNodeRecursively(rootNode, nodeToFind, [rootNode], skipCaching);
+    if (foundPathOrNull !== null) {
+      return foundPathOrNull;
+    }
+  }
+  return null;
+};
 
 const getPathToTreeNodeRecursively = async<TreeNodeDataType>(
     currentNode: TreeNode<TreeNodeDataType>, nodeToFind: TreeNode<TreeNodeDataType>,
-    pathToNode: TreeNode<TreeNodeDataType>[]): Promise<TreeNode<TreeNodeDataType>[]|null> => {
+    pathToNode: TreeNode<TreeNodeDataType>[], skipCaching: boolean): Promise<TreeNode<TreeNodeDataType>[]|null> => {
   if (nodeToFind.id && currentNode.id && currentNode.id === nodeToFind.id) {
     return pathToNode;
   }
@@ -220,9 +225,10 @@ const getPathToTreeNodeRecursively = async<TreeNodeDataType>(
     return pathToNode;
   }
   if (currentNode.children) {
-    const children = await getNodeChildren(currentNode);
+    const children = await getNodeChildren(currentNode, skipCaching);
     for (const child of children) {
-      const foundPathOrNull = await getPathToTreeNodeRecursively(child, nodeToFind, [...pathToNode, child]);
+      const foundPathOrNull =
+          await getPathToTreeNodeRecursively(child, nodeToFind, [...pathToNode, child], skipCaching);
       if (foundPathOrNull !== null) {
         return foundPathOrNull;
       }
