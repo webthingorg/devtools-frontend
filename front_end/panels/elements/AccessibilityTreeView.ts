@@ -12,15 +12,30 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {accessibilityNodeRenderer, AXTreeNode, sdkNodeToAXTreeNode} from './AccessibilityTreeUtils.js';
 
+function shouldInspectRootWebArea(node: SDK.DOMModel.DOMNode): boolean {
+  switch (node.nodeName()) {
+    case 'BODY':
+    case 'HEAD':
+    case 'HTML':
+      return true;
+    default:
+      return false;
+  }
+}
+
 export class AccessibilityTreeView extends UI.Widget.VBox {
   private readonly accessibilityTreeComponent =
       new TreeOutline.TreeOutline.TreeOutline<SDK.AccessibilityModel.AccessibilityNode>();
   private treeData: AXTreeNode[] = [];
   private readonly toggleButton: HTMLButtonElement;
   private accessibilityModel: SDK.AccessibilityModel.AccessibilityModel|null = null;
-  private rootAXNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
   private selectedTreeNode: AXTreeNode|null = null;
   private inspectedDOMNode: SDK.DOMModel.DOMNode|null = null;
+
+  // Ignored nodes appear only when inspected, when another node is selected, it needs to be removed.
+  // This variable keeps track of the last inspected node that needs to be removed.
+  private ignoredNodePendingRemoval: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private axNodeToTreeNode: Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode> = new Map();
 
   constructor(toggleButton: HTMLButtonElement) {
     super();
@@ -39,11 +54,33 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
       if (!axNode.isDOMNode()) {
         return;
       }
+
       const deferredNode = axNode.deferredDOMNode();
       if (deferredNode) {
         deferredNode.resolve(domNode => {
-          if (domNode && domNode.nodeName() === '#document') {
+          if (!domNode) {
             return;
+          }
+          if (domNode.nodeName() === '#document') {
+            return;
+          }
+
+          while (domNode.nodeType() !== Node.ELEMENT_NODE && domNode.parentNode) {
+            domNode = domNode.parentNode;
+          }
+
+          this.inspectedDOMNode = domNode;
+          if (this.ignoredNodePendingRemoval) {
+            this.removeIgnoredNode();
+            this.accessibilityTreeComponent.data = {
+              defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
+              tree: this.treeData,
+              doNotCacheChildren: true,
+            };
+          }
+
+          if (axNode.ignored()) {
+            this.ignoredNodePendingRemoval = axNode;
           }
           Common.Revealer.reveal(domNode, true /* omitFocus */);
         });
@@ -64,6 +101,12 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   }
 
   wasShown(): void {
+    // We don't want to clear the ignored node when swapping between the DOM tree and a11y tree,
+    // as when we expand to the selected node, the ItemSelectedEvent will fire and it will
+    // immediately remove the currently inspected and ignored node.
+    if (this.ignoredNodePendingRemoval) {
+      this.ignoredNodePendingRemoval = null;
+    }
     if (this.selectedTreeNode) {
       this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
     }
@@ -84,26 +127,47 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
       return;
     }
 
-    this.rootAXNode = root;
-    this.treeData = [sdkNodeToAXTreeNode(this.rootAXNode)];
+    this.treeData = [sdkNodeToAXTreeNode(root, this.axNodeToTreeNode)];
 
     this.accessibilityTreeComponent.data = {
       defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
       tree: this.treeData,
+      doNotCacheChildren: true,
     };
 
     this.accessibilityTreeComponent.expandRecursively(2);
     this.selectedTreeNode = this.treeData[0];
   }
 
+  private async inspectRootNode(): Promise<void> {
+    this.selectedTreeNode = this.treeData[0];
+    const deferredDOMNode = this.selectedTreeNode.treeNodeData.deferredDOMNode();
+    if (deferredDOMNode) {
+      deferredDOMNode.resolvePromise().then(node => {
+        this.inspectedDOMNode = node;
+      });
+    }
+
+    this.accessibilityTreeComponent.data = {
+      defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
+      tree: this.treeData,
+      doNotCacheChildren: true,
+    };
+
+    this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
+  }
+
   // Given a selected DOM node, asks the model to load the missing subtree from the root to the
   // selected node and then re-renders the tree.
-  async loadSubTreeIntoAccessibilityModel(selectedNode: SDK.DOMModel.DOMNode): Promise<void> {
+  private async loadSubTreeIntoAccessibilityModel(selectedNode: SDK.DOMModel.DOMNode): Promise<void> {
     if (!this.accessibilityModel) {
       return;
     }
 
     this.inspectedDOMNode = selectedNode;
+    if (!this.inspectedDOMNode) {
+      return;
+    }
 
     // If this node has been loaded previously, the accessibility tree will return it's cached node.
     // Eventually we'll need some mechanism for forcing it to fetch a new node when we are subscribing
@@ -117,37 +181,68 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     //     E
     // Where only A is already loaded into the model, calling requestAndLoadSubTreeToNode(C) will
     // load [A, B, D, C] into the model, and return C.
-    const inspectedAXNode = await this.accessibilityModel.requestAndLoadSubTreeToNode(selectedNode);
+    const inspectedAXNode = await this.accessibilityModel.requestAndLoadSubTreeToNode(this.inspectedDOMNode);
     if (!inspectedAXNode) {
       return;
+    }
+
+    const cachedTreeNode = this.axNodeToTreeNode.get(inspectedAXNode);
+    if (cachedTreeNode) {
+      this.selectedTreeNode = cachedTreeNode;
+    } else {
+      this.selectedTreeNode = sdkNodeToAXTreeNode(inspectedAXNode, this.axNodeToTreeNode);
     }
 
     this.accessibilityTreeComponent.data = {
       defaultRenderer: (node): LitHtml.TemplateResult => accessibilityNodeRenderer(node),
       tree: this.treeData,
+      doNotCacheChildren: true,
     };
 
-    // These nodes require a special case, as they don't have an unignored node in the
-    // accessibility tree. Someone inspecting these in the DOM is probably expecting to
-    // be focused on the root WebArea of the accessibility tree.
-    // TODO(meredithl): Fix for when the inspected node is ingored in the accessibility
-    // tree. Eg, inspecting <head> in the DOM tree.
-    if (selectedNode.nodeName() === 'BODY' || selectedNode.nodeName() === 'HTML') {
-      this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.treeData[0]);
-      this.selectedTreeNode = this.treeData[0];
+    this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
+  }
+
+  // If the last inspected node was ignored, we need to remove it from both the AccessibilityModel
+  // and from the AXTreeOutline, making sure it's parent chain is maintained and has the correct
+  // children.
+  private removeIgnoredNode(): void {
+    if (!this.ignoredNodePendingRemoval) {
       return;
     }
 
-    this.selectedTreeNode = sdkNodeToAXTreeNode(inspectedAXNode);
-    this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
+    if (!this.accessibilityModel) {
+      return;
+    }
+
+    this.accessibilityModel.removeIgnoredNode(this.ignoredNodePendingRemoval);
+
+    // TODO(meredithl): Notify the tree outline component that children have changed for this
+    // parent node.
+    const axNodeParent = this.ignoredNodePendingRemoval.parentNode();
+    if (axNodeParent) {
+      axNodeParent.removeIgnoredChildId(this.ignoredNodePendingRemoval.id());
+    }
+
+    this.axNodeToTreeNode.delete(this.ignoredNodePendingRemoval);
+    this.ignoredNodePendingRemoval = null;
   }
 
   // Selected node in the DOM has changed, and the corresponding accessibility node may be
   // unloaded. We probably only want to do this when the AccessibilityTree is visible.
   async selectedNodeChanged(inspectedNode: SDK.DOMModel.DOMNode): Promise<void> {
-    if (inspectedNode === this.inspectedDOMNode) {
+    // These nodes require a special case, as they don't have an unignored node in the
+    // accessibility tree. Someone inspecting these in the DOM is probably expecting to
+    // be focused on the root WebArea of the accessibility tree.
+    if (shouldInspectRootWebArea(inspectedNode)) {
+      this.inspectRootNode();
       return;
     }
+
+    // No-op.
+    if (this.inspectedDOMNode === inspectedNode) {
+      return;
+    }
+
     await this.loadSubTreeIntoAccessibilityModel(inspectedNode);
   }
 }
