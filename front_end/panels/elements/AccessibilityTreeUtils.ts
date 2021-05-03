@@ -22,39 +22,55 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/AccessibilityTreeUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
+export function sdkNodeToAXTreeNode(
+    node: SDK.AccessibilityModel.AccessibilityNode,
+    nodeMap: Map<SDK.AccessibilityModel.AccessibilityNode, AXTreeNode>): AXTreeNode {
   if (!node.numChildren()) {
-    return {
+    const leafTreeNode = {
       treeNodeData: node,
       id: node.id(),
     };
+
+    nodeMap.set(node, leafTreeNode);
+    return leafTreeNode;
   }
 
-  return {
+  const treeNode = {
     treeNodeData: node,
     children: async(): Promise<AXTreeNode[]> => {
+      // numChildren stores the number of child nodes that the backend node has, i.e the
+      // "real" number of children. The children array contains only nodes that have been
+      // loaded into the model. If these two numbers match, the children are already loaded.
+      // and we either create the AXTreeData struct for each child node, or return the cached
+      // AXTreeData from the last time the children method was called.
       if (node.numChildren() === node.children().length) {
-        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child)));
+        return Promise.resolve(node.children().map(child => {
+          // If we have already requested this child, don't re-request.
+          // TODO(meredithl): allow for subtrees to be updated once the tree has
+          // been made live.
+          const cachedChild = nodeMap.get(child);
+          if (cachedChild) {
+            return cachedChild;
+          }
+          const axTreeChild = sdkNodeToAXTreeNode(child, nodeMap);
+          return axTreeChild;
+        }));
       }
-      // numChildren returns the number of children that this node has, whereas node.children()
-      // returns only children that have been loaded. If these two don't match, that means that
-      // there are backend children that need to be loaded into the model, so request them now.
+
+      // This nodes children have not been loaded into the model, so we first request
+      // them from the backend.
       await node.accessibilityModel().requestAXChildren(node.id());
-
-      if (node.numChildren() !== node.children().length) {
-        throw new Error('Once loaded, number of children and length of children must match.');
-      }
-
       const treeNodeChildren: AXTreeNode[] = [];
-
       for (const child of node.children()) {
-        treeNodeChildren.push(sdkNodeToAXTreeNode(child));
+        treeNodeChildren.push(sdkNodeToAXTreeNode(child, nodeMap));
       }
 
       return Promise.resolve(treeNodeChildren);
     },
     id: node.id(),
   };
+  nodeMap.set(node, treeNode);
+  return treeNode;
 }
 
 // This function is a variant of setTextContentTruncatedIfNeeded found in DOMExtension.
