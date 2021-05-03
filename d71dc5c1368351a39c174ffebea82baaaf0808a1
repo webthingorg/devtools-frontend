@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78e212f_50f2559e",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "I\u0027ll rename it to data as message is already used in the scope of the function for the parsed data.",
+      "parentUuid": "30a427b2_b4148d6c",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e04018f2_eb603191",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-05-03T13:27:06Z",
       "side": 1,
       "message": "Is there a way to add type info for the message?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb34621_02dccc11",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "At this point, it\u0027s only a string unfortunately. But it does make sense to rewrite that part of the codebase in a future cl because it uses JSON.parse a lot atm.",
+      "parentUuid": "e04018f2_eb603191",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91f0192f_62d4fa8b",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "Yes, it\u0027s implementing puppeteer.ConnectionTransport. I added the implements directive accordingly.",
+      "parentUuid": "ea50fe2c_0acfd8e7",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e915024_420db9d2",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb26871_b66de6d8",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "This if is not only guarding the delete but also the rest of the function. \nWithout the return there, the message would get dispatched.",
+      "parentUuid": "0e915024_420db9d2",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4fe3a29_190b9ec7",
@@ -99,6 +171,24 @@
       "writtenOn": "2021-05-03T13:27:06Z",
       "side": 1,
       "message": "why do we need to delete the session id? To make it look like the main session?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a011f1_5e6c9bef",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "Yes, all though it might work without it too. I haven\u0027t checked that yet but would like to do that in a future cl that cleans up the connection handling.",
+      "parentUuid": "f4fe3a29_190b9ec7",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19ee8265_c7e5263f",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "DevTools will already have an onDisconnect handler set. This makes sure that DevTools handler will be called as well as puppeteers.",
+      "parentUuid": "e9316373_66c6daa3",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0db71cf4_d2356e18",
         "filename": "front_end/models/recorder/PuppeteerConnection.ts",
         "patchSetId": 5
@@ -133,6 +241,24 @@
       "writtenOn": "2021-05-03T13:27:06Z",
       "side": 1,
       "message": "why do we need to @ts-ignore here?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d1f381_1c222bb0",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0db71cf4_d2356e18",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +280,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd8be24_78021c85",
+        "filename": "front_end/models/recorder/RecorderModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "I\u0027d like to defer that to a follow up cl in which I will clear up the step handling as the puppeteer code generation is still very much intertwined with it. This will happen together with the UI changes.",
+      "parentUuid": "3aaa9bc1_211b9ea0",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "296906f2_e49d5ff9",
@@ -167,6 +311,24 @@
       "writtenOn": "2021-05-03T13:27:06Z",
       "side": 1,
       "message": "2021?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9121812f_a502af60",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "296906f2_e49d5ff9",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -188,6 +350,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dd5eb5b_b73d5e51",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "865def1c_018609a0",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c10a847a_8c720ad2",
@@ -201,6 +381,24 @@
       "writtenOn": "2021-05-03T13:27:06Z",
       "side": 1,
       "message": "I think we should add tests for other scenarios that we are able to record",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df066000_851e3dba",
+        "filename": "test/e2e/recorder/replay_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T16:06:50Z",
+      "side": 1,
+      "message": "I added one more for change but skipped the submit one because I want to remove that anyways.",
+      "parentUuid": "c10a847a_8c720ad2",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
