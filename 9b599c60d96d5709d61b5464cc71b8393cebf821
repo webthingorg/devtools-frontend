@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "9b599c60d96d5709d61b5464cc71b8393cebf821",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40457d6c_b4fce5c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T06:16:32Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "9b599c60d96d5709d61b5464cc71b8393cebf821",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e929deb8_4004806a",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T06:16:32Z",
+      "side": 1,
+      "message": "ultra-nit: Consider introducing an ensureFirst parameter here that throws if this isn\u0027t the first time the IssuesManager instance gets created (in that case, something would be seriously wrong).",
+      "range": {
+        "startLine": 347,
+        "startChar": 9,
+        "endLine": 347,
+        "endChar": 23
+      },
+      "revId": "9b599c60d96d5709d61b5464cc71b8393cebf821",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
