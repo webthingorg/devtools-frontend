@@ -46,6 +46,30 @@
       },
       "revId": "67a14eab9b3253d77046d8f4ae71c5cce30b29eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "927f3ad1_830806b4",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T08:55:20Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "2d001eb1_30272f86",
+      "range": {
+        "startLine": 35,
+        "startChar": 19,
+        "endLine": 35,
+        "endChar": 89
+      },
+      "revId": "67a14eab9b3253d77046d8f4ae71c5cce30b29eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

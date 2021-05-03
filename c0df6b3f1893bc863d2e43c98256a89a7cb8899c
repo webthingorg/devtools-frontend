@@ -16,6 +16,69 @@
       "message": "PTAL, one more time.",
       "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96507c33_5c3f1ed3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T08:55:20Z",
+      "side": 1,
+      "message": "LGTM modulo nits.",
+      "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a859be51_2a72f71e",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T08:55:20Z",
+      "side": 1,
+      "message": "Would just traceData work here?",
+      "range": {
+        "startLine": 102,
+        "startChar": 36,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32fb0a68_aed7d16b",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-03T08:55:20Z",
+      "side": 1,
+      "message": "Can this be moved into the else-branch?",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 69
+      },
+      "revId": "c0df6b3f1893bc863d2e43c98256a89a7cb8899c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
