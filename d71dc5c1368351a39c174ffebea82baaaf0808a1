@@ -16,6 +16,193 @@
       "message": "PTAL, thanks!\nThe tests will not work yet because they depend on a new puppeteer roll.",
       "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a427b2_b4148d6c",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "`string: string` looks a bit awkward. Should we rename to `message: string`?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e04018f2_eb603191",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "Is there a way to add type info for the message?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea50fe2c_0acfd8e7",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "not sure about the latest discussion on setters but should we make it a regular method perhaps? Edit: or is it what the Puppeteer expects? should it extend some Puppeteer interface then?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e915024_420db9d2",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "I think it\u0027s safe to call delete without an extra check?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4fe3a29_190b9ec7",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "why do we need to delete the session id? To make it look like the main session?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9316373_66c6daa3",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "I am not sure I understand why we need to invoke previous onDisconnect and set a new one in onclose?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db71cf4_d2356e18",
+        "filename": "front_end/models/recorder/PuppeteerConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "why do we need to @ts-ignore here?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aaa9bc1_211b9ea0",
+        "filename": "front_end/models/recorder/RecorderModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "can we still define the type for the raw step struct?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296906f2_e49d5ff9",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "2021?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865def1c_018609a0",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "could we combine two ifs? or maybe even keep only `step.condition instanceof WaitForNavigationCondition`?",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10a847a_8c720ad2",
+        "filename": "test/e2e/recorder/replay_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-03T13:27:06Z",
+      "side": 1,
+      "message": "I think we should add tests for other scenarios that we are able to record",
+      "revId": "d71dc5c1368351a39c174ffebea82baaaf0808a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
