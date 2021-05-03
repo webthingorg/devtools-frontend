@@ -141,12 +141,9 @@ const UIStrings = {
   blockedReasonSecureOnly: 'This `Set-Cookie` was blocked because it had the "Secure" attribute but was not received over a secure connection.',
   /**
    *@description Tooltip to explain why a cookie was blocked
+   *@example {SameSite=Strict} PH1
   */
-  blockedReasonSameSiteStrict: 'This `Set-Cookie` was blocked because it had the "`SameSite=Strict`" attribute but came from a cross-site response which was not the response to a top-level navigation.',
-  /**
-   *@description Tooltip to explain why a cookie was blocked
-  */
-  blockedReasonSameSiteLax: 'This `Set-Cookie` was blocked because it had the "`SameSite=Lax`" attribute but came from a cross-site response which was not the response to a top-level navigation.',
+  blockedReasonSameSiteStrictLax: 'This `Set-Cookie` was blocked because it had the "{PH1}" attribute but came from a cross-site response which was not the response to a top-level navigation.',
   /**
    *@description Tooltip to explain why a cookie was blocked
   */
@@ -1440,9 +1437,9 @@ export const setCookieBlockedReasonToUiString = function(blockedReason: Protocol
         case Protocol.Network.SetCookieBlockedReason.SecureOnly:
           return i18nString(UIStrings.blockedReasonSecureOnly);
         case Protocol.Network.SetCookieBlockedReason.SameSiteStrict:
-          return i18nString(UIStrings.blockedReasonSameSiteStrict);
+          return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Strict'});
         case Protocol.Network.SetCookieBlockedReason.SameSiteLax:
-          return i18nString(UIStrings.blockedReasonSameSiteLax);
+          return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Lax'});
         case Protocol.Network.SetCookieBlockedReason.SameSiteUnspecifiedTreatedAsLax:
           return i18nString(UIStrings.blockedReasonSameSiteUnspecifiedTreatedAsLax);
         case Protocol.Network.SetCookieBlockedReason.SameSiteNoneInsecure:

@@ -413,14 +413,11 @@
   "core/sdk/NetworkRequest.ts | blockedReasonOverwriteSecure": {
     "message": "T̂h́îś Set-Cookie ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ ẃâś n̂ót̂ śêńt̂ óv̂ér̂ á ŝéĉúr̂é ĉón̂ńêćt̂íôń âńd̂ ẃôúl̂d́ ĥáv̂é ôv́êŕŵŕît́t̂én̂ á ĉóôḱîé ŵít̂h́ t̂h́ê Śêćûŕê át̂t́r̂íb̂út̂é."
   },
-  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteLax": {
-    "message": "T̂h́îś Set-Cookie ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ h́âd́ t̂h́ê \"SameSite=Lax\" át̂t́r̂íb̂út̂é b̂út̂ ćâḿê f́r̂óm̂ á ĉŕôśŝ-śît́ê ŕêśp̂ón̂śê ẃĥíĉh́ ŵáŝ ńôt́ t̂h́ê ŕêśp̂ón̂śê t́ô á t̂óp̂-ĺêv́êĺ n̂áv̂íĝát̂íôń."
-  },
   "core/sdk/NetworkRequest.ts | blockedReasonSameSiteNoneInsecure": {
     "message": "T̂h́îś Set-Cookie ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ h́âd́ t̂h́ê \"SameSite=None\" át̂t́r̂íb̂út̂é b̂út̂ d́îd́ n̂ót̂ h́âv́ê t́ĥé \"Ŝéĉúr̂é\" ât́t̂ŕîb́ût́ê, ẃĥíĉh́ îś r̂éq̂úîŕêd́ îń ôŕd̂ér̂ t́ô úŝé \"SameSite=None\"."
   },
-  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteStrict": {
-    "message": "T̂h́îś Set-Cookie ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ h́âd́ t̂h́ê \"SameSite=Strict\" át̂t́r̂íb̂út̂é b̂út̂ ćâḿê f́r̂óm̂ á ĉŕôśŝ-śît́ê ŕêśp̂ón̂śê ẃĥíĉh́ ŵáŝ ńôt́ t̂h́ê ŕêśp̂ón̂śê t́ô á t̂óp̂-ĺêv́êĺ n̂áv̂íĝát̂íôń."
+  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteStrictLax": {
+    "message": "T̂h́îś Set-Cookie ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ h́âd́ t̂h́ê \"{PH1}\" át̂t́r̂íb̂út̂é b̂út̂ ćâḿê f́r̂óm̂ á ĉŕôśŝ-śît́ê ŕêśp̂ón̂śê ẃĥíĉh́ ŵáŝ ńôt́ t̂h́ê ŕêśp̂ón̂śê t́ô á t̂óp̂-ĺêv́êĺ n̂áv̂íĝát̂íôń."
   },
   "core/sdk/NetworkRequest.ts | blockedReasonSameSiteUnspecifiedTreatedAsLax": {
     "message": "T̂h́îś Set-Cookie d̂íd̂ń't̂ śp̂éĉíf̂ý â \"SameSite\" át̂t́r̂íb̂út̂é âńd̂ ẃâś d̂éf̂áûĺt̂éd̂ t́ô \"SameSite=Lax,\" án̂d́ ŵáŝ b́l̂óĉḱêd́ b̂éĉáûśê ít̂ ćâḿê f́r̂óm̂ á ĉŕôśŝ-śît́ê ŕêśp̂ón̂śê ẃĥíĉh́ ŵáŝ ńôt́ t̂h́ê ŕêśp̂ón̂śê t́ô á t̂óp̂-ĺêv́êĺ n̂áv̂íĝát̂íôń. T̂h́ê Set-Cookie h́âd́ t̂ó ĥáv̂é b̂éêń ŝét̂ ẃît́ĥ \"SameSite=None\" t́ô én̂áb̂ĺê ćr̂óŝś-ŝít̂é ûśâǵê."

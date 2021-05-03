@@ -413,14 +413,11 @@
   "core/sdk/NetworkRequest.ts | blockedReasonOverwriteSecure": {
     "message": "This Set-Cookie was blocked because it was not sent over a secure connection and would have overwritten a cookie with the Secure attribute."
   },
-  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteLax": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Lax\" attribute but came from a cross-site response which was not the response to a top-level navigation."
-  },
   "core/sdk/NetworkRequest.ts | blockedReasonSameSiteNoneInsecure": {
     "message": "This Set-Cookie was blocked because it had the \"SameSite=None\" attribute but did not have the \"Secure\" attribute, which is required in order to use \"SameSite=None\"."
   },
-  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteStrict": {
-    "message": "This Set-Cookie was blocked because it had the \"SameSite=Strict\" attribute but came from a cross-site response which was not the response to a top-level navigation."
+  "core/sdk/NetworkRequest.ts | blockedReasonSameSiteStrictLax": {
+    "message": "This Set-Cookie was blocked because it had the \"{PH1}\" attribute but came from a cross-site response which was not the response to a top-level navigation."
   },
   "core/sdk/NetworkRequest.ts | blockedReasonSameSiteUnspecifiedTreatedAsLax": {
     "message": "This Set-Cookie didn't specify a \"SameSite\" attribute and was defaulted to \"SameSite=Lax,\" and was blocked because it came from a cross-site response which was not the response to a top-level navigation. The Set-Cookie had to have been set with \"SameSite=None\" to enable cross-site usage."
