@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c311f48_645a63f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-03T09:36:58Z",
+      "side": 1,
+      "message": "Not sure if this applies to this situation but in general, we try to keep\nthe resourceTypes in sync with WebCore::InspectorPageAgent::resourceTypeJson.\nIf this is an exception to this rule, please add a comment to explain why.",
+      "revId": "975ef6a828dbc5ad31b61f3e022c283289504df1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
