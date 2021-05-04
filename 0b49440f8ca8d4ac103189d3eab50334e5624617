@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad299165_e6cb492e",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-04T10:31:35Z",
+      "side": 1,
+      "message": "I think adding WebAssembly as a resource type makes a lot of sense, but I don\u0027t think it is ideal to add a one-off for Wasm here. Based on https://source.chromium.org/chromium/chromium/src/+/main:content/browser/webui/web_ui_data_source_impl.cc;l\u003d319;drc\u003db53b81913830ed011510a0c425eb59294b923a66 I think we need to update https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_page_agent.h;l\u003d73;drc\u003dc8b15f8fac20d01241bdea357b883460a91108f6 and https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_page_agent.cc;l\u003d392;drc\u003df801c3e08dc73def7342364bd3dbf972cc7a819e to add the new enum value.\n\nBenedikt, is this something you could tackle? The external contributor sadly does not have the computing resources to build Chromium on their machine.",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 5
+      },
+      "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
