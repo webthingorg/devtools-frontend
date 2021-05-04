@@ -5,7 +5,8 @@
 -->
 <div>
   <button id="test">Test Button</button>
-  <form class="form1"><button id="form-button" type="submit">Form Button</button></form>
+  <form id="form1"><button id="form-button" type="submit">Form Button</button></form>
+  <div id="form1-result"></div>
   <form class="form2"><button><span id="span">Hello World</span></button></form>
   <form><div><span id="span2">Hello</span> World</div></form>
   <label for="input">Input</label>
@@ -14,6 +15,10 @@
   <iframe id="iframe"></iframe>
   <button id="popup">Open Popup</button>
   <a href="recorder2.html">Page 2</a>
+  <div>
+  <button id="state-change">Increment counter</button>
+  <div id="counter">0</div>
+</div>
 </div>
 <script>
   window.addEventListener('submit', (event) => {
@@ -45,5 +50,9 @@
 
   document.getElementById('popup').addEventListener('click', () => {
     window.open('popup.html', 'Window Name ' + new Date(), 'resizable,scrollbars,status,width=200,height=200');
+  });
+
+  document.getElementById('form1').addEventListener('submit', () => {
+    document.getElementById('form1-result').textContent = 'From 1 Submitted';
   });
 </script>
