@@ -33,6 +33,24 @@
       "message": "Thanks for the patch. Can you please include screenshots of relevant examples?\n\nI kind of like the template literal idea, but I\u0027m wondering whether developers wouldn\u0027t expect to be able to still copy the string (as template literal). Also I\u0027m not too keen on adding more settings. If this new behavior is more confusing / inconvenient, we might want to revert my changes instead or find some compromise. Adding mraz@ for UX help here.",
       "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80f5f6c3_48839154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-04T06:01:21Z",
+      "side": 1,
+      "message": "Yeah that makes sense.\nHere\u0027s a short screenrecording of the feature: https://youtu.be/daceomFQq_E\n\nOne other design I thought of was to add an extra button next to strings that would copy/display strings in their raw format. But having a setting for it seemed both less complex to implement and easier to understand for the user.\n\nI\u0027m not sure about the backticks/template literal terminology though. Perhaps having no characters next to strings at all would be better?",
+      "parentUuid": "e5fe4b8b_9811fccd",
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
