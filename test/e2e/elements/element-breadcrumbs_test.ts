@@ -29,7 +29,7 @@ describe('Element breadcrumbs', async () => {
   });
 
   it('lists all the elements in the tree', async () => {
-    const actualCrumbsText = await getBreadcrumbsTextContent();
+    const actualCrumbsText = await getBreadcrumbsTextContent({expectedNodeCount: 5});
     const expectedCrumbsText = [
       'html',
       'body',
