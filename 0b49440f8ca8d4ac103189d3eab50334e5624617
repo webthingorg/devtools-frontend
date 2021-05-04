@@ -22,6 +22,30 @@
       },
       "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2adee7_8ec48902",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-04T11:24:29Z",
+      "side": 1,
+      "message": "I might be able to have a look at this over the weekend. I have built Chromium before but I have never contributed to the backend code, so I\u0027m not sure if anything useful will come from it.",
+      "parentUuid": "ad299165_e6cb492e",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 5
+      },
+      "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
