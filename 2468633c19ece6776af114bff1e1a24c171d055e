@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179874d4_ef8c0045",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-04T11:10:16Z",
+      "side": 1,
+      "message": "Thanks for this CL. I\u0027m happy if you want to land this, but I also definitely think this yet again highlights that the way we do the tree outline caching currently is too heavy handed. Do you have any thoughts on how the TreeOutline could improve the data it takes to avoid the work you\u0027ve had to do to disable caching, etc? I\u0027m wondering if there\u0027s more we can do with the TreeOutline component.\n\nWe previously discussed making children an array of nodes, where each one can be async or not, rather than enforcing all children are lazily loaded at once. Would that help? Or are we missing some Tree() data structure that can be constructed and has instance methods like addNode(), deleteNode(), etc?",
+      "revId": "2468633c19ece6776af114bff1e1a24c171d055e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb50af69_0435eea8",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-04T11:10:16Z",
+      "side": 1,
+      "message": "If you\u0027re making this check, then I think the type of the function param should be `node?: AccessibilityNode` or `node: AccessibilityNode|undefined`. Else, if it\u0027s always passed in, I think we can remove this check?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 5
+      },
+      "revId": "2468633c19ece6776af114bff1e1a24c171d055e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
