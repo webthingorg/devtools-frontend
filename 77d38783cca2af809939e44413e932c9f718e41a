@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a2295df_0c625bf4",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-04T07:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a97fb1d4_623a5da5",
+      "range": {
+        "startLine": 472,
+        "startChar": 51,
+        "endLine": 472,
+        "endChar": 54
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "143af2c3_d4db7416",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44da81b0_2bbb6dc2",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-04T07:00:17Z",
+      "side": 1,
+      "message": "We need doUpdate to execute sync here so that L566 works as expected. The \"race\" is benign, because doUpdate is atomic (it doesn\u0027t have await in it): We\u0027ll just get two invocations shortly after one another in the worst case.",
+      "parentUuid": "143af2c3_d4db7416",
+      "range": {
+        "startLine": 563,
+        "startChar": 6,
+        "endLine": 563,
+        "endChar": 22
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b696f46_8d800f7b",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-05-04T05:40:17Z",
       "side": 1,
       "message": "q: I assume this is only async to match the Throttler#schedule signature?\n\nWe could schedule with:\n\n this.throttle.schedule(async () \u003d\u003e { this.doUpdate(); });\n\nand not make doUpdate an async function. But no strong preference.",
+      "range": {
+        "startLine": 630,
+        "startChar": 10,
+        "endLine": 630,
+        "endChar": 15
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eccc5d62_6817ccf3",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-04T07:00:17Z",
+      "side": 1,
+      "message": "Changed this to make it clear that doUpdate is not async.",
+      "parentUuid": "4b696f46_8d800f7b",
       "range": {
         "startLine": 630,
         "startChar": 10,
