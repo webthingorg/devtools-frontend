@@ -4,32 +4,25 @@
 
 const {assert} = chai;
 
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
 
 class FakeSettingStore {
-  private store: ElementsModule.AdornerManager.AdornerSetting[];
+  private store: Elements.AdornerManager.AdornerSetting[];
 
-  constructor(store: ElementsModule.AdornerManager.AdornerSetting[]) {
+  constructor(store: Elements.AdornerManager.AdornerSetting[]) {
     this.store = store;
   }
 
-  get(): ElementsModule.AdornerManager.AdornerSetting[] {
+  get(): Elements.AdornerManager.AdornerSetting[] {
     return this.store;
   }
 
-  set(settings: ElementsModule.AdornerManager.AdornerSetting[]) {
+  set(settings: Elements.AdornerManager.AdornerSetting[]) {
     this.store = settings;
   }
 }
 
-describeWithEnvironment('AdornerManager', async () => {
-  let Elements: typeof ElementsModule;
-
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('AdornerManager', async () => {
   it('can sync badge settings with the settings store correctly', () => {
     const nonexistentAdorner = '__SHOULD_NEVER_EXIST__';
     const settingStore = new FakeSettingStore([

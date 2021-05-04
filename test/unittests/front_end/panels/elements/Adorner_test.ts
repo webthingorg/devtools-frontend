@@ -5,18 +5,12 @@
 const {assert} = chai;
 
 import * as Common from '../../../../../front_end/core/common/common.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 
 const ADORNER_TAG_NAME = 'DEVTOOLS-ADORNER';
 
-describeWithEnvironment('Adorner', async () => {
-  let Elements: typeof ElementsModule;
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('Adorner', async () => {
   function assertIsAdorner(element: HTMLElement) {
     assert.strictEqual(element.tagName, ADORNER_TAG_NAME, `element tag name is not ${ADORNER_TAG_NAME}`);
     assert.isTrue(element instanceof Elements.Adorner.Adorner, 'element is not an instance of Adorner');

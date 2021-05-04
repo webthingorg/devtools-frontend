@@ -2,17 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
 
 const {assert} = chai;
 
-describeWithEnvironment('CSSPropertyIconResolver', async () => {
-  let Elements: typeof ElementsModule;
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('CSSPropertyIconResolver', async () => {
   function mapFromStyle(style: {[key: string]: string|undefined}) {
     const result = new Map();
     for (const key of Object.keys(style)) {
