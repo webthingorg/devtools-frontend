@@ -2,18 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
-import {assertShadowRoot, renderElementIntoDOM, assertElement} from '../../helpers/DOMHelpers.js';
-import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+import * as Elements from '../../../../../front_end/panels/elements/elements.js';
+import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-describeWithEnvironment('NodeText', async () => {
-  let Elements: typeof ElementsModule;
-  before(async () => {
-    Elements = await import('../../../../../front_end/panels/elements/elements.js');
-  });
-
+describe('NodeText', async () => {
   function assertNodeTextContent(component: HTMLElement, expectedContent: string) {
     assertShadowRoot(component.shadowRoot);
     const content = Array.from(component.shadowRoot.querySelectorAll('span')).map(span => span.textContent).join('');
