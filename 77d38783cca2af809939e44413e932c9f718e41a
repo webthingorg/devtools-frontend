@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54cc0361_01bfae9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-04T05:40:17Z",
+      "side": 1,
+      "message": "lgtm % some questions and the failing e2e test",
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a97fb1d4_623a5da5",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-04T05:40:17Z",
+      "side": 1,
+      "message": "nit: This doesn\u0027t match the CL description.",
+      "range": {
+        "startLine": 472,
+        "startChar": 51,
+        "endLine": 472,
+        "endChar": 54
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "143af2c3_d4db7416",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-04T05:40:17Z",
+      "side": 1,
+      "message": "q: Does this need to go via `this.doUpdate` instead of `this.update` as it could race with already queued invocations? Should we leave a comment here explaining that?",
+      "range": {
+        "startLine": 563,
+        "startChar": 6,
+        "endLine": 563,
+        "endChar": 22
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b696f46_8d800f7b",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-04T05:40:17Z",
+      "side": 1,
+      "message": "q: I assume this is only async to match the Throttler#schedule signature?\n\nWe could schedule with:\n\n this.throttle.schedule(async () \u003d\u003e { this.doUpdate(); });\n\nand not make doUpdate an async function. But no strong preference.",
+      "range": {
+        "startLine": 630,
+        "startChar": 10,
+        "endLine": 630,
+        "endChar": 15
+      },
+      "revId": "77d38783cca2af809939e44413e932c9f718e41a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
