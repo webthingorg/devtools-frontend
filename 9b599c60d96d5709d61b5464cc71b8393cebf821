@@ -56,6 +56,30 @@
       },
       "revId": "9b599c60d96d5709d61b5464cc71b8393cebf821",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ad5c54_cb40070d",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-04T06:20:06Z",
+      "side": 1,
+      "message": "Done. Also added a test for \"ensureFirst\".",
+      "parentUuid": "e929deb8_4004806a",
+      "range": {
+        "startLine": 347,
+        "startChar": 9,
+        "endLine": 347,
+        "endChar": 23
+      },
+      "revId": "9b599c60d96d5709d61b5464cc71b8393cebf821",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
