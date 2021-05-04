@@ -904,15 +904,17 @@ export class TimelineModelImpl {
     const eventData = event.args['data'] || event.args['beginData'] || {};
     const timelineData = TimelineData.forEvent(event);
     if (eventData['stackTrace']) {
-      timelineData.stackTrace = eventData['stackTrace'];
-    }
-    if (timelineData.stackTrace && event.name !== RecordType.JSSample) {
-      // TraceEvents come with 1-based line & column numbers. The frontend code
-      // requires 0-based ones. Adjust the values.
-      for (let i = 0; i < timelineData.stackTrace.length; ++i) {
-        --timelineData.stackTrace[i].lineNumber;
-        --timelineData.stackTrace[i].columnNumber;
-      }
+      timelineData.stackTrace = eventData['stackTrace'].map((x: Protocol.Runtime.CallFrame) => {
+        // We need to copy the data so we can safely modify it below.
+        const frame = {...x};
+        if (event.name !== RecordType.JSSample) {
+          // TraceEvents come with 1-based line & column numbers. The frontend code
+          // requires 0-based ones. Adjust the values.
+          frame.lineNumber--;
+          frame.columnNumber--;
+        }
+        return frame;
+      });
     }
     let pageFrameId = TimelineModelImpl.eventFrameId(event);
     const last = eventStack[eventStack.length - 1];
