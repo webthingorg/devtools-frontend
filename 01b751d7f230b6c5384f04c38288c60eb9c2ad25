@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "901850a3_e8ecb593",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-04T10:50:59Z",
+      "side": 1,
+      "message": "This looks good to me. We should also remove the legacy version from UIUtils.js, update `legacy-defs.d.ts` and update any usages in the codebase. Do you want to do that as part of this CL, or in a follow-up once this lands?",
+      "revId": "01b751d7f230b6c5384f04c38288c60eb9c2ad25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
