@@ -94,3 +94,27 @@
 .network-config-ua-custom.checked {
   opacity: 100%;
 }
+
+.network-config-ua-client-hints-label {
+  min-width: 100px;
+  display: inline-block;
+}
+
+.network-config-ua-client-hints {
+  border: solid 1px;
+  min-width: 250px;
+  margin: 5px;
+  padding: 3px;
+}
+
+.network-condition-ua-client-hints-mobile {
+  margin-left: -16px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.network-config-ua-client-hints-button {
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}

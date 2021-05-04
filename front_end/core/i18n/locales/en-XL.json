@@ -5975,6 +5975,15 @@
   "panels/network/NetworkConfigView.ts | acceptedEncoding": {
     "message": "Âćĉép̂t́êd́ Content-Encodingŝ"
   },
+  "panels/network/NetworkConfigView.ts | archFieldIsRequired": {
+    "message": "Âŕĉh́ f̂íêĺd̂ íŝ ŕêq́ûír̂éd̂ f́ôŕ ĉúŝt́ôḿ ûśêŕ âǵêńt̂ ćl̂íêńt̂ h́îńt̂ś"
+  },
+  "panels/network/NetworkConfigView.ts | architecture": {
+    "message": "Âŕĉh́ît́êćt̂úr̂é (ê.ǵ. x̂86)"
+  },
+  "panels/network/NetworkConfigView.ts | brandFieldIsRequired": {
+    "message": "B̂ŕâńd̂ f́îél̂d́ îś r̂éq̂úîŕêd́ f̂ór̂ ćûśt̂óm̂ úŝér̂ áĝén̂t́ ĉĺîén̂t́ ĥín̂t́ŝ"
+  },
   "panels/network/NetworkConfigView.ts | caching": {
     "message": "Ĉáĉh́îńĝ"
   },
@@ -5984,20 +5993,62 @@
   "panels/network/NetworkConfigView.ts | customUserAgentFieldIsRequired": {
     "message": "Ĉúŝt́ôḿ ûśêŕ âǵêńt̂ f́îél̂d́ îś r̂éq̂úîŕêd́"
   },
+  "panels/network/NetworkConfigView.ts | deviceModel": {
+    "message": "D̂év̂íĉé m̂ód̂él̂"
+  },
   "panels/network/NetworkConfigView.ts | disableCache": {
     "message": "D̂íŝáb̂ĺê ćâćĥé"
   },
   "panels/network/NetworkConfigView.ts | enterACustomUserAgent": {
     "message": "Êńt̂ér̂ á ĉúŝt́ôḿ ûśêŕ âǵêńt̂"
   },
+  "panels/network/NetworkConfigView.ts | fullBrowserVersion": {
+    "message": "F̂úl̂ĺ b̂ŕôẃŝér̂ v́êŕŝíôń (ê.ǵ. 87.0.4280.88)"
+  },
+  "panels/network/NetworkConfigView.ts | fullVersionFieldIsRequired": {
+    "message": "F̂úl̂ĺ v̂ér̂śîón̂ f́îél̂d́ îś r̂éq̂úîŕêd́ f̂ór̂ ćûśt̂óm̂ úŝér̂ áĝén̂t́ ĉĺîén̂t́ ĥín̂t́ŝ"
+  },
+  "panels/network/NetworkConfigView.ts | mobile": {
+    "message": "M̂ób̂íl̂é"
+  },
+  "panels/network/NetworkConfigView.ts | modelFieldIsRequired": {
+    "message": "M̂ód̂él̂ f́îél̂d́ îś r̂éq̂úîŕêd́ f̂ór̂ ćûśt̂óm̂ úŝér̂ áĝén̂t́ ĉĺîén̂t́ ĥín̂t́ŝ"
+  },
   "panels/network/NetworkConfigView.ts | networkThrottling": {
     "message": "N̂ét̂ẃôŕk̂ t́ĥŕôt́t̂ĺîńĝ"
+  },
+  "panels/network/NetworkConfigView.ts | platform": {
+    "message": "P̂ĺât́f̂ór̂ḿ (ê.ǵ. Âńd̂ŕôíd̂)"
+  },
+  "panels/network/NetworkConfigView.ts | platformFieldIsRequired": {
+    "message": "P̂ĺât́f̂ór̂ḿ f̂íêĺd̂ íŝ ŕêq́ûír̂éd̂ f́ôŕ ĉúŝt́ôḿ ûśêŕ âǵêńt̂ ćl̂íêńt̂ h́îńt̂ś"
+  },
+  "panels/network/NetworkConfigView.ts | platformVersion": {
+    "message": "P̂ĺât́f̂ór̂ḿ v̂ér̂śîón̂"
+  },
+  "panels/network/NetworkConfigView.ts | platformVersionFieldIsRequired": {
+    "message": "P̂ĺât́f̂ór̂ḿ v̂ér̂śîón̂ f́îél̂d́ îś r̂éq̂úîŕêd́ f̂ór̂ ćûśt̂óm̂ úŝér̂ áĝén̂t́ ĉĺîén̂t́ ĥín̂t́ŝ"
   },
   "panels/network/NetworkConfigView.ts | selectAutomatically": {
     "message": "Ûśê b́r̂óŵśêŕ d̂éf̂áûĺt̂"
   },
+  "panels/network/NetworkConfigView.ts | UABrand": {
+    "message": "ÛÁ b̂ŕâńd̂ (é.ĝ. Chromium)"
+  },
+  "panels/network/NetworkConfigView.ts | UAVersion": {
+    "message": "ÛÁ b̂ŕâńd̂ v́êŕŝíôń (ê.ǵ. 87)"
+  },
   "panels/network/NetworkConfigView.ts | userAgent": {
     "message": "Ûśêŕ âǵêńt̂"
+  },
+  "panels/network/NetworkConfigView.ts | userAgentClient": {
+    "message": "Ûśêŕ âǵêńt̂ ćl̂íêńt̂ h́îńt̂ś"
+  },
+  "panels/network/NetworkConfigView.ts | userAgentClientHintsAre": {
+    "message": "Ûśêŕ âǵêńt̂ ćl̂íêńt̂ h́îńt̂ś âŕê án̂ ál̂t́êŕn̂át̂ív̂é t̂ó t̂h́ê úŝér̂ áĝén̂t́ ŝt́r̂ín̂ǵ t̂h́ât́ îd́êńt̂íf̂ý t̂h́ê b́r̂óŵśêŕ âńd̂ t́ĥé d̂év̂íĉé îń â ḿôŕê śt̂ŕûćt̂úr̂éd̂ ẃâý ŵít̂h́ b̂ét̂t́êŕ p̂ŕîv́âćŷ áĉćôún̂t́îńĝ. Ćl̂íĉḱ t̂h́ê b́ût́t̂ón̂ t́ô ĺêár̂ń m̂ór̂é."
+  },
+  "panels/network/NetworkConfigView.ts | versionFieldIsRequired": {
+    "message": "V̂ér̂śîón̂ f́îél̂d́ îś r̂éq̂úîŕêd́ f̂ór̂ ćûśt̂óm̂ úŝér̂ áĝén̂t́ ĉĺîén̂t́ ĥín̂t́ŝ"
   },
   "panels/network/NetworkDataGridNode.ts | blockeds": {
     "message": "(b̂ĺôćk̂éd̂:{PH1})"
