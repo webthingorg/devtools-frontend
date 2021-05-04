@@ -5975,6 +5975,9 @@
   "panels/network/NetworkConfigView.ts | acceptedEncoding": {
     "message": "Accepted Content-Encodings"
   },
+  "panels/network/NetworkConfigView.ts | architecture": {
+    "message": "Architecture"
+  },
   "panels/network/NetworkConfigView.ts | caching": {
     "message": "Caching"
   },
@@ -5984,20 +5987,50 @@
   "panels/network/NetworkConfigView.ts | customUserAgentFieldIsRequired": {
     "message": "Custom user agent field is required"
   },
+  "panels/network/NetworkConfigView.ts | deviceModel": {
+    "message": "Device model"
+  },
   "panels/network/NetworkConfigView.ts | disableCache": {
     "message": "Disable cache"
   },
   "panels/network/NetworkConfigView.ts | enterACustomUserAgent": {
     "message": "Enter a custom user agent"
   },
+  "panels/network/NetworkConfigView.ts | fullBrowserVersion": {
+    "message": "Build version"
+  },
+  "panels/network/NetworkConfigView.ts | mobile": {
+    "message": "Mobile"
+  },
   "panels/network/NetworkConfigView.ts | networkThrottling": {
     "message": "Network throttling"
+  },
+  "panels/network/NetworkConfigView.ts | platform": {
+    "message": "Platform"
+  },
+  "panels/network/NetworkConfigView.ts | platformVersion": {
+    "message": "Version"
   },
   "panels/network/NetworkConfigView.ts | selectAutomatically": {
     "message": "Use browser default"
   },
+  "panels/network/NetworkConfigView.ts | UAAddABrowser": {
+    "message": "+ Add another browser"
+  },
+  "panels/network/NetworkConfigView.ts | UABrand": {
+    "message": "Browser"
+  },
+  "panels/network/NetworkConfigView.ts | UAVersion": {
+    "message": "Version"
+  },
   "panels/network/NetworkConfigView.ts | userAgent": {
     "message": "User agent"
+  },
+  "panels/network/NetworkConfigView.ts | userAgentClient": {
+    "message": "User agent client hints"
+  },
+  "panels/network/NetworkConfigView.ts | userAgentClientHintsAre": {
+    "message": "User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more."
   },
   "panels/network/NetworkDataGridNode.ts | blockeds": {
     "message": "(blocked:{PH1})"

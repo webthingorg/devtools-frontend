@@ -10,6 +10,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
+
 const UIStrings = {
   /**
   *@description Text in Network Config View of the Network panel
@@ -48,6 +49,55 @@ const UIStrings = {
    * a set of checkboxes to override the content encodings supported by the browser.
    */
   acceptedEncoding: 'Accepted `Content-Encoding`s',
+  /**
+  *@description Title of foldable group of options in Devices pane letting users customize what
+  *information is sent about the browser and device via user agent client hints functionality. 'user
+  *agent' refers to the browser/unique ID the user is using. 'hints' is a noun.
+  */
+  userAgentClient: 'User agent client hints',
+  /**
+  *@description Tooltip text for the foldable 'User agent client hints' section's help button
+  */
+  userAgentClientHintsAre:
+      'User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more.',
+  /**
+  *@description Field in Devices pane letting users customize which browser names
+  * edited device presents via User Agent Client Hints. Placeholder is locked text.
+  */
+  UABrand: 'Browser',
+  /**
+  *@description Field in Devices pane letting users customize which browser major version
+  * edited device presents via User Agent Client Hints. Placeholder is locked text.
+  */
+  UAVersion: 'Version',
+  /**
+  *@description Field in Network conditions pane letting users add another browser.
+  */
+  UAAddABrowser: '+ Add another browser',
+  /**
+  *@description Field in the Devices pane letting customize precise browser version the edited device presents via User Agent Client Hints.
+  */
+  fullBrowserVersion: 'Build version',
+  /**
+  *@description Field in Devices pane letting customize which operating system the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  platform: 'Platform',
+  /**
+  *@description Field in Devices pane letting customize which operating system version the edited device presents via User Agent Client Hints
+  */
+  platformVersion: 'Version',
+  /**
+  *@description Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints. Example should be kept exactly.
+  */
+  architecture: 'Architecture',
+  /**
+  *@description Field in the Devices pane letting customize the name the edited device presents via User Agent Client Hints
+  */
+  deviceModel: 'Device model',
+  /**
+  *@description Field Field in the Devices pane letting customize the mobile checkbox via User Agent Client Hints
+  */
+  mobile: 'Mobile',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkConfigView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -83,6 +133,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     select: HTMLSelectElement,
     input: HTMLInputElement,
     error: HTMLElement,
+    clientHint: HTMLElement,
   } {
     const userAgentSetting = Common.Settings.Settings.instance().createSetting('customUserAgent', '');
     const userAgentSelectElement = (document.createElement('select') as HTMLSelectElement);
@@ -121,13 +172,218 @@ export class NetworkConfigView extends UI.Widget.VBox {
     userAgentSelectElement.addEventListener('change', userAgentSelected, false);
     otherUserAgentElement.addEventListener('input', applyOtherUserAgent, false);
 
-    function userAgentSelected(): void {
+    // create user agent client hing
+    const clientHint = (document.createElement('div') as HTMLElement);
+
+    const uaChFields = clientHint.createChild('div', 'devices-edit-client-hints-heading');
+    UI.UIUtils.createTextChild(uaChFields.createChild('b'), i18nString(UIStrings.userAgentClient));
+
+    const helpIconWrapper = document.createElement('a');
+    helpIconWrapper.href = 'https://web.dev/user-agent-client-hints/';
+    helpIconWrapper.target = '_blank';
+    const icon = UI.Icon.Icon.create('mediumicon-info', 'help-icon');
+    helpIconWrapper.appendChild(icon);
+    helpIconWrapper.title = i18nString(UIStrings.userAgentClientHintsAre);
+    // Prevent the editor grabbing the enter key, letting the default behavior happen.
+    helpIconWrapper.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.stopPropagation();
+      }
+    });
+    uaChFields.appendChild(helpIconWrapper);
+
+    const tree = new UI.TreeOutline.TreeOutlineInShadow();
+    tree.registerRequiredCSS('panels/network/networkConfigView.css', {enableLegacyPatching: true});
+    tree.registerRequiredCSS('panels/emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
+    tree.setShowSelectionOnKeyboardFocus(true, false);
+    const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
+    tree.appendChild(treeRoot);
+    // Select the folder to make left/right arrows work as expected; don't change focus, however, since it should start with the device name field.
+    treeRoot.select(true, false);
+    clientHint.appendChild(tree.element);
+
+    // create an input field with suggestion box
+    function createInputWithSuggestBox(title: string, placeholder: string, suggestions: Array<string>): HTMLElement {
+      const container = document.createElement('div');
+      const input = document.createElement('div');
+      UI.ARIAUtils.setAccessibleName(input, title);
+      input.id = `network-config-ua-client-hints-${title}`;
+      input.classList.add('network-config-ua-client-hints');
+      container.appendChild(input);
+
+      const prompt = new UI.TextPrompt.TextPrompt();
+      prompt.initialize(
+          async(expression: string, prefix: string, _force?: boolean): Promise<UI.SuggestBox.Suggestions> => {
+            if (!prefix) {
+              return [];
+            }
+
+            prefix = prefix.toLowerCase();
+            return suggestions.filter(proposal => proposal.toLowerCase().startsWith(prefix))
+                .map(completion => ({text: completion} as UI.SuggestBox.Suggestion));
+          }, ' ');
+      prompt.attach(input);
+      prompt.setTitle(title);
+      prompt.setPlaceholder(placeholder);
+
+      return container;
+    }
+
+    function createALabel(title: string): HTMLElement {
+      const container = document.createElement('div');
+      const label = document.createElement('span');
+      label.classList.add('network-config-ua-client-hints-label');
+      label.appendChild(document.createTextNode(title));
+      container.appendChild(label);
+      return container;
+    }
+
+    function createABrowserBrand(): HTMLElement {
+      const uaClientBrandContainer = document.createElement('div');
+      uaClientBrandContainer.classList.add('network-config-ua-client-hints-container');
+      const uaClientHintsBrand =
+          createInputWithSuggestBox('brand', i18nString(UIStrings.UABrand), ['Chrome', 'Chromium', 'Chroooomium']);
+      uaClientHintsBrand.classList.add('network-config-ua-client-hints-brand');
+      uaClientBrandContainer.appendChild(uaClientHintsBrand);
+      const uaClientHintsVersion = createInputWithSuggestBox('version', i18nString(UIStrings.UAVersion), []);
+      uaClientHintsVersion.classList.add('network-config-ua-client-hints-version');
+      uaClientBrandContainer.appendChild(uaClientHintsVersion);
+      const uaClientHintsDeleteIcon = UI.Icon.Icon.create('largeicon-delete');
+      uaClientHintsDeleteIcon.classList.add('network-config-ua-client-hints-delete-icon');
+      uaClientBrandContainer.appendChild(uaClientHintsDeleteIcon);
+      uaClientHintsDeleteIcon.addEventListener('click', () => {
+        uaClientBrandContainer.remove();
+      });
+      return uaClientBrandContainer;
+    }
+
+    function addToTree(input: HTMLElement): void {
+      const treeNode = new UI.TreeOutline.TreeElement(input, false);
+      // The inputs themselves are selectable, no need for the tree nodes to be.
+      treeNode.selectable = false;
+      treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
+      treeRoot.appendChild(treeNode);
+    }
+
+    // group #1: user agent: a uaClientHintsBrandsContainer consists of a label,
+    // 0+ uaClientBrandContainer and a uaClientHintsAddABrowserLink
+    const uaClientHintsBrandsContainer = document.createElement('div');
+    uaClientHintsBrandsContainer.appendChild(createALabel('User agent'));
+    uaClientHintsBrandsContainer.appendChild(createABrowserBrand());
+    addToTree(uaClientHintsBrandsContainer);
+
+    const uaClientHintsBrandsContainer2 = document.createElement('div');
+    const uaClientHintsFullVersion =
+        createInputWithSuggestBox('full-version', i18nString(UIStrings.fullBrowserVersion), []);
+    uaClientHintsFullVersion.classList.add('network-config-ua-client-hints-full-version');
+    uaClientHintsBrandsContainer2.appendChild(uaClientHintsFullVersion);
+
+    const uaClientHintsAddABrowserLink = document.createElement('a');
+    uaClientHintsAddABrowserLink.innerHTML = i18nString(UIStrings.UAAddABrowser);
+    uaClientHintsAddABrowserLink.classList.add('network-config-ua-client-hints-add-a-browser-link');
+    uaClientHintsAddABrowserLink.addEventListener('click', () => {
+      uaClientHintsBrandsContainer.appendChild(createABrowserBrand());
+    });
+    uaClientHintsBrandsContainer2.appendChild(uaClientHintsAddABrowserLink);
+    addToTree(uaClientHintsBrandsContainer2);
+
+    // group #2: platform
+    const uaClientHintsPlatformContainer = document.createElement('div');
+    uaClientHintsPlatformContainer.classList.add('network-config-ua-client-hints-container');
+    uaClientHintsPlatformContainer.appendChild(createALabel(i18nString(UIStrings.platform)));
+    const uaClientHintsPlatform = createInputWithSuggestBox('platform', i18nString(UIStrings.platform), []);
+    uaClientHintsPlatform.classList.add('network-config-ua-client-hints-platform');
+    const uaClientHintsPlatformVersion =
+        createInputWithSuggestBox('platform-version', i18nString(UIStrings.platformVersion), []);
+    uaClientHintsPlatformVersion.classList.add('network-config-ua-client-hints-platform-version');
+    uaClientHintsPlatformContainer.appendChild(uaClientHintsPlatform);
+    uaClientHintsPlatformContainer.appendChild(uaClientHintsPlatformVersion);
+    addToTree(uaClientHintsPlatformContainer);
+
+    // group #3: architecture
+    const uaClientHintsArchContainer = document.createElement('div');
+    uaClientHintsArchContainer.classList.add('network-config-ua-client-hints-container');
+    uaClientHintsArchContainer.appendChild(createALabel(i18nString(UIStrings.architecture)));
+    const uaClientHintsArch = createInputWithSuggestBox('arch', i18nString(UIStrings.architecture), []);
+    uaClientHintsArch.classList.add('network-config-ua-client-hints-arch');
+    uaClientHintsArchContainer.appendChild(uaClientHintsArch);
+    addToTree(uaClientHintsArchContainer);
+
+    // group #4: device model
+    const uaClientHintsDeviceContainer = document.createElement('div');
+    uaClientHintsDeviceContainer.classList.add('network-config-ua-client-hints-container');
+    uaClientHintsDeviceContainer.appendChild(createALabel(i18nString(UIStrings.deviceModel)));
+    const uaClientHintsModel = createInputWithSuggestBox('model', i18nString(UIStrings.deviceModel), []);
+    uaClientHintsModel.classList.add('network-config-ua-client-hints-model');
+    uaClientHintsDeviceContainer.appendChild(uaClientHintsModel);
+    const uaClientHintsMobileLabel = UI.UIUtils.CheckboxLabel.create(i18nString(UIStrings.mobile), false);
+    uaClientHintsMobileLabel.classList.add('network-condition-ua-client-hints-mobile');
+    // const uaClientHintsMobile = uaClientHintsMobileLabel.checkboxElement;
+    uaClientHintsDeviceContainer.appendChild(uaClientHintsMobileLabel);
+    addToTree(uaClientHintsDeviceContainer);
+
+    const addButton = document.createElement('button');
+    addButton.innerHTML = 'Add';
+    addButton.classList.add('network-config-ua-client-hints-button');
+    addButton.addEventListener('click', addCustomizedUAClientHints);
+    addToTree(addButton);
+
+    function addCustomizedUAClientHints(): void {
+      // if (!uaClientHintsBrand?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.brandFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsVersion?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.versionFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsFullVersion?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.fullVersionFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsPlatform?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.platformFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsPlatformVersion?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.platformVersionFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsArch?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.archFieldIsRequired);
+      //   return;
+      // }
+      // if (!uaClientHintsModel?.textContent) {
+      //   errorElement.textContent = i18nString(UIStrings.modelFieldIsRequired);
+      //   return;
+      // }
+      // errorElement.textContent = '';
+
+      // const customUAClientHintsMetaData = {
+      //   brands: [{
+      //     brand: uaClientHintsBrand.textContent,
+      //     version: uaClientHintsVersion.textContent,
+      //   }],
+      //   fullVersion: uaClientHintsFullVersion.textContent,
+      //   platform: uaClientHintsPlatform.textContent,
+      //   platformVersion: uaClientHintsPlatformVersion.textContent,
+      //   architecture: uaClientHintsArch.textContent,
+      //   model: uaClientHintsModel.textContent,
+      //   mobile: uaClientHintsMobile.checked,
+      // };
+
+      // userAgentSelected(null, customUAClientHintsMetaData);
+    }
+
+    function userAgentSelected(
+        e: Event|null, customUAClientHintsMetaData?: Protocol.Emulation.UserAgentMetadata|null): void {
       const value = userAgentSelectElement.options[userAgentSelectElement.selectedIndex].value;
       if (value !== customOverride.value) {
         userAgentSetting.set(value);
         otherUserAgentElement.value = value;
         UI.Tooltip.Tooltip.install(otherUserAgentElement, value);
-        const userAgentMetadata = getUserAgentMetadata(value);
+        const userAgentMetadata =
+            customUAClientHintsMetaData ? customUAClientHintsMetaData : getUserAgentMetadata(value);
         SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(value, userAgentMetadata);
       } else {
         otherUserAgentElement.select();
@@ -165,7 +421,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       }
     }
 
-    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement};
+    return {select: userAgentSelectElement, input: otherUserAgentElement, error: errorElement, clientHint: clientHint};
   }
 
   _createSection(title: string, className?: string): Element {
@@ -214,6 +470,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     customUserAgentSelectBox.appendChild(customSelectAndInput.select);
     customUserAgentSelectBox.appendChild(customSelectAndInput.input);
     customUserAgentSelectBox.appendChild(customSelectAndInput.error);
+    customUserAgentSelectBox.appendChild(customSelectAndInput.clientHint);
     userAgentSelectBoxChanged();
 
     function userAgentSelectBoxChanged(): void {
