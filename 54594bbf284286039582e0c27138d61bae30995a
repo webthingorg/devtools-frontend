@@ -33,6 +33,24 @@
       "message": "Is it ever possible that we have `this.value` with `!important   `, i.e. trailing whitespaces after `!important`?",
       "revId": "54594bbf284286039582e0c27138d61bae30995a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4127f576_c52a8077",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-04T12:11:34Z",
+      "side": 1,
+      "message": "It does not look so at the moment. I believe whitespaces get trimmed by the CSS parser (or the CSS.getMatchedStylesForNode method) already.",
+      "parentUuid": "d85f7c72_8b35458a",
+      "revId": "54594bbf284286039582e0c27138d61bae30995a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
