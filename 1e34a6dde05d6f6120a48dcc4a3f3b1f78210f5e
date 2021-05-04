@@ -80,6 +80,30 @@
       },
       "revId": "1e34a6dde05d6f6120a48dcc4a3f3b1f78210f5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a298fe3_29c67dff",
+        "filename": "test/e2e/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-04T09:29:47Z",
+      "side": 1,
+      "message": "Ah ok, I see. Thanks!",
+      "parentUuid": "f0914e3a_07e08752",
+      "range": {
+        "startLine": 82,
+        "startChar": 185,
+        "endLine": 82,
+        "endChar": 199
+      },
+      "revId": "1e34a6dde05d6f6120a48dcc4a3f3b1f78210f5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
