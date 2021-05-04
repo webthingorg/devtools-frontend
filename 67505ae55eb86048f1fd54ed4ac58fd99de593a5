@@ -16,6 +16,46 @@
       "message": "Awesome, still LGTM!",
       "revId": "67505ae55eb86048f1fd54ed4ac58fd99de593a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20da4c70_bebdace7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-04T10:20:47Z",
+      "side": 1,
+      "message": "Nice work!",
+      "revId": "67505ae55eb86048f1fd54ed4ac58fd99de593a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c444f8_447f1ddb",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-04T10:20:47Z",
+      "side": 1,
+      "message": "Nit: s/ensureFrist/ensureFirst/",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 13
+      },
+      "revId": "67505ae55eb86048f1fd54ed4ac58fd99de593a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
