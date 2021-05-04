@@ -70,6 +70,30 @@
       },
       "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3379a2b2_03483506",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-04T12:41:04Z",
+      "side": 1,
+      "message": "https://crrev.com/c/2871748",
+      "parentUuid": "5085d4d4_d1d3c18e",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 5
+      },
+      "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
