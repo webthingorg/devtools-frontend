@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40702f33_763dfc9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-05T10:02:07Z",
+      "side": 1,
+      "message": "I just now realized that this class should probably life in front_end/core/i18n, wdyt?",
+      "revId": "eed4061564476146ead5fdbe81ae0722cab4deb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99a3d764_e1a18fce",
         "filename": "front_end/entrypoints/main/DevToolsLocale.ts",
         "patchSetId": 1
