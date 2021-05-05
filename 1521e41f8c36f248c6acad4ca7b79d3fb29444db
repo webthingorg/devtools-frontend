@@ -63,6 +63,30 @@
       },
       "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31bca4f8_cc087571",
+        "filename": "test/unittests/front_end/models/recorder/recording-client_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-05T10:08:02Z",
+      "side": 1,
+      "message": "I think import could also be hoisted to the upper scope as tests within a file will always run in sequence. But I\u0027m not sure about this assumption...",
+      "parentUuid": "c1957339_3f8b9fa7",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
