@@ -176,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16189295_d43108da",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-05T10:57:37Z",
+      "side": 1,
+      "message": "Actually I forgot to delete this comment :P Please don\u0027t mind this. I think it\u0027s fine that we don\u0027t test internal functions.",
+      "parentUuid": "d794e72a_7751dadc",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1c2fe30_e5593b25",
@@ -213,6 +231,30 @@
       "side": 1,
       "message": "Computed here is the one that is not present in the authored list. All authored properties are also present in the computed map. Maybe the variable needs a better name? e.g., `notAuthored`?",
       "parentUuid": "f1c2fe30_e5593b25",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 73
+      },
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72dbfac7_5ccabcd5",
+        "filename": "front_end/panels/elements/StylePropertyEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-05T10:57:37Z",
+      "side": 1,
+      "message": "Maybe.. I don\u0027t feel strongly either way. I\u0027m just curious, so it\u0027s up to you :)",
+      "parentUuid": "e22de059_8977063f",
       "range": {
         "startLine": 188,
         "startChar": 0,
