@@ -50,6 +50,24 @@
       "message": "does it need an await?",
       "revId": "177cd6cb8f4897f48b77b0ddd1c6bbeb04a6bfed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da499f5f_f0ec8e66",
+        "filename": "test/e2e/issues/csp-violations-tab_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-05T08:27:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64a515de_abde850c",
+      "revId": "177cd6cb8f4897f48b77b0ddd1c6bbeb04a6bfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
