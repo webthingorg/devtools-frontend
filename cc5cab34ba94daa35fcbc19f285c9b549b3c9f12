@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6b0745d_d897b9d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-05T07:36:15Z",
+      "side": 1,
+      "message": "Yes, if we process a call frame more than once, we only decrement the copy.",
+      "parentUuid": "b90c8db3_26efde14",
+      "revId": "cc5cab34ba94daa35fcbc19f285c9b549b3c9f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87026b02_94707f88",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-05-04T15:22:59Z",
       "side": 1,
       "message": "nit: can we call this something like callFrame?",
+      "range": {
+        "startLine": 907,
+        "startChar": 61,
+        "endLine": 907,
+        "endChar": 62
+      },
+      "revId": "cc5cab34ba94daa35fcbc19f285c9b549b3c9f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ccf310_4762e1d1",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-05T07:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87026b02_94707f88",
       "range": {
         "startLine": 907,
         "startChar": 61,

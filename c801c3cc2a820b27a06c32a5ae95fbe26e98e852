@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b80a4c07_4a4f543f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-05T07:36:15Z",
+      "side": 1,
+      "message": "I had to make some more adjustments. It turns out there was a place where we accessed the modified object assuming it *was* modified.",
+      "revId": "c801c3cc2a820b27a06c32a5ae95fbe26e98e852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
