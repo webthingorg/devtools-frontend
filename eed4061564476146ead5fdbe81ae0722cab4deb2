@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8feea70b_ac3ad61d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-05T14:27:18Z",
+      "side": 1,
+      "message": "I am assuming this will be instantiated in `MainImpl` during bootup?",
+      "revId": "eed4061564476146ead5fdbe81ae0722cab4deb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99a3d764_e1a18fce",
@@ -48,6 +65,30 @@
       "writtenOn": "2021-05-05T10:01:22Z",
       "side": 1,
       "message": "IMO this singeteon approach is better for classes we now need to be instantiated in MainImpl: Instantiation is explicit and the typesystem guarantees that necessary parameters are always passed. Accidental incomplete instantiation is prohibited. Wdyt?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "eed4061564476146ead5fdbe81ae0722cab4deb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b94e2633_4dfdac04",
+        "filename": "front_end/entrypoints/main/DevToolsLocale.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-05T14:27:18Z",
+      "side": 1,
+      "message": "Yes I like this a lot! Do you mind filing a bug to make sure we track that for other singletons?",
+      "parentUuid": "99a3d764_e1a18fce",
       "range": {
         "startLine": 9,
         "startChar": 0,
