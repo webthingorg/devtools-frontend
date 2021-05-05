@@ -16,6 +16,23 @@
       "message": "I had to make some more adjustments. It turns out there was a place where we accessed the modified object assuming it *was* modified.",
       "revId": "c801c3cc2a820b27a06c32a5ae95fbe26e98e852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44686bda_bf3cef6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-05T11:39:57Z",
+      "side": 1,
+      "message": "LGTM after the update. I also appreciate you adding the documentation around the inconsistency / variance in types.",
+      "revId": "c801c3cc2a820b27a06c32a5ae95fbe26e98e852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
