@@ -50,6 +50,23 @@
       "message": "Jack and Jesus, could you verify that your use case is still working as intended?",
       "revId": "d3507070aed3c7356d74936e3fdffc2e53513299",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2584b07_2188ce07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-05T14:52:49Z",
+      "side": 1,
+      "message": "Hmm, the Chrome DevTools Contribution Guide (https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/view#) says I should submit to CQ once it\u0027s ready, but it seems I don\u0027t have permission for this.\nIs there anything I need to do to submit it, or is it not ready yet?",
+      "revId": "d3507070aed3c7356d74936e3fdffc2e53513299",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
