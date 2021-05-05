@@ -33,6 +33,23 @@
       "message": "LGTM after the update. I also appreciate you adding the documentation around the inconsistency / variance in types.",
       "revId": "c801c3cc2a820b27a06c32a5ae95fbe26e98e852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f821bf0_2f230afe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-05T11:40:27Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "c801c3cc2a820b27a06c32a5ae95fbe26e98e852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
