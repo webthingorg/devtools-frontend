@@ -87,6 +87,30 @@
       },
       "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702744f7_4b07733f",
+        "filename": "test/unittests/front_end/models/recorder/recording-client_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T10:10:05Z",
+      "side": 1,
+      "message": "Let\u0027s if we can improve it as a follow-up. Maybe, it\u0027d be easier to extract the try/catch into a helper function.",
+      "parentUuid": "31bca4f8_cc087571",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
