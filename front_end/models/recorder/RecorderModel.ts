@@ -3,16 +3,21 @@
 // found in the LICENSE file.
 
 /* eslint-disable rulesdir/no_underscored_properties */
+/* eslint-disable no-console */
+
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Workspace from '../workspace/workspace.js';
+import {RecordingPlayer} from './RecordingPlayer.js';
 
 import {RecordingSession} from './RecordingSession.js';
+import {ClickStep, NavigationStep, Step, StepFrameContext, SubmitStep, ChangeStep, CloseStep, EmulateNetworkConditions} from './Steps.js';
 
 const enum RecorderState {
   Recording = 'Recording',
+  Replaying = 'Replaying',
   Idle = 'Idle',
 }
 
@@ -22,6 +27,7 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
   _runtimeAgent: ProtocolProxyApi.RuntimeApi;
   _accessibilityAgent: ProtocolProxyApi.AccessibilityApi;
   _toggleRecordAction: UI.ActionRegistration.Action;
+  _replayAction: UI.ActionRegistration.Action;
   _state: RecorderState;
   _currentRecordingSession: RecordingSession|null;
   _indentation: string;
@@ -34,6 +40,8 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
     this._accessibilityAgent = target.accessibilityAgent();
     this._toggleRecordAction =
         UI.ActionRegistry.ActionRegistry.instance().action('recorder.toggle-recording') as UI.ActionRegistration.Action;
+    this._replayAction =
+        UI.ActionRegistry.ActionRegistry.instance().action('recorder.replay-recording') as UI.ActionRegistration.Action;
 
     this._state = RecorderState.Idle;
     this._currentRecordingSession = null;
@@ -43,10 +51,62 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
   async updateState(newState: RecorderState): Promise<void> {
     this._state = newState;
     this._toggleRecordAction.setToggled(this._state === RecorderState.Recording);
+    this._toggleRecordAction.setEnabled(this._state !== RecorderState.Replaying);
+    this._replayAction.setEnabled(this._state !== RecorderState.Replaying);
   }
 
   isRecording(): boolean {
     return this._state === RecorderState.Recording;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  parseStep(step: any): Step {
+    const context = step.context && new StepFrameContext(step.context.target, step.context.path);
+    switch (step.action) {
+      case 'click':
+        return new ClickStep(context, step.selector);
+      case 'navigate':
+        return new NavigationStep(step.url);
+      case 'submit':
+        return new SubmitStep(context, step.selector);
+      case 'change':
+        return new ChangeStep(context, step.selector, step.value);
+      case 'close':
+        return new CloseStep(step.target);
+      case 'emulateNetworkConditions':
+        return new EmulateNetworkConditions(step.conditions);
+      default:
+        throw new Error('Unknown step: ' + step.action);
+    }
+  }
+
+  parseScript(script: string): Step[] {
+    const input = JSON.parse(script);
+    const output = [];
+
+    for (const stepInput of input) {
+      const step = this.parseStep(stepInput);
+      output.push(step);
+    }
+
+    return output;
+  }
+
+  async replayRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    console.log('replayRecording');
+    this.updateState(RecorderState.Replaying);
+    try {
+      console.log('replayRecording.parseScript');
+      const script = this.parseScript(uiSourceCode.content());
+      console.log('replayRecording.new player');
+      const player = new RecordingPlayer(script);
+      console.log('replayRecording.play');
+      await player.play();
+    } finally {
+      console.log('replayRecording.finally');
+      this.updateState(RecorderState.Idle);
+      console.log('replayRecording.done');
+    }
   }
 
   async toggleRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
