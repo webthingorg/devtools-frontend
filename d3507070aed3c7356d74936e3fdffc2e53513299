@@ -67,6 +67,24 @@
       "message": "Hmm, the Chrome DevTools Contribution Guide (https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/view#) says I should submit to CQ once it\u0027s ready, but it seems I don\u0027t have permission for this.\nIs there anything I need to do to submit it, or is it not ready yet?",
       "revId": "d3507070aed3c7356d74936e3fdffc2e53513299",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf943b32_863a4986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-05-05T17:22:30Z",
+      "side": 1,
+      "message": "Looks good to me, but or I don\u0027t know how to +1 the CL or I don\u0027t have permission to do it :s",
+      "parentUuid": "d0c3a152_ee267f7f",
+      "revId": "d3507070aed3c7356d74936e3fdffc2e53513299",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
