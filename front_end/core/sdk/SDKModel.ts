@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
+/* eslint-disable rulesdir/no_underscored_properties, no-console, rulesdir/commented_out_console */
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -239,13 +239,26 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
   }
 
   async resume(): Promise<void> {
+    console.log('resume', this.id(), this._sessionId);
     if (!this._isSuspended) {
       return;
     }
     this._isSuspended = false;
 
-    await Promise.all(Array.from(this.models().values(), m => m.resumeModel()));
-    await Promise.all(Array.from(this.models().values(), m => m.postResumeModel()));
+    // console.log(this.models());
+    console.log('resumeModel');
+    for (const model of this.models().values()) {
+      console.log('    ', model.constructor.name);
+      await model.resumeModel();
+    }
+    // await Promise.all(Array.from(this.models().values(), m => m.resumeModel()));
+    console.log('postResumeModel');
+    for (const model of this.models().values()) {
+      console.log('    ', model.constructor.name);
+      await model.postResumeModel();
+    }
+    // await Promise.all(Array.from(this.models().values(), m => m.postResumeModel()));
+    console.log('Done');
   }
 
   suspended(): boolean {
@@ -349,8 +362,15 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._isSuspended = false;
     this.dispatchEventToListeners(Events.SuspendStateChanged);
-    const resumePromises = Array.from(this._targets.values(), target => target.resume());
-    await Promise.all(resumePromises);
+    // const resumePromises = Array.from(this._targets.values(), target => target.resume());
+    console.log('TargetManager.targets:');
+    for (const target of this._targets.values()) {
+      console.log('    ', target.id(), target._sessionId, target.targetInfo()?.url);
+      await target.resume();
+    }
+    // console.log(resumePromises.length, resumePromises);
+    // await Promise.all(resumePromises);
+    console.log('XXX');
   }
 
   allTargetsSuspended(): boolean {
@@ -450,6 +470,7 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper {
     }
     target.createModels(new Set(this._modelObservers.keysArray()));
     this._targets.add(target);
+    console.log('createTarget', id, sessionId);
 
     // Iterate over a copy. _observers might be modified during iteration.
     for (const observer of [...this._observers]) {

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
+/* eslint-disable rulesdir/no_underscored_properties, no-console */
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -91,6 +91,7 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this._socket.onmessage = (messageEvent: MessageEvent<any>): void => {
+      console.log('recv', messageEvent.data);
       if (this._onMessage) {
         this._onMessage.call(null, (messageEvent.data as string));
       }
@@ -157,6 +158,7 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
   }
 
   sendRawMessage(message: string): void {
+    console.log('send', message);
     if (this._connected && this._socket) {
       this._socket.send(message);
     } else {
