@@ -94,3 +94,65 @@
 .network-config-ua-custom.checked {
   opacity: 100%;
 }
+
+.network-config-ua-client-hints {
+  max-width: 280px;
+}
+
+fieldset.network-config-ua-client-hints-container {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 8px;
+  border: 0;
+  padding: 0;
+}
+
+fieldset.network-config-ua-client-hints-container > legend {
+  margin-bottom: 8px;
+}
+
+.network-config-ua-client-hints-brands {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.network-config-ua-client-hints-brands > li {
+  margin-bottom: 8px;
+}
+
+.network-config-ua-client-hints-heading {
+  margin: 8px 0 8px 0;
+}
+
+.network-config-ua-client-hints-heading .help-icon {
+  vertical-align: middle;
+  margin: 0 2px 0 2px;
+}
+
+.network-config-ua-client-hints-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.network-config-ua-client-hints-fields {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.network-config-ua-client-hints-field {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.network-config-ua-client-hints-field:last-child {
+  margin-right: 0;
+}
+
+.network-config-ua-client-hints-input {
+  flex: 1;
+}
