@@ -50,6 +50,7 @@ describe('Flexbox Editor', async function() {
 
     // Close and re-open the editor when display == flex !important.
     await clickFlexboxEditorButton();
+    await waitForCSSPropertyValue('#target', 'display', 'flex');
     await editCSSProperty('#target', 'display', 'flex !important');
     await waitForCSSPropertyValue('#target', 'display', 'flex !important');
     await clickFlexboxEditorButton();
