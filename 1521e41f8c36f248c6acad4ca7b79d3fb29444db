@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ef277f8_acbfb45e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-05T09:57:32Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a5c853_891919e9",
+        "filename": "test/unittests/front_end/models/recorder/recording-client_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-05T09:57:32Z",
+      "side": 1,
+      "message": "Maybe you could also use afterEach to call imports.teardown instead of having a try finally block around each test.",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "1521e41f8c36f248c6acad4ca7b79d3fb29444db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
