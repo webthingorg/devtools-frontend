@@ -94,3 +94,103 @@
 .network-config-ua-custom.checked {
   opacity: 100%;
 }
+
+.network-config-ua-client-hints-label {
+  min-width: 100px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.network-config-ua-client-hints {
+  border: solid 1px;
+  width: 100%;
+  margin: 1px;
+  padding: 3px;
+}
+
+.devices-edit-client-hints-field span {
+  width: 100%;
+}
+
+.network-config-ua-client-hints-button {
+  display: flex;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.network-config-ua-client-hints-button span {
+  display: block;
+  text-align: center;
+}
+
+.network-config-ua-client-hints-container {
+  display: block;
+  min-width: 280px;
+}
+
+.network-config-ua-client-hints-brand {
+  display: flex;
+  float: left;
+  width: 50%;
+}
+
+.network-config-ua-client-hints-version {
+  display: flex;
+  float: left;
+  width: 40%;
+}
+
+.network-config-ua-client-hints-delete-icon {
+  display: flex;
+  float: right;
+  width: 10%;
+}
+
+.network-config-ua-client-hints-add-a-browser-link {
+  display: flex;
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.network-config-ua-client-hints-full-version {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+.network-config-ua-client-hints-platform {
+  display: flex;
+  float: left;
+  width: 50%;
+}
+
+.network-config-ua-client-hints-platform-version {
+  display: flex;
+  float: left;
+  width: 50%;
+}
+
+.network-config-ua-client-hints-arch {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+.network-config-ua-client-hints-model {
+  display: flex;
+  float: left;
+  width: 75%;
+}
+
+.network-condition-ua-client-hints-mobile {
+  margin-top: 3px;
+  display: flex;
+  float: right;
+  min-width: 22%;
+  max-width: 22%;
+}
