@@ -105,6 +105,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4936cd30_2e6f5c27",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e146589a_a6822683",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa83ad7d_3189e5e1",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e146589a_a6822683",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f2da1f4_1534db92",
@@ -118,6 +154,24 @@
       "writtenOn": "2021-05-03T09:12:56Z",
       "side": 1,
       "message": "Is it possible/worthwhile to add tests to these standalone functions? They don\u0027t seem to require legacy dependencies.",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d794e72a_7751dadc",
+        "filename": "front_end/panels/elements/PopoverEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "It should be possible for the createButton but I don\u0027t much value in adding a separate test. What do you think we should cover with this test?",
+      "parentUuid": "6f2da1f4_1534db92",
       "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -145,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22de059_8977063f",
+        "filename": "front_end/panels/elements/StylePropertyEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Computed here is the one that is not present in the authored list. All authored properties are also present in the computed map. Maybe the variable needs a better name? e.g., `notAuthored`?",
+      "parentUuid": "f1c2fe30_e5593b25",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 73
+      },
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57acae8e_1de4ca21",
@@ -162,6 +240,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ef6bfb_0fd9b5a1",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57acae8e_1de4ca21",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3427daf_8f79b197",
@@ -175,6 +271,30 @@
       "writtenOn": "2021-05-03T09:36:33Z",
       "side": 1,
       "message": "Do we really derive any value of getting all buttons and asserting that there\u0027s only one?\nIs this a case we want to test. If not, we could just use $ and not $$ and remove a bit of code.\nIn fact we could call click(editor) directly too.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 3
+      },
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22046e4a_8d10bbe4",
+        "filename": "test/e2e/elements/grid-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Yeah, I think it has some value: e.g., if we accidentally render buttons for non-grid/flexbox properties.",
+      "parentUuid": "d3427daf_8f79b197",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -220,6 +340,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cabeb782_45b857a4",
+        "filename": "test/e2e/elements/grid-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f6c5bd5_4cee3e9b",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebbd4c2b_5c96ff19",
@@ -233,6 +371,24 @@
       "writtenOn": "2021-05-03T09:12:56Z",
       "side": 1,
       "message": "Do we maybe want to either rename this to be more general, or write a separate file for GridEditor_test?",
+      "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aedac3f2_ba0f54eb",
+        "filename": "test/unittests/front_end/panels/elements/FlexboxEditor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-05T09:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebbd4c2b_5c96ff19",
       "revId": "4aa8662ef4e383a6791c4c55b28d1321617412eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
