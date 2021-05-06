@@ -156,6 +156,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a9b0985_d3ba4696",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T09:36:53Z",
+      "side": 1,
+      "message": "Right, it isn\u0027t used elsewhere yet, but that\u0027s likely because of the legacy of the code. Historically the custom event handling in DevTools used (uses?) symbols to ensure uniqueness, so this would be the better successor to that approach because we can enforce it as part of the type system. That is, no two components should really be dispatching different messages with the same type string; it\u0027s a problem if you have a listener on – say – \"update\" without knowing that it\u0027s the correct \"update\". Declaring them globally like this means that we\u0027d be thrown errors, but it\u0027s predicated on the other usages being marked in the same way.\n\nSo in summary, I think it\u0027s the right next step and means we don\u0027t add more tech debt in this area (since adding these definitions is less ideal because we don\u0027t protect against duplication), but I appreciate if you don\u0027t want to start us along that journey here, too.",
+      "parentUuid": "4c8ef968_95640c77",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6859a2b6_131c40d5",
         "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
         "patchSetId": 5
