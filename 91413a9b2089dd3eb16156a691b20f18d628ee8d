@@ -16,6 +16,24 @@
       "message": "@Alex PTAL - I just uploaded a new patchset that has it working locally for me (please check yourself though!).\n\nI figured out that you had done almost everything right but the onWheel() event listener and the onScroll() were conflicting - it seemed that onWheel would just override and set the `userHasScrolled` variable to true.\n\nI decided that instead of using `userHasScrolled` and trying to reset it to be false, we should instead track if the user\u0027s last scroll took them to the bottom. If it does, we can then resume the auto-scrolling.",
       "revId": "91413a9b2089dd3eb16156a691b20f18d628ee8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "377ad217_4be87b05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T16:24:03Z",
+      "side": 1,
+      "message": "Thanks! I think it\u0027s not working quite right still. I think one of the problems that the method for detecting userLastScrolledToBottom is not reliable. One thing I noticed is that element.scrollTop is a float sometimes. Another thing is that we should probably clear userHasFocusInDataGridCell if the user scrolled down after focusing on a cell.",
+      "parentUuid": "5fd02246_3eb7aa42",
+      "revId": "91413a9b2089dd3eb16156a691b20f18d628ee8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
