@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8925667_ffd3ac1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T14:42:00Z",
+      "side": 1,
+      "message": "Excellent - thank you! I\u0027ll run CQ and, assuming all tests pass, we\u0027ll get it merged 😊",
+      "revId": "00ebf7ee51fce783d9031c0e76ff88e009e38ab6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
