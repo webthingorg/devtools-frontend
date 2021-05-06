@@ -97,6 +97,30 @@
       },
       "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e9b0e1_7adef7fb",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T06:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "102cfc9d_e53f6cea",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "ee2f5f3e6f97473d937489c799d8a702a2e3d190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
