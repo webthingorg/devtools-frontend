@@ -9,22 +9,20 @@ import * as ComponentHelpers from '../../helpers/helpers.js';
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
 
-const component = new Elements.FlexboxEditor.FlexboxEditor();
+const component = new Elements.StylePropertyEditor.GridEditor();
 
 document.getElementById('container')?.appendChild(component);
 
 const computedProperties = new Map([
-  ['flex-direction', 'column'],
-  ['flex-wrap', 'nowrap'],
   ['align-content', 'initial'],
   ['justify-content', 'flex-end'],
   ['align-items', 'normal'],
+  ['justify-items', 'normal'],
 ]);
 
 const originalComputedProperties = new Map(computedProperties);
 
 const authoredProperties = new Map([
-  ['flex-direction', 'column'],
   ['justify-content', 'flex-end'],
 ]);
 
@@ -33,7 +31,7 @@ component.data = {
   authoredProperties,
 };
 
-component.addEventListener('property-selected', (event: Elements.FlexboxEditor.PropertySelectedEvent) => {
+component.addEventListener('property-selected', (event: Elements.StylePropertyEditor.PropertySelectedEvent) => {
   authoredProperties.set(event.data.name, event.data.value);
   computedProperties.set(event.data.name, event.data.value);
   component.data = {
@@ -42,7 +40,7 @@ component.addEventListener('property-selected', (event: Elements.FlexboxEditor.P
   };
 });
 
-component.addEventListener('property-deselected', (event: Elements.FlexboxEditor.PropertyDeselectedEvent) => {
+component.addEventListener('property-deselected', (event: Elements.StylePropertyEditor.PropertyDeselectedEvent) => {
   authoredProperties.delete(event.data.name);
   computedProperties.set(event.data.name, originalComputedProperties.get(event.data.name) as string);
   component.data = {
