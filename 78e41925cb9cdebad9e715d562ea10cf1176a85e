@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac349a9b_c1dca161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222033
+      },
+      "writtenOn": "2021-05-06T17:40:19Z",
+      "side": 1,
+      "message": "I think this isn\u0027t a great idea.\n\nStatic templates have overhead - in code size, runtime perf, and memory - which is they\u0027re opt-in. You should only use them if you truly need to parameterize something static in the template - ie the value isn\u0027t actually known.\n\nI would be very hesitant to incur the overhead just to not use tag names. We have tools like lit-analyzer that will make sure that the tag names have been imported and are correct. Please use that to help ensure correctness of templates.",
+      "revId": "78e41925cb9cdebad9e715d562ea10cf1176a85e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
