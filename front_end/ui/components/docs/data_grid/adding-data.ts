@@ -19,7 +19,7 @@ component.data = {
   activeSort: null,
 };
 
-document.getElementById('container')?.appendChild(component);
+document.getElementById('container')?.prepend(component);
 
 document.querySelector('#add')?.addEventListener('click', (event: Event) => {
   event.preventDefault();

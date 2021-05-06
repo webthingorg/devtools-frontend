@@ -152,8 +152,9 @@ export class DataGrid extends HTMLElement {
    */
   private focusableCell: CellPosition = [0, 1];
   private hasRenderedAtLeastOnce = false;
-  private userHasFocusInDataGrid = false;
+  private userHasFocusInDataGridCell = false;
   private userHasScrolled = false;
+  private userLastScrolledToBottom = false;
   private scheduleRender = false;
 
   constructor() {
@@ -224,7 +225,10 @@ export class DataGrid extends HTMLElement {
   }
 
   private scrollToBottomIfRequired(): void {
-    if (this.hasRenderedAtLeastOnce === false || this.userHasFocusInDataGrid || this.userHasScrolled) {
+    const cannotAutoScrollDueToUserScrollingAway = this.userHasScrolled && !this.userLastScrolledToBottom;
+
+    if (this.hasRenderedAtLeastOnce === false || this.userHasFocusInDataGridCell ||
+        cannotAutoScrollDueToUserScrollingAway) {
       // On the first render we don't want to assume the user wants to scroll to the bottom.
       // And if they have focused a cell we don't want to scroll them away from it.
       // If they have scrolled the table manually we also won't scroll and disrupt their scroll position.
@@ -264,7 +268,7 @@ export class DataGrid extends HTMLElement {
   }
 
   private focusCell([newColumnIndex, newRowIndex]: CellPosition): void {
-    this.userHasFocusInDataGrid = true;
+    this.userHasFocusInDataGridCell = true;
 
     const [currentColumnIndex, currentRowIndex] = this.focusableCell;
     const newCellIsCurrentlyFocusedCell = (currentColumnIndex === newColumnIndex && currentRowIndex === newRowIndex);
@@ -582,7 +586,14 @@ export class DataGrid extends HTMLElement {
     menu.show();
   }
 
-  private onScroll(): void {
+  private onScroll(event: Event): void {
+    const element = event.target as HTMLElement;
+    // See https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#determine_if_an_element_has_been_totally_scrolled
+    if (element.scrollHeight - Math.abs(element.scrollTop) === element.clientHeight) {
+      this.userLastScrolledToBottom = true;
+    } else {
+      this.userLastScrolledToBottom = false;
+    }
     this.render();
   }
 
@@ -658,7 +669,7 @@ export class DataGrid extends HTMLElement {
      * we can steal focus away from the user if they are typing into an input
      * box to filter the data-grid, for example.
      */
-    this.userHasFocusInDataGrid = false;
+    this.userHasFocusInDataGridCell = false;
   }
 
   /**
@@ -930,7 +941,7 @@ export class DataGrid extends HTMLElement {
     // However, if the cell is a column header, we don't do this, as that
     // can never be not-rendered.
     const currentlyFocusedRowIndex = this.focusableCell[1];
-    if (this.userHasFocusInDataGrid && currentlyFocusedRowIndex > 0) {
+    if (this.userHasFocusInDataGridCell && currentlyFocusedRowIndex > 0) {
       this.focusCell(this.focusableCell);
     }
     this.scrollToBottomIfRequired();
