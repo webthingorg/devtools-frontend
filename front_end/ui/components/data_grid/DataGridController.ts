@@ -5,10 +5,10 @@
 import './DataGrid.js';
 
 import * as LitHtml from '../../../third_party/lit-html/lit-html.js';
+import * as ComponentHelpers from '../helpers/helpers.js';
 import type * as TextUtils from '../../../models/text_utils/text_utils.js';
 import {SortDirection, SortState, Column, Row, getRowEntryForColumnId, ContextMenuColumnSortClickEvent} from './DataGridUtils.js';
 import type {DataGridData, ColumnHeaderClickEvent, DataGridContextMenusConfiguration} from './DataGrid.js';
-
 
 export interface DataGridControllerData {
   columns: Column[];
@@ -222,7 +222,7 @@ export class DataGridController extends HTMLElement {
   }
 }
 
-customElements.define('devtools-data-grid-controller', DataGridController);
+ComponentHelpers.CustomElements.defineComponent('devtools-data-grid-controller', DataGridController);
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
