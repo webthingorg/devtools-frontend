@@ -39,6 +39,30 @@
       },
       "revId": "a48239c83362d8dd0a23fef22613746485ebc30c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3586ae1_d3357990",
+        "filename": "front_end/panels/application/components/components.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-06T10:22:31Z",
+      "side": 1,
+      "message": "Yeah must be an incorrect VS Code refactoring. Fixed!",
+      "parentUuid": "39bff22d_a19c16a5",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 63
+      },
+      "revId": "a48239c83362d8dd0a23fef22613746485ebc30c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
