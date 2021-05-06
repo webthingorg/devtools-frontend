@@ -178,6 +178,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9bfc254_0d050f95",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T11:03:13Z",
+      "side": 1,
+      "message": "I see, it makes sense. I have updated the CL to use the global map.",
+      "parentUuid": "9a9b0985_d3ba4696",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6859a2b6_131c40d5",
