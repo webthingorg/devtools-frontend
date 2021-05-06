@@ -91,6 +91,30 @@
       },
       "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11529061_b80f9474",
+        "filename": "front_end/ui/legacy/components/object_ui/RemoteObjectPreviewFormatter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-06T15:45:10Z",
+      "side": 1,
+      "message": "My initial intention was to not escape any characters at all, that way copying strings in their raw form would be the easiest. But perhaps the backticks might make this a little confusing.",
+      "parentUuid": "a5ded0ab_b130ce1f",
+      "range": {
+        "startLine": 291,
+        "startChar": 43,
+        "endLine": 291,
+        "endChar": 91
+      },
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
