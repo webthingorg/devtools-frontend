@@ -217,6 +217,24 @@
       "parentUuid": "0e9ceee1_f827f4e0",
       "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add29804_ba125721",
+        "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T09:08:30Z",
+      "side": 1,
+      "message": "ok, I have included the change in this CL. PTAL.",
+      "parentUuid": "ad18a5ca_5f72272f",
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
