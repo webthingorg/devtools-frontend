@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b51b5e28_78ef85f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-06T17:34:00Z",
+      "side": 1,
+      "message": "I\u0027ve linked the doc in the commit message-- there\u0027s a table with the success metrics included there in the Followup Work section.",
+      "parentUuid": "e839e16b_a686c683",
+      "revId": "bf91759dd3f81d9d9da78fcbb87f13e23ed1bc18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a42943e_e7e7a031",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-06T08:59:26Z",
       "side": 1,
       "message": "Could you please reference an issue here?",
+      "revId": "bf91759dd3f81d9d9da78fcbb87f13e23ed1bc18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7312988_e09362d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-06T17:34:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a42943e_e7e7a031",
       "revId": "bf91759dd3f81d9d9da78fcbb87f13e23ed1bc18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2021-05-06T08:59:26Z",
       "side": 1,
       "message": "I think this should be done by calling `Root.Runtime.experiments.enableExperimentsByDefault`",
+      "revId": "bf91759dd3f81d9d9da78fcbb87f13e23ed1bc18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490a8894_b84fb05e",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-06T17:34:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f409499e_4e37ad5a",
       "revId": "bf91759dd3f81d9d9da78fcbb87f13e23ed1bc18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
