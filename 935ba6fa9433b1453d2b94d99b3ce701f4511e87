@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "192bbca1_459868cf",
+        "filename": "front_end/ui/components/data_grid/DataGridController.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1222033
+      },
+      "writtenOn": "2021-05-06T17:36:20Z",
+      "side": 1,
+      "message": "What\u0027s the goal of the change here?\n\nIf the tag name is constant, I\u0027m not sure it\u0027s worth the extra cost of static templates just to parameterize it.",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 28
+      },
+      "revId": "935ba6fa9433b1453d2b94d99b3ce701f4511e87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
