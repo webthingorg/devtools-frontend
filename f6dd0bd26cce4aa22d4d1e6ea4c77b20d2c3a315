@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c0d29ac_d732d2b2",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T08:40:30Z",
+      "side": 1,
+      "message": "Oh, let me try it. I saw the current approach in other components and thought it\u0027s the best way. Thanks for the tip!",
+      "parentUuid": "6bcbd6fe_445c7f36",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6859a2b6_131c40d5",
         "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
         "patchSetId": 5
@@ -71,6 +95,24 @@
       "writtenOn": "2021-05-06T08:36:18Z",
       "side": 1,
       "message": "Is there any reason to add this OWNER file?",
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b0aab6_04075d01",
+        "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T08:40:30Z",
+      "side": 1,
+      "message": "Yeah, so that I could make changes to the editor docs in the future. Is there a better way to extend the ownership? Perhaps it\u0027s too restricted for component_docs?",
+      "parentUuid": "6859a2b6_131c40d5",
       "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
