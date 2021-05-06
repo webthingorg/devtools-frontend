@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "819b79b0_94915a12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-06T10:17:16Z",
+      "side": 1,
+      "message": "LGTM with nit/query",
+      "revId": "a48239c83362d8dd0a23fef22613746485ebc30c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39bff22d_a19c16a5",
+        "filename": "front_end/panels/application/components/components.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-06T10:17:16Z",
+      "side": 1,
+      "message": "should this be FrameDetailsView? Or if not, why the export as below?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 63
+      },
+      "revId": "a48239c83362d8dd0a23fef22613746485ebc30c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
