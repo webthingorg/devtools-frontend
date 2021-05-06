@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a3061e_bdda38c6",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T16:50:13Z",
+      "side": 1,
+      "message": "Can we remove this part?",
+      "revId": "3325b2c94bc8c85749b74e01ecb61479b9f643c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc712c64_c838174c",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T16:50:13Z",
+      "side": 1,
+      "message": "Suggestion: we should set userHasFocusInDataGridCell to false (or some other way to disregard it). Use case: if I clicked somewhere, but then scrolled to the bottom, it should not keep the current scroll position.",
+      "revId": "3325b2c94bc8c85749b74e01ecb61479b9f643c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
