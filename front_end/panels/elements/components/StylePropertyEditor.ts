@@ -8,7 +8,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as LitHtml from '../../../third_party/lit-html/lit-html.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 
-import {findFlexContainerIcon} from './CSSPropertyIconResolver.js';
+import {findFlexContainerIcon, findGridContainerIcon, IconInfo} from './CSSPropertyIconResolver.js';
 
 const UIStrings = {
   /**
@@ -24,7 +24,7 @@ const UIStrings = {
     */
   deselectButton: 'Remove {propertyName}: {propertyValue}',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/elements/components/FlexboxEditor.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/elements/components/StylePropertyEditor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const {render, html, Directives} = LitHtml;
@@ -32,6 +32,11 @@ const {render, html, Directives} = LitHtml;
 interface FlexEditorData {
   authoredProperties: Map<string, string>;
   computedProperties: Map<string, string>;
+}
+
+interface EditableProperty {
+  propertyName: string;
+  propertyValues: string[];
 }
 
 export class PropertySelectedEvent extends Event {
@@ -52,7 +57,7 @@ export class PropertyDeselectedEvent extends Event {
   }
 }
 
-export interface FlexboxEditor extends HTMLElement {
+export interface StylePropertyEditor extends HTMLElement {
   addEventListener<K extends keyof HTMLElementEventMap>(
       type: K,
       listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) =>
@@ -69,13 +74,18 @@ export interface FlexboxEditor extends HTMLElement {
   removeEventListener(type: 'property-deselected', callback: (event: PropertyDeselectedEvent) => void): void;
 }
 
-export class FlexboxEditor extends HTMLElement {
+export class StylePropertyEditor extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private authoredProperties: Map<string, string> = new Map();
   private computedProperties: Map<string, string> = new Map();
+  protected readonly editableProperties: EditableProperty[] = [];
 
   constructor() {
     super();
+  }
+
+  getEditableProperties(): EditableProperty[] {
+    return this.editableProperties;
   }
 
   set data(data: FlexEditorData) {
@@ -117,7 +127,7 @@ export class FlexboxEditor extends HTMLElement {
           color: var(--color-text-primary);
         }
 
-        .property-value.computed {
+        .property-value.not-authored {
           color: var(--color-text-disabled);
         }
 
@@ -166,7 +176,7 @@ export class FlexboxEditor extends HTMLElement {
         }
       </style>
       <div class="container">
-        ${EditableProperties.map(prop => this.renderProperty(prop))}
+        ${this.editableProperties.map(prop => this.renderProperty(prop))}
       </div>
     `, this.shadow, {
       host: this,
@@ -174,13 +184,13 @@ export class FlexboxEditor extends HTMLElement {
     // clang-format on
   }
 
-  private renderProperty(prop: typeof EditableProperties[number]): LitHtml.TemplateResult {
-    const computed = !this.authoredProperties.has(prop.propertyName);
+  private renderProperty(prop: EditableProperty): LitHtml.TemplateResult {
     const authoredValue = this.authoredProperties.get(prop.propertyName);
+    const notAuthored = !authoredValue;
     const shownValue = authoredValue || this.computedProperties.get(prop.propertyName);
     const classes = Directives.classMap({
       'property-value': true,
-      'computed': computed,
+      'not-authored': notAuthored,
     });
     return html`<div class="row">
       <div class="property">
@@ -194,7 +204,7 @@ export class FlexboxEditor extends HTMLElement {
 
   private renderButton(propertyValue: string, propertyName: string, selected: boolean = false): LitHtml.TemplateResult {
     const query = `${propertyName}: ${propertyValue}`;
-    const iconInfo = findFlexContainerIcon(query, this.computedProperties);
+    const iconInfo = this.findIcon(query, this.computedProperties);
     if (!iconInfo) {
       throw new Error(`Icon for ${query} is not found`);
     }
@@ -220,6 +230,18 @@ export class FlexboxEditor extends HTMLElement {
       this.dispatchEvent(new PropertySelectedEvent(propertyName, propertyValue));
     }
   }
+
+  protected findIcon(_query: string, _computedProperties: Map<string, string>): IconInfo|null {
+    throw new Error('Not implemented');
+  }
+}
+
+export class FlexboxEditor extends StylePropertyEditor {
+  protected readonly editableProperties: EditableProperty[] = FlexboxEditableProperties;
+
+  protected findIcon(query: string, computedProperties: Map<string, string>): IconInfo|null {
+    return findFlexContainerIcon(query, computedProperties);
+  }
 }
 
 customElements.define('devtools-flexbox-editor', FlexboxEditor);
@@ -231,31 +253,40 @@ declare global {
   }
 }
 
-export const enum PropertyNames {
-  FLEX_DIRECTION = 'flex-direction',
-  FLEX_WRAP = 'flex-wrap',
-  ALIGN_CONTENT = 'align-content',
-  JUSTIFY_CONTENT = 'justify-content',
-  ALIGN_ITEMS = 'align-items',
+export class GridEditor extends StylePropertyEditor {
+  protected readonly editableProperties: EditableProperty[] = GridEditableProperties;
+
+  protected findIcon(query: string, computedProperties: Map<string, string>): IconInfo|null {
+    return findGridContainerIcon(query, computedProperties);
+  }
 }
 
-export const EditableProperties = [
+customElements.define('devtools-grid-editor', GridEditor);
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface HTMLElementTagNameMap {
+    'devtools-grid-editor': GridEditor;
+  }
+}
+
+export const FlexboxEditableProperties = [
   {
-    propertyName: PropertyNames.FLEX_DIRECTION,
+    propertyName: 'flex-direction',
     propertyValues: [
       'row',
       'column',
     ],
   },
   {
-    propertyName: PropertyNames.FLEX_WRAP,
+    propertyName: 'flex-wrap',
     propertyValues: [
       'nowrap',
       'wrap',
     ],
   },
   {
-    propertyName: PropertyNames.ALIGN_CONTENT,
+    propertyName: 'align-content',
     propertyValues: [
       'center',
       'flex-start',
@@ -266,7 +297,7 @@ export const EditableProperties = [
     ],
   },
   {
-    propertyName: PropertyNames.JUSTIFY_CONTENT,
+    propertyName: 'justify-content',
     propertyValues: [
       'center',
       'flex-start',
@@ -277,13 +308,56 @@ export const EditableProperties = [
     ],
   },
   {
-    propertyName: PropertyNames.ALIGN_ITEMS,
+    propertyName: 'align-items',
     propertyValues: [
       'center',
       'flex-start',
       'flex-end',
       'stretch',
       'baseline',
+    ],
+  },
+];
+
+export const GridEditableProperties = [
+  {
+    propertyName: 'align-content',
+    propertyValues: [
+      'center',
+      'space-between',
+      'space-around',
+      'space-evenly',
+      'stretch',
+    ],
+  },
+  {
+    propertyName: 'justify-content',
+    propertyValues: [
+      'center',
+      'start',
+      'end',
+      'space-between',
+      'space-around',
+      'space-evenly',
+    ],
+  },
+  {
+    propertyName: 'align-items',
+    propertyValues: [
+      'center',
+      'start',
+      'end',
+      'stretch',
+      'baseline',
+    ],
+  },
+  {
+    propertyName: 'justify-items',
+    propertyValues: [
+      'center',
+      'start',
+      'end',
+      'stretch',
     ],
   },
 ];
