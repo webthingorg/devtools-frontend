@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c8ef968_95640c77",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-06T09:10:54Z",
+      "side": 1,
+      "message": "it seems there are no usages of the global HTMLElementEventMap so far. Perhaps we should discuss it separately? I am not sure if we might want to have events with the same name but different types in the future.",
+      "parentUuid": "72901014_de66e845",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6859a2b6_131c40d5",
         "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
         "patchSetId": 5
