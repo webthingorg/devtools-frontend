@@ -133,6 +133,7 @@ export class LayoutPane extends HTMLElement {
   private render(): void {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     render(html`
       <details open>
         <summary class="header" @keydown=${this.onSummaryKeyDown}>
@@ -263,6 +264,7 @@ export class LayoutPane extends HTMLElement {
     };
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return html`<div class="element">
       <label data-element="true" class="checkbox-label" title=${element.name}>
         <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
