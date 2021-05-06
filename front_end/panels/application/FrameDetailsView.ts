@@ -291,6 +291,7 @@ export class FrameDetailsReportView extends HTMLElement {
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     LitHtml.render(LitHtml.html`
       <style>
         .text-ellipsis {
@@ -383,6 +384,7 @@ export class FrameDetailsReportView extends HTMLElement {
       if (!allowed.length) {
         return LitHtml.nothing;
       }
+      // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
       return LitHtml.html`
         <devtools-report-key>${i18nString(UIStrings.allowedFeatures)}</devtools-report-key>
         <devtools-report-value>
@@ -397,6 +399,7 @@ export class FrameDetailsReportView extends HTMLElement {
         return LitHtml.nothing;
       }
       if (!this.showPermissionsDisallowedDetails) {
+        // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <devtools-report-key>${i18nString(UIStrings.disabledFeatures)}</devtools-report-key>
           <devtools-report-value>
@@ -436,6 +439,7 @@ export class FrameDetailsReportView extends HTMLElement {
           await Network.NetworkPanel.RequestLocationRevealer.instance().reveal(requestLocation);
         };
 
+        // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <div class="permissions-row">
             <div>
@@ -467,6 +471,7 @@ export class FrameDetailsReportView extends HTMLElement {
         `;
       }));
 
+      // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
       return LitHtml.html`
         <devtools-report-key>${i18nString(UIStrings.disabledFeatures)}</devtools-report-key>
         <devtools-report-value class="policies-list">
@@ -502,6 +507,7 @@ export class FrameDetailsReportView extends HTMLElement {
       `;
     };
 
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-section-header>${i18nString(UIStrings.permissionsPolicy)}</devtools-report-section-header>
       ${renderAllowed()}
@@ -515,6 +521,7 @@ export class FrameDetailsReportView extends HTMLElement {
       return LitHtml.nothing;
     }
 
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-section-header>${i18nString(UIStrings.document)}</devtools-report-section-header>
       <devtools-report-key>${i18nString(UIStrings.url)}</devtools-report-key>
@@ -567,6 +574,7 @@ export class FrameDetailsReportView extends HTMLElement {
       clickHandler: (() => void)|(() => Promise<void>)): LitHtml.TemplateResult {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <button class="link" role="link" tabindex=0 @click=${clickHandler} title=${title}>
         <devtools-icon .data=${{
@@ -598,6 +606,7 @@ export class FrameDetailsReportView extends HTMLElement {
     if (!this.frame || !this.frame.unreachableUrl()) {
       return LitHtml.nothing;
     }
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-key>${i18nString(UIStrings.unreachableUrl)}</devtools-report-key>
       <devtools-report-value>
@@ -639,6 +648,7 @@ export class FrameDetailsReportView extends HTMLElement {
 
   private maybeRenderOrigin(): LitHtml.TemplateResult|{} {
     if (this.frame && this.frame.securityOrigin && this.frame.securityOrigin !== '://') {
+      // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
       return LitHtml.html`
         <devtools-report-key>${i18nString(UIStrings.origin)}</devtools-report-key>
         <devtools-report-value>
@@ -655,6 +665,7 @@ export class FrameDetailsReportView extends HTMLElement {
       if (linkTargetDOMNode) {
         // Disabled until https://crbug.com/1079231 is fixed.
         // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <style>
             .button-icon-with-text {
@@ -693,6 +704,7 @@ export class FrameDetailsReportView extends HTMLElement {
     if (creationStackTraceData && creationStackTraceData.creationStackTrace) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
+// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
       return LitHtml.html`
         <devtools-report-key title=${i18nString(UIStrings.creationStackTraceExplanation)}>${
           i18nString(UIStrings.creationStackTrace)}</devtools-report-key>
@@ -712,6 +724,7 @@ export class FrameDetailsReportView extends HTMLElement {
   private maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
     if (this.frame) {
       if (this.frame.adFrameType() === Protocol.Page.AdFrameType.Root) {
+        // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <devtools-report-key>${i18nString(UIStrings.adStatus)}</devtools-report-key>
           <devtools-report-value title=${i18nString(UIStrings.thisFrameHasBeenIdentifiedAsThe)}>${
@@ -719,6 +732,7 @@ export class FrameDetailsReportView extends HTMLElement {
         `;
       }
       if (this.frame.adFrameType() === Protocol.Page.AdFrameType.Child) {
+        // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <devtools-report-key>${i18nString(UIStrings.adStatus)}</devtools-report-key>
           <devtools-report-value title=${i18nString(UIStrings.thisFrameHasBeenIdentifiedAsTheA)}>${
@@ -733,6 +747,7 @@ export class FrameDetailsReportView extends HTMLElement {
     if (!this.frame) {
       return LitHtml.nothing;
     }
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-section-header>${i18nString(UIStrings.securityIsolation)}</devtools-report-section-header>
       <devtools-report-key>${i18nString(UIStrings.secureContext)}</devtools-report-key>
@@ -804,6 +819,7 @@ export class FrameDetailsReportView extends HTMLElement {
     const isEnabled = info.value !== noneValue;
     const isReportOnly = (!isEnabled && info.reportOnlyValue !== noneValue);
     const endpoint = isEnabled ? info.reportingEndpoint : info.reportOnlyReportingEndpoint;
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-key>${policyName}</devtools-report-key>
       <devtools-report-value>
@@ -821,6 +837,7 @@ export class FrameDetailsReportView extends HTMLElement {
       return LitHtml.nothing;
     }
 
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-section-header>${i18nString(UIStrings.apiAvailability)}</devtools-report-section-header>
       <div class="span-cols">
@@ -871,6 +888,7 @@ export class FrameDetailsReportView extends HTMLElement {
         }
 
         // SharedArrayBuffer is an API name, so we don't translate it.
+        // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
         return LitHtml.html`
           <devtools-report-key>SharedArrayBuffers</devtools-report-key>
           <devtools-report-value title=${tooltipText}>
@@ -890,6 +908,7 @@ export class FrameDetailsReportView extends HTMLElement {
           measureMemoryAvailable ? i18nString(UIStrings.available) : i18nString(UIStrings.unavailable);
       const tooltipText = measureMemoryAvailable ? i18nString(UIStrings.thePerformanceAPI) :
                                                    i18nString(UIStrings.thePerformancemeasureuseragentspecificmemory);
+      // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
       return LitHtml.html`
         <devtools-report-key>${i18nString(UIStrings.measureMemory)}</devtools-report-key>
         <devtools-report-value>
@@ -907,6 +926,7 @@ export class FrameDetailsReportView extends HTMLElement {
       return LitHtml.nothing;
     }
 
+    // eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     return LitHtml.html`
       <devtools-report-section-header
         title=${i18nString(UIStrings.thisAdditionalDebugging)}
