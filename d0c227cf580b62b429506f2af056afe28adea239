@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7ce0ec_5c8e0c1b",
+        "filename": "scripts/eslint_rules/lib/custom_element_definitions_location.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-06T13:01:58Z",
+      "side": 1,
+      "message": "worth a crbug to track?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 59
+      },
+      "revId": "d0c227cf580b62b429506f2af056afe28adea239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
