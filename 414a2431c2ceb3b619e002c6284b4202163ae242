@@ -51,6 +51,46 @@
       "parentUuid": "e5fe4b8b_9811fccd",
       "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2d75dc_9de3d27c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-06T13:53:06Z",
+      "side": 1,
+      "message": "LGTM from a technical point of view % nit - but I\u0027m not familiar with this part of the codebase. ",
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ded0ab_b130ce1f",
+        "filename": "front_end/ui/legacy/components/object_ui/RemoteObjectPreviewFormatter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-06T13:53:06Z",
+      "side": 1,
+      "message": "What happens if the description contains a backtick itself?",
+      "range": {
+        "startLine": 291,
+        "startChar": 43,
+        "endLine": 291,
+        "endChar": 91
+      },
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
