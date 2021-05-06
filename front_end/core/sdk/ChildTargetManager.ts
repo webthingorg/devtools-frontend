@@ -193,9 +193,9 @@ export class ChildTargetManager extends SDKModel implements ProtocolProxyApi.Tar
     const sessionId = (await targetAgent.invoke_attachToTarget({targetId, flatten: true})).sessionId;
     const connection = new ParallelConnection(targetRouter.connection(), sessionId);
     targetRouter.registerSession(target, sessionId, connection);
-    connection.setOnDisconnect(() => {
+    connection.setOnDisconnect(async () => {
+      await targetAgent.invoke_detachFromTarget({sessionId});
       targetRouter.unregisterSession(sessionId);
-      targetAgent.invoke_detachFromTarget({sessionId});
     });
     return {connection, sessionId};
   }
