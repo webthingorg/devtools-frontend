@@ -16,6 +16,63 @@
       "message": "Paul, could you please review changes in component_docs? ",
       "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583e3c23_5d03a907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T08:36:18Z",
+      "side": 1,
+      "message": "LGTM. It\u0027s quite a sizeable CL, this one, but I\u0027m heartened there are some tests! 😊",
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bcbd6fe_445c7f36",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T08:36:18Z",
+      "side": 1,
+      "message": "FWIW you can also do:\n\ndeclare global {\n  interface HTMLElementEventMap {\n    \u0027property-selected\u0027: PropertySelectedEvent;\n    \u0027property-deselected\u0027: PropertyDeSelectedEvent;\n  }\n}\n\nAnd then you won\u0027t need to do the generic version of addEventListener.\n\nAlso, a nit here is that typically event types don\u0027t have a hyphen in the string. At least, the platform ones don\u0027t.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6859a2b6_131c40d5",
+        "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T08:36:18Z",
+      "side": 1,
+      "message": "Is there any reason to add this OWNER file?",
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
