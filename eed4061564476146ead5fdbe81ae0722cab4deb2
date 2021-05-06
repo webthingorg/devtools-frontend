@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d5a259_c2350973",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-06T05:56:16Z",
+      "side": 1,
+      "message": "Yes, exactly, and then used to fetch the right locale file, either from bundled or remotely.",
+      "parentUuid": "8feea70b_ac3ad61d",
+      "revId": "eed4061564476146ead5fdbe81ae0722cab4deb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99a3d764_e1a18fce",
@@ -89,6 +107,30 @@
       "side": 1,
       "message": "Yes I like this a lot! Do you mind filing a bug to make sure we track that for other singletons?",
       "parentUuid": "99a3d764_e1a18fce",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "eed4061564476146ead5fdbe81ae0722cab4deb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcbccfca_e4000fc7",
+        "filename": "front_end/entrypoints/main/DevToolsLocale.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-06T05:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b94e2633_4dfdac04",
       "range": {
         "startLine": 9,
         "startChar": 0,
