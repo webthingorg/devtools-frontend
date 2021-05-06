@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72901014_de66e845",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T09:04:32Z",
+      "side": 1,
+      "message": "Yes it would, but that then means you don\u0027t get conflicts based on event names, which is a benefit imo.",
+      "parentUuid": "e273954f_76ce07f7",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 106
+      },
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6859a2b6_131c40d5",
         "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
         "patchSetId": 5
