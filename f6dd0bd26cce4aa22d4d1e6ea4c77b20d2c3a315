@@ -139,6 +139,24 @@
       "parentUuid": "6859a2b6_131c40d5",
       "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e9b387_e09d69a4",
+        "filename": "front_end/ui/components/docs/style_property_editor/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T08:56:18Z",
+      "side": 1,
+      "message": "Just wondering if we should extend the COMMON_OWNERS, but set it at the component_docs level. It\u0027s currently set to Jack, but I think we generally want most of the team to be able to update the component_docs as they need.",
+      "parentUuid": "f6b0aab6_04075d01",
+      "revId": "f6dd0bd26cce4aa22d4d1e6ea4c77b20d2c3a315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
