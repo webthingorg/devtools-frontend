@@ -16,6 +16,23 @@
       "message": "Looking forward to getting feedback. Thank you.",
       "revId": "4cb5073f57dc8dffc7f3e2742a7add03189f9129",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac1814f_64e14eed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-06T14:07:04Z",
+      "side": 1,
+      "message": "Hi, thanks for sending this CL. Is there any way you could include a before and after screenshot so others can see the change without necessarily having to build the patch in?\n\nThanks!",
+      "revId": "4cb5073f57dc8dffc7f3e2742a7add03189f9129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
