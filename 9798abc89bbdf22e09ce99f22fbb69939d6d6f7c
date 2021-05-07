@@ -92,6 +92,30 @@
       },
       "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486a7e76_03416271",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T12:01:54Z",
+      "side": 1,
+      "message": "Legal tends to reply within 1 working day, which I think is an acceptable timeframe for us as well? WDYT about sending them a request and in the event we don\u0027t have a response by the start of Tuesday, we can push the code as-is? Asking the question now will also be useful for future usages of types that will-be-defined in TypeScript at some point.",
+      "parentUuid": "a8e78998_289a1599",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 15
+      },
+      "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
