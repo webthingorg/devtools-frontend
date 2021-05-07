@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "235d01e6_5f3479ba",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T15:04:15Z",
+      "side": 1,
+      "message": "There is no metadata on a HTTP request to denote whether the origin had a queryParam (e.g. ?coverage\u003d1) or any other method. However, since all requests have the full URL, we can prepend this prefix and then we are able to figure out whether it is a coverage computation request or not.",
+      "range": {
+        "startLine": 252,
+        "startChar": 6,
+        "endLine": 252,
+        "endChar": 52
+      },
+      "revId": "37cfdffa53ce3d2b5a119517cc2146a8fb0504e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b1a264_6b058a6d",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T15:04:15Z",
+      "side": 1,
+      "message": "With arrow functions, the `this` wasn\u0027t correctly bound and the `this.timeout` weren\u0027t actually doing anything. This was always working, as `this \u003d\u003d\u003d window` and `window.timeout` is a function \u003e.\u003c",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "37cfdffa53ce3d2b5a119517cc2146a8fb0504e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

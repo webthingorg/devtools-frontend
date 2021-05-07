@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34516837_fe71a9e8",
+        "filename": "test/conductor/test_server.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T15:04:15Z",
+      "side": 0,
+      "message": "Throwing an error here is actually crashing the whole test suite runner. With a `console.error` the processes don\u0027t hang and are properly showing up the errors.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "92d843c6b291f9264379aa1b8493a8f2a30713c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
