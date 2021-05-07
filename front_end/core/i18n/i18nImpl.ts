@@ -6,6 +6,7 @@
 import i18nBundle from '../../third_party/i18n/i18n-bundle.js';
 import * as Platform from '../platform/platform.js';
 
+import type {DevToolsLocale} from './DevToolsLocale';
 import * as i18nTypes from './i18nTypes.js';
 
 /**
@@ -179,4 +180,35 @@ export function lockedString(str: string): Platform.UIString.LocalizedString {
  */
 export function lockedLazyString(str: string): () => Platform.UIString.LocalizedString {
   return (): Platform.UIString.LocalizedString => str as Platform.UIString.LocalizedString;
+}
+
+/**
+ * Returns a string of the form:
+ *   "German (Austria) - Deutsch (Österreich)"
+ * for a given locale based on the current DevTools locale.
+ */
+export function getLocalizedLanguageRegion(
+    localeString: string, devtoolsLocale: DevToolsLocale): Platform.UIString.LocalizedString {
+  // @ts-ignore TODO(crbug.com/1163928) Wait for Intl support.
+  const locale = new Intl.Locale(localeString);
+  const languageInCurrentLocale =
+      // @ts-ignore TODO(crbug.com/1163928) Wait for Intl support.
+      new Intl.DisplayNames([devtoolsLocale.locale], {type: 'language'}).of(locale.language);
+  // @ts-ignore TODO(crbug.com/1163928) Wait for Intl support.
+  const languageInTargetLocale = new Intl.DisplayNames([locale.baseName], {type: 'language'}).of(locale.language);
+
+  let wrappedRegionInCurrentLocale = '';
+  let wrappedRegionInTargetLocale = '';
+
+  if (locale.region) {
+    // @ts-ignore TODO(crbug.com/1163928) Wait for Intl support.
+    const regionInCurrentLocale = new Intl.DisplayNames([devtoolsLocale.locale], {type: 'region'}).of(locale.region);
+    // @ts-ignore TODO(crbug.com/1163928) Wait for Intl support.
+    const regionInTargetLocale = new Intl.DisplayNames([locale.baseName], {type: 'region'}).of(locale.region);
+    wrappedRegionInCurrentLocale = ` (${regionInCurrentLocale})`;
+    wrappedRegionInTargetLocale = ` (${regionInTargetLocale})`;
+  }
+
+  return `${languageInCurrentLocale}${wrappedRegionInCurrentLocale} - ${languageInTargetLocale}${
+             wrappedRegionInTargetLocale}` as Platform.UIString.LocalizedString;
 }
