@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41311a65_27c0fa20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-07T06:48:48Z",
+      "side": 1,
+      "message": "Yes, I agree. Also found it to be more complex than I thought. I think we should also fix the scroll bar height: right now clicking the scroll up and down buttons leads to the different amount of scrolling and the scroll behaviour appears to be quite untypical.",
+      "parentUuid": "b2fe7683_c9c69b5b",
+      "revId": "3325b2c94bc8c85749b74e01ecb61479b9f643c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49a3061e_bdda38c6",
