@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eac09c6_5ccc7756",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T10:45:19Z",
+      "side": 1,
+      "message": "Initially I was a bit confused as to what the behavior was, but after reading the code I understand what is going on here. Could we maybe update this comment to make it a bit clearer?\n\n\u003e where the former locale representation is written in the currently enabled DevTools locale and the latter locale representation written in the locale of `localeString`.",
+      "range": {
+        "startLine": 188,
+        "startChar": 3,
+        "endLine": 188,
+        "endChar": 58
+      },
+      "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b2809c7_e8217a82",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T10:45:19Z",
+      "side": 1,
+      "message": "Seems like this can be `UnicodeBCP47LocaleIdentifier` as defined in `es2020.intl.d.ts` which we would then also have to include in our `ts_library` compilation.",
+      "range": {
+        "startLine": 191,
+        "startChar": 18,
+        "endLine": 191,
+        "endChar": 24
+      },
+      "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31e4122_61eb72bd",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T10:45:19Z",
+      "side": 1,
+      "message": "Rather than disabling these types, can we backport the types for now in `global_typings`, similarly to what we did with `request_idle_callback.ts`?\n\nWe can probably take the types defined in https://github.com/microsoft/TypeScript/pull/39664 but it might be worthwhile to quickly check with legal whether that is okay to be copied over. TypeScript is licensed under Apache 2.0: https://github.com/microsoft/TypeScript/blob/master/LICENSE.txt",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 15
+      },
+      "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
