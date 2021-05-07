@@ -19,6 +19,7 @@
 /scripts/visualize_deps/out
 config.gypi
 /karma-coverage
+/coverage-report
 /perf-data
 npm-debug.log
 /scripts/protocol_typescript/*.js
