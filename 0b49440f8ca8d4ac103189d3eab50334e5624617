@@ -94,6 +94,30 @@
       },
       "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b96b83_32af02fe",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-07T04:47:26Z",
+      "side": 1,
+      "message": "Alright, there seems to be consent that we shouldn\u0027t add a backend ResourceType that\u0027s never reported by Chrome in https://crrev.com/c/2871748",
+      "parentUuid": "3379a2b2_03483506",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 5
+      },
+      "revId": "0b49440f8ca8d4ac103189d3eab50334e5624617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
