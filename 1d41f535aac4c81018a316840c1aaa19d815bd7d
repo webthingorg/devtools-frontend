@@ -33,6 +33,23 @@
       "message": "Thanks for the quick fix!",
       "revId": "1d41f535aac4c81018a316840c1aaa19d815bd7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d82794_a07d89ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-07T06:40:43Z",
+      "side": 1,
+      "message": "Thanks for the quick review :)",
+      "revId": "1d41f535aac4c81018a316840c1aaa19d815bd7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
