@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94959535_25e7fbe9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-07T08:35:38Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nJust noticed that there\u0027s a left-over \u0027displayName\u0027 use in the front-end.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "d83d35416139a63e01744b8b461d10b662df1545",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
