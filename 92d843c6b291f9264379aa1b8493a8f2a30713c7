@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "25309eaa_4ba05e20",
+        "filename": "test/conductor/component_hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T15:12:21Z",
+      "side": 0,
+      "message": "This file was unused.",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "92d843c6b291f9264379aa1b8493a8f2a30713c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "34516837_fe71a9e8",
         "filename": "test/conductor/test_server.ts",
         "patchSetId": 2
