@@ -34,6 +34,24 @@
       "parentUuid": "ac349a9b_c1dca161",
       "revId": "78e41925cb9cdebad9e715d562ea10cf1176a85e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be631766_087b2922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-07T14:03:00Z",
+      "side": 1,
+      "message": "Here\u0027s a proof-of-concept (https://github.com/lit/lit/pull/1858) that Lit can be improved to avoid the cost for static templates (mostly).",
+      "parentUuid": "e923bfd5_76581be8",
+      "revId": "78e41925cb9cdebad9e715d562ea10cf1176a85e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
