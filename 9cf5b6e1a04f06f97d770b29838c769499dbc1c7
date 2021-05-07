@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9265aa_f3acd416",
+        "filename": "front_end/core/i18n/DevToolsLocale.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T09:53:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "939f2301_7d28df97",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 17
+      },
+      "revId": "9cf5b6e1a04f06f97d770b29838c769499dbc1c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac1d32a6_3d35b84b",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-07T08:41:59Z",
       "side": 1,
       "message": "This will be hooked up to i18nBundle.lookupLocale. I didn\u0027t want to side-effect import the third-party library here, which would make this class dependent on global state again (the list of supported locales).",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "9cf5b6e1a04f06f97d770b29838c769499dbc1c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78bc6808_22d2f21c",
+        "filename": "front_end/core/i18n/DevToolsLocale.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-07T09:53:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac1d32a6_3d35b84b",
       "range": {
         "startLine": 10,
         "startChar": 2,
