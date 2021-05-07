@@ -4,9 +4,18 @@
 
 import {getBrowserAndPages, getTestServerPort} from '../../shared/helper.js';
 
-export const loadComponentDocExample = async (url: string) => {
+export const loadComponentDocExample = async (url: string, {prepend}: {prepend: string} = {
+  prepend: '',
+}) => {
   const {frontend} = getBrowserAndPages();
-  await frontend.goto(`http://localhost:${getTestServerPort()}/front_end/ui/components/docs/${url}`, {
+  await frontend.goto(`http://localhost:${getTestServerPort()}/${prepend}front_end/ui/components/docs/${url}`, {
     waitUntil: 'networkidle0',
+  });
+};
+
+export const preloadForCodeCoverage = (name: string) => {
+  before(async function() {
+    this.timeout(0);
+    await loadComponentDocExample(name, {prepend: 'compute-coverage/'});
   });
 };
