@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as CompatibilityModeCheckTrigger from './CompatibilityModeCheckTrigger.js';
 import * as ContentSecurityPolicyIssue from './ContentSecurityPolicyIssue.js';
 import * as ContrastCheckTrigger from './ContrastCheckTrigger.js';
 import * as CorsIssue from './CorsIssue.js';
@@ -12,6 +13,7 @@ import * as IssuesManager from './IssuesManager.js';
 import * as LowTextContrastIssue from './LowTextContrastIssue.js';
 import * as MarkdownIssueDescription from './MarkdownIssueDescription.js';
 import * as MixedContentIssue from './MixedContentIssue.js';
+import * as QuirksModeIssue from './QuirksModeIssue.js';
 import * as RelatedIssue from './RelatedIssue.js';
 import * as SameSiteCookieIssue from './SameSiteCookieIssue.js';
 import * as SharedArrayBufferIssue from './SharedArrayBufferIssue.js';
@@ -19,6 +21,7 @@ import * as SourceFrameIssuesManager from './SourceFrameIssuesManager.js';
 import * as TrustedWebActivityIssue from './TrustedWebActivityIssue.js';
 
 export {
+  CompatibilityModeCheckTrigger,
   ContentSecurityPolicyIssue,
   ContrastCheckTrigger,
   CorsIssue,
@@ -29,6 +32,7 @@ export {
   LowTextContrastIssue,
   MarkdownIssueDescription,
   MixedContentIssue,
+  QuirksModeIssue,
   RelatedIssue,
   SameSiteCookieIssue,
   SharedArrayBufferIssue,

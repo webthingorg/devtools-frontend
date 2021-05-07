@@ -349,6 +349,7 @@ export class MainImpl {
       showThirdPartyIssuesSetting: IssuesManager.Issue.getShowThirdPartyIssuesSetting(),
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
+    IssuesManager.CompatibilityModeCheckTrigger.CompatibilityModeCheckTrigger.instance();
 
     // @ts-ignore layout test global
     self.SDK.consoleModel = SDK.ConsoleModel.ConsoleModel.instance();

@@ -11,6 +11,7 @@ import {HeavyAdIssue} from './HeavyAdIssue.js';
 import {Issue, IssueKind} from './Issue.js';
 import {LowTextContrastIssue} from './LowTextContrastIssue.js';
 import {MixedContentIssue} from './MixedContentIssue.js';
+import {QuirksModeIssue} from './QuirksModeIssue.js';
 import {SameSiteCookieIssue} from './SameSiteCookieIssue.js';
 import {SharedArrayBufferIssue} from './SharedArrayBufferIssue.js';
 import {SourceFrameIssuesManager} from './SourceFrameIssuesManager.js';
@@ -68,6 +69,10 @@ const issueCodeHandlers = new Map<
   [
     Protocol.Audits.InspectorIssueCode.CorsIssue,
     CorsIssue.fromInspectorIssue,
+  ],
+  [
+    Protocol.Audits.InspectorIssueCode.QuirksModeIssue,
+    QuirksModeIssue.fromInspectorIssue,
   ],
 ]);
 
