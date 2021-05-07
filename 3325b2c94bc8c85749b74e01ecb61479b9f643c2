@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2fe7683_c9c69b5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-07T06:46:31Z",
+      "side": 1,
+      "message": "It sounds like we should probably take a step back and re-look at some of the logic then, given this hasn\u0027t been as easy as we might have hoped. I don\u0027t have time to do that at the moment but let\u0027s leave the bug open and revisit.\n\nI agree that even if the user has focused but then scrolled to the bottom we should continue to autoscroll, but we probably shouldn\u0027t reset that variable. I wonder if we want a new method called canAutoScroll() where we can clearly define the situations in which we can (or can\u0027t).",
+      "revId": "3325b2c94bc8c85749b74e01ecb61479b9f643c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49a3061e_bdda38c6",
