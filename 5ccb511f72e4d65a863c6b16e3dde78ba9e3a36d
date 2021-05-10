@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5460ac3b_4f071d65",
+        "filename": "front_end/ui/lit-html/static.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T12:47:17Z",
+      "side": 1,
+      "message": "TypeScript doesn\u0027t know, and throws. I think it\u0027s one of the cases they don\u0027t support because it\u0027s a callback.",
+      "parentUuid": "68bc6352_df8359d1",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 0
+      },
+      "revId": "5ccb511f72e4d65a863c6b16e3dde78ba9e3a36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f2fea61_59792dce",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-10T12:35:02Z",
       "side": 1,
       "message": "I like these tests, but what do you think about adding some tests that ensure the right stuff is rendered? E.g. actually call `LitHtml.withStatic` a bunch and assert on the resulting DOM?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "5ccb511f72e4d65a863c6b16e3dde78ba9e3a36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6db2de_c01bf3fd",
+        "filename": "test/unittests/front_end/ui/lit-html/static_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T12:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f2fea61_59792dce",
       "range": {
         "startLine": 56,
         "startChar": 4,
