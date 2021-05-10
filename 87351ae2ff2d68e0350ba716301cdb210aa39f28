@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937de0b6_67f90eb3",
+        "filename": "front_end/panels/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T15:36:12Z",
+      "side": 1,
+      "message": "Any way to define this without an invert filter? I ask because filters are typically applied on the GPU as a post-processing step; ideally, if we can, we should set the color to be what we\u0027d like it to be.",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 22
+      },
+      "revId": "87351ae2ff2d68e0350ba716301cdb210aa39f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
