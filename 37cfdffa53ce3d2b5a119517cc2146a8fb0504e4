@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2a44e28b_0f98dbd1",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T12:12:28Z",
+      "side": 1,
+      "message": "We could send this as a header?",
+      "parentUuid": "235d01e6_5f3479ba",
+      "range": {
+        "startLine": 252,
+        "startChar": 6,
+        "endLine": 252,
+        "endChar": 52
+      },
+      "revId": "37cfdffa53ce3d2b5a119517cc2146a8fb0504e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e4b1a264_6b058a6d",
         "filename": "test/conductor/mocha_hooks.ts",
         "patchSetId": 2
@@ -77,6 +101,30 @@
       "writtenOn": "2021-05-10T08:10:01Z",
       "side": 1,
       "message": "wouldn\u0027t mind a comment here explaining why we do this",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "37cfdffa53ce3d2b5a119517cc2146a8fb0504e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85af7513_85e77b75",
+        "filename": "test/interactions/helpers/shared.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T12:12:28Z",
+      "side": 1,
+      "message": "+1 Also thinking we could do this and set extra HTTP headers (which pptr seems to allow: https://github.com/puppeteer/puppeteer/blob/v9.1.1/docs/api.md#pagesetextrahttpheadersheaders) and then we don\u0027t need to append and remove anything from the paths.",
+      "parentUuid": "141f4db6_c7fba374",
       "range": {
         "startLine": 15,
         "startChar": 0,
