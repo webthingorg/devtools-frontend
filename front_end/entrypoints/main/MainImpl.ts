@@ -164,11 +164,16 @@ export class MainImpl {
         lookupClosestDevToolsLocale: i18n.i18n.lookupClosestSupportedDevToolsLocale,
       },
     });
-    const data = await Root.Runtime.loadResourcePromise(
-        new URL(`../../core/i18n/locales/${devToolsLocale.locale}.json`, import.meta.url).toString());
-    if (data) {
-      const localizedStrings = JSON.parse(data);
-      i18n.i18n.registerLocaleData(devToolsLocale.locale, localizedStrings);
+
+    try {
+      await i18n.i18n.fetchAndRegisterLocaleData(devToolsLocale.locale, i18n.i18n.BUNDLED_LOCALES);
+    } catch (e) {
+      // Fetching the preferred locale failed, let's use en-US.
+      try {
+        await i18n.i18n.fetchAndRegisterLocaleData('en-US', i18n.i18n.BUNDLED_LOCALES);
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 

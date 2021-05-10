@@ -5,14 +5,15 @@
 // eslint-disable-next-line
 import i18nBundle from '../../third_party/i18n/i18n-bundle.js';
 import * as Platform from '../platform/platform.js';
+import * as Root from '../root/root.js';
 
 import {DevToolsLocale} from './DevToolsLocale.js';
 import * as i18nTypes from './i18nTypes.js';
 
-/**
- * The locale that DevTools displays
- */
-export const registerLocaleData = i18nBundle.registerLocaleData;
+// All the locales that are part of the DevTools bundle and should not be fetched
+// remotely. Keep this list in sync with "copied_devtools_locale_files" in
+// "all_devtools_files.gni".
+export const BUNDLED_LOCALES = new Set<string>(['en-US', 'zh']);
 
 /**
  * The strings from the module.json file
@@ -38,6 +39,31 @@ function getOrSetModuleJSONStrings(): Object {
  */
 export function lookupClosestSupportedDevToolsLocale(locale: string): string {
   return i18nBundle.lookupLocale(locale);
+}
+
+/**
+ * Fetches the locale data of the specified locale.
+ * Callers have to ensure that `locale` is an officilly supported locale.
+ * Depending whether a locale is present in `bundledLocales`, the data will be
+ * fetched locally or remotely.
+ */
+export async function fetchAndRegisterLocaleData(
+    locale: Intl.UnicodeBCP47LocaleIdentifier, bundledLocales: Set<string>): Promise<void> {
+  let localeDataTextPromise;
+  const remoteBase = Root.Runtime.getRemoteBase();
+  if (remoteBase && remoteBase.base && !bundledLocales.has(locale)) {
+    const localeUrl = `${remoteBase.base}core/i18n/locales/${locale}.json`;
+    localeDataTextPromise = Root.Runtime.loadResourcePromise(localeUrl);
+  } else {
+    const localeUrl = new URL(`../../core/i18n/locales/${locale}.json`, import.meta.url);
+    localeDataTextPromise = Root.Runtime.loadResourcePromise(localeUrl.toString());
+  }
+
+  const timeoutPromise =
+      new Promise((resolve, reject) => setTimeout(() => reject(new Error('timed out fetching locale')), 5000));
+  const localeDataText = await Promise.race([timeoutPromise, localeDataTextPromise]);
+  const localeData = JSON.parse(localeDataText as string);
+  i18nBundle.registerLocaleData(locale, localeData);
 }
 
 /**
