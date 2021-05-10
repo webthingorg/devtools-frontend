@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d43587b_c6fd307d",
+        "filename": "scripts/test/merge_coverage_reports.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-10T17:50:26Z",
+      "side": 1,
+      "message": "do you think we should rename `karma-coverage` to `unit-test-coverage` perhaps (could be done in a follow-up) ?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 109
+      },
+      "revId": "427319b90f31f7fe5392ef2d1f8bcfe6bd2e2b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
