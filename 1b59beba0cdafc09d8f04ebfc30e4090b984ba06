@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38306bdb_3c93bb9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-10T09:21:26Z",
+      "side": 1,
+      "message": "Adding Benedikt on CC just because we discussed this stuff last week 😊",
+      "revId": "1b59beba0cdafc09d8f04ebfc30e4090b984ba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
