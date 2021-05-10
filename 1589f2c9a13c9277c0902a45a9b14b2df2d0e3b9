@@ -16,6 +16,29 @@
       "message": "PTAL, a small refactoring before implementing remote locales.",
       "revId": "1589f2c9a13c9277c0902a45a9b14b2df2d0e3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "561166a0_2333cc79",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T11:50:38Z",
+      "side": 1,
+      "message": "I just realized we should have top-level await now, so this is not necessary anymore. This is just an FYI, we don\u0027t really need to clean it up now I would think.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 14
+      },
+      "revId": "1589f2c9a13c9277c0902a45a9b14b2df2d0e3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
