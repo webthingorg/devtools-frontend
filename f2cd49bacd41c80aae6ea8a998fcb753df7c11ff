@@ -16,6 +16,115 @@
       "message": "PTAL and let me know if you think we can make it work this way :-)",
       "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "137d4a0f_ab9770cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T12:01:34Z",
+      "side": 1,
+      "message": "Seems like the e2e-tests need updating for the `en-XL` locale we use during testing.",
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffa130c3_ea71cd65",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T12:01:34Z",
+      "side": 1,
+      "message": "What we could do is let GN generate a file based on `copied_devtools_locale_files`, similar to what we do with `front_end/Images:generate_css_vars`. For now, this is okay.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 74
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfd6aa4_a757f12a",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T12:01:34Z",
+      "side": 1,
+      "message": "Nit: all callers of this method specify this to `BUNDLED_LOCALES`. Can we therefore remove this argument and instead use `BUNDLED_LOCALES` in the function implementation? If we still need it, could we default it to `BUNDLED_LOCALES` maybe?",
+      "range": {
+        "startLine": 51,
+        "startChar": 47,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22fcd20a_3923b4c6",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T12:01:34Z",
+      "side": 1,
+      "message": "Ultra-nit: declare `let localeUrl` here and then extract `const localeDataTextPromise \u003d Root.Runtime.loadResourcePromise(localeUrl)` out to reduce duplication.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c20ee2e7_8c9a939b",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-10T12:01:34Z",
+      "side": 1,
+      "message": "Could we maybe consider caching the resource json in the future? As I understand it, now every time DevTools loads and it has to fetch a remote locale, it would have to wait for that remote fetch to finish. Ideally we can cache the locale and then use that while we revalidate the cache by fetching again. This will also be important for the offline use case, since remote locales will be unavailable if you are offline.",
+      "range": {
+        "startLine": 64,
+        "startChar": 31,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
