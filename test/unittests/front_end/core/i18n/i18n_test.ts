@@ -52,3 +52,11 @@ describe('serialize/deserialize round-trip', () => {
     });
   });
 });
+
+describe('getLocalizedLanguageRegion', () => {
+  it('build the correct language/region string', () => {
+    assert.strictEqual(
+        i18n.i18n.getLocalizedLanguageRegion('de-AT', {locale: 'en-US'}), 'German (Austria) - Deutsch (Österreich)');
+    assert.strictEqual(i18n.i18n.getLocalizedLanguageRegion('de', {locale: 'en-US'}), 'German - Deutsch');
+  });
+});
