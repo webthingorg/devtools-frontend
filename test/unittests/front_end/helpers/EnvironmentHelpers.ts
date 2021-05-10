@@ -30,11 +30,7 @@ i18n.DevToolsLocale.DevToolsLocale.instance({
   const locale = i18n.DevToolsLocale.DevToolsLocale.instance().locale;
   // proxied call.
   try {
-    const data = await (await fetch(`locales/${locale}.json`)).json();
-    if (data) {
-      const localizedStrings = data;
-      i18n.i18n.registerLocaleData(locale, localizedStrings);
-    }
+    await i18n.i18n.fetchAndRegisterLocaleData(locale, i18n.i18n.BUNDLED_LOCALES);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.warn('EnvironmentHelper: Loading en-US locale failed', error.message);
