@@ -22,6 +22,30 @@
       },
       "revId": "87351ae2ff2d68e0350ba716301cdb210aa39f28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbcd0a4f_e33126c2",
+        "filename": "front_end/panels/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-10T15:48:36Z",
+      "side": 1,
+      "message": "Not easily; we\u0027d have to `appearance: none` it and then style it all ourselves. This is what the rest of the checkboxes are styled as so we should probably leave it for now and revisit.",
+      "parentUuid": "937de0b6_67f90eb3",
+      "range": {
+        "startLine": 217,
+        "startChar": 10,
+        "endLine": 217,
+        "endChar": 22
+      },
+      "revId": "87351ae2ff2d68e0350ba716301cdb210aa39f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
