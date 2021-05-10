@@ -33,6 +33,24 @@
       "message": "(I also drive-by-alphasorted this per subsection)",
       "revId": "a2dab3d5aee4361fa93b00c6dcd6cbc98dc98fec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa155d2_aa2a7a6a",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-10T16:29:48Z",
+      "side": 1,
+      "message": "nice!",
+      "parentUuid": "4ef7e9e6_757522c2",
+      "revId": "a2dab3d5aee4361fa93b00c6dcd6cbc98dc98fec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
