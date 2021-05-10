@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e96bac_93b76474",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-10T10:34:46Z",
+      "side": 1,
+      "message": "PTAL, this is the setting to choose DevTools locale",
+      "revId": "7990d9b308a5a6451b8ba237ed39f33b94e62722",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
