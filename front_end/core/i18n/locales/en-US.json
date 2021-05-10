@@ -4839,7 +4839,7 @@
     "message": "Network limit"
   },
   "panels/issues/AffectedHeavyAdView.ts | nResources": {
-    "message": "{n, plural, =1 { resource} other { resources}}"
+    "message": "{n, plural, =1 {1 resource} other {# resources}}"
   },
   "panels/issues/AffectedHeavyAdView.ts | removed": {
     "message": "Removed"

@@ -16,7 +16,7 @@ const UIStrings = {
   /**
   *@description Label for number of affected resources indication in issue view
   */
-  nResources: '{n, plural, =1 { resource} other { resources}}',
+  nResources: '{n, plural, =1 {1 resource} other {# resources}}',
   /**
   *@description Title for a column in an Heavy Ads issue view
   */

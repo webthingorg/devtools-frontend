@@ -4839,7 +4839,7 @@
     "message": "N̂ét̂ẃôŕk̂ ĺîḿît́"
   },
   "panels/issues/AffectedHeavyAdView.ts | nResources": {
-    "message": "{n, plural, =1 { r̂éŝóûŕĉé} other { r̂éŝóûŕĉéŝ}}"
+    "message": "{n, plural, =1 {1 r̂éŝóûŕĉé} other {# r̂éŝóûŕĉéŝ}}"
   },
   "panels/issues/AffectedHeavyAdView.ts | removed": {
     "message": "R̂ém̂óv̂éd̂"
@@ -8304,7 +8304,7 @@
     "message": "L̂óĝ á m̂éŝśâǵê t́ô Ćôńŝól̂é, d̂ó n̂ót̂ b́r̂éâḱ"
   },
   "panels/sources/BreakpointEditDialog.ts | logMessageEgXIsX": {
-    "message": "L̂óĝ ḿêśŝáĝé, ê.ǵ. 'x̂ íŝ', x́"
+    "message": "L̂óĝ ḿêśŝáĝé, ê.ǵ. 'x is', x"
   },
   "panels/sources/BreakpointEditDialog.ts | logpoint": {
     "message": "L̂óĝṕôín̂t́"
