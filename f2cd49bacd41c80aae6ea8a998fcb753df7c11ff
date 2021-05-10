@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2f6d5e5_027ee76f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-10T10:36:43Z",
+      "side": 1,
+      "message": "PTAL and let me know if you think we can make it work this way :-)",
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
