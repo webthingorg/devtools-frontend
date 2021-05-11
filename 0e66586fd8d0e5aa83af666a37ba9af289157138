@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee727c4_405b5a5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T10:33:15Z",
+      "side": 1,
+      "message": "Gonna land as is - happy to revisit the `import` vs `import type` chat.",
+      "revId": "0e66586fd8d0e5aa83af666a37ba9af289157138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74e6c925_3aba4321",
