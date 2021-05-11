@@ -94,6 +94,8 @@ export const enum Mode {
 }
 
 export class LinearMemoryNavigator extends HTMLElement {
+  static litTagName = LitHtml.literal`devtools-linear-memory-inspector-navigator`;
+
   private readonly shadow = this.attachShadow({mode: 'open'});
   private address = '0';
   private error: string|undefined = undefined;

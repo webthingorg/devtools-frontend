@@ -2,13 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './LinearMemoryNavigator.js';
+/* eslint-disable rulesdir/components_import */
 import './LinearMemoryValueInterpreter.js';
 import './LinearMemoryViewer.js';
 
 import * as Common from '../../../core/common/common.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
+import {LinearMemoryNavigator} from './LinearMemoryNavigator.js';
+import {LinearMemoryValueInterpreter} from './LinearMemoryValueInterpreter';
 
 const {render, html} = LitHtml;
 
@@ -182,17 +184,17 @@ export class LinearMemoryInspector extends HTMLElement {
         }
       </style>
       <div class="view">
-        <devtools-linear-memory-inspector-navigator
+        <${LinearMemoryNavigator.litTagName}
           .data=${{address: navigatorAddressToShow, valid: navigatorAddressIsValid, mode: this.currentNavigatorMode, error: errorMsg, canGoBackInHistory, canGoForwardInHistory} as LinearMemoryNavigatorData}
           @refresh-requested=${this.onRefreshRequest}
           @address-input-changed=${this.onAddressChange}
           @page-navigation=${this.navigatePage}
-          @history-navigation=${this.navigateHistory}></devtools-linear-memory-inspector-navigator>
-        <devtools-linear-memory-inspector-viewer
+          @history-navigation=${this.navigateHistory}></${LinearMemoryNavigator.litTagName}>
+        <${LinearMemoryValueInterpreter.litTagName}
           .data=${{memory: this.memory.slice(start - this.memoryOffset, end - this.memoryOffset), address: this.address, memoryOffset: start, focus: this.currentNavigatorMode === Mode.Submitted} as LinearMemoryViewerData}
           @byte-selected=${this.onByteSelected}
           @resize=${this.resize}>
-        </devtools-linear-memory-inspector-viewer>
+        </${LinearMemoryValueInterpreter.litTagName}>
       </div>
       <div class="value-interpreter">
         <devtools-linear-memory-inspector-interpreter
