@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "0f7eb43ae5da9badaf3f44eb4938c87f291b6abd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4cbf5f8_d8d88b80",
+        "filename": "front_end/third_party/puppeteer/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-11T09:17:42Z",
+      "side": 1,
+      "message": "At some point we should probably extract the full names out and then interpolate the file extensions, to prevent this from happening again. But this works as well.",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "0f7eb43ae5da9badaf3f44eb4938c87f291b6abd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
