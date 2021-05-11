@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2fb0e5_9a02f98e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T13:43:18Z",
+      "side": 1,
+      "message": "Nice.\n\nDo you think it should first check if the setting exists, and if it\u0027s different to `third_party/node/node.py`, and if so shout loudly? ",
+      "revId": "87840de80d7bc6063899d6a8d3586947d3e9c42e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
