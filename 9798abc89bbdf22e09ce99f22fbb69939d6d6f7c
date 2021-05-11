@@ -212,6 +212,30 @@
       },
       "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf8f288b_7e41fdf0",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-11T10:42:33Z",
+      "side": 1,
+      "message": "As discussed offline, we will land with the Intl.DisplayNames CL in, but not block on Intl.Locale.",
+      "parentUuid": "426c8c4c_4f46479f",
+      "range": {
+        "startLine": 192,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 15
+      },
+      "revId": "9798abc89bbdf22e09ce99f22fbb69939d6d6f7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
