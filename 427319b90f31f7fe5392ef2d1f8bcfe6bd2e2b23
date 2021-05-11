@@ -22,6 +22,30 @@
       },
       "revId": "427319b90f31f7fe5392ef2d1f8bcfe6bd2e2b23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c95421_781f8dd1",
+        "filename": "scripts/test/merge_coverage_reports.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-11T09:15:29Z",
+      "side": 1,
+      "message": "Yes will do in a follow-up. Will be a bit annoying as it is in everyone\u0027s gitignore, so will have to notify devtools-dev@ about it.",
+      "parentUuid": "8d43587b_c6fd307d",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 109
+      },
+      "revId": "427319b90f31f7fe5392ef2d1f8bcfe6bd2e2b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
