@@ -155,12 +155,18 @@ export class MainImpl {
   }
 
   async requestAndRegisterLocaleData(): Promise<void> {
+    // The language setting is only available when the experiment is enabled.
+    // TODO(crbug.com/1163928): Remove the check when the experiment is gone.
+    let settingLanguage = 'en-US';
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS)) {
+      settingLanguage = Common.Settings.Settings.instance().moduleSetting<string>('language').get();
+    }
+
     const devToolsLocale = i18n.DevToolsLocale.DevToolsLocale.instance({
       create: true,
       data: {
         navigatorLanguage: navigator.language,
-        // TODO(crbug.com/1163928): Use the setting once it has landed.
-        settingLanguage: 'en-US',
+        settingLanguage,
         lookupClosestDevToolsLocale: i18n.i18n.lookupClosestSupportedDevToolsLocale,
       },
     });
@@ -281,6 +287,10 @@ export class MainImpl {
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
     ]);
+
+    // Localized DevTools, hide "locale selector" setting behind an experiment.
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS, 'Enable localized DevTools');
+
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
