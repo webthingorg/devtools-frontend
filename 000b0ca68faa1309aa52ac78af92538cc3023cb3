@@ -16,6 +16,40 @@
       "message": "LGTM but will definitely defer to Dirk!",
       "revId": "000b0ca68faa1309aa52ac78af92538cc3023cb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00264e4a_2557ff90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2021-05-11T15:34:15Z",
+      "side": 1,
+      "message": "lgtm w/ a comment (not super important).",
+      "revId": "000b0ca68faa1309aa52ac78af92538cc3023cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fae423_675eff48",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2021-05-11T15:34:15Z",
+      "side": 1,
+      "message": "I\u0027ll usually be explicit about which encoding to use (i.e., \u0027utf8\u0027), I\u0027m not\nsure what sort of bugs relying on the default encoding might cause (if any).",
+      "revId": "000b0ca68faa1309aa52ac78af92538cc3023cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
