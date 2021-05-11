@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49532ef5_a2ff76d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T13:44:24Z",
+      "side": 1,
+      "message": "PTAL.\n\nI\u0027ve disabled the lines in the inspector_overlay where we\u0027ve imported CSS files; for now I think that\u0027s best as we\u0027ll probably have to do more work to allow some form of CSS imports in the future once that project is a bit more firm. For now I think we can just disable for the inspector_overlay which is currently a special case.",
+      "revId": "4d79f62f9adafc3f2e2b20c256f30072b290353a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
