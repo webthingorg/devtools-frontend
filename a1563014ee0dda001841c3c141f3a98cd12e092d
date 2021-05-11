@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "a1563014ee0dda001841c3c141f3a98cd12e092d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386fbcee_52fca7cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T11:17:21Z",
+      "side": 1,
+      "message": "Mathias, please could you LGTM the inspector_overlay changes?",
+      "revId": "a1563014ee0dda001841c3c141f3a98cd12e092d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
