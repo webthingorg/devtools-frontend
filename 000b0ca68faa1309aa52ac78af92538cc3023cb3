@@ -50,6 +50,24 @@
       "message": "I\u0027ll usually be explicit about which encoding to use (i.e., \u0027utf8\u0027), I\u0027m not\nsure what sort of bugs relying on the default encoding might cause (if any).",
       "revId": "000b0ca68faa1309aa52ac78af92538cc3023cb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ca009f_0ead7814",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-11T15:40:35Z",
+      "side": 1,
+      "message": "TIL thanks!",
+      "parentUuid": "37fae423_675eff48",
+      "revId": "000b0ca68faa1309aa52ac78af92538cc3023cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
