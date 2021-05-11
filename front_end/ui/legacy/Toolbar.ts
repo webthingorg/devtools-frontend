@@ -32,6 +32,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
+import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 
 import {Action, Events as ActionEvents} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
@@ -46,6 +47,19 @@ import {Events as TextPromptEvents, TextPrompt} from './TextPrompt.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, LongClickController} from './UIUtils.js';
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
+
+const UIStrings = {
+  /**
+  *@description Text for ToolbarSettingToggle toggle announcement.
+  */
+  pressed: 'pressed',
+  /**
+  *@description Text for ToolbarSettingToggle toggle announcement.
+  */
+  notPressed: 'not pressed',
+};
+const str_ = i18n.i18n.registerUIStrings('ui/legacy/Toolbar.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class Toolbar {
   _items: ToolbarItem[];
@@ -765,6 +779,7 @@ export class ToolbarMenuButton extends ToolbarButton {
 export class ToolbarSettingToggle extends ToolbarToggle {
   _defaultTitle: string;
   _setting: Common.Settings.Setting<boolean>;
+  _willAnnounce: boolean;
 
   constructor(setting: Common.Settings.Setting<boolean>, glyph: string, title: string) {
     super(title, glyph);
@@ -772,15 +787,20 @@ export class ToolbarSettingToggle extends ToolbarToggle {
     this._setting = setting;
     this._settingChanged();
     this._setting.addChangeListener(this._settingChanged, this);
+    this._willAnnounce = false;
   }
 
   _settingChanged(): void {
     const toggled = this._setting.get();
     this.setToggled(toggled);
+    const toggleAnnouncement = toggled ? i18nString(UIStrings.pressed) : i18nString(UIStrings.notPressed);
+    ARIAUtils.alert(toggleAnnouncement);
+    this._willAnnounce = false;
     this.setTitle(this._defaultTitle);
   }
 
   _clicked(event: Event): void {
+    this._willAnnounce = true;
     this._setting.set(!this.toggled());
     super._clicked(event);
   }
