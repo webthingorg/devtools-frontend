@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d273cb_b744235c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T09:29:47Z",
+      "side": 1,
+      "message": "Landing this now we\u0027ve addressed the concerns and landed a static helper that avoids some of the perf hit. If Benedikt\u0027s PR into LitHtml lands (or a similar change occurs) we can remove our static helper and use straight up LitHtml again.",
+      "revId": "e525b229e1c860d8ba0b1740e8c4cb9f8026b63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
