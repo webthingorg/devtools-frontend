@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ccaf421_646bf346",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T15:40:17Z",
+      "side": 1,
+      "message": "PTAL! Not the prettiest code I\u0027ve ever written, but given this should go away in 1-2 months time, I think we\u0027ll be OK...",
+      "revId": "ac8a0f0f1e7430b8de2c2b48f6230a924ce12dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
