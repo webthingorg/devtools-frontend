@@ -39,6 +39,30 @@
       },
       "revId": "c566ec7e24d29223ae95838e1d650fd927cf3a0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1faee90b_7709adec",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-05-11T21:37:46Z",
+      "side": 1,
+      "message": "I wanted to sync the alert with when the button is toggled via this.setToggled(toggled).  setToggled is where the glyph, css classes and the aria-pressed property are updated, so it makes the most sense to me to alert when that function is called.\n\nThe reason why we don\u0027t want to add it to ToolbarToggle.setToggled directly is because this issue is specific to the ToolbarSettingToggle class",
+      "parentUuid": "ab0fad4b_a39ffbd5",
+      "range": {
+        "startLine": 801,
+        "startChar": 6,
+        "endLine": 801,
+        "endChar": 21
+      },
+      "revId": "c566ec7e24d29223ae95838e1d650fd927cf3a0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
