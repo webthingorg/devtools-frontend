@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba1664c_5d37f373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-11T05:39:20Z",
+      "side": 1,
+      "message": "PTAL, should we leave XHR as a fallback?",
+      "revId": "d8e1b771b52fe1ba9a91080a7d3f0f918a7fe657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
