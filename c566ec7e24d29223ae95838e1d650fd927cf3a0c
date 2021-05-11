@@ -16,6 +16,29 @@
       "message": "+ Reviewer\n\nHey Leo!  PTAL when you can, thanks!",
       "revId": "c566ec7e24d29223ae95838e1d650fd927cf3a0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab0fad4b_a39ffbd5",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1335243
+      },
+      "writtenOn": "2021-05-11T21:29:21Z",
+      "side": 1,
+      "message": "it doesn\u0027t work if you do ARIAUtils.alert directly in _clicked()?",
+      "range": {
+        "startLine": 801,
+        "startChar": 6,
+        "endLine": 801,
+        "endChar": 21
+      },
+      "revId": "c566ec7e24d29223ae95838e1d650fd927cf3a0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
