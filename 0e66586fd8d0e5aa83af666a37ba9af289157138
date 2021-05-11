@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "0e66586fd8d0e5aa83af666a37ba9af289157138",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9430f6be_463937f0",
+        "filename": "front_end/ui/lit-html/static.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-11T10:18:37Z",
+      "side": 1,
+      "message": "had to expose this, because otherwise TS gets unhappy that LitHtml.literal returns a type that isn\u0027t exposed.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "0e66586fd8d0e5aa83af666a37ba9af289157138",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
