@@ -111,6 +111,30 @@
       },
       "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de687e0a_00bd5cab",
+        "filename": "test/unittests/front_end/ui/components/MarkdownView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-12T13:37:00Z",
+      "side": 1,
+      "message": "Actually a better fix, as suggested by Paul, is to fix it so we do provide the `raw` property. If we put this into static.ts on line 50, it should resolve:\n\n  (newStrings as unknown as {raw: readonly string[]}).raw \u003d [...newStrings];",
+      "parentUuid": "1fbbaa77_5307add2",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 31
+      },
+      "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
