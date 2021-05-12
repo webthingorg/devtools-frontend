@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import '../../components/icon_button/icon_button.js'; // Required to get <devtools-icon>
+/* eslint-disable rulesdir/components_import */
 
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import type * as IconButton from '../../components/icon_button/icon_button.js';
