@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20f7476_e41c1457",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:38:34Z",
+      "side": 1,
+      "message": "PTAL, not sure if this is the right way to go about it, but I verified that \"de.json\" ends up in \"gen/front_end/core/i18n/locales\", but it DOES NOT end up in the devtools_resources.pak file.",
+      "revId": "9c00200bf19ec0fa8836f37a223da1a6af18b8d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

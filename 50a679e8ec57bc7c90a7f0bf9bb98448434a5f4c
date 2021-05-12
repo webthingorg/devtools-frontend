@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8840fce0_f7d84e18",
+        "filename": "config/gni/all_devtools_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:38:34Z",
+      "side": 0,
+      "message": "I didn\u0027t find any use site of this.",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 28
+      },
+      "revId": "50a679e8ec57bc7c90a7f0bf9bb98448434a5f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
