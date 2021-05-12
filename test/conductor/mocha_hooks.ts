@@ -86,7 +86,9 @@ export const mochaHooks = {
   },
   // In serial mode, run after all tests end, once only.
   // In parallel mode, run after all tests end, for each file.
-  afterAll: async function() {
+  afterAll: async function(this: Mocha.Suite) {
+    // Sets the timeout higher for this hook only.
+    this.timeout(10000);
     await postFileTeardown();
 
     if (!SHOULD_GATHER_COVERAGE_INFORMATION) {
