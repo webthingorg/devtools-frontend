@@ -39,6 +39,30 @@
       },
       "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8128c0f_47711a2a",
+        "filename": "test/unittests/front_end/ui/components/MarkdownView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-12T13:18:48Z",
+      "side": 1,
+      "message": "@Paul I\u0027m not 100% sure but I\u0027m wondering if this is a result of our wrapping of Lit at all - TypeScript thinks this is a `TemplateStringsArray`, but there\u0027s no `.raw` property, it looks like a regular array.",
+      "parentUuid": "5834b65d_a50519b6",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 31
+      },
+      "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
