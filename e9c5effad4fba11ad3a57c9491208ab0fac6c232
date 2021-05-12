@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b970a51_b0bc56d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-05-12T20:07:13Z",
+      "side": 1,
+      "message": "Small CL to fix flickering in html document previews in the network pane. PTAL!",
+      "revId": "e9c5effad4fba11ad3a57c9491208ab0fac6c232",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
