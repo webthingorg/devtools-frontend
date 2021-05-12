@@ -63,6 +63,30 @@
       },
       "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5946aa52_ee5ed6fb",
+        "filename": "test/unittests/front_end/ui/components/MarkdownView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-12T13:24:11Z",
+      "side": 1,
+      "message": "Yes, although we do type the strings response as a TemplateStringsArray: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/lit-html/static.ts;l\u003d14?q\u003dstatic.ts\u0026ss\u003dchromium%2Fchromium%2Fsrc.\n\nI\u0027d expect it to throw at runtime (because we don\u0027t have a raw property), but TS should be unaware.",
+      "parentUuid": "b8128c0f_47711a2a",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 31
+      },
+      "revId": "02cd48122bdb4883087ecdb70d891090d619dfbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
