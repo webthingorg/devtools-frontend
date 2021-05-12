@@ -448,7 +448,7 @@ describe('Raw-Wasm', async () => {
 
     assert.isAbove(titles.length, 1);
     assert.isAbove(locations.length, 1);
-    assert.strictEqual(titles[1], 'foo');
+    assert.strictEqual(titles[1], '$foo');
     assert.strictEqual(locations[1], 'callstack-wasm-to-js.wasm:0x32');
 
     // Select second call frame.
