@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "59b16922_f60e66a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:46:47Z",
+      "side": 1,
+      "message": "Disabled the test in the parent CL for now. The problem is, that we changed what the default value of the setting from \"Browser UI language\", to \"English\". Until now, this didn\u0027t made a difference, since we only ship English. But we don\u0027t want to change user\u0027s language without consent.\n\nThe updated test will have to flip the setting, so it works again, i have a working prototype and will send out a separate CL.",
+      "parentUuid": "137d4a0f_ab9770cd",
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ffa130c3_ea71cd65",
         "filename": "front_end/core/i18n/i18nImpl.ts",
         "patchSetId": 2
@@ -81,6 +99,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "596d4931_8970f70a",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:46:47Z",
+      "side": 1,
+      "message": "Done, I was initially thinking we might to unit test it, but since there is a lot of fetching/async code, thats not really possible.",
+      "parentUuid": "fcfd6aa4_a757f12a",
+      "range": {
+        "startLine": 51,
+        "startChar": 47,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22fcd20a_3923b4c6",
@@ -94,6 +136,30 @@
       "writtenOn": "2021-05-10T12:01:34Z",
       "side": 1,
       "message": "Ultra-nit: declare `let localeUrl` here and then extract `const localeDataTextPromise \u003d Root.Runtime.loadResourcePromise(localeUrl)` out to reduce duplication.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d062f9e_02b05efc",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:46:47Z",
+      "side": 1,
+      "message": "Done, moved localeUrl calculation into a small helper function. Should make this more readable.",
+      "parentUuid": "22fcd20a_3923b4c6",
       "range": {
         "startLine": 52,
         "startChar": 2,
@@ -140,6 +206,30 @@
       "writtenOn": "2021-05-10T12:01:34Z",
       "side": 1,
       "message": "Could we maybe consider caching the resource json in the future? As I understand it, now every time DevTools loads and it has to fetch a remote locale, it would have to wait for that remote fetch to finish. Ideally we can cache the locale and then use that while we revalidate the cache by fetching again. This will also be important for the offline use case, since remote locales will be unavailable if you are offline.",
+      "range": {
+        "startLine": 64,
+        "startChar": 31,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "f2cd49bacd41c80aae6ea8a998fcb753df7c11ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97c3a7f4_e28defed",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-12T07:46:47Z",
+      "side": 1,
+      "message": "As discussed offline, we probably want to go the route of a service worker here. I don\u0027t think any custom built caching solution (which would also require bindings on the chromium side) is viable.",
+      "parentUuid": "c20ee2e7_8c9a939b",
       "range": {
         "startLine": 64,
         "startChar": 31,
