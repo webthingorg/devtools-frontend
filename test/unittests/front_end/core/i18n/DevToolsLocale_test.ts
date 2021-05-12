@@ -43,4 +43,15 @@ describe('DevToolsLocale', () => {
 
     assert.strictEqual(devToolsLocale.locale, 'en-US');
   });
+
+  it('chooses the closest supported language', () => {
+    const data: i18n.DevToolsLocale.DevToolsLocaleData = {
+      settingLanguage: 'zh-HK',
+      navigatorLanguage: '',
+      lookupClosestDevToolsLocale: () => 'zh',
+    };
+    const devToolsLocale = i18n.DevToolsLocale.DevToolsLocale.instance({create: true, data});
+
+    assert.strictEqual(devToolsLocale.locale, 'zh');
+  });
 });
