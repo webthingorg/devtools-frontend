@@ -22,6 +22,30 @@
       },
       "revId": "50a679e8ec57bc7c90a7f0bf9bb98448434a5f4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1722d8ae_f5a0dad8",
+        "filename": "config/gni/all_devtools_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-12T09:17:58Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "8840fce0_f7d84e18",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 28
+      },
+      "revId": "50a679e8ec57bc7c90a7f0bf9bb98448434a5f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
