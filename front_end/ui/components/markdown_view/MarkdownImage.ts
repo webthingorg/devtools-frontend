@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 /* eslint-disable rulesdir/components_import */
-import '../../components/icon_button/icon_button.js'; // Required to get <devtools-icon>
 
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import type * as IconButton from '../../components/icon_button/icon_button.js';

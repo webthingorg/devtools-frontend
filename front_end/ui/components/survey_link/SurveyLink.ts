@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/components_import */
 import * as Common from '../../../core/common/common.js';
 import type * as Host from '../../../core/host/host.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 
-import '../icon_button/icon_button.js';
-import type {Icon} from '../icon_button/icon_button.js';
+import {Icon} from '../icon_button/icon_button.js';
 
 const UIStrings = {
   /**
@@ -116,7 +116,6 @@ export class SurveyLink extends HTMLElement {
     const ariaDisabled = this.state !== State.ShowLink;
 
     // clang-format off
-// eslint-disable-next-line rulesdir/ban_literal_devtools_component_tag_names
     const output = LitHtml.html`
       <style>
         .link-icon {
@@ -153,7 +152,7 @@ export class SurveyLink extends HTMLElement {
         }
       </style>
       <button class="link ${linkState}" tabindex=${ariaDisabled ? '-1' : '0'} .disabled=${ariaDisabled} aria-disabled=${ariaDisabled} @click=${this.sendSurvey}>
-        <devtools-icon class="link-icon" .data=${{iconName: 'feedback_thin_16x16_icon', color: 'var(--color-link)', width: 'var(--issue-link-icon-size, 16px)', height: 'var(--issue-link-icon-size, 16px)'} as Icon.IconData}></devtools-icon><!--
+        <${Icon.Icon.litTagName} class="link-icon" .data=${{iconName: 'feedback_thin_16x16_icon', color: 'var(--color-link)', width: 'var(--issue-link-icon-size, 16px)', height: 'var(--issue-link-icon-size, 16px)'} as Icon.IconData}></${Icon.Icon.litTagName}><!--
       -->${linkText}
       </button>
     `;
