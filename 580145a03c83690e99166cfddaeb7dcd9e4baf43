@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e46792_70d03ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T08:09:08Z",
+      "side": 1,
+      "message": "LGTM, with the tweak to make sure we do `import * as ...` whenever we import from `../foo/foo.js`. Then feel free to submit the CL. Nice work, thanks !",
+      "revId": "580145a03c83690e99166cfddaeb7dcd9e4baf43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f801d806_9e9493d8",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T08:09:08Z",
+      "side": 1,
+      "message": "I think for this we should use `* as` and merge these two imports into:\n\n```\nimport * as IconButton from \u0027../icon_button/icon_button.js\u0027;\n```\n\nThe general rule of thumb is that if you\u0027re importing from `\u0027../foo/foo.js\u0027`, you should use `import * as`. I\u0027m actually surprised you didn\u0027t get an ESLint error here as we try to lint for this.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "580145a03c83690e99166cfddaeb7dcd9e4baf43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f15e9a3_7a4f20cb",
+        "filename": "front_end/ui/components/survey_link/SurveyLink.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T08:09:08Z",
+      "side": 1,
+      "message": "again: import * as",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "580145a03c83690e99166cfddaeb7dcd9e4baf43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
