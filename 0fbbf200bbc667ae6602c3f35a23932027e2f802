@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3706a2cb_12779cb2",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T10:17:15Z",
+      "side": 1,
+      "message": "this is needed for the `chrome-select` select element. I mistakenly removed this in a previous CL.",
+      "range": {
+        "startLine": 102,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 88
+      },
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00127b58_b8ead864",
+        "filename": "front_end/ui/components/docs/legacy_color_invert/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T10:17:15Z",
+      "side": 1,
+      "message": "the changes here are drive-by fixes to fix some small bugs in it",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 1
+      },
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
