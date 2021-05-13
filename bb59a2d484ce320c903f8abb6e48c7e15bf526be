@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e44190_0ac10082",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1343156
+      },
+      "writtenOn": "2021-05-13T02:37:37Z",
+      "side": 1,
+      "message": "Sorry for late. I had a little bit tough time in my office..\n",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f9db0e0_d8c5bbaa",
@@ -140,6 +157,24 @@
       "side": 1,
       "message": "Per the discussion on the bug, I think we should first implement the Issues tab aspect, i.e. report this warning to the Issues tab. Then later, in a separate CL we can add an adorner that links to the relevant issue in the Issues tab.\n\nAs a general rule we’re trying to avoid adding adorners that cannot be clicked.",
       "parentUuid": "a05c6b58_5a38aaa7",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab4d1833_f1013e54",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1343156
+      },
+      "writtenOn": "2021-05-13T02:37:37Z",
+      "side": 1,
+      "message": "AFAIK, we can report this warning to the issue tab in here -\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/html/parser/html_meta_charset_parser.cc;l\u003d123?q\u003dcheckformetacharset\u0026ss\u003dchromium\nor here\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/html/parser/text_resource_decoder.cc;l\u003d367?q\u003dcheckformetacharset\u0026ss\u003dchromium\n\nBut there is no document object, so I thought it is hard to implement.\nReporting to issue tab is a priority, so I\u0027ll find a way to implement it.\n\nPlease let me know if you have any ideas or tips.\nThanks!",
+      "parentUuid": "2aa54bf9_10077a0b",
       "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
