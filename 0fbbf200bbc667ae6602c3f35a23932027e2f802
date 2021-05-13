@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "626b6e9d_4c2164c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-13T10:33:51Z",
+      "side": 1,
+      "message": "LGTM with query",
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3706a2cb_12779cb2",
@@ -43,6 +60,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2361bd5c_fc5671cf",
+        "filename": "front_end/ui/components/docs/legacy_color_invert/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-13T10:33:51Z",
+      "side": 1,
+      "message": "Side note: curious about why these colors aren\u0027t picked up by the linter?",
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00127b58_b8ead864",
         "filename": "front_end/ui/components/docs/legacy_color_invert/basic.ts",
         "patchSetId": 1
@@ -54,6 +88,30 @@
       "writtenOn": "2021-05-13T10:17:15Z",
       "side": 1,
       "message": "the changes here are drive-by fixes to fix some small bugs in it",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 1
+      },
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "422c8fd2_714b0e96",
+        "filename": "front_end/ui/components/docs/legacy_color_invert/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-13T10:33:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00127b58_b8ead864",
       "range": {
         "startLine": 64,
         "startChar": 0,
