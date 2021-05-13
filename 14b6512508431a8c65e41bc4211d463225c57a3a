@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8410bee8_4f15284b",
+        "filename": "scripts/eslint_rules/tests/ban_literal_devtools_component_tag_names_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T08:00:38Z",
+      "side": 0,
+      "message": "drive by fix to update and re-enable this test.",
+      "range": {
+        "startLine": 30,
+        "startChar": 50,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "14b6512508431a8c65e41bc4211d463225c57a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
