@@ -93,6 +93,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0effa0e_d88f272a",
+        "filename": "front_end/ui/components/docs/legacy_color_invert/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-05-13T10:37:09Z",
+      "side": 1,
+      "message": "Ah I missed that these were in the component docs. No, I don\u0027t think it adds value.",
+      "parentUuid": "3f2df6f9_ac72a379",
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00127b58_b8ead864",
