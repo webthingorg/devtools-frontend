@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eecc6da_b133ee8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-05-13T17:59:55Z",
+      "side": 1,
+      "message": "Hi Simon,\nThis is a small fix to prevent a common mistranslation in a term. PTAL",
+      "revId": "887364905de6e8a7efab6ac9c2275802671a9fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
