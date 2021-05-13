@@ -77,6 +77,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f2df6f9_ac72a379",
+        "filename": "front_end/ui/components/docs/legacy_color_invert/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-13T10:36:16Z",
+      "side": 1,
+      "message": "We don\u0027t lint component_docs CSS at the moment. We could, but TBH I\u0027m not sure if it\u0027s worth it. WDYT?",
+      "parentUuid": "2361bd5c_fc5671cf",
+      "revId": "0fbbf200bbc667ae6602c3f35a23932027e2f802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00127b58_b8ead864",
         "filename": "front_end/ui/components/docs/legacy_color_invert/basic.ts",
         "patchSetId": 1
