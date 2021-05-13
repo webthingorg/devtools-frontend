@@ -211,7 +211,7 @@ export class NetworkTimeCalculator extends Common.ObjectWrapper.ObjectWrapper im
   }
 
   _boundaryChanged(): void {
-    this._boundryChangedEventThrottler.schedule(async () => {
+    this._boundryChangedEventThrottler.schedule(() => {
       this.dispatchEventToListeners(Events.BoundariesChanged);
     });
   }
