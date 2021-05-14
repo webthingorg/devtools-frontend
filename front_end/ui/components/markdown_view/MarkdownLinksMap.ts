@@ -25,6 +25,7 @@ export const markdownLinks = new Map<string, string>([
     'issueCorsPreflightRequest',
     'https://web.dev/cross-origin-resource-sharing/#preflight-requests-for-complex-http-calls',
   ],
+  ['issueQuirksModeQuirks', 'https://quirks.spec.whatwg.org/#css'],
 ]);
 
 export const getMarkdownLink = (key: string): string => {
