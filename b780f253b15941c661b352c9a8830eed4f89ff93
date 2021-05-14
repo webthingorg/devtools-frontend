@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83bc050_527be2ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Two questions about this CL:\n1. The feature team is aiming at releasing the v2 of this API in the future. Because the new naming (that this CL using) will only kick in in v2, would it make sense to hold on this CL and land it first when v2 has landed? We want to avoid showing issues that don\u0027t match the developer\u0027s code.\n2. Is there a plan to generate an issue for \"Wrong formats to conversiondestination or reportingorigin e.g. they provide a hostname instead of an origin\"? (this was discussed in the DevTools support proposal https://docs.google.com/document/d/1KerF0k4jy5YzXbKq3rEaQ_kTwtra6VxSUTAYnJ4bIPE/edit?resourcekey\u003d0-NnmfMzgU3rDq8u8i-sZ6HQ#heading\u003dh.2665e9p4g5c6)",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "680b439b_643dfbff",
@@ -14,6 +31,244 @@
       "writtenOn": "2021-04-30T08:55:34Z",
       "side": 1,
       "message": "LGTM, awesome, thanks!\n\nPlease wait for feedback on the descriptions from DevRel (didn\u0027t look at descriptions/)",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee16c71d_ee041c74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Looking great already! Left comments.",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16794b62_f859384b",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Could this be more precise and add \"the frame that triggered the event needs to be trustworthy: it must use HTTPS or be localhost or 127.0.0.1\". \nWould this be correct?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37da8cc_3244f26c",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "\"Trustworthy\": same comment as the comment I made at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2859909/3/front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a1b7ea_68fb9a67",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyFrameOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "\"Trustworthy\": same comment as the comment I made at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2859909/3/front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98020b30_0fc84cf4",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Typo: s/an redirect/a redirect",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b91b1276_debc47f8",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "\"Trustworthy\": same comment as at other places",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20cf7ca9_e21a5ea3",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionData.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "# Ensure the \"data\" query parameter for an attribution redirect is a valid number\n\nThe data associated with an attribution was defaulted to `0`. \nThis happens if the `data` query parameter provided in the `.well-known` redirect is not a valid integer.\n\nNote that even if a valid integer is provided, only the lowest 3-bits of the `data` query parameter are recorded, with a 5% chance of the 3-bits being noised.\n\n\n-------\nAn integer is what the browser actually requires, right? Though no such thing as an integer in JavaScript, providing a float leads to a 0 here, too.",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de2fdd6_7ff7f347",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceEventId.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Same, would it make sense to use \"integer\" here?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d60212b_f6a6a5c3",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceEventId.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Suggestion:\nAn attribution source event was not recorded because the provided `attributionSourceEventId` is not a valid integer under 64 bits.\n\n---",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb32b1f5_0a41e041",
+        "filename": "front_end/models/issues_manager/descriptions/arMissingAttributionData.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "s/number/integer?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7426e354_6eb12cf6",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "* s/using AR API/using the Attribution Reporting API\n* Can this issue be triggered if the feature policy is present but an OT token is missing?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c40264_9d95ad72",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Alternative formulation: \nThis page tries to use the Attribution Reporting API but this was aborted, because the `attribution-reporting` policy is not enabled.",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eede618_540cc444",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "s/The AR API/ This API\n\n(more direct)",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "919bb8e9_f200c116",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "Suggestion: \n\"Add the permission policy as follows: `\u003ciframe src\u003d\"...\" allow\u003d\"attribution-reporting \u0027src\u0027\"\u003e`\nNote: not sure anymore how src is useful, need to check",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

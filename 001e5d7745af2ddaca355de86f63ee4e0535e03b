@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f678348b_b9458858",
+        "filename": "front_end/models/issues_manager/AttributionReportingIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1497949
+      },
+      "writtenOn": "2021-05-14T07:59:25Z",
+      "side": 1,
+      "message": "We don\u0027t have a new article here yet. One will be published around the time when v2 lands in beta.",
+      "parentUuid": "7b5edd22_f6bf5ffb",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "001e5d7745af2ddaca355de86f63ee4e0535e03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "200a907e_11c6bae9",
         "filename": "test/unittests/front_end/models/issues_manager/AttributionReportingIssue_test.ts",
         "patchSetId": 1
