@@ -207,10 +207,18 @@ export class CorsIssue extends Issue<IssueCode> {
             linkTitle: i18nString(UIStrings.CORS),
           }],
         };
+      case IssueCode.NoCorsRedirectModeNotFollow:
+        return {
+          file: 'corsNoCorsRedirectModeNotFollow.md',
+          substitutions: undefined,
+          links: [{
+            link: 'https://web.dev/cross-origin-resource-sharing',
+            linkTitle: i18nString(UIStrings.CORS),
+          }],
+        };
       case IssueCode.PreflightMissingAllowExternal:
       case IssueCode.PreflightInvalidAllowExternal:
       case IssueCode.InvalidResponse:
-      case IssueCode.NoCorsRedirectModeNotFollow:
         return null;
     }
   }
