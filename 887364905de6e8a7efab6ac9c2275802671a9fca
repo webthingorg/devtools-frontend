@@ -16,6 +16,23 @@
       "message": "Hi Simon,\nThis is a small fix to prevent a common mistranslation in a term. PTAL",
       "revId": "887364905de6e8a7efab6ac9c2275802671a9fca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa60f41_71edc47b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-14T05:22:51Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "887364905de6e8a7efab6ac9c2275802671a9fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
