@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c078ba55_e4d7e0b6",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-14T07:30:24Z",
+      "side": 1,
+      "message": "I agree that reporting to the Issues tab from the backend seems to be a better solution. I think there are two things we need to consider:\n1. per this comment: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1028041#c15, we should probably add this bit of information from the parser if it\u0027s not already available;\n2. we need Issues tab owners to be onboard with the idea of reporting this as an issue to the Issues tab.\n\nFor these two points, I think we need a small design doc for this. Are you familiar with writing a DevTools design doc?\n\nAlso, FWIW, please take a look at this CL for reporting Quirks Mode to the Issues tab. I think it will be similar to what we want to achieve here: https://chromium-review.googlesource.com/c/chromium/src/+/2892206. The description in this CL also has a design doc that you could take a look at.",
+      "parentUuid": "ab4d1833_f1013e54",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b5b33c8_590805d1",
         "filename": "front_end/sdk/DOMModel.js",
         "patchSetId": 2
