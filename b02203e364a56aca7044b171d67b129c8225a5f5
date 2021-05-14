@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b02203e364a56aca7044b171d67b129c8225a5f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e66a6de8_4c9d410b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-14T13:56:32Z",
+      "side": 1,
+      "message": "Jack, Wolfgang is already out, could you take a quick look?",
+      "revId": "b02203e364a56aca7044b171d67b129c8225a5f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
