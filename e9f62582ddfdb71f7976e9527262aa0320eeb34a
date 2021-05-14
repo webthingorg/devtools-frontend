@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa657af_195629d9",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-14T13:25:44Z",
+      "side": 0,
+      "message": "the `Event` class defines this as `string|null` and this overrides it but doesn\u0027t actually ever explicitly set it, so TS said to remove it or set it explicitly. I figured removing it was better (and doesn\u0027t cause any other compiler errors)",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 14
+      },
+      "revId": "e9f62582ddfdb71f7976e9527262aa0320eeb34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
