@@ -93,16 +93,23 @@ export const mochaHooks = {
       return;
     }
 
+    console.log('Creating sourcemap');
+
     const remappedCoverageMap = await createSourceMapStore().transformCoverage(testSuiteCoverageMap);
+
+    console.log('Creating context');
     const context = report.createContext({
       dir: 'interactions-coverage/',
       coverageMap: remappedCoverageMap,
       defaultSummarizer: 'nested',
     });
+    console.log('writing to html');
     // The types in @types/istanbul-lib-report are incorrectly typing `create`
     // to return a Visitor instead of a ReportBase.
     (reports.create('html') as unknown as report.ReportBase).execute(context);
+    console.log('writing to json');
     (reports.create('json') as unknown as report.ReportBase).execute(context);
+    console.log('writing to json-summary');
     (reports.create('json-summary') as unknown as report.ReportBase).execute(context);
   },
   // In both modes, run before each test.
