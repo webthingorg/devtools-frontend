@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe1b8f8_28445da7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-14T05:30:02Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "5bf64b985654b297e9afa46de36caeaefaab8d42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e37a66f_d1ebbb44",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-14T05:30:02Z",
+      "side": 1,
+      "message": "This is so cool! 🎉",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "5bf64b985654b297e9afa46de36caeaefaab8d42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87454308_2a15dbc8",
+        "filename": "front_end/generated/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-14T05:30:02Z",
+      "side": 1,
+      "message": "Out of curiosity: Whats the difference between devtools_pre_built with \"sources_are_release \u003d false\" and \"copy_to_gen\"?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "5bf64b985654b297e9afa46de36caeaefaab8d42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
