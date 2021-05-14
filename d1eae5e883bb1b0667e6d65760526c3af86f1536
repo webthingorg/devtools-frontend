@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e9c8f6_164d909f",
+        "filename": "front_end/models/issues_manager/descriptions/CompatibilityModeLimitedQuirks.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-14T11:29:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95f3efdf_fb94b108",
+      "revId": "d1eae5e883bb1b0667e6d65760526c3af86f1536",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c485385_e1e0e555",
