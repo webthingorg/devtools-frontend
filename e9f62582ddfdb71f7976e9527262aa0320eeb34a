@@ -22,6 +22,53 @@
       },
       "revId": "e9f62582ddfdb71f7976e9527262aa0320eeb34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c31d5ad4_f6a9f9ad",
+        "filename": "front_end/core/sdk/TracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-14T13:27:54Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "8fa657af_195629d9",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 14
+      },
+      "revId": "e9f62582ddfdb71f7976e9527262aa0320eeb34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1759496_f536ebea",
+        "filename": "node_modules/@types/istanbul-lib-instrument/index.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-14T13:27:54Z",
+      "side": 0,
+      "message": "Could you run `git cl format --js` locally to fix these? We don\u0027t run them in the presubmit anymore, but sadly `clang-format` can still touch import ordering.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "e9f62582ddfdb71f7976e9527262aa0320eeb34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
