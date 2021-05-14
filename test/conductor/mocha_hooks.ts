@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable */
+
 import {createCoverageMap, createFileCoverage} from 'istanbul-lib-coverage';
 import * as report from 'istanbul-lib-report';
 import {createSourceMapStore} from 'istanbul-lib-source-maps';
@@ -86,24 +88,34 @@ export const mochaHooks = {
   },
   // In serial mode, run after all tests end, once only.
   // In parallel mode, run after all tests end, for each file.
-  afterAll: async function() {
+  afterAll: async function(this: Mocha.Suite) {
     await postFileTeardown();
 
     if (!SHOULD_GATHER_COVERAGE_INFORMATION) {
       return;
     }
 
+    this.timeout(10000);
+
+    console.log('Creating sourcemap');
+
     const remappedCoverageMap = await createSourceMapStore().transformCoverage(testSuiteCoverageMap);
-    const context = report.createContext({
-      dir: 'interactions-coverage/',
-      coverageMap: remappedCoverageMap,
-      defaultSummarizer: 'nested',
-    });
-    // The types in @types/istanbul-lib-report are incorrectly typing `create`
-    // to return a Visitor instead of a ReportBase.
-    (reports.create('html') as unknown as report.ReportBase).execute(context);
-    (reports.create('json') as unknown as report.ReportBase).execute(context);
-    (reports.create('json-summary') as unknown as report.ReportBase).execute(context);
+
+    // console.log('Creating context');
+    // const context = report.createContext({
+    //   dir: 'interactions-coverage/',
+    //   coverageMap: remappedCoverageMap,
+    //   defaultSummarizer: 'nested',
+    // });
+    // console.log('writing to html');
+    // // The types in @types/istanbul-lib-report are incorrectly typing `create`
+    // // to return a Visitor instead of a ReportBase.
+    // (reports.create('html') as unknown as report.ReportBase).execute(context);
+    // console.log('writing to json');
+    // (reports.create('json') as unknown as report.ReportBase).execute(context);
+    // console.log('writing to json-summary');
+    // (reports.create('json-summary') as unknown as report.ReportBase).execute(context);
+    console.log('Finished with this hook');
   },
   // In both modes, run before each test.
   beforeEach: async function(this: Mocha.Suite) {
