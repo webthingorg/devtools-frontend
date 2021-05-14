@@ -190,6 +190,14 @@ export class CorsIssue extends Issue<IssueCode> {
           }],
         };
       case IssueCode.DisallowedByMode:
+        return {
+          file: 'corsDisallowedByMode.md',
+          substitutions: undefined,
+          links: [{
+            link: 'https://web.dev/cross-origin-resource-sharing',
+            linkTitle: i18nString(UIStrings.CORS),
+          }],
+        };
       case IssueCode.CorsDisabledScheme:
       case IssueCode.PreflightMissingAllowExternal:
       case IssueCode.PreflightInvalidAllowExternal:
