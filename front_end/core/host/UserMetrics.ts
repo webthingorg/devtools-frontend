@@ -675,6 +675,8 @@ export const IssueCreated: {
   'TrustedWebActivityIssue::kDigitalAssetLinks': 40,
   LowTextContrastIssue: 41,
   'CorsIssue::InsecurePrivateNetwork': 42,
+  'QuirksModeIssue::QuirksMode': 43,
+  'QuirksModeIssue::LimitedQuirksMode': 44,
 };
 
 // TODO(crbug.com/1167717): Make this a const enum again
