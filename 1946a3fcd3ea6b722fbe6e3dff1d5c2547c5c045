@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b7dec94_79b60455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-14T13:08:00Z",
+      "side": 1,
+      "message": "PTAL - now Kriti has moved all our usage to litTagName we don\u0027t need to worry about the side-effect imports :D",
+      "revId": "1946a3fcd3ea6b722fbe6e3dff1d5c2547c5c045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
