@@ -16,6 +16,23 @@
       "message": "+Reviewer\n\nHi Brandon!  PTAL when you can, thanks!",
       "revId": "142a8dcbe40a7cb1cf307e082834de9f4a0fa1d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e61ea242_b7c64f51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-14T15:57:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "142a8dcbe40a7cb1cf307e082834de9f4a0fa1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
