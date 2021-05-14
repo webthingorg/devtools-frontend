@@ -96,11 +96,11 @@ describe('FrameManager', () => {
         SDK.ResourceTreeModel.Events.FrameDetached, {frame: mockChildFrame, isSwap: false});
 
     const expectation = [
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'parent-frame-id', targetId: 'target-id'}}},
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'child-frame-id', targetId: 'target-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'target-id', id: 'parent-frame-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'target-id', id: 'child-frame-id'}}},
       {type: 'FrameRemoved', data: {frameId: 'child-frame-id'}},
     ];
-    assert.strictEqual(JSON.stringify(dispatchedEvents), JSON.stringify(expectation));
+    assert.deepEqual(JSON.stringify(dispatchedEvents), JSON.stringify(expectation));
     let frameFromId = frameManager.getFrame('parent-frame-id');
     assert.strictEqual(frameFromId?.id, 'parent-frame-id');
     assert.strictEqual(frameFromId?.resourceTreeModel().target().id(), 'target-id');
@@ -118,8 +118,8 @@ describe('FrameManager', () => {
     frameManager.modelRemoved(mockModel);
 
     const expectation = [
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'parent-frame-id', targetId: 'target-id'}}},
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'child-frame-id', targetId: 'target-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'target-id', id: 'parent-frame-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'target-id', id: 'child-frame-id'}}},
       {type: 'FrameRemoved', data: {frameId: 'parent-frame-id'}},
       {type: 'FrameRemoved', data: {frameId: 'child-frame-id'}},
     ];
@@ -144,9 +144,9 @@ describe('FrameManager', () => {
         SDK.ResourceTreeModel.Events.FrameDetached, {frame: mockChildFrameParentTarget, isSwap: true});
 
     const expectation = [
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'parent-frame-id', targetId: 'parent-target-id'}}},
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'child-frame-id', targetId: 'parent-target-id'}}},
-      {type: 'FrameAddedToTarget', data: {frame: {id: 'child-frame-id', targetId: 'child-target-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'parent-target-id', id: 'parent-frame-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'parent-target-id', id: 'child-frame-id'}}},
+      {type: 'FrameAddedToTarget', data: {frame: {targetId: 'child-target-id', id: 'child-frame-id'}}},
     ];
     assert.strictEqual(JSON.stringify(dispatchedEvents), JSON.stringify(expectation));
     let frameFromId = frameManager.getFrame('parent-frame-id');
