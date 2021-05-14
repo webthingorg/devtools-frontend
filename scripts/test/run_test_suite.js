@@ -92,7 +92,7 @@ const yargsObject =
         .option('coverage', {
           type: 'boolean',
           desc: 'Whether to collect code coverage for this test suite',
-          default: false,
+          default: true,
         })
         .parserConfiguration({
           // So that if we pass --foo-bar, Yargs only populates
