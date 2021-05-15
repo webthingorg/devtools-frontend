@@ -51,6 +51,41 @@
       "parentUuid": "954be267_c213ea38",
       "revId": "5817fd452a891a2e1a3b4fc33dde33e124fbf73f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3eb04e_e3031777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-05-15T00:21:12Z",
+      "side": 1,
+      "message": "I don\u0027t believe so.  This is kind of a special case where we select an item on a treeOutline when clicking on another view altogether.  In this case, the Layers are represented in both the treeOutline and the canvas element.\n\nLet me know if you think of other tools that have this kind of relationship.  We should check if the focus shift is unexpectedly affecting the tool.",
+      "parentUuid": "86b4df67_641cfe1e",
+      "revId": "5817fd452a891a2e1a3b4fc33dde33e124fbf73f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4359d4ef_4f3a4529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-05-15T00:21:12Z",
+      "side": 1,
+      "message": "+Changhao as owner to review\n\nHey Changhao!  PTAL when you can.  Thanks!",
+      "revId": "5817fd452a891a2e1a3b4fc33dde33e124fbf73f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
