@@ -211,6 +211,30 @@
       },
       "revId": "5d9b0ad513f2095945069fed378019fd9c0d22ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f25b6b30_14512f29",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-17T06:50:22Z",
+      "side": 1,
+      "message": "The spec will not be helpful to almost all web developers. +1 to what Matthias suggested.",
+      "parentUuid": "09ddf9da_f929e4e9",
+      "range": {
+        "startLine": 28,
+        "startChar": 29,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "5d9b0ad513f2095945069fed378019fd9c0d22ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
