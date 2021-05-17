@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5725ba9_5d846ba2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Re 1) Yes, if it\u0027s preferred to match the renamed API we can hold off until the rename is in.\nRe 2) I will check if the current issue already fires for invalid conversiondestinations, and if not, add an issue",
+      "parentUuid": "a83bc050_527be2ba",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "680b439b_643dfbff",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-05-14T07:59:25Z",
       "side": 1,
       "message": "Could this be more precise and add \"the frame that triggered the event needs to be trustworthy: it must use HTTPS or be localhost or 127.0.0.1\". \nWould this be correct?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52ba79f_011f57f6",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "The definition of \"trustworthy origin\" is broader: https://www.w3.org/TR/powerful-features/#is-origin-trustworthy. I\u0027ll leave it to DevRel whether issue descriptions should inflate this with \"its HTTPS or localhost\" in the attribution reporting context :-)",
+      "parentUuid": "16794b62_f859384b",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +156,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e158b3f_6535aa0f",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98020b30_0fc84cf4",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b91b1276_debc47f8",
@@ -156,6 +210,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5643ad33_bd95a29a",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionData.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Updated to the suggestion.\n\nFor the redirect there is no JavaScript involved. The query parameter is a string that is converted to a uint64. Yes, I think integer is right here.\n\nI think we will also have to rewrite this issue. It seems there are now two parameters \"trigger-data\" and \"event-source-trigger-data\"?",
+      "parentUuid": "20cf7ca9_e21a5ea3",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4de2fdd6_7ff7f347",
         "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceEventId.md",
         "patchSetId": 3
@@ -167,6 +239,24 @@
       "writtenOn": "2021-05-14T07:59:25Z",
       "side": 1,
       "message": "Same, would it make sense to use \"integer\" here?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "255151ca_77d06193",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceEventId.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4de2fdd6_7ff7f347",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -188,6 +278,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a276bc37_076e27ac",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceEventId.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d60212b_f6a6a5c3",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb32b1f5_0a41e041",
@@ -201,6 +309,24 @@
       "writtenOn": "2021-05-14T07:59:25Z",
       "side": 1,
       "message": "s/number/integer?",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e44e23_a4fa7907",
+        "filename": "front_end/models/issues_manager/descriptions/arMissingAttributionData.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb32b1f5_0a41e041",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -224,6 +350,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1bd6d45_d27a644f",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Re 1: Done\nRe 2: The backend uses \"ExecutionContext::IsFeatureEnabled\". I have no idea how that interacts with origin trials (assuming that was OT stands for here :)). My best guess is, that chrome disables the AR feature flag without the OT token, so we don\u0027t get to the permissions policy check in the first place, but we would have to ask someone or test this assumption.",
+      "parentUuid": "7426e354_6eb12cf6",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3c40264_9d95ad72",
         "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
         "patchSetId": 3
@@ -235,6 +379,24 @@
       "writtenOn": "2021-05-14T07:59:25Z",
       "side": 1,
       "message": "Alternative formulation: \nThis page tries to use the Attribution Reporting API but this was aborted, because the `attribution-reporting` policy is not enabled.",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857a9384_c3b6ad9f",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c40264_9d95ad72",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -256,6 +418,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc18c347_b236d12d",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eede618_540cc444",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "919bb8e9_f200c116",
@@ -269,6 +449,24 @@
       "writtenOn": "2021-05-14T07:59:25Z",
       "side": 1,
       "message": "Suggestion: \n\"Add the permission policy as follows: `\u003ciframe src\u003d\"...\" allow\u003d\"attribution-reporting \u0027src\u0027\"\u003e`\nNote: not sure anymore how src is useful, need to check",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "745f7f4d_01aa055e",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-17T07:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "919bb8e9_f200c116",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
