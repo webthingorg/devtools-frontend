@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0616b131_375fcc54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-05-17T13:02:40Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m locking a some terms in the LMI, and trying to improve some of the description for localization. This is after some confusion where \u0027Pointer\u0027 would be translated as \u0027arrow\u0027 (https://buganizer.corp.google.com/issues/187329710#comment23) , so I think these terms should be locked. PTAL!",
+      "revId": "a293f3aeb061ebb5b3b954dd72f122f952b5249e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
