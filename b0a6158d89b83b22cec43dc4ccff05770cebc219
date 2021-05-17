@@ -34,6 +34,24 @@
       "parentUuid": "8ce1818c_d2456a6c",
       "revId": "b0a6158d89b83b22cec43dc4ccff05770cebc219",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fe63d3_3595de75",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-17T18:43:57Z",
+      "side": 1,
+      "message": "Thanks! Could this change cause an issue similar to https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1209666? It seems that ARIAUtils.alert might cause scrolling to the top?",
+      "parentUuid": "0e3f318c_bbf2d929",
+      "revId": "b0a6158d89b83b22cec43dc4ccff05770cebc219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
