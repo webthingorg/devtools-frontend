@@ -16,6 +16,24 @@
       "message": "Could you add more context to the descriptions? E.g., that it\u0027s announced by the screen reader when the user toggles the setting.",
       "revId": "b0a6158d89b83b22cec43dc4ccff05770cebc219",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3f318c_bbf2d929",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-05-17T17:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ce1818c_d2456a6c",
+      "revId": "b0a6158d89b83b22cec43dc4ccff05770cebc219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
