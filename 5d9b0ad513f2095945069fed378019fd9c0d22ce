@@ -259,6 +259,30 @@
       },
       "revId": "5d9b0ad513f2095945069fed378019fd9c0d22ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e70dc0_553df025",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-05-17T08:01:20Z",
+      "side": 1,
+      "message": "FWIW, we don\u0027t have to block this CL on the PR getting merged IMHO.",
+      "parentUuid": "c713132e_f12ccb6a",
+      "range": {
+        "startLine": 28,
+        "startChar": 29,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "5d9b0ad513f2095945069fed378019fd9c0d22ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
