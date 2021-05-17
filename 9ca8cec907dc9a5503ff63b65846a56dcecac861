@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a9dcb6_ee1f9084",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-17T07:44:01Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nUpdating test expectations in the front-end e2e tests.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "9ca8cec907dc9a5503ff63b65846a56dcecac861",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
