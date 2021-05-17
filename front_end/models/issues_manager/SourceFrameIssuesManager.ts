@@ -73,6 +73,8 @@ export class SourceFrameIssuesManager {
       const title = await this.getIssueTitleFromMarkdownDescription(description);
       if (title) {
         const clickHandler = (): void => {
+          // eslint-disable-next-line no-console
+          console.log('IssuesMessage click handler called');
           Common.Revealer.reveal(issue);
         };
         this.issueMessages.push(new IssueMessage(title, issue.getKind(), rawLocation, this.locationPool, clickHandler));

@@ -51,6 +51,11 @@ export let reveal = async function(revealable: Object|null, omitFocus?: boolean)
   const revealers =
       await Promise.all(getApplicableRegisteredRevealers(revealable).map(registration => registration.loadRevealer()));
 
+  if (revealers.length === 0) {
+    // eslint-disable-next-line no-console
+    console.log('no revealers!');
+  }
+
   return reveal(revealers);
   function reveal(revealers: Revealer[]): Promise<void> {
     const promises = [];

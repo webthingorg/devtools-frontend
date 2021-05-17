@@ -651,8 +651,12 @@ export class RowMessage {
   }
 
   callClickHandler(): void {
+    // eslint-disable-next-line no-console
+    console.log('RowMessage.callClickHandler');
     const handler = this.message.clickHandler();
     if (handler) {
+      // eslint-disable-next-line no-console
+      console.log('RowMessage.callClickHandler have handler');
       handler();
     }
   }

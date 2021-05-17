@@ -71,7 +71,8 @@ describe('The row\'s icon bucket', async function() {
     this.timeout(10000);
   }
 
-  it('should display error messages', async () => {
+  // Disabled for testing.
+  it.skip('[crbug.com/1184162]should display error messages', async () => {
     await openFileInSourceTab('trusted-type-policy-violation-report-only.rawresponse');
     const iconComponents = await getIconComponents('text-editor-line-decoration-icon-error');
     const messages: string[] = [];
@@ -87,7 +88,8 @@ describe('The row\'s icon bucket', async function() {
     assert.deepEqual(messages, expectedMessages);
   });
 
-  it('should use the correct error icon', async () => {
+  // Disabled for testing.
+  it.skip('[crbug.com/1184162] should use the correct error icon', async () => {
     await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
     const bucketIconComponents = await getIconComponents('text-editor-line-decoration-icon-error');
     for (const bucketIconComponent of bucketIconComponents) {
@@ -101,7 +103,8 @@ describe('The row\'s icon bucket', async function() {
     }
   });
 
-  it('should display issue messages', async () => {
+  // Disabled for testing.
+  it.skip('[crbug.com/1184162] should display issue messages', async () => {
     await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
     const issueIconComponents = await getIconComponents('text-editor-line-decoration-icon-issue');
 
@@ -119,14 +122,14 @@ describe('The row\'s icon bucket', async function() {
     assert.deepEqual(issueMessages.sort(), expectedIssueMessages.sort());
   });
 
-  it('should also mark issues in inline event handlers in HTML documents', async () => {
+  // Disabled for testing.
+  it.skip('[crbug.com/1184162] should also mark issues in inline event handlers in HTML documents', async () => {
     await openFileInSourceTab('trusted-type-violations-report-only-in-html.rawresponse');
     const icons = await getIconComponents('text-editor-line-decoration-icon-issue');
     assert.strictEqual(icons.length, 1);
   });
 
-  // Flaky test.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1184162]: should reveal Issues tab when the icon is clicked', async () => {
+  it('should reveal Issues tab when the icon is clicked', async () => {
     await openFileInSourceTab('trusted-type-policy-violation-report-only.rawresponse');
 
     const HIDE_DEBUGGER_SELECTOR = '[aria-label="Hide debugger"]';
@@ -143,29 +146,27 @@ describe('The row\'s icon bucket', async function() {
     assert.isTrue(expandedIssues.has('Trusted Type policy creation blocked by Content Security Policy'));
   });
 
-  // Flaky test.
-  it.skipOnPlatforms(
-      ['mac'], '[crbug.com/1184162]: should reveal the Issues tab if the icon in the popover is clicked', async () => {
-        await navigateToIssuesTab();
-        await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
+  it('should reveal the Issues tab if the icon in the popover is clicked', async () => {
+    await navigateToIssuesTab();
+    await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
 
-        const HIDE_DEBUGGER_SELECTOR = '[aria-label="Hide debugger"]';
-        const HIDE_NAVIGATOR_SELECTOR = '[aria-label="Hide navigator"]';
-        await click(HIDE_DEBUGGER_SELECTOR);
-        await click(HIDE_NAVIGATOR_SELECTOR);
+    const HIDE_DEBUGGER_SELECTOR = '[aria-label="Hide debugger"]';
+    const HIDE_NAVIGATOR_SELECTOR = '[aria-label="Hide navigator"]';
+    await click(HIDE_DEBUGGER_SELECTOR);
+    await click(HIDE_NAVIGATOR_SELECTOR);
 
-        const bucketIssueIconComponents = await getIconComponents('text-editor-line-decoration-icon-issue');
-        assert.strictEqual(bucketIssueIconComponents.length, 1);
-        const issueIconComponent = bucketIssueIconComponents[0];
-        await issueIconComponent.hover();
+    const bucketIssueIconComponents = await getIconComponents('text-editor-line-decoration-icon-issue');
+    assert.strictEqual(bucketIssueIconComponents.length, 1);
+    const issueIconComponent = bucketIssueIconComponents[0];
+    await issueIconComponent.hover();
 
-        const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');
-        const rowMessage = await waitFor('.text-editor-row-message', vbox);
-        const issueTitle = await rowMessage.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
-        const issueIcon = await waitFor('.text-editor-row-message-icon', rowMessage);
-        await issueIcon.click();
+    const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');
+    const rowMessage = await waitFor('.text-editor-row-message', vbox);
+    const issueTitle = await rowMessage.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+    const issueIcon = await waitFor('.text-editor-row-message-icon', rowMessage);
+    await issueIcon.click();
 
-        const expandedIssues = await waitForExpandedIssueTitle(issueIconComponent);
-        assert.isTrue(expandedIssues.has(issueTitle));
-      });
+    const expandedIssues = await waitForExpandedIssueTitle(issueIconComponent);
+    assert.isTrue(expandedIssues.has(issueTitle));
+  });
 });
