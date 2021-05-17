@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "26eb75401eaa13671ab6479c85b91c1e46a39e13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea8d5c20_193cbc6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-17T07:14:19Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "26eb75401eaa13671ab6479c85b91c1e46a39e13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2fcfb6_d218c27d",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-17T07:14:19Z",
+      "side": 1,
+      "message": "nit: Is `substitutions: undefined` needed?",
+      "revId": "26eb75401eaa13671ab6479c85b91c1e46a39e13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
