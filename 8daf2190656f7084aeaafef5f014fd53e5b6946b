@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "8daf2190656f7084aeaafef5f014fd53e5b6946b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f305fd90_db8d1508",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-17T07:19:19Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8daf2190656f7084aeaafef5f014fd53e5b6946b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee588f4_2a2c1d9e",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-17T07:19:19Z",
+      "side": 1,
+      "message": "nit: Could the substitutions line be skipped?",
+      "revId": "8daf2190656f7084aeaafef5f014fd53e5b6946b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
