@@ -85,7 +85,6 @@ function createIssuesFromProtocolIssue(
   }
 
   console.warn(`No handler registered for issue code ${inspectorIssue.code}`);
-  console.warn(`${inspectorIssue.details.quirksModeIssueDetails?.url}`);
   return [];
 }
 
