@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad65a595_ab609d07",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-17T08:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bdf8f64_8c856eb1",
+      "range": {
+        "startLine": 678,
+        "startChar": 2,
+        "endLine": 679,
+        "endChar": 43
+      },
+      "revId": "146126057eaebed2ece92592b3a1e9f425fa5436",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cd83f0d_33dbd22f",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-17T08:11:27Z",
       "side": 1,
       "message": "The test doesn\u0027t cover that this links to the right nodes. I trust that you checked by hand?",
+      "range": {
+        "startLine": 64,
+        "startChar": 49,
+        "endLine": 64,
+        "endChar": 110
+      },
+      "revId": "146126057eaebed2ece92592b3a1e9f425fa5436",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "097d5880_58403f56",
+        "filename": "front_end/panels/issues/AffectedDocumentsInQuirksModeView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-17T08:45:11Z",
+      "side": 1,
+      "message": "Yes I checked multiple sites. I can look into adding more in the follow-up for UMAs.",
+      "parentUuid": "2cd83f0d_33dbd22f",
       "range": {
         "startLine": 64,
         "startChar": 49,
