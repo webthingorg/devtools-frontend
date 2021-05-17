@@ -16,6 +16,23 @@
       "message": "removing CQ+2 so Jan can take a look first",
       "revId": "5fa28746c966bd4c00cadc59fddb16672faa6974",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8433ff9_358a9d71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-17T14:11:44Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "5fa28746c966bd4c00cadc59fddb16672faa6974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
