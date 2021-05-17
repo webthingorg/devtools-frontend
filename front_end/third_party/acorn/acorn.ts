@@ -4,6 +4,7 @@
 
 import * as acorn from './package/dist/acorn.mjs';
 
+export * as ESTree from './estree-legacy';
 export { Comment, defaultOptions, getLineInfo, isNewLine, lineBreak, lineBreakG, Node, SourceLocation, Token,tokTypes} from './package/dist/acorn.mjs';
 
 export const Parser = acorn.Parser;
