@@ -342,12 +342,18 @@ export class DOMDebuggerModel extends SDKModel {
     return domDocument ? domDocument.documentURL : '';
   }
 
-  _documentUpdated(): void {
+  async _documentUpdated(): Promise<void> {
     const removed = this._domBreakpoints;
     this._domBreakpoints = [];
     this.dispatchEventToListeners(Events.DOMBreakpointsRemoved, removed);
 
-    const currentURL = this._currentURL();
+    // this._currentURL() is empty when the page is reloaded because the
+    // new document has not been requested yet and the old one has been
+    // removed. Therefore, we need to request the document and wait for it.
+    // Note that requestDocument() caches the document so that it is requested
+    // only once.
+    const document = await this._domModel.requestDocument();
+    const currentURL = document ? document.documentURL : '';
     for (const breakpoint of this._domBreakpointsSetting.get()) {
       if (breakpoint.url === currentURL) {
         this._domModel.pushNodeByPathToFrontend(breakpoint.path).then(appendBreakpoint.bind(this, breakpoint));
