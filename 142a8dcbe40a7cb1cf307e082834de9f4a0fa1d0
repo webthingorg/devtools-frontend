@@ -50,6 +50,23 @@
       "message": "+Jan as Owner\n\nHey Jan!  PTAL, thanks!",
       "revId": "142a8dcbe40a7cb1cf307e082834de9f4a0fa1d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f98a14_95944b1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-18T08:08:28Z",
+      "side": 1,
+      "message": "LGTM too, thanks!",
+      "revId": "142a8dcbe40a7cb1cf307e082834de9f4a0fa1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
