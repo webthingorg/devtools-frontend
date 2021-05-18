@@ -33,6 +33,41 @@
       "message": "Would it make sense to trigger a stressor-bot run to confirm it\u0027s working again?",
       "revId": "f3358e0c76a6c8a551a9fe70ecb8ecfd858aac5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49f4652f_290afc70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-18T06:56:54Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f3358e0c76a6c8a551a9fe70ecb8ecfd858aac5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5417d94c_c933648c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-18T06:56:54Z",
+      "side": 1,
+      "message": "Oops, I missed your earlier comment.",
+      "parentUuid": "1a83c3d5_1655d41d",
+      "revId": "f3358e0c76a6c8a551a9fe70ecb8ecfd858aac5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
