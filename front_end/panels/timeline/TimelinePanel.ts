@@ -1403,6 +1403,7 @@ export class StatusPane extends UI.Widget.VBox {
   }
 
   showPane(parent: Element): void {
+    this._arrangeDialog(parent);
     this.show(parent);
     parent.classList.add('tinted');
   }
@@ -1444,6 +1445,13 @@ export class StatusPane extends UI.Widget.VBox {
     }
     const elapsed = (Date.now() - this._startTime) / 1000;
     this._time.textContent = i18nString(UIStrings.ssec, {PH1: elapsed.toFixed(precise ? 1 : 0)});
+  }
+
+  _arrangeDialog(parent: Element): void {
+    if (parent.clientWidth < 325) {
+      this.element.classList.add('small-dialog');
+      this.contentElement.classList.add('small-dialog');
+    }
   }
 }
 
