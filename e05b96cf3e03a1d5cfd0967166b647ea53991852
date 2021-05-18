@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa0e426_666bffac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-18T15:28:49Z",
+      "side": 1,
+      "message": "IIUC, the intention is to try each step only a few times and restart from the beginning of one of the steps fails, instead of being stuck in a failing step until timeout?\n\nDid you run the stressor bot?",
+      "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25254f0b_0ab19e7c",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-18T15:28:49Z",
+      "side": 1,
+      "message": "Why is the \u0027if\u0027 needed?",
+      "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
