@@ -5,7 +5,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const VSCODE_SETTINGS_LOCATION = path.join(__dirname, '..', '..', '.vscode', 'settings.json');
+const VSCODE_SETTINGS_LOCATION = path.join(process.cwd(), '.vscode', 'settings.json');
 const DEFAULT_VS_CODE_SETTINGS = {
   'eslint.runtime': 'third_party/node/node.py',
 };
