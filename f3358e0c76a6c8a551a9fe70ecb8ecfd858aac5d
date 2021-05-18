@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang, I ran the stressor on this test on another CL, and it seems the recent changes unflaked it, so I\u0027d like to re-activate the test on Mac.",
       "revId": "f3358e0c76a6c8a551a9fe70ecb8ecfd858aac5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a83c3d5_1655d41d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-18T06:55:41Z",
+      "side": 1,
+      "message": "Would it make sense to trigger a stressor-bot run to confirm it\u0027s working again?",
+      "revId": "f3358e0c76a6c8a551a9fe70ecb8ecfd858aac5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
