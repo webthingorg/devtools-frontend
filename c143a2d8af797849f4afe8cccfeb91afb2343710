@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "466b8f9f_9f70587d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-05-18T15:14:22Z",
+      "side": 1,
+      "message": "Hi Liviu, Michael, Is the attached bug tracking migration of devtools-frontend to \"main\"? if so, would it be possible to make it public?",
+      "revId": "c143a2d8af797849f4afe8cccfeb91afb2343710",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
