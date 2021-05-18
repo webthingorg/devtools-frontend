@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15463c6c_f6d74ace",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-05-18T05:00:51Z",
+      "side": 1,
+      "message": "The title and descriptions for the CL could be better, so people can  easily understand what this CL is trying to address. 😊 Something like\nTitle -  Fix screen reader issues on DOM Breakpoints checkboxes\nDescription - When navigating to DOM Breakpoint checkboxes, the screen reader should announce [...] but it is instead announcing [...]. This is caused by [...]. The CL fixes the issue by [...]",
+      "revId": "fae29d4e724676d8ab252e79ebd7751ba5ca34cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
