@@ -33,6 +33,24 @@
       "message": "Hi Jesper, thanks so much for the CL! Is there any chance of a before / after screenshot for comparison?",
       "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "804d9a18_55ff5d61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-05-18T17:58:42Z",
+      "side": 1,
+      "message": "Sure!\nBefore: https://i.imgur.com/KUh8xgX.png\nAfter: https://i.imgur.com/SikvAqY.png\n\nAnd when dragging (which is why the margin was set in the first place)\nBefore: https://i.imgur.com/iFRywv7.png\nAfter: https://i.imgur.com/YNvS5nJ.png",
+      "parentUuid": "76d4e38b_72aa68cc",
+      "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
