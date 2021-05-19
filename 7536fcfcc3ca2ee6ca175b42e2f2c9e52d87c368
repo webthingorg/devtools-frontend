@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d88898_3678f574",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-19T10:03:15Z",
+      "side": 1,
+      "message": "It slipped my eye but Mathias noticed this. @sigurds I believe the original `rowA[1].localeCompare(rowB[2])` was just a typo?",
+      "revId": "7536fcfcc3ca2ee6ca175b42e2f2c9e52d87c368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
