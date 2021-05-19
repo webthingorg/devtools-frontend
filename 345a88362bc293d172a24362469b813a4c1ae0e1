@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfd29353_8e4e6913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T11:41:14Z",
+      "side": 1,
+      "message": "Mike, please take a look at the wording in front_end/models/issues_manager/descriptions/deprecationNavigatorUserAgent.md and +1 if you are OK with it.",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
