@@ -212,14 +212,51 @@ generated_file("input_grd_files") {
   ]
 }
 
+if (!is_debug) {
+  action("compress") {
+    script = "scripts/build/compress_file.py"
+    deps = [ ":devtools_frontend_resources" ]
+
+    sources = []
+    foreach(_grd_file, _expected_grd_files) {
+      sources += [ "$target_gen_dir/$_grd_file" ]
+    }
+
+    response_file_contents = rebase_path(sources, root_build_dir)
+
+    outputs = []
+    foreach(_grd_file, _expected_grd_files) {
+      outputs += [
+        "$target_gen_dir/$_grd_file.compressed",
+        "$target_gen_dir/$_grd_file.hash",
+      ]
+    }
+
+    args = [
+      "--file_list",
+      "{{response_file_name}}",
+    ]
+  }
+}
+
 action("generate_devtools_grd") {
   script = "scripts/build/generate_devtools_grd.py"
 
-  deps = [ ":devtools_frontend_resources" ]
+  if (is_debug) {
+    deps = [ ":devtools_frontend_resources" ]
+  } else {
+    deps = [ ":compress" ]
+  }
 
   inputs = []
-  foreach(_grd_file, _expected_grd_files) {
-    inputs += [ "$target_gen_dir/$_grd_file" ]
+  if (is_debug) {
+    foreach(_grd_file, _expected_grd_files) {
+      inputs += [ "$target_gen_dir/$_grd_file" ]
+    }
+  } else {
+    foreach(_grd_file, _expected_grd_files) {
+      inputs += [ "$target_gen_dir/$_grd_file.compressed" ]
+    }
   }
 
   response_file_contents = rebase_path(_expected_grd_files, "front_end")
