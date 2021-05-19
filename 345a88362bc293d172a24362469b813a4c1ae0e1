@@ -51,6 +51,58 @@
       "parentUuid": "bfd29353_8e4e6913",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0dcfcdb_3645cc11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1465837
+      },
+      "writtenOn": "2021-05-19T12:08:15Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85e9003_fe7f3105",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1465837
+      },
+      "writtenOn": "2021-05-19T12:08:15Z",
+      "side": 1,
+      "message": "Yep, deprecationNavigatorUserAgent.md LGTM, thanks! It might be good to add the additional https://www.chromium.org/updates/ua-reduction link, but it is technically linked from the blog. (We can also land a follow-up CL if folks find it confusing).\n\n(Also yellow seems fine)",
+      "parentUuid": "9e8a5fa7_7701f197",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07fbf563_174d3dc1",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1465837
+      },
+      "writtenOn": "2021-05-19T12:08:15Z",
+      "side": 1,
+      "message": "Is it possible to also link to https://www.chromium.org/updates/ua-reduction?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
