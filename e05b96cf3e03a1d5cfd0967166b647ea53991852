@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7b6f634_5ba6cda6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T06:13:22Z",
+      "side": 1,
+      "message": "Yes, on a previous patchset.",
+      "parentUuid": "9fa0e426_666bffac",
+      "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25254f0b_0ab19e7c",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-05-18T15:28:49Z",
       "side": 1,
       "message": "Why is the \u0027if\u0027 needed?",
+      "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e00a12c_39591236",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T06:13:22Z",
+      "side": 1,
+      "message": "Because if the timeout is zero, we don\u0027t want to set one (debug-e2etest sets the timeout to zero).",
+      "parentUuid": "25254f0b_0ab19e7c",
       "revId": "e05b96cf3e03a1d5cfd0967166b647ea53991852",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
