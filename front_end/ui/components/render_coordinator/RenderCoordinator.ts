@@ -37,7 +37,7 @@ const enum ACTION {
 
 export class RenderCoordinatorQueueEmptyEvent extends Event {
   constructor() {
-    super('queueempty');
+    super('renderqueueempty');
   }
 }
 
@@ -199,8 +199,13 @@ export class RenderCoordinator extends EventTarget {
       const hasPendingFrames = this.pendingWorkFrames.length > 0;
       if (!hasPendingFrames) {
         // No pending frames means all pending work has completed.
-        // The event dispatched below is mostly for testing contexts.
+        // The events dispatched below are mostly for testing contexts.
+        // The first is for cases where we have a direct reference to
+        // the render coordinator. The second is for other test contexts
+        // where we don't, and instead we listen for an event on the window.
         this.dispatchEvent(new RenderCoordinatorQueueEmptyEvent());
+        window.dispatchEvent(new RenderCoordinatorQueueEmptyEvent());
+
         this.logIfEnabled('[Queue empty]');
         this.scheduledWorkId = 0;
         return;
