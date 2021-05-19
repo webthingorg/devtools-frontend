@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91a6d4f_161832cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "I think the blog post is explaining better what is going on, left that link, we can change it afterwards if required.",
+      "parentUuid": "e85e9003_fe7f3105",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abfa532b_ac083bcb",
@@ -118,6 +136,24 @@
       "writtenOn": "2021-05-19T12:50:37Z",
       "side": 1,
       "message": "nit: 2021",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c6c003_d5609e28",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abfa532b_ac083bcb",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b940726_6a2eba37",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56021de2_2321abe9",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65a5d3e2_c1136c69",
@@ -152,6 +206,24 @@
       "writtenOn": "2021-05-19T12:50:37Z",
       "side": 1,
       "message": "User-Agent String Reduction?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4076e28e_69285ed3",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a5d3e2_c1136c69",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -173,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d52ac1d4_5231e3f4",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e948ffa_2ed3cdad",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07fbf563_174d3dc1",
@@ -186,6 +276,24 @@
       "writtenOn": "2021-05-19T12:08:15Z",
       "side": 1,
       "message": "Is it possible to also link to https://www.chromium.org/updates/ua-reduction?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77eea40d_acf75557",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Sure, that one seemed less approachable than the blog post thought. Done.",
+      "parentUuid": "07fbf563_174d3dc1",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -207,6 +315,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7993eefd_31e97415",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "946e0c77_8aaf7b0a",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7a02076_dbebf8a3",
@@ -220,6 +346,24 @@
       "writtenOn": "2021-05-19T12:50:37Z",
       "side": 1,
       "message": "nit: ...replace the usage...?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4428026c_b908df2c",
+        "filename": "front_end/models/issues_manager/descriptions/deprecationNavigatorUserAgent.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-19T13:53:16Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a7a02076_dbebf8a3",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
