@@ -88,6 +88,91 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9272b7d_7b956ab3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "The term \"DeprecationIssue\" sounds quite general to me. Do you expect to add similar issues to it? Or could this be renamed to a more specific term?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abfa532b_ac083bcb",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56021de2_2321abe9",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "update description",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a5d3e2_c1136c69",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "User-Agent String Reduction?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e948ffa_2ed3cdad",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "So the DeprecationIssue will be categorised as a CORS-issue until the follow-up?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07fbf563_174d3dc1",
@@ -101,6 +186,40 @@
       "writtenOn": "2021-05-19T12:08:15Z",
       "side": 1,
       "message": "Is it possible to also link to https://www.chromium.org/updates/ua-reduction?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "946e0c77_8aaf7b0a",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "add TODO?",
+      "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a02076_dbebf8a3",
+        "filename": "front_end/models/issues_manager/descriptions/deprecationNavigatorUserAgent.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-19T12:50:37Z",
+      "side": 1,
+      "message": "nit: ...replace the usage...?",
       "revId": "345a88362bc293d172a24362469b813a4c1ae0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
