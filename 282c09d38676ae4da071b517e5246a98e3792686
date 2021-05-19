@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b6d47c_90ef686d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-19T11:43:30Z",
+      "side": 1,
+      "message": "Made some decisions here to change the gradients to a straight up color - I suspect long term we\u0027ll want to define some `--color-file-type-css` type variables but this will do for the meantime.",
+      "revId": "282c09d38676ae4da071b517e5246a98e3792686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
