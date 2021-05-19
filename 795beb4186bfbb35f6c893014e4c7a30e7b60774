@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9829142b_dd20d76a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-05-19T20:24:08Z",
+      "side": 1,
+      "message": "This seems like the wrong url.",
+      "range": {
+        "startLine": 12,
+        "startChar": 15,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "795beb4186bfbb35f6c893014e4c7a30e7b60774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
