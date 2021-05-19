@@ -7,13 +7,13 @@
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import type * as Workspace from '../workspace/workspace.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
 import {RecordingPlayer} from './RecordingPlayer.js';
 import {RecordingSession} from './RecordingSession.js';
-import type {Step} from './Steps.js';
-import {ClickStep, NavigationStep, StepFrameContext, SubmitStep, ChangeStep, CloseStep, EmulateNetworkConditions} from './Steps.js';
+
+import {findRecordingsProject} from './RecordingFileSystem.js';
+import type {Recording} from './Recording.js';
 
 const enum RecorderState {
   Recording = 'Recording',
@@ -59,62 +59,35 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
     return this._state === RecorderState.Recording;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  parseStep(step: any): Step {
-    const context = step.context && new StepFrameContext(step.context.target, step.context.path);
-    switch (step.action) {
-      case 'click':
-        return new ClickStep(context, step.selector);
-      case 'navigate':
-        return new NavigationStep(step.url);
-      case 'submit':
-        return new SubmitStep(context, step.selector);
-      case 'change':
-        return new ChangeStep(context, step.selector, step.value);
-      case 'close':
-        return new CloseStep(step.target);
-      case 'emulateNetworkConditions':
-        return new EmulateNetworkConditions(step.conditions);
-      default:
-        throw new Error('Unknown step: ' + step.action);
-    }
+
+  parseScript(script: string): Recording {
+    return JSON.parse(script) as Recording;
   }
 
-  parseScript(script: string): Step[] {
-    const input = JSON.parse(script);
-    const output = [];
-
-    for (const stepInput of input) {
-      const step = this.parseStep(stepInput);
-      output.push(step);
-    }
-
-    return output;
-  }
-
-  async replayRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+  async replayRecording(recording: Recording): Promise<void> {
     this.updateState(RecorderState.Replaying);
     try {
-      const script = this.parseScript(uiSourceCode.content());
-      const player = new RecordingPlayer(script);
+      const player = new RecordingPlayer(recording);
       await player.play();
     } finally {
       this.updateState(RecorderState.Idle);
     }
   }
 
-  async toggleRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+  async toggleRecording(): Promise<RecordingSession|null> {
     if (this._state === RecorderState.Idle) {
-      await this.startRecording(uiSourceCode);
+      await this.startRecording();
       await this.updateState(RecorderState.Recording);
     } else if (this._state === RecorderState.Recording) {
       await this.stopRecording();
       await this.updateState(RecorderState.Idle);
     }
+
+    return this._currentRecordingSession;
   }
 
-  async startRecording(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
-    this._currentRecordingSession = new RecordingSession(this.target(), uiSourceCode, this._indentation);
+  async startRecording(): Promise<void> {
+    this._currentRecordingSession = new RecordingSession(this.target(), this._indentation);
     await this._currentRecordingSession.start();
   }
 
@@ -125,6 +98,20 @@ export class RecorderModel extends SDK.SDKModel.SDKModel {
 
     this._currentRecordingSession.stop();
     this._currentRecordingSession = null;
+  }
+
+  async getAvailableRecordings(): Promise<Recording[]> {
+    const project = findRecordingsProject();
+    const uiSourceCodes = project.uiSourceCodes();
+
+    const recordings = [];
+    for (const uiSourceCode of uiSourceCodes) {
+      try {
+        recordings.push(this.parseScript(uiSourceCode.content()));
+      } catch {
+      }
+    }
+    return recordings;
   }
 }
 

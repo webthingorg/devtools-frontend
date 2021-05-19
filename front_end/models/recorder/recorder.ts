@@ -3,9 +3,17 @@
 // found in the LICENSE file.
 
 import * as RecorderModel from './RecorderModel.js';
+import * as Recording from './Recording.js';
 import * as RecordingClient from './RecordingClient.js';
 import * as RecordingFileSystem from './RecordingFileSystem.js';
 import * as RecordingScriptWriter from './RecordingScriptWriter.js';
-import * as Steps from './Steps.js';
+import * as RecordingSession from './RecordingSession.js';
 
-export {RecorderModel, RecordingClient, RecordingFileSystem, RecordingScriptWriter, Steps};
+export {
+  RecorderModel,
+  Recording,
+  RecordingClient,
+  RecordingFileSystem,
+  RecordingScriptWriter,
+  RecordingSession,
+};

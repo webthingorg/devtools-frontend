@@ -6,14 +6,11 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import type * as Workspace from '../workspace/workspace.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
-import {RecordingScriptWriter} from './RecordingScriptWriter.js';
 import {RecordingEventHandler} from './RecordingEventHandler.js';
 import {setupRecordingClient} from './RecordingClient.js';
-import type {Step} from './Steps.js';
-import {EmulateNetworkConditions, NavigationStep} from './Steps.js';
+import type {Recording, Step} from './Recording.js';
 
 const RECORDER_ISOLATED_WORLD_NAME = 'devtools_recorder';
 
@@ -22,9 +19,8 @@ type RecorderEvent = {
   event: Common.EventTarget.EventTargetEvent,
 };
 
-export class RecordingSession {
+export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper {
   _target: SDK.SDKModel.Target;
-  _uiSourceCode: Workspace.UISourceCode.UISourceCode;
   _runtimeAgent: ProtocolProxyApi.RuntimeApi;
   _accessibilityAgent: ProtocolProxyApi.AccessibilityApi;
   _pageAgent: ProtocolProxyApi.PageApi;
@@ -38,14 +34,14 @@ export class RecordingSession {
   _targets: Map<string, SDK.SDKModel.Target>;
   _newDocumentScriptIdentifiers: Map<string, string>;
   _indentation: string;
-  _scriptWriter: RecordingScriptWriter|null = null;
   _eventQueue: Array<RecorderEvent> = [];
   _isProcessingEvent = false;
-  steps: Step[] = [];
+  _recording: Recording;
 
-  constructor(target: SDK.SDKModel.Target, uiSourceCode: Workspace.UISourceCode.UISourceCode, indentation: string) {
+  constructor(target: SDK.SDKModel.Target, indentation: string) {
+    super();
+
     this._target = target;
-    this._uiSourceCode = uiSourceCode;
     this._indentation = indentation;
 
     this._runtimeAgent = target.runtimeAgent();
@@ -75,6 +71,11 @@ export class RecordingSession {
     this._eventHandlers = new Map();
     this._targets = new Map();
     this._newDocumentScriptIdentifiers = new Map();
+
+    this._recording = {
+      title: 'New Recording',
+      sections: [],
+    };
   }
 
   async start(): Promise<void> {
@@ -89,14 +90,35 @@ export class RecordingSession {
 
     await this.attachToTarget(this._target);
 
-    this._scriptWriter = new RecordingScriptWriter(this._indentation);
-
     const networkConditions = this._networkManager.networkConditions();
     if (networkConditions !== SDK.NetworkManager.NoThrottlingConditions) {
-      await this.appendStep(new EmulateNetworkConditions(networkConditions));
+      await this.appendStep({type: 'emulateNetworkConditions', conditions: networkConditions});
     }
 
-    await this.appendStep(new NavigationStep(mainFrame.url));
+    await this.appendNewSection();
+  }
+
+  async appendNewSection(): Promise<void> {
+    const mainFrame = this._resourceTreeModel.mainFrame;
+    if (!mainFrame) {
+      throw new Error('Could not find mainFrame.');
+    }
+
+    const url = mainFrame.url;
+    const title = mainFrame.name;
+
+    const {data: screenshot} = await this._pageAgent.invoke_captureScreenshot({
+      captureBeyondViewport: true,
+    });
+
+    this._recording.sections.push({
+      title,
+      url,
+      screenshot: 'data:image/png;base64,' + screenshot,
+      steps: [],
+    });
+
+    this.dispatchEventToListeners('recording-updated', this._recording);
   }
 
   async stop(): Promise<void> {
@@ -111,33 +133,20 @@ export class RecordingSession {
   }
 
   _handleNetworkConditionsChanged(): void {
-    const networkConditions = this._networkManager.networkConditions();
-    this.appendStep(new EmulateNetworkConditions(networkConditions));
+    // TODO enable this again
+    // const networkConditions = this._networkManager.networkConditions();
+    // this.appendStep(new EmulateNetworkConditions(networkConditions));
   }
 
   async appendStep(step: Step): Promise<void> {
-    this.steps.push(step);
+    const currentSection = this._recording.sections[this._recording.sections.length - 1];
+    currentSection.steps.push(step);
 
-    if (!this._scriptWriter) {
-      throw new Error('Recording has not started yet.');
-    }
-
-    this._scriptWriter.appendStep(step);
-    await this.renderSteps();
-    step.addEventListener('conditionadded', () => {
-      this.renderSteps();
-    });
+    this.dispatchEventToListeners('recording-updated', this._recording);
   }
 
-  async renderSteps(): Promise<void> {
-    if (!this._scriptWriter) {
-      throw new Error('Recording has not started yet.');
-    }
-
-    const content = JSON.stringify(this.steps, null, this._indentation);
-
-    this._uiSourceCode.setContent(content, false);
-    await Common.Revealer.reveal(this._uiSourceCode.uiLocation(content.length), true);
+  getRecording(): Recording {
+    return this._recording;
   }
 
   bindingCalled(event: Common.EventTarget.EventTargetEvent): void {
@@ -358,5 +367,6 @@ export class RecordingSession {
     }
 
     eventHandler.targetInfoChanged(event.data.url);
+    await this.appendNewSection();
   }
 }

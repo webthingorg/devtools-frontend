@@ -6,28 +6,36 @@ const {assert} = chai;
 
 import * as Recorder from '../../../../../front_end/models/recorder/recorder.js';
 
-class TestStep extends Recorder.Steps.Step {
-  constructor() {
-    super('test');
-  }
-
-  toScript(): Recorder.Steps.Script {
-    return ['Hello World'];
-  }
-}
-
 describe('Recorder', () => {
   describe('RecordingScriptWriter', () => {
     it('should respect the given indentation', () => {
-      const writer = new Recorder.RecordingScriptWriter.RecordingScriptWriter('  ');
-      writer.appendStep(new TestStep());
-      assert.deepEqual(writer.getScript(), `const puppeteer = require(\'puppeteer\');
+      const writer = new Recorder.RecordingScriptWriter.RecordingScriptWriter('  ', {
+        title: 'Test Recording',
+        sections: [{
+          title: 'First Section',
+          url: 'https://localhost/',
+          screenshot: '',
+          steps: [{
+            type: 'click',
+            target: 'main',
+            path: [],
+            selector: 'aria/Test' as Recorder.Recording.Selector,
+          }],
+        }],
+      });
+      assert.deepEqual(writer.getScript(), `const puppeteer = require('puppeteer');
 
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  Hello World
+  {
+    const targetPage = page;
+    let frame = targetPage.mainFrame();
+    const element = await frame.waitForSelector("aria/Test");
+    await element.click();
+  }
+
   await browser.close();
 })();
 `);

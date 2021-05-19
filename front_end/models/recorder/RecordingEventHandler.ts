@@ -7,8 +7,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import type {Condition} from './Conditions.js';
 import {WaitForNavigationCondition} from './Conditions.js';
 import type {RecordingSession} from './RecordingSession.js';
-import type {Step} from './Steps.js';
-import {ChangeStep, ClickStep, CloseStep, StepFrameContext, SubmitStep} from './Steps.js';
+import type {Step, Selector, StepWithFrameContext} from './Recording.js';
 
 interface Payload {
   type: string;
@@ -39,7 +38,7 @@ export class RecordingEventHandler {
     return this.target.id() === 'main' ? 'main' : this.target.inspectedURL();
   }
 
-  getContextForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): StepFrameContext {
+  getContextForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): StepWithFrameContext {
     const path = [];
     let currentFrame: SDK.ResourceTreeModel.ResourceTreeFrame = frame;
     while (currentFrame) {
@@ -55,7 +54,10 @@ export class RecordingEventHandler {
     }
 
     const target = this.getTarget();
-    return new StepFrameContext(target, path);
+    return {
+      target,
+      path,
+    };
   }
 
   bindingCalled(frameId: string, payload: Payload): void {
@@ -68,13 +70,13 @@ export class RecordingEventHandler {
 
     switch (payload.type) {
       case 'click':
-        this.appendStep(new ClickStep(context, payload.selector));
+        this.appendStep({type: 'click', selector: payload.selector as Selector, ...context});
         break;
       case 'submit':
-        this.appendStep(new SubmitStep(context, payload.selector));
+        this.appendStep({type: 'submit', selector: payload.selector as Selector, ...context});
         break;
       case 'change':
-        this.appendStep(new ChangeStep(context, payload.selector, payload.value));
+        this.appendStep({type: 'change', selector: payload.selector as Selector, value: payload.value, ...context});
         break;
     }
   }
@@ -91,16 +93,16 @@ export class RecordingEventHandler {
     }, 1000);
   }
 
-  addConditionToLastStep(condition: Condition): void {
+  addConditionToLastStep(_condition: Condition): void {
     if (!this.lastStep) {
       return;
     }
 
-    this.lastStep.addCondition(condition);
+    // this.lastStep.addCondition(condition);
   }
 
   targetDestroyed(): void {
-    this.appendStep(new CloseStep(this.getTarget()));
+    // this.appendStep(new CloseStep(this.getTarget()));
   }
 
   targetInfoChanged(url: string): void {

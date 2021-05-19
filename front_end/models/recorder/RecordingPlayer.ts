@@ -4,16 +4,13 @@
 
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as puppeteer from '../../third_party/puppeteer/puppeteer.js';
-import {WaitForNavigationCondition} from './Conditions.js';
 import {getPuppeteerConnection as getPuppeteerConnectionToCurrentPage} from './PuppeteerConnection.js';
-
-import type {Step, StepFrameContext} from './Steps.js';
-import {ChangeStep, ClickStep, NavigationStep, StepWithContext, SubmitStep} from './Steps.js';
+import type {Recording, Step} from './Recording.js';
 
 export class RecordingPlayer {
-  recording: Step[];
+  recording: Recording;
 
-  constructor(recording: Step[]) {
+  constructor(recording: Recording) {
     this.recording = recording;
   }
 
@@ -28,8 +25,10 @@ export class RecordingPlayer {
     try {
       page.setDefaultTimeout(5000);
 
-      for (const step of this.recording) {
-        await this.step(browser, page, step);
+      for (const section of this.recording.sections) {
+        for (const step of section.steps) {
+          await this.step(browser, page, step);
+        }
       }
     } catch (err) {
       console.error('ERROR', err.message);
@@ -49,13 +48,12 @@ export class RecordingPlayer {
     }
   }
 
-  async getTargetPageFromFrameContext(browser: puppeteer.Browser, page: puppeteer.Page, context: StepFrameContext|null):
-      Promise<puppeteer.Page> {
-    if (!context || context.target === 'main') {
+  async getTargetPage(browser: puppeteer.Browser, page: puppeteer.Page, step: Step): Promise<puppeteer.Page> {
+    if (!('target' in step) || step.target === 'main') {
       return page;
     }
 
-    const target = await browser.waitForTarget(t => t.url() === context.target);
+    const target = await browser.waitForTarget(t => t.url() === step.target);
     const targetPage = await target.page();
 
     if (!targetPage) {
@@ -64,13 +62,12 @@ export class RecordingPlayer {
     return targetPage;
   }
 
-  async getTargetPageAndFrameFromFrameContext(
-      browser: puppeteer.Browser, page: puppeteer.Page,
-      context: StepFrameContext|null): Promise<{targetPage: puppeteer.Page, frame: puppeteer.Frame}> {
-    const targetPage = await this.getTargetPageFromFrameContext(browser, page, context);
+  async getTargetPageAndFrame(browser: puppeteer.Browser, page: puppeteer.Page, step: Step):
+      Promise<{targetPage: puppeteer.Page, frame: puppeteer.Frame}> {
+    const targetPage = await this.getTargetPage(browser, page, step);
     let frame = targetPage.mainFrame();
-    if (context) {
-      for (const index of context.path) {
+    if ('path' in step) {
+      for (const index of step.path) {
         frame = frame.childFrames()[index];
       }
     }
@@ -78,37 +75,38 @@ export class RecordingPlayer {
   }
 
   async step(browser: puppeteer.Browser, page: puppeteer.Page, step: Step): Promise<void> {
-    const {targetPage, frame} = await this.getTargetPageAndFrameFromFrameContext(
-        browser, page, step instanceof StepWithContext ? step.context : null);
+    const {targetPage, frame} = await this.getTargetPageAndFrame(browser, page, step);
 
     let condition: Promise<unknown>|null = null;
 
-    if (step.condition instanceof WaitForNavigationCondition) {
+    if ('condition' in step && step.condition === 'waitForNavigation') {
       condition = targetPage.waitForNavigation();
     }
 
-    if (step instanceof NavigationStep) {
-      await page.goto(step.url);
-    } else if (step instanceof ClickStep) {
-      const element = await frame.waitForSelector(step.selector);
-      if (!element) {
-        throw new Error('Could not find element: ' + step.selector);
-      }
-      await element.click();
-    } else if (step instanceof ChangeStep) {
-      const element = await frame.waitForSelector(step.selector);
-      if (!element) {
-        throw new Error('Could not find element: ' + step.selector);
-      }
-      await element.type(step.value);
-    } else if (step instanceof SubmitStep) {
-      const element = await frame.waitForSelector(step.selector);
-      if (!element) {
-        throw new Error('Could not find element: ' + step.selector);
-      }
-      await element.evaluate(form => (form as HTMLFormElement).submit());
-    } else {
-      throw new Error('Unknown action: ' + step.action);
+    switch (step.type) {
+      case 'click': {
+        const element = await frame.waitForSelector(step.selector);
+        if (!element) {
+          throw new Error('Could not find element: ' + step.selector);
+        }
+        await element.click();
+      } break;
+      case 'change': {
+        const element = await frame.waitForSelector(step.selector);
+        if (!element) {
+          throw new Error('Could not find element: ' + step.selector);
+        }
+        await element.type(step.value);
+      } break;
+      case 'submit': {
+        const element = await frame.waitForSelector(step.selector);
+        if (!element) {
+          throw new Error('Could not find element: ' + step.selector);
+        }
+        await element.evaluate(form => (form as HTMLFormElement).submit());
+      } break;
+      default:
+        throw new Error('Unknown step: ' + step.type);
     }
 
     await condition;

@@ -2,25 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type {Step} from './Steps.js';
+import type {Step, ClickStep, StepWithFrameContext, ChangeStep, SubmitStep, Recording} from './Recording.js';
 
 export class RecordingScriptWriter {
   private indentation: string;
-  private steps: Step[] = [];
+  private recording: Recording;
 
-  constructor(indentation: string) {
+  constructor(indentation: string, recording: Recording) {
     this.indentation = indentation;
-  }
-
-  async appendStep(step: Step): Promise<void> {
-    this.steps.push(step);
-  }
-
-  getLastStep(): Step|null {
-    if (this.steps.length) {
-      return this.steps[this.steps.length - 1];
-    }
-    return null;
+    this.recording = recording;
   }
 
   getScript(): string {
@@ -32,6 +22,75 @@ export class RecordingScriptWriter {
       script.push(line ? indentation.repeat(currentIndentation) + line.trimRight() : '');
     }
 
+    function appendTarget(target: string): void {
+      if (target === 'main') {
+        appendLineToScript('const targetPage = page;');
+      } else {
+        appendLineToScript(`const target = await browser.waitForTarget(t => t.url === ${JSON.stringify(target)});`);
+        appendLineToScript('const targetPage = await target.page();');
+      }
+    }
+
+    function appendFrame(path: number[]): void {
+      appendLineToScript('let frame = targetPage.mainFrame();');
+      for (const index of path) {
+        appendLineToScript(`frame = frame.childFrames()[${index}]`);
+      }
+    }
+
+    function appendContext(step: StepWithFrameContext): void {
+      appendTarget(step.target);
+      appendFrame(step.path);
+    }
+
+    function appendClickStep(step: ClickStep): void {
+      appendContext(step);
+      appendLineToScript(`const element = await frame.waitForSelector(${JSON.stringify(step.selector)});`);
+      appendLineToScript('await element.click();');
+    }
+
+    function appendChangeStep(step: ChangeStep): void {
+      appendContext(step);
+      appendLineToScript(`const element = await frame.waitForSelector(${JSON.stringify(step.selector)});`);
+      appendLineToScript(`await element.type(${JSON.stringify(step.value)});`);
+    }
+
+    function appendSubmitStep(step: SubmitStep): void {
+      appendContext(step);
+      appendLineToScript(`const element = await frame.waitForSelector(${JSON.stringify(step.selector)});`);
+      appendLineToScript('await element.evaluate(form => form.submit());');
+    }
+
+    function appendStepType(step: Step): void {
+      switch (step.type) {
+        case 'click':
+          return appendClickStep(step);
+        case 'change':
+          return appendChangeStep(step);
+        case 'submit':
+          return appendSubmitStep(step);
+      }
+    }
+
+
+    function appendStep(step: Step): void {
+      appendLineToScript('{');
+      currentIndentation += 1;
+
+      if ('condition' in step && step.condition === 'waitForNavigation') {
+        appendLineToScript('const promise = targetPage.waitForNavigation();');
+      }
+
+      appendStepType(step);
+
+      if ('condition' in step) {
+        appendLineToScript('await promise;');
+      }
+
+      currentIndentation -= 1;
+      appendLineToScript('}');
+    }
+
     appendLineToScript('const puppeteer = require(\'puppeteer\');');
     appendLineToScript('');
     appendLineToScript('(async () => {');
@@ -40,27 +99,13 @@ export class RecordingScriptWriter {
     appendLineToScript('const page = await browser.newPage();');
     appendLineToScript('');
 
-    for (const step of this.steps) {
-      const lines = step.toScript().filter(l => l !== null).map(l => (l as string).trim());
-      if (lines.length > 1) {
-        appendLineToScript('{');
-        currentIndentation += 1;
-      }
-      for (const line of lines) {
-        if (line === '}') {
-          currentIndentation -= 1;
-        }
-        appendLineToScript(line);
-        if (line === '{') {
-          currentIndentation += 1;
-        }
-      }
-      if (lines.length > 1) {
-        currentIndentation -= 1;
-        appendLineToScript('}');
+    for (const section of this.recording.sections) {
+      for (const step of section.steps) {
+        appendStep(step);
       }
     }
 
+    appendLineToScript('');
     appendLineToScript('await browser.close();');
     currentIndentation -= 1;
     appendLineToScript('})();');
