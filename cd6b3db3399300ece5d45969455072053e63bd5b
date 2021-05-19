@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fcba89d_dd8796dd",
+        "filename": "front_end/panels/media/playerMessagesView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-05-19T16:22:16Z",
+      "side": 1,
+      "message": "This is text colour but does not show up well on the old hover so currently using background colour.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 42
+      },
+      "revId": "cd6b3db3399300ece5d45969455072053e63bd5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396f306a_61ec93b0",
+        "filename": "front_end/panels/media/playerMessagesView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-05-19T16:22:16Z",
+      "side": 1,
+      "message": "Could not find the dark colour version for this or emulate it in devtools.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 1
+      },
+      "revId": "cd6b3db3399300ece5d45969455072053e63bd5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74afbce0_04d1eb45",
+        "filename": "front_end/panels/media/playerPropertiesView.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-05-19T16:22:16Z",
+      "side": 1,
+      "message": "Does this need changing?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "cd6b3db3399300ece5d45969455072053e63bd5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
