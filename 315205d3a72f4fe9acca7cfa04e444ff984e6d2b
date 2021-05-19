@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5063e2e2_ad56f6b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-19T19:21:44Z",
+      "side": 1,
+      "message": "I have centered the dialog contents vertically when the width is \u003c325px and made sure to remove the styling when the width becomes \u003e\u003d325px. Gif of the new behavior: https://imgur.com/a/PtLAXGg",
+      "revId": "315205d3a72f4fe9acca7cfa04e444ff984e6d2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

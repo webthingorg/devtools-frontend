@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5106a013_746ebfe8",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-19T19:21:44Z",
+      "side": 1,
+      "message": "I have updated _arrangeDialog() to remove the class when `parent.clientWidth \u003e\u003d 325`, and added an _arrangeDialog() call to the hide() and _updateTimer() functions so the parent width will be checked each second.",
+      "parentUuid": "977eaafe_6407719a",
+      "revId": "bc84a49ba7cefcc1444f5b52aff8d373167eed14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d9644d6_52a313b0",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2021-05-19T07:38:32Z",
       "side": 1,
       "message": "I\u0027m not sure why we are adding the `small-dialog` class to both `this.element` and `this.contentElement`. Could you explain a little bit here?",
+      "revId": "bc84a49ba7cefcc1444f5b52aff8d373167eed14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4255cd2a_6916f4c0",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-19T19:21:44Z",
+      "side": 1,
+      "message": "This is because the two elements have a shadow DOM root in between them, which I believe prevents using a \"descendent of .small-dialog\" selector to style the contentElement and the stop button.",
+      "parentUuid": "0d9644d6_52a313b0",
       "revId": "bc84a49ba7cefcc1444f5b52aff8d373167eed14",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -106,6 +142,30 @@
       "side": 1,
       "message": "s/centering/vertical centering/",
       "parentUuid": "3b34ab62_f9c7b1c9",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 36
+      },
+      "revId": "bc84a49ba7cefcc1444f5b52aff8d373167eed14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38b02db_764ce659",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-19T19:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a484b9_c788aea6",
       "range": {
         "startLine": 57,
         "startChar": 0,
