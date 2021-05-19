@@ -15,16 +15,14 @@
 
 .media-messages-level-dropdown-element {
   background-color: var(--color-background-elevation-1);
-  color: #000; /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  color: var(--color-text-primary);
   height: 18px;
   line-height: 18px;
 }
 
 .media-messages-level-dropdown-element:hover {
   background-color: var(--legacy-accent-color-hover);
-  color: #fff; /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  color: var(--color-background-inverted);
 }
 
 .media-messages-level-dropdown-text {
@@ -52,8 +50,14 @@
 }
 
 .media-message-error {
-  background-color: hsl(0deg 100% 97%); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  --override-media-messages-error: rgb(255 240 240);
+
+  background-color: var(--override-media-messages-error);
+}
+
+.-theme-with-dark-background .media-message-error,
+:host-context(.-theme-with-dark-background) .media-message-error {
+  --override-media-messages-error: rgb(79 0 0);
 }
 
 .media-messages-message-filtered {
