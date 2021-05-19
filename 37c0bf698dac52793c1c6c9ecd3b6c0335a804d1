@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be5145f5_6ef0ca72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-19T13:41:28Z",
+      "side": 1,
+      "message": "For anyone who is encountering build issues after this CL, we determined that local builds can fail if they use a different patch version for Python 3 than Chromium. Chromium uses Python 3.8, whereas this patch will fail when attempting to compile with Python 3.6 or older.\n\nPlease update your python3 version to be up-to-date with Chromium to successfully compile again.",
+      "revId": "37c0bf698dac52793c1c6c9ecd3b6c0335a804d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
