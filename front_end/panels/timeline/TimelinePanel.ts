@@ -1399,10 +1399,12 @@ export class StatusPane extends UI.Widget.VBox {
 
   hide(): void {
     (this.element.parentNode as HTMLElement).classList.remove('tinted');
+    this._arrangeDialog((this.element.parentNode as HTMLElement));
     this.element.remove();
   }
 
   showPane(parent: Element): void {
+    this._arrangeDialog(parent);
     this.show(parent);
     parent.classList.add('tinted');
   }
@@ -1439,11 +1441,22 @@ export class StatusPane extends UI.Widget.VBox {
   }
 
   _updateTimer(precise?: boolean): void {
+    this._arrangeDialog((this.element.parentNode as HTMLElement));
     if (!this._timeUpdateTimer) {
       return;
     }
     const elapsed = (Date.now() - this._startTime) / 1000;
     this._time.textContent = i18nString(UIStrings.ssec, {PH1: elapsed.toFixed(precise ? 1 : 0)});
+  }
+
+  _arrangeDialog(parent: Element): void {
+    if (parent.clientWidth < 325) {
+      this.element.classList.add('small-dialog');
+      this.contentElement.classList.add('small-dialog');
+    } else if (parent.clientWidth >= 325) {
+      this.element.classList.remove('small-dialog');
+      this.contentElement.classList.remove('small-dialog');
+    }
   }
 }
 
