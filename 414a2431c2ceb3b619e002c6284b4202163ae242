@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a8157b_0a52c097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-19T04:50:55Z",
+      "side": 1,
+      "message": "I\u0027ve added the link to the CL to the crbug for reference, and will mark this as abandoned now.",
+      "parentUuid": "b11868f6_bfa53555",
+      "revId": "414a2431c2ceb3b619e002c6284b4202163ae242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5ded0ab_b130ce1f",
