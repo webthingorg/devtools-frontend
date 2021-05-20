@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as path from 'path';
-import {terser} from 'rollup-plugin-terser';
 
 /**
  * `path.dirname` does not include trailing slashes. If we would always
@@ -38,19 +37,14 @@ function dirnameWithSeparator(file) {
 }
 
 // eslint-disable-next-line import/no-default-export
-export default commandLineArgs =>
-    ({
-      treeshake: false,
-      context: 'self',
-      output: {
-        format: 'esm',
-      },
-      plugins: [
-        terser({
-          compress: {
-            pure_funcs: commandLineArgs.configDCHECK ? ['Platform.DCHECK'] : [],
-          },
-        }),
+export default {
+  treeshake: false,
+  context: 'self',
+  output: {
+    format: 'esm',
+  },
+  plugins:
+      [
         (() => {
           return {
             name: 'devtools-plugin',
@@ -125,4 +119,4 @@ export default commandLineArgs =>
           };
         })(),
       ]
-    });
+};
