@@ -193,16 +193,18 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     labelElement.classList.add('dom-breakpoint');
     element.appendChild(labelElement);
     const description = document.createElement('div');
-    const breakpointTypeLabel = BreakpointTypeLabels.get(item.type);
-    description.textContent = breakpointTypeLabel ? breakpointTypeLabel() : null;
-    UI.ARIAUtils.setAccessibleName(checkboxElement, breakpointTypeLabel ? breakpointTypeLabel() : '');
+    const breakpointType = BreakpointTypeLabels.get(item.type);
+    const breakpointAccessibleName = breakpointType ? breakpointType() : '';
+    description.textContent = breakpointAccessibleName ? breakpointAccessibleName : null;
+
+    UI.ARIAUtils.setAccessibleName(checkboxElement, breakpointAccessibleName);
     const linkifiedNode = document.createElement('monospace');
     linkifiedNode.style.display = 'block';
     labelElement.appendChild(linkifiedNode);
     Common.Linkifier.Linkifier.linkify(item.node, {preventKeyboardFocus: true, tooltip: undefined}).then(linkified => {
       linkifiedNode.appendChild(linkified);
       UI.ARIAUtils.setAccessibleName(
-          checkboxElement, i18nString(UIStrings.sS, {PH1: breakpointTypeLabel, PH2: linkified.deepTextContent()}));
+          checkboxElement, i18nString(UIStrings.sS, {PH1: breakpointAccessibleName, PH2: linkified.deepTextContent()}));
     });
 
     labelElement.appendChild(description);
