@@ -116,7 +116,7 @@ export class RecordingSession {
     this.appendStep(new EmulateNetworkConditions(networkConditions));
   }
 
-  async appendStep(step: Step): Promise<void> {
+  async appendStep(step: Step): Promise<Step> {
     this.steps.push(step);
 
     if (!this._scriptWriter) {
@@ -128,6 +128,7 @@ export class RecordingSession {
     step.addEventListener('conditionadded', () => {
       this.renderSteps();
     });
+    return step;
   }
 
   async renderSteps(): Promise<void> {
