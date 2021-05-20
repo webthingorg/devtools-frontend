@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eabfd69_03b54450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-05-20T22:19:47Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nI think I have most of functionality implemented. TreeOutline provides a nice expandable tree structure, but I did not find a place to override the default style. Am I doing things correctly? \n\nScreenShot at current stage: https://drive.google.com/file/d/12Jo0QKKkihB1Tw5GSnkaOl2lNI1doniH/view?usp\u003dsharing",
+      "revId": "c6c650e1d40f40b5ede89fcc4b87298ac04f9a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
