@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1e7c41_549e43b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-05-20T20:52:43Z",
+      "side": 1,
+      "message": "Small CL to add Screen reader alert to Info bar learn more text. PTAL!",
+      "revId": "b060f840ae4e07be2fcbce4ca5b1b800cdbc248e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
