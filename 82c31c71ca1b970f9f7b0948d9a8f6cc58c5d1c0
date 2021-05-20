@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e58663_186c7450",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-05-20T21:48:20Z",
+      "side": 1,
+      "message": "I was able to repro the issue: https://imgur.com/a/pL3Dxyz\n\nThe underlying problem appears to be that `versionsByMode` only contains a single `Active` entry with no `previousState` (presumably because the worker was already \"Active\" when DevTools started receiving data). This in turn affects the calculations because `beginActivateTime` remains `0` as no `Activating` state is present in the collection.\n\nGiven the repro I suspect we can do a more targeted fix near here rather than having to validate the ranges later.\n\nHere\u0027s a serialization of the only entry in `versions` during my repro:\n\n```json\n{\n    \"key\": \"active\",\n    \"value\": {\n        \"registration\": {\n            \"id\": \"7\",\n            \"scopeURL\": \"https://www.chloe.com/\",\n            \"securityOrigin\": \"https://www.chloe.com\",\n            \"isDeleted\": false,\n            \"versions\": {},\n            \"_deleting\": false,\n            \"errors\": []\n        },\n        \"id\": \"7\",\n        \"scriptURL\": \"https://www.chloe.com/SW_CHLOE.js?siteCode\u003dCHLOE_US\",\n        \"securityOrigin\": \"https://www.chloe.com\",\n        \"currentState\": {\n            \"runningStatus\": \"running\",\n            \"status\": \"activated\",\n            \"last_updated_timestamp\": 1621546151521\n        },\n        \"scriptLastModified\": 1,\n        \"scriptResponseTime\": 1621546148.808521,\n        \"controlledClients\": [\n            \"D73D2F8E3BB809D49112868CCE4797F8\"\n        ],\n        \"targetId\": \"2D255542B3CF0DF088C59720DADCB921\"\n    }\n}\n```",
+      "revId": "82c31c71ca1b970f9f7b0948d9a8f6cc58c5d1c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
