@@ -47,8 +47,20 @@ export class ServiceWorkerUpdateCycleView {
   }
 
   calculateServiceWorkerUpdateRanges(): Array<ServiceWorkerUpdateRange> {
+    /**
+     * @param range
+     * @returns whether the range is wellformed (start before end), end in the past,
+     * and less than 10 years old.
+     */
+    function isValidRange(range: ServiceWorkerUpdateRange): boolean {
+      const now = Date.now();
+      const tenYearAgo = new Date();
+      tenYearAgo.setFullYear(tenYearAgo.getFullYear() - 10);
+      return (range.start > tenYearAgo.getDate() && range.end < now && range.start <= range.end);
+    }
+
     function addRange(ranges: Array<ServiceWorkerUpdateRange>, range: ServiceWorkerUpdateRange): void {
-      if (range.start < Number.MAX_VALUE && range.start <= range.end) {
+      if (isValidRange(range)) {
         ranges.push(range);
       }
     }
