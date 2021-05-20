@@ -16,6 +16,207 @@
       "message": "PTAL",
       "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8429cc46_26c83a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Only nits 😊 Nice fix, exciting for the improved build improvement and reduced JSON brotli compression.",
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ef95db_2d68834c",
+        "filename": "BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Nit: move this to line 193 so that we can deduplicate withe the other usage and keep them in sync. If GN starts complaining the variable being unused in debug mode, you can use `not_needed`: https://gn.googlesource.com/gn/+/refs/heads/main/docs/reference.md#func_not_needed",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "337cd8f8_2c63b1b7",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "I am not sure how expensive this method is, but I guess we can extract it into a const, can we not?",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760b29dc_e5a71997",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Nit: rename to `compressedFilename` (it took me a bit before I understood that `dst` stands for `destination`)",
+      "range": {
+        "startLine": 31,
+        "startChar": 27,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03acfe97_a0c45714",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "We are reading the file here again, which we also did on line 64. Can we extract line 64 into a variable and pass in the fileContents into this function, to save a file read?",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee456e4_8dfe258a",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Nit: to make sure we comply with the TS style guide, the variables need to be camelCased. This is also true for the variables in `main`.",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3d326dd_11f3bff5",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Nit: add a link to https://source.chromium.org/chromium/chromium/src/+/main:tools/grit/grit/constants.py;l\u003d25;drc\u003d84ef659584d3beb83b44cc168d02244dbd6b8f87 to make sure we keep these in sync.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 59
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba2f80f_d7020951",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "Can we extract this into a const as well or does it assume uniqueness?",
+      "range": {
+        "startLine": 54,
+        "startChar": 41,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313d2b43_e0500e6a",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:18:43Z",
+      "side": 1,
+      "message": "I thought that the files we were compressing were only text-based files, are they not? In that case, I think we can read this as text rather than binary?",
+      "range": {
+        "startLine": 64,
+        "startChar": 30,
+        "endLine": 64,
+        "endChar": 44
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
