@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc9e3b5_2f078538",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-05-20T08:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f801d806_9e9493d8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "580145a03c83690e99166cfddaeb7dcd9e4baf43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f15e9a3_7a4f20cb",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-13T08:09:08Z",
       "side": 1,
       "message": "again: import * as",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "580145a03c83690e99166cfddaeb7dcd9e4baf43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b781f4_b3f80966",
+        "filename": "front_end/ui/components/survey_link/SurveyLink.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-05-20T08:04:01Z",
+      "side": 1,
+      "message": "changed in other locations as well",
+      "parentUuid": "9f15e9a3_7a4f20cb",
       "range": {
         "startLine": 12,
         "startChar": 0,
