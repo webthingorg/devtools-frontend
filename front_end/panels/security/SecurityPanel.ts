@@ -801,7 +801,7 @@ export class SecurityPanelSidebarTree extends UI.TreeOutline.TreeOutlineInShadow
   _elementsByOrigin: Map<string, SecurityPanelSidebarTreeElement>;
   constructor(mainViewElement: SecurityPanelSidebarTreeElement, showOriginInPanel: (arg0: Origin) => void) {
     super();
-    this.registerRequiredCSS('panels/security/sidebar.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('panels/security/sidebar.css', {enableLegacyPatching: false});
     this.registerRequiredCSS('panels/security/lockIcon.css', {enableLegacyPatching: false});
     this.appendChild(mainViewElement);
 
