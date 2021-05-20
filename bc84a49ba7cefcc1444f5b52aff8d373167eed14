@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a794f7_ac1afb40",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-05-20T16:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0113f70d_52fa442f",
+      "revId": "bc84a49ba7cefcc1444f5b52aff8d373167eed14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d9644d6_52a313b0",
