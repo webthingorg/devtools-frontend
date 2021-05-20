@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d8d91fa_7c3fbdd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-05-20T06:09:31Z",
+      "side": 1,
+      "message": "Hello,\n\nI\u0027m changing the LMI Mock class to overwrite the subtype() function, which required the check for ArrayBuffers in RemoteObject, as discussed offline. PTAL!\n\n@Tim: I saw that a test for the arraybuffers was added. Since in reality we never have an arraybuffer in the frontend, the check and this test were removed. PTAL!",
+      "revId": "0b93fdca9696651d20512338e12647c7ef08c0bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
