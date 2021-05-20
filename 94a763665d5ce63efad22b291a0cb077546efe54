@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de59b10_8e8a3982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-20T10:50:20Z",
+      "side": 1,
+      "message": "LGTM with 1 remark.",
+      "revId": "94a763665d5ce63efad22b291a0cb077546efe54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf8c339_a804835e",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-20T10:50:20Z",
+      "side": 1,
+      "message": "This name is misleading imo, not whether both are watch expressions, but whether they are the same watch expression, is relevant. How about something like `AreSameWatchExpression`?",
+      "revId": "94a763665d5ce63efad22b291a0cb077546efe54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
