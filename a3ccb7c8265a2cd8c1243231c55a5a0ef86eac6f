@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f2ecf72_9a73bb51",
+        "filename": "BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-20T15:45:40Z",
+      "side": 1,
+      "message": "Yeah we could. It\u0027s a bit awkward though, as the `gn` filtering wants a regex, but the Python script doesn\u0027t. So if it is relatively straightforward to fix, then yes please, but otherwise we can keep it as-is.",
+      "parentUuid": "2e4bca55_d0574e39",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "337cd8f8_2c63b1b7",
         "filename": "scripts/build/compress_files.js",
         "patchSetId": 13
