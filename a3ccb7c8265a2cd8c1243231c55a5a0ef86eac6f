@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e4bca55_d0574e39",
+        "filename": "BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "Oh thanks! That exactly the problem I was having. Also, it\u0027s duplicated in generate_devtools_grd.py. Do you think we can provide the pattern list to it via an argument?",
+      "parentUuid": "d2ef95db_2d68834c",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "337cd8f8_2c63b1b7",
         "filename": "scripts/build/compress_files.js",
         "patchSetId": 13
@@ -71,6 +95,30 @@
       "writtenOn": "2021-05-20T15:18:43Z",
       "side": 1,
       "message": "I am not sure how expensive this method is, but I guess we can extract it into a const, can we not?",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623bcb28_885f0a25",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "It seems we can!",
+      "parentUuid": "337cd8f8_2c63b1b7",
       "range": {
         "startLine": 12,
         "startChar": 9,
@@ -152,6 +200,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a72edd19_f40d2a68",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "Oh yes, thanks for pointing out. I forgot to clean up after porting from python.",
+      "parentUuid": "7ee456e4_8dfe258a",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7388afbe_74513b47",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "Good point! yes, we totally can!",
+      "parentUuid": "03acfe97_a0c45714",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3d326dd_11f3bff5",
         "filename": "scripts/build/compress_files.js",
         "patchSetId": 13
@@ -198,6 +294,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "467f3059_c79211d8",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "I think it\u0027d break if shared between files since i/o might happen concurrently. createBrotliCompress returns a stream object that holds the state of conversion.",
+      "parentUuid": "dba2f80f_d7020951",
+      "range": {
+        "startLine": 54,
+        "startChar": 41,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "313d2b43_e0500e6a",
         "filename": "scripts/build/compress_files.js",
         "patchSetId": 13
@@ -209,6 +329,30 @@
       "writtenOn": "2021-05-20T15:18:43Z",
       "side": 1,
       "message": "I thought that the files we were compressing were only text-based files, are they not? In that case, I think we can read this as text rather than binary?",
+      "range": {
+        "startLine": 64,
+        "startChar": 30,
+        "endLine": 64,
+        "endChar": 44
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caaf09e9_63008306",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-20T15:39:30Z",
+      "side": 1,
+      "message": "I think it\u0027s safer to assume a binary file given that we don\u0027t create the file like the hash file, for example.",
+      "parentUuid": "313d2b43_e0500e6a",
       "range": {
         "startLine": 64,
         "startChar": 30,
