@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f258f033_d1835d24",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-05-20T09:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a89f8e7d_0e592093",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48e3779a_681e3007",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b505c894_c89bceef",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-05-20T09:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48e3779a_681e3007",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52f4efe5_a58a04e0",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-05-20T09:13:09Z",
       "side": 1,
       "message": "\"CORS errors are now reported in the Issues tab.\"",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5e2d1e_3b669c1b",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-05-20T09:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52f4efe5_a58a04e0",
       "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
