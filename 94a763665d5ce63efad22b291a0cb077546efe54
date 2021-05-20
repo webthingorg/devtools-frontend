@@ -51,6 +51,24 @@
       "parentUuid": "2cf8c339_a804835e",
       "revId": "94a763665d5ce63efad22b291a0cb077546efe54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3fea28_46590c91",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-20T10:59:46Z",
+      "side": 1,
+      "message": "Of course, you are right! I was initially confused about why the pin-number is needed, but now it makes sense: the url-comparison ensures both have the same pin-number and if both are watch-expressions the scriptID check can be skipped.",
+      "parentUuid": "4875a2d4_27c810ab",
+      "revId": "94a763665d5ce63efad22b291a0cb077546efe54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
