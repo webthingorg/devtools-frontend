@@ -98,6 +98,8 @@ export class RecordingSession {
     }
 
     await this.appendStep(new NavigationStep(mainFrame.url));
+
+    await this._pageAgent.invoke_bringToFront();
   }
 
   async stop(): Promise<void> {
@@ -116,7 +118,7 @@ export class RecordingSession {
     this.appendStep(new EmulateNetworkConditions(networkConditions));
   }
 
-  async appendStep(step: Step): Promise<void> {
+  async appendStep(step: Step): Promise<Step> {
     this.steps.push(step);
 
     if (!this._scriptWriter) {
@@ -128,6 +130,7 @@ export class RecordingSession {
     step.addEventListener('conditionadded', () => {
       this.renderSteps();
     });
+    return step;
   }
 
   async renderSteps(): Promise<void> {
