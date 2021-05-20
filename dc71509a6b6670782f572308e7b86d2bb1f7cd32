@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e4ad149_104e61dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-05-20T22:36:48Z",
+      "side": 1,
+      "message": "The change looks good to me, but I\u0027m not an expert in this area. Also, can we add a test for this?",
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245f1e03_9f3f38ec",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-05-20T22:36:48Z",
+      "side": 1,
+      "message": "what is \u0027cookie\u0027 used for?",
+      "range": {
+        "startLine": 2059,
+        "startChar": 7,
+        "endLine": 2059,
+        "endChar": 13
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18925693_1a823e7c",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2060,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-05-20T22:36:48Z",
+      "side": 1,
+      "message": "was this new formatting due to presubmit?",
+      "range": {
+        "startLine": 2051,
+        "startChar": 6,
+        "endLine": 2060,
+        "endChar": 7
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
