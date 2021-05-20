@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "611ca5d2_eadb4073",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-05-20T09:13:09Z",
+      "side": 1,
+      "message": "LGTM\n\nLeft some minor, optional suggestions",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a89f8e7d_0e592093",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-05-20T09:13:09Z",
+      "side": 1,
+      "message": "suggested tweak:\n\n“Easily view […]”\n\nsounds more natural imho",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e3779a_681e3007",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-05-20T09:13:09Z",
+      "side": 1,
+      "message": "Maybe \"Improved CORS debugging\"?",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f4efe5_a58a04e0",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-05-20T09:13:09Z",
+      "side": 1,
+      "message": "\"CORS errors are now reported in the Issues tab.\"",
+      "revId": "318eee9d7e576152a4f212e02fbb0368002fd135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
