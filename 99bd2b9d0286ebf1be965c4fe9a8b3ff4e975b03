@@ -34,6 +34,24 @@
       "parentUuid": "2bbe9cc3_be699fba",
       "revId": "99bd2b9d0286ebf1be965c4fe9a8b3ff4e975b03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3ef6183_38f49563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-05-21T05:32:57Z",
+      "side": 1,
+      "message": "Landing Ebous fix now (first come first serve xD), it was only blocked due to an unrelated e2e failure yesterday. Thanks for fixing though!",
+      "parentUuid": "648200cf_ee1fe0be",
+      "revId": "99bd2b9d0286ebf1be965c4fe9a8b3ff4e975b03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
