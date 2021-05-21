@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61857d5c_4b0d8af3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-21T11:53:31Z",
+      "side": 1,
+      "message": "LGTM after typo fix, thanks!",
+      "revId": "e89fd252ca4a2bd736d653edddb3e3f1b78d35dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46019439_a13282ec",
+        "filename": "front_end/panels/sources/debuggerPausedMessage.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-21T11:53:31Z",
+      "side": 1,
+      "message": "looks like a typo here",
+      "range": {
+        "startLine": 20,
+        "startChar": 44,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "e89fd252ca4a2bd736d653edddb3e3f1b78d35dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
