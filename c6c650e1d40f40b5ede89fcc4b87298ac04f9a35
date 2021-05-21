@@ -33,6 +33,24 @@
       "message": "Hi Charlie, great to see the progress with OT support!\n\nI just patched this in locally: Functionality seems good, but I have some UX suggestions:\n\nCould you make the tree span both columns so that it\u0027s now all crowded on the left?\n\nClicking on a node turns the background blue - we probably don\u0027t need that here.\n\nWhat\u0027s the max. number of OT tokens we expect to see on a single document? Maybe we don\u0027t need the tree to be 3 levels deep or maybe we can expand parts of it by default.\n\nI\u0027ll take a closer look next week (Mon is a public holiday here).\n",
       "revId": "c6c650e1d40f40b5ede89fcc4b87298ac04f9a35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ab8226_dedece96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-05-21T13:49:31Z",
+      "side": 1,
+      "message": "In most pages that uses OT token, there is only one token. I have done some optimization on the 1 token case. When there is only 1 token associated with the trail, an extra level of showing token status is omitted, normally the tree is 4 levels deep, as stated in the comment: \n\n```\n// The Origin Trial Tree has 4 levels of content:\n// - Origin Trial (has multiple Origin Trial tokens)\n// - Origin Trial Token (has multiple fields)\n// - Fields in Origin Trial Token (has only 1 raw token text field)\n// - Raw Origin Trial Token text (folded because the content is long)\n```\n\nWe can certainly expand the tree by default when there is only 1 token on the page.",
+      "parentUuid": "7c5f98c8_65167381",
+      "revId": "c6c650e1d40f40b5ede89fcc4b87298ac04f9a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
