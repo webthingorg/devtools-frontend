@@ -50,6 +50,24 @@
       "message": "nit: Please add a license.",
       "revId": "56e423042a4aa5b667f0524340032e82f912104b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa19f46_d4a8dc90",
+        "filename": "front_end/panels/protocol_monitor/protocolMonitor.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-21T09:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74a84f4_1d4bae19",
+      "revId": "56e423042a4aa5b667f0524340032e82f912104b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
