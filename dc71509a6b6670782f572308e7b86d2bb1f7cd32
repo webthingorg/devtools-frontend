@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f065923_ccc0879c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-21T23:35:07Z",
+      "side": 1,
+      "message": "Thanks! I looked into adding some tests. At the moment there\u0027s no easy way to observe the OS\u0027s clipboard contents to validate the output. IMO this is a simple enough change that it\u0027s not really worth the effort to expose the generated output either by accessing the clipboard from E2E tests somehow or refactoring/adding some test-only plumbing.",
+      "parentUuid": "6e4ad149_104e61dc",
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245f1e03_9f3f38ec",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fd0199e_02efd069",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-21T23:35:07Z",
+      "side": 1,
+      "message": "The \u0027cookie\u0027 header in an HTTP request contains all the cookies to be sent to the server. We\u0027re adding this header and the \u0027user agent\u0027 header to the ignore list because they need special handling and shouldn\u0027t be included in the -Headers list in the generated output.",
+      "parentUuid": "245f1e03_9f3f38ec",
+      "range": {
+        "startLine": 2059,
+        "startChar": 7,
+        "endLine": 2059,
+        "endChar": 13
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18925693_1a823e7c",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2021-05-20T22:36:48Z",
       "side": 1,
       "message": "was this new formatting due to presubmit?",
+      "range": {
+        "startLine": 2051,
+        "startChar": 6,
+        "endLine": 2060,
+        "endChar": 7
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "045252cf_2ff3472a",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2060,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-21T23:35:07Z",
+      "side": 1,
+      "message": "Yes, this is due to presubmit because the list grew.",
+      "parentUuid": "18925693_1a823e7c",
       "range": {
         "startLine": 2051,
         "startChar": 6,
