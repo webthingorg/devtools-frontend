@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang,\n\nI think I have most of functionality implemented. TreeOutline provides a nice expandable tree structure, but I did not find a place to override the default style. Am I doing things correctly? \n\nScreenShot at current stage: https://drive.google.com/file/d/12Jo0QKKkihB1Tw5GSnkaOl2lNI1doniH/view?usp\u003dsharing",
       "revId": "c6c650e1d40f40b5ede89fcc4b87298ac04f9a35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5f98c8_65167381",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-05-21T12:19:21Z",
+      "side": 1,
+      "message": "Hi Charlie, great to see the progress with OT support!\n\nI just patched this in locally: Functionality seems good, but I have some UX suggestions:\n\nCould you make the tree span both columns so that it\u0027s now all crowded on the left?\n\nClicking on a node turns the background blue - we probably don\u0027t need that here.\n\nWhat\u0027s the max. number of OT tokens we expect to see on a single document? Maybe we don\u0027t need the tree to be 3 levels deep or maybe we can expand parts of it by default.\n\nI\u0027ll take a closer look next week (Mon is a public holiday here).\n",
+      "revId": "c6c650e1d40f40b5ede89fcc4b87298ac04f9a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
