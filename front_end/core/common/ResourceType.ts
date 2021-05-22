@@ -291,8 +291,12 @@ export class ResourceType {
     return this._name === 'document';
   }
 
+  isXHR(): boolean {
+    return this._name === 'xhr';
+  }
+
   isDocumentOrScriptOrStyleSheet(): boolean {
-    return this.isDocument() || this.isScript() || this.isStyleSheet();
+    return this.isDocument() || this.isScript() || this.isStyleSheet() || this.isXHR();
   }
 
   isImage(): boolean {
