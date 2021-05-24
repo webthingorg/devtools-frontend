@@ -56,7 +56,9 @@ export class ResourceSourceFrame extends SourceFrameImpl {
       codeMirrorOptions?: UI.TextEditor.Options) {
     super(() => resource.requestContent(), codeMirrorOptions);
     this._resource = resource;
-    this.setCanPrettyPrint(this._resource.contentType().isDocumentOrScriptOrStyleSheet(), autoPrettyPrint);
+    const canPrettyPrint =
+        this._resource.contentType().isDocumentOrScriptOrStyleSheet() || this._resource.contentURL().includes('.json');
+    this.setCanPrettyPrint(canPrettyPrint, autoPrettyPrint);
   }
 
   static createSearchableView(
