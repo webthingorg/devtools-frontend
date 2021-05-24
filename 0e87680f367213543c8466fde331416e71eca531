@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2489d315_febf39a2",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-05-24T15:20:14Z",
+      "side": 0,
+      "message": "deleted these unit tests as the interactions test these far more thoroughly.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 7
+      },
+      "revId": "0e87680f367213543c8466fde331416e71eca531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
