@@ -36,6 +36,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d082c6ce_42e8f199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-24T17:13:08Z",
+      "side": 1,
+      "message": "Replied to comments. Please take another look. Thanks!",
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245f1e03_9f3f38ec",
@@ -83,6 +100,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c089b8b6_8a90ca7d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-24T17:13:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd0199e_02efd069",
+      "range": {
+        "startLine": 2059,
+        "startChar": 7,
+        "endLine": 2059,
+        "endChar": 13
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18925693_1a823e7c",
@@ -120,6 +161,30 @@
       "side": 1,
       "message": "Yes, this is due to presubmit because the list grew.",
       "parentUuid": "18925693_1a823e7c",
+      "range": {
+        "startLine": 2051,
+        "startChar": 6,
+        "endLine": 2060,
+        "endChar": 7
+      },
+      "revId": "dc71509a6b6670782f572308e7b86d2bb1f7cd32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd4e4b8_2268f308",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2060,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-05-24T17:13:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "045252cf_2ff3472a",
       "range": {
         "startLine": 2051,
         "startChar": 6,
