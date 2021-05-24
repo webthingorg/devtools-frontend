@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24c3fb8_d63f138d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-24T10:19:36Z",
+      "side": 1,
+      "message": "Could you please add a JSONFormatter_test.ts file in `test/unittests/front_end/entrypoints/formatter_worker/` that tests various JSON files to be formatted correctly?\n\n@Benedikt, could you please double-check the JSON check to be added to `ResourceSourceFrame` to detect JSON files? We typically don\u0027t use file extensions for matching, as the web doesn\u0027t care about file extensions, but I am not sure what alternatives we have.",
+      "revId": "82d0fff2e1936527728c943805273768d5e822a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d6a9cc_a960ed8b",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-24T10:19:36Z",
+      "side": 1,
+      "message": "Since `isDocumentOrScriptOrStyleSheet()` is used in multiple places, I am wary of adding this check here. Especially as not all `XHR` requests are part of these. Instead, I think we should update `ResourceSourceFrame` (where I am presuming the call to `isDocumentOrScriptOrStyleSheet` is from) to check for `.json` files and then allow for pretty-printing as well. For that, I think you can use the `contentURL()` to check for `.endsWith(\u0027.json\u0027)`.\n\nAdding Benedikt as a double-check for whether that logic is correct.",
+      "range": {
+        "startLine": 299,
+        "startChar": 71,
+        "endLine": 299,
+        "endChar": 86
+      },
+      "revId": "82d0fff2e1936527728c943805273768d5e822a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
