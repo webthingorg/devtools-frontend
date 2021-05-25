@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3665ac_e0a24c4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-25T11:06:04Z",
+      "side": 1,
+      "message": "Thanks for sending the CL. How will the front-end deal with this change? Is it obvious to the user to which frame the media events belong? Do we need to update the presentation layer as well?\n\nAlso, would it be possible we add an e2e test for this? (To document how the new code-paths can be triggered)",
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b4b2e1b_da0f9b04",
