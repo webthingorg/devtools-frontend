@@ -16,6 +16,69 @@
       "message": "@Tim PTAL, I think this is the right way to handle multiple targets, but I\u0027m not 100% sure about it. It does work though.\n\n@Thomas, since you\u0027re probably interested :)",
       "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed15e42_ae3d625b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-25T10:29:57Z",
+      "side": 1,
+      "message": "Sigurd, could you double check the integration with the SDK models?",
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4b2e1b_da0f9b04",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-25T10:29:57Z",
+      "side": 1,
+      "message": "These `invoke_enable` calls actually return a Promise. Therefore here (and in `targetAdded`) they are racy. (That was true for the previous implementation of `ensureEnabled` as well).\n\nI suppose that this is fine for now, but would be good to cleanup later.",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65e1618c_8bf19fac",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-25T10:29:57Z",
+      "side": 1,
+      "message": "Don\u0027t we want to remove the mediaAgent from `this._agents` here?",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 23
+      },
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
