@@ -4,11 +4,10 @@
 
 import * as SDK from '../../core/sdk/sdk.js';
 
-import type {Condition} from './Conditions.js';
-import {WaitForNavigationCondition} from './Conditions.js';
 import type {RecordingSession} from './RecordingSession.js';
-import type {Step} from './Steps.js';
-import {ChangeStep, ClickStep, CloseStep, StepFrameContext, SubmitStep} from './Steps.js';
+import type {FrameContext, Selector, Step} from './Steps.js';
+import {createChangeStep, createClickStep, createSubmitStep} from './Steps.js';
+import type {Condition} from './Steps.js';
 
 interface Payload {
   type: string;
@@ -39,7 +38,7 @@ export class RecordingEventHandler {
     return this.target.id() === 'main' ? 'main' : this.target.inspectedURL();
   }
 
-  getContextForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): StepFrameContext {
+  getContextForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): FrameContext {
     const path = [];
     let currentFrame: SDK.ResourceTreeModel.ResourceTreeFrame = frame;
     while (currentFrame) {
@@ -55,7 +54,10 @@ export class RecordingEventHandler {
     }
 
     const target = this.getTarget();
-    return new StepFrameContext(target, path);
+    return {
+      target,
+      path,
+    };
   }
 
   bindingCalled(frameId: string, payload: Payload): void {
@@ -68,13 +70,13 @@ export class RecordingEventHandler {
 
     switch (payload.type) {
       case 'click':
-        this.appendStep(new ClickStep(context, payload.selector));
+        this.appendStep(createClickStep(context, payload.selector as Selector));
         break;
       case 'submit':
-        this.appendStep(new SubmitStep(context, payload.selector));
+        this.appendStep(createSubmitStep(context, payload.selector as Selector));
         break;
       case 'change':
-        this.appendStep(new ChangeStep(context, payload.selector, payload.value));
+        this.appendStep(createChangeStep(context, payload.selector as Selector, payload.value));
         break;
     }
   }
@@ -96,14 +98,20 @@ export class RecordingEventHandler {
       return;
     }
 
-    this.lastStep.addCondition(condition);
+    if (this.lastStep.type !== 'emulateNetworkConditions') {
+      this.lastStep.condition = condition;
+    }
   }
 
   targetDestroyed(): void {
-    this.appendStep(new CloseStep(this.getTarget()));
+    // TODO: figure out how this works with sections
+    // this.appendStep(new CloseStep(this.getTarget()));
   }
 
   targetInfoChanged(url: string): void {
-    this.addConditionToLastStep(new WaitForNavigationCondition(url));
+    this.addConditionToLastStep({
+      type: 'waitForNavigation',
+      expectedUrl: url,
+    });
   }
 }

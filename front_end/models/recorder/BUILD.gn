@@ -8,7 +8,6 @@ import("../visibility.gni")
 
 devtools_module("recorder") {
   sources = [
-    "Conditions.ts",
     "PuppeteerConnection.ts",
     "RecorderModel.ts",
     "RecordingClient.ts",
