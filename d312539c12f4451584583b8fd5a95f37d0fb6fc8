@@ -16,6 +16,91 @@
       "message": "PTAL, thanks!",
       "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a4d2eb_0196a266",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T10:10:39Z",
+      "side": 1,
+      "message": "LGTM \u0026 nits/comments",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab3c979_34f04314",
+        "filename": "front_end/models/recorder/RecorderModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T10:10:39Z",
+      "side": 1,
+      "message": "A note for the future: perhaps we should block the rest of DevTools with an overlay. Sometimes you forget to stop the recording and go to other parts of DevTools which might be broken as we pause the models.",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d6031a_8bd3bd6a",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T10:10:39Z",
+      "side": 1,
+      "message": "I think we need the timeouts to make sure that we don\u0027t type too fast.",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e33604_2cd448b6",
+        "filename": "front_end/models/recorder/RecordingScriptWriter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T10:10:39Z",
+      "side": 1,
+      "message": "should we use the fact that it\u0027s a class and move the UserFlow to the constructor and make methods from inline functions so that we can unit test?",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa248f5_147e3c9e",
+        "filename": "front_end/models/recorder/RecordingScriptWriter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T10:10:39Z",
+      "side": 1,
+      "message": "does the writer has to know about sections? Can we have an interface like writer.write(step)?",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
