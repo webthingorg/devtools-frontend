@@ -22,28 +22,32 @@ export const enum ProtocolTriggers {
   PlayersCreated = 'PlayersCreated',
 }
 
-export class MediaModel extends SDK.SDKModel.SDKModel implements ProtocolProxyApi.MediaDispatcher {
+export class MediaModel extends SDK.SDKModel.SDKModel implements ProtocolProxyApi.MediaDispatcher,
+                                                                 SDK.SDKModel.Observer {
   _enabled: boolean;
-  _agent: ProtocolProxyApi.MediaApi;
+  _agents: Map<string, ProtocolProxyApi.MediaApi>;
 
   constructor(target: SDK.SDKModel.Target) {
     super(target);
 
     this._enabled = false;
-    this._agent = target.mediaAgent();
-
-    target.registerMediaDispatcher(this);
+    this._agents = new Map();
+    SDK.SDKModel.TargetManager.instance().observeTargets(this);
   }
 
   async resumeModel(): Promise<void> {
     if (!this._enabled) {
       return Promise.resolve();
     }
-    await this._agent.invoke_enable();
+    for (const agent of this._agents.values()) {
+      await agent.invoke_enable();
+    }
   }
 
   ensureEnabled(): void {
-    this._agent.invoke_enable();
+    for (const agent of this._agents.values()) {
+      agent.invoke_enable();
+    }
     this._enabled = true;
   }
 
@@ -66,6 +70,17 @@ export class MediaModel extends SDK.SDKModel.SDKModel implements ProtocolProxyAp
   playersCreated({players}: Protocol.Media.PlayersCreatedEvent): void {
     this.dispatchEventToListeners(ProtocolTriggers.PlayersCreated, players);
   }
-}
 
+  targetAdded(target: SDK.SDKModel.Target): void {
+    target.registerMediaDispatcher(this);
+    this._agents.set(target.id(), target.mediaAgent());
+    if (this._enabled) {
+      target.mediaAgent().invoke_enable();
+    }
+  }
+
+  targetRemoved(target: SDK.SDKModel.Target): void {
+    this._agents.delete(target.id());
+  }
+}
 SDK.SDKModel.SDKModel.register(MediaModel, {capabilities: SDK.SDKModel.Capability.DOM, autostart: false});
