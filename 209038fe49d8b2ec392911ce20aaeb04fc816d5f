@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4207d260_c644a7ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-05-25T21:29:13Z",
+      "side": 1,
+      "message": "The frontend just displays them as normal players, though the PlaybackFrameUrl property does display the worker script when clicked on.\n\nI am not sure I\u0027ll be able to add an e2e test just yet, even once the chromium side of things gets checked in, webcodecs in workers is still behind the --enable-experimental-web-platform-features flag.\n\nThomas has a demo of the webcodecs that I used to test this: https://tguilbert-google.github.io/webcodecs/worker/index.html\n\nbut you\u0027d need the patches https://chromium-review.googlesource.com/c/chromium/src/+/2914196 and https://chromium-review.googlesource.com/c/chromium/src/+/2897947 to be applied for it to work.\nwithout these patches everything on the devtools end behaves exactly the same as it did before.",
+      "parentUuid": "3e3665ac_e0a24c4c",
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b4b2e1b_da0f9b04",
@@ -75,6 +93,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d7f8d0_4c32bbec",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-05-25T21:29:13Z",
+      "side": 1,
+      "message": "should I just do something like:\nwait().then(agent.invoke_enable())\n? or just leave it be for now. These enable calls don\u0027t don\u0027t return anything useful.",
+      "parentUuid": "2b4b2e1b_da0f9b04",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65e1618c_8bf19fac",
@@ -88,6 +130,30 @@
       "writtenOn": "2021-05-25T10:29:57Z",
       "side": 1,
       "message": "Don\u0027t we want to remove the mediaAgent from `this._agents` here?",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 23
+      },
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae631d82_1e587035",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-05-25T21:29:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65e1618c_8bf19fac",
       "range": {
         "startLine": 83,
         "startChar": 4,
