@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9553af1_18ac3327",
+        "filename": "BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f2ecf72_9a73bb51",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "337cd8f8_2c63b1b7",
@@ -153,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e95f91_7e691b67",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Actually we cannot do it. The instance can be only called once.",
+      "parentUuid": "623bcb28_885f0a25",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "760b29dc_e5a71997",
@@ -166,6 +214,30 @@
       "writtenOn": "2021-05-20T15:18:43Z",
       "side": 1,
       "message": "Nit: rename to `compressedFilename` (it took me a bit before I understood that `dst` stands for `destination`)",
+      "range": {
+        "startLine": 31,
+        "startChar": 27,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05514d77_3b6030e3",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760b29dc_e5a71997",
       "range": {
         "startLine": 31,
         "startChar": 27,
@@ -270,6 +342,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd3e344b_f5eab972",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a72edd19_f40d2a68",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217e8b03_00569e4d",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7388afbe_74513b47",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3d326dd_11f3bff5",
@@ -283,6 +403,30 @@
       "writtenOn": "2021-05-20T15:18:43Z",
       "side": 1,
       "message": "Nit: add a link to https://source.chromium.org/chromium/chromium/src/+/main:tools/grit/grit/constants.py;l\u003d25;drc\u003d84ef659584d3beb83b44cc168d02244dbd6b8f87 to make sure we keep these in sync.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 59
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9a067dd_4f752160",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d326dd_11f3bff5",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -340,6 +484,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d74ba6e7_07b16613",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "467f3059_c79211d8",
+      "range": {
+        "startLine": 54,
+        "startChar": 41,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "313d2b43_e0500e6a",
@@ -377,6 +545,30 @@
       "side": 1,
       "message": "I think it\u0027s safer to assume a binary file given that we don\u0027t create the file like the hash file, for example.",
       "parentUuid": "313d2b43_e0500e6a",
+      "range": {
+        "startLine": 64,
+        "startChar": 30,
+        "endLine": 64,
+        "endChar": 44
+      },
+      "revId": "a3ccb7c8265a2cd8c1243231c55a5a0ef86eac6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a52f4a_cbdf6563",
+        "filename": "scripts/build/compress_files.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T06:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caaf09e9_63008306",
       "range": {
         "startLine": 64,
         "startChar": 30,
