@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "6b4ada37c8bb8d18c2a9b88f6aa5180c7fcba5ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d47137_b20ed960",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-25T07:25:34Z",
+      "side": 1,
+      "message": "Thanks Sigurd for fixing this so quickly!",
+      "revId": "6b4ada37c8bb8d18c2a9b88f6aa5180c7fcba5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0396b48b_d9dd0ef5",
+        "filename": "front_end/panels/issues/AffectedDocumentsInQuirksModeView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-25T07:25:34Z",
+      "side": 1,
+      "message": "Nice! Now we can also put the returned frameId into use!",
+      "revId": "6b4ada37c8bb8d18c2a9b88f6aa5180c7fcba5ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
