@@ -56,6 +56,30 @@
       },
       "revId": "2ee316ef5ac4358f577ab33a6790a94516a7cfc2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db71e06e_3ef34c61",
+        "filename": "front_end/models/recorder/RecordingSession.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-25T05:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d7f4d5_1d37a384",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 3
+      },
+      "revId": "2ee316ef5ac4358f577ab33a6790a94516a7cfc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
