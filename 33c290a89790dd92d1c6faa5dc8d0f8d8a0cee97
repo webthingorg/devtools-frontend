@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0708594c_bd4f4291",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-05-26T04:25:32Z",
+      "side": 1,
+      "message": "The long base64 string raw token text seem to cause problem here. It seems like the 100% width is set according to it, which causes an x-axis scroll-bar being rendered. Is setting a hard max-width:X00px the only way to solve this problem here?",
+      "range": {
+        "startLine": 371,
+        "startChar": 16,
+        "endLine": 371,
+        "endChar": 37
+      },
+      "revId": "33c290a89790dd92d1c6faa5dc8d0f8d8a0cee97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
