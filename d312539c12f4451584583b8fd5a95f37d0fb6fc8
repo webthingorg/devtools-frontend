@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3bdf38_b4ebe303",
+        "filename": "front_end/models/recorder/RecorderModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-26T20:20:27Z",
+      "side": 1,
+      "message": "Yeah, I think the suspend call did this in the past. But we should definitely look into how we can add this functionality again in the future.",
+      "parentUuid": "1ab3c979_34f04314",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29d6031a_8bd3bd6a",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-05-25T10:10:39Z",
       "side": 1,
       "message": "I think we need the timeouts to make sure that we don\u0027t type too fast.",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b067588_55fc9c23",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-26T20:20:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29d6031a_8bd3bd6a",
       "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb0cf07_0c64c1ec",
+        "filename": "front_end/models/recorder/RecordingScriptWriter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-26T20:20:27Z",
+      "side": 1,
+      "message": "That sounds like a good idea, I\u0027ll take care of this!\nI won\u0027t change the tests though because I feel like there will be a lot of changes in the area and I don\u0027t want to block on that.",
+      "parentUuid": "57e33604_2cd448b6",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efa248f5_147e3c9e",
@@ -99,6 +153,24 @@
       "writtenOn": "2021-05-25T10:10:39Z",
       "side": 1,
       "message": "does the writer has to know about sections? Can we have an interface like writer.write(step)?",
+      "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92909adb_271620fd",
+        "filename": "front_end/models/recorder/RecordingScriptWriter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-26T20:20:27Z",
+      "side": 1,
+      "message": "Yeah, I think it should now about the sections because they contain important information.",
+      "parentUuid": "efa248f5_147e3c9e",
       "revId": "d312539c12f4451584583b8fd5a95f37d0fb6fc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
