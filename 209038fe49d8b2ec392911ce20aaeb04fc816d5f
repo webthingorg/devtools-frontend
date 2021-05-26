@@ -117,6 +117,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d215f6f8_a5616de5",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-05-26T09:50:54Z",
+      "side": 1,
+      "message": "The result themselves is not particuarly useful, but the `ensureEnabled` should (I think) not finish before the `invoke_enable` calls have succeeded. Since the `invoke_enable` calls return a Promise, you have to await the promises before you are really sure that all of them are enabled.\n\nThen again, the current implementation already has this race condition, so I don\u0027t think we are in a particularly worse state after this CL. Therefore I am okay with landing as-is and fixing the race condition in a follow-up CL.",
+      "parentUuid": "95d7f8d0_4c32bbec",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65e1618c_8bf19fac",
