@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbcdf2d_c62c924d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-05-26T19:24:54Z",
+      "side": 1,
+      "message": "This doesn\u0027t change the behavior for out of process iframes, those have always worked as though the video was on the page. Additionally, we want to capture everything on the page, including ads, regardless of how many messages they have.\n\nHere\u0027s a screenshot of what the page i\u0027ve been testing with creates for webcodecs:\nhttps://files.tedm.io/dtss/webcodecs.png\n\nthe demo creates 4 players and they all show up. Right now webcodecs doesn\u0027t send much info other than the player name, since nothing was really logged since the logs hadn\u0027t been working.\n\nThis can wait until the back-end changes are ready.",
+      "parentUuid": "b4ba96a2_a74977cf",
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b4b2e1b_da0f9b04",
