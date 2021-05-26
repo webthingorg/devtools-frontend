@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6cbb59b_bdcf1df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222033
+      },
+      "writtenOn": "2021-05-26T15:37:29Z",
+      "side": 1,
+      "message": "I would highly recommend this extension instead: https://marketplace.visualstudio.com/items?itemName\u003drunem.lit-plugin\n\nIt does a *much* more thorough job of analysis: type-checks templates; warns on missing element imports; auto-imports elements; adds jump-to-definition for tags; highlights CSS; can check attributes, events, slots, refactor tag names...",
+      "revId": "ef1ce3a9d88468273ea0a59d28c580389a7015c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
