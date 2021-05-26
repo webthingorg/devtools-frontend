@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4ba96a2_a74977cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-26T10:25:07Z",
+      "side": 1,
+      "message": "The experimental web platform features shouldn\u0027t be a problem.\n\nCan this wait until the back-end changes are actually in? \n\nThis CL also alters behavior for out-of-process iframes: It looks like we weren\u0027t showing messages for them (?), was this intentional? Will e.g. ads now produce a lot of messages?\n\nCould you give an example of a media message a dedicated worker might trigger?",
+      "parentUuid": "4207d260_c644a7ee",
+      "revId": "209038fe49d8b2ec392911ce20aaeb04fc816d5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b4b2e1b_da0f9b04",
         "filename": "front_end/panels/media/MediaModel.ts",
         "patchSetId": 1
