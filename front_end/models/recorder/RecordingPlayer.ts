@@ -100,7 +100,12 @@ export class RecordingPlayer {
       if (!element) {
         throw new Error('Could not find element: ' + step.selector);
       }
-      await element.type(step.value);
+      await element.select(step.value);
+      // We need blur and focus to make the select dropdown to close.
+      // Otherwise, it remains open until a blur event. This is not very
+      // nice because user actions don't actually generate those events.
+      await element.evaluate(e => e.blur());
+      await element.focus();
     } else if (step instanceof KeydownStep) {
       const element = await frame.waitForSelector(step.selector);
       if (!element) {

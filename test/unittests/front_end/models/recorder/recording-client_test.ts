@@ -28,7 +28,7 @@ describe('Recorder', () => {
       withImports(imports => {
         const getAccessibleName = () => 'testName';
         const getAccessibleRole = () => 'button';
-        setup({getAccessibleName, getAccessibleRole}, false, imports);
+        setup({getAccessibleName, getAccessibleRole}, false, false, imports);
         assertDefined(imports.createStepFromEvent);
         const event = new Event('click');
         const button = document.createElement('button');
@@ -43,7 +43,7 @@ describe('Recorder', () => {
       withImports(imports => {
         const getAccessibleName = () => 'testName';
         const getAccessibleRole = () => 'button';
-        setup({getAccessibleName, getAccessibleRole}, false, imports);
+        setup({getAccessibleName, getAccessibleRole}, false, false, imports);
         assertDefined(imports.createStepFromEvent);
         const event = new KeyboardEvent('keydown', {
           key: 'Escape',
@@ -65,7 +65,7 @@ describe('Recorder', () => {
       withImports(imports => {
         const getAccessibleName = () => 'testName';
         const getAccessibleRole = () => 'button';
-        setup({getAccessibleName, getAccessibleRole}, false, imports);
+        setup({getAccessibleName, getAccessibleRole}, false, false, imports);
         assertDefined(imports.createStepFromEvent);
         const event = new KeyboardEvent('keyup', {
           key: 'Escape',
@@ -87,7 +87,7 @@ describe('Recorder', () => {
       withImports(imports => {
         const getAccessibleName = () => '';
         const getAccessibleRole = () => 'button';
-        setup({getAccessibleName, getAccessibleRole}, false, imports);
+        setup({getAccessibleName, getAccessibleRole}, false, false, imports);
         assertDefined(imports.getSelector);
         const button = document.createElement('button');
         button.id = 'customId';

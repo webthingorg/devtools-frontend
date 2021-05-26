@@ -42,7 +42,15 @@ async function changeNetworkConditions(condition: string) {
   await frontend.select('pierce/[aria-label="Throttling"] select', condition);
 }
 
-async function startRecording(path: string, networkCondition: string = '') {
+const enableUntrustedEventMode = async () => {
+  const {frontend} = getBrowserAndPages();
+  await frontend.evaluate(() => {
+    // @ts-ignore
+    globalThis.Common.Settings.instance().createSetting('untrustedRecorderEvents', true);
+  });
+};
+
+async function startRecording(path: string, networkCondition: string = '', untrustedEvents = false) {
   await enableExperiment('recorder');
   await goToResource(path);
 
@@ -53,6 +61,9 @@ async function startRecording(path: string, networkCondition: string = '') {
 
   await openSourcesPanel();
   await openRecorderSubPane();
+  if (untrustedEvents) {
+    await enableUntrustedEventMode();
+  }
   await createNewRecording('New recording');
   await frontend.click('aria/Record');
   await frontend.waitForSelector('aria/Stop');
@@ -575,6 +586,39 @@ describe('Recorder', function() {
         },
         "selector": "input#two",
         "key": "2"
+    }
+]`);
+  });
+
+  it('should work for select elements', async () => {
+    const waitForScriptToChange = getWaitForScriptToChangeFunction();
+    const untrustedEvents = true;
+    const networkCondition = '';
+    await startRecording('recorder/select.html', networkCondition, untrustedEvents);
+    await waitForScriptToChange();
+
+    const {target} = getBrowserAndPages();
+    await target.bringToFront();
+    await target.select('#select', 'O2');
+
+    await waitForScriptToChange();
+
+    await stopRecording();
+    await assertOutput(`[
+    {
+        "action": "navigate",
+        "condition": null,
+        "url": "https://<url>/test/e2e/resources/recorder/select.html"
+    },
+    {
+        "action": "change",
+        "condition": null,
+        "context": {
+            "path": [],
+            "target": "main"
+        },
+        "selector": "aria/Select",
+        "value": "O2"
     }
 ]`);
   });

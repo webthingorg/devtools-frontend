@@ -9,7 +9,7 @@ import {WaitForNavigationCondition} from './Conditions.js';
 import type {RecordingSession} from './RecordingSession.js';
 import type {Step} from './Steps.js';
 import {KeyupStep} from './Steps.js';
-import {KeydownStep, ClickStep, CloseStep, StepFrameContext, SubmitStep} from './Steps.js';
+import {KeydownStep, ClickStep, CloseStep, ChangeStep, StepFrameContext, SubmitStep} from './Steps.js';
 import type {Step as ClientStep} from './RecordingClient.js';
 
 export class RecordingEventHandler {
@@ -70,9 +70,9 @@ export class RecordingEventHandler {
       case 'submit':
         this.appendStep(new SubmitStep(context, step.selector));
         break;
-      // case 'change':
-      //   this.appendStep(new ChangeStep(context, step.selector, step.value));
-      //   break;
+      case 'change':
+        this.appendStep(new ChangeStep(context, step.selector, step.value));
+        break;
       case 'keydown':
         this.appendStep(new KeydownStep(context, step));
         break;
