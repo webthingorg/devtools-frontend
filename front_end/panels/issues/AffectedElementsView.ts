@@ -55,7 +55,7 @@ export class AffectedElementsView extends AffectedResourcesView {
   protected async renderElementCell(
       {backendNodeId, nodeName}: IssuesManager.Issue.AffectedElement,
       maybeTarget?: SDK.SDKModel.Target|null): Promise<Element> {
-    const target = maybeTarget ?? SDK.SDKModel.TargetManager.instance().mainTarget();
+    const target = maybeTarget ?? SDK.TargetManager.TargetManager.instance().mainTarget();
     if (!target) {
       const cellElement = document.createElement('td');
       cellElement.textContent = 'Unavailable';

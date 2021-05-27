@@ -18,7 +18,7 @@ export class RecordingPlayer {
   }
 
   async play(): Promise<void> {
-    await SDK.SDKModel.TargetManager.instance().suspendAllTargets();
+    await SDK.TargetManager.TargetManager.instance().suspendAllTargets();
 
     const {page, browser} = await getPuppeteerConnectionToCurrentPage();
     if (!page) {
@@ -45,7 +45,7 @@ export class RecordingPlayer {
         await client.send('Runtime.disable');
       }
       browser.disconnect();
-      await SDK.SDKModel.TargetManager.instance().resumeAllTargets();
+      await SDK.TargetManager.TargetManager.instance().resumeAllTargets();
     }
   }
 
