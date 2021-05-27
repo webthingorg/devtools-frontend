@@ -22,6 +22,30 @@
       },
       "revId": "33c290a89790dd92d1c6faa5dc8d0f8d8a0cee97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd406b8c_79ede984",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-05-27T19:19:08Z",
+      "side": 1,
+      "message": "Fixed by adding min-width on `.tree-node-key`.",
+      "parentUuid": "0708594c_bd4f4291",
+      "range": {
+        "startLine": 371,
+        "startChar": 16,
+        "endLine": 371,
+        "endChar": 37
+      },
+      "revId": "33c290a89790dd92d1c6faa5dc8d0f8d8a0cee97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
