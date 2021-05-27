@@ -16,6 +16,23 @@
       "message": "Hey Yang,\n\nHere\u0027s a trivial fix for the missing \u0027arguments\u0027 completion. As long as (a) either \u0027arguments\u0027 is present in scope or (b) Debug-Evaluate can materialize \u0027arguments\u0027, we include it next to \u0027this\u0027 as special suggestion.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "51535d0a80c9f27079940ce1b21f03b31798ae78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee5aaaa3_17ab62c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-05-27T14:13:03Z",
+      "side": 1,
+      "message": "lgtm.\n\nhow is the performance during usage? I\u0027m slightly concerned that a roundtrip to evaluate might be noticeable.",
+      "revId": "51535d0a80c9f27079940ce1b21f03b31798ae78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
