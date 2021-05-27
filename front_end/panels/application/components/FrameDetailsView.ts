@@ -582,6 +582,7 @@ export class FrameDetailsReportView extends HTMLElement {
           width: '16px',
           height: '16px',
         } as IconButton.Icon.IconData}>
+        </${IconButton.Icon.Icon.litTagName}>
       </button>
     `;
     // clang-format on
