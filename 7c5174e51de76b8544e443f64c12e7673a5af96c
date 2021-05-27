@@ -16,6 +16,23 @@
       "message": "Context: https://github.com/puppeteer/puppeteer/pull/7210#issuecomment-847595565",
       "revId": "7c5174e51de76b8544e443f64c12e7673a5af96c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91e351e3_bdb48729",
+        "filename": "front_end/panels/emulation/EmulatedDevices.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-05-27T07:30:33Z",
+      "side": 1,
+      "message": "Just want to make sure, is it intended to mark `LG Optimus L70`\u0027s `show-by-default` as false?",
+      "revId": "7c5174e51de76b8544e443f64c12e7673a5af96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
