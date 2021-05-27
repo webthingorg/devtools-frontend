@@ -19,6 +19,8 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as Protocol from '../../../generated/protocol.js';
+import * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
+import * as TreeOutlineUtils from '../../../ui/components/tree_outline/TreeOutlineUtils.js';
 
 const UIStrings = {
   /**
@@ -228,6 +230,30 @@ const UIStrings = {
   */
   disabledFeatures: 'Disabled Features',
   /**
+   *@description Label for a list of origin trials that associated with at least one token.
+   */
+  originTrials: 'Origin Trials',
+  /**
+   *@description Label for `expiryTime` field in a parsed Origin Trial Token.
+   */
+  expiryTime: 'Expiry Time',
+  /**
+   *@description Label for `usageRestriction` field in a parsed Origin Trial Token.
+   */
+  usageRestriction: 'Usage Restriction',
+  /**
+   *@description Label for `isThirdParty` field in a parsed Origin Trial Token.
+   */
+  isThirdParty: 'Third Party',
+  /**
+   *@description Label for `matchSubDomains` field in a parsed Origin Trial Token.
+   */
+  matchSubDomains: 'Match Sub-Domains',
+  /**
+   *@description Label for `rawTokenText` field in an Origin Trial Token.
+   */
+  rawTokenText: 'Raw Token Text',
+  /**
   *@description Tooltip text for a link to a specific request's headers in the Network panel.
   */
   clickToShowHeader: 'Click to reveal the request whose "`Permissions-Policy`" HTTP header disables this feature.',
@@ -268,9 +294,122 @@ export interface FrameDetailsReportViewData {
   frame: SDK.ResourceTreeModel.ResourceTreeFrame;
 }
 
+type TreeNode<DataType> = TreeOutlineUtils.TreeNode<DataType>;
+
+// The Origin Trial Tree has 4 levels of content:
+// - Origin Trial (has multiple Origin Trial tokens)
+// - Origin Trial Token (has only 1 raw token text)
+// - Fields in Origin Trial Token
+// - Raw Origin Trial Token text (folded because the content is long)
+type OriginTrialTreeNodeData =
+  Protocol.Page.OriginTrial|Protocol.Page.OriginTrialTokenWithStatus|[string, string][]|string;
+
+function isOriginTrial(data: OriginTrialTreeNodeData): data is Protocol.Page.OriginTrial {
+  return (data as Protocol.Page.OriginTrial).tokensWithStatus !== undefined;
+}
+function isOriginTrialTokenWithStatus(data: OriginTrialTreeNodeData): data is Protocol.Page.OriginTrialTokenWithStatus {
+  return (data as Protocol.Page.OriginTrialTokenWithStatus).rawTokenText !== undefined;
+}
+
+function constructOriginTrialTree(originTrial: Protocol.Page.OriginTrial): TreeNode<OriginTrialTreeNodeData> {
+  const constructTokenDetailsNodes =
+      (token: Protocol.Page.OriginTrialTokenWithStatus): TreeNode<OriginTrialTreeNodeData>[] => {
+        const parsedToken = token.parsedToken;
+        const parsedTokenDetailNode = parsedToken ?
+            {
+              treeNodeData: [
+                <[string, string]>[UIStrings.origin, parsedToken.origin],
+                <[string, string]>[UIStrings.expiryTime, new Date(parsedToken.expiryTime * 1000).toLocaleString()],
+                <[string, string]>[UIStrings.usageRestriction, parsedToken.usageRestriction],
+                <[string, string]>[UIStrings.isThirdParty, parsedToken.isThirdParty.toString()],
+                <[string, string]>[UIStrings.matchSubDomains, parsedToken.matchSubDomains.toString()],
+              ]
+            } : null;
+
+        const rawTokenTextNode = {
+          treeNodeData: UIStrings.rawTokenText,
+          children: async () => [{treeNodeData: token.rawTokenText}],
+        } as TreeNode<OriginTrialTreeNodeData>;
+
+        return [
+          ...(parsedTokenDetailNode ? [parsedTokenDetailNode] : []),
+          rawTokenTextNode
+        ];
+      };
+
+  const constructTokenNode = (token: Protocol.Page.OriginTrialTokenWithStatus): TreeNode<OriginTrialTreeNodeData> => {
+    return {
+      treeNodeData: token,
+      children: async () => constructTokenDetailsNodes(token),
+    } as TreeNode<OriginTrialTreeNodeData>;
+  };
+
+  return {
+    treeNodeData: originTrial,
+    children: async () => originTrial.tokensWithStatus.map(constructTokenNode),
+  } as TreeNode<OriginTrialTreeNodeData>;
+}
+
+function originTrialRenderer(data: TreeNode<OriginTrialTreeNodeData>): LitHtml.TemplateResult {
+  const content = data.treeNodeData;
+  if (isOriginTrial(content)) {
+    const tokenCountText = content.tokensWithStatus.length > 1 ? `(${content.tokensWithStatus.length} tokens)` : '';
+
+    return LitHtml.html`
+    ${content.trialName} (${content.status}) ${tokenCountText}
+    `;
+  }
+  if (isOriginTrialTokenWithStatus(content)) {
+    return LitHtml.html`
+    Token (${content.status})
+    `;
+  }
+  if (typeof content === 'string') {
+    return LitHtml.html`
+    <div style="overflow-wrap: break-word;">
+      ${content}
+    </div>
+    `;
+  }
+
+  const tokenDetailRows = content.map(kvPair => {
+    const [fieldName, fieldValue] = kvPair;
+    return LitHtml.html`
+      <div class="key">${fieldName}</div>
+      <div class="value">${fieldValue}</div>
+      `;
+  });
+
+  return LitHtml.html`
+    <style>
+      .content {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+      }
+
+      .key {
+        color: var(--color-text-secondary);
+        padding: 0 6px;
+        text-align: right;
+        white-space: pre;
+      }
+
+      .value {
+        color: var(--color-text-primary);
+        margin-inline-start: 0;
+        padding: 0 6px;
+      }
+    </style>
+    <div class="content">
+      ${tokenDetailRows}
+    </div>
+  `;
+}
+
 export class FrameDetailsReportView extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
+  private originTrialTreeComponent = new TreeOutline.TreeOutline.TreeOutline<OriginTrialTreeNodeData>();
   private protocolMonitorExperimentEnabled = false;
   private showPermissionsDisallowedDetails = false;
 
@@ -359,11 +498,45 @@ export class FrameDetailsReportView extends HTMLElement {
         ${this.renderDocumentSection()}
         ${this.renderIsolationSection()}
         ${this.renderApiAvailabilitySection()}
+        ${this.renderOriginTrial()}
         ${LitHtml.Directives.until(this.renderPermissionPolicy(), LitHtml.nothing)}
         ${this.protocolMonitorExperimentEnabled ? this.renderAdditionalInfoSection() : LitHtml.nothing}
       </${ReportView.ReportView.Report.litTagName}>
     `, this.shadow);
     // clang-format on
+  }
+
+  private renderOriginTrial(): LitHtml.TemplateResult|{} {
+    const originTrials = this.frame?.getOriginTrials();
+    if (!originTrials?.length) {
+      return LitHtml.nothing;
+    }
+
+    this.originTrialTreeComponent.data = {
+      tree: originTrials.map(constructOriginTrialTree),
+      defaultRenderer: originTrialRenderer,
+    };
+
+    return LitHtml.html`
+    <style>
+      :host {
+        /* Disable default blue background on origin trial tree */
+        --legacy-selection-bg-color: transparent;
+      }
+
+      .span-cols {
+        /* Default line-hgith for span-cols will mis-align the leading icon */
+        line-height: 18px;
+      }
+    </style>
+    <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.originTrials)}
+    </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+    <div class="span-cols">
+      ${this.originTrialTreeComponent}
+    </div>
+    <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
+        ReportView.ReportView.ReportSectionDivider.litTagName}>
+    `;
   }
 
   private async renderPermissionPolicy(): Promise<LitHtml.TemplateResult|{}> {

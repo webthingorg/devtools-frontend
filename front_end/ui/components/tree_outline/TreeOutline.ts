@@ -455,6 +455,8 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
 
         .tree-node-key {
           white-space: var(--override-key-whitespace-wrapping);
+          /* To avoid overflows of flex items */
+          min-width: 50%;
         }
 
         .arrow-icon {

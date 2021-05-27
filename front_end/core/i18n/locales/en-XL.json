@@ -2381,17 +2381,26 @@
   "panels/application/components/FrameDetailsView.ts | document": {
     "message": "D̂óĉúm̂én̂t́"
   },
+  "panels/application/components/FrameDetailsView.ts | expiryTime": {
+    "message": "Êx́p̂ír̂ý T̂ím̂é"
+  },
   "panels/application/components/FrameDetailsView.ts | frameId": {
     "message": "F̂ŕâḿê ÍD̂"
   },
   "panels/application/components/FrameDetailsView.ts | hideDetails": {
     "message": "Ĥíd̂é d̂ét̂áîĺŝ"
   },
+  "panels/application/components/FrameDetailsView.ts | isThirdParty": {
+    "message": "T̂h́îŕd̂ Ṕâŕt̂ý"
+  },
   "panels/application/components/FrameDetailsView.ts | learnMore": {
     "message": "L̂éâŕn̂ ḿôŕê"
   },
   "panels/application/components/FrameDetailsView.ts | localhostIsAlwaysASecureContext": {
     "message": "L̂óĉál̂h́ôśt̂ íŝ ál̂ẃâýŝ á ŝéĉúr̂é ĉón̂t́êx́t̂"
+  },
+  "panels/application/components/FrameDetailsView.ts | matchSubDomains": {
+    "message": "M̂át̂ćĥ Śûb́-D̂óm̂áîńŝ"
   },
   "panels/application/components/FrameDetailsView.ts | measureMemory": {
     "message": "M̂éâśûŕê Ḿêḿôŕŷ"
@@ -2402,8 +2411,14 @@
   "panels/application/components/FrameDetailsView.ts | origin": {
     "message": "Ôŕîǵîń"
   },
+  "panels/application/components/FrameDetailsView.ts | originTrials": {
+    "message": "Ôŕîǵîń T̂ŕîál̂ś"
+  },
   "panels/application/components/FrameDetailsView.ts | ownerElement": {
     "message": "Ôẃn̂ér̂ Él̂ém̂én̂t́"
+  },
+  "panels/application/components/FrameDetailsView.ts | rawTokenText": {
+    "message": "R̂áŵ T́ôḱêń T̂éx̂t́"
   },
   "panels/application/components/FrameDetailsView.ts | reportingTo": {
     "message": "r̂ép̂ór̂t́îńĝ t́ô"
@@ -2458,6 +2473,9 @@
   },
   "panels/application/components/FrameDetailsView.ts | url": {
     "message": "ÛŔL̂"
+  },
+  "panels/application/components/FrameDetailsView.ts | usageRestriction": {
+    "message": "Ûśâǵê Ŕêśt̂ŕîćt̂íôń"
   },
   "panels/application/components/FrameDetailsView.ts | willRequireCrossoriginIsolated": {
     "message": "⚠️ ŵíl̂ĺ r̂éq̂úîŕê ćr̂óŝś-ôŕîǵîń îśôĺât́êd́ ĉón̂t́êx́t̂ ín̂ t́ĥé f̂út̂úr̂é"
