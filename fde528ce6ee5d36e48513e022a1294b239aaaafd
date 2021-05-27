@@ -221,6 +221,30 @@
       },
       "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afee10c1_00ff0ec0",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-27T07:35:00Z",
+      "side": 1,
+      "message": "Thinking about this some more: Could you help me understand why the main frame is always the right frame to use here?",
+      "parentUuid": "7e22806d_1b8c1aca",
+      "range": {
+        "startLine": 1420,
+        "startChar": 50,
+        "endLine": 1420,
+        "endChar": 67
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
