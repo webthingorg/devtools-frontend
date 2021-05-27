@@ -33,6 +33,24 @@
       "message": "lgtm.\n\nhow is the performance during usage? I\u0027m slightly concerned that a roundtrip to evaluate might be noticeable.",
       "revId": "51535d0a80c9f27079940ce1b21f03b31798ae78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad27036c_625fadb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-05-27T14:58:31Z",
+      "side": 1,
+      "message": "Runtime.getProperties() on global object is more expensive generally.",
+      "parentUuid": "ee5aaaa3_17ab62c5",
+      "revId": "51535d0a80c9f27079940ce1b21f03b31798ae78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
