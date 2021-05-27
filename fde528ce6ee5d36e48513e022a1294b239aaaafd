@@ -245,6 +245,30 @@
       },
       "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe5b1f3_09a96379",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-05-27T13:41:51Z",
+      "side": 1,
+      "message": "So first just to clarify because I\u0027ve been confused by this a couple of times, main frame here isn\u0027t the same as main frame in chromium (i.e. a frame with no parent); in this context it\u0027s the main frame of a target, so a local root (but in this case it\u0027s a cross-origin subframe).\n\nSo we\u0027re trying to get the frameOwner node for the local root in this context, and so we need to pass its frame id to the outer target to correctly look it up in the outer target (In the implementation, we find a RenderFrameProxy with the same frame token as |mainFrame.id| and return its frame owner),",
+      "parentUuid": "afee10c1_00ff0ec0",
+      "range": {
+        "startLine": 1420,
+        "startChar": 50,
+        "endLine": 1420,
+        "endChar": 67
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
