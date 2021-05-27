@@ -16,6 +16,46 @@
       "message": "LGTM pending Sigurds review.",
       "revId": "b51b19f3b80d22bb3a1220c9dab2aa40b714b83f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7726f6d8_2c934400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-27T06:43:08Z",
+      "side": 1,
+      "message": "I think this is not the right approach, the MediaModel should only listen to the agent of the target it gets passed as constructor argument. \n\nThe multitarget logic is handled in front_end/panels/media/MainView.ts, and that one is handling multitarget settings already.\n\nIf we now need a MediaModel for dedicated workers as well, we can add a new capability MEDIA to Capabilities in SDKModel, and add it to frames and dedicated workers. Then we change the register call at the MediaModel.ts file to reference this new capablity MEDIA instead of DOM. For context: Capabilities control which Models are available for a target.\n\nIn any case, I\u0027d like to wait until the back-end is in so I can help you write a test for this. Please update the CL in the meantime.",
+      "revId": "b51b19f3b80d22bb3a1220c9dab2aa40b714b83f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3beb761c_ed2476c0",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-05-27T06:43:08Z",
+      "side": 1,
+      "message": "Only frame targets have this capability (see SDKModel.js), so I would expect dedicated workers to not have this model at all.\n\nIs it possible that you are logging to the worker\u0027s owner frame in your back-end patches? In any case, I\u0027d like to see some tests for this to make sure it is working as intended.",
+      "range": {
+        "startLine": 86,
+        "startChar": 58,
+        "endLine": 86,
+        "endChar": 85
+      },
+      "revId": "b51b19f3b80d22bb3a1220c9dab2aa40b714b83f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
