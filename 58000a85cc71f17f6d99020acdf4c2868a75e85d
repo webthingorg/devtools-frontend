@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "106f99fb_859facb4",
+        "filename": "front_end/ui/legacy/components/source_frame/ResourceSourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-05-28T16:37:36Z",
+      "side": 1,
+      "message": "The contentURL\u0027s I came across ended in cache\u003d**** rather than \u0027.json\u0027 so using endsWith() was not possible. I also did not have any success accessing other methods on this._resource E.g: pathname, that would have made this much easier. I ultimately used the highlighterType to filter .json files. If not acceptable I will continue to figure out another way.",
+      "parentUuid": "e7b61620_de9cd5c5",
+      "range": {
+        "startLine": 60,
+        "startChar": 101,
+        "endLine": 60,
+        "endChar": 118
+      },
+      "revId": "58000a85cc71f17f6d99020acdf4c2868a75e85d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d3f5a50_08ecf79f",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-25T10:37:24Z",
       "side": 1,
       "message": "Rather than including newline characters, can we use multiline string templates for these test expectations? E.g.\n\n```\nconst expectedCode \u003d `{\n    \"ddd\": 0,\n    \"ind: 2,\n    \u003c...\u003e\n}`;\n```\n\netc...\n\n(Sorry for the trouble caused manually adding all the required newline characters)",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 12
+      },
+      "revId": "58000a85cc71f17f6d99020acdf4c2868a75e85d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d54a8cc1_a9f0d3fd",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/JSONFormatter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-05-28T16:37:36Z",
+      "side": 1,
+      "message": "Not a problem and done",
+      "parentUuid": "2d3f5a50_08ecf79f",
       "range": {
         "startLine": 41,
         "startChar": 10,
