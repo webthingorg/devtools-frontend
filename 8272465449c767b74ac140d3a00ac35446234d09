@@ -33,6 +33,24 @@
       "message": "LGTM % a general thought:\nRight now, you are using the change event and changed the replaying to only work for select fields.\nDo we want to record a generic change event and the figure out how to properly apply it to the given element when replaying or should we instead record a select-change event and then, when replaying, only apply it to select elements?",
       "revId": "8272465449c767b74ac140d3a00ac35446234d09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a2320b_610fd232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-31T08:22:28Z",
+      "side": 1,
+      "message": "I think we cannot record the change event for all elements because we won\u0027t be able to figure out when to apply it. Perhaps we should record the element type along with the change event so that we can replay it properly if more element types need a change event handling.",
+      "parentUuid": "61a7cb65_82a853b2",
+      "revId": "8272465449c767b74ac140d3a00ac35446234d09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
