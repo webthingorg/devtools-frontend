@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "135590ed_6e264d29",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:46:30Z",
+      "side": 1,
+      "message": "Ah ok, thanks!",
+      "parentUuid": "60a86f7d_2ce6b2c1",
+      "range": {
+        "startLine": 84,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d817fb77_a44a47c7",
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "Do you have a suggestion?",
       "parentUuid": "d817fb77_a44a47c7",
+      "range": {
+        "startLine": 268,
+        "startChar": 10,
+        "endLine": 268,
+        "endChar": 22
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f59a94c9_d336ec8d",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:46:30Z",
+      "side": 1,
+      "message": "Not sure, we\u0027d probably need a global flag for that :/\nLet\u0027s maybe come back to this later.",
+      "parentUuid": "336ef042_8ed6d288",
       "range": {
         "startLine": 268,
         "startChar": 10,
