@@ -78,6 +78,12 @@ async function assertOutput(expected: UserFlow) {
   assert.deepEqual(textContent, expected);
 }
 
+const viewportStep = {
+  clientHeight: 720,
+  clientWidth: 1280,
+  type: 'viewport' as 'viewport',
+};
+
 describe('Recorder', function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
   this.timeout(10000);
@@ -108,14 +114,17 @@ describe('Recorder', function() {
         url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
         screenshot: '<screenshot>',
         title: '',
-        steps: [{
-          type: 'click',
-          selector: 'aria/Test Button' as Selector,
-          context: {
-            target: 'main',
-            path: [],
+        steps: [
+          viewportStep,
+          {
+            type: 'click',
+            selector: 'aria/Test Button' as Selector,
+            context: {
+              target: 'main',
+              path: [],
+            },
           },
-        }],
+        ],
       }],
     });
   });
@@ -134,14 +143,17 @@ describe('Recorder', function() {
         url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
         screenshot: '<screenshot>',
         title: '',
-        steps: [{
-          type: 'click',
-          selector: 'aria/Trigger Synthetic Event' as Selector,
-          context: {
-            target: 'main',
-            path: [],
+        steps: [
+          viewportStep,
+          {
+            type: 'click',
+            selector: 'aria/Trigger Synthetic Event' as Selector,
+            context: {
+              target: 'main',
+              path: [],
+            },
           },
-        }],
+        ],
       }],
     });
   });
@@ -160,14 +172,17 @@ describe('Recorder', function() {
         url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
         screenshot: '<screenshot>',
         title: '',
-        steps: [{
-          type: 'click',
-          selector: 'aria/Form Button' as Selector,
-          context: {
-            target: 'main',
-            path: [],
+        steps: [
+          viewportStep,
+          {
+            type: 'click',
+            selector: 'aria/Form Button' as Selector,
+            context: {
+              target: 'main',
+              path: [],
+            },
           },
-        }],
+        ],
       }],
     });
   });
@@ -186,14 +201,17 @@ describe('Recorder', function() {
         url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
         screenshot: '<screenshot>',
         title: '',
-        steps: [{
-          type: 'click',
-          selector: 'aria/Hello World' as Selector,
-          context: {
-            target: 'main',
-            path: [],
+        steps: [
+          viewportStep,
+          {
+            type: 'click',
+            selector: 'aria/Hello World' as Selector,
+            context: {
+              target: 'main',
+              path: [],
+            },
           },
-        }],
+        ],
       }],
     });
   });
@@ -213,14 +231,21 @@ describe('Recorder', function() {
            url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
            screenshot: '<screenshot>',
            title: '',
-           steps: [{
-             type: 'click',
-             selector: 'span#span2' as Selector,
-             context: {
-               target: 'main',
-               path: [],
+           steps: [
+             {
+               'clientHeight': 720,
+               'clientWidth': 1280,
+               'type': 'viewport',
              },
-           }],
+             {
+               type: 'click',
+               selector: 'span#span2' as Selector,
+               context: {
+                 target: 'main',
+                 path: [],
+               },
+             },
+           ],
          }],
        });
      });
@@ -239,14 +264,17 @@ describe('Recorder', function() {
         url: 'https://<url>/test/e2e/resources/recorder/recorder.html',
         screenshot: '<screenshot>',
         title: '',
-        steps: [{
-          type: 'click',
-          selector: 'aria/Hello World' as Selector,
-          context: {
-            target: 'main',
-            path: [],
+        steps: [
+          viewportStep,
+          {
+            type: 'click',
+            selector: 'aria/Hello World' as Selector,
+            context: {
+              target: 'main',
+              path: [],
+            },
           },
-        }],
+        ],
       }],
     });
   });
@@ -267,6 +295,7 @@ describe('Recorder', function() {
         screenshot: '<screenshot>',
         title: '',
         steps: [
+          viewportStep,
           {
             type: 'click',
             selector: 'aria/iframe button' as Selector,
@@ -369,6 +398,7 @@ describe('Recorder', function() {
         screenshot: '<screenshot>',
         title: '',
         steps: [
+          viewportStep,
           {
             type: 'click',
             selector: 'aria/Page 2' as Selector,
@@ -423,6 +453,7 @@ describe('Recorder', function() {
           upload: 84375,
         },
         steps: [
+          viewportStep,
           {
             type: 'click',
             selector: 'aria/Test Button' as Selector,
@@ -470,6 +501,7 @@ describe('Recorder', function() {
         screenshot: '<screenshot>',
         title: '',
         steps: [
+          viewportStep,
           {
             altKey: false,
             context: {
@@ -588,6 +620,7 @@ describe('Recorder', function() {
         screenshot: '<screenshot>',
         title: '',
         steps: [
+          viewportStep,
           {
             'type': 'change',
             'context': {
