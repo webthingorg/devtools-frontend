@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60a86f7d_2ce6b2c1",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-31T12:28:30Z",
+      "side": 1,
+      "message": "yes, assertOutput expects a literal value not a string.",
+      "parentUuid": "9ee794b1_92ae768f",
+      "range": {
+        "startLine": 84,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d817fb77_a44a47c7",
         "filename": "test/e2e/recorder/recorder_test.ts",
         "patchSetId": 3
@@ -77,6 +101,30 @@
       "writtenOn": "2021-05-31T12:25:33Z",
       "side": 1,
       "message": "Can we maybe circumvent having to add the viewportStep to every recording?",
+      "range": {
+        "startLine": 268,
+        "startChar": 10,
+        "endLine": 268,
+        "endChar": 22
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336ef042_8ed6d288",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-05-31T12:28:30Z",
+      "side": 1,
+      "message": "Do you have a suggestion?",
+      "parentUuid": "d817fb77_a44a47c7",
       "range": {
         "startLine": 268,
         "startChar": 10,
