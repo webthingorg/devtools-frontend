@@ -38,6 +38,7 @@ import time
 
 AUTOROLL_ACCOUNT = "devtools-ci-autoroll-builder@chops-service-accounts.iam.gserviceaccount.com"
 USE_PYTHON3 = True
+## whitespace
 
 
 def _ExecuteSubProcess(input_api, output_api, script_path, args, results):
@@ -125,6 +126,7 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
 def _CheckBugAssociation(input_api, output_api, is_committing):
     results = [output_api.PresubmitNotifyResult('Bug Association Check:')]
     bugs = input_api.change.BugsFromDescription()
+    print(bugs)
     message = (
         "Each CL should be associated with a bug, use \'Bug:\' or \'Fixed:\' lines in\n"
         "the footer of the commit description. If you explicitly don\'t want to\n"
