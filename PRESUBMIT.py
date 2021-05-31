@@ -616,11 +616,11 @@ def CheckChangeOnUpload(input_api, output_api):
 
 def CheckChangeOnCommit(input_api, output_api):
     results = []
-    results.extend(_CommonChecks(input_api, output_api))
-    results.extend(_CollectStrings(input_api, output_api))
+    #results.extend(_CommonChecks(input_api, output_api))
+    #results.extend(_CollectStrings(input_api, output_api))
     # Run checks that rely on output from other DevTool checks
-    results.extend(_SideEffectChecks(input_api, output_api))
-    results.extend(input_api.canned_checks.CheckChangeHasDescription(input_api, output_api))
+    #results.extend(_SideEffectChecks(input_api, output_api))
+    #results.extend(input_api.canned_checks.CheckChangeHasDescription(input_api, output_api))
     results.extend(_CheckBugAssociation(input_api, output_api, True))
     return results
 
