@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd0c3cf_e0b636c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:25:33Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1aca026_52643383",
+        "filename": "front_end/models/recorder/Steps.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:25:33Z",
+      "side": 1,
+      "message": "WDYT about changing this to width/height instead?",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 13
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee794b1_92ae768f",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:25:33Z",
+      "side": 1,
+      "message": "Is this cast here necessary?",
+      "range": {
+        "startLine": 84,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d817fb77_a44a47c7",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-05-31T12:25:33Z",
+      "side": 1,
+      "message": "Can we maybe circumvent having to add the viewportStep to every recording?",
+      "range": {
+        "startLine": 268,
+        "startChar": 10,
+        "endLine": 268,
+        "endChar": 22
+      },
+      "revId": "a5d83be2294ead860e36c7e5163d00cf7d136e9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
