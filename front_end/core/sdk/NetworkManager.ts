@@ -834,7 +834,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   }
 
   _updateNetworkRequest(networkRequest: NetworkRequest): void {
-    this._manager.dispatchEventToListeners(Events.RequestUpdated, networkRequest);
+    if (networkRequest) {
+      networkRequest.requestId();
+    }
+    this._manager.dispatchEventToListeners(Events.RequestUpdated, () => false);
   }
 
   _finishNetworkRequest(
