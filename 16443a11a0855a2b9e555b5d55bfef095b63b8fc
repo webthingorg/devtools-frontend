@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe2a085f_a98deb65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1263834
+      },
+      "writtenOn": "2021-05-31T10:23:46Z",
+      "side": 1,
+      "message": "Reverting updating emscripten to 2.0.22, ptal!",
+      "revId": "16443a11a0855a2b9e555b5d55bfef095b63b8fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
