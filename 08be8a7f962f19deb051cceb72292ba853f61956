@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang, \n\nI have resolved most issues on styling, while there are a few further questions:\n- Do we need to map status code (trial/token) to more readable text? (i18n on mapped text or status itself?)\n- Is it necessary to color-code the status field? (green for success and red for rest)?\n\nScreenshot on current UI:\nhttps://drive.google.com/file/d/1JhJZ-LRBhzMOnoWlbkVvycd1DsnHTVvY/view?usp\u003dsharing\n",
       "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7709e6f5_1dc1103d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-05-31T13:35:53Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nGentle ping on the review of this CL.",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
