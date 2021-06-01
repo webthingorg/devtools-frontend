@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f81946_a46b8962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-01T21:37:39Z",
+      "side": 1,
+      "message": "Hi Alex. Thanks for the feedback. The only other place we want to implement this UI is in DeviceSettingsTab.ts as an enhancement to the existing client hints UI. From our investigation, it looks like that would be difficult; The existing client hints code in that file is tightly coupled with the legacy ListWidget.Editor component. It looks like we would need to modify the Editor class to be able to embed a Lit component in there and hook it up to the existing validation code. Our plan is to just implement this UI separately for DeviceSettingsTab using the existing ListWidget.Editor framework since that does much of what we need it to do already.\n\nSince we wouldn\u0027t be sharing the client hints implementation between NetworkConfigView and DeviceSettingsTab, I\u0027m not sure there is any advantage to wrapping this in a Lit component. Is there a plan to move DeviceSettingsTab to Lit?",
+      "parentUuid": "096bfe69_f1e1293b",
+      "revId": "1f3857b8b3907f12a1caa3f6334fe0cd1b523508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "404ad052_570a0679",
