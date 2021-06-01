@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d97b1781_db8cdc47",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e42facb1_e57c6070",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29ed4140_e5c4494f",
@@ -82,6 +100,24 @@
       "writtenOn": "2021-06-01T15:15:03Z",
       "side": 1,
       "message": "Shouldn\u0027t this be `(payload \u0026\u0026 payload.originTrials) || null`?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4f5bcf_303dfba0",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ed4140_e5c4494f",
       "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +139,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404c9f7c_df45feaf",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "Overriding min-width on flex item prevents overflow.\nAdding raw token to this list will make the token displayed by default, which is not what we want.",
+      "parentUuid": "ce3d51a3_b72443ba",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22b3542b_f2f20b32",
@@ -116,6 +170,24 @@
       "writtenOn": "2021-06-01T15:15:03Z",
       "side": 1,
       "message": "Maybe add a label `status:` in front of the actual status?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae77977_46e89c11",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22b3542b_f2f20b32",
       "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +209,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f410e25e_973f6f44",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "Overriding min-width on flex item prevents overflow.",
+      "parentUuid": "ca25fbef_991ecd3e",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0c97584_b222616e",
@@ -154,6 +244,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7be80c87_b17a6cab",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "line-height override removed. Solved misalignment of arrow icon by adding \n```\n.arrow-and-key-wrapper {\n  align-items: center;\n}\n```",
+      "parentUuid": "c0c97584_b222616e",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d61afc8_e4c4568b",
@@ -167,6 +275,24 @@
       "writtenOn": "2021-06-01T15:15:03Z",
       "side": 1,
       "message": "Couldn\u0027t this have side-effects elsewhere?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "030f5031_0770a282",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-01T19:02:33Z",
+      "side": 1,
+      "message": "According to https://makandracards.com/makandra/66994-css-flex-and-min-width, the default min-width for flex items is auto, instead of 0. We need to explicitly override the min-width to something in order to avoid unexpected overflow. If you have concerns on side effects, we can make the number 0 here.",
+      "parentUuid": "2d61afc8_e4c4568b",
       "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
