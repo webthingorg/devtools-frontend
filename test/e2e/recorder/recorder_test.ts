@@ -318,61 +318,6 @@ describe('Recorder', function() {
     });
   });
 
-  //     it('should record interactions with popups', async () => {
-  //         const waitForScriptToChange = getWaitForScriptToChangeFunction();
-  //         await startRecording('recorder/recorder.html');
-  //         // await waitForScriptToChange();
-
-  //         const { target, browser } = getBrowserAndPages();
-  //         await target.bringToFront();
-  //         const newTargetPromise = browser.waitForTarget(t => t.url().endsWith('popup.html'));
-  //         await target.click('aria/Open Popup');
-  //         // await waitForScriptToChange();
-  //         const newTarget = await newTargetPromise;
-  //         const newPage = await newTarget.page() as typeof target;
-  //         await newPage.waitForSelector('aria/Button in Popup');
-  //         // TODO: fix race condition by auto attach functionality via the browser target.
-  //         await newPage.waitForTimeout(500);
-  //         await newPage.click('aria/Button in Popup');
-  //         // await waitForScriptToChange();
-  //         await newPage.close();
-  //         // await waitForScriptToChange();
-  //         await stopRecording();
-
-  //         await assertOutput(`[
-  //     {
-  //         "action": "navigate",
-  //         "condition": null,
-  //         "url": "https://<url>/test/e2e/resources/recorder/recorder.html"
-  //     },
-  //     {
-  //         "action": "click",
-  //         "condition": null,
-  //         "context": {
-  //             "path": [],
-  //             "target": "main"
-  //         },
-  //         "selector": "aria/Open Popup"
-  //     },
-  //     {
-  //         "action": "click",
-  //         "condition": {
-  //             "expectedUrl": "https://<url>/test/e2e/resources/recorder/popup.html"
-  //         },
-  //         "context": {
-  //             "path": [],
-  //             "target": "https://<url>/test/e2e/resources/recorder/popup.html"
-  //         },
-  //         "selector": "aria/Button in Popup"
-  //     },
-  //     {
-  //         "action": "close",
-  //         "condition": null,
-  //         "target": "https://<url>/test/e2e/resources/recorder/popup.html"
-  //     }
-  // ]`);
-  //     });
-
   it('should wait for navigations in the generated scripts', async () => {
     await startRecording('recorder/recorder.html');
 
