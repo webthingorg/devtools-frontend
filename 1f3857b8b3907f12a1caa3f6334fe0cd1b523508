@@ -16,6 +16,23 @@
       "message": "Alex, could you PTAL?",
       "revId": "1f3857b8b3907f12a1caa3f6334fe0cd1b523508",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18317e48_d0d20d66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-01T06:21:30Z",
+      "side": 1,
+      "message": "I wonder if the new code in front_end/panels/network/NetworkConfigView.ts could have been implemented using Lit \u0026 the new components system. Alex, WDYT?",
+      "revId": "1f3857b8b3907f12a1caa3f6334fe0cd1b523508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
