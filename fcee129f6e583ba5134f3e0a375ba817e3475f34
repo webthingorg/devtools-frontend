@@ -39,6 +39,30 @@
       },
       "revId": "fcee129f6e583ba5134f3e0a375ba817e3475f34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec10101_63e31e15",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-01T09:53:33Z",
+      "side": 1,
+      "message": "done and no worries! :)",
+      "parentUuid": "7309460e_c8dfc2ef",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "fcee129f6e583ba5134f3e0a375ba817e3475f34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
