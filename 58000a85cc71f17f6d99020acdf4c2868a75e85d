@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad01dbe_20b08772",
+        "filename": "front_end/ui/legacy/components/source_frame/ResourceSourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T09:35:26Z",
+      "side": 1,
+      "message": "Yes this looks good!",
+      "parentUuid": "106f99fb_859facb4",
+      "range": {
+        "startLine": 60,
+        "startChar": 101,
+        "endLine": 60,
+        "endChar": 118
+      },
+      "revId": "58000a85cc71f17f6d99020acdf4c2868a75e85d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d3f5a50_08ecf79f",

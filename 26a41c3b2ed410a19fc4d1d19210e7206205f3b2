@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69c462e0_ce47ff8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T09:35:26Z",
+      "side": 1,
+      "message": "This looks good to me. With the new solution, I don\u0027t think we need block on Benedikts review anymore (since the implementation changed significantly between the patchsets), but feel free to post your review Benedikt if you have the chance to do so 😊",
+      "revId": "26a41c3b2ed410a19fc4d1d19210e7206205f3b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
