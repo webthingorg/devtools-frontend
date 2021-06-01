@@ -33,3 +33,56 @@ describe('MultitargetNetworkManager', () => {
     });
   });
 });
+
+describe('NetworkDispatcher', () => {
+  describe('request', () => {
+    let networkDispatcher: SDK.NetworkManager.NetworkDispatcher;
+
+    beforeEach(() => {
+      const networkManager = new Common.ObjectWrapper.ObjectWrapper();
+      networkDispatcher = new SDK.NetworkManager.NetworkDispatcher(networkManager as SDK.NetworkManager.NetworkManager);
+      Common.Settings.registerSettingsForTest(
+          [
+            {
+              category: Common.Settings.SettingCategory.NETWORK,
+              settingType: Common.Settings.SettingType.BOOLEAN,
+              settingName: 'requestBlockingEnabled',
+              defaultValue: false,
+            },
+            {
+              category: Common.Settings.SettingCategory.CONSOLE,
+              settingType: Common.Settings.SettingType.BOOLEAN,
+              settingName: 'monitoringXHREnabled',
+              defaultValue: false,
+            },
+          ],
+          /* reset=*/ true);
+
+      const settingsStorage = new Common.Settings.SettingsStorage({});
+
+      Common.Settings.Settings.instance(
+          {forceNew: true, globalStorage: settingsStorage, localStorage: settingsStorage});
+    });
+
+    it('is preserved after loadingFinished', () => {
+      networkDispatcher.requestWillBeSent(
+          {requestId: 'mockId', request: {url: 'example.com'}} as Protocol.Network.RequestWillBeSentEvent);
+      networkDispatcher.loadingFinished(
+          {requestId: 'mockId', timestamp: 42, encodedDataLength: 42, shouldReportCorbBlocking: false} as
+          Protocol.Network.LoadingFinishedEvent);
+
+      assert.exists(networkDispatcher._requestsById.get('mockId'));
+    });
+
+    it('is cleared on clearRequests()', () => {
+      networkDispatcher.requestWillBeSent(
+          {requestId: 'mockId', request: {url: 'example.com'}} as Protocol.Network.RequestWillBeSentEvent);
+      networkDispatcher.loadingFinished(
+          {requestId: 'mockId', timestamp: 42, encodedDataLength: 42, shouldReportCorbBlocking: false} as
+          Protocol.Network.LoadingFinishedEvent);
+
+      networkDispatcher.clearRequests();
+      assert.notExists(networkDispatcher._requestsById.get('mockId'));
+    });
+  });
+});
