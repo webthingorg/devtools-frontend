@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2080ac1_bf1fc53c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-01T07:36:22Z",
+      "side": 1,
+      "message": "FYI, I’ve reported the reviewer spam here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1215036 (Just so no else else duplicates the work)",
+      "revId": "b9f13e02ee51a46dd20b31d922ae817de873c2bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
