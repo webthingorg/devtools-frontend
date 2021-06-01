@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abca228d_0a2668c9",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T15:44:03Z",
+      "side": 1,
+      "message": "We can remove this once we roll in the fix for https://github.com/DefinitelyTyped/DefinitelyTyped/pull/52832",
+      "range": {
+        "startLine": 245,
+        "startChar": 6,
+        "endLine": 245,
+        "endChar": 67
+      },
+      "revId": "bab5681de95e1314d8c201df9b5e07608f25300b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
