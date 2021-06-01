@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87fb5d9b_c23c649c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-01T09:30:14Z",
+      "side": 1,
+      "message": "lgtm % nit, sorry for the review delay :)",
+      "revId": "fcee129f6e583ba5134f3e0a375ba817e3475f34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7309460e_c8dfc2ef",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-01T09:30:14Z",
+      "side": 1,
+      "message": "Lets update the description here to something like:\n\n\"ms is the short form of milli-seconds and the placeholder is a decimal number.\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "fcee129f6e583ba5134f3e0a375ba817e3475f34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
