@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0970762b_704c439d",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-01T13:24:26Z",
+      "side": 0,
+      "message": "so you did remove the popup test and not the navigation test?",
+      "revId": "25ffae9ffdcf7e795342294c8751670cdb59b91a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

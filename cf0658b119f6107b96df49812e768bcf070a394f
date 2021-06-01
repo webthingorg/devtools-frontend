@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "10f71697_0af75d1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-01T13:24:26Z",
+      "side": 1,
+      "message": "Would it make sense to rephrase the commit message a bit? E.g., \"Add initial UI\n\nThe CL adds the initial version of the UI for the recorder. The UI\nis shown if the corresponding DevTools experiment is enabled. Tests\nand UI improvements will land in follow-up CLs.\n\"",
+      "revId": "cf0658b119f6107b96df49812e768bcf070a394f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c03bfb79_43f23cb8",
