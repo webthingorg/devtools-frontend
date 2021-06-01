@@ -50,6 +50,24 @@
       "message": "Just want to make sure, is it intended to mark `LG Optimus L70`\u0027s `show-by-default` as false?",
       "revId": "7c5174e51de76b8544e443f64c12e7673a5af96c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b4fc702_f2fcf1cc",
+        "filename": "front_end/panels/emulation/EmulatedDevices.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1512547
+      },
+      "writtenOn": "2021-06-01T17:55:59Z",
+      "side": 1,
+      "message": "This was already the case, the appearance of a change is a just a shortcoming of diff algorithm, see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/emulation/EmulatedDevices.ts;l\u003d986-987",
+      "parentUuid": "91e351e3_bdb48729",
+      "revId": "7c5174e51de76b8544e443f64c12e7673a5af96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
