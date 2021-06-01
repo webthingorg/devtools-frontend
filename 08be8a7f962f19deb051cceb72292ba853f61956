@@ -33,6 +33,142 @@
       "message": "Hi Wolfgang,\n\nGentle ping on the review of this CL.",
       "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc578fd_c39ccef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "Maybe there is a way to display the info without needing to go 3 expandable tree nodes deep. I added suggestions how the raw token could be made part of the table which displays the other token attributes.\n\nHow common is it to have multiple tokens for the same OT? If it\u0027s usually just 1 or 2, is the 2nd level of expansion really needed or could all the details be displayed right away?\n",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42facb1_e57c6070",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "`private originTrials: Protocol.Page.OriginTrial[]|null;`\n\nWe\u0027ve only recently gained the option to use private props and we want to use this for new code.",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ed4140_e5c4494f",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `(payload \u0026\u0026 payload.originTrials) || null`?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3d51a3_b72443ba",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "I believe it should be possible to add the raw token text to this list and prevent overflow via CSS styles.",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b3542b_f2f20b32",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "Maybe add a label `status:` in front of the actual status?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca25fbef_991ecd3e",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "If you add something like `overflow: hidden; text-overflow: ellipsis; white-space: nowrap;` here, can you then display the raw token as such a value without causing overflow?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c97584_b222616e",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "This has a side-effect on the API availability section. In addition, this leads to an inconsistent layout with the origin trials part being more dense than the rest of the page.",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d61afc8_e4c4568b",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-01T15:15:03Z",
+      "side": 1,
+      "message": "Couldn\u0027t this have side-effects elsewhere?",
+      "revId": "08be8a7f962f19deb051cceb72292ba853f61956",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
