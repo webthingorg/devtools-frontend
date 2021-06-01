@@ -6,6 +6,21 @@ import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../../scripts/build/ninja/devtools_module.gni")
 import("../visibility.gni")
 
+node_action("generate_css") {
+  script = "front_end/ui/components/icon_button/generate-css.js"
+
+  args = [ rebase_path(target_gen_dir, root_build_dir) ]
+
+  outputs = [ "$target_gen_dir/IconButton.css" ]
+  data = outputs
+
+  if (is_debug) {
+    metadata = {
+      grd_files = outputs
+    }
+  }
+}
+
 devtools_module("icon_button") {
   sources = [
     "Icon.ts",
