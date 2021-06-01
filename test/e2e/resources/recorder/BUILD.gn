@@ -11,5 +11,8 @@ copy_to_gen("recorder") {
     "recorder.html",
     "recorder2.html",
     "select.html",
+    "step1.html",
+    "step2.html",
+    "step3.html",
   ]
 }
