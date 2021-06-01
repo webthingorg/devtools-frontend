@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "190c1839_78a24baf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T15:54:59Z",
+      "side": 1,
+      "message": "For any git commit, please limit the commit title to (ideally) 50 characters and put the rest in the commit description. Additionally, ideally the commit should start with a verb so that you can put it in the sentence \"If you pull this commit, you \u003ccommit title here\u003e\"\n\nFor a more canonical guide on git commit formatting, I strongly recommend to give this one a read: https://chris.beams.io/posts/git-commit/",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 115
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8399c4fb_23aa5d3f",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T15:54:59Z",
+      "side": 1,
+      "message": "Nit: if we are renaming these fields (and I am assuming we can, because no layout tests depend on them), we can make them private straight away. In other words:\n\n```\nprivate requestsById: Map\u003cstring, NetworkRequest\u003e;\n```\n\nYou can use the \"Rename symbol\" feature in VS Code to automatically rename all references as well, if you weren\u0027t using that already.",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 316,
+        "endChar": 15
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80408bb_38480638",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T15:54:59Z",
+      "side": 1,
+      "message": "Nit: is there a particular reason that this is an object and not a `Map`? I am assuming it has always been an object, but I think we can refactor this to a `Map` instead.\n\nE.g. using `.get()` and `.clear()` explicitly on the map, rather than reassigning to a fresh object.\n\nThe reason we prefer maps over objects is that it avoids prototype mangling (if you would have a user-controlled string \"__proto__\", things can get dicy) and is typically the more semantically correct data structure.",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 16
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56471753_f44e57f4",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T15:54:59Z",
+      "side": 1,
+      "message": "Rather than specifying these settings separately here, it is probably better to define them in `test/unittests/front_end/helpers/EnvironmentHelpers.ts` with the other settings.\n\nThen, you would need to change the `describe` to `describeWithEnvironment` to get the correct setup. We eventually want to remove the `describeWithEnvironment` function, so that we have a clean slate, but unfortunately we still have quite a bit of code relying on it.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
