@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27fd1434_8ebb9297",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/JSONFormatter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-01T09:49:04Z",
+      "side": 1,
+      "message": "I think we need to indent these with two spaces to make the unit tests pass.\n\nIf you want to run the unit tests locally, you can run `npm run auto-unittest`. You can also use `describe.only` to only run the tests in this file, to make it a bit faster.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 6
+      },
+      "revId": "1cc3995731f190fb849ba8fec98ace3a1537d617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
