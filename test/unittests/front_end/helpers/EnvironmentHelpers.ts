@@ -114,6 +114,8 @@ export async function initializeGlobalVars({reset = true} = {}) {
         Common.Settings.SettingType.BOOLEAN),
     createSettingValue(Common.Settings.SettingCategory.NETWORK, 'requestBlockingEnabled', false),
     createSettingValue(Common.Settings.SettingCategory.CONSOLE, 'monitoringXHREnabled', false),
+    createSettingValue(
+        Common.Settings.SettingCategory.NETWORK, 'requestBlockingEnabled', false, Common.Settings.SettingType.BOOLEAN),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
