@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeabb16b_4579890d",
+        "filename": "front_end/entrypoints/formatter_worker/FormatterWorker.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-06-02T15:28:52Z",
+      "side": 1,
+      "message": "Changed the default indent on JSON files to 2 spaces. In my opinion, it looks much cleaner and a 4 space indent was too much.",
+      "revId": "511dcd2fe1c8c5c261fe9642c4f6847a912b57b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
