@@ -39,7 +39,7 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import * as Protocol from '../../generated/protocol.js';
 
 import {Cookie} from './Cookie.js';
-import type {BlockedCookieWithReason, ContentData, ExtraRequestInfo, ExtraResponseInfo, MIME_TYPE, NameValue} from './NetworkRequest.js';
+import type {BlockedCookieWithReason, ContentData, ExtraRequestInfo, ExtraResponseInfo, MIME_TYPE, NameValue, WebBundleInfo, WebBundleInnerRequestInfo} from './NetworkRequest.js';
 import {Events as NetworkRequestEvents, NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
 import type {Target} from './SDKModel.js';
 import {Capability, SDKModel} from './SDKModel.js';
@@ -787,10 +787,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   _getExtraInfoBuilder(requestId: string): RedirectExtraInfoBuilder {
     let builder: RedirectExtraInfoBuilder;
     if (!this._requestIdToRedirectExtraInfoBuilder.has(requestId)) {
-      const deleteCallback = (): void => {
-        this._requestIdToRedirectExtraInfoBuilder.delete(requestId);
-      };
-      builder = new RedirectExtraInfoBuilder(deleteCallback);
+      builder = new RedirectExtraInfoBuilder();
       this._requestIdToRedirectExtraInfoBuilder.set(requestId, builder);
     } else {
       builder = (this._requestIdToRedirectExtraInfoBuilder.get(requestId) as RedirectExtraInfoBuilder);
@@ -904,6 +901,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   clearRequests(): void {
     this.requestsById.clear();
     this.requestsByURL.clear();
+    this._requestIdToRedirectExtraInfoBuilder.clear();
   }
 
   webTransportCreated({transportId, url: requestURL, timestamp: time, initiator}:
@@ -953,14 +951,24 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   }
 
 
-  subresourceWebBundleMetadataReceived(_params: Protocol.Network.SubresourceWebBundleMetadataReceivedEvent): void {
-  }
-  subresourceWebBundleMetadataError(_params: Protocol.Network.SubresourceWebBundleMetadataErrorEvent): void {
-  }
-  subresourceWebBundleInnerResponseParsed(_params: Protocol.Network.SubresourceWebBundleInnerResponseParsedEvent):
+  subresourceWebBundleMetadataReceived({requestId, urls}: Protocol.Network.SubresourceWebBundleMetadataReceivedEvent):
       void {
+    this._getExtraInfoBuilder(requestId).setWebBundleInfo({resourceUrls: urls});
   }
-  subresourceWebBundleInnerResponseError(_params: Protocol.Network.SubresourceWebBundleInnerResponseErrorEvent): void {
+
+  subresourceWebBundleMetadataError({requestId, errorMessage}: Protocol.Network.SubresourceWebBundleMetadataErrorEvent):
+      void {
+    this._getExtraInfoBuilder(requestId).setWebBundleInfo({errorMessage});
+  }
+
+  subresourceWebBundleInnerResponseParsed({innerRequestId, bundleRequestId}:
+                                              Protocol.Network.SubresourceWebBundleInnerResponseParsedEvent): void {
+    this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({bundleRequestId});
+  }
+
+  subresourceWebBundleInnerResponseError({innerRequestId, errorMessage}:
+                                             Protocol.Network.SubresourceWebBundleInnerResponseErrorEvent): void {
+    this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({errorMessage});
   }
 }
 
@@ -1468,15 +1476,17 @@ class RedirectExtraInfoBuilder {
   _responseExtraInfos: (ExtraResponseInfo|null)[];
   _finished: boolean;
   _hasExtraInfo: boolean;
-  _deleteCallback: () => void;
+  private webBundleInfo: WebBundleInfo|null;
+  private webBundleInnerRequestInfo: WebBundleInnerRequestInfo|null;
 
-  constructor(deleteCallback: () => void) {
+  constructor() {
     this._requests = [];
     this._requestExtraInfos = [];
     this._responseExtraInfos = [];
     this._finished = false;
     this._hasExtraInfo = false;
-    this._deleteCallback = deleteCallback;
+    this.webBundleInfo = null;
+    this.webBundleInnerRequestInfo = null;
   }
 
   addRequest(req: NetworkRequest): void {
@@ -1495,9 +1505,19 @@ class RedirectExtraInfoBuilder {
     this._sync(this._responseExtraInfos.length - 1);
   }
 
+  setWebBundleInfo(info: WebBundleInfo): void {
+    this.webBundleInfo = info;
+    this.updateFinalRequest();
+  }
+
+  setWebBundleInnerRequestInfo(info: WebBundleInnerRequestInfo): void {
+    this.webBundleInnerRequestInfo = info;
+    this.updateFinalRequest();
+  }
+
   finished(): void {
     this._finished = true;
-    this._deleteIfComplete();
+    this.updateFinalRequest();
   }
 
   _sync(index: number): void {
@@ -1517,24 +1537,15 @@ class RedirectExtraInfoBuilder {
       req.addExtraResponseInfo(responseExtraInfo);
       this._responseExtraInfos[index] = null;
     }
-
-    this._deleteIfComplete();
   }
 
-  _deleteIfComplete(): void {
+  private updateFinalRequest(): void {
     if (!this._finished) {
       return;
     }
-
-    if (this._hasExtraInfo) {
-      // if we haven't gotten the last responseExtraInfo event, we have to wait for it.
-      const lastItem = this._requests[this._requests.length - 1];
-      if (lastItem && !lastItem.hasExtraResponseInfo()) {
-        return;
-      }
-    }
-
-    this._deleteCallback();
+    const finalRequest = this._requests[this._requests.length - 1];
+    finalRequest?.setWebBundleInfo(this.webBundleInfo);
+    finalRequest?.setWebBundleInnerRequestInfo(this.webBundleInnerRequestInfo);
   }
 }
 
