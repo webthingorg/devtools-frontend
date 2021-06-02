@@ -4379,20 +4379,8 @@
   "panels/emulation/DevicesSettingsTab.ts | addCustomDevice": {
     "message": "Add custom device..."
   },
-  "panels/emulation/DevicesSettingsTab.ts | architecture": {
-    "message": "Architecture (e.g. x86)"
-  },
-  "panels/emulation/DevicesSettingsTab.ts | brandsList": {
-    "message": "Brands list is not a valid structured fields list."
-  },
-  "panels/emulation/DevicesSettingsTab.ts | brandsListMust": {
-    "message": "Brands list must consist of strings, each with a v parameter with a string value."
-  },
   "panels/emulation/DevicesSettingsTab.ts | device": {
     "message": "Device"
-  },
-  "panels/emulation/DevicesSettingsTab.ts | deviceModel": {
-    "message": "Device model"
   },
   "panels/emulation/DevicesSettingsTab.ts | deviceName": {
     "message": "Device Name"
@@ -4409,29 +4397,41 @@
   "panels/emulation/DevicesSettingsTab.ts | emulatedDevices": {
     "message": "Emulated Devices"
   },
-  "panels/emulation/DevicesSettingsTab.ts | fullBrowserVersion": {
-    "message": "Full browser version (e.g. 87.0.4280.88)"
-  },
   "panels/emulation/DevicesSettingsTab.ts | height": {
     "message": "Height"
   },
   "panels/emulation/DevicesSettingsTab.ts | notRepresentable": {
     "message": "Not representable as structured headers string."
   },
-  "panels/emulation/DevicesSettingsTab.ts | platform": {
-    "message": "Platform (e.g. Android)"
-  },
-  "panels/emulation/DevicesSettingsTab.ts | platformVersion": {
-    "message": "Platform version"
-  },
-  "panels/emulation/DevicesSettingsTab.ts | UABrands": {
-    "message": "UA brands list (e.g. \"Chromium\";v=\"87\")"
+  "panels/emulation/DevicesSettingsTab.ts | userAgentAddBrowser": {
+    "message": "Add browser"
   },
   "panels/emulation/DevicesSettingsTab.ts | userAgentClient": {
     "message": "User agent client hints"
   },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintArchitecture": {
+    "message": "Architecture"
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintBrowser": {
+    "message": "Browser"
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintBrowserVersion": {
+    "message": "Full browser version"
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintDeviceModel": {
+    "message": "Device model"
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintPlatform": {
+    "message": "Platform"
+  },
   "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintsAre": {
     "message": "User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more."
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintSubTitle": {
+    "message": "User agent"
+  },
+  "panels/emulation/DevicesSettingsTab.ts | userAgentClientHintVersion": {
+    "message": "Version"
   },
   "panels/emulation/DevicesSettingsTab.ts | userAgentString": {
     "message": "User agent string"
