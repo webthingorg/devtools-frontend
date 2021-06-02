@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eddc5bce_093610e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-02T06:31:39Z",
+      "side": 1,
+      "message": "Could you please prefix the commit message with [M93] to avoid confusing with the original CL?",
+      "revId": "bb9dd880f2b132e65af1601e5e11a85b66ca5b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
