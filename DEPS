@@ -225,6 +225,7 @@ hooks = [
                 'third_party/chrome',
                 'chrome-linux/chrome',
                 Var('chromium_linux'),
+                '--fix-crashpad',
     ],
   },
   {
