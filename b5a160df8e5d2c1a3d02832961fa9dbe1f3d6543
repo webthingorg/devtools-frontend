@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98d8d13_fdbf928a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T12:08:14Z",
+      "side": 1,
+      "message": "As a follow-up, can we now also remove support for ModuleUIString in the i18n bundle/pipeline/presubmit scripts?",
+      "revId": "b5a160df8e5d2c1a3d02832961fa9dbe1f3d6543",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
