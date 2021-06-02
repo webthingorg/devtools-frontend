@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20bb924e_8daa2fb4",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/resources/lighthouse-storage.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-06-02T00:48:07Z",
+      "side": 1,
+      "message": "awkward that last CL removed it. \n\nwhich is the source of truth?",
+      "revId": "cbc22a8890eef967232bc7004d47d441d420d1d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
