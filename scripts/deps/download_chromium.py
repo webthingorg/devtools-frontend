@@ -24,7 +24,21 @@ def parse_options(cli_args):
     parser.add_argument('target', help='target directory')
     parser.add_argument('path_to_binary', help='path to binary inside of the zip archive')
     parser.add_argument('build_number', help='build number to find out whether we need to re-download')
+    parser.add_argument(
+        '-fix-crashpad',
+        action='store_true',
+        help='Fix the crashpad binary by marking it executable')
     return parser.parse_args(cli_args)
+
+
+def fix_permissions(path):
+    # Fix permissions. Do this recursively is necessary for MacOS bundles.
+    if os.path.isfile(path):
+        os.chmod(path, 0o555)
+    else:
+        for root, dirs, files in os.walk(path):
+            for f in files:
+                os.chmod(os.path.join(root, f), 0o555)
 
 
 def handleAccessDeniedOnWindows(func, path, exc):
@@ -63,13 +77,13 @@ def download_and_extract(options):
                 ['curl', '--output', '-', '-sS', options.url]))
     zip_file = zipfile.ZipFile(filehandle, 'r')
     zip_file.extractall(path=options.target)
-    # Fix permissions. Do this recursively is necessary for MacOS bundles.
-    if os.path.isfile(EXPECTED_BINARY):
-        os.chmod(EXPECTED_BINARY, 0o555)
-    else:
-        for root, dirs, files in os.walk(EXPECTED_BINARY):
-            for f in files:
-                os.chmod(os.path.join(root, f), 0o555)
+
+    fix_permissions(EXPECTED_BINARY)
+    if options.fix_crashpad:
+        crashpad = os.path.join(os.path.dirname(EXPECTED_BINARY),
+                                'crashpad_handler')
+        fix_permissions(crashpad)
+
     with open(BUILD_NUMBER_FILE, 'w') as file:
         file.write(options.build_number)
 
