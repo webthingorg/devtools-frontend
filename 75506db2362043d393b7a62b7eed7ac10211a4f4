@@ -16,6 +16,125 @@
       "message": "John, could you also PTAL at the issue descriptions, thanks!",
       "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215719e6_0632fbb3",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "I think dropping the \"event\" may be a bit more clear, as this is specifically talking about the origins provided on the anchor/window.open invocation which is usually referred to as the source. wdyt?",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a571fdba_46119ab1",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "same as above re: event",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c460815_82adb342",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyFrameOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "attribution triggers might be more clear",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffcf7c7f_bb6dbb12",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "s/attribution URL/attribution trigger here and elsewhere.\n\n\"attribution URL\" itself is a bit vague as there are a bunch of different urls/origins handled by the API.\n\nsame for arAttributionUntrustworthyFrameOrigin.md",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c67ab4_3805aaac",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73344851_e67b7bb6",
+        "filename": "front_end/models/issues_manager/descriptions/arMissingAttributionData.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "I\u0027m a bit worried this information may get stale. Is it normal to add references in to front_end/ files in chromium/src/?\n\nWe should probably add some comments to the API code to call out updating these md\u0027s if anything in the API changes.",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e9e2e2_03c099f9",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1290431
+      },
+      "writtenOn": "2021-06-02T02:11:44Z",
+      "side": 1,
+      "message": "minor nit: \u0027src\u0027 is the default, we can use allow\u003d\"attribution-reporting\" for simplicity.",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
