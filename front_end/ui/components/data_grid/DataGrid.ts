@@ -858,8 +858,23 @@ export class DataGrid extends HTMLElement {
               if (!col.visible) {
                 return LitHtml.nothing;
               }
-
-              return LitHtml.html`<col style=${style} data-col-column-index=${colIndex}>`;
+              /*
+               * Since `<col>` and `<colgroup>` are special table elements, parsing them requires
+               * some extra fixes. This means that a HTML parser will see the `<col>` element and
+               * implicitly add a `<colgroup>` if it hadn't found one yet.
+               *
+               * The minifier that we use runs the original source code through an HTML parser,
+               * which would then incorrectly add a `<colgroup>` in front of this particular template.
+               * That would lead to a `<colgroup>` with a list of children that are a `<colgroup>`
+               * containing a single `<col>` (rather than a list of children that are a `<col>`).
+               *
+               * As such, we can't run this particular expression through the minifier (which is fine,
+               * as it is small on its own). Since the minifier detects any template literal string
+               * containing "html", we rename the variable here, so that the minifier skips this
+               * template and we maintain the correct table structure with `<col>` and `<colgroup>`.
+               */
+              const minifierWorkaround = LitHtml.html;
+              return minifierWorkaround`<col style=${style} data-col-column-index=${colIndex}>`;
             })}
           </colgroup>
           <thead>
