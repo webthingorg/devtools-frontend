@@ -769,9 +769,14 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
     const metricEvents: SDK.TracingModel.Event[] = [];
     const lcpEvents = [];
+    const layoutShifts = [];
     const timelineModel = this._performanceModel.timelineModel();
     for (const track of this._model.tracks()) {
       for (const event of track.events) {
+        if (timelineModel.isLayoutShiftEvent(event)) {
+          layoutShifts.push(event);
+        }
+
         if (!timelineModel.isMarkerEvent(event)) {
           continue;
         }
@@ -800,6 +805,35 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       const latestEvents = latestCandidates.filter(e => timelineModel.isLCPCandidateEvent(e));
 
       metricEvents.push(...latestEvents);
+    }
+
+    if (layoutShifts.length) {
+      const gapTimeInMs = 1000;
+      const limitTimeInMs = 5000;
+      let firstTimestamp = Number.NEGATIVE_INFINITY;
+      let previousTimestamp = Number.NEGATIVE_INFINITY;
+      let currentClusterScore = 0;
+      let maxScore = 0;
+      let currentClusterId = 1;
+
+      for (const e of layoutShifts) {
+        if (e.args['data']['had_recent_input'] || e.args['data']['weighted_score_delta'] === undefined) {
+          continue;
+        }
+
+        if (e.startTime - firstTimestamp > limitTimeInMs || e.startTime - previousTimestamp > gapTimeInMs) {
+          firstTimestamp = e.startTime;
+          currentClusterScore = 0;
+          currentClusterId += 1;
+        }
+
+        previousTimestamp = e.startTime;
+        currentClusterScore += e.args['data']['weighted_score_delta'];
+        maxScore = Math.max(maxScore, currentClusterScore);
+
+        e.args['data']['_current_cluster_score'] = currentClusterScore;
+        e.args['data']['_current_cluster_id'] = currentClusterId;
+      }
     }
 
     metricEvents.sort(SDK.TracingModel.Event.compareStartTime);
