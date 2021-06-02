@@ -39,6 +39,30 @@
       },
       "revId": "d0a3032a2a6a664d6a3f88a39cd02f6312698598",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a2acc58_9ee60f3c",
+        "filename": "scripts/deps/download_chromium.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-02T10:32:32Z",
+      "side": 1,
+      "message": "As far as I can tell there\u0027s no crashpad handler in the Windows zip. There is one on Mac, but it\u0027s already covered by the recursion into the bundle (see the comment in the fixer code).\n\nSo how about instead of the extra flag, I just check whether the `crashpad_handler` binary exists next to the chrome binary and then always chmod it? That would still only affect Linux, but we could avoid the flag.",
+      "parentUuid": "e25479d2_bb6203a3",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "d0a3032a2a6a664d6a3f88a39cd02f6312698598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

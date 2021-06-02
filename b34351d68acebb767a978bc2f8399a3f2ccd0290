@@ -80,6 +80,30 @@
       },
       "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d1752f_e5ec7c99",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-02T10:32:32Z",
+      "side": 1,
+      "message": "Verified that the problem doesn\u0027t occur on Mac!",
+      "parentUuid": "98516719_111e3753",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 228,
+        "endChar": 18
+      },
+      "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
