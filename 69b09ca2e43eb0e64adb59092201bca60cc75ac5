@@ -50,6 +50,24 @@
       "message": "LGTM in general. It just seems like we need to update test expectations for some broken tests.\nDo you know if it\u0027s possible to land the backend change first, then land the frontend one?",
       "revId": "69b09ca2e43eb0e64adb59092201bca60cc75ac5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d3d4eb_a0c2b890",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1286875
+      },
+      "writtenOn": "2021-06-02T13:38:14Z",
+      "side": 1,
+      "message": "But landing https://crrev.com/c/2904215 first wouldn\u0027t solve much, since this devtools-frontend CL would change expectations again.\n\nSo my plan is:\n\n1. Disable tests in https://crrev.com/c/2928767\n2. Land this\n3. Re-enable tests in https://crrev.com/c/2928820\n4. Land back-end CL (with more test changes) https://crrev.com/c/2904215",
+      "parentUuid": "780d0e91_529ce094",
+      "revId": "69b09ca2e43eb0e64adb59092201bca60cc75ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
