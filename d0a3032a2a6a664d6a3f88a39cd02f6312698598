@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3244956_584e1afd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T10:19:43Z",
+      "side": 1,
+      "message": "Implementation looks good, but I think we should not gate this behind a flag and always fix the permissions.",
+      "revId": "d0a3032a2a6a664d6a3f88a39cd02f6312698598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e25479d2_bb6203a3",
+        "filename": "scripts/deps/download_chromium.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T10:19:43Z",
+      "side": 1,
+      "message": "Is there a particular reason as to why we want to make this optional? I think we can always fix the binary permissions, especially as we already had similar code that was fixing permissions for the Chrome binary itself. E.g. I would prefer that we perform all steps on all platforms for everyone, so that we can spot issues earlier and make sure that everyone has the same deterministic setup.",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "d0a3032a2a6a664d6a3f88a39cd02f6312698598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
