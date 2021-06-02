@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "6f41c159ada72dd56cd6a1955b388dac5e7ed835",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eef5e26_de3b6d1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-02T08:07:01Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "6f41c159ada72dd56cd6a1955b388dac5e7ed835",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce9f17a_8f69d408",
+        "filename": "front_end/models/issues_manager/ContentSecurityPolicyIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-02T08:07:01Z",
+      "side": 1,
+      "message": "nit: there is an existing typo which could be fixed: p is missing in `fromInsectorIssue`",
+      "revId": "6f41c159ada72dd56cd6a1955b388dac5e7ed835",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
