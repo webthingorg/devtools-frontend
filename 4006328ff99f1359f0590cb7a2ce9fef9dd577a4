@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d4279b_71b902fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T10:16:22Z",
+      "side": 1,
+      "message": "Nit: following the guide from the other CL, I would prefer the following description, WDYT?\n\n\u003e Make inflight requests private and change ByURL to a Map\n\u003e \n\u003e A Map is semantically more correct and avoids keys to refer to the Object prototype.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "4006328ff99f1359f0590cb7a2ce9fef9dd577a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d5c1a9_e9ce83c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T10:16:22Z",
+      "side": 1,
+      "message": "Love these refactorings! 🎉",
+      "revId": "4006328ff99f1359f0590cb7a2ce9fef9dd577a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
