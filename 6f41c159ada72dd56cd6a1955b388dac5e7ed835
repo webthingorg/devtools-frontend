@@ -50,6 +50,24 @@
       "message": "nit: there is an existing typo which could be fixed: p is missing in `fromInsectorIssue`",
       "revId": "6f41c159ada72dd56cd6a1955b388dac5e7ed835",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ce50c4_088c7909",
+        "filename": "front_end/models/issues_manager/ContentSecurityPolicyIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-02T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce9f17a_8f69d408",
+      "revId": "6f41c159ada72dd56cd6a1955b388dac5e7ed835",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
