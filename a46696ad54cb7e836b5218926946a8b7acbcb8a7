@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10a71c65_b1a22714",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T15:39:59Z",
+      "side": 1,
+      "message": "CL structure LGTM! I will leave the domain review for Sigurd 😊",
+      "revId": "a46696ad54cb7e836b5218926946a8b7acbcb8a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f669e0c_d902b1ca",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T15:39:59Z",
+      "side": 1,
+      "message": "I am loving these tests!",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "a46696ad54cb7e836b5218926946a8b7acbcb8a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
