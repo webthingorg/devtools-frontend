@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8968b2df_8557ec15",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-02T07:41:08Z",
+      "side": 0,
+      "message": "You are keeping the requests for longer. What if there are multiple requests with the same URL?",
+      "range": {
+        "startLine": 859,
+        "startChar": 4,
+        "endLine": 859,
+        "endChar": 61
+      },
+      "revId": "a7aa9570a33e49f4f275a7c26adb18ea45302904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
