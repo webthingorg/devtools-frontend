@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53f26fbe_d34b6946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-02T15:37:27Z",
+      "side": 1,
+      "message": "PTAL, thanks!\nThis is supposed to add basic support for now.\nLet me know if we should get UX involved for future improvement.",
+      "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
