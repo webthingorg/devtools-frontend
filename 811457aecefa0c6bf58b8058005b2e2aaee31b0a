@@ -16,6 +16,23 @@
       "message": "rebased CL to solve merge conflict. ",
       "revId": "811457aecefa0c6bf58b8058005b2e2aaee31b0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90bd20d9_f25bdd84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-02T06:30:21Z",
+      "side": 1,
+      "message": "Code LGTM. Jack, could you please advice on the component approach: could the new piece of UI use Lit? ",
+      "revId": "811457aecefa0c6bf58b8058005b2e2aaee31b0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
