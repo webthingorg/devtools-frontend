@@ -244,6 +244,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb618c6_33bce999",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionData.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "This issue is only fired for \"trigger-data\". I updated the description to reflect that.\n\nA follow-up CL will update the backend to have a separate issue code for the other query parameter and add a separate description.",
+      "parentUuid": "4bfa2a72_b661ea4e",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4de2fdd6_7ff7f347",
@@ -398,6 +416,24 @@
       "side": 1,
       "message": "Both source registration / triggering early exit if the OT is not enabled so this issue won\u0027t get filed to begin with.\n\nBeyond that, a Permissions Policy guarded by an OT feature cannot be enabled without the OT anyways, you will get a warning when attempting to do so https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/permissions_policy/permissions_policy_parser.cc;l\u003d242?q\u003d%22origin%20trial%20controlled%22\u0026ss\u003dchromium.",
       "parentUuid": "e1bd6d45_d27a644f",
+      "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7892655b_bc921d01",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a0ebcdc_d5625831",
       "revId": "b780f253b15941c661b352c9a8830eed4f89ff93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

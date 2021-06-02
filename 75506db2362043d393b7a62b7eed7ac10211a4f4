@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd4b693_baef6e9c",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyFrameOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "215719e6_0632fbb3",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a571fdba_46119ab1",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-06-02T02:11:44Z",
       "side": 1,
       "message": "same as above re: event",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b443157_8531e716",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionSourceUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a571fdba_46119ab1",
       "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2b5323e_3c21c34f",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyFrameOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c460815_82adb342",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffcf7c7f_bb6dbb12",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff580836_f476c0c8",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffcf7c7f_bb6dbb12",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91c67ab4_3805aaac",
@@ -99,6 +171,24 @@
       "writtenOn": "2021-06-02T02:11:44Z",
       "side": 1,
       "message": "ditto",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f5950d9_97c0d086",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionUntrustworthyOrigin.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91c67ab4_3805aaac",
       "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e90651a5_12b9ad4f",
+        "filename": "front_end/models/issues_manager/descriptions/arMissingAttributionData.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Ideally we just reference whatever the official spec says. If the noising is chromium specific we could drop the \"with a 5% chance of being noised\" part.",
+      "parentUuid": "73344851_e67b7bb6",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32e9e2e2_03c099f9",
         "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
         "patchSetId": 5
@@ -133,6 +241,24 @@
       "writtenOn": "2021-06-02T02:11:44Z",
       "side": 1,
       "message": "minor nit: \u0027src\u0027 is the default, we can use allow\u003d\"attribution-reporting\" for simplicity.",
+      "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5accc7_50e3f7e1",
+        "filename": "front_end/models/issues_manager/descriptions/arPermissionPolicyDisabled.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-02T08:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32e9e2e2_03c099f9",
       "revId": "75506db2362043d393b7a62b7eed7ac10211a4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
