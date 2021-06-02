@@ -5,11 +5,12 @@
 /* eslint-disable rulesdir/no_underscored_properties */
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
 import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical} from './EmulatedDevices.js';
-import {parseBrandsList, serializeBrandsList, validateAsStructuredHeadersString} from './UserAgentMetadata.js';
+import {validateAsStructuredHeadersString} from './UserAgentMetadata.js';
 
 let devicesSettingsTabInstance: DevicesSettingsTab;
 
@@ -43,11 +44,6 @@ const UIStrings = {
   */
   devicePixelRatio: 'Device pixel ratio',
   /**
-  * @description Field in Devices pane letting users customize which browser names and major versions
-  * edited device presents via User Agent Client Hints. Placeholder is locked text.
-  */
-  UABrands: 'UA brands list (e.g. `"Chromium";v="87"`)',
-  /**
   *@description Title of foldable group of options in Devices pane letting users customize what
   *information is sent about the browser and device via user agent client hints functionality. 'user
   *agent' refers to the browser/unique ID the user is using. 'hints' is a noun.
@@ -77,40 +73,78 @@ const UIStrings = {
   */
   deviceNameCannotBeEmpty: 'Device name cannot be empty.',
   /**
-  *@description Field in the Devices pane letting customize precise browser version the edited device presents via User Agent Client Hints.
-  */
-  fullBrowserVersion: 'Full browser version (e.g. 87.0.4280.88)',
-  /**
-  *@description Field in Devices pane letting customize which operating system the edited device presents via User Agent Client Hints. Example should be kept exactly.
-  */
-  platform: 'Platform (e.g. Android)',
-  /**
-  *@description Field in Devices pane letting customize which operating system version the edited device presents via User Agent Client Hints
-  */
-  platformVersion: 'Platform version',
-  /**
-  *@description Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints. Example should be kept exactly.
-  */
-  architecture: 'Architecture (e.g. x86)',
-  /**
-  *@description Field Field in the Devices pane letting customize the name the edited device presents via User Agent Client Hints
-  */
-  deviceModel: 'Device model',
-  /**
   *@description Field Error message in the Device settings pane that shows that the entered value has characters that can't be represented in the corresponding User Agent Client Hints
   */
   notRepresentable: 'Not representable as structured headers string.',
   /**
-  *@description Field Error message in the Device settings pane that shows that the entered brands list has wrong syntax
+  *@description Title for User agent Client hint browser
   */
-  brandsList: 'Brands list is not a valid structured fields list.',
+  userAgentClientHintBrowser: 'Browser',
   /**
-  *@description Field Error message in the Device settings pane that shows that the entered brands list includes the wrong information
+  *@description Title for User agent Client hint version
   */
-  brandsListMust: 'Brands list must consist of strings, each with a v parameter with a string value.',
+  userAgentClientHintVersion: 'Version',
+  /**
+  *@description Title for User agent Client hint Build version
+  */
+  userAgentClientHintBrowserVersion: 'Full browser version',
+  /**
+  *@description Title for User agent Client hint Platform
+  */
+  userAgentClientHintPlatform: 'Platform',
+  /**
+  *@description Title for User agent Client hint Architecture
+  */
+  userAgentClientHintArchitecture: 'Architecture',
+  /**
+  *@description Title for User agent Client hint Device model
+  */
+  userAgentClientHintDeviceModel: 'Device model',
+  /**
+  *@description Title for User agent Client hints sub-section
+  */
+  userAgentClientHintSubTitle: 'User agent',
+  /**
+  *@description Title for User agent Client hints add browser
+  */
+  userAgentAddBrowser: 'Add browser',
 };
+
 const str_ = i18n.i18n.registerUIStrings('panels/emulation/DevicesSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+
+/**
+ * @description Common values used as autofill suggestions for User Agent Client Hints.
+ */
+const SUGGESTIONS = {
+  /**
+   * @description List of common browser brands.
+   */
+  brands: ['Google Chrome', 'Chromium', 'Microsoft Edge'],
+
+  /**
+   * @description List of common OS platforms.
+   */
+  platforms: [
+    'Android',
+    'Chrome OS',
+    'Chromium OS',
+    'FreeBSD',
+    'iOS',
+    'Linux',
+    'macOS',
+    'OpenBSD',
+    'Solaris',
+    'Unknown',
+    'Windows',
+  ],
+
+  /**
+   * @description List of common CPU architectures.
+   */
+  architectures: ['arm', 'x64', 'x86'],
+};
 
 export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.Delegate<EmulatedDevice> {
   containerElement: HTMLElement;
@@ -251,9 +285,17 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     if (uaType === UA.Mobile || uaType === UA.DesktopTouch) {
       device.capabilities.push(Capability.Touch);
     }
-    const brandsOrError = parseBrandsList(editor.control('brands').value.trim(), 'unused_err1', 'unused_err2');
+    const brandRows = [...editor.controlMap().keys()].filter(controlKey => controlKey.startsWith('brand-browser-'));
+    const brands = brandRows.map((_, index) => {
+      const brandVersion = editor.control(`brand-version-${index}`).value.trim();
+      const brandBrowser = editor.control(`brand-browser-${index}`).value.trim();
+      return {
+        brand: brandBrowser,
+        version: brandVersion,
+      };
+    });
     device.userAgentMetadata = {
-      brands: (typeof brandsOrError === 'string' ? [] : brandsOrError),
+      brands,
       fullVersion: editor.control('full-version').value.trim(),
       platform: editor.control('platform').value.trim(),
       platformVersion: editor.control('platform-version').value.trim(),
@@ -271,7 +313,7 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
   }
 
   beginEdit(device: EmulatedDevice): UI.ListWidget.Editor<EmulatedDevice> {
-    const editor = this._createEditor();
+    const editor = this._createEditor(device.userAgentMetadata?.brands?.length);
     editor.control('title').value = device.title;
     editor.control('width').value = this._toNumericInputValue(device.vertical.width);
     editor.control('height').value = this._toNumericInputValue(device.vertical.height);
@@ -285,21 +327,27 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     }
     editor.control('ua-type').value = uaType;
     if (device.userAgentMetadata) {
-      editor.control('brands').value = serializeBrandsList(device.userAgentMetadata.brands || []);
+      device.userAgentMetadata.brands?.forEach((browserBrand, index) => {
+        const {brand, version} = browserBrand;
+        editor.control(`brand-browser-${index}`).value = brand;
+        editor.control(`brand-browser-${index}`).dispatchEvent(new Event('change'));
+        editor.control(`brand-version-${index}`).value = version;
+        editor.control(`brand-version-${index}`).dispatchEvent(new Event('change'));
+      });
       editor.control('full-version').value = device.userAgentMetadata.fullVersion || '';
       editor.control('platform').value = device.userAgentMetadata.platform;
+      editor.control('platform').dispatchEvent(new Event('change'));
       editor.control('platform-version').value = device.userAgentMetadata.platformVersion;
+      editor.control('platform-version').dispatchEvent(new Event('change'));
       editor.control('arch').value = device.userAgentMetadata.architecture;
+      editor.control('arch').dispatchEvent(new Event('change'));
       editor.control('model').value = device.userAgentMetadata.model;
+      editor.control('model').dispatchEvent(new Event('change'));
     }
     return editor;
   }
 
-  _createEditor(): UI.ListWidget.Editor<EmulatedDevice> {
-    if (this._editor) {
-      return this._editor;
-    }
-
+  _createEditor(totalNumberOfBrands: number = 1): UI.ListWidget.Editor<EmulatedDevice> {
     const editor = new UI.ListWidget.Editor<EmulatedDevice>();
     this._editor = editor;
     const content = editor.contentElement();
@@ -349,6 +397,7 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
 
     const tree = new UI.TreeOutline.TreeOutlineInShadow();
     tree.registerRequiredCSS('panels/emulation/devicesSettingsTab.css', {enableLegacyPatching: false});
+    tree.registerRequiredCSS('ui/legacy/listWidget.css', {enableLegacyPatching: false});
     tree.setShowSelectionOnKeyboardFocus(true, false);
     const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
     tree.appendChild(treeRoot);
@@ -356,50 +405,120 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     treeRoot.select(true, false);
     content.appendChild(tree.element);
 
-    function addToTree(input: HTMLInputElement|HTMLSelectElement): void {
+    function addToTree(
+        input: HTMLInputElement|HTMLSelectElement|HTMLDivElement, insertIndex?: number): UI.TreeOutline.TreeElement {
       const treeNode = new UI.TreeOutline.TreeElement(input, false);
       // The inputs themselves are selectable, no need for the tree nodes to be.
       treeNode.selectable = false;
       treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
-      treeRoot.appendChild(treeNode);
+      if (typeof insertIndex === 'number') {
+        treeRoot.insertChild(treeNode, insertIndex);
+      } else {
+        treeRoot.appendChild(treeNode);
+      }
+      return treeNode;
     }
 
-    const brands = editor.createInput('brands', 'text', i18nString(UIStrings.UABrands), brandListValidator);
-    addToTree(brands);
+    function addSubTitleToTree(title: string): void {
+      const subtitle = document.createElement('h4');
+      subtitle.textContent = title;
+      addToTree(subtitle);
+    }
 
-    const fullVersion =
-        editor.createInput('full-version', 'text', i18nString(UIStrings.fullBrowserVersion), chStringValidator);
-    addToTree(fullVersion);
+    function addClientHintBrowserSection(): void {
+      const userAgentSection = document.createElement('div');
+      userAgentSection.classList.add('client-hints-row', 'user-agent-section');
+      const treeChildren = treeRoot.children();
+      const userAgentRows = treeChildren.filter(
+          treeChild => (treeChild.titleElement as HTMLDivElement).classList.contains('user-agent-section'));
+      const insertAtIndex = treeChildren.findIndex(
+          treeChild => (treeChild.titleElement as HTMLDivElement).classList.contains('add-new-browser-container'));
 
-    const platform = editor.createInput('platform', 'text', i18nString(UIStrings.platform), chStringValidator);
-    addToTree(platform);
+      const browser = editor.createTextPrompt(
+          `brand-browser-${userAgentRows.length}`, SUGGESTIONS.brands, i18nString(UIStrings.userAgentClientHintBrowser),
+          chStringValidator);
+      userAgentSection.appendChild(browser);
 
-    const platformVersion =
-        editor.createInput('platform-version', 'text', i18nString(UIStrings.platformVersion), chStringValidator);
-    addToTree(platformVersion);
+      const version = editor.createTextPrompt(
+          `brand-version-${userAgentRows.length}`, [], i18nString(UIStrings.userAgentClientHintVersion),
+          chStringValidator);
+      userAgentSection.appendChild(version);
 
-    const arch = editor.createInput('arch', 'text', i18nString(UIStrings.architecture), chStringValidator);
-    addToTree(arch);
+      const deleteIconButtonContainer = document.createElement('div');
+      deleteIconButtonContainer.setAttribute('role', 'button');
+      deleteIconButtonContainer.tabIndex = 0;
+      const deleteIcon = new IconButton.Icon.Icon();
+      deleteIcon.data = {
+        iconName: 'trash_bin_icon',
+        color: 'var(--color-text-primary)',
+        width: '10px',
+        height: '14px',
+      };
+      deleteIconButtonContainer.appendChild(deleteIcon);
+      deleteIconButtonContainer.classList.add('delete-icon-container');
+      userAgentSection.appendChild(deleteIconButtonContainer);
 
-    const model = editor.createInput('model', 'text', i18nString(UIStrings.deviceModel), chStringValidator);
-    addToTree(model);
+
+      const treeElement = addToTree(userAgentSection, insertAtIndex);
+
+      deleteIconButtonContainer.addEventListener('click', () => {
+        treeRoot.removeChild(treeElement);
+      });
+    }
+
+    addSubTitleToTree(i18nString(UIStrings.userAgentClientHintSubTitle));
+
+    new Array(totalNumberOfBrands).fill(0).forEach(_ => {
+      addClientHintBrowserSection();
+    });
+
+    const addNewButtonContainer = document.createElement('div');
+    addNewButtonContainer.classList.add('add-new-browser-container');
+    addNewButtonContainer.setAttribute('role', 'button');
+    addNewButtonContainer.tabIndex = 0;
+    const addNewIcon = UI.Icon.Icon.create('largeicon-add');
+    addNewButtonContainer.appendChild(addNewIcon);
+    const addNewTitle = document.createElement('span');
+    addNewTitle.textContent = i18nString(UIStrings.userAgentAddBrowser);
+    addNewButtonContainer.appendChild(addNewTitle);
+    addNewButtonContainer.addEventListener('click', addClientHintBrowserSection);
+    addToTree(addNewButtonContainer);
+
+    const fullBrowserVersion = editor.createInput(
+        'full-version', 'text', i18nString(UIStrings.userAgentClientHintBrowserVersion), chStringValidator);
+    addToTree(fullBrowserVersion);
+
+    addSubTitleToTree(i18nString(UIStrings.userAgentClientHintPlatform));
+
+    const platformSection = document.createElement('div');
+    platformSection.classList.add('client-hints-row');
+    addToTree(platformSection);
+
+    const platform = editor.createTextPrompt(
+        'platform', SUGGESTIONS.platforms, i18nString(UIStrings.userAgentClientHintPlatform), chStringValidator);
+    platformSection.appendChild(platform);
+
+    const platformVersion = editor.createTextPrompt(
+        'platform-version', [], i18nString(UIStrings.userAgentClientHintVersion), chStringValidator);
+    platformSection.appendChild(platformVersion);
+
+    addSubTitleToTree(i18nString(UIStrings.userAgentClientHintArchitecture));
+
+    const architecture = editor.createTextPrompt(
+        'arch', SUGGESTIONS.architectures, i18nString(UIStrings.userAgentClientHintArchitecture), chStringValidator);
+    addToTree(architecture);
+
+    addSubTitleToTree(i18nString(UIStrings.userAgentClientHintDeviceModel));
+
+    const deviceModel =
+        editor.createTextPrompt('model', [], i18nString(UIStrings.userAgentClientHintDeviceModel), chStringValidator);
+    addToTree(deviceModel);
 
     return editor;
 
     function chStringValidator(
         item: EmulatedDevice, index: number, input: HTMLInputElement|HTMLSelectElement): UI.ListWidget.ValidatorResult {
       return validateAsStructuredHeadersString(input.value, i18nString(UIStrings.notRepresentable));
-    }
-
-    function brandListValidator(
-        item: EmulatedDevice, index: number, input: HTMLInputElement|HTMLSelectElement): UI.ListWidget.ValidatorResult {
-      const syntaxError = i18nString(UIStrings.brandsList);
-      const structError = i18nString(UIStrings.brandsListMust);
-      const errorOrResult = parseBrandsList(input.value, syntaxError, structError);
-      if (typeof errorOrResult === 'string') {
-        return {valid: false, errorMessage: errorOrResult};
-      }
-      return {valid: true, errorMessage: undefined};
     }
 
     function titleValidator(
