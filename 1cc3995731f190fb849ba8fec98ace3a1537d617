@@ -22,6 +22,30 @@
       },
       "revId": "1cc3995731f190fb849ba8fec98ace3a1537d617",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "508d0d48_ac4957d0",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/JSONFormatter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-06-02T15:30:39Z",
+      "side": 1,
+      "message": "Seems to be all sorted out. Big thanks for the tip on running tests locally.",
+      "parentUuid": "27fd1434_8ebb9297",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 6
+      },
+      "revId": "1cc3995731f190fb849ba8fec98ace3a1537d617",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
