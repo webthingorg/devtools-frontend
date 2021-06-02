@@ -16,6 +16,46 @@
       "message": "Added this for Linux only, is Mac also necessary?",
       "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "874ff257_0e1d4811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-06-02T09:40:02Z",
+      "side": 1,
+      "message": "LGTM. But why do we need ",
+      "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d98285_f5f4814b",
+        "filename": "DEPS",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-06-02T09:40:02Z",
+      "side": 1,
+      "message": "I think the usual convention is to have two dashes, i.e. \"--fix-crashpad\".\n\nAlso, why is this not enabled for Mac?",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 228,
+        "endChar": 18
+      },
+      "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
