@@ -95,6 +95,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e95e879a_39b5193a",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T12:04:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "558414d5_b770f432",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 316,
+        "endChar": 15
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d80408bb_38480638",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Actually it was you who changed one to the Map, but not the other (https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/fcf8179a6a6c0e65b98e27f76b5c7177cacf1013:front_end/sdk/NetworkManager.js;dlc\u003d93f52244c5a7145128b9866e018e65c8057f61aa)\n\nDone in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2931813",
       "parentUuid": "d80408bb_38480638",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 16
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c6850d8_09288f2d",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T12:04:57Z",
+      "side": 1,
+      "message": "Ah interesting. Surprisingly the other map wasn\u0027t causing compilation issues back then, but thanks for cleaning this up!",
+      "parentUuid": "138b6eb1_671f44b7",
       "range": {
         "startLine": 317,
         "startChar": 2,

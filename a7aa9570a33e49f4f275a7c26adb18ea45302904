@@ -46,6 +46,30 @@
       },
       "revId": "a7aa9570a33e49f4f275a7c26adb18ea45302904",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e3fe06_69a1e0a0",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-02T12:04:57Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "e6f17da3_330c5d98",
+      "range": {
+        "startLine": 859,
+        "startChar": 4,
+        "endLine": 859,
+        "endChar": 61
+      },
+      "revId": "a7aa9570a33e49f4f275a7c26adb18ea45302904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
