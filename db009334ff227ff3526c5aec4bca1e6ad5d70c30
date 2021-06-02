@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "785707fa_abfc8379",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-02T10:59:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "190c1839_78a24baf",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 115
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8399c4fb_23aa5d3f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-01T15:54:59Z",
       "side": 1,
       "message": "Nit: if we are renaming these fields (and I am assuming we can, because no layout tests depend on them), we can make them private straight away. In other words:\n\n```\nprivate requestsById: Map\u003cstring, NetworkRequest\u003e;\n```\n\nYou can use the \"Rename symbol\" feature in VS Code to automatically rename all references as well, if you weren\u0027t using that already.",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 316,
+        "endChar": 15
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558414d5_b770f432",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-02T10:59:31Z",
+      "side": 1,
+      "message": "Done in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2931813",
+      "parentUuid": "8399c4fb_23aa5d3f",
       "range": {
         "startLine": 316,
         "startChar": 2,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "138b6eb1_671f44b7",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-02T10:59:31Z",
+      "side": 1,
+      "message": "Actually it was you who changed one to the Map, but not the other (https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/fcf8179a6a6c0e65b98e27f76b5c7177cacf1013:front_end/sdk/NetworkManager.js;dlc\u003d93f52244c5a7145128b9866e018e65c8057f61aa)\n\nDone in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2931813",
+      "parentUuid": "d80408bb_38480638",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 16
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56471753_f44e57f4",
         "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-01T15:54:59Z",
       "side": 1,
       "message": "Rather than specifying these settings separately here, it is probably better to define them in `test/unittests/front_end/helpers/EnvironmentHelpers.ts` with the other settings.\n\nThen, you would need to change the `describe` to `describeWithEnvironment` to get the correct setup. We eventually want to remove the `describeWithEnvironment` function, so that we have a clean slate, but unfortunately we still have quite a bit of code relying on it.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "db009334ff227ff3526c5aec4bca1e6ad5d70c30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a0e5e8_7ffe5f92",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-02T10:59:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56471753_f44e57f4",
       "range": {
         "startLine": 44,
         "startChar": 6,
