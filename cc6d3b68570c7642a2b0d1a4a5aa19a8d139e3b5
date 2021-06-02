@@ -33,6 +33,23 @@
       "message": "Overall LGTM with some comments. Just reviewed this with bckenny@\n\nApproach to clustering appears correct. Possible to summarize what the intended developer experience is? If you select an event you\u0027re able to see a cluster ID as well as the currentClusterScore. It looks like to know the total value for the cluster you would need to click the final layoutshift event within the cluster? (given value gets added each event as the total is being added?)",
       "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fda7366_15d05f7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2021-06-02T18:16:12Z",
+      "side": 1,
+      "message": "CLS calculation looks good to me (and I like the hack of adding the cluster scores to the args.)\n\nThat said-- this is limited to per frame.  The real CLS (be it windowed or total) should be merged across frames.  I suspect DevTools already gets this wrong when iframes have shifts, so, this change is strictly an improvement.\n\n(I am not sure, but, perhaps the easiest way to get the overall values is to get them from browser process?  Is that viable?)",
+      "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
