@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!\nThis is supposed to add basic support for now.\nLet me know if we should get UX involved for future improvement.",
       "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "116d6591_f17e3429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1473963
+      },
+      "writtenOn": "2021-06-02T17:16:37Z",
+      "side": 1,
+      "message": "Overall LGTM with some comments. Just reviewed this with bckenny@\n\nApproach to clustering appears correct. Possible to summarize what the intended developer experience is? If you select an event you\u0027re able to see a cluster ID as well as the currentClusterScore. It looks like to know the total value for the cluster you would need to click the final layoutshift event within the cluster? (given value gets added each event as the total is being added?)",
+      "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
