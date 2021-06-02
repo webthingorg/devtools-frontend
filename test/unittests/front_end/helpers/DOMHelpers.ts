@@ -214,12 +214,12 @@ export function stripLitHtmlCommentNodes(text: string) {
 }
 
 /**
- * Returns an array of textContents
- * NewLine and multiple space characters are replaced with single space character
+ * Returns an array of textContents.
+ * NewLine and multiple space characters are split up in an array of sub element text content.
  */
-export function getCleanTextContentFromElements(shadowRoot: ShadowRoot, selector: string) {
+export function getCleanTextContentFromElements(shadowRoot: ShadowRoot, selector: string): string[] {
   const elements = Array.from(shadowRoot.querySelectorAll(selector));
   return elements.map(element => {
-    return element.textContent ? element.textContent.trim().replace(/[ \n]+/g, ' ') : '';
+    return element.textContent ? element.textContent.trim().replace(/[ \n]{2,}/g, '') : '';
   });
 }
