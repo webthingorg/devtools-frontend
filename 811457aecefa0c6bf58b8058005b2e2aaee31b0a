@@ -33,6 +33,29 @@
       "message": "Code LGTM. Jack, could you please advice on the component approach: could the new piece of UI use Lit? ",
       "revId": "811457aecefa0c6bf58b8058005b2e2aaee31b0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cadc7386_7363e64f",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-02T09:54:42Z",
+      "side": 1,
+      "message": "Hey all,\n\nThis definitely feels like a missed opportunity to use Lit, however I appreciate that some code in here may be resistant to being used via Lit. That said, we should be striving for all new UI pieces to be authored in Lit, even if we have to make some compromises to allow some of the legacy modules to work in a Lit environment.\n\nIf there are parts of the UI that are not able to be moved to Lit, then we should invest in doing the work to first build new components for those parts in order to unblock building the overall UI in Lit. I totally understand that this is more work, but right now landing this just adds yet more UI that isn\u0027t built as we\u0027d like new UI to be built, and also is unable to be tested to the same degree that our Lit components are. \n\nWhat do you think?",
+      "range": {
+        "startLine": 553,
+        "startChar": 6,
+        "endLine": 554,
+        "endChar": 3
+      },
+      "revId": "811457aecefa0c6bf58b8058005b2e2aaee31b0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
