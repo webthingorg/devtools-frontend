@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a08ed58c_e28295a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-02T20:52:23Z",
+      "side": 1,
+      "message": "We realized it is recommended to add it as a LitHtml component, unfortunately in this case client hints in Device settings page uses ListWidget and ListWidget Editor for creating user agent and client hints form. It is very tightly integrated and the only way to do it is by updating the entire ListWidget component.",
+      "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
