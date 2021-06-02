@@ -11,6 +11,7 @@ devtools_module("components") {
     "FrameDetailsView.ts",
     "StackTrace.ts",
     "TrustTokensView.ts",
+    "OriginTrialTreeView.ts",
   ]
 
   deps = [
