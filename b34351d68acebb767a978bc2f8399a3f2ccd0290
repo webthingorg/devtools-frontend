@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd3603e_21874c10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-02T09:33:24Z",
+      "side": 1,
+      "message": "Added this for Linux only, is Mac also necessary?",
+      "revId": "b34351d68acebb767a978bc2f8399a3f2ccd0290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
