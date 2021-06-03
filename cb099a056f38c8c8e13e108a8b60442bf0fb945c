@@ -16,6 +16,24 @@
       "message": "This approach looks fine to me. I do think it would be good if we have some additional unit tests for this class though. Especially in the way that it handles multiple formatters and how it can handle unique ID\u0027s. E.g. what if we specify the exact same string but in two different files and we use different values? It would be good to have tests for these kinds of scenarios, as I can imagine it can quickly become tricky having a non-corrupt cache.",
       "revId": "cb099a056f38c8c8e13e108a8b60442bf0fb945c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11f83ed_b312aa94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-03T14:16:20Z",
+      "side": 1,
+      "message": "I strongly agree. The problem is that disentangling the class of using the \"i18nBundle\" would also be a lot of effort. We would have to pass it in and mock it for unit tests as the actual library relies on global state, while the mock has to actually show all the quirks of the real implementation to make the tests useful.\n\nAlternatively to this approach, we could implement the bits of \"i18nBundle\" that we actually need ourselves. It\u0027s only a small subset and we could write it in a test-able non-global-staty way. I opted for a shared approach for now, as I\u0027m not sure whether we will work together with LH to move to a real shared third-party library.\n\nI\u0027ll give tests a go and see what works.",
+      "parentUuid": "d157bd3a_41ad1217",
+      "revId": "cb099a056f38c8c8e13e108a8b60442bf0fb945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
