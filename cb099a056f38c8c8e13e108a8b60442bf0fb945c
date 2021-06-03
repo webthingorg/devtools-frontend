@@ -34,6 +34,24 @@
       "parentUuid": "d157bd3a_41ad1217",
       "revId": "cb099a056f38c8c8e13e108a8b60442bf0fb945c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da510f44_1aedd0a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:21:31Z",
+      "side": 1,
+      "message": "Given the large performance benefits (and potentially easier to backport if we decide that\u0027s worth it), I am okay if we land this as-is and then do a follow-up with the tests. As long as that follow-up CL happens of course 😊",
+      "parentUuid": "b11f83ed_b312aa94",
+      "revId": "cb099a056f38c8c8e13e108a8b60442bf0fb945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
