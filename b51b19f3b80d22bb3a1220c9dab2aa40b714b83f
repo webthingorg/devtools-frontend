@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "433e4b7c_516f4087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-06-03T02:54:40Z",
+      "side": 1,
+      "message": "The media capability was the way to go. Patchset 3 should be more inline with your suggestions. Thanks!",
+      "parentUuid": "7726f6d8_2c934400",
+      "revId": "b51b19f3b80d22bb3a1220c9dab2aa40b714b83f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3beb761c_ed2476c0",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-05-27T06:43:08Z",
       "side": 1,
       "message": "Only frame targets have this capability (see SDKModel.js), so I would expect dedicated workers to not have this model at all.\n\nIs it possible that you are logging to the worker\u0027s owner frame in your back-end patches? In any case, I\u0027d like to see some tests for this to make sure it is working as intended.",
+      "range": {
+        "startLine": 86,
+        "startChar": 58,
+        "endLine": 86,
+        "endChar": 85
+      },
+      "revId": "b51b19f3b80d22bb3a1220c9dab2aa40b714b83f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d23ef8_6a54b45c",
+        "filename": "front_end/panels/media/MediaModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-06-03T02:54:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3beb761c_ed2476c0",
       "range": {
         "startLine": 86,
         "startChar": 58,
