@@ -94,7 +94,8 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
       case Type.Frame:
         this._capabilitiesMask = Capability.Browser | Capability.Storage | Capability.DOM | Capability.JS |
             Capability.Log | Capability.Network | Capability.Target | Capability.Tracing | Capability.Emulation |
-            Capability.Input | Capability.Inspector | Capability.Audits | Capability.WebAuthn | Capability.IO;
+            Capability.Input | Capability.Inspector | Capability.Audits | Capability.WebAuthn | Capability.IO |
+            Capability.Media;
         if (!parentTarget) {
           // This matches backend exposing certain capabilities only for the main frame.
           this._capabilitiesMask |=
@@ -112,7 +113,7 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
         break;
       case Type.Worker:
         this._capabilitiesMask =
-            Capability.JS | Capability.Log | Capability.Network | Capability.Target | Capability.IO;
+            Capability.JS | Capability.Log | Capability.Network | Capability.Target | Capability.IO | Capability.Media;
         break;
       case Type.Node:
         this._capabilitiesMask = Capability.JS;
@@ -283,6 +284,7 @@ export enum Capability {
   Audits = 1 << 15,
   WebAuthn = 1 << 16,
   IO = 1 << 17,
+  Media = 1 << 18,
   None = 0,
 }
 
