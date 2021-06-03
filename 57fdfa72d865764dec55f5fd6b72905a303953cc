@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1292e04e_b58afc48",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T10:33:52Z",
+      "side": 1,
+      "message": "I just realized that we also need to add the `generate_css` action as a dependency to the devtools_module `icon_button`. That way, we ensure that we always regenerate the CSS file and import it, such that it can be bundled with Rollup as well.\n\nTo make sure that we properly error on this, we should probably remove the global type definition and instead write a `IconButton.css.d.ts` that has the following:\n\n```\nconst styles: CSSStyleSheet;\nexport default styles;\n```\n\nThen we ensure that whenever you import a CSS file, you are properly depending on it.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "57fdfa72d865764dec55f5fd6b72905a303953cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
