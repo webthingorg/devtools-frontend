@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c87293_434a1ba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-03T21:30:46Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nCan you take a look at this CL again?\n\nUpdated Screenshot:\nhttps://drive.google.com/file/d/1AFWlA40cRn7mLbau7WDC-zIX5CBwVOKY/view?usp\u003dsharing",
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
