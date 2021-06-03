@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d157bd3a_41ad1217",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:08:25Z",
+      "side": 1,
+      "message": "This approach looks fine to me. I do think it would be good if we have some additional unit tests for this class though. Especially in the way that it handles multiple formatters and how it can handle unique ID\u0027s. E.g. what if we specify the exact same string but in two different files and we use different values? It would be good to have tests for these kinds of scenarios, as I can imagine it can quickly become tricky having a non-corrupt cache.",
+      "revId": "cb099a056f38c8c8e13e108a8b60442bf0fb945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

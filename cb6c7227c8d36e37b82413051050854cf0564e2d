@@ -16,6 +16,29 @@
       "message": "Hey Tim,\n\njust a quick experiment that turned out better than expected. PTAL and let me know what you think, performance wise, this would make a great difference.",
       "revId": "cb6c7227c8d36e37b82413051050854cf0564e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7ad33d_0a35b30a",
+        "filename": "front_end/third_party/i18n/i18n-bundle.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:08:25Z",
+      "side": 1,
+      "message": "Nit: can we type this as `Record\u003cstring, string|number|boolean|null|undefined\u003e` instead to avoid the cast in `LocalizedStringSet`?",
+      "range": {
+        "startLine": 43,
+        "startChar": 119,
+        "endLine": 43,
+        "endChar": 125
+      },
+      "revId": "cb6c7227c8d36e37b82413051050854cf0564e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
