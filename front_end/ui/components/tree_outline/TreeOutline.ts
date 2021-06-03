@@ -455,6 +455,8 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
 
         .tree-node-key {
           white-space: var(--override-key-whitespace-wrapping);
+          /* Override the default |min-width: auto| to avoid overflows of flex items */
+          min-width: 0;
         }
 
         .arrow-icon {
@@ -519,6 +521,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
           border: 2px solid transparent;
           display: flex;
           align-content: center;
+          align-items: center;
         }
 
         [role="treeitem"]:focus {
