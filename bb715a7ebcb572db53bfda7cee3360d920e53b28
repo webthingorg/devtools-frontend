@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b194e758_87b65462",
+        "filename": "front_end/global_typings/global_defs.d.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:19:50Z",
+      "side": 1,
+      "message": "Since you are now including the `.css.d.ts` file in your `deps`, this should now be removed.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "bb715a7ebcb572db53bfda7cee3360d920e53b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4efc6f_cbb0f87f",
+        "filename": "front_end/ui/components/icon_button/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:19:50Z",
+      "side": 1,
+      "message": "You are now also generating the `.css.d.ts` file, so that should be listed here as well. However, since we don\u0027t want to include `.d.ts` files in our release bundle, the `.d.ts` file should *not* be added to either `data` or `grd_files` in the metadata. It might be easiest to rename this variable to `js_outputs` and then do `outputs \u003d js_outputs + [ \"$target_gen_dir/IconButton.css.d.ts\" ]` here. You would then use `js_outputs` for your `data` and `grd_files`.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 51
+      },
+      "revId": "bb715a7ebcb572db53bfda7cee3360d920e53b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922831a4_11e7d9a1",
+        "filename": "front_end/ui/components/icon_button/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:19:50Z",
+      "side": 1,
+      "message": "This should be in `deps`, since you are importing it in TypeScript. You should only use `public_deps` for resources that are not JavaScript (such as images or markdown files). The error you were seeing when it was added to the `deps` was probably because the generated `.d.ts` file was the wrong name.\n\nIf you have a file \"Foo.js\", then you need a \"Foo.d.ts\" for the TypeScript declarations. Since your filename is \"IconButton.css.js\", that means the declaration file should be named \"IconButton.css.d.ts\" (e.g. replace the `.js` part with `.d.ts` and leave the rest alone)",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "bb715a7ebcb572db53bfda7cee3360d920e53b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0be41c_d35609b0",
+        "filename": "front_end/ui/components/icon_button/generate-css.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-03T14:19:50Z",
+      "side": 1,
+      "message": "This should be `.d.ts` I think, so that the full name becomes `IconButton.css.d.ts`",
+      "range": {
+        "startLine": 12,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "bb715a7ebcb572db53bfda7cee3360d920e53b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
