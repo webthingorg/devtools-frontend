@@ -33,6 +33,24 @@
       "message": "Hey Chait,\n\nI understand that moving the entire text prompt to Lit is a big undertaking and not one that can be done easily, but did you consider at least wrapping the legacy TextPrompt in a Lit component so that we can at least build on top of that in Lit?\n\nI hacked this together as a proof of concept: https://gist.github.com/jackfranklin/48233f710538c41b421463dcd190acf7.\n\nWhilst it\u0027s very rough it does work locally, and means we don\u0027t have to re-implement the text prompt, but by wrapping it it does mean that hopefully we can more easily use it from within a Lit context.\n\nWould you be open to considering trying this approach? We\u0027re trying to move into using Lit as default, so that we stop introducing more code that would be considered \"legacy\" in its approach, hence why we\u0027re so keen to avoid any new big chunks of \"non-Lit\" UI landing.\n\nThanks!",
       "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edc7a741_65b3aa42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-03T16:19:16Z",
+      "side": 1,
+      "message": "Oh yeah, that is a good idea. I did not consider this, I will work on this. What do you think is more preferable a pure litHtml TextPrompt component or wrapper for legacy TextPrompt component. Or should I start of as a wrapper and slowly migrate complete functionality to lithtml component?",
+      "parentUuid": "938a7ee7_a7c440f7",
+      "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
