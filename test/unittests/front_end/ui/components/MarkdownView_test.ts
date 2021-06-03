@@ -63,7 +63,7 @@ describe('MarkdownView', async () => {
           MarkdownView.MarkdownView.renderToken({type: 'link', text: 'learn more', href: 'exampleLink'});
 
       assert.deepStrictEqual(
-          renderResult.strings.raw, ['<devtools-markdown-link .data=', '></devtools-markdown-link>']);
+          renderResult.strings.raw, ['<devtools-markdown-link .data="', '"></devtools-markdown-link>']);
     });
 
     it('throws an error if invalid link key is provided', () => {
@@ -78,7 +78,7 @@ describe('MarkdownView', async () => {
       const renderResult =
           MarkdownView.MarkdownView.renderToken({type: 'image', text: 'phone', href: 'testExampleImage'});
       assert.deepStrictEqual(
-          renderResult.strings.raw, ['<devtools-markdown-image .data=', '></devtools-markdown-image>']);
+          renderResult.strings.raw, ['<devtools-markdown-image .data="', '"></devtools-markdown-image>']);
     });
 
     it('renders image with valid key', () => {
@@ -88,7 +88,7 @@ describe('MarkdownView', async () => {
       });
       const renderResult = MarkdownView.MarkdownView.renderToken({type: 'image', text: 'phone', href: 'exampleImage'});
       assert.deepStrictEqual(
-          renderResult.strings.raw, ['<devtools-markdown-image .data=', '></devtools-markdown-image>']);
+          renderResult.strings.raw, ['<devtools-markdown-image .data="', '"></devtools-markdown-image>']);
     });
 
     it('throws an error if invalid image key is provided', () => {
