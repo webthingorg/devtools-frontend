@@ -16,6 +16,46 @@
       "message": "Hi Wolfgang,\n\nCan you take a look at this CL again?\n\nUpdated Screenshot:\nhttps://drive.google.com/file/d/1AFWlA40cRn7mLbau7WDC-zIX5CBwVOKY/view?usp\u003dsharing",
       "revId": "e5713e624f8dd81c7218747531a983bafb514950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "780a447e_aa2543e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1153414
+      },
+      "writtenOn": "2021-06-03T22:03:20Z",
+      "side": 1,
+      "message": "A comment on accessibility, based on the most recent screenshot.",
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914cb993_fb2e16b1",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1153414
+      },
+      "writtenOn": "2021-06-03T22:03:20Z",
+      "side": 1,
+      "message": "For accessibility, the UI should using something in addition to colour to distinguish success vs failure. Using red and green are particularly problematic, see [1] for details. \n\nIf feasible, using checkmark vs \"X\" could be helpful. Are colours used elsewhere in the devtools UI? I\u0027m wondering if there\u0027s a standard/precedent to follow here.\n\n[1] https://accessibility.psu.edu/color/colorcoding/",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
