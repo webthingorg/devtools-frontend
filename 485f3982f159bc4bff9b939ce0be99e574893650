@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcd7dca_cf1babdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-04T06:16:04Z",
+      "side": 1,
+      "message": "PTAL, all of the i18n CLs are currently blocked on a fix of the leak detection: https://crrev.com/c/2933176",
+      "revId": "485f3982f159bc4bff9b939ce0be99e574893650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
