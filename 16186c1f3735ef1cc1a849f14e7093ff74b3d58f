@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6cd009_4b6e297b",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2021-06-04T20:29:43Z",
+      "side": 1,
+      "message": "drive-by: should we keep a list of notInTarget/resolve callback tuples instead of a single one in case there are multiple callers of getOrWaitForFrame? (I guess there\u0027s only one caller right now, but this might not be true in the future).",
+      "revId": "16186c1f3735ef1cc1a849f14e7093ff74b3d58f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
