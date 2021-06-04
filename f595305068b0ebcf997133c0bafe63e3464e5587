@@ -51,6 +51,24 @@
       "parentUuid": "938a7ee7_a7c440f7",
       "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fbf31ee_4866a490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-04T11:15:08Z",
+      "side": 1,
+      "message": "I\u0027d say we\u0027d be better with a pure Lit TextPrompt, but if that\u0027s too much of an undertaking wrapping the legacy one in a Lit component so that you can build new UI in Lit is good.",
+      "parentUuid": "edc7a741_65b3aa42",
+      "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
