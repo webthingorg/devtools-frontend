@@ -485,6 +485,7 @@ function isObjectOrArrayOfUnknownValues(val) {
 
 module.exports = {
   _formatPathAsString,
+  _preformatValues,
   lookupLocale,
   getRendererFormattedStrings,
   createIcuMessageFn,
