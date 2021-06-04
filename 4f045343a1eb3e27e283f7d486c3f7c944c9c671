@@ -87,6 +87,23 @@
       "parentUuid": "b61f4b8c_054baa52",
       "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "216984df_ae029934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-04T10:03:34Z",
+      "side": 1,
+      "message": "Paul is OOO this week. Jack, can you PTAL?",
+      "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
