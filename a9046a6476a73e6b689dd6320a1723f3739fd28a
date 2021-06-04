@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "340065bd_57d9889e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-04T14:40:28Z",
+      "side": 1,
+      "message": "Easy fix and nice e2e-test 🎉\n\nTo double-check that the e2e-test is not flaky, we should probably run it on the deflaking bot: https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/test/e2e/#debugging-flaky-tests",
+      "revId": "a9046a6476a73e6b689dd6320a1723f3739fd28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7678466_708dc73f",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/AllocationProfile.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-04T14:40:28Z",
+      "side": 1,
+      "message": "Nice and easy fix, I love it!",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "a9046a6476a73e6b689dd6320a1723f3739fd28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3449dd0_8a021448",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-04T14:40:28Z",
+      "side": 1,
+      "message": "Nit: rather than boolean arguments, it\u0027s a bit clearer if we use option bags. E.g.\n\n```\n{recordStacks: true}\n```\n\nYou can then use object destructuring to automatically get the relevant options out again:\n\n```\nexport async function takeAllocationTimelineProfile(frontend: puppeteer.Page, {recordStacks} \u003d {recordStacks: false}: {recordStacks: boolean})\n```",
+      "range": {
+        "startLine": 244,
+        "startChar": 44,
+        "endLine": 244,
+        "endChar": 67
+      },
+      "revId": "a9046a6476a73e6b689dd6320a1723f3739fd28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
