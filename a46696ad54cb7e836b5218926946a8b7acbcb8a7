@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5051c081_fd33b2f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-04T11:45:04Z",
+      "side": 1,
+      "message": "LGTM from my side!",
+      "revId": "a46696ad54cb7e836b5218926946a8b7acbcb8a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8f669e0c_d902b1ca",
         "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
         "patchSetId": 2
