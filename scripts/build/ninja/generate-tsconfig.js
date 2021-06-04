@@ -15,6 +15,8 @@ const generatedTSConfig = {
     outDir: '.',
     baseUrl: '.',
     rootDir: path.dirname(originalFrontendMappedLocation),
+    allowJs: tsconfigLocation.includes('lighthouse'),
+    checkJs: tsconfigLocation.includes('lighthouse'),
   },
   files: [
     originalFrontendMappedLocation,

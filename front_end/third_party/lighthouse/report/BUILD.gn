@@ -1,0 +1,52 @@
+# Copyright 2021 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../../config/gni/all_devtools_files.gni")
+# import("../../../../scripts/build/ninja/copy.gni")
+import("../../../../scripts/build/ninja/devtools_pre_built.gni")
+import("../../visibility.gni")
+
+devtools_pre_built("lighthouse-javascript-report-renderer") {
+  sources_are_release = false
+
+  sources = [
+    "util.js",
+    "logger.js",
+    "report-ui-features.js",
+    "details-renderer.js",
+    "psi.js",
+    "file-namer.js",
+    "performance-category-renderer.js",
+    "crc-details-renderer.js",
+    "report-renderer.js",
+    "text-encoding.js",
+    "dom.js",
+    "category-renderer.js",
+    "element-screenshot-renderer.js",
+    "i18n.js",
+    "pwa-category-renderer.js",
+    "snippet-renderer.js",
+  ]
+}
+
+# TODO: figure out how "save as HTML" will work
+devtools_entrypoint("standalone-report") {
+  entrypoint = "main.js"
+
+  deps = [ ":lighthouse-javascript-report-renderer" ]
+
+  visibility = [
+    ":*",
+    "../../panels/lighthouse/*",
+  ]
+}
+
+group("report") {
+  public_deps = [
+    ":lighthouse-javascript-report-renderer",
+    ":standalone-report",
+  ]
+  data_deps = public_deps
+}
