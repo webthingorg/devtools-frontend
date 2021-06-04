@@ -104,6 +104,23 @@
       "message": "Paul is OOO this week. Jack, can you PTAL?",
       "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1bf59c_c0dcb5bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-04T10:08:16Z",
+      "side": 1,
+      "message": "Thanks Jesper!",
+      "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
