@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d340ad_f900704e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-04T11:13:42Z",
+      "side": 1,
+      "message": "PTAL. Tested manually in light/dark mode and looks OK to me.",
+      "revId": "986e72394191f0ee73d6c24989ec799a5dac9d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
