@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a34c41df_926fe0c4",
+        "filename": "front_end/Images/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-04T12:58:03Z",
+      "side": 1,
+      "message": "I wonder if we should turn off all the import related rules for any `rollup.config.js` files.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 54
+      },
+      "revId": "96f354bfd02cc7d6d607de8a6188ff6fdf06610f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
