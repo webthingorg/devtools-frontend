@@ -80,6 +80,30 @@
       },
       "revId": "e5713e624f8dd81c7218747531a983bafb514950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c104ee70_64c5358d",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1153414
+      },
+      "writtenOn": "2021-06-04T20:39:36Z",
+      "side": 1,
+      "message": "As discussed offline:\n- I\u0027m not sure if the status text is sufficient as a second source of information. There are a lot of statuses are red, so the user would have to read and understand each one?\n- Thanks for pointing out the use of red/green in the Network/HTTP status. I\u0027d like to know if that usage has been approved for accessibility, and is a reasonable precedent to follow.\n\nI think we can address the accessibility questions with more investigation, and make changes in a follow up CL as needed.\n\nWould you note the followup somewhere? I\u0027m not sure if a TODO is reasonable, or maybe a comment on the issue?",
+      "parentUuid": "7b1c6751_a8b58a28",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
