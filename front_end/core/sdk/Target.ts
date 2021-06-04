@@ -1,4 +1,4 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -9,61 +9,7 @@ import * as Host from '../host/host.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type {TargetManager} from './TargetManager.js';
-
-export interface RegistrationInfo {
-  capabilities: number;
-  autostart: boolean;
-  early?: boolean;
-}
-
-const registeredModels = new Map<new (arg1: Target) => SDKModel, RegistrationInfo>();
-
-export class SDKModel extends Common.ObjectWrapper.ObjectWrapper {
-  _target: Target;
-
-  constructor(target: Target) {
-    super();
-    this._target = target;
-  }
-
-  target(): Target {
-    return this._target;
-  }
-
-  /**
-   * Override this method to perform tasks that are required to suspend the
-   * model and that still need other models in an unsuspended state.
-   */
-  async preSuspendModel(_reason?: string): Promise<void> {
-  }
-
-  async suspendModel(_reason?: string): Promise<void> {
-  }
-
-  async resumeModel(): Promise<void> {
-  }
-
-  /**
-   * Override this method to perform tasks that are required to after resuming
-   * the model and that require all models already in an unsuspended state.
-   */
-  async postResumeModel(): Promise<void> {
-  }
-
-  dispose(): void {
-  }
-
-  static register(modelClass: new(arg1: Target) => SDKModel, registrationInfo: RegistrationInfo): void {
-    if (registrationInfo.early && !registrationInfo.autostart) {
-      throw new Error(`Error registering model ${modelClass.name}: early models must be autostarted.`);
-    }
-    registeredModels.set(modelClass, registrationInfo);
-  }
-
-  static get registeredModels(): typeof registeredModels {
-    return registeredModels;
-  }
-}
+import {SDKModel} from './SDKModel.js';
 
 export class Target extends ProtocolClient.InspectorBackend.TargetBase {
   _targetManager: TargetManager;
@@ -265,6 +211,16 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
+export enum Type {
+  Frame = 'frame',
+  ServiceWorker = 'service-worker',
+  Worker = 'worker',
+  Node = 'node',
+  Browser = 'browser',
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
 export enum Capability {
   Browser = 1 << 0,
   DOM = 1 << 1,
@@ -286,14 +242,4 @@ export enum Capability {
   IO = 1 << 17,
   Media = 1 << 18,
   None = 0,
-}
-
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Type {
-  Frame = 'frame',
-  ServiceWorker = 'service-worker',
-  Worker = 'worker',
-  Node = 'node',
-  Browser = 'browser',
 }
