@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f2f114_80032408",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-04T09:17:46Z",
+      "side": 1,
+      "message": "Thanks for drafting this Adithya, and the discussion everyone.\n\nIndependent of whether we are going to break the targetId/frameId correspondence, we\u0027re trying versions of these modifications in M93 via:\n\nhttps://crrev.com/c/2919755\nhttps://crrev.com/c/2931811\n\njust be be prepared.",
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fee81bc_86e00f47",
@@ -72,6 +89,30 @@
       "side": 1,
       "message": "Yup, I think you\u0027re right, I\u0027m not sure what functional value the nodeName checks add.",
       "parentUuid": "5fee81bc_86e00f47",
+      "range": {
+        "startLine": 176,
+        "startChar": 14,
+        "endLine": 176,
+        "endChar": 99
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "362f5cb3_ad278069",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-04T09:17:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c7174165_81c34f8a",
       "range": {
         "startLine": 176,
         "startChar": 14,
@@ -176,6 +217,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4748c769_35a0a8be",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-04T09:17:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0507a96f_cbef32ba",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 236,
+        "endChar": 97
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f70610e4_ee50eb01",
@@ -261,6 +326,30 @@
       "side": 1,
       "message": "So first just to clarify because I\u0027ve been confused by this a couple of times, main frame here isn\u0027t the same as main frame in chromium (i.e. a frame with no parent); in this context it\u0027s the main frame of a target, so a local root (but in this case it\u0027s a cross-origin subframe).\n\nSo we\u0027re trying to get the frameOwner node for the local root in this context, and so we need to pass its frame id to the outer target to correctly look it up in the outer target (In the implementation, we find a RenderFrameProxy with the same frame token as |mainFrame.id| and return its frame owner),",
       "parentUuid": "afee10c1_00ff0ec0",
+      "range": {
+        "startLine": 1420,
+        "startChar": 50,
+        "endLine": 1420,
+        "endChar": 67
+      },
+      "revId": "fde528ce6ee5d36e48513e022a1294b239aaaafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbac300_c2838016",
+        "filename": "front_end/core/sdk/DOMModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-04T09:17:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fe5b1f3_09a96379",
       "range": {
         "startLine": 1420,
         "startChar": 50,
