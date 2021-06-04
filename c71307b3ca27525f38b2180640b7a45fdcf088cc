@@ -16,6 +16,23 @@
       "message": "We\u0027re evaluating moving our report code to ESM (for a couple reasons, one being that y\u0027all requested https://github.com/GoogleChrome/lighthouse/issues/11628 ). I did as much as I could until I hit a wall, being unfamiliar with the CDT build pipeline. You should be able to see the build error output in the presubmits–any thoughts on how to proceed?\n\nPresently I am just copying all the report renderer files from Lighthouse code base to CDT third party folder, and bundling in CDT. Is that the preference? Or should we bundle to a big, single ESM file before importing to CDT?",
       "revId": "c71307b3ca27525f38b2180640b7a45fdcf088cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9de5c67_a5fe1d65",
+        "filename": "scripts/build/ninja/generate-tsconfig.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-06-04T02:07:52Z",
+      "side": 1,
+      "message": "I don\u0027t think this ended up impacting anything, should remove. Was trying to resolve all the \"errors\" that TSC gave (even though the types are fine in VS code bcuz while they are JS file, we have jsdoc types)",
+      "revId": "c71307b3ca27525f38b2180640b7a45fdcf088cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
