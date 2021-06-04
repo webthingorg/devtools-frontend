@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02fbd45f_971d7c40",
+        "filename": "front_end/panels/emulation/DevicesSettingsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-06-04T14:12:17Z",
+      "side": 0,
+      "message": "This might be unused at this point? (as well as its serialize counterpart)",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 41
+      },
+      "revId": "a6df3ab32f4aafc308236619a04a99317dd22b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
