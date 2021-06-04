@@ -16,6 +16,24 @@
       "message": "I added a test. Please tweak it if you think the test expectations (expecting certain strings to show up) constrain back-end development too much.\n\nLGTM, thanks!",
       "revId": "a206521237149b0356bb08705ccae8e7fbbe8c8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd5b36a5_ada6ca11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-06-04T18:55:28Z",
+      "side": 1,
+      "message": "The test looks fine to me, but the entire \"webcodecs\" project is still behind the --enable-experimental-web-platform flag, so this test shouldn\u0027t run correctly right now. Also in your patchset you made the last two properties have the same value 1\u003c\u003c17.\n\nI\u0027ve made a new patchset with this fix, but I also can\u0027t run the e2e tests, either from the /chromium/src/third_party/devtools-frontend/src directory or from the standalone devtools-frontend repo I have also. At one point it used to run in python, but now it\u0027s a JS file, and the documentation doesn\u0027t seem to be up to date for it.",
+      "parentUuid": "706ddc0d_ab9cf9ff",
+      "revId": "a206521237149b0356bb08705ccae8e7fbbe8c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
