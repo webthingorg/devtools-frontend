@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d540bcf5_c08f11f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-07T09:29:16Z",
+      "side": 1,
+      "message": "Thanks for the very fast review!",
+      "parentUuid": "8e5e4d0a_a8a37d81",
+      "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d43869a5_d931e846",
