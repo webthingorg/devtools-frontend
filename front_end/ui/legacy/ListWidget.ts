@@ -6,6 +6,9 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 
+import {Events, TextPrompt} from './TextPrompt.js';
+
+import type {Suggestion, Suggestions} from './SuggestBox.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import {Toolbar, ToolbarButton} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
@@ -308,6 +311,10 @@ export class Editor<T> {
     return this._contentElement;
   }
 
+  controlMap(): Map<string, HTMLInputElement|HTMLSelectElement> {
+    return this._controlByName;
+  }
+
   createInput(
       name: string, type: string, title: string,
       validator: (arg0: T, arg1: number, arg2: (HTMLInputElement|HTMLSelectElement)) => ValidatorResult):
@@ -344,6 +351,41 @@ export class Editor<T> {
     this._controls.push(select);
     this._validators.push(validator);
     return select;
+  }
+
+  createTextPrompt(
+      name: string, options: string[], title: string,
+      validator: (arg0: T, arg1: number, arg2: (HTMLInputElement|HTMLSelectElement)) => ValidatorResult):
+      HTMLDivElement {
+    const container = document.createElement('div');
+    container.classList.add('text-prompt-container');
+    const promptContainer = document.createElement('div');
+    const input = this.createInput(name, 'text', title, validator);
+    container.appendChild(promptContainer);
+
+    const prompt = new TextPrompt();
+    prompt.initialize(async(expression: string, prefix: string, _force?: boolean): Promise<Suggestions> => {
+      if (!prefix) {
+        return [];
+      }
+
+      prefix = prefix.toLowerCase();
+      return options.filter(proposal => proposal.toLowerCase().startsWith(prefix)).map(completion => ({
+                                                                                         text: completion,
+                                                                                       } as Suggestion));
+    }, ' ');
+    prompt.renderAsBlock();
+    prompt.attach(promptContainer);
+    prompt.setTitle(title);
+    prompt.setPlaceholder(title);
+    prompt.setText(input.value);
+    input.addEventListener('change', () => {
+      prompt.setText(input.value);
+    });
+    prompt.addEventListener(Events.TextChanged, () => {
+      input.value = prompt.text();
+    });
+    return container;
   }
 
   control(name: string): HTMLInputElement|HTMLSelectElement {
