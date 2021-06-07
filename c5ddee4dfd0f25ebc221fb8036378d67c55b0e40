@@ -51,6 +51,24 @@
       "parentUuid": "2fd5d849_e3f02de9",
       "revId": "c5ddee4dfd0f25ebc221fb8036378d67c55b0e40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "670775b9_d950b9ce",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-07T14:18:10Z",
+      "side": 1,
+      "message": "Sounds good to me! Perhaps include this info in the commit message.",
+      "parentUuid": "a26d6daa_87451b1c",
+      "revId": "c5ddee4dfd0f25ebc221fb8036378d67c55b0e40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
