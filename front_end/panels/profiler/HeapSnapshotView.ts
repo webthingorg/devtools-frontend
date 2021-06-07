@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2011 Google Inc. All rights reserved.
- *
+ * Copyright (C) 2011 Google Inc. All rights reserved.*
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
@@ -313,6 +312,7 @@ export class HeapSnapshotView extends UI.View.SimpleView implements DataDisplayD
     if (isHeapTimeline) {
       this._createOverview();
     }
+    const hasAllocationStacks = instance.trackingHeapSnapshotProfileType.recordAllocationStacksSetting().get();
 
     this._parentDataDisplayDelegate = dataDisplayDelegate;
 
@@ -344,7 +344,7 @@ export class HeapSnapshotView extends UI.View.SimpleView implements DataDisplayD
 
     this._allocationDataGrid = null;
 
-    if (isHeapTimeline) {
+    if (isHeapTimeline && hasAllocationStacks) {
       this._allocationDataGrid = new AllocationDataGrid(heapProfilerModel, this);
       this._allocationDataGrid.addEventListener(
           DataGrid.DataGrid.Events.SelectedNode, this._onSelectAllocationNode, this);
@@ -1436,6 +1436,10 @@ export class TrackingHeapSnapshotProfileType extends HeapSnapshotProfileType {
     if (this._customContent) {
       this._customContent.checkboxElement.disabled = !enable;
     }
+  }
+
+  recordAllocationStacksSetting(): Common.Settings.Setting<boolean> {
+    return this._recordAllocationStacksSetting;
   }
 
   _addNewProfile(): SDK.HeapProfilerModel.HeapProfilerModel|null {
