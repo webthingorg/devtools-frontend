@@ -33,6 +33,24 @@
       "message": "How does it solve the problem? Should not it be set on the span element below?",
       "revId": "c5ddee4dfd0f25ebc221fb8036378d67c55b0e40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26d6daa_87451b1c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-07T13:17:45Z",
+      "side": 1,
+      "message": "The problem is that the outer div with role `menuitem` gets its accessible name by  by appending the names of the children.\nIf we just give the span a label, the name of the outer item is still \"Dock side Undock into separate window Dock to left...\".\n By giving the whole control a label, the individual options are only read out loud once they are focused.\n An alternative solution could be to give the span an id and then do `aria-labeledby` on the div, but I am not sure if that is prefered?",
+      "parentUuid": "2fd5d849_e3f02de9",
+      "revId": "c5ddee4dfd0f25ebc221fb8036378d67c55b0e40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
