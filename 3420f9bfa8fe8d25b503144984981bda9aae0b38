@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29db3ca9_a79fc3ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-07T15:24:38Z",
+      "side": 1,
+      "message": "A great set of improvements! My only nit is to swap to the promises version of fs, and it\u0027ll be good to go. I\u0027ll LGTM on the basis of that happening.",
+      "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28063544_1609c1fb",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-07T15:24:38Z",
+      "side": 1,
+      "message": "I think we can use require(\"fs\").promises instead of promisifying these APIs?",
+      "range": {
+        "startLine": 75,
+        "startChar": 37,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
