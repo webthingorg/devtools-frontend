@@ -56,6 +56,30 @@
       },
       "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525dcb34_7aa19cf2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-07T09:28:49Z",
+      "side": 1,
+      "message": "Indeed, that is the reason why we always need the locale data for \u0027en-US\u0027 present. If a string is not found in any given locale, we fallback to english. This is important for e.g. canary releases, where the remote locales will be incomplete.",
+      "parentUuid": "d43869a5_d931e846",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 176,
+        "endChar": 41
+      },
+      "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
