@@ -16,6 +16,46 @@
       "message": "PTAL (Tim is OOO) :)",
       "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5e4d0a_a8a37d81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-07T09:25:20Z",
+      "side": 1,
+      "message": "LGTM with a general query.",
+      "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43869a5_d931e846",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-07T09:25:20Z",
+      "side": 1,
+      "message": "What happens in this case? Do we effectively show en-US for untranslated strings, and localized ones for the rest?",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 176,
+        "endChar": 41
+      },
+      "revId": "79a680c1a622c4438fd11b6d0ada5fa48cab81da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
