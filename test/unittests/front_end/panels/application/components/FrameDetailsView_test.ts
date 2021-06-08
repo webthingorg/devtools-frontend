@@ -63,6 +63,23 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
       },
       creationStackTraceTarget: null,
     }),
+    getOriginTrials: () => ([
+      {
+        trialName: 'AppCache',
+        status: 'Enabled',
+        tokensWithStatus: [{
+          status: 'Success',
+          rawTokenText: 'Text',
+          parsedToken: {
+            origin: 'https://foo.com',
+            expiryTime: 1000,
+            usageRestriction: 'None',
+            isThirdParty: false,
+            matchSubDomains: false,
+          },
+        }],
+      },
+    ]),
   } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
   return newFrame;
 };
@@ -108,20 +125,15 @@ describe('FrameDetailsView', () => {
       'Cross-Origin Opener Policy',
       'SharedArrayBuffers',
       'Measure Memory',
+      'Relevant Trials',
     ]);
 
     const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
     assert.deepEqual(values, [
-      'https://www.example.com/path/page.html',
-      'https://www.example.com',
-      '<iframe>',
-      '',
-      'Yes\xA0Localhost is always a secure context',
-      'Yes',
-      'None',
-      'SameOrigin',
-      'available, transferable',
+      'https://www.example.com/path/page.html', 'https://www.example.com', '<iframe>', '',
+      'Yes\xA0Localhost is always a secure context', 'Yes', 'None', 'SameOrigin', 'available, transferable',
       'available\xA0Learn more',
+      '',  // Relevant Trials Report Value is an TreeOutline instance.
     ]);
 
     const stackTrace = getElementWithinComponent(
