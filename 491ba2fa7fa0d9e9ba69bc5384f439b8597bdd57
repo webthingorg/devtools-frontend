@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c2604a_cb362d53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-08T10:09:48Z",
+      "side": 1,
+      "message": "Stefan and Peter, could you PTAL and provide some feedback on wording and UX :) Thanks!",
+      "revId": "491ba2fa7fa0d9e9ba69bc5384f439b8597bdd57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
