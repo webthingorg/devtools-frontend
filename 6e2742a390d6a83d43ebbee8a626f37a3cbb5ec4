@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179d23ed_2b1f14cd",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-08T11:11:13Z",
+      "side": 1,
+      "message": "Could we instead add a class and handle the styling in CSS?",
+      "revId": "6e2742a390d6a83d43ebbee8a626f37a3cbb5ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a52c383_a234fd47",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-08T11:11:13Z",
+      "side": 1,
+      "message": "The query string parameter should not be part of the path, not the hash\n\n    https://developer.chrome.com/docs/devtools/network/reference/?utm_source\u003ddevtools#provisional-headers",
+      "range": {
+        "startLine": 884,
+        "startChar": 15,
+        "endLine": 884,
+        "endChar": 116
+      },
+      "revId": "6e2742a390d6a83d43ebbee8a626f37a3cbb5ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
