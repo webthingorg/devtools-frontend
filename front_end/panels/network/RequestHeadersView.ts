@@ -871,11 +871,22 @@ export class RequestHeadersView extends UI.Widget.VBox {
         cautionText = i18nString(UIStrings.provisionalHeadersAreShown);
       }
       const cautionElement = document.createElement('div');
+      cautionElement.style.display = 'flex';
+      cautionElement.style.gap = '6px';
       UI.Tooltip.Tooltip.install(cautionElement, cautionTitle);
       (cautionElement.createChild('span', '', 'dt-icon-label') as UI.UIUtils.DevToolsIconLabel).type =
           'smallicon-warning';
       cautionElement.createChild('div', 'caution').textContent = cautionText;
       const cautionTreeElement = new UI.TreeOutline.TreeElement(cautionElement);
+
+      cautionElement.createChild('div', 'learn-more')
+          .appendChild(UI.XLink.XLink.create(
+              'https://developer.chrome.com/docs/devtools/network/reference/#provisional-headers?utm_source=devtools',
+              i18nString(UIStrings.learnMore)));
+      // cautionElement.appendChild(UI.XLink.XLink.create(
+      //   'https://developer.chrome.com/docs/devtools/network/reference/#provisional-headers?utm_source=devtools',
+      //   i18nString(UIStrings.learnMore)));
+
       headersTreeElement.appendChild(cautionTreeElement);
     }
 
