@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79335371_a59ecd53",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-08T08:07:22Z",
+      "side": 1,
+      "message": "missing `s`",
+      "revId": "8d0d70b579b7f6e66137688991003952f02ecd2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
