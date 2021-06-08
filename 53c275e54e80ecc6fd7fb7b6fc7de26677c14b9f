@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e46f7b_904b3d2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-08T08:09:04Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a trivial fix for not hiding the \u0027__proto__\u0027 property.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "53c275e54e80ecc6fd7fb7b6fc7de26677c14b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
