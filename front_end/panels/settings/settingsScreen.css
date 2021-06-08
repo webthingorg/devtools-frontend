@@ -165,7 +165,15 @@ fieldset {
   margin-left: 10px;
 }
 
+.settings-experiment {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.settings-experiment .icon-mask {
+  background-color: var(--color-link);
+}
+
 .settings-experiment-unstable {
-  display: block;
   color: var(--color-text-secondary);
 }
