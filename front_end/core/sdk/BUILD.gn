@@ -10,6 +10,7 @@ devtools_module("sdk") {
     "AccessibilityModel.ts",
     "CPUProfileDataModel.ts",
     "CPUProfilerModel.ts",
+    "CSSContainerQuery.ts",
     "CSSFontFace.ts",
     "CSSMatchedStyles.ts",
     "CSSMedia.ts",
