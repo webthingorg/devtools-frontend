@@ -50,6 +50,42 @@
       "message": "CLS calculation looks good to me (and I like the hack of adding the cluster scores to the args.)\n\nThat said-- this is limited to per frame.  The real CLS (be it windowed or total) should be merged across frames.  I suspect DevTools already gets this wrong when iframes have shifts, so, this change is strictly an improvement.\n\n(I am not sure, but, perhaps the easiest way to get the overall values is to get them from browser process?  Is that viable?)",
       "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a7ca64_490d6374",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-08T14:52:03Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m not sure which Layout Shifts do get supported and which ones don\u0027t. Do we have a sample application to test this on?\nI\u0027ll land this change in the meantime already to but maybe we can improve it in a follow up cl...",
+      "parentUuid": "2fda7366_15d05f7a",
+      "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ffde4c_0ebbf1db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-08T14:52:03Z",
+      "side": 1,
+      "message": "Thanks for your feedback! I changed the implementation to show the same (cumulative) score for all events within a cluster.",
+      "parentUuid": "116d6591_f17e3429",
+      "revId": "cc6d3b68570c7642a2b0d1a4a5aa19a8d139e3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
