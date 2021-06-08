@@ -1,3 +1,5 @@
+This is patch #1.
+
 # Chrome DevTools frontend
 
 <!-- [START badges] -->
