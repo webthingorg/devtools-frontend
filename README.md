@@ -1,3 +1,5 @@
+This is commit #2.
+
 # Chrome DevTools frontend
 
 <!-- [START badges] -->
