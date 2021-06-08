@@ -9,6 +9,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as EmulationComponents from '../emulation/components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
 const UIStrings = {
@@ -215,6 +216,12 @@ export class NetworkConfigView extends UI.Widget.VBox {
     customUserAgentSelectBox.appendChild(customSelectAndInput.select);
     customUserAgentSelectBox.appendChild(customSelectAndInput.input);
     customUserAgentSelectBox.appendChild(customSelectAndInput.error);
+
+    const clientHintsContainer = customUserAgentSelectBox.createChild('div', 'client-hints-form');
+    const clientHints = new EmulationComponents.UserAgentClientHintsForm.UserAgentClientHintsForm();
+    clientHints.value = {};
+    clientHintsContainer.appendChild(clientHints);
+
     userAgentSelectBoxChanged();
 
     function userAgentSelectBoxChanged(): void {
