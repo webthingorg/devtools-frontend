@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4db87f1_37fae18e",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-06-08T12:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "179d23ed_2b1f14cd",
+      "revId": "6e2742a390d6a83d43ebbee8a626f37a3cbb5ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a52c383_a234fd47",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Yes. According to Wolfgang we automatically add the referrer already.",
       "parentUuid": "6a52c383_a234fd47",
+      "range": {
+        "startLine": 884,
+        "startChar": 15,
+        "endLine": 884,
+        "endChar": 116
+      },
+      "revId": "6e2742a390d6a83d43ebbee8a626f37a3cbb5ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a524c885_5d8543a6",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-06-08T12:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e8ca72_775bc0f2",
       "range": {
         "startLine": 884,
         "startChar": 15,
