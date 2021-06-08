@@ -465,8 +465,21 @@ export class ExperimentsSettingsTab extends SettingsTab {
     input.addEventListener('click', listener, false);
 
     const p = document.createElement('p');
-    p.className = experiment.unstable && !experiment.isEnabled() ? 'settings-experiment-unstable' : '';
+    p.classList.add('settings-experiment');
+    if (experiment.unstable && !experiment.isEnabled()) {
+      p.classList.add('settings-experiment-unstable');
+    }
     p.appendChild(label);
+
+    if (experiment.docLink) {
+      const link = document.createElement('a');
+      link.target = '_blank';
+      link.href = experiment.docLink;
+      link.appendChild(UI.Icon.Icon.create('largeicon-link'));
+
+      p.appendChild(link);
+    }
+
     return p;
   }
 }
