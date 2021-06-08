@@ -63,6 +63,30 @@
       },
       "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a85a7e9_b587fe8a",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-08T08:38:37Z",
+      "side": 1,
+      "message": "Hmm... I think overall we should consider moving over to the Promises form as much as we can. Where we can\u0027t it makes sense to use the promisify utility, but ideally we should do that once at the top of the file so we\u0027re not repeatedly wrapping the functions.\n\nGenerally speaking there\u0027s a question of how much of the tech debt you want to clean up here. My honest feeling is that we use this server a lot for testing, and so it would be good to modernize it to async functions and Promises everywhere, but I can also appreciate that you may not wish to undertake that work on the basis of wanting to just add a single feature.",
+      "parentUuid": "895aef87_6577e5c5",
+      "range": {
+        "startLine": 75,
+        "startChar": 37,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
