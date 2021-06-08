@@ -34,6 +34,40 @@
       "parentUuid": "0ad710cc_4b80b45c",
       "revId": "e8922ada75a2cb8c176f92efacacb492d3631817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c99eea8c_198ae5bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-08T16:55:54Z",
+      "side": 1,
+      "message": "Hi Charlie, today is my first day back at the office and I didn\u0027t get around to doing a full review. Will take a closer look tomorrow.",
+      "revId": "e8922ada75a2cb8c176f92efacacb492d3631817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7209f99_121c521c",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-08T16:55:54Z",
+      "side": 1,
+      "message": "Unless I\u0027m missing something, you can avoid instantiating `badge \u003d new Badge()\u0027 here and elsewhere by rendering the components with a `.data` attribute. Something like this:\n`${Badge.litTagName} .data\u003d${{badgeContent: foo, style: bar} as BadgeData}`\nSee goo.gle/building-ui-devtools, the \u0027Passing data with .data\u0027 section",
+      "revId": "e8922ada75a2cb8c176f92efacacb492d3631817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
