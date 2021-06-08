@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53658385_1d666532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-08T13:51:59Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the follow-up change that I already mentioned before, about fixing the odd showing of prototype accessors as own properties. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "6b9a5768ccffdec5119ce87b96eb381ab4cbfcd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
