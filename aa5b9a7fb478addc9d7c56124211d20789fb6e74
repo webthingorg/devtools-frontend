@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2d3d80_dbaeb952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-08T07:42:38Z",
+      "side": 1,
+      "message": "The leak detector fix is currently being landed, unblocking this CL. Will submit once the fix is in.",
+      "revId": "aa5b9a7fb478addc9d7c56124211d20789fb6e74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
