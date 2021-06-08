@@ -11303,6 +11303,9 @@
   "ui/legacy/InspectorView.ts | closeDrawer": {
     "message": "Close drawer"
   },
+  "ui/legacy/InspectorView.ts | devToolsLanguageMissmatch": {
+    "message": "DevTools supports the '{PH1}' locale that the Chrome browser is currently using. Would you like to adjust DevTools' locale?"
+  },
   "ui/legacy/InspectorView.ts | moreTools": {
     "message": "More Tools"
   },
@@ -11317,6 +11320,12 @@
   },
   "ui/legacy/InspectorView.ts | reloadDevtools": {
     "message": "Reload DevTools"
+  },
+  "ui/legacy/InspectorView.ts | setToBrowserLanguage": {
+    "message": "Always match browser locale"
+  },
+  "ui/legacy/InspectorView.ts | setToSpecificLanguage": {
+    "message": "Switch DevTools to '{PH1}'"
   },
   "ui/legacy/ListWidget.ts | addString": {
     "message": "Add"
