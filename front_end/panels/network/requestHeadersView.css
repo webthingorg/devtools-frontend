@@ -19,3 +19,8 @@
   overflow-y: auto;
   margin: 0;
 }
+
+.request-headers-caution {
+  display: flex;
+  gap: 6px;
+}
