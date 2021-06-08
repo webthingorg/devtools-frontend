@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d46318ef_70446cc2",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-06-08T06:16:51Z",
+      "side": 1,
+      "message": "@petermueller, is this icon okay? Would info icon or external link icon (e.g https://commons.wikimedia.org/wiki/File:External_link_font_awesome.svg) more appropriate? \n\nI couldn\u0027t find external link icon in our images folder. The info icon we had now has blue background. I am thinking that\u0027s too standout in this case. A transparent one (e.g. https://en.m.wikipedia.org/wiki/File:Minimalist_info_Icon.png) would be better.",
+      "range": {
+        "startLine": 478,
+        "startChar": 44,
+        "endLine": 478,
+        "endChar": 58
+      },
+      "revId": "2a2d483c8e317ff054053a246bf2f15547bfa0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
