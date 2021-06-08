@@ -173,6 +173,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c130953a_c944d34d",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-06-08T06:55:03Z",
+      "side": 1,
+      "message": "XLink required a link text. Even when provide \u0027\u0027, it will default to show the link. How about I add another check or prop in XLink to handle that?",
+      "parentUuid": "50b6bb54_ed6e3ff4",
+      "revId": "2a2d483c8e317ff054053a246bf2f15547bfa0b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d46318ef_70446cc2",
         "filename": "front_end/panels/settings/SettingsScreen.ts",
         "patchSetId": 2
