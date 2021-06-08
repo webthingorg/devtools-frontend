@@ -87,6 +87,30 @@
       },
       "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d818a5_e0b5b337",
+        "filename": "scripts/hosted_mode/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-08T14:25:03Z",
+      "side": 1,
+      "message": "As discussed, this is not about the amount of tech debt I\u0027m willing to clean up, I sincerely don\u0027t think that using only promise API or only sync API is better. \n\nStoring promisified version at the top, as suggested.",
+      "parentUuid": "4a85a7e9_b587fe8a",
+      "range": {
+        "startLine": 75,
+        "startChar": 37,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "3420f9bfa8fe8d25b503144984981bda9aae0b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
