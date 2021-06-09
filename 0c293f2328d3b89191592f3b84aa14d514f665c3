@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e5034a_090a4364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-09T06:45:11Z",
+      "side": 1,
+      "message": "LGTM with question",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d48b79de_33d2a0a9",
@@ -31,6 +48,23 @@
       "writtenOn": "2021-06-09T06:43:38Z",
       "side": 1,
       "message": "ultra-nit: presume this wasn\u0027t supposed to happen?",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45997ae5_9d0c6d68",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-09T06:45:11Z",
+      "side": 1,
+      "message": "My knowledge about the Memory panel is limited, so maybe this is a non-issue, but what if the recordAllocationStacksSetting is enabled and the developer tries to load a profile that was previously recorded with that setting disabled?",
       "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
