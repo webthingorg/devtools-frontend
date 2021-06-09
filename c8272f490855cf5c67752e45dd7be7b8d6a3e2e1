@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32657d3_cf938cca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T16:00:32Z",
+      "side": 1,
+      "message": "For visual changes, we sometimes add Imgur links to the CL description to show what it would look like. In this case, I already saw the screenshot in our DMs, so that\u0027s fine as well.",
+      "revId": "c8272f490855cf5c67752e45dd7be7b8d6a3e2e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
