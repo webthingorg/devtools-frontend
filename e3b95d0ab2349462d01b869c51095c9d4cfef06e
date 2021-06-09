@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5a435d5_203aec51",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-09T06:13:02Z",
+      "side": 1,
+      "message": "If you are setting this to false everytime here, then the Inforbar will always be shown, if the locales don\u0027t match (and the language is supported), won\u0027t it?",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 454,
+        "endChar": 41
+      },
+      "revId": "e3b95d0ab2349462d01b869c51095c9d4cfef06e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
