@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52611ab5_1b313dd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-09T20:24:44Z",
+      "side": 1,
+      "message": "Updated with new lithtml component for user agent client hints form, using the same component in Device settings tab and network conditions panel. Also updated ListWidget for Custom editor control.  ",
+      "revId": "32315b5691ad181c471e06d48e38886b638ebe9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
