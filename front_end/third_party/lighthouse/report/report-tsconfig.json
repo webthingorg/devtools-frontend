@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "files": [
+    "util.js",
+    "logger.js",
+    "report-ui-features.js",
+    "details-renderer.js",
+    "psi.js",
+    "file-namer.js",
+    "performance-category-renderer.js",
+    "crc-details-renderer.js",
+    "report-renderer.js",
+    "text-encoding.js",
+    "dom.js",
+    "category-renderer.js",
+    "element-screenshot-renderer.js",
+    "i18n.js",
+    "pwa-category-renderer.js",
+    "snippet-renderer.js"
+  ]
+}

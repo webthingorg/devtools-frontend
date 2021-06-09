@@ -187,6 +187,10 @@ module.exports = {
           return;
         }
 
+        if (importPath.includes('lighthouse/report')) {
+          return;
+        }
+
         if (isStarAsImportSpecifier(node.specifiers)) {
           checkStarImport(context, node, importPath, importingFileName, exportingFileName);
         } else {
@@ -199,7 +203,8 @@ module.exports = {
 
             if (importPath.includes('third_party')) {
               message +=
-                  ' If the third_party dependency does not expose a single entrypoint, update es_modules_import.js to make it exempt.';
+                  ' If the third_party dependency does not expose a single entrypoint, update es_modules_import.js to make it exempt.' +
+                  ' And then restart the eslint server.';
             }
 
             context.report({
