@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f040dc09_1736d7fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T05:05:02Z",
+      "side": 1,
+      "message": "Peter/Stefan, I updated the wording as discussed offline.\n\nSigurd, please do an overall code review :)",
+      "revId": "068c3eecb74bbbf521e977e9fbb7d134ade5c6cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
