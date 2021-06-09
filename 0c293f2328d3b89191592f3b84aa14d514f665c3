@@ -103,6 +103,24 @@
       "parentUuid": "45997ae5_9d0c6d68",
       "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ac7605_9f795d02",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-09T07:24:44Z",
+      "side": 1,
+      "message": "Thanks for the explanation. Let\u0027s go with your fix then.",
+      "parentUuid": "2cc88d2d_6c3d786d",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
