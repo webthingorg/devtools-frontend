@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "de1296b4_903e42a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T05:13:57Z",
+      "side": 1,
+      "message": "FYI: Instead of \"Bug\" you can use \"Fixed\", which will auto close the bug.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f7f0d1e_a3e3979a",
@@ -14,6 +37,46 @@
       "writtenOn": "2021-06-08T22:21:00Z",
       "side": 1,
       "message": "LGTM",
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bf13ca_211e6ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T05:13:57Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2072c5_4ae56dc7",
+        "filename": "front_end/panels/network/BlockedURLsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T05:13:57Z",
+      "side": 1,
+      "message": "nit: Please improve the description a bit here to help translators. What exactly is an \"item\" in this context? Where is the message shown? etc.",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 55
+      },
       "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
