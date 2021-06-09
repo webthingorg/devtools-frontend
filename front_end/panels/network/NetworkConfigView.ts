@@ -9,6 +9,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as EmulationComponents from '../emulation/components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
 const UIStrings = {
@@ -134,6 +135,8 @@ export class NetworkConfigView extends UI.Widget.VBox {
         otherUserAgentElement.select();
       }
       errorElement.textContent = '';
+      const userAgentChangeEvent = new CustomEvent('user-agent-change', {detail: {value}});
+      userAgentSelectElement.dispatchEvent(userAgentChangeEvent);
     }
 
     function settingChanged(): void {
@@ -215,6 +218,32 @@ export class NetworkConfigView extends UI.Widget.VBox {
     customUserAgentSelectBox.appendChild(customSelectAndInput.select);
     customUserAgentSelectBox.appendChild(customSelectAndInput.input);
     customUserAgentSelectBox.appendChild(customSelectAndInput.error);
+
+    const clientHintsContainer = customUserAgentSelectBox.createChild('div', 'client-hints-form');
+    const clientHints = new EmulationComponents.UserAgentClientHintsForm.UserAgentClientHintsForm();
+    clientHints.value = {showMobileCheckbox: true, showSubmitButton: true};
+    clientHintsContainer.appendChild(clientHints);
+
+    customSelectAndInput.select.addEventListener('user-agent-change', (event: Event) => {
+      const userStringValue = (event as CustomEvent).detail.value;
+      const userAgentMetadata = userStringValue ? getUserAgentMetadata(userStringValue) : null;
+      clientHints.value = {
+        metaData: userAgentMetadata || undefined,
+        showMobileCheckbox: true,
+        showSubmitButton: true,
+      };
+    });
+
+    clientHints.addEventListener('input-change', () => {
+      customSelectAndInput.select.value = 'custom';
+    });
+
+    clientHints.addEventListener('client-hints-submit', (event: Event) => {
+      const metaData: Protocol.Emulation.UserAgentMetadata = (event as CustomEvent).detail.value;
+      const customUA = customUserAgentSetting.get();
+      SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUA, metaData);
+    });
+
     userAgentSelectBoxChanged();
 
     function userAgentSelectBoxChanged(): void {
@@ -331,6 +360,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '4.0.2',
           architecture: '',
@@ -348,6 +378,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '2.3.6',
           architecture: '',
@@ -393,6 +424,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '6.0',
           architecture: '',
@@ -410,6 +442,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '10',
           architecture: '',
@@ -427,6 +460,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '4.3',
           architecture: '',
@@ -456,6 +490,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Chrome OS',
           platformVersion: '10066.0.0',
           architecture: 'x86',
@@ -473,6 +508,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'macOS',
           platformVersion: '10_14_6',
           architecture: 'x86',
@@ -489,6 +525,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Google Chrome', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Windows',
           platformVersion: '10.0',
           architecture: 'x86',
@@ -596,6 +633,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Microsoft Edge', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Windows',
           platformVersion: '10.0',
           architecture: 'x86',
@@ -613,6 +651,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Microsoft Edge', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'macOS',
           platformVersion: '10_14_6',
           architecture: 'x86',
@@ -642,6 +681,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Microsoft Edge', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '8.1.0',
           architecture: '',
@@ -659,6 +699,7 @@ export const userAgentGroups: UserAgentGroup[] = [
             {brand: 'Chromium', version: '%s'},
             {brand: 'Microsoft Edge', version: '%s'},
           ],
+          fullVersion: '%s',
           platform: 'Android',
           platformVersion: '6.0.1',
           architecture: '',
