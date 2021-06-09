@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56263fae_16097529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-09T08:02:59Z",
+      "side": 1,
+      "message": "LGTM with some suggestions.",
+      "revId": "b9e167e89290ce1235c7b1d61a47dd07a1ae16e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "330f38bd_9c33c43f",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-09T08:02:59Z",
+      "side": 1,
+      "message": "I\u0027d find this comment more helpful before the return statement in shouldShowLocaleInfobar, here the code speaks for itself (if we should show the info bar, we show it).",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 106
+      },
+      "revId": "b9e167e89290ce1235c7b1d61a47dd07a1ae16e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d29a82c5_e1981cc2",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-09T08:02:59Z",
+      "side": 1,
+      "message": "I find it a little confusing that this function may decide to not create an infobar based on disableLocaleInfoBarSetting. Either name it maybeCreate... or (which I\u0027d prefer) just check the disableLocaleInfoBarSetting in shouldShowLocaleInfobar so all checking is in one place. If you do that, you may use the Infobar constructor directly in here to get rid of the |null in the return type.",
+      "range": {
+        "startLine": 445,
+        "startChar": 9,
+        "endLine": 445,
+        "endChar": 28
+      },
+      "revId": "b9e167e89290ce1235c7b1d61a47dd07a1ae16e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
