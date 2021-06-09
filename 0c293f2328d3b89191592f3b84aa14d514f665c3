@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7896b9e_711d3b1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-09T06:43:38Z",
+      "side": 1,
+      "message": "LGTM with ultra-nit.",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48b79de_33d2a0a9",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-09T06:43:38Z",
+      "side": 1,
+      "message": "ultra-nit: presume this wasn\u0027t supposed to happen?",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
