@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae42b1b3_d406b42a",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-09T07:23:28Z",
+      "side": 1,
+      "message": "Oops, indeed this wasn\u0027t. Thanks for spotting, reverted.",
+      "parentUuid": "d48b79de_33d2a0a9",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45997ae5_9d0c6d68",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-06-09T06:45:11Z",
       "side": 1,
       "message": "My knowledge about the Memory panel is limited, so maybe this is a non-issue, but what if the recordAllocationStacksSetting is enabled and the developer tries to load a profile that was previously recorded with that setting disabled?",
+      "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc88d2d_6c3d786d",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-09T07:23:28Z",
+      "side": 1,
+      "message": "So is my knowledge, but it works correctly. Panel creates new HeapSnapshotView for each profile and tracks them: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/profiler/ProfilesPanel.ts;l\u003d434\n\nThe view is created immediately when the profiling is started, the setting has correct value then, and thus hasAllocationStacks is correct.\n\nThis ain\u0027t great, I agree. However, I don\u0027t think we can do much better with the current setup: when start profile button is clicked, the panel delegates starting profiling to the \"current profile type\": https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/profiler/ProfilesPanel.ts;l\u003d242\n\nwhich looks at the current setting value: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/profiler/HeapSnapshotView.ts;l\u003d1425",
+      "parentUuid": "45997ae5_9d0c6d68",
       "revId": "0c293f2328d3b89191592f3b84aa14d514f665c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
