@@ -16,6 +16,24 @@
       "message": "Peter/Stefan, I updated the wording as discussed offline.\n\nSigurd, please do an overall code review :)",
       "revId": "068c3eecb74bbbf521e977e9fbb7d134ade5c6cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba343b6b_3b21ff71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T06:09:08Z",
+      "side": 1,
+      "message": "Sorry, I actually forgot to upload the updated wording. PS3 has the changes.",
+      "parentUuid": "f040dc09_1736d7fb",
+      "revId": "068c3eecb74bbbf521e977e9fbb7d134ade5c6cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
