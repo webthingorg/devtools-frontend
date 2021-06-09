@@ -109,6 +109,30 @@
       },
       "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "326b1e89_68a24846",
+        "filename": "front_end/panels/emulation/DevicesSettingsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-09T21:39:00Z",
+      "side": 1,
+      "message": "Yes, x64 is mapped to x86, and arm is mapped to \u0027\u0027. It seems useful to have these as options though, in case developers want to experiment.",
+      "parentUuid": "8ab5f820_10558c4b",
+      "range": {
+        "startLine": 146,
+        "startChar": 26,
+        "endLine": 146,
+        "endChar": 29
+      },
+      "revId": "f595305068b0ebcf997133c0bafe63e3464e5587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
