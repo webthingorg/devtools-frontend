@@ -58,6 +58,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f55936_1d8f69eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-09T09:36:15Z",
+      "side": 1,
+      "message": "First of all, thanks for your contribution!\n\nIt LGTM % Simons\u0027 nits",
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b2072c5_4ae56dc7",
