@@ -22,6 +22,30 @@
       },
       "revId": "e3b95d0ab2349462d01b869c51095c9d4cfef06e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b02245b_a57ae140",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-09T06:15:19Z",
+      "side": 1,
+      "message": "Argh, good catch! I updated the CL yesterday but forgot to delete this line before uploading. (I used it to debug the Infobar).",
+      "parentUuid": "e5a435d5_203aec51",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 454,
+        "endChar": 41
+      },
+      "revId": "e3b95d0ab2349462d01b869c51095c9d4cfef06e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
