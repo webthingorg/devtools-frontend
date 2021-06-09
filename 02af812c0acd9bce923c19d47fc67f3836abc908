@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef726870_1b9a6e59",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T13:47:55Z",
+      "side": 1,
+      "message": "Ultra-nit: move `if (webBundleErrorMessage)` before this statement, so that we don\u0027t have to explicitly add it here.",
+      "range": {
+        "startLine": 1097,
+        "startChar": 107,
+        "endLine": 1098,
+        "endChar": 30
+      },
+      "revId": "02af812c0acd9bce923c19d47fc67f3836abc908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe8c27f_3441f5b3",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T13:47:55Z",
+      "side": 1,
+      "message": "Nit: seems like these are leftover",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 29
+      },
+      "revId": "02af812c0acd9bce923c19d47fc67f3836abc908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7858bbeb_15eb1f7d",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T13:47:55Z",
+      "side": 1,
+      "message": "Nit: I think this should be `assert.deepEqual` that we use for array comparisons",
+      "range": {
+        "startLine": 225,
+        "startChar": 11,
+        "endLine": 225,
+        "endChar": 22
+      },
+      "revId": "02af812c0acd9bce923c19d47fc67f3836abc908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
