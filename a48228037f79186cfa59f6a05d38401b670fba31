@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828055dc_4bb7794c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T10:48:05Z",
+      "side": 1,
+      "message": "I am excited for this, nice! 🎉\n\nTo unblock this CL, we need to keep the following in mind:\n\n1. To make it all compile with DevTools, the following invariants apply:\n  a. Every file that is import *by* DevTools code requires `.d.ts` files. With third_party code, we either write that ourselves or use the already provided declarations. For example, `third_party/acorn` ships its own, but `third_party/acorn-loose` does not.\n  b. If the sources are pre-built (e.g. not build as part of DevTools), then we require the `-tsconfig.json` files. Otherwise, TypeScript doesn\u0027t know where to look up files and starts to show the errors that you are encountering. As an example, see the `third_party/codemirror/codemirror-tsconfig.json` file\n  c. If you do want to bundle on the DevTools side (that should \"just\" work), we typically define a separate entrypoint for that. For example, you can see that `third_party/codemirror/codemirror.ts` is written by us, but the files in `package/` are supplied by NPM. We do the same for Acorn. In other words, you create an entrypoint (which has the same name as the folder it is in) and we bundle all source code in there.\n2. Additionally (as you already found out), we handle imports in a specific way. Any file that has the same name as its folder is presumed external for bundling. Therefore, if `panels/lighthouse` imports `third_party/lighthouse/report/dom/dom.js`, it assumes it is external, whereas `third_party/lighthouse/report/dom.js` is not.\n\nAll in all, I would recommend doing the following:\n1. Bundle on the DevTools side similar to what we do with CodeMirror and Acorn. E.g. we `devtools_pre_built` the files in `package/`, but we run our own bundler on the `.ts` entrypoint.\n2. All relevant entrypoints are placed in distinct folders. E.g. `dom.js` in `dom/`, `report-renderer` into `report/renderer/renderer.js`\n3. Note that we also have to do the same for the LightHouse worker. We are still importing the `lighthouse-dt-bundle.js` there: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/entrypoints/lighthouse_worker/lighthouse_worker.js;l\u003d6;drc\u003d1051671d8998111d1b3624eaeef5511f071262b6 We will need a separate entrypoint target for that as well.\n4. For any file that is consumed by DevTools, have the following in place:\n  a. A \".d.ts` file containing its type declarations. FYI you should be able to turn on `declaration: true` in a TSC project for `.js` files and `tsc` will generate the relevant `.d.ts` files\n  b. The file must be listed in a `-tsconfig.json`\n  c. The file must be copied with `devtools_pre_built`\n\nFor point 4, if that turns out to be cumbersome, you could bundle on the LightHouse side. Then you only need to write a `.d.ts` for each individual file that is imported by DevTools.\n\nUp to this point, we have not really had a consistent story with regards to importing third_party code, as each package was different. That\u0027s why we also don\u0027t have any real documentation on that (sorry!). Now that we are slowly settling on the \"write the entrypoint on the DevTools side and keep the rest in `package/`\", I think we should prefer that approach here as well. Then we can slowly standardize on that model.\n\nLet me know if you are running into further issues. If so, if you could supply the relevant `.d.ts` files, I should be able to figure out the building on the DevTools side.\n\nThank you so much for working on this!",
+      "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

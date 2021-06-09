@@ -33,6 +33,24 @@
       "message": "I don\u0027t think this ended up impacting anything, should remove. Was trying to resolve all the \"errors\" that TSC gave (even though the types are fine in VS code bcuz while they are JS file, we have jsdoc types)",
       "revId": "c71307b3ca27525f38b2180640b7a45fdcf088cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610c58c2_0bd232a3",
+        "filename": "scripts/build/ninja/generate-tsconfig.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-09T10:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9de5c67_a5fe1d65",
+      "revId": "c71307b3ca27525f38b2180640b7a45fdcf088cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
