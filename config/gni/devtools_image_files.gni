@@ -9,6 +9,7 @@ devtools_image_files = [
   "accelerometer-left.png",
   "accelerometer-right.png",
   "accelerometer-top.png",
+  "add-icon.svg",
   "lighthouse_logo.svg",
   "checkboxCheckmark.svg",
   "checker.png",
