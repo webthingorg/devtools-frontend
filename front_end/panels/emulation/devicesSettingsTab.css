@@ -112,7 +112,7 @@ li.devices-edit-client-hints-field {
   left: -12px;
 }
 
-.devices-edit-client-hints-field input {
+.devices-edit-client-hints-field > input {
   flex: auto;
   margin: 8px 5px 0 5px;
 }
@@ -123,4 +123,50 @@ li.devices-edit-client-hints-field {
 
 .devices-edit-fields select {
   margin: 8px 5px 0 5px;
+}
+
+.client-hints-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.client-hints-row > input {
+  margin: 5px;
+}
+
+.devices-edit-client-hints-field h4 {
+  margin: 5px;
+}
+
+.devices-edit-client-hints-field .text-prompt-container {
+  margin: 5px;
+}
+
+.delete-icon-container {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.delete-icon-container:focus {
+  outline-width: 1px;
+}
+
+.add-new-browser-container {
+  display: flex;
+  color: var(--color-text-primary);
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-new-browser-container > span {
+  margin-right: -5px;
+}
+
+.add-new-browser-container:focus {
+  outline-width: 1px;
+}
+
+.tree-outline-disclosure {
+  max-width: 100%;
 }
