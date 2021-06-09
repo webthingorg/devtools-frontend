@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "070f61a9267c18735ea8d26058e0d3f02979b636",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc610f4_141384a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T07:17:28Z",
+      "side": 1,
+      "message": "LGTM with a comment",
+      "revId": "070f61a9267c18735ea8d26058e0d3f02979b636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3109ffff_40ef4b79",
+        "filename": "front_end/core/sdk/FrameManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T07:17:28Z",
+      "side": 1,
+      "message": "Is this line really needed? This entry in the `awaitedFrames` Map is set or deleted in L235/L237 anyway.",
+      "revId": "070f61a9267c18735ea8d26058e0d3f02979b636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
