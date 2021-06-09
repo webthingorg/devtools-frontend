@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d1011f9_57d43142",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Not needed when using `.data` attribute in `LitHtml.html` in `renderOriginTrial()`?",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77e4d21e_5f3a6371",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Use `.data` within LitHtml instead and avoid need for class member variable.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b29fb7f_b757339d",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9659ba_c9ecccc4",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Label for the \u0027origin\u0027 field in a parsed Origin Trial Token.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4a73cf_0b9261f5",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Would \u0027Raw Token\u0027 be enough?",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86da4011_25e8ee57",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "I think the Badge class is not needed if you use adorners(https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/components/Adorner.ts) instead.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72451c5c_3b552f3f",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "I am still not convinced about using a tree with 4 levels of indentation (in the 2nd column of a 2 column layout). This feels clunky to me and when looking at a rendered page I\u0027d prefer something \"calmer\" such that the origin trials section does align better with the rest of the page.\n\nMaybe the number of levels can be reduced? Why does the raw token text need a separate level since it does properly line break now?\n\nDo we need the 2 column layout here? The \u0027relevant trial\u0027 label does not add much information and causes a lot of unused whitespace when expanding the tree.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd3db9d7_0eb59f67",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "localise string",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05cc90f6_28269a12",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "localise string",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a16c2d8a_384fcca8",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Same as before, use `.data` attribute in LitHtml.render instead of member variable.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87bd191_387e8caf",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-09T13:47:34Z",
+      "side": 1,
+      "message": "Could you please create a separate CL for the CSS changes to TreeOutline and add @jacktfranklin as reviewer? Thanks!",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
