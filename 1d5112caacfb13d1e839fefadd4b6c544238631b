@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae58d666_cca9a19c",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-10T15:28:37Z",
+      "side": 1,
+      "message": "You are right, I can reproduce this behaviour and it is strange indeed. I am going to check whether there is a better overall way to use adorners here.",
+      "parentUuid": "67dab612_faf3f8c8",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72451c5c_3b552f3f",
         "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
         "patchSetId": 18
