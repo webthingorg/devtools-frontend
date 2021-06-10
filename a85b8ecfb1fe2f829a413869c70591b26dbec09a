@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang and Jack,\n\nCan you take a look at this CL?",
       "revId": "a85b8ecfb1fe2f829a413869c70591b26dbec09a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebf908cb_50fc7d96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T14:42:42Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nGentle ping on the review of this CL.",
+      "revId": "a85b8ecfb1fe2f829a413869c70591b26dbec09a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
