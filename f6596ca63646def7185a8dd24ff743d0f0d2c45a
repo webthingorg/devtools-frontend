@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cbe5d8c_f0e84a85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T06:12:07Z",
+      "side": 1,
+      "message": "lgtm % dbc",
+      "revId": "f6596ca63646def7185a8dd24ff743d0f0d2c45a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7a501e_2afaaad4",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T06:12:07Z",
+      "side": 1,
+      "message": "Drive-by comment: Do you know if we have unit tests for this method or if its testable in the first place? We could increase DevTools coverage a tiny bit by adding a few simple cases since we are here :-) Fine as a follow-up.",
+      "range": {
+        "startLine": 321,
+        "startChar": 74,
+        "endLine": 321,
+        "endChar": 94
+      },
+      "revId": "f6596ca63646def7185a8dd24ff743d0f0d2c45a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
