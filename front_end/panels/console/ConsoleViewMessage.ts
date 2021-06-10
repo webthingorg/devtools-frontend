@@ -1431,7 +1431,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
   async _getInlineFrames(
       debuggerModel: SDK.DebuggerModel.DebuggerModel, url: string, lineNumber: number|undefined,
-      columnNumber: number|undefined): Promise<{frames: Bindings.DebuggerLanguagePlugins.FunctionInfo[]}> {
+      columnNumber: number|undefined): Promise<{frames: SDK.LanguageExtensionPluginAPI.FunctionInfo[]}> {
     const debuggerWorkspaceBinding = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
     if (debuggerWorkspaceBinding.pluginManager) {
       const projects = Workspace.Workspace.WorkspaceImpl.instance().projects();

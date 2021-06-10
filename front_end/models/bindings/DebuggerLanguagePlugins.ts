@@ -60,7 +60,7 @@ const str_ = i18n.i18n.registerUIStrings('models/bindings/DebuggerLanguagePlugin
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 class SourceType {
-  typeInfo: TypeInfo;
+  typeInfo: SDK.LanguageExtensionPluginAPI.TypeInfo;
   members: SourceType[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -68,7 +68,7 @@ class SourceType {
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(typeInfo: TypeInfo, members: SourceType[], typeMap: Map<any, SourceType>) {
+  constructor(typeInfo: SDK.LanguageExtensionPluginAPI.TypeInfo, members: SourceType[], typeMap: Map<any, SourceType>) {
     this.typeInfo = typeInfo;
     this.members = members;
     this.typeMap = typeMap;
@@ -77,7 +77,7 @@ class SourceType {
   /**
    * Create a type graph
    */
-  static create(typeInfos: TypeInfo[]): SourceType|null {
+  static create(typeInfos: SDK.LanguageExtensionPluginAPI.TypeInfo[]): SourceType|null {
     if (typeInfos.length === 0) {
       return null;
     }
@@ -114,7 +114,7 @@ function rawModuleIdForScript(script: SDK.Script.Script): string {
   return `${script.sourceURL}@${script.hash}`;
 }
 
-function getRawLocation(callFrame: SDK.DebuggerModel.CallFrame): RawLocation {
+function getRawLocation(callFrame: SDK.DebuggerModel.CallFrame): SDK.LanguageExtensionPluginAPI.RawLocation {
   const {script} = callFrame;
   return {
     rawModuleId: rawModuleIdForScript(script),
@@ -227,8 +227,9 @@ async function getValueTreeForExpression(
 /** Run the formatter for the value defined by the pair of base and fieldChain.
  */
 async function formatSourceValue(
-    callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType, base: EvalBase,
-    field: FieldInfo[], evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<FormattedValueNode> {
+    callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType,
+    base: SDK.LanguageExtensionPluginAPI.EvalBase, field: SDK.LanguageExtensionPluginAPI.FieldInfo[],
+    evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<FormattedValueNode> {
   const location = getRawLocation(callFrame);
 
   let evalCode: {
@@ -376,7 +377,8 @@ class FormattedValueNode extends ValueNode {
   /**
    * Check whether an object is a marker and if so return the EvalBase it contains.
    */
-  async _getEvalBaseFromObject(object: Protocol.Runtime.RemoteObject): Promise<EvalBase|null> {
+  async _getEvalBaseFromObject(object: Protocol.Runtime.RemoteObject):
+      Promise<SDK.LanguageExtensionPluginAPI.EvalBase|null> {
     const {objectId} = object;
     if (!object || !this.formatterTag) {
       return null;
@@ -450,15 +452,15 @@ class StaticallyTypedValueNode extends ValueNode {
   _variableType: string;
   _plugin: DebuggerLanguagePlugin;
   _sourceType: SourceType;
-  _base: EvalBase|null;
-  _fieldChain: FieldInfo[];
+  _base: SDK.LanguageExtensionPluginAPI.EvalBase|null;
+  _fieldChain: SDK.LanguageExtensionPluginAPI.FieldInfo[];
   _hasChildren: boolean;
   _evalOptions: SDK.RuntimeModel.EvaluationOptions;
 
   constructor(
       callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType,
-      base: EvalBase|null, fieldChain: FieldInfo[], evalOptions: SDK.RuntimeModel.EvaluationOptions,
-      inspectableAddress: number|undefined) {
+      base: SDK.LanguageExtensionPluginAPI.EvalBase|null, fieldChain: SDK.LanguageExtensionPluginAPI.FieldInfo[],
+      evalOptions: SDK.RuntimeModel.EvaluationOptions, inspectableAddress: number|undefined) {
     const typeName = sourceType.typeInfo.typeNames[0] || '<anonymous>';
     const variableType = 'object';
     super(
@@ -480,7 +482,8 @@ class StaticallyTypedValueNode extends ValueNode {
     return this._variableType;
   }
 
-  async _expandMember(sourceType: SourceType, fieldInfo: FieldInfo): Promise<SDK.RemoteObject.RemoteObject> {
+  async _expandMember(sourceType: SourceType, fieldInfo: SDK.LanguageExtensionPluginAPI.FieldInfo):
+      Promise<SDK.RemoteObject.RemoteObject> {
     const fieldChain = this._fieldChain.concat(fieldInfo);
     if (sourceType.typeInfo.hasValue && !sourceType.typeInfo.canExpand && this._base) {
       return formatSourceValue(this.callFrame, this._plugin, sourceType, this._base, fieldChain, this._evalOptions);
@@ -492,7 +495,8 @@ class StaticallyTypedValueNode extends ValueNode {
   }
 
   static async getInspectableAddress(
-      callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, base: EvalBase|null, field: FieldInfo[],
+      callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin,
+      base: SDK.LanguageExtensionPluginAPI.EvalBase|null, field: SDK.LanguageExtensionPluginAPI.FieldInfo[],
       evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<number|undefined> {
     if (!base) {
       return undefined;
@@ -591,12 +595,14 @@ class NamespaceObject extends SDK.RemoteObject.LocalJSONObject {
 }
 
 class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
-  variables: Variable[];
+  variables: SDK.LanguageExtensionPluginAPI.Variable[];
   _callFrame: SDK.DebuggerModel.CallFrame;
   _plugin: DebuggerLanguagePlugin;
-  _location: RawLocation;
+  _location: SDK.LanguageExtensionPluginAPI.RawLocation;
 
-  constructor(callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, location: RawLocation) {
+  constructor(
+      callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin,
+      location: SDK.LanguageExtensionPluginAPI.RawLocation) {
     super(callFrame.debuggerModel.runtimeModel(), undefined, 'object', undefined, null);
     this.variables = [];
     this._callFrame = callFrame;
@@ -675,7 +681,7 @@ export class SourceScope implements SDK.DebuggerModel.ScopeChainEntry {
   _endLocation: SDK.DebuggerModel.Location|null;
   constructor(
       callFrame: SDK.DebuggerModel.CallFrame, type: string, typeName: string, icon: string|undefined,
-      plugin: DebuggerLanguagePlugin, location: RawLocation) {
+      plugin: DebuggerLanguagePlugin, location: SDK.LanguageExtensionPluginAPI.RawLocation) {
     this._callFrame = callFrame;
     this._type = type;
     this._typeName = typeName;
@@ -1137,7 +1143,7 @@ export class DebuggerLanguagePluginManager implements
   }
 
   async getFunctionInfo(script: SDK.Script.Script, location: SDK.DebuggerModel.Location): Promise<{
-    frames: Array<FunctionInfo>,
+    frames: Array<SDK.LanguageExtensionPluginAPI.FunctionInfo>,
   }> {
     const noDwarfInfo = {frames: []};
     const {rawModuleId, plugin} = await this._rawModuleIdAndPluginForScript(script);
@@ -1145,7 +1151,7 @@ export class DebuggerLanguagePluginManager implements
       return noDwarfInfo;
     }
 
-    const rawLocation: RawLocation = {
+    const rawLocation: SDK.LanguageExtensionPluginAPI.RawLocation = {
       rawModuleId,
       codeOffset: location.columnNumber - (script.codeOffset() || 0),
       inlineFrameIndex: 0,
@@ -1322,181 +1328,9 @@ class ModelData {
     this._project.dispose();
   }
 }
-export interface RawModule {
-  url: string;
-  code?: ArrayBuffer;
-}
-export interface RawLocationRange {
-  rawModuleId: string;
-  startOffset: number;
-  endOffset: number;
-}
-export interface RawLocation {
-  rawModuleId: string;
-  codeOffset: number;
-  inlineFrameIndex: number;
-}
-export interface SourceLocation {
-  rawModuleId: string;
-  sourceFileURL: string;
-  lineNumber: number;
-  columnNumber: number;
-}
-export interface Variable {
-  scope: string;
-  name: string;
-  type: string;
-  nestedName: string[]|null;
-}
-export interface VariableValue {
-  value: string|VariableValue[];
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  js_type: string;
-  type: string;
-  name: string;
-}
-export interface EvaluatorModule {
-  code?: ArrayBuffer;
-  constantValue?: VariableValue;
-}
-export interface ScopeInfo {
-  type: string;
-  typeName: string;
-  icon?: string;
-}
-export interface FunctionInfo {
-  name: string;
-}
-export interface FieldInfo {
-  name?: string;
-  offset: number;
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  typeId: any;
-}
-export interface TypeInfo {
-  typeNames: string[];
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  typeId: any;
-  members: FieldInfo[];
-  alignment: number;
-  arraySize: number;
-  size: number;
-  canExpand: boolean;
-  hasValue: boolean;
-}
-export interface EvalBase {
-  rootType: TypeInfo;
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  payload: any;
-}
 
-export class DebuggerLanguagePlugin {
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
+export interface DebuggerLanguagePlugin extends SDK.LanguageExtensionPluginAPI.LanguageExtensionPluginAPI {
+  readonly name: string;
 
-  handleScript(_script: SDK.Script.Script): boolean {
-    throw new Error('Not implemented yet');
-  }
-
-  dispose(): void {
-  }
-
-  /** Notify the plugin about a new script
-    */
-  async addRawModule(_rawModuleId: string, _symbolsURL: string, _rawModule: RawModule): Promise<string[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  /** Find locations in raw modules from a location in a source file
-    */
-  async sourceLocationToRawLocation(_sourceLocation: SourceLocation): Promise<RawLocationRange[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  /** Find locations in source files from a location in a raw module
-    */
-  async rawLocationToSourceLocation(_rawLocation: RawLocation): Promise<SourceLocation[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  /** Return detailed information about a scope
-     */
-  async getScopeInfo(_type: string): Promise<ScopeInfo> {
-    throw new Error('Not implemented yet');
-  }
-
-  /** List all variables in lexical scope at a given location in a raw module
-    */
-  async listVariablesInScope(_rawLocation: RawLocation): Promise<Variable[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  /**
-   * Notifies the plugin that a script is removed.
-   */
-  removeRawModule(_rawModuleId: string): Promise<void> {
-    throw new Error('Not implemented yet');
-  }
-
-  getTypeInfo(_expression: string, _context: RawLocation): Promise<{
-    typeInfos: Array<TypeInfo>,
-    base: EvalBase,
-  }|null> {
-    throw new Error('Not implemented yet');
-  }
-
-  getFormatter(
-      _expressionOrField: string|{
-        base: EvalBase,
-        field: Array<FieldInfo>,
-      },
-      _context: RawLocation): Promise<{
-    js: string,
-  }|null> {
-    throw new Error('Not implemented yet');
-  }
-
-  getInspectableAddress(_field: {
-    base: EvalBase,
-    field: Array<FieldInfo>,
-  }): Promise<{
-    js: string,
-  }> {
-    throw new Error('Not implemented yet');
-  }
-
-  /**
-   * Find locations in source files from a location in a raw module
-   */
-  async getFunctionInfo(_rawLocation: RawLocation): Promise<{
-    frames: Array<FunctionInfo>,
-  }> {
-    throw new Error('Not implemented yet');
-  }
-
-  /**
-   * Find locations in raw modules corresponding to the inline function
-   * that rawLocation is in. Used for stepping out of an inline function.
-   */
-  async getInlinedFunctionRanges(_rawLocation: RawLocation): Promise<RawLocationRange[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  /**
-   * Find locations in raw modules corresponding to inline functions
-   * called by the function or inline frame that rawLocation is in.
-   * Used for stepping over inline functions.
-   */
-  async getInlinedCalleesRanges(_rawLocation: RawLocation): Promise<RawLocationRange[]> {
-    throw new Error('Not implemented yet');
-  }
-
-  async getMappedLines(_rawModuleId: string, _sourceFileURL: string): Promise<number[]|undefined> {
-    throw new Error('Not implemented yet');
-  }
+  handleScript(script: SDK.Script.Script): boolean;
 }
