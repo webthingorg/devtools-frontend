@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bacf9778_2e15bc47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-10T07:09:56Z",
+      "side": 1,
+      "message": "Thanks, LGTM!\n\nIt seems that you\u0027ll always have the owners presubmit error until you receive an owner\u0027s +1 code review.\n\nTo fix the other presubmit error, add a reference to bug 1072335 to the last paragraph of the commit message: \u0027Bug: 1072335\u0027. ",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c2334f_fa4bf7ab",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-10T07:09:56Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead82cb6_06eeafb9",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-10T07:09:56Z",
+      "side": 1,
+      "message": "You could create a follow-up CL which allows removing this linting exception.\nWe recently moved the codebase to TypeScript. This allows us to use the `private` keyword in places where we used a leading underscore to signify private vars/methods.",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
