@@ -16,6 +16,24 @@
       "message": "PTAL",
       "revId": "8868c4ef6dabae39bcba27f1fb0f6eda476d9758",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c0443d6_510571b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-10T00:16:28Z",
+      "side": 1,
+      "message": "Getting these pre-submit errors not sure how to handle them.\n** Presubmit ERRORS **\nMissing LGTM from an OWNER for these files:\n    config/gni/devtools_grd_files.gni\n    front_end/core/i18n/locales/en-US.json\n    front_end/core/i18n/locales/en-XL.json\n    front_end/panels/issues/AffectedDirectivesView.ts\n    front_end/panels/issues/BUILD.gn\n    front_end/panels/issues/IssueView.ts",
+      "parentUuid": "fd43f83e_318d9a79",
+      "revId": "8868c4ef6dabae39bcba27f1fb0f6eda476d9758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
