@@ -49,6 +49,7 @@ devtools_module("network") {
     "../../models/workspace:bundle",
     "../../panels/elements:bundle",
     "../../panels/mobile_throttling:bundle",
+    "../../panels/network/forward:bundle",
     "../../panels/search:bundle",
     "../../third_party/chromium/client-variations:bundle",
     "../../ui/components/expandable_list:bundle",
@@ -97,6 +98,7 @@ devtools_entrypoint("meta") {
   deps = [
     ":bundle",
     "../../core/root:bundle",
+    "../../panels/network/forward:bundle",
     "../../ui/legacy:bundle",
   ]
 
