@@ -104,6 +104,24 @@
       "parentUuid": "0f6a04dc_21357d48",
       "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b99b1e7_3514f40a",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-10T14:43:28Z",
+      "side": 1,
+      "message": "Okay! sounds good i will make a new CL for that",
+      "parentUuid": "166d625b_fae64da2",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
