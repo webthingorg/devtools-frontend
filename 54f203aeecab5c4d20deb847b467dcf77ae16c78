@@ -51,6 +51,74 @@
       "parentUuid": "0ec1f07a_13af094a",
       "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490d196b_c339e687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-10T10:08:45Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fae20dc_5424b2d5",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-10T10:08:45Z",
+      "side": 1,
+      "message": "Are these eslint-disable-line required? I thought eslint can detect if a var is used or not.",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e1d738f_5451d73a",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-10T10:08:45Z",
+      "side": 1,
+      "message": "I wonder if a lot of this code is similar to other kind of properties. It appears that very few things are actually CSSContainerQuery specific. Is it possible to inherit from something existing?",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94531bd8_6fd1d3fc",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-10T10:08:45Z",
+      "side": 1,
+      "message": "This would enable LayoutNGGrid as well. Would it lead to any problems?",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
