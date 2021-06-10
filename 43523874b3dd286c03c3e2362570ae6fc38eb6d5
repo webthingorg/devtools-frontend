@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3348518e_2ac1e6d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T07:11:00Z",
+      "side": 1,
+      "message": "PTAL, the diff between PS1 and PS2 contains the fix",
+      "revId": "43523874b3dd286c03c3e2362570ae6fc38eb6d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
