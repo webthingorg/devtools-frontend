@@ -39,6 +39,7 @@ devtools_module("sdk") {
     "IOModel.ts",
     "IsolateManager.ts",
     "IssuesModel.ts",
+    "LanguageExtensionPluginAPI.ts",
     "LayerTreeBase.ts",
     "LogModel.ts",
     "NetworkManager.ts",
