@@ -20,6 +20,7 @@ import * as CookieModel from './CookieModel.js';
 import * as CookieParser from './CookieParser.js';
 import * as CPUProfileDataModel from './CPUProfileDataModel.js';
 import * as CPUProfilerModel from './CPUProfilerModel.js';
+import * as CSSContainerQuery from './CSSContainerQuery.js';
 import * as CSSFontFace from './CSSFontFace.js';
 import * as CSSMatchedStyles from './CSSMatchedStyles.js';
 import * as CSSMedia from './CSSMedia.js';
@@ -82,6 +83,7 @@ export {
   CookieParser,
   CPUProfileDataModel,
   CPUProfilerModel,
+  CSSContainerQuery,
   CSSFontFace,
   CSSMatchedStyles,
   CSSMedia,
