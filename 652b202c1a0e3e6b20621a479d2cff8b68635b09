@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "086d554e_fc45da0a",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 4260,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e5a57c9_df84185f",
+      "range": {
+        "startLine": 4260,
+        "startChar": 15,
+        "endLine": 4260,
+        "endChar": 24
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7a01271_8d1fd810",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "The custom event is called \"input-change\" now. Does this need to be updated?",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 83
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ceaa546_dd7d82d6",
+        "filename": "front_end/panels/emulation/DevicesSettingsTab.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a01271_8d1fd810",
       "range": {
         "startLine": 284,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acda351e_6b060d0d",
+        "filename": "front_end/panels/emulation/components/BUILD.gn",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a3c241_c07d31ce",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ef67686_7d105503",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Please add the placeholder values from https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2855825/23/front_end/core/i18n/locales/en-US.json and update the input text elements to use them.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b460d2_08342a75",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef67686_7d105503",
       "range": {
         "startLine": 14,
         "startChar": 6,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01d8c50_75c5e7da",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f009978_db672c79",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e969f1a2_f0db4acb",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Should this be empty or undefined instead?",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d677c10_650916f8",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Default value are empty strings, so that the UI will render atleast one row with empty input fields if there is no metadata from the parent component. We do set a default value when rendering brands section, so we can set it to undefined too, we will get the same result. However typescript will complain if we set it to undefined.",
+      "parentUuid": "e969f1a2_f0db4acb",
       "range": {
         "startLine": 87,
         "startChar": 2,
@@ -162,6 +306,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "339b7391_206fe966",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53bfb360_8a7725de",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 3
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b85dfa4b_a2328a22",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Please include the other properties.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 6
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff367af0_03bd09af",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "We dont have to output other values, we only use metaData so only returning that.",
+      "parentUuid": "b85dfa4b_a2328a22",
       "range": {
         "startLine": 126,
         "startChar": 0,
@@ -210,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93b1f85c_5c92cb73",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "You are right, however if we end up using addEventListners or using another event handler inside an event handler, then we will have to update again. And just my personal opinion I prefer using arrow functions where possible, they feel modern. However if you have a strong preference, I will update.",
+      "parentUuid": "e77b5d7f_2c5fc9c7",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "662ed65f_2d84d698",
         "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
         "patchSetId": 16
@@ -221,6 +437,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Minor: Can this be replaced with .splice()? Should be a little bit more efficient.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 110
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e51a36_e70991fa",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "662ed65f_2d84d698",
       "range": {
         "startLine": 170,
         "startChar": 0,
@@ -254,6 +494,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cd47a46_778a96ec",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca4456a1_581d5f50",
+      "range": {
+        "startLine": 178,
+        "startChar": 10,
+        "endLine": 178,
+        "endChar": 30
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90d6fd59_26b2d77c",
@@ -267,6 +531,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Please add an aria-label to each of these inputs, since they aren\u0027t associated with the \u003clabel\u003e.",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 75
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61184e5b_6fa00086",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d6fd59_26b2d77c",
       "range": {
         "startLine": 256,
         "startChar": 0,
@@ -300,6 +588,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee47648_284e496a",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a6f9c86_8aeec44c",
+      "range": {
+        "startLine": 321,
+        "startChar": 10,
+        "endLine": 324,
+        "endChar": 69
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6721610_d4a767c8",
@@ -313,6 +625,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "We should follow the aria \"disclosure\" pattern here: https://www.w3.org/TR/wai-aria-practices-1.1/#disclosure\n\nInstead of rendering/not-rendering the content, the content should exist, but be styled invisible and marked with appropriate aria attributes.",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 59
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e964035_5b90abdf",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6721610_d4a767c8",
       "range": {
         "startLine": 370,
         "startChar": 0,
@@ -348,6 +684,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d41141a5_31154633",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "We need to match the validator interface defined in ListWidget because we are calling validate function from inside ListWidget. And the other utility validateAsStructuredHeadersString that we are using returns ValidatorResult interface.",
+      "parentUuid": "c68b977b_8b11f90b",
+      "range": {
+        "startLine": 509,
+        "startChar": 14,
+        "endLine": 509,
+        "endChar": 43
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0587499_1ab65a53",
         "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
         "patchSetId": 16
@@ -359,6 +719,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Nit: Can you rename this variable? True actually means valid here.",
+      "range": {
+        "startLine": 512,
+        "startChar": 14,
+        "endLine": 512,
+        "endChar": 25
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa5d736_f0a805f2",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0587499_1ab65a53",
       "range": {
         "startLine": 512,
         "startChar": 14,
@@ -392,6 +776,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "611ea7e6_06f99f59",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6664ab_781afbe6",
+      "range": {
+        "startLine": 535,
+        "startChar": 5,
+        "endLine": 535,
+        "endChar": 48
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8a0f1cb_5c0a3e0f",
@@ -405,6 +813,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "Can the changes in this file be removed?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ec2032_c7216cba",
+        "filename": "front_end/panels/emulation/devicesSettingsTab.css",
+        "patchSetId": 16
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a0f1cb_5c0a3e0f",
       "range": {
         "startLine": 115,
         "startChar": 0,
@@ -432,6 +864,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3da8d55_b698c4a3",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4108798_e95a92fa",
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2396071_6f0cf434",
@@ -445,6 +895,30 @@
       "writtenOn": "2021-06-09T21:39:00Z",
       "side": 1,
       "message": "The change in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2855825/23/front_end/panels/network/NetworkConfigView.ts#611 adds a `setEnabled` function that disables the client hints form. Can we do something similar here?",
+      "range": {
+        "startLine": 251,
+        "startChar": 13,
+        "endLine": 251,
+        "endChar": 38
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0efeb37c_90c7a836",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-10T21:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2396071_6f0cf434",
       "range": {
         "startLine": 251,
         "startChar": 13,
