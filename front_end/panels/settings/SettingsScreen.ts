@@ -86,6 +86,10 @@ const UIStrings = {
   * list of experiments, but no experiments match the filter.
   */
   noResults: 'No experiments match the filter',
+  /**
+  *@description Text that is usually a hyperlink to more documentation
+  */
+  learnMore: 'Learn more',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/settings/SettingsScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -465,8 +469,21 @@ export class ExperimentsSettingsTab extends SettingsTab {
     input.addEventListener('click', listener, false);
 
     const p = document.createElement('p');
-    p.className = experiment.unstable && !experiment.isEnabled() ? 'settings-experiment-unstable' : '';
+    p.classList.add('settings-experiment');
+    if (experiment.unstable && !experiment.isEnabled()) {
+      p.classList.add('settings-experiment-unstable');
+    }
     p.appendChild(label);
+
+    if (experiment.docLink) {
+      const link = UI.XLink.XLink.create(experiment.docLink);
+      link.textContent = '';
+      link.ariaLabel = i18nString(UIStrings.learnMore);
+      link.prepend(UI.Icon.Icon.create('largeicon-link'));
+
+      p.appendChild(link);
+    }
+
     return p;
   }
 }
