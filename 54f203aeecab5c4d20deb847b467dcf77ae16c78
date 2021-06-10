@@ -219,6 +219,24 @@
       },
       "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d849b39b_c7ab2369",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-10T21:11:24Z",
+      "side": 1,
+      "message": "It seems to be fine (for now). Let\u0027s try to make conditional runtime flag possible when Jack comes back.",
+      "parentUuid": "94531bd8_6fd1d3fc",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
