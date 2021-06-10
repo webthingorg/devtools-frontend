@@ -6,7 +6,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import type * as puppeteer from '../../third_party/puppeteer/puppeteer.js';
 import {getPuppeteerConnection as getPuppeteerConnectionToCurrentPage} from './PuppeteerConnection.js';
 
-import type {Step, UserFlow} from './Steps.js';
+import type {Step, UserFlow, Selector} from './Steps.js';
 import {assertAllStepTypesAreHandled} from './Steps.js';
 
 export class RecordingPlayer {
@@ -93,18 +93,18 @@ export class RecordingPlayer {
 
     switch (step.type) {
       case 'click': {
-        const element = await frame.waitForSelector(step.selector);
+        const element = await waitForSelector(step.selector, frame);
         if (!element) {
           throw new Error('Could not find element: ' + step.selector);
         }
         await element.click();
       } break;
       case 'submit': {
-        const element = await frame.waitForSelector(step.selector);
+        const element = await waitForSelector(step.selector, frame);
         if (!element) {
           throw new Error('Could not find element: ' + step.selector);
         }
-        await element.evaluate(form => (form as HTMLFormElement).submit());
+        await element.evaluate((form: HTMLFormElement) => form.submit());
       } break;
       case 'emulateNetworkConditions': {
         await page.emulateNetworkConditions(step.conditions);
@@ -122,7 +122,7 @@ export class RecordingPlayer {
       } break;
       case 'change': {
         // TODO(alexrudenko): currently the change event is only supported for <select>s.
-        const element = await frame.waitForSelector(step.selector);
+        const element = await waitForSelector(step.selector, frame);
         if (!element) {
           throw new Error('Could not find element: ' + step.selector);
         }
@@ -130,7 +130,9 @@ export class RecordingPlayer {
         // We need blur and focus to make the select dropdown to close.
         // Otherwise, it remains open until a blur event. This is not very
         // nice because user actions don't actually generate those events.
-        await element.evaluate(e => e.blur());
+        // TODO: fix return type for waitForSelector
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        await element.evaluate((e: any) => e.blur());
         await element.focus();
       } break;
       case 'viewport': {
@@ -146,4 +148,28 @@ export class RecordingPlayer {
 
     await condition;
   }
+}
+
+// TODO: is there a type for ElementHandle<Element>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function waitForSelector(selector: Selector, frame: puppeteer.Frame): Promise<any> {
+  if (selector instanceof Array) {
+    let element = null;
+    for (const part of selector) {
+      if (!element) {
+        element = await frame.waitForSelector(part);
+      } else {
+        element = await element.$(part);
+      }
+      if (!element) {
+        throw new Error('Could not find element: ' + part);
+      }
+    }
+    return element;
+  }
+  const element = await frame.waitForSelector(selector);
+  if (!element) {
+    throw new Error('Could not find element: ' + selector);
+  }
+  return element;
 }
