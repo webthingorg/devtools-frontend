@@ -47,6 +47,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6302bee5_f8c2f109",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-10T15:56:11Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "c7595a10_48f1b524",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d17847e0_006dbd49",
@@ -60,6 +84,30 @@
       "writtenOn": "2021-06-10T15:16:14Z",
       "side": 1,
       "message": "For this, I think it is safer to use `path.resolve` and `path.dirname` like we do in `es_modules_imports`:\n\n    const exportingFileName \u003d path.resolve(path.dirname(importingFileName), importPath);\n\nFor example, we could in theory do `../../../ui/legacy/themeColors.css.js` in a component and that means it doesn\u0027t live in this particular folder.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c0b61b_50b034df",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-10T15:56:11Z",
+      "side": 1,
+      "message": "Much nicer way to do this, updated!",
+      "parentUuid": "d17847e0_006dbd49",
       "range": {
         "startLine": 38,
         "startChar": 10,
