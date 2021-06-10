@@ -86,6 +86,24 @@
       "parentUuid": "ead82cb6_06eeafb9",
       "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166d625b_fae64da2",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-10T14:29:39Z",
+      "side": 1,
+      "message": "Whatever you prefer. My thinking was that it\u0027s easier to review when this CL just moves the class without making any changes to it.",
+      "parentUuid": "0f6a04dc_21357d48",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
