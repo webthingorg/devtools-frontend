@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "242440cd_b509a2c0",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-10T13:13:44Z",
+      "side": 1,
+      "message": "will update that.",
+      "parentUuid": "f8c2334f_fa4bf7ab",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ead82cb6_06eeafb9",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-06-10T07:09:56Z",
       "side": 1,
       "message": "You could create a follow-up CL which allows removing this linting exception.\nWe recently moved the codebase to TypeScript. This allows us to use the `private` keyword in places where we used a leading underscore to signify private vars/methods.",
+      "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f6a04dc_21357d48",
+        "filename": "front_end/panels/issues/AffectedDirectivesView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-10T13:13:44Z",
+      "side": 1,
+      "message": "Is it okay if i update this CL with this change as well?",
+      "parentUuid": "ead82cb6_06eeafb9",
       "revId": "11ac89bb6dd3aeb9d5bb6440218574ee7e4def7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
