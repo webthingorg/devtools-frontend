@@ -104,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a03b1477_ea723a1c",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-10T19:54:13Z",
+      "side": 1,
+      "message": "Seems not. I\u0027ve removed this. Thanks!",
+      "parentUuid": "7fae20dc_5424b2d5",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e1d738f_5451d73a",
@@ -117,6 +135,24 @@
       "writtenOn": "2021-06-10T10:08:45Z",
       "side": 1,
       "message": "I wonder if a lot of this code is similar to other kind of properties. It appears that very few things are actually CSSContainerQuery specific. Is it possible to inherit from something existing?",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c697b93_220d18ff",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-10T19:54:13Z",
+      "side": 1,
+      "message": "I made a base class `CSSQuery`, and let both `CSSContainerQuery` and `CSSMediaQuery` extend from that. I would expect them to maybe diverge a little more in the future, as the CQ spec finalizes.",
+      "parentUuid": "9e1d738f_5451d73a",
       "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -151,6 +187,30 @@
       "writtenOn": "2021-06-10T10:51:19Z",
       "side": 1,
       "message": "I think we generally don\u0027t enable specific flags here and we had the `chrome-features` CLI flag to enable particular features.\n\nNow I thought that we already conditionally skipped tests based on a particular flag enabled, but I can\u0027t seem to find any code reference to that. I thought Maksim did this a while back while relying on a particular flag?\n\nI would prefer to not enable specific flags here, especially as they affect runtime behavior and instead enable a particular flag in a specific test. However, I don\u0027t think we can support that right now.\n\nSo to unblock this, I think we can add the flag here, but can we file a bug to get rid of the flag and instead to the opt-in for 1 single e2e-test?",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50748b90_9f8d456d",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-10T19:54:13Z",
+      "side": 1,
+      "message": "I like the sound of 1 single e2e-test with the flag enabled, and I\u0027ve filed a crbug here: https://crbug.com/1218390. I\u0027ll take a look at this next week.",
+      "parentUuid": "d7e46527_d225c98e",
       "range": {
         "startLine": 98,
         "startChar": 5,
