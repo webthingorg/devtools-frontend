@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a647a6_e3d977fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T15:16:14Z",
+      "side": 1,
+      "message": "Note that while it checks for file existence, it is still necessary to add it to the `deps`. Otherwise, it doesn\u0027t get build and shipped as part of the binary.\n\nThat is to say, while this linter rule catches a clause of problems (and probably the most common), we will still need to address the `deps` problem to ensure all css values are correctly build.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7595a10_48f1b524",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T15:16:14Z",
+      "side": 1,
+      "message": "Nit: in theory we could have an import along the lines of `foo.js.something` and then we would incorrectly replace it. I think it is safer to do `importedFile.substring(0, importedFile.length - 3)` to cut the `.js` off. Or do `.replace(\u0027.css.js\u0027, \u0027.js\u0027)`",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d17847e0_006dbd49",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T15:16:14Z",
+      "side": 1,
+      "message": "For this, I think it is safer to use `path.resolve` and `path.dirname` like we do in `es_modules_imports`:\n\n    const exportingFileName \u003d path.resolve(path.dirname(importingFileName), importPath);\n\nFor example, we could in theory do `../../../ui/legacy/themeColors.css.js` in a component and that means it doesn\u0027t live in this particular folder.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f7e04fe_84fb2d7d",
+        "filename": "scripts/eslint_rules/tests/check_css_import_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T15:16:14Z",
+      "side": 1,
+      "message": "Nice tests!",
+      "range": {
+        "startLine": 11,
+        "startChar": 16,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "aab61ce3ca95fc561faf8b92ea0ffcf6775b4d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
