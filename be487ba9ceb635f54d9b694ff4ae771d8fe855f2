@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7408ed0_c986d380",
+        "filename": "front_end/panels/application/DOMStorageItemsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-06-10T17:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c832f325_6e1b517a",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "be487ba9ceb635f54d9b694ff4ae771d8fe855f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04fb2189_c60e4100",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-10T06:26:41Z",
       "side": 1,
       "message": "super-nit: Shouldn\u0027t it be \"A storage entry was deleted\"/\"The storage entry was deleted\"? We could also add the `node.data.key` as a placeholder to the message. Not sure if it makes sense though for screen readers? Like \"The storage entry with the key \u0027{PH1}\u0027 was deleted.\"\n\nAlso the other l10n message speaks about \"Storage items\" not entries, should we stay consistent?",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 56
+      },
+      "revId": "be487ba9ceb635f54d9b694ff4ae771d8fe855f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce064f3a_e7e79efa",
+        "filename": "front_end/panels/application/DOMStorageItemsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-06-10T17:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04fb2189_c60e4100",
       "range": {
         "startLine": 67,
         "startChar": 27,
