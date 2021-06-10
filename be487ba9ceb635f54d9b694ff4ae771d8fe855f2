@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0aef9e4_5c7e03ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T06:26:41Z",
+      "side": 1,
+      "message": "lgtm % nits, sorry for the bikeshedding :)",
+      "revId": "be487ba9ceb635f54d9b694ff4ae771d8fe855f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c832f325_6e1b517a",
+        "filename": "front_end/panels/application/DOMStorageItemsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T06:26:41Z",
+      "side": 1,
+      "message": "nit: Can we improve the description a bit here to help translators? Maybe mention the storage API and what a storage entry could be. Also that the storage item was deleted after the deletion was triggered by the user, it didn\u0027t happen automatically (I assume) :)",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "be487ba9ceb635f54d9b694ff4ae771d8fe855f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fb2189_c60e4100",
+        "filename": "front_end/panels/application/DOMStorageItemsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-10T06:26:41Z",
+      "side": 1,
+      "message": "super-nit: Shouldn\u0027t it be \"A storage entry was deleted\"/\"The storage entry was deleted\"? We could also add the `node.data.key` as a placeholder to the message. Not sure if it makes sense though for screen readers? Like \"The storage entry with the key \u0027{PH1}\u0027 was deleted.\"\n\nAlso the other l10n message speaks about \"Storage items\" not entries, should we stay consistent?",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 56
+      },
+      "revId": "be487ba9ceb635f54d9b694ff4ae771d8fe855f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
