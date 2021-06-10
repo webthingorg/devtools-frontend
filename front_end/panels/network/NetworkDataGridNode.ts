@@ -22,6 +22,7 @@
  *
  * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
@@ -55,6 +56,8 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {Tabs as NetworkItemViewTabs} from './NetworkItemView.js';
 
 import type {NetworkTimeCalculator} from './NetworkTimeCalculator.js'; // eslint-disable-line no-unused-vars
+
+import {NetworkRequestId} from './NetworkRequestId.js';
 
 const UIStrings = {
   /**
@@ -1080,13 +1083,20 @@ export class NetworkRequestNode extends NetworkNode {
     }
 
     if (columnId === 'name') {
-      if (this._request.webBundleInnerRequestInfo()) {
+      const webBundleInnerRequestInfo = this._request.webBundleInnerRequestInfo();
+      if (webBundleInnerRequestInfo) {
         const secondIconElement = document.createElement('img');
         secondIconElement.classList.add('icon');
         secondIconElement.alt = i18nString(UIStrings.webBundleInnerRequest);
         secondIconElement.classList.add('webbundleinnerrequest');
 
-        cell.appendChild(secondIconElement);
+        const networkManager = SDK.NetworkManager.NetworkManager.forRequest(this._request);
+        if (webBundleInnerRequestInfo.bundleRequestId && networkManager) {
+          cell.appendChild(Components.Linkifier.Linkifier.linkifyRevealable(
+              new NetworkRequestId(webBundleInnerRequestInfo.bundleRequestId, networkManager), secondIconElement));
+        } else {
+          cell.appendChild(secondIconElement);
+        }
       }
       const name = Platform.StringUtilities.trimMiddle(this._request.name(), 100);
       const networkManager = SDK.NetworkManager.NetworkManager.forRequest(this._request);
