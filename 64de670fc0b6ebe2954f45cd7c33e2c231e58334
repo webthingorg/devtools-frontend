@@ -52,6 +52,24 @@
       "parentUuid": "3911b7c7_55047fce",
       "revId": "64de670fc0b6ebe2954f45cd7c33e2c231e58334",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0258df11_05a65f86",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-10T08:42:37Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "7066d2df_6b83ed44",
+      "revId": "64de670fc0b6ebe2954f45cd7c33e2c231e58334",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
