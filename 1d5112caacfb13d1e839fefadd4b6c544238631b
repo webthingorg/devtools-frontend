@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e344767f_d942ddb3",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d1011f9_57d43142",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77e4d21e_5f3a6371",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-09T13:47:34Z",
       "side": 1,
       "message": "Use `.data` within LitHtml instead and avoid need for class member variable.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e0c86e0_bf3c2f62",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77e4d21e_5f3a6371",
       "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b12146_375b1c4f",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b29fb7f_b757339d",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb9659ba_c9ecccc4",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150dccf8_c92a37e5",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb9659ba_c9ecccc4",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac4a73cf_0b9261f5",
@@ -82,6 +154,24 @@
       "writtenOn": "2021-06-09T13:47:34Z",
       "side": 1,
       "message": "Would \u0027Raw Token\u0027 be enough?",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac80a1b1_f02c2156",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac4a73cf_0b9261f5",
       "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67dab612_faf3f8c8",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Replace badge impl with adorner, but there is a wield bug in adorner:\n\nIn \u0027Adorner/set data\u0027, data.content got appended as child to adorner instead of set as the only child. This causes a new child getting added each time the element is rendered.\n\nIs this an intended behaviour? If so, how to prevent it from happening?",
+      "parentUuid": "86da4011_25e8ee57",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72451c5c_3b552f3f",
         "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
         "patchSetId": 18
@@ -116,6 +224,24 @@
       "writtenOn": "2021-06-09T13:47:34Z",
       "side": 1,
       "message": "I am still not convinced about using a tree with 4 levels of indentation (in the 2nd column of a 2 column layout). This feels clunky to me and when looking at a rendered page I\u0027d prefer something \"calmer\" such that the origin trials section does align better with the rest of the page.\n\nMaybe the number of levels can be reduced? Why does the raw token text need a separate level since it does properly line break now?\n\nDo we need the 2 column layout here? The \u0027relevant trial\u0027 label does not add much information and causes a lot of unused whitespace when expanding the tree.",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3522ad8_f2a05f6f",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "The \"Relevant trial\" label here is just to conform with test expectation that \"it renders report keys and values\". If you think it would be ok to make an exception for origin trial section, I would happily accept that.\n\nThe raw token is folded by default as the token text can be really long even it does properly line break now.",
+      "parentUuid": "72451c5c_3b552f3f",
       "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +263,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f10bb7e_f6082071",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd3db9d7_0eb59f67",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05cc90f6_28269a12",
@@ -150,6 +294,24 @@
       "writtenOn": "2021-06-09T13:47:34Z",
       "side": 1,
       "message": "localise string",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6bfa730_db437eb7",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05cc90f6_28269a12",
       "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +333,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7358673_e9d6cfc8",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "TreeOutline does not define a litTagName field. I am also not sure we can use the tag to directly reference a templated component class.",
+      "parentUuid": "a16c2d8a_384fcca8",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b87bd191_387e8caf",
@@ -184,6 +364,24 @@
       "writtenOn": "2021-06-09T13:47:34Z",
       "side": 1,
       "message": "Could you please create a separate CL for the CSS changes to TreeOutline and add @jacktfranklin as reviewer? Thanks!",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc07056_b4a0d663",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-10T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b87bd191_387e8caf",
       "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
