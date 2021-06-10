@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef495da_37b81f27",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-10T05:41:26Z",
+      "side": 1,
+      "message": "Are these links accessible? Maybe we should have link text but then hide it visually?",
+      "revId": "64de670fc0b6ebe2954f45cd7c33e2c231e58334",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
