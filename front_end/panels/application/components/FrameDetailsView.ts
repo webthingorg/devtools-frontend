@@ -19,6 +19,8 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as Protocol from '../../../generated/protocol.js';
+import type {OriginTrialTreeViewData} from './OriginTrialTreeView.js';
+import {OriginTrialTreeView} from './OriginTrialTreeView.js';
 
 const UIStrings = {
   /**
@@ -244,6 +246,10 @@ const UIStrings = {
   *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a request header.
   */
   disabledByHeader: 'disabled by "`Permissions-Policy`" header',
+  /**
+   *@description Label for a list of origin trials that associated with at least one token.
+   */
+  originTrials: 'Origin Trials',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -359,11 +365,28 @@ export class FrameDetailsReportView extends HTMLElement {
         ${this.renderDocumentSection()}
         ${this.renderIsolationSection()}
         ${this.renderApiAvailabilitySection()}
+        ${this.renderOriginTrial()}
         ${LitHtml.Directives.until(this.renderPermissionPolicy(), LitHtml.nothing)}
         ${this.protocolMonitorExperimentEnabled ? this.renderAdditionalInfoSection() : LitHtml.nothing}
       </${ReportView.ReportView.Report.litTagName}>
     `, this.shadow);
     // clang-format on
+  }
+
+  private renderOriginTrial(): LitHtml.TemplateResult|{} {
+    const originTrials = this.frame?.getOriginTrials();
+    if (!originTrials?.length) {
+      return LitHtml.nothing;
+    }
+    return LitHtml.html`
+    <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.originTrials)}
+    </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+    <${OriginTrialTreeView.litTagName} class="span-cols"
+      .data=${{trials: originTrials} as OriginTrialTreeViewData}>
+    </${OriginTrialTreeView.litTagName}>
+    <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
+        ReportView.ReportView.ReportSectionDivider.litTagName}>
+    `;
   }
 
   private async renderPermissionPolicy(): Promise<LitHtml.TemplateResult|{}> {
