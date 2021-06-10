@@ -70,6 +70,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f1d5b4_43a682b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T10:51:19Z",
+      "side": 1,
+      "message": "I am not thrilled about adding the flag, but I don\u0027t think we have any other alternative. So let\u0027s ship this as-is and try to clean it up in a follow-up (if that\u0027s even feasible..).",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fae20dc_5424b2d5",
@@ -117,6 +134,29 @@
       "writtenOn": "2021-06-10T10:08:45Z",
       "side": 1,
       "message": "This would enable LayoutNGGrid as well. Would it lead to any problems?",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7e46527_d225c98e",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T10:51:19Z",
+      "side": 1,
+      "message": "I think we generally don\u0027t enable specific flags here and we had the `chrome-features` CLI flag to enable particular features.\n\nNow I thought that we already conditionally skipped tests based on a particular flag enabled, but I can\u0027t seem to find any code reference to that. I thought Maksim did this a while back while relying on a particular flag?\n\nI would prefer to not enable specific flags here, especially as they affect runtime behavior and instead enable a particular flag in a specific test. However, I don\u0027t think we can support that right now.\n\nSo to unblock this, I think we can add the flag here, but can we file a bug to get rid of the flag and instead to the opt-in for 1 single e2e-test?",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 98,
+        "endChar": 48
+      },
       "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
