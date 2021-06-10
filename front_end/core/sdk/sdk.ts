@@ -40,6 +40,7 @@ import * as HeapProfilerModel from './HeapProfilerModel.js';
 import * as IOModel from './IOModel.js';
 import * as IsolateManager from './IsolateManager.js';
 import * as IssuesModel from './IssuesModel.js';
+import * as LanguageExtensionPluginAPI from './LanguageExtensionPluginAPI.js';
 import * as LayerTreeBase from './LayerTreeBase.js';
 import * as LogModel from './LogModel.js';
 import * as NetworkManager from './NetworkManager.js';
@@ -102,6 +103,7 @@ export {
   IOModel,
   IsolateManager,
   IssuesModel,
+  LanguageExtensionPluginAPI,
   LayerTreeBase,
   LogModel,
   NetworkManager,
