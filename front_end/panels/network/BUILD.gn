@@ -61,6 +61,7 @@ devtools_module("network") {
     "../../ui/legacy/components/source_frame:bundle",
     "../../ui/legacy/components/utils:bundle",
     "../../ui/legacy/theme_support:bundle",
+    "../emulation/components:bundle",
     "./components:bundle",
   ]
 }
