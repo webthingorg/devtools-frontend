@@ -16,6 +16,23 @@
       "message": "Adding Tim for changes in `test/conductor/hooks.ts`. This flag enables container queries so that e2e test can cover them.",
       "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec1f07a_13af094a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-10T09:59:16Z",
+      "side": 1,
+      "message": "Nice!\n\nIt doesn\u0027t block this CL, but as a follow-up, are we planning on marking \"inactive\" styles (or even the entire container query block when it\u0027s \"inactive\") in some way?\n",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
