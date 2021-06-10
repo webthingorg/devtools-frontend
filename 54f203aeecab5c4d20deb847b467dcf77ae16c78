@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0d8e31_6daadf58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-10T09:52:01Z",
+      "side": 1,
+      "message": "Adding Tim for changes in `test/conductor/hooks.ts`. This flag enables container queries so that e2e test can cover them.",
+      "revId": "54f203aeecab5c4d20deb847b467dcf77ae16c78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
