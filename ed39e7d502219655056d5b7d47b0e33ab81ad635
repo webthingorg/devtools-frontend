@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da68eb6_9e72411e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-10T14:06:46Z",
+      "side": 1,
+      "message": "I\u0027ve updated the CL and started a DRY RUN, PTAL.",
+      "revId": "ed39e7d502219655056d5b7d47b0e33ab81ad635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
