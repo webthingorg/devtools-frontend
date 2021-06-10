@@ -16,6 +16,75 @@
       "message": "PTAL",
       "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ca66b2_02e6e284",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T16:45:17Z",
+      "side": 1,
+      "message": "We are still importing the other revealers directly. Is it feasible to fix these imports here as well in a follow-up CL or do you expect that to be infeasible still? If it is infeasible, I am curious to know why to start thinking about a potential solution.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3dd5fa8_6fb65268",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T16:45:17Z",
+      "side": 1,
+      "message": "Nit: can be `./forward:bundle`",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 42
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244ea716_0d636731",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-10T16:45:17Z",
+      "side": 1,
+      "message": "Nit: same here",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 42
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
