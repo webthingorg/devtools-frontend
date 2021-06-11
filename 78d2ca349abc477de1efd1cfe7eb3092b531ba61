@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0f04624_ff99f351",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-11T12:54:04Z",
+      "side": 1,
+      "message": "Could you please file a crbug for this, just so it\u0027s tracked somewhere? We could then refer to it in the commit message (or even as `// TODO`s in the source).",
+      "revId": "78d2ca349abc477de1efd1cfe7eb3092b531ba61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d639a6f8_09d25a4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-11T12:54:04Z",
+      "side": 1,
+      "message": "Thanks for the nice and descriptive commit message, which made it easy for me to follow what was going on :)\n\nLGTM % some extremely minor comments, thanks!",
+      "revId": "78d2ca349abc477de1efd1cfe7eb3092b531ba61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff914b0d_d8204a6e",
+        "filename": "test/e2e/network/network-throttle_persist_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-11T12:54:04Z",
+      "side": 1,
+      "message": "This is a super minor nit, but just FYI: we generally prefer using DOM properties over .getAttribute() where possible. In this case we could use `.ariaLabel`.",
+      "revId": "78d2ca349abc477de1efd1cfe7eb3092b531ba61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
