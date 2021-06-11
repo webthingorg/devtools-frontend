@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd2ce1f_9314ce39",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-11T11:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c76c197_b3c8757b",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 43
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f576719_4c3fb656",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b30230_c6492896",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-11T11:32:57Z",
+      "side": 1,
+      "message": "Was I supposed to flag you when formatting comes up in code review;)?\n\nDone.",
+      "parentUuid": "8f576719_4c3fb656",
+      "range": {
+        "startLine": 50,
+        "startChar": 61,
+        "endLine": 50,
+        "endChar": 63
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10ae8536_bd3be395",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-11T11:13:12Z",
       "side": 1,
       "message": "Is this an authoritative resource we can link to? Up to now, I think we have been using a select set of origins for authoritative resources (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/check_external_links.js;l\u003d15-19;drc\u003d9c429fb1389016c93bbfb11e1c88e8a8a03aa0ed)\n\nShould we maybe link to https://web.dev/web-bundles/#explaining-web-bundles instead?",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55cf504a_8f2eb474",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-11T11:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ae8536_bd3be395",
       "range": {
         "startLine": 77,
         "startChar": 17,
