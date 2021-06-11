@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ebbf201_ae7c0102",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-11T14:46:07Z",
+      "side": 0,
+      "message": "Wolfgang, do you remember why we added this here?",
+      "range": {
+        "startLine": 746,
+        "startChar": 60,
+        "endLine": 746,
+        "endChar": 80
+      },
+      "revId": "1867f35860c16bbb7e62e18a4cc4740253896a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
