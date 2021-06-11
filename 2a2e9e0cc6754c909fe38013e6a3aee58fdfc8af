@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c76c197_b3c8757b",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T11:13:12Z",
+      "side": 1,
+      "message": "Nit: Since `network` itself doesn\u0027t depend on this particular component, I don\u0027t think these additions are required. I am assuming they were leftover from when `WebBundleInfoView` was in `front_end/network/` instead?",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 43
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f576719_4c3fb656",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T11:13:12Z",
+      "side": 1,
+      "message": "Nit: clang-format is not great here (sad trombone). Should we maybe do the following for better formatting and readability?\n\n```\nurl \u003d\u003e {\n  return {\n    cells: [...]\n  };\n}\n```",
+      "range": {
+        "startLine": 50,
+        "startChar": 61,
+        "endLine": 50,
+        "endChar": 63
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ae8536_bd3be395",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T11:13:12Z",
+      "side": 1,
+      "message": "Is this an authoritative resource we can link to? Up to now, I think we have been using a select set of origins for authoritative resources (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/check_external_links.js;l\u003d15-19;drc\u003d9c429fb1389016c93bbfb11e1c88e8a8a03aa0ed)\n\nShould we maybe link to https://web.dev/web-bundles/#explaining-web-bundles instead?",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "2a2e9e0cc6754c909fe38013e6a3aee58fdfc8af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

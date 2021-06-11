@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc130432_726f8e1b",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T11:13:12Z",
+      "side": 1,
+      "message": "Nit: if this `4px` should remain the same as the one used in margin and double the width-padding, we could maybe use a CSS variable for that?\n\n```\n:host {\n --icon-padding: 4px;\n}\n.header {\n  padding: calc(2 * var(--icon-padding)) var(--icon-padding);\n}\n.icon {\n  margin: 0 var(--icon-padding);\n}\n```",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 26
+      },
+      "revId": "f5d59bcd69835d1470b85f915fdd55246d000a4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5c85a13_1466e56a",
+        "filename": "front_end/panels/network/components/WebBundleInfoView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T11:13:12Z",
+      "side": 1,
+      "message": "I recall a security discussion about our usage of `\u003ca\u003e` elements for linking and I think we can\u0027t do that (but I don\u0027t recall the details sadly).\n\nIn any case, we can use the `\u003cx-link\u003e` component from `front_end/ui/legacy/XLink.ts` in the meantime. An example usage: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/components/FrameDetailsView.ts;l\u003d845;drc\u003d2e36ec6ed731d3ee7fee6e46034117a71b220cdb",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "f5d59bcd69835d1470b85f915fdd55246d000a4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
