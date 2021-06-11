@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b4e308_daa79c42",
+        "filename": "config/gni/devtools_image_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T16:11:01Z",
+      "side": 1,
+      "message": "I will do a follow-up to rename these to `devtools_svg_sources` so that `gn format` automatically reorders these alphabetically: https://gn.googlesource.com/gn/+/refs/heads/main/docs/reference.md#cmd_format",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be425a8a_cd060c98",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T16:11:01Z",
+      "side": 1,
+      "message": "We have to use relative URLs here to ensure in all contexts, images are correctly resolved. You can use `import.meta.url` to do just that:\n\n```\niconElement.src \u003d new URL(`../../Images/${imageNameForResourceType(this._request.resourceType())}.svg`, import.meta.url).toString();\n```",
+      "range": {
+        "startLine": 1078,
+        "startChar": 27,
+        "endLine": 1078,
+        "endChar": 33
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3664790b_630833e0",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T16:11:01Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 1091,
+        "startChar": 33,
+        "endLine": 1091,
+        "endChar": 39
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68568b4e_be22c44f",
+        "filename": "front_end/panels/network/utils/utils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T16:11:01Z",
+      "side": 1,
+      "message": "Ultra-nit: I don\u0027t think this is required\n\n(I should really try to clean these up in the current codebase...)",
+      "range": {
+        "startLine": 5,
+        "startChar": 59,
+        "endLine": 5,
+        "endChar": 96
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
