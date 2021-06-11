@@ -16,6 +16,24 @@
       "message": "Do we need to re-render at all if only the slot content changes? Can we use unnamed slots to avoid modifying data.content?",
       "revId": "70cd2caf37631ef0e50c061a7388ea210c1c23af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf7a649_acc5dba3",
+        "filename": "front_end/panels/elements/components/Adorner.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-11T08:45:21Z",
+      "side": 1,
+      "message": "We don\u0027t, but I think it\u0027s better to keep `this.render()` here since it maintains consistency with other LitHTML elements (I think it\u0027s recommended by Jack\u0027s doc to always render() in set data()). Also, the cost of calling `render()` is fairly low (about 1/100 of DOM changing the slot content).\n\nWe can certainly use unnamed slot. It has a name now just for future compatibility: at the time of the design we were not sure if Adorner will become complicated and have more slots. I can change it to unnamed later when we have a chance to do a fly-by (possibly for container queries).",
+      "parentUuid": "b5e4ca8f_4b32ab7b",
+      "revId": "70cd2caf37631ef0e50c061a7388ea210c1c23af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
