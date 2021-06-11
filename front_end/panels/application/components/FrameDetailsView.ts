@@ -4,6 +4,8 @@
 
 import type {StackTraceData} from './StackTrace.js';
 import {StackTrace} from './StackTrace.js';
+import type {PermissionsPolicySectionData} from './PermissionsPolicySection.js';
+import {PermissionsPolicySection} from './PermissionsPolicySection.js';
 import * as Bindings from '../../../models/bindings/bindings.js';
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
@@ -209,41 +211,6 @@ const UIStrings = {
   *trace shows where in the code the frame has been created programmatically
   */
   creationStackTraceExplanation: 'This frame was created programmatically. The stack trace shows where this happened.',
-  /**
-   *@description Label for a button. When clicked more details (for the content this button refers to) will be shown.
-   */
-  showDetails: 'Show details',
-  /**
-  *@description Label for a button. When clicked some details (for the content this button refers to) will be hidden.
-  */
-  hideDetails: 'Hide details',
-  /**
-  *@description Label for a list of features which are allowed according to the current Permissions policy
-  *(a mechanism that allows developers to enable/disable browser features and APIs (e.g. camera, geolocation, autoplay))
-  */
-  allowedFeatures: 'Allowed Features',
-  /**
-  *@description Label for a list of features which are disabled according to the current Permissions policy
-  *(a mechanism that allows developers to enable/disable browser features and APIs (e.g. camera, geolocation, autoplay))
-  */
-  disabledFeatures: 'Disabled Features',
-  /**
-  *@description Tooltip text for a link to a specific request's headers in the Network panel.
-  */
-  clickToShowHeader: 'Click to reveal the request whose "`Permissions-Policy`" HTTP header disables this feature.',
-  /**
-  *@description Tooltip text for a link to a specific iframe in the Elements panel (Iframes can be nested, the link goes
-  *  to the outer-most iframe which blocks a certain feature).
-  */
-  clickToShowIframe: 'Click to reveal the top-most iframe which does not allow this feature in the elements panel.',
-  /**
-  *@description Text describing that a specific feature is blocked by not being included in the iframe's "allow" attribute.
-  */
-  disabledByIframe: 'missing in iframe "`allow`" attribute',
-  /**
-  *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a request header.
-  */
-  disabledByHeader: 'disabled by "`Permissions-Policy`" header',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -272,7 +239,7 @@ export class FrameDetailsReportView extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
   private protocolMonitorExperimentEnabled = false;
-  private showPermissionsDisallowedDetails = false;
+  private policies: Promise<Protocol.Page.PermissionsPolicyFeatureState[]|null>|null = null;
 
   connectedCallback(): void {
     this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -280,6 +247,7 @@ export class FrameDetailsReportView extends HTMLElement {
 
   set data(data: FrameDetailsReportViewData) {
     this.frame = data.frame;
+    this.policies = (this.frame && this.frame.getPermissionsPolicyState());
     this.render();
   }
 
@@ -350,168 +318,19 @@ export class FrameDetailsReportView extends HTMLElement {
           margin: 0 0 8px 30px;
           line-height: 28px;
         }
-
-        .policies-list {
-          padding-top: 3px;
-        }
       </style>
       <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.frame.displayName()} as ReportView.ReportView.ReportData}>
         ${this.renderDocumentSection()}
         ${this.renderIsolationSection()}
         ${this.renderApiAvailabilitySection()}
-        ${LitHtml.Directives.until(this.renderPermissionPolicy(), LitHtml.nothing)}
+        ${LitHtml.Directives.until(this.policies?.then(policies => LitHtml.html`
+          <${PermissionsPolicySection.litTagName} .data=${{policies} as PermissionsPolicySectionData}>
+          </${PermissionsPolicySection.litTagName}>
+        `), LitHtml.nothing)}
         ${this.protocolMonitorExperimentEnabled ? this.renderAdditionalInfoSection() : LitHtml.nothing}
       </${ReportView.ReportView.Report.litTagName}>
     `, this.shadow);
     // clang-format on
-  }
-
-  private async renderPermissionPolicy(): Promise<LitHtml.TemplateResult|{}> {
-    const policies = await (this.frame && this.frame.getPermissionsPolicyState());
-    if (!policies) {
-      return LitHtml.nothing;
-    }
-
-    const toggleShowPermissionsDisallowedDetails = (): void => {
-      this.showPermissionsDisallowedDetails = !this.showPermissionsDisallowedDetails;
-      this.render();
-    };
-
-    const renderAllowed = (): LitHtml.TemplateResult|{} => {
-      const allowed = policies.filter(p => p.allowed).map(p => p.feature).sort();
-      if (!allowed.length) {
-        return LitHtml.nothing;
-      }
-      return LitHtml.html`
-        <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.allowedFeatures)}</${
-          ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName}>
-          ${allowed.join(', ')}
-        </${ReportView.ReportView.ReportValue.litTagName}>
-      `;
-    };
-
-    const renderDisallowed = async(): Promise<LitHtml.TemplateResult|{}> => {
-      const disallowed = policies.filter(p => !p.allowed).sort((a, b) => a.feature.localeCompare(b.feature));
-      if (!disallowed.length) {
-        return LitHtml.nothing;
-      }
-      if (!this.showPermissionsDisallowedDetails) {
-        return LitHtml.html`
-          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.disabledFeatures)}</${
-            ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName}>
-            ${disallowed.map(p => p.feature).join(', ')}
-            <button class="link" @click=${(): void => toggleShowPermissionsDisallowedDetails()}>
-              ${i18nString(UIStrings.showDetails)}
-            </button>
-          </${ReportView.ReportView.ReportValue.litTagName}>
-        `;
-      }
-
-      const frameManager = SDK.FrameManager.FrameManager.instance();
-      const featureRows = await Promise.all(disallowed.map(async policy => {
-        const frame = policy.locator ? frameManager.getFrame(policy.locator.frameId) : null;
-        const blockReason = policy.locator?.blockReason;
-        const linkTargetDOMNode = await (
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.IframeAttribute && frame &&
-            frame.getOwnerDOMNodeOrDocument());
-        const resource = frame && frame.resourceForURL(frame.url);
-        const linkTargetRequest =
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.Header && resource && resource.request;
-        const blockReasonText = blockReason === Protocol.Page.PermissionsPolicyBlockReason.IframeAttribute ?
-            i18nString(UIStrings.disabledByIframe) :
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.Header ? i18nString(UIStrings.disabledByHeader) :
-                                                                                '';
-        const revealHeader = async(): Promise<void> => {
-          if (!linkTargetRequest) {
-            return;
-          }
-          const headerName =
-              linkTargetRequest.responseHeaderValue('permissions-policy') ? 'permissions-policy' : 'feature-policy';
-          const requestLocation = Network.NetworkSearchScope.UIRequestLocation.responseHeaderMatch(
-              linkTargetRequest,
-              {name: headerName, value: ''},
-          );
-          // TODO(crbug.com/1196676) Refactor to use Common.Revealer
-          await Network.NetworkPanel.RequestLocationRevealer.instance().reveal(requestLocation);
-        };
-
-        return LitHtml.html`
-          <div class="permissions-row">
-            <div>
-              <${IconButton.Icon.Icon.litTagName} class="allowed-icon"
-                .data=${{color: '', iconName: 'error_icon', width: '14px'} as IconButton.Icon.IconData}>
-              </${IconButton.Icon.Icon.litTagName}>
-            </div>
-            <div class="feature-name text-ellipsis">
-              ${policy.feature}
-            </div>
-            <div class="block-reason">${blockReasonText}</div>
-            <div>
-              ${
-            linkTargetDOMNode ? this.renderIconLink(
-                                    'elements_panel_icon',
-                                    i18nString(UIStrings.clickToShowIframe),
-                                    (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode),
-                                    ) :
-                                LitHtml.nothing}
-              ${
-            linkTargetRequest ? this.renderIconLink(
-                                    'network_panel_icon',
-                                    i18nString(UIStrings.clickToShowHeader),
-                                    revealHeader,
-                                    ) :
-                                LitHtml.nothing}
-            </div>
-          </div>
-        `;
-      }));
-
-      return LitHtml.html`
-        <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.disabledFeatures)}</${
-          ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName} class="policies-list">
-          <style>
-            .permissions-row {
-              display: flex;
-              line-height: 22px;
-            }
-
-            .permissions-row div {
-              padding-right: 5px;
-            }
-
-            .feature-name {
-              width: 135px;
-            }
-
-            .allowed-icon {
-              padding: 2.5px 0;
-            }
-
-            .block-reason {
-              width: 215px;
-            }
-          </style>
-          ${featureRows}
-          <div class="permissions-row">
-            <button class="link" @click=${(): void => toggleShowPermissionsDisallowedDetails()}>
-              ${i18nString(UIStrings.hideDetails)}
-            </button>
-          </div>
-        </${ReportView.ReportView.ReportValue.litTagName}>
-      `;
-    };
-
-    return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18n.i18n.lockedString('Permissions Policy')}</${
-        ReportView.ReportView.ReportSectionHeader.litTagName}>
-      ${renderAllowed()}
-      ${LitHtml.Directives.until(renderDisallowed(), LitHtml.nothing)}
-      <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
-        ReportView.ReportView.ReportSectionDivider.litTagName}>
-    `;
   }
 
   private renderDocumentSection(): LitHtml.TemplateResult|{} {
