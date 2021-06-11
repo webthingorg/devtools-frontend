@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30fdcc85_d2146822",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1263834
+      },
+      "writtenOn": "2021-06-11T06:32:04Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m skipping the code-splitting test on mac since it\u0027s flaky on our waterfall. PTAL!",
+      "revId": "5b348a21a5385f45872b43a74640dc2f7dcd60cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
