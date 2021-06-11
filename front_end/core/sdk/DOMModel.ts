@@ -516,17 +516,12 @@ export class DOMNode {
     });
   }
 
-  removeNode(callback?: (
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (arg0: ProtocolClient.InspectorBackend.ProtocolError|null, arg1?: Protocol.DOM.NodeId|undefined) => any)): void {
-    this._agent.invoke_removeNode({nodeId: this.id}).then(response => {
+  removeNode(): Promise<ProtocolClient.InspectorBackend.ProtocolError|null> {
+    return this._agent.invoke_removeNode({nodeId: this.id}).then(response => {
       if (!response.getError()) {
         this._domModel.markUndoableState();
       }
-      if (callback) {
-        callback(response.getError() || null);
-      }
+      return response.getError() || null;
     });
   }
 
