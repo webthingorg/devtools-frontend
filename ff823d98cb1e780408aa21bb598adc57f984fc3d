@@ -56,6 +56,30 @@
       },
       "revId": "ff823d98cb1e780408aa21bb598adc57f984fc3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff0728a_ed326f71",
+        "filename": "scripts/eslint_rules/tests/ban_self_closing_custom_element_tagnames_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-11T16:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d65820e1_11fadb34",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 10
+      },
+      "revId": "ff823d98cb1e780408aa21bb598adc57f984fc3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
