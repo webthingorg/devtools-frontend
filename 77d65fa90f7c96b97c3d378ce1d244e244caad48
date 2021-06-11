@@ -16,6 +16,29 @@
       "message": "PTAL\n\nWolfgang for the question.",
       "revId": "77d65fa90f7c96b97c3d378ce1d244e244caad48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d49b4d4_52718862",
+        "filename": "front_end/panels/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T15:58:04Z",
+      "side": 1,
+      "message": "Can we also remove this dependency now (and its visibility in `network/BUILD.gn`), or are we still depending on Network somewhere else?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 34
+      },
+      "revId": "77d65fa90f7c96b97c3d378ce1d244e244caad48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
