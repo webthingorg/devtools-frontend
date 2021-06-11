@@ -57,6 +57,7 @@ import {Tabs as NetworkItemViewTabs} from './NetworkItemView.js';
 import type {NetworkTimeCalculator} from './NetworkTimeCalculator.js'; // eslint-disable-line no-unused-vars
 
 import {NetworkRequestId} from './NetworkRequestId.js';
+import {imageNameForResourceType} from './utils/utils.js';
 
 const UIStrings = {
   /**
@@ -1069,14 +1070,14 @@ export class NetworkRequestNode extends NetworkNode {
         this._request.populateImageSource((previewImage as HTMLImageElement));
 
         iconElement = document.createElement('div');
-        iconElement.classList.add('icon');
+        iconElement.classList.add('image');
         iconElement.appendChild(previewImage);
       } else {
         iconElement = document.createElement('img');
-        iconElement.classList.add('icon');
         iconElement.alt = this._request.resourceType().title();
+        iconElement.src = `Images/${imageNameForResourceType(this._request.resourceType())}.svg`;
       }
-      iconElement.classList.add(this._request.resourceType().name());
+      iconElement.classList.add('icon');
 
       cell.appendChild(iconElement);
     }
@@ -1087,7 +1088,7 @@ export class NetworkRequestNode extends NetworkNode {
         const secondIconElement = document.createElement('img');
         secondIconElement.classList.add('icon');
         secondIconElement.alt = i18nString(UIStrings.webBundleInnerRequest);
-        secondIconElement.classList.add('webbundleinnerrequest');
+        secondIconElement.src = 'Images/ic_file_webbundle_inner_request.svg';
 
         const networkManager = SDK.NetworkManager.NetworkManager.forRequest(this._request);
         if (webBundleInnerRequestInfo.bundleRequestId && networkManager) {
