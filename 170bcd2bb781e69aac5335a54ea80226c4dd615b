@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfca2709_95c92a81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2021-06-11T16:14:26Z",
+      "side": 1,
+      "message": "ptal and thanks a lot for all your help here\n\nputting this on the CQ, but I am not sure this actually already works as the Blink dependency just landed",
+      "revId": "170bcd2bb781e69aac5335a54ea80226c4dd615b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
