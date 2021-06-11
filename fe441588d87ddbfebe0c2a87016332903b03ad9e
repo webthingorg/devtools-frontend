@@ -1,0 +1,231 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf315f38_7bb3faab",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "2021?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ab2c56_0525e477",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "Could you perhaps improve description a bit (for translators): what is a brand in this context? Also, perhaps explain that Mobile means a mobile phone. And things like `Delete` and `Update` that they are used in buttons and represent an action (a verb, not a noun).",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb298bc_9416adc9",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "wrong description?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4efd0ee8_4adab9aa",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "nit: is it specific to emulation? could it be potentially used in other contexts? maybe we can drop -emulation- so it\u0027s shorter.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2fc28c9_617eea74",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "could you extract a class for the custom event like in other components? Also I think custom events should not contain dashes.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd9be55_c42722f3",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "is it possible to put the input inside the label instead of using IDs?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38191a89_f9438a21",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "which input element is this label for?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30dbb1cc_401c1a0b",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "is there a need for both aria-label and title?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0afc1fff_1d71533e",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "please use the x-link component for this.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2508113_77088bc2",
+        "filename": "front_end/panels/emulation/utils/BUILD.gn",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "2021?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "587156d7_7badb1fe",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "Same here: let\u0027s extract a custom event class and remove dashes from the name.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "315183e4_895a7f8f",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "Is there no type in TS for this yet? Can we define a global one if it\u0027s the case?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e3a058_6a215c62",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T08:39:01Z",
+      "side": 1,
+      "message": "waitForAria would not work here?",
+      "range": {
+        "startLine": 181,
+        "startChar": 29,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
