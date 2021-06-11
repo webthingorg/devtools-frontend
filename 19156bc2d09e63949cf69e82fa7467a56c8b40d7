@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d6ba1c_f34dae91",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-11T06:15:05Z",
+      "side": 1,
+      "message": "Yes, the follow-up is already in the works.",
+      "parentUuid": "66ca66b2_02e6e284",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3dd5fa8_6fb65268",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c29fd81_93390d8a",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-11T06:15:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3dd5fa8_6fb65268",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 42
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "244ea716_0d636731",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-06-10T16:45:17Z",
       "side": 1,
       "message": "Nit: same here",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 42
+      },
+      "revId": "19156bc2d09e63949cf69e82fa7467a56c8b40d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abef97af_dd94557b",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-11T06:15:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "244ea716_0d636731",
       "range": {
         "startLine": 102,
         "startChar": 4,
