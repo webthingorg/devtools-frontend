@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3429e112_3d07b551",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf315f38_7bb3faab",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38ab2c56_0525e477",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "Could you perhaps improve description a bit (for translators): what is a brand in this context? Also, perhaps explain that Mobile means a mobile phone. And things like `Delete` and `Update` that they are used in buttons and represent an action (a verb, not a noun).",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "accb6c07_65b6ad8e",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ab2c56_0525e477",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2538649_368ac95f",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbb298bc_9416adc9",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4efd0ee8_4adab9aa",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "nit: is it specific to emulation? could it be potentially used in other contexts? maybe we can drop -emulation- so it\u0027s shorter.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa8ce353_d7e52398",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4efd0ee8_4adab9aa",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5032f19_ae474155",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2fc28c9_617eea74",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd9be55_c42722f3",
@@ -99,6 +189,24 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "is it possible to put the input inside the label instead of using IDs?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8647feca_5a349007",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd9be55_c42722f3",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b150f92c_4e09f253",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "38191a89_f9438a21",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30dbb1cc_401c1a0b",
@@ -137,6 +263,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96d781b_0749d374",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "30dbb1cc_401c1a0b",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0afc1fff_1d71533e",
@@ -150,6 +294,24 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "please use the x-link component for this.",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5ffe19f_8b947dba",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done, however two tooltips are showing one for title and other for link url, is there a way to mitigate it without updating xlink component?",
+      "parentUuid": "0afc1fff_1d71533e",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -190,6 +352,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3701367_c6e10f78",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Updated event name.",
+      "parentUuid": "587156d7_7badb1fe",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "315183e4_895a7f8f",
         "filename": "test/e2e/network/network-conditions_test.ts",
         "patchSetId": 27
@@ -207,6 +387,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cefaa89_2986c3fb",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "yes TS typings havent been updated for userAgentData yet, I have added typeScript interface in file. Is there a better global definition to create the interface.",
+      "parentUuid": "315183e4_895a7f8f",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35e3a058_6a215c62",
         "filename": "test/e2e/network/network-conditions_test.ts",
         "patchSetId": 27
@@ -218,6 +416,30 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "waitForAria would not work here?",
+      "range": {
+        "startLine": 181,
+        "startChar": 29,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e46c091_b73d9343",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-11T21:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e3a058_6a215c62",
       "range": {
         "startLine": 181,
         "startChar": 29,
