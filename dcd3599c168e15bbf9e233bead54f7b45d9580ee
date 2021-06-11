@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdffc72a_3ff78ec9",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-11T13:24:06Z",
+      "side": 1,
+      "message": "nit: this might be a bit clearer as a regex replace, so that someone knows you\u0027re removing the trailing .js, i.e. exportingFileName.replace(/\\.js$/, \u0027\u0027);",
+      "revId": "dcd3599c168e15bbf9e233bead54f7b45d9580ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3993a3b_7b71dccf",
+        "filename": "scripts/eslint_rules/tests/check_css_import_test_file.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-11T13:24:06Z",
+      "side": 1,
+      "message": "nits: probably needs a license, and probably can be otherwise empty",
+      "revId": "dcd3599c168e15bbf9e233bead54f7b45d9580ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
