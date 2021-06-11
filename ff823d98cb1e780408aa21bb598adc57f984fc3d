@@ -33,6 +33,29 @@
       "message": "LGTM! Thanks for looking at this 😊",
       "revId": "ff823d98cb1e780408aa21bb598adc57f984fc3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d65820e1_11fadb34",
+        "filename": "scripts/eslint_rules/tests/ban_self_closing_custom_element_tagnames_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-11T13:34:57Z",
+      "side": 1,
+      "message": "Can we have the following tests added (to double-check these are also working):\n\nValid:\n1. A custom element nested in a regular element\n2. A custom element nested in a custom element\n\nInvalid:\n1. A custom element nested in a regular element, where the custom element is not closed\n2. A custom element nested in a custom element, where the child custom element is not closed\n3. A custom element nested in a custom element, where the parent custom element is not closed",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 10
+      },
+      "revId": "ff823d98cb1e780408aa21bb598adc57f984fc3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
