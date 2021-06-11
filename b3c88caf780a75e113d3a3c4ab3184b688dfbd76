@@ -39,6 +39,30 @@
       },
       "revId": "b3c88caf780a75e113d3a3c4ab3184b688dfbd76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78cc8288_ea25f5cf",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-11T07:00:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b0a8817_fc38a546",
+      "range": {
+        "startLine": 293,
+        "startChar": 24,
+        "endLine": 293,
+        "endChar": 40
+      },
+      "revId": "b3c88caf780a75e113d3a3c4ab3184b688dfbd76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
