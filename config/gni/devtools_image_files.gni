@@ -42,6 +42,7 @@ devtools_image_files = [
 devtools_svg_files = [
   "accelerometer-back.svg",
   "accelerometer-front.svg",
+  "add-icon.svg",
   "lighthouse_logo.svg",
   "checkboxCheckmark.svg",
   "chevrons.svg",
