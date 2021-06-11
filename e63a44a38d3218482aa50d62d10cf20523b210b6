@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67867b4a_89515bc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1459092
+      },
+      "writtenOn": "2021-06-11T17:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce9250c6_4ffae917",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 98
+      },
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de1296b4_903e42a3",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-09T05:13:57Z",
       "side": 1,
       "message": "FYI: Instead of \"Bug\" you can use \"Fixed\", which will auto close the bug.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18db9d2c_24aef619",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1459092
+      },
+      "writtenOn": "2021-06-11T17:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1296b4_903e42a3",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -111,6 +159,30 @@
       "writtenOn": "2021-06-09T05:13:57Z",
       "side": 1,
       "message": "nit: Please improve the description a bit here to help translators. What exactly is an \"item\" in this context? Where is the message shown? etc.",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "e63a44a38d3218482aa50d62d10cf20523b210b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327a9483_e474725c",
+        "filename": "front_end/panels/network/BlockedURLsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1459092
+      },
+      "writtenOn": "2021-06-11T17:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b2072c5_4ae56dc7",
       "range": {
         "startLine": 52,
         "startChar": 16,
