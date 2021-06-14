@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "516d1d79_8ec30c99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T11:27:42Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "d8b3ccc1c238eff3c1f4b752fa3bacb94da9f3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3432836_2d98533a",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T11:27:42Z",
+      "side": 1,
+      "message": "Since this has moved to platform, do we still need it? Or is this needed for the `export {} from \u0027\u0027` entry in \"platform.ts\"?",
+      "range": {
+        "startLine": 67,
+        "startChar": 14,
+        "endLine": 67,
+        "endChar": 38
+      },
+      "revId": "d8b3ccc1c238eff3c1f4b752fa3bacb94da9f3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
