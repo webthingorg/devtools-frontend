@@ -39,6 +39,30 @@
       },
       "revId": "d8b3ccc1c238eff3c1f4b752fa3bacb94da9f3cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daacf006_9af6d3c0",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-14T11:31:23Z",
+      "side": 1,
+      "message": "Yes we still need it, as we specifically exempt these ones from `platform/platform.ts`. Therefore, any import of these particular symbols are exempted.",
+      "parentUuid": "f3432836_2d98533a",
+      "range": {
+        "startLine": 67,
+        "startChar": 14,
+        "endLine": 67,
+        "endChar": 38
+      },
+      "revId": "d8b3ccc1c238eff3c1f4b752fa3bacb94da9f3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
