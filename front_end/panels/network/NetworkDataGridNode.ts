@@ -222,7 +222,7 @@ const UIStrings = {
   /**
   *@description Text in Network Data Grid Node of the Network panel
   */
-  webBundleInnerRequest: 'from Web Bundle',
+  webBundleInnerRequest: 'Served from Web Bundle',
   /**
   *@description Text in Network Data Grid Node of the Network panel
   */
