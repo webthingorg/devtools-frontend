@@ -63,6 +63,30 @@
       },
       "revId": "7242fbb8beb05402200a77462cfb03d61ad7cf41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb30492_7c86fbb0",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T15:43:39Z",
+      "side": 1,
+      "message": "Yeah, thanks a lot!",
+      "parentUuid": "79c32e76_f0069015",
+      "range": {
+        "startLine": 223,
+        "startChar": 16,
+        "endLine": 223,
+        "endChar": 67
+      },
+      "revId": "7242fbb8beb05402200a77462cfb03d61ad7cf41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
