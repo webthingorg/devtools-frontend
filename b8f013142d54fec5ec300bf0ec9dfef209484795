@@ -50,6 +50,40 @@
       "message": "LGTM from my side.",
       "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d863d24_57c175e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-14T15:02:22Z",
+      "side": 1,
+      "message": "LGTM, but one concern about the test.",
+      "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cac71ae9_891e9e76",
+        "filename": "test/e2e/sources/can-disable-auto-sources-focus_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-14T15:02:22Z",
+      "side": 1,
+      "message": "I think this might be problematic. In the second case below, could it happen that we\u0027re getting the paused event above, and then check the panel before devtools had time to switch?",
+      "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
