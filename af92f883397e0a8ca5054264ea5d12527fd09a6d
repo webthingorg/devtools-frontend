@@ -16,6 +16,23 @@
       "message": "Thank you for reviewing, I have updated based on feedback, let me know.",
       "revId": "af92f883397e0a8ca5054264ea5d12527fd09a6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0865e7b_95b3e5ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T06:17:23Z",
+      "side": 1,
+      "message": "Overall it looks good to me. Could we please add a unit test and a component doc for the new component (to improve the coverage and documentation)? ",
+      "revId": "af92f883397e0a8ca5054264ea5d12527fd09a6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

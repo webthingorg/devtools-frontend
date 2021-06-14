@@ -318,6 +318,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24392e13_6b09c740",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T06:17:23Z",
+      "side": 1,
+      "message": "Could we perhaps remove the title from the links? I am not sure if UIStrings.clientHintsInfo makes sense as a title for a link given that it\u0027s quite long and probably the users are more interested to learn where the URL leads to.",
+      "parentUuid": "b5ffe19f_8b947dba",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2508113_77088bc2",
         "filename": "front_end/panels/emulation/utils/BUILD.gn",
         "patchSetId": 27
@@ -329,6 +347,24 @@
       "writtenOn": "2021-06-11T08:39:01Z",
       "side": 1,
       "message": "2021?",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af96cbde_969cf2a2",
+        "filename": "front_end/panels/emulation/utils/BUILD.gn",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T06:17:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2508113_77088bc2",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -399,6 +435,24 @@
       "side": 1,
       "message": "yes TS typings havent been updated for userAgentData yet, I have added typeScript interface in file. Is there a better global definition to create the interface.",
       "parentUuid": "315183e4_895a7f8f",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f71525_8f5393a7",
+        "filename": "test/e2e/network/network-conditions_test.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T06:17:23Z",
+      "side": 1,
+      "message": "Perhaps another way would be to use front_end/global_typings/global_defs.d.ts",
+      "parentUuid": "5cefaa89_2986c3fb",
       "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
