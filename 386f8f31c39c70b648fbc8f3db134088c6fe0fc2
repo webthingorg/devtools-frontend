@@ -99,6 +99,24 @@
       "parentUuid": "cfb14218_db06b00a",
       "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e2278b_ab2985b7",
+        "filename": "front_end/ui/legacy/Tooltip.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-06-14T14:16:17Z",
+      "side": 1,
+      "message": "My understanding is that the mousemove handler is for the whole document, so this function will be called as you move your mouse over devtools, whatever the element.\nThat said, accessing the computed style to check the display property only seems to do a style calculation, not a reflow, which is cheaper (no layout to be created, no painting to do). I\u0027m willing to bet too, that as you keep moving and nothing changes in the DOM, the subsequent restyles are really fast.\n\nI\u0027m not against finding another way to position the close button, but I\u0027m of the opinion that it might not be needed (also I don\u0027t have another solution off hand).",
+      "parentUuid": "ac30fcae_f2ce0094",
+      "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
