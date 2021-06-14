@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf64954_783b702e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-14T14:23:21Z",
+      "side": 1,
+      "message": "LGTM, thanks!\n\nnit: the CL title shouldn\u0027t be longer than 1 line. So [title][empty line][more details if needed].\n\nFYI, the merge conflict is nothing to worry about, it can usually be solved automatically via the rebase button. Only if the automatic rebase does not work do you need to rebase locally and upload again.",
+      "revId": "c79f5f14889d1f58ace017429a881bedff15e66d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
