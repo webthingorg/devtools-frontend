@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff342af_f72aa1f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-14T05:29:13Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nCan you please rubber-stamp this revert?\n\nthanks,\nBenedikt",
+      "revId": "22734e8b162086b890695ca99a7cdf3966142446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
