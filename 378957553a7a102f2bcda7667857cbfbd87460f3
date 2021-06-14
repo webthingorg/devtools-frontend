@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8ed5ee_cd18613d",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-14T06:23:23Z",
+      "side": 1,
+      "message": "Did you want to check that it\u0027s two, or can it be any number (either add the check here, or update the comment above).",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "378957553a7a102f2bcda7667857cbfbd87460f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
