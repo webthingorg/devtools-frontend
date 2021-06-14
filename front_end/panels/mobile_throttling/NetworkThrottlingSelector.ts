@@ -76,11 +76,18 @@ export class NetworkThrottlingSelector {
    * returns false if selected condition no longer exists
    */
   _networkConditionsChanged(): boolean {
+    // Caution: titles might be different function instances, which produce
+    // the same value.
+
     const value = SDK.NetworkManager.MultitargetNetworkManager.instance().networkConditions();
+    const valueTitle = typeof value.title === 'function' ? value.title() : value.title;
+
     for (let index = 0; index < this._options.length; ++index) {
       const option = this._options[index];
+      const optionTitle = typeof option?.title === 'function' ? option.title() : option?.title;
+
       if (option && option.download === value.download && option.upload === value.upload &&
-          option.latency === value.latency && option.title === value.title) {
+          option.latency === value.latency && optionTitle === valueTitle) {
         this._selectCallback(index);
         return true;
       }
