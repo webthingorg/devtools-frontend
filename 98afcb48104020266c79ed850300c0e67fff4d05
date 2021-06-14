@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93502bfc_10cefe37",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T09:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d113eb8_d46ea700",
+      "range": {
+        "startLine": 123,
+        "startChar": 11,
+        "endLine": 123,
+        "endChar": 30
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b9cb2eb_084fddb0",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc00d959_8b37c631",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T09:31:36Z",
+      "side": 1,
+      "message": "Yes, see the recording test.",
+      "parentUuid": "7b9cb2eb_084fddb0",
+      "range": {
+        "startLine": 142,
+        "startChar": 10,
+        "endLine": 145,
+        "endChar": 29
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4b4ec4b_d56467b1",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-06-14T09:27:39Z",
       "side": 1,
       "message": "This might have been a drive by change.",
+      "range": {
+        "startLine": 241,
+        "startChar": 33,
+        "endLine": 241,
+        "endChar": 37
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c498cb5_9b727de7",
+        "filename": "front_end/models/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T09:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4b4ec4b_d56467b1",
       "range": {
         "startLine": 241,
         "startChar": 33,
