@@ -46,6 +46,30 @@
       },
       "revId": "1867f35860c16bbb7e62e18a4cc4740253896a03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbf7eee6_e7efecaf",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-14T10:04:48Z",
+      "side": 0,
+      "message": "This does not feel familiar to me. It was originally added as part of https://crrev.com/c/2403841.",
+      "parentUuid": "01d83006_279003a0",
+      "range": {
+        "startLine": 746,
+        "startChar": 60,
+        "endLine": 746,
+        "endChar": 80
+      },
+      "revId": "1867f35860c16bbb7e62e18a4cc4740253896a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
