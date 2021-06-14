@@ -1113,7 +1113,10 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
   }
 
   _setAsCurrentPanel(): Promise<void> {
-    return UI.ViewManager.ViewManager.instance().showView('sources');
+    if (Common.Settings.Settings.instance().moduleSetting('autoFocusOnDebuggerPauseEnabled').get()) {
+      return UI.ViewManager.ViewManager.instance().showView('sources');
+    }
+    return Promise.resolve();
   }
 
   _extensionSidebarPaneAdded(event: Common.EventTarget.EventTargetEvent): void {

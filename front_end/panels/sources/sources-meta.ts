@@ -381,6 +381,17 @@ const UIStrings = {
   *@description Text to open a file
   */
   openFile: 'Open file',
+  /**
+  * @description  Title of a setting under the Sources category in Settings. If this option is on,
+  * the sources panel will not be automatically be shown whenever the application hits a breakpoint.
+  */
+  disableAutoFocusOnDebuggerPause: 'Don’t focus Sources panel when triggering a breakpoint',
+  /**
+  * @description  Title of a setting under the Sources category in Settings. If this option is on,
+  * the sources panel will be automatically shown whenever the application hits a breakpoint.
+  */
+  enableAutoFocusOnDebuggerPause: 'Focus Sources panel when triggering a breakpoint',
+
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sources/sources-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -1522,6 +1533,24 @@ Common.Settings.registerSettingExtension({
     {
       value: false,
       title: i18nLazyString(UIStrings.doNotDisplayVariableValuesInline),
+    },
+  ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.SOURCES,
+  title: i18nLazyString(UIStrings.enableAutoFocusOnDebuggerPause),
+  settingName: 'autoFocusOnDebuggerPauseEnabled',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: true,
+  options: [
+    {
+      value: true,
+      title: i18nLazyString(UIStrings.enableAutoFocusOnDebuggerPause),
+    },
+    {
+      value: false,
+      title: i18nLazyString(UIStrings.disableAutoFocusOnDebuggerPause),
     },
   ],
 });

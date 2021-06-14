@@ -8789,6 +8789,9 @@
   "panels/sources/sources-meta.ts | disableAutocompletion": {
     "message": "Disable autocompletion"
   },
+  "panels/sources/sources-meta.ts | disableAutoFocusOnDebuggerPause": {
+    "message": "Don’t focus Sources panel when triggering a breakpoint"
+  },
   "panels/sources/sources-meta.ts | disableBracketMatching": {
     "message": "Disable bracket matching"
   },
@@ -8827,6 +8830,9 @@
   },
   "panels/sources/sources-meta.ts | enableAutocompletion": {
     "message": "Enable autocompletion"
+  },
+  "panels/sources/sources-meta.ts | enableAutoFocusOnDebuggerPause": {
+    "message": "Focus Sources panel when triggering a breakpoint"
   },
   "panels/sources/sources-meta.ts | enableBracketMatching": {
     "message": "Enable bracket matching"
