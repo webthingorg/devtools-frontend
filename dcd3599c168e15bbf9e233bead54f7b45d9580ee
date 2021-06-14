@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "043a4337_04c27863",
+        "filename": "scripts/eslint_rules/lib/check_css_import.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-14T09:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdffc72a_3ff78ec9",
+      "revId": "dcd3599c168e15bbf9e233bead54f7b45d9580ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3993a3b_7b71dccf",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-11T13:24:06Z",
       "side": 1,
       "message": "nits: probably needs a license, and probably can be otherwise empty",
+      "revId": "dcd3599c168e15bbf9e233bead54f7b45d9580ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1c2a4f_ced97166",
+        "filename": "scripts/eslint_rules/tests/check_css_import_test_file.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-14T09:45:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3993a3b_7b71dccf",
       "revId": "dcd3599c168e15bbf9e233bead54f7b45d9580ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
