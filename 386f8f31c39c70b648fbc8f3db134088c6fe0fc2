@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97432dbe_e5181820",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-06-14T13:16:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "379c3b41_1cf8a9a3",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27c9756c_eb5a1c06",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-06-14T13:06:17Z",
       "side": 1,
       "message": "will it have any performance impact? I think getComputedStyle forces a layout?",
+      "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb14218_db06b00a",
+        "filename": "front_end/ui/legacy/Tooltip.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-06-14T13:16:05Z",
+      "side": 1,
+      "message": "Yes, it will. I am not aware of any way that doesn\u0027t force layout to detect if an element is visible than this.\nThis happens on mouseover, not while creating a panel\u0027s UI, so I\u0027m thinking this might be ok. Any other idea?",
+      "parentUuid": "27c9756c_eb5a1c06",
       "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
