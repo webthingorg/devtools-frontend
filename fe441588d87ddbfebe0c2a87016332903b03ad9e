@@ -334,6 +334,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c57851_534756b8",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-14T23:55:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24392e13_6b09c740",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2508113_77088bc2",
