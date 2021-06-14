@@ -16,6 +16,23 @@
       "message": "Hi Philip, hi Benedikt, hi Marian,\n\nhere\u0027s the change to add a setting for Chrome DevTools, which allows you to disable the \nauto-focus on Debugger.paused events.\n\nPTAL!\n\n@Marian: Instead of using the negation (\"Do not focus Sources panel when triggering a breakpoint\") I used the active case (\"Focus ..\") as a title for the setting (it seems as if other options also do the same). Let me know if you want me to change that!",
       "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d3c534_56d43d3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507398
+      },
+      "writtenOn": "2021-06-14T11:24:51Z",
+      "side": 1,
+      "message": "Looks great!",
+      "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
