@@ -33,6 +33,23 @@
       "message": "Hi Jack,\n\nGentle ping on the review of this CL.",
       "revId": "a85b8ecfb1fe2f829a413869c70591b26dbec09a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "919aab79_bf7a6cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-14T14:50:04Z",
+      "side": 1,
+      "message": "Theses changes look ok to me, but I think we should give Jack (who is OOO for the whole week and potentially next week) a chance to take a look. If this turns out to be a blocking you we can revisit. ",
+      "revId": "a85b8ecfb1fe2f829a413869c70591b26dbec09a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
