@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8d6ce58_85c0d47c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2021-06-14T12:41:10Z",
+      "side": 1,
+      "message": "Because we still preserve the old behabvior of adding a \"fake\" root category until this test has landed.",
+      "parentUuid": "c11f6a11_3fea3c18",
+      "revId": "97781cd1c9beb44c4010434b3db19b12382098d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99c110a7_29b5a7de",
         "filename": "test/e2e/memory/memory_test.ts",
         "patchSetId": 7
