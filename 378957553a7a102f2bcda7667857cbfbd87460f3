@@ -22,6 +22,30 @@
       },
       "revId": "378957553a7a102f2bcda7667857cbfbd87460f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3563410_f63b6ec4",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2021-06-14T09:58:11Z",
+      "side": 1,
+      "message": "Whoops, I think we want to preserve the behavior of checking for two such elements. Done.",
+      "parentUuid": "7c8ed5ee_cd18613d",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "378957553a7a102f2bcda7667857cbfbd87460f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
