@@ -47,6 +47,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7dc3dca_9329f6d8",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-14T10:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be425a8a_cd060c98",
+      "range": {
+        "startLine": 1078,
+        "startChar": 27,
+        "endLine": 1078,
+        "endChar": 33
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3664790b_630833e0",
@@ -70,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d19d1c9_6f50c205",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-14T10:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3664790b_630833e0",
+      "range": {
+        "startLine": 1091,
+        "startChar": 33,
+        "endLine": 1091,
+        "endChar": 39
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68568b4e_be22c44f",
@@ -83,6 +131,30 @@
       "writtenOn": "2021-06-11T16:11:01Z",
       "side": 1,
       "message": "Ultra-nit: I don\u0027t think this is required\n\n(I should really try to clean these up in the current codebase...)",
+      "range": {
+        "startLine": 5,
+        "startChar": 59,
+        "endLine": 5,
+        "endChar": 96
+      },
+      "revId": "383f9a5c1890d774d5e6aa7ace9f373aba10189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ce46fe_7d38163f",
+        "filename": "front_end/panels/network/utils/utils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-06-14T10:44:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68568b4e_be22c44f",
       "range": {
         "startLine": 5,
         "startChar": 59,
