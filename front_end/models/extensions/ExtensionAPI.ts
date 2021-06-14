@@ -43,6 +43,7 @@ export namespace PrivateAPI {
   export const enum Events {
     ButtonClicked = 'button-clicked-',
     PanelObjectSelected = 'panel-objectSelected-',
+    InspectedURLChanged = 'inspected-url-changed',
     NetworkRequestFinished = 'network-request-finished',
     OpenResource = 'open-resource',
     PanelSearch = 'panel-search-',
@@ -68,7 +69,6 @@ export namespace PrivateAPI {
     GetPageResources = 'getPageResources',
     GetRequestContent = 'getRequestContent',
     GetResourceContent = 'getResourceContent',
-    InspectedURLChanged = 'inspectedURLChanged',
     OpenResource = 'openResource',
     Reload = 'Reload',
     Subscribe = 'subscribe',
