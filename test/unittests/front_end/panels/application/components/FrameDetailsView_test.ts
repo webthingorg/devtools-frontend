@@ -63,6 +63,7 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
       },
       creationStackTraceTarget: null,
     }),
+    getPermissionsPolicyState: () => null,
   } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
   return newFrame;
 };
