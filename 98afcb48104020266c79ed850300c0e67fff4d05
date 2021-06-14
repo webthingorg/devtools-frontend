@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6879bff_4177b2b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-14T09:27:39Z",
+      "side": 1,
+      "message": "LGTM % nits, thanks!",
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d113eb8_d46ea700",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-14T09:27:39Z",
+      "side": 1,
+      "message": "Can you factor this out into its own boolean?",
+      "range": {
+        "startLine": 123,
+        "startChar": 11,
+        "endLine": 123,
+        "endChar": 30
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9cb2eb_084fddb0",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-14T09:27:39Z",
+      "side": 1,
+      "message": "When we do it like this - will this trigger scroll events on the element?",
+      "range": {
+        "startLine": 142,
+        "startChar": 10,
+        "endLine": 145,
+        "endChar": 29
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b4ec4b_d56467b1",
+        "filename": "front_end/models/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-14T09:27:39Z",
+      "side": 1,
+      "message": "This might have been a drive by change.",
+      "range": {
+        "startLine": 241,
+        "startChar": 33,
+        "endLine": 241,
+        "endChar": 37
+      },
+      "revId": "98afcb48104020266c79ed850300c0e67fff4d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
