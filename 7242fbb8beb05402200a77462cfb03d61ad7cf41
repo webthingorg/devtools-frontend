@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f3d9c2_72468f04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T15:29:20Z",
+      "side": 1,
+      "message": "lgtm, but maybe we can also improve the description for translators?",
+      "revId": "7242fbb8beb05402200a77462cfb03d61ad7cf41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5473b6d8_a07c29d3",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T15:29:20Z",
+      "side": 1,
+      "message": "can we improve the description while we are here? What does \"served\" mean in this context? Whats a web bundle? Whats the UI element where this is shown? :)",
+      "range": {
+        "startLine": 223,
+        "startChar": 16,
+        "endLine": 223,
+        "endChar": 67
+      },
+      "revId": "7242fbb8beb05402200a77462cfb03d61ad7cf41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
