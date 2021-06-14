@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b23d2c_728379ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2021-06-14T12:06:26Z",
+      "side": 1,
+      "message": "This should be working now.",
+      "revId": "97781cd1c9beb44c4010434b3db19b12382098d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99c110a7_29b5a7de",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2021-06-14T12:06:26Z",
+      "side": 1,
+      "message": "Debugged this locally now: I was missing out on the condition to stop trying to get to InternalNode.",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 34
+      },
+      "revId": "97781cd1c9beb44c4010434b3db19b12382098d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
