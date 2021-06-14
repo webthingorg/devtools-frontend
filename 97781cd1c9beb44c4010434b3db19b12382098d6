@@ -53,6 +53,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5dee3a_dbd0c677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-14T12:54:28Z",
+      "side": 1,
+      "message": "LGTM % final comment.",
+      "revId": "97781cd1c9beb44c4010434b3db19b12382098d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f456c0_0eb9f528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-14T12:54:28Z",
+      "side": 1,
+      "message": "Can you link the back-end change that removes the fake category in the issue description?",
+      "parentUuid": "e8d6ce58_85c0d47c",
+      "revId": "97781cd1c9beb44c4010434b3db19b12382098d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99c110a7_29b5a7de",
