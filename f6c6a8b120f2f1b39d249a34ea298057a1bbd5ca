@@ -22,6 +22,30 @@
       },
       "revId": "f6c6a8b120f2f1b39d249a34ea298057a1bbd5ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb5a125_4b8e5470",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-14T12:30:05Z",
+      "side": 1,
+      "message": "I think it has already been rolled. You can check the DEPS file in the devtools repo to see which version we currently use, here is the last roll:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2959444",
+      "parentUuid": "c0d50756_4e459863",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "f6c6a8b120f2f1b39d249a34ea298057a1bbd5ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
