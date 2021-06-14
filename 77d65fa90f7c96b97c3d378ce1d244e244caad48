@@ -39,6 +39,30 @@
       },
       "revId": "77d65fa90f7c96b97c3d378ce1d244e244caad48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "350212d7_9cbe9f21",
+        "filename": "front_end/panels/issues/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-14T06:10:30Z",
+      "side": 1,
+      "message": "Not yet, we are linking to cookies in the network panel, and that still uses Network.",
+      "parentUuid": "6d49b4d4_52718862",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 34
+      },
+      "revId": "77d65fa90f7c96b97c3d378ce1d244e244caad48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
