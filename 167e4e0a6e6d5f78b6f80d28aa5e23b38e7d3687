@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "499de559_18375907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T11:51:48Z",
+      "side": 1,
+      "message": "Tested locally both with Quirks and low contrast issues.",
+      "parentUuid": "32c047e7_cb2f86da",
+      "revId": "167e4e0a6e6d5f78b6f80d28aa5e23b38e7d3687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e3d0b35_c3b53834",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-06-14T11:32:50Z",
       "side": 1,
       "message": "If you are seeing this a step towards creating a component, then you could provide an additionalClickAction: () \u003d\u003e void as argument here to decouple this from the IssuesManager (as we\u0027d probably not want the component to know about the IssuesManager).\n\nThis can be addressed in a follow up (e.g. the follow-up that introduces the component).",
+      "range": {
+        "startLine": 254,
+        "startChar": 6,
+        "endLine": 254,
+        "endChar": 54
+      },
+      "revId": "167e4e0a6e6d5f78b6f80d28aa5e23b38e7d3687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "854bc42e_d966582c",
+        "filename": "front_end/panels/issues/AffectedResourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-14T11:51:48Z",
+      "side": 1,
+      "message": "Agreed, I\u0027m just not sure yet how the component will look like. Ideally we combine it with the existing component that links to the elements panel.",
+      "parentUuid": "0e3d0b35_c3b53834",
       "range": {
         "startLine": 254,
         "startChar": 6,
