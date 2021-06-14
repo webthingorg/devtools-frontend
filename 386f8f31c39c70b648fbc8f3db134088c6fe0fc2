@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379c3b41_1cf8a9a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T13:06:17Z",
+      "side": 1,
+      "message": "visible?",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c9756c_eb5a1c06",
+        "filename": "front_end/ui/legacy/Tooltip.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-14T13:06:17Z",
+      "side": 1,
+      "message": "will it have any performance impact? I think getComputedStyle forces a layout?",
+      "revId": "386f8f31c39c70b648fbc8f3db134088c6fe0fc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
