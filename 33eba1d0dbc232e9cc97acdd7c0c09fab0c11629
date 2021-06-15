@@ -16,6 +16,74 @@
       "message": "PTAL",
       "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11285bd_5e7c11c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T07:32:00Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8427c007_7d49ee05",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T07:32:00Z",
+      "side": 1,
+      "message": "Is this still needed?",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e0349c_23372a84",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T07:32:00Z",
+      "side": 1,
+      "message": "Could this be moved to the declaration too?",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7238d48d_e50d1734",
+        "filename": "front_end/models/issues_manager/SourceFrameIssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T07:32:00Z",
+      "side": 1,
+      "message": "Nice, TIL!",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
