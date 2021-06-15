@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b6e2cf_263401b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T14:57:46Z",
+      "side": 1,
+      "message": "This is looking very good! The only concern is where to put the styles for non-webcomponent widgets. I think we can use `getRootNode()` for that. Let me know if that indeed is working as expected?",
+      "revId": "edcf289df0ef289223ad9e619191394201797af6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65bbf8e8_f6ab8bb4",
+        "filename": "front_end/ui/legacy/Widget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T14:57:46Z",
+      "side": 1,
+      "message": "Instead of `document`, I think we will need to use `this.contentElement.getRootNode()` here (https://developer.mozilla.org/en-US/docs/Web/API/Node/getRootNode)\n\nSome Widgets have their own shadow dom boundary \"somewhere\". We want to add the styles into the correct shadow dom in that case, because otherwise the styles are not correctly piercing through.\n\nThat will work for top level elements as well, as in that case `.getRootNode() \u003d\u003d\u003d document`.\n\nYou can verify that this is working by inspecting the scope of the console prompt and verifying that the styles are added to its shadow dom. The shadow roots should show up in the DevTools elements panel when you are inspecting the console prompt.",
+      "range": {
+        "startLine": 477,
+        "startChar": 6,
+        "endLine": 477,
+        "endChar": 14
+      },
+      "revId": "edcf289df0ef289223ad9e619191394201797af6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
