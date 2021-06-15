@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c220d70d_4e7034cd",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-15T13:10:47Z",
+      "side": 1,
+      "message": "As discussed offline, we\u0027ll land this change like this for now and reiterate on it in a future cl.",
+      "parentUuid": "09e676a2_9c05f85b",
+      "revId": "19ba7cdbb971eb85d51020c2a4604c54d955230d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6f9f8c7_d1d8ff97",
