@@ -143,6 +143,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adad7007_c765b6b8",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-15T15:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e6bf763_059a4e8c",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc365465_7bd848e1",
@@ -156,6 +180,30 @@
       "writtenOn": "2021-06-15T11:15:23Z",
       "side": 1,
       "message": "Nit: remove indentation here so that the generated file has correct indentation as well.",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 4
+      },
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfed6834_4c393604",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-15T15:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc365465_7bd848e1",
       "range": {
         "startLine": 17,
         "startChar": 4,
@@ -189,6 +237,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d37d4f_d183faeb",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-15T15:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791b0240_0634df75",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 63
+      },
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53ae2049_05cca842",
@@ -202,6 +274,30 @@
       "writtenOn": "2021-06-15T11:15:23Z",
       "side": 1,
       "message": "If `configFiles` is only 1 item, you will have a trailing comma, which is invalid `.json`. Instead of making `configFiles` a string, I recommend making it an array instead and then do `configFiles.join(\u0027,\u0027)` here.",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "854d10d2_716011a7",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-15T15:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53ae2049_05cca842",
       "range": {
         "startLine": 39,
         "startChar": 16,
