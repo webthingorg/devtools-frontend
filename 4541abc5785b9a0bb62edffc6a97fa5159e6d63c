@@ -16,6 +16,29 @@
       "message": "PTAL, currently tested locally using the AR demo. I want to port one of the cases to an e2e test though as a general straw-man for AR issues (most likely as a follow-up)\n\nMaud: FYI",
       "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a0ff21_5c70c612",
+        "filename": "front_end/panels/issues/AttributionReportingIssueDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-15T06:39:56Z",
+      "side": 1,
+      "message": "The code below looks like we don\u0027t know which details will be set for PermissionPolicyDisabled, is that really the case? From the details definition it looks like \n     optional AffectedFrame frame\n     optional AffectedRequest request\n     optional DOM.BackendNodeId violatingNodeId\n     optional string invalidParameter\n     \nWould it make sense to use the table with four columns for all issue codes?",
+      "range": {
+        "startLine": 102,
+        "startChar": 61,
+        "endLine": 102,
+        "endChar": 85
+      },
+      "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
