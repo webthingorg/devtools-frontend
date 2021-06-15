@@ -87,6 +87,30 @@
       },
       "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4182bba3_8736e570",
+        "filename": "front_end/panels/issues/AttributionReportingIssueDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T07:08:15Z",
+      "side": 1,
+      "message": "Yes, I plan to move it into a helper \"appendFrameOrEmptyCell\" (and similar for the others) once there is more than one use-site.",
+      "parentUuid": "95f7a836_36be714b",
+      "range": {
+        "startLine": 102,
+        "startChar": 61,
+        "endLine": 102,
+        "endChar": 85
+      },
+      "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
