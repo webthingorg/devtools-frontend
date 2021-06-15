@@ -39,6 +39,30 @@
       },
       "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3787e8af_10183d81",
+        "filename": "front_end/panels/issues/AttributionReportingIssueDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T06:45:25Z",
+      "side": 1,
+      "message": "Unsure. As per Design Doc (https://docs.google.com/document/d/1T1S0oyTPk0gWOeXVRU-Z1v8tiqbw9_vTAihF6Nbx1vM/edit?usp\u003dsharing) it is specified what is available when. Unfortunately it would require significant overhead to encode that information in the protocol types.\n\nEspecially for issues where \"invalidParameter\" can mean anything, we want the right label on the table. Also there are issues where e.g. no request will ever be provided, making it an empty column. While not ideal, I think a similar approach as the CORS details view is using might be suitable here.",
+      "parentUuid": "84a0ff21_5c70c612",
+      "range": {
+        "startLine": 102,
+        "startChar": 61,
+        "endLine": 102,
+        "endChar": 85
+      },
+      "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
