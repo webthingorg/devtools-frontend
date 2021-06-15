@@ -470,6 +470,14 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
+  registerCSSFiles(cssFiles: CSSStyleSheet[]): void {
+    if (this._isWebComponent && this._shadowRoot !== undefined) {
+      this._shadowRoot.adoptedStyleSheets = this._shadowRoot.adoptedStyleSheets.concat(cssFiles);
+    } else {
+      document.adoptedStyleSheets = document.adoptedStyleSheets.concat(cssFiles);
+    }
+  }
+
   printWidgetHierarchy(): void {
     const lines: string[] = [];
     this._collectWidgetHierarchy('', lines);
