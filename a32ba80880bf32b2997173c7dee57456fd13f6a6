@@ -62,6 +62,30 @@
       },
       "revId": "a32ba80880bf32b2997173c7dee57456fd13f6a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9f53d45_0a6c00eb",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-15T09:23:28Z",
+      "side": 1,
+      "message": "I think we can address this in a follow up.",
+      "parentUuid": "61ccb120_3ab0df0e",
+      "range": {
+        "startLine": 132,
+        "startChar": 32,
+        "endLine": 134,
+        "endChar": 45
+      },
+      "revId": "a32ba80880bf32b2997173c7dee57456fd13f6a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
