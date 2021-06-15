@@ -290,8 +290,8 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     }
     for (const modelData of this._debuggerModelToData.values()) {
       const resourceScriptFile = modelData._resourceMapping.scriptFile(uiSourceCode);
-      if (resourceScriptFile && resourceScriptFile._script) {
-        scripts.add(resourceScriptFile._script);
+      if (resourceScriptFile) {
+        resourceScriptFile._scripts.forEach(script => scripts.add(script));
       }
       modelData._compilerMapping.scriptsForUISourceCode(uiSourceCode).forEach(script => scripts.add(script));
     }
@@ -302,8 +302,8 @@ export class DebuggerWorkspaceBinding implements SDK.TargetManager.SDKModelObser
     const scripts = new Set<SDK.Script.Script>();
     for (const modelData of this._debuggerModelToData.values()) {
       const resourceScriptFile = modelData._resourceMapping.scriptFile(uiSourceCode);
-      if (resourceScriptFile && resourceScriptFile._script) {
-        scripts.add(resourceScriptFile._script);
+      if (resourceScriptFile) {
+        resourceScriptFile._scripts.forEach(script => scripts.add(script));
       }
     }
     return [...scripts];

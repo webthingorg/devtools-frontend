@@ -65,8 +65,8 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
   _workspace: Workspace.Workspace.WorkspaceImpl;
   _debuggerWorkspaceBinding: DebuggerWorkspaceBinding;
   _uiSourceCodeToScriptFile: Map<Workspace.UISourceCode.UISourceCode, ResourceScriptFile>;
-  _projects: Map<string, ContentProviderBasedProject>;
-  _acceptedScripts: Set<SDK.Script.Script>;
+  _regularProject: ContentProviderBasedProject;
+  _contentScriptsProject: ContentProviderBasedProject;
   _eventListeners: Common.EventTarget.EventDescriptor[];
 
   constructor(
@@ -77,17 +77,18 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
     this._uiSourceCodeToScriptFile = new Map();
 
-    this._projects = new Map();
+    const target = debuggerModel.target();
+    this._regularProject = new ContentProviderBasedProject(
+        workspace, `js::${target.id()}`, Workspace.Workspace.projectTypes.Network, '', false /* isServiceProject */);
+    this._contentScriptsProject = new ContentProviderBasedProject(
+        workspace, `js:extensions:${target.id()}`, Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    NetworkProject.setTargetForProject(this._regularProject, target);
+    NetworkProject.setTargetForProject(this._contentScriptsProject, target);
 
-    this._acceptedScripts = new Set();
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventListeners = [
-      this._debuggerModel.addEventListener(
-          SDK.DebuggerModel.Events.ParsedScriptSource,
-          event => {
-            this._parsedScriptSource(event);
-          },
-          this),
+      this._debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this._parsedScriptSource, this),
       this._debuggerModel.addEventListener(
           SDK.DebuggerModel.Events.GlobalObjectCleared, this._globalObjectCleared, this),
       runtimeModel.addEventListener(
@@ -95,27 +96,12 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     ];
   }
 
-  _project(script: SDK.Script.Script): ContentProviderBasedProject {
-    const prefix = script.isContentScript() ? 'js:extensions:' : 'js::';
-    const projectId = prefix + this._debuggerModel.target().id() + ':' + script.frameId;
-    let project = this._projects.get(projectId);
-    if (!project) {
-      const projectType = script.isContentScript() ? Workspace.Workspace.projectTypes.ContentScripts :
-                                                     Workspace.Workspace.projectTypes.Network;
-      project = new ContentProviderBasedProject(
-          this._workspace, projectId, projectType, '' /* displayName */, false /* isServiceProject */);
-      NetworkProject.setTargetForProject(project, this._debuggerModel.target());
-      this._projects.set(projectId, project);
-    }
-    return project;
-  }
-
   rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation|null {
     const script = rawLocation.script();
     if (!script) {
       return null;
     }
-    const project = this._project(script);
+    const project = script.isContentScript() ? this._contentScriptsProject : this._regularProject;
     const uiSourceCode = project.uiSourceCodeForURL(script.sourceURL);
     if (!uiSourceCode) {
       return null;
@@ -127,7 +113,7 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     if ((scriptFile.hasDivergedFromVM() && !scriptFile.isMergingToVM()) || scriptFile.isDivergingFromVM()) {
       return null;
     }
-    if (!scriptFile._hasScripts([script])) {
+    if (!scriptFile._scripts.includes(script)) {
       return null;
     }
     const lineNumber = rawLocation.lineNumber - (script.isInlineScriptWithSourceURL() ? script.lineOffset : 0);
@@ -141,15 +127,16 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
   uiLocationToRawLocations(uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number):
       SDK.DebuggerModel.Location[] {
     const scriptFile = this._uiSourceCodeToScriptFile.get(uiSourceCode);
-    if (!scriptFile || typeof scriptFile._script === 'undefined') {
+    if (!scriptFile) {
       return [];
     }
-    const script = scriptFile._script;
-    if (script.isInlineScriptWithSourceURL()) {
-      return [this._debuggerModel.createRawLocation(
-          script, lineNumber + script.lineOffset, lineNumber ? columnNumber : columnNumber + script.columnOffset)];
-    }
-    return [this._debuggerModel.createRawLocation(script, lineNumber, columnNumber)];
+    return scriptFile._scripts.map(script => {
+      if (script.isInlineScriptWithSourceURL()) {
+        return this._debuggerModel.createRawLocation(
+            script, lineNumber + script.lineOffset, lineNumber ? columnNumber : columnNumber + script.columnOffset);
+      }
+      return this._debuggerModel.createRawLocation(script, lineNumber, columnNumber);
+    });
   }
 
   _acceptsScript(script: SDK.Script.Script): boolean {
@@ -171,32 +158,30 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     if (!this._acceptsScript(script)) {
       return;
     }
-    this._acceptedScripts.add(script);
     const originalContentProvider = script.originalContentProvider();
 
     const url = script.sourceURL;
-    const project = this._project(script);
+    const project = script.isContentScript() ? this._contentScriptsProject : this._regularProject;
 
     // Remove previous UISourceCode, if any
-    const oldUISourceCode = project.uiSourceCodeForURL(url);
-    if (oldUISourceCode) {
-      const scriptFile = this._uiSourceCodeToScriptFile.get(oldUISourceCode);
-      if (scriptFile && typeof scriptFile._script !== 'undefined') {
-        await this._removeScript(scriptFile._script);
-      }
+    let uiSourceCode = project.uiSourceCodeForURL(url);
+    if (uiSourceCode) {
+      const scriptFile = (this._uiSourceCodeToScriptFile.get(uiSourceCode) as ResourceScriptFile);
+      scriptFile._scripts.push(script);
+      NetworkProject.addFrameAttribution(uiSourceCode, script.frameId);
+    } else {
+      // Create UISourceCode.
+      uiSourceCode = project.createUISourceCode(url, originalContentProvider.contentType());
+      NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
+      const metadata = metadataForURL(this._debuggerModel.target(), script.frameId, url);
+
+      // Bind UISourceCode to scripts.
+      const scriptFile = new ResourceScriptFile(this, uiSourceCode, [script]);
+      this._uiSourceCodeToScriptFile.set(uiSourceCode, scriptFile);
+
+      const mimeType = script.isWasm() ? 'application/wasm' : 'text/javascript';
+      project.addUISourceCodeWithProvider(uiSourceCode, originalContentProvider, metadata, mimeType);
     }
-
-    // Create UISourceCode.
-    const uiSourceCode = project.createUISourceCode(url, originalContentProvider.contentType());
-    NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
-    const metadata = metadataForURL(this._debuggerModel.target(), script.frameId, url);
-
-    // Bind UISourceCode to scripts.
-    const scriptFile = new ResourceScriptFile(this, uiSourceCode, [script]);
-    this._uiSourceCodeToScriptFile.set(uiSourceCode, scriptFile);
-
-    const mimeType = script.isWasm() ? 'application/wasm' : 'text/javascript';
-    project.addUISourceCodeWithProvider(uiSourceCode, originalContentProvider, metadata, mimeType);
     await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
@@ -204,61 +189,54 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
     return this._uiSourceCodeToScriptFile.get(uiSourceCode) || null;
   }
 
-  async _removeScript(script: SDK.Script.Script): Promise<void> {
-    if (!this._acceptedScripts.has(script)) {
-      return;
-    }
-    this._acceptedScripts.delete(script);
-    const project = this._project(script);
-    const uiSourceCode = (project.uiSourceCodeForURL(script.sourceURL) as Workspace.UISourceCode.UISourceCode);
-    const scriptFile = this._uiSourceCodeToScriptFile.get(uiSourceCode);
-    if (scriptFile) {
-      scriptFile.dispose();
-    }
-    this._uiSourceCodeToScriptFile.delete(uiSourceCode);
-    project.removeFile(script.sourceURL);
-    await this._debuggerWorkspaceBinding.updateLocations(script);
-  }
-
   _executionContextDestroyed(event: Common.EventTarget.EventTargetEvent): void {
     const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext);
     const scripts = this._debuggerModel.scriptsForExecutionContext(executionContext);
     for (const script of scripts) {
-      this._removeScript(script);
+      const project = script.isContentScript() ? this._contentScriptsProject : this._regularProject;
+      const uiSourceCode = (project.uiSourceCodeForURL(script.sourceURL) as Workspace.UISourceCode.UISourceCode);
+      const scriptFile = this._uiSourceCodeToScriptFile.get(uiSourceCode);
+      if (scriptFile && scriptFile._scripts.includes(script)) {
+        scriptFile._scripts = scriptFile._scripts.filter(s => s !== script);
+        if (scriptFile._scripts.length === 0) {
+          scriptFile.dispose();
+          this._uiSourceCodeToScriptFile.delete(uiSourceCode);
+          project.removeFile(script.sourceURL);
+        } else {
+          NetworkProject.removeFrameAttribution(uiSourceCode, script.frameId);
+        }
+        this._debuggerWorkspaceBinding.updateLocations(script);
+      }
     }
   }
 
-  _globalObjectCleared(_event: Common.EventTarget.EventTargetEvent): void {
-    const scripts = Array.from(this._acceptedScripts);
-    for (const script of scripts) {
-      this._removeScript(script);
+  _globalObjectCleared(): void {
+    const scripts: SDK.Script.Script[] = [];
+    for (const scriptFile of this._uiSourceCodeToScriptFile.values()) {
+      scriptFile._scripts.forEach(script => scripts.push(script));
+      scriptFile.dispose();
     }
+    this._uiSourceCodeToScriptFile.clear();
+    this._regularProject.reset();
+    this._contentScriptsProject.reset();
+    scripts.forEach(script => this._debuggerWorkspaceBinding.updateLocations(script));
   }
 
   resetForTest(): void {
-    const scripts = Array.from(this._acceptedScripts);
-    for (const script of scripts) {
-      this._removeScript(script);
-    }
+    this._globalObjectCleared();
   }
 
   dispose(): void {
     Common.EventTarget.EventTarget.removeEventListeners(this._eventListeners);
-    const scripts = Array.from(this._acceptedScripts);
-    for (const script of scripts) {
-      this._removeScript(script);
-    }
-    for (const project of this._projects.values()) {
-      project.removeProject();
-    }
-    this._projects.clear();
+    this._regularProject.dispose();
+    this._contentScriptsProject.dispose();
   }
 }
 
 export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
   _resourceScriptMapping: ResourceScriptMapping;
   _uiSourceCode: Workspace.UISourceCode.UISourceCode;
-  _script: SDK.Script.Script|undefined;
+  _scripts: SDK.Script.Script[];
   _scriptSource?: string|null;
   _isDivergingFromVM?: boolean;
   _hasDivergedFromVM?: boolean;
@@ -271,10 +249,7 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
 
     this._resourceScriptMapping = resourceScriptMapping;
     this._uiSourceCode = uiSourceCode;
-
-    if (this._uiSourceCode.contentType().isScript()) {
-      this._script = scripts[scripts.length - 1];
-    }
+    this._scripts = scripts;
 
     this._uiSourceCode.addEventListener(
         Workspace.UISourceCode.Events.WorkingCopyChanged, this._workingCopyChanged, this);
@@ -282,16 +257,9 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
         Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
   }
 
-  _hasScripts(scripts: SDK.Script.Script[]): boolean {
-    return Boolean(this._script) && this._script === scripts[0];
-  }
-
   _isDiverged(): boolean {
     if (this._uiSourceCode.isDirty()) {
       return true;
-    }
-    if (!this._script) {
-      return false;
     }
     if (typeof this._scriptSource === 'undefined' || this._scriptSource === null) {
       return false;
@@ -317,15 +285,13 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     if (this._uiSourceCode.project().canSetFileContent()) {
       return;
     }
-    if (!this._script) {
-      return;
-    }
     const debuggerModel = this._resourceScriptMapping._debuggerModel;
     const breakpoints = BreakpointManager.instance()
                             .breakpointLocationsForUISourceCode(this._uiSourceCode)
                             .map(breakpointLocation => breakpointLocation.breakpoint);
     const source = this._uiSourceCode.workingCopy();
-    debuggerModel.setScriptSource(this._script.scriptId, source, (error, exceptionDetails) => {
+    // TODO(bmeurer): How to make LiveEdit work when there are multiple scripts?
+    debuggerModel.setScriptSource(this._scripts[0].scriptId, source, (error, exceptionDetails) => {
       this.scriptSourceWasSet(source, breakpoints, error, exceptionDetails);
     });
   }
@@ -364,23 +330,21 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   async _divergeFromVM(): Promise<void> {
-    if (this._script) {
-      this._isDivergingFromVM = true;
-      await this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
-      delete this._isDivergingFromVM;
-      this._hasDivergedFromVM = true;
-      this.dispatchEventToListeners(ResourceScriptFile.Events.DidDivergeFromVM, this._uiSourceCode);
-    }
+    this._isDivergingFromVM = true;
+    await Promise.all(
+        this._scripts.map(script => this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(script)));
+    delete this._isDivergingFromVM;
+    this._hasDivergedFromVM = true;
+    this.dispatchEventToListeners(ResourceScriptFile.Events.DidDivergeFromVM, this._uiSourceCode);
   }
 
   async _mergeToVM(): Promise<void> {
-    if (this._script) {
-      delete this._hasDivergedFromVM;
-      this._isMergingToVM = true;
-      await this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
-      delete this._isMergingToVM;
-      this.dispatchEventToListeners(ResourceScriptFile.Events.DidMergeToVM, this._uiSourceCode);
-    }
+    delete this._hasDivergedFromVM;
+    this._isMergingToVM = true;
+    await Promise.all(
+        this._scripts.map(script => this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(script)));
+    delete this._isMergingToVM;
+    this.dispatchEventToListeners(ResourceScriptFile.Events.DidMergeToVM, this._uiSourceCode);
   }
 
   hasDivergedFromVM(): boolean {
@@ -396,11 +360,12 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   checkMapping(): void {
-    if (!this._script || typeof this._scriptSource !== 'undefined') {
+    if (typeof this._scriptSource !== 'undefined') {
       this._mappingCheckedForTest();
       return;
     }
-    this._script.requestContent().then(deferredContent => {
+    // TODO(bmeurer): How to make LiveEdit work when there are multiple scripts?
+    this._scripts[0].requestContent().then(deferredContent => {
       this._scriptSource = deferredContent.content;
       this._update().then(() => this._mappingCheckedForTest());
     });
@@ -417,18 +382,11 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   addSourceMapURL(sourceMapURL: string): void {
-    if (!this._script) {
-      return;
-    }
-    this._script.debuggerModel.setSourceMapURL(this._script, sourceMapURL);
+    this._scripts.forEach(script => script.debuggerModel.setSourceMapURL(script, sourceMapURL));
   }
 
   hasSourceMapURL(): boolean {
-    return this._script !== undefined && Boolean(this._script.sourceMapURL);
-  }
-
-  get script(): SDK.Script.Script|null {
-    return this._script || null;
+    return this._scripts.some(script => Boolean(script.sourceMapURL));
   }
 
   get uiSourceCode(): Workspace.UISourceCode.UISourceCode {
