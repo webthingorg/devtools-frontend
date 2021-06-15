@@ -556,8 +556,7 @@ describe('Recorder', function() {
     });
   });
 
-  // Flakes occasionally on Mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1219505] should record scroll events', async () => {
+  it('should record scroll events', async () => {
     const untrustedEvents = true;
     const networkCondition = '';
     await startRecording('recorder/scroll.html', networkCondition, untrustedEvents);
