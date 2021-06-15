@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee1fd615_747de574",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-15T11:25:26Z",
+      "side": 1,
+      "message": "I am not sure, but from the connectedCallback\u0027s description it looks like it\u0027s called after the element is attached to DOM so it might lead to some additional re-layouts? Also, it might be called multiple times potentially. I need to go and try out all these callbacks in a small example? :)",
+      "parentUuid": "82e09e05_1d8fb719",
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d340f93_d3e5599b",
         "filename": "scripts/build/generate_css_js_files.js",
         "patchSetId": 3
