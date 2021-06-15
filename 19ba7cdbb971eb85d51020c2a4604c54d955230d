@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb850b38_548bc4a5",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-15T11:23:43Z",
+      "side": 1,
+      "message": "I\u0027d love to find a different solution for this. But I need the bar on the left to touch the point of the previous step if there is one. If you have another idea how we could approach this, I\u0027d love to change this!",
+      "parentUuid": "9165b744_f7ea29a2",
+      "revId": "19ba7cdbb971eb85d51020c2a4604c54d955230d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6f9f8c7_d1d8ff97",
         "filename": "front_end/panels/recorder/components/StepView.ts",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-11T12:35:37Z",
       "side": 1,
       "message": "does it work in darkmode? Can we use some standard vars here?",
+      "revId": "19ba7cdbb971eb85d51020c2a4604c54d955230d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e331ceaa_21916b14",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-15T11:23:43Z",
+      "side": 1,
+      "message": "I reused the ones from the console here but moved them up into themeColors.css now to have a common definition.",
+      "parentUuid": "a6f9f8c7_d1d8ff97",
       "revId": "19ba7cdbb971eb85d51020c2a4604c54d955230d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
