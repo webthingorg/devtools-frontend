@@ -16,6 +16,216 @@
       "message": "PTAL :)",
       "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f2b3ec4_bb616023",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "perhaps\n\n    /[\\0-\\x1F\\x7F-\\x9F]|\u003c(?:!--|\\/?script)/g",
+      "range": {
+        "startLine": 229,
+        "startChar": 27,
+        "endLine": 229,
+        "endChar": 73
+      },
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "133a4e28_b192eca3",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "perhaps\n\n    /[\\0-\\x1F\u0027\\x7F-\\x9F]|\u003c(?:!--|\\/?script)/g",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38af633a_dc78f98a",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Was `\\v` omitted intentionally? If so, might be worth adding a comment explaining why (I could think of a few reasons, but I\u0027m not sure if they apply here.)",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4518ac06_cd4d27ce",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Instead of a switch, we could also use a `Map` defined outside of this function:\n\n    const escapeMap \u003d new Map([\n      [\u0027\\b\u0027, \u0027\\\\b\u0027],\n      [\u0027\\f\u0027, \u0027\\\\f\u0027],\n      // …\n    ]);\n    \n`escapePattern` would then simply `return escapeMap.get(string)`.\n\nWith a longer list, a Map might be slightly nicer/more convenient to extend in the future, but at the current length either option seems fine. WDYT?",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921836a4_29a8b84e",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Let\u0027s use hex integer literals (`0xNN`) when referring to code points/units/bytes\n\n32 -\u003e 0x20 etc.",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae58959_4673f19e",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Use String#padStart",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc71a93f_43498852",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "We need to escape lone surrogates as well, otherwise the content is not well-formed Unicode, and cannot be represented in UTF-8 / copied to text editors properly",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39356562_78ba4f4c",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Use String#includes",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a48877_d116fb8b",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "How about:\n\n    let escapedContent \u003d \u0027\u0027;\n    let quote \u003d \u0027\u0027;\n    if (...) {\n      quote \u003d \u0027...\u0027;\n      escapedContent \u003d ...;\n    } else if (...) {\n      quote \u003d \u0027...\u0027;\n      escapedContent \u003d ...;\n    } else {\n      quote \u003d \u0027...\u0027;\n      escapedContent \u003d ...;\n    }\n    return `${quote}${escapedContent}${quote}`;",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae4e15c_0367ee77",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Let\u0027s update or remove this comment now",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421ea69e_69ce08ff",
+        "filename": "test/unittests/front_end/core/platform/StringUtilities_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "You could use\n\n    String.raw`...`\n    \nto avoid the double-escaping in these tests",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf1f9c81_9578fadd",
+        "filename": "test/unittests/front_end/core/platform/StringUtilities_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-15T13:40:01Z",
+      "side": 1,
+      "message": "Please add some tests with lone surrogates (lone lead surrogate, lone trail surrogate, surrogate pair in the wrong order, etc.).",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
