@@ -424,6 +424,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80277d1a_206db15b",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-15T00:10:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93b1f85c_5c92cb73",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "662ed65f_2d84d698",
@@ -696,6 +720,30 @@
       "side": 1,
       "message": "We need to match the validator interface defined in ListWidget because we are calling validate function from inside ListWidget. And the other utility validateAsStructuredHeadersString that we are using returns ValidatorResult interface.",
       "parentUuid": "c68b977b_8b11f90b",
+      "range": {
+        "startLine": 509,
+        "startChar": 14,
+        "endLine": 509,
+        "endChar": 43
+      },
+      "revId": "652b202c1a0e3e6b20621a479d2cff8b68635b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c33f646_a2995e14",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-15T00:10:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d41141a5_31154633",
       "range": {
         "startLine": 509,
         "startChar": 14,
