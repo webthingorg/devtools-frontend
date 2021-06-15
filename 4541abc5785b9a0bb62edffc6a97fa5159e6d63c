@@ -63,6 +63,30 @@
       },
       "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f7a836_36be714b",
+        "filename": "front_end/panels/issues/AttributionReportingIssueDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-15T07:04:57Z",
+      "side": 1,
+      "message": "+1 to wanting the right label for the invalidParameter.\n\nCan we find a way to at least not repeat the lengthy undefined checks in each case?",
+      "parentUuid": "3787e8af_10183d81",
+      "range": {
+        "startLine": 102,
+        "startChar": 61,
+        "endLine": 102,
+        "endChar": 85
+      },
+      "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
