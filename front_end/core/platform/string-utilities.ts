@@ -225,6 +225,50 @@ export const standardFormatters = {
   },
 };
 
+export const formatAsJSLiteral = (content: string): string => {
+  const patternsToEscape = /[\x00-\x1f\x7F-\x9F]|<!--|<script|<\/script/g;
+  const patternsToEscapePlusQuote = /[\x00-\x1f\x7F-\x9F']|<!--|<script|<\/script/g;
+  function escapePattern(pattern: string): string {
+    switch (pattern) {
+      case '\b':
+        return '\\b';
+      case '\f':
+        return '\\f';
+      case '\n':
+        return '\\n';
+      case '\t':
+        return '\\t';
+      case '\r':
+        return '\\r';
+      case '\'':
+        return '\\\'';
+      case '<!--':
+        return '<\\!--';
+      case '<script':
+        return '<\\script';
+      case '</script':
+        return '<\\/script';
+    }
+    const charCode = pattern.charCodeAt(0);
+    if (charCode < 32 || (126 < charCode && charCode < 160)) {
+      const twoDigitHex = ('00' + pattern.charCodeAt(0).toString(16).toUpperCase()).slice(-2);
+      return '\\x' + twoDigitHex;
+    }
+    return pattern;
+  }
+
+  if (content.indexOf('\'') === -1) {
+    return '\'' + content.replace(patternsToEscape, escapePattern) + '\'';
+  }
+  if (content.indexOf('"') === -1) {
+    return '"' + content.replace(patternsToEscape, escapePattern) + '"';
+  }
+  if (content.indexOf('`') === -1 && content.indexOf('${') === -1) {
+    return '`' + content.replace(patternsToEscape, escapePattern) + '`';
+  }
+  return '\'' + content.replace(patternsToEscapePlusQuote, escapePattern) + '\'';
+};
+
 export const vsprintf = function(formatString: string, substitutions: unknown[]): string {
   return format(formatString, substitutions, standardFormatters, '', (a, b) => a + b).formattedResult;
 };
