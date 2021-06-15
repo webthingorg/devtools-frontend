@@ -22,6 +22,30 @@
       },
       "revId": "a6df3ab32f4aafc308236619a04a99317dd22b06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b658907_56f943a2",
+        "filename": "front_end/panels/emulation/DevicesSettingsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-15T20:34:33Z",
+      "side": 0,
+      "message": "Cleaned it up",
+      "parentUuid": "02fbd45f_971d7c40",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 41
+      },
+      "revId": "a6df3ab32f4aafc308236619a04a99317dd22b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

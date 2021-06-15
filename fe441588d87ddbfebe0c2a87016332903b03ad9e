@@ -422,6 +422,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aef20a1_1c8f65e7",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-06-15T20:34:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3701367_c6e10f78",
+      "revId": "fe441588d87ddbfebe0c2a87016332903b03ad9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "315183e4_895a7f8f",
