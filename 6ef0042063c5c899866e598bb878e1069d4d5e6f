@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de4262e_b9f9324c",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-15T11:40:57Z",
+      "side": 1,
+      "message": "Never mind: I did a test. Connected callback is fine as long as it is synchronous.",
+      "parentUuid": "ee1fd615_747de574",
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d340f93_d3e5599b",
