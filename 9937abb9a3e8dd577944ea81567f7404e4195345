@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "042b4447_345bcfcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T16:44:17Z",
+      "side": 1,
+      "message": "LGTM, great tests!",
+      "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "599cc44c_deafe40d",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T16:44:17Z",
+      "side": 1,
+      "message": "RequestLinkIconData?",
+      "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f68ab82b_dfe18b5e",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-15T16:44:17Z",
+      "side": 1,
+      "message": "Is this in order to create a copy? Why is that necessary?",
+      "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
