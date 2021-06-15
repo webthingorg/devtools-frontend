@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca61163_f23cd2c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T14:48:21Z",
+      "side": 1,
+      "message": "Can we also update the visibility rules of `front_end/panels/network:bundle` to remove the unnecessary ones? I think after this CL, we have removed all problematic dependencies on network 🎉",
+      "revId": "ce64e980fe6fdee7c012a6eb1cc6d4a3fc95ada8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
