@@ -689,4 +689,51 @@ describe('StringUtilities', () => {
       assert.strictEqual(Platform.StringUtilities.base64ToSize(base64String), inputString.length);
     });
   });
+
+  describe('formatAsJSLiteral', () => {
+    it('wraps plain string in single quotes', () => {
+      const inputString = 'foo';
+      assert.strictEqual('\'foo\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('wraps string containing single quotes in double quotes', () => {
+      const inputString = '\'foo\' and \'bar\'';
+      assert.strictEqual('"\'foo\' and \'bar\'"', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('wraps string containing both single and double quotes in back ticks', () => {
+      const inputString = '\'foo\' and "bar"';
+      assert.strictEqual('`\'foo\' and "bar"`', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('wraps string containing all three quotes in single quotes', () => {
+      const inputString = '\'foo\' `and` "bar"';
+      assert.strictEqual('\'\\\'foo\\\' `and` "bar"\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('does not use back ticks when content contains ${', () => {
+      const inputString = '\'foo\' "and" ${bar}';
+      assert.strictEqual('\'\\\'foo\\\' "and" ${bar}\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('escapes whitespace characters appropriately', () => {
+      const inputString =
+          '\t\n\x0B\f\r \x85\xA0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F\u3000';
+      const expectedString =
+          '\\t\\n\\x0B\\f\\r \\x85\xA0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F\u3000';
+      assert.strictEqual('\'' + expectedString + '\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('escapes problematic script tags', () => {
+      const inputString = '<!-- <script </script';
+      const expectedString = '<\\!-- <\\script <\\/script';
+      assert.strictEqual('\'' + expectedString + '\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+
+    it('escapes control characters', () => {
+      const inputString = '\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F\x7F';
+      const expectedString = '\\x00\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\b\\t\\n\\x0B\\f\\r\\x0E\\x0F\\x7F';
+      assert.strictEqual('\'' + expectedString + '\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
+    });
+  });
 });

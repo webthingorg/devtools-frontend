@@ -49,7 +49,7 @@ describe('The Console Tab', async () => {
     await step('check that the expected output is logged', async () => {
       assert.deepEqual(messages, [
         '"non-function"',
-        '"fooValue"',
+        '\'fooValue\'',
       ]);
     });
   });
