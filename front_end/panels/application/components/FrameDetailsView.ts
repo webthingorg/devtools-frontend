@@ -13,6 +13,7 @@ import type * as Platform from '../../../core/platform/platform.js';
 import * as Root from '../../../core/root/root.js';
 import * as SDK from '../../../core/sdk/sdk.js';  // eslint-disable-line no-unused-vars
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as ExpandableList from '../../../ui/components/expandable_list/expandable_list.js';
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
@@ -78,7 +79,7 @@ const UIStrings = {
   /**
   *@description Description for ad frame type
   */
-  thisFrameHasBeenIdentifiedAsThe: 'This frame has been identified as the root frame of an ad',
+  rootDescription: 'This frame has been identified as the root frame of an ad',
   /**
   *@description Value for ad frame type
   */
@@ -86,7 +87,7 @@ const UIStrings = {
   /**
   *@description Description for ad frame type
   */
-  thisFrameHasBeenIdentifiedAsTheA: 'This frame has been identified as a child frame of an ad',
+  childDescription: 'This frame has been identified as a child frame of an ad',
   /**
   *@description Value for ad frame type
   */
@@ -245,6 +246,20 @@ const UIStrings = {
   *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a request header.
   */
   disabledByHeader: 'disabled by "`Permissions-Policy`" header',
+  /**
+  *@description Text descripting why a frame has been indentified as an advertisement.
+  */
+  parentIsAdExplanation: 'This frame is considered an ad frame, because its parent is an ad frame.',
+  /**
+  *@description Text descripting why a frame has been indentified as an advertisement.
+  */
+  matchedBlockingRuleExplanation:
+      'This frame is considered an ad frame, because it loaded a resource that is considered an ad resource.',
+  /**
+  *@description Text descripting why a frame has been indentified as an advertisement.
+  */
+  createdByAdScriptExplanation:
+      'An ad script was in the (async) stack when this frame was created. See the creation stack trace of this frame for more details.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -719,28 +734,49 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
-    if (this.frame) {
-      if (this.frame.adFrameType() === Protocol.Page.AdFrameType.Root) {
-        return LitHtml.html`
-          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
-            ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName} title=${
-            i18nString(UIStrings.thisFrameHasBeenIdentifiedAsThe)}>${i18nString(UIStrings.root)}</${
-            ReportView.ReportView.ReportValue.litTagName}>
-        `;
-      }
-      if (this.frame.adFrameType() === Protocol.Page.AdFrameType.Child) {
-        return LitHtml.html`
-          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
-            ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName} title=${
-            i18nString(UIStrings.thisFrameHasBeenIdentifiedAsTheA)}>${i18nString(UIStrings.child)}</${
-            ReportView.ReportView.ReportValue.litTagName}>
-        `;
-      }
+  private getAdFrameTypeStrings(type: Protocol.Page.AdFrameType.Child|Protocol.Page.AdFrameType.Root):
+      {value: Platform.UIString.LocalizedString, description: Platform.UIString.LocalizedString} {
+    switch (type) {
+      case Protocol.Page.AdFrameType.Child:
+        return {value: i18nString(UIStrings.child), description: i18nString(UIStrings.childDescription)};
+      case Protocol.Page.AdFrameType.Root:
+        return {value: i18nString(UIStrings.root), description: i18nString(UIStrings.rootDescription)};
     }
-    return LitHtml.nothing;
+  }
+
+  private getAdFrameExplanationString(explanation: Protocol.Page.AdFrameExplanation): unknown {
+    switch (explanation) {
+      case Protocol.Page.AdFrameExplanation.CreatedByAdScript:
+        return i18nString(UIStrings.createdByAdScriptExplanation);
+      case Protocol.Page.AdFrameExplanation.MatchedBlockingRule:
+        return i18nString(UIStrings.matchedBlockingRuleExplanation);
+      case Protocol.Page.AdFrameExplanation.ParentIsAd:
+        return i18nString(UIStrings.parentIsAdExplanation);
+    }
+  }
+
+
+  private maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
+    if (!this.frame) {
+      return LitHtml.nothing;
+    }
+    const adFrameType = this.frame.adFrameType();
+    if (adFrameType === Protocol.Page.AdFrameType.None) {
+      return LitHtml.nothing;
+    }
+    const typeStrings = this.getAdFrameTypeStrings(adFrameType);
+    const rows = [LitHtml.html`<div title="${typeStrings.description}">${typeStrings.value}</div>`];
+    for (const explanation of this.frame.adFrameStatus()?.explanations || []) {
+      rows.push(LitHtml.html`<div>${this.getAdFrameExplanationString(explanation)}</div>`);
+    }
+    return LitHtml.html`
+      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
+        ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
+        {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
+        ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
+      `;
   }
 
   private renderIsolationSection(): LitHtml.TemplateResult|{} {

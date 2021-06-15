@@ -2354,6 +2354,9 @@
   "panels/application/components/FrameDetailsView.ts | child": {
     "message": "child"
   },
+  "panels/application/components/FrameDetailsView.ts | childDescription": {
+    "message": "This frame has been identified as a child frame of an ad"
+  },
   "panels/application/components/FrameDetailsView.ts | clickToRevealInElementsPanel": {
     "message": "Click to reveal in Elements panel"
   },
@@ -2371,6 +2374,9 @@
   },
   "panels/application/components/FrameDetailsView.ts | clickToShowIframe": {
     "message": "Click to reveal the top-most iframe which does not allow this feature in the elements panel."
+  },
+  "panels/application/components/FrameDetailsView.ts | createdByAdScriptExplanation": {
+    "message": "An ad script was in the (async) stack when this frame was created. See the creation stack trace of this frame for more details."
   },
   "panels/application/components/FrameDetailsView.ts | creationStackTrace": {
     "message": "Frame Creation Stack Trace"
@@ -2411,6 +2417,9 @@
   "panels/application/components/FrameDetailsView.ts | localhostIsAlwaysASecureContext": {
     "message": "Localhost is always a secure context"
   },
+  "panels/application/components/FrameDetailsView.ts | matchedBlockingRuleExplanation": {
+    "message": "This frame is considered an ad frame, because it loaded a resource that is considered an ad resource."
+  },
   "panels/application/components/FrameDetailsView.ts | measureMemory": {
     "message": "Measure Memory"
   },
@@ -2423,6 +2432,9 @@
   "panels/application/components/FrameDetailsView.ts | ownerElement": {
     "message": "Owner Element"
   },
+  "panels/application/components/FrameDetailsView.ts | parentIsAdExplanation": {
+    "message": "This frame is considered an ad frame, because its parent is an ad frame."
+  },
   "panels/application/components/FrameDetailsView.ts | reportingTo": {
     "message": "reporting to"
   },
@@ -2431,6 +2443,9 @@
   },
   "panels/application/components/FrameDetailsView.ts | root": {
     "message": "root"
+  },
+  "panels/application/components/FrameDetailsView.ts | rootDescription": {
+    "message": "This frame has been identified as the root frame of an ad"
   },
   "panels/application/components/FrameDetailsView.ts | secureContext": {
     "message": "Secure Context"
@@ -2458,12 +2473,6 @@
   },
   "panels/application/components/FrameDetailsView.ts | thisAdditionalDebugging": {
     "message": "This additional (debugging) information is shown because the 'Protocol Monitor' experiment is enabled."
-  },
-  "panels/application/components/FrameDetailsView.ts | thisFrameHasBeenIdentifiedAsThe": {
-    "message": "This frame has been identified as the root frame of an ad"
-  },
-  "panels/application/components/FrameDetailsView.ts | thisFrameHasBeenIdentifiedAsTheA": {
-    "message": "This frame has been identified as a child frame of an ad"
   },
   "panels/application/components/FrameDetailsView.ts | transferRequiresCrossoriginIsolatedPermission": {
     "message": "SharedArrayBuffer transfer requires enabling the permission policy:"
