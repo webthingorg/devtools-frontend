@@ -16,6 +16,75 @@
       "message": "PTAL, random cleanup while looking at code i was working on xD",
       "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79583a22_6fbddfd1",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T09:20:25Z",
+      "side": 1,
+      "message": "I think everything apart from `endColumn` can be private instead.",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 116
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087653d7_8465ee4b",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T09:20:25Z",
+      "side": 1,
+      "message": "length appears to be unused.",
+      "range": {
+        "startLine": 228,
+        "startChar": 37,
+        "endLine": 228,
+        "endChar": 58
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f129db2_d379bef2",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T09:20:25Z",
+      "side": 1,
+      "message": "Here, `sourceURL` appears to be unused and the other two can be private.",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 96
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
