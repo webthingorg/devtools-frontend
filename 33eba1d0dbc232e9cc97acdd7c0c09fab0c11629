@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f696fd41_878cf668",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T07:48:56Z",
+      "side": 1,
+      "message": "No, nice catch :)",
+      "parentUuid": "8427c007_7d49ee05",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90e0349c_23372a84",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fa1054_a921975c",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T07:48:56Z",
+      "side": 1,
+      "message": "I was unsure, but yes, also moved.",
+      "parentUuid": "90e0349c_23372a84",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7238d48d_e50d1734",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-06-15T07:32:00Z",
       "side": 1,
       "message": "Nice, TIL!",
+      "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f06b65_d6698010",
+        "filename": "front_end/models/issues_manager/SourceFrameIssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T07:48:56Z",
+      "side": 1,
+      "message": "Yes, see also the recommendation for the style guide: https://google.github.io/styleguide/tsguide.html#parameter-properties",
+      "parentUuid": "7238d48d_e50d1734",
       "revId": "33eba1d0dbc232e9cc97acdd7c0c09fab0c11629",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
