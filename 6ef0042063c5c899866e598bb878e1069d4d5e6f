@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55bb9b87_11101834",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-15T11:04:52Z",
+      "side": 1,
+      "message": "I happened to see this CL and I had a question: isn\u0027t connectedCallback a bit too late? Perhaps it\u0027d be better to attach styles in the constructor?",
+      "revId": "6ef0042063c5c899866e598bb878e1069d4d5e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
