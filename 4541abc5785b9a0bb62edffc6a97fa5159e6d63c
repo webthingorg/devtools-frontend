@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d157f96_e3fe70b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T06:34:44Z",
+      "side": 1,
+      "message": "PTAL, currently tested locally using the AR demo. I want to port one of the cases to an e2e test though as a general straw-man for AR issues (most likely as a follow-up)\n\nMaud: FYI",
+      "revId": "4541abc5785b9a0bb62edffc6a97fa5159e6d63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
