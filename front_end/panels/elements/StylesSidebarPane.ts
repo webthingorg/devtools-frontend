@@ -1380,11 +1380,11 @@ export class StylePropertiesSection {
     }
 
     if (header?.isMutable && !header.isViaInspector()) {
-      const location = !header.isConstructed ? linkifyRuleLocation() : null;
+      const location = !header.isConstructedNonModule ? linkifyRuleLocation() : null;
       if (location) {
         return location;
       }
-      const label = header.isConstructed ? i18nString(UIStrings.constructedStylesheet) : STYLE_TAG;
+      const label = header.isConstructedNonModule ? i18nString(UIStrings.constructedStylesheet) : STYLE_TAG;
       const node = linkifyNode(label);
       if (node) {
         return node;
