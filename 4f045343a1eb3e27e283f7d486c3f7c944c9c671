@@ -138,6 +138,24 @@
       "message": "Hmm yeah I was worried that would fail. Is there anything I should be doing at this point?\nThis document says I should submit to CQ once I get a LGTM: https://docs.google.com/document/d/1WNF-KqRSzPLUUfZqQG5AFeU_Ll8TfWYcJasa_XGf7ro/view#\nBut this has always failed for me with previous CLs as well. Am I doing something wrong or is that document outdated?",
       "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57057c0a_d61608da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-15T09:38:47Z",
+      "side": 1,
+      "message": "I think we are going to need to update that document, as only committers are allowed to change CQ votes. Will push it for you!",
+      "parentUuid": "5333de66_6671c568",
+      "revId": "4f045343a1eb3e27e283f7d486c3f7c944c9c671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
