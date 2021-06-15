@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5002b2_90beba6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-15T10:22:15Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nHere\u0027s a trivial fix for the Console filter box.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "6edf0fd2b0459431689a33463a7d789b03df0bd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
