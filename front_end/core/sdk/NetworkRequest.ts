@@ -186,6 +186,7 @@ export enum MIME_TYPE {
 
 export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implements
     TextUtils.ContentProvider.ContentProvider {
+  _debug: string;
   _requestId: string;
   _backendRequestId: string;
   _documentURL: string;
@@ -247,6 +248,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
   _finished!: boolean;
   _failed!: boolean;
   _canceled!: boolean;
+  _preserved!: boolean;
   _mimeType!: MIME_TYPE;
   _parsedURL!: Common.ParsedURL.ParsedURL;
   _name!: string|undefined;
@@ -278,6 +280,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
       initiator: Protocol.Network.Initiator|null) {
     super();
 
+    this._debug = '';
     this._requestId = requestId;
     this._backendRequestId = requestId;
     this.setUrl(url);
@@ -583,6 +586,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
 
   set canceled(x: boolean) {
     this._canceled = x;
+  }
+
+  get preserved(): boolean {
+    return this._preserved;
+  }
+
+  set preserved(x: boolean) {
+    this._preserved = x;
   }
 
   blockedReason(): Protocol.Network.BlockedReason|undefined {
