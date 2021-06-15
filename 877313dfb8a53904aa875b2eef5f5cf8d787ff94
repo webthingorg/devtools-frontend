@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "892c56c9_6b722d6d",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T09:53:01Z",
+      "side": 1,
+      "message": "Unfortunately no. The properties are heavily used outside this class. I tried turning TextRange into an immutable object (via readonly), but some use-sites remain where classes keep an instance of TextRange around that they update as they go along :(",
+      "parentUuid": "79583a22_6fbddfd1",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 116
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "087653d7_8465ee4b",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16a83eb_373bffb6",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T09:53:01Z",
+      "side": 1,
+      "message": "It\u0027s used :) https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/text_utils/Text.ts;l\u003d72;drc\u003dae1b1cf869583da1f97b4933051d0439166c768c",
+      "parentUuid": "087653d7_8465ee4b",
+      "range": {
+        "startLine": 228,
+        "startChar": 37,
+        "endLine": 228,
+        "endChar": 58
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f129db2_d379bef2",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-06-15T09:20:25Z",
       "side": 1,
       "message": "Here, `sourceURL` appears to be unused and the other two can be private.",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 96
+      },
+      "revId": "877313dfb8a53904aa875b2eef5f5cf8d787ff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10be860_79f095ab",
+        "filename": "front_end/models/text_utils/TextRange.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-15T09:53:01Z",
+      "side": 1,
+      "message": "The whole class appears to be unused. The only reference is in an unused class in \"SourceMap\". Removed both classes. Nice catch!",
+      "parentUuid": "9f129db2_d379bef2",
       "range": {
         "startLine": 233,
         "startChar": 14,
