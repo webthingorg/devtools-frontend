@@ -40,6 +40,7 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
   isInline: boolean;
   isMutable: boolean;
   isConstructed: boolean;
+  isConstructedNonModule: boolean;
   startLine: number;
   startColumn: number;
   endLine: number;
@@ -63,6 +64,7 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.isConstructed = (payload as any).isConstructed;
+    this.isConstructedNonModule = payload.isConstructedNonModule;
     this.startLine = payload.startLine;
     this.startColumn = payload.startColumn;
     this.endLine = payload.endLine;
