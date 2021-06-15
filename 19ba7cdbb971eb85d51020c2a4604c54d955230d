@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09e676a2_9c05f85b",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-15T11:30:47Z",
+      "side": 1,
+      "message": "I am not sure I understand the problem enough. Perhaps we can chat about that offline. Otherwise, LGTM.",
+      "parentUuid": "cb850b38_548bc4a5",
+      "revId": "19ba7cdbb971eb85d51020c2a4604c54d955230d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6f9f8c7_d1d8ff97",
         "filename": "front_end/panels/recorder/components/StepView.ts",
         "patchSetId": 3
