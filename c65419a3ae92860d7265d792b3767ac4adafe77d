@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7f1ffa9_5fd4e413",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T10:36:32Z",
+      "side": 1,
+      "message": "Running the following command:\ntime third_party/node/node.py --output scripts/test/run_lint_check_js.js \u0027front_end/panels/console/*.ts\u0027\n\nBefore this CL:\n~2.5 seconds\n\nAfter this CL:\n~9-10 seconds\n\nRunning the following command:\ntime third_party/node/node.py --output scripts/test/run_lint_check_js.js \u0027front_end/panels/**/*.ts\u0027\n\nBefore this CL:\n~13 seconds\n\nAfter this CL:\n~20 seconds\n\n\nThese results are not unsurprising, since we mostly pay the cost once to boot up the relevant TypeScript server to perform the type checks (which was the exact thing that was OOM\u0027ing). Therefore, I think it makes sense to run these extra linter checks on our bots, since we run the full presubmit there. However, we might have to consider not running these checks locally.\n\nThat said, a ~7 second addition on TypeScript changes that diminishes the more files are changed is fine for now in my opinion. Given the additional benefits the rules can provide and prevent issues.\n\nTherefore, I would say we enable them for now and monitor for performance problems. Whenever we add a rule that requires type-checking, we should do a careful performance analysis and determine whether it makes sense to run it during upload or only during CQ presubmits.",
+      "revId": "c65419a3ae92860d7265d792b3767ac4adafe77d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8227d0b4_02169a65",
