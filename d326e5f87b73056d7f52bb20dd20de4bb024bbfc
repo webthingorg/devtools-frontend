@@ -68,6 +68,23 @@
       "message": "+1 given that the documentation is also updated. Not sure if we have documented this environment variable anywhere though, since we encourage engineers to use the NPM scripts. So maybe we are good to go anyways as we consider this \"an implementation detail\"?",
       "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af222146_226e9cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-16T12:35:03Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
