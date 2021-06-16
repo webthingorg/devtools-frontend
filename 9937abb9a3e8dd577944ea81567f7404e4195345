@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b89ca52b_ac06a44a",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-16T06:47:15Z",
+      "side": 1,
+      "message": "I think (almost) all users (that is to say everyone outside components/) will refer to this as RequestLinkIcon.Data anyway. The doc goo.gle/building-ui-devtools recommends the longer name, but doesn\u0027t seem to insist.",
+      "parentUuid": "599cc44c_deafe40d",
+      "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f68ab82b_dfe18b5e",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-06-15T16:44:17Z",
       "side": 1,
       "message": "Is this in order to create a copy? Why is that necessary?",
+      "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d22abc24_c7393b9e",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-16T06:47:15Z",
+      "side": 1,
+      "message": "I want to avoid a situation where a client mutates the affected request (for whatever reason) and the component sees the mutation.",
+      "parentUuid": "f68ab82b_dfe18b5e",
       "revId": "9937abb9a3e8dd577944ea81567f7404e4195345",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
