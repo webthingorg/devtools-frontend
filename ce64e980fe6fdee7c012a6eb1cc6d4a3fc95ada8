@@ -16,6 +16,24 @@
       "message": "Can we also update the visibility rules of `front_end/panels/network:bundle` to remove the unnecessary ones? I think after this CL, we have removed all problematic dependencies on network 🎉",
       "revId": "ce64e980fe6fdee7c012a6eb1cc6d4a3fc95ada8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1781bce4_9ecc01dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-16T06:54:39Z",
+      "side": 1,
+      "message": "Good point, done. Note that application still depends on network, because the ServiceWorkerCacheView uses two non-component views from the network module:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/ServiceWorkerCacheViews.ts;l\u003d499;drc\u003d229a54f7ea0133738b1a6d395507dc80e4f18de8",
+      "parentUuid": "7ca61163_f23cd2c9",
+      "revId": "ce64e980fe6fdee7c012a6eb1cc6d4a3fc95ada8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
