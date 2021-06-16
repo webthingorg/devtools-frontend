@@ -39,6 +39,30 @@
       },
       "revId": "edcf289df0ef289223ad9e619191394201797af6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "585fe9ab_f77cd832",
+        "filename": "front_end/ui/legacy/Widget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-16T13:35:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65bbf8e8_f6ab8bb4",
+      "range": {
+        "startLine": 477,
+        "startChar": 6,
+        "endLine": 477,
+        "endChar": 14
+      },
+      "revId": "edcf289df0ef289223ad9e619191394201797af6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
