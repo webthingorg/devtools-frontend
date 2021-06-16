@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610729d7_098d82b0",
+        "filename": "tsconfig.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T09:06:23Z",
+      "side": 0,
+      "message": "We still need the exclusion of legacy files, because otherwise we see all kinds of errors in VS Code (this particular configuration is solely used for VS Code)",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
