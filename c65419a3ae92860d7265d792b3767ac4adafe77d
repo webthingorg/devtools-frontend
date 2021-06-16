@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da92b0c_d535f840",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-16T09:23:51Z",
+      "side": 1,
+      "message": "Yang, please do an OWNERS review for the new top-level \"tsconfig.eslint.json\" file :)",
+      "revId": "c65419a3ae92860d7265d792b3767ac4adafe77d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

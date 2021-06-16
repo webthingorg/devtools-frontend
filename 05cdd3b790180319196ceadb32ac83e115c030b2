@@ -22,6 +22,30 @@
       },
       "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59ee7170_1d1622dd",
+        "filename": "tsconfig.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-16T09:23:51Z",
+      "side": 0,
+      "message": "Ok, put the legacy ones back in. How does it work given that they are all *.ts files now?",
+      "parentUuid": "610729d7_098d82b0",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
