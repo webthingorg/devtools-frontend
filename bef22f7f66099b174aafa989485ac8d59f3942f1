@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e8f169c_7e7b4f42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-16T14:58:27Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b05b2188_c2a5f709",
@@ -68,6 +85,24 @@
       "side": 1,
       "message": "flatMap is even shorter! but I am fine with either way.",
       "parentUuid": "9121e452_dd6833c7",
+      "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e5c3e2_67697b21",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-16T14:58:27Z",
+      "side": 1,
+      "message": "I\u0027m fine with whatever works best for you guys :)",
+      "parentUuid": "16e8173b_8a51ed15",
       "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
