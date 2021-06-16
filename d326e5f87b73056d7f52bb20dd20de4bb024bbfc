@@ -16,6 +16,23 @@
       "message": "PTAL WDYT?",
       "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ebdfd2_028698fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-16T11:30:05Z",
+      "side": 1,
+      "message": "lgtm, I assume there are no bot recipes running in non-headless mode and its solely used by us for debugging? Are there any workflow docs or other documentation that needs to be updated?",
+      "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
