@@ -32,6 +32,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as DOMExtension from '../../core/dom_extension/dom_extension.js';
+
 import {Constraints, Size} from './Geometry.js';
 import {appendStyle} from './utils/append-style.js';
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
@@ -468,6 +469,28 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
     } else {
       appendStyle(this.element, cssFile, options);
     }
+  }
+
+  registerCSSFiles(cssFiles: CSSStyleSheet[]): void {
+    if (this._isWebComponent && this._shadowRoot !== undefined) {
+      this._shadowRoot.adoptedStyleSheets = this._shadowRoot.adoptedStyleSheets.concat(cssFiles);
+    } else {
+      const node = this.contentElement.getRootNode();
+      const styleElement = document.createElement('style');
+      styleElement.textContent = this.cssFilesToString(cssFiles);
+      node.appendChild(styleElement);
+    }
+  }
+
+  cssFilesToString(cssFiles: CSSStyleSheet[]): string {
+    const cssRulesArray = cssFiles.map(file => file.cssRules);
+    const textRules: string[] = [];
+    cssRulesArray.forEach(function(cssRules) {
+      for (const rule of cssRules) {
+        textRules.push(rule.cssText);
+      }
+    });
+    return textRules.join('\n');
   }
 
   printWidgetHierarchy(): void {
