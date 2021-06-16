@@ -7,7 +7,7 @@ import {assert} from 'chai';
 import type {UserFlow, Selector} from '../../../front_end/models/recorder/Steps.js';
 
 import {enableExperiment, getBrowserAndPages, getTestServerPort, goToResource} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
 import {createNewRecording, openRecorderSubPane, openSourcesPanel} from '../helpers/sources-helpers.js';
 
 function retrieveCodeMirrorEditorContent() {
@@ -69,8 +69,15 @@ async function startRecording(path: string, networkCondition: string = '', untru
 async function stopRecording() {
   const {frontend} = getBrowserAndPages();
   await frontend.bringToFront();
-  await frontend.waitForSelector('aria/Stop', {timeout: 0});
-  await frontend.click('aria/Stop');
+  const el = await frontend.waitForSelector('aria/Stop', {timeout: 0});
+  const text = await el?.evaluate(el => el.outerHTML);
+  console.log(text);
+  try {
+    await frontend.click('aria/Stop');
+  } catch (err) {
+    await takeScreenshots();
+    throw err;
+  }
 }
 
 async function assertOutput(expected: UserFlow) {
@@ -556,8 +563,7 @@ describe('Recorder', function() {
     });
   });
 
-  // Flakes occasionally on Mac.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1219505] should record scroll events', async () => {
+  it('should record scroll events', async () => {
     const untrustedEvents = true;
     const networkCondition = '';
     await startRecording('recorder/scroll.html', networkCondition, untrustedEvents);
