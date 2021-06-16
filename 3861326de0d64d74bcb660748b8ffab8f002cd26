@@ -33,6 +33,24 @@
       "message": "I\u0027d rather avoid `reduce` here, especially in combination with the array spread. See https://twitter.com/jaffathecake/status/1213408751925047297",
       "revId": "3861326de0d64d74bcb660748b8ffab8f002cd26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c19d5f86_c697f5d3",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-16T10:54:01Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! I\u0027ll replace it with a loop then :)",
+      "parentUuid": "f7d6401f_e69b9d4c",
+      "revId": "3861326de0d64d74bcb660748b8ffab8f002cd26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
