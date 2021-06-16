@@ -16,6 +16,23 @@
       "message": "Ah damn, it seems like I didn\u0027t add Mathias as a reviewer with the last comment.",
       "revId": "3861326de0d64d74bcb660748b8ffab8f002cd26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d6401f_e69b9d4c",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-16T10:25:02Z",
+      "side": 1,
+      "message": "I\u0027d rather avoid `reduce` here, especially in combination with the array spread. See https://twitter.com/jaffathecake/status/1213408751925047297",
+      "revId": "3861326de0d64d74bcb660748b8ffab8f002cd26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
