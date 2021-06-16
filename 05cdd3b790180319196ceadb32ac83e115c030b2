@@ -46,6 +46,30 @@
       },
       "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848bc69a_32db17d3",
+        "filename": "tsconfig.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T10:13:21Z",
+      "side": 0,
+      "message": "Oh right, yes. In that case, I think we should update it to `*-legacy.ts`. Sorry for missing that earlier!",
+      "parentUuid": "59ee7170_1d1622dd",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
