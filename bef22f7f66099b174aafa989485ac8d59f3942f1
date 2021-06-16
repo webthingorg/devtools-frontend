@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05b2188_c2a5f709",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-16T12:01:53Z",
+      "side": 1,
+      "message": "WDYT about `this.steps \u003d this.userFlow.sections.map(s \u003d\u003e s.steps).flat()`?",
+      "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
