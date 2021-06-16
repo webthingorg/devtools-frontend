@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e3fe5de_e647f41e",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-16T10:58:23Z",
+      "side": 1,
+      "message": "No need for the inner loop:\n\n    this.steps.push(...section.steps);",
+      "revId": "efd33c7a025f5c33a967d5a8550c34433a5b534d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
