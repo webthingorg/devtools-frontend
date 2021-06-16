@@ -225,6 +225,64 @@ export const standardFormatters = {
   },
 };
 
+const toHexadecimal = (charCode: number, padToLength: number): string => {
+  return charCode.toString(16).toUpperCase().padStart(padToLength, '0');
+};
+
+// Remember to update the third group in the regexps patternsToEscape and
+// patternsToEscapePlusQuote when adding new entries in this map.
+const escapedReplacements = new Map([
+  ['\b', '\\b'],
+  ['\f', '\\f'],
+  ['\n', '\\n'],
+  ['\r', '\\r'],
+  ['\t', '\\t'],
+  ['\v', '\\v'],
+  ['\'', '\\\''],
+  ['<!--', '<\\!--'],
+  ['<script', '<\\script'],
+  ['</script', '<\\/script'],
+]);
+
+export const formatAsJSLiteral = (content: string): string => {
+  const patternsToEscape = /([\0-\x1F\x7F-\x9F])|([\uD800-\uDFFF])|(<(?:!--|\/?script))/gu;
+  const patternsToEscapePlusQuote = /([\0-\x1F\x7F-\x9F])|([\uD800-\uDFFF])|(<(?:!--|\/?script)|')/gu;
+  const escapePattern = (char: string, specialChar: string, loneSurrogate: string, pattern: string): string => {
+    if (specialChar) {
+      if (escapedReplacements.has(specialChar)) {
+        return escapedReplacements.get(specialChar) || '';
+      }
+      const twoDigitHex = toHexadecimal(specialChar.charCodeAt(0), 2);
+      return '\\x' + twoDigitHex;
+    }
+    if (loneSurrogate) {
+      const fourDigitHex = toHexadecimal(loneSurrogate.charCodeAt(0), 4);
+      return '\\u' + fourDigitHex;
+    }
+    if (pattern) {
+      return escapedReplacements.get(pattern) || '';
+    }
+    return char;
+  };
+
+  let escapedContent = '';
+  let quote = '';
+  if (!content.includes('\'')) {
+    quote = '\'';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else if (!content.includes('"')) {
+    quote = '"';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else if (!content.includes('`') && !content.includes('${')) {
+    quote = '`';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else {
+    quote = '\'';
+    escapedContent = content.replace(patternsToEscapePlusQuote, escapePattern);
+  }
+  return `${quote}${escapedContent}${quote}`;
+};
+
 export const vsprintf = function(formatString: string, substitutions: unknown[]): string {
   return format(formatString, substitutions, standardFormatters, '', (a, b) => a + b).formattedResult;
 };
