@@ -70,6 +70,30 @@
       },
       "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5409ae24_ec59c068",
+        "filename": "tsconfig.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-16T11:01:39Z",
+      "side": 0,
+      "message": "Changed to ts.",
+      "parentUuid": "848bc69a_32db17d3",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "05cdd3b790180319196ceadb32ac83e115c030b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
