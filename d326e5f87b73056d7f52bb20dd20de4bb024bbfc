@@ -33,6 +33,24 @@
       "message": "lgtm, I assume there are no bot recipes running in non-headless mode and its solely used by us for debugging? Are there any workflow docs or other documentation that needs to be updated?",
       "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "526f7985_5fb7f797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-16T11:31:47Z",
+      "side": 1,
+      "message": "I could not find any docs but I would appreciate if someone tries to locate them too. I think bots cannot run in non-headless as it requires keyboard input to start running.",
+      "parentUuid": "54ebdfd2_028698fc",
+      "revId": "d326e5f87b73056d7f52bb20dd20de4bb024bbfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
