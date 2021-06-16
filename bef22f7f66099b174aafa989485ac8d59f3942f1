@@ -16,6 +16,24 @@
       "message": "WDYT about `this.steps \u003d this.userFlow.sections.map(s \u003d\u003e s.steps).flat()`?",
       "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45780c43_6f602189",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-16T12:47:10Z",
+      "side": 1,
+      "message": "I suppose that\u0027d be the more \"functional\" approach to this :) It\u0027d do the job as well. Personally I think a plain for/of loop is more readable but I understand that it\u0027s different for everyone.",
+      "parentUuid": "b05b2188_c2a5f709",
+      "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
