@@ -16,6 +16,230 @@
       "message": "\u003e Tim, PTAL at front_end/ui/components/request_link_icon/BUILD.gn\n\nSorry, apparently the reply box remembers the text, but not the reviewers...",
       "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e7b1e4_3b870c57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Usually Jack reviews new components, but I tried my best to substitute for him.\n\nThere are several improvements we can make in how we render the lit-html template and how to retrieve the nodes. Sadly the ESLint rule should have caught the `coordinator.write` to be missing, but it isn\u0027t clear to me why that didn\u0027t happen. Sorry about that.",
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fcf33e0_c6993809",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Nit: `RequestLinkIconData`",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47b3f01_ca2b3cd5",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Can we make `resolveRequest` asynchronous? Right now, I think this can cause race-conditions, since the promise might not be resolved and thus in the data-setter, we render without the request.\n\nIf we can\u0027t make this asynchronous, then we should probably not call `this.render()` in the data setter? Alternatively, you can use the until directive from Lit to show some output until the promise resolves: https://lit.dev/docs/templates/directives/#until",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 13
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90206d78_d2328786",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Ultra-nit: `return this.affectedRequest?.url`",
+      "range": {
+        "startLine": 155,
+        "startChar": 6,
+        "endLine": 158,
+        "endChar": 38
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6dbe1e6_c57c7b2f",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Interestingly, this should have been flagged by ESLint that this call should be wrapped in a coordinator call per https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/eslint_rules/lib/render_coordinator_write.js;l\u003d1;drc\u003d78bd9c00e370d14c3d6ea5f4906dbc781da51fae So that means the ESLint rule probably has a bug.\n\nIn any case, we will want to wrap this in a `coordinator.write` call to correctly handle DOM rendering. We can then use the coordinator in the unit tests to determine when they are finished.\n\nI have filed a bug for the ESLint rule at crbug.com/1220683",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 18
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef0a8fe_ec038e5f",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Nit: You can use `host: this` in the render options to automatically add the correct `this` scope to any listeners. This avoids the need for creating new closures with `.bind` for every render: https://lit.dev/docs/libraries/standalone-templates/#render-options",
+      "range": {
+        "startLine": 200,
+        "startChar": 21,
+        "endLine": 200,
+        "endChar": 42
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45ce183d_61391bf1",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "This seems to be a bit brittle. Could you explain why we are piercing into the shadowroot here and are looking for a specific combination of child nodes? Is there an alternative where we can keep on using the `textContent`?",
+      "range": {
+        "startLine": 126,
+        "startChar": 69,
+        "endLine": 126,
+        "endChar": 78
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7579ddb_cf0d6b3c",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Assuming that the label has some text, can we select the element based on its textual representation instead? For example we can use `aria-label` as in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/helpers/emulation-helpers.ts;l\u003d8;drc\u003da75ae7cbb3ff3ee64eb0644853cda805f5274471",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc81f10_ed52941c",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "As per the other comment about the coordinator, this call then become `await coordinator.done();`",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 62
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f738951_2a7f9095",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-16T15:05:29Z",
+      "side": 1,
+      "message": "Since these are clicks, writing an interaction test might be more appropriate for this. By using the Puppeteer `click` method, we abstract away from the underlying click listeners. This allows us to later use a different method to detect clicks.\n\nKeeping this as-is is fine as well, as there are numerous other unit tests that already do this, but I think this is a good opportunity to introduce an interaction test for this instead.",
+      "range": {
+        "startLine": 258,
+        "startChar": 6,
+        "endLine": 258,
+        "endChar": 19
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
