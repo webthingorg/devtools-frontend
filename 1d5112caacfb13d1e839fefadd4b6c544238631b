@@ -247,6 +247,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dc257e6_48b4648d",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-16T14:45:50Z",
+      "side": 1,
+      "message": "Fix verified.",
+      "parentUuid": "a5bbd5b7_ad411fb6",
+      "revId": "1d5112caacfb13d1e839fefadd4b6c544238631b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72451c5c_3b552f3f",
