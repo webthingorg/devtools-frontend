@@ -578,6 +578,10 @@ export class UserAgentClientHintsForm extends HTMLElement {
           .input-field {
             border: 1px solid;
           }
+
+          .tree-title[aria-disabled='true'] {
+            color: GrayText;
+          }
         }
       </style>
       <section class="root">
@@ -589,6 +593,8 @@ export class UserAgentClientHintsForm extends HTMLElement {
           @keypress="${this.handleTreeExpand}"
           aria-expanded="${this.isFormOpened}"
           aria-controls="form-container"
+          @disabled="${this.isFormDisabled}"
+          aria-disabled="${this.isFormDisabled}"
         >
           <${IconButton.Icon.Icon.litTagName}
             class="${this.isFormOpened ? '' : 'rotate-icon'}"

@@ -105,6 +105,13 @@ export class Icon extends HTMLElement {
             display: inline-block;
             white-space: nowrap;
           }
+
+          @media (forced-colors: active) {
+            .icon-basic {
+              forced-color-adjust: none;
+              background-color: fieldtext !important; /* stylelint-disable-line declaration-no-important */
+            }
+          }
         </style>
         <div class="icon-basic" style=${LitHtml.Directives.styleMap(this.getStyles())}></div>
       `, this.shadow);
