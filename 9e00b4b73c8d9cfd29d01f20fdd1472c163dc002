@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02dc13ad_b7f44e69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-16T14:30:50Z",
+      "side": 1,
+      "message": "\u003e Tim, PTAL at front_end/ui/components/request_link_icon/BUILD.gn\n\nSorry, apparently the reply box remembers the text, but not the reviewers...",
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
