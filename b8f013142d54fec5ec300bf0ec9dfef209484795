@@ -119,6 +119,24 @@
       "parentUuid": "cac71ae9_891e9e76",
       "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9c11ea_c3f08078",
+        "filename": "test/e2e/sources/can-disable-auto-sources-focus_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-06-16T11:46:16Z",
+      "side": 1,
+      "message": "After online discussion: we keep the tests as they are and I added a comment mentioning that the test may become flaky if the tested case is  broken. The problem here is that we are testing for something to *not happen*.",
+      "parentUuid": "24307292_9c6ba5e7",
+      "revId": "b8f013142d54fec5ec300bf0ec9dfef209484795",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
