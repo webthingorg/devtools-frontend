@@ -138,7 +138,7 @@ export class DebuggerModel extends SDKModel {
                                    }>>)|null;
   _expandCallFramesCallback: ((arg0: Array<CallFrame>) => Promise<Array<CallFrame>>)|null;
   _evaluateOnCallFrameCallback: ((arg0: CallFrame, arg1: EvaluationOptions) => Promise<EvaluationResult|null>)|null;
-  _ignoreDebuggerPausedEvents: boolean;
+  ignoreDebuggerPausedEvents: boolean;
   _breakpointResolvedEventTarget: Common.ObjectWrapper.ObjectWrapper;
   _autoStepOver: boolean;
   _isPausing: boolean;
@@ -167,7 +167,7 @@ export class DebuggerModel extends SDKModel {
     this._expandCallFramesCallback = null;
     this._evaluateOnCallFrameCallback = null;
 
-    this._ignoreDebuggerPausedEvents = false;
+    this.ignoreDebuggerPausedEvents = false;
 
     this._breakpointResolvedEventTarget = new Common.ObjectWrapper.ObjectWrapper();
 
@@ -219,10 +219,6 @@ export class DebuggerModel extends SDKModel {
 
   debuggerEnabled(): boolean {
     return Boolean(this._debuggerEnabled);
-  }
-
-  ignoreDebuggerPausedEvents(ignore: boolean): void {
-    this._ignoreDebuggerPausedEvents = ignore;
   }
 
   async _enableDebugger(): Promise<void> {
@@ -646,7 +642,7 @@ export class DebuggerModel extends SDKModel {
       breakpointIds: string[], asyncStackTrace?: Protocol.Runtime.StackTrace,
       asyncStackTraceId?: Protocol.Runtime.StackTraceId,
       asyncCallStackTraceId?: Protocol.Runtime.StackTraceId): Promise<void> {
-    if (this._ignoreDebuggerPausedEvents) {
+    if (this.ignoreDebuggerPausedEvents) {
       return;
     }
 
