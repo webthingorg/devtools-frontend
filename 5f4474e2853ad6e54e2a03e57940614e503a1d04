@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123daaf5_8d1ef20f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-17T12:40:42Z",
+      "side": 1,
+      "message": "LGTM from my side. Very impressive!",
+      "revId": "5f4474e2853ad6e54e2a03e57940614e503a1d04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
