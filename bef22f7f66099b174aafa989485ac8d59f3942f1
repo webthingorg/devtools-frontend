@@ -105,6 +105,24 @@
       "parentUuid": "16e8173b_8a51ed15",
       "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b9efba6_7f80b80d",
+        "filename": "front_end/panels/recorder/components/RecordingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-17T07:37:28Z",
+      "side": 1,
+      "message": "Ok, since no one seems to really feel strongly I\u0027ll just land this as-is then :) Thanks!",
+      "parentUuid": "90e5c3e2_67697b21",
+      "revId": "bef22f7f66099b174aafa989485ac8d59f3942f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
