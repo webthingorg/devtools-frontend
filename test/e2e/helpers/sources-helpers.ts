@@ -12,7 +12,7 @@ export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Don\'t pause on exception
 export const PAUSE_BUTTON = '[aria-label="Pause script execution"]';
 export const RESUME_BUTTON = '[aria-label="Resume script execution"]';
 export const SOURCES_LINES_SELECTOR = '.CodeMirror-code > div';
-export const PAUSE_INDICATOR_SELECTOR = '.paused-status';
+export const PAUSE_INDICATOR_SELECTOR = '.paused-status > span';
 export const CODE_LINE_SELECTOR = '.CodeMirror-code .CodeMirror-linenumber';
 export const SCOPE_LOCAL_VALUES_SELECTOR = 'li[aria-label="Local"] + ol';
 export const SELECTED_THREAD_SELECTOR = 'div.thread-item.selected > div.thread-item-title';
