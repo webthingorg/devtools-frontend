@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "002595b3_ac7adfbf",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T10:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1be5f0cb_16f1e07f",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4752e680_a0697d90",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Let’s do a ts-ignore comment pointing to https://github.com/microsoft/TypeScript/issues/13086",
       "parentUuid": "d4c0e688_ffbe7c0c",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0adc06_c2a987d8",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T10:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e54aa09_b040ecd0",
       "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
