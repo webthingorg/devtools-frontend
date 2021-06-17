@@ -293,6 +293,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a26079a4_71bb6c0b",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:35:01Z",
+      "side": 1,
+      "message": "Using the aria label now.",
+      "parentUuid": "45ce183d_61391bf1",
+      "range": {
+        "startLine": 126,
+        "startChar": 69,
+        "endLine": 126,
+        "endChar": 78
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7579ddb_cf0d6b3c",
