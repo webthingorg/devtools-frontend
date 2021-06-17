@@ -137,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4be9f27d_cdfb180a",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-17T08:47:08Z",
+      "side": 1,
+      "message": "I don\u0027t feel strongly either way, I just wanted it to be a conscious decision. Another reason to exclude it (other than oldIE support, which I agree no longer seems relevant, and definitely not for our Chrome-only codebase) could be that JSON doesn\u0027t support `\\v`. So if we were planning on extending this utility for future right-click → “copy as JSON string” in the future, we’d need to make `\\v` output conditional.",
+      "parentUuid": "1d5c78f0_8344ddfe",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4518ac06_cd4d27ce",
         "filename": "front_end/core/platform/string-utilities.ts",
         "patchSetId": 2
@@ -166,6 +184,24 @@
       "side": 1,
       "message": "I have refactored a bit here to account for lone surrogates and we now use a map for the replacements. The map contains both \"miscellaneous\" patterns such as \u0027\u003cscript\u0027 and the special characters such as \u0027\\n\u0027. Should we split this into two maps instead?",
       "parentUuid": "4518ac06_cd4d27ce",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ac1044_2af88bb7",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-17T08:47:08Z",
+      "side": 1,
+      "message": "I like it! A single map seems fine, IMHO.",
+      "parentUuid": "0f9655a4_7a4884ba",
       "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
