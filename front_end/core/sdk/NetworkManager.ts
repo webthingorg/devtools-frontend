@@ -477,6 +477,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   requestWillBeSent(
       {requestId, loaderId, documentURL, request, timestamp, wallTime, initiator, redirectResponse, type, frameId}:
           Protocol.Network.RequestWillBeSentEvent): void {
+    const node = document.createElement('P');
+    const textnode = document.createTextNode('requestWillBeSent');
+    node.appendChild(textnode);
+    document.body.appendChild(node);
     let networkRequest = this.requestsById.get(requestId);
     if (networkRequest) {
       // FIXME: move this check to the backend.
@@ -969,11 +973,19 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   subresourceWebBundleInnerResponseParsed({innerRequestId, bundleRequestId}:
                                               Protocol.Network.SubresourceWebBundleInnerResponseParsedEvent): void {
+    const node = document.createElement('P');
+    const textnode = document.createTextNode('subresourceWebBundleInnerResponseParsed');
+    node.appendChild(textnode);
+    document.body.appendChild(node);
     this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({bundleRequestId});
   }
 
   subresourceWebBundleInnerResponseError({innerRequestId, errorMessage}:
                                              Protocol.Network.SubresourceWebBundleInnerResponseErrorEvent): void {
+    const node = document.createElement('P');
+    const textnode = document.createTextNode('subresourceWebBundleInnerResponseError');
+    node.appendChild(textnode);
+    document.body.appendChild(node);
     this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({errorMessage});
   }
 }
@@ -1491,6 +1503,7 @@ class ExtraInfoBuilder {
   _hasExtraInfo: boolean;
   private webBundleInfo: WebBundleInfo|null;
   private webBundleInnerRequestInfo: WebBundleInnerRequestInfo|null;
+  debug: string;
 
   constructor() {
     this._requests = [];
@@ -1500,36 +1513,43 @@ class ExtraInfoBuilder {
     this._hasExtraInfo = false;
     this.webBundleInfo = null;
     this.webBundleInnerRequestInfo = null;
+    this.debug = '';
   }
 
   addRequest(req: NetworkRequest): void {
     this._requests.push(req);
     this._sync(this._requests.length - 1);
+    this.debug += ' ar';
   }
 
   addRequestExtraInfo(info: ExtraRequestInfo): void {
     this._hasExtraInfo = true;
     this._requestExtraInfos.push(info);
     this._sync(this._requestExtraInfos.length - 1);
+    this.debug += ' arqei';
   }
 
   addResponseExtraInfo(info: ExtraResponseInfo): void {
     this._responseExtraInfos.push(info);
     this._sync(this._responseExtraInfos.length - 1);
+    this.debug += ' arsei';
   }
 
   setWebBundleInfo(info: WebBundleInfo): void {
     this.webBundleInfo = info;
+    this.debug += ' swbi';
     this.updateFinalRequest();
   }
 
   setWebBundleInnerRequestInfo(info: WebBundleInnerRequestInfo): void {
     this.webBundleInnerRequestInfo = info;
+    this.debug += ' swbiri';
     this.updateFinalRequest();
   }
 
   finished(): void {
     this._finished = true;
+    this.debug += ' f';
     this.updateFinalRequest();
   }
 
@@ -1559,6 +1579,9 @@ class ExtraInfoBuilder {
     const finalRequest = this._requests[this._requests.length - 1];
     finalRequest?.setWebBundleInfo(this.webBundleInfo);
     finalRequest?.setWebBundleInnerRequestInfo(this.webBundleInnerRequestInfo);
+    if (finalRequest) {
+      finalRequest.debug = this.debug;
+    }
   }
 }
 
