@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e26b059_13099702",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-17T09:35:30Z",
+      "side": 1,
+      "message": "Currently, the components we have in `ui/components` (or in the panels) define `Data` with the component name prepended, to ease code navigation and understanding. For consistency, I would prefer to follow that pattern and rename it to `RequestLinkIconData` instead. Sorry for initially not including the reasoning for the rename request and the additional background information.",
+      "parentUuid": "4a45990c_474f0412",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47b3f01_ca2b3cd5",
         "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
         "patchSetId": 9
