@@ -56,6 +56,30 @@
       },
       "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54feaa28_ed267550",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-17T15:55:03Z",
+      "side": 1,
+      "message": "Good catch, thanks!\nIt\u0027s actually something I added a while ago but is indeed no longer need so I removed it.",
+      "parentUuid": "6bc0fd57_f40ace1c",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 44
+      },
+      "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
