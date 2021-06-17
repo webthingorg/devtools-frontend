@@ -16,6 +16,46 @@
       "message": "PTAL, thanks!\nLet me know if you have ideas for better names - naming things is hard after all ;)",
       "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb31eae9_e08ca50b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-17T15:50:20Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc0fd57_f40ace1c",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-17T15:50:20Z",
+      "side": 1,
+      "message": "This seems unused now and the early return never executed below. I think we can rip both out, but if you wanna make double sure, you could look up what this was used for \"in the old days\" and why its no longer used.",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 44
+      },
+      "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
