@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bbae2c0_c98b1536",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T09:00:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4752e680_a0697d90",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88ad754f_baa9c51b",
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Typescript doesn\u0027t know this. Should we instruct ts to ignore with a bang instead?",
       "parentUuid": "88ad754f_baa9c51b",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70284e3b_11cd0494",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T09:00:00Z",
+      "side": 1,
+      "message": "Oh, we do not allow non-null assertions either :)",
+      "parentUuid": "d4c0e688_ffbe7c0c",
       "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
