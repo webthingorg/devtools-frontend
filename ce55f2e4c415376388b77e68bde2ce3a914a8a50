@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd312ab_c0e74125",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-17T15:10:50Z",
+      "side": 1,
+      "message": "PTAL, thanks!\nLet me know if you have ideas for better names - naming things is hard after all ;)",
+      "revId": "ce55f2e4c415376388b77e68bde2ce3a914a8a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
