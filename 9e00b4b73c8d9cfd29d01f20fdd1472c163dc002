@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a45990c_474f0412",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "We refer to this as RequestLinkIcon.Data anyway, so I\u0027d prefer just Data, but I can change it if it is important for some reason to name it RequestLinkIconData.",
+      "parentUuid": "0fcf33e0_c6993809",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47b3f01_ca2b3cd5",
         "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
         "patchSetId": 9
@@ -71,6 +95,30 @@
       "writtenOn": "2021-06-16T15:05:29Z",
       "side": 1,
       "message": "Can we make `resolveRequest` asynchronous? Right now, I think this can cause race-conditions, since the promise might not be resolved and thus in the data-setter, we render without the request.\n\nIf we can\u0027t make this asynchronous, then we should probably not call `this.render()` in the data setter? Alternatively, you can use the until directive from Lit to show some output until the promise resolves: https://lit.dev/docs/templates/directives/#until",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 13
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "352b1a66_99ca3633",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Since the LitHtml.render call in render() is synchronous and always takes the latest state from RequestLinkIcon, I think any potential race is benign.\n\nYour observation about the this.render() in the data setter is correct and intended: The component renders a yellow icon until the request is resolved (which might never happen). We want to get this icon rendered ASAP to achieve UI plasticity. Using until wouldn\u0027t improve the code here: classMap and this.iconData are handling this.",
+      "parentUuid": "e47b3f01_ca2b3cd5",
       "range": {
         "startLine": 86,
         "startChar": 9,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f58994_9dd6c09d",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "parentUuid": "90206d78_d2328786",
+      "range": {
+        "startLine": 155,
+        "startChar": 6,
+        "endLine": 158,
+        "endChar": 38
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6dbe1e6_c57c7b2f",
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4928320_c685ad28",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Done. I wasn\u0027t aware that this is required for components that don\u0027t rely on Coordinator#read.",
+      "parentUuid": "b6dbe1e6_c57c7b2f",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 18
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef0a8fe_ec038e5f",
@@ -140,6 +236,30 @@
       "writtenOn": "2021-06-16T15:05:29Z",
       "side": 1,
       "message": "Nit: You can use `host: this` in the render options to automatically add the correct `this` scope to any listeners. This avoids the need for creating new closures with `.bind` for every render: https://lit.dev/docs/libraries/standalone-templates/#render-options",
+      "range": {
+        "startLine": 200,
+        "startChar": 21,
+        "endLine": 200,
+        "endChar": 42
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce6e554_75efd849",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Very nice, I was wondering about that!",
+      "parentUuid": "4ef0a8fe_ec038e5f",
       "range": {
         "startLine": 200,
         "startChar": 21,
@@ -196,6 +316,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0244655_a05df2f9",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7579ddb_cf0d6b3c",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cc81f10_ed52941c",
@@ -219,6 +363,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5645e7df_f6465066",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Not really. I need to drain the microtask queue to trigger the rendering and then wait for the coordinator to finish.",
+      "parentUuid": "5cc81f10_ed52941c",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 62
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f738951_2a7f9095",
@@ -232,6 +400,30 @@
       "writtenOn": "2021-06-16T15:05:29Z",
       "side": 1,
       "message": "Since these are clicks, writing an interaction test might be more appropriate for this. By using the Puppeteer `click` method, we abstract away from the underlying click listeners. This allows us to later use a different method to detect clicks.\n\nKeeping this as-is is fine as well, as there are numerous other unit tests that already do this, but I think this is a good opportunity to introduce an interaction test for this instead.",
+      "range": {
+        "startLine": 258,
+        "startChar": 6,
+        "endLine": 258,
+        "endChar": 19
+      },
+      "revId": "9e00b4b73c8d9cfd29d01f20fdd1472c163dc002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6a01f09_e59f878a",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T06:21:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4f738951_2a7f9095",
       "range": {
         "startLine": 258,
         "startChar": 6,
