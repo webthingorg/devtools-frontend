@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6532b1c_38b28167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-17T14:55:12Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "6f36d4b0087134e7b77a3c791b0d5c384862834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a559bcb_7c8a6ec6",
+        "filename": "front_end/ui/components/icon_button/IconButton.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-17T14:55:12Z",
+      "side": 1,
+      "message": "ultra-nit: needs a license atop the file.",
+      "revId": "6f36d4b0087134e7b77a3c791b0d5c384862834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
