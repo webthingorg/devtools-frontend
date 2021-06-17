@@ -186,6 +186,7 @@ export enum MIME_TYPE {
 
 export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implements
     TextUtils.ContentProvider.ContentProvider {
+  debug: string;
   _requestId: string;
   _backendRequestId: string;
   _documentURL: string;
@@ -278,6 +279,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
       initiator: Protocol.Network.Initiator|null) {
     super();
 
+    this.debug = '';
     this._requestId = requestId;
     this._backendRequestId = requestId;
     this.setUrl(url);
@@ -690,10 +692,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
 
   name(): string {
     if (this._name) {
-      return this._name;
+      return this._name + ' ' + this.debug;
     }
     this._parseNameAndPathFromURL();
-    return this._name as string;
+    return (this._name as string) + ' ' + this.debug;
   }
 
   path(): string {
