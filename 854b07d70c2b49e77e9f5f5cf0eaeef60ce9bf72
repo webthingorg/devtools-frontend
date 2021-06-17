@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f29e05ae_5b5f52c1",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T09:57:30Z",
+      "side": 1,
+      "message": "What is the concern you are trying to address?",
+      "parentUuid": "27029311_c250d401",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "854b07d70c2b49e77e9f5f5cf0eaeef60ce9bf72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3f93e8d_51f377ae",
         "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
         "patchSetId": 11
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-17T09:35:30Z",
       "side": 1,
       "message": "Thanks for refactoring, this makes it a lot clearer! Can we change `extractElements` to do this work and then reuse `extractElements` in `extractData`?\n\nI am thinking of something along the lines of this:\n\n```\nexport const extractData \u003d (shadowRoot: ShadowRoot): {\n  iconData: IconButton.Icon.IconData,\n  label: string|null,\n  containerClasses: string[],\n} \u003d\u003e {\n  const {labelElement, icon, container} \u003d extractElements(shadowRoot);\n  return {\n    iconData: icon.data,\n    label: labelElement ? labelElement.textContent : null,\n    containerClasses: Array.from(container.classList),\n  };\n}\n```",
+      "range": {
+        "startLine": 39,
+        "startChar": 42,
+        "endLine": 39,
+        "endChar": 70
+      },
+      "revId": "854b07d70c2b49e77e9f5f5cf0eaeef60ce9bf72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f86cf8_2612edcb",
+        "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-17T09:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3f93e8d_51f377ae",
       "range": {
         "startLine": 39,
         "startChar": 42,
