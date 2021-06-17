@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a44842_625724b4",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-17T09:19:55Z",
+      "side": 1,
+      "message": "I was gonna ask to include a comment here explaining some of the specific ranges, and as I was drafting it, I realized we can simplify this further. First, here’s the draft I wrote:\n\n```\nThese regular expressions match:\n- non-printable ASCII, i.e. ASCII (U+0000 – U+007F) except for U+0020 – U+007E\n- C1 controls (U+0080 – U+009F)\n- lone surrogates (U+D800 – U+DFFF)\n- specific patterns for script-in-HTML support\n```\n\nThen I realized that the first and second list items together (i.e. `\\0-\\x1F\\x7F-\\x9F` form the full set of Control characters. So, we could simplify both RegExps by replacing this part of the pattern:\n\n    [\\0-\\x1F\\x7F-\\x9F]\n\nwith\n\n    \\p{Control}\n    \n…and similarly, we can replace\n\n    [\\uD800-\\uDFFF]\n    \nwith\n\n    \\p{Surrogate}\n    \nCombined, this removes the need for adding the comment in the first place, since the pattern then becomes fairly readable and self-documenting. WDYT?",
+      "revId": "8c8b00cbdf7d73d8a33900c56e5371571c56fda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
