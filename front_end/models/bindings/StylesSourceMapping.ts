@@ -106,7 +106,7 @@ export class StylesSourceMapping implements SourceMapping {
   }
 
   _acceptsHeader(header: SDK.CSSStyleSheetHeader.CSSStyleSheetHeader): boolean {
-    if (header.isConstructed) {
+    if (header.isConstructed && header.sourceURL.length === 0) {
       return false;
     }
     if (header.isInline && !header.hasSourceURL && header.origin !== 'inspector') {
