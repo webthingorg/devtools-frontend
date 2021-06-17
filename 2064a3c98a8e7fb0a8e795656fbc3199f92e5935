@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e003c02f_6c6c566c",
+        "filename": "front_end/ui/legacy/utils/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-17T14:26:35Z",
+      "side": 1,
+      "message": "If these sources live in a different directory, then you should define the `generate_css` action in that directory as well. In other words, I think this should be moved into `front_end/ui/legacy/BUILD.gn`.\n\nThen, you can update the dependencies below to `\"../:css_files\",` to resolve to the new location. This is probably why CQ is failing atm.",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "2064a3c98a8e7fb0a8e795656fbc3199f92e5935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f489abb_d2634ebd",
+        "filename": "front_end/ui/legacy/utils/inject-core-styles.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-17T14:26:35Z",
+      "side": 1,
+      "message": "This seems very similar to what the implementation is of `Widget.registerCSSFiles`. Rather than duplicating, can we extract a helper method that you use both here and in `Widget`?",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 89
+      },
+      "revId": "2064a3c98a8e7fb0a8e795656fbc3199f92e5935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
