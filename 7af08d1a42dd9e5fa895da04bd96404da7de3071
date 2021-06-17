@@ -153,6 +153,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e58f419_751b0c1f",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T08:57:31Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll leave it in for now then, since we are explicitly forming js literals for now.",
+      "parentUuid": "4be9f27d_cdfb180a",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4518ac06_cd4d27ce",
@@ -202,6 +220,24 @@
       "side": 1,
       "message": "I like it! A single map seems fine, IMHO.",
       "parentUuid": "0f9655a4_7a4884ba",
+      "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb57990c_2c8970ff",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T08:57:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74ac1044_2af88bb7",
       "revId": "7af08d1a42dd9e5fa895da04bd96404da7de3071",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

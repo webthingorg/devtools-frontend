@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4c0e688_ffbe7c0c",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T08:57:31Z",
+      "side": 1,
+      "message": "Typescript doesn\u0027t know this. Should we instruct ts to ignore with a bang instead?",
+      "parentUuid": "88ad754f_baa9c51b",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e903acc_bc197da1",
         "filename": "front_end/core/platform/string-utilities.ts",
         "patchSetId": 4
@@ -65,6 +83,24 @@
       "writtenOn": "2021-06-17T08:47:08Z",
       "side": 1,
       "message": "For the record, it’s totally fine (and permitted by our eslint config IIRC) to use `\"\u0027\"` in cases like this",
+      "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dec4d09_c8d1fa93",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-17T08:57:31Z",
+      "side": 1,
+      "message": "The `check-lint` target accepts it, but our presubmit still changes it back to single quotes :/",
+      "parentUuid": "0e903acc_bc197da1",
       "revId": "d8fc426a213914644da311105b3747d5c56bb5cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
