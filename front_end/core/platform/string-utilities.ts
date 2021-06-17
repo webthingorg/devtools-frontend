@@ -225,6 +225,65 @@ export const standardFormatters = {
   },
 };
 
+const toHexadecimal = (charCode: number, padToLength: number): string => {
+  return charCode.toString(16).toUpperCase().padStart(padToLength, '0');
+};
+
+// Remember to update the third group in the regexps patternsToEscape and
+// patternsToEscapePlusQuote when adding new entries in this map.
+const escapedReplacements = new Map([
+  ['\b', '\\b'],
+  ['\f', '\\f'],
+  ['\n', '\\n'],
+  ['\r', '\\r'],
+  ['\t', '\\t'],
+  ['\v', '\\v'],
+  ['\'', '\\\''],
+  ['<!--', '<\\!--'],
+  ['<script', '<\\script'],
+  ['</script', '<\\/script'],
+]);
+
+export const formatAsJSLiteral = (content: string): string => {
+  const patternsToEscape = /(\p{Control})|(\p{Surrogate})|(<(?:!--|\/?script))/gu;
+  const patternsToEscapePlusSingleQuote = /(\p{Control})|(\p{Surrogate})|(<(?:!--|\/?script)|')/gu;
+  const escapePattern = (match: string, specialChar: string, loneSurrogate: string, pattern: string): string => {
+    if (specialChar) {
+      if (escapedReplacements.has(specialChar)) {
+        // @ts-ignore https://github.com/microsoft/TypeScript/issues/13086
+        return escapedReplacements.get(specialChar);
+      }
+      const twoDigitHex = toHexadecimal(specialChar.charCodeAt(0), 2);
+      return '\\x' + twoDigitHex;
+    }
+    if (loneSurrogate) {
+      const fourDigitHex = toHexadecimal(loneSurrogate.charCodeAt(0), 4);
+      return '\\u' + fourDigitHex;
+    }
+    if (pattern) {
+      return escapedReplacements.get(pattern) || '';
+    }
+    return match;
+  };
+
+  let escapedContent = '';
+  let quote = '';
+  if (!content.includes('\'')) {
+    quote = '\'';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else if (!content.includes('"')) {
+    quote = '"';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else if (!content.includes('`') && !content.includes('${')) {
+    quote = '`';
+    escapedContent = content.replace(patternsToEscape, escapePattern);
+  } else {
+    quote = '\'';
+    escapedContent = content.replace(patternsToEscapePlusSingleQuote, escapePattern);
+  }
+  return `${quote}${escapedContent}${quote}`;
+};
+
 export const vsprintf = function(formatString: string, substitutions: unknown[]): string {
   return format(formatString, substitutions, standardFormatters, '', (a, b) => a + b).formattedResult;
 };
