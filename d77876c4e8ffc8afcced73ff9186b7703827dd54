@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db2b3fbf_cb9e7756",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-18T23:42:32Z",
+      "side": 1,
+      "message": "I was confused and thought this referred to the whole list of brands. Could we rename this to \"Brand properties\" or \"Brand info\" similar to the others? I think that\u0027s more clear that it only refers to a single row (name and version).",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec728fae_307dae18",
         "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
         "patchSetId": 1
