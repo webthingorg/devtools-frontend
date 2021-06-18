@@ -51,6 +51,24 @@
       "parentUuid": "0ddd3aee_03071ca3",
       "revId": "3711aad761a216ea347591f9b79ce1541f2bc411",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d544e8b_96369bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-18T10:39:32Z",
+      "side": 1,
+      "message": "Right, it might be clang format. Do you I need to do something or is it fine to submit?",
+      "parentUuid": "e2735cf9_6f409c93",
+      "revId": "3711aad761a216ea347591f9b79ce1541f2bc411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
