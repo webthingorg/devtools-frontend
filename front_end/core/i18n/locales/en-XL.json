@@ -4271,6 +4271,9 @@
   "panels/emulation/components/UserAgentClientHintsForm.ts | architecturePlaceholder": {
     "message": "Âŕĉh́ît́êćt̂úr̂é (ê.ǵ. x̂86)"
   },
+  "panels/emulation/components/UserAgentClientHintsForm.ts | brandList": {
+    "message": "B̂ŕâńd̂ Ĺîśt̂"
+  },
   "panels/emulation/components/UserAgentClientHintsForm.ts | brandName": {
     "message": "B̂ŕâńd̂"
   },
@@ -4282,6 +4285,9 @@
   },
   "panels/emulation/components/UserAgentClientHintsForm.ts | deviceModel": {
     "message": "D̂év̂íĉé m̂ód̂él̂"
+  },
+  "panels/emulation/components/UserAgentClientHintsForm.ts | deviceModelRow": {
+    "message": "D̂év̂íĉé m̂ód̂él̂ ŕôẃ"
   },
   "panels/emulation/components/UserAgentClientHintsForm.ts | fullBrowserVersion": {
     "message": "F̂úl̂ĺ b̂ŕôẃŝér̂ v́êŕŝíôń"
@@ -4300,6 +4306,9 @@
   },
   "panels/emulation/components/UserAgentClientHintsForm.ts | platformPlaceholder": {
     "message": "P̂ĺât́f̂ór̂ḿ (ê.ǵ. Âńd̂ŕôíd̂)"
+  },
+  "panels/emulation/components/UserAgentClientHintsForm.ts | platformRow": {
+    "message": "P̂ĺât́f̂ór̂ḿ r̂óŵ"
   },
   "panels/emulation/components/UserAgentClientHintsForm.ts | platformVersion": {
     "message": "P̂ĺât́f̂ór̂ḿ v̂ér̂śîón̂"
