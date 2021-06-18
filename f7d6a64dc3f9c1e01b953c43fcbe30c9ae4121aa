@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6840073c_5239d23b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-06-18T04:59:50Z",
+      "side": 1,
+      "message": "Hi Al,\n\nthanks for looking into the flakiness. Could you add some more explanation so that we better understand the change?",
+      "revId": "f7d6a64dc3f9c1e01b953c43fcbe30c9ae4121aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce2f92e_e55618c4",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-06-18T04:59:50Z",
+      "side": 1,
+      "message": "Could you add some more context/explanation why the span is added here?",
+      "revId": "f7d6a64dc3f9c1e01b953c43fcbe30c9ae4121aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
