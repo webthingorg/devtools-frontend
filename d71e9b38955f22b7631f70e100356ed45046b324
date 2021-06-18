@@ -33,6 +33,24 @@
       "message": "Conceptually these are Set#has (rather than Array#includes). We also don\u0027t need to create new arrays on every isInput() call. (I know these arrays are small and so the perf impact is likely to be small in this specific case etc. etc. but still.)\n\nWDYT about moving to sets that are defined outside of this function and re-used?",
       "revId": "d71e9b38955f22b7631f70e100356ed45046b324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49bfe62e_e98156a1",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-18T12:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bff7a12_58a1657d",
+      "revId": "d71e9b38955f22b7631f70e100356ed45046b324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
