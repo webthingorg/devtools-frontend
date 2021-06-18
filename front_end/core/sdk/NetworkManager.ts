@@ -323,6 +323,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   private requestsByURL: Map<string, NetworkRequest>;
   _requestIdToExtraInfoBuilder: Map<string, ExtraInfoBuilder>;
   _requestIdToTrustTokenEvent: Map<string, Protocol.Network.TrustTokenOperationDoneEvent>;
+  debugText: HTMLElement;
   constructor(manager: NetworkManager) {
     this._manager = manager;
     this.requestsById = new Map();
@@ -337,6 +338,11 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
      * once it is created in `requestWillBeSent`.
      */
     this._requestIdToTrustTokenEvent = new Map();
+
+    this.debugText = document.createElement('P');
+    this.debugText.style.position = 'absolute';
+    this.debugText.style.backgroundColor = 'white';
+    /* setTimeout(() => document.body.appendChild(this.debugText), 2000); */
   }
 
   _headersMapToHeadersArray(headersMap: Protocol.Network.Headers): NameValue[] {
@@ -477,6 +483,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   requestWillBeSent(
       {requestId, loaderId, documentURL, request, timestamp, wallTime, initiator, redirectResponse, type, frameId}:
           Protocol.Network.RequestWillBeSentEvent): void {
+    this.debugText.innerText += ' requestWillBeSent ' + requestId;
     let networkRequest = this.requestsById.get(requestId);
     if (networkRequest) {
       // FIXME: move this check to the backend.
@@ -597,8 +604,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       networkRequest = this._maybeAdoptMainResourceRequest(requestId);
     }
     if (!networkRequest) {
+      this.debugText.innerText += ' loadingFinished ' + requestId + ' not found';
       return;
     }
+    this.debugText.innerText += ' loadingFinished ' + requestId + ' found';
     this._getExtraInfoBuilder(requestId).finished();
     this._finishNetworkRequest(networkRequest, finishTime, encodedDataLength, shouldReportCorbBlocking);
     this._manager.dispatchEventToListeners(Events.LoadingFinished, networkRequest);
@@ -615,8 +624,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   }: Protocol.Network.LoadingFailedEvent): void {
     const networkRequest = this.requestsById.get(requestId);
     if (!networkRequest) {
+      this.debugText.innerText += ' loadingFailed ' + requestId + ' not found';
       return;
     }
+    this.debugText.innerText += ' loadingFailed ' + requestId + ' found';
 
     networkRequest.failed = true;
     networkRequest.setResourceType(Common.ResourceType.resourceTypes[resourceType]);
@@ -959,22 +970,46 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   subresourceWebBundleMetadataReceived({requestId, urls}: Protocol.Network.SubresourceWebBundleMetadataReceivedEvent):
       void {
-    this._getExtraInfoBuilder(requestId).setWebBundleInfo({resourceUrls: urls});
+    this.debugText.innerText += ' subresourceWebBundleMetadataReceived ' + requestId;
+    const extraInfoBuilder = this._getExtraInfoBuilder(requestId);
+    extraInfoBuilder.setWebBundleInfo({resourceUrls: urls});
+    const finalRequest = extraInfoBuilder.finalRequest();
+    if (finalRequest) {
+      this._updateNetworkRequest(finalRequest);
+    }
   }
 
   subresourceWebBundleMetadataError({requestId, errorMessage}: Protocol.Network.SubresourceWebBundleMetadataErrorEvent):
       void {
-    this._getExtraInfoBuilder(requestId).setWebBundleInfo({errorMessage});
+    this.debugText.innerText += ' subresourceWebBundleMetadataError ' + requestId + ' ' + errorMessage;
+    const extraInfoBuilder = this._getExtraInfoBuilder(requestId);
+    extraInfoBuilder.setWebBundleInfo({errorMessage});
+    const finalRequest = extraInfoBuilder.finalRequest();
+    if (finalRequest) {
+      this._updateNetworkRequest(finalRequest);
+    }
   }
 
   subresourceWebBundleInnerResponseParsed({innerRequestId, bundleRequestId}:
                                               Protocol.Network.SubresourceWebBundleInnerResponseParsedEvent): void {
-    this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({bundleRequestId});
+    this.debugText.innerText += ' subresourceWebBundleInnerResponseParsed ' + innerRequestId + ' ' + bundleRequestId;
+    const extraInfoBuilder = this._getExtraInfoBuilder(innerRequestId);
+    extraInfoBuilder.setWebBundleInnerRequestInfo({bundleRequestId});
+    const finalRequest = extraInfoBuilder.finalRequest();
+    if (finalRequest) {
+      this._updateNetworkRequest(finalRequest);
+    }
   }
 
   subresourceWebBundleInnerResponseError({innerRequestId, errorMessage}:
                                              Protocol.Network.SubresourceWebBundleInnerResponseErrorEvent): void {
-    this._getExtraInfoBuilder(innerRequestId).setWebBundleInnerRequestInfo({errorMessage});
+    this.debugText.innerText += ' subresourceWebBundleInnerResponseError ' + innerRequestId + ' ' + errorMessage;
+    const extraInfoBuilder = this._getExtraInfoBuilder(innerRequestId);
+    extraInfoBuilder.setWebBundleInnerRequestInfo({errorMessage});
+    const finalRequest = extraInfoBuilder.finalRequest();
+    if (finalRequest) {
+      this._updateNetworkRequest(finalRequest);
+    }
   }
 }
 
@@ -1491,6 +1526,7 @@ class ExtraInfoBuilder {
   _hasExtraInfo: boolean;
   private webBundleInfo: WebBundleInfo|null;
   private webBundleInnerRequestInfo: WebBundleInnerRequestInfo|null;
+  debug: string;
 
   constructor() {
     this._requests = [];
@@ -1500,36 +1536,43 @@ class ExtraInfoBuilder {
     this._hasExtraInfo = false;
     this.webBundleInfo = null;
     this.webBundleInnerRequestInfo = null;
+    this.debug = '';
   }
 
   addRequest(req: NetworkRequest): void {
     this._requests.push(req);
     this._sync(this._requests.length - 1);
+    this.debug += ' ar';
   }
 
   addRequestExtraInfo(info: ExtraRequestInfo): void {
     this._hasExtraInfo = true;
     this._requestExtraInfos.push(info);
     this._sync(this._requestExtraInfos.length - 1);
+    this.debug += ' arqei';
   }
 
   addResponseExtraInfo(info: ExtraResponseInfo): void {
     this._responseExtraInfos.push(info);
     this._sync(this._responseExtraInfos.length - 1);
+    this.debug += ' arsei';
   }
 
   setWebBundleInfo(info: WebBundleInfo): void {
     this.webBundleInfo = info;
+    this.debug += ' swbi';
     this.updateFinalRequest();
   }
 
   setWebBundleInnerRequestInfo(info: WebBundleInnerRequestInfo): void {
     this.webBundleInnerRequestInfo = info;
+    this.debug += ' swbiri';
     this.updateFinalRequest();
   }
 
   finished(): void {
     this._finished = true;
+    this.debug += ' f';
     this.updateFinalRequest();
   }
 
@@ -1552,13 +1595,23 @@ class ExtraInfoBuilder {
     }
   }
 
+  finalRequest(): NetworkRequest|null {
+    if (!this._finished) {
+      return null;
+    }
+    return this._requests[this._requests.length - 1] || null;
+  }
+
   private updateFinalRequest(): void {
     if (!this._finished) {
       return;
     }
-    const finalRequest = this._requests[this._requests.length - 1];
+    const finalRequest = this.finalRequest();
     finalRequest?.setWebBundleInfo(this.webBundleInfo);
     finalRequest?.setWebBundleInnerRequestInfo(this.webBundleInnerRequestInfo);
+    if (finalRequest) {
+      finalRequest.debug = this.debug;
+    }
   }
 }
 
