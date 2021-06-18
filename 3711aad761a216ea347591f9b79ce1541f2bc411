@@ -33,6 +33,24 @@
       "message": "LGTM",
       "revId": "3711aad761a216ea347591f9b79ce1541f2bc411",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2735cf9_6f409c93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-18T10:19:08Z",
+      "side": 1,
+      "message": "ESLint should be disabled on third_party. However, you might be seeing `clang-format` to reordering imports in third_party. Unfortunately, this is a bug in clang-format where the import reordering doesn\u0027t respect `Format: False`",
+      "parentUuid": "0ddd3aee_03071ca3",
+      "revId": "3711aad761a216ea347591f9b79ce1541f2bc411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
