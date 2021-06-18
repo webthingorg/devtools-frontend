@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e049e6a2_09aae425",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-18T13:13:35Z",
+      "side": 1,
+      "message": "I think we need to look into that separately. It\u0027s probably a not so common use case.",
+      "parentUuid": "1e421373_8df643f4",
+      "range": {
+        "startLine": 156,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "608ff936b104aad34531407476a0ad0b7cda1d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0840819b_ecf99805",
         "filename": "test/e2e/recorder/recorder_test.ts",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-18T13:11:44Z",
       "side": 1,
       "message": "Can we combine these two into a keypress event maybe?",
+      "range": {
+        "startLine": 208,
+        "startChar": 10,
+        "endLine": 227,
+        "endChar": 12
+      },
+      "revId": "608ff936b104aad34531407476a0ad0b7cda1d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7726c2_f5ebcf6f",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-18T13:13:35Z",
+      "side": 1,
+      "message": "Theoretically, yes. But they can also happen at different times so we will still need independent events.",
+      "parentUuid": "0840819b_ecf99805",
       "range": {
         "startLine": 208,
         "startChar": 10,
