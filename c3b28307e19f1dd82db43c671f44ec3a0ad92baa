@@ -16,6 +16,23 @@
       "message": "Hi Simon.\n\nFound some strings that were still in V1 😋, so I moved them to V2. PTAL",
       "revId": "c3b28307e19f1dd82db43c671f44ec3a0ad92baa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c73285b_cde2fde7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-18T06:40:37Z",
+      "side": 1,
+      "message": "Thanks for finding and fixing these :)",
+      "revId": "c3b28307e19f1dd82db43c671f44ec3a0ad92baa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
