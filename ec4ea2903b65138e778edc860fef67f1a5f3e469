@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ff1207_81ce59dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-18T10:03:50Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "ec4ea2903b65138e778edc860fef67f1a5f3e469",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bb8a062_b27e1844",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-18T10:03:50Z",
+      "side": 1,
+      "message": "super-nit: Lets add a tracking or reference the recorder UI bug mentioned in the CL description so we don\u0027t forget about cleaning this up.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 3
+      },
+      "revId": "ec4ea2903b65138e778edc860fef67f1a5f3e469",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
