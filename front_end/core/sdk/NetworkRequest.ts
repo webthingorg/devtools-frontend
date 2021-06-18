@@ -702,7 +702,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
       return this._name;
     }
     this._parseNameAndPathFromURL();
-    return this._name as string;
+    return (this._name as string);
   }
 
   path(): string {
