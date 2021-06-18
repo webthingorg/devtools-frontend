@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5394dfd0_71a2e449",
+        "filename": "front_end/ui/components/helpers/get-root-node.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-18T11:47:39Z",
+      "side": 1,
+      "message": "Nit: update copy-pasted comment 😜",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 99
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2f225f_d9772810",
+        "filename": "front_end/ui/legacy/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-18T11:47:39Z",
+      "side": 1,
+      "message": "Nit: sources don\u0027t need these relative paths. You can omit the `./`",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c460c2a0_c1c5eec6",
+        "filename": "front_end/ui/legacy/Widget.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-18T11:47:39Z",
+      "side": 1,
+      "message": "Nit: since the file is defined as `GetRootNode`, I think we should name this function `getRootNode` as well.",
+      "range": {
+        "startLine": 485,
+        "startChar": 33,
+        "endLine": 485,
+        "endChar": 40
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
