@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4cca95_2be4cd19",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-18T11:22:17Z",
+      "side": 1,
+      "message": "I feel like we should split on commas here, and then use a for-of later so we support covering multiple distinct folders.",
+      "revId": "2cea316a91e2d5a490f7a456395b6d380d2862d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
