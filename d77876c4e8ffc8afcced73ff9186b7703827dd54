@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec728fae_307dae18",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-18T23:39:05Z",
+      "side": 1,
+      "message": "Suggestion: Can we name this \"Platform properties\" or \"Platform info\"? \n\n\"Row\" describes the visual layout of the elements, \"properties\"/\"info\" describes the semantics.\n\nSame for device below.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590e36cc_63abdcc7",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-18T23:39:05Z",
+      "side": 1,
+      "message": "Please add role\u003d\"group\".",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 88
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
