@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3d98da_9148b578",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-18T07:16:20Z",
+      "side": 1,
+      "message": "lgtm, some incoherent thoughts about the migration in a comment xD",
+      "revId": "250ad24e62f0726f27eda9cfafea0d8610253939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ef7af9d_bbcb188b",
+        "filename": "front_end/core/common/Progress.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-18T07:16:20Z",
+      "side": 1,
+      "message": "Since these CLs are auto-generated, should we land them as-is or spend some time cleaning them up (to follow go/tsstyle)? It might be too cumbersome fixing every CL this way.\n\nE.g. ideally we get to something like the following here:\n\n```\nprivate children: SubProgress[] \u003d [];\nprivate childrenDone \u003d 0;\n\nconstructor(readonly parent: Progress) {\n  this.parent.setTotalWork(1);\n  this.parent.setWorked(0);\n}\n```\n\n`parent` would be public in this case, so we could remove the accessor.\n\nWhile I think we should definitely prioritize making underscore properties private again, I fear it might be hard to find these places again for follow-up cleanups afterwards.\n\nI was also thinking a bit about our discussion between only trivial get accessor and a public readonly property: We might be able to determine that whether there are any assignments to the property inside the class: If yes, use a trivial getter like in this CL, if no, make the property `public readonly`. \n\nMoving trivially assignments from the constructor to the field declaration should be doable with a linter rule, as should be declaring fields via constructor parameters.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "250ad24e62f0726f27eda9cfafea0d8610253939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
