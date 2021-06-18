@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9c755d3_f58aa196",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-18T13:11:44Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "608ff936b104aad34531407476a0ad0b7cda1d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e421373_8df643f4",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-18T13:11:44Z",
+      "side": 1,
+      "message": "We could also have elements with contenteditable but I\u0027m not sure if we want to support them at this point. WDYT?",
+      "range": {
+        "startLine": 156,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "608ff936b104aad34531407476a0ad0b7cda1d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0840819b_ecf99805",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-18T13:11:44Z",
+      "side": 1,
+      "message": "Can we combine these two into a keypress event maybe?",
+      "range": {
+        "startLine": 208,
+        "startChar": 10,
+        "endLine": 227,
+        "endChar": 12
+      },
+      "revId": "608ff936b104aad34531407476a0ad0b7cda1d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
