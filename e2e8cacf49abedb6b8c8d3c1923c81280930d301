@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8923a078_cfc3af40",
+        "filename": "front_end/ui/components/helpers/get-root-node.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-18T13:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5394dfd0_71a2e449",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 99
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c2f225f_d9772810",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03aa5df4_4738b92c",
+        "filename": "front_end/ui/legacy/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-18T13:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c2f225f_d9772810",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c460c2a0_c1c5eec6",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-18T11:47:39Z",
       "side": 1,
       "message": "Nit: since the file is defined as `GetRootNode`, I think we should name this function `getRootNode` as well.",
+      "range": {
+        "startLine": 485,
+        "startChar": 33,
+        "endLine": 485,
+        "endChar": 40
+      },
+      "revId": "e2e8cacf49abedb6b8c8d3c1923c81280930d301",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4037f63d_40bbcafc",
+        "filename": "front_end/ui/legacy/Widget.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-18T13:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c460c2a0_c1c5eec6",
       "range": {
         "startLine": 485,
         "startChar": 33,
