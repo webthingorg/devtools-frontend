@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3914c1ec_f1ea88d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-06-19T00:35:58Z",
+      "side": 1,
+      "message": "Small changes to fix some a11y bugs in the new client hints UX. Please take a look. ",
+      "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

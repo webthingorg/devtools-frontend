@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbcec6c_28c9b49f",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-06-19T00:35:58Z",
+      "side": 1,
+      "message": "renamed to brand properties.",
+      "parentUuid": "db2b3fbf_cb9e7756",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec728fae_307dae18",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f29ddb48_ef8cbfef",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-06-19T00:35:58Z",
+      "side": 1,
+      "message": "renamed group names to properties.",
+      "parentUuid": "ec728fae_307dae18",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "590e36cc_63abdcc7",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-18T23:39:05Z",
       "side": 1,
       "message": "Please add role\u003d\"group\".",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 88
+      },
+      "revId": "d77876c4e8ffc8afcced73ff9186b7703827dd54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c551ae2_2ebb69c8",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-06-19T00:35:58Z",
+      "side": 1,
+      "message": "added group role",
+      "parentUuid": "590e36cc_63abdcc7",
       "range": {
         "startLine": 327,
         "startChar": 0,
