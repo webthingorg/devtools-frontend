@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ed3e06_3493d151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T13:32:43Z",
+      "side": 1,
+      "message": "LGTM thanks for the `until` refactoring!",
+      "revId": "1eb2855ff5132df56d1ac9b8692ac1b820adee01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
