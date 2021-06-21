@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "f8359f9428a4cf0e04c17a9420caabdb8f4bf8cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "188be6c2_47303eaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-21T12:57:08Z",
+      "side": 1,
+      "message": "LGTM, I think it\u0027s fine to include the viewport changes here.",
+      "revId": "f8359f9428a4cf0e04c17a9420caabdb8f4bf8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
