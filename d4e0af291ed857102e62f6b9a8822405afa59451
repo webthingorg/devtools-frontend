@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f30d5e_79254f58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-21T08:53:45Z",
+      "side": 1,
+      "message": "PTAL and check the inline questions :-)\n\nThe web test failure is due to one test accessing \"_listeners\" directly 😞:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/sources/debugger-breakpoints/breakpoint-manager-listeners-count.js;l\u003d29;drc\u003db45fa001f7d5b3cec5a5264e85186626d0c362d9\n\nWe\u0027ll have to do the standard 3-way dance.",
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a4fe5c_9783a0b6",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-21T08:53:45Z",
+      "side": 1,
+      "message": "Paul, Tim, do you think iterating on a copy is necessary? Iterating a set that is actively modified is safe to do as per spec. E.g. a listener could add/remove new listeners. Do we really care if in those cases the event is will be already dispatched to new listeners or now already omitted for deleted listeners?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

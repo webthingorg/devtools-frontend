@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7397a934_b3835b33",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-21T08:53:45Z",
+      "side": 0,
+      "message": "Guaranteed by TS now.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "10dcd44ac4a9c20f42456f97e16ca9e99631de3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
