@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7cd5b2e5_2fc7ebbe",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T09:57:10Z",
+      "side": 1,
+      "message": "Nit: initialize `Map` in the property itself.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08a4fe5c_9783a0b6",
         "filename": "front_end/core/common/Object.ts",
         "patchSetId": 1
@@ -72,6 +95,30 @@
       "side": 1,
       "message": "Well it can be its own class of bugs to do it this way. If callback A unregisters callback B, but the listeners were [A, B] at the time of copy we erroneously call B after A.\n\nThat said I feel like I lack context here to call it either way. However, if I were building this fresh I would take a live set over a snapshotted one.",
       "parentUuid": "08a4fe5c_9783a0b6",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c103190_d01f12ce",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T09:57:10Z",
+      "side": 1,
+      "message": "Yeah I am not sure what a change in behavior will have as effect on the wider codebase. Since we aren\u0027t sure, I would err on the side of caution and maintain the existing behavior. I think the existing behavior is a live set, so I guess we should not do the copy here?",
+      "parentUuid": "7260e8ac_3dc092d8",
       "range": {
         "startLine": 96,
         "startChar": 4,
