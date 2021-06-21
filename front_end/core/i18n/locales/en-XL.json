@@ -5009,6 +5009,9 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | frame": {
     "message": "F̂ŕâḿê"
   },
+  "panels/issues/AttributionReportingIssueDetailsView.ts | invalidSourceEventId": {
+    "message": "Îńv̂ál̂íd̂ attributionsourceeventid"
+  },
   "panels/issues/AttributionReportingIssueDetailsView.ts | nViolations": {
     "message": "{n, plural, =1 {# v̂íôĺât́îón̂} other {# v́îól̂át̂íôńŝ}}"
   },
@@ -6264,7 +6267,7 @@
     "message": "Ŵéb̂ B́ûńd̂ĺê ér̂ŕôŕ"
   },
   "panels/network/NetworkDataGridNode.ts | webBundleInnerRequest": {
-    "message": "f̂ŕôḿ Ŵéb̂ B́ûńd̂ĺê"
+    "message": "Ŝér̂v́êd́ f̂ŕôḿ Ŵéb̂ B́ûńd̂ĺê"
   },
   "panels/network/NetworkItemView.ts | cookies": {
     "message": "Ĉóôḱîéŝ"
@@ -11181,7 +11184,7 @@
     "message": "Q̂úîćk̂ óp̂én̂ ṕr̂óm̂ṕt̂"
   },
   "ui/legacy/components/quick_open/quick_open-meta.ts | openFile": {
-    "message": "Ôṕêń F̂íl̂é"
+    "message": "Ôṕêń f̂íl̂é"
   },
   "ui/legacy/components/quick_open/quick_open-meta.ts | runCommand": {
     "message": "R̂ún̂ ćôḿm̂án̂d́"
