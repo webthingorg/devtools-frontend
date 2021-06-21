@@ -33,6 +33,46 @@
       "message": "Small changes to fix some a11y bugs in the new client hints UX. Please take a look.\n",
       "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a39296e_e6e47888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-21T03:58:26Z",
+      "side": 1,
+      "message": "LGTM. Approved with 1 suggestion. Thanks!",
+      "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d6f4a9e_e0de7c1e",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-21T03:58:26Z",
+      "side": 1,
+      "message": "Change to \"Device properties\"? I don\u0027t think we need to include \"model\" here.",
+      "range": {
+        "startLine": 84,
+        "startChar": 26,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
