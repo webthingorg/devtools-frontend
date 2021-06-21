@@ -33,6 +33,24 @@
       "message": "LGTM, thanks!\n\nI feel like it could be super helpful to developers if we included something similar into Puppeteer directly - any thoughts on that?",
       "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "600b7f34_9b0e6f1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-21T10:09:27Z",
+      "side": 1,
+      "message": "Not sure how generally helpful it is to others. I think we can choose features to add to Puppeteer once recorder is more stable and we are certain we do things in a certain way.",
+      "parentUuid": "d5f08a86_877064c1",
+      "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
