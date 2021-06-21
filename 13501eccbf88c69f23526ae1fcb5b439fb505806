@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42558bcc_846c8cfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-21T09:06:25Z",
+      "side": 1,
+      "message": "could you please specify the difference between the original patch and this one?",
+      "revId": "13501eccbf88c69f23526ae1fcb5b439fb505806",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
