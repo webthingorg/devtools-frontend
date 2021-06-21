@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c814ab4d_2a7988e3",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-21T10:31:47Z",
+      "side": 1,
+      "message": "Initially, I was thinking the same, but then again, ObjectWrapper is the base class for a LOT of things in DevTools and I\u0027m not sure what the overhead of tons of empty Maps would be. I\u0027d err on the side of caution and keep (roughly) the existing memory footprint. Wdyt?",
+      "parentUuid": "7cd5b2e5_2fc7ebbe",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08a4fe5c_9783a0b6",
         "filename": "front_end/core/common/Object.ts",
         "patchSetId": 1
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Yeah I am not sure what a change in behavior will have as effect on the wider codebase. Since we aren\u0027t sure, I would err on the side of caution and maintain the existing behavior. I think the existing behavior is a live set, so I guess we should not do the copy here?",
       "parentUuid": "7260e8ac_3dc092d8",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5f61b6a_999c924a",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-21T10:31:47Z",
+      "side": 1,
+      "message": "No, the existing behavior is also a copy (see the `slice` call).",
+      "parentUuid": "0c103190_d01f12ce",
       "range": {
         "startLine": 96,
         "startChar": 4,
