@@ -90,6 +90,30 @@
       },
       "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9155e7b1_05e37fdc",
+        "filename": "front_end/panels/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-06-21T17:35:20Z",
+      "side": 1,
+      "message": "changed to \"device properties\"",
+      "parentUuid": "8d6f4a9e_e0de7c1e",
+      "range": {
+        "startLine": 84,
+        "startChar": 26,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "198597d2fe5e937daf40abc3e14af8b3835f49c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
