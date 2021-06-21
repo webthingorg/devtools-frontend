@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff14a6d_760987e7",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-21T12:34:58Z",
+      "side": 1,
+      "message": "Good catch! That was unintended.",
+      "parentUuid": "ff34b4c2_be0377c1",
+      "range": {
+        "startLine": 1075,
+        "startChar": 34,
+        "endLine": 1075,
+        "endChar": 42
+      },
+      "revId": "b4b92aef27f17373ffd1456ee033c1acdfa701f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96cc20a2_b98b7f1b",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-06-18T06:47:14Z",
       "side": 1,
       "message": "Should this be private?",
+      "range": {
+        "startLine": 1990,
+        "startChar": 2,
+        "endLine": 1990,
+        "endChar": 10
+      },
+      "revId": "b4b92aef27f17373ffd1456ee033c1acdfa701f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daa7e2e9_6f211e6d",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-21T12:34:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96cc20a2_b98b7f1b",
       "range": {
         "startLine": 1990,
         "startChar": 2,
