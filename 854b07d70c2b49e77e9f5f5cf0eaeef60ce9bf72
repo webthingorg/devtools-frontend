@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "368f6204_c404b17e",
+        "filename": "front_end/ui/components/request_link_icon/RequestLinkIcon.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-21T11:07:15Z",
+      "side": 1,
+      "message": "I think you could argue this should be an until directive in the component? So you\u0027d render irrespective of whether you have resolved the network request, then when the Promise resolves update that portion accordingly.\n\nhttps://lit-html.polymer-project.org/guide/template-reference#until",
+      "parentUuid": "f29e05ae_5b5f52c1",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "854b07d70c2b49e77e9f5f5cf0eaeef60ce9bf72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3f93e8d_51f377ae",
         "filename": "test/unittests/front_end/ui/components/request_link_icon/RequestLinkIcon_test.ts",
         "patchSetId": 11
