@@ -16,6 +16,24 @@
       "message": "could you please specify the difference between the original patch and this one?",
       "revId": "13501eccbf88c69f23526ae1fcb5b439fb505806",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd85435c_392bd282",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-21T09:10:32Z",
+      "side": 1,
+      "message": "Ah yes. Done!",
+      "parentUuid": "42558bcc_846c8cfa",
+      "revId": "13501eccbf88c69f23526ae1fcb5b439fb505806",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
