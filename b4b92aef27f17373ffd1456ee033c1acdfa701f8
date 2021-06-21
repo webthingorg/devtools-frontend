@@ -127,6 +127,30 @@
       },
       "revId": "b4b92aef27f17373ffd1456ee033c1acdfa701f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30b6dfb9_4aa9a412",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-21T12:43:06Z",
+      "side": 1,
+      "message": "Unfortunately, this is also used in TimelineModelImpl",
+      "parentUuid": "daa7e2e9_6f211e6d",
+      "range": {
+        "startLine": 1990,
+        "startChar": 2,
+        "endLine": 1990,
+        "endChar": 10
+      },
+      "revId": "b4b92aef27f17373ffd1456ee033c1acdfa701f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
