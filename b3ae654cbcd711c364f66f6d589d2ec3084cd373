@@ -69,6 +69,24 @@
       "parentUuid": "600b7f34_9b0e6f1b",
       "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b458a3e_e05a5023",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-21T10:18:12Z",
+      "side": 1,
+      "message": "There are requests like this https://github.com/puppeteer/puppeteer/issues/858#issuecomment-466186707 so it\u0027d probably make sense. But I would not do it now, as we might change the recorder implementation, and rolling a new puppeteer version with changes would decrease velocity. Once our use case is solid, we might take it into account when designing the Puppeteer API.",
+      "parentUuid": "8ef73208_91a9c519",
+      "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
