@@ -51,6 +51,24 @@
       "parentUuid": "d5f08a86_877064c1",
       "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef73208_91a9c519",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-21T10:10:50Z",
+      "side": 1,
+      "message": "I feel like people in general will probably run into situations where they want to select elements across shadow roots.\nBut let\u0027s take the discussion elsewhere....",
+      "parentUuid": "600b7f34_9b0e6f1b",
+      "revId": "b3ae654cbcd711c364f66f6d589d2ec3084cd373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
