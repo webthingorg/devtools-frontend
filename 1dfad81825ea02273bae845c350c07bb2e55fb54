@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2d822e_ae28980f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-21T09:29:33Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a simple fix for showing \u0027this\u0027 similar to \u0027Return value\u0027 in scopes.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "1dfad81825ea02273bae845c350c07bb2e55fb54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
