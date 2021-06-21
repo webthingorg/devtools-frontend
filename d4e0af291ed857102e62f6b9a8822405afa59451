@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e990bee_5a8da9aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-21T09:04:25Z",
+      "side": 1,
+      "message": "LGTM. Tim, any additional thoughts?",
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08a4fe5c_9783a0b6",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-06-21T08:53:45Z",
       "side": 1,
       "message": "Paul, Tim, do you think iterating on a copy is necessary? Iterating a set that is actively modified is safe to do as per spec. E.g. a listener could add/remove new listeners. Do we really care if in those cases the event is will be already dispatched to new listeners or now already omitted for deleted listeners?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7260e8ac_3dc092d8",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-06-21T09:04:25Z",
+      "side": 1,
+      "message": "Well it can be its own class of bugs to do it this way. If callback A unregisters callback B, but the listeners were [A, B] at the time of copy we erroneously call B after A.\n\nThat said I feel like I lack context here to call it either way. However, if I were building this fresh I would take a live set over a snapshotted one.",
+      "parentUuid": "08a4fe5c_9783a0b6",
       "range": {
         "startLine": 96,
         "startChar": 4,
