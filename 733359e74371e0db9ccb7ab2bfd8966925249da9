@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d6629a_6823ee1a",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T09:52:36Z",
+      "side": 0,
+      "message": "I saw this CL passing by and remembered doing the darkmode migration for this particular file. If I remember correctly, this change was intentional. E.g. file name references should have a stronger contrast with the background, to make the links more accessible. Should we keep the `--color-text-primary` here for more contrast on the links?",
+      "range": {
+        "startLine": 97,
+        "startChar": 13,
+        "endLine": 97,
+        "endChar": 33
+      },
+      "revId": "733359e74371e0db9ccb7ab2bfd8966925249da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
