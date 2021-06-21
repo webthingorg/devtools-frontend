@@ -40,6 +40,8 @@ describe('Recorder', () => {
           path: [],
         },
         selector: 'aria/Test' as Recorder.Steps.Selector,
+        offsetX: 39,
+        offsetY: 9,
       });
       assert.deepEqual(writer.getCurrentScript(), `const element = await frame.waitForSelector("aria/Test");
 await element.click();
@@ -55,6 +57,8 @@ await element.click();
           path: [],
         },
         selector: ['aria/Test', 'aria/Test2'] as Recorder.Steps.Selector,
+        offsetX: 39,
+        offsetY: 9,
       });
       assert.deepEqual(writer.getCurrentScript(), `let element = await frame.waitForSelector("aria/Test");
 element = await element.$("aria/Test2");
@@ -132,6 +136,8 @@ await element.type("Hello World");
               path: [],
             },
             selector: 'aria/Test' as Recorder.Steps.Selector,
+            offsetX: 39,
+            offsetY: 9,
           }],
         }],
       });
@@ -169,6 +175,8 @@ await element.type("Hello World");
               path: [1, 1],
             },
             selector: 'aria/Test' as Recorder.Steps.Selector,
+            offsetX: 39,
+            offsetY: 9,
           }],
         }],
       });
