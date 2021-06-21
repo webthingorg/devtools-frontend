@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc1b732e_80d00b6d",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T10:35:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c814ab4d_2a7988e3",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08a4fe5c_9783a0b6",
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "No, the existing behavior is also a copy (see the `slice` call).",
       "parentUuid": "0c103190_d01f12ce",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "d4e0af291ed857102e62f6b9a8822405afa59451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14462789_79006dd5",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-21T10:35:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5f61b6a_999c924a",
       "range": {
         "startLine": 96,
         "startChar": 4,
