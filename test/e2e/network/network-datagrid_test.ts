@@ -285,7 +285,7 @@ describe('The Network Tab', async function() {
           .map(node => (node as HTMLImageElement).alt);
     });
     assert.sameMembers(await getFromWebBundleIcons(), [
-      'from Web Bundle',
+      'Served from Web Bundle',
     ]);
   });
 
@@ -307,6 +307,11 @@ describe('The Network Tab', async function() {
       return Array.from(document.querySelectorAll('.status-column')).slice(3, 4).map(node => node.textContent);
     });
 
+    const getNetworkRequestTime = () => frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.time-column')).slice(3, 4).map(node => node.textContent);
+    });
+
     assert.deepEqual(await getNetworkRequestStatus(), ['(unknown)']);
+    assert.deepEqual(await getNetworkRequestTime(), ['(unknown)']);
   });
 });

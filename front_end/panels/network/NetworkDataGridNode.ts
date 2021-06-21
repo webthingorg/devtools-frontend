@@ -193,7 +193,7 @@ const UIStrings = {
   */
   servedFromSignedHttpExchange: 'Served from Signed HTTP Exchange, resource size: {PH1}',
   /**
-  *@description Cell title in Network Data Grid Node of the Network panel
+  *@description Cell title in Network Data Grid Node of the Network panel. Indicates that the response came from preloaded web bundle. See https://web.dev/web-bundles/
   *@example {4 B} PH1
   */
   servedFromWebBundle: 'Served from Web Bundle, resource size: {PH1}',
@@ -228,9 +228,10 @@ const UIStrings = {
   */
   webBundleError: 'Web Bundle error',
   /**
-  *@description Text in Network Data Grid Node of the Network panel
+  *@description Alternative text for the web bundle inner request icon in Network Data Grid Node of the Network panel
+  * Indicates that the response came from preloaded web bundle. See https://web.dev/web-bundles/
   */
-  webBundleInnerRequest: 'from Web Bundle',
+  webBundleInnerRequest: 'Served from Web Bundle',
   /**
   *@description Text in Network Data Grid Node of the Network panel
   */
@@ -1357,6 +1358,8 @@ export class NetworkRequestNode extends NetworkNode {
     if (this._request.duration > 0) {
       this._setTextAndTitle(cell, i18n.i18n.secondsToString(this._request.duration));
       this._appendSubtitle(cell, i18n.i18n.secondsToString(this._request.latency));
+    } else if (this._request.preserved) {
+      this._setTextAndTitle(cell, i18nString(UIStrings.unknown), i18nString(UIStrings.unknownExplanation));
     } else {
       cell.classList.add('network-dim-cell');
       this._setTextAndTitle(cell, i18nString(UIStrings.pending));
