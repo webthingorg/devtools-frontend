@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9befbf16_c314b465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-21T05:17:46Z",
+      "side": 1,
+      "message": "(Didn’t mean to add myself as reviewer, but setting Commit-Queue: +1 as requested had that effect, so I figured I might as well review)",
+      "revId": "7c5174e51de76b8544e443f64c12e7673a5af96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91e351e3_bdb48729",
