@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46ff8fa_aecdb47f",
+        "filename": "front_end/panels/application/components/BUILD.gn",
+        "patchSetId": 19
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-22T03:41:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cc69b41_16df1e0d",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0af9acf_ba9b2a16",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf33f869_188f9073",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-22T03:41:09Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a0af9acf_ba9b2a16",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bf6dca7_96d662b4",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-06-18T13:05:39Z",
       "side": 1,
       "message": "remove the Adorner and AdornerCategories imports.\n\nBy convention for imports from a different folder we import the whole module:\n`import * as Components from \u0027../../elements/components/components.js\u0027;`",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa2eda6_ce5413d1",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-22T03:41:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bf6dca7_96d662b4",
       "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
