@@ -16,6 +16,57 @@
       "message": "PTAL :)",
       "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f940437_136880bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-22T09:27:18Z",
+      "side": 1,
+      "message": "Nice! I guess the various copy as JS string literal / copy as JSON string literal options will be dealt with as a follow-up?",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd79374_e964d782",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-22T09:27:18Z",
+      "side": 1,
+      "message": "nit: comments are sentences, and should end with a period. (Same below)",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2926f15_ad05efed",
+        "filename": "test/e2e/console/console-context-menu_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-22T09:27:18Z",
+      "side": 1,
+      "message": "Huh, this is somewhat surprising. It doesn\u0027t sound like a whole lot of actions. Are you sure we need 10 seconds?\n\n(tip: could format it as `10_000` for readability)",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
