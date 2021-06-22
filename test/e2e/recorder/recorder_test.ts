@@ -81,8 +81,44 @@ async function stopRecording(attempt = 0, error = new Error()) {
   }
 }
 
+function asKeyable(object: unknown): {[key: string]: unknown} {
+  return object as {[key: string]: unknown};
+}
+
+function stripOffsets(object: unknown, deep = false): void {
+  if (typeof object === 'object' && object !== null) {
+    for (const key of Object.keys(object)) {
+      if (key === 'offsetX' || key === 'offsetY') {
+        delete asKeyable(object)[key];
+      } else if (deep) {
+        stripOffsets(asKeyable(object)[key]);
+      }
+    }
+  }
+}
+
+function checkOffsets(actual: unknown, expected: unknown): void {
+  if (typeof actual === 'object' && actual !== null && typeof expected === 'object' && expected !== null) {
+    const actualKeys = Object.keys(actual);
+    const expectedKeys = Object.keys(expected);
+    const keyDiff = actualKeys.length !== expectedKeys.length;
+    if (!keyDiff) {
+      for (const actualKey of actualKeys) {
+        if (actualKey === 'offsetX' || actualKey === 'offsetY') {
+          assert.isTrue(typeof asKeyable(actual)[actualKey] === typeof asKeyable(expected)[actualKey]);
+        } else {
+          checkOffsets(asKeyable(actual)[actualKey], asKeyable(expected)[actualKey]);
+        }
+      }
+    }
+    stripOffsets(actual, keyDiff);
+    stripOffsets(expected, keyDiff);
+  }
+}
+
 async function assertOutput(expected: UserFlow) {
   const textContent = await getCode();
+  checkOffsets(textContent, expected);
   assert.deepEqual(textContent, expected);
 }
 
@@ -131,6 +167,8 @@ describe('Recorder', function() {
           {
             type: 'click',
             selector: 'aria/Test Button' as Selector,
+            offsetX: 0,
+            offsetY: 0,
             context: {
               target: 'main',
               path: [],
@@ -164,6 +202,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -195,6 +235,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
           {
             type: 'change',
@@ -253,6 +295,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -285,6 +329,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -315,6 +361,8 @@ describe('Recorder', function() {
                  target: 'main',
                  path: [],
                },
+               offsetX: 0,
+               offsetY: 0,
              },
            ],
          }],
@@ -347,6 +395,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -379,6 +429,8 @@ describe('Recorder', function() {
                 0,
               ],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
           {
             type: 'click',
@@ -390,6 +442,8 @@ describe('Recorder', function() {
                 0,
               ],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -429,6 +483,8 @@ describe('Recorder', function() {
               expectedUrl: 'https://<url>/test/e2e/resources/recorder/recorder2.html',
               type: 'waitForNavigation',
             },
+            offsetX: 0,
+            offsetY: 0,
           },
           {
             type: 'click',
@@ -441,6 +497,8 @@ describe('Recorder', function() {
               expectedUrl: 'https://<url>/test/e2e/resources/recorder/recorder.html',
               type: 'waitForNavigation',
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -481,6 +539,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
           {
             type: 'emulateNetworkConditions',
@@ -498,6 +558,8 @@ describe('Recorder', function() {
               target: 'main',
               path: [],
             },
+            offsetX: 0,
+            offsetY: 0,
           },
         ],
       }],
@@ -682,6 +744,8 @@ describe('Recorder', function() {
               'target': 'main',
             },
             'selector': 'aria/Select',
+            offsetX: 0,
+            offsetY: 0,
           },
           {
             'type': 'change',
