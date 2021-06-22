@@ -629,9 +629,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     } else {
       UI.UIUtils.createTextChild(result, description);
     }
-    if (obj.objectId) {
-      result.addEventListener('contextmenu', this._contextMenuEventFired.bind(this, obj), false);
-    }
+    result.addEventListener('contextmenu', this._contextMenuEventFired.bind(this, obj), false);
     return result;
   }
 
@@ -761,6 +759,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     const description = output.description ?? '';
     const text = JSON.stringify(description);
     const result = (document.createElement('span') as HTMLElement);
+    result.addEventListener('contextmenu', this._contextMenuEventFired.bind(this, output), false);
     result.appendChild(this._linkifyStringAsFragment(text));
     return result;
   }
