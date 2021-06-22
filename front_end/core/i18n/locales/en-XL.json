@@ -2051,6 +2051,9 @@
   "panels/application/AppManifestView.ts | backgroundColor": {
     "message": "B̂áĉḱĝŕôún̂d́ ĉól̂ór̂"
   },
+  "panels/application/AppManifestView.ts | computedId": {
+    "message": "Ĉóm̂ṕût́êd́ ÎD́"
+  },
   "panels/application/AppManifestView.ts | couldNotCheckServiceWorker": {
     "message": "Ĉóûĺd̂ ńôt́ ĉh́êćk̂ service worker ẃît́ĥóût́ â 'start_url' f́îél̂d́ îń t̂h́ê ḿâńîf́êśt̂"
   },
@@ -2089,6 +2092,9 @@
   },
   "panels/application/AppManifestView.ts | installability": {
     "message": "Îńŝt́âĺl̂áb̂íl̂ít̂ý"
+  },
+  "panels/application/AppManifestView.ts | learnMore": {
+    "message": "L̂éâŕn̂ ḿôŕê"
   },
   "panels/application/AppManifestView.ts | manifestContainsDisplayoverride": {
     "message": "M̂án̂íf̂éŝt́ ĉón̂t́âín̂ś 'display_override' f̂íêĺd̂, án̂d́ t̂h́ê f́îŕŝt́ ŝúp̂ṕôŕt̂éd̂ d́îśp̂ĺâý m̂ód̂é m̂úŝt́ b̂é ôńê óf̂ 'standalone', 'fullscreen', ór̂ 'minimal-ui'"

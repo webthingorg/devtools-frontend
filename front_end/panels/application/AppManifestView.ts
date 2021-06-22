@@ -50,6 +50,14 @@ const UIStrings = {
   */
   shortName: 'Short name',
   /**
+  *@description Label in the App Manifest View for an id computed from a URL and an (optional) given id
+  */
+  computedId: 'Computed ID',
+  /**
+  *@description Label for a link to an external documentation article
+  */
+  learnMore: 'Learn more',
+  /**
   *@description Text for the description of something
   */
   description: 'Description',
@@ -338,6 +346,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
   _screenshotsSections: UI.ReportView.Section[];
   _nameField: HTMLElement;
   _shortNameField: HTMLElement;
+  _computedIdField: HTMLElement;
   _descriptionField: Element;
   _startURLField: HTMLElement;
   _themeColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
@@ -382,6 +391,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
 
     this._nameField = this._identitySection.appendField(i18nString(UIStrings.name));
     this._shortNameField = this._identitySection.appendField(i18nString(UIStrings.shortName));
+    this._computedIdField = this._identitySection.appendField(i18nString(UIStrings.computedId));
     this._descriptionField = this._identitySection.appendFlexedField(i18nString(UIStrings.description));
 
     this._startURLField = this._presentationSection.appendField(i18nString(UIStrings.startUrl));
@@ -504,6 +514,10 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
           completeURL, ({text: startURL} as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
       this._startURLField.appendChild(link);
+
+      this._computedIdField.textContent = computeId(completeURL);
+      const learnMoreLink = UI.XLink.XLink.create('https://web.dev/', i18nString(UIStrings.learnMore), 'inline-link');
+      this._computedIdField.appendChild(learnMoreLink);
     }
 
     this._themeColorSwatch.classList.toggle('hidden', !stringProperty('theme_color'));
@@ -648,6 +662,11 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         return '';
       }
       return value;
+    }
+
+    function computeId(completeURL: string): string {
+      const givenId = stringProperty('id');
+      return givenId ? Common.ParsedURL.ParsedURL.extractOrigin(completeURL) + '/' + givenId : completeURL;
     }
   }
 
