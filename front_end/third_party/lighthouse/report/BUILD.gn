@@ -1,0 +1,46 @@
+# Copyright 2021 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../../config/gni/all_devtools_files.gni")
+import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../../scripts/build/ninja/devtools_pre_built.gni")
+import("../../visibility.gni")
+
+devtools_pre_built("report") {
+  sources_are_release = false
+
+  sources = [
+    "report-tsconfig.json",
+    "common/category-renderer.js",
+    "common/crc-details-renderer.js",
+    "common/details-renderer.js",
+    "common/dom.js",
+    "common/dom.d.ts",
+    "common/element-screenshot-renderer.js",
+    "common/file-namer.js",
+    "common/i18n.js",
+    "common/logger.js",
+    "common/logger.d.ts",
+    "common/performance-category-renderer.js",
+    "common/pwa-category-renderer.js",
+    "common/report-renderer.js",
+    "common/report-renderer.d.ts",
+    "common/report-ui-features.js",
+    "common/report-ui-features.d.ts",
+    "common/snippet-renderer.js",
+    "common/text-encoding.js",
+    "common/util.js",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "standalone.js"
+
+  deps = [ ":report" ]
+
+  visibility = [
+    ":*",
+    "../../../panels/lighthouse/*",
+  ]
+}
