@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7836f6ac_2328a626",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-22T14:31:44Z",
+      "side": 1,
+      "message": "To avoid duplication, can we maybe unify the `Events` and `IssuesManagerEvents` here? E.g. would the following work?\n\n```\nexport type Events \u003d {\n  IssuesCountUpdated: void,\n  FullUpdateRequired: void,\n  IssueAdded: {\n    issuesModel: SDK.IssuesModel.IssuesModel,\n    issue: Issue,\n  },\n}\n```\n\nAnd then where we currently rely on a specific Event from `Events`, we would be able to type it as `keyof Events` instead?",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 31
+      },
+      "revId": "e8f72349e39350852276fce96a7dbd554f3676dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
