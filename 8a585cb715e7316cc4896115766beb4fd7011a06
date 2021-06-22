@@ -16,6 +16,23 @@
       "message": "PTAL, screenshots are bit tricky to create locally, due to mixed content errors preventing me to trigger the AR API error.",
       "revId": "8a585cb715e7316cc4896115766beb4fd7011a06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bb0b74b_04575798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-22T11:08:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8a585cb715e7316cc4896115766beb4fd7011a06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
