@@ -29,6 +29,8 @@
  */
 /* eslint-disable indent */
 
+import * as Platform from './core/platform/platform.js';
+
 /**
  * @fileoverview This file contains small testing framework along with the
  * test suite for the frontend. These tests are a part of the continues build
@@ -650,7 +652,7 @@
 
       function checkMetrics(consoleResult) {
         test.assertEquals(
-            JSON.stringify(JSON.stringify(metrics)), consoleResult,
+            Platform.StringUtilities.formatAsJSLiteral(JSON.stringify(metrics)), consoleResult,
             'Wrong metrics for params: ' + JSON.stringify(params));
         callback();
       }
@@ -709,8 +711,8 @@
     }
 
     function onResultOfInput(value) {
-      // Console adds "" around the response.
-      test.assertEquals('"Abbf"', value);
+      // Console adds '' around the response.
+      test.assertEquals('\'Abbf\'', value);
       test.releaseControl();
     }
 
