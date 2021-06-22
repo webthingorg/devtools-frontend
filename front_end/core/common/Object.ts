@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type {EventDescriptor, EventTarget, EventTargetEvent} from './EventTarget.js';
+import type {EventDescriptor, EventTarget, EventTargetEvent, EventType, EventPayload} from './EventTarget.js';
 
 interface ListenerCallbackTuple {
   thisObject?: Object;
@@ -35,11 +35,12 @@ interface ListenerCallbackTuple {
   disposed?: boolean;
 }
 
-export class ObjectWrapper implements EventTarget {
-  listeners?: Map<string|symbol, Set<ListenerCallbackTuple>>;
+export class ObjectWrapper<Events = unknown> implements EventTarget<Events> {
+  listeners?: Map<keyof Events|string|symbol, Set<ListenerCallbackTuple>>;
 
-  addEventListener(eventType: string|symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object):
-      EventDescriptor {
+  addEventListener<T extends EventType<Events>>(
+      eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void,
+      thisObject?: Object): EventDescriptor<Events> {
     if (!this.listeners) {
       this.listeners = new Map();
     }
@@ -53,9 +54,7 @@ export class ObjectWrapper implements EventTarget {
     return {eventTarget: this, eventType, thisObject, listener};
   }
 
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  once(eventType: string|symbol): Promise<any> {
+  once<T extends EventType<Events>>(eventType: T): Promise<EventPayload<Events, T>> {
     return new Promise(resolve => {
       const descriptor = this.addEventListener(eventType, event => {
         this.removeEventListener(eventType, descriptor.listener);
@@ -64,7 +63,8 @@ export class ObjectWrapper implements EventTarget {
     });
   }
 
-  removeEventListener(eventType: string|symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object): void {
+  removeEventListener<T extends EventType<Events>>(
+      eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void, thisObject?: Object): void {
     const listeners = this.listeners?.get(eventType);
     if (!listeners) {
       return;
@@ -81,11 +81,11 @@ export class ObjectWrapper implements EventTarget {
     }
   }
 
-  hasEventListeners(eventType: string|symbol): boolean {
+  hasEventListeners<T extends EventType<Events>>(eventType: T): boolean {
     return Boolean(this.listeners && this.listeners.has(eventType));
   }
 
-  dispatchEventToListeners(eventType: string|symbol, eventData?: unknown): void {
+  dispatchEventToListeners<T extends EventType<Events>>(eventType: T, eventData?: EventPayload<Events, T>): void {
     const listeners = this.listeners?.get(eventType);
     if (!listeners) {
       return;
