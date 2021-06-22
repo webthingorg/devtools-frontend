@@ -199,12 +199,11 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  private onIssueAdded(event: Common.EventTarget.EventTargetEvent): void {
-    const {issue} = (event.data as {
-      issuesModel: SDK.IssuesModel.IssuesModel,
-      issue: IssuesManager.Issue.Issue,
-    });
-    this.aggregateIssue(issue);
+  private onIssueAdded(event: Common.EventTarget.EventTargetEvent<{
+    issuesModel: SDK.IssuesModel.IssuesModel,
+    issue: IssuesManager.Issue.Issue,
+  }>): void {
+    this.aggregateIssue(event.data.issue);
   }
 
   private onFullUpdateRequired(): void {

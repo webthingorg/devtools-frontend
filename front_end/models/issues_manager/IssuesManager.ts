@@ -120,7 +120,7 @@ export interface IssuesManagerCreationOptions {
  * Issues that are accepted by the filter cause events to be fired or are returned by
  * `IssuesManager#issues()`.
  */
-export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
+export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<IssuesManagerEvents> implements
     SDK.TargetManager.SDKModelObserver<SDK.IssuesModel.IssuesModel> {
   private eventListeners = new WeakMap<SDK.IssuesModel.IssuesModel, Common.EventTarget.EventDescriptor>();
   private allIssues = new Map<string, Issue>();
@@ -281,6 +281,15 @@ export enum Events {
   IssueAdded = 'IssueAdded',
   FullUpdateRequired = 'FullUpdateRequired',
 }
+
+export type IssuesManagerEvents = {
+  [Events.IssuesCountUpdated]: void,
+  [Events.FullUpdateRequired]: void,
+  [Events.IssueAdded]: {
+    issuesModel: SDK.IssuesModel.IssuesModel,
+    issue: Issue,
+  },
+};
 
 // @ts-ignore
 globalThis.addIssueForTest = (issue: Protocol.Audits.InspectorIssue): void => {
