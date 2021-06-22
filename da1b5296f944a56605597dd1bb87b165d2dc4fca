@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e807e72_ca3734bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-22T11:12:22Z",
+      "side": 1,
+      "message": "Yep I\u0027ll add that once the JS literal formatter lands.",
+      "parentUuid": "0f940437_136880bb",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cd79374_e964d782",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb15a95_79c2c8b6",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-22T11:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cd79374_e964d782",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2926f15_ad05efed",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-06-22T09:27:18Z",
       "side": 1,
       "message": "Huh, this is somewhat surprising. It doesn\u0027t sound like a whole lot of actions. Are you sure we need 10 seconds?\n\n(tip: could format it as `10_000` for readability)",
+      "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bb5707_1649ae94",
+        "filename": "test/e2e/console/console-context-menu_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-22T11:12:22Z",
+      "side": 1,
+      "message": "Good catch! I copied some other test file as template. We definitely do not need this here :-)",
+      "parentUuid": "c2926f15_ad05efed",
       "revId": "da1b5296f944a56605597dd1bb87b165d2dc4fca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
