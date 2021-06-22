@@ -99,6 +99,8 @@ export class ColorSwatch extends HTMLElement {
 
   private renderTextOnly(): void {
     // Non-color values can be passed to the component (like 'none' from border style).
+    // TODO(crbug.com/1188116) wrap with coordinator
+    // eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(this.text, this.shadow, {host: this});
   }
 
@@ -110,6 +112,8 @@ export class ColorSwatch extends HTMLElement {
     // free to append any content to replace what is being shown here.
     // Note also that whitespace between nodes is removed on purpose to avoid pushing these elements apart. Do not
     // re-format the HTML code.
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(
       LitHtml.html`<span class="color-swatch" title="${this.tooltip}"><span class="color-swatch-inner"
         style="background-color: ${this.text};"

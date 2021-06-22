@@ -70,6 +70,8 @@ export class MarkdownImage extends HTMLElement {
     }
     const {isIcon} = this.imageData;
     const imageComponent = isIcon ? this.getIconComponent() : this.getImageComponent();
+    // TODO(crbug.com/1188116) wrap with coordinator
+    // eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(imageComponent, this.shadow);
   }
 }

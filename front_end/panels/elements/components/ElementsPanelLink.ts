@@ -30,24 +30,26 @@ export class ElementsPanelLink extends HTMLElement {
 
   private render(): void {
     // clang-format off
-      LitHtml.render(LitHtml.html`
-      <style>
-        .element-reveal-icon {
-          display: inline-block;
-          width: 28px;
-          height: 24px;
-          -webkit-mask-position: -140px 96px;
-          -webkit-mask-image: var(--image-file-largeIcons);
-          background-color: rgb(110 110 110); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-      </style>
-      <span
-        class="element-reveal-icon"
-        @click=${this.onElementRevealIconClick}
-        @mouseenter=${this.onElementRevealIconMouseEnter}
-        @mouseleave=${this.onElementRevealIconMouseLeave}></span>
-      `, this.shadow);
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
+    LitHtml.render(LitHtml.html`
+    <style>
+      .element-reveal-icon {
+        display: inline-block;
+        width: 28px;
+        height: 24px;
+        -webkit-mask-position: -140px 96px;
+        -webkit-mask-image: var(--image-file-largeIcons);
+        background-color: rgb(110 110 110); /* stylelint-disable-line plugin/use_theme_colors */
+        /* See: crbug.com/1152736 for color variable migration. */
+      }
+    </style>
+    <span
+      class="element-reveal-icon"
+      @click=${this.onElementRevealIconClick}
+      @mouseenter=${this.onElementRevealIconMouseEnter}
+      @mouseleave=${this.onElementRevealIconMouseLeave}></span>
+    `, this.shadow);
     // clang-format on
   }
 }

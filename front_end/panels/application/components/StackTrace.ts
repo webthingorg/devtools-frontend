@@ -147,6 +147,8 @@ export class StackTrace extends HTMLElement {
     if (!this.stackTraceRows.length) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
+      // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
       LitHtml.render(
         LitHtml.html`
           <span>${i18nString(UIStrings.cannotRenderStackTrace)}</span>
@@ -155,6 +157,8 @@ export class StackTrace extends HTMLElement {
       return;
     }
     const expandableRows = this.createRowTemplates();
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(
       LitHtml.html`
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${{

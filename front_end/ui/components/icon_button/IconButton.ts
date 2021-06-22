@@ -68,6 +68,8 @@ export class IconButton extends HTMLElement {
     });
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(LitHtml.html`
       <button class="${buttonClasses}" @click=${this.onClickHandler}>
       ${this.leadingText ? LitHtml.html`<span class="icon-button-title">${this.leadingText}</span>` : LitHtml.nothing}

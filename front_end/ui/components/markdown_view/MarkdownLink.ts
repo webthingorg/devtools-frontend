@@ -49,6 +49,8 @@ export class MarkdownLink extends HTMLElement {
       </style>
       <x-link class="devtools-link" href=${this.linkUrl}>${this.linkText}</x-link>
     `;
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(output, this.shadow);
     // clang-format on
   }

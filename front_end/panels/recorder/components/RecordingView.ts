@@ -134,6 +134,8 @@ export class RecordingView extends HTMLElement {
     }
 
     const {title, sections} = this.userFlow;
+    // TODO(crbug.com/1188116) wrap with coordinator
+    // eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(
         LitHtml.html`
       <style>

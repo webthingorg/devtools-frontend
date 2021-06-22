@@ -10,6 +10,7 @@ module.exports = {
       // anything, so we leave return types to the developer within the
       // component_docs folder.
       '@typescript-eslint/explicit-function-return-type': 0,
+      'rulesdir/render_coordinator_write': 0,
     }
   }]
 };

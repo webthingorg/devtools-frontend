@@ -90,6 +90,8 @@ export class StepView extends HTMLElement {
 
     const {type} = this.step;
     // clang-format off
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(LitHtml.html`
     <style>
       .step {

@@ -661,6 +661,8 @@ export class UserAgentClientHintsForm extends HTMLElement {
       </section>
     `;
     // clang-format off
+    // TODO(crbug.com/1188116) wrap with coordinator
+// eslint-disable-next-line rulesdir/render_coordinator_write
     LitHtml.render(output, this.shadow);
     // clang-format on
   }
