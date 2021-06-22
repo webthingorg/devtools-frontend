@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28bc0041_8d0968c4",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done! The CR bug is https://crbug.com/1222656",
+      "parentUuid": "5e15283d_688263b4",
+      "range": {
+        "startLine": 11,
+        "startChar": 80,
+        "endLine": 12,
+        "endChar": 88
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2f42ffe_801d6e1c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-22T12:57:43Z",
       "side": 1,
       "message": "nit: you import the object value styles as `ObjectValueStyles` (starts with capital) but then do `consolePinPaneStyles` (no capital at start). We should be consistent and pick one (could enforce via eslint)",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d163ebba_60ca2452",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2f42ffe_801d6e1c",
       "range": {
         "startLine": 16,
         "startChar": 7,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138bae5b_83e59527",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c93ac0f_3d163de3",
+      "range": {
+        "startLine": 46,
+        "startChar": 85,
+        "endLine": 46,
+        "endChar": 139
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c99ea23b_2ad363f7",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-06-22T12:57:43Z",
       "side": 1,
       "message": "same comment as before regarding naming + capital letters",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30512b8e_b8f6e924",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c99ea23b_2ad363f7",
       "range": {
         "startLine": 52,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2591fe7_f4946dae",
+        "filename": "front_end/ui/legacy/utils/BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08b15f43_6c1bafb5",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff85056c_56356e7f",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-06-22T12:57:43Z",
       "side": 1,
       "message": "could we create a bug for this and then update the comment to TODO(crbug.com/123): ... please",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b51ab75_2606b17e",
+        "filename": "front_end/ui/legacy/utils/inject-core-styles.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-22T14:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff85056c_56356e7f",
       "range": {
         "startLine": 13,
         "startChar": 0,
