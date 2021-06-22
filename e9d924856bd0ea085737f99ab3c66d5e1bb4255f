@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "639cc0a6_a7a7d49a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-06-22T20:31:30Z",
+      "side": 1,
+      "message": "Hi Changhao, just a friendly reminder that I have addressed the last feedback you gave and was hoping you can take another quick look! Thank you 😊",
+      "revId": "e9d924856bd0ea085737f99ab3c66d5e1bb4255f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
