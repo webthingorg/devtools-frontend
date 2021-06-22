@@ -47,7 +47,7 @@ export class ObjectWrapper implements EventTarget {
     let listenersForEventType = this.listeners.get(eventType);
     if (!listenersForEventType) {
       listenersForEventType = new Set();
-      this.listeners.set(eventType, listenersForEventType);
+      this.listeners.set(eventType as string, listenersForEventType);
     }
     listenersForEventType.add({thisObject, listener});
     return {eventTarget: this, eventType, thisObject, listener};
@@ -90,7 +90,7 @@ export class ObjectWrapper implements EventTarget {
     if (!listeners) {
       return;
     }
-    const event = {data: eventData} as EventTargetEvent;
+    const event = {data: eventData};
     // Work on a snapshot of the current listeners, callbacks might remove/add
     // new listeners.
     for (const listener of [...listeners]) {
