@@ -438,7 +438,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     }
     delete this._resourceTreeModel;
     delete this._serviceWorkerManager;
-    Common.EventTarget.EventTarget.removeEventListeners(this._registeredListeners);
+    Common.EventTarget.removeEventListeners(this._registeredListeners);
   }
 
   async _updateManifest(immediately: boolean): Promise<void> {
