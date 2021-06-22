@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2182c8d8_3a6c9a23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "Hey,\n\nFirstly apologies, I misread the email and thought I was a reviewer, and only just realised I was only CC\u0027d. Not trying to step on any toes!\n\nOverall this LGTM but I had a few nits; happy to address them in follow-up CLs if you want to merge this in the mean time.",
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e15283d_688263b4",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "Please could we bump the eslint-disable-next-line onto its own line? It\u0027s hard to spot way over at the end of the previous line.\n\nI wonder if it\u0027s also worth filing a bug for the es modules import rule, perhaps it should be less strict or not apply the same checks to *.css.js imports.",
+      "range": {
+        "startLine": 11,
+        "startChar": 80,
+        "endLine": 12,
+        "endChar": 88
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f42ffe_801d6e1c",
+        "filename": "front_end/panels/console/ConsolePinPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "nit: you import the object value styles as `ObjectValueStyles` (starts with capital) but then do `consolePinPaneStyles` (no capital at start). We should be consistent and pick one (could enforce via eslint)",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c93ac0f_3d163de3",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "same comment as previous file about this being on its own line",
+      "range": {
+        "startLine": 46,
+        "startChar": 85,
+        "endLine": 46,
+        "endChar": 139
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99ea23b_2ad363f7",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "same comment as before regarding naming + capital letters",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 53
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08b15f43_6c1bafb5",
+        "filename": "front_end/ui/legacy/utils/BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "you don\u0027t need this dep here, because `:ui_utils` already depends on it.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff85056c_56356e7f",
+        "filename": "front_end/ui/legacy/utils/inject-core-styles.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-22T12:57:43Z",
+      "side": 1,
+      "message": "could we create a bug for this and then update the comment to TODO(crbug.com/123): ... please",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "1370b78c7c332c8168ee61fdbef23b2493a12b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
