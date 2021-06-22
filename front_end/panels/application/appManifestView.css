@@ -16,3 +16,7 @@
 .manifest-container {
   overflow: auto;
 }
+
+.inline-link {
+  margin-left: 7px;
+}
