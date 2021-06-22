@@ -112,7 +112,7 @@ export class RequestResolver {
     if (!this.networkListener) {
       return;
     }
-    Common.EventTarget.EventTarget.removeEventListeners([this.networkListener]);
+    Common.EventTarget.removeEventListeners([this.networkListener]);
     this.networkListener = null;
   }
 }
