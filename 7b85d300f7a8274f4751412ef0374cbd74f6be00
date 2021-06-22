@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39707df3_a6ea2ec7",
+        "filename": "front_end/ui/legacy/utils/BUILD.gn",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-22T15:44:59Z",
+      "side": 1,
+      "message": "This one also needs to depend on `:css_files`, because otherwise Rollup doesn\u0027t correctly rebuild whenever a CSS file changes.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "7b85d300f7a8274f4751412ef0374cbd74f6be00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
