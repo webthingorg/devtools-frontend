@@ -33,6 +33,24 @@
       "message": "I\u0027m not a powershell expert, Brandon, could you find a PowerShell expert to take a look at this? We\u0027ve had security issues with these kinds of commands in the past.",
       "revId": "7c78cab59669bd3aefb6ac2913669f367e130563",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40aa40d3_a0ba1b7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-23T23:16:38Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve added mustjab@microsoft.com to take a look at the powershell script.",
+      "parentUuid": "368780e0_f21be3fb",
+      "revId": "7c78cab59669bd3aefb6ac2913669f367e130563",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
