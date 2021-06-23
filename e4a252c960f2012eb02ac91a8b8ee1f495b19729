@@ -16,6 +16,63 @@
       "message": "PTAL",
       "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4158cf7e_e897d9ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-23T09:43:39Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5229280e_3e6e44bb",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-23T09:43:39Z",
+      "side": 1,
+      "message": "Can you maybe cast el into something of type HTMLInputElement once and then use that variable instead?",
+      "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ee0fa3f_7b4a0b62",
+        "filename": "test/e2e/resources/recorder/input.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-23T09:43:39Z",
+      "side": 1,
+      "message": "I couldn\u0027t find where this is used in the tests - is that still needed?",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
