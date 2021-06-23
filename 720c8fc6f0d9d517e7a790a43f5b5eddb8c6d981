@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c94cc8eb_14196ca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-23T08:44:42Z",
+      "side": 1,
+      "message": "PTAL, sorry for the CL spam + abandon. I changed my mind halfway through testing 😞",
+      "revId": "720c8fc6f0d9d517e7a790a43f5b5eddb8c6d981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
