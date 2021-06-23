@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12a6c358_ec8e1678",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-23T11:23:45Z",
+      "side": 1,
+      "message": "Should we add a \"Copy as JSON literal\" too?",
+      "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
