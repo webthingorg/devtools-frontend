@@ -316,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf4c9316_3e3e188a",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dea8f0a4_504d69ae",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b11ba4f8_5edd7ac3",
