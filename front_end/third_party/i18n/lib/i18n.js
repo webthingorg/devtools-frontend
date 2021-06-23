@@ -54,6 +54,21 @@ function lookupLocale(locales) {
 }
 
 /**
+ * For a given supported locale, determines the associated file that needs
+ * to be loaded.
+ * @param {LH.Locale} locale
+ * @return {string} filename in the front_end/core/i18n/locales directory
+ */
+function lookupFilenameForLocale(locale) {
+  const filename = LOCALES[locale];
+  if (typeof filename !== 'string') {
+    throw new Error(`Locale ${locale} was already fetched. Unable to determine filename`);
+  }
+
+  return filename;
+}
+
+/**
  * Function to retrieve all 'argumentElement's from an ICU message. An argumentElement
  * is an ICU element with an argument in it, like '{varName}' or '{varName, number, bytes}'. This
  * differs from 'messageElement's which are just arbitrary text in a message.
@@ -496,4 +511,5 @@ module.exports = {
   registerLocaleData,
   isStringOrIcuMessage,
   idNotInMainDictionaryException,
+  lookupFilenameForLocale,
 };
