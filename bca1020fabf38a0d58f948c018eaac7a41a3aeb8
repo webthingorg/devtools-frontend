@@ -33,6 +33,24 @@
       "message": "let\u0027s add a getter to CSSStyleSheetHeader called `isConstructedByNew` (or similar) for this?",
       "revId": "bca1020fabf38a0d58f948c018eaac7a41a3aeb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19469dad_2b3c3805",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2021-06-23T20:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a78821_4715257b",
+      "revId": "bca1020fabf38a0d58f948c018eaac7a41a3aeb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
