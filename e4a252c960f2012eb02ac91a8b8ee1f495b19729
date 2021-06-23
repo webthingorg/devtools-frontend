@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b546ae0_6ec481f8",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-23T10:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5229280e_3e6e44bb",
+      "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ee0fa3f_7b4a0b62",
@@ -65,6 +83,30 @@
       "writtenOn": "2021-06-23T09:43:39Z",
       "side": 1,
       "message": "I couldn\u0027t find where this is used in the tests - is that still needed?",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "e4a252c960f2012eb02ac91a8b8ee1f495b19729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28e3d614_43ca44fd",
+        "filename": "test/e2e/resources/recorder/input.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-23T10:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee0fa3f_7b4a0b62",
       "range": {
         "startLine": 9,
         "startChar": 18,
