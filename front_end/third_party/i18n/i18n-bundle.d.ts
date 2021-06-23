@@ -8,7 +8,13 @@
  * @return {LH.Locale}
  */
  declare function lookupLocale(locales?: string|string[]): string;
-
+/**
+ * For a given supported locale, determines the associated file that needs
+ * to be loaded.
+ * @param {LH.Locale} locale
+ * @return {string} filename in the front_end/core/i18n/locales directory
+ */
+declare function lookupFilenameForLocale(locale: string): string;
  /**
   * Function to retrieve all 'argumentElement's from an ICU message. An argumentElement
   * is an ICU element with an argument in it, like '{varName}' or '{varName, number, bytes}'. This
@@ -111,5 +117,6 @@ declare function idNotInMainDictionaryException(icuMessage: string): void;
    collectAllCustomElementsFromICU: typeof collectAllCustomElementsFromICU;
    registerLocaleData: typeof registerLocaleData;
    idNotInMainDictionaryException: typeof idNotInMainDictionaryException;
+   lookupFilenameForLocale: typeof lookupFilenameForLocale;
  };
  export default i18n;

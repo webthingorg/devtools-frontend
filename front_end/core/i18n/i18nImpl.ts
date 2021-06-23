@@ -72,10 +72,11 @@ export function lookupClosestSupportedDevToolsLocale(locale: string): string {
  */
 function getLocaleFetchUrl(locale: Intl.UnicodeBCP47LocaleIdentifier): string {
   const remoteBase = Root.Runtime.getRemoteBase();
+  const filename = i18nBundle.lookupFilenameForLocale(locale);
   if (remoteBase && remoteBase.base && !BUNDLED_LOCALES.has(locale)) {
-    return `${remoteBase.base}core/i18n/locales/${locale}.json`;
+    return `${remoteBase.base}core/i18n/locales/${filename}`;
   }
-  return new URL(`../../core/i18n/locales/${locale}.json`, import.meta.url).toString();
+  return new URL(`../../core/i18n/locales/${filename}`, import.meta.url).toString();
 }
 
 /**
