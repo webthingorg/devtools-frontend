@@ -52,6 +52,24 @@
       "parentUuid": "8729fa7a_29d199b7",
       "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54aed14c_c7a9f2d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-06-23T19:05:30Z",
+      "side": 1,
+      "message": "we are getting rid of report.js, which was how we bundled Lighthouse report code previously, and instead we will import esmodules and use those directly. We could continue importing this build artifact (before we were simply concating web-friendly JS, but now we could rollup the esmodule files to a web bundle), but it\u0027d be nice if we didn\u0027t have to do that.\n\nIs there a way to use the _generated result_ of `front_end/third_party/lighthouse/report:bundle` as a runtime asset?\n\n\u003e re: report/report.js, __initLighthouseReport__\n\nThe file (was standlone.js, you renamed report.ts) is meant to be the entry point to the bundled report file and used in report-generator (just for Save as HTML), while the esmodules could be used directly",
+      "parentUuid": "30c1c298_93902046",
+      "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
