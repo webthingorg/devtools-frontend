@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f266b13f_59c711be",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-23T12:13:01Z",
+      "side": 1,
+      "message": "nit: we are re-using two variables a lot here: `contextMenu.clipboardSection()` and `Host.INspectorFrontendHost.InspectorFrontendHostInstance`. Do you think it might be better to save them as temporary variables and use these instead? Might be easier to read? Also I don\u0027t know if calling `clipboardSection()` incurs any calculations that can be saved by storing a temp variable. Anyways this is just a nit :)",
+      "revId": "aff33ec54b054074409a43a261dc25fdd7a6b644",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
