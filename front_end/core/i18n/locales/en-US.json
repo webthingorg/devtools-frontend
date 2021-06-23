@@ -9140,6 +9140,12 @@
   "panels/sources/SourcesPanel.ts | copyS": {
     "message": "Copy {PH1}"
   },
+  "panels/sources/SourcesPanel.ts | copyStringAsJSLiteral": {
+    "message": "Copy string as JavaScript literal"
+  },
+  "panels/sources/SourcesPanel.ts | copyStringContents": {
+    "message": "Copy string contents"
+  },
   "panels/sources/SourcesPanel.ts | dontPauseOnExceptions": {
     "message": "Don't pause on exceptions"
   },
