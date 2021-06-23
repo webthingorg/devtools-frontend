@@ -246,7 +246,6 @@ export class StatusView {
     const statusHeader =
         pageHost ? i18nString(UIStrings.auditingS, {PH1: pageHost}) : i18nString(UIStrings.auditingYourWebPage);
     this._renderStatusHeader(statusHeader);
-    // @ts-ignore TS expects Document, but gets Element (show takes Element|Document)
     this._dialog.show(dialogRenderElement);
   }
 

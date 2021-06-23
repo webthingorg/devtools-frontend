@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "files": [
+    "report.js",
+    "report-generator.js"
+  ]
+}
