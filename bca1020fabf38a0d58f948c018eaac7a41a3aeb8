@@ -16,6 +16,23 @@
       "message": "This is the devtools-frontend follow-up to https://chromium-review.googlesource.com/c/chromium/src/+/2964539\n\nPTAL, thanks!",
       "revId": "bca1020fabf38a0d58f948c018eaac7a41a3aeb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a78821_4715257b",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-23T18:36:46Z",
+      "side": 1,
+      "message": "let\u0027s add a getter to CSSStyleSheetHeader called `isConstructedByNew` (or similar) for this?",
+      "revId": "bca1020fabf38a0d58f948c018eaac7a41a3aeb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
