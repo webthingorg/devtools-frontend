@@ -140,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb47691_7207f2d4",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "I think we can address this issue later in a separate CL.\n\nTODO added here.",
+      "parentUuid": "f2c43a3f_7d3b5ca6",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd7ac23f_718e2a47",
@@ -153,6 +171,24 @@
       "writtenOn": "2021-06-18T14:22:33Z",
       "side": 1,
       "message": "Would it be possible to turn this into an array of objects `{key, value}[]`?",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e7c4c9_06617e6a",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd7ac23f_718e2a47",
       "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -174,6 +210,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6bcaf04_35575ddf",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11a06df1_9b734edf",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38aa2146_00cdd596",
@@ -187,6 +241,24 @@
       "writtenOn": "2021-06-18T14:22:33Z",
       "side": 1,
       "message": "nit: Would it make sense to move the helper functions as private methods into this class?",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05be3ff5_b6d07bb3",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "The helper functions do not share common data, and they are not visible outside the module. I think it should be fine to keep current impl.",
+      "parentUuid": "38aa2146_00cdd596",
       "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -210,6 +282,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05cf776b_f4a8bda9",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "TreeOutline does not provide a `litTagName`. If you think it is ok to add one there, we can certainly do that.",
+      "parentUuid": "027e780f_4473b973",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b11ba4f8_5edd7ac3",
         "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
         "patchSetId": 19
@@ -221,6 +311,24 @@
       "writtenOn": "2021-06-18T14:22:33Z",
       "side": 1,
       "message": "Import the whole module instead:\nimport * as ApplicationComponents from \u0027../../../../../../front_end/panels/application/components/components.js\u0027;",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5de7b1_7880ef5a",
+        "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b11ba4f8_5edd7ac3",
       "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -248,6 +356,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6825814e_6a3b845e",
+        "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "import removed.",
+      "parentUuid": "b34da0e3_152c6375",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ef96312_ce05ab0c",
@@ -265,6 +397,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a5b3c74_2c258d1a",
+        "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ef96312_ce05ab0c",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31b20d07_fb12969d",
@@ -278,6 +428,24 @@
       "writtenOn": "2021-06-18T14:22:33Z",
       "side": 1,
       "message": "Great tests, but some of the test cases are still empty.",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556c44fe_80b94068",
+        "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-23T03:11:15Z",
+      "side": 1,
+      "message": "All test bodies filled.",
+      "parentUuid": "31b20d07_fb12969d",
       "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
