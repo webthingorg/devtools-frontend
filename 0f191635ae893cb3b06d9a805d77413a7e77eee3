@@ -33,6 +33,41 @@
       "message": "Should we add a \"Copy as JSON literal\" too?",
       "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a69c22f_8f39e409",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-23T11:27:18Z",
+      "side": 1,
+      "message": "Yes please! It\u0027s fine to do that as a follow-up CL though",
+      "parentUuid": "12a6c358_ec8e1678",
+      "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a8e920_ad606962",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-23T11:27:18Z",
+      "side": 1,
+      "message": "Consider hoisting the set out of `_appendRemoteObjectItems` so we don\u0027t create a new one every time we hit this code path",
+      "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
