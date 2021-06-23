@@ -300,6 +300,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dea8f0a4_504d69ae",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-23T15:26:15Z",
+      "side": 1,
+      "message": "yes, please add that.",
+      "parentUuid": "05cf776b_f4a8bda9",
+      "revId": "3d9981a1e271bd3b447824047abfca6f973c9f31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b11ba4f8_5edd7ac3",
         "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
         "patchSetId": 19

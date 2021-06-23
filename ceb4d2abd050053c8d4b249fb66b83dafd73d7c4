@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80d587c_37614a6b",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-23T15:26:15Z",
+      "side": 1,
+      "message": "At least for my eyes the text in the adorners is difficult to read. I checked with other adorners, and there we use a monospaced font which I find easier to read at this small size. Could you please check why these adorners render differently?",
+      "revId": "ceb4d2abd050053c8d4b249fb66b83dafd73d7c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d6f480_45e4c7ca",
+        "filename": "test/unittests/front_end/panels/application/components/OriginTrialTreeView_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-23T15:26:15Z",
+      "side": 1,
+      "message": "I am not sure I understand this.\n\nMore generally, why do you prefer \u0027assert.include\u0027 over querying for the specific item of interest and using \u0027assert.strictEquals\u0027?",
+      "revId": "ceb4d2abd050053c8d4b249fb66b83dafd73d7c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
