@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92d13299_65cc2aaf",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-23T11:41:05Z",
+      "side": 1,
+      "message": "Nice! Let’s update the commit message accordingly before landing",
+      "parentUuid": "46dadc8d_756b253b",
+      "revId": "0f191635ae893cb3b06d9a805d77413a7e77eee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10a8e920_ad606962",
