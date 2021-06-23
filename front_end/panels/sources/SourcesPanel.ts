@@ -33,6 +33,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
@@ -124,6 +125,16 @@ const UIStrings = {
   *@example {string} PH1
   */
   copyS: 'Copy {PH1}',
+  /**
+  *@description A context menu item for strings in the Console, Sources, and Network panel.
+  * When clicked, the raw contents of the string is copied to the clipboard.
+  */
+  copyStringContents: 'Copy string contents',
+  /**
+  *@description A context menu item for strings in the Console, Sources, and Network panel.
+  * When clicked, the string is copied to the clipboard as a valid JavaScript literal.
+  */
+  copyStringAsJSLiteral: 'Copy string as JavaScript literal',
   /**
   *@description A context menu item in the Sources Panel of the Sources panel
   */
@@ -927,9 +938,6 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
       if (remoteObject.subtype === 'node') {
         return 'outerHTML';
       }
-      if (remoteObject.type === 'string') {
-        return 'string content';
-      }
       return remoteObject.type;
     }
     const copyContextMenuTitle = getObjectTitle();
@@ -938,10 +946,20 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
         i18nString(UIStrings.storeSAsGlobalVariable, {PH1: copyContextMenuTitle}),
         () => SDK.ConsoleModel.ConsoleModel.instance().saveToTempVariable(executionContext, remoteObject));
 
-    // We are trying to copy a primitive value.
-    if (remoteObject.value) {
-      contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyS, {PH1: copyContextMenuTitle}), () => {
+
+    if (remoteObject.type === 'string') {
+      contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyStringContents), () => {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(remoteObject.value);
+      });
+      contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyStringAsJSLiteral), () => {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(
+            Platform.StringUtilities.formatAsJSLiteral(remoteObject.value));
+      });
+    }
+    // We are trying to copy a primitive value.
+    else if (new Set(['number', 'boolean', 'symbol', 'bigint', 'undefined']).has(remoteObject.type)) {
+      contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyS, {PH1: copyContextMenuTitle}), () => {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(remoteObject.description);
       });
     }
     // We are trying to copy a remote object.
