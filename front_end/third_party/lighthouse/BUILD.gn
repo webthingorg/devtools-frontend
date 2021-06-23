@@ -4,7 +4,10 @@
 
 import("../../../config/gni/all_devtools_files.gni")
 import("../../../scripts/build/ninja/copy.gni")
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../scripts/build/ninja/devtools_pre_built.gni")
+import("../visibility.gni")
 
 _lighthouse_sources = lighthouse_locale_files + [
                         "lighthouse-tsconfig.json",
@@ -15,29 +18,17 @@ copy_to_gen("lighthouse-locale-files") {
   sources = _lighthouse_sources
 }
 
-devtools_pre_built("lighthouse-javscript-sources-debug") {
-  sources_are_release = false
-
-  sources = [
-    "report-assets/report-generator.d.ts",
-    "report-assets/report-generator.js",
-    "report-assets/report.d.ts",
-    "report-assets/report.js",
-  ]
-}
-
-copy_to_gen("lighthouse-javscript-sources-release") {
+devtools_pre_built("lighthouse-javascript-sources") {
   sources = [ "lighthouse-dt-bundle.js" ]
 }
 
 group("lighthouse") {
   public_deps = [
-    ":lighthouse-javscript-sources-debug",
-    ":lighthouse-javscript-sources-release",
+    ":lighthouse-javascript-sources",
     ":lighthouse-locale-files",
   ]
   data_deps = public_deps
   metadata = {
-    grd_files = get_target_outputs(":lighthouse-javscript-sources-release")
+    grd_files = [ target_gen_dir + "/lighthouse-dt-bundle.js" ]
   }
 }
