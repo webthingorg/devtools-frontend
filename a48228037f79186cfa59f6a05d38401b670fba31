@@ -34,6 +34,24 @@
       "parentUuid": "828055dc_4bb7794c",
       "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c1c298_93902046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-23T13:35:34Z",
+      "side": 1,
+      "message": "Okay, I had to do a couple more rounds of cleanups in the build system, but now it should be working.\n\nThe \"save as HTML\" feature is also working again. To do so, we load the `report-assets/report-generator.js` in the Lighthouse panel, but we don\u0027t load report.js. Then, `report-assets/report.js` is in the `module.json` file so that the generator can fetch it.\n\nAdditionally, in `third_party/lighthouse/report` we now have a `report.js` that is imported by `panels/lighthouse` and used directly. I think that we should only export the code here and we should delete all other code. E.g. the `__initLighthouseReport__` For now, I had to comment this out, as we don\u0027t want this code to run, since we are running it as part of the panel and not in a standalone context.\n\nIdeally we make report-generator also a proper ES module, but we can do that later.\n\nI think everything works now, so we can tidy this up. To make reviewing easier, can we separate the steps into several CLs?\n\n1. A CL that checks in all relevant code for `third_party/lighthouse/report/`. The files are copied using `devtools_pre_built` (as it is now) and we consume these in `panels/lighthouse`\n2. A CL that uses all the new code appropriately.\n\nI don\u0027t think we need to make a lot of changes, so I think we can simply split this CL up into two and get it ready to go.\n\nThanks again for doing this Connor!",
+      "parentUuid": "8729fa7a_29d199b7",
+      "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
