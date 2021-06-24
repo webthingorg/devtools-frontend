@@ -33,6 +33,23 @@
       "message": "+Owner to review.\n\nHi Alex!  PTAL when you can, thanks!",
       "revId": "82a052439ae9b7697d77e8b4ca736a2f9b0c8241",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e860ade2_c360975a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-24T05:52:30Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "82a052439ae9b7697d77e8b4ca736a2f9b0c8241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
