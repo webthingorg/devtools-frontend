@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c158014c_26febc14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-24T04:56:21Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "ea6424505cab77bda091a90c80adfb4ba0d8dae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de063bc_6b506d80",
+        "filename": "third_party/i18n/collect-strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-24T04:56:21Z",
+      "side": 1,
+      "message": "q: Will this result in devtools-internal having their own en-US.json in a mirrored `core/i18n/locales`?",
+      "range": {
+        "startLine": 673,
+        "startChar": 40,
+        "endLine": 673,
+        "endChar": 76
+      },
+      "revId": "ea6424505cab77bda091a90c80adfb4ba0d8dae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
