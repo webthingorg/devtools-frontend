@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdafd448_bd580600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-24T09:58:21Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "01f6740d7c0644ac57b794f8278212eb9d42a914",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c16c8a_b4b363a8",
+        "filename": "front_end/models/recorder/RecordingPlayer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-24T09:58:21Z",
+      "side": 1,
+      "message": "Ah, nice :) That\u0027s a great improvement!",
+      "range": {
+        "startLine": 115,
+        "startChar": 26,
+        "endLine": 115,
+        "endChar": 48
+      },
+      "revId": "01f6740d7c0644ac57b794f8278212eb9d42a914",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
