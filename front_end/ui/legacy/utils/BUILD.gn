@@ -9,6 +9,7 @@ devtools_module("ui_utils") {
   sources = [
     "append-style.ts",
     "create-shadow-root-with-core-styles.ts",
+    "create-shadow-root-with-styles.ts",
     "focus-changed.ts",
     "inject-core-styles.ts",
     "measured-scrollbar-width.ts",
