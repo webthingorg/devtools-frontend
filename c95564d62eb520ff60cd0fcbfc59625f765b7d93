@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d379f296_2d1b279c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-24T06:26:41Z",
+      "side": 1,
+      "message": "PTAL I have not found a better way to differentiate keyboard generated vs actual click events, WDYT?",
+      "revId": "c95564d62eb520ff60cd0fcbfc59625f765b7d93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
