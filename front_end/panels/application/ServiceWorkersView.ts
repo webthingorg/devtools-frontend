@@ -676,8 +676,9 @@ export class Section {
           versionsStack, 'service-worker-installing-circle',
           i18nString(UIStrings.sTryingToInstall, {PH1: installing.id}));
       if (installing.scriptResponseTime !== undefined) {
-        installingEntry.createChild('div', 'service-worker-subtitle').textContent =
-            i18nString(UIStrings.receivedS, new Date(installing.scriptResponseTime * 1000).toLocaleString());
+        installingEntry.createChild('div', 'service-worker-subtitle').textContent = i18nString(UIStrings.receivedS, {
+          PH1: new Date(installing.scriptResponseTime * 1000).toLocaleString(),
+        });
       }
       if (!this._targetForVersionId(installing.id) && (installing.isRunning() || installing.isStarting())) {
         this._createLink(

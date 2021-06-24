@@ -100,6 +100,11 @@ export async function fetchAndRegisterLocaleData(locale: Intl.UnicodeBCP47Locale
   i18nBundle.registerLocaleData(locale, localeData);
 }
 
+type ValueFn = () => string;
+type Values = {
+  [key: string]: string|boolean|number|null|undefined|ValueFn|DOMException|Date,
+};
+
 /**
  * Returns an anonymous function that wraps a call to retrieve a localized string.
  * This is introduced so that localized strings can be declared in environments where
@@ -108,7 +113,7 @@ export async function fetchAndRegisterLocaleData(locale: Intl.UnicodeBCP47Locale
  * meta files used to register module extensions.
  */
 export function getLazilyComputedLocalizedString(
-    localizedStringSet: LocalizedStringSet, id: string, values: Object = {}): () => Platform.UIString.LocalizedString {
+    localizedStringSet: LocalizedStringSet, id: string, values: Values = {}): () => Platform.UIString.LocalizedString {
   return (): Platform.UIString.LocalizedString => getLocalizedString(localizedStringSet, id, values);
 }
 
@@ -116,7 +121,7 @@ export function getLazilyComputedLocalizedString(
  * Retrieve the localized string.
  */
 export function getLocalizedString(
-    localizedStringSet: LocalizedStringSet, id: string, values: Object = {}): Platform.UIString.LocalizedString {
+    localizedStringSet: LocalizedStringSet, id: string, values: Values = {}): Platform.UIString.LocalizedString {
   return localizedStringSet.getLocalizedString(id, values);
 }
 
