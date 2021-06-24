@@ -136,11 +136,18 @@ export function setupRecordingClient(
       };
     }
     if (event.type === 'click') {
+      const mouseEvent = event as MouseEvent;
+      // If both offsets are zero, it's very likely that the event was
+      // sent as a result of keyboard interactions which are handled
+      // separately.
+      if (mouseEvent.offsetX === 0 && mouseEvent.offsetY === 0) {
+        return;
+      }
       return {
         type: event.type,
         selector: getSelector(nodeTarget),
-        offsetX: (event as MouseEvent).offsetX,
-        offsetY: (event as MouseEvent).offsetY,
+        offsetX: mouseEvent.offsetX,
+        offsetY: mouseEvent.offsetY,
       };
     }
     if (event.type === 'change') {
