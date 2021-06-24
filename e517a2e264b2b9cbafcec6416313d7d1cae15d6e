@@ -33,6 +33,24 @@
       "message": "Would it make sense to also check that the previous event was a keydown?",
       "revId": "e517a2e264b2b9cbafcec6416313d7d1cae15d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652454cb_caaa3519",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-24T10:14:09Z",
+      "side": 1,
+      "message": "I think you can Ctrl + Click so we would need to check for Enter or Space specifically. But I am not sure it\u0027s worth it because there could be multiple ways to trigger a button from the keyboard. Let\u0027s revisit if this not working: so far I could not generate an event with zero offsets by clicking manually so it should be good enough.",
+      "parentUuid": "d7d120c7_1e1d4906",
+      "revId": "e517a2e264b2b9cbafcec6416313d7d1cae15d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
