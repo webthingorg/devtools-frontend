@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b30e80_cddb3640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-24T10:01:51Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "e517a2e264b2b9cbafcec6416313d7d1cae15d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d120c7_1e1d4906",
+        "filename": "front_end/models/recorder/RecordingClient.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-24T10:01:51Z",
+      "side": 1,
+      "message": "Would it make sense to also check that the previous event was a keydown?",
+      "revId": "e517a2e264b2b9cbafcec6416313d7d1cae15d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
