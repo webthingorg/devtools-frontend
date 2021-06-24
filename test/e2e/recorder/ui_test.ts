@@ -61,7 +61,7 @@ describe('Recorder', function() {
 
         const steps =
             await frontend.$$eval('pierce/.step .action', actions => actions.map(e => (e as HTMLElement).innerText));
-        assert.deepEqual(steps, ['viewport', 'keydown', 'click', 'keyup']);
+        assert.deepEqual(steps, ['viewport', 'keydown', 'keyup']);
 
         await target.goto('about:blank');
         const button = await frontend.$('aria/Play recording') as puppeteer.ElementHandle<HTMLButtonElement>;
