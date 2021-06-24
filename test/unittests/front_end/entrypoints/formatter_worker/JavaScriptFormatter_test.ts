@@ -26,6 +26,12 @@ describe('JavaScriptFormatter', () => {
 `);
   });
 
+  it.only('formats let-declaration starting with escaped characters correctly', () => {
+    const formattedCode = formatJavaScript('let \u0275Escaped;');
+    assert.strictEqual(formattedCode, `let \u0275Escaped;
+`);
+  });
+
   it('formats nullish coalescing expressions correctly', () => {
     const formattedCode = formatJavaScript('false??true');
     assert.strictEqual(formattedCode, 'false ?? true\n');
