@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4fe85e5_fc2e05cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-06-24T00:20:44Z",
+      "side": 1,
+      "message": "Hello, ptal at this CL to make screen reader announcements for suggestion boxes more informative. Thanks!",
+      "revId": "48dbc4dca612c31fc626f9e8f0e73f08ee7705f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
