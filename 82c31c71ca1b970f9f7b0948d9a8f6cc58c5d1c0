@@ -34,6 +34,24 @@
       "parentUuid": "66e58663_186c7450",
       "revId": "82c31c71ca1b970f9f7b0948d9a8f6cc58c5d1c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "690d0984_f8da1123",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-06-24T22:46:09Z",
+      "side": 1,
+      "message": "I gave it some more thoughts: checking whether the value we got from versionsByMode() is displayable is equivalent to calculating beginActivateTime, etc and then seeing if any of them is zero. So I intend to update the commit message and keep the fix as is. Sorry I forgot about this one after taking a few days off (and the enlistment was in a machine that I didn\u0027t use often lately).",
+      "parentUuid": "72c401e2_fb22ff4e",
+      "revId": "82c31c71ca1b970f9f7b0948d9a8f6cc58c5d1c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
