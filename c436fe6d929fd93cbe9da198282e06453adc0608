@@ -46,6 +46,30 @@
       },
       "revId": "c436fe6d929fd93cbe9da198282e06453adc0608",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538c458e_9b1b23df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-24T09:30:08Z",
+      "side": 1,
+      "message": "Oh I hadn\u0027t noticed that https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2983020 fixed the CORSIssue test. Please consider updating the commit message with a link to the fix CL.",
+      "parentUuid": "6a18d3c8_c93e7c02",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "c436fe6d929fd93cbe9da198282e06453adc0608",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
