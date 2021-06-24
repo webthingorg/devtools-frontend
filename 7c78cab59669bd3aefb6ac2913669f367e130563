@@ -51,6 +51,23 @@
       "parentUuid": "368780e0_f21be3fb",
       "revId": "7c78cab59669bd3aefb6ac2913669f367e130563",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f486e2e1_809b3689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1361001
+      },
+      "writtenOn": "2021-06-24T17:05:00Z",
+      "side": 1,
+      "message": "LGTM\n\nTested this change on Windows with generated PowerShell script to confirm that it works as expected.",
+      "revId": "7c78cab59669bd3aefb6ac2913669f367e130563",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
