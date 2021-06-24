@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b2aa17_30e115e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-24T18:00:43Z",
+      "side": 1,
+      "message": "Hi Wolfgang,\n\nGentle ping on the review of this CL.",
+      "revId": "143a4375d62dedd7681def2750a3687109987d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
