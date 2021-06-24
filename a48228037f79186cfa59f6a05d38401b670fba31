@@ -70,6 +70,24 @@
       "parentUuid": "30c1c298_93902046",
       "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d3969bf_495e0f6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-24T14:55:49Z",
+      "side": 1,
+      "message": "Yes, you can do a regular `fetch` to get the content. E.g. rather than `import` you use `fetch` on the same URL. In that case, you can use `import.meta.url` to resolve to the file relative to the location you want to get the content from.",
+      "parentUuid": "54aed14c_c7a9f2d3",
+      "revId": "a48228037f79186cfa59f6a05d38401b670fba31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
