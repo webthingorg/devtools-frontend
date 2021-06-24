@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc19ae09_2526121d",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-24T09:20:34Z",
+      "side": 1,
+      "message": "I missed this during review, but it should probably be `{PH1: new Date(...)}`",
+      "range": {
+        "startLine": 680,
+        "startChar": 44,
+        "endLine": 680,
+        "endChar": 107
+      },
+      "revId": "754ad3a661005302f929e8d44adc94a387f8e37a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
