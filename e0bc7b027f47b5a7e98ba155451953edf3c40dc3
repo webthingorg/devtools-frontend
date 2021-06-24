@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2df9ce_7779ebdb",
+        "filename": "front_end/ui/legacy/utils/create-shadow-root-with-styles.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-24T15:39:48Z",
+      "side": 1,
+      "message": "Unsure if this file should be here? Or if this work should be done in a helpers file/in a component.",
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
