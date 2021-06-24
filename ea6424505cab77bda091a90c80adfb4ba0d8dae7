@@ -56,6 +56,30 @@
       },
       "revId": "ea6424505cab77bda091a90c80adfb4ba0d8dae7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eaf777e_0fd9a6f7",
+        "filename": "third_party/i18n/collect-strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-06-24T09:09:58Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "9de063bc_6b506d80",
+      "range": {
+        "startLine": 673,
+        "startChar": 40,
+        "endLine": 673,
+        "endChar": 76
+      },
+      "revId": "ea6424505cab77bda091a90c80adfb4ba0d8dae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
