@@ -31,6 +31,7 @@ export class IconButton extends HTMLElement {
   private groups: IconWithTextData[] = [];
   private leadingText: string = '';
   private trailingText: string = '';
+  private accessibleNameValue: string|undefined;
 
   set data(data: IconButtonData) {
     this.groups = data.groups.map(group => ({...group}));  // Ensure we make a deep copy.
@@ -47,6 +48,12 @@ export class IconButton extends HTMLElement {
     for (let i = 0; i < texts.length; ++i) {
       this.groups[i].text = texts[i];
     }
+    this.render();
+  }
+
+  set accessibleName(text: string) {
+    this.accessibleNameValue = text;
+
     this.render();
   }
 
@@ -69,7 +76,7 @@ export class IconButton extends HTMLElement {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     LitHtml.render(LitHtml.html`
-      <button class="${buttonClasses}" @click=${this.onClickHandler}>
+      <button class="${buttonClasses}" @click=${this.onClickHandler} aria-label="${LitHtml.Directives.ifDefined(this.accessibleNameValue)}">
       ${this.leadingText ? LitHtml.html`<span class="icon-button-title">${this.leadingText}</span>` : LitHtml.nothing}
       ${this.groups.filter(counter => counter.text !== undefined).map(counter =>
       LitHtml.html`

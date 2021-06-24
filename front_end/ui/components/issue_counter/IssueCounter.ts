@@ -210,7 +210,7 @@ export class IssueCounter extends HTMLElement {
             }
         </style>
         <icon-button .data=${data as IconButton.IconButton.IconButtonData}
-          aria-label="${LitHtml.Directives.ifDefined(this.accessibleName)}"></icon-button>
+          .accessibleName="${this.accessibleName}"></icon-button>
         `,
         this.shadow);
     this.tooltipCallback?.();
