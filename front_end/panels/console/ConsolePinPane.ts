@@ -73,7 +73,7 @@ export class ConsolePinPane extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 
-  wasShow(): void {
+  wasShown(): void {
     this.registerCSSFiles([ConsolePinPaneStyles, ObjectValueStyles]);
   }
 
