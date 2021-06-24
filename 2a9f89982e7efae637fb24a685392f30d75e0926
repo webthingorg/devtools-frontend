@@ -16,6 +16,23 @@
       "message": "btw this was a beautiful cleanup. thank you!",
       "revId": "2a9f89982e7efae637fb24a685392f30d75e0926",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cbdce1e_ba470d35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-06-24T17:41:08Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "2a9f89982e7efae637fb24a685392f30d75e0926",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
