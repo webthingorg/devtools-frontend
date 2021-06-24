@@ -16,6 +16,23 @@
       "message": "Hello, ptal at this CL to make screen reader announcements for suggestion boxes more informative. Thanks!",
       "revId": "48dbc4dca612c31fc626f9e8f0e73f08ee7705f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc934de_efaf67a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-24T05:51:06Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "48dbc4dca612c31fc626f9e8f0e73f08ee7705f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
