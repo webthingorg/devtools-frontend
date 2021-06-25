@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8de15d_3708a0c2",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T13:01:13Z",
+      "side": 1,
+      "message": "can we update these to remove any? e.g. the no-explicit-any? I think the places where we break that have @eslint-disable-next-line next to them? Or if not, could we do that, so the rule isn\u0027t just blanket banned throughout the entire file? WDYT?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 133
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f7d3526_b676fd6c",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T13:01:13Z",
+      "side": 1,
+      "message": "could we use unknown - and if not, why? (for my understanding!)",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 47
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdfad945_ffe8ffb1",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T13:01:13Z",
+      "side": 1,
+      "message": "nit: could we leave a comment explaining why this is required?",
+      "range": {
+        "startLine": 926,
+        "startChar": 0,
+        "endLine": 926,
+        "endChar": 25
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb44eea0_d6b057c4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T13:01:13Z",
+      "side": 1,
+      "message": "is it worth instead doing:\n\n```\nif (!chrome.devtools) {\n  throw new Error(\u0027oh no\u0027)\n }\n ```\n \nSo that it shouts if it\u0027s wrong? WDYT?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 21
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
