@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "09eb0db6_e2b25828",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T06:02:22Z",
+      "side": 1,
+      "message": "Wouldn\u0027t we want aria labels for each button inside the _consoleCounter?",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "627bcff8_3a21a27b",
@@ -14,6 +37,69 @@
       "writtenOn": "2021-06-24T22:51:01Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb713570_9249275b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T06:02:22Z",
+      "side": 1,
+      "message": "Thanks for tackling this! Can you add tests?",
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e84a3e55_4568887b",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T06:02:22Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make sense to provide the aria label for each of the groups?",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 69
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dd17e70_9fed925c",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T06:02:22Z",
+      "side": 1,
+      "message": "We decided not to provide such setters, and instead handle everything with set data.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
       "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
