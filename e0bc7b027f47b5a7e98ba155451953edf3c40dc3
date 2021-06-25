@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cdbf1657_7e8addf6",
+        "filename": "front_end/panels/console/ConsoleContextSelector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T08:38:20Z",
+      "side": 1,
+      "message": "I was thinking about this, and because the thing you\u0027re importing isn\u0027t a constructable (e.g. you can\u0027t do `new Foo()`), this should be a lower case at the beginning.",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9cb45e7_02a3eb39",
+        "filename": "front_end/panels/console/ConsoleContextSelector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T08:38:20Z",
+      "side": 1,
+      "message": "whilst I am a big +1 on this change, I think we should consider doing these parts separately. As far as I understand with regards to legacy CSS we have two parts we\u0027re trying to solve:\n\n1. Update all the CSS files to be imported via your .css.js solution\n2. Stop injecting all the core stylesheets into all the shadow DOMs of all the widgets.\n\nI think it\u0027s best to focus on (1) for now, and come back to (2) after - which hopefully will not be a difficult change to make (a mega find and replace I expect!).\n\nWhat I\u0027d consider doing is updating `createShadowRootWithCoreStyles` so the `cssFile` item can be `string|CSSStyleSheet`, and branching on that in the implementation accordingly.\n\nWDYT?",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 88
+      },
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf2df9ce_7779ebdb",
         "filename": "front_end/ui/legacy/utils/create-shadow-root-with-styles.ts",
         "patchSetId": 4
