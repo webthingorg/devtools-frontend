@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49dbd71f_009b0527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-06-25T01:37:45Z",
+      "side": 1,
+      "message": "I\u0027ve opened this cl as i have started working on the project. I have only made some small UI changes.",
+      "revId": "1a5144e4103564e4fd6be3532b85c550bbad9de0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
