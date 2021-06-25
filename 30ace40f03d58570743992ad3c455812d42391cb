@@ -16,6 +16,63 @@
       "message": "Mathias PTAL, Tim is OOO today.",
       "revId": "30ace40f03d58570743992ad3c455812d42391cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52690120_539e15db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-25T09:56:18Z",
+      "side": 1,
+      "message": "Very nice, thanks!",
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d1d6c67_1165a345",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-25T09:56:18Z",
+      "side": 1,
+      "message": "Now that we’re using optional chaining (nice!), I think the `|| undefined` became dead code, and we can remove it.",
+      "range": {
+        "startLine": 496,
+        "startChar": 27,
+        "endLine": 496,
+        "endChar": 40
+      },
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6689142a_27cc8334",
+        "filename": "front_end/models/logs/LogManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-25T09:56:18Z",
+      "side": 1,
+      "message": "It doesn’t matter much but this seems like an opportunity to be slightly more strict by using `??` instead of `||`",
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
