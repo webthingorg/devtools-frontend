@@ -4,6 +4,7 @@
 
 import type * as SDKModule from '../../../../../front_end/core/sdk/sdk.js';
 
+import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import {createTarget, describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection, dispatchEvent, setMockConnectionResponseHandler} from '../../helpers/MockConnection.js';
 
@@ -69,6 +70,50 @@ describeWithMockConnection('DebuggerModel', () => {
       const {breakpointId} = await model.setBreakpointByURL('fs.js', 1);
       assert.strictEqual(breakpointId, 'fs.js:1');
     });
+  });
+
+  it('resumeModel properly awaits the debugger to be enabled', async () => {
+    const enum Events {
+      WaitingStarted = 'WaitingStarted',
+      WaitingDone = 'WaitingDone',
+      DebuggerEnabled = 'DebuggerEnabled',
+    }
+
+    const events: Events[] = [];
+    let waitingStarted = false;
+
+    setMockConnectionResponseHandler('Debugger.disable', () => {
+      return {};
+    });
+    setMockConnectionResponseHandler('Debugger.enable', async () => {
+      // Make sure that we do not proceed until the waiting function is ready.
+      while (!waitingStarted) {
+        await new Promise(r => setTimeout(r, 1));
+      }
+      events.push(Events.DebuggerEnabled);
+    });
+
+    const target = createTarget();
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    assertNotNullOrUndefined(debuggerModel);
+
+    debuggerModel.suspendModel();
+    assert(!debuggerModel.debuggerEnabled(), 'Debugger should not be enabled');
+
+    // Resume the model and kick off enabling the Debugger.
+    debuggerModel.resumeModel();
+
+    await new Promise<void>(async resolve => {
+      waitingStarted = true;
+      events.push(Events.WaitingStarted);
+      while (!debuggerModel.debuggerEnabled()) {
+        await new Promise(r => setTimeout(r, 1));
+      }
+      events.push(Events.WaitingDone);
+      resolve();
+    });
+
+    assert.deepEqual(events, [Events.WaitingStarted, Events.DebuggerEnabled, Events.WaitingDone]);
   });
 });
 
