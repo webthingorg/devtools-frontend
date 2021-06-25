@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da9c790b_98380dad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T10:07:29Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d1d6c67_1165a345",
@@ -58,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48743e49_a457eea4",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T10:07:29Z",
+      "side": 1,
+      "message": "I thought so as well, but apparently we use this to convert the empty string to undefined. I wasn\u0027t able to tell whether we rely on it with confidence, so I didn\u0027t want to remove it in this CL do decrease risk.",
+      "parentUuid": "5d1d6c67_1165a345",
+      "range": {
+        "startLine": 496,
+        "startChar": 27,
+        "endLine": 496,
+        "endChar": 40
+      },
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6689142a_27cc8334",
@@ -71,6 +112,24 @@
       "writtenOn": "2021-06-25T09:56:18Z",
       "side": 1,
       "message": "It doesn’t matter much but this seems like an opportunity to be slightly more strict by using `??` instead of `||`",
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea19ded3_a5f63f1c",
+        "filename": "front_end/models/logs/LogManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T10:07:29Z",
+      "side": 1,
+      "message": "Will do this in the follow-up where I remove the || undefined above.",
+      "parentUuid": "6689142a_27cc8334",
       "revId": "30ace40f03d58570743992ad3c455812d42391cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
