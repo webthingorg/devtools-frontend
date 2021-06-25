@@ -145,7 +145,10 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     const consoleTitle = i18nString(UIStrings.openConsoleToViewS, {PH1: consoleSummary});
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._consoleCounter, consoleTitle);
-    UI.ARIAUtils.setAccessibleName(this._consoleCounter, consoleTitle);
+    this._consoleCounter.data = {
+      ...this._consoleCounter.data,
+      accessibleName: consoleTitle,
+    };
     this._consoleCounter.classList.toggle('hidden', !(errors || warnings));
 
     /* Update violationCounter items. */
@@ -164,7 +167,10 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     const issuesTitle = `${issuesTitleLead} ${issueEnumeration}`;
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._issueCounter, issuesTitle);
-    UI.ARIAUtils.setAccessibleName(this._issueCounter, issuesTitle);
+    this._issueCounter.data = {
+      ...this._issueCounter.data,
+      accessibleName: issuesTitle,
+    };
     this._issueCounter.classList.toggle('hidden', !issues);
 
     this._toolbarItem.setVisible(Boolean(errors || warnings || violations || issues));
