@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e481ee67_3931b6c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:43:48Z",
+      "side": 1,
+      "message": "LGTM - there are quite a few `any`s in this code along with ts-ignores, but I\u0027m assuming that future CL(s) will tidy some of these up? Also aware that some of this is going to be a pain to fully type correctly.",
+      "revId": "4d4dc04e6f550a33a42cc0b414db7574207dee0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
