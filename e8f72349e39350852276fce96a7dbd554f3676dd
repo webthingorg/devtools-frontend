@@ -22,6 +22,30 @@
       },
       "revId": "e8f72349e39350852276fce96a7dbd554f3676dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c5fd8c_32bb629b",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-06-25T11:11:17Z",
+      "side": 1,
+      "message": "We are using these as values for dispatching:\n\n  this.dispatchEvent(Events.IssuesCountUpdated);\n  \nWith the above, this won\u0027t compile, since `Events.IssuesCountUpdated` is not \"a thing\" at runtime. Its just a type information, not a value (string) available to us.",
+      "parentUuid": "7836f6ac_2328a626",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 31
+      },
+      "revId": "e8f72349e39350852276fce96a7dbd554f3676dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
