@@ -271,6 +271,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _hasBeenExpandedBefore: boolean;
   private throttle: Common.Throttler.Throttler;
   private needsUpdateOnExpand = true;
+  hiddenIssuesMenu: HideIssuesMenu;
 
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
@@ -303,7 +304,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedDocumentsInQuirksModeView(this, this._issue),
       new AttributionReportingIssueDetailsView(this, this._issue),
     ];
-
+    this.hiddenIssuesMenu = new HideIssuesMenu();
     this._aggregatedIssuesCount = null;
     this._hasBeenExpandedBefore = false;
   }
@@ -342,6 +343,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   _appendHeader(): void {
     const header = document.createElement('div');
+    header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
+    header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
     header.classList.add('header');
     const icon = new IconButton.Icon.Icon();
     const kind = this._issue.getKind();
@@ -364,8 +367,16 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this._description.title;
     header.appendChild(title);
-
+    header.appendChild(this.hiddenIssuesMenu.menu());
     this.listItemElement.appendChild(header);
+  }
+
+  private showHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu.setVisible(true);
+  }
+
+  private hideHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu.setVisible(false);
   }
 
   onexpand(): void {
@@ -462,5 +473,55 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     } else {
       this.collapse();
     }
+  }
+}
+
+class HideIssuesMenu {
+  button: HTMLElement;
+  icon: UI.Icon.Icon;
+  private visible: boolean;
+  private glyph?: string;
+  constructor() {
+    this.button = document.createElement('button');
+    this.button.classList.add('hidden-issues-menu-btn');
+    this.button.classList.add('hidden-issues-menu-container');
+    this.button.classList.add('hidden');
+    this.icon = UI.Icon.Icon.create('', 'hidden-issues-menu-icon hidden');
+    this.visible = false;
+    this.setGlyph('largeicon-menu');
+    this.button.appendChild(this.icon);
+    this.setTitle('Hide issues menu');
+    UI.ARIAUtils.markAsMenuButton(this.button);
+  }
+  setTitle(title: string, actionId: string|undefined = undefined): void {
+    UI.ARIAUtils.setAccessibleName(this.button, title);
+    UI.Tooltip.Tooltip.install(this.button, title, actionId, {
+      anchorTooltipAtElement: true,
+    });
+  }
+  isVisible(): boolean {
+    return this.visible;
+  }
+  setVisible(x: boolean): void {
+    if (this.visible === x) {
+      return;
+    }
+    this.button.classList.toggle('hidden', !x);
+    this.visible = x;
+  }
+  focus(): void {
+    this.button.focus();
+  }
+  setGlyph(glyph: string): void {
+    if (this.glyph === glyph) {
+      return;
+    }
+    this.icon.setIconType(glyph);
+    this.icon.classList.toggle('hidden', !glyph);
+    // this.button.classList.toggle('toolbar-has-glyph', Boolean(glyph));
+    this.glyph = glyph;
+  }
+  menu(): HTMLElement {
+    return this.button;
   }
 }
