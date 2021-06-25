@@ -7,7 +7,7 @@ import {focusChanged} from './focus-changed.js';
 import {injectCoreStyles} from './inject-core-styles.js';
 
 interface Options {
-  cssFile?: string;
+  cssFile?: string|CSSStyleSheet[];
   delegatesFocus?: boolean;
   enableLegacyPatching: false;
 }
@@ -25,8 +25,10 @@ export function createShadowRootWithCoreStyles(element: Element, options: Option
 
   const shadowRoot = element.attachShadow({mode: 'open', delegatesFocus});
   injectCoreStyles(shadowRoot);
-  if (cssFile) {
+  if (typeof cssFile === 'string') {
     appendStyle(shadowRoot, cssFile, {enableLegacyPatching});
+  } else if (cssFile) {
+    shadowRoot.adoptedStyleSheets = cssFile;
   }
   shadowRoot.addEventListener('focus', focusChanged, true);
   return shadowRoot;
