@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da752f34_bad7889f",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-25T13:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9269a38a_ba2c0009",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 70
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b7ed0fe_3ceec41a",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2488b54c_7f9c49ef",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-25T13:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b7ed0fe_3ceec41a",
+      "range": {
+        "startLine": 187,
+        "startChar": 15,
+        "endLine": 187,
+        "endChar": 19
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2e14749_4e2e78b1",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-06-25T12:51:30Z",
       "side": 1,
       "message": "can we be more specific here than `any` ? Even `unknown` ?",
+      "range": {
+        "startLine": 928,
+        "startChar": 0,
+        "endLine": 928,
+        "endChar": 112
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b1dcdc_cfe3d053",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-25T13:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2e14749_4e2e78b1",
       "range": {
         "startLine": 928,
         "startChar": 0,
