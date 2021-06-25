@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9f1744_cf8a8356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-25T20:10:55Z",
+      "side": 1,
+      "message": "LGTM from a technical point of view.\nMy gut feeling would be to say \"An empty table row has been created...\" but I\u0027m not a native speaker ^^",
+      "revId": "6f3e1ce8161fd246796b0dc1fe847a66e30eb284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
