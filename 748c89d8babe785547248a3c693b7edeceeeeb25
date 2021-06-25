@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6db2666_1d6cc531",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-25T05:53:19Z",
+      "side": 1,
+      "message": "Do we need to escape those two as well?",
+      "range": {
+        "startLine": 2105,
+        "startChar": 71,
+        "endLine": 2105,
+        "endChar": 88
+      },
+      "revId": "748c89d8babe785547248a3c693b7edeceeeeb25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
