@@ -12,6 +12,7 @@ generate_css("css_files") {
     "./consolePinPane.css",
     "./consolePrompt.css",
     "./consoleView.css",
+    "consoleSidebar.css",
   ]
 }
 
