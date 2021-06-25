@@ -16,6 +16,24 @@
       "message": "LGTM - there are quite a few `any`s in this code along with ts-ignores, but I\u0027m assuming that future CL(s) will tidy some of these up? Also aware that some of this is going to be a pain to fully type correctly.",
       "revId": "4d4dc04e6f550a33a42cc0b414db7574207dee0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b86f158_9d1f17ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-25T13:07:11Z",
+      "side": 1,
+      "message": "The CLs in this chain clean up the `any`s and ts-ingnores step by step. I split that up to keep the individual CLs focussed and more easily reviewable!",
+      "parentUuid": "e481ee67_3931b6c7",
+      "revId": "4d4dc04e6f550a33a42cc0b414db7574207dee0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
