@@ -83,7 +83,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
   _warnings: number;
   _errors: number;
   _violations: number;
-  _pageLoadSequenceNumber: number;
+  private pageLoadSequenceNumber: number;
   _targetListeners: WeakMap<Target, Common.EventTarget.EventDescriptor[]>;
 
   private constructor() {
@@ -94,7 +94,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     this._warnings = 0;
     this._errors = 0;
     this._violations = 0;
-    this._pageLoadSequenceNumber = 0;
+    this.pageLoadSequenceNumber = 0;
     this._targetListeners = new WeakMap();
 
     TargetManager.instance().observeTargets(this);
@@ -206,7 +206,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
   }
 
   addMessage(msg: ConsoleMessage): void {
-    msg._pageLoadSequenceNumber = this._pageLoadSequenceNumber;
+    msg.setPageLoadSequenceNumber(this.pageLoadSequenceNumber);
     if (msg.source === FrontendMessageSource.ConsoleAPI &&
         msg.type === Protocol.Runtime.ConsoleAPICalledEventType.Clear) {
       this._clearIfNecessary();
@@ -214,13 +214,14 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
 
     this._messages.push(msg);
     const runtimeModel = msg.runtimeModel();
-    if (msg._exceptionId && runtimeModel) {
+    const exceptionId = msg.getExceptionId();
+    if (exceptionId && runtimeModel) {
       let modelMap = this._messageByExceptionId.get(runtimeModel);
       if (!modelMap) {
         modelMap = new Map();
         this._messageByExceptionId.set(runtimeModel, modelMap);
       }
-      modelMap.set(msg._exceptionId, msg);
+      modelMap.set(exceptionId, msg);
     }
     this._incrementErrorWarningCount(msg);
     this.dispatchEventToListeners(Events.MessageAdded, msg);
@@ -301,7 +302,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     if (!Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get()) {
       this._clear();
     }
-    ++this._pageLoadSequenceNumber;
+    ++this.pageLoadSequenceNumber;
   }
 
   _mainFrameNavigated(event: Common.EventTarget.EventTargetEvent): void {
@@ -451,17 +452,17 @@ export enum Events {
   CommandEvaluated = 'CommandEvaluated',
 }
 
-interface ConsoleMessageDetails {
+export interface ConsoleMessageDetails {
   type?: MessageType;
-  url?: string|null;
+  url?: string;
   line?: number;
   column?: number;
   parameters?: (string|RemoteObject|Protocol.Runtime.RemoteObject)[];
   stackTrace?: Protocol.Runtime.StackTrace;
   timestamp?: number;
   executionContextId?: number;
-  scriptId?: string|null;
-  workerId?: string|null;
+  scriptId?: string;
+  workerId?: string;
   context?: string;
 }
 
@@ -478,12 +479,12 @@ export class ConsoleMessage {
   stackTrace: Protocol.Runtime.StackTrace|undefined;
   timestamp: number;
   executionContextId: number;
-  scriptId: string|null;
-  workerId: string|null;
-  context: string|null|undefined;
-  _originatingConsoleMessage: ConsoleMessage|null;
-  _pageLoadSequenceNumber: number|undefined;
-  _exceptionId: number|undefined;
+  scriptId?: string;
+  workerId?: string;
+  context?: string;
+  private originatingConsoleMessage: ConsoleMessage|null = null;
+  private pageLoadSequenceNumber?: number = undefined;
+  private exceptionId?: number = undefined;
 
   constructor(
       runtimeModel: RuntimeModel|null, source: MessageSource, level: Protocol.Log.LogEntryLevel|null,
@@ -493,15 +494,15 @@ export class ConsoleMessage {
     this.level = (level as Protocol.Log.LogEntryLevel | null);
     this.messageText = messageText;
     this._type = details?.type || Protocol.Runtime.ConsoleAPICalledEventType.Log;
-    this.url = details?.url || undefined;
+    this.url = details?.url;
     this.line = details?.line || 0;
     this.column = details?.column || 0;
     this.parameters = details?.parameters;
     this.stackTrace = details?.stackTrace;
     this.timestamp = details?.timestamp || Date.now();
     this.executionContextId = details?.executionContextId || 0;
-    this.scriptId = details?.scriptId || null;
-    this.workerId = details?.workerId || null;
+    this.scriptId = details?.scriptId;
+    this.workerId = details?.workerId;
 
     if (!this.executionContextId && this._runtimeModel) {
       if (this.scriptId) {
@@ -513,15 +514,16 @@ export class ConsoleMessage {
 
     if (details?.context) {
       const match = details?.context.match(/[^#]*/);
-      this.context = match && match[0];
+      this.context = match?.[0];
     }
-    this._originatingConsoleMessage = null;
-    this._pageLoadSequenceNumber = undefined;
-    this._exceptionId = undefined;
   }
 
   get type(): MessageType {
     return this._type;
+  }
+
+  setPageLoadSequenceNumber(pageLoadSequenceNumber: number): void {
+    this.pageLoadSequenceNumber = pageLoadSequenceNumber;
   }
 
   static fromException(
@@ -555,7 +557,7 @@ export class ConsoleMessage {
   }
 
   setOriginatingMessage(originatingMessage: ConsoleMessage): void {
-    this._originatingConsoleMessage = originatingMessage;
+    this.originatingConsoleMessage = originatingMessage;
     this.executionContextId = originatingMessage.executionContextId;
   }
 
@@ -563,12 +565,17 @@ export class ConsoleMessage {
     this.executionContextId = executionContextId;
   }
 
+
+  getExceptionId(): number|undefined {
+    return this.exceptionId;
+  }
+
   setExceptionId(exceptionId: number): void {
-    this._exceptionId = exceptionId;
+    this.exceptionId = exceptionId;
   }
 
   originatingMessage(): ConsoleMessage|null {
-    return this._originatingConsoleMessage;
+    return this.originatingConsoleMessage;
   }
 
   isGroupMessage(): boolean {
@@ -595,7 +602,7 @@ export class ConsoleMessage {
   }
 
   groupCategoryKey(): string {
-    return [this.source, this.level, this.type, this._pageLoadSequenceNumber].join(':');
+    return [this.source, this.level, this.type, this.pageLoadSequenceNumber].join(':');
   }
 
   isEqual(msg: ConsoleMessage|null): boolean {
