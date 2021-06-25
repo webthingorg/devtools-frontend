@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7920c5b_409a246b",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2091,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-06-25T23:53:00Z",
+      "side": 1,
+      "message": "This seems like a good place to link to the docs:\n\nhttps://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest?view\u003dpowershell-7.1#parameters",
+      "range": {
+        "startLine": 2091,
+        "startChar": 4,
+        "endLine": 2091,
+        "endChar": 83
+      },
+      "revId": "748c89d8babe785547248a3c693b7edeceeeeb25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071fe1f1_b9802b6c",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-06-25T23:53:00Z",
+      "side": 1,
+      "message": "According to the documentation an alternative is the -UserAgent parameter.\n\nHowever since we need a WebRequestSession to include the cookies anyway this is good.",
+      "range": {
+        "startLine": 2098,
+        "startChar": 8,
+        "endLine": 2098,
+        "endChar": 82
+      },
+      "revId": "748c89d8babe785547248a3c693b7edeceeeeb25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6db2666_1d6cc531",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 3
