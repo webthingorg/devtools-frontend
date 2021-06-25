@@ -20967,6 +20967,15 @@
                             "experimental": true,
                             "optional": true,
                             "$ref": "Runtime.TimeDelta"
+                        },
+                        {
+                            "name": "contextExtensions",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "Runtime.RemoteObjectId"
+                            }
                         }
                     ],
                     "returns": [

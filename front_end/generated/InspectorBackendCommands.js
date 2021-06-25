@@ -2902,7 +2902,8 @@ export function registerCommands(inspectorBackend) {
         {'name': 'returnByValue', 'type': 'boolean', 'optional': true},
         {'name': 'generatePreview', 'type': 'boolean', 'optional': true},
         {'name': 'throwOnSideEffect', 'type': 'boolean', 'optional': true},
-        {'name': 'timeout', 'type': 'number', 'optional': true}
+        {'name': 'timeout', 'type': 'number', 'optional': true},
+        {'name': 'contextExtensions', 'type': 'object', 'optional': true}
       ],
       ['result', 'exceptionDetails']);
   inspectorBackend.registerCommand(

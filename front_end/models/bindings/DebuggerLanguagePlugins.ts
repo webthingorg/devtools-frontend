@@ -224,24 +224,47 @@ async function getValueTreeForExpression(
   return new StaticallyTypedValueNode(callFrame, plugin, sourceType, base, [], evalOptions, address);
 }
 
+const formatterMap: Map<DebuggerLanguagePlugin, Map<number, SDK.RemoteObject.RemoteObject>> = new Map();
+async function getFormatterLibrary(
+    callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin): Promise<SDK.RemoteObject.RemoteObject> {
+  const {executionContextId} = callFrame.script;
+  let pluginFormatterMap = formatterMap.get(plugin);
+  if (!pluginFormatterMap) {
+    pluginFormatterMap = new Map();
+    formatterMap.set(plugin, pluginFormatterMap);
+  }
+  const formatterLibrary = pluginFormatterMap.get(executionContextId);
+  if (formatterLibrary) {
+    return formatterLibrary;
+  }
+
+  const expression = await plugin.getFormatterLibrary();
+
+  const response =
+      await callFrame.debuggerModel.target().runtimeAgent().invoke_evaluate({expression, throwOnSideEffect: true});
+  const error = response.getError();
+  if (error) {
+    throw new Error(error);
+  }
+
+  const result = callFrame.debuggerModel.runtimeModel().createRemoteObject(response.result);
+  pluginFormatterMap.set(executionContextId, result);
+
+  return result;
+}
+
 /** Run the formatter for the value defined by the pair of base and fieldChain.
  */
 async function formatSourceValue(
     callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType, base: EvalBase,
     field: FieldInfo[], evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<FormattedValueNode> {
-  const location = getRawLocation(callFrame);
-
-  let evalCode: {
-    js: string,
-  }|({
-    js: string,
-  } | null) = await plugin.getFormatter({base, field}, location);
-  if (!evalCode) {
-    evalCode = {js: ''};
-  }
+  const formatterLibrary = await getFormatterLibrary(callFrame, plugin);
+  const typeInfos = Array.from(sourceType.typeMap.values()).map(t => t.typeInfo);
   const response = await callFrame.debuggerModel.target().debuggerAgent().invoke_evaluateOnCallFrame({
     callFrameId: callFrame.id,
-    expression: evalCode.js,
+    expression: `format({memories, stack, globals, locals}, ${JSON.stringify(base)}, ${JSON.stringify(field)}, ${
+        JSON.stringify(typeInfos)})
+//# sourceMappingURL=Format.js`,
     objectGroup: evalOptions.objectGroup,
     includeCommandLineAPI: evalOptions.includeCommandLineAPI,
     silent: evalOptions.silent,
@@ -249,6 +272,7 @@ async function formatSourceValue(
     generatePreview: evalOptions.generatePreview,
     throwOnSideEffect: evalOptions.throwOnSideEffect,
     timeout: evalOptions.timeout,
+    contextExtensions: formatterLibrary.objectId ? [formatterLibrary.objectId] : undefined,
   });
   const error = response.getError();
   if (error) {
@@ -1503,6 +1527,10 @@ export class DebuggerLanguagePlugin {
   }
 
   async getMappedLines(_rawModuleId: string, _sourceFileURL: string): Promise<number[]|undefined> {
+    throw new Error('Not implemented yet');
+  }
+
+  async getFormatterLibrary(): Promise<string> {
     throw new Error('Not implemented yet');
   }
 }
