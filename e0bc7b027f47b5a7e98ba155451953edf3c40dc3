@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aee25215_50576f80",
+        "filename": "front_end/panels/console/ConsoleContextSelector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-25T10:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdbf1657_7e8addf6",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9cb45e7_02a3eb39",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28287bdd_b5ce6bfe",
+        "filename": "front_end/panels/console/ConsoleContextSelector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-25T10:59:50Z",
+      "side": 1,
+      "message": "This is changed now so that the same function accepts either CSSStyleSheet[] or a string",
+      "parentUuid": "c9cb45e7_02a3eb39",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 88
+      },
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf2df9ce_7779ebdb",
@@ -60,6 +108,24 @@
       "writtenOn": "2021-06-24T15:39:48Z",
       "side": 1,
       "message": "Unsure if this file should be here? Or if this work should be done in a helpers file/in a component.",
+      "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f63af44_d84e0e08",
+        "filename": "front_end/ui/legacy/utils/create-shadow-root-with-styles.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-25T10:59:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf2df9ce_7779ebdb",
       "revId": "e0bc7b027f47b5a7e98ba155451953edf3c40dc3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
