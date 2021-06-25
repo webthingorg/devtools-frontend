@@ -99,6 +99,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabb3aa4_3fefc4f7",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-25T10:13:16Z",
+      "side": 1,
+      "message": "I see, that makes sense. In that case we could just go with `details.url || undefined` as well, but the extra `?` doesn\u0027t hurt.",
+      "parentUuid": "48743e49_a457eea4",
+      "range": {
+        "startLine": 496,
+        "startChar": 27,
+        "endLine": 496,
+        "endChar": 40
+      },
+      "revId": "30ace40f03d58570743992ad3c455812d42391cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6689142a_27cc8334",
