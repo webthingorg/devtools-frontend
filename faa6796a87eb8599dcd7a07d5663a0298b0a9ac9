@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd2e7c61_95b9a1c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:51:30Z",
+      "side": 1,
+      "message": "LGTM with some questions!",
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9269a38a_ba2c0009",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:51:30Z",
+      "side": 1,
+      "message": "I appreciate it would get much more verbose, but do you think it\u0027s worth defining each of these object types as an individual type and then have the main type be:\n\n```\ntype ServerRequests \u003d RequestOne | RequestTwo |...\n```\n\nPartly for readability, especially given the interesting way Clang has formatted some of these - I\u0027m finding it quite hard to follow. But don\u0027t feel strongly to block on this.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 70
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7ed0fe_3ceec41a",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:51:30Z",
+      "side": 1,
+      "message": "can we add any more descriptive names to what these arguments are?",
+      "range": {
+        "startLine": 187,
+        "startChar": 15,
+        "endLine": 187,
+        "endChar": 19
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e14749_4e2e78b1",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:51:30Z",
+      "side": 1,
+      "message": "can we be more specific here than `any` ? Even `unknown` ?",
+      "range": {
+        "startLine": 928,
+        "startChar": 0,
+        "endLine": 928,
+        "endChar": 112
+      },
+      "revId": "faa6796a87eb8599dcd7a07d5663a0298b0a9ac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
