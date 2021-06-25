@@ -7,6 +7,10 @@ import {Overlay} from './common.js';
 const darkGridColor = 'rgba(0,0,0,0.7)';
 const gridBackgroundColor = 'rgba(255, 255, 255, 0.8)';
 
+function formatNumber(n: number): string {
+  return n % 1 ? n.toFixed(2) : String(n);
+}
+
 export class ViewportSizeOverlay extends Overlay {
   install() {
     this.document.body.classList.add('fill');
@@ -25,8 +29,8 @@ export class ViewportSizeOverlay extends Overlay {
   }
 
   drawViewSize() {
-    const viewportSize = this.viewportSize;
-    const text = `${viewportSize.width}px \u00D7 ${viewportSize.height}px`;
+    const viewportSize = this.visualViewportSize || this.viewportSize;
+    const text = `${formatNumber(viewportSize.width)}px \u00D7 ${formatNumber(viewportSize.height)}px`;
     const canvasWidth = this.canvasWidth || 0;
     this.context.save();
     this.context.font = `14px ${this.window.getComputedStyle(document.body).fontFamily}`;
