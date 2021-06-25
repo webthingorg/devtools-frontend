@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "512934c4_e5f0ffa1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-06-25T16:44:14Z",
+      "side": 1,
+      "message": "There is only one button inside the _consoleCounter. The subgroups (warnings, errors, etc.) are not individual buttons, everything is inside a single button.",
+      "parentUuid": "09eb0db6_e2b25828",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "627bcff8_3a21a27b",
@@ -58,6 +82,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00eac2b1_1e7c1f7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-06-25T16:44:14Z",
+      "side": 1,
+      "message": "Thanks for the feedback!",
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e84a3e55_4568887b",
@@ -83,6 +124,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea59ba77_a9ec4359",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-06-25T16:44:14Z",
+      "side": 1,
+      "message": "I don\u0027t think so. At least with the current behavior. All groups are inside a button, which is the only interactive element and the only one that can be visited using keyboard.",
+      "parentUuid": "e84a3e55_4568887b",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 69
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dd17e70_9fed925c",
         "filename": "front_end/ui/components/icon_button/IconButton.ts",
         "patchSetId": 1
@@ -94,6 +159,30 @@
       "writtenOn": "2021-06-25T06:02:22Z",
       "side": 1,
       "message": "We decided not to provide such setters, and instead handle everything with set data.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac0b6be3_49823833",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-06-25T16:44:14Z",
+      "side": 1,
+      "message": "Ok, I wasn\u0027t 100% sure about this solution, or if it was better to add a getter for data.",
+      "parentUuid": "3dd17e70_9fed925c",
       "range": {
         "startLine": 54,
         "startChar": 0,
