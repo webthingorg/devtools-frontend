@@ -39,6 +39,30 @@
       },
       "revId": "250ad24e62f0726f27eda9cfafea0d8610253939",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f918e1_bad3b6fa",
+        "filename": "front_end/core/common/Progress.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-06-25T20:01:00Z",
+      "side": 1,
+      "message": "I updated the script to include the readonly case but decided to not include the initialization to keep the scope of these changes limited. Happy to tackle that in a follow up migration 😊",
+      "parentUuid": "2ef7af9d_bbcb188b",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "250ad24e62f0726f27eda9cfafea0d8610253939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
