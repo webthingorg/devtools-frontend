@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4d24317_1a368383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:53:28Z",
+      "side": 1,
+      "message": "LGTM with q about `any`",
+      "revId": "c7054e59ea5148b498af07855bd9a1f8782900d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eecc7388_c91363ed",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-25T12:53:28Z",
+      "side": 1,
+      "message": "can we change any here to unknown?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 72
+      },
+      "revId": "c7054e59ea5148b498af07855bd9a1f8782900d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
