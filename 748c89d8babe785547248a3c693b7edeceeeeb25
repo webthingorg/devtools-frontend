@@ -22,6 +22,30 @@
       },
       "revId": "748c89d8babe785547248a3c693b7edeceeeeb25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b62d185_38653173",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-06-25T19:03:12Z",
+      "side": 1,
+      "message": "The escapeString calls on the lines above are sufficient. The output string will be surrounded by double quotes, and any embedded characters that need to be escaped (e.g. more quotes) are escaped with a powershell-style escape sequence.\n\nHere\u0027s an example of the full output (trimmed some headers and removed my real cookies):\n\n$session \u003d New-Object Microsoft.PowerShell.Commands.WebRequestSession\n$session.UserAgent \u003d \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4553.0 Safari/537.36\"\n$session.Cookies.Add((New-Object System.Net.Cookie(\"TestCookieName\", \"Hello\", \"/\", \".bing.com\")))\nInvoke-WebRequest -Uri \"https://www.bing.com/\" `\n-WebSession $session `\n-Headers @{\n\"method\"\u003d\"GET\"\n  \"sec-ch-ua\"\u003d\"`\"Chromium`\";v\u003d`\"93`\", `\" Not;A Brand`\";v\u003d`\"99`\"\"\n  \"sec-ch-ua-mobile\"\u003d\"?0\"\n  \"sec-ch-ua-full-version\"\u003d\"`\"93.0.4553.0`\"\"\n  \"sec-ch-ua-arch\"\u003d\"`\"x86`\"\"\n  \"sec-ch-ua-platform\"\u003d\"`\"Windows`\"\"\n  \"sec-ch-ua-platform-version\"\u003d\"`\"10.0.0`\"\"\n}\n\nNote the sec-ch-ua-* header values which contain quotes have had those quotes properly escaped by escapeString.",
+      "parentUuid": "e6db2666_1d6cc531",
+      "range": {
+        "startLine": 2105,
+        "startChar": 71,
+        "endLine": 2105,
+        "endChar": 88
+      },
+      "revId": "748c89d8babe785547248a3c693b7edeceeeeb25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
