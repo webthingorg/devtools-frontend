@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "a08a08963bcc3dd19e61b7e72c95e5725bc91893",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "780da65e_ff46e432",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-26T07:23:52Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "a08a08963bcc3dd19e61b7e72c95e5725bc91893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9e3f44_97596f33",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-26T07:23:52Z",
+      "side": 1,
+      "message": "nit: capitalize \u0027...Affected...\u0027",
+      "revId": "a08a08963bcc3dd19e61b7e72c95e5725bc91893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c274e7_8c9c42ee",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-26T07:23:52Z",
+      "side": 1,
+      "message": "Would a case like `foo \u003d undefined` and `bar \u003d {issueId: \u0027barId\u0027}` would be possible? And should they be considered equivalent?",
+      "revId": "a08a08963bcc3dd19e61b7e72c95e5725bc91893",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
