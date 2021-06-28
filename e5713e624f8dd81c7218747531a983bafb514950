@@ -104,6 +104,30 @@
       },
       "revId": "e5713e624f8dd81c7218747531a983bafb514950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63469b41_055a551d",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-28T16:10:22Z",
+      "side": 1,
+      "message": "@Peter: Do we have general recommendations for DevTools regarding success vs. failure? This CL for now only uses red text vs green text. The Network Panel uses red vs green circle for requests (not ideal either as Jason points out). And then we commonly use the red circle with an \u0027x\u0027 icon for errors (this might be an option here).",
+      "parentUuid": "c104ee70_64c5358d",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
