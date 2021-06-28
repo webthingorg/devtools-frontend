@@ -425,6 +425,14 @@ export class CSSModel extends SDKModel {
     }
   }
 
+  async findContainerForNode(nodeId: number, containerName?: string): Promise<DOMNode|null> {
+    const {nodeId: containerNodeId} = await this._agent.invoke_findContainerForNode({nodeId, containerName});
+    if (!containerNodeId) {
+      return null;
+    }
+    return this._domModel.nodeForId(containerNodeId);
+  }
+
   async addRule(styleSheetId: string, ruleText: string, ruleLocation: TextUtils.TextRange.TextRange):
       Promise<CSSStyleRule|null> {
     try {
