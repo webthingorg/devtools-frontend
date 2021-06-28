@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "27e16b07879e9d211142fc0f359c8746dcf579db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c3f4dbf_77086893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-28T07:29:53Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "27e16b07879e9d211142fc0f359c8746dcf579db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c7ef56f_c68994e0",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-28T07:29:53Z",
+      "side": 1,
+      "message": "Why is the return type an array if the function can never return more than 1 element?",
+      "revId": "27e16b07879e9d211142fc0f359c8746dcf579db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
