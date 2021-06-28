@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cd4bde1_155f53ea",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-28T14:24:29Z",
+      "side": 1,
+      "message": "I\u0027m removing the no-explicit-any on the last change in the chain! I think I have some any\u0027s left on the way there.",
+      "parentUuid": "7d8de15d_3708a0c2",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 133
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f7d3526_b676fd6c",
         "filename": "front_end/models/extensions/ExtensionAPI.ts",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-25T13:01:13Z",
       "side": 1,
       "message": "could we use unknown - and if not, why? (for my understanding!)",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 47
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c989ca5_c4fb1757",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-28T14:24:29Z",
+      "side": 1,
+      "message": "This can\u0027t be any for the same reason as in the parent patch: \u003cT extends unknown\u003e prevents narrowing to a concrete T, which means we couldn\u0027t have callbacks with more concrete arguments than `unknown`. I added a comment to the code here explaining this.",
+      "parentUuid": "3f7d3526_b676fd6c",
       "range": {
         "startLine": 207,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "223be6ee_e91a943e",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-28T14:24:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdfad945_ffe8ffb1",
+      "range": {
+        "startLine": 926,
+        "startChar": 0,
+        "endLine": 926,
+        "endChar": 25
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb44eea0_d6b057c4",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-25T13:01:13Z",
       "side": 1,
       "message": "is it worth instead doing:\n\n```\nif (!chrome.devtools) {\n  throw new Error(\u0027oh no\u0027)\n }\n ```\n \nSo that it shouts if it\u0027s wrong? WDYT?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 21
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b542916_770c413d",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-06-28T14:24:29Z",
+      "side": 1,
+      "message": "The property is defined two lines above, it\u0027s just that typescript doesn\u0027t understand it :(",
+      "parentUuid": "cb44eea0_d6b057c4",
       "range": {
         "startLine": 1056,
         "startChar": 0,
