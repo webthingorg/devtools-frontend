@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6376492f_9c1814d1",
+        "filename": "inspector_overlay/tool_viewport_size.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-28T06:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5375c8ed_f917df4e",
+      "revId": "90550c8e6987a0fe80f9002d4eec9d0a7b3e2a5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f4f7e9b_a9ad88ee",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-06-28T06:45:35Z",
       "side": 1,
       "message": "I realize it\u0027s not new in this patch, but \\u00D7 is a really long-winded way of saying \\xD7. Let\u0027s replace it now that we\u0027re here?",
+      "range": {
+        "startLine": 33,
+        "startChar": 56,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "90550c8e6987a0fe80f9002d4eec9d0a7b3e2a5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32fa32d_91e2c50d",
+        "filename": "inspector_overlay/tool_viewport_size.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-28T06:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f4f7e9b_a9ad88ee",
       "range": {
         "startLine": 33,
         "startChar": 56,
