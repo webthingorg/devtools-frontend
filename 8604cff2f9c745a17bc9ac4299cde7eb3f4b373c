@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8102a8_c5e72a49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-28T07:59:10Z",
+      "side": 1,
+      "message": "Citing from the bug:\n  If there is 2 warning and 69 improvements, the screen reader \n  announces as \u00272\u0027 and on further tabbing it announces \u002769\u0027 but it \n  does not announce about the warning on the improvements \n  information.\n\n\nHow does that go together with what you describe?",
+      "parentUuid": "512934c4_e5f0ffa1",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "627bcff8_3a21a27b",
