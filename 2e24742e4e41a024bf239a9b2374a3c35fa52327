@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4457f6be_2bc4a21f",
+        "filename": "front_end/panels/console/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-28T08:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e0497cd_8a26af11",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "2e24742e4e41a024bf239a9b2374a3c35fa52327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facbe143_fdfd4358",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-28T08:22:36Z",
       "side": 1,
       "message": "nit: generally we prefer to call `super.wasShown()` first before doing anything else.\n\nAlso: I would expect this CL to remove some lines where we called `registerRequireCSS` with the path to `consoleSidebar.css`. Or am I wrong to expect that?",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 1
+      },
+      "revId": "2e24742e4e41a024bf239a9b2374a3c35fa52327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8af4613e_10b57c15",
+        "filename": "front_end/panels/console/ConsoleSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-06-28T08:58:06Z",
+      "side": 1,
+      "message": "Completely forgot to remove that! Should be done now",
+      "parentUuid": "facbe143_fdfd4358",
       "range": {
         "startLine": 138,
         "startChar": 0,
