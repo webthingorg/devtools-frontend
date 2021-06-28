@@ -50,6 +50,24 @@
       "message": "Why is the return type an array if the function can never return more than 1 element?",
       "revId": "27e16b07879e9d211142fc0f359c8746dcf579db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1f82a4_5a86f6bb",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-28T09:40:21Z",
+      "side": 1,
+      "message": "I expect more resources to get linked here over time; for one more I\u0027m already preparing a CL (linking to the issues tab).",
+      "parentUuid": "7c7ef56f_c68994e0",
+      "revId": "27e16b07879e9d211142fc0f359c8746dcf579db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
