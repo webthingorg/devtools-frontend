@@ -52,17 +52,8 @@
   display: inline-block;
 }
 
-.object-value-arraybuffer,
-.object-value-dataview,
-.object-value-typedarray,
-.object-value-webassemblymemory {
+.object-value-with-memory-icon {
   display: inline-flex;
-}
-
-.object-value-arraybuffer devtools-icon,
-.object-value-dataview devtools-icon,
-.object-value-typedarray devtools-icon,
-.object-value-webassemblymemory devtools-icon {
   cursor: pointer;
 }
 
