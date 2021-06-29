@@ -152,6 +152,30 @@
       },
       "revId": "e5713e624f8dd81c7218747531a983bafb514950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7930f731_3308b86b",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-29T10:22:26Z",
+      "side": 1,
+      "message": "Thanks Peter! Charlie, the CSS overview uses icons in a similar capacity https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/css_overview/CSSOverviewCompletedView.ts;l\u003d777.\n\nI think it\u0027s fine to look at this in a follow-up. I don\u0027t think we should show these icons within an adorner, so we\u0027d need to change the layout a bit more than just adding an icon.",
+      "parentUuid": "9c08b24c_e2b24f14",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
