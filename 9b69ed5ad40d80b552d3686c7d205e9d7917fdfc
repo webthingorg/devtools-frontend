@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b1509c9_826608df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T07:48:30Z",
+      "side": 1,
+      "message": "Nice! I think there\u0027s a bit more we could do here - we should make it so the rule only applies to a class that extends UI.Widget.Widget, so that if I happen to say, define a custom element with a `wasShown` method, that ESLint wouldn\u0027t treat that as an error.\n\nYou can do that by looking up the AST from the method definition and finding its parent class, and then checking what it extends. Let me know if you\u0027d like any extra eyes 😊",
+      "revId": "9b69ed5ad40d80b552d3686c7d205e9d7917fdfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
