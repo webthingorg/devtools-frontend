@@ -205,6 +205,7 @@ domain Debugger
       optional boolean throwOnSideEffect
       # Terminate execution after timing out (number of milliseconds).
       experimental optional Runtime.TimeDelta timeout
+      experimental optional array of Runtime.RemoteObjectId contextExtensions
     returns
       # Object wrapper for the evaluation result.
       Runtime.RemoteObject result

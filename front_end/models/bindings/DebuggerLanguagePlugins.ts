@@ -6,6 +6,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -224,24 +225,100 @@ async function getValueTreeForExpression(
   return new StaticallyTypedValueNode(callFrame, plugin, sourceType, base, [], evalOptions, address);
 }
 
+const formatterMap: Map<DebuggerLanguagePlugin, Map<number, SDK.RemoteObject.RemoteObject>> = new Map();
+async function getFormatterLibrary(
+    callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin): Promise<SDK.RemoteObject.RemoteObject> {
+  const {executionContextId} = callFrame.script;
+  let pluginFormatterMap = formatterMap.get(plugin);
+  if (!pluginFormatterMap) {
+    pluginFormatterMap = new Map();
+    formatterMap.set(plugin, pluginFormatterMap);
+  }
+  const formatterLibrary = pluginFormatterMap.get(executionContextId);
+  if (formatterLibrary) {
+    return formatterLibrary;
+  }
+
+  const expression = await plugin.getFormatterLibrary();
+
+  const response =
+      await callFrame.debuggerModel.target().runtimeAgent().invoke_evaluate({expression, throwOnSideEffect: true});
+  const error = response.getError();
+  if (error) {
+    throw new Error(error);
+  }
+
+  const result = callFrame.debuggerModel.runtimeModel().createRemoteObject(response.result);
+  pluginFormatterMap.set(executionContextId, result);
+
+  return result;
+}
+
+async function getRequiredTypeInfos(
+    callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType,
+    timeout?: number): Promise<TypeInfo[]> {
+  const formatterLibrary = await getFormatterLibrary(callFrame, plugin);
+  const contextExtensions = formatterLibrary.objectId ? [formatterLibrary.objectId] : undefined;
+  const response = await callFrame.debuggerModel.target().debuggerAgent().invoke_evaluateOnCallFrame({
+    callFrameId: callFrame.id,
+    expression: `canFormat(${JSON.stringify(sourceType.typeInfo.typeNames)})`,
+    returnByValue: true,
+    throwOnSideEffect: true,
+    timeout,
+    contextExtensions,
+  });
+  const error = response.getError();
+  if (error) {
+    throw new Error(error);
+  }
+  const {result, exceptionDetails} = response;
+  if (exceptionDetails) {
+    throw new FormattingError(callFrame.debuggerModel.runtimeModel().createRemoteObject(result), exceptionDetails);
+  }
+
+  const {requiredTypeDepth}: {requiredTypeDepth: number} = result.value;
+
+  if (requiredTypeDepth <= 0) {
+    return Array.from(sourceType.typeMap.values()).map(t => t.typeInfo);
+  }
+
+  const visitedTypes: Set<unknown> = new Set();
+  const typeInfos: TypeInfo[] = [];
+  const queue: {typeInfo: TypeInfo, depth: number}[] = [{typeInfo: sourceType.typeInfo, depth: 0}];
+
+  while (queue.length > 0) {
+    const {typeInfo, depth} = queue.pop() as {typeInfo: TypeInfo, depth: number};
+    typeInfos.push(typeInfo);
+    visitedTypes.add(typeInfo.typeId);
+    for (const member of typeInfo.members) {
+      if (visitedTypes.has(member.typeId)) {
+        continue;
+      }
+
+      if (depth < requiredTypeDepth) {
+        const {typeInfo} = sourceType.typeMap.get(member.typeId) ?? {};
+        assertNotNullOrUndefined(typeInfo);
+        queue.push({typeInfo, depth: depth + 1});
+      }
+    }
+  }
+
+  return typeInfos;
+}
+
 /** Run the formatter for the value defined by the pair of base and fieldChain.
  */
 async function formatSourceValue(
     callFrame: SDK.DebuggerModel.CallFrame, plugin: DebuggerLanguagePlugin, sourceType: SourceType, base: EvalBase,
     field: FieldInfo[], evalOptions: SDK.RuntimeModel.EvaluationOptions): Promise<FormattedValueNode> {
-  const location = getRawLocation(callFrame);
-
-  let evalCode: {
-    js: string,
-  }|({
-    js: string,
-  } | null) = await plugin.getFormatter({base, field}, location);
-  if (!evalCode) {
-    evalCode = {js: ''};
-  }
+  const formatterLibrary = await getFormatterLibrary(callFrame, plugin);
+  const contextExtensions = formatterLibrary.objectId ? [formatterLibrary.objectId] : undefined;
+  const typeInfos = await getRequiredTypeInfos(callFrame, plugin, sourceType, evalOptions.timeout);
   const response = await callFrame.debuggerModel.target().debuggerAgent().invoke_evaluateOnCallFrame({
     callFrameId: callFrame.id,
-    expression: evalCode.js,
+    expression: `format({memories, stack, globals, locals}, ${JSON.stringify(base)}, ${JSON.stringify(field)}, ${
+        JSON.stringify(typeInfos)})
+//# sourceMappingURL=Format.js`,
     objectGroup: evalOptions.objectGroup,
     includeCommandLineAPI: evalOptions.includeCommandLineAPI,
     silent: evalOptions.silent,
@@ -249,6 +326,7 @@ async function formatSourceValue(
     generatePreview: evalOptions.generatePreview,
     throwOnSideEffect: evalOptions.throwOnSideEffect,
     timeout: evalOptions.timeout,
+    contextExtensions,
   });
   const error = response.getError();
   if (error) {
@@ -1503,6 +1581,10 @@ export class DebuggerLanguagePlugin {
   }
 
   async getMappedLines(_rawModuleId: string, _sourceFileURL: string): Promise<number[]|undefined> {
+    throw new Error('Not implemented yet');
+  }
+
+  async getFormatterLibrary(): Promise<string> {
     throw new Error('Not implemented yet');
   }
 }

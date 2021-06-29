@@ -14061,6 +14061,7 @@ declare namespace Protocol {
        * Terminate execution after timing out (number of milliseconds).
        */
       timeout?: Runtime.TimeDelta;
+      contextExtensions?: Runtime.RemoteObjectId[];
     }
 
     export interface EvaluateOnCallFrameResponse extends ProtocolResponseWithError {

@@ -227,6 +227,10 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
         this._sendRequest(this._commands.GetMappedLines, {rawModuleId, sourceFileURL}));
   }
 
+  async getFormatterLibrary(): Promise<string> {
+    return this._sendRequest(this._commands.GetFormatterLibrary, {});
+  }
+
   dispose(): void {
   }
 }

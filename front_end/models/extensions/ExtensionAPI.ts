@@ -105,6 +105,7 @@ export function defineCommonExtensionSymbols(apiPrivate: any): void {
     GetInlinedFunctionRanges: 'getInlinedFunctionRanges',
     GetInlinedCalleesRanges: 'getInlinedCalleesRanges',
     GetMappedLines: 'getMappedLines',
+    GetFormatterLibrary: 'getFormatterLibrary',
   };
 
   /** @enum {string} */
@@ -418,6 +419,11 @@ self.injectedExtensionAPI = function(
           case languageExtensionPluginCommands.GetMappedLines:
             if ('getMappedLines' in plugin) {
               return plugin.getMappedLines(parameters.rawModuleId, parameters.sourceFileURL);
+            }
+            return Promise.resolve(undefined);
+          case languageExtensionPluginCommands.GetFormatterLibrary:
+            if ('getFormatterLibrary' in plugin) {
+              return plugin.getFormatterLibrary();
             }
             return Promise.resolve(undefined);
         }
