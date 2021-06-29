@@ -7,6 +7,7 @@ import type * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import type * as Protocol from '../../generated/protocol.js';
 
+
 /**
  * An `AggregatedIssue` representes a number of `IssuesManager.Issue.Issue` objects that are displayed together.
  * Currently only grouping by issue code, is supported. The class provides helpers to support displaying

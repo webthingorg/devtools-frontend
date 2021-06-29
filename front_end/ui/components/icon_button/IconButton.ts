@@ -27,7 +27,7 @@ export interface IconButtonData {
 
 export class IconButton extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
-  private clickHandler: undefined|(() => void) = undefined;
+  private clickHandler: undefined|((event?: Event) => void) = undefined;
   private groups: IconWithTextData[] = [];
   private leadingText: string = '';
   private trailingText: string = '';
@@ -57,7 +57,7 @@ export class IconButton extends HTMLElement {
   private onClickHandler(event: Event): void {
     if (this.clickHandler) {
       event.preventDefault();
-      this.clickHandler();
+      this.clickHandler(event);
     }
   }
 

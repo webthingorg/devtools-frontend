@@ -412,3 +412,31 @@ devtools-icon.network-panel {
   vertical-align: baseline;
   height: 14px;
 }
+
+.hidden-issues-menu-container {
+  position: relative;
+  display: flex;
+  background-color: transparent;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 24px; /* 24px original value */
+  border: none;
+  /* white-space: pre; */
+}
+
+.hidden-issues-menu-btn {
+  /* white-space: nowrap; */
+  overflow: hidden;
+  min-width: 28px;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.hidden-issues-menu-icon {
+  background-color: var(--color-text-secondary);
+  flex: none;
+  /* position: absolute; temprary solution for expanding issue headers */
+}

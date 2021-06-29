@@ -271,6 +271,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _hasBeenExpandedBefore: boolean;
   private throttle: Common.Throttler.Throttler;
   private needsUpdateOnExpand = true;
+  hiddenIssuesMenu: HideIssuesMenu;
 
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
@@ -303,7 +304,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedDocumentsInQuirksModeView(this, this._issue),
       new AttributionReportingIssueDetailsView(this, this._issue),
     ];
-
+    this.hiddenIssuesMenu = new HideIssuesMenu(this._issue);
     this._aggregatedIssuesCount = null;
     this._hasBeenExpandedBefore = false;
   }
@@ -342,6 +343,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   _appendHeader(): void {
     const header = document.createElement('div');
+    header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
+    header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
     header.classList.add('header');
     const icon = new IconButton.Icon.Icon();
     const kind = this._issue.getKind();
@@ -364,8 +367,16 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this._description.title;
     header.appendChild(title);
-
+    header.appendChild(this.hiddenIssuesMenu.menu());
     this.listItemElement.appendChild(header);
+  }
+
+  private showHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu.setVisible(true);
+  }
+
+  private hideHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu.setVisible(false);
   }
 
   onexpand(): void {
@@ -464,3 +475,90 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
   }
 }
+
+class HideIssuesMenu {
+  private icon: IconButton.IconButton.IconButton;
+  private visible: boolean;
+  private issue: AggregatedIssue;
+
+  constructor(issue: AggregatedIssue) {
+    this.icon = new IconButton.IconButton.IconButton();
+    const iconData = {
+      clickHandler: this.clickHandler.bind(this),
+      groups: [{iconName: 'issue-text-icon', color: 'var(--issue-color-blue)', width: '16px', height: '16px'}],
+    };
+    this.visible = false;
+    this.icon.classList.toggle('hidden', !this.visible);
+    this.issue = issue;
+    UI.Tooltip.Tooltip.install(this.icon, 'Hide issues menu');
+    this.icon.data = iconData;
+  }
+
+  isVisible(): boolean {
+    return this.visible;
+  }
+
+  setVisible(x: boolean): void {
+    if (this.visible === x) {
+      return;
+    }
+    this.icon.classList.toggle('hidden', !x);
+    this.visible = x;
+  }
+
+  focus(): void {
+    this.icon.focus();
+  }
+
+  clickHandler(event?: Event): void {
+    event?.stopPropagation();
+    const mouseEvent = event ? event : new MouseEvent('click');
+
+    // const {bottom, left} = this.icon.getBoundingClientRect();
+    // const contextMenu = new UI.ContextMenu.ContextMenu(
+    //   mouseEvent, true, left, bottom);
+
+    const contextMenu = new UI.ContextMenu.ContextMenu(
+        mouseEvent, true, this.icon.totalOffsetLeft(), (this.icon.totalOffsetTop() + this.icon.offsetHeight));
+
+    const titles: Array<string> =
+        [`Hide all ${this.issue.getKind()}`, `Hide all ${this.issue.getCategory()} issues`, 'Hide this issue.'];
+
+    for (const title of titles) {
+      contextMenu.headerSection().appendItem(
+          // eslint-disable-next-line no-console
+          title, () => {
+            // eslint-disable-next-line no-console
+            console.log(`clicked: ${title}`);
+          });
+    }
+
+    contextMenu.show();
+  }
+  menu(): IconButton.IconButton.IconButton {
+    return this.icon;
+  }
+}
+
+// {iconName: 'issue-text-icon', color: 'var(--issue-color-blue)', width: '16px', height: '16px'};
+
+// _showLevelContextMenu(event: Common.EventTarget.EventTargetEvent): void {
+//   const mouseEvent = (event.data as Event);
+//   const setting = this._messageLevelFiltersSetting;
+//   const levels = setting.get();
+
+//   const contextMenu = new UI.ContextMenu.ContextMenu(
+//       mouseEvent, true, this._levelMenuButton.element.totalOffsetLeft(),
+//       this._levelMenuButton.element.totalOffsetTop() + (this._levelMenuButton.element as HTMLElement).offsetHeight);
+//   contextMenu.headerSection().appendItem(
+//       i18nString(UIStrings.default), () => setting.set(ConsoleFilter.defaultLevelsFilterValue()));
+//   for (const [level, levelText] of this._levelLabels.entries()) {
+//     contextMenu.defaultSection().appendCheckboxItem(levelText, toggleShowLevel.bind(null, level), levels[level]);
+//   }
+//   contextMenu.show();
+
+//   function toggleShowLevel(level: string): void {
+//     levels[level] = !levels[level];
+//     setting.set(levels);
+//   }
+// }
