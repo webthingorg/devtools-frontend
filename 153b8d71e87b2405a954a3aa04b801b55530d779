@@ -16,6 +16,46 @@
       "message": "Hi Kamila, Mathias told me you are knowledgeable in the intersection of PowerShell scripts and security. Could you please do a post-commit review of this CL? I just want to double-check that we don\u0027t introduce problems similar to https://crbug.com/1093791 again. Thanks!",
       "revId": "153b8d71e87b2405a954a3aa04b801b55530d779",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27bf424c_46657702",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-29T10:20:12Z",
+      "side": 1,
+      "message": "(I was only CC’d, not asked to review, but I have a small suggestion so I’m sharing it in case it’s helpful)",
+      "revId": "153b8d71e87b2405a954a3aa04b801b55530d779",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc32faf_f39b1986",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-29T10:20:12Z",
+      "side": 1,
+      "message": "Please only implement the PowerShell-specific escaping logic here, and use `formatAsJSLiteral` (see string-utilities.ts) for the remaining “format this as a JS literal” part.",
+      "range": {
+        "startLine": 2085,
+        "startChar": 13,
+        "endLine": 2085,
+        "endChar": 16
+      },
+      "revId": "153b8d71e87b2405a954a3aa04b801b55530d779",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
