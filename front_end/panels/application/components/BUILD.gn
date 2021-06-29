@@ -9,6 +9,7 @@ import("../../visibility.gni")
 devtools_module("components") {
   sources = [
     "FrameDetailsView.ts",
+    "PermissionsPolicySection.ts",
     "StackTrace.ts",
     "TrustTokensView.ts",
   ]
