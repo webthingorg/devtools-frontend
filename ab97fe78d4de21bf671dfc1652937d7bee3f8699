@@ -16,6 +16,23 @@
       "message": "Hi Benedikt, hi Philip,\n\nhere is the CL to change `enableDebugger`. Note that `disableDebugger` still is racy, but I can take a look at that in another CL. PTAL!",
       "revId": "ab97fe78d4de21bf671dfc1652937d7bee3f8699",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ff84da5_3d2bbb1c",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-06-29T12:40:35Z",
+      "side": 1,
+      "message": "This will resolve the implicit promise of the async function with the promise `this._debuggerEnabledPromise`, which essentially just chains them. I personally prefer the more explicit `return await this._debuggerEnabledPromise`, also above in line 228.",
+      "revId": "ab97fe78d4de21bf671dfc1652937d7bee3f8699",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
