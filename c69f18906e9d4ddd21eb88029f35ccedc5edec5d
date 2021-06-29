@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "105db7d0_012b5082",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T12:41:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4cd4bde1_155f53ea",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 133
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f7d3526_b676fd6c",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "This can\u0027t be any for the same reason as in the parent patch: \u003cT extends unknown\u003e prevents narrowing to a concrete T, which means we couldn\u0027t have callbacks with more concrete arguments than `unknown`. I added a comment to the code here explaining this.",
       "parentUuid": "3f7d3526_b676fd6c",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 47
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffae0744_565174a1",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T12:41:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c989ca5_c4fb1757",
       "range": {
         "startLine": 207,
         "startChar": 0,
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "The property is defined two lines above, it\u0027s just that typescript doesn\u0027t understand it :(",
       "parentUuid": "cb44eea0_d6b057c4",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 21
+      },
+      "revId": "c69f18906e9d4ddd21eb88029f35ccedc5edec5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606c7577_628135a1",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T12:41:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5b542916_770c413d",
       "range": {
         "startLine": 1056,
         "startChar": 0,
