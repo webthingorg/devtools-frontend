@@ -33,6 +33,23 @@
       "message": "Btw, what\u0027s so slow, building or testing?\n\nIf testing, we should consider moving this to swarming soonish.",
       "revId": "24c75796c3d00ec8297a9f808b71c7abf09b3bf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f57e1c1_1dba20da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-06-29T09:04:42Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "24c75796c3d00ec8297a9f808b71c7abf09b3bf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
