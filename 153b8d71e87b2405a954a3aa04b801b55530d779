@@ -56,6 +56,30 @@
       },
       "revId": "153b8d71e87b2405a954a3aa04b801b55530d779",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0573e936_db718157",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-06-29T11:01:14Z",
+      "side": 1,
+      "message": "Ah, never mind, this is not meant to produce a JavaScript string literal at all. Ignore me :)",
+      "parentUuid": "fcc32faf_f39b1986",
+      "range": {
+        "startLine": 2085,
+        "startChar": 13,
+        "endLine": 2085,
+        "endChar": 16
+      },
+      "revId": "153b8d71e87b2405a954a3aa04b801b55530d779",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
