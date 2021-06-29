@@ -50,6 +50,24 @@
       "message": "LGTM",
       "revId": "24c75796c3d00ec8297a9f808b71c7abf09b3bf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9502a612_80f5d08e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-06-29T12:21:26Z",
+      "side": 1,
+      "message": "I think the e2e tests are growing and they were always slower on Win. With swarming we might win 7 mins from Unit and Integration tests. So I\u0027ll start looking into it.",
+      "parentUuid": "f37f8898_067b28f4",
+      "revId": "24c75796c3d00ec8297a9f808b71c7abf09b3bf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
