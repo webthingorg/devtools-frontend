@@ -128,6 +128,30 @@
       },
       "revId": "e5713e624f8dd81c7218747531a983bafb514950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c08b24c_e2b24f14",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-06-29T09:37:39Z",
+      "side": 1,
+      "message": "Yes, ideally there is also a non-color indicator for the status. The Network panel dots are not best practise regarding a11y (they also don\u0027t fit the DevTools design system in general).\n\nIn the current designs for the Application panel I proposed this pattern: https://i.imgur.com/OuLZxxD.png\n\nA green checkmark for \"ok\", a grey crossed-through circle for \"disabled\" and a red X for \"failed\".\n\nDoes this pattern help you?",
+      "parentUuid": "63469b41_055a551d",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "e5713e624f8dd81c7218747531a983bafb514950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
