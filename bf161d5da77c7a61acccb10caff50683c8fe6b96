@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8dbcf12_da968f85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T11:15:30Z",
+      "side": 1,
+      "message": "LMK if I can help further :)",
+      "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ae4a6d5_b79bd311",
@@ -31,6 +48,24 @@
       "writtenOn": "2021-06-29T09:53:19Z",
       "side": 1,
       "message": "Jack, I would like the inner component (PermissionsPolicySection) to keep its state (showPermissionsDisallowedDetails flag) when the user clicks elsewhere and then comes back to this FrameDetailsView. Is there a way to make this happen without explicitly remembering that state in the outer component (FrameDetailsView)?\n\nI added `console.log`s for debugging and when coming back to a previously expanded PermissionsPolicySection I see:\n```\nPermissionsPolicySection connectedCallback true\nsetting data for FrameDetailsReportView; has policies:  true\nPermissionsPolicySection disconnectedCallback true\nFrameDetailsView until directive then\nPermissionsPolicySection connectedCallback false\n```\nI interpret this as PermissionsPolicySection is first rendered with the correct state, but it loses is once the `until`-directive kicks in (even though the data is not being fetched again).\n\nAnd maybe more generally, if we need to fetch data to render a component, should this happen within the component (so that the logic for fetching and rendering are close together) or in a parent (so that the component stays dumb and its only concern is rendering)?",
+      "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56119f60_ba001304",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-06-29T11:15:30Z",
+      "side": 1,
+      "message": "Typically if you need some state to persist across multiple (re)renders of a component, during which time that component might be removed from the DOM and re-added in the future, you need to lift that state up into a parent component, so that\u0027s what I\u0027d recommend.\n\nI\u0027d keep fetching data closest to the component that needs it - so if data is only needed by component X, I\u0027d expect it to be fetched in component X. But if you need to do a bunch of processing to that data, or it\u0027s needed across components X, Y and Z, I\u0027d expect that fetching and processing to be done outside of the component and passed into the component as data.",
+      "parentUuid": "2ae4a6d5_b79bd311",
       "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
