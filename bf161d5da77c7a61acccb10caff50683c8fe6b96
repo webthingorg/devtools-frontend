@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad69e8b_7ba83dc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-29T09:53:19Z",
+      "side": 1,
+      "message": "Jack, PTAL at my component questions.",
+      "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae4a6d5_b79bd311",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-06-29T09:53:19Z",
+      "side": 1,
+      "message": "Jack, I would like the inner component (PermissionsPolicySection) to keep its state (showPermissionsDisallowedDetails flag) when the user clicks elsewhere and then comes back to this FrameDetailsView. Is there a way to make this happen without explicitly remembering that state in the outer component (FrameDetailsView)?\n\nI added `console.log`s for debugging and when coming back to a previously expanded PermissionsPolicySection I see:\n```\nPermissionsPolicySection connectedCallback true\nsetting data for FrameDetailsReportView; has policies:  true\nPermissionsPolicySection disconnectedCallback true\nFrameDetailsView until directive then\nPermissionsPolicySection connectedCallback false\n```\nI interpret this as PermissionsPolicySection is first rendered with the correct state, but it loses is once the `until`-directive kicks in (even though the data is not being fetched again).\n\nAnd maybe more generally, if we need to fetch data to render a component, should this happen within the component (so that the logic for fetching and rendering are close together) or in a parent (so that the component stays dumb and its only concern is rendering)?",
+      "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
