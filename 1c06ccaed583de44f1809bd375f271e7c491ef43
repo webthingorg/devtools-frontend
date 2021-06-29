@@ -50,6 +50,24 @@
       "message": "Tiniest of nits, but this change is from https://crrev.com/c/2964539 which isn\u0027t listed in the commit message :-)",
       "revId": "1c06ccaed583de44f1809bd375f271e7c491ef43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd91dde2_1fbd9c45",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-06-29T12:15:24Z",
+      "side": 1,
+      "message": "Thanks, added!",
+      "parentUuid": "abcdcd32_b38bc8f7",
+      "revId": "1c06ccaed583de44f1809bd375f271e7c491ef43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
