@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e28014b_042d4b3a",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-29T06:46:16Z",
+      "side": 1,
+      "message": "If you update this method then you don\u0027t need to change test expectations.",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "799c3f85_eb10ad29",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-29T06:46:16Z",
+      "side": 1,
+      "message": "You could do it like this:\n\n    const newConsoleTexts \u003d [countToText(errors), countToText(warnings)];\n    let consoleSummary \u003d \u0027\u0027;\n    if (errors \u0026\u0026 warnings) {\n      consoleSummary \u003d `${errorCountTitle}, ${warningCountTitle}`;\n    } else if (errors) {\n      consoleSummary \u003d errorCountTitle;\n    } else if (warnings) {\n      consoleSummary \u003d warningCountTitle;\n    }\n    const consoleTitle \u003d i18nString(UIStrings.openConsoleToViewS, {PH1: consoleSummary});\n    const previousData \u003d this._consoleCounter.data;\n    this._consoleCounter.data \u003d {\n      ...previousData,\n      groups: previousData.groups.map((g, i) \u003d\u003e ({...g, text: newConsoleTexts[i]})),\n      accessibleName: consoleTitle,\n    };\n    // TODO(chromium:1167711): Let the component handle the title and ARIA label.\n    UI.Tooltip.Tooltip.install(this._consoleCounter, consoleTitle);\n    this._consoleCounter.classList.toggle(\u0027hidden\u0027, !(errors || warnings));",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 6
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd72ad6a_8289b4de",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-29T06:46:16Z",
+      "side": 1,
+      "message": "I think this is not necessary.",
+      "range": {
+        "startLine": 42,
+        "startChar": 46,
+        "endLine": 42,
+        "endChar": 58
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "801e3676_65eac908",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-29T06:46:16Z",
+      "side": 1,
+      "message": "Let\u0027s make a deep copy here (as above).",
+      "range": {
+        "startLine": 48,
+        "startChar": 14,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
