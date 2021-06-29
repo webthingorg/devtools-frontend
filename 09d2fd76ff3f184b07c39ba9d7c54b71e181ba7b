@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef459ef5_53cec624",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-06-29T08:08:15Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere is a css fix for the memory icon, ptal!",
+      "revId": "09d2fd76ff3f184b07c39ba9d7c54b71e181ba7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
