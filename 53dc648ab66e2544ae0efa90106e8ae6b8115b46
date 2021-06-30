@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2f12bc_cf2019ab",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-30T12:19:54Z",
+      "side": 0,
+      "message": "`targetTreeNode` is circular so there is no point in trying to stringify it.",
+      "revId": "53dc648ab66e2544ae0efa90106e8ae6b8115b46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
