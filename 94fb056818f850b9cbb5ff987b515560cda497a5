@@ -33,6 +33,47 @@
       "message": "I\u0027m a bit unsure if this is expensive or not. We could maintain a `isCurrentlyToggled` bit in the AccessibilityTree instead?",
       "revId": "94fb056818f850b9cbb5ff987b515560cda497a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498d2c94_6de7071b",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-30T12:27:07Z",
+      "side": 1,
+      "message": "I think _visible should be fine unless it\u0027s a computed property?",
+      "parentUuid": "4fcea055_f7348e8a",
+      "revId": "94fb056818f850b9cbb5ff987b515560cda497a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35eadda1_16933f1f",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-06-30T12:27:07Z",
+      "side": 1,
+      "message": "would it be caught by someone?",
+      "range": {
+        "startLine": 152,
+        "startChar": 6,
+        "endLine": 152,
+        "endChar": 11
+      },
+      "revId": "94fb056818f850b9cbb5ff987b515560cda497a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
