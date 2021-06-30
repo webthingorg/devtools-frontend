@@ -11,12 +11,13 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import {ReportRenderer, ReportUIFeatures} from '../../third_party/lighthouse/report/bundle.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as Timeline from '../timeline/timeline.js';
-
-import type * as ReportRenderer from './LighthouseReporterTypes.js';
+import type {DOM} from '../../third_party/lighthouse/report/bundle.js';
+import type {RunnerResultArtifacts, NodeDetailsJSON, SourceLocationDetailsJSON} from './LighthouseReporterTypes.js';
 
 const UIStrings = {
   /**
@@ -38,14 +39,12 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const MaxLengthForLinks = 40;
 
 // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
-export class LighthouseReportRenderer extends self.ReportRenderer {
+export class LighthouseReportRenderer extends ReportRenderer {
   constructor(dom: DOM) {
     super(dom);
   }
 
-  static addViewTraceButton(
-      el: Element, reportUIFeatures: ReportRenderer.ReportUIFeatures,
-      artifacts?: ReportRenderer.RunnerResultArtifacts): void {
+  static addViewTraceButton(el: Element, reportUIFeatures: ReportUIFeatures, artifacts?: RunnerResultArtifacts): void {
     if (!artifacts || !artifacts.traces || !artifacts.traces.defaultPass) {
       return;
     }
@@ -67,9 +66,11 @@ export class LighthouseReportRenderer extends self.ReportRenderer {
       text,
       onClick: onViewTraceClick,
     });
-    timelineButton.classList.add('lh-button--trace');
-    if (simulated) {
-      UI.Tooltip.Tooltip.install(timelineButton, i18nString(UIStrings.thePerformanceMetricsAboveAre));
+    if (timelineButton) {
+      timelineButton.classList.add('lh-button--trace');
+      if (simulated) {
+        UI.Tooltip.Tooltip.install(timelineButton, i18nString(UIStrings.thePerformanceMetricsAboveAre));
+      }
     }
 
     async function onViewTraceClick(): Promise<void> {
@@ -91,7 +92,7 @@ export class LighthouseReportRenderer extends self.ReportRenderer {
 
     for (const origElement of el.getElementsByClassName('lh-node')) {
       const origHTMLElement = origElement as HTMLElement;
-      const detailsItem = origHTMLElement.dataset as unknown as ReportRenderer.NodeDetailsJSON;
+      const detailsItem = origHTMLElement.dataset as unknown as NodeDetailsJSON;
       if (!detailsItem.path) {
         continue;
       }
@@ -122,7 +123,7 @@ export class LighthouseReportRenderer extends self.ReportRenderer {
   static async linkifySourceLocationDetails(el: Element): Promise<void> {
     for (const origElement of el.getElementsByClassName('lh-source-location')) {
       const origHTMLElement = origElement as HTMLElement;
-      const detailsItem = origHTMLElement.dataset as ReportRenderer.SourceLocationDetailsJSON;
+      const detailsItem = origHTMLElement.dataset as SourceLocationDetailsJSON;
       if (!detailsItem.sourceUrl || !detailsItem.sourceLine || !detailsItem.sourceColumn) {
         continue;
       }
@@ -154,7 +155,7 @@ export class LighthouseReportRenderer extends self.ReportRenderer {
 }
 
 // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
-export class LighthouseReportUIFeatures extends self.ReportUIFeatures {
+export class LighthouseReportUIFeatures extends ReportUIFeatures {
   _beforePrint: (() => void)|null;
   _afterPrint: (() => void)|null;
 
