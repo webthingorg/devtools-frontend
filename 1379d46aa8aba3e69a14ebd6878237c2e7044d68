@@ -16,6 +16,23 @@
       "message": "Tim, can you help with this error: https://ci.chromium.org/p/devtools-frontend/builders/try/devtools_frontend_linux_dbg/b8842961207611920064?\n\nI followed the prompt but got more errors locally.\n",
       "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "742ee006_9e8cfc2a",
+        "filename": "front_end/third_party/lighthouse/report/bundle.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-06-30T23:19:23Z",
+      "side": 1,
+      "message": "We realized it was simpler to just import a bundled version of the report renderer.",
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
