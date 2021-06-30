@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01857b87_1b8ba2f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-30T13:44:54Z",
+      "side": 1,
+      "message": "This wi",
+      "revId": "8439dadab2d6869e2463c8c1f1df33a720924fb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "856e9c1b_e4036954",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-30T13:44:54Z",
+      "side": 1,
+      "message": "I think you need\n// eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html\nhere and everywhere else where you have inline styles.",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 13
+      },
+      "revId": "8439dadab2d6869e2463c8c1f1df33a720924fb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
