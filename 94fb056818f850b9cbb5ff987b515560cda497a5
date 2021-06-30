@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "94fb056818f850b9cbb5ff987b515560cda497a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcea055_f7348e8a",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-06-30T12:22:26Z",
+      "side": 1,
+      "message": "I\u0027m a bit unsure if this is expensive or not. We could maintain a `isCurrentlyToggled` bit in the AccessibilityTree instead?",
+      "revId": "94fb056818f850b9cbb5ff987b515560cda497a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
