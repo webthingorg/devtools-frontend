@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "347b3139_df297e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-06-30T17:23:29Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nCan you help stamp this CL?",
+      "revId": "c57980ea34facf9b11e9ef0ec259ffd7a85d14c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
