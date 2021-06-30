@@ -51,6 +51,7 @@ import {FontEditorSectionManager} from './ColorSwatchPopoverIcon.js';
 import * as ElementsComponents from './components/components.js';
 import {ComputedStyleModel} from './ComputedStyleModel.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
+import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
@@ -1772,13 +1773,46 @@ export class StylePropertiesSection {
       const decoration = mediaContainerElement.createChild('span');
       mediaContainerElement.insertBefore(decoration, mediaTextElement);
       decoration.textContent = '@container ';
-      mediaTextElement.textContent = containerQuery.text;
+      if (containerQuery.name) {
+        mediaTextElement.textContent = `${containerQuery.name} ${containerQuery.text}`;
+      } else {
+        mediaTextElement.textContent = containerQuery.text;
+      }
       if (containerQuery.styleSheetId) {
         mediaDataElement.classList.add('editable-media');
         mediaTextElement.addEventListener(
             'click', this.handleQueryRuleClick.bind(this, containerQuery, mediaTextElement), false);
       }
+
+      // TODO: should consider using something like map<ContainerCondition, ContainerNode>
+      // to avoid finding the same container multiple times
+      this.addContainerForContainerQuery(containerQuery);
     }
+  }
+
+  private async addContainerForContainerQuery(containerQuery: SDK.CSSContainerQuery.CSSContainerQuery): Promise<void> {
+    const cssModel = this._parentPane.cssModel();
+    if (!cssModel) {
+      return;
+    }
+
+    const container = await containerQuery.getContainerForNode(this._matchedStyles.node().id);
+    if (!container) {
+      return;
+    }
+
+    const className = container.getAttribute('class');
+    const containerNodeText = new ElementsComponents.NodeText.NodeText();
+    containerNodeText.data = {
+      nodeTitle: '',
+      nodeId: container.getAttribute('id'),
+      nodeClasses: className ? className.split(/\s+/).filter(s => Boolean(s)) : undefined,
+    };
+    containerNodeText.addEventListener('click', () => {
+      ElementsPanel.instance().revealAndSelectNode(container, true, true);
+      container.scrollIntoView();
+    });
+    this.queryListElement.prepend(containerNodeText);
   }
 
   private updateQueryList(): void {

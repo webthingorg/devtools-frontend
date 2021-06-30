@@ -7,8 +7,11 @@ import type * as Protocol from '../../generated/protocol.js';
 
 import type {CSSModel} from './CSSModel.js';
 import {CSSQuery} from './CSSQuery.js';
+import type {DOMNode} from './DOMModel.js';
 
 export class CSSContainerQuery extends CSSQuery {
+  name?: string;
+
   static parseContainerQueriesPayload(cssModel: CSSModel, payload: Protocol.CSS.CSSContainerQuery[]):
       CSSContainerQuery[] {
     return payload.map(cq => new CSSContainerQuery(cssModel, cq));
@@ -23,9 +26,14 @@ export class CSSContainerQuery extends CSSQuery {
     this.text = payload.text;
     this.range = payload.range ? TextUtils.TextRange.TextRange.fromObject(payload.range) : null;
     this.styleSheetId = payload.styleSheetId;
+    this.name = payload.name;
   }
 
   active(): boolean {
     return true;
+  }
+
+  async getContainerForNode(nodeId: number): Promise<DOMNode|null> {
+    return this.cssModel.domModel().getContainerForNode(nodeId, this.name);
   }
 }
