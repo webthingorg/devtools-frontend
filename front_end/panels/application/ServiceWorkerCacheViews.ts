@@ -278,10 +278,11 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
     this._summaryBarElement.removeChildren();
 
     const span = this._summaryBarElement.createChild('span');
+    const returnCount = this._returnCount === null ? 'null' : this._returnCount;
     if (this._entryPathFilter) {
-      span.textContent = i18nString(UIStrings.matchingEntriesS, {PH1: this._returnCount});
+      span.textContent = i18nString(UIStrings.matchingEntriesS, {PH1: returnCount});
     } else {
-      span.textContent = i18nString(UIStrings.totalEntriesS, {PH1: this._returnCount});
+      span.textContent = i18nString(UIStrings.totalEntriesS, {PH1: returnCount});
     }
   }
 

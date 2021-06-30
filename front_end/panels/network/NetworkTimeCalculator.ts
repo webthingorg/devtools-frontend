@@ -251,9 +251,9 @@ export class NetworkTimeCalculator extends Common.ObjectWrapper.ObjectWrapper im
     }
 
     if (request.fetchedViaServiceWorker) {
-      tooltip = i18nString(UIStrings.sFromServiceworker, {PH1: tooltip});
+      tooltip = i18nString(UIStrings.sFromServiceworker, {PH1: tooltip || 'undefined'});
     } else if (request.cached()) {
-      tooltip = i18nString(UIStrings.sFromCache, {PH1: tooltip});
+      tooltip = i18nString(UIStrings.sFromCache, {PH1: tooltip || 'undefined'});
     }
     return {left: leftLabel, right: rightLabel, tooltip: tooltip};
   }
