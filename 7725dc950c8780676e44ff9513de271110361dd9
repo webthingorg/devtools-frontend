@@ -16,6 +16,23 @@
       "message": "LGTM. Thanks Charlie!",
       "revId": "7725dc950c8780676e44ff9513de271110361dd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcd303d_493b3cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-06-30T13:19:14Z",
+      "side": 1,
+      "message": "I have a couple of things that I\u0027d like to change about this CL:\n  - use undefined instead of null in the ResourceTreeModel\n  - Refactor Adorners into ui/components to remove the dependency on panels/elements\n  - Refactor Adorners to make the class Badge superflous\n \nNevertheless, this CL has come a long way, and we should land it and consider the above in follow-ups.\n\nThanks Charlie!",
+      "revId": "7725dc950c8780676e44ff9513de271110361dd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
