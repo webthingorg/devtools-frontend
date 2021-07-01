@@ -70,7 +70,10 @@ devtools_module("elements") {
 }
 
 copy_to_gen("legacy_css") {
-  sources = [ "layoutPane.css" ]
+  sources = [
+    "cssQuery.css",
+    "layoutPane.css",
+  ]
 }
 
 devtools_entrypoint("bundle") {

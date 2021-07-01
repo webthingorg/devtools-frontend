@@ -273,7 +273,7 @@ describe('The Styles pane', async () => {
   });
 
   // Consistently timing out on Mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1218736] can display and edit container queries', async () => {
+  it('can display and edit container queries', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/css-container-queries.html');
 
