@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "1408c47a4b43ea2ec9e26c3aef455fdff2c0ad60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce13c72_3fa3f231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-01T07:21:26Z",
+      "side": 1,
+      "message": "François, could you PTAL?",
+      "revId": "1408c47a4b43ea2ec9e26c3aef455fdff2c0ad60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
