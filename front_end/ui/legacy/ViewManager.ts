@@ -7,8 +7,8 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import type {ContextMenu} from './ContextMenu.js'; // eslint-disable-line no-unused-vars
 import {Icon} from './Icon.js';
 import {Events as TabbedPaneEvents, TabbedPane} from './TabbedPane.js';
@@ -350,8 +350,8 @@ export class ContainerWidget extends VBox {
     this.element.classList.add('flex-auto', 'view-container', 'overflow-auto');
     this._view = view;
     this.element.tabIndex = -1;
-    ARIAUtils.markAsTabpanel(this.element);
-    ARIAUtils.setAccessibleName(this.element, i18nString(UIStrings.sPanel, {PH1: view.title()}));
+    ComponentHelpers.ARIAUtils.markAsTabpanel(this.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.element, i18nString(UIStrings.sPanel, {PH1: view.title()}));
     this.setDefaultFocusedElement(this.element);
   }
 
@@ -414,19 +414,19 @@ export class _ExpandableContainerWidget extends VBox {
 
     this._titleElement = document.createElement('div');
     this._titleElement.classList.add('expandable-view-title');
-    ARIAUtils.markAsButton(this._titleElement);
+    ComponentHelpers.ARIAUtils.markAsButton(this._titleElement);
     this._titleExpandIcon = Icon.create('smallicon-triangle-right', 'title-expand-icon');
     this._titleElement.appendChild(this._titleExpandIcon);
     const titleText = view.title();
     createTextChild(this._titleElement, titleText);
-    ARIAUtils.setAccessibleName(this._titleElement, titleText);
-    ARIAUtils.setExpanded(this._titleElement, false);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._titleElement, titleText);
+    ComponentHelpers.ARIAUtils.setExpanded(this._titleElement, false);
     this._titleElement.tabIndex = 0;
     self.onInvokeElement(this._titleElement, this._toggleExpanded.bind(this));
     this._titleElement.addEventListener('keydown', this._onTitleKeyDown.bind(this), false);
     this.contentElement.insertBefore(this._titleElement, this.contentElement.firstChild);
 
-    ARIAUtils.setControls(this._titleElement, this.contentElement.createChild('slot'));
+    ComponentHelpers.ARIAUtils.setControls(this._titleElement, this.contentElement.createChild('slot'));
     this._view = view;
     expandableContainerForView.set(view, this);
   }
@@ -471,7 +471,7 @@ export class _ExpandableContainerWidget extends VBox {
       return this._materialize();
     }
     this._titleElement.classList.add('expanded');
-    ARIAUtils.setExpanded(this._titleElement, true);
+    ComponentHelpers.ARIAUtils.setExpanded(this._titleElement, true);
     this._titleExpandIcon.setIconType('smallicon-triangle-down');
     return this._materialize().then(() => {
       if (this._widget) {
@@ -485,7 +485,7 @@ export class _ExpandableContainerWidget extends VBox {
       return;
     }
     this._titleElement.classList.remove('expanded');
-    ARIAUtils.setExpanded(this._titleElement, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this._titleElement, false);
     this._titleExpandIcon.setIconType('smallicon-triangle-right');
     this._materialize().then(() => {
       if (this._widget) {

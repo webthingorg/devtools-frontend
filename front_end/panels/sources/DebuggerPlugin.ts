@@ -38,8 +38,10 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
+
 import type * as TextEditor from '../../ui/legacy/components/text_editor/text_editor.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Protocol from '../../generated/protocol.js';
@@ -1784,7 +1786,7 @@ export class DebuggerPlugin extends Plugin {
     const element = this._prettyPrintInfobar.createDetailsRowMessage();
     element.appendChild(
         i18n.i18n.getFormatLocalizedString(str_, UIStrings.prettyprintingWillFormatThisFile, {PH1: toolbar.element}));
-    UI.ARIAUtils.markAsAlert(element);
+    ComponentHelpers.ARIAUtils.markAsAlert(element);
     this._textEditor.attachInfobar(this._prettyPrintInfobar);
   }
 

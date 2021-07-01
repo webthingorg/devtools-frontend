@@ -8,6 +8,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -515,7 +516,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     const protocolSelectTitle = UI.UIUtils.createLabel(i18nString(UIStrings.protocol), 'authenticator-option-label');
     protocolGroup.appendChild(protocolSelectTitle);
     this._protocolSelect = (protocolGroup.createChild('select', 'chrome-select') as HTMLSelectElement);
-    UI.ARIAUtils.bindLabelToControl(protocolSelectTitle, (this._protocolSelect as Element));
+    ComponentHelpers.ARIAUtils.bindLabelToControl(protocolSelectTitle, (this._protocolSelect as Element));
     Object.values(PROTOCOL_AUTHENTICATOR_VALUES)
         .sort()
         .forEach((option: Protocol.WebAuthn.AuthenticatorProtocol): void => {
@@ -531,7 +532,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     const transportSelectTitle = UI.UIUtils.createLabel(i18nString(UIStrings.transport), 'authenticator-option-label');
     transportGroup.appendChild(transportSelectTitle);
     this._transportSelect = (transportGroup.createChild('select', 'chrome-select') as HTMLSelectElement);
-    UI.ARIAUtils.bindLabelToControl(transportSelectTitle, (this._transportSelect as Element));
+    ComponentHelpers.ARIAUtils.bindLabelToControl(transportSelectTitle, (this._transportSelect as Element));
     // transportSelect will be populated in _updateNewAuthenticatorSectionOptions.
 
     this._residentKeyCheckboxLabel = UI.UIUtils.CheckboxLabel.create(i18nString(UIStrings.supportsResidentKeys), false);
@@ -555,7 +556,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     addButtonGroup.createChild('div', 'authenticator-option-label');
     addButtonGroup.appendChild(this._addAuthenticatorButton);
     const addAuthenticatorTitle = UI.UIUtils.createLabel(i18nString(UIStrings.addAuthenticator), '');
-    UI.ARIAUtils.bindLabelToControl(addAuthenticatorTitle, this._addAuthenticatorButton);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(addAuthenticatorTitle, this._addAuthenticatorButton);
 
     this._updateNewAuthenticatorSectionOptions();
     if (this._protocolSelect) {
@@ -587,7 +588,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
 
     const headerElement = section.createChild('div', 'authenticator-section-header');
     const titleElement = headerElement.createChild('div', 'authenticator-section-title');
-    UI.ARIAUtils.markAsHeading(titleElement, 2);
+    ComponentHelpers.ARIAUtils.markAsHeading(titleElement, 2);
 
     await this._clearActiveAuthenticator();
     const activeButtonContainer = headerElement.createChild('div', 'active-button-container');

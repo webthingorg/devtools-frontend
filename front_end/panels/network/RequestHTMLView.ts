@@ -30,6 +30,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 export class RequestHTMLView extends UI.Widget.VBox {
@@ -58,7 +59,7 @@ export class RequestHTMLView extends UI.Widget.VBox {
     iframe.setAttribute('sandbox', '');  // Forbid to run JavaScript and set unique origin.
     iframe.setAttribute('src', this._dataURL);
     iframe.tabIndex = -1;
-    UI.ARIAUtils.markAsPresentation(iframe);
+    ComponentHelpers.ARIAUtils.markAsPresentation(iframe);
     this.contentElement.appendChild(iframe);
   }
 }

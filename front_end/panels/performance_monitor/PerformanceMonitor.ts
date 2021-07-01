@@ -9,6 +9,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
@@ -96,7 +97,7 @@ export class PerformanceMonitorImpl extends UI.Widget.HBox implements
     const chartContainer = this.contentElement.createChild('div', 'perfmon-chart-container');
     this._canvas = chartContainer.createChild('canvas') as HTMLCanvasElement;
     this._canvas.tabIndex = -1;
-    UI.ARIAUtils.setAccessibleName(this._canvas, i18nString(UIStrings.graphsDisplayingARealtimeViewOf));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._canvas, i18nString(UIStrings.graphsDisplayingARealtimeViewOf));
     this.contentElement.createChild('div', 'perfmon-chart-suspend-overlay fill').createChild('div').textContent =
         i18nString(UIStrings.paused);
     this._controlPane.addEventListener(Events.MetricChanged, this._recalcChartHeight, this);
@@ -583,8 +584,8 @@ export class MetricIndicator {
     this.element.addEventListener('click', () => this._toggleIndicator());
     this.element.addEventListener('keypress', event => this._handleKeypress(event));
     this.element.classList.toggle('active', active);
-    UI.ARIAUtils.markAsCheckbox(this.element);
-    UI.ARIAUtils.setChecked(this.element, this._active);
+    ComponentHelpers.ARIAUtils.markAsCheckbox(this.element);
+    ComponentHelpers.ARIAUtils.setChecked(this.element, this._active);
     this.element.tabIndex = 0;
   }
 
@@ -610,7 +611,7 @@ export class MetricIndicator {
   _toggleIndicator(): void {
     this._active = !this._active;
     this.element.classList.toggle('active', this._active);
-    UI.ARIAUtils.setChecked(this.element, this._active);
+    ComponentHelpers.ARIAUtils.setChecked(this.element, this._active);
     this._onToggle(this._active);
   }
 

@@ -41,6 +41,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -373,7 +374,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     treeElement.setCollapsible(false);
     treeElement.selectable = false;
     this._sidebarTree.appendChild(treeElement);
-    UI.ARIAUtils.setAccessibleName(treeElement.childrenListElement, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(treeElement.childrenListElement, title);
     return treeElement;
   }
 
@@ -1603,7 +1604,7 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   constructor(storagePanel: ResourcesPanel, treeElement: UI.TreeOutline.TreeElement) {
     this._panel = storagePanel;
     this._treeElement = treeElement;
-    UI.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
     this._treeElementForFrameId = new Map();
     this._treeElementForTargetId = new Map();
 
@@ -1842,7 +1843,7 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     this._frameId = frame.id;
     if (this.title !== frame.displayName()) {
       this.title = frame.displayName();
-      UI.ARIAUtils.setAccessibleName(this.listItemElement, this.title);
+      ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, this.title);
       if (this.parent) {
         const parent = this.parent;
         // Insert frame at new position to preserve correct alphabetical order

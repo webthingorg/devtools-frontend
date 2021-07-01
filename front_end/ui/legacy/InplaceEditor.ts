@@ -4,7 +4,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {Keys} from './KeyboardShortcut.js';
 import {ElementFocusRestorer, markBeingEdited} from './UIUtils.js';
 
@@ -36,7 +36,7 @@ export class InplaceEditor<T> {
     element.setAttribute('contenteditable', 'plaintext-only');
 
     const oldRole = element.getAttribute('role');
-    ARIAUtils.markAsTextBox(element);
+    ComponentHelpers.ARIAUtils.markAsTextBox(element);
     editingContext.oldRole = oldRole;
 
     const oldTabIndex = element.tabIndex;

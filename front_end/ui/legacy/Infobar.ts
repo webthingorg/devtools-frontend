@@ -8,7 +8,7 @@
 import type * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../../core/i18n/i18n.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {Keys} from './KeyboardShortcut.js';
 import {createTextButton} from './UIUtils.js';
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
@@ -78,7 +78,7 @@ export class Infobar {
 
     this._infoText = this._infoMessage.createChild('div', 'infobar-info-text');
     this._infoText.textContent = text;
-    ARIAUtils.markAsAlert(this._infoText);
+    ComponentHelpers.ARIAUtils.markAsAlert(this._infoText);
 
     this._actionContainer = this._infoContainer.createChild('div', 'infobar-info-actions');
     if (actions) {
@@ -111,13 +111,13 @@ export class Infobar {
     // @ts-ignore This is a custom element defined in UIUitls.js that has a `setTabbable` that TS doesn't
     //            know about.
     this._closeButton.setTabbable(true);
-    ARIAUtils.setDescription(this._closeButton, i18nString(UIStrings.close));
+    ComponentHelpers.ARIAUtils.setDescription(this._closeButton, i18nString(UIStrings.close));
     self.onInvokeElement(this._closeButton, this.dispose.bind(this));
 
     if (type !== Type.Issue) {
       this._contentElement.tabIndex = 0;
     }
-    ARIAUtils.setAccessibleName(this._contentElement, text);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._contentElement, text);
     this._contentElement.addEventListener('keydown', event => {
       if (event.keyCode === Keys.Esc.code) {
         this.dispose();
@@ -206,7 +206,7 @@ export class Infobar {
     this._detailsRows.classList.remove('hidden');
     this._toggleElement.remove();
     this._onResize();
-    ARIAUtils.alert(this._detailsMessage);
+    ComponentHelpers.ARIAUtils.alert(this._detailsMessage);
   }
 
   createDetailsRowMessage(message?: string): Element {

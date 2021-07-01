@@ -16,6 +16,7 @@ devtools_module("request_link_icon") {
     "../../../core/sdk:bundle",
     "../../../models/logs:bundle",
     "../../../panels/network/forward:bundle",
+    "../../../ui/components/helpers:bundle",
     "../../../ui/lit-html:bundle",
     "../helpers:bundle",
     "../icon_button:bundle",

@@ -44,8 +44,10 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Coverage from '../coverage/coverage.js'; // eslint-disable-line no-unused-vars
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
@@ -1363,7 +1365,7 @@ export class StatusPane extends UI.Widget.VBox {
     const statusLine = this.contentElement.createChild('div', 'status-dialog-line status');
     statusLine.createChild('div', 'label').textContent = i18nString(UIStrings.status);
     this._status = statusLine.createChild('div', 'content');
-    UI.ARIAUtils.markAsStatus(this._status);
+    ComponentHelpers.ARIAUtils.markAsStatus(this._status);
 
     if (options.showTimer) {
       const timeLine = this.contentElement.createChild('div', 'status-dialog-line time');
@@ -1375,7 +1377,7 @@ export class StatusPane extends UI.Widget.VBox {
       const progressLine = this.contentElement.createChild('div', 'status-dialog-line progress');
       this._progressLabel = progressLine.createChild('div', 'label');
       this._progressBar = progressLine.createChild('div', 'indicator-container').createChild('div', 'indicator');
-      UI.ARIAUtils.markAsProgressBar(this._progressBar);
+      ComponentHelpers.ARIAUtils.markAsProgressBar(this._progressBar);
     }
 
     if (typeof options.description === 'string') {
@@ -1421,7 +1423,7 @@ export class StatusPane extends UI.Widget.VBox {
   updateProgressBar(activity: string, percent: number): void {
     this._progressLabel.textContent = activity;
     (this._progressBar as HTMLElement).style.width = percent.toFixed(1) + '%';
-    UI.ARIAUtils.setValueNow(this._progressBar, percent);
+    ComponentHelpers.ARIAUtils.setValueNow(this._progressBar, percent);
     this._updateTimer();
   }
 

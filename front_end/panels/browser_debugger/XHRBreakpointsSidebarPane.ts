@@ -7,6 +7,7 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -84,8 +85,8 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
     this.contentElement.appendChild(this._list.element);
     this._list.element.classList.add('breakpoint-list', 'hidden');
-    UI.ARIAUtils.markAsList(this._list.element);
-    UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.xhrfetchBreakpoints));
+    ComponentHelpers.ARIAUtils.markAsList(this._list.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.xhrfetchBreakpoints));
     this._emptyElement = this.contentElement.createChild('div', 'gray-info-message');
     this._emptyElement.textContent = i18nString(UIStrings.noBreakpoints);
 
@@ -127,7 +128,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
     inputElementContainer.textContent = i18nString(UIStrings.breakWhenUrlContains);
 
     const inputElement = inputElementContainer.createChild('span', 'breakpoint-condition-input');
-    UI.ARIAUtils.setAccessibleName(inputElement, i18nString(UIStrings.urlBreakpoint));
+    ComponentHelpers.ARIAUtils.setAccessibleName(inputElement, i18nString(UIStrings.urlBreakpoint));
     this._addListElement(inputElementContainer, this._list.element.firstChild as Element | null);
 
     function finishEditing(this: XHRBreakpointsSidebarPane, accept: boolean, e: Element, text: string): void {
@@ -174,18 +175,18 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
 
   createElementForItem(item: string): Element {
     const listItemElement = document.createElement('div');
-    UI.ARIAUtils.markAsListitem(listItemElement);
+    ComponentHelpers.ARIAUtils.markAsListitem(listItemElement);
     const element = listItemElement.createChild('div', 'breakpoint-entry') as HTMLElement;
     containerToBreakpointEntry.set(listItemElement, element);
     const enabled = SDK.DOMDebuggerModel.DOMDebuggerManager.instance().xhrBreakpoints().get(item) || false;
-    UI.ARIAUtils.markAsCheckbox(element);
-    UI.ARIAUtils.setChecked(element, enabled);
+    ComponentHelpers.ARIAUtils.markAsCheckbox(element);
+    ComponentHelpers.ARIAUtils.setChecked(element, enabled);
     element.addEventListener('contextmenu', this._contextMenu.bind(this, item), true);
 
     const title = item ? i18nString(UIStrings.urlContainsS, {PH1: item}) : i18nString(UIStrings.anyXhrOrFetch);
     const label = UI.UIUtils.CheckboxLabel.create(title, enabled);
-    UI.ARIAUtils.markAsHidden(label);
-    UI.ARIAUtils.setAccessibleName(element, title);
+    ComponentHelpers.ARIAUtils.markAsHidden(label);
+    ComponentHelpers.ARIAUtils.setAccessibleName(element, title);
     element.appendChild(label);
     label.checkboxElement.addEventListener('click', this._checkboxClicked.bind(this, item, enabled), false);
     element.addEventListener('click', event => {
@@ -217,7 +218,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
 
     if (item === this._hitBreakpoint) {
       element.classList.add('breakpoint-hit');
-      UI.ARIAUtils.setDescription(element, i18nString(UIStrings.breakpointHit));
+      ComponentHelpers.ARIAUtils.setDescription(element, i18nString(UIStrings.breakpointHit));
     }
 
     label.classList.add('cursor-auto');

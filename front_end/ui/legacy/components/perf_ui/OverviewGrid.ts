@@ -33,6 +33,7 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 import type {Calculator} from './TimelineGrid.js';
@@ -147,10 +148,10 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper {
   constructor(parentElement: Element, dividersLabelBarElement?: Element, calculator?: Calculator) {
     super();
     this._parentElement = parentElement;
-    UI.ARIAUtils.markAsGroup(this._parentElement);
+    ComponentHelpers.ARIAUtils.markAsGroup(this._parentElement);
     this._calculator = calculator;
 
-    UI.ARIAUtils.setAccessibleName(this._parentElement, i18nString(UIStrings.overviewGridWindow));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._parentElement, i18nString(UIStrings.overviewGridWindow));
 
     UI.UIUtils.installDragHandle(
         this._parentElement, this._startWindowSelectorDragging.bind(this), this._windowSelectorDragging.bind(this),
@@ -174,13 +175,13 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper {
         this._rightResizeElement, this._resizerElementStartDragging.bind(this),
         this._rightResizeElementDragging.bind(this), null, 'ew-resize');
 
-    UI.ARIAUtils.setAccessibleName(this._leftResizeElement, i18nString(UIStrings.leftResizer));
-    UI.ARIAUtils.markAsSlider(this._leftResizeElement);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._leftResizeElement, i18nString(UIStrings.leftResizer));
+    ComponentHelpers.ARIAUtils.markAsSlider(this._leftResizeElement);
     const leftKeyDown = (event: Event): void => this._handleKeyboardResizing(event, false);
     this._leftResizeElement.addEventListener('keydown', leftKeyDown);
 
-    UI.ARIAUtils.setAccessibleName(this._rightResizeElement, i18nString(UIStrings.rightResizer));
-    UI.ARIAUtils.markAsSlider(this._rightResizeElement);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._rightResizeElement, i18nString(UIStrings.rightResizer));
+    ComponentHelpers.ARIAUtils.markAsSlider(this._rightResizeElement);
 
     const rightKeyDown = (event: Event): void => this._handleKeyboardResizing(event, true);
     this._rightResizeElement.addEventListener('keydown', rightKeyDown);
@@ -380,14 +381,14 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper {
   _updateResizeElementPositionValue(leftValue: number, rightValue: number): void {
     const roundedLeftValue = leftValue.toFixed(2);
     const roundedRightValue = rightValue.toFixed(2);
-    UI.ARIAUtils.setAriaValueNow(this._leftResizeElement, roundedLeftValue);
-    UI.ARIAUtils.setAriaValueNow(this._rightResizeElement, roundedRightValue);
+    ComponentHelpers.ARIAUtils.setAriaValueNow(this._leftResizeElement, roundedLeftValue);
+    ComponentHelpers.ARIAUtils.setAriaValueNow(this._rightResizeElement, roundedRightValue);
 
     // Left and right sliders cannot be within 0.5% of each other (Range of AriaValueMin/Max/Now is from 0-100).
     const leftResizeCeiling = Number(roundedRightValue) - 0.5;
     const rightResizeFloor = Number(roundedLeftValue) + 0.5;
-    UI.ARIAUtils.setAriaValueMinMax(this._leftResizeElement, '0', leftResizeCeiling.toString());
-    UI.ARIAUtils.setAriaValueMinMax(this._rightResizeElement, rightResizeFloor.toString(), '100');
+    ComponentHelpers.ARIAUtils.setAriaValueMinMax(this._leftResizeElement, '0', leftResizeCeiling.toString());
+    ComponentHelpers.ARIAUtils.setAriaValueMinMax(this._rightResizeElement, rightResizeFloor.toString(), '100');
   }
 
   _updateResizeElementPositionLabels(): void {
@@ -396,13 +397,13 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper {
     }
     const startValue = this._calculator.formatValue(this._getRawSliderValue(/* leftSlider */ true));
     const endValue = this._calculator.formatValue(this._getRawSliderValue(/* leftSlider */ false));
-    UI.ARIAUtils.setAriaValueText(this._leftResizeElement, String(startValue));
-    UI.ARIAUtils.setAriaValueText(this._rightResizeElement, String(endValue));
+    ComponentHelpers.ARIAUtils.setAriaValueText(this._leftResizeElement, String(startValue));
+    ComponentHelpers.ARIAUtils.setAriaValueText(this._rightResizeElement, String(endValue));
   }
 
   _updateResizeElementPercentageLabels(leftValue: string, rightValue: string): void {
-    UI.ARIAUtils.setAriaValueText(this._leftResizeElement, leftValue);
-    UI.ARIAUtils.setAriaValueText(this._rightResizeElement, rightValue);
+    ComponentHelpers.ARIAUtils.setAriaValueText(this._leftResizeElement, leftValue);
+    ComponentHelpers.ARIAUtils.setAriaValueText(this._rightResizeElement, rightValue);
   }
 
   _calculateWindowPosition(): {

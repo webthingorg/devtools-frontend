@@ -7,6 +7,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -119,7 +120,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
     const element = this.contentElement.createChild('div', 'no-blocked-urls');
     const addButton =
         UI.UIUtils.createTextButton(i18nString(UIStrings.addPattern), this._addButtonClicked.bind(this), 'add-button');
-    UI.ARIAUtils.setAccessibleName(addButton, i18nString(UIStrings.addNetworkRequestBlockingPattern));
+    ComponentHelpers.ARIAUtils.setAccessibleName(addButton, i18nString(UIStrings.addNetworkRequestBlockingPattern));
     element.appendChild(
         i18n.i18n.getFormatLocalizedString(str_, UIStrings.networkRequestsAreNotBlockedS, {PH1: addButton}));
     return element;
@@ -167,7 +168,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
     const patterns = this._manager.blockedPatterns();
     patterns.splice(index, 1);
     this._manager.setBlockedPatterns(patterns);
-    UI.ARIAUtils.alert(UIStrings.itemDeleted);
+    ComponentHelpers.ARIAUtils.alert(UIStrings.itemDeleted);
   }
 
   beginEdit(pattern: SDK.NetworkManager.BlockedPattern): UI.ListWidget.Editor<SDK.NetworkManager.BlockedPattern> {

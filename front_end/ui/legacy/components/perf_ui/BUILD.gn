@@ -30,6 +30,7 @@ devtools_module("perf_ui") {
     "../../../../models/bindings:bundle",
     "../../../../models/timeline_model:bundle",
     "../../../../models/workspace:bundle",
+    "../../../../ui/components/helpers:bundle",
     "../../../../ui/legacy:bundle",
     "../../../../ui/legacy/components/source_frame:bundle",
     "../../../../ui/legacy/components/text_editor:bundle",

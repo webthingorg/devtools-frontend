@@ -13,6 +13,7 @@ ts_library("ts") {
     "../../../../../test/unittests/front_end/helpers",
     "../../../../core/common:bundle",
     "../../../../core/platform:bundle",
+    "../../../../ui/components/helpers:bundle",
     "../../helpers:bundle",
   ]
 }

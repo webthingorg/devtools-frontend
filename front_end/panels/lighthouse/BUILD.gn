@@ -30,6 +30,7 @@ devtools_module("lighthouse") {
     "../../models/workspace:bundle",
     "../../panels/emulation:bundle",
     "../../panels/timeline:bundle",
+    "../../ui/components/helpers:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/utils:bundle",
   ]

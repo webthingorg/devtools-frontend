@@ -38,7 +38,7 @@ import * as Root from '../../core/root/root.js';
 import type {Action} from './ActionRegistration.js';
 import {Events as ActionEvents} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
 import {ActionRegistry} from './ActionRegistry.js';
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {ContextMenu} from './ContextMenu.js';
 import {GlassPane, PointerEventsBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
@@ -439,7 +439,7 @@ export class ToolbarItem extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     this._title = title;
-    ARIAUtils.setAccessibleName(this.element, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.element, title);
     Tooltip.install(this.element, title, actionId, {
       anchorTooltipAtElement: true,
     });
@@ -612,7 +612,7 @@ export class ToolbarInput extends ToolbarItem {
     super(element);
 
     const internalPromptElement = this.element.createChild('div', 'toolbar-input-prompt');
-    ARIAUtils.setAccessibleName(internalPromptElement, placeholder);
+    ComponentHelpers.ARIAUtils.setAccessibleName(internalPromptElement, placeholder);
     internalPromptElement.addEventListener('focus', () => this.element.classList.add('focused'));
     internalPromptElement.addEventListener('blur', () => this.element.classList.remove('focused'));
 
@@ -701,7 +701,7 @@ export class ToolbarToggle extends ToolbarButton {
     this._untoggledGlyph = glyph;
     this._toggledGlyph = toggledGlyph;
     this.element.classList.add('toolbar-state-off');
-    ARIAUtils.setPressed(this.element, false);
+    ComponentHelpers.ARIAUtils.setPressed(this.element, false);
   }
 
   toggled(): boolean {
@@ -715,7 +715,7 @@ export class ToolbarToggle extends ToolbarButton {
     this._toggled = toggled;
     this.element.classList.toggle('toolbar-state-on', toggled);
     this.element.classList.toggle('toolbar-state-off', !toggled);
-    ARIAUtils.setPressed(this.element, toggled);
+    ComponentHelpers.ARIAUtils.setPressed(this.element, toggled);
     if (this._toggledGlyph && this._untoggledGlyph) {
       this.setGlyph(toggled ? this._toggledGlyph : this._untoggledGlyph);
     }
@@ -739,7 +739,7 @@ export class ToolbarMenuButton extends ToolbarButton {
     super('', 'largeicon-menu');
     this._contextMenuHandler = contextMenuHandler;
     this._useSoftMenu = Boolean(useSoftMenu);
-    ARIAUtils.markAsMenuButton(this.element);
+    ComponentHelpers.ARIAUtils.markAsMenuButton(this.element);
   }
 
   _mouseDown(event: Event): void {
@@ -798,7 +798,7 @@ export class ToolbarSettingToggle extends ToolbarToggle {
     this.setToggled(toggled);
     const toggleAnnouncement = toggled ? i18nString(UIStrings.pressed) : i18nString(UIStrings.notPressed);
     if (this._willAnnounceState) {
-      ARIAUtils.alert(toggleAnnouncement);
+      ComponentHelpers.ARIAUtils.alert(toggleAnnouncement);
     }
     this._willAnnounceState = false;
     this.setTitle(this._defaultTitle);
@@ -840,7 +840,7 @@ export class ToolbarComboBox extends ToolbarItem {
     if (changeHandler) {
       this._selectElement.addEventListener('change', changeHandler, false);
     }
-    ARIAUtils.setAccessibleName(this._selectElement, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._selectElement, title);
     super.setTitle(title);
     if (className) {
       this._selectElement.classList.add(className);

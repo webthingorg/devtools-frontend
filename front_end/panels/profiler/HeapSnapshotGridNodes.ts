@@ -35,6 +35,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -242,8 +243,8 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode<HeapSna
         const percentSpan = UI.Fragment.html`<span class="percent-column">${this.data[percentColumn]}</span>`;
         div.appendChild(percentSpan);
         div.classList.add('profile-multiple-values');
-        UI.ARIAUtils.markAsHidden(valueSpan);
-        UI.ARIAUtils.markAsHidden(percentSpan);
+        ComponentHelpers.ARIAUtils.markAsHidden(valueSpan);
+        ComponentHelpers.ARIAUtils.markAsHidden(percentSpan);
         this.setCellAccessibleName(
             i18nString(
                 UIStrings.genericStringsTwoPlaceholders, {PH1: this.data[columnId], PH2: this.data[percentColumn]}),

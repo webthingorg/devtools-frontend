@@ -40,14 +40,16 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as TextEditor from '../../ui/legacy/components/text_editor/text_editor.js';  // eslint-disable-line no-unused-vars
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Emulation from '../emulation/emulation.js';
-import * as ElementsComponents from './components/components.js';
 
+import * as ElementsComponents from './components/components.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsPanel} from './ElementsPanel.js';
+
 import type {ElementsTreeOutline, UpdateRecord} from './ElementsTreeOutline.js';
 import {MappedCharToEntity} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
@@ -429,7 +431,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       const selectedElementCommand = '$0';
       UI.Tooltip.Tooltip.install(
           this._hintElement, i18nString(UIStrings.useSInTheConsoleToReferToThis, {PH1: selectedElementCommand}));
-      UI.ARIAUtils.markAsHidden(this._hintElement);
+      ComponentHelpers.ARIAUtils.markAsHidden(this._hintElement);
     }
   }
 
@@ -1373,7 +1375,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       this._decorationsElement.classList.add('hidden');
       this._gutterContainer.classList.toggle(
           'has-decorations', Boolean(decorations.length || descendantDecorations.length));
-      UI.ARIAUtils.setAccessibleName(this._decorationsElement, '');
+      ComponentHelpers.ARIAUtils.setAccessibleName(this._decorationsElement, '');
 
       if (!decorations.length && !descendantDecorations.length) {
         return;
@@ -1409,7 +1411,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         processColors.call(this, descendantColors, 'elements-gutter-decoration elements-has-decorated-children');
       }
       UI.Tooltip.Tooltip.install(this._decorationsElement, titles);
-      UI.ARIAUtils.setAccessibleName(this._decorationsElement, titles.textContent || '');
+      ComponentHelpers.ARIAUtils.setAccessibleName(this._decorationsElement, titles.textContent || '');
 
       function processColors(this: ElementsTreeElement, colors: Set<string>, className: string): void {
         for (const color of colors) {
@@ -1604,7 +1606,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     UI.UIUtils.createTextChild(tagElement, '>');
     UI.UIUtils.createTextChild(parentElement, '\u200B');
     if (tagElement.textContent) {
-      UI.ARIAUtils.setAccessibleName(tagElement, tagElement.textContent);
+      ComponentHelpers.ARIAUtils.setAccessibleName(tagElement, tagElement.textContent);
     }
   }
 

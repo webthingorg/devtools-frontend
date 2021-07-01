@@ -32,6 +32,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import type * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -74,7 +75,8 @@ export class LayerTreeOutline extends Common.ObjectWrapper.ObjectWrapper impleme
     this._treeOutline.element.addEventListener('mousemove', this._onMouseMove.bind(this) as EventListener, false);
     this._treeOutline.element.addEventListener('mouseout', this._onMouseMove.bind(this) as EventListener, false);
     this._treeOutline.element.addEventListener('contextmenu', this._onContextMenu.bind(this) as EventListener, true);
-    UI.ARIAUtils.setAccessibleName(this._treeOutline.contentElement, i18nString(UIStrings.layersTreePane));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        this._treeOutline.contentElement, i18nString(UIStrings.layersTreePane));
 
     this._lastHoveredNode = null;
     this.element = this._treeOutline.element;

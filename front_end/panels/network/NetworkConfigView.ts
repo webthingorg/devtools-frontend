@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as EmulationComponents from '../emulation/components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
@@ -91,7 +92,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
         Common.Settings.Settings.instance().createSetting<Protocol.Emulation.UserAgentMetadata|null>(
             'customUserAgentMetadata', null);
     const userAgentSelectElement = document.createElement('select');
-    UI.ARIAUtils.setAccessibleName(userAgentSelectElement, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(userAgentSelectElement, title);
 
     const customOverride = {title: i18nString(UIStrings.custom), value: 'custom'};
     userAgentSelectElement.appendChild(new Option(customOverride.title, customOverride.value));
@@ -113,11 +114,11 @@ export class NetworkConfigView extends UI.Widget.VBox {
     UI.Tooltip.Tooltip.install(otherUserAgentElement, userAgentSetting.get());
     otherUserAgentElement.placeholder = i18nString(UIStrings.enterACustomUserAgent);
     otherUserAgentElement.required = true;
-    UI.ARIAUtils.setAccessibleName(otherUserAgentElement, otherUserAgentElement.placeholder);
+    ComponentHelpers.ARIAUtils.setAccessibleName(otherUserAgentElement, otherUserAgentElement.placeholder);
 
     const errorElement = document.createElement('div');
     errorElement.classList.add('network-config-input-validation-error');
-    UI.ARIAUtils.markAsAlert(errorElement);
+    ComponentHelpers.ARIAUtils.markAsAlert(errorElement);
     if (!otherUserAgentElement.value) {
       errorElement.textContent = i18nString(UIStrings.customUserAgentFieldIsRequired);
     }
@@ -197,7 +198,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const section = this._createSection(title, 'network-config-throttling');
     const networkThrottlingSelect = (section.createChild('select', 'chrome-select') as HTMLSelectElement);
     MobileThrottling.ThrottlingManager.throttlingManager().decorateSelectWithNetworkThrottling(networkThrottlingSelect);
-    UI.ARIAUtils.setAccessibleName(networkThrottlingSelect, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(networkThrottlingSelect, title);
   }
 
   _createUserAgentSection(): void {

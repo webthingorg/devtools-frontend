@@ -7,7 +7,7 @@
 import type * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
 import * as Platform from '../../core/platform/platform.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import type {ListModel} from './ListModel.js';
 import {Events as ListModelEvents} from './ListModel.js';  // eslint-disable-line no-unused-vars
 import {measurePreferredSize} from './UIUtils.js';
@@ -71,7 +71,7 @@ export class ListControl<T> {
     this.element.tabIndex = -1;
     this.element.addEventListener('click', this._onClick.bind(this), false);
     this.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
-    ARIAUtils.markAsListBox(this.element);
+    ComponentHelpers.ARIAUtils.markAsListBox(this.element);
 
     this._delegate = delegate;
     this._mode = mode || ListMode.EqualHeightItems;
@@ -386,11 +386,11 @@ export class ListControl<T> {
   }
 
   _updateElementARIA(element: Element, index: number): void {
-    if (!ARIAUtils.hasRole(element)) {
-      ARIAUtils.markAsOption(element);
+    if (!ComponentHelpers.ARIAUtils.hasRole(element)) {
+      ComponentHelpers.ARIAUtils.markAsOption(element);
     }
-    ARIAUtils.setSetSize(element, this._model.length);
-    ARIAUtils.setPositionInSet(element, index + 1);
+    ComponentHelpers.ARIAUtils.setSetSize(element, this._model.length);
+    ComponentHelpers.ARIAUtils.setPositionInSet(element, index + 1);
   }
 
   _offsetAtIndex(index: number): number {
@@ -431,12 +431,12 @@ export class ListControl<T> {
         oldItem, newItem, (oldElement as HTMLElement | null), (newElement as HTMLElement | null));
     if (!this._delegate.updateSelectedItemARIA((oldElement as Element | null), newElement)) {
       if (oldElement) {
-        ARIAUtils.setSelected(oldElement, false);
+        ComponentHelpers.ARIAUtils.setSelected(oldElement, false);
       }
       if (newElement) {
-        ARIAUtils.setSelected(newElement, true);
+        ComponentHelpers.ARIAUtils.setSelected(newElement, true);
       }
-      ARIAUtils.setActiveDescendant(this.element, newElement);
+      ComponentHelpers.ARIAUtils.setActiveDescendant(this.element, newElement);
     }
   }
 

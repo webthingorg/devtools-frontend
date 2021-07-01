@@ -34,6 +34,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Sources from '../sources/sources.js';
 
@@ -136,8 +137,8 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
     this.contentElement.appendChild(this._list.element);
     this._list.element.classList.add('breakpoint-list', 'hidden');
-    UI.ARIAUtils.markAsList(this._list.element);
-    UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.domBreakpointsList));
+    ComponentHelpers.ARIAUtils.markAsList(this._list.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.domBreakpointsList));
     this._emptyElement.tabIndex = -1;
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
@@ -173,7 +174,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     const element = document.createElement('div');
     element.classList.add('breakpoint-entry');
     element.addEventListener('contextmenu', this._contextMenu.bind(this, item), true);
-    UI.ARIAUtils.markAsListitem(element);
+    ComponentHelpers.ARIAUtils.markAsListitem(element);
     element.tabIndex = -1;
 
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(/* title */ undefined, item.enabled);
@@ -196,13 +197,13 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     const breakpointTypeLabel = BreakpointTypeLabels.get(item.type);
     description.textContent = breakpointTypeLabel ? breakpointTypeLabel() : null;
     const breakpointTypeText = breakpointTypeLabel ? breakpointTypeLabel() : '';
-    UI.ARIAUtils.setAccessibleName(checkboxElement, breakpointTypeText);
+    ComponentHelpers.ARIAUtils.setAccessibleName(checkboxElement, breakpointTypeText);
     const linkifiedNode = document.createElement('monospace');
     linkifiedNode.style.display = 'block';
     labelElement.appendChild(linkifiedNode);
     Common.Linkifier.Linkifier.linkify(item.node, {preventKeyboardFocus: true, tooltip: undefined}).then(linkified => {
       linkifiedNode.appendChild(linkified);
-      UI.ARIAUtils.setAccessibleName(
+      ComponentHelpers.ARIAUtils.setAccessibleName(
           checkboxElement, i18nString(UIStrings.sS, {PH1: breakpointTypeText, PH2: linkified.deepTextContent()}));
     });
 
@@ -211,10 +212,10 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     const checkedStateText = item.enabled ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);
     if (item === this._highlightedBreakpoint) {
       element.classList.add('breakpoint-hit');
-      UI.ARIAUtils.setDescription(element, i18nString(UIStrings.sBreakpointHit, {PH1: checkedStateText}));
-      UI.ARIAUtils.setDescription(checkboxElement, i18nString(UIStrings.breakpointHit));
+      ComponentHelpers.ARIAUtils.setDescription(element, i18nString(UIStrings.sBreakpointHit, {PH1: checkedStateText}));
+      ComponentHelpers.ARIAUtils.setDescription(checkboxElement, i18nString(UIStrings.breakpointHit));
     } else {
-      UI.ARIAUtils.setDescription(element, checkedStateText);
+      ComponentHelpers.ARIAUtils.setDescription(element, checkedStateText);
     }
 
     this._emptyElement.classList.add('hidden');
@@ -398,10 +399,10 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
       const labelString = label ? label() : '';
       if (domDebuggerModel.hasDOMBreakpoint(node, type)) {
         domDebuggerModel.removeDOMBreakpoint(node, type);
-        UI.ARIAUtils.alert(`${i18nString(UIStrings.breakpointRemoved)}: ${labelString}`);
+        ComponentHelpers.ARIAUtils.alert(`${i18nString(UIStrings.breakpointRemoved)}: ${labelString}`);
       } else {
         domDebuggerModel.setDOMBreakpoint(node, type);
-        UI.ARIAUtils.alert(`${i18nString(UIStrings.breakpointSet)}: ${labelString}`);
+        ComponentHelpers.ARIAUtils.alert(`${i18nString(UIStrings.breakpointSet)}: ${labelString}`);
       }
     }
 

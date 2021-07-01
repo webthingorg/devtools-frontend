@@ -6,6 +6,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {LighthouseController} from './LighthouseController.js';
@@ -216,9 +217,9 @@ export class StatusView {
     this._progressBar = fragment.$('progress-bar');
     this._statusText = fragment.$('status-text');
     // Use StatusPhases array index as progress bar value
-    UI.ARIAUtils.markAsProgressBar(this._progressBar, 0, StatusPhases.length - 1);
+    ComponentHelpers.ARIAUtils.markAsProgressBar(this._progressBar, 0, StatusPhases.length - 1);
     this._cancelButton = cancelButton;
-    UI.ARIAUtils.markAsStatus(this._statusText);
+    ComponentHelpers.ARIAUtils.markAsStatus(this._statusText);
 
     this._dialog.setDefaultFocusedElement(cancelButton);
     this._dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.SetExactWidthMaxHeight);
@@ -295,7 +296,7 @@ export class StatusView {
 
       if (this._progressBar) {
         this._progressBar.classList.add(nextPhase.progressBarClass);
-        UI.ARIAUtils.setProgressBarValue(this._progressBar, nextPhaseIndex, text);
+        ComponentHelpers.ARIAUtils.setProgressBarValue(this._progressBar, nextPhaseIndex, text);
       }
     }
   }

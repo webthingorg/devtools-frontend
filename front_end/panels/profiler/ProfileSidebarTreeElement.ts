@@ -7,6 +7,7 @@
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 import type {DataDisplayDelegate, ProfileHeader} from './ProfileHeader.js';
 import {Events as ProfileHeaderEvents} from './ProfileHeader.js';
@@ -149,7 +150,7 @@ export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
     this.listItemElement.append(this._iconElement, this._titlesElement);
     this.listItemElement.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), true);
 
-    UI.ARIAUtils.setDescription(this.listItemElement, this.profile.profileType().name);
+    ComponentHelpers.ARIAUtils.setDescription(this.listItemElement, this.profile.profileType().name);
   }
 
   _handleContextMenuEvent(event: Event): void {

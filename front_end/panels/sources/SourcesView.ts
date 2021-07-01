@@ -10,11 +10,13 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as QuickOpen from '../../ui/legacy/components/quick_open/quick_open.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {EditingLocationHistoryManager} from './EditingLocationHistoryManager.js';
+
 import type {TabbedEditorContainerDelegate} from './TabbedEditorContainer.js';
 import {Events as TabbedEditorContainerEvents, TabbedEditorContainer} from './TabbedEditorContainer.js';  // eslint-disable-line no-unused-vars
 import {Events as UISourceCodeFrameEvents, UISourceCodeFrame} from './UISourceCodeFrame.js';
@@ -150,17 +152,17 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
     const element = document.createElement('div');
     const list = element.createChild('div', 'tabbed-pane-placeholder');
     list.addEventListener('keydown', this._placeholderOnKeyDown.bind(this), false);
-    UI.ARIAUtils.markAsList(list);
-    UI.ARIAUtils.setAccessibleName(list, i18nString(UIStrings.sourceViewActions));
+    ComponentHelpers.ARIAUtils.markAsList(list);
+    ComponentHelpers.ARIAUtils.setAccessibleName(list, i18nString(UIStrings.sourceViewActions));
 
     for (let i = 0; i < shortcuts.length; i++) {
       const shortcut = shortcuts[i];
       const shortcutKeyText = UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction(shortcut.actionId);
       const listItemElement = list.createChild('div');
-      UI.ARIAUtils.markAsListitem(listItemElement);
+      ComponentHelpers.ARIAUtils.markAsListitem(listItemElement);
       const row = (listItemElement.createChild('div', 'tabbed-pane-placeholder-row') as HTMLElement);
       row.tabIndex = -1;
-      UI.ARIAUtils.markAsButton(row);
+      ComponentHelpers.ARIAUtils.markAsButton(row);
       if (shortcutKeyText) {
         row.createChild('div', 'tabbed-pane-placeholder-key').textContent = shortcutKeyText;
         row.createChild('div', 'tabbed-pane-placeholder-value').textContent = shortcut.description;
@@ -204,8 +206,8 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
     if (newElement !== oldElement) {
       oldElement.tabIndex = -1;
       newElement.tabIndex = 0;
-      UI.ARIAUtils.setSelected(oldElement, false);
-      UI.ARIAUtils.setSelected(newElement, true);
+      ComponentHelpers.ARIAUtils.setSelected(oldElement, false);
+      ComponentHelpers.ARIAUtils.setSelected(newElement, true);
       this._selectedIndex = newIndex;
       newElement.focus();
     }

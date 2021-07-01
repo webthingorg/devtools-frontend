@@ -10,6 +10,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -145,7 +146,7 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     const consoleTitle = i18nString(UIStrings.openConsoleToViewS, {PH1: consoleSummary});
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._consoleCounter, consoleTitle);
-    UI.ARIAUtils.setAccessibleName(this._consoleCounter, consoleTitle);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._consoleCounter, consoleTitle);
     this._consoleCounter.classList.toggle('hidden', !(errors || warnings));
 
     /* Update violationCounter items. */
@@ -154,7 +155,7 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
       const violationTitle = i18nString(UIStrings.openLighthouseToView, {n: violations});
       // TODO(chromium:1167711): Let the component handle the title and ARIA label.
       UI.Tooltip.Tooltip.install(this._violationCounter, violationTitle);
-      UI.ARIAUtils.setAccessibleName(this._violationCounter, violationTitle);
+      ComponentHelpers.ARIAUtils.setAccessibleName(this._violationCounter, violationTitle);
       this._violationCounter.classList.toggle('hidden', !violations);
     }
 
@@ -164,7 +165,7 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     const issuesTitle = `${issuesTitleLead} ${issueEnumeration}`;
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._issueCounter, issuesTitle);
-    UI.ARIAUtils.setAccessibleName(this._issueCounter, issuesTitle);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._issueCounter, issuesTitle);
     this._issueCounter.classList.toggle('hidden', !issues);
 
     this._toolbarItem.setVisible(Boolean(errors || warnings || violations || issues));

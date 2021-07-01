@@ -7,6 +7,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -92,7 +93,7 @@ export class ThrottlingSettingsTab extends UI.Widget.VBox implements
 
     const header = this.contentElement.createChild('div', 'header');
     header.textContent = i18nString(UIStrings.networkThrottlingProfiles);
-    UI.ARIAUtils.markAsHeading(header, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(header, 1);
 
     const addButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.addCustomProfile), this._addButtonClicked.bind(this), 'add-conditions-button');
@@ -224,36 +225,36 @@ export class ThrottlingSettingsTab extends UI.Widget.VBox implements
 
     const fields = content.createChild('div', 'conditions-edit-row');
     const nameInput = editor.createInput('title', 'text', '', titleValidator);
-    UI.ARIAUtils.setAccessibleName(nameInput, nameStr);
+    ComponentHelpers.ARIAUtils.setAccessibleName(nameInput, nameStr);
     fields.createChild('div', 'conditions-list-text conditions-list-title').appendChild(nameInput);
     fields.createChild('div', 'conditions-list-separator conditions-list-separator-invisible');
 
     let cell = fields.createChild('div', 'conditions-list-text');
     const downloadInput = editor.createInput('download', 'text', i18n.i18n.lockedString('kbit/s'), throughputValidator);
     cell.appendChild(downloadInput);
-    UI.ARIAUtils.setAccessibleName(downloadInput, downloadStr);
+    ComponentHelpers.ARIAUtils.setAccessibleName(downloadInput, downloadStr);
     const downloadOptional = cell.createChild('div', 'conditions-edit-optional');
     const optionalStr = i18nString(UIStrings.optional);
     downloadOptional.textContent = optionalStr;
-    UI.ARIAUtils.setDescription(downloadInput, optionalStr);
+    ComponentHelpers.ARIAUtils.setDescription(downloadInput, optionalStr);
     fields.createChild('div', 'conditions-list-separator conditions-list-separator-invisible');
 
     cell = fields.createChild('div', 'conditions-list-text');
     const uploadInput = editor.createInput('upload', 'text', i18n.i18n.lockedString('kbit/s'), throughputValidator);
-    UI.ARIAUtils.setAccessibleName(uploadInput, uploadStr);
+    ComponentHelpers.ARIAUtils.setAccessibleName(uploadInput, uploadStr);
     cell.appendChild(uploadInput);
     const uploadOptional = cell.createChild('div', 'conditions-edit-optional');
     uploadOptional.textContent = optionalStr;
-    UI.ARIAUtils.setDescription(uploadInput, optionalStr);
+    ComponentHelpers.ARIAUtils.setDescription(uploadInput, optionalStr);
     fields.createChild('div', 'conditions-list-separator conditions-list-separator-invisible');
 
     cell = fields.createChild('div', 'conditions-list-text');
     const latencyInput = editor.createInput('latency', 'text', i18n.i18n.lockedString('ms'), latencyValidator);
-    UI.ARIAUtils.setAccessibleName(latencyInput, latencyStr);
+    ComponentHelpers.ARIAUtils.setAccessibleName(latencyInput, latencyStr);
     cell.appendChild(latencyInput);
     const latencyOptional = cell.createChild('div', 'conditions-edit-optional');
     latencyOptional.textContent = optionalStr;
-    UI.ARIAUtils.setDescription(latencyInput, optionalStr);
+    ComponentHelpers.ARIAUtils.setDescription(latencyInput, optionalStr);
 
     return editor;
 

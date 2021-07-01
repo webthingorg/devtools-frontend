@@ -4,7 +4,6 @@
 
 import * as ActionRegistration from './ActionRegistration.js';
 import * as ActionRegistry from './ActionRegistry.js';
-import * as ARIAUtils from './ARIAUtils.js';
 import * as Context from './Context.js';
 import * as ContextFlavorListener from './ContextFlavorListener.js';
 import * as ContextMenu from './ContextMenu.js';
@@ -62,7 +61,6 @@ import * as ZoomManager from './ZoomManager.js';
 export {
   ActionRegistration,
   ActionRegistry,
-  ARIAUtils,
   Context,
   ContextFlavorListener,
   ContextMenu,

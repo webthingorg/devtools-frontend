@@ -7,6 +7,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {PerformanceModel} from './PerformanceModel.js'; // eslint-disable-line no-unused-vars
@@ -76,7 +77,7 @@ export class TimelineHistoryManager {
     this._nextNumberByDomain = new Map();
     this._button = new ToolbarButton(this._action);
 
-    UI.ARIAUtils.markAsMenuButton(this._button.element);
+    ComponentHelpers.ARIAUtils.markAsMenuButton(this._button.element);
     this.clear();
 
     this._allOverviews = [
@@ -97,7 +98,7 @@ export class TimelineHistoryManager {
     const modelTitle = this._title(performanceModel);
     this._button.setText(modelTitle);
     const buttonTitle = this._action.title();
-    UI.ARIAUtils.setAccessibleName(
+    ComponentHelpers.ARIAUtils.setAccessibleName(
         this._button.element, i18nString(UIStrings.currentSessionSS, {PH1: modelTitle, PH2: buttonTitle}));
     this._updateState();
     if (this._recordings.length <= maxRecordings) {
@@ -182,7 +183,7 @@ export class TimelineHistoryManager {
     const modelTitle = this._title(model);
     const buttonTitle = this._action.title();
     this._button.setText(modelTitle);
-    UI.ARIAUtils.setAccessibleName(
+    ComponentHelpers.ARIAUtils.setAccessibleName(
         this._button.element, i18nString(UIStrings.currentSessionSS, {PH1: modelTitle, PH2: buttonTitle}));
   }
 
@@ -249,7 +250,7 @@ export class TimelineHistoryManager {
     container.classList.add('hbox');
     const nameSpan = container.createChild('span', 'name');
     nameSpan.textContent = title;
-    UI.ARIAUtils.setAccessibleName(nameSpan, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(nameSpan, title);
     const tracingModel = performanceModel.tracingModel();
     const duration =
         i18n.i18n.millisToString(tracingModel.maximumRecordTime() - tracingModel.minimumRecordTime(), false);
@@ -345,8 +346,9 @@ export class DropDown implements UI.ListControl.ListDelegate<PerformanceModel> {
     this._listControl.element.addEventListener('mousemove', this._onMouseMove.bind(this), false);
     listModel.replaceAll(models);
 
-    UI.ARIAUtils.markAsMenu(this._listControl.element);
-    UI.ARIAUtils.setAccessibleName(this._listControl.element, i18nString(UIStrings.selectTimelineSession));
+    ComponentHelpers.ARIAUtils.markAsMenu(this._listControl.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        this._listControl.element, i18nString(UIStrings.selectTimelineSession));
     contentElement.appendChild(this._listControl.element);
     contentElement.addEventListener('keydown', this._onKeyDown.bind(this), false);
     contentElement.addEventListener('click', this._onClick.bind(this), false);
@@ -427,7 +429,7 @@ export class DropDown implements UI.ListControl.ListDelegate<PerformanceModel> {
 
   createElementForItem(item: PerformanceModel): Element {
     const element = TimelineHistoryManager._previewElement(item);
-    UI.ARIAUtils.markAsMenuItem(element);
+    ComponentHelpers.ARIAUtils.markAsMenuItem(element);
     element.classList.remove('selected');
     return element;
   }

@@ -11,6 +11,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -102,7 +103,7 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
 
     this._breakpoints = new UI.ListModel.ListModel();
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
-    UI.ARIAUtils.markAsList(this._list.element);
+    ComponentHelpers.ARIAUtils.markAsList(this._list.element);
     this.contentElement.appendChild(this._list.element);
 
     this._emptyElement = this.contentElement.createChild('div', 'gray-info-message');
@@ -283,7 +284,7 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
   createElementForItem(item: BreakpointItem): Element {
     const element = document.createElement('div');
     element.classList.add('breakpoint-entry');
-    UI.ARIAUtils.markAsListitem(element);
+    ComponentHelpers.ARIAUtils.markAsListitem(element);
     element.tabIndex = this._list.selectedItem() === item ? 0 : -1;
     element.addEventListener('contextmenu', this._breakpointContextMenu.bind(this), true);
     element.addEventListener('click', this._revealLocation.bind(this, element), false);
@@ -305,11 +306,12 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
       checkedDescription = i18nString(UIStrings.mixed);
     }
     if (item.isSelected) {
-      UI.ARIAUtils.setDescription(element, i18nString(UIStrings.sBreakpointHit, {PH1: checkedDescription}));
+      ComponentHelpers.ARIAUtils.setDescription(
+          element, i18nString(UIStrings.sBreakpointHit, {PH1: checkedDescription}));
       element.classList.add('breakpoint-hit');
       this.setDefaultFocusedElement(element);
     } else {
-      UI.ARIAUtils.setDescription(element, checkedDescription);
+      ComponentHelpers.ARIAUtils.setDescription(element, checkedDescription);
     }
 
     element.addEventListener('keydown', event => {

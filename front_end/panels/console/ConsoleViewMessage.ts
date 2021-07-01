@@ -43,6 +43,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as RequestLinkIcon from '../../ui/components/request_link_icon/request_link_icon.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
@@ -463,13 +464,13 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     const toggleElement = document.createElement('div');
     toggleElement.classList.add('console-message-stack-trace-toggle');
     const contentElement = toggleElement.createChild('div', 'console-message-stack-trace-wrapper');
-    UI.ARIAUtils.markAsTree(contentElement);
+    ComponentHelpers.ARIAUtils.markAsTree(contentElement);
 
     const messageElement = this._buildMessage();
     const icon = UI.Icon.Icon.create('smallicon-triangle-right', 'console-message-expand-icon');
     const clickableElement = contentElement.createChild('div');
-    UI.ARIAUtils.markAsTreeitem(clickableElement);
-    UI.ARIAUtils.setExpanded(clickableElement, false);
+    ComponentHelpers.ARIAUtils.markAsTreeitem(clickableElement);
+    ComponentHelpers.ARIAUtils.setExpanded(clickableElement, false);
     clickableElement.appendChild(icon);
     // Intercept focus to avoid highlight on click.
     clickableElement.tabIndex = -1;
@@ -482,11 +483,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this._selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
     }
     stackTraceElement.classList.add('hidden');
-    UI.ARIAUtils.markAsGroup(stackTraceElement);
+    ComponentHelpers.ARIAUtils.markAsGroup(stackTraceElement);
     this._expandTrace = (expand: boolean): void => {
       icon.setIconType(expand ? 'smallicon-triangle-down' : 'smallicon-triangle-right');
       stackTraceElement.classList.toggle('hidden', !expand);
-      UI.ARIAUtils.setExpanded(clickableElement, expand);
+      ComponentHelpers.ARIAUtils.setExpanded(clickableElement, expand);
       this._traceExpanded = expand;
     };
 
@@ -1329,7 +1330,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       }
     }
     this._messageLevelIcon.setIconType(iconType);
-    UI.ARIAUtils.setAccessibleName(this._messageLevelIcon, accessibleName);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._messageLevelIcon, accessibleName);
   }
 
   repeatCount(): number {
@@ -1397,7 +1398,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     } else {
       accessibleName = i18nString(UIStrings.repeatS, {n: this._repeatCount});
     }
-    UI.ARIAUtils.setAccessibleName(this._repeatCountElement, accessibleName);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._repeatCountElement, accessibleName);
   }
 
   get text(): string {

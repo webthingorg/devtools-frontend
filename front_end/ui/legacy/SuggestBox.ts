@@ -34,7 +34,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import type * as TextUtils from '../../models/text_utils/text_utils.js'; // eslint-disable-line no-unused-vars
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {Size} from './Geometry.js';
 import {AnchorBehavior, GlassPane} from './GlassPane.js';
 import {Icon} from './Icon.js';
@@ -161,8 +161,8 @@ export class SuggestBox implements ListDelegate<Suggestion> {
     this._glassPane.show(document);
     const suggestion = ({text: '1', subtitle: '12'} as Suggestion);
     this._rowHeight = measurePreferredSize(this.createElementForItem(suggestion), this._element).height;
-    ARIAUtils.setControls(this._suggestBoxDelegate.ariaControlledBy(), this._element);
-    ARIAUtils.setExpanded(this._suggestBoxDelegate.ariaControlledBy(), true);
+    ComponentHelpers.ARIAUtils.setControls(this._suggestBoxDelegate.ariaControlledBy(), this._element);
+    ComponentHelpers.ARIAUtils.setExpanded(this._suggestBoxDelegate.ariaControlledBy(), true);
   }
 
   hide(): void {
@@ -170,29 +170,30 @@ export class SuggestBox implements ListDelegate<Suggestion> {
       return;
     }
     this._glassPane.hide();
-    ARIAUtils.setControls(this._suggestBoxDelegate.ariaControlledBy(), null);
-    ARIAUtils.setExpanded(this._suggestBoxDelegate.ariaControlledBy(), false);
+    ComponentHelpers.ARIAUtils.setControls(this._suggestBoxDelegate.ariaControlledBy(), null);
+    ComponentHelpers.ARIAUtils.setExpanded(this._suggestBoxDelegate.ariaControlledBy(), false);
   }
 
   _applySuggestion(isIntermediateSuggestion?: boolean): boolean {
     if (this._onlyCompletion) {
       isIntermediateSuggestion ?
-          ARIAUtils.alert(i18nString(
+          ComponentHelpers.ARIAUtils.alert(i18nString(
               UIStrings.sSuggestionSOfS,
               {PH1: this._onlyCompletion.text, PH2: this._list.selectedIndex() + 1, PH3: this._items.length})) :
-          ARIAUtils.alert(i18nString(UIStrings.sSuggestionSSelected, {PH1: this._onlyCompletion.text}));
+          ComponentHelpers.ARIAUtils.alert(
+              i18nString(UIStrings.sSuggestionSSelected, {PH1: this._onlyCompletion.text}));
       this._suggestBoxDelegate.applySuggestion(this._onlyCompletion, isIntermediateSuggestion);
       return true;
     }
     const suggestion = this._list.selectedItem();
     if (suggestion && suggestion.text) {
-      isIntermediateSuggestion ?
-          ARIAUtils.alert(i18nString(UIStrings.sSuggestionSOfS, {
-            PH1: suggestion.title || suggestion.text,
-            PH2: this._list.selectedIndex() + 1,
-            PH3: this._items.length,
-          })) :
-          ARIAUtils.alert(i18nString(UIStrings.sSuggestionSSelected, {PH1: suggestion.title || suggestion.text}));
+      isIntermediateSuggestion ? ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.sSuggestionSOfS, {
+        PH1: suggestion.title || suggestion.text,
+        PH2: this._list.selectedIndex() + 1,
+        PH3: this._items.length,
+      })) :
+                                 ComponentHelpers.ARIAUtils.alert(i18nString(
+                                     UIStrings.sSuggestionSSelected, {PH1: suggestion.title || suggestion.text}));
     }
     this._suggestBoxDelegate.applySuggestion(suggestion, isIntermediateSuggestion);
 

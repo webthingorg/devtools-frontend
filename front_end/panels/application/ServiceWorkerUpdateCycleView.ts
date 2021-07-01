@@ -5,6 +5,7 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -187,7 +188,7 @@ export class ServiceWorkerUpdateCycleView {
       timingBarVersionElement.addEventListener('focus', (event: Event) => {
         this.onFocus(event);
       });
-      UI.ARIAUtils.setChecked(timingBarVersionElement, false);
+      ComponentHelpers.ARIAUtils.setChecked(timingBarVersionElement, false);
       const timingBarTitleElement = tr.createChild('td');
       UI.UIUtils.createTextChild(timingBarTitleElement, phaseName);
       const barContainer = tr.createChild('td').createChild('div', 'service-worker-update-timing-row');
@@ -237,7 +238,7 @@ export class ServiceWorkerUpdateCycleView {
       startRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
       endRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
       endRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
-      UI.ARIAUtils.setChecked(target, !expanded);
+      ComponentHelpers.ARIAUtils.setChecked(target, !expanded);
     }
   }
 

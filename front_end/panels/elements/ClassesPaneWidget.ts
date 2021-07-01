@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {ElementsPanel} from './ElementsPanel.js';
@@ -119,7 +120,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     const joinClassString = classNames.join(' ');
     const announcementString = classNames.length > 1 ? i18nString(UIStrings.classesSAdded, {PH1: joinClassString}) :
                                                        i18nString(UIStrings.classSAdded, {PH1: joinClassString});
-    UI.ARIAUtils.alert(announcementString);
+    ComponentHelpers.ARIAUtils.alert(announcementString);
 
     this._installNodeClasses(node);
     this._update();

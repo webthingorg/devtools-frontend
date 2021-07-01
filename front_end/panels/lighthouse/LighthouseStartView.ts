@@ -7,6 +7,7 @@
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 import type {LighthouseController} from './LighthouseController.js';
 import {Events, Presets, RuntimeSettings} from './LighthouseController.js';
@@ -71,7 +72,7 @@ export class StartView extends UI.Widget.Widget {
         runtimeSetting.options, runtimeSetting.setting as Common.Settings.Setting<string>,
         runtimeSetting.description());
     parentElement.appendChild(control.element);
-    UI.ARIAUtils.setAccessibleName(control.element, label);
+    ComponentHelpers.ARIAUtils.setAccessibleName(control.element, label);
   }
 
   _populateRuntimeSettingAsToolbarCheckbox(settingName: string, toolbar: UI.Toolbar.Toolbar): void {
@@ -107,10 +108,10 @@ export class StartView extends UI.Widget.Widget {
       const row = formElements.createChild('div', 'vbox lighthouse-launcher-row');
       row.appendChild(checkbox.element);
     }
-    UI.ARIAUtils.markAsGroup(categoryFormElements);
-    UI.ARIAUtils.setAccessibleName(categoryFormElements, i18nString(UIStrings.categories));
-    UI.ARIAUtils.markAsGroup(pluginFormElements);
-    UI.ARIAUtils.setAccessibleName(pluginFormElements, i18nString(UIStrings.communityPluginsBeta));
+    ComponentHelpers.ARIAUtils.markAsGroup(categoryFormElements);
+    ComponentHelpers.ARIAUtils.setAccessibleName(categoryFormElements, i18nString(UIStrings.categories));
+    ComponentHelpers.ARIAUtils.markAsGroup(pluginFormElements);
+    ComponentHelpers.ARIAUtils.setAccessibleName(pluginFormElements, i18nString(UIStrings.communityPluginsBeta));
   }
 
   _render(): void {

@@ -7,6 +7,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -98,7 +99,7 @@ export const linkifyNodeReference = function(
   if (!options.preventKeyboardFocus) {
     link.addEventListener('keydown', event => event.key === 'Enter' && Common.Revealer.reveal(node, false) && false);
     link.tabIndex = 0;
-    UI.ARIAUtils.markAsLink(link);
+    ComponentHelpers.ARIAUtils.markAsLink(link);
   }
 
   return root;
@@ -120,7 +121,7 @@ export const linkifyDeferredNodeReference = function(
   if (!options.preventKeyboardFocus) {
     link.addEventListener('keydown', event => event.key === 'Enter' && deferredNode.resolve(onDeferredNodeResolved));
     link.tabIndex = 0;
-    UI.ARIAUtils.markAsLink(link);
+    ComponentHelpers.ARIAUtils.markAsLink(link);
   }
 
   function onDeferredNodeResolved(node: SDK.DOMModel.DOMNode|null): void {

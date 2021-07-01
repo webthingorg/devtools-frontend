@@ -34,6 +34,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -116,7 +117,7 @@ export class SettingsScreen extends UI.Widget.VBox implements UI.View.ViewLocati
                 settingsLabelElement, {cssFile: 'panels/settings/settingsScreen.css', delegatesFocus: undefined})
             .createChild('div', 'settings-window-title');
 
-    UI.ARIAUtils.markAsHeading(settingsTitleElement, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(settingsTitleElement, 1);
     settingsTitleElement.textContent = i18nString(UIStrings.settings);
 
     this._tabbedLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(
@@ -243,11 +244,11 @@ class SettingsTab extends UI.Widget.VBox {
   _appendSection(name?: string): HTMLElement {
     const block = this.containerElement.createChild('div', 'settings-block');
     if (name) {
-      UI.ARIAUtils.markAsGroup(block);
+      ComponentHelpers.ARIAUtils.markAsGroup(block);
       const title = block.createChild('div', 'settings-section-title');
       title.textContent = name;
-      UI.ARIAUtils.markAsHeading(title, 2);
-      UI.ARIAUtils.setAccessibleName(block, name);
+      ComponentHelpers.ARIAUtils.markAsHeading(title, 2);
+      ComponentHelpers.ARIAUtils.setAccessibleName(block, name);
     }
     return block;
   }
@@ -389,7 +390,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
     const labelElement = filterSection.createChild('label');
     labelElement.textContent = i18nString(UIStrings.filterExperimentsLabel);
     const inputElement = UI.UIUtils.createInput('', 'text');
-    UI.ARIAUtils.bindLabelToControl(labelElement, inputElement);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(labelElement, inputElement);
     filterSection.appendChild(inputElement);
     inputElement.addEventListener('input', () => this.renderExperiments(inputElement.value.toLowerCase()), false);
 

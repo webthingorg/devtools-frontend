@@ -26,6 +26,7 @@ devtools_module("accessibility") {
     "../../core/sdk:bundle",
     "../../generated",
     "../../generated:protocol",
+    "../../ui/components/helpers:bundle",
     "../../ui/legacy:bundle",
   ]
 }

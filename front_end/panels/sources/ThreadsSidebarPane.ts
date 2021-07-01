@@ -8,6 +8,7 @@ import type * as Common from '../../core/common/common.js'; // eslint-disable-li
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 const UIStrings = {
   /**
@@ -64,7 +65,7 @@ export class ThreadsSidebarPane extends UI.Widget.VBox implements
     });
     const isSelected = UI.Context.Context.instance().flavor(SDK.Target.Target) === debuggerModel.target();
     element.classList.toggle('selected', isSelected);
-    UI.ARIAUtils.setSelected(element, isSelected);
+    ComponentHelpers.ARIAUtils.setSelected(element, isSelected);
 
     function updateTitle(): void {
       const executionContext = debuggerModel.runtimeModel().defaultExecutionContext();

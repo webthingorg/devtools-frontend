@@ -37,6 +37,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as CookieTable from '../../ui/legacy/components/cookie_table/cookie_table.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -282,7 +283,8 @@ export class CookieItemsView extends StorageItemsView {
       this.setDeleteAllGlyph('largeicon-delete-list');
     }
     this._cookiesTable.setCookies(this._shownCookies, this._model.getCookieToBlockedReasonsMap());
-    UI.ARIAUtils.alert(i18nString(UIStrings.numberOfCookiesShownInTableS, {PH1: this._shownCookies.length}));
+    ComponentHelpers.ARIAUtils.alert(
+        i18nString(UIStrings.numberOfCookiesShownInTableS, {PH1: this._shownCookies.length}));
     this.setCanFilter(true);
     this.setCanDeleteAll(this._shownCookies.length > 0);
     this.setCanDeleteSelected(Boolean(this._cookiesTable.selectedCookie()));

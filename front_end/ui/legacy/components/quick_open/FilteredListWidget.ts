@@ -10,6 +10,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Diff from '../../../../third_party/diff/diff.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 const UIStrings = {
@@ -61,11 +62,11 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     this.contentElement.classList.add('filtered-list-widget');
     const listener = (this._onKeyDown.bind(this) as (arg0: Event) => void);
     this.contentElement.addEventListener('keydown', listener, true);
-    UI.ARIAUtils.markAsCombobox(this.contentElement);
+    ComponentHelpers.ARIAUtils.markAsCombobox(this.contentElement);
     this.registerRequiredCSS('ui/legacy/components/quick_open/filteredListWidget.css');
 
     this._promptElement = this.contentElement.createChild('div', 'filtered-list-widget-input');
-    UI.ARIAUtils.setAccessibleName(this._promptElement, i18nString(UIStrings.quickOpenPrompt));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._promptElement, i18nString(UIStrings.quickOpenPrompt));
     this._promptElement.setAttribute('spellcheck', 'false');
     this._promptElement.setAttribute('contenteditable', 'plaintext-only');
     this._prompt = new UI.TextPrompt.TextPrompt();
@@ -84,9 +85,10 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     this._itemElementsContainer.classList.add('container');
     this._bottomElementsContainer.appendChild(this._itemElementsContainer);
     this._itemElementsContainer.addEventListener('click', this._onClick.bind(this), false);
-    UI.ARIAUtils.markAsListBox(this._itemElementsContainer);
-    UI.ARIAUtils.setControls(this._promptElement, this._itemElementsContainer);
-    UI.ARIAUtils.setAutocomplete(this._promptElement, UI.ARIAUtils.AutocompleteInteractionModel.list);
+    ComponentHelpers.ARIAUtils.markAsListBox(this._itemElementsContainer);
+    ComponentHelpers.ARIAUtils.setControls(this._promptElement, this._itemElementsContainer);
+    ComponentHelpers.ARIAUtils.setAutocomplete(
+        this._promptElement, ComponentHelpers.ARIAUtils.AutocompleteInteractionModel.list);
 
     this._notFoundElement = this._bottomElementsContainer.createChild('div', 'not-found-text');
     this._notFoundElement.classList.add('hidden');
@@ -142,7 +144,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
    * Sets the text prompt's accessible title. By default, it is "Quick open prompt".
    */
   setPromptTitle(title: string): void {
-    UI.ARIAUtils.setAccessibleName(this._promptElement, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._promptElement, title);
   }
 
   showAsDialog(dialogTitle?: string): void {
@@ -151,12 +153,12 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     }
 
     this._dialog = new UI.Dialog.Dialog();
-    UI.ARIAUtils.setAccessibleName(this._dialog.contentElement, dialogTitle);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._dialog.contentElement, dialogTitle);
     this._dialog.setMaxContentSize(new UI.Geometry.Size(504, 340));
     this._dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.SetExactWidthMaxHeight);
     this._dialog.setContentPosition(null, 22);
     this.show(this._dialog.contentElement);
-    UI.ARIAUtils.setExpanded(this.contentElement, true);
+    ComponentHelpers.ARIAUtils.setExpanded(this.contentElement, true);
     this._dialog.once('hidden').then(() => {
       this.dispatchEventToListeners('hidden');
     });
@@ -215,7 +217,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
       this._provider.detach();
     }
     this._clearTimers();
-    UI.ARIAUtils.setExpanded(this.contentElement, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this.contentElement, false);
   }
 
   _clearTimers(): void {
@@ -262,7 +264,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     if (this._provider) {
       this._provider.renderItem(item, this._cleanValue(), titleElement, subtitleElement);
     }
-    UI.ARIAUtils.markAsOption(itemElement);
+    ComponentHelpers.ARIAUtils.markAsOption(itemElement);
     return itemElement;
   }
 
@@ -282,7 +284,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     if (toElement) {
       toElement.classList.add('selected');
     }
-    UI.ARIAUtils.setActiveDescendant(this._promptElement, toElement);
+    ComponentHelpers.ARIAUtils.setActiveDescendant(this._promptElement, toElement);
   }
 
   _onClick(event: Event): void {
@@ -456,7 +458,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     this._notFoundElement.classList.toggle('hidden', hasItems);
     if (!hasItems && this._provider) {
       this._notFoundElement.textContent = this._provider.notFoundText(this._cleanValue());
-      UI.ARIAUtils.alert(this._notFoundElement.textContent);
+      ComponentHelpers.ARIAUtils.alert(this._notFoundElement.textContent);
     }
   }
 

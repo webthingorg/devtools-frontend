@@ -41,14 +41,15 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Dialog} from './Dialog.js';
 import {Size} from './Geometry.js';
 import {GlassPane, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
 import {KeyboardShortcut} from './KeyboardShortcut.js';
 import * as ThemeSupport from './theme_support/theme_support.js';  // eslint-disable-line rulesdir/es_modules_import
+
 import type {ToolbarButton} from './Toolbar.js';
 import {Toolbar} from './Toolbar.js';  // eslint-disable-line no-unused-vars
 import {Tooltip} from './Tooltip.js';
@@ -1146,7 +1147,7 @@ export function createInput(className?: string, type?: string): HTMLInputElement
 export function createSelect(name: string, options: string[]|Map<string, string[]>[]|Set<string>): HTMLSelectElement {
   const select = document.createElement('select');
   select.classList.add('chrome-select');
-  ARIAUtils.setAccessibleName(select, name);
+  ComponentHelpers.ARIAUtils.setAccessibleName(select, name);
   for (const option of options) {
     if (option instanceof Map) {
       for (const [key, value] of option) {
@@ -1172,7 +1173,7 @@ export function createLabel(title: string, className?: string, associatedControl
   }
   element.textContent = title;
   if (associatedControl) {
-    ARIAUtils.bindLabelToControl(element, associatedControl);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(element, associatedControl);
   }
 
   return element;
@@ -1203,7 +1204,7 @@ export function createSlider(min: number, max: number, tabIndex: number): Elemen
 }
 
 export function setTitle(element: HTMLElement, title: string, actionId: string|undefined = undefined): void {
-  ARIAUtils.setAccessibleName(element, title);
+  ComponentHelpers.ARIAUtils.setAccessibleName(element, title);
   Tooltip.install(element, title, actionId, {
     anchorTooltipAtElement: true,
   });
@@ -1236,7 +1237,7 @@ export class CheckboxLabel extends HTMLSpanElement {
     element.checkboxElement.checked = Boolean(checked);
     if (title !== undefined) {
       element.textElement.textContent = title;
-      ARIAUtils.setAccessibleName(element.checkboxElement, title);
+      ComponentHelpers.ARIAUtils.setAccessibleName(element.checkboxElement, title);
       if (subtitle !== undefined) {
         element.textElement.createChild('div', 'dt-checkbox-subtitle').textContent = subtitle;
       }
@@ -1370,8 +1371,8 @@ export class DevToolsCloseButton extends HTMLDivElement {
     const root =
         createShadowRootWithCoreStyles(this, {cssFile: 'ui/legacy/closeButton.css', delegatesFocus: undefined});
     this._buttonElement = (root.createChild('div', 'close-button') as HTMLElement);
-    ARIAUtils.setAccessibleName(this._buttonElement, i18nString(UIStrings.close));
-    ARIAUtils.markAsButton(this._buttonElement);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._buttonElement, i18nString(UIStrings.close));
+    ComponentHelpers.ARIAUtils.markAsButton(this._buttonElement);
     const regularIcon = Icon.create('smallicon-cross', 'default-icon');
     this._hoverIcon = Icon.create('mediumicon-red-cross-hover', 'hover-icon');
     this._activeIcon = Icon.create('mediumicon-red-cross-active', 'active-icon');
@@ -1391,7 +1392,7 @@ export class DevToolsCloseButton extends HTMLDivElement {
   }
 
   setAccessibleName(name: string): void {
-    ARIAUtils.setAccessibleName(this._buttonElement, name);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._buttonElement, name);
   }
 
   setTabbable(tabbable: boolean): void {
@@ -1620,7 +1621,7 @@ export class ConfirmDialog {
     const dialog = new Dialog();
     dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
-    ARIAUtils.setAccessibleName(dialog.contentElement, message);
+    ComponentHelpers.ARIAUtils.setAccessibleName(dialog.contentElement, message);
     const shadowRoot = createShadowRootWithCoreStyles(
         dialog.contentElement, {cssFile: 'ui/legacy/confirmDialog.css', delegatesFocus: undefined});
     const content = shadowRoot.createChild('div', 'widget');

@@ -6,6 +6,7 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 export class RadioSetting {
   _setting: Common.Settings.Setting<string>;
@@ -21,8 +22,8 @@ export class RadioSetting {
     this._options = options;
 
     this.element = document.createElement('div');
-    UI.ARIAUtils.setDescription(this.element, description);
-    UI.ARIAUtils.markAsRadioGroup(this.element);
+    ComponentHelpers.ARIAUtils.setDescription(this.element, description);
+    ComponentHelpers.ARIAUtils.markAsRadioGroup(this.element);
 
     this._radioElements = [];
     for (const option of this._options) {

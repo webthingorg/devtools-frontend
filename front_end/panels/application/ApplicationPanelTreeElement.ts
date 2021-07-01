@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {ResourcesPanel} from './ResourcesPanel.js';
@@ -13,7 +14,7 @@ export class ApplicationPanelTreeElement extends UI.TreeOutline.TreeElement {
   constructor(resourcesPanel: ResourcesPanel, title: string, expandable: boolean) {
     super(title, expandable);
     this.resourcesPanel = resourcesPanel;
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, title);
   }
 
   get itemURL(): string {

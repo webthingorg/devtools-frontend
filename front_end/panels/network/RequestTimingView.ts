@@ -36,6 +36,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Logs from '../../models/logs/logs.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -435,7 +436,7 @@ export class RequestTimingView extends UI.Widget.VBox {
       bar.style.left = left + '%';
       bar.style.right = right + '%';
       bar.textContent = '\u200B';  // Important for 0-time items to have 0 width.
-      UI.ARIAUtils.setAccessibleName(
+      ComponentHelpers.ARIAUtils.setAccessibleName(
           row, i18nString(UIStrings.startedAtS, {PH1: calculator.formatValue(range.start, 2)}));
       const label = tr.createChild('td').createChild('div', 'network-timing-bar-title');
       label.textContent = i18n.i18n.secondsToString(duration, true);
@@ -446,7 +447,7 @@ export class RequestTimingView extends UI.Widget.VBox {
 
         timingBarTitleEement.setAttribute('tabindex', '0');
         timingBarTitleEement.setAttribute('role', 'switch');
-        UI.ARIAUtils.setChecked(timingBarTitleEement, false);
+        ComponentHelpers.ARIAUtils.setChecked(timingBarTitleEement, false);
       }
     }
 
@@ -531,7 +532,7 @@ export class RequestTimingView extends UI.Widget.VBox {
       const dataHeader = tableElement.createChild('tr', 'network-timing-table-header');
       const headerCell = dataHeader.createChild('td');
       UI.UIUtils.createTextChild(headerCell, title);
-      UI.ARIAUtils.markAsHeading(headerCell, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(headerCell, 2);
       UI.UIUtils.createTextChild(dataHeader.createChild('td'), '');
       UI.UIUtils.createTextChild(dataHeader.createChild('td'), i18nString(UIStrings.durationC));
       return dataHeader;

@@ -5,9 +5,11 @@
 /* eslint-disable rulesdir/no_underscored_properties */
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {EditFileSystemView} from './EditFileSystemView.js';
+
 import type {FileSystem} from './FileSystemWorkspaceBinding.js';
 import {IsolatedFileSystem} from './IsolatedFileSystem.js';
 import {Events, IsolatedFileSystemManager} from './IsolatedFileSystemManager.js';
@@ -99,7 +101,7 @@ export class WorkspaceSettingsTab extends UI.Widget.VBox {
     const labelElement = p.createChild('label');
     labelElement.textContent = i18nString(UIStrings.folderExcludePattern);
     const inputElement = UI.UIUtils.createInput('', 'text');
-    UI.ARIAUtils.bindLabelToControl(labelElement, inputElement);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(labelElement, inputElement);
     p.appendChild(inputElement);
     inputElement.style.width = '270px';
     const folderExcludeSetting = IsolatedFileSystemManager.instance().workspaceFolderExcludePatternSetting();
@@ -153,7 +155,7 @@ export class WorkspaceSettingsTab extends UI.Widget.VBox {
 
     const nameElement = header.createChild('div', 'file-system-name');
     nameElement.textContent = folderName;
-    UI.ARIAUtils.markAsHeading(nameElement, 2);
+    ComponentHelpers.ARIAUtils.markAsHeading(nameElement, 2);
     const path = header.createChild('div', 'file-system-path');
     path.textContent = fileSystemPath;
     UI.Tooltip.Tooltip.install(path, fileSystemPath);

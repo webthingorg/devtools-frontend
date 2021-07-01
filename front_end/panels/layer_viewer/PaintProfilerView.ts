@@ -32,6 +32,7 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import type * as Protocol from '../../generated/protocol.js';
 
@@ -428,7 +429,7 @@ export class PaintProfilerCommandLogView extends UI.ThrottledWidget.ThrottledWid
     this.element.classList.add('overflow-auto');
 
     this._treeOutline = new UI.TreeOutline.TreeOutlineInShadow();
-    UI.ARIAUtils.setAccessibleName(this._treeOutline.contentElement, i18nString(UIStrings.commandLog));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._treeOutline.contentElement, i18nString(UIStrings.commandLog));
     this.element.appendChild(this._treeOutline.element);
     this.setDefaultFocusedElement(this._treeOutline.contentElement);
 

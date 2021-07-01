@@ -4,6 +4,7 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 export class ComboBoxOfCheckBoxes extends UI.Toolbar.ToolbarButton {
   private options = new Array<MenuOption>();
@@ -13,7 +14,7 @@ export class ComboBoxOfCheckBoxes extends UI.Toolbar.ToolbarButton {
     super(title);
     this.turnIntoSelect();
     this.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.showLevelContextMenu.bind(this));
-    UI.ARIAUtils.markAsMenuButton(this.element);
+    ComponentHelpers.ARIAUtils.markAsMenuButton(this.element);
   }
 
   addOption(option: string, value: string, defaultEnabled: boolean): void {

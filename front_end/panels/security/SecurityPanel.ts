@@ -10,6 +10,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {PageSecurityState, PageVisibleSecurityState} from './SecurityModel.js';
@@ -517,7 +518,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.showCertificateViewer(names);
       }
     }, 'origin-button');
-    UI.ARIAUtils.markAsButton(certificateButton);
+    ComponentHelpers.ARIAUtils.markAsButton(certificateButton);
     return certificateButton;
   }
 
@@ -526,7 +527,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
       e.consume();
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.showCertificateViewer(names);
     }, 'origin-button');
-    UI.ARIAUtils.markAsButton(certificateButton);
+    ComponentHelpers.ARIAUtils.markAsButton(certificateButton);
     return certificateButton;
   }
 
@@ -840,7 +841,7 @@ export class SecurityPanelSidebarTree extends UI.TreeOutline.TreeOutlineInShadow
     originGroup.setCollapsible(false);
     originGroup.expand();
     originGroup.listItemElement.classList.add('security-sidebar-origins');
-    UI.ARIAUtils.setAccessibleName(originGroup.childrenListElement, originGroupTitle);
+    ComponentHelpers.ARIAUtils.setAccessibleName(originGroup.childrenListElement, originGroupTitle);
     return originGroup;
   }
 
@@ -875,7 +876,7 @@ export class SecurityPanelSidebarTree extends UI.TreeOutline.TreeOutlineInShadow
       } else {
         newParent.title = i18nString(UIStrings.mainOriginNonsecure);
       }
-      UI.ARIAUtils.setAccessibleName(newParent.childrenListElement, newParent.title);
+      ComponentHelpers.ARIAUtils.setAccessibleName(newParent.childrenListElement, newParent.title);
     } else {
       switch (securityState) {
         case Protocol.Security.SecurityState.Secure:
@@ -995,7 +996,7 @@ export class SecurityMainView extends UI.Widget.VBox {
     // Fill the security summary section.
     const summaryDiv = this._summarySection.createChild('div', 'security-summary-section-title');
     summaryDiv.textContent = i18nString(UIStrings.securityOverview);
-    UI.ARIAUtils.markAsHeading(summaryDiv, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(summaryDiv, 1);
 
     const lockSpectrum = this._summarySection.createChild('div', 'lock-spectrum');
     this._lockSpectrum = new Map([
@@ -1015,7 +1016,7 @@ export class SecurityMainView extends UI.Widget.VBox {
         .createChild('div', 'triangle-pointer');
 
     this._summaryText = this._summarySection.createChild('div', 'security-summary-text');
-    UI.ARIAUtils.markAsHeading(this._summaryText, 2);
+    ComponentHelpers.ARIAUtils.markAsHeading(this._summaryText, 2);
 
     this._explanations = null;
     this._securityState = null;
@@ -1439,7 +1440,7 @@ export class SecurityMainView extends UI.Widget.VBox {
     }
 
     const requestsAnchor = element.createChild('div', 'security-mixed-content devtools-link') as HTMLElement;
-    UI.ARIAUtils.markAsLink(requestsAnchor);
+    ComponentHelpers.ARIAUtils.markAsLink(requestsAnchor);
     requestsAnchor.tabIndex = 0;
     requestsAnchor.textContent = i18nString(UIStrings.viewDRequestsInNetworkPanel, {n: filterRequestCount});
 
@@ -1473,7 +1474,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
     const titleSection = this.element.createChild('div', 'title-section');
     const titleDiv = titleSection.createChild('div', 'title-section-header');
     titleDiv.textContent = i18nString(UIStrings.origin);
-    UI.ARIAUtils.markAsHeading(titleDiv, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(titleDiv, 1);
 
     const originDisplay = titleSection.createChild('div', 'origin-display');
     this._originLockIcon = originDisplay.createChild('span', 'security-property');
@@ -1491,13 +1492,13 @@ export class SecurityOriginView extends UI.Widget.VBox {
       ]));
     });
     originNetworkDiv.appendChild(originNetworkButton);
-    UI.ARIAUtils.markAsLink(originNetworkButton);
+    ComponentHelpers.ARIAUtils.markAsLink(originNetworkButton);
 
     if (originState.securityDetails) {
       const connectionSection = this.element.createChild('div', 'origin-view-section');
       const connectionDiv = connectionSection.createChild('div', 'origin-view-section-title');
       connectionDiv.textContent = i18nString(UIStrings.connection);
-      UI.ARIAUtils.markAsHeading(connectionDiv, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(connectionDiv, 2);
 
       let table: SecurityDetailsTable = new SecurityDetailsTable();
       connectionSection.appendChild(table.element());
@@ -1517,7 +1518,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
       const certificateSection = this.element.createChild('div', 'origin-view-section');
       const certificateDiv = certificateSection.createChild('div', 'origin-view-section-title');
       certificateDiv.textContent = i18nString(UIStrings.certificate);
-      UI.ARIAUtils.markAsHeading(certificateDiv, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(certificateDiv, 2);
 
       const sctListLength = originState.securityDetails.signedCertificateTimestampList.length;
       const ctCompliance = originState.securityDetails.certificateTransparencyCompliance;
@@ -1527,7 +1528,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
         sctSection = this.element.createChild('div', 'origin-view-section');
         const sctDiv = sctSection.createChild('div', 'origin-view-section-title');
         sctDiv.textContent = i18nString(UIStrings.certificateTransparency);
-        UI.ARIAUtils.markAsHeading(sctDiv, 2);
+        ComponentHelpers.ARIAUtils.markAsHeading(sctDiv, 2);
       }
 
       const sanDiv = this._createSanDiv(originState.securityDetails.sanList);
@@ -1589,8 +1590,8 @@ export class SecurityOriginView extends UI.Widget.VBox {
             buttonText = i18nString(UIStrings.hideFullDetails);
           }
           toggleSctsDetailsLink.textContent = buttonText;
-          UI.ARIAUtils.setAccessibleName(toggleSctsDetailsLink, buttonText);
-          UI.ARIAUtils.setExpanded(toggleSctsDetailsLink, !isDetailsShown);
+          ComponentHelpers.ARIAUtils.setAccessibleName(toggleSctsDetailsLink, buttonText);
+          ComponentHelpers.ARIAUtils.setExpanded(toggleSctsDetailsLink, !isDetailsShown);
           sctSummaryTable.element().classList.toggle('hidden');
           sctTableWrapper.classList.toggle('hidden');
         }
@@ -1624,19 +1625,19 @@ export class SecurityOriginView extends UI.Widget.VBox {
       const secureSection = this.element.createChild('div', 'origin-view-section');
       const secureDiv = secureSection.createChild('div', 'origin-view-section-title');
       secureDiv.textContent = i18nString(UIStrings.secure);
-      UI.ARIAUtils.markAsHeading(secureDiv, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(secureDiv, 2);
       secureSection.createChild('div').textContent = i18nString(UIStrings.thisOriginIsANonhttpsSecure);
     } else if (originState.securityState !== Protocol.Security.SecurityState.Unknown) {
       const notSecureSection = this.element.createChild('div', 'origin-view-section');
       const notSecureDiv = notSecureSection.createChild('div', 'origin-view-section-title');
       notSecureDiv.textContent = i18nString(UIStrings.notSecure);
-      UI.ARIAUtils.markAsHeading(notSecureDiv, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(notSecureDiv, 2);
       notSecureSection.createChild('div').textContent = i18nString(UIStrings.yourConnectionToThisOriginIsNot);
     } else {
       const noInfoSection = this.element.createChild('div', 'origin-view-section');
       const noInfoDiv = noInfoSection.createChild('div', 'origin-view-section-title');
       noInfoDiv.textContent = i18nString(UIStrings.noSecurityInformation);
-      UI.ARIAUtils.markAsHeading(noInfoDiv, 2);
+      ComponentHelpers.ARIAUtils.markAsHeading(noInfoDiv, 2);
       noInfoSection.createChild('div').textContent = i18nString(UIStrings.noSecurityDetailsAreAvailableFor);
     }
   }
@@ -1668,8 +1669,8 @@ export class SecurityOriginView extends UI.Widget.VBox {
             buttonText = i18nString(UIStrings.showMoreSTotal, {PH1: sanList.length});
           }
           truncatedSANToggle.textContent = buttonText;
-          UI.ARIAUtils.setAccessibleName(truncatedSANToggle, buttonText);
-          UI.ARIAUtils.setExpanded(truncatedSANToggle, isTruncated);
+          ComponentHelpers.ARIAUtils.setAccessibleName(truncatedSANToggle, buttonText);
+          ComponentHelpers.ARIAUtils.setExpanded(truncatedSANToggle, isTruncated);
         }
         const truncatedSANToggle = UI.UIUtils.createTextButton(
             i18nString(UIStrings.showMoreSTotal, {PH1: sanList.length}), toggleSANTruncation);

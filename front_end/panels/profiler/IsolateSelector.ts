@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -74,7 +75,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
     this._items = new UI.ListModel.ListModel();
     this._list = new UI.ListControl.ListControl(this._items, this, UI.ListControl.ListMode.NonViewport);
     this._list.element.classList.add('javascript-vm-instances-list');
-    UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.javascriptVmInstances));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.javascriptVmInstances));
     this.contentElement.appendChild(this._list.element);
 
     this._itemByIsolate = new Map();
@@ -193,7 +194,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
       changeLabel = i18nString(UIStrings.decreasingBySPerSecond, {PH1: changeRateText});
     }
     element.textContent = changeText;
-    UI.ARIAUtils.setAccessibleName(element, changeLabel);
+    ComponentHelpers.ARIAUtils.setAccessibleName(element, changeLabel);
   }
 
   totalMemoryElement(): Element {
@@ -251,7 +252,7 @@ export class ListItem {
     this.element = document.createElement('div');
     this.element.classList.add('profile-memory-usage-item');
     this.element.classList.add('hbox');
-    UI.ARIAUtils.markAsOption(this.element);
+    ComponentHelpers.ARIAUtils.markAsOption(this.element);
     this._heapDiv = this.element.createChild('div', 'profile-memory-usage-item-size');
     UI.Tooltip.Tooltip.install(this._heapDiv, i18nString(UIStrings.heapSizeInUseByLiveJsObjects));
     this._trendDiv = this.element.createChild('div', 'profile-memory-usage-item-trend');

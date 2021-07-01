@@ -31,6 +31,7 @@
 /* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -87,8 +88,8 @@ export class ConsoleViewport {
     this._topGapElement.textContent = '\uFEFF';
     this._bottomGapElement.textContent = '\uFEFF';
 
-    UI.ARIAUtils.markAsHidden(this._topGapElement);
-    UI.ARIAUtils.markAsHidden(this._bottomGapElement);
+    ComponentHelpers.ARIAUtils.markAsHidden(this._topGapElement);
+    ComponentHelpers.ARIAUtils.markAsHidden(this._bottomGapElement);
 
     this._provider = provider;
     this.element.addEventListener('scroll', this._onScroll.bind(this), false);

@@ -37,8 +37,8 @@
 
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import type {Icon} from './Icon.js'; // eslint-disable-line no-unused-vars
 import type {Config} from './InplaceEditor.js';
 import {InplaceEditor} from './InplaceEditor.js';  // eslint-disable-line no-unused-vars
@@ -82,7 +82,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
     this._focusable = true;
     this.setFocusable(true);
     this.element = this.contentElement;
-    ARIAUtils.markAsTree(this.element);
+    ComponentHelpers.ARIAUtils.markAsTree(this.element);
     this._useLightSelectionColor = false;
     this._treeElementToScrollIntoView = null;
     this._centerUponScrollIntoView = false;
@@ -458,13 +458,13 @@ export class TreeElement {
     this._listItemNode.addEventListener('mousedown', (this._handleMouseDown.bind(this) as EventListener), false);
     this._listItemNode.addEventListener('click', (this._treeElementToggled.bind(this) as EventListener), false);
     this._listItemNode.addEventListener('dblclick', this._handleDoubleClick.bind(this), false);
-    ARIAUtils.markAsTreeitem(this._listItemNode);
+    ComponentHelpers.ARIAUtils.markAsTreeitem(this._listItemNode);
 
     this._children = null;
     this._childrenListNode = document.createElement('ol');
     nodeToParentTreeElementMap.set(this._childrenListNode, this);
     this._childrenListNode.classList.add('children');
-    ARIAUtils.markAsGroup(this._childrenListNode);
+    ComponentHelpers.ARIAUtils.markAsGroup(this._childrenListNode);
 
     this._hidden = false;
     this._selectable = true;
@@ -829,9 +829,9 @@ export class TreeElement {
     this._listItemNode.classList.toggle('parent', expandable);
     if (!expandable) {
       this.collapse();
-      ARIAUtils.unsetExpandable(this._listItemNode);
+      ComponentHelpers.ARIAUtils.unsetExpandable(this._listItemNode);
     } else {
-      ARIAUtils.setExpanded(this._listItemNode, false);
+      ComponentHelpers.ARIAUtils.setExpanded(this._listItemNode, false);
     }
   }
 
@@ -963,7 +963,7 @@ export class TreeElement {
     }
     this._listItemNode.classList.remove('expanded');
     this._childrenListNode.classList.remove('expanded');
-    ARIAUtils.setExpanded(this._listItemNode, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this._listItemNode, false);
     this.expanded = false;
     this.oncollapse();
     if (this.treeOutline) {
@@ -1009,7 +1009,7 @@ export class TreeElement {
     this._populateIfNeeded();
     this._listItemNode.classList.add('expanded');
     this._childrenListNode.classList.add('expanded');
-    ARIAUtils.setExpanded(this._listItemNode, true);
+    ComponentHelpers.ARIAUtils.setExpanded(this._listItemNode, true);
 
     if (this.treeOutline) {
       this.onexpand();
@@ -1169,7 +1169,7 @@ export class TreeElement {
     }
 
     this._listItemNode.classList.add('selected');
-    ARIAUtils.setSelected(this._listItemNode, true);
+    ComponentHelpers.ARIAUtils.setSelected(this._listItemNode, true);
     this.treeOutline.dispatchEventToListeners(Events.ElementSelected, this);
     if (lastSelected) {
       lastSelected.deselect();
@@ -1216,7 +1216,7 @@ export class TreeElement {
     const hadFocus = this._listItemNode.hasFocus();
     this.selected = false;
     this._listItemNode.classList.remove('selected');
-    ARIAUtils.clearSelected(this._listItemNode);
+    ComponentHelpers.ARIAUtils.clearSelected(this._listItemNode);
     this._setFocusable(false);
 
     if (this.treeOutline && this.treeOutline.selectedTreeElement === this) {

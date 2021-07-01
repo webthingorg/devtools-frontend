@@ -7,9 +7,11 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import type {FrameworkEventListenersObject} from './EventListenersUtils.js';
@@ -245,7 +247,7 @@ export class EventListenersTreeElement extends UI.TreeOutline.TreeElement {
     this.toggleOnClick = true;
     this._linkifier = linkifier;
     this._changeCallback = changeCallback;
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${type}, event listener`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, `${type}, event listener`);
   }
 
   static comparator(element1: UI.TreeOutline.TreeElement, element2: UI.TreeOutline.TreeElement): number {

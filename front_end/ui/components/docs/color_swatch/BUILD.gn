@@ -14,6 +14,7 @@ ts_library("ts") {
 
   deps = [
     "../../../../../test/unittests/front_end/helpers",
+    "../../../../ui/components/helpers:bundle",
     "../../../../ui/legacy/components/inline_editor:bundle",
   ]
 }

@@ -9,8 +9,10 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Logs from '../../models/logs/logs.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
@@ -538,7 +540,7 @@ export class Section {
 
     editor.value = initialValue;
     editor.placeholder = placeholder;
-    UI.ARIAUtils.setAccessibleName(editor, label);
+    ComponentHelpers.ARIAUtils.setAccessibleName(editor, label);
 
     form.addEventListener('submit', (e: Event) => {
       callback(editor.value || '');
@@ -567,7 +569,7 @@ export class Section {
     installingEntry.createChild('div', icon);
     const statusString = installingEntry.createChild('span', 'service-worker-version-string');
     statusString.textContent = label;
-    UI.ARIAUtils.markAsAlert(statusString);
+    ComponentHelpers.ARIAUtils.markAsAlert(statusString);
     return installingEntry;
   }
 
@@ -598,7 +600,7 @@ export class Section {
       const errorsLabel = UI.UIUtils.createIconLabel(String(this._registration.errors.length), 'smallicon-error');
       errorsLabel.classList.add('devtools-link', 'link');
       errorsLabel.tabIndex = 0;
-      UI.ARIAUtils.setAccessibleName(
+      ComponentHelpers.ARIAUtils.setAccessibleName(
           errorsLabel, i18nString(UIStrings.sRegistrationErrors, {PH1: this._registration.errors.length}));
       self.onInvokeElement(errorsLabel, () => Common.Console.Console.instance().show());
       name.appendChild(errorsLabel);
