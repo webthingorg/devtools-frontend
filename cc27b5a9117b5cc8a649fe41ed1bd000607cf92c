@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d390700_10c121a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-01T12:40:43Z",
+      "side": 1,
+      "message": "PTAL, thanks!\n\nThis fixes the color back to the red that it was mean\u0027t to be (see bug for details).",
+      "revId": "cc27b5a9117b5cc8a649fe41ed1bd000607cf92c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
