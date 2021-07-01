@@ -48,6 +48,10 @@
   border-width: 0 0 1px;
 }
 
+.issue.selected {
+  background-color: var(--legacy-focus-bg-color);
+}
+
 .issue-category + .children .issue,
 .issue.expanded {
   background: var(--color-background);
