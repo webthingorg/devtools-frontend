@@ -77,6 +77,7 @@ export const CSS_RESOURCES_TO_LOAD_INTO_RUNTIME = [
   'ui/legacy/tooltip.css',
   'ui/legacy/treeoutline.css',
   'ui/legacy/viewContainers.css',
+  'panels/elements/cssQuery.css',
   'panels/elements/layoutPane.css',
   'ui/legacy/components/utils/imagePreview.css',
   'ui/legacy/components/utils/jsUtils.css',

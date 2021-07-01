@@ -89,6 +89,7 @@ all_devtools_files = [
   "front_end/panels/elements/classesPaneWidget.css",
   "front_end/panels/elements/computedStyleSidebarPane.css",
   "front_end/panels/elements/computedStyleWidgetTree.css",
+  "front_end/panels/elements/cssQuery.css",
   "front_end/panels/elements/domLinkifier.css",
   "front_end/panels/elements/elementsPanel.css",
   "front_end/panels/elements/elementStatePaneWidget.css",
