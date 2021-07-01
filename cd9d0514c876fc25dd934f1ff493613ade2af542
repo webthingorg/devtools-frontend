@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77832fc3_913a2bd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-01T06:55:44Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the final CL for the Properties tab to display only the own properties. Doesn\u0027t change anything for the other uses of the ObjectsPropertiesSection components (that will be done in separate CLs).\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "cd9d0514c876fc25dd934f1ff493613ade2af542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
