@@ -7,7 +7,7 @@
 import type * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../../core/i18n/i18n.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {Size} from './Geometry.js';
 import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
@@ -53,7 +53,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     this._titleElement = this.element.createChild('span', 'title');
     const dropdownArrowIcon = Icon.create('smallicon-triangle-down');
     this.element.appendChild(dropdownArrowIcon);
-    ARIAUtils.setExpanded(this.element, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this.element, false);
 
     this._glassPane = new GlassPane();
     this._glassPane.setMarginBehavior(MarginBehavior.NoMargin);
@@ -68,7 +68,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
       cssFile: 'ui/legacy/softDropDown.css',
       delegatesFocus: undefined,
     }).appendChild(this._list.element);
-    ARIAUtils.markAsMenu(this._list.element);
+    ComponentHelpers.ARIAUtils.markAsMenu(this._list.element);
 
     this._listWasShowing200msAgo = false;
     this.element.addEventListener('mousedown', event => {
@@ -103,7 +103,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     this._glassPane.setContentAnchorBox(this.element.boxInWindow());
     this._glassPane.show((this.element.ownerDocument as Document));
     this._list.element.focus();
-    ARIAUtils.setExpanded(this.element, true);
+    ComponentHelpers.ARIAUtils.setExpanded(this.element, true);
     this._updateGlasspaneSize();
     if (this._selectedItem) {
       this._list.selectItem(this._selectedItem);
@@ -126,7 +126,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     }, 200);
     this._glassPane.hide();
     this._list.selectItem(null);
-    ARIAUtils.setExpanded(this.element, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this.element, false);
     this.element.focus();
     event.consume(true);
   }
@@ -265,7 +265,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     element.classList.toggle('disabled', !this._delegate.isItemSelectable(item));
     element.classList.toggle('highlighted', this._list.selectedItem() === item);
 
-    ARIAUtils.markAsMenuItem(element);
+    ComponentHelpers.ARIAUtils.markAsMenuItem(element);
     element.appendChild(this._delegate.createElementForItem(item));
 
     return element;
@@ -287,7 +287,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
       toElement.classList.add('highlighted');
     }
 
-    ARIAUtils.setActiveDescendant(this._list.element, toElement);
+    ComponentHelpers.ARIAUtils.setActiveDescendant(this._list.element, toElement);
     this._delegate.highlightedItemChanged(
         from, to, fromElement && fromElement.firstElementChild, toElement && toElement.firstElementChild);
   }

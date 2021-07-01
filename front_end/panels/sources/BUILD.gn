@@ -64,6 +64,7 @@ devtools_module("sources") {
     "../../panels/search:bundle",
     "../../panels/snippets:bundle",
     "../../third_party/diff:bundle",
+    "../../ui/components/helpers:bundle",
     "../../ui/components/linear_memory_inspector:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/color_picker:bundle",

@@ -5,8 +5,8 @@
 /* eslint-disable rulesdir/no_underscored_properties */
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Toolbar, ToolbarButton} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {createInput, createTextButton, ElementFocusRestorer} from './UIUtils.js';
@@ -292,7 +292,7 @@ export class Editor<T> {
     buttonsRow.appendChild(this._cancelButton);
 
     this._errorMessageContainer = this.element.createChild('div', 'list-widget-input-validation-error');
-    ARIAUtils.markAsAlert(this._errorMessageContainer);
+    ComponentHelpers.ARIAUtils.markAsAlert(this._errorMessageContainer);
 
     function onKeyDown(predicate: (arg0: KeyboardEvent) => boolean, callback: () => void, event: KeyboardEvent): void {
       if (predicate(event)) {
@@ -322,7 +322,7 @@ export class Editor<T> {
     input.placeholder = title;
     input.addEventListener('input', this._validateControls.bind(this, false), false);
     input.addEventListener('blur', this._validateControls.bind(this, false), false);
-    ARIAUtils.setAccessibleName(input, title);
+    ComponentHelpers.ARIAUtils.setAccessibleName(input, title);
     this._controlByName.set(name, input);
     this._controls.push(input);
     this._validators.push(validator);
@@ -341,7 +341,7 @@ export class Editor<T> {
     }
     if (title) {
       Tooltip.install(select, title);
-      ARIAUtils.setAccessibleName(select, title);
+      ComponentHelpers.ARIAUtils.setAccessibleName(select, title);
     }
     select.addEventListener('input', this._validateControls.bind(this, false), false);
     select.addEventListener('blur', this._validateControls.bind(this, false), false);
@@ -378,9 +378,9 @@ export class Editor<T> {
 
       input.classList.toggle('error-input', !valid && !forceValid);
       if (valid || forceValid) {
-        ARIAUtils.setInvalid(input, false);
+        ComponentHelpers.ARIAUtils.setInvalid(input, false);
       } else {
-        ARIAUtils.setInvalid(input, true);
+        ComponentHelpers.ARIAUtils.setInvalid(input, true);
       }
 
       if (!forceValid && errorMessage && !this._errorMessageContainer.textContent) {

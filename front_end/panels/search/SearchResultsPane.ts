@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -125,7 +126,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
     matchesCountSpan.className = 'search-result-matches-count';
 
     matchesCountSpan.textContent = `${this._searchResult.matchesCount()}`;
-    UI.ARIAUtils.setAccessibleName(
+    ComponentHelpers.ARIAUtils.setAccessibleName(
         matchesCountSpan, i18nString(UIStrings.matchesCountS, {PH1: this._searchResult.matchesCount()}));
 
     this.listItemElement.appendChild(matchesCountSpan);
@@ -165,9 +166,9 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
       const resultLabel = searchResult.matchLabel(i);
       labelSpan.textContent = resultLabel;
       if (typeof resultLabel === 'number' && !isNaN(resultLabel)) {
-        UI.ARIAUtils.setAccessibleName(labelSpan, i18nString(UIStrings.lineS, {PH1: resultLabel}));
+        ComponentHelpers.ARIAUtils.setAccessibleName(labelSpan, i18nString(UIStrings.lineS, {PH1: resultLabel}));
       } else {
-        UI.ARIAUtils.setAccessibleName(labelSpan, resultLabel);
+        ComponentHelpers.ARIAUtils.setAccessibleName(labelSpan, resultLabel);
       }
       anchor.appendChild(labelSpan);
 
@@ -212,7 +213,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
     const contentSpan = document.createElement('span');
     contentSpan.className = 'search-match-content';
     contentSpan.textContent = lineContent;
-    UI.ARIAUtils.setAccessibleName(contentSpan, `${lineContent} line`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(contentSpan, `${lineContent} line`);
     UI.UIUtils.highlightRangesWithStyleClass(contentSpan, matchRanges, 'highlighted-match');
     return contentSpan;
   }

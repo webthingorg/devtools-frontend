@@ -6,6 +6,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type {SearchResult, SearchScope} from './SearchConfig.js';
@@ -146,7 +147,7 @@ export class SearchView extends UI.Widget.VBox {
     this._search.setAttribute('type', 'text');
     this._search.setAttribute('results', '0');
     this._search.setAttribute('size', '42');
-    UI.ARIAUtils.setAccessibleName(this._search, i18nString(UIStrings.searchQuery));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._search, i18nString(UIStrings.searchQuery));
     const searchItem = new UI.Toolbar.ToolbarItem(searchContainer);
 
     const toolbar = new UI.Toolbar.Toolbar('search-toolbar', this._searchPanelElement);
@@ -289,7 +290,8 @@ export class SearchView extends UI.Widget.VBox {
     }
     this._searchFinished(finished);
     this._searchConfig = null;
-    UI.ARIAUtils.alert(this._searchMessageElement.textContent + ' ' + this._searchResultsMessageElement.textContent);
+    ComponentHelpers.ARIAUtils.alert(
+        this._searchMessageElement.textContent + ' ' + this._searchResultsMessageElement.textContent);
   }
 
   async _startSearch(searchConfig: SearchConfig): Promise<void> {
@@ -440,7 +442,7 @@ export class SearchView extends UI.Widget.VBox {
 
   _onAction(): void {
     // Resetting alert variable to prime for next search query result.
-    UI.ARIAUtils.alert(' ');
+    ComponentHelpers.ARIAUtils.alert(' ');
     const searchConfig = this._buildSearchConfig();
     if (!searchConfig.query() || !searchConfig.query().length) {
       return;

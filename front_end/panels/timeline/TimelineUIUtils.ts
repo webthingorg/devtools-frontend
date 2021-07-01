@@ -41,9 +41,11 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import {CLSRect} from './CLSLinkifier.js';
@@ -2743,7 +2745,7 @@ export class TimelineUIUtils {
 
       const link = document.createElement('span');
       link.classList.add('devtools-link');
-      UI.ARIAUtils.markAsLink(link);
+      ComponentHelpers.ARIAUtils.markAsLink(link);
       link.tabIndex = 0;
       link.textContent = i18nString(UIStrings.reveal);
       link.addEventListener('click', () => {
@@ -2921,7 +2923,7 @@ export class TimelineUIUtils {
     img.alt = Components.ImagePreview.ImagePreview.defaultAltTextForImageURL(imageURL);
     const paintProfilerButton = container.createChild('a');
     paintProfilerButton.textContent = i18nString(UIStrings.paintProfiler);
-    UI.ARIAUtils.markAsLink(container);
+    ComponentHelpers.ARIAUtils.markAsLink(container);
     container.tabIndex = 0;
     container.addEventListener(
         'click', () => TimelinePanel.instance().select(TimelineSelection.fromTraceEvent(event)), false);

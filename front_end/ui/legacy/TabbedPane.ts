@@ -34,7 +34,7 @@ import type * as Common from '../../core/common/common.js'; // eslint-disable-li
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {ContextMenu} from './ContextMenu.js';
 import {Constraints, Size} from './Geometry.js';
 import {Icon} from './Icon.js';
@@ -135,7 +135,7 @@ export class TabbedPane extends VBox {
   }
 
   setAccessibleName(name: string): void {
-    ARIAUtils.setAccessibleName(this._tabsElement, name);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._tabsElement, name);
   }
 
   setCurrentTabLocked(locked: boolean): void {
@@ -422,7 +422,7 @@ export class TabbedPane extends VBox {
     }
     if (tab && tab.title !== tabTitle) {
       tab.title = tabTitle;
-      ARIAUtils.setAccessibleName(tab.tabElement, tabTitle);
+      ComponentHelpers.ARIAUtils.setAccessibleName(tab.tabElement, tabTitle);
       this._updateTabElements();
     }
   }
@@ -559,8 +559,8 @@ export class TabbedPane extends VBox {
     const dropDownContainer = document.createElement('div');
     dropDownContainer.classList.add('tabbed-pane-header-tabs-drop-down-container');
     const chevronIcon = Icon.create('largeicon-chevron', 'chevron-icon');
-    ARIAUtils.markAsMenuButton(dropDownContainer);
-    ARIAUtils.setAccessibleName(dropDownContainer, i18nString(UIStrings.moreTabs));
+    ComponentHelpers.ARIAUtils.markAsMenuButton(dropDownContainer);
+    ComponentHelpers.ARIAUtils.setAccessibleName(dropDownContainer, i18nString(UIStrings.moreTabs));
     dropDownContainer.tabIndex = 0;
     dropDownContainer.appendChild(chevronIcon);
     dropDownContainer.addEventListener('click', this._dropDownClicked.bind(this));
@@ -797,7 +797,7 @@ export class TabbedPane extends VBox {
   _showTab(tab: TabbedPaneTab): void {
     tab.tabElement.tabIndex = 0;
     tab.tabElement.classList.add('selected');
-    ARIAUtils.setSelected(tab.tabElement, true);
+    ComponentHelpers.ARIAUtils.setSelected(tab.tabElement, true);
     tab.view.show(this.element);
     this._updateTabSlider();
   }
@@ -1062,9 +1062,9 @@ export class TabbedPaneTab {
     const tabElement = document.createElement('div');
     tabElement.classList.add('tabbed-pane-header-tab');
     tabElement.id = 'tab-' + this._id;
-    ARIAUtils.markAsTab(tabElement);
-    ARIAUtils.setSelected(tabElement, false);
-    ARIAUtils.setAccessibleName(tabElement, this.title);
+    ComponentHelpers.ARIAUtils.markAsTab(tabElement);
+    ComponentHelpers.ARIAUtils.setSelected(tabElement, false);
+    ComponentHelpers.ARIAUtils.setAccessibleName(tabElement, this.title);
 
     const titleElement = tabElement.createChild('span', 'tabbed-pane-header-tab-title');
     titleElement.textContent = this.title;

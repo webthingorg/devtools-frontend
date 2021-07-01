@@ -7,6 +7,8 @@
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+
 import type * as SDK from '../../../../core/sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../../legacy.js';
 
@@ -84,7 +86,7 @@ export class FilmStripView extends UI.Widget.HBox {
     element.createChild('div', 'time').textContent = frameTime;
     element.tabIndex = 0;
     element.setAttribute('aria-label', i18nString(UIStrings.screenshotForSSelectToView, {PH1: frameTime}));
-    UI.ARIAUtils.markAsButton(element);
+    ComponentHelpers.ARIAUtils.markAsButton(element);
     const imageElement = (element.createChild('div', 'thumbnail').createChild('img') as HTMLImageElement);
     imageElement.alt = i18nString(UIStrings.screenshot);
     element.addEventListener('mousedown', this._onMouseEvent.bind(this, Events.FrameSelected, time), false);

@@ -30,6 +30,7 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 const UIStrings = {
@@ -183,7 +184,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
       event.consume(true);
     });
 
-    UI.ARIAUtils.markAsApplication(this.element);
+    ComponentHelpers.ARIAUtils.markAsApplication(this.element);
     this._displayName = displayName;
 
     this._editCallback = editCallback;
@@ -193,7 +194,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
     const headerContainer = this.element.createChild('div', 'header-container');
     this._headerTable = headerContainer.createChild('table', 'header');
     // Hide the header table from screen readers since titles are also added to data table.
-    UI.ARIAUtils.markAsHidden(this._headerTable);
+    ComponentHelpers.ARIAUtils.markAsHidden(this._headerTable);
     this._headerTableHeaders = {};
     this._scrollContainer = this.element.createChild('div', 'data-container');
     this._dataTable = this._scrollContainer.createChild('table', 'data');
@@ -304,7 +305,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
   setFocusable(focusable: boolean): void {
     this.element.tabIndex = focusable ? 0 : -1;
     if (focusable === false) {
-      UI.ARIAUtils.removeRole(this.element);
+      ComponentHelpers.ARIAUtils.removeRole(this.element);
     }
   }
 
@@ -319,7 +320,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
         (this.selectedNode && this.selectedNode.existingElement()) ? this.selectedNode.nodeAccessibleText : '';
     if (this.element === this.element.ownerDocument.deepActiveElement()) {
       // Only alert if the datagrid has focus
-      UI.ARIAUtils.alert(text ? text : accessibleText);
+      ComponentHelpers.ARIAUtils.alert(text ? text : accessibleText);
     }
   }
 
@@ -344,7 +345,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
       const items = i18nString(UIStrings.rowsS, {PH1: children.length});
       accessibleText = i18nString(UIStrings.sSUseTheUpAndDownArrowKeysTo, {PH1: this._displayName, PH2: items});
     }
-    UI.ARIAUtils.alert(accessibleText);
+    ComponentHelpers.ARIAUtils.alert(accessibleText);
   }
 
   headerTableBody(): Element {
@@ -520,7 +521,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
     const column = this.visibleColumnsArray[cellIndex];
     if (column.dataType === DataType.Boolean) {
       const checkboxLabel = UI.UIUtils.CheckboxLabel.create(undefined, (node.data[column.id] as boolean));
-      UI.ARIAUtils.setAccessibleName(checkboxLabel, column.title || '');
+      ComponentHelpers.ARIAUtils.setAccessibleName(checkboxLabel, column.title || '');
 
       let hasChanged = false;
       checkboxLabel.style.height = '100%';
@@ -1047,7 +1048,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
       emptyData[column] = null;
     }
     this.creationNode = new CreationDataGridNode(emptyData, hasChildren);
-    UI.ARIAUtils.alert(i18nString(UIStrings.emptyRowCreated));
+    ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.emptyRowCreated));
     this.rootNode().appendChild(this.creationNode);
   }
 
@@ -1894,9 +1895,9 @@ export class DataGridNode<T> extends Common.ObjectWrapper.ObjectWrapper {
     this.cellAccessibleTextMap.set(columnId, name);
     // Mark all direct children of cell as hidden so cell name is properly announced
     for (let i = 0; i < cell.children.length; i++) {
-      UI.ARIAUtils.markAsHidden(cell.children[i]);
+      ComponentHelpers.ARIAUtils.markAsHidden(cell.children[i]);
     }
-    UI.ARIAUtils.setAccessibleName(cell, name);
+    ComponentHelpers.ARIAUtils.setAccessibleName(cell, name);
   }
 
   nodeSelfHeight(): number {

@@ -35,6 +35,7 @@
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 const UIStrings = {
@@ -64,7 +65,8 @@ export class FontView extends UI.View.SimpleView {
     this.registerRequiredCSS('ui/legacy/components/source_frame/fontView.css');
     this.element.classList.add('font-view');
     this._url = contentProvider.contentURL();
-    UI.ARIAUtils.setAccessibleName(this.element, i18nString(UIStrings.previewOfFontFromS, {PH1: this._url}));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        this.element, i18nString(UIStrings.previewOfFontFromS, {PH1: this._url}));
     this._mimeType = mimeType;
     this._contentProvider = contentProvider;
     this._mimeTypeLabel = new UI.Toolbar.ToolbarText(mimeType);
@@ -108,7 +110,7 @@ export class FontView extends UI.View.SimpleView {
     if (!this.fontPreviewElement) {
       return;
     }
-    UI.ARIAUtils.markAsHidden(this.fontPreviewElement);
+    ComponentHelpers.ARIAUtils.markAsHidden(this.fontPreviewElement);
     this.fontPreviewElement.style.overflow = 'hidden';
     this.fontPreviewElement.style.setProperty('font-family', uniqueFontName);
     this.fontPreviewElement.style.setProperty('visibility', 'hidden');

@@ -37,6 +37,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -208,7 +209,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     const filterContainerElement = hbox.createChild('div', 'styles-sidebar-pane-filter-box');
     const filterInput = StylesSidebarPane.createPropertyFilterElement(
         i18nString(UIStrings.filter), hbox, this.filterComputedStyles.bind(this));
-    UI.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterComputedStyles));
+    ComponentHelpers.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterComputedStyles));
     filterContainerElement.appendChild(filterInput);
     this.input = filterInput;
     this._filterRegex = null;

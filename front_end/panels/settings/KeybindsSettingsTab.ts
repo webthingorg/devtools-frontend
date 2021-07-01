@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -103,10 +104,10 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     this._items = new UI.ListModel.ListModel();
     this._list = new UI.ListControl.ListControl(this._items, this, UI.ListControl.ListMode.NonViewport);
     this._items.replaceAll(this._createListItems());
-    UI.ARIAUtils.markAsList(this._list.element);
+    ComponentHelpers.ARIAUtils.markAsList(this._list.element);
     this.registerRequiredCSS('panels/settings/keybindsSettingsTab.css');
     this.contentElement.appendChild(this._list.element);
-    UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.keyboardShortcutsList));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.keyboardShortcutsList));
     const footer = this.contentElement.createChild('div');
     footer.classList.add('keybinds-footer');
     const docsLink = UI.XLink.XLink.create(
@@ -137,20 +138,20 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     let itemElement = document.createElement('div');
 
     if (typeof item === 'string') {
-      UI.ARIAUtils.setLevel(itemElement, 1);
+      ComponentHelpers.ARIAUtils.setLevel(itemElement, 1);
       itemElement.classList.add('keybinds-category-header');
       itemElement.textContent = item;
     } else {
       const listItem = new ShortcutListItem(item, this, item === this._editingItem);
       itemElement = listItem.element;
-      UI.ARIAUtils.setLevel(itemElement, 2);
+      ComponentHelpers.ARIAUtils.setLevel(itemElement, 2);
       if (item === this._editingItem) {
         this._editingRow = listItem;
       }
     }
 
     itemElement.classList.add('keybinds-list-item');
-    UI.ARIAUtils.markAsListitem(itemElement);
+    ComponentHelpers.ARIAUtils.markAsListitem(itemElement);
     itemElement.tabIndex = item === this._list.selectedItem() && item !== this._editingItem ? 0 : -1;
     return itemElement;
   }
@@ -339,12 +340,12 @@ export class ShortcutListItem {
   _createEmptyInfo(): void {
     if (UI.ShortcutRegistry.ShortcutRegistry.instance().actionHasDefaultShortcut(this._item.id())) {
       const icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
-      UI.ARIAUtils.setAccessibleName(icon, i18nString(UIStrings.shortcutModified));
+      ComponentHelpers.ARIAUtils.setAccessibleName(icon, i18nString(UIStrings.shortcutModified));
       this.element.appendChild(icon);
     }
     if (!this._isEditing) {
       const emptyElement = this.element.createChild('div', 'keybinds-shortcut keybinds-list-text');
-      UI.ARIAUtils.setAccessibleName(emptyElement, i18nString(UIStrings.noShortcutForAction));
+      ComponentHelpers.ARIAUtils.setAccessibleName(emptyElement, i18nString(UIStrings.noShortcutForAction));
       if (Root.Runtime.experiments.isEnabled('keyboardShortcutEditor')) {
         this.element.appendChild(this._createEditButton());
       }
@@ -356,14 +357,14 @@ export class ShortcutListItem {
     const addShortcutLink = this._addShortcutLinkContainer.createChild('span', 'devtools-link') as HTMLDivElement;
     addShortcutLink.textContent = i18nString(UIStrings.addAShortcut);
     addShortcutLink.tabIndex = 0;
-    UI.ARIAUtils.markAsLink(addShortcutLink);
+    ComponentHelpers.ARIAUtils.markAsLink(addShortcutLink);
     self.onInvokeElement(addShortcutLink, this._addShortcut.bind(this));
     if (!this._elementToFocus) {
       this._elementToFocus = addShortcutLink;
     }
 
     this._errorMessageElement = this.element.createChild('div', 'keybinds-info keybinds-error hidden');
-    UI.ARIAUtils.markAsAlert(this._errorMessageElement);
+    ComponentHelpers.ARIAUtils.markAsAlert(this._errorMessageElement);
     this.element.appendChild(this._createIconButton(
         i18nString(UIStrings.ResetShortcutsForAction), 'largeicon-undo', '',
         this._resetShortcutsToDefaults.bind(this)));
@@ -400,7 +401,7 @@ export class ShortcutListItem {
     let icon: UI.Icon.Icon;
     if (shortcut.type !== UI.KeyboardShortcut.Type.UnsetShortcut && !shortcut.isDefault()) {
       icon = UI.Icon.Icon.create('largeicon-shortcut-changed', 'keybinds-modified');
-      UI.ARIAUtils.setAccessibleName(icon, i18nString(UIStrings.shortcutModified));
+      ComponentHelpers.ARIAUtils.setAccessibleName(icon, i18nString(UIStrings.shortcutModified));
       this.element.appendChild(icon);
     }
     const shortcutElement = this.element.createChild('div', 'keybinds-shortcut keybinds-list-text');
@@ -456,7 +457,7 @@ export class ShortcutListItem {
     const button = document.createElement('button') as HTMLButtonElement;
     button.appendChild(UI.Icon.Icon.create(iconName));
     button.addEventListener('click', listener);
-    UI.ARIAUtils.setAccessibleName(button, label);
+    ComponentHelpers.ARIAUtils.setAccessibleName(button, label);
     if (className) {
       button.classList.add(className);
     }
@@ -566,7 +567,7 @@ export class ShortcutListItem {
       if (userDescriptors.some(descriptor => UI.KeyboardShortcut.KeyboardShortcut.isModifier(descriptor.key))) {
         confirmButton.disabled = true;
         shortcutInput.classList.add('error-input');
-        UI.ARIAUtils.setInvalid(shortcutInput, true);
+        ComponentHelpers.ARIAUtils.setInvalid(shortcutInput, true);
         errorMessageElement.classList.remove('hidden');
         errorMessageElement.textContent = i18nString(UIStrings.shortcutsCannotContainOnly);
         return;
@@ -577,7 +578,7 @@ export class ShortcutListItem {
       if (conflicts.length) {
         confirmButton.disabled = true;
         shortcutInput.classList.add('error-input');
-        UI.ARIAUtils.setInvalid(shortcutInput, true);
+        ComponentHelpers.ARIAUtils.setInvalid(shortcutInput, true);
         errorMessageElement.classList.remove('hidden');
         const action = UI.ActionRegistry.ActionRegistry.instance().action(conflicts[0]);
         if (!action) {
@@ -590,7 +591,7 @@ export class ShortcutListItem {
         return;
       }
       shortcutInput.classList.remove('error-input');
-      UI.ARIAUtils.setInvalid(shortcutInput, false);
+      ComponentHelpers.ARIAUtils.setInvalid(shortcutInput, false);
     });
   }
 }

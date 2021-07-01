@@ -6,6 +6,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -90,7 +91,7 @@ export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox implements
 
     const header = this.contentElement.createChild('div', 'header');
     header.textContent = i18nString(UIStrings.frameworkIgnoreList);
-    UI.ARIAUtils.markAsHeading(header, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(header, 1);
     this.contentElement.createChild('div', 'intro').textContent = i18nString(UIStrings.debuggerWillSkipThroughThe);
 
     const ignoreListContentScripts = this.contentElement.createChild('div', 'ignore-list-content-scripts');
@@ -113,7 +114,7 @@ export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox implements
     this._list.show(this.contentElement);
     const addPatternButton =
         UI.UIUtils.createTextButton(i18nString(UIStrings.addPattern), this._addButtonClicked.bind(this), 'add-button');
-    UI.ARIAUtils.setAccessibleName(addPatternButton, i18nString(UIStrings.addFilenamePattern));
+    ComponentHelpers.ARIAUtils.setAccessibleName(addPatternButton, i18nString(UIStrings.addFilenamePattern));
     this.contentElement.appendChild(addPatternButton);
     this._setting =
         Common.Settings.Settings.instance().moduleSetting('skipStackFramesPattern') as Common.Settings.RegExpSetting;
@@ -205,11 +206,11 @@ export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox implements
 
     const fields = content.createChild('div', 'ignore-list-edit-row');
     const pattern = editor.createInput('pattern', 'text', '/framework\\.js$', patternValidator.bind(this));
-    UI.ARIAUtils.setAccessibleName(pattern, i18nString(UIStrings.pattern));
+    ComponentHelpers.ARIAUtils.setAccessibleName(pattern, i18nString(UIStrings.pattern));
     fields.createChild('div', 'ignore-list-pattern').appendChild(pattern);
     fields.createChild('div', 'ignore-list-separator ignore-list-separator-invisible');
     const behavior = editor.createSelect('behavior', [this._ignoreListLabel, this._disabledLabel], behaviorValidator);
-    UI.ARIAUtils.setAccessibleName(behavior, i18nString(UIStrings.behavior));
+    ComponentHelpers.ARIAUtils.setAccessibleName(behavior, i18nString(UIStrings.behavior));
     fields.createChild('div', 'ignore-list-behavior').appendChild(behavior);
 
     return editor;

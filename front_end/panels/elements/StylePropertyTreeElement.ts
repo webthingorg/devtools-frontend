@@ -11,6 +11,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -19,6 +20,7 @@ import {BezierPopoverIcon, ColorSwatchPopoverIcon, ShadowSwatchPopoverHelper} fr
 import * as ElementsComponents from './components/components.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
+
 import type {StylePropertiesSection} from './StylesSidebarPane.js';
 import {CSSPropertyPrompt, StylesSidebarPane, StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';  // eslint-disable-line no-unused-vars
 
@@ -670,7 +672,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         event.consume();
       }, false);
       if (this.nameElement && this.valueElement) {
-        UI.ARIAUtils.setAccessibleName(
+        ComponentHelpers.ARIAUtils.setAccessibleName(
             enabledCheckboxElement, `${this.nameElement.textContent} ${this.valueElement.textContent}`);
       }
       this.listItemElement.insertBefore(enabledCheckboxElement, this.listItemElement.firstChild);
@@ -996,7 +998,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const invalidString = this.property.getInvalidStringForInvalidProperty();
     if (invalidString && selectElement) {
-      UI.ARIAUtils.alert(invalidString);
+      ComponentHelpers.ARIAUtils.alert(invalidString);
     }
 
     if (selectElement) {

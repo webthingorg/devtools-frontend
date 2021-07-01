@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {MobileThrottlingSelector} from './MobileThrottlingSelector.js';
@@ -95,7 +96,6 @@ export class ThrottlingManager {
       SDK.NetworkManager.MultitargetNetworkManager.instance().setNetworkConditions(
           this._currentNetworkThrottlingConditionsSetting.get());
     }
-
   }
 
   static instance(opts: {forceNew: boolean|null} = {forceNew: null}): ThrottlingManager {
@@ -124,13 +124,14 @@ export class ThrottlingManager {
           // The title is usually an i18nLazyString except for custom values that are stored in the local storage in the form of a string.
           const title = typeof conditions.title === 'function' ? conditions.title() : conditions.title;
           const option = new Option(title, title);
-          UI.ARIAUtils.setAccessibleName(option, i18nString(UIStrings.sS, {PH1: group.title, PH2: title}));
+          ComponentHelpers.ARIAUtils.setAccessibleName(
+              option, i18nString(UIStrings.sS, {PH1: group.title, PH2: title}));
           groupElement.appendChild(option);
           options.push(conditions);
         }
         if (i === groups.length - 1) {
           const option = new Option(i18nString(UIStrings.add), i18nString(UIStrings.add));
-          UI.ARIAUtils.setAccessibleName(option, i18nString(UIStrings.addS, {PH1: group.title}));
+          ComponentHelpers.ARIAUtils.setAccessibleName(option, i18nString(UIStrings.addS, {PH1: group.title}));
           groupElement.appendChild(option);
           options.push(null);
         }

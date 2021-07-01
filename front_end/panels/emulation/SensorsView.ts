@@ -8,6 +8,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -253,7 +254,7 @@ export class SensorsView extends UI.Widget.VBox {
 
     const noOverrideOption = {title: i18nString(UIStrings.noOverride), location: NonPresetOptions.NoOverride};
     this._locationSelectElement = (fields.createChild('select', 'chrome-select') as HTMLSelectElement);
-    UI.ARIAUtils.bindLabelToControl(geogroupTitle, this._locationSelectElement);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(geogroupTitle, this._locationSelectElement);
 
     // No override
     this._locationSelectElement.appendChild(new Option(noOverrideOption.title, noOverrideOption.location));
@@ -262,7 +263,7 @@ export class SensorsView extends UI.Widget.VBox {
     const customLocations = Common.Settings.Settings.instance().moduleSetting('emulation.locations');
     const manageButton =
         UI.UIUtils.createTextButton(i18nString(UIStrings.manage), () => Common.Revealer.reveal(customLocations));
-    UI.ARIAUtils.setAccessibleName(manageButton, i18nString(UIStrings.manageTheListOfLocations));
+    ComponentHelpers.ARIAUtils.setAccessibleName(manageButton, i18nString(UIStrings.manageTheListOfLocations));
     fields.appendChild(manageButton);
     const fillCustomSettings = (): void => {
       if (!this._customLocationsGroup) {
@@ -455,7 +456,7 @@ export class SensorsView extends UI.Widget.VBox {
       ],
     }];
     this._orientationSelectElement = (this.contentElement.createChild('select', 'chrome-select') as HTMLSelectElement);
-    UI.ARIAUtils.bindLabelToControl(orientationTitle, this._orientationSelectElement);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(orientationTitle, this._orientationSelectElement);
     this._orientationSelectElement.appendChild(
         new Option(orientationOffOption.title, orientationOffOption.orientation));
     this._orientationSelectElement.appendChild(
@@ -579,7 +580,7 @@ export class SensorsView extends UI.Widget.VBox {
     this._deviceOrientation = deviceOrientation;
     this._applyDeviceOrientation();
 
-    UI.ARIAUtils.alert(i18nString(
+    ComponentHelpers.ARIAUtils.alert(i18nString(
         UIStrings.deviceOrientationSetToAlphaSBeta,
         {PH1: deviceOrientation.alpha, PH2: deviceOrientation.beta, PH3: deviceOrientation.gamma}));
   }
@@ -623,7 +624,7 @@ export class SensorsView extends UI.Widget.VBox {
 
     const resetButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.reset), this._resetDeviceOrientation.bind(this), 'orientation-reset-button');
-    UI.ARIAUtils.setAccessibleName(resetButton, i18nString(UIStrings.resetDeviceOrientation));
+    ComponentHelpers.ARIAUtils.setAccessibleName(resetButton, i18nString(UIStrings.resetDeviceOrientation));
     resetButton.setAttribute('type', 'reset');
     cellElement.appendChild(resetButton);
     return fieldsetElement;

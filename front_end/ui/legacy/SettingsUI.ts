@@ -32,8 +32,8 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {InspectorView} from './InspectorView.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel} from './UIUtils.js';
@@ -82,7 +82,7 @@ const createSettingSelect = function(
     settingSelectElement.classList.add('chrome-select-label');
     label.createChild('p').textContent = subtitle;
   }
-  ARIAUtils.bindLabelToControl(label, select);
+  ComponentHelpers.ARIAUtils.bindLabelToControl(label, select);
 
   for (const option of options) {
     if (option.text && typeof option.value === 'string') {
@@ -94,7 +94,7 @@ const createSettingSelect = function(
   if (requiresReload) {
     reloadWarning = settingSelectElement.createChild('span', 'reload-warning hidden');
     reloadWarning.textContent = i18nString(UIStrings.srequiresReload);
-    ARIAUtils.markAsAlert(reloadWarning);
+    ComponentHelpers.ARIAUtils.markAsAlert(reloadWarning);
   }
 
   setting.addChangeListener(settingChanged);
@@ -144,7 +144,7 @@ export const createCustomSetting = function(name: string, element: Element): Ele
   const fieldsetElement = p.createChild('fieldset');
   const label = fieldsetElement.createChild('label');
   label.textContent = name;
-  ARIAUtils.bindLabelToControl(label, element);
+  ComponentHelpers.ARIAUtils.bindLabelToControl(label, element);
   fieldsetElement.appendChild(element);
   return p;
 };

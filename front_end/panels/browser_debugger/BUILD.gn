@@ -22,6 +22,7 @@ devtools_module("browser_debugger") {
     "../../core/sdk:bundle",
     "../../panels/event_listeners:bundle",
     "../../panels/sources:bundle",
+    "../../ui/components/helpers:bundle",
     "../../ui/legacy:bundle",
   ]
 }

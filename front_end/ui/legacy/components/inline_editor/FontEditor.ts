@@ -6,6 +6,7 @@
 
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 
@@ -260,7 +261,7 @@ export class FontEditor extends UI.Widget.VBox {
     let fontSelectorObject: FontEditor.FontSelectorObject = this._fontSelectors[index];
     const isPrimary = index === 0;
     if (fontSelectorObject.input.value === '' && !isGlobalValue) {
-      UI.ARIAUtils.alert(i18nString(UIStrings.thereIsNoValueToDeleteAtIndexS, {PH1: index}));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.thereIsNoValueToDeleteAtIndexS, {PH1: index}));
       return;
     }
     if (isPrimary) {
@@ -286,7 +287,7 @@ export class FontEditor extends UI.Widget.VBox {
           this._updateFontSelectorList();
         }
       }
-      UI.ARIAUtils.alert(i18nString(UIStrings.fontSelectorDeletedAtIndexS, {PH1: index}));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.fontSelectorDeletedAtIndexS, {PH1: index}));
     }
     this._onFontSelectorChanged();
     this._resizePopout();
@@ -304,7 +305,7 @@ export class FontEditor extends UI.Widget.VBox {
         label = i18nString(UIStrings.fallbackS, {PH1: i});
       }
       fontSelectorObject.label.textContent = label;
-      UI.ARIAUtils.setAccessibleName(fontSelectorObject.input, label);
+      ComponentHelpers.ARIAUtils.setAccessibleName(fontSelectorObject.input, label);
       fontSelectorObject.deleteButton.setTitle(i18nString(UIStrings.deleteS, {PH1: label}));
       fontSelectorObject.index = i;
     }
@@ -458,7 +459,7 @@ class FontPropertyInputs {
     this._errorText = (field.createChild('div', 'error-text') as HTMLElement);
     this._errorText.textContent = i18nString(UIStrings.PleaseEnterAValidValueForSText, {PH1: propertyName});
     this._errorText.hidden = true;
-    UI.ARIAUtils.markAsAlert(this._errorText);
+    ComponentHelpers.ARIAUtils.markAsAlert(this._errorText);
     this._propertyInfo = propertyInfo;
     this._propertyName = propertyName;
     this._staticParams = staticParams;
@@ -483,7 +484,7 @@ class FontPropertyInputs {
     propertyField.append(propertyLabel);
     this._sliderInput = this._createSliderInput(propertyField, label);
     this._textBoxInput = this._createTextBoxInput(propertyField);
-    UI.ARIAUtils.bindLabelToControl(propertyLabel, this._textBoxInput);
+    ComponentHelpers.ARIAUtils.bindLabelToControl(propertyLabel, this._textBoxInput);
     this._unitInput = this._createUnitInput(propertyField);
     this._selectorInput = this._createSelectorInput(propertyField);
     this._createTypeToggle(propertyField);
@@ -579,7 +580,8 @@ class FontPropertyInputs {
       }
     });
     field.appendChild(slider);
-    UI.ARIAUtils.setAccessibleName(slider.sliderElement, i18nString(UIStrings.sSliderInput, {PH1: this._propertyName}));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        slider.sliderElement, i18nString(UIStrings.sSliderInput, {PH1: this._propertyName}));
     return slider;
   }
 
@@ -597,7 +599,8 @@ class FontPropertyInputs {
     textBoxInput.step = 'any';
     textBoxInput.addEventListener('input', this._onTextBoxInput.bind(this), false);
     field.appendChild(textBoxInput);
-    UI.ARIAUtils.setAccessibleName(textBoxInput, i18nString(UIStrings.sTextInput, {PH1: this._propertyName}));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        textBoxInput, i18nString(UIStrings.sTextInput, {PH1: this._propertyName}));
     return textBoxInput;
   }
 
@@ -627,7 +630,8 @@ class FontPropertyInputs {
       }
     }, false);
     field.appendChild(unitInput);
-    UI.ARIAUtils.setAccessibleName(unitInput, i18nString(UIStrings.sUnitInput, {PH1: this._propertyName}));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        unitInput, i18nString(UIStrings.sUnitInput, {PH1: this._propertyName}));
 
     return unitInput;
   }
@@ -727,7 +731,7 @@ class FontPropertyInputs {
     UI.UIUtils.setTitle(displaySwitcher, i18nString(UIStrings.sToggleInputType, {PH1: this._propertyName}));
     displaySwitcher.tabIndex = 0;
     self.onInvokeElement(displaySwitcher, this._toggleInputType.bind(this));
-    UI.ARIAUtils.markAsButton(displaySwitcher);
+    ComponentHelpers.ARIAUtils.markAsButton(displaySwitcher);
   }
 
   _toggleInputType(event?: Event): void {
@@ -741,7 +745,7 @@ class FontPropertyInputs {
       this._unitInput.hidden = true;
       this._selectorInput.hidden = false;
       this._showSliderMode = false;
-      UI.ARIAUtils.alert(i18nString(UIStrings.selectorInputMode));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.selectorInputMode));
     } else {
       // Show sliderinput type
       this._sliderInput.hidden = false;
@@ -749,7 +753,7 @@ class FontPropertyInputs {
       this._unitInput.hidden = false;
       this._selectorInput.hidden = true;
       this._showSliderMode = true;
-      UI.ARIAUtils.alert(i18nString(UIStrings.sliderInputMode));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.sliderInputMode));
     }
   }
 

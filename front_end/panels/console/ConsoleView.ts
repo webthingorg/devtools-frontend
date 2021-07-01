@@ -43,6 +43,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
@@ -414,8 +415,8 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     settingsPane.show(this._contentsElement);
     settingsPane.element.classList.add('console-settings-pane');
 
-    UI.ARIAUtils.setAccessibleName(settingsPane.element, i18nString(UIStrings.consoleSettings));
-    UI.ARIAUtils.markAsGroup(settingsPane.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(settingsPane.element, i18nString(UIStrings.consoleSettings));
+    ComponentHelpers.ARIAUtils.markAsGroup(settingsPane.element);
     const settingsToolbarLeft = new UI.Toolbar.Toolbar('', settingsPane.element);
     settingsToolbarLeft.makeVertical();
     settingsToolbarLeft.appendToolbarItem(this._hideNetworkMessagesCheckbox);
@@ -463,8 +464,8 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this._messagesElement.addEventListener('click', this._messagesClicked.bind(this), false);
     this._messagesElement.addEventListener('paste', this._messagesPasted.bind(this), true);
     this._messagesElement.addEventListener('clipboard-paste', this._messagesPasted.bind(this), true);
-    UI.ARIAUtils.markAsLog(this._messagesElement);
-    UI.ARIAUtils.markAsPoliteLiveRegion(this._messagesElement, false);
+    ComponentHelpers.ARIAUtils.markAsLog(this._messagesElement);
+    ComponentHelpers.ARIAUtils.markAsPoliteLiveRegion(this._messagesElement, false);
 
     this._viewportThrottler = new Common.Throttler.Throttler(50);
     this._pendingBatchResize = false;
@@ -481,7 +482,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     // FIXME: This is a workaround for the selection machinery bug. See crbug.com/410899
     const selectAllFixer = this._messagesElement.createChild('div', 'console-view-fix-select-all');
     selectAllFixer.textContent = '.';
-    UI.ARIAUtils.markAsHidden(selectAllFixer);
+    ComponentHelpers.ARIAUtils.markAsHidden(selectAllFixer);
 
     this._registerShortcuts();
 
@@ -948,7 +949,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     if (hadFocus) {
       this._prompt.focus();
     }
-    UI.ARIAUtils.alert(i18nString(UIStrings.consoleCleared));
+    ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.consoleCleared));
   }
 
   _handleContextMenuEvent(event: Event): void {
@@ -1495,7 +1496,7 @@ export class ConsoleViewFilter {
     this._levelMenuButton.turnIntoSelect();
     this._levelMenuButton.addEventListener(
         UI.Toolbar.ToolbarButton.Events.Click, this._showLevelContextMenu.bind(this));
-    UI.ARIAUtils.markAsMenuButton(this._levelMenuButton.element);
+    ComponentHelpers.ARIAUtils.markAsMenuButton(this._levelMenuButton.element);
 
     this._updateLevelMenuButtonText();
     this._messageLevelFiltersSetting.addChangeListener(this._updateLevelMenuButtonText.bind(this));

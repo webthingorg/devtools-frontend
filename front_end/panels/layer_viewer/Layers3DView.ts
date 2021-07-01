@@ -33,6 +33,8 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import type * as SDK from '../../core/sdk/sdk.js';
@@ -149,7 +151,7 @@ export class Layers3DView extends UI.Widget.VBox implements LayerView {
     this._canvasElement.addEventListener('mouseleave', this._onMouseMove.bind(this), false);
     this._canvasElement.addEventListener('mousemove', this._onMouseMove.bind(this), false);
     this._canvasElement.addEventListener('contextmenu', this._onContextMenu.bind(this), false);
-    UI.ARIAUtils.setAccessibleName(this._canvasElement, i18nString(UIStrings.dLayersView));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._canvasElement, i18nString(UIStrings.dLayersView));
 
     this._lastSelection = {};
     this._layerTree = null;

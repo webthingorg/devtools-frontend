@@ -37,12 +37,14 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
+
 import type {MarkerDecoratorRegistration} from './MarkerDecorator.js'; // eslint-disable-line no-unused-vars
 
 const UIStrings = {
@@ -111,7 +113,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     if (hideGutter) {
       this._element.classList.add('elements-hide-gutter');
     }
-    UI.ARIAUtils.setAccessibleName(this._element, i18nString(UIStrings.pageDom));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._element, i18nString(UIStrings.pageDom));
     this._element.addEventListener('focusout', this._onfocusout.bind(this), false);
     this._element.addEventListener('mousedown', this._onmousedown.bind(this), false);
     this._element.addEventListener('mousemove', this._onmousemove.bind(this), false);

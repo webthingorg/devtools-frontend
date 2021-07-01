@@ -19,6 +19,7 @@ devtools_module("security") {
     "../../core/sdk:bundle",
     "../../generated:protocol",
     "../../panels/network/forward:bundle",
+    "../../ui/components/helpers:bundle",
     "../../ui/legacy:bundle",
   ]
 }

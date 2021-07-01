@@ -37,8 +37,8 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {HistoryInput} from './HistoryInput.js';
 import {InspectorView} from './InspectorView.js';
 import {Toolbar, ToolbarButton, ToolbarToggle} from './Toolbar.js';
@@ -163,13 +163,14 @@ export class SearchableView extends VBox {
         searchNavigationElement.createChild('div', 'toolbar-search-navigation toolbar-search-navigation-prev');
     this._searchNavigationPrevElement.addEventListener('click', this._onPrevButtonSearch.bind(this), false);
     Tooltip.install(this._searchNavigationPrevElement, i18nString(UIStrings.searchPrevious));
-    ARIAUtils.setAccessibleName(this._searchNavigationPrevElement, i18nString(UIStrings.searchPrevious));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        this._searchNavigationPrevElement, i18nString(UIStrings.searchPrevious));
 
     this._searchNavigationNextElement =
         searchNavigationElement.createChild('div', 'toolbar-search-navigation toolbar-search-navigation-next');
     this._searchNavigationNextElement.addEventListener('click', this._onNextButtonSearch.bind(this), false);
     Tooltip.install(this._searchNavigationNextElement, i18nString(UIStrings.searchNext));
-    ARIAUtils.setAccessibleName(this._searchNavigationNextElement, i18nString(UIStrings.searchNext));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._searchNavigationNextElement, i18nString(UIStrings.searchNext));
 
     this._searchInputElement.addEventListener('keydown', this._onSearchKeyDown.bind(this), true);
     this._searchInputElement.addEventListener('input', this._onInput.bind(this), false);
@@ -278,7 +279,7 @@ export class SearchableView extends VBox {
   setPlaceholder(placeholder: string, ariaLabel?: string): void {
     this._searchInputElement.placeholder = placeholder;
     if (ariaLabel) {
-      ARIAUtils.setAccessibleName(this._searchInputElement, ariaLabel);
+      ComponentHelpers.ARIAUtils.setAccessibleName(this._searchInputElement, ariaLabel);
     }
   }
 

@@ -37,7 +37,9 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
@@ -283,15 +285,15 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
       UI.Tooltip.Tooltip.install(linkElement, item.linkText);
       element.classList.toggle('ignore-listed-call-frame', item.isIgnoreListed);
       if (item.isIgnoreListed) {
-        UI.ARIAUtils.setDescription(element, i18nString(UIStrings.onIgnoreList));
+        ComponentHelpers.ARIAUtils.setDescription(element, i18nString(UIStrings.onIgnoreList));
       }
       if (!itemToCallFrame.has(item)) {
-        UI.ARIAUtils.setDisabled(element, true);
+        ComponentHelpers.ARIAUtils.setDisabled(element, true);
       }
     }
     const isSelected = itemToCallFrame.get(item) === UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
     element.classList.toggle('selected', isSelected);
-    UI.ARIAUtils.setSelected(element, isSelected);
+    ComponentHelpers.ARIAUtils.setSelected(element, isSelected);
     element.classList.toggle('hidden', !this._showIgnoreListed && item.isIgnoreListed);
     element.appendChild(UI.Icon.Icon.create('smallicon-thick-right-arrow', 'selected-call-frame-icon'));
     element.tabIndex = item === this._list.selectedItem() ? 0 : -1;
@@ -331,7 +333,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     element.createChild('span');
     const showAllLink = element.createChild('span', 'link');
     showAllLink.textContent = i18nString(UIStrings.showIgnorelistedFrames);
-    UI.ARIAUtils.markAsLink(showAllLink);
+    ComponentHelpers.ARIAUtils.markAsLink(showAllLink);
     showAllLink.tabIndex = 0;
     const showAll = (): void => {
       this._showIgnoreListed = true;

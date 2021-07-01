@@ -8,7 +8,6 @@ import("./visibility.gni")
 
 devtools_module("ui") {
   sources = [
-    "ARIAUtils.ts",
     "ActionRegistration.ts",
     "ActionRegistry.ts",
     "Context.ts",

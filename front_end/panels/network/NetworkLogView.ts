@@ -46,6 +46,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -458,7 +459,7 @@ export class NetworkLogView extends UI.Widget.VBox implements
                     ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
     this._resourceCategoryFilterUI =
         new UI.FilterBar.NamedBitSetFilterUI(filterItems, this._networkResourceTypeFiltersSetting);
-    UI.ARIAUtils.setAccessibleName(
+    ComponentHelpers.ARIAUtils.setAccessibleName(
         this._resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
     this._resourceCategoryFilterUI.addEventListener(
         UI.FilterBar.FilterUI.Events.FilterChanged, this._filterChanged.bind(this), this);
@@ -883,13 +884,13 @@ export class NetworkLogView extends UI.Widget.VBox implements
     if (this._recordingHint) {
       this._recordingHint.remove();
     }
-    UI.ARIAUtils.alert(i18nString(UIStrings.networkDataAvailable));
+    ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.networkDataAvailable));
     this._recordingHint = null;
   }
 
   _setHidden(value: boolean): void {
     this._columns.setHidden(value);
-    UI.ARIAUtils.setHidden(this._summaryToolbar.element, value);
+    ComponentHelpers.ARIAUtils.setHidden(this._summaryToolbar.element, value);
   }
 
   elementsToRestoreScrollPositionsFor(): Element[] {

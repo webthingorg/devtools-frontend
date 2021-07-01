@@ -6,9 +6,8 @@
 
 import * as Host from '../../core/host/host.js';
 import * as Platform from '../../core/platform/platform.js';
-import * as ComponentHelpers from '../components/helpers/helpers.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import type {ContextMenu, Provider} from './ContextMenu.js'; // eslint-disable-line no-unused-vars
 import {html} from './Fragment.js';
 import {Tooltip} from './Tooltip.js';
@@ -41,7 +40,7 @@ export class XLink extends XElement {
     super();
 
     this.style.setProperty('display', 'inline');
-    ARIAUtils.markAsLink(this);
+    ComponentHelpers.ARIAUtils.markAsLink(this);
     this.tabIndex = 0;
     this.target = '_blank';
     this.rel = 'noopener';

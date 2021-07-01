@@ -37,8 +37,8 @@ import * as Common from '../../core/common/common.js';
 import * as DOMExtension from '../../core/dom_extension/dom_extension.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import type {SuggestBoxDelegate, Suggestion} from './SuggestBox.js';
 import {SuggestBox} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
 import {Tooltip} from './Tooltip.js';
@@ -86,7 +86,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper implements Su
     this._ghostTextElement.classList.add('auto-complete-text');
     this._ghostTextElement.setAttribute('contenteditable', 'false');
     this._leftParenthesesIndices = [];
-    ARIAUtils.markAsHidden(this._ghostTextElement);
+    ComponentHelpers.ARIAUtils.markAsHidden(this._ghostTextElement);
   }
 
   initialize(
@@ -144,9 +144,10 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper implements Su
     }
     this._contentElement.appendChild(element);
     this._element.classList.add('text-prompt');
-    ARIAUtils.markAsTextBox(this._element);
-    ARIAUtils.setAutocomplete(this._element, ARIAUtils.AutocompleteInteractionModel.both);
-    ARIAUtils.setHasPopup(this._element, ARIAUtils.PopupRole.ListBox);
+    ComponentHelpers.ARIAUtils.markAsTextBox(this._element);
+    ComponentHelpers.ARIAUtils.setAutocomplete(
+        this._element, ComponentHelpers.ARIAUtils.AutocompleteInteractionModel.both);
+    ComponentHelpers.ARIAUtils.setHasPopup(this._element, ComponentHelpers.ARIAUtils.PopupRole.ListBox);
     this._element.setAttribute('contenteditable', 'plaintext-only');
     this.element().addEventListener('keydown', this._boundOnKeyDown, false);
     this._element.addEventListener('input', this._boundOnInput, false);
@@ -183,8 +184,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper implements Su
     this.element().classList.remove('text-prompt');
     this.element().removeAttribute('contenteditable');
     this.element().removeAttribute('role');
-    ARIAUtils.clearAutocomplete(this.element());
-    ARIAUtils.setHasPopup(this.element(), ARIAUtils.PopupRole.False);
+    ComponentHelpers.ARIAUtils.clearAutocomplete(this.element());
+    ComponentHelpers.ARIAUtils.setHasPopup(this.element(), ComponentHelpers.ARIAUtils.PopupRole.False);
   }
 
   textWithCurrentSuggestion(): string {
@@ -259,10 +260,10 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper implements Su
       this.element().setAttribute('data-placeholder', placeholder);
       // TODO(https://github.com/nvaccess/nvda/issues/10164): Remove ariaPlaceholder once the NVDA bug is fixed
       // ariaPlaceholder and placeholder may differ, like in case the placeholder contains a '?'
-      ARIAUtils.setPlaceholder(this.element(), ariaPlaceholder || placeholder);
+      ComponentHelpers.ARIAUtils.setPlaceholder(this.element(), ariaPlaceholder || placeholder);
     } else {
       this.element().removeAttribute('data-placeholder');
-      ARIAUtils.setPlaceholder(this.element(), null);
+      ComponentHelpers.ARIAUtils.setPlaceholder(this.element(), null);
     }
   }
 

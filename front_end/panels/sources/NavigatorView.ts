@@ -38,6 +38,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Snippets from '../snippets/snippets.js';
 
@@ -978,7 +979,7 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
   constructor(navigatorView: NavigatorView, type: string, title: string, hoverCallback?: ((arg0: boolean) => any)) {
     super('', true);
     this.listItemElement.classList.add('navigator-' + type + '-tree-item', 'navigator-folder-tree-item');
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${title}, ${type}`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, `${title}, ${type}`);
     this._nodeType = type;
     this.title = title;
     this.tooltip = title;
@@ -1017,7 +1018,7 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
     }
     paths.reverse();
     this.tooltip = paths.join('/');
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${this.title}, ${this._nodeType}`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, `${this.title}, ${this._nodeType}`);
   }
 
   _handleContextMenuEvent(event: Event): void {
@@ -1061,7 +1062,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
     this.listItemElement.classList.add(
         'navigator-' + uiSourceCode.contentType().name() + '-tree-item', 'navigator-file-tree-item');
     this.tooltip = uiSourceCode.url();
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, `${uiSourceCode.name()}, ${this._nodeType}`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.listItemElement, `${uiSourceCode.name()}, ${this._nodeType}`);
     Common.EventTarget.fireEvent('source-tree-file-added', uiSourceCode.fullDisplayName());
     this._navigatorView = navigatorView;
     this._uiSourceCode = uiSourceCode;

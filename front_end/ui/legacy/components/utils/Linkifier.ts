@@ -37,6 +37,8 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';  // eslint-disable-line no-unused-vars
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+
 import type * as Protocol from '../../../../generated/protocol.js';
 import * as UI from '../../legacy.js';
 
@@ -638,7 +640,7 @@ export class Linkifier implements SDK.TargetManager.Observer {
     } else {
       link.classList.add('devtools-link-prevent-click');
     }
-    UI.ARIAUtils.markAsLink(link);
+    ComponentHelpers.ARIAUtils.markAsLink(link);
     link.tabIndex = tabStop ? 0 : -1;
     return link;
   }

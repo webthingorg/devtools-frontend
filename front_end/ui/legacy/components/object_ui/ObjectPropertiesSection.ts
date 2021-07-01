@@ -38,6 +38,7 @@ import * as LinearMemoryInspector from '../../../components/linear_memory_inspec
 import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 
@@ -1707,7 +1708,7 @@ export class ExpandableTextPropertyValue extends ObjectPropertyValue {
           this._expandText();
         }
       });
-      UI.ARIAUtils.markAsButton(this._expandElement);
+      ComponentHelpers.ARIAUtils.markAsButton(this._expandElement);
     } else {
       this._expandElement.setAttribute('data-text', i18nString(UIStrings.longTextWasTruncatedS, {PH1: totalBytesText}));
       this._expandElement.classList.add('undisplayable-text');
@@ -1723,7 +1724,7 @@ export class ExpandableTextPropertyValue extends ObjectPropertyValue {
         this._copyText();
       }
     });
-    UI.ARIAUtils.markAsButton(copyButton);
+    ComponentHelpers.ARIAUtils.markAsButton(copyButton);
   }
 
   appendApplicableItems(_event: Event, contextMenu: UI.ContextMenu.ContextMenu, _object: Object): void {

@@ -35,6 +35,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {InputModel} from './InputModel.js';
@@ -152,7 +153,8 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     this._glassPaneElement =
         this._canvasContainerElement.createChild('div', 'screencast-glasspane fill hidden') as HTMLElement;
     this._canvasElement = this._canvasContainerElement.createChild('canvas') as HTMLCanvasElement;
-    UI.ARIAUtils.setAccessibleName(this._canvasElement, i18nString(UIStrings.screencastViewOfDebugTarget));
+    ComponentHelpers.ARIAUtils.setAccessibleName(
+        this._canvasElement, i18nString(UIStrings.screencastViewOfDebugTarget));
     this._canvasElement.tabIndex = 0;
     this._canvasElement.addEventListener('mousedown', this._handleMouseEvent.bind(this), false);
     this._canvasElement.addEventListener('mouseup', this._handleMouseEvent.bind(this), false);
@@ -655,14 +657,14 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     this._navigationBar = this.element.createChild('div', 'screencast-navigation') as HTMLElement;
     this._navigationBack = this._navigationBar.createChild('button', 'back') as HTMLButtonElement;
     this._navigationBack.disabled = true;
-    UI.ARIAUtils.setAccessibleName(this._navigationBack, i18nString(UIStrings.back));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._navigationBack, i18nString(UIStrings.back));
     this._navigationForward = this._navigationBar.createChild('button', 'forward') as HTMLButtonElement;
     this._navigationForward.disabled = true;
-    UI.ARIAUtils.setAccessibleName(this._navigationForward, i18nString(UIStrings.forward));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._navigationForward, i18nString(UIStrings.forward));
     this._navigationReload = this._navigationBar.createChild('button', 'reload');
-    UI.ARIAUtils.setAccessibleName(this._navigationReload, i18nString(UIStrings.reload));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._navigationReload, i18nString(UIStrings.reload));
     this._navigationUrl = UI.UIUtils.createInput() as HTMLInputElement;
-    UI.ARIAUtils.setAccessibleName(this._navigationUrl, i18nString(UIStrings.addressBar));
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._navigationUrl, i18nString(UIStrings.addressBar));
     this._navigationBar.appendChild(this._navigationUrl);
     this._navigationUrl.type = 'text';
     this._navigationProgressBar = new ProgressTracker(

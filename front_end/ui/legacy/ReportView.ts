@@ -4,7 +4,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {Toolbar} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {VBox} from './Widget.js';
@@ -32,7 +32,7 @@ export class ReportView extends VBox {
     } else {
       this._headerElement.classList.add('hidden');
     }
-    ARIAUtils.markAsHeading(this._titleElement, 1);
+    ComponentHelpers.ARIAUtils.markAsHeading(this._titleElement, 1);
 
     this._sectionList = this._contentBox.createChild('div', 'vbox');
   }
@@ -114,7 +114,7 @@ export class Section extends VBox {
     this._headerElement = this.element.createChild('div', 'report-section-header');
     this._titleElement = this._headerElement.createChild('div', 'report-section-title');
     this.setTitle(title);
-    ARIAUtils.markAsHeading(this._titleElement, 2);
+    ComponentHelpers.ARIAUtils.markAsHeading(this._titleElement, 2);
     this._fieldList = this.element.createChild('div', 'vbox');
     this._fieldMap = new Map();
   }
@@ -135,8 +135,8 @@ export class Section extends VBox {
    * Declares the overall container to be a group and assigns a title.
    */
   setUiGroupTitle(groupTitle: string): void {
-    ARIAUtils.markAsGroup(this.element);
-    ARIAUtils.setAccessibleName(this.element, groupTitle);
+    ComponentHelpers.ARIAUtils.markAsGroup(this.element);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.element, groupTitle);
   }
 
   createToolbar(): Toolbar {
@@ -200,8 +200,8 @@ export class Section extends VBox {
   }
 
   markFieldListAsGroup(): void {
-    ARIAUtils.markAsGroup(this._fieldList);
-    ARIAUtils.setAccessibleName(this._fieldList, this.title());
+    ComponentHelpers.ARIAUtils.markAsGroup(this._fieldList);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._fieldList, this.title());
   }
 
   setIconMasked(masked: boolean): void {

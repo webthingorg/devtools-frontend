@@ -9,6 +9,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -613,7 +614,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       }
       const eventStyle = TimelineUIUtils.eventStyle(event);
       const eventCategory = eventStyle.category;
-      UI.ARIAUtils.setAccessibleName(icon, eventCategory.title);
+      ComponentHelpers.ARIAUtils.setAccessibleName(icon, eventCategory.title);
       icon.style.backgroundColor = eventCategory.color;
     }
     return cell;

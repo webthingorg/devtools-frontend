@@ -9,6 +9,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {AnimationGroupPreviewUI} from './AnimationGroupPreviewUI.js';
@@ -227,8 +228,8 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
 
     const playbackRateControl = toolbarContainer.createChild('div', 'animation-playback-rate-control');
     playbackRateControl.addEventListener('keydown', this._handlePlaybackRateControlKeyDown.bind(this));
-    UI.ARIAUtils.markAsListBox(playbackRateControl);
-    UI.ARIAUtils.setAccessibleName(playbackRateControl, i18nString(UIStrings.playbackRates));
+    ComponentHelpers.ARIAUtils.markAsListBox(playbackRateControl);
+    ComponentHelpers.ARIAUtils.setAccessibleName(playbackRateControl, i18nString(UIStrings.playbackRates));
 
     /** @type {!Array<!HTMLElement>} */
     this._playbackRateButtons = [];
@@ -238,15 +239,15 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
                                           i18nString(UIStrings.pause);
       playbackRates.set(button, playbackRate);
       button.addEventListener('click', this._setPlaybackRate.bind(this, playbackRate));
-      UI.ARIAUtils.markAsOption(button);
+      ComponentHelpers.ARIAUtils.markAsOption(button);
       UI.Tooltip.Tooltip.install(button, i18nString(UIStrings.setSpeedToS, {PH1: button.textContent}));
       button.tabIndex = -1;
       this._playbackRateButtons.push(button);
     }
     this._updatePlaybackControls();
     this._previewContainer = (this.contentElement.createChild('div', 'animation-timeline-buffer') as HTMLElement);
-    UI.ARIAUtils.markAsListBox(this._previewContainer);
-    UI.ARIAUtils.setAccessibleName(this._previewContainer, i18nString(UIStrings.animationPreviews));
+    ComponentHelpers.ARIAUtils.markAsListBox(this._previewContainer);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._previewContainer, i18nString(UIStrings.animationPreviews));
     this._popoverHelper =
         new UI.PopoverHelper.PopoverHelper(this._previewContainer, this._getPopoverRequest.bind(this));
     this._popoverHelper.setDisableOnClick(true);
@@ -538,9 +539,9 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     preview.removeButton().addEventListener('click', this._removeAnimationGroup.bind(this, group));
     preview.element.addEventListener('click', this._selectAnimationGroup.bind(this, group));
     preview.element.addEventListener('keydown', this._handleAnimationGroupKeyDown.bind(this, group));
-    UI.ARIAUtils.setAccessibleName(
+    ComponentHelpers.ARIAUtils.setAccessibleName(
         preview.element, i18nString(UIStrings.animationPreviewS, {PH1: this._groupBuffer.indexOf(group) + 1}));
-    UI.ARIAUtils.markAsOption(preview.element);
+    ComponentHelpers.ARIAUtils.markAsOption(preview.element);
 
     if (this._previewMap.size === 1) {
       const preview = this._previewMap.get(this._groupBuffer[0]);
@@ -878,7 +879,7 @@ export class NodeUI {
     this.element.classList.add('animation-node-row');
     this._description = this.element.createChild('div', 'animation-node-description');
     this._timelineElement = this.element.createChild('div', 'animation-node-timeline');
-    UI.ARIAUtils.markAsApplication(this._timelineElement);
+    ComponentHelpers.ARIAUtils.markAsApplication(this._timelineElement);
   }
 
   nodeResolved(node: SDK.DOMModel.DOMNode|null): void {

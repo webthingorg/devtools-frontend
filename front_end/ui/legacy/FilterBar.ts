@@ -33,11 +33,12 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Icon} from './Icon.js';
 import {KeyboardShortcut, Modifiers} from './KeyboardShortcut.js';
 import {bindCheckbox} from './SettingsUI.js';
+
 import type {Suggestions} from './SuggestBox.js';
 import {Events, TextPrompt} from './TextPrompt.js';
 import type {ToolbarButton} from './Toolbar.js';
@@ -285,8 +286,8 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper impl
     super();
     this._filtersElement = document.createElement('div');
     this._filtersElement.classList.add('filter-bitset-filter');
-    ARIAUtils.markAsListBox(this._filtersElement);
-    ARIAUtils.markAsMultiSelectable(this._filtersElement);
+    ComponentHelpers.ARIAUtils.markAsListBox(this._filtersElement);
+    ComponentHelpers.ARIAUtils.markAsMultiSelectable(this._filtersElement);
     Tooltip.install(this._filtersElement, i18nString(UIStrings.sclickToSelectMultipleTypes, {
                       PH1: KeyboardShortcut.shortcutToString('', Modifiers.CtrlOrMeta),
                     }));
@@ -348,7 +349,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper impl
       const typeName = this._typeFilterElementTypeNames.get(element);
       const active = this._allowedTypes.has(typeName || '');
       element.classList.toggle('selected', active);
-      ARIAUtils.setSelected(element, active);
+      ComponentHelpers.ARIAUtils.setSelected(element, active);
     }
     this.dispatchEventToListeners(FilterUI.Events.FilterChanged, null);
   }
@@ -358,7 +359,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper impl
     typeFilterElement.tabIndex = -1;
     this._typeFilterElementTypeNames.set(typeFilterElement, name);
     createTextChild(typeFilterElement, label);
-    ARIAUtils.markAsOption(typeFilterElement);
+    ComponentHelpers.ARIAUtils.markAsOption(typeFilterElement);
     if (title) {
       typeFilterElement.title = title;
     }

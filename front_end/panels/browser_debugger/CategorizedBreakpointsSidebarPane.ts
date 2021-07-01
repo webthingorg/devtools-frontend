@@ -6,7 +6,9 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
@@ -83,7 +85,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
       }
     });
     labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
-    UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
+    ComponentHelpers.ARIAUtils.setChecked(treeElement.listItemElement, false);
     this._categoriesTreeOutline.appendChild(treeElement);
 
     this._categories.set(name, {element: treeElement, checkbox: labelNode.checkboxElement});
@@ -106,7 +108,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
       }
     });
     labelNode.checkboxElement.addEventListener('focus', () => treeElement.listItemElement.focus());
-    UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
+    ComponentHelpers.ARIAUtils.setChecked(treeElement.listItemElement, false);
     treeElement.listItemElement.createChild('div', 'breakpoint-hit-marker');
     const category = this._categories.get(breakpoint.category());
     if (category) {
@@ -128,7 +130,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
 
     if (!details || details.reason !== this._detailsPausedReason || !details.auxData) {
       if (this._highlightedElement) {
-        UI.ARIAUtils.setDescription(this._highlightedElement, '');
+        ComponentHelpers.ARIAUtils.setDescription(this._highlightedElement, '');
         this._highlightedElement.classList.remove('breakpoint-hit');
         delete this._highlightedElement;
       }
@@ -147,7 +149,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     const matchingBreakpoint = this._breakpoints.get(breakpoint);
     if (matchingBreakpoint) {
       this._highlightedElement = matchingBreakpoint.element.listItemElement;
-      UI.ARIAUtils.setDescription(this._highlightedElement, i18nString(UIStrings.breakpointHit));
+      ComponentHelpers.ARIAUtils.setDescription(this._highlightedElement, i18nString(UIStrings.breakpointHit));
       this._highlightedElement.classList.add('breakpoint-hit');
     }
   }
@@ -160,7 +162,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     }
 
     const enabled = item.checkbox.checked;
-    UI.ARIAUtils.setChecked(item.element.listItemElement, enabled);
+    ComponentHelpers.ARIAUtils.setChecked(item.element.listItemElement, enabled);
 
     for (const breakpoint of this._breakpoints.keys()) {
       if (breakpoint.category() === category) {
@@ -184,7 +186,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     }
 
     this._toggleBreakpoint(breakpoint, item.checkbox.checked);
-    UI.ARIAUtils.setChecked(item.element.listItemElement, item.checkbox.checked);
+    ComponentHelpers.ARIAUtils.setChecked(item.element.listItemElement, item.checkbox.checked);
 
     // Put the rest in a separate function
     let hasEnabled = false;
@@ -206,9 +208,9 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     category.checkbox.checked = hasEnabled;
     category.checkbox.indeterminate = hasEnabled && hasDisabled;
     if (category.checkbox.indeterminate) {
-      UI.ARIAUtils.setCheckboxAsIndeterminate(category.element.listItemElement);
+      ComponentHelpers.ARIAUtils.setCheckboxAsIndeterminate(category.element.listItemElement);
     } else {
-      UI.ARIAUtils.setChecked(category.element.listItemElement, hasEnabled);
+      ComponentHelpers.ARIAUtils.setChecked(category.element.listItemElement, hasEnabled);
     }
   }
 }

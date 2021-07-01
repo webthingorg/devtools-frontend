@@ -8,6 +8,7 @@
 import * as Common from '../../../../core/common/common.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 import type {CodeMirrorTextEditor} from './CodeMirrorTextEditor.js';
@@ -88,8 +89,9 @@ export class TextEditorAutocompleteController implements UI.SuggestBox.SuggestBo
       // @ts-ignore CodeMirror types are wrong.
       this._addWordsFromText(this._codeMirror.getValue());
     }
-    UI.ARIAUtils.setAutocomplete(this._textEditor.element, UI.ARIAUtils.AutocompleteInteractionModel.both);
-    UI.ARIAUtils.setHasPopup(this._textEditor.element, UI.ARIAUtils.PopupRole.ListBox);
+    ComponentHelpers.ARIAUtils.setAutocomplete(
+        this._textEditor.element, ComponentHelpers.ARIAUtils.AutocompleteInteractionModel.both);
+    ComponentHelpers.ARIAUtils.setHasPopup(this._textEditor.element, ComponentHelpers.ARIAUtils.PopupRole.ListBox);
   }
 
   dispose(): void {
@@ -110,8 +112,8 @@ export class TextEditorAutocompleteController implements UI.SuggestBox.SuggestBo
       this._codeMirror.off('beforeChange', this._beforeChange);
       this._dictionary.reset();
     }
-    UI.ARIAUtils.clearAutocomplete(this._textEditor.element);
-    UI.ARIAUtils.setHasPopup(this._textEditor.element, UI.ARIAUtils.PopupRole.False);
+    ComponentHelpers.ARIAUtils.clearAutocomplete(this._textEditor.element);
+    ComponentHelpers.ARIAUtils.setHasPopup(this._textEditor.element, ComponentHelpers.ARIAUtils.PopupRole.False);
   }
 
   _beforeChange(codeMirror: typeof CodeMirror, changeObject: any): void {

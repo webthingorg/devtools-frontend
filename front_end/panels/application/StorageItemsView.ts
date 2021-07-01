@@ -7,6 +7,7 @@
 import type * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 const UIStrings = {
@@ -47,7 +48,7 @@ export class StorageItemsView extends UI.Widget.VBox {
 
     this._refreshButton = this._addButton(i18nString(UIStrings.refresh), 'largeicon-refresh', () => {
       this.refreshItems();
-      UI.ARIAUtils.alert(i18nString(UIStrings.refreshedStatus));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.refreshedStatus));
     });
 
     this._mainToolbar = new UI.Toolbar.Toolbar('top-resources-toolbar', this.element);

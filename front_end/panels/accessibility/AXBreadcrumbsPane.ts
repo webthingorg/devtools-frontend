@@ -7,7 +7,9 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import type {AccessibilitySidebarView} from './AccessibilitySidebarView.js';
@@ -41,7 +43,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     super(i18nString(UIStrings.accessibilityTree));
 
     this.element.classList.add('ax-subpane');
-    UI.ARIAUtils.markAsTree(this.element);
+    ComponentHelpers.ARIAUtils.markAsTree(this.element);
     this.element.tabIndex = -1;
 
     this._axSidebarView = axSidebarView;
@@ -397,7 +399,7 @@ export class AXBreadcrumb {
 
     this._nodeElement = document.createElement('div');
     this._nodeElement.classList.add('ax-node');
-    UI.ARIAUtils.markAsTreeitem(this._nodeElement);
+    ComponentHelpers.ARIAUtils.markAsTreeitem(this._nodeElement);
     this._nodeElement.tabIndex = -1;
     this._element.appendChild(this._nodeElement);
     this._nodeWrapper = document.createElement('div');
@@ -411,7 +413,7 @@ export class AXBreadcrumb {
 
     this._childrenGroupElement = document.createElement('div');
     this._childrenGroupElement.classList.add('children');
-    UI.ARIAUtils.markAsGroup(this._childrenGroupElement);
+    ComponentHelpers.ARIAUtils.markAsGroup(this._childrenGroupElement);
     this._element.appendChild(this._childrenGroupElement);
 
     this._children = [];
@@ -437,7 +439,7 @@ export class AXBreadcrumb {
 
     if (this._axNode.hasOnlyUnloadedChildren()) {
       this._nodeElement.classList.add('children-unloaded');
-      UI.ARIAUtils.setExpanded(this._nodeElement, false);
+      ComponentHelpers.ARIAUtils.setExpanded(this._nodeElement, false);
     }
 
     if (!this._axNode.isDOMNode()) {
@@ -457,7 +459,7 @@ export class AXBreadcrumb {
     this._children.push(breadcrumb);
     breadcrumb.setParent(this);
     this._nodeElement.classList.add('parent');
-    UI.ARIAUtils.setExpanded(this._nodeElement, true);
+    ComponentHelpers.ARIAUtils.setExpanded(this._nodeElement, true);
     this._childrenGroupElement.appendChild(breadcrumb.element());
   }
 

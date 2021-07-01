@@ -30,7 +30,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {GlassPane, PointerEventsBehavior} from './GlassPane.js';
 import {InspectorView} from './InspectorView.js';
 import {KeyboardShortcut, Keys} from './KeyboardShortcut.js';
@@ -59,7 +59,7 @@ export class Dialog extends GlassPane {
       this.hide();
       event.consume(true);
     });
-    ARIAUtils.markAsModalDialog(this.contentElement);
+    ComponentHelpers.ARIAUtils.markAsModalDialog(this.contentElement);
     this._tabIndexBehavior = OutsideTabIndexBehavior.DisableAllOutsideTabIndex;
     this._tabIndexMap = new Map();
     this._focusRestorer = null;

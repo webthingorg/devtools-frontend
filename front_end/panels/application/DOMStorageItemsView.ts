@@ -33,6 +33,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -241,7 +242,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
     this._dataGrid.addCreationNode(false);
     this.setCanDeleteSelected(Boolean(selectedNode));
-    UI.ARIAUtils.alert(i18nString(UIStrings.domStorageNumberEntries, {PH1: filteredList.length}));
+    ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.domStorageNumberEntries, {PH1: filteredList.length}));
   }
 
   deleteSelectedItem(): void {
@@ -297,7 +298,7 @@ export class DOMStorageItemsView extends StorageItemsView {
       this._domStorage.removeItem(node.data.key);
     }
 
-    UI.ARIAUtils.alert(i18nString(UIStrings.domStorageItemDeleted));
+    ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.domStorageItemDeleted));
   }
 
   _showPreview(preview: UI.Widget.Widget|null, value: string|null): void {

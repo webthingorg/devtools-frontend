@@ -42,6 +42,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -245,7 +246,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     this._noMatchesElement.textContent = i18nString(UIStrings.noMatchingSelectorOrStyle);
 
     this._sectionsContainer = this.contentElement.createChild('div');
-    UI.ARIAUtils.markAsList(this._sectionsContainer);
+    ComponentHelpers.ARIAUtils.markAsList(this._sectionsContainer);
     this._sectionsContainer.addEventListener('keydown', this._sectionsContainerKeyDown.bind(this), false);
     this._sectionsContainer.addEventListener('focusin', this._sectionsContainerFocusChanged.bind(this), false);
     this._sectionsContainer.addEventListener('focusout', this._sectionsContainerFocusChanged.bind(this), false);
@@ -969,7 +970,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     const filterContainerElement = hbox.createChild('div', 'styles-sidebar-pane-filter-box');
     const filterInput = StylesSidebarPane.createPropertyFilterElement(
         i18nString(UIStrings.filter), hbox, this._onFilterChanged.bind(this));
-    UI.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterStyles));
+    ComponentHelpers.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterStyles));
     filterContainerElement.appendChild(filterInput);
     const toolbar = new UI.Toolbar.Toolbar('styles-pane-toolbar', hbox);
     toolbar.makeToggledGray();
@@ -1200,9 +1201,9 @@ export class StylePropertiesSection {
     this.element.classList.add('styles-section');
     this.element.classList.add('matched-styles');
     this.element.classList.add('monospace');
-    UI.ARIAUtils.setAccessibleName(this.element, `${this._headerText()}, css selector`);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this.element, `${this._headerText()}, css selector`);
     this.element.tabIndex = -1;
-    UI.ARIAUtils.markAsListitem(this.element);
+    ComponentHelpers.ARIAUtils.markAsListitem(this.element);
     this.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
     parentPane.sectionByElement.set(this.element, this);
     this._innerElement = this.element.createChild('div');
@@ -1247,7 +1248,7 @@ export class StylePropertiesSection {
             new UI.Toolbar.Toolbar('sidebar-pane-section-toolbar new-rule-toolbar', this._innerElement);
       }
       this._newStyleRuleToolbar.appendToolbarItem(newRuleButton);
-      UI.ARIAUtils.markAsHidden(this._newStyleRuleToolbar.element);
+      ComponentHelpers.ARIAUtils.markAsHidden(this._newStyleRuleToolbar.element);
     }
 
     if (Root.Runtime.experiments.isEnabled('fontEditor') && this.editable) {

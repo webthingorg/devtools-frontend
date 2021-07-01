@@ -34,7 +34,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';  // eslint-disable-line no-unused-vars
 import {Icon} from './Icon.js';
 import * as ThemeSupport from './theme_support/theme_support.js';  // eslint-disable-line rulesdir/es_modules_import
@@ -108,7 +108,7 @@ export class SoftContextMenu {
 
     this._contextMenuElement = this._glassPane.contentElement.createChild('div', 'soft-context-menu');
     this._contextMenuElement.tabIndex = -1;
-    ARIAUtils.markAsMenu(this._contextMenuElement);
+    ComponentHelpers.ARIAUtils.markAsMenu(this._contextMenuElement);
     this._contextMenuElement.addEventListener('mouseup', e => e.consume(), false);
     this._contextMenuElement.addEventListener('keydown', this._menuKeyDown.bind(this), false);
 
@@ -163,7 +163,7 @@ export class SoftContextMenu {
     if (this._parentMenu) {
       delete this._parentMenu._subMenu;
       if (this._parentMenu._activeSubMenuElement) {
-        ARIAUtils.setExpanded(this._parentMenu._activeSubMenuElement, false);
+        ComponentHelpers.ARIAUtils.setExpanded(this._parentMenu._activeSubMenuElement, false);
         delete this._parentMenu._activeSubMenuElement;
       }
     }
@@ -181,7 +181,7 @@ export class SoftContextMenu {
     const menuItemElement = document.createElement('div');
     menuItemElement.classList.add('soft-context-menu-item');
     menuItemElement.tabIndex = -1;
-    ARIAUtils.markAsMenuItem(menuItemElement);
+    ComponentHelpers.ARIAUtils.markAsMenuItem(menuItemElement);
     const checkMarkElement = Icon.create('smallicon-checkmark', 'checkmark');
     menuItemElement.appendChild(checkMarkElement);
     if (!item.checked) {
@@ -230,7 +230,7 @@ export class SoftContextMenu {
     } else if (item.shortcut) {
       accessibleName = i18nString(UIStrings.sS, {PH1: item.label, PH2: item.shortcut});
     }
-    ARIAUtils.setAccessibleName(menuItemElement, accessibleName);
+    ComponentHelpers.ARIAUtils.setAccessibleName(menuItemElement, accessibleName);
 
     this.detailsForElementMap.set(menuItemElement, detailsForElement);
     return menuItemElement;
@@ -240,7 +240,7 @@ export class SoftContextMenu {
     const menuItemElement = document.createElement('div');
     menuItemElement.classList.add('soft-context-menu-item');
     menuItemElement.tabIndex = -1;
-    ARIAUtils.markAsMenuItemSubMenu(menuItemElement);
+    ComponentHelpers.ARIAUtils.markAsMenuItemSubMenu(menuItemElement);
     this.detailsForElementMap.set(menuItemElement, {
       subItems: item.subItems,
       actionId: undefined,
@@ -256,12 +256,12 @@ export class SoftContextMenu {
     checkMarkElement.style.opacity = '0';
 
     createTextChild(menuItemElement, item.label || '');
-    ARIAUtils.setExpanded(menuItemElement, false);
+    ComponentHelpers.ARIAUtils.setExpanded(menuItemElement, false);
 
     // TODO: Consider removing this branch and use the same icon on all platforms.
     if (Host.Platform.isMac() && !ThemeSupport.ThemeSupport.instance().hasTheme()) {
       const subMenuArrowElement = menuItemElement.createChild('span', 'soft-context-menu-item-submenu-arrow');
-      ARIAUtils.markAsHidden(subMenuArrowElement);
+      ComponentHelpers.ARIAUtils.markAsHidden(subMenuArrowElement);
       subMenuArrowElement.textContent = '\u25B6';  // BLACK RIGHT-POINTING TRIANGLE
     } else {
       const subMenuArrowElement = Icon.create('smallicon-triangle-right', 'soft-context-menu-item-submenu-arrow');
@@ -342,7 +342,7 @@ export class SoftContextMenu {
     }
 
     this._activeSubMenuElement = menuItemElement;
-    ARIAUtils.setExpanded(menuItemElement, true);
+    ComponentHelpers.ARIAUtils.setExpanded(menuItemElement, true);
     if (!detailsForElement.subItems) {
       return;
     }

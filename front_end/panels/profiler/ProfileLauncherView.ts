@@ -32,9 +32,11 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {IsolateSelector} from './IsolateSelector.js';
+
 import type {ProfileType} from './ProfileHeader.js';
 import type {ProfilesPanel} from './ProfilesPanel.js';
 
@@ -95,7 +97,7 @@ export class ProfileLauncherView extends UI.Widget.VBox {
     this._selectedProfileTypeSetting = Common.Settings.Settings.instance().createSetting('selectedProfileType', 'CPU');
     this._profileTypeHeaderElement = profileTypeSelectorElement.createChild('h1');
     this._profileTypeSelectorForm = profileTypeSelectorElement.createChild('form');
-    UI.ARIAUtils.markAsRadioGroup(this._profileTypeSelectorForm);
+    ComponentHelpers.ARIAUtils.markAsRadioGroup(this._profileTypeSelectorForm);
 
     const isolateSelectorElement = this._contentElement.createChild('div', 'vbox profile-isolate-selector-block');
     isolateSelectorElement.createChild('h1').textContent = i18nString(UIStrings.selectJavascriptVmInstance);
@@ -171,7 +173,7 @@ export class ProfileLauncherView extends UI.Widget.VBox {
     optionElement.addEventListener('change', this._profileTypeChanged.bind(this, profileType), false);
     const descriptionElement = this._profileTypeSelectorForm.createChild('p');
     descriptionElement.textContent = profileType.description;
-    UI.ARIAUtils.setDescription(optionElement, profileType.description);
+    ComponentHelpers.ARIAUtils.setDescription(optionElement, profileType.description);
     const customContent = profileType.customContent();
     if (customContent) {
       this._profileTypeSelectorForm.createChild('p').appendChild(customContent);
@@ -180,7 +182,7 @@ export class ProfileLauncherView extends UI.Widget.VBox {
     const headerText = this._typeIdToOptionElementAndProfileType.size > 1 ? i18nString(UIStrings.selectProfilingType) :
                                                                             profileType.name;
     this._profileTypeHeaderElement.textContent = headerText;
-    UI.ARIAUtils.setAccessibleName(this._profileTypeSelectorForm, headerText);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._profileTypeSelectorForm, headerText);
   }
 
   restoreSelectedProfileType(): void {

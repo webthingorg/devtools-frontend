@@ -35,6 +35,8 @@ import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as Root from '../../../../core/root/root.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+
 import type * as SDK from '../../../../core/sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import type * as TimelineModel from '../../../../models/timeline_model/timeline_model.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../../legacy.js';
@@ -180,8 +182,8 @@ export class FlameChart extends UI.Widget.VBox implements Calculator, ChartViewp
     this._canvas = (this._viewportElement.createChild('canvas', 'fill') as HTMLCanvasElement);
 
     this._canvas.tabIndex = 0;
-    UI.ARIAUtils.setAccessibleName(this._canvas, i18nString(UIStrings.flameChart));
-    UI.ARIAUtils.markAsTree(this._canvas);
+    ComponentHelpers.ARIAUtils.setAccessibleName(this._canvas, i18nString(UIStrings.flameChart));
+    ComponentHelpers.ARIAUtils.markAsTree(this._canvas);
     this.setDefaultFocusedElement(this._canvas);
     this._canvas.classList.add('flame-chart-canvas');
     this._canvas.addEventListener('mousemove', this._onMouseMove.bind(this), false);
@@ -522,13 +524,13 @@ export class FlameChart extends UI.Widget.VBox implements Calculator, ChartViewp
     const groupName = groups[groupIndex].name;
     if (!groups[groupIndex].selectable) {
       this._deselectAllGroups();
-      UI.ARIAUtils.alert(i18nString(UIStrings.sHovered, {PH1: groupName}));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.sHovered, {PH1: groupName}));
     } else {
       this._selectedGroup = groupIndex;
       this._flameChartDelegate.updateSelectedGroup(this, groups[groupIndex]);
       this._resetCanvas();
       this._draw();
-      UI.ARIAUtils.alert(i18nString(UIStrings.sSelected, {PH1: groupName}));
+      ComponentHelpers.ARIAUtils.alert(i18nString(UIStrings.sSelected, {PH1: groupName}));
     }
   }
 
@@ -636,7 +638,7 @@ export class FlameChart extends UI.Widget.VBox implements Calculator, ChartViewp
       const groupName = groups[groupIndex].name;
       const content = group.expanded ? i18nString(UIStrings.sExpanded, {PH1: groupName}) :
                                        i18nString(UIStrings.sCollapsed, {PH1: groupName});
-      UI.ARIAUtils.alert(content);
+      ComponentHelpers.ARIAUtils.alert(content);
     }
   }
 

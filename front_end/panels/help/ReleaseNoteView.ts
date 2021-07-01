@@ -6,9 +6,11 @@
 
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {latestReleaseNote, releaseNoteViewId} from './HelpImpl.js';
+
 import type {ReleaseNote} from './HelpImpl.js';
 
 const UIStrings = {
@@ -53,15 +55,15 @@ export class ReleaseNoteView extends UI.Widget.VBox {
     hbox.classList.add('hbox');
     const container = hbox.createChild('div', 'release-note-container');
     const contentContainer = container.createChild('ul');
-    UI.ARIAUtils.setAccessibleName(contentContainer, latestReleaseNote().header);
+    ComponentHelpers.ARIAUtils.setAccessibleName(contentContainer, latestReleaseNote().header);
 
     let linkNumber = 1;
     for (const highlight of releaseNote.highlights) {
       const listItem = contentContainer.createChild('li');
       const linkWrapper = UI.XLink.XLink.create(highlight.link, '', 'release-note-link');
       linkWrapper.textContent = '';
-      UI.ARIAUtils.markAsLink(linkWrapper);
-      UI.ARIAUtils.setAccessibleName(
+      ComponentHelpers.ARIAUtils.markAsLink(linkWrapper);
+      ComponentHelpers.ARIAUtils.setAccessibleName(
           linkWrapper, `${highlight.title}: ${highlight.subtitle} ${linkNumber} of ${releaseNote.highlights.length}`);
 
       const title = linkWrapper.createChild('div', 'release-note-title');
@@ -79,7 +81,7 @@ export class ReleaseNoteView extends UI.Widget.VBox {
       event.consume(true);
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(releaseNote.link);
     });
-    UI.ARIAUtils.markAsLink(learnMore);
+    ComponentHelpers.ARIAUtils.markAsLink(learnMore);
     actionContainer.appendChild(learnMore);
 
     actionContainer.appendChild(UI.UIUtils.createTextButton(i18nString(UIStrings.close), event => {

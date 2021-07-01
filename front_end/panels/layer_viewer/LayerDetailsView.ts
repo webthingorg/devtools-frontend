@@ -33,7 +33,9 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import type {LayerView, LayerViewHost, Selection, SnapshotSelection} from './LayerViewHost.js';
@@ -329,7 +331,7 @@ export class LayerDetailsView extends UI.Widget.Widget implements LayerView {
     this._stickyPositionConstraintCell = this._createRow(i18nString(UIStrings.stickyPositionConstraint));
     this._paintProfilerLink =
         this.contentElement.createChild('span', 'hidden devtools-link link-margin') as HTMLElement;
-    UI.ARIAUtils.markAsLink(this._paintProfilerLink);
+    ComponentHelpers.ARIAUtils.markAsLink(this._paintProfilerLink);
     this._paintProfilerLink.textContent = i18nString(UIStrings.paintProfiler);
     this._paintProfilerLink.tabIndex = 0;
     this._paintProfilerLink.addEventListener('click', e => {

@@ -9,6 +9,7 @@ import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as Root from '../../../../core/root/root.js';
+import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as UI from '../../legacy.js';
 
 import type {ContrastInfo} from './ContrastInfo.js';
@@ -143,11 +144,11 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
     const expandToolbar = new UI.Toolbar.Toolbar('expand', contrastValueRowContents);
     this._expandButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.showMore), 'smallicon-expand-more');
     this._expandButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._expandButtonClicked.bind(this));
-    UI.ARIAUtils.setExpanded(this._expandButton.element, false);
+    ComponentHelpers.ARIAUtils.setExpanded(this._expandButton.element, false);
     expandToolbar.appendToolbarItem(this._expandButton);
 
     this._expandedDetails = this._element.createChild('div', 'expanded-details');
-    UI.ARIAUtils.setControls(this._expandButton.element, this._expandedDetails);
+    ComponentHelpers.ARIAUtils.setControls(this._expandButton.element, this._expandedDetails);
 
     this._contrastThresholds = this._expandedDetails.createChild('div', 'contrast-thresholds');
 
@@ -229,7 +230,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
     const formattedColor = suggestedColor.asString(colorFormat);
     const suggestedColorString = formattedColor ? formattedColor + ' ' : '';
     const label = i18nString(UIStrings.useSuggestedColorStoFixLow, {PH1: suggestedColorString});
-    UI.ARIAUtils.setAccessibleName(button, label);
+    ComponentHelpers.ARIAUtils.setAccessibleName(button, label);
     UI.Tooltip.Tooltip.install(button, label);
     button.tabIndex = 0;
     button.style.backgroundColor = suggestedColorString;
@@ -396,7 +397,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
 
   _toggleExpanded(): void {
     this._expanded = !this._expanded;
-    UI.ARIAUtils.setExpanded(this._expandButton.element, this._expanded);
+    ComponentHelpers.ARIAUtils.setExpanded(this._expandButton.element, this._expanded);
     this._element.classList.toggle('collapsed', !this._expanded);
     if (this._expanded) {
       this._toggleMainColorPicker(false);

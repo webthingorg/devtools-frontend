@@ -6,6 +6,7 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {ElementsPanel} from './ElementsPanel.js';
@@ -36,7 +37,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     UI.UIUtils.createTextChild(this.contentElement.createChild('div'), i18nString(UIStrings.forceElementState));
     const table = document.createElement('table');
     table.classList.add('source-code');
-    UI.ARIAUtils.markAsPresentation(table);
+    ComponentHelpers.ARIAUtils.markAsPresentation(table);
 
     const inputs: HTMLInputElement[] = [];
     this._inputs = inputs;
