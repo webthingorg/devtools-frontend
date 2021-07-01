@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee8ab19f_b2b2e0f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-01T13:07:15Z",
+      "side": 1,
+      "message": "Adding Jack for lit-component-related stuff: it seems that we forbid `\u003cstyle\u003e` tags for litHTML templates, so I\u0027m wonrdering if what I\u0027m doing here is correct. Thanks!",
+      "revId": "b080b2347d72cc6a4956cefda327642855b22b2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
