@@ -37,6 +37,8 @@ export class IconButton extends HTMLElement {
     this.clickHandler = data.clickHandler;
     this.trailingText = data.trailingText ?? '';
     this.leadingText = data.leadingText ?? '';
+    // eslint-disable-next-line no-console
+    console.log(this.groups);
     this.render();
   }
 
