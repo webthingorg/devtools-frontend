@@ -39,6 +39,30 @@
       },
       "revId": "54a94b08d16f00629b45925bfa924d8555cbf41c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53826bb_56d60c86",
+        "filename": "front_end/panels/elements/components/elementsPanelLink.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-01T09:33:31Z",
+      "side": 1,
+      "message": "Used override pattern instead just to be safe",
+      "parentUuid": "a0625d9a_293c81d3",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "54a94b08d16f00629b45925bfa924d8555cbf41c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
