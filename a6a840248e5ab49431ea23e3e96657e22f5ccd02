@@ -16,6 +16,40 @@
       "message": "Hey Kim,\n\nHere\u0027s some more cleanup to be done.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "a6a840248e5ab49431ea23e3e96657e22f5ccd02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d576865f_0ce6d245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-07-01T06:51:20Z",
+      "side": 1,
+      "message": "LGTM % minor question",
+      "revId": "a6a840248e5ab49431ea23e3e96657e22f5ccd02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4eff94_6f15519a",
+        "filename": "front_end/panels/elements/PropertiesWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-07-01T06:51:20Z",
+      "side": 1,
+      "message": "Do we need this?",
+      "revId": "a6a840248e5ab49431ea23e3e96657e22f5ccd02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
