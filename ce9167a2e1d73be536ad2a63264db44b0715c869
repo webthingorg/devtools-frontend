@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "59eac7bd_3a3ccceb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-01T07:32:00Z",
+      "side": 1,
+      "message": "TIL. It took me a while to find this in the spec, so for future reference, here’s the trail of breadcrumbs:\n\nhttps://w3c.github.io/manifest/#dfn-process-image-resources\n→\nhttps://w3c.github.io/image-resource/#processing-an-image-resource-from-json",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7e07e247_be68c622",
@@ -31,6 +48,46 @@
       "writtenOn": "2021-07-01T07:31:35Z",
       "side": 1,
       "message": "Typo: s/squareSizedIconAavailable/squareSizedIconAvailable",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf9e87e_a4fbfb54",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-01T07:32:00Z",
+      "side": 1,
+      "message": "typo: squareSizedIconAavailable → squareSizedIconAvailable\n\n(To be honest, IMHO the old name `hasSquareIcon` was fine too.)",
+      "range": {
+        "startLine": 577,
+        "startChar": 8,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c8816e_4ad53186",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-01T07:32:00Z",
+      "side": 1,
+      "message": "Nice touch using named captures!",
       "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
