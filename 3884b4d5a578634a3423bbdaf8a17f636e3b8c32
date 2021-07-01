@@ -106,6 +106,24 @@
       "parentUuid": "fa1ad084_d76ac64e",
       "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d81549_eb0601d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-01T11:34:39Z",
+      "side": 1,
+      "message": "I think in DevTools it doesn\u0027t work so well because one can\u0027t fix the problem (as the user isn\u0027t /editing/ the source code, merely viewing it.",
+      "parentUuid": "6ae89e43_93650d29",
+      "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
