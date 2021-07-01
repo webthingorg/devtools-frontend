@@ -414,7 +414,7 @@ export class UserAgentClientHintsForm extends HTMLElement {
             @input="${handleBrandBrowserChange}"
             .value="${brand}"
             placeholder="${i18nString(UIStrings.brandName)}"
-            aria-label="${i18nString(UIStrings.brandName)}"
+            aria-label="${i18nString(UIStrings.brandName)} ${index + 1}"
           />
           <input
             class="input-field"
@@ -422,7 +422,7 @@ export class UserAgentClientHintsForm extends HTMLElement {
             @input="${handleBrandVersionChange}"
             .value="${version}"
             placeholder="${i18nString(UIStrings.version)}"
-            aria-label="${i18nString(UIStrings.version)}"
+            aria-label="${i18nString(UIStrings.version)} ${index + 1}"
           />
           <${IconButton.Icon.Icon.litTagName}
             .data=${
@@ -434,6 +434,7 @@ export class UserAgentClientHintsForm extends HTMLElement {
             role="button"
             @click="${handleDeleteClick}"
             @keypress="${handleKeyPress}"
+            aria-label="${i18nString(UIStrings.deleteTooltip)} ${index + 1}"
           >
           </${IconButton.Icon.Icon.litTagName}>
         </div>
