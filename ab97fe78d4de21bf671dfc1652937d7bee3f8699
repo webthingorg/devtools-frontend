@@ -33,6 +33,24 @@
       "message": "This will resolve the implicit promise of the async function with the promise `this._debuggerEnabledPromise`, which essentially just chains them. I personally prefer the more explicit `return await this._debuggerEnabledPromise`, also above in line 228.",
       "revId": "ab97fe78d4de21bf671dfc1652937d7bee3f8699",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47570218_3682ce3a",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-07-01T11:04:32Z",
+      "side": 1,
+      "message": "I had to change the code a bit to work, given the behavior of _asyncStackTracesStateChanged. Given that change, we are also now explicitly awaiting the promises.",
+      "parentUuid": "8ff84da5_3d2bbb1c",
+      "revId": "ab97fe78d4de21bf671dfc1652937d7bee3f8699",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
