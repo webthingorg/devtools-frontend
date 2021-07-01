@@ -250,7 +250,8 @@ ElementsTestRunner.firstMatchedStyleSection = function() {
 };
 
 ElementsTestRunner.firstMediaTextElementInSection = function(section) {
-  return section.element.querySelector('.media-text');
+  const cssQueryElement = section.element.querySelector('devtools-css-query');
+  return cssQueryElement.shadowRoot.querySelector('.query-text');
 };
 
 ElementsTestRunner.querySelector = async function(selector, callback) {
