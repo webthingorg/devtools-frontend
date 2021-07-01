@@ -143,6 +143,24 @@
       "parentUuid": "584601e1_66381203",
       "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8166244a_e0a46295",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-01T07:40:52Z",
+      "side": 1,
+      "message": "My bad. It looks `any` is actually represented by a size of 0.\nSee https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/common/manifest/manifest.h;drc\u003da4f34441d6ba2bfec6a21e2ff88afaf2d18eb9db;l\u003d51\n\n    // Empty if the parsing failed, the field was not present or empty.\n    // The special value \"any\" is represented by gfx::Size(0, 0).",
+      "parentUuid": "de851947_b5dc25eb",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
