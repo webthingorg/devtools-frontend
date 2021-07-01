@@ -9,6 +9,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import type * as Protocol from '../../../generated/protocol.js';
+import stackTraceStyles from './stackTrace.css.js';
 
 const UIStrings = {
   /**
@@ -60,6 +61,10 @@ export class StackTrace extends HTMLElement {
     this.render();
   }
 
+  connectedCallback(): void {
+    this.shadow.adoptedStyleSheets = [stackTraceStyles];
+  }
+
   private onShowAllClick(): void {
     this.showHidden = true;
     this.render();
@@ -71,32 +76,7 @@ export class StackTrace extends HTMLElement {
     for (const item of this.stackTraceRows) {
       if (this.showHidden || (!item.ignoreListHide && !item.rowCountHide)) {
         if ('functionName' in item) {
-          // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
           expandableRows.push(LitHtml.html`
-            <style>
-              .stack-trace-row {
-                display: flex;
-              }
-
-              .stack-trace-function-name {
-                width: 100px;
-              }
-
-              .stack-trace-source-location {
-                display: flex;
-                overflow: hidden;
-              }
-
-              .text-ellipsis {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-
-              .ignore-list-link {
-                opacity: 60%;
-              }
-            </style>
             <div class="stack-trace-row">
               <div class="stack-trace-function-name text-ellipsis" title="${item.functionName}">
                 ${item.functionName}
