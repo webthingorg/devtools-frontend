@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8cfac6_04b4b0cf",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-01T11:33:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac91657e_9c4576f4",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "799c3f85_eb10ad29",

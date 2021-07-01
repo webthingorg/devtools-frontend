@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cd6d32a_f62d37d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-01T11:33:21Z",
+      "side": 1,
+      "message": "Thanks, some more comments! Please mark the comments you acted on as resolved and with \"Done\".",
+      "revId": "390d2b8abf34815450ccb930ffd8c43b9cf70238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dce03e1_2bd47b27",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-01T11:33:21Z",
+      "side": 1,
+      "message": "Please don\u0027t expose titlesForTesting on the counter. You just do\n\n    const button \u003d this._consoleCounter.shadowRoot?.querySelector(\u0027button\u0027);\n    return button ? button.getAttribute(\u0027aria-label\u0027) : null;\n\nhere.",
+      "range": {
+        "startLine": 121,
+        "startChar": 11,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "390d2b8abf34815450ccb930ffd8c43b9cf70238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f015a8_e5484bea",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-01T11:33:21Z",
+      "side": 1,
+      "message": "Please do this similarly as above.",
+      "range": {
+        "startLine": 173,
+        "startChar": 3,
+        "endLine": 176,
+        "endChar": 6
+      },
+      "revId": "390d2b8abf34815450ccb930ffd8c43b9cf70238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
