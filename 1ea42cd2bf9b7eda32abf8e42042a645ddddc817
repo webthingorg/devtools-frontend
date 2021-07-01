@@ -16,6 +16,23 @@
       "message": "I needed to change the code a bit after the layout tests caught some issues, mainly:\n\n1. we are receiving scriptParsed events before the debugger is enabled, so we need to await the `_debuggerEnabledPromise` in the Dispatcher\n\n2. `asyncStackTracesStateChanged` is only updating the state if the debugger is enabled. With the previous version that I uploaded we awaited that the debugger is enabled before setting the async stack trace depth. Some of the layout tests however expected the output of the logged async stack traces that we missed by awaiting the debugger enable response. We may want to discuss whether this should be like this or not, but for now I opted in to keep the existing behavior.\n\nPTA(nother)L!",
       "revId": "1ea42cd2bf9b7eda32abf8e42042a645ddddc817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa48c48_1c80dc5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-01T11:53:06Z",
+      "side": 1,
+      "message": "Still LGTM",
+      "revId": "1ea42cd2bf9b7eda32abf8e42042a645ddddc817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
