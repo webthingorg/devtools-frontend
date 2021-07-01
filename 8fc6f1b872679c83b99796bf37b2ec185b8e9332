@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2734c4b2_ddae7f35",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-01T23:10:42Z",
+      "side": 0,
+      "message": "`.subtitle` class is not found anywhere in the styles section anymore, hence removing these styles.",
+      "revId": "8fc6f1b872679c83b99796bf37b2ec185b8e9332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

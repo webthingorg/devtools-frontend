@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9819b7f_f55df37e",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-01T23:10:42Z",
+      "side": 1,
+      "message": "These are set up so that we can pass style-related states down to `devtools-css-query`\u0027s shadow DOM. This mainly bypasses the need to use `host-context`, which would be deprecated some time in the future.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 46
+      },
+      "revId": "b2b04e1ca70bab0e045762d0fc53e585178b3bcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
