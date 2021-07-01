@@ -2196,7 +2196,7 @@
     "message": "M̂óŝt́ ôṕêŕât́îńĝ śŷśt̂ém̂ś r̂éq̂úîŕê śq̂úâŕê íĉón̂ś. P̂ĺêáŝé îńĉĺûd́ê át̂ ĺêáŝt́ ôńê śq̂úâŕê íĉón̂ ín̂ t́ĥé âŕr̂áŷ."
   },
   "panels/application/AppManifestView.ts | sSShouldSpecifyItsSizeAs": {
-    "message": "{PH1} {PH2} ŝh́ôúl̂d́ ŝṕêćîf́ŷ ít̂ś ŝíẑé âś {width}x{height}"
+    "message": "{PH1} {PH2} ŝh́ôúl̂d́ ŝṕêćîf́ŷ ít̂ś ŝíẑé âś [width]x[height]"
   },
   "panels/application/AppManifestView.ts | sSSizeShouldBeAtLeast320": {
     "message": "{PH1} {PH2} ŝíẑé ŝh́ôúl̂d́ b̂é ât́ l̂éâśt̂ 320×320"
