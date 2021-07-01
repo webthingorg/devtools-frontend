@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4c5de1_77b14c8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-01T05:26:36Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nFirst part of the fixes for the Properties tab to display only the own properties. This is slightly orthogonal, and was probably always broken, but becomes more important when we don\u0027t show inherited accessors in the near future.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "04d4d3baa827b697b508baf5fbbac7abcf3e0a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
