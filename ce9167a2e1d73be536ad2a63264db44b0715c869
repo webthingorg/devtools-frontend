@@ -125,6 +125,24 @@
       "parentUuid": "7133bdf1_e203b6b4",
       "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de851947_b5dc25eb",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-01T07:39:06Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:components/webapps/browser/installable/installable_manager.cc;l\u003d873",
+      "parentUuid": "584601e1_66381203",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
