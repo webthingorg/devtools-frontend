@@ -16,6 +16,23 @@
       "message": "Small fix for accessibility issue in user agent client hints form.",
       "revId": "2e06c23f989628d734f1e640e790c1585d30c52a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8179114_dcf7e788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-01T07:28:03Z",
+      "side": 1,
+      "message": "Nice fix, thanks!",
+      "revId": "2e06c23f989628d734f1e640e790c1585d30c52a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
