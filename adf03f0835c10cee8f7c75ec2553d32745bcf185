@@ -95,6 +95,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e9c7ea_49540a26",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "799c3f85_eb10ad29",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 6
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd72ad6a_8289b4de",
@@ -118,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c6d158_10302740",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd72ad6a_8289b4de",
+      "range": {
+        "startLine": 42,
+        "startChar": 46,
+        "endLine": 42,
+        "endChar": 58
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "801e3676_65eac908",
@@ -131,6 +179,30 @@
       "writtenOn": "2021-06-29T06:46:16Z",
       "side": 1,
       "message": "Let\u0027s make a deep copy here (as above).",
+      "range": {
+        "startLine": 48,
+        "startChar": 14,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "adf03f0835c10cee8f7c75ec2553d32745bcf185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddec31f0_004ad29c",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "801e3676_65eac908",
       "range": {
         "startLine": 48,
         "startChar": 14,

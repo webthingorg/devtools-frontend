@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9f395792_ddcd5f6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5a34299_781627d2",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "627bcff8_3a21a27b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -194,6 +218,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88394134_7ddd60d4",
+        "filename": "front_end/panels/console_counters/WarningErrorCounter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea59ba77_a9ec4359",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 69
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dd17e70_9fed925c",
@@ -231,6 +279,30 @@
       "side": 1,
       "message": "Ok, I wasn\u0027t 100% sure about this solution, or if it was better to add a getter for data.",
       "parentUuid": "3dd17e70_9fed925c",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "8604cff2f9c745a17bc9ac4299cde7eb3f4b373c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0970cedb_054d5703",
+        "filename": "front_end/ui/components/icon_button/IconButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-07-01T18:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac0b6be3_49823833",
       "range": {
         "startLine": 54,
         "startChar": 0,
