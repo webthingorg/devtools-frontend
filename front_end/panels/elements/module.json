@@ -11,6 +11,7 @@
     "classesPaneWidget.css",
     "computedStyleSidebarPane.css",
     "computedStyleWidgetTree.css",
+    "cssQuery.css",
     "domLinkifier.css",
     "elementsPanel.css",
     "elementStatePaneWidget.css",

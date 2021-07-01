@@ -17,6 +17,7 @@ devtools_module("components") {
     "AdornerManager.ts",
     "AdornerSettingsPane.ts",
     "CSSPropertyIconResolver.ts",
+    "CSSQuery.ts",
     "ComputedStyleProperty.ts",
     "ComputedStyleTrace.ts",
     "ElementsBreadcrumbs.ts",
