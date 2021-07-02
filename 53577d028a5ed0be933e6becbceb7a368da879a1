@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "214a7b56_a740efde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1500057
+      },
+      "writtenOn": "2021-07-02T01:45:52Z",
+      "side": 1,
+      "message": "Hi, I got overall approval from Danil, but I need code owners approval in order to submit.\nCould you check it?",
+      "revId": "53577d028a5ed0be933e6becbceb7a368da879a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
