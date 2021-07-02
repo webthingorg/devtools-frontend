@@ -48,7 +48,7 @@ export class ServiceWorkerUpdateCycleView {
 
   calculateServiceWorkerUpdateRanges(): Array<ServiceWorkerUpdateRange> {
     function addRange(ranges: Array<ServiceWorkerUpdateRange>, range: ServiceWorkerUpdateRange): void {
-      if (range.start < Number.MAX_VALUE && range.start <= range.end) {
+      if (range.end < Date.now() && range.start <= range.end) {
         ranges.push(range);
       }
     }
@@ -73,6 +73,22 @@ export class ServiceWorkerUpdateCycleView {
         addRange(
             ranges, {id, phase: ServiceWorkerUpdateNames.Activate, start: startActivateTime, end: endActivateTime});
       }
+    }
+
+    function isValidTime(
+        status: Protocol.ServiceWorker.ServiceWorkerVersionStatus, beginInstallTime: number, endInstallTime: number,
+        beginActivateTime: number, endActivateTime: number): boolean {
+      if (beginInstallTime === 0 || endInstallTime === 0) {
+        return false;
+      }
+      if (status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated ||
+          status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating) {
+        if (beginActivateTime === 0 && endActivateTime === 0) {
+          return false;
+        }
+      }
+
+      return true;
     }
 
     function rangesForVersion(version: SDK.ServiceWorkerManager.ServiceWorkerVersion): Array<ServiceWorkerUpdateRange> {
@@ -105,6 +121,12 @@ export class ServiceWorkerUpdateCycleView {
         }
         state = state.previousState;
       }
+
+      if (!isValidTime(currentStatus, beginInstallTime, endInstallTime, beginActivateTime, endActivateTime)) {
+        return [];
+      }
+
+
       /** @type {Array <ServiceWorkerUpdateRange>} */
       const ranges: Array<ServiceWorkerUpdateRange> = [];
       addNormalizedRanges(
