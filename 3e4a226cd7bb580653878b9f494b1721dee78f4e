@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24777b6a_575755ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-02T07:36:52Z",
+      "side": 1,
+      "message": "RE CSS, you\u0027re not quite right - I\u0027m afraid you\u0027ve noticed this just too early - We\u0027ve literally got a doc to share with info on this today, but we now have a Ninja integration to let us import special `.css.js` files that get auto-generated for us by a `.css` file.\n\nHave a look at Kriti\u0027s CL here https://crrev.com/c/2994705, which shows an example of doing this. We\u0027ll share a doc around too (internally) with more detail shortly. Happy to pair over VC if you need a hand.",
+      "revId": "3e4a226cd7bb580653878b9f494b1721dee78f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
