@@ -206,11 +206,19 @@ export class IssueCounter extends HTMLElement {
       ],
       clickHandler: this.clickHandler,
       leadingText: this.leadingText,
+      accessibleName: this.accessibleName,
     };
     LitHtml.render(
+        // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
         LitHtml.html`
-        <icon-button .data=${data as IconButton.IconButton.IconButtonData}
-          aria-label="${LitHtml.Directives.ifDefined(this.accessibleName)}"></icon-button>
+        <style>
+            :host {
+              white-space: normal;
+              display: inline-block;
+            }
+        </style>
+        <icon-button .data=${data as IconButton.IconButton.IconButtonData} .accessibleName="${
+            this.accessibleName}"></icon-button>
         `,
         this.shadow);
     this.tooltipCallback?.();
