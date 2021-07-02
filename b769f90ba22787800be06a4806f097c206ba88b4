@@ -50,6 +50,23 @@
       "message": "LGTM",
       "revId": "b769f90ba22787800be06a4806f097c206ba88b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7791a7d_5c298a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-02T08:17:32Z",
+      "side": 1,
+      "message": "LGTM and I totally support this. In fact this was what I had in mind originally :) Thanks for doing this Sigurd!",
+      "revId": "b769f90ba22787800be06a4806f097c206ba88b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
