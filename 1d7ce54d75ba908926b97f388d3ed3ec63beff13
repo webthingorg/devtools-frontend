@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de736fb2_0a5db247",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T13:51:35Z",
+      "side": 1,
+      "message": "Mathias, Wolfgang is already off, could you please take a look?",
+      "revId": "1d7ce54d75ba908926b97f388d3ed3ec63beff13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
