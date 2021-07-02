@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d5d174_cf3417db",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-02T09:03:15Z",
+      "side": 1,
+      "message": "This is not testing what (I think) you intended to test.\n\nNote that\n\n    \u0027let \\u0275Escaped;\u0027 \u003d\u003d\u003d \u0027let ɵEscaped;\u0027\n\nSo the formatter doesn’t “see” any escape sequences with this example.",
+      "revId": "b08b4e59b7cedaa3ae422dd52d1a50c148bb66a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
