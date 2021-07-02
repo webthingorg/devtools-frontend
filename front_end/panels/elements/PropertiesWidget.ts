@@ -39,6 +39,8 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+const OBJECT_GROUP_NAME = 'properties-sidebar-pane';
+
 let propertiesWidgetInstance: PropertiesWidget;
 
 export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
@@ -91,7 +93,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
 
   async doUpdate(): Promise<void> {
     if (this._lastRequestedNode) {
-      this._lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(_objectGroupName);
+      this._lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(OBJECT_GROUP_NAME);
       delete this._lastRequestedNode;
     }
 
@@ -101,13 +103,12 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     }
 
     this._lastRequestedNode = this._node;
-    const object = await this._node.resolveToObject(_objectGroupName);
+    const object = await this._node.resolveToObject(OBJECT_GROUP_NAME);
     if (!object) {
       return;
     }
 
     const result = await object.callFunction(protoList);
-    object.release();
 
     if (!result.object || result.wasThrown) {
       return;
@@ -138,7 +139,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
       title = title.replace(/Prototype$/, '');
 
-      const section = this._createSectionTreeElement(value, title);
+      const section = this._createSectionTreeElement(value, title, object);
       this._treeOutline.appendChild(section);
       if (!selected) {
         section.select(/* omitFocus= */ true, /* selectedByUser= */ false);
@@ -155,13 +156,15 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 
-  _createSectionTreeElement(property: SDK.RemoteObject.RemoteObject, title: string):
-      ObjectUI.ObjectPropertiesSection.RootElement {
+  _createSectionTreeElement(
+      property: SDK.RemoteObject.RemoteObject, title: string,
+      object: SDK.RemoteObject.RemoteObject): ObjectUI.ObjectPropertiesSection.RootElement {
     const titleElement = document.createElement('span');
     titleElement.classList.add('tree-element-title');
     titleElement.textContent = title;
 
-    const section = new ObjectUI.ObjectPropertiesSection.RootElement(property);
+    const section =
+        new ObjectUI.ObjectPropertiesSection.RootElement(property, undefined, undefined, undefined, undefined, object);
     section.title = titleElement;
     this._expandController.watchSection(title, section);
 
@@ -181,6 +184,3 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 }
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const _objectGroupName = 'properties-sidebar-pane';

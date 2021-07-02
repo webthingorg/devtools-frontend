@@ -61,6 +61,7 @@ export class ItemMouseOutEvent<TreeNodeDataType> extends Event {
 }
 
 export class TreeOutline<TreeNodeDataType> extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-tree-outline`;
   private readonly shadow = this.attachShadow({mode: 'open'});
   private treeData: readonly TreeNode<TreeNodeDataType>[] = [];
   private nodeExpandedMap: WeakMap<TreeNode<TreeNodeDataType>, boolean> = new WeakMap();
@@ -149,7 +150,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
     const pathToTreeNode = await getPathToTreeNode(this.treeData, targetTreeNode);
 
     if (pathToTreeNode === null) {
-      throw new Error(`Could not find node ${JSON.stringify(targetTreeNode)} in the tree.`);
+      throw new Error(`Could not find node with id ${targetTreeNode.id} in the tree.`);
     }
     pathToTreeNode.forEach((node, index) => {
       // We don't expand the very last node, which was the target node.

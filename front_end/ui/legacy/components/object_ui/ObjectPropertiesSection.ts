@@ -449,7 +449,7 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
     }
 
     function createTrustedTypeElement(): ObjectPropertyValue {
-      const valueElement = (document.createElement('span') as HTMLElement);
+      const valueElement = document.createElement('span');
       valueElement.classList.add('object-value-trustedtype');
       const text = `${className} "${description}"`;
       let propertyValue;
@@ -590,9 +590,11 @@ export class RootElement extends UI.TreeOutline.TreeElement {
   _emptyPlaceholder: string|null|undefined;
   toggleOnClick: boolean;
   _linkifier: Components.Linkifier.Linkifier|undefined;
+  _targetObject: SDK.RemoteObject.RemoteObject;
   constructor(
       object: SDK.RemoteObject.RemoteObject, linkifier?: Components.Linkifier.Linkifier, emptyPlaceholder?: string|null,
-      ignoreHasOwnProperty: boolean = false, extraProperties: SDK.RemoteObject.RemoteObjectProperty[] = []) {
+      ignoreHasOwnProperty: boolean = false, extraProperties: SDK.RemoteObject.RemoteObjectProperty[] = [],
+      targetObject: SDK.RemoteObject.RemoteObject = object) {
     const contentElement = document.createElement('slot');
     super(contentElement);
 
@@ -600,6 +602,7 @@ export class RootElement extends UI.TreeOutline.TreeElement {
     this._extraProperties = extraProperties;
     this._ignoreHasOwnProperty = ignoreHasOwnProperty;
     this._emptyPlaceholder = emptyPlaceholder;
+    this._targetObject = targetObject;
 
     this.setExpandable(true);
     this.selectable = true;
@@ -650,7 +653,7 @@ export class RootElement extends UI.TreeOutline.TreeElement {
     const skipProto = treeOutline ? Boolean(treeOutline._skipProto) : false;
     return ObjectPropertyTreeElement._populate(
         this, this._object, skipProto, this._linkifier, this._emptyPlaceholder, this._ignoreHasOwnProperty,
-        this._extraProperties);
+        this._extraProperties, this._targetObject);
   }
 }
 
@@ -801,7 +804,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
   static createRemoteObjectAccessorPropertySpan(
       object: SDK.RemoteObject.RemoteObject|null, propertyPath: string[],
       callback: (arg0: SDK.RemoteObject.CallFunctionResult) => void): HTMLElement {
-    const rootElement = (document.createElement('span') as HTMLElement);
+    const rootElement = document.createElement('span');
     const element = rootElement.createChild('span');
     element.textContent = i18nString(UIStrings.dots);
     if (!object) {
@@ -986,7 +989,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const isInternalEntries = this.property.synthetic && this.property.name === '[[Entries]]';
     if (isInternalEntries) {
-      this.valueElement = (document.createElement('span') as HTMLElement);
+      this.valueElement = document.createElement('span');
       this.valueElement.classList.add('value');
     } else if (this.property.value) {
       const showPreview = this.property.name !== '[[Prototype]]';
@@ -998,7 +1001,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
           (parentMap.get(this.property) as SDK.RemoteObject.RemoteObject), [this.property.name],
           this._onInvokeGetterClick.bind(this));
     } else {
-      this.valueElement = (document.createElement('span') as HTMLElement);
+      this.valueElement = document.createElement('span');
       this.valueElement.classList.add('object-value-undefined');
       this.valueElement.textContent = i18nString(UIStrings.unreadable);
       UI.Tooltip.Tooltip.install(this.valueElement, i18nString(UIStrings.noPropertyGetter));
