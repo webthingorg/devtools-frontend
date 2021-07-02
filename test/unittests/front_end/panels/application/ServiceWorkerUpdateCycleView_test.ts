@@ -51,7 +51,7 @@ describe('ServiceWorkerUpdateCycleView', () => {
     registration._updateVersion(versionPayload);
     view = new View.ServiceWorkerUpdateCycleView(registration);
     ranges = view.calculateServiceWorkerUpdateRanges();
-    assert.strictEqual(ranges.length, 1, 'An installing registration has a range to display.');
+    assert.strictEqual(ranges.length, 0, 'An installing registration has no range to display.');
 
     versionId++;
     versionPayload = {
