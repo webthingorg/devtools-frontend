@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b769f90ba22787800be06a4806f097c206ba88b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea51c700_11a3f426",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T07:23:53Z",
+      "side": 1,
+      "message": "Jack, IIUC this is how we should remove the dependency if we need to?",
+      "revId": "b769f90ba22787800be06a4806f097c206ba88b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
