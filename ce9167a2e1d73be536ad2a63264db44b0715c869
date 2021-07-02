@@ -113,6 +113,48 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5bc9d89f_48085b86",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T06:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07e4cee6_bfd13f12",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6db9d0fa_55fb0257",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T06:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9e87e_a4fbfb54",
+      "range": {
+        "startLine": 577,
+        "startChar": 8,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "02c8816e_4ad53186",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 3
@@ -231,6 +273,24 @@
       "side": 1,
       "message": "In DevTools world, warning about \"any-sized\" screenshots seems the way to go. Web developer are aware of this already. See https://web.dev/add-manifest/#screenshots minimum size requirement.\n\nYou\u0027re right though we should take care of this issue in the back-end though. Can you assign a bug to me? I\u0027m OOO today.",
       "parentUuid": "e0c6a41f_5748bdb6",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e56697b3_034972d0",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T06:56:11Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9ed09d21_f50cbd67",
       "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
