@@ -60,6 +60,8 @@ export type Message = {
   params?: MessageParams|null,
 };
 
+type EventParameterNames = Map<string, string[]>;
+
 export class InspectorBackend {
   _agentPrototypes: Map<string, _AgentPrototype>;
   _dispatcherPrototypes: Map<string, _DispatcherPrototype>;
@@ -158,7 +160,7 @@ export class InspectorBackend {
     this._initialized = true;
   }
 
-  registerEvent(eventName: string, params: Object): void {
+  registerEvent(eventName: string, params: string[]): void {
     const domain = eventName.split('.')[0];
     this._dispatcherPrototype(domain).registerEvent(eventName, params);
     this._initialized = true;
@@ -1038,20 +1040,17 @@ class _AgentPrototype {
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
 // eslint-disable-next-line @typescript-eslint/naming-convention
 class _DispatcherPrototype {
-  _eventArgs: {
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [x: string]: any,
-  };
+  private eventArgs: EventParameterNames = new Map();
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _dispatchers!: any[];
-  constructor() {
-    this._eventArgs = {};
+
+  registerEvent(eventName: string, params: string[]): void {
+    this.eventArgs.set(eventName, params);
   }
 
-  registerEvent(eventName: string, params: Object): void {
-    this._eventArgs[eventName] = params;
+  hasRegisteredEvent(eventName: string): boolean {
+    return this.eventArgs.has(eventName);
   }
 
   addDomainDispatcher(dispatcher: Object): void {
@@ -1071,14 +1070,13 @@ class _DispatcherPrototype {
       return;
     }
 
-    if (!this._eventArgs[method]) {
+    if (!this.hasRegisteredEvent(method)) {
       InspectorBackend.reportProtocolWarning(
           `Protocol Warning: Attempted to dispatch an unspecified method '${method}'`, {method, params});
       return;
     }
 
     const messageParams = {...params};
-
     for (let index = 0; index < this._dispatchers.length; ++index) {
       const dispatcher = this._dispatchers[index];
 
