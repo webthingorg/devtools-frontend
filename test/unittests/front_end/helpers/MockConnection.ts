@@ -47,9 +47,12 @@ export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
     throw new Error(`No dispatcher for domain "${domain}" on provided target`);
   }
 
-  // Register the event if it doesn't exist already.
-  if (!target._dispatchers[domain].hasRegisteredEvent(method)) {
-    target._dispatchers[domain].registerEvent(method, []);
+  const registeredEvents =
+      ProtocolClient.InspectorBackend.inspectorBackend.getOrCreateEventParameterNamesForDomainForTesting(domain);
+  const eventParameterNames = registeredEvents.get(method);
+  if (!eventParameterNames) {
+    // The event is not registered, fake-register with empty parameters.
+    registeredEvents.set(method, []);
   }
 
   target._dispatchers[domain].dispatch(method, payload[0]);

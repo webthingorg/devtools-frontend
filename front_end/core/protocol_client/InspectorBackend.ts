@@ -61,16 +61,28 @@ export type Message = {
 };
 
 type EventParameterNames = Map<string, string[]>;
+type ReadonlyEventParameterNames = ReadonlyMap<string, string[]>;
 
 export class InspectorBackend {
-  _agentPrototypes: Map<string, _AgentPrototype>;
-  _dispatcherPrototypes: Map<string, _DispatcherPrototype>;
-  _initialized: boolean;
+  _agentPrototypes: Map<string, _AgentPrototype> = new Map();
+  private initialized: boolean = false;
+  private eventParameterNamesForDomain = new Map<string, EventParameterNames>();
 
-  constructor() {
-    this._agentPrototypes = new Map();
-    this._dispatcherPrototypes = new Map();
-    this._initialized = false;
+  private getOrCreateEventParameterNamesForDomain(domain: string): EventParameterNames {
+    let map = this.eventParameterNamesForDomain.get(domain);
+    if (!map) {
+      map = new Map();
+      this.eventParameterNamesForDomain.set(domain, map);
+    }
+    return map;
+  }
+
+  getOrCreateEventParameterNamesForDomainForTesting(domain: string): EventParameterNames {
+    return this.getOrCreateEventParameterNamesForDomain(domain);
+  }
+
+  getEventParamterNames(): ReadonlyMap<string, ReadonlyEventParameterNames> {
+    return this.eventParameterNamesForDomain;
   }
 
   static reportProtocolError(error: string, messageObject: Object): void {
@@ -82,7 +94,7 @@ export class InspectorBackend {
   }
 
   isInitialized(): boolean {
-    return this._initialized;
+    return this.initialized;
   }
 
   _addAgentGetterMethodToProtocolTargetPrototype(domain: string): void {
@@ -100,14 +112,14 @@ export class InspectorBackend {
     // @ts-ignore Method code generation
     TargetBase.prototype[methodName] = agentGetter;
 
-    function registerDispatcher(this: TargetBase, dispatcher: _DispatcherPrototype): void {
+    function registerDispatcher(this: TargetBase, dispatcher: Object): void {
       this.registerDispatcher(domain, dispatcher);
     }
 
     // @ts-ignore Method code generation
     TargetBase.prototype['register' + domain + 'Dispatcher'] = registerDispatcher;
 
-    function unregisterDispatcher(this: TargetBase, dispatcher: _DispatcherPrototype): void {
+    function unregisterDispatcher(this: TargetBase, dispatcher: Object): void {
       this.unregisterDispatcher(domain, dispatcher);
     }
 
@@ -125,15 +137,6 @@ export class InspectorBackend {
     return prototype;
   }
 
-  _dispatcherPrototype(domain: string): _DispatcherPrototype {
-    let prototype = this._dispatcherPrototypes.get(domain);
-    if (!prototype) {
-      prototype = new _DispatcherPrototype();
-      this._dispatcherPrototypes.set(domain, prototype);
-    }
-    return prototype;
-  }
-
   registerCommand(
       method: string, signature: {
         name: string,
@@ -143,7 +146,7 @@ export class InspectorBackend {
       replyArgs: string[]): void {
     const domainAndMethod = method.split('.');
     this._agentPrototype(domainAndMethod[0]).registerCommand(domainAndMethod[1], signature, replyArgs);
-    this._initialized = true;
+    this.initialized = true;
   }
 
   registerEnum(type: string, values: Object): void {
@@ -157,13 +160,14 @@ export class InspectorBackend {
 
     // @ts-ignore Protocol global namespace pollution
     Protocol[domain][domainAndName[1]] = values;
-    this._initialized = true;
+    this.initialized = true;
   }
 
   registerEvent(eventName: string, params: string[]): void {
     const domain = eventName.split('.')[0];
-    this._dispatcherPrototype(domain).registerEvent(eventName, params);
-    this._initialized = true;
+    const eventParameterNames = this.getOrCreateEventParameterNamesForDomain(domain);
+    eventParameterNames.set(eventName, params);
+    this.initialized = true;
   }
 
   wrapClientCallback<T, S>(
@@ -527,7 +531,8 @@ export class TargetBase {
     [x: string]: _AgentPrototype,
   };
   _dispatchers: {
-    [x: string]: _DispatcherPrototype,
+    // TODO(crbug.com/1172300): Replace {} with the respective ProtocolProxyApi.${x}Dispatcher type.
+    [x: string]: DispatcherManager<{}>,
   };
   constructor(
       needsNodeJSPatching: boolean, parentTarget: TargetBase|null, sessionId: string, connection: Connection|null) {
@@ -558,9 +563,8 @@ export class TargetBase {
     }
 
     this._dispatchers = {};
-    for (const [domain, dispatcherPrototype] of inspectorBackend._dispatcherPrototypes) {
-      this._dispatchers[domain] = Object.create((dispatcherPrototype as _DispatcherPrototype));
-      this._dispatchers[domain]._dispatchers = [];
+    for (const [domain, eventParameterNames] of inspectorBackend.getEventParamterNames().entries()) {
+      this._dispatchers[domain] = new DispatcherManager(eventParameterNames);
     }
   }
 
@@ -1037,51 +1041,53 @@ class _AgentPrototype {
   }
 }
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-class _DispatcherPrototype {
-  private eventArgs: EventParameterNames = new Map();
+/**
+ * A `DispatcherManager` has a collection of dispatchers that implement the a `DispatcherType`,
+ * which in practice is one of the `ProtocolProxyApi.{Foo}Dispatcher` interfaces. Each target
+ * uses one of these per domain to manage the registered dispatchers. The class knows the
+ * parameter names of the events via `eventArgs`, which is a map managed by the inspector
+ * back-end so that there is only one map per domain that is shared among all DispatcherManagers.
+ */
+class DispatcherManager<
+    DispatcherType extends {[handler: string]: (this: DispatcherType, ...args: unknown[]) => void}> {
+  private eventArgs: ReadonlyEventParameterNames;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  _dispatchers!: any[];
+  private dispatchers: DispatcherType[] = [];
 
-  registerEvent(eventName: string, params: string[]): void {
-    this.eventArgs.set(eventName, params);
+  constructor(eventArgs: ReadonlyEventParameterNames) {
+    this.eventArgs = eventArgs;
   }
 
-  hasRegisteredEvent(eventName: string): boolean {
-    return this.eventArgs.has(eventName);
+  addDomainDispatcher(dispatcher: DispatcherType): void {
+    this.dispatchers.push(dispatcher);
   }
 
-  addDomainDispatcher(dispatcher: Object): void {
-    this._dispatchers.push(dispatcher);
-  }
-
-  removeDomainDispatcher(dispatcher: Object): void {
-    const index = this._dispatchers.indexOf(dispatcher);
+  removeDomainDispatcher(dispatcher: DispatcherType): void {
+    const index = this.dispatchers.indexOf(dispatcher);
     if (index === -1) {
       return;
     }
-    this._dispatchers.splice(index, 1);
+    this.dispatchers.splice(index, 1);
   }
 
-  dispatch(method: string, params: MessageParams|undefined|null): void {
-    if (!this._dispatchers.length) {
+  dispatch(event: string, params: MessageParams|undefined|null): void {
+    if (!this.dispatchers.length) {
       return;
     }
 
-    if (!this.hasRegisteredEvent(method)) {
+    if (!this.eventArgs.has(event)) {
       InspectorBackend.reportProtocolWarning(
-          `Protocol Warning: Attempted to dispatch an unspecified method '${method}'`, {method, params});
+          `Protocol Warning: Attempted to dispatch an unspecified event '${event}'`, {event, params});
       return;
     }
 
     const messageParams = {...params};
-    for (let index = 0; index < this._dispatchers.length; ++index) {
-      const dispatcher = this._dispatchers[index];
+    for (let index = 0; index < this.dispatchers.length; ++index) {
+      const dispatcher = this.dispatchers[index];
 
-      if (method in dispatcher) {
-        dispatcher[method].call(dispatcher, messageParams);
+      if (event in dispatcher) {
+        dispatcher[event].call(dispatcher, messageParams);
       }
     }
   }
