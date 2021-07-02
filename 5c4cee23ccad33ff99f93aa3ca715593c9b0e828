@@ -16,6 +16,24 @@
       "message": "When I try to render the icon in DevTools, I see only a single large dot instead of 3. Did you encounter this too?",
       "revId": "5c4cee23ccad33ff99f93aa3ca715593c9b0e828",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8634a3b4_881f16b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-02T09:58:46Z",
+      "side": 1,
+      "message": "yes i did, this happens if you dont specify the width and height in iconData. if you set width:4px and height:14px the icon will render. These dimensions were calculated using the instructions provided in the icon docs",
+      "parentUuid": "2e16daba_237253f8",
+      "revId": "5c4cee23ccad33ff99f93aa3ca715593c9b0e828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
