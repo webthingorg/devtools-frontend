@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e16daba_237253f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-02T08:08:37Z",
+      "side": 1,
+      "message": "When I try to render the icon in DevTools, I see only a single large dot instead of 3. Did you encounter this too?",
+      "revId": "5c4cee23ccad33ff99f93aa3ca715593c9b0e828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
