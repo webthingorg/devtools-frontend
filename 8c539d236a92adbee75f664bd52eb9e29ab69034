@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a485237b_767ccb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-02T12:14:32Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8c539d236a92adbee75f664bd52eb9e29ab69034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "950651e9_8be6739b",
+        "filename": "front_end/panels/elements/components/CSSQuery.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-02T12:14:32Z",
+      "side": 1,
+      "message": "We could alternatively put the space in the template \nhtml`\u003cspan\u003e${this.queryPrefix} \u003c/span\u003e`?\nI\u0027m not sure which is prettiest.",
+      "range": {
+        "startLine": 59,
+        "startChar": 58,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "8c539d236a92adbee75f664bd52eb9e29ab69034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
