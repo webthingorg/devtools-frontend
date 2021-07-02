@@ -33,6 +33,24 @@
       "message": "Would `if (messageObject?.id) {` or `if (messageObject?.id !\u003d\u003d undefined) {` work too?",
       "revId": "718ad64ad04bce83f9d67a92a28a1a1b48eed65d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddbdc0b4_51ad233e",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-02T12:14:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7423d1_6838f4ad",
+      "revId": "718ad64ad04bce83f9d67a92a28a1a1b48eed65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
