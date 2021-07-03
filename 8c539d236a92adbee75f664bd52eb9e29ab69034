@@ -56,6 +56,30 @@
       },
       "revId": "8c539d236a92adbee75f664bd52eb9e29ab69034",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad7e5e6_67face3c",
+        "filename": "front_end/panels/elements/components/CSSQuery.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-03T20:56:59Z",
+      "side": 1,
+      "message": "This is what I did originally, but for some reason it\u0027s breaking layout tests, so I resorted to this way. I think we will update this part very soon with more logic with the display of container, so it shouldn\u0027t matter soon :)",
+      "parentUuid": "950651e9_8be6739b",
+      "range": {
+        "startLine": 59,
+        "startChar": 58,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "8c539d236a92adbee75f664bd52eb9e29ab69034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
