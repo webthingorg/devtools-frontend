@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3126656a_52c9f169",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T12:01:43Z",
+      "side": 1,
+      "message": "Because the implementation in the back-end will use the first size in the array. This means as long as the first entry in sizes is not any, we\u0027re good.",
+      "parentUuid": "f1b12449_07c71380",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab287120_7dec5b11",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-07-05T11:50:45Z",
       "side": 1,
       "message": "Suggestion:\n    return {imageResourceErrors, squareSizedIconAvailable};",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c6f18b_a9dfe98d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T12:01:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab287120_7dec5b11",
       "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
