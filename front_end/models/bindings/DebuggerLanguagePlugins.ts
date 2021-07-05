@@ -807,9 +807,18 @@ export class DebuggerLanguagePluginManager implements
   _expandCallFrames(callFrames: SDK.DebuggerModel.CallFrame[]): Promise<SDK.DebuggerModel.CallFrame[]> {
     return Promise
         .all(callFrames.map(async callFrame => {
-          const {frames} = await this.getFunctionInfo(callFrame.script, callFrame.location());
-          if (frames.length) {
-            return frames.map(({name}, index) => callFrame.createVirtualCallFrame(index, name));
+          const functionInfo = await this.getFunctionInfo(callFrame.script, callFrame.location());
+          if (functionInfo) {
+            const {frames, isOptimized, missingSymbolFiles} = functionInfo;
+            if (frames.length) {
+              return frames.map(({name}, index) => callFrame.createVirtualCallFrame(index, name, isOptimized ?? false));
+            }
+            if (missingSymbolFiles && missingSymbolFiles.length) {
+              for (const file of missingSymbolFiles) {
+                callFrame.addWarning(`Missing symbol file ${file}`);
+              }
+            }
+            callFrame.addWarning(`No DWARF data for function ${callFrame.functionName}.`);
           }
           return callFrame;
         }))
@@ -1144,11 +1153,12 @@ export class DebuggerLanguagePluginManager implements
 
   async getFunctionInfo(script: SDK.Script.Script, location: SDK.DebuggerModel.Location): Promise<{
     frames: Array<FunctionInfo>,
-  }> {
-    const noDwarfInfo = {frames: []};
+    isOptimized?: boolean,
+    missingSymbolFiles?: Array<string>,
+  }|null> {
     const {rawModuleId, plugin} = await this._rawModuleIdAndPluginForScript(script);
     if (!plugin) {
-      return noDwarfInfo;
+      return null;
     }
 
     const rawLocation: RawLocation = {
@@ -1161,7 +1171,7 @@ export class DebuggerLanguagePluginManager implements
       return await plugin.getFunctionInfo(rawLocation);
     } catch (error) {
       Common.Console.Console.instance().warn(i18nString(UIStrings.errorInDebuggerLanguagePlugin, {PH1: error.message}));
-      return noDwarfInfo;
+      return {frames: []};
     }
   }
 
@@ -1481,6 +1491,8 @@ export class DebuggerLanguagePlugin {
    */
   async getFunctionInfo(_rawLocation: RawLocation): Promise<{
     frames: Array<FunctionInfo>,
+    isOptimized?: boolean,
+    missingSymbolFiles?: Array<string>,
   }> {
     throw new Error('Not implemented yet');
   }
