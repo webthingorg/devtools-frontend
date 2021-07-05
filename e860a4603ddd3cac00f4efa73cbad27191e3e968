@@ -69,6 +69,24 @@
       "parentUuid": "a5db9a9a_14319ffa",
       "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8959aca_2b9a4aa0",
+        "filename": "front_end/ui/legacy/KeyboardShortcut.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-05T16:32:00Z",
+      "side": 1,
+      "message": "Actually `eventHasCtrlEquivalentKey` sounds a bit more accurate. And if this is still confusing, this might be one of those moments where a method comment might be helpful (since the function name cannot be very clear about its functionality).\n\nFWIW I spent some time searching for a common name for Mac\u0027s command key + other OS\u0027s ctrl key, but got no meaningful results.",
+      "parentUuid": "ff54182f_ff24234a",
+      "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
