@@ -50,6 +50,24 @@
       "message": "Do you plan to wait with landing this until the article is available?",
       "revId": "5d8cf5719112a2c099650438565da603a548873d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45730d1d_6ee1419f",
+        "filename": "front_end/models/issues_manager/WasmCrossOriginModuleSharingIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T12:37:31Z",
+      "side": 1,
+      "message": "DevRel is still figuring it out.. We can land without a link if we must.",
+      "parentUuid": "944f31cc_6d670fe4",
+      "revId": "5d8cf5719112a2c099650438565da603a548873d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
