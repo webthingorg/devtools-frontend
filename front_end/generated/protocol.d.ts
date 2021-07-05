@@ -2815,7 +2815,10 @@ declare namespace Protocol {
      * Unique DOM node identifier used to reference a node that may not have been pushed to the
      * front-end.
      */
-    export type BackendNodeId = integer;
+    class BackendNodeIdTag {
+      private tagBackendNodeId: (string|undefined);
+    }
+    export type BackendNodeId = integer&BackendNodeIdTag;
 
     /**
      * Backend node with a friendly name.
