@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc62ef2_4181bbd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132654
+      },
+      "writtenOn": "2021-07-05T07:45:59Z",
+      "side": 1,
+      "message": "PTAL, WIP as I have no idea why the i18n files were cleared, I thought they\u0027re auto-generated?",
+      "revId": "1df1a5534b444c8f6a22f09af59af47bce84d768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
