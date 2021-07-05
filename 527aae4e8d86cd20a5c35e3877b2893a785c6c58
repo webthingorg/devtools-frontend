@@ -22,6 +22,30 @@
       },
       "revId": "527aae4e8d86cd20a5c35e3877b2893a785c6c58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42cc6843_f5ce80b6",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-05T14:46:57Z",
+      "side": 1,
+      "message": "It can be done without String.raw as well, but it’s less readable / more confusing that way, because you’re then forced to deal with double-escaping:\n\n    const raw \u003d String.raw`const x\u003d42;let \\u0275_escaped;`;\n    const escaped \u003d \u0027const x\u003d42;let \\\\u0275_escaped;\u0027;\n    assert(raw \u003d\u003d\u003d escaped);",
+      "parentUuid": "4d4eb06b_959ae195",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "527aae4e8d86cd20a5c35e3877b2893a785c6c58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
