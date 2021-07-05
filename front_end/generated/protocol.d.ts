@@ -2806,7 +2806,10 @@ declare namespace Protocol {
     /**
      * Unique DOM node identifier.
      */
-    export type NodeId = integer;
+    class NodeIdTag {
+      private tagNodeId: (string|undefined);
+    }
+    export type NodeId = integer&NodeIdTag;
 
     /**
      * Unique DOM node identifier used to reference a node that may not have been pushed to the

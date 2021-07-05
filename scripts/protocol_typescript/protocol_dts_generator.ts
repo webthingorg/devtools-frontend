@@ -215,7 +215,12 @@ const emitInlineEnums = (prefix: string, propertyTypes?: Protocol.PropertyType[]
   }
 };
 
-const knownIdentifierTypes = ['CacheStorage.CacheId'];
+
+// Please keep `knownIdentifierTypes` sorted.
+const knownIdentifierTypes = [
+  'CacheStorage.CacheId',
+  'DOM.NodeId',
+];
 
 const emitDomainType = (domain: Protocol.Domain, type: Protocol.DomainType) => {
   // Check if this type is an object that declares inline enum types for some of its properties.
@@ -230,7 +235,7 @@ const emitDomainType = (domain: Protocol.Domain, type: Protocol.DomainType) => {
   } else if (type.type === 'string' && type.enum) {
     // Explicit enums declared as separate types that inherit from 'string'.
     emitEnum(type.id, type.enum);
-  } else if (type.type === 'string' && knownIdentifierTypes.includes(`${domain.domain}.${type.id}`)) {
+  } else if (knownIdentifierTypes.includes(`${domain.domain}.${type.id}`)) {
     emitLine(`class ${type.id}Tag {private tag${type.id}: (string|undefined);}`);
     emitLine(`export type ${type.id} = ${getPropertyType(type.id, type)}&${type.id}Tag;`);
   } else {
