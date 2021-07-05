@@ -606,7 +606,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
 
     this.setHoverEffect(element);
     this._highlightTreeElement(
-        (element as UI.TreeOutline.TreeElement), !UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlOrMeta(event));
+        (element as UI.TreeOutline.TreeElement), !UI.KeyboardShortcut.KeyboardShortcut.eventHasEitherCtrlOrMeta(event));
   }
 
   _highlightTreeElement(element: UI.TreeOutline.TreeElement, showInfo: boolean): void {

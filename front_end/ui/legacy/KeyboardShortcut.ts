@@ -134,6 +134,10 @@ export class KeyboardShortcut {
     return Host.Platform.isMac() ? event.metaKey && !event.ctrlKey : event.ctrlKey && !event.metaKey;
   }
 
+  static eventHasEitherCtrlOrMeta(event: KeyboardEvent|MouseEvent): boolean {
+    return event.metaKey || event.ctrlKey;
+  }
+
   static hasNoModifiers(event: Event): boolean {
     const keyboardEvent = (event as KeyboardEvent);
     return !keyboardEvent.ctrlKey && !keyboardEvent.shiftKey && !keyboardEvent.altKey && !keyboardEvent.metaKey;
