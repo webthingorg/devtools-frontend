@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648a9e04_9894d590",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-05T10:04:07Z",
+      "side": 1,
+      "message": "Could you add a screenshot for this change, if it involves UI updates?",
+      "revId": "6fd41336866a1d6819df78b576752ad2656bae4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffae271_adfa7162",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-05T10:04:07Z",
+      "side": 1,
+      "message": "nit: while we are at it, could you please update `this._accessibilityTreeButton` to be `this.accessibilityTreeButton` (lose the `_` prefix), so that it\u0027s consistent with our current code style and also `this.domTreeButton`?",
+      "revId": "6fd41336866a1d6819df78b576752ad2656bae4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
