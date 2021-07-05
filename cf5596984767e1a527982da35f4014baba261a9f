@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a28073_b1dae5b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-05T13:15:29Z",
+      "side": 1,
+      "message": "`textContent` is generally preferred since `innerText` can trigger layout (!). I\u0027m okay with this change since it only affects the test runner, but let\u0027s continue to prefer `textContent` for any non-testrunner code (and maybe add a comment to explain the usage here?).",
+      "revId": "cf5596984767e1a527982da35f4014baba261a9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
