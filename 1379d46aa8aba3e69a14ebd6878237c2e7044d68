@@ -18,6 +18,47 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2433fb_11654de9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:34:17Z",
+      "side": 1,
+      "message": "You will need to add `third_party/lighthouse/report/bundle.js` to `grd_files_debug_sources` in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/config/gni/devtools_grd_files.gni;l\u003d508;drc\u003d2086be5df61ea71f633c3fbab277b01470c534ce",
+      "parentUuid": "80f93176_5d1d1a7c",
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b42eede5_d6f84550",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:34:17Z",
+      "side": 1,
+      "message": "If you wrap all code into `report.js`, then this will not work in release mode (since we bundle everything in `report.js` and `bundle.js` is gone).\n\nInstead, you probably want to re-export everything from `bundle.js` in `report.js`. E.g. `export * as Bundle from \u0027./bundle.js`.\n\nThe reason to have separate files is that we can keep `bundle.js` pristine and then do the processing ourselves in the `devtools_entrypoint`",
+      "range": {
+        "startLine": 20,
+        "startChar": 48,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "742ee006_9e8cfc2a",
@@ -31,6 +72,70 @@
       "writtenOn": "2021-06-30T23:19:23Z",
       "side": 1,
       "message": "We realized it was simpler to just import a bundled version of the report renderer.",
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bfd6247_f63da371",
+        "filename": "front_end/third_party/lighthouse/report/bundle.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:34:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "742ee006_9e8cfc2a",
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57ca93f_0a0f4df6",
+        "filename": "scripts/build/ninja/generate-tsconfig.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:34:17Z",
+      "side": 1,
+      "message": "I think we can revert these changes as well now?",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb6d33f_bed38d16",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:34:17Z",
+      "side": 1,
+      "message": "Per the above comment, we should not exempt lighthouse here. Instead, you should import the `report/report.js` file rather than `report/bundle.js`. This will make sure your code will always work in both release and debug mode.",
+      "range": {
+        "startLine": 190,
+        "startChar": 8,
+        "endLine": 192,
+        "endChar": 9
+      },
       "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
