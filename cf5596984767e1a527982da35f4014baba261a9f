@@ -16,6 +16,24 @@
       "message": "`textContent` is generally preferred since `innerText` can trigger layout (!). I\u0027m okay with this change since it only affects the test runner, but let\u0027s continue to prefer `textContent` for any non-testrunner code (and maybe add a comment to explain the usage here?).",
       "revId": "cf5596984767e1a527982da35f4014baba261a9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d9b117_40f7dbed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-05T13:42:13Z",
+      "side": 1,
+      "message": "Thanks for the heads-up. I agree that we should try using textContent whenever possible, but sadly for these layout tests, where strict string equality is needed, innerText can better withstand structural changes overtime. I\u0027ve added some comments there.",
+      "parentUuid": "94a28073_b1dae5b0",
+      "revId": "cf5596984767e1a527982da35f4014baba261a9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
