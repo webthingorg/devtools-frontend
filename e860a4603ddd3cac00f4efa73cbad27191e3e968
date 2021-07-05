@@ -51,6 +51,24 @@
       "parentUuid": "116c8029_2fad57dc",
       "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff54182f_ff24234a",
+        "filename": "front_end/ui/legacy/KeyboardShortcut.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-05T10:20:06Z",
+      "side": 1,
+      "message": "But the predicate above is more specific than that: If we are on a mac, is the meta key and not the ctrl key pressed? If we are on other platforms, is the ctrl key but not meta pressed?\nMaybe it could be `eventHasCtrlEquivalentKey` or `eventHasCopyModifier`, but I\u0027m not to keen on either of those...",
+      "parentUuid": "a5db9a9a_14319ffa",
+      "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
