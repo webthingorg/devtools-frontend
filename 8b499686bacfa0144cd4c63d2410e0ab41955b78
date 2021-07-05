@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e83366_96c4192b",
+        "filename": "front_end/core/i18n/i18nTypes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:28:18Z",
+      "side": 0,
+      "message": "It seems like these two values are a bit more common than I expected. Rather than manually adding `\u0027undefined\u0027` and `\u0027null\u0027` as strings, can we instead wrap the value into a `String()`?\n\nE.g. if `response.getError()` can return undefined, I would prefer to do `String(response.getError())` rather than `response.getError() || \u0027undefined\u0027`",
+      "range": {
+        "startLine": 8,
+        "startChar": 39,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "8b499686bacfa0144cd4c63d2410e0ab41955b78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
