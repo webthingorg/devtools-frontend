@@ -43,16 +43,16 @@ export function clearAllMockConnectionResponseHandlers() {
 export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
     target: SDK.Target.Target, event: E, ...payload: ProtocolMapping.Events[E]) {
   const [domain, method] = event.split('.');
-  if (!target._dispatchers[domain]) {
+  if (!target.dispatchers[domain]) {
     throw new Error(`No dispatcher for domain "${domain}" on provided target`);
   }
 
   // Register the event if it doesn't exist already.
-  if (!(method in target._dispatchers[domain]._eventArgs)) {
-    target._dispatchers[domain].registerEvent(method, {});
+  if (!(method in target.dispatchers[domain].getEventArgs())) {
+    target.dispatchers[domain].registerEvent(method, {});
   }
 
-  target._dispatchers[domain].dispatch(method, {method, params: payload[0]});
+  target.dispatchers[domain].dispatch(method, {method, params: payload[0]});
 }
 
 function enable({reset = true} = {}) {
@@ -94,7 +94,7 @@ function enable({reset = true} = {}) {
         // Included only to meet interface requirements.
       },
 
-      _onMessage() {
+      onMessage() {
         // Included only to meet interface requirements.
       },
 
