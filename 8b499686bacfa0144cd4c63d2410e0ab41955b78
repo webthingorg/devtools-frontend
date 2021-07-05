@@ -70,6 +70,30 @@
       },
       "revId": "8b499686bacfa0144cd4c63d2410e0ab41955b78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb75952b_1fe70c4d",
+        "filename": "front_end/core/i18n/i18nTypes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T12:00:02Z",
+      "side": 0,
+      "message": "Yeah I thought about that and I think being explicit on the call side is the best. That provides the API user to use a special string if they want to.",
+      "parentUuid": "502c35f7_ac38e0f0",
+      "range": {
+        "startLine": 8,
+        "startChar": 39,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "8b499686bacfa0144cd4c63d2410e0ab41955b78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
