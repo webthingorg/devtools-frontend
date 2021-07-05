@@ -16,6 +16,24 @@
       "message": "This is a detail, but I\u0027m curious about whether or not we should add spacing around the `\u0026` (like in the design doc). Thoughts/opinions?",
       "revId": "abdfbef4772e6083e6c124c7b073c77594d7ab4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1193e56_4316272b",
+        "filename": "scripts/protocol_typescript/protocol_dts_generator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T07:18:20Z",
+      "side": 1,
+      "message": "Everything we emit here will go through source formatting afterwards, so I\u0027d leave as is.",
+      "parentUuid": "94f2460d_96637b7d",
+      "revId": "abdfbef4772e6083e6c124c7b073c77594d7ab4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
