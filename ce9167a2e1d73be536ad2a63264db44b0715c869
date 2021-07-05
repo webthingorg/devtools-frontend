@@ -293,6 +293,24 @@
       "parentUuid": "9ed09d21_f50cbd67",
       "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd2c47af_5251fc98",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T11:50:45Z",
+      "side": 1,
+      "message": "What\u0027s the url for the backend crbug? I didn\u0027t see it.",
+      "parentUuid": "e56697b3_034972d0",
+      "revId": "ce9167a2e1d73be536ad2a63264db44b0715c869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

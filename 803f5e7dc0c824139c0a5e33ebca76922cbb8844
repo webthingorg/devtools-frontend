@@ -16,6 +16,40 @@
       "message": "François, please take a look again 😊",
       "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b12449_07c71380",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T11:50:45Z",
+      "side": 1,
+      "message": "Why not checking all sizes, and only the first one?",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab287120_7dec5b11",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T11:50:45Z",
+      "side": 1,
+      "message": "Suggestion:\n    return {imageResourceErrors, squareSizedIconAvailable};",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
