@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd56085b_9acaf44d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-07-05T13:55:47Z",
+      "side": 1,
+      "message": "Here is my update of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2979580",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
