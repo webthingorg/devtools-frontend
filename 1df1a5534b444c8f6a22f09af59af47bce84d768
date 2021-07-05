@@ -16,6 +16,23 @@
       "message": "PTAL, WIP as I have no idea why the i18n files were cleared, I thought they\u0027re auto-generated?",
       "revId": "1df1a5534b444c8f6a22f09af59af47bce84d768",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e27f4d_85ea6c27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-07-05T08:44:04Z",
+      "side": 1,
+      "message": "LGTM % the localization file issues",
+      "revId": "1df1a5534b444c8f6a22f09af59af47bce84d768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
