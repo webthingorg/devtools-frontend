@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "5d8cf5719112a2c099650438565da603a548873d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf584253_6b41dd63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-05T12:36:40Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5d8cf5719112a2c099650438565da603a548873d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944f31cc_6d670fe4",
+        "filename": "front_end/models/issues_manager/WasmCrossOriginModuleSharingIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-05T12:36:40Z",
+      "side": 1,
+      "message": "Do you plan to wait with landing this until the article is available?",
+      "revId": "5d8cf5719112a2c099650438565da603a548873d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
