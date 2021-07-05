@@ -10,3 +10,7 @@
   text-decoration: var(--override-styles-section-text-hover-text-decoration);
   cursor: var(--override-styles-section-text-hover-cursor);
 }
+
+.link {
+  margin: 10px;
+}
