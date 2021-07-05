@@ -33,6 +33,23 @@
       "message": "Always a big fan of Mapification(TM). Nice!",
       "revId": "1d7ce54d75ba908926b97f388d3ed3ec63beff13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e97a4b63_1b23bc83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T06:32:35Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "1d7ce54d75ba908926b97f388d3ed3ec63beff13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
