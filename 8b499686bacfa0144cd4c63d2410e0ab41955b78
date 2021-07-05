@@ -46,6 +46,30 @@
       },
       "revId": "8b499686bacfa0144cd4c63d2410e0ab41955b78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502c35f7_ac38e0f0",
+        "filename": "front_end/core/i18n/i18nTypes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-05T11:42:35Z",
+      "side": 0,
+      "message": "We could also handle null and undefined in the i18n library code. But I think explicit is better?",
+      "parentUuid": "e552ee5a_dce90053",
+      "range": {
+        "startLine": 8,
+        "startChar": 39,
+        "endLine": 8,
+        "endChar": 53
+      },
+      "revId": "8b499686bacfa0144cd4c63d2410e0ab41955b78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
