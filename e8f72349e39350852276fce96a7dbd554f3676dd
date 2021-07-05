@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a423cc75_e1c97b62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:35:29Z",
+      "side": 1,
+      "message": "I am okay with this approach. The duplication is not great, but I don\u0027t think there is a way around it. And in that case, type-safety is more important imo. Nice work Simon!",
+      "revId": "e8f72349e39350852276fce96a7dbd554f3676dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7836f6ac_2328a626",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "We are using these as values for dispatching:\n\n  this.dispatchEvent(Events.IssuesCountUpdated);\n  \nWith the above, this won\u0027t compile, since `Events.IssuesCountUpdated` is not \"a thing\" at runtime. Its just a type information, not a value (string) available to us.",
       "parentUuid": "7836f6ac_2328a626",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 31
+      },
+      "revId": "e8f72349e39350852276fce96a7dbd554f3676dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30289bec_69d9c04d",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-05T11:35:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "66c5fd8c_32bb629b",
       "range": {
         "startLine": 285,
         "startChar": 12,
