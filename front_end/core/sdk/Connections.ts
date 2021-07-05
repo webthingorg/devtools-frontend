@@ -12,13 +12,13 @@ import * as Root from '../root/root.js';
 import {TargetManager} from './TargetManager.js';
 
 export class MainConnection implements ProtocolClient.InspectorBackend.Connection {
-  _onMessage: ((arg0: (Object|string)) => void)|null;
+  onMessage: ((arg0: (Object|string)) => void)|null;
   _onDisconnect: ((arg0: string) => void)|null;
   _messageBuffer: string;
   _messageSize: number;
   _eventListeners: Common.EventTarget.EventDescriptor[];
   constructor() {
-    this._onMessage = null;
+    this.onMessage = null;
     this._onDisconnect = null;
     this._messageBuffer = '';
     this._messageSize = 0;
@@ -31,7 +31,7 @@ export class MainConnection implements ProtocolClient.InspectorBackend.Connectio
   }
 
   setOnMessage(onMessage: (arg0: (Object|string)) => void): void {
-    this._onMessage = onMessage;
+    this.onMessage = onMessage;
   }
 
   setOnDisconnect(onDisconnect: (arg0: string) => void): void {
@@ -39,14 +39,14 @@ export class MainConnection implements ProtocolClient.InspectorBackend.Connectio
   }
 
   sendRawMessage(message: string): void {
-    if (this._onMessage) {
+    if (this.onMessage) {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.sendMessageToBackend(message);
     }
   }
 
   _dispatchMessage(event: Common.EventTarget.EventTargetEvent): void {
-    if (this._onMessage) {
-      this._onMessage.call(null, (event.data as string));
+    if (this.onMessage) {
+      this.onMessage.call(null, (event.data as string));
     }
   }
 
@@ -58,8 +58,8 @@ export class MainConnection implements ProtocolClient.InspectorBackend.Connectio
       this._messageSize = messageSize;
     }
     this._messageBuffer += messageChunk;
-    if (this._messageBuffer.length === this._messageSize && this._onMessage) {
-      this._onMessage.call(null, this._messageBuffer);
+    if (this._messageBuffer.length === this._messageSize && this.onMessage) {
+      this.onMessage.call(null, this._messageBuffer);
       this._messageBuffer = '';
       this._messageSize = 0;
     }
@@ -69,7 +69,7 @@ export class MainConnection implements ProtocolClient.InspectorBackend.Connectio
     const onDisconnect = this._onDisconnect;
     Common.EventTarget.EventTarget.removeEventListeners(this._eventListeners);
     this._onDisconnect = null;
-    this._onMessage = null;
+    this.onMessage = null;
 
     if (onDisconnect) {
       onDisconnect.call(null, 'force disconnect');
@@ -79,7 +79,7 @@ export class MainConnection implements ProtocolClient.InspectorBackend.Connectio
 
 export class WebSocketConnection implements ProtocolClient.InspectorBackend.Connection {
   _socket: WebSocket|null;
-  _onMessage: ((arg0: (Object|string)) => void)|null;
+  onMessage: ((arg0: (Object|string)) => void)|null;
   _onDisconnect: ((arg0: string) => void)|null;
   _onWebSocketDisconnect: (() => void)|null;
   _connected: boolean;
@@ -91,13 +91,13 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this._socket.onmessage = (messageEvent: MessageEvent<any>): void => {
-      if (this._onMessage) {
-        this._onMessage.call(null, (messageEvent.data as string));
+      if (this.onMessage) {
+        this.onMessage.call(null, (messageEvent.data as string));
       }
     };
     this._socket.onclose = this._onClose.bind(this);
 
-    this._onMessage = null;
+    this.onMessage = null;
     this._onDisconnect = null;
     this._onWebSocketDisconnect = onWebSocketDisconnect;
     this._connected = false;
@@ -105,7 +105,7 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
   }
 
   setOnMessage(onMessage: (arg0: (Object|string)) => void): void {
-    this._onMessage = onMessage;
+    this.onMessage = onMessage;
   }
 
   setOnDisconnect(onDisconnect: (arg0: string) => void): void {
@@ -177,15 +177,15 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
 }
 
 export class StubConnection implements ProtocolClient.InspectorBackend.Connection {
-  _onMessage: ((arg0: (Object|string)) => void)|null;
+  onMessage: ((arg0: (Object|string)) => void)|null;
   _onDisconnect: ((arg0: string) => void)|null;
   constructor() {
-    this._onMessage = null;
+    this.onMessage = null;
     this._onDisconnect = null;
   }
 
   setOnMessage(onMessage: (arg0: (Object|string)) => void): void {
-    this._onMessage = onMessage;
+    this.onMessage = onMessage;
   }
 
   setOnDisconnect(onDisconnect: (arg0: string) => void): void {
@@ -203,8 +203,8 @@ export class StubConnection implements ProtocolClient.InspectorBackend.Connectio
       code: ProtocolClient.InspectorBackend.DevToolsStubErrorCode,
       data: messageObject,
     };
-    if (this._onMessage) {
-      this._onMessage.call(null, {id: messageObject.id, error: error});
+    if (this.onMessage) {
+      this.onMessage.call(null, {id: messageObject.id, error: error});
     }
   }
 
@@ -213,24 +213,24 @@ export class StubConnection implements ProtocolClient.InspectorBackend.Connectio
       this._onDisconnect.call(null, 'force disconnect');
     }
     this._onDisconnect = null;
-    this._onMessage = null;
+    this.onMessage = null;
   }
 }
 
 export class ParallelConnection implements ProtocolClient.InspectorBackend.Connection {
   _connection: ProtocolClient.InspectorBackend.Connection;
   _sessionId: string;
-  _onMessage: ((arg0: Object) => void)|null;
+  onMessage: ((arg0: Object) => void)|null;
   _onDisconnect: ((arg0: string) => void)|null;
   constructor(connection: ProtocolClient.InspectorBackend.Connection, sessionId: string) {
     this._connection = connection;
     this._sessionId = sessionId;
-    this._onMessage = null;
+    this.onMessage = null;
     this._onDisconnect = null;
   }
 
   setOnMessage(onMessage: (arg0: Object) => void): void {
-    this._onMessage = onMessage;
+    this.onMessage = onMessage;
   }
 
   setOnDisconnect(onDisconnect: (arg0: string) => void): void {
@@ -251,7 +251,7 @@ export class ParallelConnection implements ProtocolClient.InspectorBackend.Conne
       this._onDisconnect.call(null, 'force disconnect');
     }
     this._onDisconnect = null;
-    this._onMessage = null;
+    this.onMessage = null;
   }
 }
 
