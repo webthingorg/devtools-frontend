@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a47336e_2c76ac4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T12:21:17Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1b12449_07c71380",
@@ -53,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ded3fc_30334533",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T12:21:17Z",
+      "side": 1,
+      "message": "You\u0027re right!",
+      "parentUuid": "3126656a_52c9f169",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab287120_7dec5b11",
@@ -84,6 +119,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ab287120_7dec5b11",
+      "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f2e9ab_92a32e69",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2021-07-05T12:21:17Z",
+      "side": 1,
+      "message": "I guess latest patch has not been uploaded yet.",
+      "parentUuid": "98c6f18b_a9dfe98d",
       "revId": "803f5e7dc0c824139c0a5e33ebca76922cbb8844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
