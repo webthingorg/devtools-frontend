@@ -16,6 +16,23 @@
       "message": "Fixing experiment userMetrics, PTAL, thanks!",
       "revId": "cd146b4628ea614af795d3ecfa173c7eb76996d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3e17f8_826d0fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-05T07:57:44Z",
+      "side": 1,
+      "message": "LGTM, thanks. I created the follow-up https://crrev.com/c/3003255/1 to reinstate using the constant.\n\nMathias, Simon is OOO, could you take a look please?",
+      "revId": "cd146b4628ea614af795d3ecfa173c7eb76996d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
