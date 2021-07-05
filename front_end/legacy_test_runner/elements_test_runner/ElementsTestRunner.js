@@ -504,7 +504,7 @@ async function printStyleSection(section, omitLonghands, includeSelectorGroupMar
 
   for (const query of queries) {
     const queryElement = query.shadowRoot.querySelector('.query');
-    TestRunner.addResult(text(queryElement));
+    TestRunner.addResult(queryElement.innerText);
   }
 
   const selector =
