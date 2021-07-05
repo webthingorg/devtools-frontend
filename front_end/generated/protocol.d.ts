@@ -2569,7 +2569,10 @@ declare namespace Protocol {
     /**
      * Unique identifier of the Cache object.
      */
-    export type CacheId = string;
+    class CacheIdTag {
+      private tagCacheId: (string|undefined);
+    }
+    export type CacheId = string&CacheIdTag;
 
     /**
      * type of HTTP response cached
