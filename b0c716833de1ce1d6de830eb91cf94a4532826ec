@@ -16,6 +16,74 @@
       "message": "Here is my update of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2979580",
       "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da9bbaca_9106a55f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-06T09:28:46Z",
+      "side": 1,
+      "message": "Nice!\n\nI\u0027m not the best person to judge the UI change though, maybe you can get someone from UX to take a look too?",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb486e6_b1807888",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-06T09:28:46Z",
+      "side": 1,
+      "message": "Would it make sense to defer the optimized warning to a future change? I don\u0027t think we have enough information to detect whether a frame was optimized or not.",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daab9b6f_ff1ba07c",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-06T09:28:46Z",
+      "side": 1,
+      "message": "I like the distinction, not adding a warning when there\u0027s no plugin available makes complete sense. Would a comment here be useful to document this? Up to you!",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a1cbcb8_2079bcea",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-06T09:28:46Z",
+      "side": 1,
+      "message": "Suppose we have other language extensions or symbol formats in the future, should we just say \u0027No debug symbols\u0027 here?\n\nShould the warning messages be localized, too?",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
