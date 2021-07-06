@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "0e15a36376126ab924ab4f25ec875f0ec573165a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e4f8593_ff96b1d9",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-06T13:30:03Z",
+      "side": 1,
+      "message": "Nit: since we use this particular construct throughout this file, we might want to introduce an alias for it. E.g. `type ProtocolDomainName \u003d keyof ProtocolProxyApi.ProtocolApi` and then use `ProtocolDomainName` in any place where it is relevant.",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 58
+      },
+      "revId": "0e15a36376126ab924ab4f25ec875f0ec573165a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
