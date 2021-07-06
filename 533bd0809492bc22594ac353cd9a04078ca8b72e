@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b510ac06_99cef02d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-06T09:53:24Z",
+      "side": 1,
+      "message": "Good question; I would definitely move it into a common place. I think you could do `elements/components/Helper.ts` and have it live there 👍",
+      "parentUuid": "1fdd54ad_10abcef8",
+      "revId": "533bd0809492bc22594ac353cd9a04078ca8b72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "802df04e_c7d26189",
