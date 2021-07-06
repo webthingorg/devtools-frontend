@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d12cae_35ee4955",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-06T10:40:56Z",
+      "side": 1,
+      "message": "I updated the CL to move it to elements/components/Helper.ts. Please take another look, thanks!",
+      "parentUuid": "b510ac06_99cef02d",
+      "revId": "533bd0809492bc22594ac353cd9a04078ca8b72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "802df04e_c7d26189",
