@@ -33,6 +33,24 @@
       "message": "LGTM.\nShould we have a few e2e tests for this feature too?",
       "revId": "4ba5ba34fd8ec184875775eb03bf6b9f86160d42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b26b47f_13f597e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-06T11:01:22Z",
+      "side": 1,
+      "message": "I\u0027m planning on adding some e2e tests once we finalize the container link behavior. Right not it\u0027s still TBC. I should be able to fianlize it in the next two CLs. Thanks for the suggestion!",
+      "parentUuid": "c67d5b4c_a99b3dff",
+      "revId": "4ba5ba34fd8ec184875775eb03bf6b9f86160d42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
