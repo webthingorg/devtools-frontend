@@ -16,6 +16,7 @@ import * as ElementsPanelLink from './ElementsPanelLink.js';
 import * as LayoutPane from './LayoutPane.js';
 import * as LayoutPaneUtils from './LayoutPaneUtils.js';
 import * as NodeText from './NodeText.js';
+import * as QueryContainer from './QueryContainer.js';
 import * as StylePropertyEditor from './StylePropertyEditor.js';
 
 export {
@@ -33,5 +34,6 @@ export {
   LayoutPane,
   LayoutPaneUtils,
   NodeText,
+  QueryContainer,
   StylePropertyEditor,
 };
