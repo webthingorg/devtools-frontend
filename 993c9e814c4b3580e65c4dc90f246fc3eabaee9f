@@ -33,6 +33,24 @@
       "message": "As per the offline discussion, I guess this doesn\u0027t need to be here?",
       "revId": "993c9e814c4b3580e65c4dc90f246fc3eabaee9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "090418e4_a92a6932",
+        "filename": "front_end/panels/application/components/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-06T14:52:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "719bdb23_ad1a7c7a",
+      "revId": "993c9e814c4b3580e65c4dc90f246fc3eabaee9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
