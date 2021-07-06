@@ -1549,7 +1549,7 @@ export class StylePropertiesSection {
   }
 
   _onMouseMove(event: MouseEvent): void {
-    const hasCtrlOrMeta = UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlOrMeta((event as MouseEvent));
+    const hasCtrlOrMeta = UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlEquivalentKey(event);
     this._setSectionHovered(hasCtrlOrMeta);
 
     const treeElement = this.propertiesTreeOutline.treeElementFromEvent(event);
@@ -2059,12 +2059,12 @@ export class StylePropertiesSection {
   }
 
   private handleQueryRuleClick(
-      query: SDK.CSSMedia.CSSMedia|SDK.CSSContainerQuery.CSSContainerQuery, element: Element, event: Event): void {
+      query: SDK.CSSMedia.CSSMedia|SDK.CSSContainerQuery.CSSContainerQuery, element: Element, event: MouseEvent): void {
     if (UI.UIUtils.isBeingEdited(element)) {
       return;
     }
 
-    if (UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlOrMeta((event as MouseEvent)) && this.navigable) {
+    if (UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlEquivalentKey(event) && this.navigable) {
       const location = query.rawLocation();
       if (!location) {
         event.consume(true);
@@ -2157,7 +2157,7 @@ export class StylePropertiesSection {
     if (!target) {
       return;
     }
-    if (UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlOrMeta((event as MouseEvent)) && this.navigable &&
+    if (UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlEquivalentKey((event as MouseEvent)) && this.navigable &&
         target.classList.contains('simple-selector')) {
       const selectorIndex = this._elementToSelectorIndex.get(target);
       if (selectorIndex) {
