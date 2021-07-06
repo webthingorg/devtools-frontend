@@ -1212,7 +1212,7 @@ export function setTitle(element: HTMLElement, title: string, actionId: string|u
 export class CheckboxLabel extends HTMLSpanElement {
   _shadowRoot!: DocumentFragment;
   checkboxElement!: HTMLInputElement;
-  textElement!: Element;
+  textElement!: HTMLElement;
 
   constructor() {
     super();
@@ -1223,7 +1223,7 @@ export class CheckboxLabel extends HTMLSpanElement {
     this.checkboxElement = (this._shadowRoot.createChild('input') as HTMLInputElement);
     this.checkboxElement.type = 'checkbox';
     this.checkboxElement.setAttribute('id', id);
-    this.textElement = this._shadowRoot.createChild('label', 'dt-checkbox-text');
+    this.textElement = this._shadowRoot.createChild('label', 'dt-checkbox-text') as HTMLElement;
     this.textElement.setAttribute('for', id);
     this._shadowRoot.createChild('slot');
   }
