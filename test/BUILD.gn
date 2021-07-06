@@ -13,6 +13,13 @@ group("test") {
     "shared",
     "unittests",
   ]
+
+  data_deps = deps
+  data = [
+    "../third_party",
+    "../node_modules"
+  ]
+
 }
 
 copy_to_gen("config") {
