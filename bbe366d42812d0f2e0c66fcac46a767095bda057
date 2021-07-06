@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "511a3b7f_e8e68662",
+        "filename": "front_end/panels/elements/components/QueryContainer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-06T10:44:50Z",
+      "side": 1,
+      "message": "Nit: Maybe you could put these two declarations in an `if` instead:\nlet idToDisplay, classesToDisplay;\nif (!this.queryName) {\n   idToDisplay \u003d this.container.getAttribute(\u0027id\u0027);\n   classesToDisplay \u003d this.container.getAttribute(\u0027class\u0027)?.split(/\\s+/).filter(Boolean);\n}",
+      "revId": "bbe366d42812d0f2e0c66fcac46a767095bda057",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
