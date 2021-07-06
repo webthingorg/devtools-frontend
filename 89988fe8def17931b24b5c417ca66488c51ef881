@@ -16,6 +16,23 @@
       "message": "Will be submitting this one after branch point",
       "revId": "89988fe8def17931b24b5c417ca66488c51ef881",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64b83bc_9430842c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-06T11:30:34Z",
+      "side": 1,
+      "message": "🎉",
+      "revId": "89988fe8def17931b24b5c417ca66488c51ef881",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
