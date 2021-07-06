@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bdce0c6_e2d7b8d8",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-06T09:04:59Z",
+      "side": 1,
+      "message": "Should `this.dispatchers` be made a `Set`? Seems like it’s being used as one.",
+      "revId": "892297241e6948c4f1b5ce8f215a25719e00c35b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
