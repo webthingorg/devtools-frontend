@@ -19,7 +19,7 @@ describe('Recorder', () => {
           steps: [],
         }],
       });
-      assert.deepEqual(script, `const puppeteer = require('puppeteer');
+      assert.deepEqual(script, `const puppeteer = require('puppeteer42');
 
 (async () => {
   const browser = await puppeteer.launch();
