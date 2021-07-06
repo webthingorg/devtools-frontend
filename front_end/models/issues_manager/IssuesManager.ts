@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
@@ -11,7 +12,9 @@ import {CorsIssue} from './CorsIssue.js';
 import {CrossOriginEmbedderPolicyIssue, isCrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {DeprecationIssue} from './DeprecationIssue.js';
 import {HeavyAdIssue} from './HeavyAdIssue.js';
-import type {Issue, IssueKind} from './Issue.js';
+
+import type {Issue, IssueKind, HiddenIssuesSetting} from './Issue.js';
+import {getHideIssueByCatergorySetting, getHideIssueByKindSetting, getHideIssueByCodeSetting, defaultHideIssueByCategorySetting, defaultHideIssueByKindSetting, defaultHideIssueByCodeSetting} from './Issue.js';
 import {LowTextContrastIssue} from './LowTextContrastIssue.js';
 import {MixedContentIssue} from './MixedContentIssue.js';
 import {QuirksModeIssue} from './QuirksModeIssue.js';
@@ -107,6 +110,9 @@ export interface IssuesManagerCreationOptions {
   /** Throw an error if this is not the first instance created */
   ensureFirst: boolean;
   showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>;
+  hideIssueByCategorySetting?: Common.Settings.Setting<HiddenIssuesSetting>;
+  hideIssueByKindSetting?: Common.Settings.Setting<HiddenIssuesSetting>;
+  hideIssueByCodeSetting?: Common.Settings.Setting<HiddenIssuesSetting>;
 }
 
 /**
@@ -130,14 +136,25 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
   private sourceFrameIssuesManager = new SourceFrameIssuesManager(this);
   private issuesById: Map<string, Issue> = new Map();
 
-  constructor(private readonly showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>) {
+  constructor(
+      private readonly showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>,
+      private readonly hideIssueByCodeSetting?: Common.Settings.Setting<HiddenIssuesSetting>,
+      private readonly hideIssueByCategorySetting?: Common.Settings.Setting<HiddenIssuesSetting>,
+      private readonly hideIssueByKindSetting?: Common.Settings.Setting<HiddenIssuesSetting>) {
     super();
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
     SDK.FrameManager.FrameManager.instance().addEventListener(
         SDK.FrameManager.Events.TopFrameNavigated, this.onTopFrameNavigated, this);
     SDK.FrameManager.FrameManager.instance().addEventListener(
         SDK.FrameManager.Events.FrameAddedToTarget, this.onFrameAddedToTarget, this);
-
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      this.hideIssueByCategorySetting?.set(defaultHideIssueByCategorySetting());
+      this.hideIssueByKindSetting?.set(defaultHideIssueByKindSetting());
+      this.hideIssueByCodeSetting?.set(defaultHideIssueByCodeSetting());
+      this.hideIssueByCodeSetting?.addChangeListener(() => this.updateFilteredIssues());
+      this.hideIssueByCategorySetting?.addChangeListener(() => this.updateFilteredIssues());
+      this.hideIssueByKindSetting?.addChangeListener(() => this.updateFilteredIssues());
+    }
     // issueFilter uses the 'showThirdPartyIssues' setting. Clients of IssuesManager need
     // a full update when the setting changes to get an up-to-date issues list.
     this.showThirdPartyIssuesSetting?.addChangeListener(() => this.updateFilteredIssues());
@@ -153,7 +170,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
     }
 
     if (!issuesManagerInstance || opts.forceNew) {
-      issuesManagerInstance = new IssuesManager(opts.showThirdPartyIssuesSetting);
+      issuesManagerInstance = new IssuesManager(
+          opts.showThirdPartyIssuesSetting, opts.hideIssueByCodeSetting, opts.hideIssueByCategorySetting,
+          opts.hideIssueByKindSetting);
     }
 
     return issuesManagerInstance;
@@ -196,7 +215,6 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
       this.updateFilteredIssues();
     }
   }
-
   modelAdded(issuesModel: SDK.IssuesModel.IssuesModel): void {
     const listener = issuesModel.addEventListener(SDK.IssuesModel.Events.IssueAdded, this.onIssueAddedEvent, this);
     this.eventListeners.set(issuesModel, listener);
@@ -238,7 +256,11 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
       if (issueId) {
         this.issuesById.set(issueId, issue);
       }
-      this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
+      if (issue.isHidden()) {
+        this.dispatchEventToListeners(Events.HideAddedIssue, {issuesModel, issue});
+      } else {
+        this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
+      }
     }
     // Always fire the "count" event even if the issue was filtered out.
     // The result of `hasOnlyThirdPartyIssues` could still change.
@@ -261,6 +283,26 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper implements
   }
 
   private issueFilter(issue: Issue): boolean {
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      const categorySetting = getHideIssueByCatergorySetting();
+      const kindSetting = getHideIssueByKindSetting();
+      const codeSetting = getHideIssueByCodeSetting();
+      if (this.showThirdPartyIssuesSetting?.get() || !issue.isCausedByThirdParty()) {
+        if (codeSetting.get()[issue.code()]) {
+          issue.setHidden(true);
+          return true;
+        }
+        if (categorySetting.get()[issue.getCategory()]) {
+          issue.setHidden(true);
+          return true;
+        }
+        if (kindSetting.get()[issue.getKind()]) {
+          issue.setHidden(true);
+          return true;
+        }
+        issue.setHidden(false);
+      }
+    }
     return this.showThirdPartyIssuesSetting?.get() || !issue.isCausedByThirdParty();
   }
 
@@ -294,6 +336,7 @@ export enum Events {
   IssuesCountUpdated = 'IssuesCountUpdated',
   IssueAdded = 'IssueAdded',
   FullUpdateRequired = 'FullUpdateRequired',
+  HideAddedIssue = 'HideAddedIssue',
 }
 
 // @ts-ignore

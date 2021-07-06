@@ -188,12 +188,13 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
 
 export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   private readonly aggregatedIssuesByCode = new Map<string, AggregatedIssue>();
-
+  private readonly hiddenAggregatedIssuesByCode = new Map<string, AggregatedIssue>();
   constructor(private readonly issuesManager: IssuesManager.IssuesManager.IssuesManager) {
     super();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
     this.issuesManager.addEventListener(
         IssuesManager.IssuesManager.Events.FullUpdateRequired, this.onFullUpdateRequired, this);
+    this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.HideAddedIssue, this.onIssueAdded, this);
     for (const issue of this.issuesManager.issues()) {
       this.aggregateIssue(issue);
     }
@@ -216,6 +217,16 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   private aggregateIssue(issue: IssuesManager.Issue.Issue): AggregatedIssue {
+    if (issue.isHidden()) {
+      let hiddenAggregatedIssue = this.hiddenAggregatedIssuesByCode.get(issue.code());
+      if (!hiddenAggregatedIssue) {
+        hiddenAggregatedIssue = new AggregatedIssue(issue.code());
+        this.hiddenAggregatedIssuesByCode.set(issue.code(), hiddenAggregatedIssue);
+      }
+      hiddenAggregatedIssue.addInstance(issue);
+      this.hiddenAggregatedIssuesByCode.set(issue.code(), hiddenAggregatedIssue);
+      return hiddenAggregatedIssue;
+    }
     let aggregatedIssue = this.aggregatedIssuesByCode.get(issue.code());
     if (!aggregatedIssue) {
       aggregatedIssue = new AggregatedIssue(issue.code());
