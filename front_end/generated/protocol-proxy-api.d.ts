@@ -14,6 +14,13 @@ import type * as Protocol from './protocol.js'
  * API generated from Protocol commands and events.
  */
 declare namespace ProtocolProxyApi {
+  export type ProtocolDomainName =
+      'Accessibility'|'Animation'|'ApplicationCache'|'Audits'|'BackgroundService'|'Browser'|'CSS'|'CacheStorage'|'Cast'|
+      'DOM'|'DOMDebugger'|'DOMSnapshot'|'DOMStorage'|'Database'|'DeviceOrientation'|'Emulation'|'HeadlessExperimental'|
+      'IO'|'IndexedDB'|'Input'|'Inspector'|'LayerTree'|'Log'|'Memory'|'Network'|'Overlay'|'Page'|'Performance'|
+      'PerformanceTimeline'|'Security'|'ServiceWorker'|'Storage'|'SystemInfo'|'Target'|'Tethering'|'Tracing'|'Fetch'|
+      'WebAudio'|'WebAuthn'|'Media'|'Debugger'|'HeapProfiler'|'Profiler'|'Runtime'|'Schema';
+
   export interface ProtocolApi {
     Accessibility: AccessibilityApi;
 
@@ -104,6 +111,98 @@ declare namespace ProtocolProxyApi {
     Runtime: RuntimeApi;
 
     Schema: SchemaApi;
+  }
+
+  export interface ProtocolDispatchers {
+    Accessibility: AccessibilityDispatcher;
+
+    Animation: AnimationDispatcher;
+
+    ApplicationCache: ApplicationCacheDispatcher;
+
+    Audits: AuditsDispatcher;
+
+    BackgroundService: BackgroundServiceDispatcher;
+
+    Browser: BrowserDispatcher;
+
+    CSS: CSSDispatcher;
+
+    CacheStorage: CacheStorageDispatcher;
+
+    Cast: CastDispatcher;
+
+    DOM: DOMDispatcher;
+
+    DOMDebugger: DOMDebuggerDispatcher;
+
+    DOMSnapshot: DOMSnapshotDispatcher;
+
+    DOMStorage: DOMStorageDispatcher;
+
+    Database: DatabaseDispatcher;
+
+    DeviceOrientation: DeviceOrientationDispatcher;
+
+    Emulation: EmulationDispatcher;
+
+    HeadlessExperimental: HeadlessExperimentalDispatcher;
+
+    IO: IODispatcher;
+
+    IndexedDB: IndexedDBDispatcher;
+
+    Input: InputDispatcher;
+
+    Inspector: InspectorDispatcher;
+
+    LayerTree: LayerTreeDispatcher;
+
+    Log: LogDispatcher;
+
+    Memory: MemoryDispatcher;
+
+    Network: NetworkDispatcher;
+
+    Overlay: OverlayDispatcher;
+
+    Page: PageDispatcher;
+
+    Performance: PerformanceDispatcher;
+
+    PerformanceTimeline: PerformanceTimelineDispatcher;
+
+    Security: SecurityDispatcher;
+
+    ServiceWorker: ServiceWorkerDispatcher;
+
+    Storage: StorageDispatcher;
+
+    SystemInfo: SystemInfoDispatcher;
+
+    Target: TargetDispatcher;
+
+    Tethering: TetheringDispatcher;
+
+    Tracing: TracingDispatcher;
+
+    Fetch: FetchDispatcher;
+
+    WebAudio: WebAudioDispatcher;
+
+    WebAuthn: WebAuthnDispatcher;
+
+    Media: MediaDispatcher;
+
+    Debugger: DebuggerDispatcher;
+
+    HeapProfiler: HeapProfilerDispatcher;
+
+    Profiler: ProfilerDispatcher;
+
+    Runtime: RuntimeDispatcher;
+
+    Schema: SchemaDispatcher;
   }
 
 
