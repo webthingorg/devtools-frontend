@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d340a678_69ba5197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-06T09:46:16Z",
+      "side": 1,
+      "message": "LGTM. \n\nnit: You could add that the icon was taken from the largeIcons sprite sheet to the CL description.",
+      "revId": "1d6627b21e3b5d738fee488ac14f95c0f8e7786b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
