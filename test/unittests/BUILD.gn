@@ -15,14 +15,71 @@ group("unittests") {
     "front_end",
     "inspector_overlay",
   ]
+
+
+  data = [
+    "../../scripts/",
+    "../../node_modules/",
+    "../../test/",
+    "../../package.json",
+    "../../package-lock.json",
+    "../../third_party/chrome/chrome-linux/",
+    "../../third_party/",
+    "../../front_end/",
+    "../../config/",
+    "../../OWNERS",
+    "../../.git/",
+    "../../.gitattributes",
+    "../../.gitignore",
+    "../../infra/",
+    "../../input.json",
+    "../../out.json",
+    "../../shoot.sh",
+    "../../targets",
+    "../../tools/",
+
+    "../../ARCHITECTURE.md",
+    "../../AUTHORS",
+    "../../build/",
+    "../../BUILD.gn",
+    "../../build_overrides/",
+    "../../buildtools/",
+    "../../.clang-format/",
+    "../../config/",
+    "../../DEPS",
+    "../../docs/",
+    "../../.editorconfig",
+    "../../.eslintignore",
+    "../../.eslintrc.js",
+    "../../front_end/",
+    "../../.gn",
+    "../../inspector_overlay/",
+    "../../karma-coverage/",
+    "../../LICENSE",
+    "../../.mailmap",
+    "../../node_modules/",
+    "../../.npmignore",
+    "../../.npmrc",
+    "../../PRESUBMIT.py",
+    "../../README.md",
+    "../../.stylelintignore",
+    "../../.stylelintrc.json",
+    "../../.style.yapf",
+    "../../tsconfig.json",
+    "../../v8/",
+    "../../.vscode/",
+    "../../WATCHLISTS/",
+  ]
 }
 
 copy("copy_to_gen") {
   sources = [ "karma.conf.js" ]
   outputs = [ "$target_gen_dir/karma.conf.js" ]
+  data = [ "$target_gen_dir/karma.conf.js" ]
 }
 
 copy("copy_debug_check") {
   sources = [ "debug-check.js" ]
   outputs = [ "$target_gen_dir/debug-check.js" ]
+  data = [ "$target_gen_dir/debug-check.js" ]
 }
