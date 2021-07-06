@@ -33,6 +33,23 @@
       "message": "Adding Peter for UX review.",
       "revId": "533bd0809492bc22594ac353cd9a04078ca8b72e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802df04e_c7d26189",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-06T09:38:11Z",
+      "side": 1,
+      "message": "@jacktfranklin: also if we decide to move the breadcrumbs DOMNode into a common place, this function can go there too, with a rename.",
+      "revId": "533bd0809492bc22594ac353cd9a04078ca8b72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
