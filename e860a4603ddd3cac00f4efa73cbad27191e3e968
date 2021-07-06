@@ -105,6 +105,24 @@
       "parentUuid": "f8959aca_2b9a4aa0",
       "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019fc720_087bf8d0",
+        "filename": "front_end/ui/legacy/KeyboardShortcut.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-06T06:30:21Z",
+      "side": 1,
+      "message": "Thanks! I have renamed to `eventHasCtrlEquivalentKey` and added a comment.",
+      "parentUuid": "6936d9f6_7f285124",
+      "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
