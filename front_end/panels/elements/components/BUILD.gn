@@ -10,6 +10,7 @@ generate_css("css_files") {
   sources = [
     "cssQuery.css",
     "elementsPanelLink.css",
+    "queryContainer.css",
   ]
 }
 
@@ -29,6 +30,7 @@ devtools_module("components") {
     "LayoutPane.ts",
     "LayoutPaneUtils.ts",
     "NodeText.ts",
+    "QueryContainer.ts",
     "StylePropertyEditor.ts",
   ]
 
