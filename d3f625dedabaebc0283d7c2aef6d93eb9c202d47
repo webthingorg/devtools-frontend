@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c95262_cb018f57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-06T15:20:46Z",
+      "side": 1,
+      "message": "Nice cleanup!",
+      "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ba8b107_7490a359",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-06T15:20:46Z",
+      "side": 1,
+      "message": "Ah okay, in this case, I am not sure if the type alias is helping us this much. I am fine with keeping it, but we can also use `ProtocolProxyApi.ProtocolDomainName` instead, which isn\u0027t that much longer in itself I would think, is it?",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 23
+      },
+      "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaf6b411_9718cc2b",
+        "filename": "front_end/generated/protocol-proxy-api.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-06T15:20:46Z",
+      "side": 1,
+      "message": "Nit: I think this can be `keyof ProtocolDispatchers` here, which should be the same union of strings.",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 92
+      },
+      "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
