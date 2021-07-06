@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4334abb_8bb536ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-06T13:01:31Z",
+      "side": 1,
+      "message": "Hey Tim,\n\nFixing the type errors in said file, the protocol definitions already contain the relevant enum values.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "a251dbdea4368ed0493d4d6d9dcf71a908ef6b8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
