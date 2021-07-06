@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1cb2b6_f5c6a4f6",
+        "filename": "front_end/panels/application/ServiceWorkerCacheViews.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-06T06:55:05Z",
+      "side": 1,
+      "message": "Thanks! I thought I have replaced all of them.",
+      "parentUuid": "eea5502c_86db24e2",
+      "range": {
+        "startLine": 281,
+        "startChar": 24,
+        "endLine": 281,
+        "endChar": 59
+      },
+      "revId": "4babba567d04e3d118b2f3be4d2571ac6c966721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15101a7c_464f80ff",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-05T12:00:02Z",
       "side": 1,
       "message": "Nit: here as well.",
+      "range": {
+        "startLine": 314,
+        "startChar": 108,
+        "endLine": 315,
+        "endChar": 31
+      },
+      "revId": "4babba567d04e3d118b2f3be4d2571ac6c966721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb64f0d_7704ef04",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-06T06:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15101a7c_464f80ff",
       "range": {
         "startLine": 314,
         "startChar": 108,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b519d544_f901141c",
+        "filename": "front_end/panels/layer_viewer/LayerDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-06T06:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92855ab0_770af441",
+      "range": {
+        "startLine": 233,
+        "startChar": 108,
+        "endLine": 234,
+        "endChar": 21
+      },
+      "revId": "4babba567d04e3d118b2f3be4d2571ac6c966721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0b49413_a877ee67",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-07-05T12:00:02Z",
       "side": 1,
       "message": "Nit: here as well.",
+      "range": {
+        "startLine": 146,
+        "startChar": 103,
+        "endLine": 146,
+        "endChar": 112
+      },
+      "revId": "4babba567d04e3d118b2f3be4d2571ac6c966721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb27ed7_29664c3d",
+        "filename": "front_end/panels/sources/DebuggerPausedMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-06T06:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b49413_a877ee67",
       "range": {
         "startLine": 146,
         "startChar": 103,
