@@ -6419,6 +6419,9 @@
   "panels/network/NetworkLogView.ts | copyAllAsPowershell": {
     "message": "Copy all as PowerShell"
   },
+  "panels/network/NetworkLogView.ts | copyAllAsPythonRequests": {
+    "message": "Copy all as Python (requests)"
+  },
   "panels/network/NetworkLogView.ts | copyAsCurl": {
     "message": "Copy as cURL"
   },
@@ -6436,6 +6439,9 @@
   },
   "panels/network/NetworkLogView.ts | copyAsPowershell": {
     "message": "Copy as PowerShell"
+  },
+  "panels/network/NetworkLogView.ts | copyAsPythonRequests": {
+    "message": "Copy as Python (requests)"
   },
   "panels/network/NetworkLogView.ts | copyRequestHeaders": {
     "message": "Copy request headers"
