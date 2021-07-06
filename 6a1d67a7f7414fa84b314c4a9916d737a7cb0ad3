@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eeec7f0_5ac24224",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-06T16:05:18Z",
+      "side": 0,
+      "message": "All of these functions were used yet, but when I tried, I discovered they were incorrectly running on `target` instead of on `frontend`. So this CL also includes the fix, since no other test used these functions yet.",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 40
+      },
+      "revId": "6a1d67a7f7414fa84b314c4a9916d737a7cb0ad3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
