@@ -87,6 +87,24 @@
       "parentUuid": "ff54182f_ff24234a",
       "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6936d9f6_7f285124",
+        "filename": "front_end/ui/legacy/KeyboardShortcut.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-06T05:37:40Z",
+      "side": 1,
+      "message": "I was trying to think of better names the other day but failed to come up with anything that wasn\u0027t already suggested. The worst kind of bikeshed! +1 to adding a comment to capture this rather subtle nuance of when to use which function.",
+      "parentUuid": "f8959aca_2b9a4aa0",
+      "revId": "e860a4603ddd3cac00f4efa73cbad27191e3e968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
