@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fdd54ad_10abcef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-06T09:34:06Z",
+      "side": 1,
+      "message": "Hi Jack, since I\u0027m \"borrowing\" `ElementsBreadcrumbs.DOMNode` from ElementsBreadcrumbs, do you think it\u0027s better to move this DOMNode definition to a common place, e.g. `ComponentsHelper.DOMNode` (which implies creating a ComponentsHelper.ts in `front_end/panels/elements/components/`)?",
+      "revId": "533bd0809492bc22594ac353cd9a04078ca8b72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
