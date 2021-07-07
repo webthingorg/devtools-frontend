@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "018d1298_d35faa7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-07-07T01:09:05Z",
+      "side": 1,
+      "message": "Hi Yang, ptal at this small bug fix and let me know if we should change anything. Thanks!",
+      "revId": "683db25da8de89eaeeafa1f925ef27fa88b7f73a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
