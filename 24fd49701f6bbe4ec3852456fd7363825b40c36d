@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48cb4fa9_61e85e0a",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "nit: typo in \u0027cateRgory\u0027",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bdde829_a3b3f663",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "Is this to reset/unhide all hidden issues on DevTools reload?",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8041b37_81951b4b",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "nit: keep the empty line",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5901248a_df4b3b2f",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "How should third-party issues be handled? Should they show up among the hidden isseus? If yes, they should probably be set to hidden here somewhere.",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e4f14e_ce916225",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "Why is this line needed in both the \u0027if\u0027 and the \u0027else\u0027 case?",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf4ffb5c_00847bc9",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T11:01:28Z",
+      "side": 1,
+      "message": "Great idea to add a reset button to the UI!",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
