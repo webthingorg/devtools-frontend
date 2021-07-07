@@ -22,6 +22,30 @@
       },
       "revId": "2c46a212af51df06f3bad89768257d7f435da7fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7d4b2f_df94c22d",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-07T09:46:23Z",
+      "side": 0,
+      "message": "Yeah string is fine.",
+      "parentUuid": "13101856_231969b9",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "2c46a212af51df06f3bad89768257d7f435da7fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
