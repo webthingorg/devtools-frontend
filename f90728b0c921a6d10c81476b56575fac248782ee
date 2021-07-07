@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e671d139_52961a95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T15:39:26Z",
+      "side": 1,
+      "message": "Jack: PTAL at my wrangling of component state.\n\nSigurd: I believe my latest changes reflect what we discussed offline.",
+      "revId": "f90728b0c921a6d10c81476b56575fac248782ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

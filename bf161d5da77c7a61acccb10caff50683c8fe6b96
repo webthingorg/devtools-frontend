@@ -68,6 +68,24 @@
       "parentUuid": "2ae4a6d5_b79bd311",
       "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d2c17f_82d290d5",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T15:39:26Z",
+      "side": 1,
+      "message": "Thanks!\n\nPTAL at the updated CL where child and parent now access the same object in order to preserver child state across re-renders of the parent.",
+      "parentUuid": "56119f60_ba001304",
+      "revId": "bf161d5da77c7a61acccb10caff50683c8fe6b96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faf91d40_a7ca7af6",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T15:39:26Z",
+      "side": 1,
+      "message": "Parent (FrameDetailsView) and child (PermissionsPolicySection) now share the same object for the child\u0027s state, so that when the child updates its state this is reflected in the parent as well. In case the parent re-renders, it therefore renders the child in the correct state.",
+      "parentUuid": "aac00f3b_62e1564e",
+      "range": {
+        "startLine": 327,
+        "startChar": 6,
+        "endLine": 330,
+        "endChar": 29
+      },
+      "revId": "a32ba80880bf32b2997173c7dee57456fd13f6a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61ccb120_3ab0df0e",
