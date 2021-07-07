@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b356671_ad16589d",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T13:25:30Z",
+      "side": 1,
+      "message": "Please capitalize the file name",
+      "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "199d0dcb_0c4eebd5",
         "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
         "patchSetId": 6
@@ -20,6 +37,57 @@
         "endLine": 47,
         "endChar": 36
       },
+      "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99b2d73_43d28229",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T13:25:30Z",
+      "side": 1,
+      "message": "Instead of passing data via constructor, define a `HideIssuesMenuData` interface and add a `set data` method (described in more detail at goo.gle/building-ui-devtools).",
+      "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52735268_3a1cc897",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T13:25:30Z",
+      "side": 1,
+      "message": "Once you have the `set data` method, call `render()` from there and you don\u0027t need `connectedCallback` anymore.",
+      "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751b7a96_d0f26b82",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T13:25:30Z",
+      "side": 1,
+      "message": "Add\n`\ndeclare global {\n  // eslint-disable-next-line @typescript-eslint/no-unused-vars\n  interface HTMLElementTagNameMap {\n    \u0027devtools-hide-issues-menu\u0027: HideIssuesMenu;\n  }\n}\n`\nto get rid of the linting error.",
       "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

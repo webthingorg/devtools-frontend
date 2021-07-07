@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9845e7f6_e4db88ca",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-07T13:25:30Z",
+      "side": 1,
+      "message": "As discussed offline, since you already added a reset button, you don\u0027t need to reset on reload anymore.",
+      "parentUuid": "2bdde829_a3b3f663",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8041b37_81951b4b",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 5
