@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e94af0c1_a3dd254d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-07T11:20:50Z",
+      "side": 1,
+      "message": "Wolfgang, as per our offline discussion:\nDo we want to get this in as-is, and address the remaining flickering in follow-up(s)?",
+      "revId": "02c283534e8dd4470f5ef32c29adfd8eb89d4cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
