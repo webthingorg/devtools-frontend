@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf962d5c_05859b94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-07T12:09:50Z",
+      "side": 1,
+      "message": "I just ran into the fact that cmdevtools.darkmode.css is still around and it confused me quite a bit TBH (especially after I saw that this CL was supposed to remove it) :-)",
+      "revId": "6c391a09693eb3ac7a7466e3e4f2f9c062d45814",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
