@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b761837e_c6538cab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-07T09:59:14Z",
+      "side": 1,
+      "message": "Hey Tim,\n\nHere\u0027s a pragmatic first step to improve the Properties tab, not showing the useless getters/setters at least (not gonna cement that with tests until we know what the end result should look like).\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "dd7a10a5be0c26690d3489999fcbd5899ce4a077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
