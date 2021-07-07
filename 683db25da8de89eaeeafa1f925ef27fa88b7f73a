@@ -16,6 +16,23 @@
       "message": "Hi Yang, ptal at this small bug fix and let me know if we should change anything. Thanks!",
       "revId": "683db25da8de89eaeeafa1f925ef27fa88b7f73a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e113ba_20f50802",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-07-07T07:44:07Z",
+      "side": 1,
+      "message": "lgtm. Thanks!",
+      "revId": "683db25da8de89eaeeafa1f925ef27fa88b7f73a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
