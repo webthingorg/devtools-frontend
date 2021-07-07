@@ -4,6 +4,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
+// eslint-disable-next-line rulesdir/check_component_naming
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -16,6 +17,10 @@ import * as MarkdownView from '../../ui/components/markdown_view/markdown_view.j
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ElementsComponents from '../elements/components/components.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+// import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
+// import * as LitHtml from '../../ui/lit-html/lit-html.js';
+import * as Root from '../../core/root/root.js';
+import * as Components from './components/components.js';
 
 import {AffectedDirectivesView} from './AffectedDirectivesView.js';
 import {AffectedBlockedByResponseView} from './AffectedBlockedByResponseView.js';
@@ -223,6 +228,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _hasBeenExpandedBefore: boolean;
   private throttle: Common.Throttler.Throttler;
   private needsUpdateOnExpand = true;
+  hiddenIssuesMenu: Components.HideIssuesMenu.HideIssuesMenu|null;
 
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
@@ -255,7 +261,11 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedDocumentsInQuirksModeView(this, this._issue),
       new AttributionReportingIssueDetailsView(this, this._issue),
     ];
-
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      this.hiddenIssuesMenu = new Components.HideIssuesMenu.HideIssuesMenu(this._issue);
+    } else {
+      this.hiddenIssuesMenu = null;
+    }
     this._aggregatedIssuesCount = null;
     this._hasBeenExpandedBefore = false;
   }
@@ -294,6 +304,10 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   _appendHeader(): void {
     const header = document.createElement('div');
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
+      header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
+    }
     header.classList.add('header');
     const icon = new IconButton.Icon.Icon();
     const kind = this._issue.getKind();
@@ -316,8 +330,18 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this._description.title;
     header.appendChild(title);
-
+    if (this.hiddenIssuesMenu) {
+      header.appendChild(this.hiddenIssuesMenu);
+    }
     this.listItemElement.appendChild(header);
+  }
+
+  private showHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu?.setVisible(true);
+  }
+
+  private hideHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu?.setVisible(false);
   }
 
   onexpand(): void {
@@ -416,3 +440,134 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
   }
 }
+
+// eslint-disable-next-line rulesdir/custom_element_definitions_location
+// class HideIssuesMenu extends HTMLElement {
+//   static readonly litTagName = LitHtml.literal`devtools-hide-issues-menu`;
+//   private visible: boolean;
+//   private shadow: ShadowRoot;
+//   private issue: AggregatedIssue;
+//   private hideIssueByCategorySetting: Common.Settings.Setting<IssuesManager.Issue.HiddenIssuesSetting>;
+//   private hideIssueByKindSetting: Common.Settings.Setting<IssuesManager.Issue.HiddenIssuesSetting>;
+//   private hideIssueByCodeSetting: Common.Settings.Setting<IssuesManager.Issue.HiddenIssuesSetting>;
+
+//   constructor(issue: AggregatedIssue) {
+//     super();
+//     this.visible = false;
+//     this.issue = issue;
+//     this.issue = issue;
+//     this.shadow = this.attachShadow({mode: 'open'});
+//     this.classList.toggle('hidden', !this.visible);
+//     UI.Tooltip.Tooltip.install(this, 'Hide issues menu');
+//     this.hideIssueByCategorySetting = IssuesManager.Issue.getHideIssueByCatergorySetting();
+//     this.hideIssueByKindSetting = IssuesManager.Issue.getHideIssueByKindSetting();
+//     this.hideIssueByCodeSetting = IssuesManager.Issue.getHideIssueByCodeSetting();
+//   }
+
+//   isVisible(): boolean {
+//     return this.visible;
+//   }
+
+//   setVisible(x: boolean): void {
+//     if (this.visible === x) {
+//       return;
+//     }
+//     this.classList.toggle('hidden', !x);
+//     this.visible = x;
+//   }
+
+//   focus(): void {
+//     this.focus();
+//   }
+
+//   connectedCallback(): void {
+//     this.render();
+//   }
+
+//   clickHandler(event: Event): void {
+//     if (!event) {
+//       return;
+//     }
+//     event.stopPropagation();
+//     const kind = this.issue.getKind();
+//     const category = this.issue.getCategory();
+//     // Use internationalisation (UIStrings)
+//     // const entries = [`Hide all ${kind}s`, `Hide all ${category} type issues`, 'Hide this issue'];
+//     const contextMenu = new UI.ContextMenu.ContextMenu(
+//         event, true, this.totalOffsetLeft(), this.totalOffsetTop() + (this as HTMLElement).offsetHeight);
+//     contextMenu.headerSection().appendItem(`Hide all ${kind}s`, this.hideByIssueKindMenuHandler.bind(this));
+//     contextMenu.headerSection().appendItem(
+//         `Hide all ${category} type issues`, this.hideByIssueCategoryMenuHandler.bind(this));
+//     contextMenu.headerSection().appendItem('Hide this issue', this.hideByIssueCodeMenuHandler.bind(this));
+//     // for (const entry of entries) {
+//     //   contextMenu.headerSection().appendItem(
+//     //     // eslint-disable-next-line no-console
+//     //     entry, () => console.log(entry));
+//     // }
+//     contextMenu.show();
+//   }
+
+//   hideByIssueKindMenuHandler(): void {
+//     const kind = this.issue.getKind();
+//     const kindSetting = this.hideIssueByKindSetting;
+//     const values = kindSetting.get();
+//     if (values[kind]) {
+//       return;
+//     }
+//     values[kind] = true;
+//     kindSetting.set(values);
+//   }
+
+//   hideByIssueCategoryMenuHandler(): void {
+//     const category = this.issue.getCategory();
+//     const categorySetting = this.hideIssueByCategorySetting;
+//     const values = categorySetting.get();
+//     if (values[category]) {
+//       return;
+//     }
+//     values[category] = true;
+//     categorySetting.set(values);
+//   }
+
+//   hideByIssueCodeMenuHandler(): void {
+//     const code = this.issue.code();
+//     const codeSetting = this.hideIssueByCodeSetting;
+//     const values = codeSetting.get();
+//     if (values[code]) {
+//       return;
+//     }
+//     values[code] = true;
+//     codeSetting.set(values);
+//   }
+
+//   private async render(): Promise<void> {
+//     // Disabled until https://crbug.com/1079231 is fixed.
+//     // clang-format off
+//     // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
+//     LitHtml.render(LitHtml.html`
+//       <style>
+//       .hide-issues-menu-btn {
+//         position: relative;
+//         display: flex;
+//         background-color: transparent;
+//         flex: none;
+//         align-items: center;
+//         justify-content: center;
+//         padding: 1px 4px;
+//         overflow: hidden;
+//         border-radius: 0;
+//         cursor: pointer;
+//         border: none;
+//       }
+//       </style>
+//       <button class="hide-issues-menu-btn" @click=${this.clickHandler.bind(this)}>
+//       <${IconButton.Icon.Icon.litTagName}
+//         .data=${{ color: '', iconName: 'three_dots_menu_icon', height: '14px', width: '4px' } as IconButton.Icon.IconData}
+//       >
+//       </${IconButton.Icon.Icon.litTagName}>
+//       </button>
+//     `, this.shadow);
+//   }
+// }
+
+// ComponentHelpers.CustomElements.defineComponent('devtools-hide-issues-menu', HideIssuesMenu);

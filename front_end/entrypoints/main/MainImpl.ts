@@ -311,7 +311,8 @@ export class MainImpl {
 
     // New cookie features.
     Root.Runtime.experiments.register('experimentalCookieFeatures', 'Enable experimental cookie features');
-
+    // Hide Issues Feature.
+    Root.Runtime.experiments.register('hideIssuesFeature', 'Enable experimental hide issues menu');
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
     ]);
@@ -392,6 +393,9 @@ export class MainImpl {
       forceNew: true,
       ensureFirst: true,
       showThirdPartyIssuesSetting: IssuesManager.Issue.getShowThirdPartyIssuesSetting(),
+      hideIssueByCategorySetting: IssuesManager.Issue.getHideIssueByCatergorySetting(),
+      hideIssueByKindSetting: IssuesManager.Issue.getHideIssueByKindSetting(),
+      hideIssueByCodeSetting: IssuesManager.Issue.getHideIssueByCodeSetting(),
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
 

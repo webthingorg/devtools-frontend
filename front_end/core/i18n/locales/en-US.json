@@ -5033,6 +5033,18 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | untrustworthyOrigin": {
     "message": "Untrustworthy origin"
   },
+  "panels/issues/components/hideIssuesMenu.ts | hideIssueByCategory": {
+    "message": "Hide all {PH1} issues"
+  },
+  "panels/issues/components/hideIssuesMenu.ts | hideIssueByCode": {
+    "message": "Hide this issue only"
+  },
+  "panels/issues/components/hideIssuesMenu.ts | hideIssueByKind": {
+    "message": "Hide all {PH1}"
+  },
+  "panels/issues/components/hideIssuesMenu.ts | tooltipTitle": {
+    "message": "Hide issues menu"
+  },
   "panels/issues/CorsIssueDetailsView.ts | allowCredentialsValueFromHeader": {
     "message": "Access-Control-Allow-Credentials Header Value"
   },
