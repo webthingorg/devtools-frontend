@@ -451,6 +451,11 @@
   max-height: 50%;
 }
 
+.message-count {
+  width: 0;
+  height: 0;
+}
+
 @media (forced-colors: active) {
   .console-message-expand-icon,
   .console-warning-level [is=ui-icon].icon-mask.expand-group-icon {
