@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "590f62a5_0b051c9f",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-07T06:09:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ba8b107_7490a359",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 23
+      },
+      "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaf6b411_9718cc2b",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-07-06T15:20:46Z",
       "side": 1,
       "message": "Nit: I think this can be `keyof ProtocolDispatchers` here, which should be the same union of strings.",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 92
+      },
+      "revId": "d3f625dedabaebc0283d7c2aef6d93eb9c202d47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "036973ff_85cced11",
+        "filename": "front_end/generated/protocol-proxy-api.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-07T06:09:23Z",
+      "side": 1,
+      "message": "Done.\n\nI chose keyof ProtocolApi, because every domain must have a non-empty Api (due to the convention that domain with events need to be enabled before they dispatch them), but not all domain have a non-empty dispatcher (e.g. domain that don\u0027t have events).",
+      "parentUuid": "aaf6b411_9718cc2b",
       "range": {
         "startLine": 18,
         "startChar": 6,
