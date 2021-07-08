@@ -16,6 +16,46 @@
       "message": "Jack: PTAL at my wrangling of component state.\n\nSigurd: I believe my latest changes reflect what we discussed offline.",
       "revId": "f90728b0c921a6d10c81476b56575fac248782ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10780135_b5239dc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T08:13:30Z",
+      "side": 1,
+      "message": "LGTM with tiny nit. Thanks!",
+      "revId": "f90728b0c921a6d10c81476b56575fac248782ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244589bf_0bfff25e",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T08:13:30Z",
+      "side": 1,
+      "message": "tiny nit: I\u0027d consider making this:\n\n```\nif (!this.permissionsPolicies \u0026\u0026 this.frame)\n```\n\nTo avoid a hidden conditional within the conditional. WDYT? Don\u0027t feel strongly though.",
+      "range": {
+        "startLine": 276,
+        "startChar": 1,
+        "endLine": 278,
+        "endChar": 5
+      },
+      "revId": "f90728b0c921a6d10c81476b56575fac248782ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
