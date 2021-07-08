@@ -121,6 +121,30 @@
       },
       "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a22bc08_c4536432",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-08T08:07:39Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken, then we can\u0027t guarantee that looking something up won\u0027t return undefined?",
+      "parentUuid": "ab972dd4_a7061e26",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 84
+      },
+      "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
