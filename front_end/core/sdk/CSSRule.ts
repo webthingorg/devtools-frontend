@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
@@ -15,7 +14,7 @@ import {CSSStyleDeclaration, Type} from './CSSStyleDeclaration.js';
 import type {CSSStyleSheetHeader} from './CSSStyleSheetHeader.js'; // eslint-disable-line no-unused-vars
 
 export class CSSRule {
-  _cssModel: CSSModel;
+  readonly cssModelInternal: CSSModel;
   styleSheetId: string|undefined;
   sourceURL: string|undefined;
   origin: Protocol.CSS.StyleSheetOrigin;
@@ -25,15 +24,15 @@ export class CSSRule {
     styleSheetId: (string|undefined),
     origin: Protocol.CSS.StyleSheetOrigin,
   }) {
-    this._cssModel = cssModel;
+    this.cssModelInternal = cssModel;
     this.styleSheetId = payload.styleSheetId;
 
     if (this.styleSheetId) {
-      const styleSheetHeader = this._getStyleSheetHeader(this.styleSheetId);
+      const styleSheetHeader = this.getStyleSheetHeader(this.styleSheetId);
       this.sourceURL = styleSheetHeader.sourceURL;
     }
     this.origin = payload.origin;
-    this.style = new CSSStyleDeclaration(this._cssModel, this, payload.style, Type.Regular);
+    this.style = new CSSStyleDeclaration(this.cssModelInternal, this, payload.style, Type.Regular);
   }
 
   rebase(edit: Edit): void {
@@ -47,7 +46,7 @@ export class CSSRule {
     if (!this.styleSheetId) {
       return '';
     }
-    const styleSheetHeader = this._getStyleSheetHeader(this.styleSheetId);
+    const styleSheetHeader = this.getStyleSheetHeader(this.styleSheetId);
     return styleSheetHeader.resourceURL();
   }
 
@@ -68,13 +67,13 @@ export class CSSRule {
   }
 
   cssModel(): CSSModel {
-    return this._cssModel;
+    return this.cssModelInternal;
   }
 
-  _getStyleSheetHeader(styleSheetId: string): CSSStyleSheetHeader {
-    const styleSheetHeader = this._cssModel.styleSheetHeaderForId(styleSheetId);
+  protected getStyleSheetHeader(styleSheetId: string): CSSStyleSheetHeader {
+    const styleSheetHeader = this.cssModelInternal.styleSheetHeaderForId(styleSheetId);
     console.assert(styleSheetHeader !== null);
-    return /** @type {!CSSStyleSheetHeader} */ styleSheetHeader as CSSStyleSheetHeader;
+    return styleSheetHeader as CSSStyleSheetHeader;
   }
 }
 
@@ -104,7 +103,7 @@ export class CSSStyleRule extends CSSRule {
   constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSRule, wasUsed?: boolean) {
     // TODO(crbug.com/1011811): Replace with spread operator or better types once Closure is gone.
     super(cssModel, {origin: payload.origin, style: payload.style, styleSheetId: payload.styleSheetId});
-    this._reinitializeSelectors(payload.selectorList);
+    this.reinitializeSelectors(payload.selectorList);
     this.media = payload.media ? CSSMedia.parseMediaArrayPayload(cssModel, payload.media) : [];
     this.containerQueries = payload.containerQueries ?
         CSSContainerQuery.parseContainerQueriesPayload(cssModel, payload.containerQueries) :
@@ -129,7 +128,7 @@ export class CSSStyleRule extends CSSRule {
     return new CSSStyleRule(cssModel, (dummyPayload as Protocol.CSS.CSSRule));
   }
 
-  _reinitializeSelectors(selectorList: Protocol.CSS.SelectorList): void {
+  private reinitializeSelectors(selectorList: Protocol.CSS.SelectorList): void {
     this.selectors = [];
     for (let i = 0; i < selectorList.selectors.length; ++i) {
       this.selectors.push(new CSSValue(selectorList.selectors[i]));
@@ -145,7 +144,7 @@ export class CSSStyleRule extends CSSRule {
     if (!range) {
       throw 'Rule selector is not editable';
     }
-    return this._cssModel.setSelectorText(styleSheetId, range, newSelector);
+    return this.cssModelInternal.setSelectorText(styleSheetId, range, newSelector);
   }
 
   selectorText(): string {
@@ -167,7 +166,7 @@ export class CSSStyleRule extends CSSRule {
     if (!selector || !selector.range || !this.styleSheetId) {
       return 0;
     }
-    const styleSheetHeader = this._getStyleSheetHeader(this.styleSheetId);
+    const styleSheetHeader = this.getStyleSheetHeader(this.styleSheetId);
     return styleSheetHeader.lineNumberInSource(selector.range.startLine);
   }
 
@@ -176,7 +175,7 @@ export class CSSStyleRule extends CSSRule {
     if (!selector || !selector.range || !this.styleSheetId) {
       return undefined;
     }
-    const styleSheetHeader = this._getStyleSheetHeader(this.styleSheetId);
+    const styleSheetHeader = this.getStyleSheetHeader(this.styleSheetId);
     return styleSheetHeader.columnNumberInSource(selector.range.startLine, selector.range.startColumn);
   }
 
@@ -186,7 +185,7 @@ export class CSSStyleRule extends CSSRule {
     }
     const range = this.selectorRange();
     if (range && range.equal(edit.oldRange)) {
-      this._reinitializeSelectors((edit.payload as Protocol.CSS.SelectorList));
+      this.reinitializeSelectors((edit.payload as Protocol.CSS.SelectorList));
     } else {
       for (let i = 0; i < this.selectors.length; ++i) {
         this.selectors[i].rebase(edit);
@@ -204,48 +203,48 @@ export class CSSStyleRule extends CSSRule {
 }
 
 export class CSSKeyframesRule {
-  _cssModel: CSSModel;
-  _animationName: CSSValue;
-  _keyframes: CSSKeyframeRule[];
+  private readonly cssModel: CSSModel;
+  private readonly animationName: CSSValue;
+  private readonly keyframesInternal: CSSKeyframeRule[];
   constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSKeyframesRule) {
-    this._cssModel = cssModel;
-    this._animationName = new CSSValue(payload.animationName);
-    this._keyframes = payload.keyframes.map(keyframeRule => new CSSKeyframeRule(cssModel, keyframeRule));
+    this.cssModel = cssModel;
+    this.animationName = new CSSValue(payload.animationName);
+    this.keyframesInternal = payload.keyframes.map(keyframeRule => new CSSKeyframeRule(cssModel, keyframeRule));
   }
 
   name(): CSSValue {
-    return this._animationName;
+    return this.animationName;
   }
 
   keyframes(): CSSKeyframeRule[] {
-    return this._keyframes;
+    return this.keyframesInternal;
   }
 }
 
 export class CSSKeyframeRule extends CSSRule {
-  _keyText!: CSSValue;
+  private keyText!: CSSValue;
   constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSKeyframeRule) {
     // TODO(crbug.com/1011811): Replace with spread operator or better types once Closure is gone.
     super(cssModel, {origin: payload.origin, style: payload.style, styleSheetId: payload.styleSheetId});
-    this._reinitializeKey(payload.keyText);
+    this.reinitializeKey(payload.keyText);
   }
 
   key(): CSSValue {
-    return this._keyText;
+    return this.keyText;
   }
 
-  _reinitializeKey(payload: Protocol.CSS.Value): void {
-    this._keyText = new CSSValue(payload);
+  private reinitializeKey(payload: Protocol.CSS.Value): void {
+    this.keyText = new CSSValue(payload);
   }
 
   rebase(edit: Edit): void {
-    if (this.styleSheetId !== edit.styleSheetId || !this._keyText.range) {
+    if (this.styleSheetId !== edit.styleSheetId || !this.keyText.range) {
       return;
     }
-    if (edit.oldRange.equal(this._keyText.range)) {
-      this._reinitializeKey((edit.payload as Protocol.CSS.Value));
+    if (edit.oldRange.equal(this.keyText.range)) {
+      this.reinitializeKey((edit.payload as Protocol.CSS.Value));
     } else {
-      this._keyText.rebase(edit);
+      this.keyText.rebase(edit);
     }
 
     super.rebase(edit);
@@ -256,10 +255,10 @@ export class CSSKeyframeRule extends CSSRule {
     if (!styleSheetId) {
       throw 'No rule stylesheet id';
     }
-    const range = this._keyText.range;
+    const range = this.keyText.range;
     if (!range) {
       throw 'Keyframe key is not editable';
     }
-    return this._cssModel.setKeyframeKey(styleSheetId, range, newKeyText);
+    return this.cssModelInternal.setKeyframeKey(styleSheetId, range, newKeyText);
   }
 }
