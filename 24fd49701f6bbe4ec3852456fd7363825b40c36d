@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf2fdeaf_1f31cd32",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48cb4fa9_61e85e0a",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bdde829_a3b3f663",
@@ -53,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c766ba5_a1b733d1",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9845e7f6_e4db88ca",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8041b37_81951b4b",
@@ -66,6 +102,24 @@
       "writtenOn": "2021-07-07T11:01:28Z",
       "side": 1,
       "message": "nit: keep the empty line",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "829391e9_70647a23",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8041b37_81951b4b",
       "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -87,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b41b8107_c11737a6",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "Since third-party issues are completely taken out from the filteredIssues map i.e. they aren\u0027t visible to any cross-linked panels of DevTools, as if they are non-existent, this check needs to be made. And as discussed in previous meetings hidden issues should be navigable through cross-linked panels and as a result need to present in the filteredIssues map because the entries in the filteredIssues map are used by cross-linked panels. \nI have made some changes to code such that this part of the code is completely different from hiding part. PTAL.",
+      "parentUuid": "5901248a_df4b3b2f",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e4f14e_ce916225",
@@ -104,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1d7052c_e966303b",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "this was an error, it has been fixed in the newest patchset",
+      "parentUuid": "c1e4f14e_ce916225",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf4ffb5c_00847bc9",
@@ -117,6 +207,24 @@
       "writtenOn": "2021-07-07T11:01:28Z",
       "side": 1,
       "message": "Great idea to add a reset button to the UI!",
+      "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f382a2_d31a89c8",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf4ffb5c_00847bc9",
       "revId": "24fd49701f6bbe4ec3852456fd7363825b40c36d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
