@@ -187,7 +187,7 @@ export enum MIME_TYPE {
 export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implements
     TextUtils.ContentProvider.ContentProvider {
   _requestId: string;
-  _backendRequestId: string;
+  _backendRequestId?: Protocol.Network.RequestId;
   _documentURL: string;
   _frameId: string;
   _loaderId: string;
@@ -275,13 +275,13 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
   _contentDataProvider?: (() => Promise<ContentData>);
   _isSameSite: boolean|null;
 
-  constructor(
-      requestId: string, url: string, documentURL: string, frameId: string, loaderId: string,
-      initiator: Protocol.Network.Initiator|null) {
+  private constructor(
+      requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: string, documentURL: string,
+      frameId: string, loaderId: string, initiator: Protocol.Network.Initiator|null) {
     super();
 
     this._requestId = requestId;
-    this._backendRequestId = requestId;
+    this._backendRequestId = backendRequestId;
     this.setUrl(url);
     this._documentURL = documentURL;
     this._frameId = frameId;
@@ -348,6 +348,24 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
     this._isSameSite = null;
   }
 
+  static createForWebSocket(
+      backendRequestId: Protocol.Network.RequestId, requestURL: string,
+      initiator?: Protocol.Network.Initiator): NetworkRequest {
+    return new NetworkRequest(backendRequestId, backendRequestId, requestURL, '', '', '', initiator || null);
+  }
+
+  static create(
+      backendRequestId: Protocol.Network.RequestId, url: string, documentURL: string, frameId: string, loaderId: string,
+      initiator: Protocol.Network.Initiator|null): NetworkRequest {
+    return new NetworkRequest(backendRequestId, backendRequestId, url, documentURL, frameId, loaderId, initiator);
+  }
+
+  static createWithoutBackendRequest(
+      requestId: string, url: string, documentURL: string, frameId: string, loaderId: string,
+      initiator: Protocol.Network.Initiator|null): NetworkRequest {
+    return new NetworkRequest(requestId, undefined, url, documentURL, frameId, loaderId, initiator);
+  }
+
   identityCompare(other: NetworkRequest): number {
     const thisId = this.requestId();
     const thatId = other.requestId();
@@ -364,7 +382,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
     return this._requestId;
   }
 
-  backendRequestId(): string {
+  backendRequestId(): Protocol.Network.RequestId|undefined {
     return this._backendRequestId;
   }
 
@@ -1284,7 +1302,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
     return this._isRedirect;
   }
 
-  setRequestIdForTest(requestId: string): void {
+  setRequestIdForTest(requestId: Protocol.Network.RequestId): void {
     this._backendRequestId = requestId;
     this._requestId = requestId;
   }
@@ -1470,47 +1488,46 @@ export const cookieBlockedReasonToUiString = function(blockedReason: Protocol.Ne
   return '';
 };
 
-export const setCookieBlockedReasonToUiString = function(blockedReason: Protocol.Network.SetCookieBlockedReason):
-    string {
-      switch (blockedReason) {
-        case Protocol.Network.SetCookieBlockedReason.SecureOnly:
-          return i18nString(UIStrings.blockedReasonSecureOnly);
-        case Protocol.Network.SetCookieBlockedReason.SameSiteStrict:
-          return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Strict'});
-        case Protocol.Network.SetCookieBlockedReason.SameSiteLax:
-          return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Lax'});
-        case Protocol.Network.SetCookieBlockedReason.SameSiteUnspecifiedTreatedAsLax:
-          return i18nString(UIStrings.blockedReasonSameSiteUnspecifiedTreatedAsLax);
-        case Protocol.Network.SetCookieBlockedReason.SameSiteNoneInsecure:
-          return i18nString(UIStrings.blockedReasonSameSiteNoneInsecure);
-        case Protocol.Network.SetCookieBlockedReason.UserPreferences:
-          return i18nString(UIStrings.thisSetcookieWasBlockedDueToUser);
-        case Protocol.Network.SetCookieBlockedReason.SyntaxError:
-          return i18nString(UIStrings.thisSetcookieHadInvalidSyntax);
-        case Protocol.Network.SetCookieBlockedReason.SchemeNotSupported:
-          return i18nString(UIStrings.theSchemeOfThisConnectionIsNot);
-        case Protocol.Network.SetCookieBlockedReason.OverwriteSecure:
-          return i18nString(UIStrings.blockedReasonOverwriteSecure);
-        case Protocol.Network.SetCookieBlockedReason.InvalidDomain:
-          return i18nString(UIStrings.blockedReasonInvalidDomain);
-        case Protocol.Network.SetCookieBlockedReason.InvalidPrefix:
-          return i18nString(UIStrings.blockedReasonInvalidPrefix);
-        case Protocol.Network.SetCookieBlockedReason.UnknownError:
-          return i18nString(UIStrings.anUnknownErrorWasEncounteredWhenTrying);
-        case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteStrict:
-          return i18nString(
-              UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamesiteStrictLax, {PH1: 'SameSite=Strict'});
-        case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteLax:
-          return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamesiteStrictLax, {PH1: 'SameSite=Lax'});
-        case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteUnspecifiedTreatedAsLax:
-          return i18nString(UIStrings.thisSetcookieDidntSpecifyASamesite);
-        case Protocol.Network.SetCookieBlockedReason.SamePartyFromCrossPartyContext:
-          return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSameparty);
-        case Protocol.Network.SetCookieBlockedReason.SamePartyConflictsWithOtherAttributes:
-          return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamepartyAttribute);
-      }
-      return '';
-    };
+export const setCookieBlockedReasonToUiString = function(
+    blockedReason: Protocol.Network.SetCookieBlockedReason): string {
+  switch (blockedReason) {
+    case Protocol.Network.SetCookieBlockedReason.SecureOnly:
+      return i18nString(UIStrings.blockedReasonSecureOnly);
+    case Protocol.Network.SetCookieBlockedReason.SameSiteStrict:
+      return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Strict'});
+    case Protocol.Network.SetCookieBlockedReason.SameSiteLax:
+      return i18nString(UIStrings.blockedReasonSameSiteStrictLax, {PH1: 'SameSite=Lax'});
+    case Protocol.Network.SetCookieBlockedReason.SameSiteUnspecifiedTreatedAsLax:
+      return i18nString(UIStrings.blockedReasonSameSiteUnspecifiedTreatedAsLax);
+    case Protocol.Network.SetCookieBlockedReason.SameSiteNoneInsecure:
+      return i18nString(UIStrings.blockedReasonSameSiteNoneInsecure);
+    case Protocol.Network.SetCookieBlockedReason.UserPreferences:
+      return i18nString(UIStrings.thisSetcookieWasBlockedDueToUser);
+    case Protocol.Network.SetCookieBlockedReason.SyntaxError:
+      return i18nString(UIStrings.thisSetcookieHadInvalidSyntax);
+    case Protocol.Network.SetCookieBlockedReason.SchemeNotSupported:
+      return i18nString(UIStrings.theSchemeOfThisConnectionIsNot);
+    case Protocol.Network.SetCookieBlockedReason.OverwriteSecure:
+      return i18nString(UIStrings.blockedReasonOverwriteSecure);
+    case Protocol.Network.SetCookieBlockedReason.InvalidDomain:
+      return i18nString(UIStrings.blockedReasonInvalidDomain);
+    case Protocol.Network.SetCookieBlockedReason.InvalidPrefix:
+      return i18nString(UIStrings.blockedReasonInvalidPrefix);
+    case Protocol.Network.SetCookieBlockedReason.UnknownError:
+      return i18nString(UIStrings.anUnknownErrorWasEncounteredWhenTrying);
+    case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteStrict:
+      return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamesiteStrictLax, {PH1: 'SameSite=Strict'});
+    case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteLax:
+      return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamesiteStrictLax, {PH1: 'SameSite=Lax'});
+    case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteUnspecifiedTreatedAsLax:
+      return i18nString(UIStrings.thisSetcookieDidntSpecifyASamesite);
+    case Protocol.Network.SetCookieBlockedReason.SamePartyFromCrossPartyContext:
+      return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSameparty);
+    case Protocol.Network.SetCookieBlockedReason.SamePartyConflictsWithOtherAttributes:
+      return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamepartyAttribute);
+  }
+  return '';
+};
 
 export const cookieBlockedReasonToAttribute = function(blockedReason: Protocol.Network.CookieBlockedReason): Attributes|
     null {
