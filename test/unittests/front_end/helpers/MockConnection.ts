@@ -98,7 +98,7 @@ function enable({reset = true} = {}) {
         // Included only to meet interface requirements.
       },
 
-      _onMessage() {
+      onMessage() {
         // Included only to meet interface requirements.
       },
 

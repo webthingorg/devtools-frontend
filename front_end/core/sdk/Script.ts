@@ -27,7 +27,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
@@ -66,18 +65,18 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   endColumn: number;
   executionContextId: number;
   hash: string;
-  _isContentScript: boolean;
-  _isLiveEdit: boolean;
+  private readonly isContentScriptInternal: boolean;
+  private readonly isLiveEditInternal: boolean;
   sourceMapURL: string|undefined;
   debugSymbols: Protocol.Debugger.DebugSymbols|null;
   hasSourceURL: boolean;
   contentLength: number;
-  _originalContentProvider: TextUtils.ContentProvider.ContentProvider|null;
+  private originalContentProviderInternal: TextUtils.ContentProvider.ContentProvider|null;
   originStackTrace: Protocol.Runtime.StackTrace|null;
-  _codeOffset: number|null;
-  _language: string|null;
-  _contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
-  _embedderName: string|null;
+  private readonly codeOffsetInternal: number|null;
+  private readonly language: string|null;
+  private contentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
+  private readonly embedderNameInternal: string|null;
   readonly isModule: boolean|null;
   constructor(
       debuggerModel: DebuggerModel, scriptId: string, sourceURL: string, startLine: number, startColumn: number,
@@ -96,29 +95,29 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
 
     this.executionContextId = executionContextId;
     this.hash = hash;
-    this._isContentScript = isContentScript;
-    this._isLiveEdit = isLiveEdit;
+    this.isContentScriptInternal = isContentScript;
+    this.isLiveEditInternal = isLiveEdit;
     this.sourceMapURL = sourceMapURL;
     this.debugSymbols = debugSymbols;
     this.hasSourceURL = hasSourceURL;
     this.contentLength = length;
-    this._originalContentProvider = null;
+    this.originalContentProviderInternal = null;
     this.originStackTrace = originStackTrace;
-    this._codeOffset = codeOffset;
-    this._language = scriptLanguage;
-    this._contentPromise = null;
-    this._embedderName = embedderName;
+    this.codeOffsetInternal = codeOffset;
+    this.language = scriptLanguage;
+    this.contentPromise = null;
+    this.embedderNameInternal = embedderName;
   }
 
   embedderName(): string|null {
-    return this._embedderName;
+    return this.embedderNameInternal;
   }
 
   target(): Target {
     return this.debuggerModel.target();
   }
 
-  static _trimSourceURLComment(source: string): string {
+  private static trimSourceURLComment(source: string): string {
     let sourceURLIndex = source.lastIndexOf('//# sourceURL=');
     if (sourceURLIndex === -1) {
       sourceURLIndex = source.lastIndexOf('//@ sourceURL=');
@@ -138,23 +137,23 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 
   isContentScript(): boolean {
-    return this._isContentScript;
+    return this.isContentScriptInternal;
   }
 
   codeOffset(): number|null {
-    return this._codeOffset;
+    return this.codeOffsetInternal;
   }
 
   isJavaScript(): boolean {
-    return this._language === Protocol.Debugger.ScriptLanguage.JavaScript;
+    return this.language === Protocol.Debugger.ScriptLanguage.JavaScript;
   }
 
   isWasm(): boolean {
-    return this._language === Protocol.Debugger.ScriptLanguage.WebAssembly;
+    return this.language === Protocol.Debugger.ScriptLanguage.WebAssembly;
   }
 
   scriptLanguage(): string|null {
-    return this._language;
+    return this.language;
   }
 
   executionContext(): ExecutionContext|null {
@@ -162,7 +161,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 
   isLiveEdit(): boolean {
-    return this._isLiveEdit;
+    return this.isLiveEditInternal;
   }
 
   contentURL(): string {
@@ -178,10 +177,10 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 
   requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
-    if (!this._contentPromise) {
-      this._contentPromise = this.originalContentProvider().requestContent();
+    if (!this.contentPromise) {
+      this.contentPromise = this.originalContentProvider().requestContent();
     }
-    return this._contentPromise;
+    return this.contentPromise;
   }
 
   async getWasmBytecode(): Promise<ArrayBuffer> {
@@ -191,10 +190,10 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 
   originalContentProvider(): TextUtils.ContentProvider.ContentProvider {
-    if (!this._originalContentProvider) {
+    if (!this.originalContentProviderInternal) {
       /* } */
       let lazyContentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
-      this._originalContentProvider =
+      this.originalContentProviderInternal =
           new TextUtils.StaticContentProvider.StaticContentProvider(this.contentURL(), this.contentType(), () => {
             if (!lazyContentPromise) {
               lazyContentPromise = (async(): Promise<{
@@ -221,7 +220,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
                   }
                   let content: string = scriptSource || '';
                   if (this.hasSourceURL) {
-                    content = Script._trimSourceURLComment(content);
+                    content = Script.trimSourceURLComment(content);
                   }
                   return {content, isEncoded: false};
 
@@ -234,7 +233,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
             return lazyContentPromise;
           });
     }
-    return this._originalContentProvider;
+    return this.originalContentProviderInternal;
   }
 
   async searchInContent(query: string, caseSensitive: boolean, isRegex: boolean):
@@ -249,7 +248,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
         .map(match => new TextUtils.ContentProvider.SearchMatch(match.lineNumber, match.lineContent));
   }
 
-  _appendSourceURLCommentIfNeeded(source: string): string {
+  private appendSourceURLCommentIfNeeded(source: string): string {
     if (!this.hasSourceURL) {
       return source;
     }
@@ -262,9 +261,9 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
           (arg0: ProtocolClient.InspectorBackend.ProtocolError|null, arg1?: Protocol.Runtime.ExceptionDetails|undefined,
            arg2?: Array<Protocol.Debugger.CallFrame>|undefined, arg3?: Protocol.Runtime.StackTrace|undefined,
            arg4?: Protocol.Runtime.StackTraceId|undefined, arg5?: boolean|undefined) => void): Promise<void> {
-    newSource = Script._trimSourceURLComment(newSource);
+    newSource = Script.trimSourceURLComment(newSource);
     // We append correct sourceURL to script for consistency only. It's not actually needed for things to work correctly.
-    newSource = this._appendSourceURLCommentIfNeeded(newSource);
+    newSource = this.appendSourceURLCommentIfNeeded(newSource);
 
     if (!this.scriptId) {
       callback('Script failed to parse');
@@ -280,7 +279,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
         {scriptId: this.scriptId, scriptSource: newSource});
 
     if (!response.getError() && !response.exceptionDetails) {
-      this._contentPromise = Promise.resolve({content: newSource, isEncoded: false});
+      this.contentPromise = Promise.resolve({content: newSource, isEncoded: false});
     }
 
     const needsStepIn = Boolean(response.stackChanged);
