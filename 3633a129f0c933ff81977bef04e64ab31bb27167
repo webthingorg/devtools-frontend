@@ -46,6 +46,30 @@
       },
       "revId": "3633a129f0c933ff81977bef04e64ab31bb27167",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f0e086_ffa0ccae",
+        "filename": "front_end/panels/timeline/components/WebVitalsTooltip.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T14:00:13Z",
+      "side": 1,
+      "message": "Ah sorry should have shared http://go/devtools-css-migration which has the steps inc naming. Yes to landing + enforcing naming conventions.",
+      "parentUuid": "c8996d1b_5f5c067f",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 0
+      },
+      "revId": "3633a129f0c933ff81977bef04e64ab31bb27167",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
