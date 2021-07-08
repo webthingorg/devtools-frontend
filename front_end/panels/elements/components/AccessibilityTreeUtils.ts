@@ -6,9 +6,17 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
 import type * as SDK from '../../../core/sdk/sdk.js';
 import type * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
+
+import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-export type AXTreeNode = TreeOutline.TreeOutlineUtils.TreeNode<SDK.AccessibilityModel.AccessibilityNode>;
+export type TreeNodeData = {
+  sdkNode: SDK.AccessibilityModel.AccessibilityNode,
+  htmlElement: AccessibilityTreeNode,
+};
+
+export type AXTreeNode = TreeOutline.TreeOutlineUtils.TreeNode<TreeNodeData>;
 
 
 const UIStrings = {
@@ -20,38 +28,41 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/components/AccessibilityTreeUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
-  if (!node.numChildren()) {
+export function sdkNodeToAXTreeNode(sdkNode: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
+  const htmlElement = new AccessibilityTreeNode();
+  htmlElement.data = sdkNode;
+  const treeNodeData = {sdkNode, htmlElement};
+  if (!sdkNode.numChildren()) {
     return {
-      treeNodeData: node,
-      id: node.id(),
+      treeNodeData,
+      id: sdkNode.id(),
     };
   }
 
   return {
-    treeNodeData: node,
+    treeNodeData,
     children: async(): Promise<AXTreeNode[]> => {
-      if (node.numChildren() === node.children().length) {
-        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child)));
+      if (sdkNode.numChildren() === sdkNode.children().length) {
+        return Promise.resolve(sdkNode.children().map(child => sdkNodeToAXTreeNode(child)));
       }
       // numChildren returns the number of children that this node has, whereas node.children()
       // returns only children that have been loaded. If these two don't match, that means that
       // there are backend children that need to be loaded into the model, so request them now.
-      await node.accessibilityModel().requestAXChildren(node.id());
+      await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
 
-      if (node.numChildren() !== node.children().length) {
+      if (sdkNode.numChildren() !== sdkNode.children().length) {
         throw new Error('Once loaded, number of children and length of children must match.');
       }
 
       const treeNodeChildren: AXTreeNode[] = [];
 
-      for (const child of node.children()) {
+      for (const child of sdkNode.children()) {
         treeNodeChildren.push(sdkNodeToAXTreeNode(child));
       }
 
       return Promise.resolve(treeNodeChildren);
     },
-    id: node.id(),
+    id: sdkNode.id(),
   };
 }
 
@@ -94,17 +105,39 @@ function unignoredNodeTemplate(node: SDK.AccessibilityModel.AccessibilityNode): 
 }
 
 export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateResult {
-  let nodeContent: LitHtml.TemplateResult[];
-  const axNode = node.treeNodeData;
+  return LitHtml.html`${node.treeNodeData.htmlElement}`;
+}
 
-  if (axNode.ignored()) {
-    nodeContent = ignoredNodeTemplate();
-  } else {
-    nodeContent = unignoredNodeTemplate(axNode);
+export class AccessibilityTreeNode extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-accessibility-tree-node`;
+  private readonly shadow = this.attachShadow({mode: 'open'});
+
+  private accessibilityNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+
+  set data(node: SDK.AccessibilityModel.AccessibilityNode) {
+    this.accessibilityNode = node;
+    this.update();
   }
 
-  // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
-  return LitHtml.html`
+  private async update(): Promise<void> {
+    await this.render();
+  }
+
+  private async render(): Promise<void> {
+    if (!this.accessibilityNode) {
+      return;
+    }
+    let nodeContent: LitHtml.TemplateResult[];
+
+    if (this.accessibilityNode.ignored()) {
+      nodeContent = ignoredNodeTemplate();
+    } else {
+      nodeContent = unignoredNodeTemplate(this.accessibilityNode);
+    }
+    await Coordinator.RenderCoordinator.RenderCoordinator.instance().write('Accessibility node render', () => {
+      // clang-format off
+      // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
+      LitHtml.render(LitHtml.html`
       <style>
           .ax-readable-string {
             font-style: italic;
@@ -116,5 +149,19 @@ export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateRes
           }
       </style>
       ${nodeContent}
-      `;
+     `, this.shadow, {
+        host: this,
+      });
+      // clang-format on
+    });
+  }
+}
+
+ComponentHelpers.CustomElements.defineComponent('devtools-accessibility-tree-node', AccessibilityTreeNode);
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface HTMLElementTagNameMap {
+    'devtools-accessibility-tree-node': AccessibilityTreeNode;
+  }
 }

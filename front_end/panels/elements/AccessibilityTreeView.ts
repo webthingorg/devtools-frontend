@@ -12,7 +12,7 @@ import * as ElementsComponents from './components/components.js';
 
 export class AccessibilityTreeView extends UI.Widget.VBox {
   private readonly accessibilityTreeComponent =
-      new TreeOutline.TreeOutline.TreeOutline<SDK.AccessibilityModel.AccessibilityNode>();
+      new TreeOutline.TreeOutline.TreeOutline<ElementsComponents.AccessibilityTreeUtils.TreeNodeData>();
   private treeData: ElementsComponents.AccessibilityTreeUtils.AXTreeNode[] = [];
   private readonly toggleButton: HTMLButtonElement;
   private accessibilityModel: SDK.AccessibilityModel.AccessibilityModel|null = null;
@@ -32,8 +32,9 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     // on node selection, update the currently inspected node and reveal in the
     // DOM tree.
     this.accessibilityTreeComponent.addEventListener('itemselected', (event: Event) => {
-      const evt = event as TreeOutline.TreeOutline.ItemSelectedEvent<SDK.AccessibilityModel.AccessibilityNode>;
-      const axNode = evt.data.node.treeNodeData;
+      const evt =
+          event as TreeOutline.TreeOutline.ItemSelectedEvent<ElementsComponents.AccessibilityTreeUtils.TreeNodeData>;
+      const axNode = evt.data.node.treeNodeData.sdkNode;
       if (!axNode.isDOMNode()) {
         return;
       }
@@ -48,12 +49,13 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
       }
 
       // Highlight the node as well, for keyboard navigation.
-      evt.data.node.treeNodeData.highlightDOMNode();
+      axNode.highlightDOMNode();
     });
 
     this.accessibilityTreeComponent.addEventListener('itemmouseover', (event: Event) => {
-      const evt = event as TreeOutline.TreeOutline.ItemMouseOverEvent<SDK.AccessibilityModel.AccessibilityNode>;
-      evt.data.node.treeNodeData.highlightDOMNode();
+      const evt =
+          event as TreeOutline.TreeOutline.ItemMouseOverEvent<ElementsComponents.AccessibilityTreeUtils.TreeNodeData>;
+      evt.data.node.treeNodeData.sdkNode.highlightDOMNode();
     });
 
     this.accessibilityTreeComponent.addEventListener('itemmouseout', () => {
