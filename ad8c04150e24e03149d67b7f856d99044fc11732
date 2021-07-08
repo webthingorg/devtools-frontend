@@ -118,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b137bbb_36277cb4",
+        "filename": "front_end/panels/issues/components/hideIssuesMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-08T22:09:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55d4837a_4669e168",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "ad8c04150e24e03149d67b7f856d99044fc11732",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52735268_3a1cc897",
