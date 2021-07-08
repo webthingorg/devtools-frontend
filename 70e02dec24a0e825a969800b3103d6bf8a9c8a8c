@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nNot showing the confusing popover for $label identifiers for now.\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "70e02dec24a0e825a969800b3103d6bf8a9c8a8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "226967d3_0d472dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-08T09:25:50Z",
+      "side": 1,
+      "message": "LGTM!\n",
+      "revId": "70e02dec24a0e825a969800b3103d6bf8a9c8a8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
