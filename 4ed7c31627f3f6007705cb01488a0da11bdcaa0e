@@ -56,6 +56,30 @@
       },
       "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25034fa3_220ce13b",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-08T07:50:22Z",
+      "side": 1,
+      "message": "Good point, I guess I wouldn\u0027t have needed to change this. What prompted me to do this is that it makes it clear the the entries of the adorner registry aren\u0027t supposed to change, and we remove a case of using an object as a map.\n\nIf you prefer, I can revert to the old definition.",
+      "parentUuid": "38bc99bb_c13e3f15",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 84
+      },
+      "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
