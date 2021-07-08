@@ -16,6 +16,23 @@
       "message": "Changhao, Jack, PTAL",
       "revId": "5e71794f3485d29185ff53b0ac93739e6d25dc42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "182b88fb_6b792bce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-08T12:15:35Z",
+      "side": 1,
+      "message": "LGTM on my side. I\u0027ll defer naming, path, etc to Jack.",
+      "revId": "5e71794f3485d29185ff53b0ac93739e6d25dc42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
