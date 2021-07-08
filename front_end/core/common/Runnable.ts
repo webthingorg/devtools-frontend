@@ -11,12 +11,25 @@ export interface Runnable {
   run(): Promise<void>;
 }
 
-const registeredLateInitializationRunnables: (() => Runnable)[] = [];
-export function registerLateInitializationRunnable(runnable: () => Runnable): void {
-  registeredLateInitializationRunnables.push(runnable);
+type LateInitializableLoader = () => Promise<Runnable>;
+export interface LateInitializableRunnableSetting {
+  id: string;
+  loadRunnable: LateInitializableLoader;
 }
 
-export function lateInitializationRunnables(): (() => Runnable)[] {
+const lateInitializationRunnableIds = new Set<string>();
+const registeredLateInitializationRunnables: Array<LateInitializableLoader> = [];
+
+export function registerLateInitializationRunnable(setting: LateInitializableRunnableSetting): void {
+  const {id, loadRunnable} = setting;
+  if (lateInitializationRunnableIds.has(id)) {
+    throw new Error(`Duplicate late Initializable runnable id '${id}'`);
+  }
+  lateInitializationRunnableIds.add(id);
+  registeredLateInitializationRunnables.push(loadRunnable);
+}
+
+export function lateInitializationRunnables(): Array<LateInitializableLoader> {
   return registeredLateInitializationRunnables;
 }
 
