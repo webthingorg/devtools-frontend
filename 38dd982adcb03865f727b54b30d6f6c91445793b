@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "309934f6_dcb601f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T08:09:19Z",
+      "side": 1,
+      "message": "LGTM with nit, thanks!",
+      "revId": "38dd982adcb03865f727b54b30d6f6c91445793b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6993b385_48dc439e",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T08:09:19Z",
+      "side": 1,
+      "message": "could we leave a comment here explaining why we make it effectively hidden? I can imagine it would confuse me when looking at this stylesheet in a few months.",
+      "range": {
+        "startLine": 453,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 0
+      },
+      "revId": "38dd982adcb03865f727b54b30d6f6c91445793b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
