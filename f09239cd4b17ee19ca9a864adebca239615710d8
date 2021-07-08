@@ -51,6 +51,24 @@
       "parentUuid": "933620c7_ad14cff7",
       "revId": "f09239cd4b17ee19ca9a864adebca239615710d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7f68d4_3ab5bc87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-08T12:38:58Z",
+      "side": 1,
+      "message": "I was curious how difficult it would be to write such a test with a mock, but it seems to be difficult. Once the console is componentized I guess we can have unittests.",
+      "parentUuid": "27de4fe3_90b1f52c",
+      "revId": "f09239cd4b17ee19ca9a864adebca239615710d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
