@@ -41,7 +41,7 @@ export class Importer {
         };
       }
 
-      const request = new SDK.NetworkRequest.NetworkRequest(
+      const request = SDK.NetworkRequest.NetworkRequest.createWithoutBackendRequest(
           'har-' + requests.length, entry.request.url, documentURL, '', '', initiator);
       const page = pageref ? pages.get(pageref) : undefined;
       if (!pageLoad && pageref && page) {
