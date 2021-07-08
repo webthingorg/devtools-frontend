@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3bb796_0ea87b03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-08T12:41:23Z",
+      "side": 1,
+      "message": "LGTM. I do think it would have been slightly clearer as a Stylelint rule, rather than a standalone script, but I don\u0027t think it\u0027s a big enough deal to worry about.\n\nCC\u0027ing Kriti as she was going to potentially look at this I think, so just giving her an FYI :)",
+      "revId": "c4218653f4a1a7704bda02359b4f24d2425ec500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
