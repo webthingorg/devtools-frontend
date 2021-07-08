@@ -80,6 +80,30 @@
       },
       "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab972dd4_a7061e26",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-08T08:01:34Z",
+      "side": 1,
+      "message": "I\u0027m not that in favor of declaring AdornerRegistry as an object. How about we revert to the old approach, but declare AdornerRegistry as\n```\nexport const readonly AdornerRegistry \u003d new Map\u003cstring, RegisteredAdorner\u003e([\n  [\u0027GRID\u0027, {\n    name: \u0027grid\u0027,\n    category: AdornerCategories.LAYOUT,\n    enabledByDefault: true,\n  }],\n  ...\n]);\n```\n\nBasically I\u0027d hope we could keep only one place to add/remove/modify registered adorners. But it\u0027s definitely not a must.",
+      "parentUuid": "25034fa3_220ce13b",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 84
+      },
+      "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
