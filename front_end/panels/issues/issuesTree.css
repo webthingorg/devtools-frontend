@@ -412,3 +412,8 @@ devtools-icon.network-panel {
   vertical-align: baseline;
   height: 14px;
 }
+
+/* .exp-hidden-issues-row {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 1px 0px 0px 0px;
+} */
