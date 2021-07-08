@@ -22,6 +22,30 @@
       },
       "revId": "3633a129f0c933ff81977bef04e64ab31bb27167",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8996d1b_5f5c067f",
+        "filename": "front_end/panels/timeline/components/WebVitalsTooltip.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-08T13:43:29Z",
+      "side": 1,
+      "message": "I also used Uppercase in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3013233 Are you okay if we submit it as-is and then later work on a linter rule to enforce casing?",
+      "parentUuid": "897b73f7_1f599619",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 0
+      },
+      "revId": "3633a129f0c933ff81977bef04e64ab31bb27167",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
