@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2670d065_343753af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-08T08:02:28Z",
+      "side": 1,
+      "message": "Either the current registry approach in the CL or the one I proposed is fine for me, so I\u0027ll +1. Thanks Sigurd for refactoring this!",
+      "revId": "4ed7c31627f3f6007705cb01488a0da11bdcaa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38bc99bb_c13e3f15",
