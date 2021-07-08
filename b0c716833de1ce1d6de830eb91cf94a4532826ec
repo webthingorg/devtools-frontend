@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3dd16ec5_0e673d4b",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-07-08T10:35:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb486e6_b1807888",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "daab9b6f_ff1ba07c",
         "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
         "patchSetId": 1
@@ -82,6 +100,24 @@
       "writtenOn": "2021-07-06T09:28:46Z",
       "side": 1,
       "message": "Suppose we have other language extensions or symbol formats in the future, should we just say \u0027No debug symbols\u0027 here?\n\nShould the warning messages be localized, too?",
+      "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09dd2df3_c0c2844f",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-07-08T10:35:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a1cbcb8_2079bcea",
       "revId": "b0c716833de1ce1d6de830eb91cf94a4532826ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
