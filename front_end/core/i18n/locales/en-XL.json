@@ -5033,6 +5033,18 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | untrustworthyOrigin": {
     "message": "Ûńt̂ŕûśt̂ẃôŕt̂h́ŷ ór̂íĝín̂"
   },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssueByCategory": {
+    "message": "Ĥíd̂é âĺl̂ {PH1} íŝśûéŝ"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssueByCode": {
+    "message": "Ĥíd̂é t̂h́îś îśŝúê ón̂ĺŷ"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssueByKind": {
+    "message": "Ĥíd̂é âĺl̂ {PH1}"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | tooltipTitle": {
+    "message": "Ĥíd̂é îśŝúêś m̂én̂ú"
+  },
   "panels/issues/CorsIssueDetailsView.ts | allowCredentialsValueFromHeader": {
     "message": "Access-Control-Allow-Credentials Ĥéâd́êŕ V̂ál̂úê"
   },
@@ -10699,6 +10711,9 @@
   },
   "ui/components/issue_counter/IssueCounter.ts | breakingChanges": {
     "message": "{issueCount, plural, =1 {# b̂ŕêák̂ín̂ǵ ĉh́âńĝé} other {# b̂ŕêák̂ín̂ǵ ĉh́âńĝéŝ}}"
+  },
+  "ui/components/issue_counter/IssueCounter.ts | hiddenIssues": {
+    "message": "{issueCount, plural, =1 {# ĥíd̂d́êń îśŝúê} other {# h́îd́d̂én̂ íŝśûéŝ}}"
   },
   "ui/components/issue_counter/IssueCounter.ts | improvementIssue": {
     "message": "Âń îḿp̂ŕôv́êḿêńt̂ íŝśûé: t̂h́êŕê íŝ án̂ óp̂ṕôŕt̂ún̂ít̂ý t̂ó îḿp̂ŕôv́ê t́ĥé p̂áĝé"

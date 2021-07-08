@@ -5,8 +5,11 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+// import * as ElementsComponents from '../elements/components/components.js';
 
 import type {AggregatedIssue} from './IssueAggregator.js';
 import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
@@ -138,7 +141,6 @@ class IssueCategoryView extends UI.TreeOutline.TreeElement {
   private appendHeader(): void {
     const header = document.createElement('div');
     header.classList.add('header');
-
     const title = document.createElement('div');
     title.classList.add('title');
     title.textContent = this.getCategoryName();
@@ -159,6 +161,7 @@ export class IssuesPane extends UI.Widget.VBox {
   private issueViews: Map<string, IssueView>;
   private showThirdPartyCheckbox: UI.Toolbar.ToolbarSettingCheckbox|null;
   private issuesTree: UI.TreeOutline.TreeOutlineInShadow;
+  private hiddenIssuesTree: UI.TreeOutline.TreeOutlineInShadow;
   private noIssuesMessageDiv: HTMLDivElement;
   private issuesManager: IssuesManager.IssuesManager.IssuesManager;
   private aggregator: IssueAggregator;
@@ -176,11 +179,43 @@ export class IssuesPane extends UI.Widget.VBox {
     this.createToolbars();
 
     this.issuesTree = new UI.TreeOutline.TreeOutlineInShadow();
+    this.hiddenIssuesTree = new UI.TreeOutline.TreeOutlineInShadow();
     this.issuesTree.registerRequiredCSS('panels/issues/issuesTree.css');
     this.issuesTree.setShowSelectionOnKeyboardFocus(true);
     this.issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this.issuesTree.element);
-
+    // Experimenting with hidden issues row. ---------------
+    // -----------------------------------------------------
+    // -----------------------------------------------------
+    // this.hiddenIssuesTree.registerRequiredCSS('panels/issues/issuesTree.css');
+    // this.hiddenIssuesTree.setShowSelectionOnKeyboardFocus(true);
+    // this.hiddenIssuesTree.contentElement.classList.add('issues');
+    // this.hiddenIssuesTree.contentElement.classList.add('exp-hidden-issues-row');
+    // const countAdorner = new ElementsComponents.Adorner.Adorner();
+    // const adornerContent = document.createElement('span');
+    // adornerContent.textContent = '4';
+    // countAdorner.data = {
+    //   name: 'countWrapper',
+    //   content: adornerContent,
+    //   category: ElementsComponents.AdornerManager.AdornerCategories.DEFAULT,
+    // };
+    // countAdorner.classList.add('aggregated-issues-count');
+    // const head = document.createElement('div');
+    // head.classList.add('header');
+    // const title = document.createElement('div');
+    // title.classList.add('title');
+    // title.textContent = 'hidden issues';
+    // head.appendChild(countAdorner);
+    // head.appendChild(title);
+    // const treelem = new UI.TreeOutline.TreeElement(head, true);
+    // treelem.listItemElement.classList.add('issue');
+    // treelem.toggleOnClick = true;
+    // treelem.listItemElement.appendChild(head);
+    // this.hiddenIssuesTree.appendChild(treelem);
+    // this.contentElement.appendChild(this.hiddenIssuesTree.element);
+    // Experimenting with hidden issues row. ---------------
+    // -----------------------------------------------------
+    // -----------------------------------------------------
     this.noIssuesMessageDiv = document.createElement('div');
     this.noIssuesMessageDiv.classList.add('issues-pane-no-issues');
     this.contentElement.appendChild(this.noIssuesMessageDiv);
@@ -208,7 +243,9 @@ export class IssuesPane extends UI.Widget.VBox {
   elementsToRestoreScrollPositionsFor(): Element[] {
     return [this.issuesTree.element];
   }
-
+  showAllHiddenIssues(): void {
+    this.issuesManager.showAllIssues();
+  }
   private createToolbars(): {toolbarContainer: Element} {
     const toolbarContainer = this.contentElement.createChild('div', 'issues-toolbar-container');
     new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
@@ -219,11 +256,22 @@ export class IssuesPane extends UI.Widget.VBox {
         groupByCategorySetting, i18nString(UIStrings.groupDisplayedIssuesUnder), i18nString(UIStrings.groupByCategory));
     // Hide the option to toggle category grouping for now.
     groupByCategoryCheckbox.setVisible(false);
+
+    // ----------------------------------------------------
+    const button = new UI.Toolbar.ToolbarButton('Show all hidden issues');
+    button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.showAllHiddenIssues.bind(this));
+    UI.ARIAUtils.markAsMenuButton(button.element);
+    const icon = new IconButton.Icon.Icon();
+    const iconData = {iconName: 'refresh_12x12_icon', color: '', height: '12px', width: '12px'};
+    icon.data = iconData;
+    button.element.appendChild(icon);
+    rightToolbar.appendToolbarItem(button);
+    // ----------------------------------------------------
+
     rightToolbar.appendToolbarItem(groupByCategoryCheckbox);
     groupByCategorySetting.addChangeListener(() => {
       this.fullUpdate();
     });
-
     const thirdPartySetting = IssuesManager.Issue.getShowThirdPartyIssuesSetting();
     this.showThirdPartyCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         thirdPartySetting, i18nString(UIStrings.includeCookieIssuesCausedBy),
@@ -297,6 +345,9 @@ export class IssuesPane extends UI.Widget.VBox {
 
     const newView = new IssueCategoryView(category);
     this.issuesTree.appendChild(newView, (a, b) => {
+      // if ((a as IssueCategoryView).getCategoryName === 'HiddenCategory' || (b as IssueCategoryView).getCategoryName === 'HiddenCategory') {
+      //   return 1;
+      // }
       if (a instanceof IssueCategoryView && b instanceof IssueCategoryView) {
         return a.getCategoryName().localeCompare(b.getCategoryName());
       }
