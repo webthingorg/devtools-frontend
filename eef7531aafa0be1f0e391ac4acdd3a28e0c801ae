@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ab0a011_6417a09b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-08T10:21:36Z",
+      "side": 1,
+      "message": "The overall idea looks good to me, but I don\u0027t think we should be using a set + array. Instead, a Map should be the better data structure for storing this information.",
+      "revId": "eef7531aafa0be1f0e391ac4acdd3a28e0c801ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f52fe3_dc7f3731",
+        "filename": "front_end/core/common/Runnable.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-08T10:21:36Z",
+      "side": 1,
+      "message": "Rather than maintaing both a set and an array, I think we should be using a `Map` here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 82
+      },
+      "revId": "eef7531aafa0be1f0e391ac4acdd3a28e0c801ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
