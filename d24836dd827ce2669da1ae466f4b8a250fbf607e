@@ -16,6 +16,74 @@
       "message": "PTAL. I have deferred testing the new component until we decide how it should look.",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38ca838_4b48e6d1",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T13:59:59Z",
+      "side": 1,
+      "message": "I think we have other component-related xxxUtils.ts in `components/`, so maybe you don\u0027t have to do this, but I\u0027ll let Jack decide.",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14f8261_4fb1588d",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T13:59:59Z",
+      "side": 1,
+      "message": "Just a suggestion: is it possible to move it into `Platform.StringUtilities` and add an optional parameter, `maxTextContentLength`, so we could here call:\n```\nPlatform.StringUtilities.truncateTextIfNeeded(text, MAX_TEXT_CONTENT_LENGTH);\n```\nor something similar?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd44ed4_3cdcddfd",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T13:59:59Z",
+      "side": 1,
+      "message": "Also a question for Jack: I remember we used to have this guideline where each Lit component should call `update()` in `set data()`, and let `update()` call `render()`, which is what Johan is doing here. But later I remember the guideline changed to only add `update()` when there are logic needed to update internal state. So I\u0027m not sure if we need `update()` here anymore. What do both of you think?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2532564f_3bb93102",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T13:59:59Z",
+      "side": 1,
+      "message": "Is there a reason we are disabling this eslint check and declare the `\u003cstyle\u003e` in the template here?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
