@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "455e0172_8997786e",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-09T14:18:55Z",
+      "side": 1,
+      "message": "But for those we have a component that uses the `Util`, right?\nFor example, we could move some of the helper functions in `AccessibilityTreeNode.ts` to `AccessibilityTreeNodeUtils.ts`.",
+      "parentUuid": "d38ca838_4b48e6d1",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c14f8261_4fb1588d",
         "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2021-07-09T13:59:59Z",
       "side": 1,
       "message": "Just a suggestion: is it possible to move it into `Platform.StringUtilities` and add an optional parameter, `maxTextContentLength`, so we could here call:\n```\nPlatform.StringUtilities.truncateTextIfNeeded(text, MAX_TEXT_CONTENT_LENGTH);\n```\nor something similar?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e70ce3_c0c51632",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-09T14:18:55Z",
+      "side": 1,
+      "message": "Yes that seems like a good idea. OTOH since it is still a bit up in the air exactly how the nodes should be displayed, it might make sense to postpone this refactoring too.",
+      "parentUuid": "c14f8261_4fb1588d",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e876927c_634b4ac5",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-09T14:18:55Z",
+      "side": 1,
+      "message": "Thanks for spotting this! I think this is a copy/paste leftover. The components guide doesn\u0027t do this, so we probably shouldn\u0027t do it here either. I\u0027ll inline the render call :-)",
+      "parentUuid": "afd44ed4_3cdcddfd",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2532564f_3bb93102",
         "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
         "patchSetId": 5
@@ -82,6 +136,24 @@
       "writtenOn": "2021-07-09T13:59:59Z",
       "side": 1,
       "message": "Is there a reason we are disabling this eslint check and declare the `\u003cstyle\u003e` in the template here?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "979bb22e_e4c8f621",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-09T14:18:55Z",
+      "side": 1,
+      "message": "No that is just the existing node template. When we add proper styling I gather we can use @kritisapra\u0027s machinery to include a stylesheet here instead.",
+      "parentUuid": "2532564f_3bb93102",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
