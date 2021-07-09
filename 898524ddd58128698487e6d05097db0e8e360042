@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf4d88e8_053c2d38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-09T09:48:56Z",
+      "side": 1,
+      "message": "This is ready to be submitted (I don\u0027t want to push the button myself, because the CL might then be associated with my name instead of yours).",
+      "revId": "898524ddd58128698487e6d05097db0e8e360042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
