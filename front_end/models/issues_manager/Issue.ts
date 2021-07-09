@@ -9,6 +9,20 @@ import type * as Protocol from '../../generated/protocol.js';
 
 import type {MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 
+export type HideIssueFilterSetting = {
+  [x: string]: HideIssue,
+};
+
+export type HideIssueMenuSetting = {
+  [x: string]: HideIssue,
+};
+
+// eslint-disable-next-line rulesdir/const_enum
+export enum HideIssue {
+  Hide = 'Hide',
+  Unhide = 'Unhide',
+}
+
 // eslint-disable-next-line rulesdir/const_enum
 export enum IssueCategory {
   CrossOriginEmbedderPolicy = 'CrossOriginEmbedderPolicy',
@@ -45,6 +59,16 @@ export enum IssueKind {
   Improvement = 'Improvement',
 }
 
+export function defaultHideIssueMenuSetting(): HideIssueMenuSetting {
+  const setting: HideIssueMenuSetting = {};
+  return setting;
+}
+
+export function defaultHideIssueFilterSetting(): HideIssueFilterSetting {
+  const setting: HideIssueFilterSetting = {};
+  return setting;
+}
+
 /**
  * Union two issue kinds for issue aggregation. The idea is to show the most
  * important kind on aggregated issues that union issues of different kinds.
@@ -63,6 +87,18 @@ export function getShowThirdPartyIssuesSetting(): Common.Settings.Setting<boolea
   return Common.Settings.Settings.instance().createSetting('showThirdPartyIssues', false);
 }
 
+export function getHideIssueMenuSetting(): Common.Settings.Setting<HideIssueMenuSetting> {
+  return Common.Settings.Settings.instance().createSetting('hideIssueMenuSetting', defaultHideIssueMenuSetting());
+}
+
+export function getHideIssueFilterSetting(): Common.Settings.Setting<HideIssueFilterSetting> {
+  return Common.Settings.Settings.instance().createSetting('HideIssueFilter', defaultHideIssueFilterSetting());
+}
+
+// export function getIssueCodeSetting(): Common.Settings.Setting<HiddenIssuesSetting> {
+//   return Common.Settings.Settings.instance().createSetting('', defaultIssueKindSetting());
+// }
+
 export interface AffectedElement {
   backendNodeId: Protocol.DOM.BackendNodeId;
   nodeName: string;
@@ -73,6 +109,7 @@ export abstract class Issue<IssueCode extends string = string> extends Common.Ob
   private issueCode: IssueCode;
   private issuesModel: SDK.IssuesModel.IssuesModel|null;
   protected issueId: string|undefined = undefined;
+  private hidden: boolean;
 
   constructor(
       code: IssueCode|{code: IssueCode, umaCode: string}, issuesModel: SDK.IssuesModel.IssuesModel|null = null,
@@ -82,6 +119,7 @@ export abstract class Issue<IssueCode extends string = string> extends Common.Ob
     this.issuesModel = issuesModel;
     this.issueId = issueId;
     Host.userMetrics.issueCreated(typeof code === 'string' ? code : code.umaCode);
+    this.hidden = false;
   }
 
   code(): IssueCode {
@@ -135,6 +173,16 @@ export abstract class Issue<IssueCode extends string = string> extends Common.Ob
 
   getIssueId(): string|undefined {
     return this.issueId;
+  }
+
+  isHidden(): boolean {
+    return this.hidden;
+  }
+  setHidden(x: boolean): void {
+    if (x === this.hidden) {
+      return;
+    }
+    this.hidden = x;
   }
 }
 

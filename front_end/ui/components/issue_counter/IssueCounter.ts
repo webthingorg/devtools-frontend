@@ -35,6 +35,10 @@ const UIStrings = {
  *@description Label for link to Issues tab, specifying how many issues there are.
  */
   possibleImprovements: '{issueCount, plural, =1 {# possible improvement} other {# possible improvements}}',
+  /**
+ *@description Label for link to Issues tab, specifying how many issues there are.
+ */
+  hiddenIssues: '{issueCount, plural, =1 {# hidden issue} other {# hidden issues}}',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/components/issue_counter/IssueCounter.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -90,15 +94,17 @@ const listFormat = new Intl.ListFormat(navigator.language, {type: 'unit', style:
 
 export function getIssueCountsEnumeration(
     issuesManager: IssuesManager.IssuesManager.IssuesManager, omitEmpty: boolean = true): string {
-  const counts: [number, number, number] = [
+  const counts: [number, number, number, number] = [
     issuesManager.numberOfIssues(IssuesManager.Issue.IssueKind.PageError),
     issuesManager.numberOfIssues(IssuesManager.Issue.IssueKind.BreakingChange),
     issuesManager.numberOfIssues(IssuesManager.Issue.IssueKind.Improvement),
+    issuesManager.numberOfHiddenIssues(),
   ];
   const phrases = [
     i18nString(UIStrings.pageErrors, {issueCount: counts[0]}),
     i18nString(UIStrings.breakingChanges, {issueCount: counts[1]}),
     i18nString(UIStrings.possibleImprovements, {issueCount: counts[2]}),
+    i18nString(UIStrings.hiddenIssues, {issueCount: counts[3]}),
   ];
   return listFormat.format(phrases.filter((_, i) => omitEmpty ? counts[i] > 0 : true));
 }
@@ -178,7 +184,7 @@ export class IssueCounter extends HTMLElement {
     ];
     const mostImportant = importance[this.counts.findIndex(x => x > 0) ?? 2];
 
-    const countToString = (kind: IssuesManager.Issue.IssueKind, count: number): string|undefined => {
+    const countToString = (kind: IssuesManager.Issue.IssueKind|undefined, count: number): string|undefined => {
       switch (this.displayMode) {
         case DisplayMode.OmitEmpty:
           return count > 0 ? `${count}` : undefined;
@@ -202,6 +208,10 @@ export class IssueCounter extends HTMLElement {
         {
           ...toIconGroup(getIssueKindIconData(IssuesManager.Issue.IssueKind.Improvement), iconSize),
           text: countToString(IssuesManager.Issue.IssueKind.Improvement, this.counts[2]),
+        },
+        {
+          ...toIconGroup({iconName: 'temp_hide_issues_icon', color: ''}, iconSize),
+          text: countToString(undefined, this.issuesManager.numberOfHiddenIssues()),
         },
       ],
       clickHandler: this.clickHandler,
