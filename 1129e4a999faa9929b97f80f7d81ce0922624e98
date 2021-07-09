@@ -16,6 +16,24 @@
       "message": "Let me hold off a bit; the previous CL was reverted: https://chromium-review.googlesource.com/c/chromium/src/+/3015325",
       "revId": "1129e4a999faa9929b97f80f7d81ce0922624e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eeda5a9_7f7031b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-09T13:11:48Z",
+      "side": 1,
+      "message": "Yes, let\u0027s wait. But I think you may be able to plainly reland. Leaving my +1 so you are unblocked.",
+      "parentUuid": "c142bf31_5c482738",
+      "revId": "1129e4a999faa9929b97f80f7d81ce0922624e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
