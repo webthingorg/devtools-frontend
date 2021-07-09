@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd806115_8f3256e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-09T14:20:15Z",
+      "side": 1,
+      "message": "LGTM with teeeeeeny typo!",
+      "revId": "1161f2ad2e6866bf0bbb688099bbabc2109672cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05d41a4_08dddef3",
+        "filename": "front_end/panels/elements/components/nodeText.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-09T14:20:15Z",
+      "side": 1,
+      "message": "nit: changing",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "1161f2ad2e6866bf0bbb688099bbabc2109672cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
