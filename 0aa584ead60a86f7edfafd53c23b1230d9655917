@@ -20,6 +20,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e6abe26_3fdcaa12",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-09T11:01:36Z",
+      "side": 1,
+      "message": "Needs updating once https://crrev.com/c/3000804 is merged.",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d146168_bfb7d432",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-09T11:01:36Z",
+      "side": 1,
+      "message": "Might be worth it to add the icon in a separate CL.",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d24c8eec_547a7c03",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-09T11:01:36Z",
+      "side": 1,
+      "message": "rename x to hidden",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad297977_4335e452",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 10
@@ -61,6 +112,23 @@
         "endLine": 261,
         "endChar": 14
       },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f5996c7_f7976455",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-09T11:01:36Z",
+      "side": 1,
+      "message": "Is this line necessary?",
       "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
