@@ -34,6 +34,23 @@
       "parentUuid": "c142bf31_5c482738",
       "revId": "1129e4a999faa9929b97f80f7d81ce0922624e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7195756b_0d01a200",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T18:29:26Z",
+      "side": 1,
+      "message": "The reland passes the previously \"failed\" trybot: https://ci.chromium.org/ui/p/chromium/builders/ci/win32-archive-rel/23402/overview, hence submitting the corresponding protocol roll.",
+      "revId": "1129e4a999faa9929b97f80f7d81ce0922624e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
