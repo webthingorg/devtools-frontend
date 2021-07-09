@@ -856,7 +856,7 @@ SourcesTestRunner.setEventListenerBreakpoint = function(id, enabled, targetName)
     auxData.targetName = targetName;
   }
 
-  const breakpoint = self.SDK.domDebuggerManager.resolveEventListenerBreakpoint(auxData);
+  const breakpoint = self.SDK.domDebuggerManager.resolveEventListenerBreakpointFromAuxData(auxData);
 
   if (breakpoint.enabled() !== enabled) {
     pane._breakpoints.get(breakpoint).checkbox.checked = enabled;
