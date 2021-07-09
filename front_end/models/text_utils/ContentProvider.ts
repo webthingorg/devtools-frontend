@@ -41,9 +41,11 @@ export abstract class ContentProvider {
 export class SearchMatch {
   lineNumber: number;
   lineContent: string;
-  constructor(lineNumber: number, lineContent: string) {
+  columnNumber?: number|undefined;
+  constructor(lineNumber: number, lineContent: string, columnNumber?: number|undefined) {
     this.lineNumber = lineNumber;
     this.lineContent = lineContent;
+    this.columnNumber = columnNumber;
   }
 }
 
