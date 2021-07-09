@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Protocol from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
@@ -21,27 +20,27 @@ export class CookieModel extends SDKModel {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  _blockedCookies: Map<any, any>;
+  private readonly blockedCookies: Map<any, any>;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  _cookieToBlockedReasons: Map<any, any>;
+  private readonly cookieToBlockedReasons: Map<any, any>;
   constructor(target: Target) {
     super(target);
 
     /** Array<!Cookie> */
-    this._blockedCookies = new Map();
-    this._cookieToBlockedReasons = new Map();
+    this.blockedCookies = new Map();
+    this.cookieToBlockedReasons = new Map();
   }
 
   addBlockedCookie(cookie: Cookie, blockedReasons: BlockedReason[]|null): void {
     const key = cookie.key();
-    const previousCookie = this._blockedCookies.get(key);
-    this._blockedCookies.set(key, cookie);
-    this._cookieToBlockedReasons.set(cookie, blockedReasons);
+    const previousCookie = this.blockedCookies.get(key);
+    this.blockedCookies.set(key, cookie);
+    this.cookieToBlockedReasons.set(cookie, blockedReasons);
     if (previousCookie) {
-      this._cookieToBlockedReasons.delete(key);
+      this.cookieToBlockedReasons.delete(key);
     }
   }
 
@@ -50,7 +49,7 @@ export class CookieModel extends SDKModel {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getCookieToBlockedReasonsMap(): Map<any, any> {
-    return this._cookieToBlockedReasons;
+    return this.cookieToBlockedReasons;
   }
 
   async getCookies(urls: string[]): Promise<Cookie[]> {
@@ -59,7 +58,7 @@ export class CookieModel extends SDKModel {
       return [];
     }
     const normalCookies = response.cookies.map(Cookie.fromProtocolCookie);
-    return normalCookies.concat(Array.from(this._blockedCookies.values()));
+    return normalCookies.concat(Array.from(this.blockedCookies.values()));
   }
 
   async deleteCookie(cookie: Cookie): Promise<void> {
@@ -140,8 +139,8 @@ export class CookieModel extends SDKModel {
 
   async deleteCookies(cookies: Cookie[]): Promise<void> {
     const networkAgent = this.target().networkAgent();
-    this._blockedCookies.clear();
-    this._cookieToBlockedReasons.clear();
+    this.blockedCookies.clear();
+    this.cookieToBlockedReasons.clear();
     await Promise.all(cookies.map(
         cookie => networkAgent.invoke_deleteCookies(
             {name: cookie.name(), url: undefined, domain: cookie.domain(), path: cookie.path()})));

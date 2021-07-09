@@ -353,7 +353,7 @@ class FormattedValueNode extends ValueNode {
   /**
    * Hook into RemoteObject creation for properties to check whether a property is a marker.
    */
-  async _createRemoteObject(newObject: Protocol.Runtime.RemoteObject):
+  async createRemoteObject(newObject: Protocol.Runtime.RemoteObject):
       Promise<FormattedValueNode|StaticallyTypedValueNode> {
     // Check if the property RemoteObject is a marker
     const base = await this._getEvalBaseFromObject(newObject);
@@ -458,7 +458,6 @@ class StaticallyTypedValueNode extends ValueNode {
   _sourceType: SourceType;
   _base: EvalBase|null;
   _fieldChain: FieldInfo[];
-  _hasChildren: boolean;
   _evalOptions: SDK.RuntimeModel.EvaluationOptions;
 
   constructor(
@@ -478,7 +477,7 @@ class StaticallyTypedValueNode extends ValueNode {
     this._sourceType = sourceType;
     this._base = base;
     this._fieldChain = fieldChain;
-    this._hasChildren = true;
+    this.hasChildrenInternal = true;
     this._evalOptions = evalOptions;
   }
 

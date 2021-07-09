@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Common from '../common/common.js';
 import type {Target} from './Target.js';
@@ -16,15 +15,15 @@ export interface RegistrationInfo {
 const registeredModels = new Map<new (arg1: Target) => SDKModel, RegistrationInfo>();
 
 export class SDKModel extends Common.ObjectWrapper.ObjectWrapper {
-  _target: Target;
+  private readonly targetInternal: Target;
 
   constructor(target: Target) {
     super();
-    this._target = target;
+    this.targetInternal = target;
   }
 
   target(): Target {
-    return this._target;
+    return this.targetInternal;
   }
 
   /**

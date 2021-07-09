@@ -30,9 +30,10 @@ export class EventListenerBreakpointsSidebarPane extends CategorizedBreakpointsS
 
   _getBreakpointFromPausedDetails(details: SDK.DebuggerModel.DebuggerPausedDetails):
       SDK.DOMDebuggerModel.CategorizedBreakpoint|null {
-    return SDK.DOMDebuggerModel.DOMDebuggerManager.instance().resolveEventListenerBreakpoint(details.auxData as {
-      eventName: string,
-      targetName: string,
-    });
+    return SDK.DOMDebuggerModel.DOMDebuggerManager.instance().resolveEventListenerBreakpointFromAuxData(
+        details.auxData as {
+          eventName: string,
+          targetName: string,
+        });
   }
 }
