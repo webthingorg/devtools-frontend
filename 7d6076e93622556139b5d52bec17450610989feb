@@ -16,6 +16,40 @@
       "message": "I will wait for the protocol roll to land first.",
       "revId": "7d6076e93622556139b5d52bec17450610989feb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8288635_97f6ee5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-09T08:35:28Z",
+      "side": 1,
+      "message": "So this CL is only for hover overlays? Do you plan to use setShowContainerQueryOverlays in the follow-up CLs?",
+      "revId": "7d6076e93622556139b5d52bec17450610989feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c24467_0dfff639",
+        "filename": "front_end/panels/elements/components/Helper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-09T08:35:28Z",
+      "side": 1,
+      "message": "is there an enum for highlight modes?",
+      "revId": "7d6076e93622556139b5d52bec17450610989feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
