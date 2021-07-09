@@ -22,6 +22,30 @@
       },
       "revId": "1c27c94ea1d57a2f0adbd90158f6fe5249152e72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49aa812d_37a5a540",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-07-09T16:23:04Z",
+      "side": 1,
+      "message": "It still works, but only sometimes, I will submit another fix.",
+      "parentUuid": "76a2be08_48829d60",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 473,
+        "endChar": 75
+      },
+      "revId": "1c27c94ea1d57a2f0adbd90158f6fe5249152e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
