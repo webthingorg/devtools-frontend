@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c961aca9_7c9a5185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-09T05:38:55Z",
+      "side": 1,
+      "message": "Some questions. LMK once you want a full review.",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad297977_4335e452",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-09T05:38:55Z",
+      "side": 1,
+      "message": "Could you explain why we have a different event? It looks as if the listeners could determine if the issue is hidden by just asking the issue.isHidden()?",
+      "range": {
+        "startLine": 259,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 14
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9473e2fa_e82a3538",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-09T05:38:55Z",
+      "side": 1,
+      "message": "Should this be guarded by the experiment as well?\n\nAlso, maybe the changes to the issues counter could be in a separate CL?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baad523e_17c0f670",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-09T05:38:55Z",
+      "side": 1,
+      "message": "Should this be guarded by the experiment as well?",
+      "range": {
+        "startLine": 212,
+        "startChar": 7,
+        "endLine": 215,
+        "endChar": 10
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
