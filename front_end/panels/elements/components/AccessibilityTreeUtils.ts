@@ -6,10 +6,16 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
 import type * as SDK from '../../../core/sdk/sdk.js';
 import type * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
+
+import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-export type AXTreeNode = TreeOutline.TreeOutlineUtils.TreeNode<SDK.AccessibilityModel.AccessibilityNode>;
-
+export type AXTreeNodeData = {
+  sdkNode: SDK.AccessibilityModel.AccessibilityNode,
+  htmlElement: AccessibilityTreeNode,
+};
+export type AXTreeNode = TreeOutline.TreeOutlineUtils.TreeNode<AXTreeNodeData>;
 
 const UIStrings = {
   /**
@@ -20,38 +26,41 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/components/AccessibilityTreeUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function sdkNodeToAXTreeNode(node: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
-  if (!node.numChildren()) {
+export function sdkNodeToAXTreeNode(sdkNode: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
+  const htmlElement = new AccessibilityTreeNode();
+  htmlElement.data = {name: sdkNode.name()?.value || '', role: sdkNode.role()?.value || '', ignored: sdkNode.ignored()};
+  const treeNodeData = {htmlElement, sdkNode};
+  if (!sdkNode.numChildren()) {
     return {
-      treeNodeData: node,
-      id: node.id(),
+      treeNodeData,
+      id: sdkNode.id(),
     };
   }
 
   return {
-    treeNodeData: node,
+    treeNodeData,
     children: async(): Promise<AXTreeNode[]> => {
-      if (node.numChildren() === node.children().length) {
-        return Promise.resolve(node.children().map(child => sdkNodeToAXTreeNode(child)));
+      if (sdkNode.numChildren() === sdkNode.children().length) {
+        return Promise.resolve(sdkNode.children().map(child => sdkNodeToAXTreeNode(child)));
       }
       // numChildren returns the number of children that this node has, whereas node.children()
       // returns only children that have been loaded. If these two don't match, that means that
       // there are backend children that need to be loaded into the model, so request them now.
-      await node.accessibilityModel().requestAXChildren(node.id());
+      await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
 
-      if (node.numChildren() !== node.children().length) {
+      if (sdkNode.numChildren() !== sdkNode.children().length) {
         throw new Error('Once loaded, number of children and length of children must match.');
       }
 
       const treeNodeChildren: AXTreeNode[] = [];
 
-      for (const child of node.children()) {
+      for (const child of sdkNode.children()) {
         treeNodeChildren.push(sdkNodeToAXTreeNode(child));
       }
 
       return Promise.resolve(treeNodeChildren);
     },
-    id: node.id(),
+    id: sdkNode.id(),
   };
 }
 
@@ -65,46 +74,41 @@ function truncateTextIfNeeded(text: string): string {
   return text;
 }
 
-function ignoredNodeTemplate(): LitHtml.TemplateResult[] {
-  const nodeContent: LitHtml.TemplateResult[] = [];
-  nodeContent.push(LitHtml.html`<span class='monospace ignored-node'>${i18nString(UIStrings.ignored)}</span>`);
-  return nodeContent;
-}
-
-function unignoredNodeTemplate(node: SDK.AccessibilityModel.AccessibilityNode): LitHtml.TemplateResult[] {
-  const nodeContent: LitHtml.TemplateResult[] = [];
-
-  // All unignored nodes must have a role.
-  const role = node.role();
-  if (!role) {
-    nodeContent.push(LitHtml.html``);
-    return nodeContent;
-  }
-
-  const roleElement = LitHtml.html`<span class='monospace'>${truncateTextIfNeeded(role.value || '')}</span>`;
-  nodeContent.push(LitHtml.html`${roleElement}`);
-
-  // Not all nodes have a name, however.
-  const name = node.name();
-  if (name) {
-    nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
-    nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name.value}"</span>`);
-  }
-  return nodeContent;
-}
 
 export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateResult {
-  let nodeContent: LitHtml.TemplateResult[];
-  const axNode = node.treeNodeData;
+  return LitHtml.html`${node.treeNodeData.htmlElement}`;
+}
 
-  if (axNode.ignored()) {
-    nodeContent = ignoredNodeTemplate();
-  } else {
-    nodeContent = unignoredNodeTemplate(axNode);
+export interface AccessibilityTreeNodeData {
+  ignored: boolean;
+  name: string;
+  role: string;
+}
+
+export class AccessibilityTreeNode extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-accessibility-tree-node`;
+  private readonly shadow = this.attachShadow({mode: 'open'});
+
+  private ignored: boolean = true;
+  private name: string = '';
+  private role: string = '';
+
+  set data(data: AccessibilityTreeNodeData) {
+    this.ignored = data.ignored;
+    this.name = data.name;
+    this.role = data.role;
+    this.update();
   }
 
-  // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
-  return LitHtml.html`
+  private async update(): Promise<void> {
+    await this.render();
+  }
+
+  private async render(): Promise<void> {
+    await Coordinator.RenderCoordinator.RenderCoordinator.instance().write('Accessibility node render', () => {
+      // clang-format off
+      // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
+      LitHtml.render(LitHtml.html`
       <style>
           .ax-readable-string {
             font-style: italic;
@@ -115,6 +119,26 @@ export function accessibilityNodeRenderer(node: AXTreeNode): LitHtml.TemplateRes
             font-size: var(--monospace-font-size);
           }
       </style>
-      ${nodeContent}
-      `;
+      ${this.ignored?
+          LitHtml.html`<span class='monospace ignored-node'>${i18nString(UIStrings.ignored)}</span>`:
+          LitHtml.html`
+             <span class='monospace'>${truncateTextIfNeeded(this.role)}</span>
+             <span class='separator'>\xA0</span>
+             <span class='ax-readable-string'>"${this.name}"</span>
+          `}
+     `, this.shadow, {
+        host: this,
+      });
+      // clang-format on
+    });
+  }
+}
+
+ComponentHelpers.CustomElements.defineComponent('devtools-accessibility-tree-node', AccessibilityTreeNode);
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface HTMLElementTagNameMap {
+    'devtools-accessibility-tree-node': AccessibilityTreeNode;
+  }
 }

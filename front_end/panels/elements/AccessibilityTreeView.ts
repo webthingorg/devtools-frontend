@@ -6,13 +6,13 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as ElementsComponents from './components/components.js';
 import type * as LitHtml from '../../ui/lit-html/lit-html.js';
 
-import * as ElementsComponents from './components/components.js';
+type TreeNodeData = ElementsComponents.AccessibilityTreeUtils.AXTreeNodeData;
 
 export class AccessibilityTreeView extends UI.Widget.VBox {
-  private readonly accessibilityTreeComponent =
-      new TreeOutline.TreeOutline.TreeOutline<SDK.AccessibilityModel.AccessibilityNode>();
+  private readonly accessibilityTreeComponent = new TreeOutline.TreeOutline.TreeOutline<TreeNodeData>();
   private treeData: ElementsComponents.AccessibilityTreeUtils.AXTreeNode[] = [];
   private readonly toggleButton: HTMLButtonElement;
   private accessibilityModel: SDK.AccessibilityModel.AccessibilityModel|null = null;
@@ -32,8 +32,8 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     // on node selection, update the currently inspected node and reveal in the
     // DOM tree.
     this.accessibilityTreeComponent.addEventListener('itemselected', (event: Event) => {
-      const evt = event as TreeOutline.TreeOutline.ItemSelectedEvent<SDK.AccessibilityModel.AccessibilityNode>;
-      const axNode = evt.data.node.treeNodeData;
+      const evt = event as TreeOutline.TreeOutline.ItemSelectedEvent<TreeNodeData>;
+      const axNode = evt.data.node.treeNodeData.sdkNode;
       if (!axNode.isDOMNode()) {
         return;
       }
@@ -48,12 +48,12 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
       }
 
       // Highlight the node as well, for keyboard navigation.
-      evt.data.node.treeNodeData.highlightDOMNode();
+      axNode.highlightDOMNode();
     });
 
     this.accessibilityTreeComponent.addEventListener('itemmouseover', (event: Event) => {
-      const evt = event as TreeOutline.TreeOutline.ItemMouseOverEvent<SDK.AccessibilityModel.AccessibilityNode>;
-      evt.data.node.treeNodeData.highlightDOMNode();
+      const evt = event as TreeOutline.TreeOutline.ItemMouseOverEvent<TreeNodeData>;
+      evt.data.node.treeNodeData.sdkNode.highlightDOMNode();
     });
 
     this.accessibilityTreeComponent.addEventListener('itemmouseout', () => {
