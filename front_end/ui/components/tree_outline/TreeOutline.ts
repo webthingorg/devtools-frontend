@@ -536,7 +536,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
 
         [role="treeitem"].selected > .arrow-and-key-wrapper {
           /* stylelint-disable-next-line color-named */
-          background-color: var(--legacy-selection-bg-color);
+          background-color: var(--legacy-item-selection-bg-color);
         }
       </style>
       <div class="wrapping-container">
