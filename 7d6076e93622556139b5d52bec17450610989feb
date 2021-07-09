@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b995706_14402a46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T09:06:28Z",
+      "side": 1,
+      "message": "Yes, `setShowContainerQueryOverlays` will be used for persistent overlays of container query isolation mode, which will be triggered from an adorner and an icon in the Styles pane. This will happen after the branch point though, because it\u0027s too much change to push through before the branch point.",
+      "parentUuid": "a8288635_97f6ee5f",
+      "revId": "7d6076e93622556139b5d52bec17450610989feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79c24467_0dfff639",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-07-09T08:35:28Z",
       "side": 1,
       "message": "is there an enum for highlight modes?",
+      "revId": "7d6076e93622556139b5d52bec17450610989feb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1e811a_f19af674",
+        "filename": "front_end/panels/elements/components/Helper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T09:06:28Z",
+      "side": 1,
+      "message": "There is not. I guess there\u0027s no enum because it\u0027s hard to deduce all the possible modes from this function? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/OverlayModel.ts;l\u003d477?q\u003doverlaymodel.ts\nAlso might be due to this part, where we could add more `mode`s in the future: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/StylesSidebarPane.ts;l\u003d169?q\u003dHIGHLIGHTABLE_PROPERTIES\u0026ss\u003dchromium\n\nAnyways I\u0027m just guessing.",
+      "parentUuid": "79c24467_0dfff639",
       "revId": "7d6076e93622556139b5d52bec17450610989feb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
