@@ -536,6 +536,9 @@ export class UILocation {
     } else if (typeof this.lineNumber === 'number') {
       linkText += ':' + (this.lineNumber + 1);
     }
+    if (typeof this.columnNumber === 'number') {
+      linkText += ':' + (this.columnNumber + 1);
+    }
     return linkText;
   }
 
