@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "811f1764_e91d7991",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-07-09T00:09:44Z",
+      "side": 1,
+      "message": "Hi Simon, ptal at these small changes which help users find their search term within minified code. Thanks!",
+      "revId": "68927a7fe9cb07728bedc4dca7439b1108fbf721",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
