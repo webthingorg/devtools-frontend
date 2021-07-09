@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "726babc0_ae4f2fcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-09T13:28:13Z",
+      "side": 1,
+      "message": "PTAL. I have deferred testing the new component until we decide how it should look.",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
