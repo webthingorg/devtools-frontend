@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c0678fa_5da0fb75",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-09T09:46:52Z",
+      "side": 1,
+      "message": "The reason I have a separate event for it is because issueAggregator will have to dispatchEvents to issuesPane once a hiddenIssue is added, the frontend logic for rendering that hidden issue will be a bit different from the normal way an issue is shown in the frontend. So there will be a separate handler which handles added or incoming hiddenIssues. However, if it something that can be done without the event I\u0027ll use the same function. For the time being i will remove it.",
+      "parentUuid": "ad297977_4335e452",
+      "range": {
+        "startLine": 259,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 14
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9473e2fa_e82a3538",
         "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
         "patchSetId": 10
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f4b3dab_7cf3dc09",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-09T09:46:52Z",
+      "side": 1,
+      "message": "Yeah it should, i just put it there just so that i could get wolfgang\u0027s opinion on this. \nIf this is the final icon we decide on, i\u0027ll put the changes in a new CL and guard it with an experiment.",
+      "parentUuid": "9473e2fa_e82a3538",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "baad523e_17c0f670",
         "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
         "patchSetId": 10
@@ -77,6 +125,30 @@
       "writtenOn": "2021-07-09T05:38:55Z",
       "side": 1,
       "message": "Should this be guarded by the experiment as well?",
+      "range": {
+        "startLine": 212,
+        "startChar": 7,
+        "endLine": 215,
+        "endChar": 10
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c15cea3_3b8e5da0",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-09T09:46:52Z",
+      "side": 1,
+      "message": "yes it should, will do it as soon as we decide on an icon.",
+      "parentUuid": "baad523e_17c0f670",
       "range": {
         "startLine": 212,
         "startChar": 7,
