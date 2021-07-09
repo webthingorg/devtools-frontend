@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c142bf31_5c482738",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-09T13:09:47Z",
+      "side": 1,
+      "message": "Let me hold off a bit; the previous CL was reverted: https://chromium-review.googlesource.com/c/chromium/src/+/3015325",
+      "revId": "1129e4a999faa9929b97f80f7d81ce0922624e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
