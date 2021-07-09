@@ -28,7 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Protocol from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
@@ -78,24 +77,24 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let settingsInstance: ConsoleModel;
 
 export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements Observer {
-  _messages: ConsoleMessage[];
-  _messageByExceptionId: Map<RuntimeModel, Map<number, ConsoleMessage>>;
-  _warnings: number;
-  _errors: number;
-  _violations: number;
+  private messagesInternal: ConsoleMessage[];
+  private readonly messageByExceptionId: Map<RuntimeModel, Map<number, ConsoleMessage>>;
+  private warningsInternal: number;
+  private errorsInternal: number;
+  private violationsInternal: number;
   private pageLoadSequenceNumber: number;
-  _targetListeners: WeakMap<Target, Common.EventTarget.EventDescriptor[]>;
+  private readonly targetListeners: WeakMap<Target, Common.EventTarget.EventDescriptor[]>;
 
   private constructor() {
     super();
 
-    this._messages = [];
-    this._messageByExceptionId = new Map();
-    this._warnings = 0;
-    this._errors = 0;
-    this._violations = 0;
+    this.messagesInternal = [];
+    this.messageByExceptionId = new Map();
+    this.warningsInternal = 0;
+    this.errorsInternal = 0;
+    this.violationsInternal = 0;
     this.pageLoadSequenceNumber = 0;
-    this._targetListeners = new WeakMap();
+    this.targetListeners = new WeakMap();
 
     TargetManager.instance().observeTargets(this);
   }
@@ -114,58 +113,58 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
   targetAdded(target: Target): void {
     const resourceTreeModel = target.model(ResourceTreeModel);
     if (!resourceTreeModel || resourceTreeModel.cachedResourcesLoaded()) {
-      this._initTarget(target);
+      this.initTarget(target);
       return;
     }
 
     const eventListener = resourceTreeModel.addEventListener(ResourceTreeModelEvents.CachedResourcesLoaded, () => {
       Common.EventTarget.EventTarget.removeEventListeners([eventListener]);
-      this._initTarget(target);
+      this.initTarget(target);
     });
   }
 
-  _initTarget(target: Target): void {
+  private initTarget(target: Target): void {
     const eventListeners = [];
 
     const cpuProfilerModel = target.model(CPUProfilerModel);
     if (cpuProfilerModel) {
       eventListeners.push(cpuProfilerModel.addEventListener(
-          CPUProfilerModelEvents.ConsoleProfileStarted, this._consoleProfileStarted.bind(this, cpuProfilerModel)));
+          CPUProfilerModelEvents.ConsoleProfileStarted, this.consoleProfileStarted.bind(this, cpuProfilerModel)));
       eventListeners.push(cpuProfilerModel.addEventListener(
-          CPUProfilerModelEvents.ConsoleProfileFinished, this._consoleProfileFinished.bind(this, cpuProfilerModel)));
+          CPUProfilerModelEvents.ConsoleProfileFinished, this.consoleProfileFinished.bind(this, cpuProfilerModel)));
     }
 
     const resourceTreeModel = target.model(ResourceTreeModel);
     if (resourceTreeModel && !target.parentTarget()) {
       eventListeners.push(resourceTreeModel.addEventListener(
-          ResourceTreeModelEvents.MainFrameNavigated, this._mainFrameNavigated, this));
+          ResourceTreeModelEvents.MainFrameNavigated, this.mainFrameNavigated, this));
     }
 
     const runtimeModel = target.model(RuntimeModel);
     if (runtimeModel) {
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.ExceptionThrown, this._exceptionThrown.bind(this, runtimeModel)));
+          RuntimeModelEvents.ExceptionThrown, this.exceptionThrown.bind(this, runtimeModel)));
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.ExceptionRevoked, this._exceptionRevoked.bind(this, runtimeModel)));
+          RuntimeModelEvents.ExceptionRevoked, this.exceptionRevoked.bind(this, runtimeModel)));
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.ConsoleAPICalled, this._consoleAPICalled.bind(this, runtimeModel)));
+          RuntimeModelEvents.ConsoleAPICalled, this.consoleAPICalled.bind(this, runtimeModel)));
       if (!target.parentTarget()) {
         eventListeners.push(runtimeModel.debuggerModel().addEventListener(
-            DebuggerModelEvents.GlobalObjectCleared, this._clearIfNecessary, this));
+            DebuggerModelEvents.GlobalObjectCleared, this.clearIfNecessary, this));
       }
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.QueryObjectRequested, this._queryObjectRequested.bind(this, runtimeModel)));
+          RuntimeModelEvents.QueryObjectRequested, this.queryObjectRequested.bind(this, runtimeModel)));
     }
 
-    this._targetListeners.set(target, eventListeners);
+    this.targetListeners.set(target, eventListeners);
   }
 
   targetRemoved(target: Target): void {
     const runtimeModel = target.model(RuntimeModel);
     if (runtimeModel) {
-      this._messageByExceptionId.delete(runtimeModel);
+      this.messageByExceptionId.delete(runtimeModel);
     }
-    Common.EventTarget.EventTarget.removeEventListeners(this._targetListeners.get(target) || []);
+    Common.EventTarget.EventTarget.removeEventListeners(this.targetListeners.get(target) || []);
   }
 
   async evaluateCommandInConsole(
@@ -209,25 +208,25 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     msg.setPageLoadSequenceNumber(this.pageLoadSequenceNumber);
     if (msg.source === FrontendMessageSource.ConsoleAPI &&
         msg.type === Protocol.Runtime.ConsoleAPICalledEventType.Clear) {
-      this._clearIfNecessary();
+      this.clearIfNecessary();
     }
 
-    this._messages.push(msg);
+    this.messagesInternal.push(msg);
     const runtimeModel = msg.runtimeModel();
     const exceptionId = msg.getExceptionId();
     if (exceptionId && runtimeModel) {
-      let modelMap = this._messageByExceptionId.get(runtimeModel);
+      let modelMap = this.messageByExceptionId.get(runtimeModel);
       if (!modelMap) {
         modelMap = new Map();
-        this._messageByExceptionId.set(runtimeModel, modelMap);
+        this.messageByExceptionId.set(runtimeModel, modelMap);
       }
       modelMap.set(exceptionId, msg);
     }
-    this._incrementErrorWarningCount(msg);
+    this.incrementErrorWarningCount(msg);
     this.dispatchEventToListeners(Events.MessageAdded, msg);
   }
 
-  _exceptionThrown(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
+  private exceptionThrown(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
     const exceptionWithTimestamp = (event.data as ExceptionWithTimestamp);
     const affectedResources = extractExceptionMetaData(exceptionWithTimestamp.details.exceptionMetaData);
     const consoleMessage = ConsoleMessage.fromException(
@@ -237,19 +236,19 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     this.addMessage(consoleMessage);
   }
 
-  _exceptionRevoked(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
+  private exceptionRevoked(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
     const exceptionId = (event.data as number);
-    const modelMap = this._messageByExceptionId.get(runtimeModel);
+    const modelMap = this.messageByExceptionId.get(runtimeModel);
     const exceptionMessage = modelMap ? modelMap.get(exceptionId) : null;
     if (!exceptionMessage) {
       return;
     }
-    this._errors--;
+    this.errorsInternal--;
     exceptionMessage.level = Protocol.Log.LogEntryLevel.Verbose;
     this.dispatchEventToListeners(Events.MessageUpdated, exceptionMessage);
   }
 
-  _consoleAPICalled(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
+  private consoleAPICalled(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
     const call = (event.data as ConsoleAPICall);
     let level: Protocol.Log.LogEntryLevel = Protocol.Log.LogEntryLevel.Info;
     if (call.type === Protocol.Runtime.ConsoleAPICalledEventType.Debug) {
@@ -290,7 +289,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     this.addMessage(consoleMessage);
   }
 
-  _queryObjectRequested(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
+  private queryObjectRequested(runtimeModel: RuntimeModel, event: Common.EventTarget.EventTargetEvent): void {
     const data = (event.data as {
       objects: RemoteObject,
     });
@@ -300,34 +299,34 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     this.addMessage(consoleMessage);
   }
 
-  _clearIfNecessary(): void {
+  private clearIfNecessary(): void {
     if (!Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get()) {
-      this._clear();
+      this.clear();
     }
     ++this.pageLoadSequenceNumber;
   }
 
-  _mainFrameNavigated(event: Common.EventTarget.EventTargetEvent): void {
+  private mainFrameNavigated(event: Common.EventTarget.EventTargetEvent): void {
     if (Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog').get()) {
       Common.Console.Console.instance().log(i18nString(UIStrings.navigatedToS, {PH1: event.data.url}));
     }
   }
 
-  _consoleProfileStarted(cpuProfilerModel: CPUProfilerModel, event: Common.EventTarget.EventTargetEvent): void {
+  private consoleProfileStarted(cpuProfilerModel: CPUProfilerModel, event: Common.EventTarget.EventTargetEvent): void {
     const data = (event.data as EventData);
-    this._addConsoleProfileMessage(
+    this.addConsoleProfileMessage(
         cpuProfilerModel, Protocol.Runtime.ConsoleAPICalledEventType.Profile, data.scriptLocation,
         i18nString(UIStrings.profileSStarted, {PH1: data.title}));
   }
 
-  _consoleProfileFinished(cpuProfilerModel: CPUProfilerModel, event: Common.EventTarget.EventTargetEvent): void {
+  private consoleProfileFinished(cpuProfilerModel: CPUProfilerModel, event: Common.EventTarget.EventTargetEvent): void {
     const data = (event.data as EventData);
-    this._addConsoleProfileMessage(
+    this.addConsoleProfileMessage(
         cpuProfilerModel, Protocol.Runtime.ConsoleAPICalledEventType.ProfileEnd, data.scriptLocation,
         i18nString(UIStrings.profileSFinished, {PH1: data.title}));
   }
 
-  _addConsoleProfileMessage(
+  private addConsoleProfileMessage(
       cpuProfilerModel: CPUProfilerModel, type: MessageType, scriptLocation: Location, messageText: string): void {
     const script = scriptLocation.script();
     const callFrames = [{
@@ -342,23 +341,23 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
         {type, stackTrace: {callFrames}}));
   }
 
-  _incrementErrorWarningCount(msg: ConsoleMessage): void {
+  private incrementErrorWarningCount(msg: ConsoleMessage): void {
     if (msg.source === Protocol.Log.LogEntrySource.Violation) {
-      this._violations++;
+      this.violationsInternal++;
       return;
     }
     switch (msg.level) {
       case Protocol.Log.LogEntryLevel.Warning:
-        this._warnings++;
+        this.warningsInternal++;
         break;
       case Protocol.Log.LogEntryLevel.Error:
-        this._errors++;
+        this.errorsInternal++;
         break;
     }
   }
 
   messages(): ConsoleMessage[] {
-    return this._messages;
+    return this.messagesInternal;
   }
 
   requestClearMessages(): void {
@@ -368,28 +367,28 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
     for (const runtimeModel of TargetManager.instance().models(RuntimeModel)) {
       runtimeModel.discardConsoleEntries();
     }
-    this._clear();
+    this.clear();
   }
 
-  _clear(): void {
-    this._messages = [];
-    this._messageByExceptionId.clear();
-    this._errors = 0;
-    this._warnings = 0;
-    this._violations = 0;
+  private clear(): void {
+    this.messagesInternal = [];
+    this.messageByExceptionId.clear();
+    this.errorsInternal = 0;
+    this.warningsInternal = 0;
+    this.violationsInternal = 0;
     this.dispatchEventToListeners(Events.ConsoleCleared);
   }
 
   errors(): number {
-    return this._errors;
+    return this.errorsInternal;
   }
 
   warnings(): number {
-    return this._warnings;
+    return this.warningsInternal;
   }
 
   violations(): number {
-    return this._violations;
+    return this.violationsInternal;
   }
 
   async saveToTempVariable(currentExecutionContext: ExecutionContext|null, remoteObject: RemoteObject|null):
@@ -489,7 +488,7 @@ export interface ConsoleMessageDetails {
 }
 
 export class ConsoleMessage {
-  _runtimeModel: RuntimeModel|null;
+  private readonly runtimeModelInternal: RuntimeModel|null;
   source: MessageSource;
   level: Protocol.Log.LogEntryLevel|null;
   messageText: string;
@@ -512,7 +511,7 @@ export class ConsoleMessage {
   constructor(
       runtimeModel: RuntimeModel|null, source: MessageSource, level: Protocol.Log.LogEntryLevel|null,
       messageText: string, details?: ConsoleMessageDetails) {
-    this._runtimeModel = runtimeModel;
+    this.runtimeModelInternal = runtimeModel;
     this.source = source;
     this.level = (level as Protocol.Log.LogEntryLevel | null);
     this.messageText = messageText;
@@ -528,11 +527,11 @@ export class ConsoleMessage {
     this.workerId = details?.workerId;
     this.affectedResources = details?.affectedResources;
 
-    if (!this.executionContextId && this._runtimeModel) {
+    if (!this.executionContextId && this.runtimeModelInternal) {
       if (this.scriptId) {
-        this.executionContextId = this._runtimeModel.executionContextIdForScriptId(this.scriptId);
+        this.executionContextId = this.runtimeModelInternal.executionContextIdForScriptId(this.scriptId);
       } else if (this.stackTrace) {
-        this.executionContextId = this._runtimeModel.executionContextForStackTrace(this.stackTrace);
+        this.executionContextId = this.runtimeModelInternal.executionContextForStackTrace(this.stackTrace);
       }
     }
 
@@ -574,11 +573,11 @@ export class ConsoleMessage {
   }
 
   runtimeModel(): RuntimeModel|null {
-    return this._runtimeModel;
+    return this.runtimeModelInternal;
   }
 
   target(): Target|null {
-    return this._runtimeModel ? this._runtimeModel.target() : null;
+    return this.runtimeModelInternal ? this.runtimeModelInternal.target() : null;
   }
 
   setOriginatingMessage(originatingMessage: ConsoleMessage): void {
