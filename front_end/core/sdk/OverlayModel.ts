@@ -390,6 +390,29 @@ export class OverlayModel extends SDKModel implements ProtocolProxyApi.OverlayDi
     this.dispatchEventToListeners(Events.PersistentFlexContainerOverlayStateChanged, {nodeId, enabled: false});
   }
 
+  // highlightContainerQueryInPersistentOverlay(nodeId: number): void {
+  //   if (!this._peristentHighlighter) {
+  //     return;
+  //   }
+  //   this._peristentHighlighter.highlightContainerQueryInOverlay(nodeId);
+  //   this.dispatchEventToListeners(Events.PersistentContainerQueryOverlayStateChanged, {nodeId, enabled: true});
+  // }
+
+  // isHighlightedContainerQueryInPersistentOverlay(nodeId: number): boolean {
+  //   if (!this._peristentHighlighter) {
+  //     return false;
+  //   }
+  //   return this._peristentHighlighter.isContainerQueryHighlighted(nodeId);
+  // }
+
+  // hideContainerQueryInPersistentOverlay(nodeId: number): void {
+  //   if (!this._peristentHighlighter) {
+  //     return;
+  //   }
+  //   this._peristentHighlighter.hideContainerQueryInOverlay(nodeId);
+  //   this.dispatchEventToListeners(Events.PersistentContainerQueryOverlayStateChanged, {nodeId, enabled: false});
+  // }
+
   highlightSourceOrderInOverlay(node: DOMNode): void {
     const sourceOrderConfig = {
       parentOutlineColor: Common.Color.SourceOrderHighlight.ParentOutline.toProtocolRGBA(),
@@ -685,6 +708,15 @@ export class OverlayModel extends SDKModel implements ProtocolProxyApi.OverlayDi
         },
         flexibilityArrow: {
           color: Common.Color.PageHighlight.LayoutLine.toProtocolRGBA(),
+        },
+      };
+    }
+
+    if (mode === 'container-outline') {
+      highlightConfig.containerQueryContainerHighlightConfig = {
+        containerBorder: {
+          color: Common.Color.PageHighlight.LayoutLine.toProtocolRGBA(),
+          pattern: Protocol.Overlay.LineStylePattern.Dashed,
         },
       };
     }
