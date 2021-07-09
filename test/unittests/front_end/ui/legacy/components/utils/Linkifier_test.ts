@@ -98,7 +98,7 @@ describeWithMockConnection('Linkifier', async () => {
           const info = Components.Linkifier.Linkifier.linkInfo(anchor);
           assertNotNullOrUndefined(info);
           assertNotNullOrUndefined(info.uiLocation);
-          assert.strictEqual(anchor.textContent, `script.js:${lineNumber + 1}`);
+          assert.strictEqual(anchor.textContent, `script.js:${lineNumber + 1}:1`);
           observer.disconnect();
           done();
         }

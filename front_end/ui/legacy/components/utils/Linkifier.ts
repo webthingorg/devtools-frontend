@@ -478,8 +478,13 @@ export class Linkifier implements SDK.TargetManager.Observer {
       if (typeof uiLocation.columnNumber === 'number') {
         titleText += `:0x${uiLocation.columnNumber.toString(16)}`;
       }
-    } else if (typeof uiLocation.lineNumber === 'number') {
-      titleText += ':' + (uiLocation.lineNumber + 1);
+    } else {
+      if (typeof uiLocation.lineNumber === 'number') {
+        titleText += ':' + (uiLocation.lineNumber + 1);
+      }
+      if (typeof uiLocation.columnNumber === 'number') {
+        titleText += ':' + (uiLocation.columnNumber + 1);
+      }
     }
     UI.Tooltip.Tooltip.install(anchor, titleText);
     anchor.classList.toggle('ignore-list-link', await liveLocation.isIgnoreListed());
@@ -540,6 +545,9 @@ export class Linkifier implements SDK.TargetManager.Observer {
     let linkText = text || Bindings.ResourceUtils.displayNameForURL(url);
     if (typeof lineNumber === 'number' && !text) {
       linkText += ':' + (lineNumber + 1);
+    }
+    if (typeof columnNumber === 'number' && !text) {
+      linkText += ':' + (columnNumber + 1);
     }
     const title = linkText !== url ? url : '';
     const linkOptions = {maxLength, title, href: url, preventClick, tabStop: options.tabStop, bypassURLTrimming};
