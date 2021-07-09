@@ -4,6 +4,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
+// eslint-disable-next-line rulesdir/check_component_naming
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -16,6 +17,8 @@ import * as MarkdownView from '../../ui/components/markdown_view/markdown_view.j
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as Root from '../../core/root/root.js';
+import * as Components from './components/components.js';
 
 import {AffectedDirectivesView} from './AffectedDirectivesView.js';
 import {AffectedBlockedByResponseView} from './AffectedBlockedByResponseView.js';
@@ -33,6 +36,7 @@ import {WasmCrossOriginModuleSharingAffectedResourcesView} from './WasmCrossOrig
 import {AttributionReportingIssueDetailsView} from './AttributionReportingIssueDetailsView.js';
 
 import type {AggregatedIssue} from './IssueAggregator.js';
+import type {HiddenIssuesMenuData} from './components/HideIssuesMenu.js';
 
 const UIStrings = {
   /**
@@ -224,6 +228,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   _hasBeenExpandedBefore: boolean;
   private throttle: Common.Throttler.Throttler;
   private needsUpdateOnExpand = true;
+  hiddenIssuesMenu: Components.HideIssuesMenu.HideIssuesMenu|null;
 
   constructor(
       parent: UI.Widget.VBox, issue: AggregatedIssue,
@@ -257,7 +262,11 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AttributionReportingIssueDetailsView(this, this._issue),
       new WasmCrossOriginModuleSharingAffectedResourcesView(this, this._issue),
     ];
-
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      this.hiddenIssuesMenu = new Components.HideIssuesMenu.HideIssuesMenu();
+    } else {
+      this.hiddenIssuesMenu = null;
+    }
     this._aggregatedIssuesCount = null;
     this._hasBeenExpandedBefore = false;
   }
@@ -296,6 +305,10 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   _appendHeader(): void {
     const header = document.createElement('div');
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
+      header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
+    }
     header.classList.add('header');
     const icon = new IconButton.Icon.Icon();
     const kind = this._issue.getKind();
@@ -317,8 +330,24 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this._description.title;
     header.appendChild(title);
-
+    if (this.hiddenIssuesMenu) {
+      header.appendChild(this.hiddenIssuesMenu);
+      const data: HiddenIssuesMenuData = {
+        issueCode: this._issue.code(),
+        issueKind: this._issue.getKind(),
+        issueCategory: this._issue.getCategory(),
+      };
+      this.hiddenIssuesMenu.data = data;
+    }
     this.listItemElement.appendChild(header);
+  }
+
+  private showHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu?.setVisible(true);
+  }
+
+  private hideHiddenIssuesMenu(_ev: MouseEvent): void {
+    this.hiddenIssuesMenu?.setVisible(false);
   }
 
   onexpand(): void {
