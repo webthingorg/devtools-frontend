@@ -178,7 +178,7 @@ export class IssueCounter extends HTMLElement {
     ];
     const mostImportant = importance[this.counts.findIndex(x => x > 0) ?? 2];
 
-    const countToString = (kind: IssuesManager.Issue.IssueKind, count: number): string|undefined => {
+    const countToString = (kind: IssuesManager.Issue.IssueKind|undefined, count: number): string|undefined => {
       switch (this.displayMode) {
         case DisplayMode.OmitEmpty:
           return count > 0 ? `${count}` : undefined;
