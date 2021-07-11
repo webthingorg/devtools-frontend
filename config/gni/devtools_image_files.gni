@@ -107,6 +107,7 @@ devtools_svg_sources = [
   "justify-items-start-icon.svg",
   "justify-items-stretch-icon.svg",
   "largeIcons.svg",
+  "largeicons_menu_icon.svg",
   "lighthouse_logo.svg",
   "link_icon.svg",
   "mediumIcons.svg",
