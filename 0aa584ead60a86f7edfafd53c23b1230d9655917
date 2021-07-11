@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad32339_945b2d94",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e6abe26_3fdcaa12",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d146168_bfb7d432",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6fb51b_99c42618",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d146168_bfb7d432",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d24c8eec_547a7c03",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-07-09T11:01:36Z",
       "side": 1,
       "message": "rename x to hidden",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecaf6705_0f346133",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d24c8eec_547a7c03",
       "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -116,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f2d3f8_4e0d1d4a",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c0678fa_5da0fb75",
+      "range": {
+        "startLine": 259,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 14
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f5996c7_f7976455",
@@ -129,6 +207,42 @@
       "writtenOn": "2021-07-09T11:01:36Z",
       "side": 1,
       "message": "Is this line necessary?",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feea47e9_c089cac1",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f5996c7_f7976455",
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff132b0_80431676",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f5996c7_f7976455",
       "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -180,6 +294,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb46c4b_6644befd",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f4b3dab_7cf3dc09",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baad523e_17c0f670",
@@ -217,6 +355,30 @@
       "side": 1,
       "message": "yes it should, will do it as soon as we decide on an icon.",
       "parentUuid": "baad523e_17c0f670",
+      "range": {
+        "startLine": 212,
+        "startChar": 7,
+        "endLine": 215,
+        "endChar": 10
+      },
+      "revId": "0aa584ead60a86f7edfafd53c23b1230d9655917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa87196d_7ea6104b",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-11T23:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c15cea3_3b8e5da0",
       "range": {
         "startLine": 212,
         "startChar": 7,
