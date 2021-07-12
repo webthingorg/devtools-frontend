@@ -16,6 +16,46 @@
       "message": "Hi Simon,\nLocalizing a couple of hardcoded strings. PTAL",
       "revId": "3586aed163f246723d8e4ff2f890c22e120bd80c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03bf0426_b30f0e8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-12T06:57:44Z",
+      "side": 1,
+      "message": "lgtm % nit, sorry for the delay, only got back to work today :)",
+      "revId": "3586aed163f246723d8e4ff2f890c22e120bd80c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de55d04f_9f5cac2f",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-12T06:57:44Z",
+      "side": 1,
+      "message": "nit: Can we expand the description a bit? e.g. what does \"storage quota\" refer to, what storage are we talking about.",
+      "range": {
+        "startLine": 138,
+        "startChar": 18,
+        "endLine": 138,
+        "endChar": 76
+      },
+      "revId": "3586aed163f246723d8e4ff2f890c22e120bd80c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
