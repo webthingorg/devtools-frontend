@@ -16,6 +16,142 @@
       "message": "PTAL",
       "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59312042_da818c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "LGTM % naming nits",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b302adaa_dd152dd5",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "nit: remove \"to\"",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdaf8dca_11882ebf",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "nit: unresolvedIds",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ca0beb_cabd0e29",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "... to an object of type T.",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e4d406f_bb444e20",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "naming: obj?",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8e4c78_e59921b4",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "similar to above: abstract type instead of network request",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "713f150c_65a115e2",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "naming: obj?",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4bc9a5_b688b5a4",
+        "filename": "front_end/core/common/ResolverBase.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:38Z",
+      "side": 1,
+      "message": "It\u0027s not always a NetworkRequest, is it?",
+      "revId": "eca19bd219adce626e2384db3edc82dd23b3dc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
