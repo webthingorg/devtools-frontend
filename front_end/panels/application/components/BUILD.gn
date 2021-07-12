@@ -9,6 +9,7 @@ import("../../visibility.gni")
 
 generate_css("css_files") {
   sources = [
+    "stackTrace.css",
     "trustTokensView.css",
     "trustTokensViewDeleteButton.css",
   ]
