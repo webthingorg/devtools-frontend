@@ -16,6 +16,114 @@
       "message": "PTAL",
       "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ef3008_d4925453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "LGTM with a few comments",
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f632188d_06eecf41",
+        "filename": "front_end/ui/components/docs/issue_link_icon/basic.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "Issue Link Icon",
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a175ed_a66685d0",
+        "filename": "front_end/ui/components/issue_counter/IssueLinkIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "Would it make sense to already check for this condition in the constructor?",
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1624b3_dff64178",
+        "filename": "front_end/ui/components/issue_counter/IssueLinkIcon.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "naming?",
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72896f96_8dd865ad",
+        "filename": "test/unittests/front_end/ui/components/issue_counter/IssueLinkIcon_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "It looks like a single return statement would be enough.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2fbbd6_677584c9",
+        "filename": "test/unittests/front_end/ui/components/issue_counter/IssueLinkIcon_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T14:01:48Z",
+      "side": 1,
+      "message": "issue resolution?",
+      "revId": "744cc9a692fa5263172c1c3aab010d246f49cb53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
