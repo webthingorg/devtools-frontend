@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d0047ab78678b7bc821ef367e32fdbc0e6211a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "485e0b69_aca4d24e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-12T12:43:04Z",
+      "side": 1,
+      "message": "Implementation LGTM, but please wait for UX review on the corresponding bug.",
+      "revId": "d0047ab78678b7bc821ef367e32fdbc0e6211a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
