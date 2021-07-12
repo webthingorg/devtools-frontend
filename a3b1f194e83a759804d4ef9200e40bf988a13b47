@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ba645c_4e45eaff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-12T11:12:46Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s some refactoring for the BreakpointManager, reducing the number of surprises in the code. :-)\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "a3b1f194e83a759804d4ef9200e40bf988a13b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
