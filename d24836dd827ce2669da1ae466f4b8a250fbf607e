@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "101aede3_3c6c123f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-12T11:53:55Z",
+      "side": 1,
+      "message": "Will do. I think we can postpone tests to a follow-up CL that tweaks the presentation and styling of nodes.",
+      "parentUuid": "93e34c57_a1a5ac0a",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d38ca838_4b48e6d1",
@@ -141,6 +159,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1724b40_41dcc54e",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-12T11:53:55Z",
+      "side": 1,
+      "message": "Sure! comment added.",
+      "parentUuid": "8533163e_f43a53b3",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afd44ed4_3cdcddfd",
@@ -243,6 +279,24 @@
       "side": 1,
       "message": "I see. Do you mean that these styling is only temporary, and we will have more styles incoming in this CL soon?",
       "parentUuid": "979bb22e_e4c8f621",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "385d21cb_24e40c04",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-12T11:53:55Z",
+      "side": 1,
+      "message": "Ah sorry that was unclear. Yes I regard these styles as temporary and I\u0027ll add the complete styles for the nodes in a follow-up.",
+      "parentUuid": "0d429671_33d350b1",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
