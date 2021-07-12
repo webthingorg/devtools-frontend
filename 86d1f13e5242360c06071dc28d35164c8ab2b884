@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "86d1f13e5242360c06071dc28d35164c8ab2b884",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03606d09_72d50a0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "86d1f13e5242360c06071dc28d35164c8ab2b884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f62842a_83848148",
+        "filename": "front_end/models/issues_manager/IssueResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T08:44:51Z",
+      "side": 1,
+      "message": "naming? `constructor(issuesManager: ...`",
+      "revId": "86d1f13e5242360c06071dc28d35164c8ab2b884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
