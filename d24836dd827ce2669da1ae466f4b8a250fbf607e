@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e34c57_a1a5ac0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-12T09:48:24Z",
+      "side": 1,
+      "message": "LGTM in general. Please wait for Jack\u0027s approval as well. Also, does it make sense to add some tests right now?",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d38ca838_4b48e6d1",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "But for those we have a component that uses the `Util`, right?\nFor example, we could move some of the helper functions in `AccessibilityTreeNode.ts` to `AccessibilityTreeNodeUtils.ts`.",
       "parentUuid": "d38ca838_4b48e6d1",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24fd002b_2bf89f43",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-12T09:48:24Z",
+      "side": 1,
+      "message": "Oh I see. I misunderstood this util file to be used by the `AccessibilityTreeNode` component. It\u0027s fine with me now then.",
+      "parentUuid": "455e0172_8997786e",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -90,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8533163e_f43a53b3",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-12T09:48:24Z",
+      "side": 1,
+      "message": "I see. I\u0027m fine with postponing then. Could we add a TODO in this case?",
+      "parentUuid": "23e70ce3_c0c51632",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afd44ed4_3cdcddfd",
         "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
         "patchSetId": 5
@@ -119,6 +172,24 @@
       "side": 1,
       "message": "Thanks for spotting this! I think this is a copy/paste leftover. The components guide doesn\u0027t do this, so we probably shouldn\u0027t do it here either. I\u0027ll inline the render call :-)",
       "parentUuid": "afd44ed4_3cdcddfd",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d502f67_9d6c20c4",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-12T09:48:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e876927c_634b4ac5",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +225,24 @@
       "side": 1,
       "message": "No that is just the existing node template. When we add proper styling I gather we can use @kritisapra\u0027s machinery to include a stylesheet here instead.",
       "parentUuid": "2532564f_3bb93102",
+      "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d429671_33d350b1",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-12T09:48:24Z",
+      "side": 1,
+      "message": "I see. Do you mean that these styling is only temporary, and we will have more styles incoming in this CL soon?",
+      "parentUuid": "979bb22e_e4c8f621",
       "revId": "d24836dd827ce2669da1ae466f4b8a250fbf607e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
