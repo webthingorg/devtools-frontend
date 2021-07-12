@@ -56,6 +56,7 @@ grd_files_release_sources = [
   "front_end/Images/flex-nowrap-icon.svg",
   "front_end/Images/flex-wrap-icon.svg",
   "front_end/Images/help_outline.svg",
+  "front_end/Images/hide_issues_count_icon.svg",
   "front_end/Images/ic_checkmark_16x16.svg",
   "front_end/Images/ic_delete_filter.svg",
   "front_end/Images/ic_delete_list.svg",
