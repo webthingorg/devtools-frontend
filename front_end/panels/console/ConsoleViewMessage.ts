@@ -44,7 +44,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
-import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as RequestLinkIcon from '../../ui/components/request_link_icon/request_link_icon.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
@@ -223,7 +223,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   _groupKey: string;
   _repeatCountElement: UI.UIUtils.DevToolsSmallBubble|null;
   private requestResolver = new Logs.RequestResolver.RequestResolver();
-
+  private issueResolver = new IssuesManager.IssueResolver.IssueResolver();
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier, nestingLevel: number,
@@ -424,13 +424,9 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
     const issueId = this._message.getAffectedResources()?.issueId;
     if (issueId) {
-      const icon = new IconButton.Icon.Icon();
+      const icon = new IssueCounter.IssueLinkIcon.IssueLinkIcon();
       icon.classList.add('resource-links');
-      const clickHandler = (): void => {
-        IssuesManager.RelatedIssue.reveal(issueId);
-      };
-      icon.data = {iconName: 'issue-text-icon', color: 'var(--color-link)', width: '16px', height: '16px'};
-      icon.onclick = clickHandler;
+      icon.data = {issueId, issueResolver: this.issueResolver};
       elements.push(icon);
     }
     return elements;
