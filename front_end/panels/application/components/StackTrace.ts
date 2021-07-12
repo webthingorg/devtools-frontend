@@ -9,6 +9,8 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import type * as Protocol from '../../../generated/protocol.js';
+import stackTraceRowStyles from './stackTraceRow.css.js';
+import stackTraceLinkButtonStyles from './stackTraceLinkButton.css.js';
 
 const UIStrings = {
   /**
@@ -54,6 +56,10 @@ export class StackTrace extends HTMLElement {
     this.render();
   }
 
+  connectedCallback(): void {
+    this.shadow.adoptedStyleSheets = [stackTraceRowStyles, stackTraceLinkButtonStyles];
+  }
+
   private onStackTraceRowsUpdated(stackTraceRows: (Components.JSPresentationUtils.StackTraceRegularRow|
                                                    Components.JSPresentationUtils.StackTraceAsyncRow)[]): void {
     this.stackTraceRows = stackTraceRows;
@@ -71,32 +77,7 @@ export class StackTrace extends HTMLElement {
     for (const item of this.stackTraceRows) {
       if (this.showHidden || (!item.ignoreListHide && !item.rowCountHide)) {
         if ('functionName' in item) {
-          // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
           expandableRows.push(LitHtml.html`
-            <style>
-              .stack-trace-row {
-                display: flex;
-              }
-
-              .stack-trace-function-name {
-                width: 100px;
-              }
-
-              .stack-trace-source-location {
-                display: flex;
-                overflow: hidden;
-              }
-
-              .text-ellipsis {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-
-              .ignore-list-link {
-                opacity: 60%;
-              }
-            </style>
             <div class="stack-trace-row">
               <div class="stack-trace-function-name text-ellipsis" title="${item.functionName}">
                 ${item.functionName}
@@ -120,20 +101,7 @@ export class StackTrace extends HTMLElement {
     if (hiddenCallFramesCount) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
-      // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
       expandableRows.push(LitHtml.html`
-        <style>
-          button.link {
-            color: var(--color-link);
-            text-decoration: underline;
-            cursor: pointer;
-            padding: 2px 0; /* adjust focus ring size */
-            border: none;
-            background: none;
-            font-family: inherit;
-            font-size: inherit;
-          }
-        </style>
         <div class="stack-trace-row">
           <button class="link" @click=${(): void => this.onShowAllClick()}>
             ${i18nString(UIStrings.showSMoreFrames, {n: hiddenCallFramesCount})}
