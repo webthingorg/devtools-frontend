@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e33c8b2_f62d9c28",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-12T15:22:07Z",
+      "side": 0,
+      "message": "Since these style tags were essentially put in the same shadow dom, I am assuming that all styles in here were affecting all elements in this shadow dom. Therefore, I would assume that we can put all styles into the `adoptedStylesheets` of `StackTrace` and we don\u0027t need to factor two components out? In fact, now it becomes clear that styles in one affect the other (contrary to what the author might have thought). So I would prefer if we don\u0027t perform the extraction of the two web components here and instead put both of them in `adoptedStylesheets`, to reflect the original behavior. WDYT?",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "74835cce21f84484f9e2624e56b5b989c4007923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
