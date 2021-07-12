@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f5cefa_1e5ef08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-12T10:01:27Z",
+      "side": 1,
+      "message": "Sam, PTAL at the issue description and see the question.",
+      "revId": "ee4597700268f00c2a08c447c7526bc1d6871d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957f0861_35089ea8",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-12T10:01:27Z",
+      "side": 1,
+      "message": "Sam, should we link to the first party set article? (https://developer.chrome.com/docs/privacy-sandbox/first-party-sets/) It\u0027s the only article I found that mentions the SameParty attribute.",
+      "range": {
+        "startLine": 424,
+        "startChar": 9,
+        "endLine": 424,
+        "endChar": 11
+      },
+      "revId": "ee4597700268f00c2a08c447c7526bc1d6871d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
