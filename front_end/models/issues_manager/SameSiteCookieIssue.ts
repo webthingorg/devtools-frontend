@@ -419,6 +419,11 @@ function sameSiteExcludeContextDowngradeSet(isSecure: boolean): LazyMarkdownIssu
   };
 }
 
+const sameSiteInvalidSameParty: LazyMarkdownIssueDescription = {
+  file: 'SameSiteInvalidSameParty.md',
+  links: [],
+};
+
 const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
   ['SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::ReadCookie', sameSiteUnspecifiedErrorRead],
   ['SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::SetCookie', sameSiteUnspecifiedErrorSet],
@@ -446,4 +451,5 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
   ['SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Insecure', sameSiteExcludeContextDowngradeRead(false)],
   ['SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Secure', sameSiteExcludeContextDowngradeSet(true)],
   ['SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Insecure', sameSiteExcludeContextDowngradeSet(false)],
+  ['SameSiteCookieIssue::ExcludeInvalidSameParty::SetCookie', sameSiteInvalidSameParty],
 ]);
