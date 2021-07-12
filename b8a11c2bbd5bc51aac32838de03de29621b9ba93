@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbbb7012_cc03f96e",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T15:18:34Z",
+      "side": 1,
+      "message": "nit: add empty line before constructor",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39ebd534_c32e1a33",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T15:18:34Z",
+      "side": 1,
+      "message": "I don\u0027t see a caller for this method. And why is the default return value 0?",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50fafcc9_e0b0a933",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-12T15:18:34Z",
+      "side": 1,
+      "message": "What\u0027s the effect of these lines?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
