@@ -22,6 +22,30 @@
       },
       "revId": "880bce68c684b711a0f7daebda00056e9a435e35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56241dc1_6c5ff9f0",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-13T09:56:19Z",
+      "side": 1,
+      "message": "We might want to consider changing ExpandableList to pass in the data as light dom instead, so that styling can work as-is. However, we can do that in a follow-up CL if we want to.",
+      "parentUuid": "da043160_c5e970e9",
+      "range": {
+        "startLine": 200,
+        "startChar": 7,
+        "endLine": 204,
+        "endChar": 8
+      },
+      "revId": "880bce68c684b711a0f7daebda00056e9a435e35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
