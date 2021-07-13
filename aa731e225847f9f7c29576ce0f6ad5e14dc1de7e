@@ -50,6 +50,24 @@
       "message": "As discussed, transferring the module wouldn\u0027t be possible any more cross origin. Therefore it needs to be served again.\n\nWhat about: To fix this, ensure that WebAssembly modules are only transferred between environments of the same origin. If this is not possible, re-serve the WebAssembly module from the same origin.",
       "revId": "aa731e225847f9f7c29576ce0f6ad5e14dc1de7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d9c0c6_3d8a8651",
+        "filename": "front_end/models/issues_manager/descriptions/wasmCrossOriginModuleSharing.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T09:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8ab4200_ac6c0fa3",
+      "revId": "aa731e225847f9f7c29576ce0f6ad5e14dc1de7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
