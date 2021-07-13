@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57137a15_4465cd8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-13T08:48:40Z",
+      "side": 1,
+      "message": "LGTM with some tiny nits. Thanks, and nice work.",
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6583e7_ba7c2e79",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-13T08:48:40Z",
+      "side": 1,
+      "message": "Nit: I know this makes it more readable, but I\u0027d probably avoid doing this because it means an extra \"hop\" as it were to get to the actual data type, should I want to find it. I think the more verbose types inlined is better than slightly more succinct code in this case. WDYT?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8827ff_03f3f832",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-13T08:48:40Z",
+      "side": 1,
+      "message": "teeeeeeeeeny nit: in the case where the type is a primitive like this and you\u0027re setting the value, you can lose the type annotation. e.g. `private ignored \u003d true` is fine",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71200ed4_db87ab5e",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-13T08:48:40Z",
+      "side": 1,
+      "message": "how do you feel about moving this code into a stylesheet (go/devtools-css-migration)?\n\nIf not as part of this CL, would like it in a follow-up, please :)",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 69
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
