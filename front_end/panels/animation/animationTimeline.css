@@ -425,16 +425,10 @@ text.animation-timeline-grid-label {
   z-index: 1;
 }
 
-.animation-playback-rate-button.selected:first-child {
-  color: var(--legacy-selection-bg-color);
-  background-color: var(--color-background);
-}
-
 .animation-playback-rate-button.selected:focus-visible {
   color: var(--color-text-primary);
 }
 
-.animation-playback-rate-button.selected:first-child:focus-visible,
 .animation-playback-rate-button:focus-visible {
   background-color: var(--legacy-focus-bg-color);
 }
