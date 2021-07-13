@@ -18,6 +18,57 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac98dc53_056262c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Overall direction looks great! Don\u0027t get discouraged by the amount of comments, they are mostly just about minor details!",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b6df32_3665900a",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "If you use `export const enum` instead, you don\u0027t need the linter exception.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eebf58a_1016caa5",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08870597_92429647",
@@ -146,6 +197,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "893d3671_920d7148",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Looks like this is not needed anymore.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519aea56_253fcc0a",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "private?",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d87a260_5bd2dfb9",
         "filename": "front_end/panels/issues/IssueView.ts",
         "patchSetId": 23
@@ -162,6 +247,63 @@
         "startChar": 12,
         "endLine": 340,
         "endChar": 100
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06990b2b_3f2de7f3",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "To me, \u0027show\u0027 implies that the hidden issues still stay hidden. So I\u0027d call this \u0027unhide\u0027.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c8b412c_35ed5f19",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "I don\u0027t think the helper function is needed.\n`button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () \u003d\u003e this.issuesManager.showAllIssues());`",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ff64c0_b1de6870",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "nit: icon.data \u003d {...",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 25
       },
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
@@ -209,6 +351,166 @@
         "endLine": 43,
         "endChar": 1
       },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d439480_4c6e372a",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Is this method even needed?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33a8cb4_d850b03d",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Is this method needed?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b15390c_08445515",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Isn\u0027t there always an event?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 5
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7eaa436_7aa7b0db",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887ab5ea_206192c7",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "How do the offset calculations differ the positioning of the menu compared to the default positioning?",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f5d357_4617960e",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Probably not necessary.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb56275a_03483fe5",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Would this line make more sense outside of the if-clause?",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a19c3f5_4d0e91f4",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:36:38Z",
+      "side": 1,
+      "message": "Before merging the css should be put in a separate file (see http://docs/document/d/1F0VMLTMpQomEfOK-qE_6DHRy2tTOfdcapVqghNCAiN8?resourcekey\u003d0-2dWvX725amAVrdHnvQn8dw, I\u0027ve requested access for you)",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
