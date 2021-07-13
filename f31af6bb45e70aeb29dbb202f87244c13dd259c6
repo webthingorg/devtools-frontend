@@ -46,6 +46,30 @@
       },
       "revId": "f31af6bb45e70aeb29dbb202f87244c13dd259c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a7de0e_3fed11f0",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T11:30:00Z",
+      "side": 1,
+      "message": "That makes sense, thanks!",
+      "parentUuid": "3e79cd29_cf76963c",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "f31af6bb45e70aeb29dbb202f87244c13dd259c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
