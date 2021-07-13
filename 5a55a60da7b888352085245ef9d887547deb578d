@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab1a5793_2f8c9818",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-07-13T08:40:50Z",
+      "side": 1,
+      "message": "Note taking is quite a rare web app property. Is there a way to hide the note taking field from the dev tools UI when it\u0027s not present?\nI tried \n`this._newNoteUrlField.classList.toggle(\u0027hidden\u0027,\n        !(newNoteUrl \u0026\u0026 typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027));`\nbut it didn\u0027t seem to have any effect.",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ee5e534_b15514f0",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 4
@@ -48,6 +65,24 @@
       "writtenOn": "2021-07-13T08:11:29Z",
       "side": 1,
       "message": "I think we want to drop the `newNoteUrl \u0026\u0026 ` part here. If the manifest has `\"new_note_url\": \"\"` then we probably want to surface that as well, no?",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ae744d4_1fe18858",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-07-13T08:40:50Z",
+      "side": 1,
+      "message": "If it\u0027s not a string, the spec says to ignore it, so that\u0027s what I was doing here as well. I think that\u0027s more informative. Is that ok?",
+      "parentUuid": "ef876214_3658cde8",
       "revId": "5a55a60da7b888352085245ef9d887547deb578d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
