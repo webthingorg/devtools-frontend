@@ -16,6 +16,23 @@
       "message": "At some point we should clean up that code.",
       "revId": "42155e68045c4fa036d0587a218fd953d0f97f78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61421acb_e6893c70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-07-13T13:04:43Z",
+      "side": 1,
+      "message": "In general LGTM, the badge looks like it has `font-variant: small-caps` as a style. It would be better if it\u0027s `text-transform: uppercase`.",
+      "revId": "42155e68045c4fa036d0587a218fd953d0f97f78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
