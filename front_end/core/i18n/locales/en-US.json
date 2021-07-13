@@ -5072,6 +5072,24 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | untrustworthyOrigin": {
     "message": "Untrustworthy origin"
   },
+  "panels/issues/components/HideIssuesMenu.ts | hideAllBreakingChanges": {
+    "message": "Hide all Breaking Changes"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideAllImprovements": {
+    "message": "Hide all Improvemnets"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideAllPageErrors": {
+    "message": "Hide all PageErrors"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssueByCategory": {
+    "message": "Hide all {PH1} issues"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssueByCode": {
+    "message": "Hide this issue only"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | tooltipTitle": {
+    "message": "Hide issues menu"
+  },
   "panels/issues/CorsIssueDetailsView.ts | allowCredentialsValueFromHeader": {
     "message": "Access-Control-Allow-Credentials Header Value"
   },
@@ -5212,6 +5230,9 @@
   },
   "panels/issues/IssuesPane.ts | samesiteCookie": {
     "message": "SameSite Cookie"
+  },
+  "panels/issues/IssuesPane.ts | showAllHiddenIssues": {
+    "message": "Show all hidden issues."
   },
   "panels/issues/IssuesPane.ts | trustedWebActivity": {
     "message": "Trusted Web Activity"
