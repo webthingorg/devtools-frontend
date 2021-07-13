@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d428fb0_5d2febb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-13T09:18:05Z",
+      "side": 1,
+      "message": "Sigurd, Peter, PTAL. Just an idea on how we could better highlight the \u0027trigger-data\u0027 for the Attribution Reporting API. Let me know what you think :)",
+      "revId": "48dab053d5ecf6d5c9f242aadda41d2333d0992b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
