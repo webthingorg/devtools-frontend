@@ -22,6 +22,30 @@
       },
       "revId": "f31af6bb45e70aeb29dbb202f87244c13dd259c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e79cd29_cf76963c",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-13T11:11:48Z",
+      "side": 1,
+      "message": "Good point. It doesn\u0027t matter now. A pure function is definitely easier to reason about. I used a class only because I think when we implement Isolation Mode, multiple call sites need to ask for this container size details, and we probably want to cache this instead of fetching every time.",
+      "parentUuid": "2b1c0b53_ca6ae7c3",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "f31af6bb45e70aeb29dbb202f87244c13dd259c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
