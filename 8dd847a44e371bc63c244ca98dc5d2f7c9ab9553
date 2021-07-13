@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc1d7795_03f36076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2021-07-13T13:51:42Z",
+      "side": 1,
+      "message": "If patch is adequate, can we initiate tests? Thanks",
+      "revId": "8dd847a44e371bc63c244ca98dc5d2f7c9ab9553",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
