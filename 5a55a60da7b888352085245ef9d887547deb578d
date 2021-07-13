@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "406a946f_707f10e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-13T08:11:29Z",
+      "side": 1,
+      "message": "LGTM % comments\n\nWould you mind updating the ChromeStatus entry to point to this CL under the “Debuggability” input field? (I think it was missing from the blink-dev email because the field was empty.)\n\nThank you!",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ee5e534_b15514f0",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-13T08:11:29Z",
+      "side": 1,
+      "message": "nit: Chrome UI strings must be in sentence case per go/punctuation-standards \n\n    \u0027New note URL\u0027\n\n(I know DevTools isn’t yet doing this consistently, but let’s get it right for new additions)",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef876214_3658cde8",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-13T08:11:29Z",
+      "side": 1,
+      "message": "I think we want to drop the `newNoteUrl \u0026\u0026 ` part here. If the manifest has `\"new_note_url\": \"\"` then we probably want to surface that as well, no?",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
