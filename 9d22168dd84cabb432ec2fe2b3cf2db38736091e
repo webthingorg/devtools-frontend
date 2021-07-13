@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "930c1a70_3ded8cd1",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T11:23:42Z",
+      "side": 1,
+      "message": "Fair point, I\u0027ll remove this one.\nI\u0027d like to keep the other alias in AccessibilityTreeUtils.ts: \n`AXTreeNodeData \u003d SDK.(...).AccessibilityNode`\nto make it a tad easier to change tree the node data type down the line.",
+      "parentUuid": "5e6583e7_ba7c2e79",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e8827ff_03f3f832",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ba1457_faa813d8",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T11:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e8827ff_03f3f832",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71200ed4_db87ab5e",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-07-13T08:48:40Z",
       "side": 1,
       "message": "how do you feel about moving this code into a stylesheet (go/devtools-css-migration)?\n\nIf not as part of this CL, would like it in a follow-up, please :)",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 69
+      },
+      "revId": "9d22168dd84cabb432ec2fe2b3cf2db38736091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b5d010_add8133c",
+        "filename": "front_end/panels/elements/components/AccessibilityTreeNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T11:23:42Z",
+      "side": 1,
+      "message": "I was postponing this until we have the actual styles, but let\u0027s just get this moved out here.",
+      "parentUuid": "71200ed4_db87ab5e",
       "range": {
         "startLine": 62,
         "startChar": 0,
