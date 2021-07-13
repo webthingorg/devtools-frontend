@@ -6842,6 +6842,9 @@
   "panels/network/RequestHeadersView.ts | queryStringParameters": {
     "message": "Query String Parameters"
   },
+  "panels/network/RequestHeadersView.ts | recordedAttribution": {
+    "message": "Recorded attribution with trigger-data: {PH1}"
+  },
   "panels/network/RequestHeadersView.ts | referrerPolicy": {
     "message": "Referrer Policy"
   },
