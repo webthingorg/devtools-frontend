@@ -85,6 +85,24 @@
       "parentUuid": "ef876214_3658cde8",
       "revId": "5a55a60da7b888352085245ef9d887547deb578d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0493051d_4b7d36c8",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-13T09:36:37Z",
+      "side": 1,
+      "message": "I agree, the `typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027` part makes sense. I’m suggesting to drop the `newNoteUrl \u0026\u0026` part since it excludes the empty string, and the `typeof` check already handles undefined and null values anyway.\n\n    if (typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027) {",
+      "parentUuid": "7ae744d4_1fe18858",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
