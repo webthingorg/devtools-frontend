@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9eecb27d_5d59ceb7",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Ithought having the same enum indicate a MenuAction, and status of Issue would be  confusing. If not, I can remove and use IssueAction only.",
+      "parentUuid": "2eebf58a_1016caa5",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08870597_92429647",
         "filename": "front_end/models/issues_manager/Issue.ts",
         "patchSetId": 23
@@ -100,6 +118,30 @@
       "writtenOn": "2021-07-13T06:29:13Z",
       "side": 1,
       "message": "nit: newline after }",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123a5d46_dbcc9d2f",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08870597_92429647",
       "range": {
         "startLine": 176,
         "startChar": 2,
@@ -146,6 +188,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b16bb8be_338f3c87",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "This is needed for IssueCounter.ts, I have a separate branch which tracks the hide-issues branch (assosciated with this cl). I couldn\u0027t implement logic in IssueCounter.ts, without the logic in this cl. I haven\u0027t uploaded that cl yet.The OmitEmpty DisplayMode in IssueCounter removes the icon from the IssueCounter when the count is 0, this is why the default count is 0.\nI will however refactor this method into that branch only.",
+      "parentUuid": "39ebd534_c32e1a33",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ca9d393_3ad01b3b",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 23
@@ -169,6 +229,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fd80634_3838104d",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "The only reason i didnt call it updateHiddenIssues is because the unhiding logic will be a bit different than this (because of the doubly hidden case mentioned in the design doc) and will handled by a separate method. This issue.setHidden(false) is a defensive statement I put to make sure no unhidden issues gets hidden.",
+      "parentUuid": "7ca9d393_3ad01b3b",
+      "range": {
+        "startLine": 291,
+        "startChar": 10,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50fafcc9_e0b0a933",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 23
@@ -180,6 +264,30 @@
       "writtenOn": "2021-07-12T15:18:34Z",
       "side": 1,
       "message": "What\u0027s the effect of these lines?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf185f9_215cb6e3",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50fafcc9_e0b0a933",
       "range": {
         "startLine": 305,
         "startChar": 0,
@@ -215,6 +323,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccb9174a_fd3eddc4",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "hideIsssue method uses the setHidden method of Issue.ts class, to assign each issue a hidden or unhidden status, that is only reason I pass the issue itself into the method.",
+      "parentUuid": "24c5499d_c5d2dd1f",
+      "range": {
+        "startLine": 312,
+        "startChar": 9,
+        "endLine": 312,
+        "endChar": 33
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "893d3671_920d7148",
         "filename": "front_end/panels/issues/IssueView.ts",
         "patchSetId": 23
@@ -226,6 +358,24 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Looks like this is not needed anymore.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9f040f_32ccfb41",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893d3671_920d7148",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -278,6 +428,30 @@
       "writtenOn": "2021-07-13T06:29:13Z",
       "side": 1,
       "message": "Couldn\u0027t we call hideFilteredIssues on the IssuesManager here?",
+      "range": {
+        "startLine": 340,
+        "startChar": 12,
+        "endLine": 340,
+        "endChar": 100
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0c79a9_c31db997",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d87a260_5bd2dfb9",
       "range": {
         "startLine": 340,
         "startChar": 12,
@@ -688,6 +862,30 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Is this needed?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8acc8aa3_2d42823c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T11:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7eaa436_7aa7b0db",
       "range": {
         "startLine": 87,
         "startChar": 0,
