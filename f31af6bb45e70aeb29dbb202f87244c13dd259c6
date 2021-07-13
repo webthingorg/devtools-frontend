@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1c0b53_ca6ae7c3",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T10:12:27Z",
+      "side": 1,
+      "message": "Is there a reason we need a class for this instead of just a function\n`getContainerSizeDetails(containerNode: DOMNode): Promise\u003cContainerQueriedSizeDetails|undefined\u003e`?\nI\u0027m fine either way, just curious.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "f31af6bb45e70aeb29dbb202f87244c13dd259c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

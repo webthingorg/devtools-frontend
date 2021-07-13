@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc7eba3_57b79777",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-13T10:12:27Z",
+      "side": 1,
+      "message": "are?",
+      "range": {
+        "startLine": 64,
+        "startChar": 30,
+        "endLine": 64,
+        "endChar": 32
+      },
+      "revId": "4c4c507829d6c734a3d72718b141ee0d7a98c6a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
