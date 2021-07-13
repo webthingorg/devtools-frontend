@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb55307b_1ee442e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-13T10:01:47Z",
+      "side": 1,
+      "message": "I’ve checked out the patch locally and realized it’s the parent element that needs to be hidden. Try this:\n\n    const hasNewNoteUrl \u003d typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027;\n    if (hasNewNoteUrl) {\n      const completeURL \u003d (Common.ParsedURL.ParsedURL.completeURL(url, newNoteUrl) as string);\n      const link \u003d Components.Linkifier.Linkifier.linkifyURL(\n          completeURL, ({text: newNoteUrl} as Components.Linkifier.LinkifyURLOptions));\n      link.tabIndex \u003d 0;\n      this._newNoteUrlField.appendChild(link);\n    }\n    this._newNoteUrlField?.parentElement?.classList.toggle(\u0027hidden\u0027, !hasNewNoteUrl);",
+      "parentUuid": "ab1a5793_2f8c9818",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ee5e534_b15514f0",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 4
