@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4f1c20_e5703615",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54b6df32_3665900a",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eebf58a_1016caa5",
@@ -229,6 +247,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c8659e8_1133a662",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "519aea56_253fcc0a",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d87a260_5bd2dfb9",
@@ -269,6 +305,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a86202f_b9b56ca5",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Will resolve",
+      "parentUuid": "06990b2b_3f2de7f3",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c8b412c_35ed5f19",
@@ -282,6 +336,24 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "I don\u0027t think the helper function is needed.\n`button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () \u003d\u003e this.issuesManager.showAllIssues());`",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bdf16d9_f1cbdf9f",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "will resolve",
+      "parentUuid": "0c8b412c_35ed5f19",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -309,6 +381,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "982e4922_74d0540e",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ff64c0_b1de6870",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 25
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65b7fbce_f573a4e3",
@@ -326,6 +422,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9634d1e4_9e4a6b3c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65b7fbce_f573a4e3",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37ca23ce_7171cac9",
@@ -339,6 +453,30 @@
       "writtenOn": "2021-07-13T06:29:13Z",
       "side": 1,
       "message": "I don\u0027t think this callback needs to take arguments at the moment.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 55
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26451f7f_646df99e",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37ca23ce_7171cac9",
       "range": {
         "startLine": 42,
         "startChar": 2,
@@ -372,6 +510,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d6e88c_dacb64b6",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "583a0121_34291cc3",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d439480_4c6e372a",
@@ -385,6 +547,30 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Is this method even needed?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3513bd5_dd2c1a8e",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d439480_4c6e372a",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -420,6 +606,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05bbfd8b_ab72c9bc",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Peter suggetsed that hide issues menu icon should also become visible when upon focus, if the user happens to use a keyboard instead, that is why i added the method. The logic however still needs to be implemented.",
+      "parentUuid": "e33a8cb4_d850b03d",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b15390c_08445515",
         "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
         "patchSetId": 23
@@ -431,6 +641,30 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Isn\u0027t there always an event?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 5
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "637a94a2_915b95ea",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b15390c_08445515",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -481,6 +715,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b0b92e_ed7518d6",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "It doesn\u0027t have any effect at all. I misunderstood the the intent of the parameters. It has been fixed now.",
+      "parentUuid": "887ab5ea_206192c7",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67f5d357_4617960e",
@@ -494,6 +746,24 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Probably not necessary.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeb9f498_8f6c59a3",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67f5d357_4617960e",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -517,6 +787,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53d40b07_37a15319",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "if we don\u0027t have a callback, we won\u0027t have a way of communicating the change to settings to the IssuesManager, in that case updating the setting would do nothing.",
+      "parentUuid": "cb56275a_03483fe5",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a19c3f5_4d0e91f4",
         "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
         "patchSetId": 23
@@ -528,6 +816,24 @@
       "writtenOn": "2021-07-13T09:36:38Z",
       "side": 1,
       "message": "Before merging the css should be put in a separate file (see http://docs/document/d/1F0VMLTMpQomEfOK-qE_6DHRy2tTOfdcapVqghNCAiN8?resourcekey\u003d0-2dWvX725amAVrdHnvQn8dw, I\u0027ve requested access for you)",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3eba600_73efe21f",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-13T10:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a19c3f5_4d0e91f4",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
