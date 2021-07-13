@@ -7,6 +7,7 @@ import type * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import type * as Protocol from '../../generated/protocol.js';
 
+
 /**
  * An `AggregatedIssue` representes a number of `IssuesManager.Issue.Issue` objects that are displayed together.
  * Currently only grouping by issue code, is supported. The class provides helpers to support displaying
@@ -198,7 +199,7 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
 
 export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   private readonly aggregatedIssuesByCode = new Map<string, AggregatedIssue>();
-
+  private readonly hiddenAggregatedIssuesByCode = new Map<string, AggregatedIssue>();
   constructor(private readonly issuesManager: IssuesManager.IssuesManager.IssuesManager) {
     super();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
@@ -226,6 +227,15 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   private aggregateIssue(issue: IssuesManager.Issue.Issue): AggregatedIssue {
+    if (issue.isHidden()) {
+      let hiddenAggregatedIssue = this.hiddenAggregatedIssuesByCode.get(issue.code());
+      if (!hiddenAggregatedIssue) {
+        hiddenAggregatedIssue = new AggregatedIssue(issue.code());
+        this.hiddenAggregatedIssuesByCode.set(issue.code(), hiddenAggregatedIssue);
+      }
+      hiddenAggregatedIssue.addInstance(issue);
+      return hiddenAggregatedIssue;
+    }
     let aggregatedIssue = this.aggregatedIssuesByCode.get(issue.code());
     if (!aggregatedIssue) {
       aggregatedIssue = new AggregatedIssue(issue.code());
