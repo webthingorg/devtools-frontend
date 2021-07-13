@@ -16,6 +16,23 @@
       "message": "E2e test is incoming. Please take a look at the implementation first. Thanks!",
       "revId": "4ec62ffecf75c4de73f19ced0a2c21ab09fe0af9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3728911_6eaf279d",
+        "filename": "front_end/core/sdk/CSSContainerQuery.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-13T08:43:23Z",
+      "side": 1,
+      "message": "I think it\u0027s possible to add unit tests for these two functions as well. Let me do that.",
+      "revId": "4ec62ffecf75c4de73f19ced0a2c21ab09fe0af9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
