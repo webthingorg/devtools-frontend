@@ -311,6 +311,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65b7fbce_f573a4e3",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-13T09:42:40Z",
+      "side": 1,
+      "message": "This shows up as \u0027Hide all PageError\u0027(singular). It\u0027s probably easiest to just define 3 strings (one for each kind) and switch between them in the code.",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37ca23ce_7171cac9",
         "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
         "patchSetId": 23
