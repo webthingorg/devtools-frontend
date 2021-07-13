@@ -22,6 +22,30 @@
       },
       "revId": "74835cce21f84484f9e2624e56b5b989c4007923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b59dee54_558a739a",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-13T09:23:37Z",
+      "side": 0,
+      "message": "This solution would work for other components. I tried it but I realised that the rows are being passed into an `ExpandableList` (see below) and so none of the styles in the shadow dom for `StackTrace` are being passed into the shadow dom of `ExpandableList`. So I think for this case we have to extract the components out.",
+      "parentUuid": "5e33c8b2_f62d9c28",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "74835cce21f84484f9e2624e56b5b989c4007923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

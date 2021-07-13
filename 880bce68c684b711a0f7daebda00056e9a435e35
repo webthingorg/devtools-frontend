@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da043160_c5e970e9",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-13T09:23:37Z",
+      "side": 1,
+      "message": "Here the html of the rows is being passed in as data into `ExpandableList` and this prevents any styles in the shadow dom of `StackTrace` being used.",
+      "range": {
+        "startLine": 200,
+        "startChar": 7,
+        "endLine": 204,
+        "endChar": 8
+      },
+      "revId": "880bce68c684b711a0f7daebda00056e9a435e35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
