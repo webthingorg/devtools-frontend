@@ -50,6 +50,24 @@
       "message": "LGTM, except one nit: please use white text in dark mode for color contrast.",
       "revId": "53149fd86fe94d63dbbe9b5dc560363d9185ba3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88bb435_8f1dc042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T14:05:14Z",
+      "side": 1,
+      "message": "Done, great catch, thanks!",
+      "parentUuid": "5066cbfd_2745e07a",
+      "revId": "53149fd86fe94d63dbbe9b5dc560363d9185ba3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
