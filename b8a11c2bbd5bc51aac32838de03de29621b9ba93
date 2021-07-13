@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c85ceb_6488fd82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "Some more comments",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08870597_92429647",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "nit: newline after }",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbbb7012_cc03f96e",
@@ -37,6 +77,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ca9d393_3ad01b3b",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "should this be called upateFilteredIssues? Should it be public? (Note that it is effectively public because the IssueAction.HideIssue event will trigger it).",
+      "range": {
+        "startLine": 291,
+        "startChar": 10,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50fafcc9_e0b0a933",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 23
@@ -53,6 +116,98 @@
         "startChar": 0,
         "endLine": 308,
         "endChar": 5
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c5499d_c5d2dd1f",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer a function that takes exactly the information we use to hide issues. In this case a tuple of code, kind, and category. Would that be possible?",
+      "range": {
+        "startLine": 312,
+        "startChar": 9,
+        "endLine": 312,
+        "endChar": 33
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d87a260_5bd2dfb9",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "Couldn\u0027t we call hideFilteredIssues on the IssuesManager here?",
+      "range": {
+        "startLine": 340,
+        "startChar": 12,
+        "endLine": 340,
+        "endChar": 100
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ca23ce_7171cac9",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "I don\u0027t think this callback needs to take arguments at the moment.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 55
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583a0121_34291cc3",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-13T06:29:13Z",
+      "side": 1,
+      "message": "nit: newline after }",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
       },
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
