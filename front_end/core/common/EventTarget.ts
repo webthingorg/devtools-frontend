@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export interface EventDescriptor {
-  eventTarget: EventTarget;
-  eventType: string|symbol;
+export interface EventDescriptor<Events = any> {
+  eventTarget: EventTarget<Events>;
+  eventType: keyof Events|string|symbol;
   thisObject?: Object;
-  listener: (arg0: EventTargetEvent) => void;
+  listener: (arg0: EventTargetEvent<Events[keyof Events]|any>) => void;
 }
 
-export function removeEventListeners(eventList: EventDescriptor[]): void {
+export function removeEventListeners(eventList: EventDescriptor<unknown>[]): void {
   for (const eventInfo of eventList) {
     eventInfo.eventTarget.removeEventListener(eventInfo.eventType, eventInfo.listener, eventInfo.thisObject);
   }
@@ -17,13 +17,18 @@ export function removeEventListeners(eventList: EventDescriptor[]): void {
   eventList.splice(0);
 }
 
-export interface EventTarget {
-  addEventListener(eventType: string|symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object):
-      EventDescriptor;
-  once(eventType: string|symbol): Promise<unknown>;
-  removeEventListener(eventType: string|symbol, listener: (arg0: EventTargetEvent) => void, thisObject?: Object): void;
-  hasEventListeners(eventType: string|symbol): boolean;
-  dispatchEventToListeners(eventType: string|symbol, eventData?: unknown): void;
+export type EventType<Events> = Events extends Object ? keyof Events : string|symbol;
+export type EventPayload<Events, T> = T extends keyof Events ? Events[T] : any;
+
+export interface EventTarget<Events = any> {
+  addEventListener<T extends EventType<Events>>(
+      eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void,
+      thisObject?: Object): EventDescriptor<Events>;
+  once<T extends EventType<Events>>(eventType: T): Promise<EventPayload<Events, T>>;
+  removeEventListener<T extends EventType<Events>>(
+      eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void, thisObject?: Object): void;
+  hasEventListeners<T extends EventType<Events>>(eventType: T): boolean;
+  dispatchEventToListeners<T extends EventType<Events>>(eventType: T, eventData?: EventPayload<Events, T>): void;
 }
 
 export function fireEvent(name: string, detail: Object = {}, target: HTMLElement|Window = window): void {
