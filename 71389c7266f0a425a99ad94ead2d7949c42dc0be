@@ -68,6 +68,30 @@
       },
       "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f72ae7d2_0a725edc",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T11:53:29Z",
+      "side": 1,
+      "message": "Here is the weird thing:\n\n    export type NoUnion\u003cT\u003e \u003d [T] extends [IntersectionFromUnion\u003cT\u003e] ? T : never;\n    export type NoUnionB\u003cT\u003e \u003d T extends IntersectionFromUnion\u003cT\u003e ? T : never;\n\nNoUnionB doesn\u0027t work, but NoUnionC below does.\n\n    export type NoUnionC\u003cT, U\u003dT\u003e \u003d T extends IntersectionFromUnion\u003cU\u003e ? T : never;",
+      "parentUuid": "5fbb24b7_c85ee2b3",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
