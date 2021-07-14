@@ -16,6 +16,75 @@
       "message": "PTAL, it seems we only have 2 call-sites that use dynamic event names. I opted to use \u003cany\u003e for now and consider them the first ones we should migrate ;)",
       "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0fc7e7_4057b0f3",
+        "filename": "front_end/core/platform/platform.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-14T10:17:08Z",
+      "side": 1,
+      "message": "Is there a specific reason why we need to explicitly export this symbol separately? As I understand it, `Platform.TypeScriptUtilities.NoUnion` should work as well.\n\nFor the other asserts, we need them exported separately, because TypeScript only allows for type guards on top-level variables, but I don\u0027t think the same applies to `NoUnion`, since it is a regular type alias.",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37175d79_8a381feb",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-14T10:17:08Z",
+      "side": 1,
+      "message": "This is some nice magic and I think I half understand it. Based on some googling, I am assuming you got this code from https://stackoverflow.com/a/50375286 ? If so, please point to the StackOverflow answer for appropriate credit.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 119
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18cd4ee2_dbb88781",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-14T10:17:08Z",
+      "side": 1,
+      "message": "I wonder if instead of `any`, can we set `string` here? Since I am assuming all event names will be enums, we can restrict this to `string`. This also makes sure that if you have a union of two class references, we disallow that.\n\nE.g.\n\n```\nclass Foo {}\nclass Bar {}\n\n// Both of these should be illegal\ntypedEmitter.dispatchEventToListeners\u003cFoo|Bar\u003e(new Foo());\ntypedEmitter.dispatchEventToListeners\u003cFoo\u003e(new Foo());\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
