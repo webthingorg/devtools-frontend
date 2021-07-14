@@ -111,6 +111,30 @@
       },
       "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb20ed3b_896617ca",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-14T14:08:39Z",
+      "side": 1,
+      "message": "I understand the slight loss of type-safety but I think that the consistency and less boilerplate required is a fair trade; however I think we\u0027re at an impasse here and can\u0027t see us agreeing! :)\n\nHow do you feel about landing the simpler approach and then as part of the bug I attached above I\u0027m very happy to commit to exploring if we can take an approach closer to yours, but potentially in such a way that the boilerplate required of re-defining addEventListener goes away? And, if we conclude that that\u0027s not possible, we can revisit and add this back, or not, but by then we\u0027ll have a bit more info on what TS does and doesn\u0027t let us do.",
+      "parentUuid": "217c423e_afb4779b",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
