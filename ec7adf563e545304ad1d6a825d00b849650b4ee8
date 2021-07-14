@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82f14112_4c812779",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T08:44:32Z",
+      "side": 1,
+      "message": "Some more comments",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a3fdf96_9b7ca865",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T08:44:32Z",
+      "side": 1,
+      "message": "You could name this `maybeHideIssue()` to make clear that it does not always hide the issue. This would also make the intention of the calls in `addIssue()` and `updateFilteredIssues()` clearer.",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "067c0b99_ce191adf",

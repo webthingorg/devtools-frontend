@@ -331,6 +331,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adbef04c_e17ee551",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T08:44:32Z",
+      "side": 1,
+      "message": "How about calling it something like `updateHidingOfFilteredIssues()`? Then you could call the corresponding method for unhiding `updateUnhidingOfFilteredIssues()`.",
+      "parentUuid": "8fd80634_3838104d",
+      "range": {
+        "startLine": 291,
+        "startChar": 10,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50fafcc9_e0b0a933",
         "filename": "front_end/models/issues_manager/IssuesManager.ts",
         "patchSetId": 23
@@ -1117,6 +1141,24 @@
       "side": 1,
       "message": "if we don\u0027t have a callback, we won\u0027t have a way of communicating the change to settings to the IssuesManager, in that case updating the setting would do nothing.",
       "parentUuid": "cb56275a_03483fe5",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b2ecb09_596e19b9",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T08:44:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53d40b07_37a15319",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
