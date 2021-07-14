@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4696500_9c57d45c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-07-14T01:02:34Z",
+      "side": 1,
+      "message": "Aha, that\u0027s it. Thanks!",
+      "parentUuid": "eb55307b_1ee442e3",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ee5e534_b15514f0",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-07-13T08:11:29Z",
       "side": 1,
       "message": "nit: Chrome UI strings must be in sentence case per go/punctuation-standards \n\n    \u0027New note URL\u0027\n\n(I know DevTools isn’t yet doing this consistently, but let’s get it right for new additions)",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eaa0a8a_4cc6b61d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-07-14T01:02:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee5e534_b15514f0",
       "revId": "5a55a60da7b888352085245ef9d887547deb578d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "I agree, the `typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027` part makes sense. I’m suggesting to drop the `newNoteUrl \u0026\u0026` part since it excludes the empty string, and the `typeof` check already handles undefined and null values anyway.\n\n    if (typeof newNoteUrl \u003d\u003d\u003d \u0027string\u0027) {",
       "parentUuid": "7ae744d4_1fe18858",
+      "revId": "5a55a60da7b888352085245ef9d887547deb578d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87e4ac79_eb93e37b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-07-14T01:02:34Z",
+      "side": 1,
+      "message": "Ah ok, done.\nThe empty string is technically a valid new note URL (it\u0027s resolved relative to the manifest URL so resolves to the manifest URL), so this change makes that visible in dev tools.",
+      "parentUuid": "0493051d_4b7d36c8",
       "revId": "5a55a60da7b888352085245ef9d887547deb578d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
