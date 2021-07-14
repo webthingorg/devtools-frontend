@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a6a91c_2ca06b63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-14T09:50:33Z",
+      "side": 1,
+      "message": "Nice trick with the `NoUnion` type! Can we also have some tests for that later?",
+      "revId": "19d9bcf2b1668a69bc7acbfdc85231a726a68acb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47443f84_be8713fd",
