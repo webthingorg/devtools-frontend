@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9e35b3_7ccf2f46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T10:07:41Z",
+      "side": 1,
+      "message": "PTAL, it seems we only have 2 call-sites that use dynamic event names. I opted to use \u003cany\u003e for now and consider them the first ones we should migrate ;)",
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
