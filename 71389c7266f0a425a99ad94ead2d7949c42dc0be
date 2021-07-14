@@ -116,6 +116,30 @@
       },
       "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb9c358_d2bba811",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T11:59:11Z",
+      "side": 1,
+      "message": "I see, I think this deserves some comment.",
+      "parentUuid": "d4cff51e_2b30b82b",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
