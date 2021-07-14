@@ -135,6 +135,30 @@
       },
       "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335832d9_33e59b7d",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T14:28:23Z",
+      "side": 1,
+      "message": "Just to make sure the implications are clear, if we extend HTMLElementEventMap then importing ColorSwatch has the side effect of modifying that variable. In the approach with 5 lines more of boilerplate, we only modify the interface the ColorSwatch class provides. Since it\u0027s only possible to add event listeners of the custom events to ColorSwatch, this will automatically encourage the call-sites to maintain more precise types, which is always a good thing. Additionally, importing ColorSwatch doesn\u0027t trigger the side effect.\n\nI\u0027ll leave this CL here until we make a decision.",
+      "parentUuid": "fb20ed3b_896617ca",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
