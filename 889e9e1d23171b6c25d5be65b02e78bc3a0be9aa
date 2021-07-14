@@ -63,6 +63,30 @@
       },
       "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd5df51_b1f05f66",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-14T13:36:37Z",
+      "side": 1,
+      "message": "Because we already interfere with the HTMLElementTagNameMap, I don\u0027t think that\u0027s a concern, and actually I think there\u0027s benefit to us being consistent and extending the event map globally as we do with the tag name map.",
+      "parentUuid": "906c5317_f7db4264",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
