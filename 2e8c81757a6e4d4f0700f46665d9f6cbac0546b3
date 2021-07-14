@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e79e134a_9d02a57f",
+        "filename": "front_end/core/platform/platform.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T10:35:02Z",
+      "side": 1,
+      "message": "Ah, I see. Removed the re-export.",
+      "parentUuid": "3e0fc7e7_4057b0f3",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37175d79_8a381feb",
@@ -106,6 +130,54 @@
         "startChar": 43,
         "endLine": 30,
         "endChar": 46
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45953b8b_37013780",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T10:35:02Z",
+      "side": 1,
+      "message": "I think it\u0027s somewhat orthogonal. `NoUnion\u003cT\u003e` ensures that T is not a union. If we want something to be either `string` or \"foo\" | \"bar\", then we should type it directly for those values. I agree with Sigurd here that `NoUnion` should stay generic. (Otherwise we should rename it and move it to `EventTarget.ts` as it might be confusing to use for others).\n\nClasses are not possible anyway, given that any T must be a `keyof Events`, which is even stricter than strings. So the classes example won\u0027t work even without this CL :)",
+      "parentUuid": "18cd4ee2_dbb88781",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85eb03b8_5393a4d3",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37175d79_8a381feb",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 119
       },
       "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
