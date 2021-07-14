@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53dbce2_79e731bc",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "sorry for this, i\u0027ve just forgotten to update the cl. I\u0027m currently facing internet issues in my accomodation.",
+      "parentUuid": "c9a53548_4c1bc3c5",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08870597_92429647",
@@ -343,6 +361,30 @@
       "side": 1,
       "message": "How about calling it something like `updateHidingOfFilteredIssues()`? Then you could call the corresponding method for unhiding `updateUnhidingOfFilteredIssues()`.",
       "parentUuid": "8fd80634_3838104d",
+      "range": {
+        "startLine": 291,
+        "startChar": 10,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79bf8f8d_ed77ca67",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "can we rename the method to updateHiddenIssues, and when unhiding logic is implemented we can call that method updateUnhiddenIssues?",
+      "parentUuid": "adbef04c_e17ee551",
       "range": {
         "startLine": 291,
         "startChar": 10,
@@ -930,6 +972,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15f2df6c_3d09a8e9",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "i have removed this just forgot to update the cl yesterday",
+      "parentUuid": "52c2c9dd_23994dcd",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b15390c_08445515",
         "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
         "patchSetId": 23
@@ -1071,6 +1137,24 @@
       "side": 1,
       "message": "I don\u0027t see a change here. My question was whether it would be enough to just call `UI.ContextMenu(event, true)` or `UI.ContextMenu(event)`.",
       "parentUuid": "48b0b92e_ed7518d6",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377b20a2_62c480d3",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "Sorry about this, I have forgotten to update the cl. Also removing true renders the context menu (if big enough) outside the boundaries of the devtools window, keeping it ensures the menu is always inside the devtools window",
+      "parentUuid": "c0470002_a1689feb",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

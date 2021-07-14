@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "872bcc68_e17da6da",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "the reason i named it this is because there will also be an unhideIssue method, becuase the hide and unhide logic are different. I could rename it updateIssueHiddenStatus or updateHiddenStatus.",
+      "parentUuid": "9a3fdf96_9b7ca865",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "067c0b99_ce191adf",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 33
@@ -48,6 +66,24 @@
       "writtenOn": "2021-07-14T07:53:09Z",
       "side": 1,
       "message": "typo",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5391bde_33bef707",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-14T17:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "067c0b99_ce191adf",
       "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
