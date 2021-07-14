@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e98f7dc3_40778055",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T09:24:45Z",
+      "side": 1,
+      "message": "I meant to write \"... this isn\u0027t a union\".",
+      "parentUuid": "864a29b7_3fdab527",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "031d064b_aeb6f05d",
         "filename": "front_end/core/common/Object.ts",
         "patchSetId": 6
