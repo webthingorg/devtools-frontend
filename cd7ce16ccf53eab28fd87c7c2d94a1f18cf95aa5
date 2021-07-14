@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6f2437_d71e78ea",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T09:30:09Z",
+      "side": 1,
+      "message": "Using the same type constraint (`T extends EventType\u003cEvents\u003e`) we should be descriptive enough and also consistent with the rest of the code. :)\n\nThanks for the catch!",
+      "parentUuid": "c4e4f964_197a798d",
+      "range": {
+        "startLine": 8,
+        "startChar": 55,
+        "endLine": 8,
+        "endChar": 58
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "864a29b7_3fdab527",
@@ -105,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1fab9a_9886335d",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T09:30:09Z",
+      "side": 1,
+      "message": "Once all users of the API have been migrated, we can use the `NoUnion\u003cT\u003e` marker here for `eventType` to restrict `T` further. See the design doc for an explanation how it works and a discussion why we can\u0027t do that yet.\n\nThinking about it more, we might already be able to do it. In the prototype I applied the `NoUnion` marker to all methods on EventTarget, but we actually only care about `dispatch`. I\u0027ll see if i can make it work and send a followup CL.",
+      "parentUuid": "864a29b7_3fdab527",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "031d064b_aeb6f05d",
@@ -118,6 +166,30 @@
       "writtenOn": "2021-07-14T08:52:41Z",
       "side": 1,
       "message": "nit: this could be EventType\u003cEvents\u003e",
+      "range": {
+        "startLine": 87,
+        "startChar": 60,
+        "endLine": 87,
+        "endChar": 61
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ba1f10_88890fc1",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-14T09:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "031d064b_aeb6f05d",
       "range": {
         "startLine": 87,
         "startChar": 60,
