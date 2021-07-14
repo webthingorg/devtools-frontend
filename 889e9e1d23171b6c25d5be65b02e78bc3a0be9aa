@@ -87,6 +87,30 @@
       },
       "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217c423e_afb4779b",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T13:53:33Z",
+      "side": 1,
+      "message": "There is only one HTMLElementTagNameMap (and another one for SVG elements), but there are dozens of EventMap for different elements.\n\nI think we should not extend the HTMLElementEventMap and thereby make it look like the new custom events could be emitted by any HTMLElement.",
+      "parentUuid": "1cd5df51_b1f05f66",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
