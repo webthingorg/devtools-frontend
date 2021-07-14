@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b254f8_517de001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T09:36:08Z",
+      "side": 1,
+      "message": "LGTM % final comments, thanks!",
+      "revId": "19d9bcf2b1668a69bc7acbfdc85231a726a68acb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47443f84_be8713fd",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T09:36:08Z",
+      "side": 1,
+      "message": "When the migration is done, we can remove this as well, can\u0027t we? Maybe we should add a comment to that end.",
+      "range": {
+        "startLine": 23,
+        "startChar": 71,
+        "endLine": 23,
+        "endChar": 84
+      },
+      "revId": "19d9bcf2b1668a69bc7acbfdc85231a726a68acb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec6861a_dce30390",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T09:36:08Z",
+      "side": 1,
+      "message": "nit: EventType\u003cEvents\u003e",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "19d9bcf2b1668a69bc7acbfdc85231a726a68acb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
