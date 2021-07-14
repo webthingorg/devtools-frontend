@@ -16,6 +16,92 @@
       "message": "Sigurd, Tim, PTAL. Feel free to add more reviewers if you feel they should also take a look :)",
       "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a4cb61_a7cf1ece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T08:52:41Z",
+      "side": 1,
+      "message": "Overall LGTM, just some questions.",
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e4f964_197a798d",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T08:52:41Z",
+      "side": 1,
+      "message": "maybe: T extends(keyof Events | string | symbol) \u003d any\n\nto ensure that in the instantiated cases this is a key of Events?\n\nAlso: Can we find a more descriptive name than T? Maybe AnEvent ?",
+      "range": {
+        "startLine": 8,
+        "startChar": 55,
+        "endLine": 8,
+        "endChar": 58
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864a29b7_3fdab527",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T08:52:41Z",
+      "side": 1,
+      "message": "Did you plan to make sure this isn\u0027t an option?\n\n(For the other methods choosing a larger T doesn\u0027t seem to translate into unsoundness).",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031d064b_aeb6f05d",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T08:52:41Z",
+      "side": 1,
+      "message": "nit: this could be EventType\u003cEvents\u003e",
+      "range": {
+        "startLine": 87,
+        "startChar": 60,
+        "endLine": 87,
+        "endChar": 61
+      },
+      "revId": "cd7ce16ccf53eab28fd87c7c2d94a1f18cf95aa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
