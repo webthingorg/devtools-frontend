@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6808169b_1071f39c",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-14T13:15:20Z",
+      "side": 1,
+      "message": "I think what we can do here is extend HTMLElementEventMap straight up and then not have to re-implement the addEventListener (else we\u0027ll have to do that all the time).\n\nSo more like it\u0027s done here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/components/StylePropertyEditor.ts;l\u003d33?q\u003dStylePropertyEditor.ts\u0026ss\u003dchromium\n\nI think you lose a small amount of type-safety as theoretically anyone could add a `formatchanged` event listener to not a color swatch component, but I think that\u0027s OK to avoid the admin of re-typing addEventListener for every single component. WDYT?\n\nBTW, this CL did also inspire me to log a bug and update the docs/etc with how we want to type custom events, so thanks. Tracking that work here: https://crbug.com/1229172",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "889e9e1d23171b6c25d5be65b02e78bc3a0be9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
