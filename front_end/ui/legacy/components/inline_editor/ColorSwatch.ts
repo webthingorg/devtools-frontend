@@ -18,10 +18,6 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
 
-interface KeyboardModifiedEvent extends Event {
-  shiftKey: boolean;
-}
-
 export class FormatChangedEvent extends Event {
   data: {format: string, text: string|null};
 
@@ -121,7 +117,7 @@ export class ColorSwatch extends HTMLElement {
     // clang-format on
   }
 
-  private onClick(e: KeyboardModifiedEvent): void {
+  private onClick(e: KeyboardEvent): void {
     e.stopPropagation();
 
     if (e.shiftKey) {
@@ -158,9 +154,18 @@ export class ColorSwatch extends HTMLElement {
 
 ComponentHelpers.CustomElements.defineComponent('devtools-color-swatch', ColorSwatch);
 
+export interface ColorSwatchEventMap extends HTMLElementEventMap {
+  'formatchanged': FormatChangedEvent;
+  'swatch-click': Event;
+}
+
+export interface ColorSwatch extends HTMLElement {
+  addEventListener<K extends keyof ColorSwatchEventMap>(
+      type: K, listener: (this: HTMLElement, ev: ColorSwatchEventMap[K]) => unknown,
+      options?: boolean|AddEventListenerOptions): void;
+}
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
     'devtools-color-swatch': ColorSwatch;
   }
