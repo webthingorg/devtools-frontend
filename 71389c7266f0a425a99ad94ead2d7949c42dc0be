@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c278edef_d1a9a8c2",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T11:01:13Z",
+      "side": 1,
+      "message": "Maybe add the following explanation:\n\n * The tautological `T extends any` is necessary to trigger distributivity for\n * plain unions, e.g. in IntersectionFromUnion\u003c\u0027a\u0027|\u0027b\u0027\u003e TypeScript expands it\n * to  (\u0027a\u0027 extends any ? (arg: \u0027a\u0027) \u003d\u003e void : never)\n *  |  (\u0027b\u0027 extends any ? (arg: \u0027b\u0027) \u003d\u003e void : never)\n * The second extends clause then ask TypeScript to find a type of the form\n * `(arg: infer U) \u003d\u003e void` that upper-bounds the union, i.e., intuitively,\n * a type that converts to each of the union members. This forces U to be the\n * intersection of \u0027a\u0027 and \u0027b\u0027 in the example.",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 3
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fbb24b7_c85ee2b3",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T11:01:13Z",
+      "side": 1,
+      "message": "Do you know why the condition is [T] extends [IntersectionFromUnion\u003cT\u003e] and not\nT extends IntersectionFromUnion\u003cT\u003e ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf53806a_b4415b10",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-14T11:01:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we link to https://stackoverflow.com/questions/50639496 here?",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
