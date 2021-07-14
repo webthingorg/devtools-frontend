@@ -471,6 +471,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this._messagesElement.addEventListener('click', this._messagesClicked.bind(this), false);
     this._messagesElement.addEventListener('paste', this._messagesPasted.bind(this), true);
     this._messagesElement.addEventListener('clipboard-paste', this._messagesPasted.bind(this), true);
+    UI.ARIAUtils.markAsLog(this._messagesElement);
     this._messagesCountElement = this._consoleToolbarContainer.createChild('div', 'message-count');
     UI.ARIAUtils.markAsPoliteLiveRegion(this._messagesCountElement, false);
 

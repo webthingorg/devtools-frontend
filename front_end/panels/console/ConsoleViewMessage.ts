@@ -1046,8 +1046,26 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   matchesFilterText(filter: string): boolean {
-    const text = this.contentElement().deepTextContent();
-    return text.toLowerCase().includes(filter.toLowerCase());
+    return ConsoleViewMessage.recursivelyTestParentConsoleMessage(this._message, filter) ||
+        ConsoleViewMessage.recursivelyTestChildrenConsoleMessage(this._message, filter);
+  }
+
+  static recursivelyTestParentConsoleMessage(consoleMessage: SDK.ConsoleModel.ConsoleMessage, filterString: string):
+      boolean {
+    const doesFilterMatchText = consoleMessage.messageText.toLowerCase().includes(filterString.toLowerCase());
+    return doesFilterMatchText ||
+        consoleMessage.groupParent &&
+        ConsoleViewMessage.recursivelyTestParentConsoleMessage(consoleMessage.groupParent, filterString) ||
+        false;
+  }
+
+  static recursivelyTestChildrenConsoleMessage(consoleMessage: SDK.ConsoleModel.ConsoleMessage, filterString: string):
+      boolean {
+    const doesFilterMatchChildren = consoleMessage.groupChildren?.some(childMessage => {
+      const filterMatch = childMessage.messageText.toLowerCase().includes(filterString.toLowerCase());
+      return filterMatch || ConsoleViewMessage.recursivelyTestChildrenConsoleMessage(childMessage, filterString);
+    });
+    return doesFilterMatchChildren || false;
   }
 
   updateTimestamp(): void {
