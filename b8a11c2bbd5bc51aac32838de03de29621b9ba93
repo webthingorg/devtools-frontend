@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a53548_4c1bc3c5",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T07:53:09Z",
+      "side": 1,
+      "message": "Maybe my statement wasn\u0027t clear. I meant using \u0027export const enum\u0027 to get rid of the need to disable a linting rule. I support your choice of having 2 different yet similar enums.",
+      "parentUuid": "9eecb27d_5d59ceb7",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08870597_92429647",
@@ -142,6 +160,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "08870597_92429647",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c14791b_3984d37d",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T07:53:09Z",
+      "side": 1,
+      "message": "you missed this one",
+      "parentUuid": "123a5d46_dbcc9d2f",
       "range": {
         "startLine": 176,
         "startChar": 2,
@@ -218,6 +260,24 @@
       "side": 1,
       "message": "This is needed for IssueCounter.ts, I have a separate branch which tracks the hide-issues branch (assosciated with this cl). I couldn\u0027t implement logic in IssueCounter.ts, without the logic in this cl. I haven\u0027t uploaded that cl yet.The OmitEmpty DisplayMode in IssueCounter removes the icon from the IssueCounter when the count is 0, this is why the default count is 0.\nI will however refactor this method into that branch only.",
       "parentUuid": "39ebd534_c32e1a33",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92eb792f_ad2e5719",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T07:53:09Z",
+      "side": 1,
+      "message": "Great, please move this to the other CL then.",
+      "parentUuid": "b16bb8be_338f3c87",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -822,6 +882,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52c2c9dd_23994dcd",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T07:53:09Z",
+      "side": 1,
+      "message": "Then this should be implemented together with the logic in a separate CL",
+      "parentUuid": "05bbfd8b_ab72c9bc",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b15390c_08445515",
         "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
         "patchSetId": 23
@@ -945,6 +1029,24 @@
       "side": 1,
       "message": "It doesn\u0027t have any effect at all. I misunderstood the the intent of the parameters. It has been fixed now.",
       "parentUuid": "887ab5ea_206192c7",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0470002_a1689feb",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-14T07:53:09Z",
+      "side": 1,
+      "message": "I don\u0027t see a change here. My question was whether it would be enough to just call `UI.ContextMenu(event, true)` or `UI.ContextMenu(event)`.",
+      "parentUuid": "48b0b92e_ed7518d6",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
