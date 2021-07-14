@@ -21,3 +21,21 @@ export function assertNotNullOrUndefined<T>(val: T): asserts val is NonNullable<
 export function assertUnhandled<T>(_caseVariable: T): T {
   return _caseVariable;
 }
+
+/**
+ * Turns a Union type (a | b) into an Intersection type (a & b).
+ * This is a helper type to implement the "NoUnion" guard.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type IntersectionFromUnion<T> = (T extends any ? (arg: T) => void : never) extends((arg: infer U) => void) ? U : never;
+
+/**
+ * When writing generic code it may be desired to disallow Union types from
+ * being passed. This type can be used in those cases.
+ *
+ *   function foo<T>(argument: NoUnion<T>) {...}
+ *
+ * Would result in a compile error for foo<a|b>(...); invocations as `argument`
+ * would be typed as `never`.
+ */
+export type NoUnion<T> = [T] extends [IntersectionFromUnion<T>] ? T : never;

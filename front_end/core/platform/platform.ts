@@ -47,6 +47,7 @@ export {DCHECK} from './dcheck.js';
  * compiler error)
  */
 export {assertNotNullOrUndefined, assertUnhandled} from './typescript-utilities.js';
+export type{NoUnion} from './typescript-utilities.js';
 export {assertNever, runOnWindowLoad} from './utilities.js';
 export {
   ArrayUtilities,
