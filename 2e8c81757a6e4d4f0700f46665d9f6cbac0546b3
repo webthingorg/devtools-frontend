@@ -181,6 +181,30 @@
       },
       "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5ea7e6d_77312f45",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-14T10:37:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45953b8b_37013780",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "2e8c81757a6e4d4f0700f46665d9f6cbac0546b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
