@@ -16,6 +16,23 @@
       "message": "Thanks Philip for the previous review!\n\nI needed to update the fix, so that the layout tests are happy too. This change makes sure that we run `setBreakpointByUrl` without any delay (i.e. as early as previously). On top of that, we make sure that we reschedule an update in the debugger if we find ourselves in the weird situation of: 1) having kicked of the Debugger.enable, but 1) not being ready yet (Debugger is not ready to pause).\n\nPTA(nother)L!",
       "revId": "606477a9f0a4d08f6213b74dcf068e2a4587e2f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98fc99f_7d841d9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-15T15:14:56Z",
+      "side": 1,
+      "message": "Still LGTM!",
+      "revId": "606477a9f0a4d08f6213b74dcf068e2a4587e2f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
