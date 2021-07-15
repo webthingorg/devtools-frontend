@@ -32,9 +32,7 @@ export class Trie {
           next = this.size++;
           this.isWord.push(false);
           this.wordsInSubtree.push(0);
-          // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          this.edges.push(({__proto__: null} as any));
+          this.edges.push(Object.create(null));
         }
         this.edges[node][edge] = next;
       }
@@ -116,9 +114,7 @@ export class Trie {
   clear(): void {
     this.size = 1;
     this.root = 0;
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.edges = [({__proto__: null} as any)];
+    this.edges = [Object.create(null)];
     this.isWord = [false];
     this.wordsInSubtree = [0];
     this.freeNodes = [];
