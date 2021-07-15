@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ddd772_15168b9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-07-15T09:09:36Z",
+      "side": 1,
+      "message": "Hi Philip,\n\na quickfix for avoiding breakpoints to flakily disappear when new targets are created, ptal!",
+      "revId": "81d444a46a1b9591e720778dbd6d9956eb7c92d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
