@@ -549,6 +549,7 @@ export class ModelBreakpoint {
     this._cancelCallback = false;
     this._currentState = null;
     this._breakpointIds = [];
+
     if (this._debuggerModel.debuggerEnabled()) {
       this._scheduleUpdateInDebugger();
     }
@@ -647,7 +648,6 @@ export class ModelBreakpoint {
       return;
     }
 
-    this._currentState = newState;
     const results = await Promise.all(newState.positions.map(pos => {
       if (pos.url) {
         return this._debuggerModel.setBreakpointByURL(pos.url, pos.lineNumber, pos.columnNumber, condition);
@@ -657,12 +657,26 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: string[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
+    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
+      } else if (this._debuggerModel.debuggerEnabled() && !this._debuggerModel.isReadyToPause()) {
+        maybeRescheduleUpdate = true;
       }
     }
+
+    if (!breakpointIds.length && maybeRescheduleUpdate) {
+      // TODO(crbug.com/1229541): This is a quickfix to prevent breakpoints from
+      // disappearing if the Debugger is actually not enabled
+      // yet. This quickfix should be removed as soon as we have a solution
+      // to correctly synchronize the front-end with the inspector back-end.
+      this._scheduleUpdateInDebugger();
+      return;
+    }
+
+    this._currentState = newState;
     if (this._cancelCallback) {
       this._cancelCallback = false;
       return;
