@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c38055_52ab82e9",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-07-15T11:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b8270b7_868ed13e",
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff32e50e_c58c8c81",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7507f2c2_7f2e1ce3",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-07-15T11:32:33Z",
+      "side": 1,
+      "message": "I am sorry... (happens too many times) I will make sure I take note on this next time.",
+      "parentUuid": "ff32e50e_c58c8c81",
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4e124a1_3026a623",
         "filename": "front_end/panels/help/ReleaseNoteText.ts",
         "patchSetId": 2
@@ -48,6 +84,30 @@
       "writtenOn": "2021-07-15T11:03:06Z",
       "side": 1,
       "message": "Maybe it\u0027s just me but this sentence tripped me up at first. How about:\n\n    Improved readability of displayed strings and new shortcuts to …",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfaded1c_d18388ed",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-07-15T11:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4e124a1_3026a623",
       "range": {
         "startLine": 52,
         "startChar": 13,
