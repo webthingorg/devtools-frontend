@@ -141,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aba5a26_9da0e42f",
+        "filename": "scripts/build/ninja/generate-tsconfig.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-07-15T19:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57ca93f_0a0f4df6",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bb6d33f_bed38d16",
@@ -154,6 +178,30 @@
       "writtenOn": "2021-07-05T11:34:17Z",
       "side": 1,
       "message": "Per the above comment, we should not exempt lighthouse here. Instead, you should import the `report/report.js` file rather than `report/bundle.js`. This will make sure your code will always work in both release and debug mode.",
+      "range": {
+        "startLine": 190,
+        "startChar": 8,
+        "endLine": 192,
+        "endChar": 9
+      },
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0053ca_b0a25ab7",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-07-15T19:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bb6d33f_bed38d16",
       "range": {
         "startLine": 190,
         "startChar": 8,
