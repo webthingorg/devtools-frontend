@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b8270b7_868ed13e",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-15T11:03:06Z",
+      "side": 1,
+      "message": "Remove?",
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff32e50e_c58c8c81",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-15T11:03:06Z",
+      "side": 1,
+      "message": "I probably sound like a broken record, but please use the canonical URLs to avoid unnecessary redirects. I think developer.chrome.com pages like these have a trailing slash, i.e. instead of\n\n    https://developer.chrome.com/blog/new-in-devtools-93#lighthouse\n    \nit should be\n\n    https://developer.chrome.com/blog/new-in-devtools-93/#lighthouse\n    \n…and similar for the other URLs in this patch.",
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e124a1_3026a623",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-15T11:03:06Z",
+      "side": 1,
+      "message": "Maybe it\u0027s just me but this sentence tripped me up at first. How about:\n\n    Improved readability of displayed strings and new shortcuts to …",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "d4bc04ca799b4de0e47920137c01e2360427acb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
