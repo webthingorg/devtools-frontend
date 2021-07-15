@@ -39,6 +39,30 @@
       },
       "revId": "88d6ab891f4f5f2d2d790a768b6f6c484a609809",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec9dcfc_cf0e9362",
+        "filename": "front_end/panels/elements/EventListenersWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-15T06:03:04Z",
+      "side": 1,
+      "message": "It can and should, that was the point of the CL, thanks!",
+      "parentUuid": "0eeeee72_7814ac84",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 64
+      },
+      "revId": "88d6ab891f4f5f2d2d790a768b6f6c484a609809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
