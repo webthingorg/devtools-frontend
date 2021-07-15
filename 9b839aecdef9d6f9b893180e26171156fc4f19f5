@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ab9d89_86e6933e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-07-15T21:57:28Z",
+      "side": 1,
+      "message": "Reviewers, this is ready for final review, but please do not merge b/c we want\nto land https://github.com/GoogleChrome/lighthouse/pull/12702 in Lighthouse repo first.",
+      "revId": "9b839aecdef9d6f9b893180e26171156fc4f19f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
