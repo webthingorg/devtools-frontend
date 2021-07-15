@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09c345c9_098ada31",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-07-15T19:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b42eede5_d6f84550",
+      "range": {
+        "startLine": 20,
+        "startChar": 48,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "1379d46aa8aba3e69a14ebd6878237c2e7044d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "742ee006_9e8cfc2a",
