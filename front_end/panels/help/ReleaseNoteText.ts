@@ -18,6 +18,49 @@ const commandMenuShortcut = Host.Platform.isMac() ? 'Command+Shift+P' : 'Control
 
 export const releaseNoteText: ReleaseNote[] = [
   {
+    version: 35,
+    header: 'Highlights from the Chrome 93 update',
+    highlights: [
+      {
+        title: '',
+        subtitle: '',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#',
+      },
+      {
+        title: 'Lighthouse 8.1',
+        subtitle: 'New `csp-xss` audit, performance score weighting changes, and more.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#lighthouse',
+      },
+      {
+        title: 'Editable web container queries in the Styles pane',
+        subtitle: 'View and edit web container queries in the Styles pane.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#container-queries',
+      },
+      {
+        title: 'Web bundle preview in the Network panel',
+        subtitle: 'Click on a web bundle network request to preview the content.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#web-bundle',
+      },
+      {
+        title: 'Attribution Reporting API debugging',
+        subtitle: 'Attribution Reporting API errors are now reported in the Issues tab.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#attribution-reporting',
+      },
+      {
+        title: 'Better string handling in the Console',
+        subtitle:
+            'Improved displayed string readability and new shortcuts to copy string as JSON and JavaScript literal.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#string',
+      },
+      {
+        title: 'Improved CORS debugging',
+        subtitle: 'CORS-related TypeErrors in the Console are now linked to the network panel and Issues tab.',
+        link: 'https://developer.chrome.com/blog/new-in-devtools-93#cors',
+      },
+    ],
+    link: 'https://developer.chrome.com/blog/new-in-devtools-93/',
+  },
+  {
     version: 34,
     header: 'Highlights from the Chrome 92 update',
     highlights: [
