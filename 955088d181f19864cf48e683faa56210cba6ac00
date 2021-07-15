@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db412e39_3fe96711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-15T15:28:27Z",
+      "side": 1,
+      "message": "LGTM with 2 tweaks!",
+      "revId": "955088d181f19864cf48e683faa56210cba6ac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b9a3c5d_c547da8c",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-15T15:28:27Z",
+      "side": 1,
+      "message": "teeeeeeny nit: remove the empty line here :)",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 4
+      },
+      "revId": "955088d181f19864cf48e683faa56210cba6ac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c10337a_0f8ef766",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-15T15:28:27Z",
+      "side": 1,
+      "message": "I wouldn\u0027t set these as instance variables and would just read them off this.tokenWithStatus when we need to.\n\nTypically if you can calculate a value from some existing piece of state, you don\u0027t need to store that as a distinct instance variable.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 57
+      },
+      "revId": "955088d181f19864cf48e683faa56210cba6ac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
