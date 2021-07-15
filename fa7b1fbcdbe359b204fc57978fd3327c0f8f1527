@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80b89b3_ea910476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-15T11:34:45Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "fa7b1fbcdbe359b204fc57978fd3327c0f8f1527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d97ded1_366fd8ea",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-15T11:34:45Z",
+      "side": 1,
+      "message": "nit: looks like a double space snuck in here",
+      "range": {
+        "startLine": 47,
+        "startChar": 54,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "fa7b1fbcdbe359b204fc57978fd3327c0f8f1527",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
