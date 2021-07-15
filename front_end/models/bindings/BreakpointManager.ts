@@ -542,14 +542,16 @@ export class ModelBreakpoint {
     this._uiLocations = new Map();
     this._debuggerModel.addEventListener(
         SDK.DebuggerModel.Events.DebuggerWasDisabled, this._cleanUpAfterDebuggerIsGone, this);
+    // TODO: Revisit what we want to wait for as an outcome of crbug.com/1229541.
     this._debuggerModel.addEventListener(
-        SDK.DebuggerModel.Events.DebuggerWasEnabled, this._scheduleUpdateInDebugger, this);
+        SDK.DebuggerModel.Events.DebuggerIsReadyToPause, this._scheduleUpdateInDebugger, this);
     this._hasPendingUpdate = false;
     this._isUpdating = false;
     this._cancelCallback = false;
     this._currentState = null;
     this._breakpointIds = [];
-    if (this._debuggerModel.debuggerEnabled()) {
+    // TODO: Revisit what we want to wait for as an outcome of crbug.com/1229541.
+    if (this._debuggerModel.isReadyToPause()) {
       this._scheduleUpdateInDebugger();
     }
   }
