@@ -24,8 +24,10 @@ const DEFAULT_TAB = {
   selector: '.elements',
 };
 
-const width = 1280;
-const height = 720;
+const viewportWidth = 1280;
+const viewportHeight = 720;
+const windowWidth = viewportWidth + 50;
+const windowHeight = viewportHeight + 200;
 let unhandledRejectionSet = false;
 
 const headless = !process.env['DEBUG_TEST'];
@@ -104,11 +106,12 @@ function launchChrome() {
     slowMo: envSlowMo,
   };
 
+  // Always set the default viewport because setting only the window size for
+  // headful mode would result in much smaller actual viewport.
+  opts.defaultViewport = {width: viewportWidth, height: viewportHeight};
   // Toggle either viewport or window size depending on headless vs not.
-  if (headless) {
-    opts.defaultViewport = {width, height};
-  } else {
-    launchArgs.push(`--window-size=${width},${height}`);
+  if (!headless) {
+    launchArgs.push(`--window-size=${windowWidth},${windowHeight}`);
   }
 
   if (envChromeFeatures) {
