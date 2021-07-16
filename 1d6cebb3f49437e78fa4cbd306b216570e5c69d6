@@ -51,6 +51,24 @@
       "parentUuid": "a85b1f30_d8bab75e",
       "revId": "1d6cebb3f49437e78fa4cbd306b216570e5c69d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509513dd_8150d8cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-16T10:52:51Z",
+      "side": 1,
+      "message": "Thanks. The CL to add myself as owner is here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3034603",
+      "parentUuid": "cad3fdd2_9c5cb676",
+      "revId": "1d6cebb3f49437e78fa4cbd306b216570e5c69d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
