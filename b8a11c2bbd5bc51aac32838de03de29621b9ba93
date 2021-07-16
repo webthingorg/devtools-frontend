@@ -212,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2c1d3f5_843f1169",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c14791b_3984d37d",
+      "range": {
+        "startLine": 176,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbbb7012_cc03f96e",
@@ -296,6 +320,24 @@
       "side": 1,
       "message": "Great, please move this to the other CL then.",
       "parentUuid": "b16bb8be_338f3c87",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "709f554b_e63b414c",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92eb792f_ad2e5719",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -994,6 +1036,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f36d888_c806b554",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15f2df6c_3d09a8e9",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b15390c_08445515",
@@ -1155,6 +1221,24 @@
       "side": 1,
       "message": "Sorry about this, I have forgotten to update the cl. Also removing true renders the context menu (if big enough) outside the boundaries of the devtools window, keeping it ensures the menu is always inside the devtools window",
       "parentUuid": "c0470002_a1689feb",
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9ce60ae_6e980b06",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "377b20a2_62c480d3",
       "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

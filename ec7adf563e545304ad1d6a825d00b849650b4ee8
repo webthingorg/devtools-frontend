@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad2626a_57c65561",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9833457a_fb493cc9",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15632223_972f5bc2",
@@ -122,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2adda2ae_c17477aa",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15632223_972f5bc2",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "addffbf3_e1a7bbd4",
@@ -135,6 +171,24 @@
       "writtenOn": "2021-07-14T07:53:09Z",
       "side": 1,
       "message": "\u0027Hide all breaking changes\u0027 to be consistent with other user-facing strings",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e2a1d69_8140406e",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T11:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addffbf3_e1a7bbd4",
       "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
