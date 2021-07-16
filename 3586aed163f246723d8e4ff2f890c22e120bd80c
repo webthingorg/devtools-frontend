@@ -56,6 +56,30 @@
       },
       "revId": "3586aed163f246723d8e4ff2f890c22e120bd80c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcf8ffb_0e363f05",
+        "filename": "front_end/panels/application/StorageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-07-16T19:34:40Z",
+      "side": 1,
+      "message": "good call :)",
+      "parentUuid": "de55d04f_9f5cac2f",
+      "range": {
+        "startLine": 138,
+        "startChar": 18,
+        "endLine": 138,
+        "endChar": 76
+      },
+      "revId": "3586aed163f246723d8e4ff2f890c22e120bd80c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
