@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -87,6 +88,10 @@ const UIStrings = {
    *              browser behaviors.
    */
   quirksMode: 'Quirks Mode',
+  /**
+   * @description Tooltip label for the button which reveals all hidden isssues.
+   */
+  unHideAllHiddenIssues: 'Unhide all hidden issues',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/issues/IssuesPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -180,7 +185,6 @@ export class IssuesPane extends UI.Widget.VBox {
     this.issuesTree.setShowSelectionOnKeyboardFocus(true);
     this.issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this.issuesTree.element);
-
     this.noIssuesMessageDiv = document.createElement('div');
     this.noIssuesMessageDiv.classList.add('issues-pane-no-issues');
     this.contentElement.appendChild(this.noIssuesMessageDiv);
@@ -219,11 +223,21 @@ export class IssuesPane extends UI.Widget.VBox {
         groupByCategorySetting, i18nString(UIStrings.groupDisplayedIssuesUnder), i18nString(UIStrings.groupByCategory));
     // Hide the option to toggle category grouping for now.
     groupByCategoryCheckbox.setVisible(false);
+
+    const button = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.unHideAllHiddenIssues));
+    button.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click,
+        () => IssuesManager.IssuesManager.IssuesManager.instance().unhideAllIssues());
+    UI.ARIAUtils.markAsMenuButton(button.element);
+    const icon = new IconButton.Icon.Icon();
+    icon.data = {iconName: 'refresh_12x12_icon', color: '', height: '12px', width: '12px'};
+    button.element.appendChild(icon);
+    rightToolbar.appendToolbarItem(button);
+
     rightToolbar.appendToolbarItem(groupByCategoryCheckbox);
     groupByCategorySetting.addChangeListener(() => {
       this.fullUpdate();
     });
-
     const thirdPartySetting = IssuesManager.Issue.getShowThirdPartyIssuesSetting();
     this.showThirdPartyCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         thirdPartySetting, i18nString(UIStrings.includeCookieIssuesCausedBy),
