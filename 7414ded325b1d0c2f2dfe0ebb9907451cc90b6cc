@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c517aea_eb403ec1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "typo: its",
+      "range": {
+        "startLine": 17,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7922154_a4ac9cb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0fbf1f0_328e0472",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "nit: a template literal seems nicer here, WDYT?\n\n    text: `${parsedKey}:${parsedValue}`,\n    \n(similar for other strings that are constructed with at least 2 concatenations below)",
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e466b07_02326e30",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "My favorite tech writing tip of all time: avoid “will” https://twitter.com/mathias/status/839160485324947456 Totally non-blocking of course, just sharing something that changed the way I write in case you like it too :)",
+      "range": {
+        "startLine": 1703,
+        "startChar": 16,
+        "endLine": 1703,
+        "endChar": 20
+      },
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6a9e87_194c2541",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "It’s not gonna matter much for such a small number, but it seems nicer to avoid allocating the intermediary `Array(SIMPLE_PAGE_REQUEST_NUMBER)` and simplify as:\n\n    Array.from({ length: SIMPLE_PAGE_REQUEST_NUMBER }, (_, i) \u003d\u003e `image.svg?id\u003d${i}/test/e2e/resources/network`)",
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f11da2_072f2034",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-16T12:40:59Z",
+      "side": 1,
+      "message": "reloads",
+      "range": {
+        "startLine": 29,
+        "startChar": 24,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "7414ded325b1d0c2f2dfe0ebb9907451cc90b6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
