@@ -16,6 +16,23 @@
       "message": "Reviewers, this is ready for final review, but please do not merge b/c we want\nto land https://github.com/GoogleChrome/lighthouse/pull/12702 in Lighthouse repo first.",
       "revId": "9b839aecdef9d6f9b893180e26171156fc4f19f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ebc792_ea37b27d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-16T09:28:26Z",
+      "side": 1,
+      "message": "Nice work Connor, this is a great improvement! 🎉 Looking forward to also removing the other TODO\u0027s, but I am presuming that will be handled in a follow-up CL?",
+      "revId": "9b839aecdef9d6f9b893180e26171156fc4f19f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
