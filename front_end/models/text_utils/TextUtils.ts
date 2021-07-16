@@ -201,38 +201,55 @@ export class FilterParser {
   }
 
   parse(query: string): ParsedFilter[] {
-    const splitResult = Utils.splitStringByRegexes(
+    const splitQueries = Utils.splitStringByRegexes(
         query, [Utils._keyValueFilterRegex, Utils._regexFilterRegex, Utils._textFilterRegex]);
-    const filters: ParsedFilter[] = [];
-    for (let i = 0; i < splitResult.length; i++) {
-      const regexIndex = splitResult[i].regexIndex;
+    const parsedFilters: ParsedFilter[] = [];
+    for (const {regexIndex, captureGroups} of splitQueries) {
       if (regexIndex === -1) {
         continue;
       }
-      const result = splitResult[i].captureGroups;
       if (regexIndex === 0) {
-        if (this._keys.indexOf((result[1] as string)) !== -1) {
-          filters.push({key: result[1], regex: undefined, text: result[2], negative: Boolean(result[0])});
+        if (this._keys.indexOf((captureGroups[1] as string)) !== -1) {
+          parsedFilters.push({
+            key: captureGroups[1],
+            regex: undefined,
+            text: captureGroups[2],
+            negative: Boolean(captureGroups[0]),
+          });
         } else {
-          filters.push(
-              {key: undefined, regex: undefined, text: result[1] + ':' + result[2], negative: Boolean(result[0])});
+          parsedFilters.push({
+            key: undefined,
+            regex: undefined,
+            text: captureGroups[1] + ':' + captureGroups[2],
+            negative: Boolean(captureGroups[0]),
+          });
         }
       } else if (regexIndex === 1) {
         try {
-          filters.push({
+          parsedFilters.push({
             key: undefined,
-            regex: new RegExp((result[1] as string), 'i'),
+            regex: new RegExp((captureGroups[1] as string), 'i'),
             text: undefined,
-            negative: Boolean(result[0]),
+            negative: Boolean(captureGroups[0]),
           });
         } catch (e) {
-          filters.push({key: undefined, regex: undefined, text: '/' + result[1] + '/', negative: Boolean(result[0])});
+          parsedFilters.push({
+            key: undefined,
+            regex: undefined,
+            text: '/' + captureGroups[1] + '/',
+            negative: Boolean(captureGroups[0]),
+          });
         }
       } else if (regexIndex === 2) {
-        filters.push({key: undefined, regex: undefined, text: result[1], negative: Boolean(result[0])});
+        parsedFilters.push({
+          key: undefined,
+          regex: undefined,
+          text: captureGroups[1],
+          negative: Boolean(captureGroups[0]),
+        });
       }
     }
-    return filters;
+    return parsedFilters;
   }
 }
 
