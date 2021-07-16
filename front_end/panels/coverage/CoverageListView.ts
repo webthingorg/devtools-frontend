@@ -293,12 +293,18 @@ export class CoverageListView extends UI.Widget.VBox {
   }
 }
 
+const percentageFormatter = new Intl.NumberFormat(i18n.DevToolsLocale.DevToolsLocale.instance().locale, {
+  style: 'percent',
+  maximumFractionDigits: 1,
+});
+
 export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<GridNode> {
   _coverageInfo: URLCoverageInfo;
   _lastUsedSize!: number|undefined;
   _url: string;
   _maxSize: number;
   _highlightRegExp: RegExp|null;
+
   constructor(coverageInfo: URLCoverageInfo, maxSize: number) {
     super();
     this._coverageInfo = coverageInfo;
@@ -363,9 +369,8 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         const unusedSizeSpan = cell.createChild('span');
         const unusedPercentsSpan = cell.createChild('span', 'percent-value');
         unusedSizeSpan.textContent = Platform.NumberUtilities.withThousandsSeparator(unusedSize);
-        // TODO(l10n): Don't concatenate the % string here. Do we need to use Intl number formatter instead?
         const unusedPercentFormatted =
-            i18nString(UIStrings.sPercent, {PH1: this._percentageString(this._coverageInfo.unusedPercentage())});
+            i18nString(UIStrings.sPercent, {PH1: percentageFormatter.format(this._coverageInfo.unusedPercentage())});
         unusedPercentsSpan.textContent = unusedPercentFormatted;
         const unusedAccessibleName = i18nString(UIStrings.sBytesS, {n: unusedSize, percentage: unusedPercentFormatted});
         this.setCellAccessibleName(unusedAccessibleName, cell, columnId);
@@ -373,8 +378,8 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       }
       case 'bars': {
         const barContainer = cell.createChild('div', 'bar-container');
-        const unusedPercent = this._percentageString(this._coverageInfo.unusedPercentage());
-        const usedPercent = this._percentageString(this._coverageInfo.usedPercentage());
+        const unusedPercent = percentageFormatter.format(this._coverageInfo.unusedPercentage());
+        const usedPercent = percentageFormatter.format(this._coverageInfo.usedPercentage());
         if (this._coverageInfo.unusedSize() > 0) {
           const unusedSizeBar = barContainer.createChild('div', 'bar bar-unused-size');
           unusedSizeBar.style.width = ((this._coverageInfo.unusedSize() / this._maxSize) * 100 || 0) + '%';
@@ -413,10 +418,6 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       }
     }
     return cell;
-  }
-
-  _percentageString(value: number): string {
-    return value.toFixed(1);
   }
 
   _highlight(element: Element, textContent: string): void {
