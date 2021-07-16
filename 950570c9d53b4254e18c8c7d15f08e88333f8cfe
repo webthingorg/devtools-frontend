@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "950570c9d53b4254e18c8c7d15f08e88333f8cfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2cfd51a_79eac35d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-16T08:07:49Z",
+      "side": 1,
+      "message": "LGTM with suggestion",
+      "revId": "950570c9d53b4254e18c8c7d15f08e88333f8cfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11160a8c_da21feab",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-16T08:07:49Z",
+      "side": 1,
+      "message": "is it worth a comment here explaining why we do this and where the 50 and 200 come from?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "950570c9d53b4254e18c8c7d15f08e88333f8cfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
