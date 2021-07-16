@@ -16,6 +16,24 @@
       "message": "Brightness and saturate values are each being set twice here.\n\nI\u0027m curious to know how you created these filter values, any tricks to share?",
       "revId": "e908114d400fcb61fbb83ae6874d244cefb17dd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8a20e1_a831fa6d",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-07-16T07:40:03Z",
+      "side": 1,
+      "message": "Yep, that\u0027s intentional. See https://codepen.io/sosuke/pen/Pjoqqp",
+      "parentUuid": "8a5c3895_a1b9ea0b",
+      "revId": "e908114d400fcb61fbb83ae6874d244cefb17dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
