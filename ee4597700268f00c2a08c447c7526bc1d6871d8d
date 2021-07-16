@@ -53,6 +53,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc31dd26_c2ca54e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-16T08:33:19Z",
+      "side": 1,
+      "message": "Rowan, could you also take a quick look at Sam\u0027s suggestion if we got the semantics of SameParty right?",
+      "revId": "ee4597700268f00c2a08c447c7526bc1d6871d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "957f0861_35089ea8",
