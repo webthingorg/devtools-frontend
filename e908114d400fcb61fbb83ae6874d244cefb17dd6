@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "327e6be1_538cfd7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T08:02:39Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e908114d400fcb61fbb83ae6874d244cefb17dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a5c3895_a1b9ea0b",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "Yep, that\u0027s intentional. See https://codepen.io/sosuke/pen/Pjoqqp",
       "parentUuid": "8a5c3895_a1b9ea0b",
+      "revId": "e908114d400fcb61fbb83ae6874d244cefb17dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a7f162_777ad2c6",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-16T08:02:39Z",
+      "side": 1,
+      "message": "Ah, got it, that\u0027s clever! Maybe a comment indicating the target color would help.",
+      "parentUuid": "8f8a20e1_a831fa6d",
       "revId": "e908114d400fcb61fbb83ae6874d244cefb17dd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
