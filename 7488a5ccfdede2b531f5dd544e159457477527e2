@@ -16,6 +16,24 @@
       "message": "I think you\u0027ll need to run `npm run install-deps` to actually put the clean-css module into the `node_modules` folder :)",
       "revId": "7488a5ccfdede2b531f5dd544e159457477527e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3808de99_223c343b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-19T15:03:57Z",
+      "side": 1,
+      "message": "I believe it already exists as a dependency of a dependency.",
+      "parentUuid": "98bff29c_8ec39fa8",
+      "revId": "7488a5ccfdede2b531f5dd544e159457477527e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
