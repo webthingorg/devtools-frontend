@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09220b24_8af43834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-19T10:28:56Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b26ca3f80dfc94989b7dca68e1bfaebc89ec7b32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e2e2fe0_ba7349b5",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-07-19T10:28:56Z",
+      "side": 1,
+      "message": "I appreciate you using `append` instead of `appendChild` — nice touch!",
+      "revId": "b26ca3f80dfc94989b7dca68e1bfaebc89ec7b32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
