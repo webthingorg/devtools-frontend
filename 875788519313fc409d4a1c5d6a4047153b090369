@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c66241a_9263bae9",
+        "filename": "front_end/core/sdk/SDKModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-19T06:35:23Z",
+      "side": 1,
+      "message": "I think for SDKModel it makes sense to forward the generic parameter on the class as the inheritance hierarchy is shallow. That is no model subclass (e.g. IssuesModel) will have further subclasses with a different set of events.",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "875788519313fc409d4a1c5d6a4047153b090369",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
