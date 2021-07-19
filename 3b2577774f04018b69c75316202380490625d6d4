@@ -56,6 +56,30 @@
       },
       "revId": "3b2577774f04018b69c75316202380490625d6d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26daeee9_ea6ed0f9",
+        "filename": "scripts/build/ninja/generate_css.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-19T13:57:51Z",
+      "side": 1,
+      "message": "We need to add an input that we now for certain will change whenever we update `cleancss`. If `index.js` doesn\u0027t always changes, what if we let it depend on `clean-css/package.json`? The `package.json` always includes the version number, so we 100% know it will change whenever we upgrade it.",
+      "parentUuid": "fdd75b26_9cbb549d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "3b2577774f04018b69c75316202380490625d6d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
