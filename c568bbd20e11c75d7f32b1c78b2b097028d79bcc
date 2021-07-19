@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d500ec5_20a12332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-07-19T14:36:44Z",
+      "side": 1,
+      "message": "lgtm.\n\nYou don\u0027t want to add yourself to the set of OWNERS?",
+      "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
