@@ -56,6 +56,30 @@
       },
       "revId": "70e59531092d67e023e3ee219bb44f508b46cbe7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91cecee7_1f25b53f",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1516942
+      },
+      "writtenOn": "2021-07-19T12:37:55Z",
+      "side": 1,
+      "message": "Using double-quote instead of single-quote as it covers more special characters in full path. See encodeURI() for more information.",
+      "parentUuid": "a4760978_652fae8a",
+      "range": {
+        "startLine": 17,
+        "startChar": 80,
+        "endLine": 17,
+        "endChar": 81
+      },
+      "revId": "70e59531092d67e023e3ee219bb44f508b46cbe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
