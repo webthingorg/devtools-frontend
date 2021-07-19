@@ -69,6 +69,24 @@
       "parentUuid": "543d7db9_d3a21c5c",
       "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc45da9e_f10dee36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-19T14:46:50Z",
+      "side": 1,
+      "message": "Good idea! I\u0027m getting a presubmit error though: //../front_end/models/extensions/OWNERS does not refer to an existing file.\n\nIs that a bug in our presubmit script or does OWNERS truly not support `..`?",
+      "parentUuid": "3f900333_4149bb13",
+      "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
