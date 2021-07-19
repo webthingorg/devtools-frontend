@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e9c4bec_becb3f74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-19T11:13:43Z",
+      "side": 1,
+      "message": "PTAL. See bug for details, but the docking icon was blue only for Mac for some reason - Peter asked that we change it to all platforms.",
+      "revId": "6cb659769548c9ab5684a3e0288691ad07050a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
