@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b61f6a_6abbab41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-19T10:51:29Z",
+      "side": 1,
+      "message": "Thanks for contributing to DevTools! Only one minor suggested change to make the build work 😊",
+      "revId": "70e59531092d67e023e3ee219bb44f508b46cbe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4760978_652fae8a",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-19T10:51:29Z",
+      "side": 1,
+      "message": "I tried to build locally and it failed, as we need double-escaping here. This should work:\n\n```\n      fileName.replace(\u0027src\\/\u0027, \u0027\u0027).replace(path.extname(fileName), \u0027\u0027)}\u0027, \u0027url(\\\\\u0027\u0027 + new URL(\u0027./${\n      fileName}\u0027, import.meta.url).toString() + \u0027\\\\\u0027)\u0027);`;\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 80,
+        "endLine": 17,
+        "endChar": 81
+      },
+      "revId": "70e59531092d67e023e3ee219bb44f508b46cbe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
