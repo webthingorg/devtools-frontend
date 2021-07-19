@@ -33,6 +33,24 @@
       "message": "Hi Yang, I\u0027m adding the OWNERS from //front_end/models/extensions plus bmeurer from //front_end/OWNERS, PTAL!",
       "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "226e6994_247f4331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-19T14:37:49Z",
+      "side": 1,
+      "message": "I\u0027m not an owner of //front_end/models/extensions, so I couldn\u0027t really do much with my ownership here :)",
+      "parentUuid": "7d500ec5_20a12332",
+      "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
