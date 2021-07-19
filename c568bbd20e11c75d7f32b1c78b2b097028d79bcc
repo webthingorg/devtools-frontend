@@ -51,6 +51,24 @@
       "parentUuid": "7d500ec5_20a12332",
       "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f900333_4149bb13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-19T14:39:20Z",
+      "side": 1,
+      "message": "You might want to use `file://../front_end/models/extensions/OWNERS` instead to keep the two in sync.",
+      "parentUuid": "543d7db9_d3a21c5c",
+      "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
