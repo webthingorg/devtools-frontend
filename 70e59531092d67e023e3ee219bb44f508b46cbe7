@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc673768_875a9c84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1516942
+      },
+      "writtenOn": "2021-07-19T11:25:04Z",
+      "side": 1,
+      "message": "Thanks for reviewing, instead of single-quote using double-quote.",
+      "revId": "70e59531092d67e023e3ee219bb44f508b46cbe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4760978_652fae8a",
