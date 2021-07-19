@@ -87,6 +87,24 @@
       "parentUuid": "3f900333_4149bb13",
       "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "611ce616_6ec64132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2021-07-19T14:52:04Z",
+      "side": 1,
+      "message": "Oh. Um. Yeah you might have to specify absolute URLs. Some examples: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/OWNERS;l\u003d3;drc\u003d46244285d4e96e7043114ff60759fc362418649b So then it would become `file://front_end/models/extensions/OWNERS` instead.",
+      "parentUuid": "cc45da9e_f10dee36",
+      "revId": "c568bbd20e11c75d7f32b1c78b2b097028d79bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
