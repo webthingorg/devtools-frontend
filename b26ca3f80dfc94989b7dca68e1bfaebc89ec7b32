@@ -33,6 +33,24 @@
       "message": "I appreciate you using `append` instead of `appendChild` — nice touch!",
       "revId": "b26ca3f80dfc94989b7dca68e1bfaebc89ec7b32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95fac713_830dea19",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-19T10:33:59Z",
+      "side": 1,
+      "message": "Yeah you introduced this to me :)",
+      "parentUuid": "3e2e2fe0_ba7349b5",
+      "revId": "b26ca3f80dfc94989b7dca68e1bfaebc89ec7b32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
