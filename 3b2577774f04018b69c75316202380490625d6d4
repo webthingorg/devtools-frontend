@@ -16,6 +16,46 @@
       "message": "Will submit another cl to add `clean-css` to `manage_node_deps.py`",
       "revId": "3b2577774f04018b69c75316202380490625d6d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ede21b_53b9ddf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-19T11:25:11Z",
+      "side": 1,
+      "message": "LGTM but please wait for Tim\u0027s +1 to land.\n\nAlso ensure that the clean-css into node-deps CL lands before this one 👍",
+      "revId": "3b2577774f04018b69c75316202380490625d6d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd75b26_9cbb549d",
+        "filename": "scripts/build/ninja/generate_css.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-19T11:25:11Z",
+      "side": 1,
+      "message": "asking more for my learning: do we not need every single file from clean-css in here or is the entrypoint enough?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "3b2577774f04018b69c75316202380490625d6d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
