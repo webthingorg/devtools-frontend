@@ -51,6 +51,24 @@
       "parentUuid": "20ebc792_ea37b27d",
       "revId": "9b839aecdef9d6f9b893180e26171156fc4f19f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "410d6817_544facfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-19T10:24:32Z",
+      "side": 1,
+      "message": "For the former TODO\u0027s. E.g. Those that refer to globals, pending the migration to ESM in LightHouse.",
+      "parentUuid": "7a404fc1_96a84acc",
+      "revId": "9b839aecdef9d6f9b893180e26171156fc4f19f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
