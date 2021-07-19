@@ -14,6 +14,7 @@ template("generate_css") {
     _dest = rebase_path(target_gen_dir, root_build_dir)
 
     args = [
+      "$is_debug",
       target_name,
       _src,
       _dest,
