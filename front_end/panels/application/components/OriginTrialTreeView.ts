@@ -3,11 +3,13 @@
 // found in the LICENSE file.
 
 // eslint-disable-next-line rulesdir/check_component_naming
+import * as i18n from '../../../core/i18n/i18n.js';
 import * as Protocol from '../../../generated/protocol.js';
 import * as Adorners from '../../../ui/components/adorners/adorners.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+
 import badgeStyles from './badge.css.js';
 import originTrialTokenRowsStyles from './originTrialTokenRows.css.js';
 
@@ -210,6 +212,13 @@ export class OriginTrialTokenRows extends HTMLElement {
           ${fieldValue}
         </div>`;
 
+  private formatExpiryTime(timestamp: number): string {
+    const date = new Date(timestamp * 1000);
+    const locale = i18n.DevToolsLocale.DevToolsLocale.instance().locale;
+    const formatter = new Intl.DateTimeFormat(locale, {dateStyle: 'long', timeStyle: 'long'});
+    return formatter.format(date);
+  }
+
   private setTokenFields(): void {
     if (!this.tokenWithStatus?.parsedToken) {
       return;
@@ -224,7 +233,7 @@ export class OriginTrialTokenRows extends HTMLElement {
       {
         name: UIStrings.expiryTime,
         value: this.renderTokenField(
-            new Date(this.tokenWithStatus.parsedToken.expiryTime * 1000).toLocaleString(),
+            this.formatExpiryTime(this.tokenWithStatus.parsedToken.expiryTime),
             this.tokenWithStatus.status === Protocol.Page.OriginTrialTokenStatus.Expired),
       },
       {
