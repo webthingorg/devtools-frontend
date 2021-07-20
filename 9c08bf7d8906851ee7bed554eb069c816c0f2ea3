@@ -39,6 +39,30 @@
       },
       "revId": "9c08bf7d8906851ee7bed554eb069c816c0f2ea3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2f30590_d4250054",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-20T10:29:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f8e3896_577c41de",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 67
+      },
+      "revId": "9c08bf7d8906851ee7bed554eb069c816c0f2ea3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
