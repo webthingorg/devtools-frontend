@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f34fbf4_8a1442cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-20T10:28:19Z",
+      "side": 1,
+      "message": "Ultra-nit: I don\u0027t think this is necessary anymore.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "62f2aa107c5c4d5a98998a3785f00ef74a44fc8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bc0aef8_f51730bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-20T10:28:19Z",
+      "side": 1,
+      "message": "Nice, this is great! It would be good to figure out how much this shrinks the production bundle in the end. We can do some small calculations once this lands in Chromium to figure that out 😊",
+      "revId": "62f2aa107c5c4d5a98998a3785f00ef74a44fc8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
