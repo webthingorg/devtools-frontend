@@ -35,6 +35,8 @@ interface ListenerCallbackTuple {
   disposed?: boolean;
 }
 
+type EventPayloadToRestParameters<T> = T extends void ? [] : [T];
+
 // TODO(crbug.com/1228674) Remove defaults for generic type parameters once
 //                         all event emitters and sinks have been migrated.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -88,7 +90,8 @@ export class ObjectWrapper<Events = any> implements EventTarget<Events> {
     return Boolean(this.listeners && this.listeners.has(eventType));
   }
 
-  dispatchEventToListeners<T extends EventType<Events>>(eventType: T, eventData?: EventPayload<Events, T>): void {
+  dispatchEventToListeners<T extends EventType<Events>>(
+      eventType: T, ...eventData: EventPayloadToRestParameters<EventPayload<Events, T>>): void {
     const listeners = this.listeners?.get(eventType);
     if (!listeners) {
       return;
