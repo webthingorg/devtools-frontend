@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b7bcb7_0f08007a",
+        "filename": "extension-api/extension-api-tsconfig.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-20T10:44:34Z",
+      "side": 1,
+      "message": "Interesting, I would have thought this should be `ExtensionAPI.js`, since that\u0027s what TypeScript sees. Does this really work? 😮 In that case, we can potentially cleanup some other tsconfig files. Not sure if that\u0027s worth it, but still good to know.",
+      "range": {
+        "startLine": 6,
+        "startChar": 5,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "c6766ddd79e6d0f9d75d57207cece36d58098b57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
