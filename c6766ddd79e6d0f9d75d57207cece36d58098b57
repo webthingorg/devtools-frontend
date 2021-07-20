@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af36f602_4fcca20e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-20T10:47:35Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "c6766ddd79e6d0f9d75d57207cece36d58098b57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b7bcb7_0f08007a",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-07-20T10:44:34Z",
       "side": 1,
       "message": "Interesting, I would have thought this should be `ExtensionAPI.js`, since that\u0027s what TypeScript sees. Does this really work? 😮 In that case, we can potentially cleanup some other tsconfig files. Not sure if that\u0027s worth it, but still good to know.",
+      "range": {
+        "startLine": 6,
+        "startChar": 5,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "c6766ddd79e6d0f9d75d57207cece36d58098b57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e180de5_c57463d5",
+        "filename": "extension-api/extension-api-tsconfig.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-20T10:47:35Z",
+      "side": 1,
+      "message": "I took inspiration from //front_end/generated/BUILD.gn and //front_end/generated/protocol-tsconfig.json, both are also using .d.ts files!",
+      "parentUuid": "e7b7bcb7_0f08007a",
       "range": {
         "startLine": 6,
         "startChar": 5,
