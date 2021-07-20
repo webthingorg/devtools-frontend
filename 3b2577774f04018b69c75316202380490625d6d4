@@ -80,6 +80,30 @@
       },
       "revId": "3b2577774f04018b69c75316202380490625d6d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5be972e3_12e8a860",
+        "filename": "scripts/build/ninja/generate_css.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-20T10:00:13Z",
+      "side": 1,
+      "message": "Changed it to package.json instead",
+      "parentUuid": "26daeee9_ea6ed0f9",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "3b2577774f04018b69c75316202380490625d6d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
