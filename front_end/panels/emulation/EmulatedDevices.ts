@@ -12,6 +12,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Protocol from '../../generated/protocol.js';
 
+
 import {MaxDeviceSize, MinDeviceSize} from './DeviceModeModel.js';
 
 const UIStrings = {
@@ -34,24 +35,22 @@ export class EmulatedDevice {
   title: string;
   type: string;
   order!: number;
-  vertical: Orientation;
-  horizontal: Orientation;
+  vertical?: Orientation;
+  horizontal?: Orientation;
   deviceScaleFactor: number;
   capabilities: string[];
   userAgent: string;
   userAgentMetadata: Protocol.Emulation.UserAgentMetadata|null;
   modes: Mode[];
   isDualScreen: boolean;
-  verticalSpanned: Orientation;
-  horizontalSpanned: Orientation;
+  verticalSpanned?: Orientation;
+  horizontalSpanned?: Orientation;
   _show: string;
   _showByDefault: boolean;
 
   constructor() {
     this.title = '';
     this.type = Type.Unknown;
-    this.vertical = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
-    this.horizontal = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
     this.deviceScaleFactor = 1;
     this.capabilities = [Capability.Touch, Capability.Mobile];
     this.userAgent = '';
@@ -59,8 +58,6 @@ export class EmulatedDevice {
     this.modes = [];
 
     this.isDualScreen = false;
-    this.verticalSpanned = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
-    this.horizontalSpanned = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
 
     this._show = _Show.Default;
     this._showByDefault = true;
@@ -208,22 +205,30 @@ export class EmulatedDevice {
         throw new Error('Emulated device has wrong deviceScaleFactor: ' + result.deviceScaleFactor);
       }
 
-      result.vertical = parseOrientation(parseValue(json['screen'], 'vertical', 'object'));
-      result.horizontal = parseOrientation(parseValue(json['screen'], 'horizontal', 'object'));
-      result.isDualScreen = (parseValue(json, 'dual-screen', 'boolean', false) as boolean);
+      const modes = parseValue(json, 'modes', 'object', []);
 
+      const verticalData = parseValue(json['screen'], 'vertical', 'object', false);
+      if (verticalData) {
+        result.vertical = parseOrientation(verticalData);
+        modes.push({'title': 'default', 'orientation': 'vertical'});
+      }
+
+      const horizontalData = parseValue(json['screen'], 'horizontal', 'object', false);
+      if (horizontalData) {
+        result.horizontal = parseOrientation(horizontalData);
+        modes.push({'title': 'default', 'orientation': 'horizontal'});
+      }
+
+      result.isDualScreen = (parseValue(json, 'dual-screen', 'boolean', false) as boolean);
       if (result.isDualScreen) {
         result.verticalSpanned = parseOrientation(parseValue(json['screen'], 'vertical-spanned', 'object', null));
         result.horizontalSpanned = parseOrientation(parseValue(json['screen'], 'horizontal-spanned', 'object', null));
+        modes.push({'title': 'default', 'orientation': 'vertical'}, {'title': 'default', 'orientation': 'horizontal'});
       }
       if (result.isDualScreen && (!result.verticalSpanned || !result.horizontalSpanned)) {
         throw new Error('Emulated device \'' + result.title + '\'has dual screen without spanned orientations');
       }
 
-      const modes = parseValue(json, 'modes', 'object', [
-        {'title': 'default', 'orientation': 'vertical'},
-        {'title': 'default', 'orientation': 'horizontal'},
-      ]);
       if (!Array.isArray(modes)) {
         throw new Error('Emulated device modes must be an array');
       }
@@ -312,8 +317,8 @@ export class EmulatedDevice {
 
     json['screen'] = {
       'device-pixel-ratio': this.deviceScaleFactor,
-      vertical: this._orientationToJSON(this.vertical),
-      horizontal: this._orientationToJSON(this.horizontal),
+      vertical: this.vertical ? this._orientationToJSON(this.vertical) : undefined,
+      horizontal: this.horizontal ? this._orientationToJSON(this.horizontal) : undefined,
       'vertical-spanned': undefined,
       'horizontal-spanned': undefined,
     } as {
@@ -325,8 +330,10 @@ export class EmulatedDevice {
     };
 
     if (this.isDualScreen) {
-      json['screen']['vertical-spanned'] = this._orientationToJSON(this.verticalSpanned);
-      json['screen']['horizontal-spanned'] = this._orientationToJSON(this.horizontalSpanned);
+      json['screen']['vertical-spanned'] =
+          this.verticalSpanned ? this._orientationToJSON(this.verticalSpanned) : undefined;
+      json['screen']['horizontal-spanned'] =
+          this.horizontalSpanned ? this._orientationToJSON(this.horizontalSpanned) : undefined;
     }
 
     json['modes'] = [] as JSONMode[];
@@ -424,15 +431,16 @@ export class EmulatedDevice {
   }
 
   orientationByName(name: string): Orientation {
+    const placeholderOrientation = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
     switch (name) {
       case VerticalSpanned:
-        return this.verticalSpanned;
+        return this.verticalSpanned || placeholderOrientation;
       case HorizontalSpanned:
-        return this.horizontalSpanned;
+        return this.horizontalSpanned || placeholderOrientation;
       case Vertical:
-        return this.vertical;
+        return this.vertical || placeholderOrientation;
       default:
-        return this.horizontal;
+        return this.horizontal || placeholderOrientation;
     }
   }
   show(): boolean {
@@ -636,6 +644,359 @@ export interface JSONMode {
 
 const emulatedDevices = [
   {
+    'order': 10,
+    'show-by-default': true,
+    'title': 'iPhone SE',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/iphone-se-horizontal.avif)',
+          'insets': {'left': 110, 'top': 30, 'right': 108, 'bottom': 31},
+        },
+        'width': 667,
+        'height': 375,
+      },
+      'device-pixel-ratio': 2,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/iphone-se-vertical.avif)',
+          'insets': {'left': 31, 'top': 110, 'right': 30, 'bottom': 108},
+        },
+        'width': 375,
+        'height': 667,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'type': 'phone',
+  },
+  {
+    'order': 12,
+    'show-by-default': true,
+    'title': 'iPhone XR',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/iphone-xr-horizontal.avif)',
+          'insets': {'left': 34, 'top': 38, 'right': 38, 'bottom': 38},
+        },
+        'width': 896,
+        'height': 414,
+      },
+      'device-pixel-ratio': 2,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/iphone-xr-vertical.avif)',
+          'insets': {'left': 38, 'top': 34, 'right': 38, 'bottom': 38},
+        },
+        'width': 414,
+        'height': 896,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'type': 'phone',
+  },
+  {
+    'order': 14,
+    'show-by-default': true,
+    'title': 'iPhone 12 Pro',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/iphone-12-pro-horizontal.avif)',
+          'insets': {'left': 23, 'top': 23, 'right': 23, 'bottom': 24},
+        },
+        'width': 844,
+        'height': 390,
+      },
+      'device-pixel-ratio': 3,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/iphone-12-pro-vertical.avif)',
+          'insets': {'left': 24, 'top': 23, 'right': 23, 'bottom': 23},
+        },
+        'width': 390,
+        'height': 844,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'type': 'phone',
+  },
+  {
+    'order': 16,
+    'show-by-default': true,
+    'title': 'Pixel 3 XL',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/pixel-3-xl-horizontal.avif)',
+          'insets': {'left': 72, 'top': 23, 'right': 64, 'bottom': 19},
+        },
+        'width': 786,
+        'height': 393,
+      },
+      'device-pixel-ratio': 2.75,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/pixel-3-xl-vertical.avif)',
+          'insets': {'left': 19, 'top': 72, 'right': 23, 'bottom': 64},
+        },
+        'width': 393,
+        'height': 786,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 11; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.181 Mobile Safari/537.36',
+    'type': 'phone',
+  },
+
+
+  {
+    'order': 18,
+    'show-by-default': true,
+    'title': 'Pixel 5',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/pixel-5-horizontal.avif)',
+          'insets': {'left': 22, 'top': 25, 'right': 21, 'bottom': 21},
+        },
+        'width': 851,
+        'height': 393,
+      },
+      'device-pixel-ratio': 2.75,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/pixel-5-vertical.avif)',
+          'insets': {'left': 21, 'top': 22, 'right': 25, 'bottom': 21},
+        },
+        'width': 393,
+        'height': 851,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36',
+    'type': 'phone',
+  },
+
+  {
+    'order': 20,
+    'show-by-default': true,
+    'title': 'Samsung Galaxy S8+',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/samsung-s8-plus-horizontal.avif)',
+          'insets': {'left': 46, 'top': 13, 'right': 41, 'bottom': 14},
+        },
+        'width': 740,
+        'height': 360,
+      },
+      'device-pixel-ratio': 4,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/samsung-s8-plus-vertical.avif)',
+          'insets': {'left': 14, 'top': 46, 'right': 13, 'bottom': 41},
+        },
+        'width': 360,
+        'height': 740,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
+    'type': 'phone',
+  },
+  {
+    'order': 22,
+    'show-by-default': true,
+    'title': 'Samsung Galaxy A51/71',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/samsung-a51-horizontal.avif)',
+          'insets': {'left': 46, 'top': 13, 'right': 41, 'bottom': 14},
+        },
+        'width': 740,
+        'height': 360,
+      },
+      'device-pixel-ratio': 4,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/samsung-a51-vertical.avif)',
+          'insets': {'left': 14, 'top': 46, 'right': 13, 'bottom': 41},
+        },
+        'width': 360,
+        'height': 740,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
+    'type': 'phone',
+  },
+  {
+    'order': 24,
+    'show-by-default': true,
+    'title': 'Samsung Galaxy S20 Ultra',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/samsung-s20-ultra-horizontal.avif)',
+          'insets': {'left': 16, 'top': 13, 'right': 23, 'bottom': 10},
+        },
+        'width': 915,
+        'height': 412,
+      },
+      'device-pixel-ratio': 3.5,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/samsung-s20-ultra-vertical.avif)',
+          'insets': {'left': 10, 'top': 16, 'right': 15, 'bottom': 23},
+        },
+        'width': 412,
+        'height': 915,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 10; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36',
+    'type': 'phone',
+  },
+  {
+    'order': 26,
+    'show-by-default': true,
+    'title': 'iPad Air',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/ipad-air-horizontal.avif)',
+          'insets': {'left': 57, 'top': 56, 'right': 54, 'bottom': 55},
+        },
+        'width': 1180,
+        'height': 820,
+      },
+      'device-pixel-ratio': 2,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/ipad-air-vertical.avif)',
+          'insets': {'left': 55, 'top': 57, 'right': 56, 'bottom': 54},
+        },
+        'width': 820,
+        'height': 1180,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1',
+    'type': 'tablet',
+  },
+  {
+    'order': 28,
+    'show-by-default': true,
+    'title': 'iPad Mini',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/ipad-mini-horizontal.avif)',
+          'insets': {'left': 139, 'top': 47, 'right': 139, 'bottom': 47},
+        },
+        'width': 1024,
+        'height': 768,
+      },
+      'device-pixel-ratio': 2,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/ipad-mini-vertical.avif)',
+          'insets': {'left': 139, 'top': 47, 'right': 139, 'bottom': 47},
+        },
+        'width': 768,
+        'height': 1024,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1',
+    'type': 'tablet',
+  },
+  {
+    'order': 30,
+    'show-by-default': true,
+    'title': 'Surface Pro 7',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/surface-pro-7-horizontal.avif)',
+          'insets': {'left': 82, 'top': 75, 'right': 82, 'bottom': 73},
+        },
+        'width': 1368,
+        'height': 912,
+      },
+      'device-pixel-ratio': 2,
+      'vertical': {
+        'outline': {
+          'image': '@url(optimized/surface-pro-7-vertical.avif)',
+          'insets': {'left': 73, 'top': 82, 'right': 75, 'bottom': 82},
+        },
+        'width': 912,
+        'height': 1368,
+      },
+    },
+    'capabilities': ['touch', 'mobile'],
+    'user-agent':
+        'Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1',
+    'type': 'tablet',
+  },
+  {
+    'order': 52,
+    'show-by-default': true,
+    'title': 'Nest Hub Max',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/nest-hub-max-horizontal.avif)',
+          'insets': {'left': 92, 'top': 96, 'right': 91, 'bottom': 248},
+        },
+        'width': 1280,
+        'height': 800,
+      },
+      'device-pixel-ratio': 2,
+    },
+    'capabilities': ['touch'],
+    'user-agent':
+        'Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.188 Safari/537.36 CrKey/1.54.250320',
+    'type': 'tablet',
+  },
+
+  {
+    'order': 50,
+    'show-by-default': true,
+    'title': 'Nest Hub',
+    'screen': {
+      'horizontal': {
+        'outline': {
+          'image': '@url(optimized/nest-hub-horizontal.avif)',
+          'insets': {'left': 82, 'top': 74, 'right': 83, 'bottom': 222},
+        },
+        'width': 1024,
+        'height': 600,
+      },
+      'device-pixel-ratio': 2,
+    },
+    'capabilities': ['touch'],
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.109 Safari/537.36 CrKey/1.54.248666',
+    'type': 'tablet',
+  },
+
+  {
     'show-by-default': false,
     'title': 'iPhone 4',
     'screen': {
@@ -650,7 +1011,7 @@ const emulatedDevices = [
   },
   {
     'order': 30,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPhone 5/SE',
     'screen': {
       'horizontal': {
@@ -678,7 +1039,7 @@ const emulatedDevices = [
   },
   {
     'order': 31,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPhone 6/7/8',
     'screen': {
       'horizontal': {
@@ -706,7 +1067,7 @@ const emulatedDevices = [
   },
   {
     'order': 32,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPhone 6/7/8 Plus',
     'screen': {
       'horizontal': {
@@ -734,7 +1095,7 @@ const emulatedDevices = [
   },
   {
     'order': 33,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPhone X',
     'screen': {
       'horizontal': {'width': 812, 'height': 375},
@@ -952,7 +1313,7 @@ const emulatedDevices = [
   },
   {
     'order': 20,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Pixel 2',
     'screen': {
       'horizontal': {'width': 731, 'height': 411},
@@ -968,7 +1329,7 @@ const emulatedDevices = [
   },
   {
     'order': 21,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Pixel 2 XL',
     'screen': {
       'horizontal': {'width': 823, 'height': 411},
@@ -1066,7 +1427,7 @@ const emulatedDevices = [
   },
   {
     'order': 10,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Galaxy S5',
     'screen': {
       'horizontal': {'width': 640, 'height': 360},
@@ -1122,7 +1483,7 @@ const emulatedDevices = [
   },
   {
     'order': 40,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPad',
     'screen': {
       'horizontal': {
@@ -1150,7 +1511,7 @@ const emulatedDevices = [
   },
   {
     'order': 41,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'iPad Pro',
     'screen': {
       'horizontal': {'width': 1366, 'height': 1024},
@@ -1275,7 +1636,7 @@ const emulatedDevices = [
     'modes': [{'title': 'default', 'orientation': 'horizontal'}],
   },
   {
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Moto G4',
     'screen': {
       'horizontal': {
@@ -1305,7 +1666,7 @@ const emulatedDevices = [
   },
   {
     'order': 45,
-    'show-by-default': true,
+    'show-by-default': false,
     'dual-screen': true,
     'title': 'Surface Duo',
     'screen': {
@@ -1340,7 +1701,7 @@ const emulatedDevices = [
   },
   {
     'order': 46,
-    'show-by-default': true,
+    'show-by-default': false,
     'dual-screen': true,
     'title': 'Galaxy Fold',
     'screen': {

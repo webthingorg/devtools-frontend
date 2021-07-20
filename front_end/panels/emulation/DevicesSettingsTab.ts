@@ -148,10 +148,8 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
   _addCustomDevice(): void {
     const device = new EmulatedDevice();
     device.deviceScaleFactor = 0;
-    device.horizontal.width = 700;
-    device.horizontal.height = 400;
-    device.vertical.width = 400;
-    device.vertical.height = 700;
+    device.horizontal = {width: 700, height: 400, outlineInsets: null, outlineImage: null, hinge: null};
+    device.vertical = {width: 400, height: 700, outlineInsets: null, outlineImage: null, hinge: null};
     this._list.addNewItem(this._emulatedDevicesList.custom().length, device);
   }
 
@@ -186,10 +184,12 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
 
   commitEdit(device: EmulatedDevice, editor: UI.ListWidget.Editor<EmulatedDevice>, isNew: boolean): void {
     device.title = editor.control('title').value.trim();
-    device.vertical.width = editor.control('width').value ? parseInt(editor.control('width').value, 10) : 0;
-    device.vertical.height = editor.control('height').value ? parseInt(editor.control('height').value, 10) : 0;
-    device.horizontal.width = device.vertical.height;
-    device.horizontal.height = device.vertical.width;
+    if (device.vertical && device.horizontal) {
+      device.vertical.width = editor.control('width').value ? parseInt(editor.control('width').value, 10) : 0;
+      device.vertical.height = editor.control('height').value ? parseInt(editor.control('height').value, 10) : 0;
+      device.horizontal.width = device.vertical.height;
+      device.horizontal.height = device.vertical.width;
+    }
     device.deviceScaleFactor = editor.control('scale').value ? parseFloat(editor.control('scale').value) : 0;
     device.userAgent = editor.control('user-agent').value;
     device.modes = [];
@@ -225,8 +225,8 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
   beginEdit(device: EmulatedDevice): UI.ListWidget.Editor<EmulatedDevice> {
     const editor = this._createEditor();
     editor.control('title').value = device.title;
-    editor.control('width').value = this._toNumericInputValue(device.vertical.width);
-    editor.control('height').value = this._toNumericInputValue(device.vertical.height);
+    editor.control('width').value = this._toNumericInputValue(device.vertical?.width || 0);
+    editor.control('height').value = this._toNumericInputValue(device.vertical?.height || 0);
     editor.control('scale').value = this._toNumericInputValue(device.deviceScaleFactor);
     editor.control('user-agent').value = device.userAgent;
     let uaType;
