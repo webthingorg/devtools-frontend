@@ -16,6 +16,23 @@
       "message": "Hi Sigurd,\n\nCan you take a look at this CL?",
       "revId": "c6459f03cfe943f6a944d1fb8e1cb1200b42c81a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e327aeef_47076205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-20T14:33:59Z",
+      "side": 1,
+      "message": "LGTM, please update test expectations if necessary.",
+      "revId": "c6459f03cfe943f6a944d1fb8e1cb1200b42c81a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
