@@ -41,6 +41,8 @@ import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_e
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ElementsComponents from './components/components.js';
+import computedStyleSidebarPaneStyles from './computedStyleSidebarPane.css.js';
+import computedStyleWidgetTreeStyles from './computedStyleWidgetTree.css.js';
 
 import type {ComputedStyle} from './ComputedStyleModel.js';
 import {ComputedStyleModel, Events} from './ComputedStyleModel.js';  // eslint-disable-line no-unused-vars
@@ -72,7 +74,7 @@ const UIStrings = {
   * grouped together or not. In Computed Style Widget of the Elements panel.
   */
   group: 'Group',
-  /**
+  /** [
   * @description Text shown to the user when a filter is applied to the computed CSS properties, but
   * no properties matched the filter and thus no results were returned.
   */
@@ -269,6 +271,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     }
     this._idleCallbackManager = new IdleCallbackManager();
     super.update();
+  }
+
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([computedStyleSidebarPaneStyles]);
+    this._propertiesOutline.registerCSSFiles([computedStyleWidgetTreeStyles]);
   }
 
   async doUpdate(): Promise<void> {
