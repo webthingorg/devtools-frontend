@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a424a05a_a96d96cf",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-20T15:59:30Z",
+      "side": 1,
+      "message": "Should we move this definition to `EventTarget` and also change `dispatchEventToListeners` on `EventTarget` so it stays consistent?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 65
+      },
+      "revId": "965545c13a2867e59ffff9a634a75ef9279e1e85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "184b6c79_27576b6a",
+        "filename": "test/unittests/front_end/core/common/EventTarget_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-20T15:59:30Z",
+      "side": 1,
+      "message": "Could we have negative test cases as well? This change would pass also with the current version of the code.\n\n1) An @ts-expect-error case when trying to provide an argument to a `VoidEvent`.\n2) An @ts-expect-error case when omitting the argument to a non-void event (which is arguably the most important case).",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "965545c13a2867e59ffff9a634a75ef9279e1e85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
