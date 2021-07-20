@@ -24,7 +24,7 @@ type TestEvents = {
 
 class TypedEventEmitter extends Common.ObjectWrapper.ObjectWrapper<TestEvents> {
   testValidArgumentTypes() {
-    this.dispatchEventToListeners(Events.VoidEvent, undefined);
+    this.dispatchEventToListeners(Events.VoidEvent);
     this.dispatchEventToListeners(Events.NumberEvent, 5.0);
     this.dispatchEventToListeners(Events.KeyValueEvent, {key: 'key', value: 42});
     this.dispatchEventToListeners(Events.BooleanEvent, true);
