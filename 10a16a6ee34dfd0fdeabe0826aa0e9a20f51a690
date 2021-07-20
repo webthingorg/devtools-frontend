@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80eede8e_707eece2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-20T10:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91247ebf_09bc2e68",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "10a16a6ee34dfd0fdeabe0826aa0e9a20f51a690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbef1a01_209adfbf",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-25T14:19:16Z",
       "side": 1,
       "message": "I\u0027d again consider defining each of these as their own type so the union is easier to follow, but will leave it to you. I find scanning this quite hard.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 119
+      },
+      "revId": "10a16a6ee34dfd0fdeabe0826aa0e9a20f51a690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "621d76a6_4c02e9e4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-07-20T10:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbef1a01_209adfbf",
       "range": {
         "startLine": 201,
         "startChar": 0,
