@@ -26,6 +26,7 @@ export function removeEventListeners(eventList: EventDescriptor[]): void {
 //    export type EventPayload<Events, T> = Events[T];
 export type EventType<Events> = Events extends Object ? keyof Events : string|symbol;
 export type EventPayload<Events, T> = T extends keyof Events ? Events[T] : unknown;
+export type EventPayloadToRestParameters<T> = T extends void ? [] : [T];
 
 // TODO(crbug.com/1228674) Remove defaults for generic type parameters once
 //                         all event emitters and sinks have been migrated.
@@ -38,7 +39,8 @@ export interface EventTarget<Events = any> {
   removeEventListener<T extends EventType<Events>>(
       eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void, thisObject?: Object): void;
   hasEventListeners(eventType: EventType<Events>): boolean;
-  dispatchEventToListeners<T extends EventType<Events>>(eventType: T, eventData?: EventPayload<Events, T>): void;
+  dispatchEventToListeners<T extends EventType<Events>>(
+      eventType: T, ...[eventData]: EventPayloadToRestParameters<EventPayload<Events, T>>): void;
 }
 
 export function fireEvent(name: string, detail: unknown = {}, target: HTMLElement|Window = window): void {

@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type {EventDescriptor, EventTarget, EventTargetEvent, EventType, EventPayload} from './EventTarget.js';
+import type {EventDescriptor, EventTarget, EventTargetEvent, EventType, EventPayload, EventPayloadToRestParameters} from './EventTarget.js';
 
 interface ListenerCallbackTuple {
   thisObject?: Object;
@@ -88,7 +88,8 @@ export class ObjectWrapper<Events = any> implements EventTarget<Events> {
     return Boolean(this.listeners && this.listeners.has(eventType));
   }
 
-  dispatchEventToListeners<T extends EventType<Events>>(eventType: T, eventData?: EventPayload<Events, T>): void {
+  dispatchEventToListeners<T extends EventType<Events>>(
+      eventType: T, ...[eventData]: EventPayloadToRestParameters<EventPayload<Events, T>>): void {
     const listeners = this.listeners?.get(eventType);
     if (!listeners) {
       return;
