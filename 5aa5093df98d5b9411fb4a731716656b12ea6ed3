@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a638a941_a0c02837",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T07:13:54Z",
+      "side": 1,
+      "message": "Thanks! lgtm % one tiny nit",
+      "revId": "5aa5093df98d5b9411fb4a731716656b12ea6ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6c7e7e_9e65892a",
+        "filename": "test/unittests/front_end/core/common/EventTarget_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T07:13:54Z",
+      "side": 1,
+      "message": "nit: Move to \"testInvalidArgumentTypes\"\n\nQuestion: Does this work?\n\n // @ts-expect-error\n this.dispatchEventToLIsteners(Events.NumberEvent);",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "5aa5093df98d5b9411fb4a731716656b12ea6ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
