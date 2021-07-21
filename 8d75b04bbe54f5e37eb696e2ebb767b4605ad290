@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d697f3d4_cbb6e863",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-07-21T15:31:50Z",
+      "side": 1,
+      "message": "Sure thing. Added this text: \"This subclass was included in the cycle as SourceFrameIssuesManager was updated to import the subclass instead of IssuesManager.\"",
+      "parentUuid": "cc218923_512b61ff",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "8d75b04bbe54f5e37eb696e2ebb767b4605ad290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c27dadcf_f02c2f08",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
