@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71126038_25f7633b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T17:41:25Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "ab7cebd6bd864b1f10f7f00470996b0108822570",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9175f0a7_6fbfff68",
+        "filename": "front_end/core/sdk/PageResourceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T17:41:25Z",
+      "side": 1,
+      "message": "q: Should we type listeners for `Update` to have `EventTargetEvent\u003cvoid\u003e` to make sure `event.data` is not accessed?",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 23
+      },
+      "revId": "ab7cebd6bd864b1f10f7f00470996b0108822570",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
