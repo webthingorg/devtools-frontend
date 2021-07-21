@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d809f524_e74ae477",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T06:28:29Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation, added it 😊\n\nI also added a short sentence that \"impossible\" intersection types (e.g. `string \u0026 number`) get reduced to `never`.",
+      "parentUuid": "c278edef_d1a9a8c2",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 3
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fbb24b7_c85ee2b3",
@@ -137,6 +161,54 @@
         "startChar": 25,
         "endLine": 49,
         "endChar": 28
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dad0412_415077f4",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T06:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eb9c358_d2bba811",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f753bc_a982c009",
+        "filename": "front_end/core/platform/typescript-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T06:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf53806a_b4415b10",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 19
       },
       "revId": "71389c7266f0a425a99ad94ead2d7949c42dc0be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
