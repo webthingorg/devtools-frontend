@@ -87,6 +87,30 @@
       },
       "revId": "fc670fa27d57bccc0f55af39db44dc20d0ea1540",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f788f6c_47cf0188",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T07:16:06Z",
+      "side": 1,
+      "message": "Great idea! Done.\n\nSide-note: We will still have to use i18nLazyString since the function will still run at module instantiation time.",
+      "parentUuid": "020300d4_21679f81",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 355,
+        "endChar": 5
+      },
+      "revId": "fc670fa27d57bccc0f55af39db44dc20d0ea1540",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
