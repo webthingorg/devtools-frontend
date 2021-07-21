@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as SDK from '../../core/sdk/sdk.js';
+import * as SDK from '../../core/sdk/sdk.js';
 import type * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
 import * as ElementsComponents from './components/components.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
@@ -12,7 +12,8 @@ export type AXTreeNode = TreeOutline.TreeOutlineUtils.TreeNode<AXTreeNodeData>;
 
 export function sdkNodeToAXTreeNode(sdkNode: SDK.AccessibilityModel.AccessibilityNode): AXTreeNode {
   const treeNodeData = sdkNode;
-  if (!sdkNode.numChildren()) {
+  const role = sdkNode.role()?.value;
+  if (!sdkNode.numChildren() && role !== 'Iframe') {
     return {
       treeNodeData,
       id: sdkNode.id(),
@@ -22,6 +23,17 @@ export function sdkNodeToAXTreeNode(sdkNode: SDK.AccessibilityModel.Accessibilit
   return {
     treeNodeData,
     children: async(): Promise<AXTreeNode[]> => {
+      const domNode = await sdkNode.deferredDOMNode()?.resolvePromise();
+      const document = domNode?.contentDocument();
+      if (document) {
+        const axmodel = document.domModel().target().model(SDK.AccessibilityModel.AccessibilityModel);
+        await axmodel?.requestPartialAXTree(document);
+        const localRoot = axmodel?.axNodeForDOMNode(document);
+        if (!localRoot) {
+          return Promise.resolve([]);
+        }
+        return Promise.resolve([sdkNodeToAXTreeNode(localRoot)]);
+      }
       if (sdkNode.numChildren() === sdkNode.children().length) {
         return Promise.resolve(sdkNode.children().map(child => sdkNodeToAXTreeNode(child)));
       }
