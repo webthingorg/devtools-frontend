@@ -46,6 +46,30 @@
       },
       "revId": "692d27faf8b7c514a2fba0386231d983c1cb2292",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a96ae28b_8d85b6fa",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-21T07:35:06Z",
+      "side": 1,
+      "message": "No, that was my question.",
+      "parentUuid": "db2c3242_e9445b62",
+      "range": {
+        "startLine": 358,
+        "startChar": 4,
+        "endLine": 358,
+        "endChar": 95
+      },
+      "revId": "692d27faf8b7c514a2fba0386231d983c1cb2292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
