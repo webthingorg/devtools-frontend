@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e9a0fcd_b3f4fa98",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "I like \u0027updateIssueHiddenStatus\u0027",
+      "parentUuid": "872bcc68_e17da6da",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "067c0b99_ce191adf",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 33

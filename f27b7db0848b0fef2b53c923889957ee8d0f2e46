@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5bea20_c9c51d78",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 0,
+      "message": "nit: keep the empty line",
+      "revId": "f27b7db0848b0fef2b53c923889957ee8d0f2e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff433c5_91f625b1",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 0,
+      "message": "nit: keep empty line",
+      "revId": "f27b7db0848b0fef2b53c923889957ee8d0f2e46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

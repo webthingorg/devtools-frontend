@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f3b667_abaca103",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8506fe2c_d1d12baa",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "nit: These lines could probably be removed.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 5
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6ca7fdf_bb05c4bd",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "Should hiddenIssuesCount be part of another CL (the one in which you update the icon counter)?",
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b8937d_8e2fab74",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "nit: 1 empty line is enough",
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc917a8_3c43005e",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "remove category and kind",
+      "range": {
+        "startLine": 336,
+        "startChar": 6,
+        "endLine": 337,
+        "endChar": 49
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e15624_93de9f25",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "Should this be gated behind the experiment?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 43
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3320b0c6_3bdad34b",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "\u0027Hide this issue\u0027?",
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f4fbfa_d8d55e7a",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "remove category and kind",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8052a70c_77da691c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-21T11:20:51Z",
+      "side": 1,
+      "message": "remove category and kind",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
