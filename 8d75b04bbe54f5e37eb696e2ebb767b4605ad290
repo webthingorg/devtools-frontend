@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc218923_512b61ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-21T07:15:29Z",
+      "side": 1,
+      "message": "Could you add a sentence about how the dependency cycle between the sub-class of IssuesManager and IssuesManager looked like (Why did the sub-class import IssuesManager? Was it because you imported the sub-class in SourceFrameIssuesManager?)",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "8d75b04bbe54f5e37eb696e2ebb767b4605ad290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c27dadcf_f02c2f08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-21T07:15:29Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "8d75b04bbe54f5e37eb696e2ebb767b4605ad290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
