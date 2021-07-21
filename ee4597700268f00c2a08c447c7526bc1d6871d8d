@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "537662e2_9150c471",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T05:18:36Z",
+      "side": 1,
+      "message": "Done. Agreed, its clearer now.",
+      "parentUuid": "f0a79c4b_34654d37",
+      "revId": "ee4597700268f00c2a08c447c7526bc1d6871d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "957f0861_35089ea8",
@@ -107,6 +125,30 @@
       "side": 1,
       "message": "Yes — that\u0027s a good destination.",
       "parentUuid": "957f0861_35089ea8",
+      "range": {
+        "startLine": 424,
+        "startChar": 9,
+        "endLine": 424,
+        "endChar": 11
+      },
+      "revId": "ee4597700268f00c2a08c447c7526bc1d6871d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeec161b_b3a25a70",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T05:18:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b206241a_423604f3",
       "range": {
         "startLine": 424,
         "startChar": 9,
