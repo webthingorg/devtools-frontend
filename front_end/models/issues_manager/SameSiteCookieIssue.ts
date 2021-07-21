@@ -25,11 +25,11 @@ const UIStrings = {
   /**
   *@description Phrase used to describe the security of a context. Substitued like 'a secure context' or 'a secure origin'.
   */
-  aSecure: 'a secure',
+  aSecure: 'a secure',  // eslint-disable-line rulesdir/l10n_no_unused_message
   /**
   *@description Phrase used to describe the security of a context. Substitued like 'an insecure context' or 'an insecure origin'.
   */
-  anInsecure: 'an insecure',
+  anInsecure: 'an insecure',  // eslint-disable-line rulesdir/l10n_no_unused_message
 };
 const str_ = i18n.i18n.registerUIStrings('models/issues_manager/SameSiteCookieIssue.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -349,8 +349,8 @@ const schemefulSameSiteArticles =
 
 function sameSiteWarnStrictLaxDowngradeStrict(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_destination', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_origin', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteWarnStrictLaxDowngradeStrict.md',
@@ -361,8 +361,8 @@ function sameSiteWarnStrictLaxDowngradeStrict(isSecure: boolean): LazyMarkdownIs
 
 function sameSiteExcludeNavigationContextDowngrade(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_destination', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_origin', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteExcludeNavigationContextDowngrade.md',
@@ -373,8 +373,8 @@ function sameSiteExcludeNavigationContextDowngrade(isSecure: boolean): LazyMarkd
 
 function sameSiteWarnCrossDowngradeRead(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_destination', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_origin', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteWarnCrossDowngradeRead.md',
@@ -385,8 +385,8 @@ function sameSiteWarnCrossDowngradeRead(isSecure: boolean): LazyMarkdownIssueDes
 
 function sameSiteExcludeContextDowngradeRead(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_destination', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_origin', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteExcludeContextDowngradeRead.md',
@@ -397,8 +397,8 @@ function sameSiteExcludeContextDowngradeRead(isSecure: boolean): LazyMarkdownIss
 
 function sameSiteWarnCrossDowngradeSet(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_ORIGIN', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_DESTINATION', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_ORIGIN', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_DESTINATION', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteWarnCrossDowngradeSet.md',
@@ -409,8 +409,8 @@ function sameSiteWarnCrossDowngradeSet(isSecure: boolean): LazyMarkdownIssueDesc
 
 function sameSiteExcludeContextDowngradeSet(isSecure: boolean): LazyMarkdownIssueDescription {
   const substitutions = new Map([
-    ['PLACEHOLDER_destination', isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
-    ['PLACEHOLDER_origin', !isSecure ? i18nLazyString(UIStrings.aSecure) : i18nLazyString(UIStrings.anInsecure)],
+    ['PLACEHOLDER_destination', (): string => isSecure ? 'a secure' : 'an insecure'],
+    ['PLACEHOLDER_origin', (): string => !isSecure ? 'a secure' : 'an insecure'],
   ]);
   return {
     file: 'SameSiteExcludeContextDowngradeSet.md',
