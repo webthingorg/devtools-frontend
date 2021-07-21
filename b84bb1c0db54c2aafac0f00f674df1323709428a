@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c079e0_2b9307f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T11:57:06Z",
+      "side": 1,
+      "message": "PTAL, as discussed on the bug, disabling REPL mode might be a good compromise.",
+      "revId": "b84bb1c0db54c2aafac0f00f674df1323709428a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
