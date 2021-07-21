@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450bd4a4_1c78aa8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T08:41:51Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "12ffd8536e25af128616da0ab267d575392b6cc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d20c32_6076b999",
+        "filename": "front_end/panels/issues/WasmCrossOriginModuleSharingAffectedResourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T08:41:51Z",
+      "side": 1,
+      "message": "nit: duplicate here and below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 25,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "12ffd8536e25af128616da0ab267d575392b6cc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
