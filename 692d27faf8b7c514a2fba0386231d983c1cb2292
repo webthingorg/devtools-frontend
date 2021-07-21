@@ -22,6 +22,30 @@
       },
       "revId": "692d27faf8b7c514a2fba0386231d983c1cb2292",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2c3242_e9445b62",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-21T07:31:03Z",
+      "side": 1,
+      "message": "The markdown description localization is still a bit off. Until that has landed we shouldn\u0027t substitute localized phrases into english markdown. The TODO here is just to track that we don\u0027t forget to turn this back into `i18nLazyString`.\n\nOr am I understanding the question wrong?",
+      "parentUuid": "c8d20661_7ec24ea2",
+      "range": {
+        "startLine": 358,
+        "startChar": 4,
+        "endLine": 358,
+        "endChar": 95
+      },
+      "revId": "692d27faf8b7c514a2fba0386231d983c1cb2292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
