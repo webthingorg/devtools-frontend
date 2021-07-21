@@ -63,6 +63,30 @@
       },
       "revId": "fc670fa27d57bccc0f55af39db44dc20d0ea1540",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020300d4_21679f81",
+        "filename": "front_end/models/issues_manager/SameSiteCookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-21T06:17:35Z",
+      "side": 1,
+      "message": "As it looks, we can easily change the PLACEHOLDER_ORIGIN/PLACEHOLDER_DESTINATION placeholders to match.\n\nI think a function would be good, we can get rid of the i18nLazyString then as well.\n\nMaybe have one argument of type {isDestinationSecure: boolean, isOriginSecure: boolean} as this will make the use-sites easier to read.",
+      "parentUuid": "409af1e6_7424cfcd",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 355,
+        "endChar": 5
+      },
+      "revId": "fc670fa27d57bccc0f55af39db44dc20d0ea1540",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
