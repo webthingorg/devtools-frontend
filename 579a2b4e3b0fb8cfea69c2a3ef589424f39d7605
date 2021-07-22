@@ -26,6 +26,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fab09cb_74f63538",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-22T15:34:58Z",
+      "side": 1,
+      "message": "I think this should go into IssuesManager.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc145c78_ed0f28c2",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-22T15:34:58Z",
+      "side": 1,
+      "message": "This should also live in issues manager. (getShowThirdPartyIssuesSetting probably shouldn\u0027t be here either, but leave that as-is for now).",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9333e3b5_d92e2924",
         "filename": "front_end/panels/issues/IssueAggregator.ts",
         "patchSetId": 42
@@ -37,6 +83,29 @@
       "writtenOn": "2021-07-22T14:29:56Z",
       "side": 1,
       "message": "remove",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d51a271_4a824db3",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-22T15:34:58Z",
+      "side": 1,
+      "message": "nit: refactor out a helper that takes this.hiddenAggregatedIssuesByCode / this.aggregatedIssuesByCode as additional argument.",
+      "range": {
+        "startLine": 225,
+        "startChar": 10,
+        "endLine": 225,
+        "endChar": 24
+      },
       "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
