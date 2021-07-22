@@ -194,7 +194,7 @@ describe('The Application Tab', async () => {
   });
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
-  it('can handle when JS writes to frame', async () => {
+  it.only('can handle when JS writes to frame', async () => {
     const {target} = getBrowserAndPages();
     await goToResource('application/main-frame.html');
     await click('#tab-resources');
