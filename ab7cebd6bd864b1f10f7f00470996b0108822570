@@ -39,6 +39,30 @@
       },
       "revId": "ab7cebd6bd864b1f10f7f00470996b0108822570",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ccf76f9_14693b67",
+        "filename": "front_end/core/sdk/PageResourceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-22T10:55:49Z",
+      "side": 1,
+      "message": "The event listeners are taking no arguments, which I think is fine.\n\nI agree that we should add the generic argument to EventTargetEvent if the listener declares such an argument.",
+      "parentUuid": "9175f0a7_6fbfff68",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 23
+      },
+      "revId": "ab7cebd6bd864b1f10f7f00470996b0108822570",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
