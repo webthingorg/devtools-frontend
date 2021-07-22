@@ -305,16 +305,19 @@ export class IssuesPane extends UI.Widget.VBox {
     return newView;
   }
 
-  private clearViews(views: Map<unknown, UI.TreeOutline.TreeElement>): void {
-    for (const view of views.values()) {
+  private clearViews<T>(views: Map<T, UI.TreeOutline.TreeElement>, preservedSet?: Set<T>): void {
+    for (const [key, view] of Array.from(views.entries())) {
+      if (preservedSet?.has(key)) {
+        continue;
+      }
       view.parent && view.parent.removeChild(view);
+      views.delete(key);
     }
-    views.clear();
   }
 
   private fullUpdate(): void {
-    this.clearViews(this.categoryViews);
-    this.clearViews(this.issueViews);
+    this.clearViews(this.categoryViews, this.aggregator.aggregatedIssueCategories());
+    this.clearViews(this.issueViews, this.aggregator.aggregatedIssueCodes());
     if (this.aggregator) {
       for (const issue of this.aggregator.aggregatedIssues()) {
         this.scheduleIssueViewUpdate(issue);
