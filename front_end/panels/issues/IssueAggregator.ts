@@ -135,6 +135,8 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
     if (!this.representative) {
       this.representative = issue;
     }
+    // issue.getKind() == Improvement
+    // this.issueKind = Page Error.
     this.issueKind = IssuesManager.Issue.unionIssueKind(this.issueKind, issue.getKind());
     let hasRequest = false;
     for (const request of issue.requests()) {
@@ -198,7 +200,7 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
 
 export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   private readonly aggregatedIssuesByCode = new Map<string, AggregatedIssue>();
-
+  private readonly hiddenAggregatedIssuesByCode = new Map<string, AggregatedIssue>();
   constructor(private readonly issuesManager: IssuesManager.IssuesManager.IssuesManager) {
     super();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
@@ -226,6 +228,15 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   private aggregateIssue(issue: IssuesManager.Issue.Issue): AggregatedIssue {
+    if (issue.isHidden()) {
+      let hiddenAggregatedIssue = this.hiddenAggregatedIssuesByCode.get(issue.code());
+      if (!hiddenAggregatedIssue) {
+        hiddenAggregatedIssue = new AggregatedIssue(issue.code());
+        this.hiddenAggregatedIssuesByCode.set(issue.code(), hiddenAggregatedIssue);
+      }
+      hiddenAggregatedIssue.addInstance(issue);
+      return hiddenAggregatedIssue;
+    }
     let aggregatedIssue = this.aggregatedIssuesByCode.get(issue.code());
     if (!aggregatedIssue) {
       aggregatedIssue = new AggregatedIssue(issue.code());
