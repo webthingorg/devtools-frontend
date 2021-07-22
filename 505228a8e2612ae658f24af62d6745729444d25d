@@ -81,6 +81,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f062fb_7c1701db",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4b8937d_8e2fab74",
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cc917a8_3c43005e",
@@ -94,6 +112,30 @@
       "writtenOn": "2021-07-21T11:20:51Z",
       "side": 1,
       "message": "remove category and kind",
+      "range": {
+        "startLine": 336,
+        "startChar": 6,
+        "endLine": 337,
+        "endChar": 49
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301a9513_f4c6d812",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc917a8_3c43005e",
       "range": {
         "startLine": 336,
         "startChar": 6,
@@ -127,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4828e3f_e8015e26",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22e15624_93de9f25",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 43
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3320b0c6_3bdad34b",
@@ -140,6 +206,24 @@
       "writtenOn": "2021-07-21T11:20:51Z",
       "side": 1,
       "message": "\u0027Hide this issue\u0027?",
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8792f2f_cb0917cf",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3320b0c6_3bdad34b",
       "revId": "505228a8e2612ae658f24af62d6745729444d25d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -167,6 +251,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3456ebd4_9348bded",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69f4fbfa_d8d55e7a",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8052a70c_77da691c",
@@ -180,6 +288,30 @@
       "writtenOn": "2021-07-21T11:20:51Z",
       "side": 1,
       "message": "remove category and kind",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "505228a8e2612ae658f24af62d6745729444d25d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22456c38_61beee61",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 39
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8052a70c_77da691c",
       "range": {
         "startLine": 42,
         "startChar": 1,

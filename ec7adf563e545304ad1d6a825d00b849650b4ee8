@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d54d9c_6e209d34",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T14:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e9a0fcd_b3f4fa98",
+      "revId": "ec7adf563e545304ad1d6a825d00b849650b4ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "067c0b99_ce191adf",
