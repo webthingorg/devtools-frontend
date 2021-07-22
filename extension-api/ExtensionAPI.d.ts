@@ -134,6 +134,12 @@ export namespace Chrome {
       name: string;
     }
 
+    export type Enumerator = {
+      name: string,
+      value: bigint,
+      typeId: unknown,
+    };
+
     export interface FieldInfo {
       name?: string;
       offset: number;
@@ -143,7 +149,8 @@ export namespace Chrome {
     export interface TypeInfo {
       typeNames: string[];
       typeId: unknown;
-      members: FieldInfo[];
+      members?: FieldInfo[];
+      enumerators?: Enumerator[];
       alignment: number;
       arraySize: number;
       size: number;
