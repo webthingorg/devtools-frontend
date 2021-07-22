@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aacd0a8_38b5350c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-22T11:59:28Z",
+      "side": 1,
+      "message": "Thanks for improving the descriptions and fixing the missing API usage!",
+      "revId": "a2490015e515fd712dee5e15aba52f7c8a73f32a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
