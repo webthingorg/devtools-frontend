@@ -33,6 +33,24 @@
       "message": "Just curious: what\u0027s the usage of this `order` field?",
       "revId": "34cffa0aff53436da51faade27c0140566988b0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2ab0aa_1e266fb6",
+        "filename": "front_end/panels/emulation/EmulatedDevices.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-22T09:46:58Z",
+      "side": 1,
+      "message": "It decides the order of the devices in the dropdown menu, so this makes them appear last.",
+      "parentUuid": "f004a447_8a2bf1c8",
+      "revId": "34cffa0aff53436da51faade27c0140566988b0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
