@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "6f1aec38dd9a76279de7a7f649e6b9c6987a3dde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "208e36b6_47d6b6d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-07-22T16:35:33Z",
+      "side": 1,
+      "message": "Ideally cc TPMs for visibility and confirmation of the branch number.",
+      "revId": "6f1aec38dd9a76279de7a7f649e6b9c6987a3dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
