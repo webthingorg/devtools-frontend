@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9aa2268b_4d939e05",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "nit: new lines before and after",
+      "range": {
+        "startLine": 309,
+        "startChar": 4,
+        "endLine": 310,
+        "endChar": 30
+      },
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9333e3b5_d92e2924",
         "filename": "front_end/panels/issues/IssueAggregator.ts",
         "patchSetId": 42
@@ -31,6 +54,125 @@
       "writtenOn": "2021-07-22T14:29:56Z",
       "side": 1,
       "message": "nit: remove comment",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e987b46e_55ecd652",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "Since the event isn\u0027t used, you can just remove it.",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f0d322_42e33a01",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22cedb62_6cb3c05b",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "I\u0027d prefer if toggling the css class happened in the render function.",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38bfa0d4_79eac2cb",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "We just removed custom tooltips from DevTools. You can just use a title tag for the button element in the render function instead.",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868ad16e_bf5d102c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "Call the render function instead (see above).",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "457b0ff6_f43be515",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "nit: maybe rename to \u0027on...()\u0027 e.g. \u0027onShowMenuClick\u0027 or \u0027onOpenMenu\u0027",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30e67443_7c740d7d",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-22T15:27:52Z",
+      "side": 1,
+      "message": "nit: \u0027onHideIssueByCode\u0027",
       "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
