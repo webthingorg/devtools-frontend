@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "378bf7c9_a01fadae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-22T15:03:42Z",
+      "side": 1,
+      "message": "PTAL, can\u0027t think of a better solution until we have the intl-messageformat thing figured out.",
+      "revId": "572e0f019f49c1e208ae30d59aded0d338e9e6d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
