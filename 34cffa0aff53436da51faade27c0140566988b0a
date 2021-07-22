@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "34cffa0aff53436da51faade27c0140566988b0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f004a447_8a2bf1c8",
+        "filename": "front_end/panels/emulation/EmulatedDevices.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-07-22T09:40:39Z",
+      "side": 1,
+      "message": "Just curious: what\u0027s the usage of this `order` field?",
+      "revId": "34cffa0aff53436da51faade27c0140566988b0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
