@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edc4fb9c_0b7f60d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T12:39:19Z",
+      "side": 1,
+      "message": "LGTM Awesome!\n\nSigurd, PTAL one final time.",
+      "revId": "a9f0acec17019f51885285cf69a870fe8fb92706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

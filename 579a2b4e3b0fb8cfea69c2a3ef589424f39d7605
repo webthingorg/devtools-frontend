@@ -159,6 +159,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2e0e97_da0a8f05",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9333e3b5_d92e2924",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d51a271_4a824db3",
@@ -219,6 +237,24 @@
       "writtenOn": "2021-07-22T14:29:56Z",
       "side": 1,
       "message": "nit: remove comment",
+      "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d18ff7_d0e1a228",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 42
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6cc33e9_3eba12d2",
       "revId": "579a2b4e3b0fb8cfea69c2a3ef589424f39d7605",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
