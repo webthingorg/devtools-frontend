@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20f6f76_338c68fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-07-23T07:40:23Z",
+      "side": 1,
+      "message": "Hey Yang,\n\nHere\u0027s the roll of the PDL. No functional change, the actual use is in the next CL.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "4fd3fbaa44afce5676d31b64e32534a8d38c7e6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
