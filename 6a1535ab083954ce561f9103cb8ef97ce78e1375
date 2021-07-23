@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0748ed47_b94d2b3f",
+        "filename": "scripts/eslint_rules/tests/migrate_create_shadow_root_with_styles_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T14:03:08Z",
+      "side": 1,
+      "message": "These tests are currently failing because the linter only fixes the first `createShadowRootWithCoreStyles` and not the second. Unsure about how to fix this?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 2
+      },
+      "revId": "6a1535ab083954ce561f9103cb8ef97ce78e1375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
