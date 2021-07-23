@@ -20,6 +20,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4a4c14b_b66b008b",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "As I understand it, we authored this class, didn\u0027t we? Therefore, I am not sure that this license header is correct. However, I am not a lawyer, so I think it might be a good idea to ask for advice here. WDYT?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac444ab_e483d63b",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "I wonder if we should exempt `import type` from our rule, since the rule is primarily to prevent bundling problems.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7861c7d8_fe2c3364",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "Do we want to strongly type this following up on Alex\u0027 work? E.g. `Record\u003cstring, string|number\u003e` or is there a different reason for using `Object` here?",
+      "range": {
+        "startLine": 91,
+        "startChar": 46,
+        "endLine": 91,
+        "endChar": 52
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "729e6163_cbfb7f3d",
         "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
         "patchSetId": 2
@@ -36,6 +105,76 @@
         "startChar": 0,
         "endLine": 9,
         "endChar": 24
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb21dab_bb3302ab",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "Yes these are great, well done!",
+      "parentUuid": "729e6163_cbfb7f3d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f871f503_ae1f734e",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "Ultra-nit: I almost read over this and was confused as to why the test was working as it is. Can we extract this into a `const uiStrings \u003d {}` on a separate line, so that follows the same structure as the other tests?",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 68
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbd27dc_a505bb3a",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:15:02Z",
+      "side": 1,
+      "message": "Nit: Do we maybe also want to test the case where 1 of the locales is missing a string? E.g. we have `de-DE` that is missing `bar`, whereas `en-US` does?\n\nIt seems like that is kind of similar to the previous test where you only use `en-US`, but it\u0027s mostly that en-US is the default, so I would like to make it a bit more explicit by choosing `de-DE`, which we know for certain is not the default.\n\nBasically, that would be testing the branch that is described in the comment of \"Fall back to the original TypeScript UIStrings message\"",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 71
       },
       "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
