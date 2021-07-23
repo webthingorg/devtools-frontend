@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
+import {AttributionReportingIssue} from './AttributionReportingIssue.js';
 import {ContentSecurityPolicyIssue} from './ContentSecurityPolicyIssue.js';
 import {CorsIssue} from './CorsIssue.js';
 import {CrossOriginEmbedderPolicyIssue, isCrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
@@ -20,13 +22,11 @@ import {SameSiteCookieIssue} from './SameSiteCookieIssue.js';
 import {SharedArrayBufferIssue} from './SharedArrayBufferIssue.js';
 import {SourceFrameIssuesManager} from './SourceFrameIssuesManager.js';
 import {TrustedWebActivityIssue} from './TrustedWebActivityIssue.js';
-import {AttributionReportingIssue} from './AttributionReportingIssue.js';
 import {WasmCrossOriginModuleSharingIssue} from './WasmCrossOriginModuleSharingIssue.js';
 
 export {Events} from './IssuesManagerEvents.js';
 
 let issuesManagerInstance: IssuesManager|null = null;
-
 
 function createIssuesForBlockedByResponseIssue(
     issuesModel: SDK.IssuesModel.IssuesModel,
@@ -115,6 +115,25 @@ export interface IssuesManagerCreationOptions {
   /** Throw an error if this is not the first instance created */
   ensureFirst: boolean;
   showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>;
+  hideIssueSetting?: Common.Settings.Setting<HideIssueMenuSetting>;
+}
+
+export type HideIssueMenuSetting = {
+  [x: string]: IssueStatus,
+};
+
+export const enum IssueStatus {
+  Hidden = 'Hidden',
+  Unhidden = 'Unhidden',
+}
+
+export function defaultHideIssueByCodeSetting(): HideIssueMenuSetting {
+  const setting: HideIssueMenuSetting = {};
+  return setting;
+}
+
+export function getHideIssueByCodeSetting(): Common.Settings.Setting<HideIssueMenuSetting> {
+  return Common.Settings.Settings.instance().createSetting('HideIssueByCodeSetting', defaultHideIssueByCodeSetting());
 }
 
 /**
@@ -138,7 +157,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   private sourceFrameIssuesManager = new SourceFrameIssuesManager(this);
   private issuesById: Map<string, Issue> = new Map();
 
-  constructor(private readonly showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>) {
+  constructor(
+      private readonly showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>,
+      private readonly hideIssueSetting?: Common.Settings.Setting<HideIssueMenuSetting>) {
     super();
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
     SDK.FrameManager.FrameManager.instance().addEventListener(
@@ -161,7 +182,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     }
 
     if (!issuesManagerInstance || opts.forceNew) {
-      issuesManagerInstance = new IssuesManager(opts.showThirdPartyIssuesSetting);
+      issuesManagerInstance = new IssuesManager(opts.showThirdPartyIssuesSetting, opts.hideIssueSetting);
     }
 
     return issuesManagerInstance;
@@ -241,6 +262,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       if (issueId) {
         this.issuesById.set(issueId, issue);
       }
+      this.updateIssueHiddenStatus(issue);
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
     }
     // Always fire the "count" event even if the issue was filtered out.
@@ -267,12 +289,45 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     return this.showThirdPartyIssuesSetting?.get() || !issue.isCausedByThirdParty();
   }
 
+  updateHiddenIssues(): void {
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      for (const issue of this.filteredIssues.values()) {
+        if (this.issueFilter(issue)) {
+          this.updateIssueHiddenStatus(issue);
+        }
+      }
+      this.dispatchEventToListeners(Events.FullUpdateRequired);
+      this.dispatchEventToListeners(Events.IssuesCountUpdated);
+    }
+  }
+
+  private updateIssueHiddenStatus(issue: Issue): void {
+    const code = issue.code();
+    const setting = this.hideIssueSetting;
+    const values = setting?.get();
+    // All issues are hidden via their code.
+    // For hiding we check whether the issue code is present and has a value of IssueStatus.Hidden
+    // assosciated with it. If all these conditions are met the issue is hidden.
+    // IssueStatus is set in hidden issues menu.
+    // In case a user wants to hide a specific issue, the issue code is added to "code" section
+    // of our setting and its value is set to IssueStatus.Hidden. Then issue then gets hidden.
+    if (values && values[code]) {
+      if (values[code] === IssueStatus.Hidden) {
+        issue.setHidden(true);
+        return;
+      }
+      issue.setHidden(false);
+      return;
+    }
+  }
+
   private updateFilteredIssues(): void {
     this.filteredIssues.clear();
     this.issueCounts.clear();
     this.issuesById.clear();
     for (const [key, issue] of this.allIssues) {
       if (this.issueFilter(issue)) {
+        this.updateIssueHiddenStatus(issue);
         this.filteredIssues.set(key, issue);
         this.issueCounts.set(issue.getKind(), 1 + (this.issueCounts.get(issue.getKind()) ?? 0));
         const issueId = issue.getIssueId();
@@ -281,9 +336,16 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
         }
       }
     }
-
     this.dispatchEventToListeners(Events.FullUpdateRequired);
     this.dispatchEventToListeners(Events.IssuesCountUpdated);
+  }
+
+  unhideAllIssues(): void {
+    this.hideIssueSetting?.set(defaultHideIssueByCodeSetting());
+    for (const issue of this.allIssues.values()) {
+      issue.setHidden(false);
+    }
+    this.updateFilteredIssues();
   }
 
   getIssueById(id: string): Issue|undefined {
