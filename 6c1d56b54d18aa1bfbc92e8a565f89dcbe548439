@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f95deb5_b4a957a4",
+        "filename": "front_end/third_party/intl-messageformat/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:33:40Z",
+      "side": 1,
+      "message": "Interesting. Well, if it works, it works.",
+      "parentUuid": "ae6274f8_39d23c72",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c84fa6ec_11864ac1",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I checked, but esbuild doesn\u0027t output d.ts files. Copying the index.d.ts file upstream feels wrong, but I\u0027m not sure how d.ts files of bundles should work.",
       "parentUuid": "c84fa6ec_11864ac1",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 83
+      },
+      "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b58e54_be6ac5ac",
+        "filename": "front_end/third_party/intl-messageformat/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:33:40Z",
+      "side": 1,
+      "message": "I am fine with this as-is. I just checked and the reason this magically works is that TypeScript honors the `package.json` field `types`. You can see in https://unpkg.com/browse/intl-messageformat@9.7.1/package.json that they set it to `index.d.ts`. In other words, no matter which bundle you consume from this package, TypeScript will always look into `index.d.ts`.\n\nIn short, that is equivalent to us copying the file. To prevent code duplication, you could consider using the export-solution that Acorn used: https://github.com/acornjs/acorn/pull/954",
+      "parentUuid": "f890bbb3_86947954",
       "range": {
         "startLine": 18,
         "startChar": 0,
