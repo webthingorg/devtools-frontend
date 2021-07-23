@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cde7f5c6_56cde0ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-23T07:52:21Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "640c9e5d87b63b203f9430200ef6fab7602a6e35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8897eaa3_68f52a04",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-07-23T07:50:08Z",
       "side": 1,
       "message": "nit: Could this be replaced by \u0027this.fullUpdate.bind(this, false)\u0027 so that you don\u0027t need the extra method?",
+      "range": {
+        "startLine": 191,
+        "startChar": 79,
+        "endLine": 191,
+        "endChar": 96
+      },
+      "revId": "640c9e5d87b63b203f9430200ef6fab7602a6e35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c7e4410_1dee37f4",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-23T07:52:21Z",
+      "side": 1,
+      "message": "It could, but I like the method better.",
+      "parentUuid": "8897eaa3_68f52a04",
       "range": {
         "startLine": 191,
         "startChar": 79,
