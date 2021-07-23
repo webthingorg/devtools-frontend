@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab63b238_ccdb7382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-23T04:51:44Z",
+      "side": 1,
+      "message": "PTAL, I\u0027ll also upload the CL that switches over front_end/core/i18n to use these.",
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "729e6163_cbfb7f3d",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-23T04:51:44Z",
+      "side": 1,
+      "message": "Trying out the go/unit-testing-practices, that is mainly: 1) test behaviors, not methods, 2) test through the public API and 3) structure the tests as per \"given, when, then\". Let me know what you think :-)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

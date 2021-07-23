@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3071903_e9414f08",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-23T04:51:44Z",
+      "side": 1,
+      "message": "The alternative would be to not pass the locale here but use the DevTools global. \nIMO that would make it even harder to grok and test.",
+      "range": {
+        "startLine": 59,
+        "startChar": 27,
+        "endLine": 59,
+        "endChar": 69
+      },
+      "revId": "5082a335606413b2b49db92e4c415c5b1ae0fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
