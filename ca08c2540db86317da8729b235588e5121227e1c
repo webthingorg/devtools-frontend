@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "402029b8_62383f81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:18:42Z",
+      "side": 1,
+      "message": "Both CQ failures are pointing to the same UserMetrics test, which is suspicious. Is there code in here that turns out was unused after all?",
+      "revId": "ca08c2540db86317da8729b235588e5121227e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
