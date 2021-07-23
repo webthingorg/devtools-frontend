@@ -16,6 +16,24 @@
       "message": "Both CQ failures are pointing to the same UserMetrics test, which is suspicious. Is there code in here that turns out was unused after all?",
       "revId": "ca08c2540db86317da8729b235588e5121227e1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527b0021_ca712c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-23T10:22:06Z",
+      "side": 1,
+      "message": "Already fixed it here: https://crrev.com/c/3046366\n\nThe problem is that experiment titles were passed to the i18n machinery without a UIStrings/translations present. The new API is a bit stricter, in that it throws an Error. I already filed a bug to add translations for experiment titles the proper way :)",
+      "parentUuid": "402029b8_62383f81",
+      "revId": "ca08c2540db86317da8729b235588e5121227e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
