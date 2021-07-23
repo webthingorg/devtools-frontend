@@ -16,6 +16,23 @@
       "message": "LGTM!",
       "revId": "1027404497a5a5878d618c78676d2cee3cb06871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ee3f8d_a23498cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-23T05:51:20Z",
+      "side": 1,
+      "message": "Apparently I do need an owner review too.",
+      "revId": "1027404497a5a5878d618c78676d2cee3cb06871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
