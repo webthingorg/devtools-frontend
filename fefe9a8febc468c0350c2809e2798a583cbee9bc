@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b6f4cf_1a8f2a17",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 43
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T12:15:40Z",
+      "side": 1,
+      "message": "nit typo: aggregate...",
+      "revId": "fefe9a8febc468c0350c2809e2798a583cbee9bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
