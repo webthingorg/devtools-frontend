@@ -77,7 +77,6 @@ export const enum DisplayMode {
 
 export interface IssueCounterData {
   clickHandler?: () => void;
-  tooltipCallback?: () => void;
   leadingText?: string;
   displayMode?: DisplayMode;
   issuesManager: IssuesManager.IssuesManager.IssuesManager;
@@ -107,7 +106,6 @@ export class IssueCounter extends HTMLElement {
   static readonly litTagName = LitHtml.literal`issue-counter`;
   private readonly shadow = this.attachShadow({mode: 'open'});
   private clickHandler: undefined|(() => void) = undefined;
-  private tooltipCallback: undefined|(() => void) = undefined;
   private leadingText: string = '';
   private throttler: undefined|Common.Throttler.Throttler;
   private counts: [number, number, number] = [0, 0, 0];
@@ -131,7 +129,6 @@ export class IssueCounter extends HTMLElement {
   set data(data: IssueCounterData) {
     this.clickHandler = data.clickHandler;
     this.leadingText = data.leadingText ?? '';
-    this.tooltipCallback = data.tooltipCallback;
     this.displayMode = data.displayMode ?? DisplayMode.OmitEmpty;
     this.accessibleName = data.accessibleName;
     this.throttlerTimeout = data.throttlerTimeout;
@@ -153,7 +150,6 @@ export class IssueCounter extends HTMLElement {
   get data(): IssueCounterData {
     return {
       clickHandler: this.clickHandler,
-      tooltipCallback: this.tooltipCallback,
       leadingText: this.leadingText,
       displayMode: this.displayMode,
       issuesManager: this.issuesManager as IssuesManager.IssuesManager.IssuesManager,
@@ -214,7 +210,6 @@ export class IssueCounter extends HTMLElement {
             this.accessibleName}"></icon-button>
         `,
         this.shadow);
-    this.tooltipCallback?.();
   }
 }
 

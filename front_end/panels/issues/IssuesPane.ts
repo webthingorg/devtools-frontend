@@ -234,15 +234,12 @@ export class IssuesPane extends UI.Widget.VBox {
     rightToolbar.appendSeparator();
     const issueCounter = new IssueCounter.IssueCounter.IssueCounter();
     issueCounter.data = {
-      tooltipCallback: (): void => {
-        const issueEnumeration = IssueCounter.IssueCounter.getIssueCountsEnumeration(
-            IssuesManager.IssuesManager.IssuesManager.instance(), false);
-        UI.Tooltip.Tooltip.install(issueCounter, issueEnumeration);
-      },
       displayMode: IssueCounter.IssueCounter.DisplayMode.ShowAlways,
       issuesManager: IssuesManager.IssuesManager.IssuesManager.instance(),
     };
     issueCounter.id = 'console-issues-counter';
+    issueCounter.title = IssueCounter.IssueCounter.getIssueCountsEnumeration(
+        IssuesManager.IssuesManager.IssuesManager.instance(), false);
     const issuesToolbarItem = new UI.Toolbar.ToolbarItem(issueCounter);
     rightToolbar.appendToolbarItem(issuesToolbarItem);
 
