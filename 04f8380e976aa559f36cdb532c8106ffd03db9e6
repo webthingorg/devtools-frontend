@@ -33,6 +33,24 @@
       "message": "Can we be sure that it\u0027s ok to preserve certain views during a full update? I tried the grouping by categories functionality locally and it seems broken (as indicated by the failing e2e test).",
       "revId": "04f8380e976aa559f36cdb532c8106ffd03db9e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a310e96b_c5eb15f0",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-23T07:00:35Z",
+      "side": 1,
+      "message": "The tests indicate that it didn\u0027t work for categories, see the follow-up PS. Without categories, I think it is fine to preserve certain issues, as we\u0027ll do a full update of them afterwards. I added code to update the issue kind icon as well.",
+      "parentUuid": "57a9a73a_da727523",
+      "revId": "04f8380e976aa559f36cdb532c8106ffd03db9e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
