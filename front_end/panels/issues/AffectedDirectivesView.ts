@@ -11,7 +11,6 @@ import type * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import * as UI from '../../ui/legacy/legacy.js';
 import * as ElementsComponents from '../elements/components/components.js';
 
 
@@ -105,7 +104,7 @@ export class AffectedDirectivesView extends AffectedResourcesView {
     const elementsPanelLinkComponent = new ElementsComponents.ElementsPanelLink.ElementsPanelLink();
     if (nodeId) {
       const violatingNodeId = nodeId;
-      UI.Tooltip.Tooltip.install(elementsPanelLinkComponent, i18nString(UIStrings.clickToRevealTheViolatingDomNode));
+      elementsPanelLinkComponent.title = i18nString(UIStrings.clickToRevealTheViolatingDomNode);
 
       const onElementRevealIconClick: (arg0?: Event|undefined) => void = (): void => {
         const target = model.getTargetIfNotDisposed();

@@ -186,7 +186,7 @@ class AffectedMixedContentView extends AffectedResourcesView {
     } else {
       const filename = extractShortPath(mixedContent.insecureURL);
       const cell = this.appendIssueDetailCell(element, filename, 'affected-resource-mixed-content-info');
-      UI.Tooltip.Tooltip.install(cell, mixedContent.insecureURL);
+      cell.title = mixedContent.insecureURL;
     }
 
     this.appendIssueDetailCell(
@@ -311,7 +311,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     countAdorner.classList.add('aggregated-issues-count');
     this._aggregatedIssuesCount.textContent = `${this._issue.getAggregatedIssuesCount()}`;
     header.appendChild(this.issueKindIcon);
-    UI.Tooltip.Tooltip.install(this.issueKindIcon, IssueCounter.IssueCounter.getIssueKindDescription(kind));
+    this.issueKindIcon.title = IssueCounter.IssueCounter.getIssueKindDescription(kind);
     header.appendChild(countAdorner);
 
     const title = document.createElement('div');
