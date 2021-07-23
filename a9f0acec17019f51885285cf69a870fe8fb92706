@@ -16,6 +16,23 @@
       "message": "LGTM Awesome!\n\nSigurd, PTAL one final time.",
       "revId": "a9f0acec17019f51885285cf69a870fe8fb92706",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7975739e_91479c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-23T13:02:41Z",
+      "side": 1,
+      "message": "CL LGTM, but we need to add a few tests. It should be straight-forward to add tests to the IssueAggregator and IssuesManager unittests. You may also consider adding one e2e test. After that we can land, great work Rahat!",
+      "revId": "a9f0acec17019f51885285cf69a870fe8fb92706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
