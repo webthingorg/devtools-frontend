@@ -134,6 +134,8 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
     if (!this.representative) {
       this.representative = issue;
     }
+    // issue.getKind() == Improvement
+    // this.issueKind = Page Error.
     this.issueKind = IssuesManager.Issue.unionIssueKind(this.issueKind, issue.getKind());
     let hasRequest = false;
     for (const request of issue.requests()) {
@@ -197,7 +199,7 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
 
 export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private readonly aggregatedIssuesByCode = new Map<string, AggregatedIssue>();
-
+  private readonly hiddenAggregatedIssuesByCode = new Map<string, AggregatedIssue>();
   constructor(private readonly issuesManager: IssuesManager.IssuesManager.IssuesManager) {
     super();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
@@ -221,13 +223,22 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   }
 
   private aggregateIssue(issue: IssuesManager.Issue.Issue): AggregatedIssue {
-    let aggregatedIssue = this.aggregatedIssuesByCode.get(issue.code());
+    if (issue.isHidden()) {
+      return this.aggragateIssueByStatus(this.hiddenAggregatedIssuesByCode, issue);
+    }
+    const aggregatedIssue = this.aggragateIssueByStatus(this.aggregatedIssuesByCode, issue);
+    this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
+    return aggregatedIssue;
+  }
+
+  private aggragateIssueByStatus(aggregatedIssuesMap: Map<string, AggregatedIssue>, issue: IssuesManager.Issue.Issue):
+      AggregatedIssue {
+    let aggregatedIssue = aggregatedIssuesMap.get(issue.code());
     if (!aggregatedIssue) {
       aggregatedIssue = new AggregatedIssue(issue.code());
-      this.aggregatedIssuesByCode.set(issue.code(), aggregatedIssue);
+      aggregatedIssuesMap.set(issue.code(), aggregatedIssue);
     }
     aggregatedIssue.addInstance(issue);
-    this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
     return aggregatedIssue;
   }
 
