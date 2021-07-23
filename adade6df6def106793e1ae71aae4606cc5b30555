@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "adade6df6def106793e1ae71aae4606cc5b30555",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05dae85f_ce2f4529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T11:50:44Z",
+      "side": 1,
+      "message": "Hey, I just saw this CL passing by. While it is great to get these cleaned up, I would prefer not to land these CLs at the moment. We are still awaiting user feedback and there is a teeny tiny chance that we have to revert. Since we want all tooltips to have the same UX (either native or custom if we were to revert), I don\u0027t think it is a good idea to have the UX of the issues panel to be different.\n\nOnce we are confident that we are not going to revert, I will cleanup the remaining usages. But up to that point, I would prefer to stick to `UI.Tooltip` for now to make sure we remain consistent, regardless of revert or not. WDYT?",
+      "revId": "adade6df6def106793e1ae71aae4606cc5b30555",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
