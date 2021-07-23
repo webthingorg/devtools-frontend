@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "503333f19e6a5e07630e57dfd0f48f0fb0109db3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0c9f26_8695d515",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T09:16:15Z",
+      "side": 1,
+      "message": "With this change the counter\u0027s title does not update correctly anymore when the number of issues changes (e.g. upon navigation).",
+      "revId": "503333f19e6a5e07630e57dfd0f48f0fb0109db3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
