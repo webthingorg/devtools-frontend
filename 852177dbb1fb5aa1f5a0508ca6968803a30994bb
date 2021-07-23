@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "102be9e4_ad2bd3fb",
+        "filename": "scripts/eslint_rules/lib/migrate_registerRequiredCSS.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39471943_d784b671",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 34
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d047205_dd2978ad",
@@ -71,6 +95,54 @@
       "writtenOn": "2021-07-22T09:35:38Z",
       "side": 1,
       "message": "I think this will fail if you have a `wasShown` with no body content. There appear to be 3 occurrences: https://source.chromium.org/search?q\u003dwasShown%5C(%5C):%5C%20void%5C%20%5C%7B%5Cn%5Cs%2B%5C%7D%20pcre:yes\u0026sq\u003d\u0026ss\u003dchromium\n\nWe should either automatically handle it or gracefully handle the error and claim you need to manually fix it?",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 75
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c529b05_3c9e1c77",
+        "filename": "scripts/eslint_rules/lib/migrate_registerRequiredCSS.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "This should be caught in the try catch now",
+      "parentUuid": "9d047205_dd2978ad",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 75
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f92810da_69bfd0a1",
+        "filename": "scripts/eslint_rules/lib/migrate_registerRequiredCSS.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "This is now caught by the try/catch so that it can be manually dealt with.",
+      "parentUuid": "9d047205_dd2978ad",
       "range": {
         "startLine": 79,
         "startChar": 40,
@@ -104,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5f3783_f9387a0c",
+        "filename": "scripts/eslint_rules/lib/migrate_registerRequiredCSS.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a22dba5_487c2a96",
+      "range": {
+        "startLine": 89,
+        "startChar": 45,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "275e839b_d581f69a",
@@ -117,6 +213,54 @@
       "writtenOn": "2021-07-22T07:38:32Z",
       "side": 1,
       "message": "should the rule limit itself to only applying to classes that extend UI.Widget ?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcfd000a_afabc518",
+        "filename": "scripts/eslint_rules/tests/migrate_registerRequiredCSS_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "I think it mainly does? But those were just the examples I used",
+      "parentUuid": "275e839b_d581f69a",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "852177dbb1fb5aa1f5a0508ca6968803a30994bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d822c6c0_a32e824d",
+        "filename": "scripts/eslint_rules/tests/migrate_registerRequiredCSS_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-23T09:26:29Z",
+      "side": 1,
+      "message": "I\u0027m not sure but I think the wasShown() ESLint rule was mainly for UI.Widget?",
+      "parentUuid": "275e839b_d581f69a",
       "range": {
         "startLine": 18,
         "startChar": 0,
