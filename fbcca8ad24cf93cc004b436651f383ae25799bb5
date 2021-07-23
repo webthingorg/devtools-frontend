@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4857642_facec26c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-23T08:58:23Z",
+      "side": 1,
+      "message": "I\u0027ll land this CL chain once the CL chain ending with https://crrev.com/c/3046363 has landed. Then it will be trivial to change the IntlMessageFormat constructor from `i18nBundle.MessageFormat` to `IntlMessageFormat.IntlMessageFormat`.\n\nI\u0027ll do it next week, it should keep the time where we can\u0027t bundle the LH i18n library to a minimum. Wdyt?",
+      "revId": "fbcca8ad24cf93cc004b436651f383ae25799bb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
