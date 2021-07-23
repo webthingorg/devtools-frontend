@@ -34,6 +34,24 @@
       "parentUuid": "e611f5f1_f26316f4",
       "revId": "accb4f0edf009a7f8022d7997927ad4a19a0bf3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e9740c_97d58479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:16:27Z",
+      "side": 1,
+      "message": "Ideally we include it in the same CL that updates it, but I am fine fixing in a follow-up.",
+      "parentUuid": "271c59d9_590a648c",
+      "revId": "accb4f0edf009a7f8022d7997927ad4a19a0bf3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
