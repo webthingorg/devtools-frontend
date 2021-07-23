@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "04f8380e976aa559f36cdb532c8106ffd03db9e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a9a73a_da727523",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-23T06:50:56Z",
+      "side": 1,
+      "message": "Can we be sure that it\u0027s ok to preserve certain views during a full update? I tried the grouping by categories functionality locally and it seems broken (as indicated by the failing e2e test).",
+      "revId": "04f8380e976aa559f36cdb532c8106ffd03db9e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
