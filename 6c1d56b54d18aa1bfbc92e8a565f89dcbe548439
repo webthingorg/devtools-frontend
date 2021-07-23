@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6c5300_551f56b5",
+        "filename": "front_end/third_party/intl-messageformat/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:22:27Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also copy `intl-messageformat.esm.js` over? I am confused as to how Rollup is able to find the file, given that it is missing from the gen-folder.",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c84fa6ec_11864ac1",
+        "filename": "front_end/third_party/intl-messageformat/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-23T10:22:27Z",
+      "side": 1,
+      "message": "Can we upstream this change as well? Seems like it is missing from the upstream bundle.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 83
+      },
+      "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
