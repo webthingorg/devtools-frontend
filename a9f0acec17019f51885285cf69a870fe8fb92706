@@ -33,6 +33,24 @@
       "message": "CL LGTM, but we need to add a few tests. It should be straight-forward to add tests to the IssueAggregator and IssuesManager unittests. You may also consider adding one e2e test. After that we can land, great work Rahat!",
       "revId": "a9f0acec17019f51885285cf69a870fe8fb92706",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd9bf8e4_677cf40d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-23T13:17:35Z",
+      "side": 1,
+      "message": "Thanks! Will update the CL soon.",
+      "parentUuid": "7975739e_91479c03",
+      "revId": "a9f0acec17019f51885285cf69a870fe8fb92706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
