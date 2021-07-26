@@ -39,6 +39,30 @@
       },
       "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "094e5d5b_06e090bd",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-26T15:11:46Z",
+      "side": 1,
+      "message": "This is because upcoming iterations of the feature require changing the setting multiple times from inside the updateHiddenIssues method. This causes the same method to be called multiple times leading to undesired behavior especially when it comes to updating count of hidden issues. Also depending upon which entry of the of the context menu the user clicks on. \"Hide this issue\", \"Hide all [Category] issues\" or \"Hide all [Kind] issues\", the settings needs to be updated differently, wherein we have to delete some entires so as to avoid the doubly hidden issue edge case. That is why a callback with an event (event was removed since it is not needed in this iteration) is used instead of a change listener.",
+      "parentUuid": "a7acf2b0_7f47eaa4",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
