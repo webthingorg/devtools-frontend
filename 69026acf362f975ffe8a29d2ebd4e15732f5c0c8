@@ -63,6 +63,30 @@
       },
       "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "472d2a86_96e19422",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-26T15:16:25Z",
+      "side": 1,
+      "message": "I have a separate CL, where the logic for all three menu entries is implemented, this CL mainly focus on hiding issues only by issue code.",
+      "parentUuid": "094e5d5b_06e090bd",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
