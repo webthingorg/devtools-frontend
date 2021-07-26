@@ -141,6 +141,30 @@
       },
       "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfcadb68_5b535c46",
+        "filename": "front_end/third_party/intl-messageformat/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T09:37:18Z",
+      "side": 1,
+      "message": "Tried the import/export thing but didn\u0027t seem to work. I hope we can address it in a follow-up. Unfortunately, due to the unbundled types, the type information is incomplete at the moment as well. E.g. inspecting the AST (as done by one intl function) is untyped due to the missing types of `intl-messageformat-parser`.\n\nI\u0027ll land the CL as-is for now, but will look into getting bundled type information as part of the package upstream.",
+      "parentUuid": "34b58e54_be6ac5ac",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 83
+      },
+      "revId": "6c1d56b54d18aa1bfbc92e8a565f89dcbe548439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
