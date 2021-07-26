@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e582bb44_21bd3449",
+        "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T07:57:33Z",
+      "side": 1,
+      "message": "we could add `error.message` to this error so we provide some clue as to what went wrong",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 69
+      },
+      "revId": "6a1535ab083954ce561f9103cb8ef97ce78e1375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0748ed47_b94d2b3f",
         "filename": "scripts/eslint_rules/tests/migrate_create_shadow_root_with_styles_test.js",
         "patchSetId": 2
