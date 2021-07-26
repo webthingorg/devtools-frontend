@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d87cdb54_40dec01d",
+        "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-26T09:56:34Z",
+      "side": 1,
+      "message": "Ultra-nit: extract into a separate variable `newFileName`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 48,
+        "endLine": 44,
+        "endChar": 67
+      },
+      "revId": "6a1535ab083954ce561f9103cb8ef97ce78e1375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e582bb44_21bd3449",
         "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
         "patchSetId": 2
