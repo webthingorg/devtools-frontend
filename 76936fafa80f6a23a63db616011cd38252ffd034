@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576beb6b_7ac00617",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "nit: mind",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c9b70dc_16f32687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "LGTM but have a few suggestions \u0026 also clarifying comments just to ensure I\u0027m following things properly. Nice work!",
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73442339_082eed0a",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "nit on this (sorry, didn\u0027t spot in previous CL) this isn\u0027t looking on the parent of the node, but just the both of the node itself, so I think we could rename this.",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e99f82_574843be",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "nit: I think it makes more sense here, particularly in the context of ESLint rules, to have `node` be the first argument as it\u0027s the main \"thing\" that we\u0027re dealing with",
+      "range": {
+        "startLine": 41,
+        "startChar": 36,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f48a816_6409782a",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "nit: given you don\u0027t care about the index you could do:\n\n```\nfor (const bodyNode of node.body) {...}\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bbaca3a_d89c1f97",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "I think we might be able to make this code clearer by breaking up the conditionals:\n\n```\nif(!privatePropertyName) {\n  // We are looking for this.registerRequiredCSS\n  // rest of logic here\n}\n\n// We are looking for this.privatePropertyname.registerRequiredCSS\n```\n\nI found this one big conditional quite hard to follow.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93265276_dcb212be",
+        "filename": "scripts/eslint_rules/tests/migrate_register_required_css_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T15:13:38Z",
+      "side": 1,
+      "message": "should this be a valid test case or would we expect to pick this up?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
