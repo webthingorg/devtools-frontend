@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42480c3d_a8df5954",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T10:55:58Z",
+      "side": 1,
+      "message": "PTAL, and also happy to tweak the wording.\n\nScreenshot here: https://imgur.com/a/nJAYXws",
+      "revId": "c8b6fd564a672fdc19aa4a187cfb75d828fd1dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
