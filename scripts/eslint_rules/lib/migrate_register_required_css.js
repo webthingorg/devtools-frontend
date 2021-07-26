@@ -32,6 +32,28 @@ function lookForParentWasShownMethod(node) {
       return methodDefinition;
     }
   }
+  /**
+    * If we did not find a wasShown method then we can return null and insert it ourselves.
+    **/
+  return null;
+}
+
+function lookForRegisterCSSFilesCall(privatePropertyName, node) {
+  for (let i = 0; i < node.body.length; i++) {
+    const expressionStatement = node.body[i];
+    if (expressionStatement.expression.callee.property.name === 'registerCSSFiles') {
+      /**
+        * Once we find a registerCSSFiles call in wasShown(), we need to check that the objects they are being called on the same. If the call is
+        * a `this.registerCSSFiles()` then privatePropertyName is ''. Otherwise, we check that the privatePropertyName is the same as the one we are
+        * calling registerCSSFiles() on.
+        **/
+      if ((expressionStatement.expression.callee.object.type === 'ThisExpression' && privatePropertyName === '') ||
+          (expressionStatement.expression.callee.object.type === 'MemberExpression' &&
+           expressionStatement.expression.callee.object.property.name === privatePropertyName)) {
+        return expressionStatement.expression;
+      }
+    }
+  }
   return null;
 }
 
@@ -49,23 +71,55 @@ module.exports = {
   create: function(context) {
     return {
       ExpressionStatement(node) {
-        if (node.expression.type === 'CallExpression' && node.expression.callee.object.type === 'ThisExpression' &&
+        if (node.expression.type === 'CallExpression' &&
+            (node.expression.callee.object.type === 'ThisExpression' ||
+             node.expression.callee.object.type === 'MemberExpression') &&
             node.expression.callee.property.name === 'registerRequiredCSS') {
           /* Construct 'import componentStyles form './componentStyles.css.js'' statement */
           const filenameWithExtension = node.expression.arguments[0].value;
           const filename = path.basename(filenameWithExtension, '.css');
-          const importStatement = `import ${filename + 'Styles'} from \'./${filename + '.css.js'}\';\n`;
+          const newFileName = filename + 'Styles';
+          const importStatement = `import ${newFileName} from \'./${filename + '.css.js'}\';\n`;
           const programNode = context.getAncestors()[0];
 
+          /* Some calls are this._widget.registerRequiredCSS() so we need to store the private property that the function is called on. */
+          const privateProperty = node.expression.callee.object.type === 'MemberExpression';
+          const privatePropertyName = privateProperty ? node.expression.callee.object.property.name : '';
+
           try {
-            /* Construct or add to wasShown method */
             const classBodyNode = lookForParentClassBodyNode(node);
 
-            const registerCSSFilesText = `\n    this.registerCSSFiles([${filename + 'Styles'}]);`;
+            const registerCSSFilesText =
+                `\n    this.${privateProperty ? privatePropertyName + '.' : ''}registerCSSFiles([${newFileName}]);`;
 
             const wasShownFunction = lookForParentWasShownMethod(classBodyNode);
             if (wasShownFunction) {
-              /* If a wasShown() method exists then it adds the adoptedStyleSheets to the second line. */
+              const registerCSSFilesCall =
+                  lookForRegisterCSSFilesCall(privatePropertyName, wasShownFunction.value.body);
+
+              if (registerCSSFilesCall) {
+                /*
+                 * If a wasShown() method exists and there is already a call to registerCSSFiles on the
+                 * appropriate property or object then we add a new argument to the call.
+                 */
+
+                const firstArg = registerCSSFilesCall.arguments[0].elements[0];
+
+                context.report({
+                  node,
+                  message: 'Import CSS file instead of using registerRequiredCSS and edit wasShown method',
+                  fix(fixer) {
+                    return [
+                      fixer.insertTextBefore(programNode, importStatement),
+                      fixer.insertTextBefore(firstArg, newFileName + ', '), fixer.remove(node)
+                    ];
+                  }
+                });
+
+                return;
+              }
+
+              /* If a wasShown() method exists then it adds the registerCSSFiles() to the second line. */
               context.report({
                 node,
                 message: 'Import CSS file instead of using registerRequiredCSS and edit wasShown method',
@@ -96,10 +150,11 @@ module.exports = {
             });
 
           } catch (error) {
+            /* Any errors will be expected to be migrated manually. */
             context.report({
               node,
               message: `Please manually migrate ${
-                  filenameWithExtension} as it has edge cases not covered by this script. Got error: ${error.message} `,
+                  filenameWithExtension} as it has edge cases not covered by this script. Got error: ${error.message}.`,
             });
           }
         }
