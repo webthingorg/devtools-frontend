@@ -87,6 +87,30 @@
       },
       "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb8c0e23_c5328047",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-26T15:19:01Z",
+      "side": 1,
+      "message": "In the next iteration of this feature, we have three different settings one each for code, category and kind. Hence, depending on the menu entry being clicked on sometimes we have to update multiple settings. This is also a reason why we chose to use callbacks instead of changeListener. IssuesManager.updateHiddenIssues method is passed as a callback to HideIssuesMenu in IssuesView.",
+      "parentUuid": "472d2a86_96e19422",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
