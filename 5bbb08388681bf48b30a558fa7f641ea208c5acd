@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d78dd4cc_04e96cb3",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T06:23:46Z",
+      "side": 1,
+      "message": "As discussed offline, I had some experience with this approach and there is already precedence so this is fine.",
+      "parentUuid": "d4a4c14b_b66b008b",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6ac444ab_e483d63b",
         "filename": "front_end/third_party/i18n/localized-string-set.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-07-23T10:15:02Z",
       "side": 1,
       "message": "I wonder if we should exempt `import type` from our rule, since the rule is primarily to prevent bundling problems.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4c7456_89f5d922",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T06:23:46Z",
+      "side": 1,
+      "message": "Probably. As a side note though, once we use the entrypoint for intl-messageformat, directly importing the type from the npm package won\u0027t be necessary.",
+      "parentUuid": "6ac444ab_e483d63b",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2021-07-23T10:15:02Z",
       "side": 1,
       "message": "Do we want to strongly type this following up on Alex\u0027 work? E.g. `Record\u003cstring, string|number\u003e` or is there a different reason for using `Object` here?",
+      "range": {
+        "startLine": 91,
+        "startChar": 46,
+        "endLine": 91,
+        "endChar": 52
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "204c5cbe_43533b69",
+        "filename": "front_end/third_party/i18n/localized-string-set.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T06:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7861c7d8_fe2c3364",
       "range": {
         "startLine": 91,
         "startChar": 46,
@@ -157,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4643f1bd_055b1857",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T06:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f871f503_ae1f734e",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 68
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbbd27dc_a505bb3a",
@@ -170,6 +266,30 @@
       "writtenOn": "2021-07-23T10:15:02Z",
       "side": 1,
       "message": "Nit: Do we maybe also want to test the case where 1 of the locales is missing a string? E.g. we have `de-DE` that is missing `bar`, whereas `en-US` does?\n\nIt seems like that is kind of similar to the previous test where you only use `en-US`, but it\u0027s mostly that en-US is the default, so I would like to make it a bit more explicit by choosing `de-DE`, which we know for certain is not the default.\n\nBasically, that would be testing the branch that is described in the comment of \"Fall back to the original TypeScript UIStrings message\"",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "5bbb08388681bf48b30a558fa7f641ea208c5acd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a343474_7ffc1504",
+        "filename": "test/unittests/front_end/third_party/i18n/i18n_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-26T06:23:46Z",
+      "side": 1,
+      "message": "Added a test case that falls back to the UIStrings message when a translation is not yet available.",
+      "parentUuid": "fbbd27dc_a505bb3a",
       "range": {
         "startLine": 35,
         "startChar": 2,
