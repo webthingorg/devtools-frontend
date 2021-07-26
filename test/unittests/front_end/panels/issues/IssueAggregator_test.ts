@@ -11,6 +11,7 @@ import {StubIssue} from '../../models/issues_manager/StubIssue.js';
 import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
 import {MockIssuesManager} from '../../models/issues_manager/MockIssuesManager.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {createFakeSetting, enableFeatureForTest} from '../../helpers/EnvironmentHelpers.js';
 
 describe('AggregatedIssue', async () => {
   it('deduplicates network requests across issues', () => {
@@ -216,5 +217,107 @@ describe('IssueAggregator', async () => {
         {url: 'foo', lineNumber: 2, columnNumber: 1},
       ]);
     });
+  });
+});
+
+describe('IssueAggregator', () => {
+  enableFeatureForTest('hideIssuesFeature');
+  it('aggregates hidden issues correctly', () => {
+    const issues = [
+      new StubIssue('HiddenStubIssue1', [], []),
+      new StubIssue('HiddenStubIssue2', [], []),
+      new StubIssue('UnhiddenStubIssue1', [], []),
+      new StubIssue('UnhiddenStubIssue2', [], []),
+    ];
+    const HideIssueByCodeSetting =
+        createFakeSetting('hide by code', ({} as IssuesManager.IssuesManager.HideIssueMenuSetting));
+    const showThirdPartyIssuesSetting = createFakeSetting('third party flag', false);
+    const issuesManager =
+        new IssuesManager.IssuesManager.IssuesManager(showThirdPartyIssuesSetting, HideIssueByCodeSetting);
+    const mockModel = new MockIssuesModel([]) as unknown as SDK.IssuesModel.IssuesModel;
+    issuesManager.modelAdded(mockModel);
+    const aggregator = new Issues.IssueAggregator.IssueAggregator(issuesManager);
+
+    HideIssueByCodeSetting.set({
+      'HiddenStubIssue1': IssuesManager.IssuesManager.IssueStatus.Hidden,
+      'HiddenStubIssue2': IssuesManager.IssuesManager.IssueStatus.Hidden,
+    });
+    for (const issue of issues) {
+      issuesManager.addIssue(mockModel, issue);
+    }
+    assert.strictEqual(aggregator.numberOfAggregatedIssues(), 2);
+    assert.strictEqual(aggregator.numberOfHiddenAggregatedIssues(), 2);
+  });
+
+  it('aggregates hidden issues correctly on updating settings', () => {
+    const issues = [
+      new StubIssue('HiddenStubIssue1', [], []),
+      new StubIssue('HiddenStubIssue2', [], []),
+      new StubIssue('UnhiddenStubIssue1', [], []),
+      new StubIssue('UnhiddenStubIssue2', [], []),
+    ];
+    const HideIssueByCodeSetting =
+        createFakeSetting('hide by code', ({} as IssuesManager.IssuesManager.HideIssueMenuSetting));
+    const showThirdPartyIssuesSetting = createFakeSetting('third party flag', false);
+    const issuesManager =
+        new IssuesManager.IssuesManager.IssuesManager(showThirdPartyIssuesSetting, HideIssueByCodeSetting);
+    const mockModel = new MockIssuesModel([]) as unknown as SDK.IssuesModel.IssuesModel;
+    issuesManager.modelAdded(mockModel);
+    const aggregator = new Issues.IssueAggregator.IssueAggregator(issuesManager);
+
+    for (const issue of issues) {
+      issuesManager.addIssue(mockModel, issue);
+    }
+
+    HideIssueByCodeSetting.set({
+      'HiddenStubIssue1': IssuesManager.IssuesManager.IssueStatus.Hidden,
+    });
+    issuesManager.updateHiddenIssues();
+    assert.strictEqual(aggregator.numberOfAggregatedIssues(), 3);
+    assert.strictEqual(aggregator.numberOfHiddenAggregatedIssues(), 1);
+
+    HideIssueByCodeSetting.set({
+      'HiddenStubIssue1': IssuesManager.IssuesManager.IssueStatus.Hidden,
+      'HiddenStubIssue2': IssuesManager.IssuesManager.IssueStatus.Hidden,
+    });
+    issuesManager.updateHiddenIssues();
+    assert.strictEqual(aggregator.numberOfAggregatedIssues(), 2);
+    assert.strictEqual(aggregator.numberOfHiddenAggregatedIssues(), 2);
+  });
+
+  it('aggregates hidden issues correctly when all issues get unhidden', () => {
+    const issues = [
+      new StubIssue('HiddenStubIssue1', [], []),
+      new StubIssue('HiddenStubIssue2', [], []),
+      new StubIssue('UnhiddenStubIssue1', [], []),
+      new StubIssue('UnhiddenStubIssue2', [], []),
+    ];
+    const HideIssueByCodeSetting =
+        createFakeSetting('hide by code', ({} as IssuesManager.IssuesManager.HideIssueMenuSetting));
+    const showThirdPartyIssuesSetting = createFakeSetting('third party flag', false);
+    const issuesManager =
+        new IssuesManager.IssuesManager.IssuesManager(showThirdPartyIssuesSetting, HideIssueByCodeSetting);
+    const mockModel = new MockIssuesModel([]) as unknown as SDK.IssuesModel.IssuesModel;
+    issuesManager.modelAdded(mockModel);
+    const aggregator = new Issues.IssueAggregator.IssueAggregator(issuesManager);
+
+    HideIssueByCodeSetting.set({
+      'HiddenStubIssue1': IssuesManager.IssuesManager.IssueStatus.Hidden,
+      'HiddenStubIssue2': IssuesManager.IssuesManager.IssueStatus.Hidden,
+      'UnhiddenStubIssue1': IssuesManager.IssuesManager.IssueStatus.Hidden,
+      'UnhiddenStubIssue2': IssuesManager.IssuesManager.IssueStatus.Hidden,
+    });
+
+    for (const issue of issues) {
+      issuesManager.addIssue(mockModel, issue);
+    }
+
+    assert.strictEqual(aggregator.numberOfHiddenAggregatedIssues(), 4);
+    assert.strictEqual(aggregator.numberOfAggregatedIssues(), 0);
+
+    issuesManager.unhideAllIssues();
+
+    assert.strictEqual(aggregator.numberOfAggregatedIssues(), 4);
+    assert.strictEqual(aggregator.numberOfHiddenAggregatedIssues(), 0);
   });
 });
