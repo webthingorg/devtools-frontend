@@ -22,6 +22,30 @@
       },
       "revId": "6a1535ab083954ce561f9103cb8ef97ce78e1375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a49e713_74be7204",
+        "filename": "scripts/eslint_rules/tests/migrate_create_shadow_root_with_styles_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-26T07:57:08Z",
+      "side": 1,
+      "message": "Not sure on that front, I\u0027d have thought ESLint would fix all issues - it\u0027s not because here you\u0027ve got both files importing `ui/legacy/smallBubble.css` (e.g same CSS path) is it? Even if not, it would be good before merging if we updated it to import two different files ( to keep the test case closer to reality )",
+      "parentUuid": "0748ed47_b94d2b3f",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 2
+      },
+      "revId": "6a1535ab083954ce561f9103cb8ef97ce78e1375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
