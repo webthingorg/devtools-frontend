@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
 
 import type * as Protocol from '../../generated/protocol.js';
 
@@ -74,81 +73,82 @@ export namespace Layer {
 }
 
 export class StickyPositionConstraint {
-  _stickyBoxRect: Protocol.DOM.Rect;
-  _containingBlockRect: Protocol.DOM.Rect;
-  _nearestLayerShiftingStickyBox: Layer|null;
-  _nearestLayerShiftingContainingBlock: Layer|null;
+  private readonly stickyBoxRectInternal: Protocol.DOM.Rect;
+  private readonly containingBlockRectInternal: Protocol.DOM.Rect;
+  private readonly nearestLayerShiftingStickyBoxInternal: Layer|null;
+  private readonly nearestLayerShiftingContainingBlockInternal: Layer|null;
 
   constructor(layerTree: LayerTreeBase|null, constraint: Protocol.LayerTree.StickyPositionConstraint) {
-    this._stickyBoxRect = constraint.stickyBoxRect;
-    this._containingBlockRect = constraint.containingBlockRect;
-    this._nearestLayerShiftingStickyBox = null;
+    this.stickyBoxRectInternal = constraint.stickyBoxRect;
+    this.containingBlockRectInternal = constraint.containingBlockRect;
+    this.nearestLayerShiftingStickyBoxInternal = null;
     if (layerTree && constraint.nearestLayerShiftingStickyBox) {
-      this._nearestLayerShiftingStickyBox = layerTree.layerById(constraint.nearestLayerShiftingStickyBox);
+      this.nearestLayerShiftingStickyBoxInternal = layerTree.layerById(constraint.nearestLayerShiftingStickyBox);
     }
 
-    this._nearestLayerShiftingContainingBlock = null;
+    this.nearestLayerShiftingContainingBlockInternal = null;
     if (layerTree && constraint.nearestLayerShiftingContainingBlock) {
-      this._nearestLayerShiftingContainingBlock = layerTree.layerById(constraint.nearestLayerShiftingContainingBlock);
+      this.nearestLayerShiftingContainingBlockInternal =
+          layerTree.layerById(constraint.nearestLayerShiftingContainingBlock);
     }
   }
 
   stickyBoxRect(): Protocol.DOM.Rect {
-    return this._stickyBoxRect;
+    return this.stickyBoxRectInternal;
   }
 
   containingBlockRect(): Protocol.DOM.Rect {
-    return this._containingBlockRect;
+    return this.containingBlockRectInternal;
   }
 
   nearestLayerShiftingStickyBox(): Layer|null {
-    return this._nearestLayerShiftingStickyBox;
+    return this.nearestLayerShiftingStickyBoxInternal;
   }
 
   nearestLayerShiftingContainingBlock(): Layer|null {
-    return this._nearestLayerShiftingContainingBlock;
+    return this.nearestLayerShiftingContainingBlockInternal;
   }
 }
 
 export class LayerTreeBase {
-  _target: Target|null;
-  _domModel: DOMModel|null;
+  private readonly targetInternal: Target|null;
+  private domModel: DOMModel|null;
   layersById: Map<string|number, Layer>;
-  _root: Layer|null;
-  _contentRoot: Layer|null;
-  _backendNodeIdToNode: Map<Protocol.DOM.BackendNodeId, DOMNode|null>;
-  _viewportSize?: {
+  private rootInternal: Layer|null;
+  private contentRootInternal: Layer|null;
+  private readonly backendNodeIdToNodeInternal: Map<Protocol.DOM.BackendNodeId, DOMNode|null>;
+  private viewportSizeInternal?: {
     width: number,
     height: number,
   };
 
   constructor(target: Target|null) {
-    this._target = target;
-    this._domModel = target ? target.model(DOMModel) : null;
+    this.targetInternal = target;
+    this.domModel = target ? target.model(DOMModel) : null;
     this.layersById = new Map();
-    this._root = null;
-    this._contentRoot = null;
-    this._backendNodeIdToNode = new Map();
+    this.rootInternal = null;
+    this.contentRootInternal = null;
+    this.backendNodeIdToNodeInternal = new Map();
   }
 
   target(): Target|null {
-    return this._target;
+    return this.targetInternal;
   }
 
   root(): Layer|null {
-    return this._root;
+    return this.rootInternal;
   }
 
   setRoot(root: Layer|null): void {
-    this._root = root;
+    this.rootInternal = root;
   }
 
   contentRoot(): Layer|null {
-    return this._contentRoot;
+    return this.contentRootInternal;
   }
 
   setContentRoot(contentRoot: Layer|null): void {
-    this._contentRoot = contentRoot;
+    this.contentRootInternal = contentRoot;
   }
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -170,39 +170,39 @@ export class LayerTreeBase {
   }
 
   async resolveBackendNodeIds(requestedNodeIds: Set<Protocol.DOM.BackendNodeId>): Promise<void> {
-    if (!requestedNodeIds.size || !this._domModel) {
+    if (!requestedNodeIds.size || !this.domModel) {
       return;
     }
 
-    const nodesMap = await this._domModel.pushNodesByBackendIdsToFrontend(requestedNodeIds);
+    const nodesMap = await this.domModel.pushNodesByBackendIdsToFrontend(requestedNodeIds);
 
     if (!nodesMap) {
       return;
     }
     for (const nodeId of nodesMap.keys()) {
-      this._backendNodeIdToNode.set(nodeId, nodesMap.get(nodeId) || null);
+      this.backendNodeIdToNodeInternal.set(nodeId, nodesMap.get(nodeId) || null);
     }
   }
 
   backendNodeIdToNode(): Map<Protocol.DOM.BackendNodeId, DOMNode|null> {
-    return this._backendNodeIdToNode;
+    return this.backendNodeIdToNodeInternal;
   }
 
   setViewportSize(viewportSize: {
     width: number,
     height: number,
   }): void {
-    this._viewportSize = viewportSize;
+    this.viewportSizeInternal = viewportSize;
   }
 
   viewportSize(): {
     width: number,
     height: number,
   }|undefined {
-    return this._viewportSize;
+    return this.viewportSizeInternal;
   }
 
-  _nodeForId(id: number): DOMNode|null {
-    return this._domModel ? this._domModel.nodeForId(id) : null;
+  private nodeForId(id: number): DOMNode|null {
+    return this.domModel ? this.domModel.nodeForId(id) : null;
   }
 }
