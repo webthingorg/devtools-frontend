@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9650a8a7_c5809cec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "576beb6b_7ac00617",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3c9b70dc_16f32687",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef460b1_08d8c5a6",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73442339_082eed0a",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07e99f82_574843be",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-07-26T15:13:38Z",
       "side": 1,
       "message": "nit: I think it makes more sense here, particularly in the context of ESLint rules, to have `node` be the first argument as it\u0027s the main \"thing\" that we\u0027re dealing with",
+      "range": {
+        "startLine": 41,
+        "startChar": 36,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5579eca_3c652d1f",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07e99f82_574843be",
       "range": {
         "startLine": 41,
         "startChar": 36,
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b47273f_3b78489d",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f48a816_6409782a",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bbaca3a_d89c1f97",
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "430853f1_b5883f76",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "I\u0027ve changed it to make it easier to follow.",
+      "parentUuid": "4bbaca3a_d89c1f97",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93265276_dcb212be",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-07-26T15:13:38Z",
       "side": 1,
       "message": "should this be a valid test case or would we expect to pick this up?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27773c5_134f4653",
+        "filename": "scripts/eslint_rules/tests/migrate_register_required_css_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-27T08:38:01Z",
+      "side": 1,
+      "message": "As far as I remember I think there is only one case of this. When I checked the file there was no component for us to add a wasShown so thought it would be best to migrate these cases manually.",
+      "parentUuid": "93265276_dcb212be",
       "range": {
         "startLine": 46,
         "startChar": 0,
