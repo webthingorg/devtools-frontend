@@ -437,6 +437,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84dcd720_86842670",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-27T15:40:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79bf8f8d_ed77ca67",
+      "range": {
+        "startLine": 291,
+        "startChar": 10,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50fafcc9_e0b0a933",
@@ -521,6 +545,30 @@
       "side": 1,
       "message": "hideIsssue method uses the setHidden method of Issue.ts class, to assign each issue a hidden or unhidden status, that is only reason I pass the issue itself into the method.",
       "parentUuid": "24c5499d_c5d2dd1f",
+      "range": {
+        "startLine": 312,
+        "startChar": 9,
+        "endLine": 312,
+        "endChar": 33
+      },
+      "revId": "b8a11c2bbd5bc51aac32838de03de29621b9ba93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bdcaae_8e6d46aa",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-27T15:40:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccb9174a_fd3eddc4",
       "range": {
         "startLine": 312,
         "startChar": 9,
