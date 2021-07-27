@@ -20,6 +20,74 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fd7264c_4d073280",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T12:14:38Z",
+      "side": 1,
+      "message": "nit: insert newline",
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "771a3bec_442847fe",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T12:14:38Z",
+      "side": 1,
+      "message": "Is the 2nd issue needed for the test to work?",
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b13e421_7143944a",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T12:14:38Z",
+      "side": 1,
+      "message": "Could you do the same and assert that it\u0027s not empty before clicking the button?",
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10beeec7_bb99856e",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T12:14:38Z",
+      "side": 1,
+      "message": "Could you assert that there are no visible issues at this step before unhiding them again?",
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7acf2b0_7f47eaa4",
         "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
         "patchSetId": 49
@@ -132,6 +200,29 @@
         "startChar": 18,
         "endLine": 181,
         "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e7fb7e0_f552282a",
+        "filename": "test/unittests/front_end/panels/issues/IssueAggregator_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T12:14:38Z",
+      "side": 1,
+      "message": "Could this be moved into a `beforeEach` so that this doesn\u0027t need to be repeated for each test individually?",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 81
       },
       "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
