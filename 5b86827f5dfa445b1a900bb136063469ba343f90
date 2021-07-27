@@ -70,6 +70,30 @@
       },
       "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "090bd962_3bb4883c",
+        "filename": "scripts/eslint_rules/lib/enforce_custom_event_names.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-27T13:29:18Z",
+      "side": 1,
+      "message": "That\u0027s acceptable for me as well. Would you accept the CL if I change it that way?",
+      "parentUuid": "a2833f51_cba1aefa",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 109
+      },
+      "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
