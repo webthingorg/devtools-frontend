@@ -315,6 +315,30 @@
       },
       "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe34856b_b5d9d1ca",
+        "filename": "scripts/eslint_rules/tests/migrate_register_required_css_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-27T08:40:30Z",
+      "side": 1,
+      "message": "Cool, makes sense!",
+      "parentUuid": "f27773c5_134f4653",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "76936fafa80f6a23a63db616011cd38252ffd034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
