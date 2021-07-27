@@ -130,8 +130,6 @@ export class LocalizedStringSet {
       this.cachedMessageFormatters.set(message, formatter);
     }
 
-    // TODO(crbug.com/1231873): Replace call to i18nBundle with a native impl in TS.
-    const preformattedValues = i18nBundle._preformatValues(message, formatter, values, '');
-    return formatter.format(preformattedValues) as string;
+    return formatter.format(values) as string;
   }
 }
