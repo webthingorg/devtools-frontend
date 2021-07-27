@@ -212,7 +212,7 @@ export class CSSPlugin extends Plugin {
     value.textContent = text;
     value.setAttribute('hidden', 'true');
 
-    swatch.addEventListener('swatch-click', this._swatchIconClicked.bind(this, swatch), false);
+    swatch.addEventListener('devtools-color-swatch-click', this._swatchIconClicked.bind(this, swatch), false);
     return swatch;
   }
 
