@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "420458d4_8cf50514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-27T14:31:15Z",
+      "side": 1,
+      "message": "LGTM with thought about blank lines.",
+      "revId": "978166a13b99a8daa4a7c5bacc2f27582edb749e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9edf4741_1e9a4db3",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-27T14:31:15Z",
+      "side": 1,
+      "message": "teeny nit: I wonder if we should remove some of these blank lines. It\u0027s frustrating that ESLint leaves them behind.\n\nEdit: or we could apply the no-multiple-empty-lines rule (https://github.com/eslint/eslint/blob/master/lib/rules/no-multiple-empty-lines.js) on these files when we migrate them too. This will squash 2+ blank lines down into one. Saves us writing any more code. WDYT?\n\n( I actually wonder if this is a reasonable rule to enable anyway, so could just try enabling that as a separate CL )",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 0
+      },
+      "revId": "978166a13b99a8daa4a7c5bacc2f27582edb749e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
