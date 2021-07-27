@@ -21,7 +21,7 @@ ruleTester.run('check_migrate_RegisterRequiredCSS', rule, {
       export class Component extends UI.Widget.Widget {
         constructor(){
           const shadow = createShadowRootWithCoreStyles(this,
-            {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+            {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
         }
       }
       `,
@@ -33,7 +33,7 @@ ruleTester.run('check_migrate_RegisterRequiredCSS', rule, {
       export class Component extends UI.Widget.Widget {
         constructor(){
           const shadow = UI.Utils.createShadowRootWithCoreStyles(this,
-            {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+            {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
         }
       }
       `,
@@ -73,7 +73,7 @@ constructor(){
 export class Component extends UI.Widget.Widget {
   constructor(){
     const shadow = createShadowRootWithCoreStyles(this,
-      {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+      {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   }
 }`
     },
@@ -90,7 +90,7 @@ export class Component extends UI.Widget.Widget {
 export class Component extends UI.Widget.Widget {
   constructor(){
     const shadow = UI.Utils.createShadowRootWithCoreStyles(this,
-      {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+      {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   }
 }`
     },
@@ -109,7 +109,7 @@ constructor(){
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = createShadowRootWithCoreStyles(this,
     {cssFile: 'ui/legacy/test.css', delegatesFocus: undefined});
 }
@@ -120,7 +120,7 @@ constructor(){
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = createShadowRootWithCoreStyles(this,
     {cssFile: 'ui/legacy/test.css', delegatesFocus: undefined});
 }
@@ -132,9 +132,9 @@ import smallBubbleStyles from './smallBubble.css.js';
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = createShadowRootWithCoreStyles(this,
-    {cssFile: testStyles, delegatesFocus: undefined});
+    {cssFile: [testStyles], delegatesFocus: undefined});
 }
 }`
     },
@@ -153,7 +153,7 @@ constructor(){
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = UI.Utils.createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = UI.Utils.createShadowRootWithCoreStyles(this,
     {cssFile: 'ui/legacy/test.css', delegatesFocus: undefined});
 }
@@ -164,7 +164,7 @@ constructor(){
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = UI.Utils.createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = UI.Utils.createShadowRootWithCoreStyles(this,
     {cssFile: 'ui/legacy/test.css', delegatesFocus: undefined});
 }
@@ -176,9 +176,9 @@ import smallBubbleStyles from './smallBubble.css.js';
 export class Component extends UI.Widget.Widget {
 constructor(){
   const shadow = UI.Utils.createShadowRootWithCoreStyles(this,
-    {cssFile: smallBubbleStyles, delegatesFocus: undefined});
+    {cssFile: [smallBubbleStyles], delegatesFocus: undefined});
   const root = UI.Utils.createShadowRootWithCoreStyles(this,
-    {cssFile: testStyles, delegatesFocus: undefined});
+    {cssFile: [testStyles], delegatesFocus: undefined});
 }
 }`
     },

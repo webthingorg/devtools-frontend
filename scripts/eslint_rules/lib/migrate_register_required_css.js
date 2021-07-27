@@ -76,7 +76,7 @@ module.exports = {
   create: function(context) {
     return {
       ExpressionStatement(node) {
-        if (node.expression.type === 'CallExpression' &&
+        if (node.expression.type === 'CallExpression' && node.expression.callee.object &&
             (node.expression.callee.object.type === 'ThisExpression' ||
              node.expression.callee.object.type === 'MemberExpression') &&
             node.expression.callee.property.name === 'registerRequiredCSS') {

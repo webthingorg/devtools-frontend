@@ -30,9 +30,9 @@ module.exports = {
   create: function(context) {
     return {
       CallExpression(node) {
-        if (node.type === 'CallExpression' &&
+        if (node.type === 'CallExpression' && node.callee &&
             (node.callee.name === 'createShadowRootWithCoreStyles' ||
-             node.callee.property.name === 'createShadowRootWithCoreStyles')) {
+             (node.callee.property && node.callee.property.name === 'createShadowRootWithCoreStyles'))) {
           try {
             /* Construct 'import componentStyles form './componentStyles.css.js'' statement */
             const options = node.arguments[1];
@@ -51,7 +51,7 @@ module.exports = {
                 fix(fixer) {
                   return [
                     fixer.insertTextBefore(programNode, importStatement),
-                    fixer.replaceText(propertyNode.value, newFileName)
+                    fixer.replaceText(propertyNode.value, `[${newFileName}]`)
                   ];
                 }
               });
