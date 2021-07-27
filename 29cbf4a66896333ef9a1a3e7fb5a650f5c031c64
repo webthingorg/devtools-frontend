@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d81620a9_25e2e63c",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 53
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T15:26:05Z",
+      "side": 1,
+      "message": "remove `only` and comment",
+      "revId": "29cbf4a66896333ef9a1a3e7fb5a650f5c031c64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80bf5cc6_6ee80fba",
+        "filename": "test/unittests/front_end/panels/issues/IssueAggregator_test.ts",
+        "patchSetId": 53
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-27T15:26:05Z",
+      "side": 1,
+      "message": "It\u0027s enough to define the variables here, they are being initialised in the beforeEach anyway:\n\nlet HideIssueByCodeSetting: \n    Common.Settings.Setting\u003cIssuesManager.IssuesManager.HideIssueMenuSetting\u003e;\nlet showThirdPartyIssuesSetting: Common.Settings.Setting\u003cboolean\u003e;\nlet issuesManager: IssuesManager.IssuesManager.IssuesManager;\nlet mockModel: SDK.IssuesModel.IssuesModel;\nlet aggregator: Issues.IssueAggregator.IssueAggregator;",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 77
+      },
+      "revId": "29cbf4a66896333ef9a1a3e7fb5a650f5c031c64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
