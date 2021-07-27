@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82439d7e_82ed5fab",
+        "filename": "scripts/eslint_rules/lib/enforce_custom_event_names.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-27T13:17:27Z",
+      "side": 1,
+      "message": "what was the motivation for this change? FWIW I\u0027m not sure we need to prefix events with the component that they come from; TS should ensure that there are no duplicate keys in the global map.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 109
+      },
+      "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
