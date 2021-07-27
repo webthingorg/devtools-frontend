@@ -94,6 +94,30 @@
       },
       "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98f1cb6b_1a66898c",
+        "filename": "scripts/eslint_rules/lib/enforce_custom_event_names.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-27T13:34:04Z",
+      "side": 1,
+      "message": "Absolutely - thanks :)",
+      "parentUuid": "090bd962_3bb4883c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 109
+      },
+      "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
