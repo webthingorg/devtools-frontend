@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1611499_b7263bdd",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-27T12:43:01Z",
+      "side": 1,
+      "message": "We need to consider back-ward compatibility of this setting. Maybe it suffices for now to change the name to indicated that it is experimental, e.g. \nHideIssueByCodeSetting-Experiment-2021",
+      "range": {
+        "startLine": 136,
+        "startChar": 60,
+        "endLine": 136,
+        "endChar": 82
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd7264c_4d073280",
         "filename": "test/e2e/issues/hide-issues-menu_test.ts",
         "patchSetId": 49
@@ -219,6 +242,30 @@
       "side": 1,
       "message": "yes it would, shall i update the cl?",
       "parentUuid": "13720b1a_c1da9449",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8015fb5_e0048a26",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-27T12:43:01Z",
+      "side": 1,
+      "message": "Yes, please 😊",
+      "parentUuid": "fcce92c3_9f81f55e",
       "range": {
         "startLine": 181,
         "startChar": 18,
