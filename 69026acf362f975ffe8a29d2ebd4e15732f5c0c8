@@ -111,6 +111,30 @@
       },
       "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13720b1a_c1da9449",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-27T05:32:06Z",
+      "side": 1,
+      "message": "Thanks for your explanation. In this iteration of the feature (i.e. in this CL), would a change listener suffice?",
+      "parentUuid": "fb8c0e23_c5328047",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
