@@ -146,14 +146,14 @@ describe('ColorSwatch', () => {
     const onClick = (e: Event) => {
       swatchClickEventsReceived.push(e);
     };
-    swatch.addEventListener('swatch-click', onClick);
+    swatch.addEventListener('devtools-color-swatch-click', onClick);
 
     dispatchClickEvent(target);
     dispatchClickEvent(target);
     dispatchClickEvent(target);
     assert.strictEqual(swatchClickEventsReceived.length, 3, 'The right click events were received');
 
-    swatch.removeEventListener('swatch-click', onClick);
+    swatch.removeEventListener('devtools-color-swatch-click', onClick);
 
     dispatchClickEvent(target);
     assert.strictEqual(swatchClickEventsReceived.length, 3, 'No more click events received after removing listener');
@@ -167,7 +167,7 @@ describe('ColorSwatch', () => {
     const onClick = (e: Event) => {
       swatchClickEventsReceived.push(e);
     };
-    swatch.addEventListener('swatch-click', onClick);
+    swatch.addEventListener('devtools-color-swatch-click', onClick);
 
     dispatchClickEvent(target, {shiftKey: true});
     dispatchClickEvent(target, {shiftKey: true});
@@ -175,7 +175,7 @@ describe('ColorSwatch', () => {
 
     assert.strictEqual(swatchClickEventsReceived.length, 0, 'No swatch-click events are received on shift-click');
 
-    swatch.removeEventListener('swatch-click', onClick);
+    swatch.removeEventListener('devtools-color-swatch-click', onClick);
   });
 
   it('does not dispatch a formatchanged event on click', () => {
