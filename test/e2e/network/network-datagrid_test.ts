@@ -289,7 +289,7 @@ describe('The Network Tab', async function() {
     ]);
   });
 
-  it('shows preserved pedning requests as unknown', async () => {
+  it('shows preserved pending requests as unknown', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await navigateToNetworkTab('send_beacon_on_unload.html');
@@ -303,15 +303,18 @@ describe('The Network Tab', async function() {
 
     await navigateToNetworkTab('fetch.html');
     await waitForSomeRequestsToAppear(1);
-    const getNetworkRequestStatus = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.status-column')).slice(3, 4).map(node => node.textContent);
+    const statusColumn = await frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.status-column')).map(node => node.textContent);
+    });
+    const timeColumn = await frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.time-column')).map(node => node.textContent);
+    });
+    const nameColumn = await frontend.evaluate(() => {
+      return Array.from(document.querySelectorAll('.name-column')).map(node => node.textContent);
     });
 
-    const getNetworkRequestTime = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.time-column')).slice(3, 4).map(node => node.textContent);
-    });
-
-    assert.deepEqual(await getNetworkRequestStatus(), ['(unknown)']);
-    assert.deepEqual(await getNetworkRequestTime(), ['(unknown)']);
+    const index = nameColumn.findIndex(x => x === 'sendBeacon');
+    assert.deepEqual(statusColumn[index], '(unknown)');
+    assert.deepEqual(timeColumn[index], '(unknown)');
   });
 });
