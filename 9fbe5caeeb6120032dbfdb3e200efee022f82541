@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93ac1110_8bf3b793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-27T10:57:03Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "9fbe5caeeb6120032dbfdb3e200efee022f82541",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4422bc7c_9540c25a",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-27T10:57:03Z",
+      "side": 1,
+      "message": "Please note that this enum is not re-exported from intl-messageformat. If we wanted to use it, we would have to add `icu-messageformat-parser` to third_party or manually adjust the bundle + d.ts files. IMO for a single enum value its not worth the effort.\n\nAlso note that `element` is typed correctly now :)",
+      "range": {
+        "startLine": 113,
+        "startChar": 25,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "9fbe5caeeb6120032dbfdb3e200efee022f82541",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
