@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01737f40_a6022336",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-27T13:14:20Z",
+      "side": 1,
+      "message": "Will update it, Wolfgang also mentioned having a top level version key in the setting, which I will also implement.",
+      "parentUuid": "e1611499_b7263bdd",
+      "range": {
+        "startLine": 136,
+        "startChar": 60,
+        "endLine": 136,
+        "endChar": 82
+      },
+      "revId": "69026acf362f975ffe8a29d2ebd4e15732f5c0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd7264c_4d073280",
         "filename": "test/e2e/issues/hide-issues-menu_test.ts",
         "patchSetId": 49
