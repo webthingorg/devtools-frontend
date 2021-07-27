@@ -22,6 +22,30 @@
       },
       "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8b2eb1_0feef431",
+        "filename": "scripts/eslint_rules/lib/enforce_custom_event_names.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-27T13:20:56Z",
+      "side": 1,
+      "message": "I think it increases readability. Requiring a devtools- prefix avoids clashes with external libraries.",
+      "parentUuid": "82439d7e_82ed5fab",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 109
+      },
+      "revId": "5b86827f5dfa445b1a900bb136063469ba343f90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
