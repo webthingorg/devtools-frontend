@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81822168_5bfb359b",
+        "filename": "test/unittests/front_end/models/formatter/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-27T15:56:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69013684_30455f67",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 6
+      },
+      "revId": "59c3f201cd4d178a6222f2b598a64ea121e7fb27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecdcab92_b1a3c08a",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37aa8cb0_2b059939",
+        "filename": "test/unittests/front_end/models/formatter/ScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-27T15:56:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecdcab92_b1a3c08a",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 74
+      },
+      "revId": "59c3f201cd4d178a6222f2b598a64ea121e7fb27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9438bc50_80502dce",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-07-27T15:04:00Z",
       "side": 1,
       "message": "nit: Copy/paste left-over here and below?",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "59c3f201cd4d178a6222f2b598a64ea121e7fb27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19146a87_2ca58714",
+        "filename": "test/unittests/front_end/models/formatter/ScriptFormatter_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-27T15:56:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9438bc50_80502dce",
       "range": {
         "startLine": 68,
         "startChar": 6,
