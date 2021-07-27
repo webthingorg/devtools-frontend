@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb303aa_b3bef1fd",
+        "filename": "front_end/third_party/intl-messageformat/package/src/icu-messageformat-parser/error.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-27T09:43:22Z",
+      "side": 1,
+      "message": "These files don\u0027t seem to have a license header.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 35
+      },
+      "revId": "c6460e208fb6e72072e46aa6a870cc1a45233c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64825f08_0984399e",
+        "filename": "front_end/third_party/intl-messageformat/package/src/icu-messageformat-parser/types.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-27T09:43:22Z",
+      "side": 1,
+      "message": "So I guess these are still implicitly typed as any for now, but I assume that\u0027s fine for now?",
+      "range": {
+        "startLine": 1,
+        "startChar": 42,
+        "endLine": 1,
+        "endChar": 68
+      },
+      "revId": "c6460e208fb6e72072e46aa6a870cc1a45233c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
