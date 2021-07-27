@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ade3ba7_37442253",
+        "filename": "front_end/third_party/intl-messageformat/package/src/icu-messageformat-parser/error.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-27T10:13:46Z",
+      "side": 1,
+      "message": "Indeed. Also the original source files don\u0027t contain one. I opted for copying the content of the LICENSE file of icu-messageformat-parser into the header of each one.",
+      "parentUuid": "cbb303aa_b3bef1fd",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 35
+      },
+      "revId": "c6460e208fb6e72072e46aa6a870cc1a45233c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64825f08_0984399e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-27T09:43:22Z",
       "side": 1,
       "message": "So I guess these are still implicitly typed as any for now, but I assume that\u0027s fine for now?",
+      "range": {
+        "startLine": 1,
+        "startChar": 42,
+        "endLine": 1,
+        "endChar": 68
+      },
+      "revId": "c6460e208fb6e72072e46aa6a870cc1a45233c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f69f9770_cefef2bb",
+        "filename": "front_end/third_party/intl-messageformat/package/src/icu-messageformat-parser/types.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-27T10:13:46Z",
+      "side": 1,
+      "message": "Yes, for now we do not require these types and the AST node types are enough.",
+      "parentUuid": "64825f08_0984399e",
       "range": {
         "startLine": 1,
         "startChar": 42,
