@@ -5,7 +5,7 @@
 /**
  * Match all lowercase letters from the start to the end.
  */
-const VALID_EVENT_NAME_REGEX = /^([a-z]+)$/;
+const VALID_EVENT_NAME_REGEX = /^(devtools-([a-z-]+))|([a-z]+)$/;
 
 module.exports = {
   meta: {
@@ -17,7 +17,7 @@ module.exports = {
     },
     fixable: 'code',
     messages: {
-      'invalidEventName': 'Custom events must be named in all lower case with no punctuation.',
+      'invalidEventName': 'Custom events must be named in all lower case with no punctuation except dashes.',
       'invalidEventNameReference': 'When referencing a custom event name, it must be accessed as ClassName.eventName.'
     },
     schema: []  // no options
