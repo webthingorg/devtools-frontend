@@ -39,6 +39,30 @@
       },
       "revId": "c762bbdae6a796dce85afdf86286b379b9a344b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa17ff7e_3e96bf36",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-28T09:54:33Z",
+      "side": 1,
+      "message": "Sure, no problem, what would you suggest (note that we need a prefix for the click)?",
+      "parentUuid": "c23effa3_b6128f0b",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 67
+      },
+      "revId": "c762bbdae6a796dce85afdf86286b379b9a344b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
