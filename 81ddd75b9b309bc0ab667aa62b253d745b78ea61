@@ -39,6 +39,30 @@
       },
       "revId": "81ddd75b9b309bc0ab667aa62b253d745b78ea61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b38620_ead30d19",
+        "filename": "front_end/ui/components/data_grid/DataGridEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-28T14:05:30Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "adf9b2f5_ef71abb3",
+      "range": {
+        "startLine": 73,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "81ddd75b9b309bc0ab667aa62b253d745b78ea61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
