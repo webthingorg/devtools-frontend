@@ -158,7 +158,6 @@ export class ColorSwatch extends HTMLElement {
 
 ComponentHelpers.CustomElements.defineComponent('devtools-color-swatch', ColorSwatch);
 
-
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
