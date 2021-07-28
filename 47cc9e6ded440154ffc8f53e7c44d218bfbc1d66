@@ -16,6 +16,29 @@
       "message": "Nice fix!",
       "revId": "47cc9e6ded440154ffc8f53e7c44d218bfbc1d66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e89d05_fa41a2fa",
+        "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-28T14:15:00Z",
+      "side": 1,
+      "message": "tiny nit: `newGRDFileEntry` to be clear it\u0027s the new file we need to add to the GRD",
+      "range": {
+        "startLine": 27,
+        "startChar": 24,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "47cc9e6ded440154ffc8f53e7c44d218bfbc1d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
