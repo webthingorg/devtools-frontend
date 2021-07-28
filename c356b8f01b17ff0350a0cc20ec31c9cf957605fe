@@ -16,6 +16,23 @@
       "message": "Kim, PTAL :)",
       "revId": "c356b8f01b17ff0350a0cc20ec31c9cf957605fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1394426b_6c4ce6fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-07-28T08:17:43Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "c356b8f01b17ff0350a0cc20ec31c9cf957605fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
