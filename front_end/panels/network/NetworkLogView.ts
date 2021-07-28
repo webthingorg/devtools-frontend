@@ -345,6 +345,11 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkLogView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const enum FetchStyle {
+  Browser = 0,
+  NodeJs = 1,
+}
+
 export class NetworkLogView extends UI.Widget.VBox implements
     SDK.TargetManager.SDKModelObserver<SDK.NetworkManager.NetworkManager>, NetworkLogViewInterface {
   _networkInvertFilterSetting: Common.Settings.Setting<boolean>;
@@ -1505,27 +1510,35 @@ export class NetworkLogView extends UI.Widget.VBox implements
         footerSection.appendItem(
             i18nString(UIStrings.copyAsPowershell), this._copyPowerShellCommand.bind(this, request), disableIfBlob);
         footerSection.appendItem(
-            i18nString(UIStrings.copyAsFetch), this._copyFetchCall.bind(this, request, false), disableIfBlob);
+            i18nString(UIStrings.copyAsFetch), this._copyFetchCall.bind(this, request, FetchStyle.Browser),
+            disableIfBlob);
         footerSection.appendItem(
-            i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, true), disableIfBlob);
+            i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, FetchStyle.NodeJs),
+            disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlCmd), this._copyCurlCommand.bind(this, request, 'win'), disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlBash), this._copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
         footerSection.appendItem(i18nString(UIStrings.copyAllAsPowershell), this._copyAllPowerShellCommand.bind(this));
-        footerSection.appendItem(i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, false));
-        footerSection.appendItem(i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, true));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, FetchStyle.Browser));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, FetchStyle.NodeJs));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlCmd), this._copyAllCurlCommand.bind(this, 'win'));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlBash), this._copyAllCurlCommand.bind(this, 'unix'));
       } else {
         footerSection.appendItem(
-            i18nString(UIStrings.copyAsFetch), this._copyFetchCall.bind(this, request, false), disableIfBlob);
+            i18nString(UIStrings.copyAsFetch), this._copyFetchCall.bind(this, request, FetchStyle.Browser),
+            disableIfBlob);
         footerSection.appendItem(
-            i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, true), disableIfBlob);
+            i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, FetchStyle.NodeJs),
+            disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurl), this._copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
-        footerSection.appendItem(i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, false));
-        footerSection.appendItem(i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, true));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, FetchStyle.Browser));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, FetchStyle.NodeJs));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurl), this._copyAllCurlCommand.bind(this, 'unix'));
       }
     } else {
@@ -1609,13 +1622,13 @@ export class NetworkLogView extends UI.Widget.VBox implements
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
-  async _copyFetchCall(request: SDK.NetworkRequest.NetworkRequest, includeCookies: boolean): Promise<void> {
-    const command = await this._generateFetchCall(request, includeCookies);
+  async _copyFetchCall(request: SDK.NetworkRequest.NetworkRequest, style: FetchStyle): Promise<void> {
+    const command = await this._generateFetchCall(request, style);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(command);
   }
 
-  async _copyAllFetchCall(includeCookies: boolean): Promise<void> {
-    const commands = await this._generateAllFetchCall(Logs.NetworkLog.NetworkLog.instance().requests(), includeCookies);
+  async _copyAllFetchCall(style: FetchStyle): Promise<void> {
+    const commands = await this._generateAllFetchCall(Logs.NetworkLog.NetworkLog.instance().requests(), style);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -1881,7 +1894,7 @@ export class NetworkLogView extends UI.Widget.VBox implements
     return requests.filter(request => !request.isBlobRequest());
   }
 
-  async _generateFetchCall(request: SDK.NetworkRequest.NetworkRequest, includeCookies: boolean): Promise<string> {
+  async _generateFetchCall(request: SDK.NetworkRequest.NetworkRequest, style: FetchStyle): Promise<string> {
     const ignoredHeaders = new Set<string>([
       // Internal headers
       'method',
@@ -1957,12 +1970,27 @@ export class NetworkLogView extends UI.Widget.VBox implements
       mode: 'cors',
     };
 
-    if (includeCookies) {
+    if (style === FetchStyle.NodeJs) {
       const cookieHeader = requestHeaders.find(header => header.name.toLowerCase() === 'cookie');
+      const extraHeaders: HeadersInit = {};
+      // According to https://www.npmjs.com/package/node-fetch#class-request the
+      // following properties are not implemented in Node.js.
+      delete fetchOptions.mode;
       if (cookieHeader) {
+        extraHeaders['cookie'] = cookieHeader.value;
+      }
+      if (referrer) {
+        delete fetchOptions.referrer;
+        extraHeaders['Referer'] = referrer;
+      }
+      if (referrer) {
+        delete fetchOptions.referrerPolicy;
+        extraHeaders['Referrer-Policy'] = referrerPolicy as string;
+      }
+      if (Object.keys(extraHeaders).length) {
         fetchOptions.headers = {
           ...headers,
-          'cookie': cookieHeader.value,
+          ...extraHeaders,
         };
       }
     } else {
@@ -1973,10 +2001,9 @@ export class NetworkLogView extends UI.Widget.VBox implements
     return `fetch(${url}, ${options});`;
   }
 
-  async _generateAllFetchCall(requests: SDK.NetworkRequest.NetworkRequest[], includeCookies: boolean): Promise<string> {
+  async _generateAllFetchCall(requests: SDK.NetworkRequest.NetworkRequest[], style: FetchStyle): Promise<string> {
     const nonBlobRequests = this._filterOutBlobRequests(requests);
-    const commands =
-        await Promise.all(nonBlobRequests.map(request => this._generateFetchCall(request, includeCookies)));
+    const commands = await Promise.all(nonBlobRequests.map(request => this._generateFetchCall(request, style)));
     return commands.join(' ;\n');
   }
 
