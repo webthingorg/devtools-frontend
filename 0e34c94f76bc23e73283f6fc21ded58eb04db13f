@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd7ad572_ccfad6cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:45:54Z",
+      "side": 1,
+      "message": "lgtm % nits and a question",
+      "revId": "0e34c94f76bc23e73283f6fc21ded58eb04db13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6302cb_5257ecf9",
+        "filename": "front_end/models/formatter/SourceFormatter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:45:54Z",
+      "side": 1,
+      "message": "nit: Superfluous return?",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 15
+      },
+      "revId": "0e34c94f76bc23e73283f6fc21ded58eb04db13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62cf742c_7e99dfc6",
+        "filename": "test/unittests/front_end/models/formatter/SourceFormatter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:45:54Z",
+      "side": 1,
+      "message": "q: Reading through the tests it seems that `sourceFormatter` holds an internal state (at least a cache). Should we re-create the instance before each test to make sure each test stays isolated?",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 25
+      },
+      "revId": "0e34c94f76bc23e73283f6fc21ded58eb04db13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e42ad1d_4ebba7ca",
+        "filename": "test/unittests/front_end/models/formatter/SourceFormatter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:45:54Z",
+      "side": 1,
+      "message": "ultra-nit: assert.isFalse and assert.isTrue for improved readability here and below?",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 22
+      },
+      "revId": "0e34c94f76bc23e73283f6fc21ded58eb04db13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
