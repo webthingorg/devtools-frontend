@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b64b2b88_9697b0ef",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-29T12:25:42Z",
+      "side": 1,
+      "message": "Let\u0027s ignore this particular instance, but keep on warning on all other usages.",
+      "parentUuid": "5e90cca5_976add08",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "cbeaca02ea84cf1791e0059741cf5d217835105e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "66751531_46d060d8",
         "filename": "scripts/build/generate_css_js_files.js",
         "patchSetId": 1
