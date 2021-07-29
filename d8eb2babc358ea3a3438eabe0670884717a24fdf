@@ -16,6 +16,23 @@
       "message": "PTAL. I find this unexpected, is it WAI that single quotes prevent replacement?",
       "revId": "d8eb2babc358ea3a3438eabe0670884717a24fdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3113fa_16f161e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:15:04Z",
+      "side": 1,
+      "message": "Unfortunately intl-messageformat considers this a \"feature\", not a bug: https://formatjs.io/docs/intl-messageformat/#features (see escaping).\n\nAs a workaround, we could enquote the title at the call-site:\n`i18nString(..., {title: `\u0027${title}\u0027`}`",
+      "revId": "d8eb2babc358ea3a3438eabe0670884717a24fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
