@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f5391c_9e594185",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T06:05:00Z",
+      "side": 1,
+      "message": "We introduced assertNotNullOrUndefined a while back for this case. The advantage over assert.exists is that is also reflects in the type that undefined/null isn\u0027t possible anymore.",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "42e6822ecfbcf733a941a3c2ceeb62f2d619a7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2a36f7c2_64294a45",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-07-28T15:17:23Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "42e6822ecfbcf733a941a3c2ceeb62f2d619a7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "021c0639_ec485d68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T06:05:00Z",
+      "side": 1,
+      "message": "We",
       "revId": "42e6822ecfbcf733a941a3c2ceeb62f2d619a7c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
