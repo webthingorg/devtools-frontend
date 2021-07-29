@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e90cca5_976add08",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-07-29T11:58:44Z",
+      "side": 1,
+      "message": "yes, I think its because its `report-assets/report.css.js` and it wants the import to be `import * as name from \u0027report-assets/report.css.js\u0027` instead. All other imports so far have been okay. \n\nMaybe we should change the rule to not apply to .css.js files? WDYT?",
+      "parentUuid": "4b02ae06_a26b15c4",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "cbeaca02ea84cf1791e0059741cf5d217835105e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "66751531_46d060d8",
