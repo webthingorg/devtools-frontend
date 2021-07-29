@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fc4b0e38_c90fb21d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-29T11:25:37Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "005c400e_9834d9f2",
         "filename": "front_end/core/sdk/AccessibilityModel.ts",
         "patchSetId": 8
@@ -31,6 +48,40 @@
       "writtenOn": "2021-07-29T11:20:37Z",
       "side": 1,
       "message": "Drive-by change to improve readability.",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c292d9_e2335d53",
+        "filename": "test/e2e/elements/accessibility-tree_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-29T11:25:37Z",
+      "side": 1,
+      "message": "this might be flaky. It\u0027d suggest ensuring that the focus is on the right element and the UI is up-to-date before pressing the keys. If possible it\u0027d be better to expand via clicks.",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab799012_dbf2b0a6",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-07-29T11:25:37Z",
+      "side": 1,
+      "message": "can you use `waitForAria`?",
       "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
