@@ -136,6 +136,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3cf0313_b3eb67ba",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T14:31:44Z",
+      "side": 1,
+      "message": "Did you run gclient sync -fD as well?",
+      "parentUuid": "463f7da1_960ae970",
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de4df365_84ba3e37",
         "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
         "patchSetId": 56
