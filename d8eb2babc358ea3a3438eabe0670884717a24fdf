@@ -51,6 +51,24 @@
       "parentUuid": "df3113fa_16f161e5",
       "revId": "d8eb2babc358ea3a3438eabe0670884717a24fdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "826f5494_2a751c2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-29T09:17:49Z",
+      "side": 1,
+      "message": "It shouldn\u0027t. The existing i18n didn\u0027t do any magic with the original message, so the behavior should be the same across the re-write.\n\nAs a side note: Double-escaping also seems to work:\n\n  it(\u0027should format a placeholder enclosed in single quotes\u0027, () \u003d\u003e {\n    const uiStrings \u003d {foo: \u0027message with \\\u0027\\\u0027{PH1}\\\u0027\\\u0027\u0027};\n    const stringSet \u003d stringSetWith(\u0027test.ts\u0027, uiStrings, \u0027en-US\u0027);\n\n    const translatedString \u003d stringSet.getLocalizedString(uiStrings.foo, {PH1: \u0027placeholder\u0027});\n\n    assert.strictEqual(translatedString, \u0027message with \\\u0027placeholder\\\u0027\u0027);",
+      "parentUuid": "df3113fa_16f161e5",
+      "revId": "d8eb2babc358ea3a3438eabe0670884717a24fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
