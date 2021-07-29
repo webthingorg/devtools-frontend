@@ -71,6 +71,22 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     this.refreshAccessibilityTree();
   }
 
+  wireToDOMModel(domModel: SDK.DOMModel.DOMModel): void {
+    if (!domModel.parentModel()) {
+      this.setAccessibilityModel(domModel.target().model(SDK.AccessibilityModel.AccessibilityModel));
+    }
+    domModel.addEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
+  }
+
+  unwireFromDOMModel(domModel: SDK.DOMModel.DOMModel): void {
+    domModel.removeEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
+  }
+
+  documentUpdated(): void {
+    // TODO (jobay): make more fine-grained refreshes when documents are updated.
+    this.refreshAccessibilityTree();
+  }
+
   async refreshAccessibilityTree(): Promise<void> {
     if (!this.accessibilityModel) {
       return;
