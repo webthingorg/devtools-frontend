@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38f502f_294eeed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-07-29T08:25:26Z",
+      "side": 1,
+      "message": "LGTM % nit, thanks!",
+      "revId": "c1fdc22072d8bded975712d30db2e1574a7a0d0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe96dc2_7103b086",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-07-29T08:25:26Z",
+      "side": 1,
+      "message": "Nit: Can you add an empty line before this to separate it from the i18n stuff?",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 5
+      },
+      "revId": "c1fdc22072d8bded975712d30db2e1574a7a0d0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
