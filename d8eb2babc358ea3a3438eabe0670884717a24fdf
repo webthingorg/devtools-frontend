@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c563c8e_06903ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T09:06:02Z",
+      "side": 1,
+      "message": "PTAL. I find this unexpected, is it WAI that single quotes prevent replacement?",
+      "revId": "d8eb2babc358ea3a3438eabe0670884717a24fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
