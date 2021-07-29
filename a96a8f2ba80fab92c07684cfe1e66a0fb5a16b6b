@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37d105ac_2f6b00d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 56
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "LGTM after final comments are addressed.",
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf9e385_b31ec691",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "Should this be hoisted out of the loop in L322 and provided as argument to this helper function instead?",
+      "range": {
+        "startLine": 298,
+        "startChar": 4,
+        "endLine": 299,
+        "endChar": 34
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "513f4143_ddf216db",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "nit: remove stray change",
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ff860b7_4f4c9596",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "Would \"Hide issues like this\" be more accurate?",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 35
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98604acc_ab7c8a51",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "It looks like you didn\u0027t apply the latest eslint rules, here (no two consecutive newlines). Re-uploading should auto-fix this.",
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4df365_84ba3e37",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "nit: hideIssueByCodeSetting (throughout the file)",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 33
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388d3eb1_58c02520",
+        "filename": "test/unittests/front_end/panels/issues/IssueAggregator_test.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-29T13:27:16Z",
+      "side": 1,
+      "message": "nit: hideIssueByCodeSetting (throughout the file)",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 28
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
