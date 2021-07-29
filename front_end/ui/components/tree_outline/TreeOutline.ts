@@ -216,13 +216,10 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
 
   private async expandAndRecurse(node: TreeNode<TreeNodeDataType>, currentDepth: number, maxDepth: number):
       Promise<void> {
-    if (!isExpandableNode(node)) {
-      return;
-    }
-    this.setNodeExpandedState(node, true);
     if (currentDepth === maxDepth || !isExpandableNode(node)) {
       return;
     }
+    this.setNodeExpandedState(node, true);
     const children = await this.fetchNodeChildren(node);
     await Promise.all(children.map(child => this.expandAndRecurse(child, currentDepth + 1, maxDepth)));
   }
