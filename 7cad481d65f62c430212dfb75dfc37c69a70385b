@@ -22,6 +22,30 @@
       },
       "revId": "7cad481d65f62c430212dfb75dfc37c69a70385b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c30d039_c6308487",
+        "filename": "test/unittests/front_end/models/formatter/SourceFormatter_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-29T10:12:16Z",
+      "side": 1,
+      "message": "Oh stupid me. I thought that `before` was the `beforeEach`... So yes, we should use `beforeEach`, but we should also force a new instance every time. Good catch!",
+      "parentUuid": "bb50bec4_7c56e6c5",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 91
+      },
+      "revId": "7cad481d65f62c430212dfb75dfc37c69a70385b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
