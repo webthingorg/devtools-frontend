@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2e88b17_1696a7cf",
+        "filename": ".eslintrc.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-07-29T15:53:10Z",
+      "side": 1,
+      "message": "don\u0027t think you meant to include this change :)",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "1249a29d785c9772857c05a3a5edd49fa218e904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
