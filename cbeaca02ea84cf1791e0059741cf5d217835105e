@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b02ae06_a26b15c4",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-29T11:19:35Z",
+      "side": 1,
+      "message": "To double-check, we only need this, because we are importing third_party content in a completely different panel?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "cbeaca02ea84cf1791e0059741cf5d217835105e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "66751531_46d060d8",
@@ -14,6 +37,30 @@
       "writtenOn": "2021-07-29T11:14:07Z",
       "side": 1,
       "message": "output.replaceAll(\u0027\\`\u0027, \u0027\\\\\\`\u0027) did not seem to work so I used this instead.",
+      "range": {
+        "startLine": 16,
+        "startChar": 11,
+        "endLine": 16,
+        "endChar": 43
+      },
+      "revId": "cbeaca02ea84cf1791e0059741cf5d217835105e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e457ea_647a26bd",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-07-29T11:19:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "66751531_46d060d8",
       "range": {
         "startLine": 16,
         "startChar": 11,
