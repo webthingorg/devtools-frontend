@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46c16a9_537dc57e",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-29T14:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbf9e385_b31ec691",
+      "range": {
+        "startLine": 298,
+        "startChar": 4,
+        "endLine": 299,
+        "endChar": 34
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "513f4143_ddf216db",
@@ -76,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cef67479_b065c2c0",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-29T14:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "513f4143_ddf216db",
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ff860b7_4f4c9596",
@@ -89,6 +131,30 @@
       "writtenOn": "2021-07-29T13:27:16Z",
       "side": 1,
       "message": "Would \"Hide issues like this\" be more accurate?",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 35
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13944d80_7e4bab16",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-29T14:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff860b7_4f4c9596",
       "range": {
         "startLine": 24,
         "startChar": 20,
@@ -175,6 +241,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e29174_a7c4b403",
+        "filename": "test/unittests/front_end/models/issues_manager/IssuesManager_test.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-29T14:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de4df365_84ba3e37",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 33
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "388d3eb1_58c02520",
@@ -188,6 +278,30 @@
       "writtenOn": "2021-07-29T13:27:16Z",
       "side": 1,
       "message": "nit: hideIssueByCodeSetting (throughout the file)",
+      "range": {
+        "startLine": 226,
+        "startChar": 6,
+        "endLine": 226,
+        "endChar": 28
+      },
+      "revId": "a96a8f2ba80fab92c07684cfe1e66a0fb5a16b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e9ce7b8_c1907191",
+        "filename": "test/unittests/front_end/panels/issues/IssueAggregator_test.ts",
+        "patchSetId": 56
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-29T14:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "388d3eb1_58c02520",
       "range": {
         "startLine": 226,
         "startChar": 6,
