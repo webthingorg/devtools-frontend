@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assertNotNull, enableExperiment, goToResource} from '../../shared/helper.js';
+import {assert} from 'chai';
+
+import {enableExperiment, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertIssueTitle, expandIssue, getIssueByTitle, getResourcesElement, navigateToIssuesTab, waitForTableFromResourceSectionContents} from '../helpers/issues-helpers.js';
 
@@ -15,7 +17,7 @@ describe('Low contrast issues', async () => {
     const issueTitle = 'Users may have difficulties reading text content due to insufficient color contrast';
     await assertIssueTitle(issueTitle);
     const issueElement = await getIssueByTitle(issueTitle);
-    assertNotNull(issueElement);
+    assert.exists(issueElement);
     const section = await getResourcesElement('3 elements', issueElement);
     const expectedTableRows = [
       [
