@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "897d86bb_69d164a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-29T11:20:37Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "005c400e_9834d9f2",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-29T11:20:37Z",
+      "side": 1,
+      "message": "Drive-by change to improve readability.",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
