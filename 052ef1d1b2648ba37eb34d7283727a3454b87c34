@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed32f08f_8bb139ac",
+        "filename": "test/e2e/elements/accessibility-tree_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-29T18:36:19Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll go with clicks instead then.",
+      "parentUuid": "45c292d9_e2335d53",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab799012_dbf2b0a6",
@@ -82,6 +100,24 @@
       "writtenOn": "2021-07-29T11:25:37Z",
       "side": 1,
       "message": "can you use `waitForAria`?",
+      "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85be4d6d_6ccc06b8",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-07-29T18:36:19Z",
+      "side": 1,
+      "message": "Not here. We want to check if the a11y pane is visible, if not we need to click \"More tabs\" before we try to find it again.",
+      "parentUuid": "ab799012_dbf2b0a6",
       "revId": "052ef1d1b2648ba37eb34d7283727a3454b87c34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
