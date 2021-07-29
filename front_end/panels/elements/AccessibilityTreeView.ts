@@ -7,7 +7,6 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as AccessibilityTreeUtils from './AccessibilityTreeUtils.js';
-import type * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 export class AccessibilityTreeView extends UI.Widget.VBox {
   private readonly accessibilityTreeComponent =
@@ -68,6 +67,22 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
 
   setAccessibilityModel(model: SDK.AccessibilityModel.AccessibilityModel|null): void {
     this.accessibilityModel = model;
+  }
+
+  wireToDOMModel(domModel: SDK.DOMModel.DOMModel): void {
+    const axModel = domModel.target().model(SDK.AccessibilityModel.AccessibilityModel);
+    if (!domModel.parentModel()) {
+      this.setAccessibilityModel(axModel);
+    }
+    domModel.addEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
+  }
+
+  unwireFromDOMModel(domModel: SDK.DOMModel.DOMModel): void {
+    domModel.removeEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
+  }
+
+  documentUpdated(): void {
+    // TODO (jobay): make more fine-grained refreshes when documents are updated.
     this.refreshAccessibilityTree();
   }
 
@@ -85,11 +100,11 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     this.treeData = [AccessibilityTreeUtils.sdkNodeToAXTreeNode(this.rootAXNode)];
 
     this.accessibilityTreeComponent.data = {
-      defaultRenderer: (node): LitHtml.TemplateResult => AccessibilityTreeUtils.accessibilityNodeRenderer(node),
+      defaultRenderer: AccessibilityTreeUtils.accessibilityNodeRenderer,
       tree: this.treeData,
     };
 
-    this.accessibilityTreeComponent.expandRecursively(2);
+    await this.accessibilityTreeComponent.expandRecursively(2);
     this.selectedTreeNode = this.treeData[0];
   }
 
@@ -120,7 +135,7 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     }
 
     this.accessibilityTreeComponent.data = {
-      defaultRenderer: (node): LitHtml.TemplateResult => AccessibilityTreeUtils.accessibilityNodeRenderer(node),
+      defaultRenderer: AccessibilityTreeUtils.accessibilityNodeRenderer,
       tree: this.treeData,
     };
 
