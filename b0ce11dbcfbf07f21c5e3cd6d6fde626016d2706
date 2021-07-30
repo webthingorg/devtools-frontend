@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b0ce11dbcfbf07f21c5e3cd6d6fde626016d2706",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42b6219b_7f7ec968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-07-30T07:27:33Z",
+      "side": 1,
+      "message": "Would it make sense to await this in IssueRevealer.reveal()?",
+      "revId": "b0ce11dbcfbf07f21c5e3cd6d6fde626016d2706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
