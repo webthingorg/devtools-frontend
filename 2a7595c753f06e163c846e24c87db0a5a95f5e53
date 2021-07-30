@@ -70,6 +70,30 @@
       },
       "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2124772_a9a7a6d7",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-30T08:07:38Z",
+      "side": 1,
+      "message": "I couldn\u0027t find anything on the Cookie Mojo structures besides the `devtools_request_id`. And the request ID is only present when DevTools is enabled so it is not a good signal where the cookie comes from.\n\nGiven that most cookies are set via requests though, I\u0027d agree that we should link to the network panel. I\u0027ll add it in the next patchset.",
+      "parentUuid": "1d12617d_63b71a77",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 46
+      },
+      "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
