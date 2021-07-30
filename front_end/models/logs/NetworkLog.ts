@@ -318,8 +318,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper implements
     }
   }
 
-  _onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent): void {
-    const mainFrame = (event.data as SDK.ResourceTreeModel.ResourceTreeFrame);
+  _onMainFrameNavigated(event: Common.EventTarget.EventTargetEvent<SDK.ResourceTreeModel.ResourceTreeFrame>): void {
+    const mainFrame = event.data;
     const manager = mainFrame.resourceTreeModel().target().model(SDK.NetworkManager.NetworkManager);
     if (!manager || mainFrame.resourceTreeModel().target().parentTarget()) {
       return;
@@ -485,11 +485,12 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper implements
   }
 
   _onDOMContentLoaded(
-      resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel, event: Common.EventTarget.EventTargetEvent): void {
+      resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel,
+      event: Common.EventTarget.EventTargetEvent<number>): void {
     const networkManager = resourceTreeModel.target().model(SDK.NetworkManager.NetworkManager);
     const pageLoad = networkManager ? this._pageLoadForManager.get(networkManager) : null;
     if (pageLoad) {
-      pageLoad.contentLoadTime = (event.data as number);
+      pageLoad.contentLoadTime = event.data;
     }
   }
 

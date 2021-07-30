@@ -1168,11 +1168,11 @@ export class NetworkLogView extends UI.Widget.VBox implements
     }
   }
 
-  _domContentLoadedEventFired(event: Common.EventTarget.EventTargetEvent): void {
+  _domContentLoadedEventFired(event: Common.EventTarget.EventTargetEvent<number>): void {
     if (!this._recording) {
       return;
     }
-    const data = (event.data as number);
+    const {data} = event;
     if (data) {
       this._mainRequestDOMContentLoadedTime = data;
       this._columns.addEventDividers([data], 'network-dcl-divider');
