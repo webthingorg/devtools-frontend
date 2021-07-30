@@ -16,6 +16,24 @@
       "message": "Could you add the types to the dispatch in the same CL as well? I can\u0027t tell if the types are right without that.",
       "revId": "53cafcd65cabb30e35d9bb79993891543e589d76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c671021f_7d723af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-30T09:56:42Z",
+      "side": 1,
+      "message": "They are there in DebuggerModel. Seems I choose a bad CL description :)",
+      "parentUuid": "9d7a0309_d348a87b",
+      "revId": "53cafcd65cabb30e35d9bb79993891543e589d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
