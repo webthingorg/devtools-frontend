@@ -46,6 +46,30 @@
       },
       "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d12617d_63b71a77",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-30T07:51:03Z",
+      "side": 1,
+      "message": "I think we should try to be helpful and have at least the link to the network panel. Do we know in the back-end whether the cookie was set via network or document.cookie?",
+      "parentUuid": "bc9c4383_5a834cfb",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 46
+      },
+      "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
