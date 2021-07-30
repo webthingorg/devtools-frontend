@@ -16,6 +16,23 @@
       "message": "Wohoo, this is awesome, thanks so much Rahat!",
       "revId": "0200fc96fecec0e209e84c21359ab53393860978",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0180e44_a951436a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 72
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-07-30T13:05:40Z",
+      "side": 1,
+      "message": "Thank you both for all the help and support! ",
+      "revId": "0200fc96fecec0e209e84c21359ab53393860978",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
