@@ -33,6 +33,24 @@
       "message": "Would it make sense to await this in IssueRevealer.reveal()?",
       "revId": "b0ce11dbcfbf07f21c5e3cd6d6fde626016d2706",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf77a9b_8b36fa89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-30T07:32:34Z",
+      "side": 1,
+      "message": "Yes, done!",
+      "parentUuid": "42b6219b_7f7ec968",
+      "revId": "b0ce11dbcfbf07f21c5e3cd6d6fde626016d2706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
