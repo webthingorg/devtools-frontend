@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f44b0e2_69f7bff9",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-30T07:39:16Z",
+      "side": 1,
+      "message": "Should we add a link to the network tab where we set a filter to select requests with that particular cookie line?\n\nNote that we currently only have a has-response-header filter, but it should be straight-forward to add such a filter.\n\nIf we don\u0027t add this, I\u0027m not sure how the debugging story would look like, as I haven\u0027t found a simple way to find requests with a particular cookie line in the network tab.",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 46
+      },
+      "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
