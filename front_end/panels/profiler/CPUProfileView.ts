@@ -189,12 +189,14 @@ export class CPUProfileType extends ProfileType {
     return i18nString(UIStrings.cpuProfilesShow);
   }
 
-  _consoleProfileFinished(event: Common.EventTarget.EventTargetEvent): void {
-    const data = (event.data as SDK.CPUProfilerModel.EventData);
-    const cpuProfile = (data.cpuProfile as Protocol.Profiler.Profile);
-    const profile = new CPUProfileHeader(data.cpuProfilerModel, this, data.title);
-    profile.setProtocolProfile(cpuProfile);
-    this.addProfile(profile);
+  _consoleProfileFinished(event: Common.EventTarget.EventTargetEvent<SDK.CPUProfilerModel.EventData>): void {
+    const data = event.data;
+    if (data.cpuProfile) {
+      const cpuProfile = data.cpuProfile;
+      const profile = new CPUProfileHeader(data.cpuProfilerModel, this, data.title);
+      profile.setProtocolProfile(cpuProfile);
+      this.addProfile(profile);
+    }
   }
 
   _startRecordingProfile(): void {
