@@ -149,7 +149,7 @@ export namespace PrivateAPI {
     evaluateOptions?: EvaluateOptions,
   };
   type SetSidebarPageRequest = {command: Commands.SetSidebarPage, id: string, page: string};
-  type OpenResourceRequest = {command: Commands.OpenResource, url: string, lineNumber: number};
+  type OpenResourceRequest = {command: Commands.OpenResource, url: string, lineNumber: number, columnNumber?: number};
   type SetOpenResourceHandlerRequest = {command: Commands.SetOpenResourceHandler, handlerPresent: boolean};
   type ReloadRequest = {
     command: Commands.Reload,
@@ -587,8 +587,11 @@ self.injectedExtensionAPI = function(
       }
     },
 
-    openResource: function(url: string, lineNumber: number, callback?: (response: unknown) => unknown): void {
-      extensionServer.sendRequest({command: PrivateAPI.Commands.OpenResource, url, lineNumber}, callback);
+    openResource: function(
+        url: string, lineNumber: number, columnNumber?: number, _callback?: (response: unknown) => unknown): void {
+      extensionServer.sendRequest(
+          {command: PrivateAPI.Commands.OpenResource, url, lineNumber, columnNumber},
+          extractCallbackArgument(arguments));
     },
 
     get SearchAction(): {[key: string]: string} {

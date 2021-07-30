@@ -489,7 +489,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     }
     const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(message.url);
     if (uiSourceCode) {
-      Common.Revealer.reveal(uiSourceCode.uiLocation(message.lineNumber, 0));
+      Common.Revealer.reveal(uiSourceCode.uiLocation(message.lineNumber, message.columnNumber || 0));
       return this._status.OK();
     }
 
