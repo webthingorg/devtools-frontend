@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25cd710_8d64c7d8",
+        "filename": "front_end/core/sdk/CPUProfilerModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-30T11:32:02Z",
+      "side": 1,
+      "message": "To me it looks like they aren\u0027t taking the same type, but that \n\n  export interface EventData {\n    id: string;\n    scriptLocation: Location;\n    title: string;\n    cpuProfilerModel: CPUProfilerModel;\n  }\n\n  export interface ProfileFinishedData extends EventData {\n    cpuProfile: Protocol.Profiler.Profile;\n  }\n\nand\n\n  [Events.ConsoleProfileStarted]: EventData,\n  [Events.ConsoleProfileFinished]: ProfileFinishedData,\n\nThis would get rid of the newly introduced conditional in CPUProfileView.ts",
+      "range": {
+        "startLine": 177,
+        "startChar": 35,
+        "endLine": 177,
+        "endChar": 44
+      },
+      "revId": "ba34a48600aa8a98ffe4e1cf4ebdb71d1fa45695",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
