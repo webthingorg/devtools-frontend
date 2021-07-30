@@ -22,6 +22,30 @@
       },
       "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc9c4383_5a834cfb",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-07-30T07:48:22Z",
+      "side": 1,
+      "message": "That might be an idea. We could even re-use the existing `has-response-header` filter and prefix the raw cookie line with `Set-Cookie:`.\n\nThe only downside is, as mentioned in the CL description, cookies might not necessarily be set by a network request. So we would send users to the Network panel even though the cookie was set by document.cookie and we should, ideally, send them to the sources panel. Not sure whats preferable in this case, no linking or bad linking.",
+      "parentUuid": "5f44b0e2_69f7bff9",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 46
+      },
+      "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
