@@ -486,6 +486,7 @@ export class MainImpl {
 
   async _showAppUI(appProvider: Object): Promise<void> {
     MainImpl.time('Main._showAppUI');
+    await this._initializeTarget();
     const app = (appProvider as Common.AppProvider.AppProvider).createApp();
     // It is important to kick controller lifetime after apps are instantiated.
     UI.DockController.DockController.instance().initialize();
@@ -510,8 +511,6 @@ export class MainImpl {
       Timeline.TimelinePanel.LoadTimelineHandler.instance().handleQueryParam(value);
     }
 
-    // Allow UI cycles to repaint prior to creating connection.
-    setTimeout(this._initializeTarget.bind(this), 0);
     MainImpl.timeEnd('Main._showAppUI');
   }
 
