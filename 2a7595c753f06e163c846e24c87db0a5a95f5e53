@@ -94,6 +94,30 @@
       },
       "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ea02fef_81fe3287",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-07-30T08:08:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2124772_a9a7a6d7",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 46
+      },
+      "revId": "2a7595c753f06e163c846e24c87db0a5a95f5e53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
