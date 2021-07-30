@@ -14,7 +14,7 @@ import type {Target} from './Target.js';
 import {Capability} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 
-export class HeapProfilerModel extends SDKModel {
+export class HeapProfilerModel extends SDKModel<EventTypes> {
   _enabled: boolean;
   _heapProfilerAgent: ProtocolProxyApi.HeapProfilerApi;
   _memoryAgent: ProtocolProxyApi.MemoryApi;
@@ -152,6 +152,14 @@ export enum Events {
   ReportHeapSnapshotProgress = 'ReportHeapSnapshotProgress',
   ResetProfiles = 'ResetProfiles',
 }
+
+export type EventTypes = {
+  [Events.HeapStatsUpdate]: number[],
+  [Events.LastSeenObjectId]: {lastSeenObjectId: number, timestamp: number},
+  [Events.AddHeapSnapshotChunk]: string,
+  [Events.ReportHeapSnapshotProgress]: {done: number, total: number, finished?: boolean},
+  [Events.ResetProfiles]: HeapProfilerModel,
+};
 
 export interface NativeProfilerCallFrame {
   functionName: string;
