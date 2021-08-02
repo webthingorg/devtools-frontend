@@ -16,6 +16,75 @@
       "message": "PTAL",
       "revId": "29322603b5371b06370a9c6651415168a40d48e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dddfddb5_d759b983",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-02T11:22:51Z",
+      "side": 1,
+      "message": "Opportunity to simplify using optional chaining",
+      "range": {
+        "startLine": 81,
+        "startChar": 39,
+        "endLine": 81,
+        "endChar": 97
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1899b95b_7ec5612f",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-02T11:22:51Z",
+      "side": 1,
+      "message": "Opportunity to simplify using optional chaining",
+      "range": {
+        "startLine": 102,
+        "startChar": 39,
+        "endLine": 102,
+        "endChar": 97
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d13df28_4bcbc184",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-02T11:22:51Z",
+      "side": 1,
+      "message": "Opportunity to simplify using optional chaining",
+      "range": {
+        "startLine": 165,
+        "startChar": 51,
+        "endLine": 165,
+        "endChar": 109
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
