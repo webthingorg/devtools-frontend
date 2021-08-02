@@ -85,6 +85,24 @@
       "message": "Phillis, is there an update on where the link should point to and on the wording for the label?",
       "revId": "9602f462b101de23ffdf0110a65ace05de46f948",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542aff80_d4ac15f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1397310
+      },
+      "writtenOn": "2021-08-02T20:59:49Z",
+      "side": 1,
+      "message": "Hi! The article hasn\u0027t been written yet, I am working with devrel on this.\nHere is the finalized wording\nhttps://docs.google.com/document/d/16kWW_MBrdtKOMud41vobrOXUPqIL5tITWGiBk9UIDEs/edit?resourcekey\u003d0-I3w9uAOGPk96Uqkn00ZVtw#heading\u003dh.ru47jio74lph",
+      "parentUuid": "06e63b91_3976cd70",
+      "revId": "9602f462b101de23ffdf0110a65ace05de46f948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
