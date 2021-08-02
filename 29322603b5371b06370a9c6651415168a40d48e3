@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c7ccb78_24958e60",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-02T11:43:59Z",
+      "side": 1,
+      "message": "As discussed offline, this is code written to resolve a union type (the type of c.iconData) to the union member that has the iconName property. Optional chaining doesn\u0027t seem to help here.",
+      "parentUuid": "dddfddb5_d759b983",
+      "range": {
+        "startLine": 81,
+        "startChar": 39,
+        "endLine": 81,
+        "endChar": 97
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1899b95b_7ec5612f",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b34a2e3_8767cd6c",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-02T11:43:59Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "1899b95b_7ec5612f",
+      "range": {
+        "startLine": 102,
+        "startChar": 39,
+        "endLine": 102,
+        "endChar": 97
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d13df28_4bcbc184",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-08-02T11:22:51Z",
       "side": 1,
       "message": "Opportunity to simplify using optional chaining",
+      "range": {
+        "startLine": 165,
+        "startChar": 51,
+        "endLine": 165,
+        "endChar": 109
+      },
+      "revId": "29322603b5371b06370a9c6651415168a40d48e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "920abdf7_5ebef16b",
+        "filename": "test/unittests/front_end/ui/components/IconButton_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-02T11:43:59Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "3d13df28_4bcbc184",
       "range": {
         "startLine": 165,
         "startChar": 51,
