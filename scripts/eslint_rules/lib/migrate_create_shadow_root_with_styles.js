@@ -24,7 +24,7 @@ function updateGRDFile(cssFilePath) {
 
   const contents = fs.readFileSync('config/gni/devtools_grd_files.gni', 'utf-8').split('\n');
   const newGRDFileEntry = JSON.stringify(`front_end/${cssFilePath}.js`) + ',';
-  if (contents.includes(newGRDFileEntry)) {
+  if (contents.includes(newGRDFileEntry) || contents.includes(`  ${newGRDFileEntry}`)) {
     return;
   }
 
