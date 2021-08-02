@@ -26,8 +26,8 @@ export function removeEventListeners(eventList: EventDescriptor[]): void {
 // we can use:
 //    export type EventType<Events> = keyof Events;
 //    export type EventPayload<Events, T> = Events[T];
-export type EventType<Events> = Events extends Object ? keyof Events : string|symbol;
-export type EventPayload<Events, T> = T extends keyof Events ? Events[T] : unknown;
+export type EventType<Events> = Events extends Object ? keyof Events : Events extends void ? never : string|symbol;
+export type EventPayload<Events, T> = T extends keyof Events ? Events[T] : never;
 export type EventPayloadToRestParameters<T> = T extends void ? [] : [T];
 
 // TODO(crbug.com/1228674) Remove defaults for generic type parameters once
