@@ -39,6 +39,30 @@
       },
       "revId": "ad3133d61d047febacf0dc8156790df6456dbe7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2ccdc78_10c8a580",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1443,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T09:37:42Z",
+      "side": 1,
+      "message": "I don\u0027t think it matters. The frontend collapses all `Set-Cookie` lines into a single value. So as long as there is a single `Set-Cookie` present in the response, we will suggest this filter once. Which seems WAI?",
+      "parentUuid": "951e6b5e_ab29fa9a",
+      "range": {
+        "startLine": 1443,
+        "startChar": 7,
+        "endLine": 1443,
+        "endChar": 105
+      },
+      "revId": "ad3133d61d047febacf0dc8156790df6456dbe7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
