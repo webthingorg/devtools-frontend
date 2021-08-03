@@ -22,6 +22,30 @@
       },
       "revId": "ba34a48600aa8a98ffe4e1cf4ebdb71d1fa45695",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c5d219_8c9b58c1",
+        "filename": "front_end/core/sdk/CPUProfilerModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T05:54:19Z",
+      "side": 1,
+      "message": "Nice improvement! Done :)",
+      "parentUuid": "c25cd710_8d64c7d8",
+      "range": {
+        "startLine": 177,
+        "startChar": 35,
+        "endLine": 177,
+        "endChar": 44
+      },
+      "revId": "ba34a48600aa8a98ffe4e1cf4ebdb71d1fa45695",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
