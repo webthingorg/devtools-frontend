@@ -117,13 +117,29 @@ export class AffectedRawCookieLinesView extends AffectedResourcesView {
 
   override update(): void {
     this.clear();
-    const rawCookieLines = this.issue.getRawCookieLines();
-    for (const rawCookieLine of rawCookieLines) {
+    const cookieLinesWithRequestIndicator = this.issue.getRawCookieLines();
+    let count = 0;
+
+    for (const cookie of cookieLinesWithRequestIndicator) {
       const row = document.createElement('tr');
       row.classList.add('affected-resource-directive');
-      this.appendIssueDetailCell(row, rawCookieLine);
+      if (cookie.hasRequest) {
+        const cookieLine = document.createElement('td');
+        cookieLine.appendChild(UI.UIUtils.createTextButton(cookie.rawCookieLine, () => {
+          Common.Revealer.reveal(NetworkForward.UIFilter.UIRequestFilter.filters([
+            {
+              filterType: NetworkForward.UIFilter.FilterType.ResponseHeaderValueSetCookie,
+              filterValue: cookie.rawCookieLine,
+            },
+          ]));
+        }, 'link-style devtools-link'));
+        row.appendChild(cookieLine);
+      } else {
+        this.appendIssueDetailCell(row, cookie.rawCookieLine);
+      }
       this.affectedResources.appendChild(row);
+      count++;
     }
-    this.updateAffectedResourceCount(rawCookieLines.size);
+    this.updateAffectedResourceCount(count);
   }
 }
