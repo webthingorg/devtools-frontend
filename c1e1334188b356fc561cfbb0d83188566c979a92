@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b32f2a_ac236b64",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T11:58:55Z",
+      "side": 1,
+      "message": "Unfortunately we can\u0027t use `Protocol.Network.RequestId` here since `NetworkRequest`s can be created without a protocol request (e.g. for HAR and cached).\n\nsee: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/NetworkRequest.ts;l\u003d363;drc\u003d56daf78ddb14ccba613c6f26d5efb9dc68547784",
+      "range": {
+        "startLine": 325,
+        "startChar": 13,
+        "endLine": 325,
+        "endChar": 19
+      },
+      "revId": "c1e1334188b356fc561cfbb0d83188566c979a92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
