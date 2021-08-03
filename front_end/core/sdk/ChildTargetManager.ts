@@ -146,6 +146,8 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       type = Type.Worker;
     } else if (targetInfo.type === 'service_worker') {
       type = Type.ServiceWorker;
+    } else if (targetInfo.type === 'auction_worklet') {
+      type = Type.Node;
     }
 
     const target = this._targetManager.createTarget(
