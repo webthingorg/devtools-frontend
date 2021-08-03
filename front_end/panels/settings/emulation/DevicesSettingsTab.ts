@@ -4,12 +4,13 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as i18n from '../../core/i18n/i18n.js';
-import * as UI from '../../ui/legacy/legacy.js';
-import * as EmulationComponents from './components/components.js';
+import * as i18n from '../../../core/i18n/i18n.js';
+import * as UI from '../../../ui/legacy/legacy.js';
+import {DeviceModeModel, MaxDeviceNameLength, UA} from '../../emulation/DeviceModeModel.js';
+import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical} from '../../emulation/EmulatedDevices.js';
 
-import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
-import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical} from './EmulatedDevices.js';
+import * as EmulationComponents from './components/components.js';
+import devicesSettingsTabStyles from './devicesSettingsTab.css.js';
 
 let devicesSettingsTabInstance: DevicesSettingsTab;
 
@@ -61,7 +62,7 @@ const UIStrings = {
   */
   deviceNameCannotBeEmpty: 'Device name cannot be empty.',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/emulation/DevicesSettingsTab.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/settings/emulation/DevicesSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.Delegate<EmulatedDevice> {
@@ -76,7 +77,6 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     super();
     this.element.classList.add('settings-tab-container');
     this.element.classList.add('devices-settings-tab');
-    this.registerRequiredCSS('panels/emulation/devicesSettingsTab.css');
 
     const header = this.element.createChild('header');
     UI.UIUtils.createTextChild(header.createChild('h1'), i18nString(UIStrings.emulatedDevices));
@@ -90,7 +90,6 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     buttonsRow.appendChild(this._addCustomButton);
 
     this._list = new UI.ListWidget.ListWidget(this, false /* delegatesFocus */);
-    this._list.registerRequiredCSS('panels/emulation/devicesSettingsTab.css');
     this._list.element.classList.add('devices-list');
     this._list.show(this.containerElement);
 
@@ -112,6 +111,8 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
   wasShown(): void {
     super.wasShown();
     this._devicesUpdated();
+    this.registerCSSFiles([devicesSettingsTabStyles]);
+    this._list.registerCSSFiles([devicesSettingsTabStyles]);
   }
 
   _devicesUpdated(): void {

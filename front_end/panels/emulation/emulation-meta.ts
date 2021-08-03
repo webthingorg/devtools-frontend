@@ -61,10 +61,6 @@ const UIStrings = {
   */
   hideDeviceFrame: 'Hide device frame',
   /**
-  *@description Title of the Devices tab/tool. Devices refers to e.g. phones/tablets.
-  */
-  devices: 'Devices',
-  /**
   * @description Title of the Sensors tool. The sensors tool contains GPS, orientation sensors, touch
   * settings, etc.
   */
@@ -140,10 +136,6 @@ const UIStrings = {
   */
   userIdleScreenLocked: 'User idle, screen locked',
   /**
-  *@description Command that opens the device emulation view.
-  */
-  showDevices: 'Show Devices',
-  /**
   * @description Command that opens the Sensors view/tool. The sensors tool contains GPS,
   * orientation sensors, touch settings, etc.
   */
@@ -166,22 +158,6 @@ async function loadEmulationModule(): Promise<typeof Emulation> {
   }
   return loadedEmulationModule;
 }
-
-UI.ViewManager.registerViewExtension({
-  location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  commandPrompt: i18nLazyString(UIStrings.showDevices),
-  title: i18nLazyString(UIStrings.devices),
-  order: 30,
-  async loadView() {
-    const Emulation = await loadEmulationModule();
-    return Emulation.DevicesSettingsTab.DevicesSettingsTab.instance();
-  },
-  id: 'devices',
-  settings: [
-    'standardEmulatedDeviceList',
-    'customEmulatedDeviceList',
-  ],
-});
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
