@@ -5,5 +5,6 @@
 ce8743dc17e3fa39aec4fe37f659bba7419f7d02	devtools-frontend-scoped@luci-project-accounts.iam.gserviceaccount.com
 cria:project-devtools-admins            	cria/project-devtools-admins
 cria:project-devtools-committers        	cria/project-devtools-committers
+cria:project-devtools-sheriffs          	cria/project-devtools-sheriffs
 global:Change-Owner                     	Change Owner
 global:Registered-Users                 	Logged-in Public Users
