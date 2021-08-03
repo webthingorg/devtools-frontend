@@ -33,6 +33,24 @@
       "message": "Very nice, and thanks for including the screenshot! Have you tried what happens when you zoom in on DevTools with `Ctrl` - `+`?",
       "revId": "5755ab2ca67273ec18c35cc76d46deada92cd227",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "367cb5a1_54b9e5ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-03T08:27:15Z",
+      "side": 1,
+      "message": "It shows the same behavior, but on extreme zoom levels all toolbar elements will start overlapping again (which I think is OK for now).",
+      "parentUuid": "ea2c1293_d50ec979",
+      "revId": "5755ab2ca67273ec18c35cc76d46deada92cd227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
