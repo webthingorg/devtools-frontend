@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9a5d46_8cce6dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T05:23:06Z",
+      "side": 1,
+      "message": "Will do the linking as a follow-up to keep CLs small",
+      "revId": "52d9bf7b5c59d3046d1e99e67644c8c9c1c19e19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
