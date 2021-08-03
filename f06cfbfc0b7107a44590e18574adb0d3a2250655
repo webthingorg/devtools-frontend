@@ -127,6 +127,30 @@
       },
       "revId": "f06cfbfc0b7107a44590e18574adb0d3a2250655",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49b52e7_c5f70583",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-03T08:58:29Z",
+      "side": 1,
+      "message": "If there is no simple way to get a short suggestion, we should probably only provide the suggestion without a value for the set-cookie header filter.",
+      "parentUuid": "59bfaee2_74bcaf33",
+      "range": {
+        "startLine": 1444,
+        "startChar": 77,
+        "endLine": 1444,
+        "endChar": 97
+      },
+      "revId": "f06cfbfc0b7107a44590e18574adb0d3a2250655",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
