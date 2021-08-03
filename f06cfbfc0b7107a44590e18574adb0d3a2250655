@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9e4c20_178259b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T08:40:22Z",
+      "side": 1,
+      "message": "PTAL, adopted a similar approach as the cookies affected resource.\n\nBike-shedding for the filter name welcome :)",
+      "revId": "f06cfbfc0b7107a44590e18574adb0d3a2250655",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
