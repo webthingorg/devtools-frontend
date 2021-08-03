@@ -63,6 +63,30 @@
       },
       "revId": "ad3133d61d047febacf0dc8156790df6456dbe7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71488b9d_29451fa7",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1443,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-03T09:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b2ccdc78_10c8a580",
+      "range": {
+        "startLine": 1443,
+        "startChar": 7,
+        "endLine": 1443,
+        "endChar": 105
+      },
+      "revId": "ad3133d61d047febacf0dc8156790df6456dbe7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
