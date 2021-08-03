@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19314dd_27c5fcb6",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T08:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d692d1d6_ff567929",
+      "range": {
+        "startLine": 128,
+        "startChar": 42,
+        "endLine": 128,
+        "endChar": 58
+      },
+      "revId": "f06cfbfc0b7107a44590e18574adb0d3a2250655",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3750834d_a7713ea9",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-08-03T08:44:47Z",
       "side": 1,
       "message": "Isn\u0027t this potentially large? Have you looked at the suggestions this produces for a large realistic site with lots of cookies?",
+      "range": {
+        "startLine": 1444,
+        "startChar": 77,
+        "endLine": 1444,
+        "endChar": 97
+      },
+      "revId": "f06cfbfc0b7107a44590e18574adb0d3a2250655",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59bfaee2_74bcaf33",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-03T08:56:24Z",
+      "side": 1,
+      "message": "You are probably right, given that all the cookie lines will be concatenated. While writing the code I thought that the suggestion builder is \"complete\", i.e. it provides all the filters if applicable. I wonder if this filter is just too specialised to include in the suggestions. Is it fine to not provide suggestions for this filter? Wdyt?",
+      "parentUuid": "3750834d_a7713ea9",
       "range": {
         "startLine": 1444,
         "startChar": 77,
