@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9602930_9a7ced07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-08-03T07:42:43Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nDo you think this makes sense or would you prefer some CSS-based approach?",
+      "revId": "4ae4379375e6487df8668729a6a5ed60293eeb11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
