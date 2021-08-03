@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9960a7_ad5371d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-03T14:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7be2949e_a93bd466",
+      "revId": "c95d93b31d345a223d3b094e3d93ca9e4fca363a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbf8f5a4_5df5c256",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-08-03T13:03:47Z",
       "side": 1,
       "message": "nit: if you use \"Fixed:\" instead of \"Bug:\" it will automatically close your bug on submission of this CL.",
+      "revId": "c95d93b31d345a223d3b094e3d93ca9e4fca363a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0b95127_343a22c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-03T14:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf8f5a4_5df5c256",
       "revId": "c95d93b31d345a223d3b094e3d93ca9e4fca363a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
