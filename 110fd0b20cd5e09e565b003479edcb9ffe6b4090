@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921f2777_561ab2c0",
+        "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-03T09:15:29Z",
+      "side": 1,
+      "message": "why the need for this change? Shouldn\u0027t the first conditional be enough here - as the second just checks for newGRDFileEntry + some whitespace, which would be enough for the first check to return `true`?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 88
+      },
+      "revId": "110fd0b20cd5e09e565b003479edcb9ffe6b4090",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8865409_d26c9d59",
+        "filename": "scripts/eslint_rules/lib/migrate_register_required_css.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-03T09:15:29Z",
+      "side": 1,
+      "message": "same Q as above!",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 88
+      },
+      "revId": "110fd0b20cd5e09e565b003479edcb9ffe6b4090",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
