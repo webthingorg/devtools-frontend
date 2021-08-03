@@ -4,8 +4,8 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as i18n from '../../core/i18n/i18n.js';
-import * as UI from '../../ui/legacy/legacy.js';
+import * as i18n from '../../../core/i18n/i18n.js';
+import * as UI from '../../../ui/legacy/legacy.js';
 import * as EmulationComponents from './components/components.js';
 
 import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
@@ -61,7 +61,7 @@ const UIStrings = {
   */
   deviceNameCannotBeEmpty: 'Device name cannot be empty.',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/emulation/DevicesSettingsTab.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/settings/emulation/DevicesSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.Delegate<EmulatedDevice> {
