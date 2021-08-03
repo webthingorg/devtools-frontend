@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?\n\nDo you think this makes sense or would you prefer some CSS-based approach?",
       "revId": "4ae4379375e6487df8668729a6a5ed60293eeb11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fca006e_fdb436a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-03T07:50:44Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "4ae4379375e6487df8668729a6a5ed60293eeb11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
