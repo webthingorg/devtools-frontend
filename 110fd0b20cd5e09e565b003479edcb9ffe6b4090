@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ccb9dc_3ddb2b20",
+        "filename": "scripts/eslint_rules/lib/migrate_create_shadow_root_with_styles.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-03T09:41:24Z",
+      "side": 1,
+      "message": "Ahhh yes! We could also do `contents.map(c \u003d\u003e c.trim()).includes(newGRDFileEntry)`",
+      "parentUuid": "fdfec3ab_4adaab10",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 88
+      },
+      "revId": "110fd0b20cd5e09e565b003479edcb9ffe6b4090",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8865409_d26c9d59",
