@@ -42,7 +42,9 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
+import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
+
 import type {MarkerDecoratorRegistration} from './MarkerDecorator.js';
 
 const UIStrings = {
@@ -103,7 +105,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     this.treeElementByNode = new WeakMap();
     const shadowContainer = document.createElement('div');
     this._shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
-        shadowContainer, {cssFile: 'panels/elements/elementsTreeOutline.css', delegatesFocus: undefined});
+        shadowContainer, {cssFile: [elementsTreeOutlineStyles], delegatesFocus: undefined});
     const outlineDisclosureElement = this._shadowRoot.createChild('div', 'elements-disclosure');
 
     this._element = this.element;

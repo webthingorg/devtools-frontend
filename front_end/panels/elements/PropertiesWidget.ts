@@ -33,6 +33,7 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
+import propertiesWidgetStyles from './propertiesWidget.css.js';
 import type * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -50,8 +51,6 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
   _lastRequestedNode?: SDK.DOMModel.DOMNode;
   constructor() {
     super(true /* isWebComponent */);
-    this.registerRequiredCSS('panels/elements/propertiesWidget.css');
-
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.AttrModified, this._onNodeChange, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
@@ -183,6 +182,10 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
       return;
     }
     this.update();
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([propertiesWidgetStyles]);
   }
 }
 

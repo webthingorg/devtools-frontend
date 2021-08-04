@@ -38,6 +38,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
+import metricsSidebarPaneStyles from './metricsSidebarPane.css.js';
 
 export class MetricsSidebarPane extends ElementsSidebarPane {
   originalPropertyData: SDK.CSSProperty.CSSProperty|null;
@@ -53,7 +54,6 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
 
   constructor() {
     super();
-    this.registerRequiredCSS('panels/elements/metricsSidebarPane.css');
 
     this.originalPropertyData = null;
     this.previousPropertyDataCandidate = null;
@@ -511,5 +511,9 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
   }): void {
     this.editingEnded(element, context);
     this._applyUserInput(element, userInput, previousContent, context, true);
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([metricsSidebarPaneStyles]);
   }
 }
