@@ -103,6 +103,24 @@
       "message": "@mraz: In your example it says \"Copy style\" instead of \"Copy styles\". Was this intentional?",
       "revId": "c95d93b31d345a223d3b094e3d93ca9e4fca363a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "278e2cf4_f8294ade",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-04T09:00:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59675967_2ac2285d",
+      "revId": "c95d93b31d345a223d3b094e3d93ca9e4fca363a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
