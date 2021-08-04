@@ -4,7 +4,6 @@
 
 import './AdvancedApp.js';
 import './EmulatedDevices.js';
-import './DevicesSettingsTab.js';
 import './InspectedPagePlaceholder.js';
 import './MediaQueryInspector.js';
 import './DeviceModeModel.js';
@@ -17,7 +16,6 @@ import * as DeviceModeModel from './DeviceModeModel.js';
 import * as DeviceModeToolbar from './DeviceModeToolbar.js';
 import * as DeviceModeView from './DeviceModeView.js';
 import * as DeviceModeWrapper from './DeviceModeWrapper.js';
-import * as DevicesSettingsTab from './DevicesSettingsTab.js';
 import * as EmulatedDevices from './EmulatedDevices.js';
 import * as InspectedPagePlaceholder from './InspectedPagePlaceholder.js';
 import * as MediaQueryInspector from './MediaQueryInspector.js';
@@ -28,7 +26,6 @@ export {
   DeviceModeToolbar,
   DeviceModeView,
   DeviceModeWrapper,
-  DevicesSettingsTab,
   EmulatedDevices,
   InspectedPagePlaceholder,
   MediaQueryInspector,

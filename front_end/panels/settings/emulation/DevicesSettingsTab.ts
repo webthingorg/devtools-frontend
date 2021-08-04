@@ -4,12 +4,11 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
-import * as i18n from '../../core/i18n/i18n.js';
-import * as UI from '../../ui/legacy/legacy.js';
-import * as EmulationComponents from './components/components.js';
+import * as i18n from '../../../core/i18n/i18n.js';
+import * as UI from '../../../ui/legacy/legacy.js';
+import * as Emulation from '../../emulation/emulation.js';
 
-import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
-import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical} from './EmulatedDevices.js';
+import * as EmulationComponents from './components/components.js';
 
 let devicesSettingsTabInstance: DevicesSettingsTab;
 
@@ -61,16 +60,17 @@ const UIStrings = {
   */
   deviceNameCannotBeEmpty: 'Device name cannot be empty.',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/emulation/DevicesSettingsTab.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/settings/emulation/DevicesSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.Delegate<EmulatedDevice> {
+export class DevicesSettingsTab extends UI.Widget.VBox implements
+    UI.ListWidget.Delegate<Emulation.EmulatedDevices.EmulatedDevice> {
   containerElement: HTMLElement;
   _addCustomButton: HTMLButtonElement;
-  _list: UI.ListWidget.ListWidget<EmulatedDevice>;
+  _list: UI.ListWidget.ListWidget<Emulation.EmulatedDevices.EmulatedDevice>;
   _muteUpdate: boolean;
-  _emulatedDevicesList: EmulatedDevicesList;
-  _editor?: UI.ListWidget.Editor<EmulatedDevice>;
+  _emulatedDevicesList: Emulation.EmulatedDevices.EmulatedDevicesList;
+  _editor?: UI.ListWidget.Editor<Emulation.EmulatedDevices.EmulatedDevice>;
 
   private constructor() {
     super();
@@ -95,9 +95,11 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     this._list.show(this.containerElement);
 
     this._muteUpdate = false;
-    this._emulatedDevicesList = EmulatedDevicesList.instance();
-    this._emulatedDevicesList.addEventListener(Events.CustomDevicesUpdated, this._devicesUpdated, this);
-    this._emulatedDevicesList.addEventListener(Events.StandardDevicesUpdated, this._devicesUpdated, this);
+    this._emulatedDevicesList = Emulation.EmulatedDevices.EmulatedDevicesList.instance();
+    this._emulatedDevicesList.addEventListener(
+        Emulation.EmulatedDevices.Events.CustomDevicesUpdated, this._devicesUpdated, this);
+    this._emulatedDevicesList.addEventListener(
+        Emulation.EmulatedDevices.Events.StandardDevicesUpdated, this._devicesUpdated, this);
 
     this.setDefaultFocusedElement(this._addCustomButton);
   }
@@ -129,7 +131,7 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     this._list.appendSeparator();
 
     devices = this._emulatedDevicesList.standard().slice();
-    devices.sort(EmulatedDevice.deviceComparator);
+    devices.sort(Emulation.EmulatedDevices.EmulatedDevice.deviceComparator);
     for (let i = 0; i < devices.length; ++i) {
       this._list.appendItem(devices[i], false);
     }
@@ -146,7 +148,7 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
   }
 
   _addCustomDevice(): void {
-    const device = new EmulatedDevice();
+    const device = new Emulation.EmulatedDevices.EmulatedDevice();
     device.deviceScaleFactor = 0;
     device.horizontal.width = 700;
     device.horizontal.height = 400;
@@ -159,7 +161,7 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     return value ? String(value) : '';
   }
 
-  renderItem(device: EmulatedDevice, editable: boolean): Element {
+  renderItem(device: Emulation.EmulatedDevices.EmulatedDevice, editable: boolean): Element {
     const label = document.createElement('label');
     label.classList.add('devices-list-item');
     const checkbox = (label.createChild('input', 'devices-list-checkbox') as HTMLInputElement);
@@ -180,11 +182,13 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     }
   }
 
-  removeItemRequested(item: EmulatedDevice): void {
+  removeItemRequested(item: Emulation.EmulatedDevices.EmulatedDevice): void {
     this._emulatedDevicesList.removeCustomDevice(item);
   }
 
-  commitEdit(device: EmulatedDevice, editor: UI.ListWidget.Editor<EmulatedDevice>, isNew: boolean): void {
+  commitEdit(
+      device: Emulation.EmulatedDevices.EmulatedDevice,
+      editor: UI.ListWidget.Editor<Emulation.EmulatedDevices.EmulatedDevice>, isNew: boolean): void {
     device.title = editor.control('title').value.trim();
     device.vertical.width = editor.control('width').value ? parseInt(editor.control('width').value, 10) : 0;
     device.vertical.height = editor.control('height').value ? parseInt(editor.control('height').value, 10) : 0;
@@ -193,15 +197,25 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     device.deviceScaleFactor = editor.control('scale').value ? parseFloat(editor.control('scale').value) : 0;
     device.userAgent = editor.control('user-agent').value;
     device.modes = [];
-    device.modes.push({title: '', orientation: Vertical, insets: new UI.Geometry.Insets(0, 0, 0, 0), image: null});
-    device.modes.push({title: '', orientation: Horizontal, insets: new UI.Geometry.Insets(0, 0, 0, 0), image: null});
+    device.modes.push({
+      title: '',
+      orientation: Emulation.EmulatedDevices.Vertical,
+      insets: new UI.Geometry.Insets(0, 0, 0, 0),
+      image: null,
+    });
+    device.modes.push({
+      title: '',
+      orientation: Emulation.EmulatedDevices.Horizontal,
+      insets: new UI.Geometry.Insets(0, 0, 0, 0),
+      image: null,
+    });
     device.capabilities = [];
     const uaType = editor.control('ua-type').value;
-    if (uaType === UA.Mobile || uaType === UA.MobileNoTouch) {
-      device.capabilities.push(Capability.Mobile);
+    if (uaType === Emulation.DeviceModeModel.UA.Mobile || uaType === Emulation.DeviceModeModel.UA.MobileNoTouch) {
+      device.capabilities.push(Emulation.EmulatedDevices.Capability.Mobile);
     }
-    if (uaType === UA.Mobile || uaType === UA.DesktopTouch) {
-      device.capabilities.push(Capability.Touch);
+    if (uaType === Emulation.DeviceModeModel.UA.Mobile || uaType === Emulation.DeviceModeModel.UA.DesktopTouch) {
+      device.capabilities.push(Emulation.EmulatedDevices.Capability.Touch);
     }
     const userAgentControlValue =
         (editor.control('ua-metadata') as
@@ -210,7 +224,8 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     if (userAgentControlValue) {
       device.userAgentMetadata = {
         ...userAgentControlValue,
-        mobile: (uaType === UA.Mobile || uaType === UA.MobileNoTouch),
+        mobile:
+            (uaType === Emulation.DeviceModeModel.UA.Mobile || uaType === Emulation.DeviceModeModel.UA.MobileNoTouch),
       };
     }
     if (isNew) {
@@ -222,7 +237,8 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     this._addCustomButton.focus();
   }
 
-  beginEdit(device: EmulatedDevice): UI.ListWidget.Editor<EmulatedDevice> {
+  beginEdit(device: Emulation.EmulatedDevices.EmulatedDevice):
+      UI.ListWidget.Editor<Emulation.EmulatedDevices.EmulatedDevice> {
     const editor = this._createEditor();
     editor.control('title').value = device.title;
     editor.control('width').value = this._toNumericInputValue(device.vertical.width);
@@ -231,9 +247,9 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     editor.control('user-agent').value = device.userAgent;
     let uaType;
     if (device.mobile()) {
-      uaType = device.touch() ? UA.Mobile : UA.MobileNoTouch;
+      uaType = device.touch() ? Emulation.DeviceModeModel.UA.Mobile : Emulation.DeviceModeModel.UA.MobileNoTouch;
     } else {
-      uaType = device.touch() ? UA.DesktopTouch : UA.Desktop;
+      uaType = device.touch() ? Emulation.DeviceModeModel.UA.DesktopTouch : Emulation.DeviceModeModel.UA.Desktop;
     }
     editor.control('ua-type').value = uaType;
     (editor.control('ua-metadata') as
@@ -242,12 +258,12 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     return editor;
   }
 
-  _createEditor(): UI.ListWidget.Editor<EmulatedDevice> {
+  _createEditor(): UI.ListWidget.Editor<Emulation.EmulatedDevices.EmulatedDevice> {
     if (this._editor) {
       return this._editor;
     }
 
-    const editor = new UI.ListWidget.Editor<EmulatedDevice>();
+    const editor = new UI.ListWidget.Editor<Emulation.EmulatedDevices.EmulatedDevice>();
     this._editor = editor;
     const content = editor.contentElement();
 
@@ -270,7 +286,12 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     ua.appendChild(editor.createInput('user-agent', 'text', i18nString(UIStrings.userAgentString), () => {
       return {valid: true, errorMessage: undefined};
     }));
-    const uaTypeOptions = [UA.Mobile, UA.MobileNoTouch, UA.Desktop, UA.DesktopTouch];
+    const uaTypeOptions = [
+      Emulation.DeviceModeModel.UA.Mobile,
+      Emulation.DeviceModeModel.UA.MobileNoTouch,
+      Emulation.DeviceModeModel.UA.Desktop,
+      Emulation.DeviceModeModel.UA.DesktopTouch,
+    ];
     const uaType = editor.createSelect('ua-type', uaTypeOptions, () => {
       return {valid: true, errorMessage: undefined};
     }, i18nString(UIStrings.userAgentType));
@@ -291,13 +312,15 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     }
 
     function titleValidator(
-        item: EmulatedDevice, index: number, input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
+        item: Emulation.EmulatedDevices.EmulatedDevice, index: number,
+        input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
       let valid = false;
       let errorMessage;
 
       const value = input.value.trim();
-      if (value.length >= MaxDeviceNameLength) {
-        errorMessage = i18nString(UIStrings.deviceNameMustBeLessThanS, {PH1: MaxDeviceNameLength});
+      if (value.length >= Emulation.DeviceModeModel.MaxDeviceNameLength) {
+        errorMessage =
+            i18nString(UIStrings.deviceNameMustBeLessThanS, {PH1: Emulation.DeviceModeModel.MaxDeviceNameLength});
       } else if (value.length === 0) {
         errorMessage = i18nString(UIStrings.deviceNameCannotBeEmpty);
       } else {
@@ -308,18 +331,21 @@ export class DevicesSettingsTab extends UI.Widget.VBox implements UI.ListWidget.
     }
 
     function widthValidator(
-        item: EmulatedDevice, index: number, input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
-      return DeviceModeModel.widthValidator(input.value);
+        item: Emulation.EmulatedDevices.EmulatedDevice, index: number,
+        input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
+      return Emulation.DeviceModeModel.DeviceModeModel.widthValidator(input.value);
     }
 
     function heightValidator(
-        item: EmulatedDevice, index: number, input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
-      return DeviceModeModel.heightValidator(input.value);
+        item: Emulation.EmulatedDevices.EmulatedDevice, index: number,
+        input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
+      return Emulation.DeviceModeModel.DeviceModeModel.heightValidator(input.value);
     }
 
     function scaleValidator(
-        item: EmulatedDevice, index: number, input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
-      return DeviceModeModel.scaleValidator(input.value);
+        item: Emulation.EmulatedDevices.EmulatedDevice, index: number,
+        input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
+      return Emulation.DeviceModeModel.DeviceModeModel.scaleValidator(input.value);
     }
   }
 }
