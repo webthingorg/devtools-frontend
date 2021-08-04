@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78416c4e_c51bdc97",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-04T14:50:32Z",
+      "side": 1,
+      "message": "In a previous role we decided on supporting a `variant` prop rather than `primary: true/false` such that it was a bit clearer:\n\n```\n\u003cdevtools-button .variant\u003d{Button.Variant.PRIMARY}\u003e\n```\n\nvs:\n\n```\n\u003cdevtools-button\u003e\n// is this primary or secondary?\n\u003c/devtools-button\u003e\n```\n\nI think I\u0027d be in favour of something similar; it also lets you extend should you want more variants (although often you don\u0027t, rarely it is useful).",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23c272a0_76b4577c",
         "filename": "front_end/ui/components/buttons/Button.ts",
         "patchSetId": 3
