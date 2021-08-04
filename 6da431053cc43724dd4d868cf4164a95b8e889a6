@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb518b25_bd7eea32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-04T14:54:32Z",
+      "side": 1,
+      "message": "Yes, screenshots make a lot of sense. Hopefully we will have them here soon. Regarding UI/UX review, it was already reviewed as the part of the feature but I can ask to have a second look.",
+      "parentUuid": "c3f6216c_1647e695",
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78416c4e_c51bdc97",
@@ -71,6 +89,30 @@
       "writtenOn": "2021-08-04T14:48:51Z",
       "side": 1,
       "message": "I\u0027m on the fence about sticking to our pattern of doing .data\u003d{} for these components; we strayed from this in the performance panel because of how often we\u0027re re-rendering large canvases, so it got very costly, but normally the .data approach should be fine.\n\nOr alternatively I guess this approach ensures high perf components regardless of context, which can\u0027t be a bad thing? However, I\u0027m wary of us having a bunch of components doing it one way, and another bunch doing it the other way.\n\n\nWDYT?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c90f5362_c0e1f613",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-04T14:54:32Z",
+      "side": 1,
+      "message": "Yes, that was my thought: we don\u0027t know in what context the component will be used, so the high-performance pattern might be better. To be honest, I like this way much more, it feels very natural to me somehow. It\u0027d be amazing if we could make this pattern type-safe though. I\u0027d be happy to change to .data though if we decide on that for this component.",
+      "parentUuid": "23c272a0_76b4577c",
       "range": {
         "startLine": 21,
         "startChar": 0,
