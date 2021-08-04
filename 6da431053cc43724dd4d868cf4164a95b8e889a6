@@ -16,6 +16,69 @@
       "message": "PTAL. What tests do we have to include for UI components? ",
       "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f6216c_1647e695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-04T14:48:51Z",
+      "side": 1,
+      "message": "I think we\u0027d want tests around:\n\n* binding an event listener and making sure it propagates up (e.g devtools-button @click\u003d...)\n* focus styling when the user tabs to the button (via a screenshot test) to ensure that it\u0027s a11y\u0027d for keyboard users (and similarly ensuring I can hit enter to \"click\" the button)\n* a screenshot test for each of the \"variants\" we support (primary, secondary, with icon, etc)\n\nI know we don\u0027t have screenshot tests in this repo yet, but I think they\u0027d be a big help for these very generic, reusable components.\n\nAlso we should probably have Peter and/or Marian review these CLs from a UI perspective.",
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c272a0_76b4577c",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-04T14:48:51Z",
+      "side": 1,
+      "message": "I\u0027m on the fence about sticking to our pattern of doing .data\u003d{} for these components; we strayed from this in the performance panel because of how often we\u0027re re-rendering large canvases, so it got very costly, but normally the .data approach should be fine.\n\nOr alternatively I guess this approach ensures high perf components regardless of context, which can\u0027t be a bad thing? However, I\u0027m wary of us having a bunch of components doing it one way, and another bunch doing it the other way.\n\n\nWDYT?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022a832b_4802cc86",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-04T14:48:51Z",
+      "side": 1,
+      "message": "nit: append",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
