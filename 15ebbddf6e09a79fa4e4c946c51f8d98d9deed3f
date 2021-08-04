@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2abd1db_badc7bc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-04T15:46:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a4b409a_185fe564",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "39cf902a_795abd91",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac6b7d3_0aa56fc8",
+        "filename": "front_end/panels/emulation/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-04T15:46:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e40dff9_4b0a385a",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed6d47f3_39361063",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-08-04T13:15:22Z",
       "side": 1,
       "message": "Hm, this is unexpected. I think we need to update the rule to allow for this location. Do you mind filing a bug for that? (Or maybe even taking a stab at it yourself, if you want to.)",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 72
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5b65ed_458bfdec",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-04T15:46:05Z",
+      "side": 1,
+      "message": "Submitted bug here: https://crbug.com/1236581\n\nWill have a look :)",
+      "parentUuid": "ed6d47f3_39361063",
       "range": {
         "startLine": 169,
         "startChar": 0,
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9118298b_b312e26a",
+        "filename": "front_end/panels/settings/settings-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-04T15:46:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6895ab25_eaf79730",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 49
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2bc4c2a_9af40e84",
@@ -140,6 +236,30 @@
       "writtenOn": "2021-08-04T13:15:22Z",
       "side": 1,
       "message": "Maybe we should move these test files to the new location as well? E.g. `test/unittests/front_end/panels/settings/emulation/components`. WDYT?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f561176_99c272a6",
+        "filename": "test/unittests/front_end/panels/emulation/components/UserAgentClientHintsForm_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-04T15:46:05Z",
+      "side": 1,
+      "message": "Yes! I was going to do it and forgot but done now.",
+      "parentUuid": "d2bc4c2a_9af40e84",
       "range": {
         "startLine": 1,
         "startChar": 0,
