@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39cf902a_795abd91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-04T13:15:22Z",
+      "side": 1,
+      "message": "Nice work! It seems like we will also need to update `emulation-legacy.ts` to remove some of the references to the moved code. Hopefully we can remove them and we don\u0027t need to update layout tests, but let us know if that\u0027s the case.",
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e40dff9_4b0a385a",
+        "filename": "front_end/panels/emulation/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-04T13:15:22Z",
+      "side": 1,
+      "message": "Nit: I think we can remove this one now, as we have no file in `panels/emulation` using these components anymore?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6d47f3_39361063",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-04T13:15:22Z",
+      "side": 1,
+      "message": "Hm, this is unexpected. I think we need to update the rule to allow for this location. Do you mind filing a bug for that? (Or maybe even taking a stab at it yourself, if you want to.)",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 72
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6895ab25_eaf79730",
+        "filename": "front_end/panels/settings/settings-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-04T13:15:22Z",
+      "side": 1,
+      "message": "Nit: up to this point, we have always named a `-meta` file as `{folder}-meta.ts` (https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/ARCHITECTURE.md#upfront-declaration-of-devtools-features). E.g. this would become `./emulation/emulation-meta.js` instead.",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 49
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2bc4c2a_9af40e84",
+        "filename": "test/unittests/front_end/panels/emulation/components/UserAgentClientHintsForm_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-04T13:15:22Z",
+      "side": 1,
+      "message": "Maybe we should move these test files to the new location as well? E.g. `test/unittests/front_end/panels/settings/emulation/components`. WDYT?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
