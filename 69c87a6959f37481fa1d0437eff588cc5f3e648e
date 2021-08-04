@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91580a86_fbd9e5fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-04T18:42:22Z",
+      "side": 1,
+      "message": "Hey Tim, does it make sense to migrate the layout unit tests to Mocha? Even though they are legacy UI, they might stick around for a while, so it would be nice to move them to Mocha/Karma where we can actively monitor test coverage. Wdyt?",
+      "revId": "69c87a6959f37481fa1d0437eff588cc5f3e648e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
