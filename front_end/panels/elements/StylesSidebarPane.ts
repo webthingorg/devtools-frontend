@@ -56,6 +56,8 @@ import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
+import stylesSectionTreeStyles from './stylesSectionTree.css.js';
+import stylesSidebarPaneStyles from './stylesSidebarPane.css.js';
 
 import type {Context} from './StylePropertyTreeElement.js';
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';
@@ -229,8 +231,6 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   private constructor() {
     super(true /* delegatesFocus */);
     this.setMinimumSize(96, 26);
-    this.registerRequiredCSS('panels/elements/stylesSidebarPane.css');
-
     Common.Settings.Settings.instance().moduleSetting('colorFormat').addChangeListener(this.update.bind(this));
     Common.Settings.Settings.instance().moduleSetting('textEditorIndent').addChangeListener(this.update.bind(this));
 
@@ -1053,6 +1053,10 @@ export class StylesSidebarPane extends ElementsSidebarPane {
       }
     }
   }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([stylesSidebarPaneStyles]);
+  }
 }
 
 export const enum Events {
@@ -1212,8 +1216,8 @@ export class StylePropertiesSection {
 
     this.propertiesTreeOutline = new UI.TreeOutline.TreeOutlineInShadow();
     this.propertiesTreeOutline.setFocusable(false);
-    this.propertiesTreeOutline.registerRequiredCSS('panels/elements/stylesSectionTree.css');
     this.propertiesTreeOutline.element.classList.add('style-properties', 'matched-styles', 'monospace');
+    this.propertiesTreeOutline.registerCSSFiles([stylesSectionTreeStyles]);
     // @ts-ignore TODO: fix ad hoc section property in a separate CL to be safe
     this.propertiesTreeOutline.section = this;
     this._innerElement.appendChild(this.propertiesTreeOutline.element);

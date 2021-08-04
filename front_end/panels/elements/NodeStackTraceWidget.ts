@@ -9,6 +9,8 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import nodeStackTraceWidgetStyles from './nodeStackTraceWidget.css.js';
+
 const UIStrings = {
   /**
   *@description Message displayed when no JavaScript stack trace is available for the DOM node in the Stack Trace widget of the Elements panel
@@ -26,8 +28,6 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
 
   constructor() {
     super(true /* isWebComponent */);
-    this.registerRequiredCSS('panels/elements/nodeStackTraceWidget.css');
-
     this._noStackTraceElement = this.contentElement.createChild('div', 'gray-info-message');
     this._noStackTraceElement.textContent = i18nString(UIStrings.noStackTraceAvailable);
     this._creationStackTraceElement = this.contentElement.createChild('div', 'stack-trace');
@@ -48,6 +48,7 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
 
   wasShown(): void {
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
+    this.registerCSSFiles([nodeStackTraceWidgetStyles]);
     this.update();
   }
 

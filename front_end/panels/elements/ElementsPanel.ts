@@ -40,6 +40,9 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Extensions from '../../models/extensions/extensions.js';
+
+import elementsPanelStyles from './elementsPanel.css.js';
+
 import type * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -184,7 +187,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   constructor() {
     super('elements');
-    this.registerRequiredCSS('panels/elements/elementsPanel.css');
+
     this._splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
     this._splitWidget.addEventListener(
         UI.SplitWidget.Events.SidebarSizeChanged, this._updateTreeOutlineVisibleWidth.bind(this));
@@ -409,6 +412,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   wasShown(): void {
     UI.Context.Context.instance().setFlavor(ElementsPanel, this);
+    this.registerCSSFiles([elementsPanelStyles]);
 
     for (const treeOutline of this._treeOutlines) {
       // Attach heavy component lazily
