@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22542ea8_29d37c72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-04T05:26:53Z",
+      "side": 1,
+      "message": "Thanks for the changes Nancy! It seems as if ElementsTreeElements.ts still needs an owner to review, you could for example add Benedikt.",
+      "revId": "cf022c48e22f2ea69f07f2b9e43691f661096063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
