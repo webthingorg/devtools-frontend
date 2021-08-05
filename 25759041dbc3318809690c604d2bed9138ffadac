@@ -195,6 +195,24 @@
       "parentUuid": "a811a218_72b38935",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85696164_84553c33",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-05T13:59:46Z",
+      "side": 1,
+      "message": "Should be fixed with https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3075188/",
+      "parentUuid": "e4f93ff3_64feebf4",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
