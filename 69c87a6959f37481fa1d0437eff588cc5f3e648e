@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8a966a_178bb2f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-05T10:17:12Z",
+      "side": 1,
+      "message": "Nit: we can use 1009443 for this.",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "69c87a6959f37481fa1d0437eff588cc5f3e648e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "91580a86_fbd9e5fb",
@@ -14,6 +37,46 @@
       "writtenOn": "2021-08-04T18:42:22Z",
       "side": 1,
       "message": "Hey Tim, does it make sense to migrate the layout unit tests to Mocha? Even though they are legacy UI, they might stick around for a while, so it would be nice to move them to Mocha/Karma where we can actively monitor test coverage. Wdyt?",
+      "revId": "69c87a6959f37481fa1d0437eff588cc5f3e648e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c799b31_ee445184",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-05T10:17:12Z",
+      "side": 1,
+      "message": "Yes, porting is great! In this case, we already had some unit layout tests for the legacy work. If we can, I think ideally we should focus on non-legacy components. That said, I am happily surprised as to how relatively easy this was for such a legacy component. Good work 🎉",
+      "revId": "69c87a6959f37481fa1d0437eff588cc5f3e648e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f5ba9ad_285ba545",
+        "filename": "test/unittests/front_end/ui/legacy/SuggestBox_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-05T10:17:12Z",
+      "side": 1,
+      "message": "For keyboard navigation, I think interactions tests would be best. But since this is a port, I am fine with keeping this as-is.",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 58
+      },
       "revId": "69c87a6959f37481fa1d0437eff588cc5f3e648e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
