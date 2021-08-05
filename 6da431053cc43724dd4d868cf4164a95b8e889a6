@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87674a6a_042d33de",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T13:32:02Z",
+      "side": 1,
+      "message": "I have tried using the lit-analyzer plugin but it didn\u0027t seem to have been picked up by tsc. Do you know if ESLint can parse content inside template literals (i.e. lit syntax)?",
+      "parentUuid": "bde4d951_86ec6dde",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "022a832b_4802cc86",
         "filename": "front_end/ui/components/docs/button/basic.ts",
         "patchSetId": 3
