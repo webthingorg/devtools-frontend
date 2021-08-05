@@ -33,6 +33,24 @@
       "message": "input helpers could go here",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94109bf2_d7266ee2",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-05T10:32:49Z",
+      "side": 1,
+      "message": "I wonder if we need this; I was picturing just having the CSS file. At least, to start with?",
+      "parentUuid": "d409d9ee_0bdb9355",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
