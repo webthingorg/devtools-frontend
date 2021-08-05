@@ -170,9 +170,9 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
   }
 
   /**
-   * Looks for the top frame in `_frames` and sets `_topFrame` accordingly.
+   * Looks for the top frame in `framesInternal` and sets `_topFrame` accordingly.
    *
-   * Important: This method needs to be called everytime `_frames` is updated.
+   * Important: This method needs to be called everytime `framesInternal` is updated.
    */
   _resetTopFrame(): void {
     const topFrames = this.getAllFrames().filter(frame => frame.isTopFrame());
