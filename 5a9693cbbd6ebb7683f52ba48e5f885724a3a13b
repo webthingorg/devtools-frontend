@@ -16,6 +16,24 @@
       "message": "Ah no sorry I wasn\u0027t clear, what you have now LGTM :)",
       "revId": "5a9693cbbd6ebb7683f52ba48e5f885724a3a13b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ecdadf_c7940a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T13:33:01Z",
+      "side": 1,
+      "message": "Thanks, now we just need to sort out the build issue. I will keep looking into it.",
+      "parentUuid": "7845bf90_e6513a15",
+      "revId": "5a9693cbbd6ebb7683f52ba48e5f885724a3a13b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
