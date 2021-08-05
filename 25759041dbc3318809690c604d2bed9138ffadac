@@ -177,6 +177,24 @@
       "parentUuid": "e46598d1_e9c1818b",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f93ff3_64feebf4",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-05T11:25:02Z",
+      "side": 1,
+      "message": "Ah yes, I can reproduce in release mode. Let me debug.",
+      "parentUuid": "a811a218_72b38935",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
