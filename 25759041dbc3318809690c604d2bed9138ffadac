@@ -159,6 +159,24 @@
       "parentUuid": "be68f5ba_a7384c35",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a811a218_72b38935",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T11:23:55Z",
+      "side": 1,
+      "message": "It fails on the clean compile too.",
+      "parentUuid": "e46598d1_e9c1818b",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
