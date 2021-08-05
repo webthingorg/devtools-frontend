@@ -39,6 +39,30 @@
       },
       "revId": "71b3edcfecd23b25a44c6f10e76f8055e6e463eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc7ed09_597b62c3",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-08-05T07:58:44Z",
+      "side": 1,
+      "message": "Yes it would, but only in one of the two calls would _inspectedTabId be !\u003d\u003d null\n\nI guess it wouldn\u0027t hurt if we call setAddExtensionCallback twice. It sets the callback and flushes the extension wait list, which would be empty on the second call. But I felt it\u0027s clearer what\u0027s happening the way the CL is doing it now.",
+      "parentUuid": "72445db6_1a89b77d",
+      "range": {
+        "startLine": 819,
+        "startChar": 2,
+        "endLine": 819,
+        "endChar": 20
+      },
+      "revId": "71b3edcfecd23b25a44c6f10e76f8055e6e463eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
