@@ -15,8 +15,8 @@ SourcesTestRunner.startDebuggerTest = function(callback, quiet) {
   }
 
   self.UI.viewManager.showView('sources');
-  TestRunner.addSniffer(SDK.DebuggerModel.prototype, '_pausedScript', SourcesTestRunner._pausedScript, true);
-  TestRunner.addSniffer(SDK.DebuggerModel.prototype, '_resumedScript', SourcesTestRunner._resumedScript, true);
+  TestRunner.addSniffer(SDK.DebuggerModel.prototype, 'pausedScript', SourcesTestRunner._pausedScript, true);
+  TestRunner.addSniffer(SDK.DebuggerModel.prototype, 'resumedScript', SourcesTestRunner._resumedScript, true);
   TestRunner.safeWrap(callback)();
 };
 
@@ -163,7 +163,7 @@ SourcesTestRunner.resumeExecution = function(callback) {
 
 SourcesTestRunner.waitUntilPausedAndDumpStackAndResume = function(callback, options) {
   SourcesTestRunner.waitUntilPaused(paused);
-  TestRunner.addSniffer(Sources.SourcesPanel.prototype, '_updateDebuggerButtonsAndStatusForTest', setStatus);
+  TestRunner.addSniffer(Sources.SourcesPanel.prototype, 'updateDebuggerButtonsAndStatusForTest', setStatus);
   let caption;
   let callFrames;
   let asyncStackTrace;
@@ -445,7 +445,7 @@ SourcesTestRunner.waitForScriptSource = function(scriptName, callback) {
   }
 
   TestRunner.addSniffer(
-      Sources.SourcesView.prototype, '_addUISourceCode',
+      Sources.SourcesView.prototype, 'addUISourceCode',
       SourcesTestRunner.waitForScriptSource.bind(SourcesTestRunner, scriptName, callback));
 };
 
@@ -476,7 +476,7 @@ SourcesTestRunner.removeBreakpoint = function(sourceFrame, lineNumber) {
 SourcesTestRunner.createNewBreakpoint = async function(sourceFrame, lineNumber, condition, enabled) {
   const debuggerPlugin = SourcesTestRunner.debuggerPlugin(sourceFrame);
   const promise =
-      new Promise(resolve => TestRunner.addSniffer(debuggerPlugin.__proto__, '_breakpointWasSetForTest', resolve));
+      new Promise(resolve => TestRunner.addSniffer(debuggerPlugin.__proto__, 'breakpointWasSetForTest', resolve));
   await debuggerPlugin._createNewBreakpoint(lineNumber, condition, enabled);
   return promise;
 };
@@ -490,8 +490,8 @@ SourcesTestRunner.toggleBreakpoint = async function(sourceFrame, lineNumber, dis
 
 SourcesTestRunner.waitBreakpointSidebarPane = function(waitUntilResolved) {
   return new Promise(
-             resolve => TestRunner.addSniffer(
-                 Sources.JavaScriptBreakpointsSidebarPane.prototype, '_didUpdateForTest', resolve))
+             resolve =>
+                 TestRunner.addSniffer(Sources.JavaScriptBreakpointsSidebarPane.prototype, 'didUpdateForTest', resolve))
       .then(checkIfReady);
 
   function checkIfReady() {
@@ -706,7 +706,7 @@ SourcesTestRunner.evaluateOnCurrentCallFrame = function(code) {
 };
 
 SourcesTestRunner.waitDebuggerPluginDecorations = function(sourceFrame) {
-  return TestRunner.addSnifferPromise(Sources.DebuggerPlugin.prototype, '_breakpointDecorationsUpdatedForTest');
+  return TestRunner.addSnifferPromise(Sources.DebuggerPlugin.prototype, 'breakpointDecorationsUpdatedForTest');
 };
 
 SourcesTestRunner.waitDebuggerPluginBreakpoints = function(sourceFrame) {
@@ -842,7 +842,7 @@ SourcesTestRunner.debuggerPlugin = function(sourceFrame) {
 
 SourcesTestRunner.waitUntilDebuggerPluginLoaded = async function(sourceFrame) {
   while (!SourcesTestRunner.debuggerPlugin(sourceFrame)) {
-    await TestRunner.addSnifferPromise(sourceFrame, '_ensurePluginsLoaded');
+    await TestRunner.addSnifferPromise(sourceFrame, 'ensurePluginsLoaded');
   }
   return SourcesTestRunner.debuggerPlugin(sourceFrame);
 };
