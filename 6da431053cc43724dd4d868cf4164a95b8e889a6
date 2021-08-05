@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d33568_60e03dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T05:56:40Z",
+      "side": 1,
+      "message": "Added unit tests.",
+      "parentUuid": "eb518b25_bd7eea32",
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78416c4e_c51bdc97",
@@ -66,6 +84,30 @@
       "writtenOn": "2021-08-04T14:50:32Z",
       "side": 1,
       "message": "In a previous role we decided on supporting a `variant` prop rather than `primary: true/false` such that it was a bit clearer:\n\n```\n\u003cdevtools-button .variant\u003d{Button.Variant.PRIMARY}\u003e\n```\n\nvs:\n\n```\n\u003cdevtools-button\u003e\n// is this primary or secondary?\n\u003c/devtools-button\u003e\n```\n\nI think I\u0027d be in favour of something similar; it also lets you extend should you want more variants (although often you don\u0027t, rarely it is useful).",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f486b86a_cfbb05bf",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T05:56:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78416c4e_c51bdc97",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -160,6 +202,30 @@
       "writtenOn": "2021-08-04T14:48:51Z",
       "side": 1,
       "message": "nit: append",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbdc26e6_5e97124c",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T05:56:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "022a832b_4802cc86",
       "range": {
         "startLine": 12,
         "startChar": 9,
