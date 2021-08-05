@@ -16,6 +16,29 @@
       "message": "PTAL!",
       "revId": "71b3edcfecd23b25a44c6f10e76f8055e6e463eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72445db6_1a89b77d",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-05T06:42:40Z",
+      "side": 1,
+      "message": "Is it possible that this gets called before initializeExtensions gets called from\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/entrypoints/main/MainImpl.ts;l\u003d537;drc\u003dd9a164519d69b8cd00c2339cabfb4b0b97447edc ?\n\nWould we call initializeExtensions twice in that case?",
+      "range": {
+        "startLine": 819,
+        "startChar": 2,
+        "endLine": 819,
+        "endChar": 20
+      },
+      "revId": "71b3edcfecd23b25a44c6f10e76f8055e6e463eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
