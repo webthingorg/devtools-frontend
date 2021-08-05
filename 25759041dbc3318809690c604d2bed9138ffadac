@@ -105,6 +105,24 @@
       "parentUuid": "369fb791_746253ed",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676578d1_414f48ab",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T11:13:31Z",
+      "side": 1,
+      "message": "The error is:\n\n```\n[69/2804] ACTION //front_end/ui/components/input:devtools_entrypoint-bundle-tsconfig(//build/toolchain/linux:x64)\nFAILED: gen/front_end/ui/components/input/devtools_entrypoint-bundle-tsconfig-tsconfig.json gen/front_end/ui/components/input/input.prebundle.js gen/front_end/ui/components/input/input.prebundle.js.map gen/front_end/ui/components/input/input.prebundle.d.ts \npython3 ../../third_party/typescript/ts_library.py --tsconfig_output_location gen/front_end/ui/components/input/devtools_entrypoint-bundle-tsconfig-tsconfig.json --deps ./css_files-tsconfig.json --front_end_directory gen/front_end/ui/components/input --sources gen/front_end/ui/components/input/input.prebundle.ts\n\nTypeScript compilation failed. Used tsconfig gen/front_end/ui/components/input/devtools_entrypoint-bundle-tsconfig-tsconfig.json\n\nerror TS5055: Cannot write file \u0027/usr/local/google/home/alexrudenko/devtools/devtools-frontend/out/Default/gen/front_end/ui/components/input/inputImpl.css.js\u0027 because it would overwrite input file.\ngen/front_end/ui/components/input/input.prebundle.ts(5,20): error TS6307: File \u0027/usr/local/google/home/alexrudenko/devtools/devtools-frontend/out/Default/gen/front_end/ui/components/input/inputImpl.css.js\u0027 is not listed within the file list of project \u0027/usr/local/google/home/alexrudenko/devtools/devtools-frontend/out/Default/gen/front_end/ui/components/input/devtools_entrypoint-bundle-tsconfig-tsconfig.json\u0027. Projects must list all files or use an \u0027include\u0027 pattern.\n```\n\nNot sure what exactly is going on here :-/\n\nTim, do you have some thoughts why this won\u0027t work?",
+      "parentUuid": "0e4b0828_7d4d0173",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
