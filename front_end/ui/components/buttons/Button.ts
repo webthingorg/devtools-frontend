@@ -50,6 +50,7 @@ export class Button extends HTMLElement {
   private render(): void {
     const classes = {
       primary: this.props.variant === Variant.PRIMARY,
+      secondary: this.props.variant === Variant.SECONDARY,
       'with-icon': Boolean(this.props.iconUrl),
     };
     // clang-format off
