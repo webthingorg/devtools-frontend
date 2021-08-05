@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6f85aa_c8d792c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-05T13:04:52Z",
+      "side": 1,
+      "message": "Hi Jack, PTAL",
+      "revId": "8865de03f5cc58260166b7ee16b1cd962f839275",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f18638a_03be2f65",
+        "filename": "front_end/panels/coverage/coverageListView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-05T13:04:52Z",
+      "side": 1,
+      "message": "I opted for using :not so I can avoid mentioning --legacy-selection-fg-color.",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "8865de03f5cc58260166b7ee16b1cd962f839275",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
