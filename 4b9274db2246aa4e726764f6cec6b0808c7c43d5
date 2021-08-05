@@ -16,6 +16,24 @@
       "message": "Had another thought: I think we should be careful with naming here. I don\u0027t think of `input` as always being a text input; I think maybe we should name this `textInput` or similar (to make it clear that it\u0027s not a checkbox, radio, etc). ",
       "revId": "4b9274db2246aa4e726764f6cec6b0808c7c43d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84291339_08fe5e6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T13:00:51Z",
+      "side": 1,
+      "message": "That makes unless we want to have a single component for all inputs? I will update the class name to be `devtools-text-input`.",
+      "parentUuid": "e060592a_0aaa0397",
+      "revId": "4b9274db2246aa4e726764f6cec6b0808c7c43d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
