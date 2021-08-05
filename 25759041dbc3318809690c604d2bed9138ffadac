@@ -51,6 +51,24 @@
       "parentUuid": "d409d9ee_0bdb9355",
       "revId": "25759041dbc3318809690c604d2bed9138ffadac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1997c919_af0cb902",
+        "filename": "front_end/ui/components/input/InputImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-05T10:35:10Z",
+      "side": 1,
+      "message": "I don\u0027t seem to be able to export the css.js files directly from the entrypoint. The build complains that it\u0027d overwrite inputImpl.css.js.",
+      "parentUuid": "94109bf2_d7266ee2",
+      "revId": "25759041dbc3318809690c604d2bed9138ffadac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
