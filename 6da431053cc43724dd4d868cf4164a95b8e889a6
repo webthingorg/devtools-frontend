@@ -287,6 +287,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7530542a_97dbf47c",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-05T13:47:19Z",
+      "side": 1,
+      "message": "Oh yeah nice idea! Let\u0027s do that, and maybe suggest people use .data by default and the other when performance is more important. Then if we figure out the type safety we can remove the .data approach longer term",
+      "parentUuid": "a94b1a75_44ce11ff",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "6da431053cc43724dd4d868cf4164a95b8e889a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "022a832b_4802cc86",
         "filename": "front_end/ui/components/docs/button/basic.ts",
         "patchSetId": 3
