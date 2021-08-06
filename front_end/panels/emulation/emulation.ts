@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import './AdvancedApp.js';
-import './DevicesSettingsTab.js';
+import './EmulatedDevices.js';
 import './InspectedPagePlaceholder.js';
 import './MediaQueryInspector.js';
 import './DeviceModeToolbar.js';
@@ -14,7 +14,6 @@ import * as AdvancedApp from './AdvancedApp.js';
 import * as DeviceModeToolbar from './DeviceModeToolbar.js';
 import * as DeviceModeView from './DeviceModeView.js';
 import * as DeviceModeWrapper from './DeviceModeWrapper.js';
-import * as DevicesSettingsTab from './DevicesSettingsTab.js';
 import * as InspectedPagePlaceholder from './InspectedPagePlaceholder.js';
 import * as MediaQueryInspector from './MediaQueryInspector.js';
 
@@ -23,7 +22,6 @@ export {
   DeviceModeToolbar,
   DeviceModeView,
   DeviceModeWrapper,
-  DevicesSettingsTab,
   InspectedPagePlaceholder,
   MediaQueryInspector,
 };
