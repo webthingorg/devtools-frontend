@@ -13361,7 +13361,7 @@ declare namespace Protocol {
     /**
      * An unique ID for a graph object (AudioContext, AudioNode, AudioParam) in Web Audio API
      */
-    export type GraphObjectId = string;
+    export type GraphObjectId = OpaqueIdentifier<string, 'Protocol.WebAudio.GraphObjectId'>;
 
     /**
      * Enum of BaseAudioContext types
@@ -13772,7 +13772,7 @@ declare namespace Protocol {
     /**
      * Players will get an ID that is unique within the agent context.
      */
-    export type PlayerId = string;
+    export type PlayerId = OpaqueIdentifier<string, 'Protocol.Media.PlayerId'>;
 
     export type Timestamp = number;
 
