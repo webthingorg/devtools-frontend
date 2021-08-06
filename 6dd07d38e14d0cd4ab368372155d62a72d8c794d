@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b869aea_df593ec9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-06T14:21:16Z",
+      "side": 1,
+      "message": "Nice! Might be worth chatting with Peter (petermueller@) to see if these colours are worth standardising (adding to themeColors.css) or if we are happy with one off overrides for these. Only thinking if these colors are going to be desired for every data-grid in the future then maybe we could name them and officially add them to themeColors.\n\nHappy if you want to land this and then chat with Peter about that after. Thanks!",
+      "revId": "6dd07d38e14d0cd4ab368372155d62a72d8c794d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
