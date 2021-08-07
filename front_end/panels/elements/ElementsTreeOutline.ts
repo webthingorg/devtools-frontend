@@ -407,7 +407,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
 
     // The _revealAndSelectNode() method might find a different element if there is inlined text,
     // and the select() call would change the selectedDOMNode and reenter this setter. So to
-    // avoid calling _selectedNodeChanged() twice, first check if _selectedDOMNode is the same
+    // avoid calling selectedNodeChanged() twice, first check if _selectedDOMNode is the same
     // node as the one passed in.
     if (this._selectedDOMNode === node) {
       this._selectedNodeChanged(Boolean(focus));
