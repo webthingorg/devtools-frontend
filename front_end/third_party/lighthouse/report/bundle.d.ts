@@ -363,7 +363,7 @@ export class ReportUIFeatures {
      * be in their closed state (not opened) and the templates should be unstamped.
      */
     _resetUIState(): void;
-    _print(): void;
+    print(): void;
     /**
      * Sets up listeners to collapse audit `<details>` when the user closes the
      * print dialog, all `<details>` are collapsed.
@@ -385,7 +385,7 @@ export class ReportUIFeatures {
      * @param {Blob|File} blob The file to save.
      * @private
      */
-    private _saveFile;
+    private saveFile;
 }
 type LineContentType = number;
 declare namespace LineContentType {
