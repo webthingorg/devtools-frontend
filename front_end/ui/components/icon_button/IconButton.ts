@@ -19,7 +19,7 @@ export interface IconWithTextData {
 }
 
 export interface IconButtonData {
-  clickHandler?: () => void;
+  clickHandler?: () => Promise<void>;
   groups: IconWithTextData[];
   leadingText?: string;
   trailingText?: string;
@@ -30,7 +30,7 @@ export interface IconButtonData {
 export class IconButton extends HTMLElement {
   static readonly litTagName = LitHtml.literal`icon-button`;
   private readonly shadow = this.attachShadow({mode: 'open'});
-  private clickHandler: undefined|(() => void) = undefined;
+  private clickHandler: undefined|(() => Promise<void>) = undefined;
   private groups: IconWithTextData[] = [];
   private compact: boolean = false;
   private leadingText: string = '';
@@ -62,10 +62,10 @@ export class IconButton extends HTMLElement {
     this.shadow.adoptedStyleSheets = [iconButtonStyles];
   }
 
-  private onClickHandler(event: Event): void {
+  private async onClickHandler(event: Event): Promise<void> {
     if (this.clickHandler) {
       event.preventDefault();
-      this.clickHandler();
+      await this.clickHandler();
     }
   }
 

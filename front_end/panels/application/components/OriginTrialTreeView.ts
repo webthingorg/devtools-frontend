@@ -7,6 +7,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Protocol from '../../../generated/protocol.js';
 import * as Adorners from '../../../ui/components/adorners/adorners.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
@@ -291,15 +292,21 @@ export class OriginTrialTokenRows extends HTMLElement {
 ComponentHelpers.CustomElements.defineComponent('devtools-resources-origin-trial-token-rows', OriginTrialTokenRows);
 
 export interface OriginTrialTreeViewData {
-  trials: Protocol.Page.OriginTrial[];
+  getOriginTrials: () => Promise<Protocol.Page.OriginTrial[]>;
 }
 
 export class OriginTrialTreeView extends HTMLElement {
   static litTagName = LitHtml.literal`devtools-resources-origin-trial-tree-view`;
   private readonly shadow = this.attachShadow({mode: 'open'});
+  private getOriginTrials: () => Promise<Protocol.Page.OriginTrial[]> = async () => [];
 
   set data(data: OriginTrialTreeViewData) {
-    this.render(data.trials);
+    this.getOriginTrials = data.getOriginTrials;
+    this.refresh();
+  }
+
+  async refresh(): Promise<void> {
+    this.render(await this.getOriginTrials());
   }
 
   private render(trials: Protocol.Page.OriginTrial[]): void {
@@ -309,6 +316,17 @@ export class OriginTrialTreeView extends HTMLElement {
 
     LitHtml.render(
         LitHtml.html`
+      <${IconButton.IconButton.IconButton.litTagName} .data="${{
+          clickHandler: this.refresh.bind(this),
+          groups: [
+            {
+              iconName: 'src/refresh_12x12_icon',
+              text: 'Refresh',
+            } as IconButton.IconButton.IconWithTextData,
+          ],
+        } as IconButton.IconButton.IconButtonData}">
+      </${IconButton.IconButton.IconButton.litTagName}>
+
       <${TreeOutline.TreeOutline.TreeOutline.litTagName} .data="${{
           tree: trials.map(constructOriginTrialTree),
           defaultRenderer,

@@ -391,7 +391,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     this._issueCounter.id = 'console-issues-counter';
     const issuesToolbarItem = new UI.Toolbar.ToolbarItem(this._issueCounter);
     this._issueCounter.data = {
-      clickHandler: (): void => {
+      clickHandler: async(): Promise<void> => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
         UI.ViewManager.ViewManager.instance().showView('issues-pane');
       },
