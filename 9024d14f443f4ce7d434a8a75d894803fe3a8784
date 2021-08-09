@@ -16,6 +16,46 @@
       "message": "PTAL:)",
       "revId": "9024d14f443f4ce7d434a8a75d894803fe3a8784",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc33baae_9308c9d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-09T13:06:25Z",
+      "side": 1,
+      "message": "lgtm % nit :)",
+      "revId": "9024d14f443f4ce7d434a8a75d894803fe3a8784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece4edff_2eb7ea67",
+        "filename": "front_end/models/persistence/IsolatedFileSystemManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-09T13:06:25Z",
+      "side": 1,
+      "message": "nit: Remove the TODO and eslint-disable line",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 47
+      },
+      "revId": "9024d14f443f4ce7d434a8a75d894803fe3a8784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
