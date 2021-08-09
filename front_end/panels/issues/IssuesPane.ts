@@ -12,6 +12,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type {AggregatedIssue} from './IssueAggregator.js';
 import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
+import {HideIssuesSidebarFilter} from './HideIssuesSidebarFilter.js';
 import {IssueView} from './IssueView.js';
 
 const UIStrings = {
@@ -169,6 +170,9 @@ export class IssuesPane extends UI.Widget.VBox {
   private issuesManager: IssuesManager.IssuesManager.IssuesManager;
   private aggregator: IssueAggregator;
   private issueViewUpdatePromise: Promise<void> = Promise.resolve();
+  private splitWidget: UI.SplitWidget.SplitWidget;
+  private sidebarWidget: HideIssuesSidebarFilter;
+  private paneContent: UI.Widget.VBox;
 
   private constructor() {
     super(true);
@@ -181,15 +185,27 @@ export class IssuesPane extends UI.Widget.VBox {
 
     this.createToolbars();
 
+    this.splitWidget = new UI.SplitWidget.SplitWidget(
+        true /* isVertical */, false /* secondIsSidebar */, 'issuespane.sidebar.width', 100);
+    this.sidebarWidget = new HideIssuesSidebarFilter();
+    this.sidebarWidget.setMinimumSize(125, 0);
+    this.paneContent = new UI.Widget.VBox(true);
+    this.paneContent.registerRequiredCSS('panels/issues/issuesPane.css');
+    this.paneContent.contentElement.classList.add('issues-pane');
+    this.splitWidget.setSidebarWidget(this.sidebarWidget);
+    this.splitWidget.setMainWidget(this.paneContent);
+    this.splitWidget.show(this.contentElement);
+    this.splitWidget.enableShowModeSaving();
+
     this.issuesTree = new UI.TreeOutline.TreeOutlineInShadow();
     this.issuesTree.registerRequiredCSS('panels/issues/issuesTree.css');
     this.issuesTree.setShowSelectionOnKeyboardFocus(true);
     this.issuesTree.contentElement.classList.add('issues');
-    this.contentElement.appendChild(this.issuesTree.element);
+    this.paneContent.contentElement.appendChild(this.issuesTree.element);
 
     this.noIssuesMessageDiv = document.createElement('div');
     this.noIssuesMessageDiv.classList.add('issues-pane-no-issues');
-    this.contentElement.appendChild(this.noIssuesMessageDiv);
+    this.paneContent.contentElement.appendChild(this.noIssuesMessageDiv);
 
     this.issuesManager = IssuesManager.IssuesManager.IssuesManager.instance();
     this.aggregator = new IssueAggregator(this.issuesManager);
