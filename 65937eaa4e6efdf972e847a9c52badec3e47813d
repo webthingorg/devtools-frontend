@@ -22,6 +22,30 @@
       },
       "revId": "65937eaa4e6efdf972e847a9c52badec3e47813d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f9e3d43_5dd4bcd1",
+        "filename": "front_end/panels/security/SecurityPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-09T10:58:56Z",
+      "side": 0,
+      "message": "Turns out: this particular element is not a widget, but instead inherits from TreeOutline. These particular components \"bypass\" the widget system, and therefore we don\u0027t have a `wasShown` callback here.\n\nStrictly speaking, moving it to the constructor is not ideal, but it does fix the issue and is allowed. So I guess this is fine as-is.",
+      "parentUuid": "19b388f3_8c7758e9",
+      "range": {
+        "startLine": 924,
+        "startChar": 2,
+        "endLine": 924,
+        "endChar": 10
+      },
+      "revId": "65937eaa4e6efdf972e847a9c52badec3e47813d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
