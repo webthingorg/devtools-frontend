@@ -16,6 +16,24 @@
       "message": "PTAL, and add other reviewers if needed!\n\nAlso, when I upload this change, it seems the following two files are updated. What am I missing here?\n\n        modified:   ../../core/i18n/locales/en-US.json\n        modified:   ../../core/i18n/locales/en-XL.json\n",
       "revId": "14a163b34688857a513792b94b5480b4bc45aadb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f3c059_eb1544a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002182
+      },
+      "writtenOn": "2021-08-09T18:10:47Z",
+      "side": 1,
+      "message": "tmathmyer: Do you know the answer to this question? (Right now I have to use --bypass-hooks when uploading this CL)",
+      "parentUuid": "7e35d6d8_b4368bdc",
+      "revId": "14a163b34688857a513792b94b5480b4bc45aadb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
