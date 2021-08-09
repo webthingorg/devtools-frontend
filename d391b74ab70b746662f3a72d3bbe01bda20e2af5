@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aae83548_3aafef49",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-09T10:17:18Z",
+      "side": 1,
+      "message": "nice catch :D",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 31
+      },
+      "revId": "d391b74ab70b746662f3a72d3bbe01bda20e2af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
