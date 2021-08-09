@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9301198_3430df28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-09T23:37:20Z",
+      "side": 1,
+      "message": "This CL only contains the Lit-components, I will follow up with two more CLs as discussed.",
+      "revId": "316759681f3000a3f2e55ca5c5be8305b8cabe64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
