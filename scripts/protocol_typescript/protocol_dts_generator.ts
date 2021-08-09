@@ -224,6 +224,7 @@ const knownIdentifierTypes = [
   'Browser.BrowserContextID',
   'Browser.WindowID',
   'CacheStorage.CacheId',
+  'CSS.StyleSheetId',
   'DOM.BackendNodeId',
   'DOM.NodeId',
   'Fetch.RequestId',
