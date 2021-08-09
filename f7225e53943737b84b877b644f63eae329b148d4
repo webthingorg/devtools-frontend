@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "f7225e53943737b84b877b644f63eae329b148d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af1abb6_7930dd51",
+        "filename": "front_end/third_party/lighthouse/report/bundle.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-09T09:42:21Z",
+      "side": 1,
+      "message": "Since this code is coming from LigthHouse itself, we shouldn\u0027t alter it. Therefore, we should remain using `_print` (and `_saveFile` below).",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 18
+      },
+      "revId": "f7225e53943737b84b877b644f63eae329b148d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
