@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0ef236_00e6f204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-09T06:52:08Z",
+      "side": 1,
+      "message": "The bot recovered after the revert: https://ci.chromium.org/ui/p/chromium/builders/ci/WebKit%20Linux%20Leak/28721/overview",
+      "revId": "7e7c4ce7389483158ba225f6379d02a6eb3a504c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
