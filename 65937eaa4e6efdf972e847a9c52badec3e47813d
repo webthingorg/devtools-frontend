@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b388f3_8c7758e9",
+        "filename": "front_end/panels/security/SecurityPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-09T10:12:48Z",
+      "side": 0,
+      "message": "I don\u0027t think we should move these calls to the constructor. Are we instead looking at the wrong location for the `wasShown` not to be called again? Let me know if you would like assistance in trying to debug this one.",
+      "range": {
+        "startLine": 924,
+        "startChar": 2,
+        "endLine": 924,
+        "endChar": 10
+      },
+      "revId": "65937eaa4e6efdf972e847a9c52badec3e47813d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
