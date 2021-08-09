@@ -6,6 +6,8 @@
 
 import * as EmulationModelModule from '../../models/emulation/emulation.js';
 
+import * as DevicesSettingsTab from '../settings/emulation/device_settings_tab.js';
+
 import * as EmulationModule from './emulation.js';
 
 self.Emulation = self.Emulation || {};
@@ -47,11 +49,11 @@ Emulation.DeviceModeWrapper.ActionDelegate = EmulationModule.DeviceModeWrapper.A
 /**
  * @constructor
  */
-Emulation.DevicesSettingsTab = EmulationModule.DevicesSettingsTab.DevicesSettingsTab;
+Emulation.DevicesSettingsTab = DevicesSettingsTab.DeviceSettingsTab.DevicesSettingsTab;
 
 /**
- * @constructor
- */
+  * @constructor
+  */
 Emulation.EmulatedDevice = EmulationModelModule.EmulatedDevices.EmulatedDevice;
 
 /**
