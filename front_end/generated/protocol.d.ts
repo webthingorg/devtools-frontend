@@ -12550,12 +12550,12 @@ declare namespace Protocol {
    */
   export namespace Target {
 
-    export type TargetID = string;
+    export type TargetID = OpaqueIdentifier<string, 'Protocol.Target.TargetID'>;
 
     /**
      * Unique identifier of attached debugging session.
      */
-    export type SessionID = string;
+    export type SessionID = OpaqueIdentifier<string, 'Protocol.Target.SessionID'>;
 
     export interface TargetInfo {
       targetId: TargetID;
