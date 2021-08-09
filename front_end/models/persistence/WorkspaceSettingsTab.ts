@@ -57,9 +57,9 @@ export class WorkspaceSettingsTab extends UI.Widget.VBox {
                                 .createChild('div', 'settings-tab settings-content settings-container');
 
     IsolatedFileSystemManager.instance().addEventListener(
-        Events.FileSystemAdded, event => this._fileSystemAdded(event.data as PlatformFileSystem), this);
+        Events.FileSystemAdded, event => this._fileSystemAdded(event.data), this);
     IsolatedFileSystemManager.instance().addEventListener(
-        Events.FileSystemRemoved, event => this._fileSystemRemoved(event.data as PlatformFileSystem), this);
+        Events.FileSystemRemoved, event => this._fileSystemRemoved(event.data), this);
 
     const folderExcludePatternInput = this._createFolderExcludePatternInput();
     folderExcludePatternInput.classList.add('folder-exclude-pattern');
