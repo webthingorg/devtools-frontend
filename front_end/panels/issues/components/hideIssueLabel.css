@@ -1,0 +1,28 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.hide-issue-label {
+  padding: 4px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  background-color: var(--color-background-highlight);
+  border-radius: 3px;
+  margin: 0 3px 3px 0;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+
+.hide-issue-label.included {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.hide-issue-label.excluded {
+  background-color: var(--color-accent-red);
+  color: var(--color-background);
+}

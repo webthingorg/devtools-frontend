@@ -117,6 +117,36 @@ export interface IssuesManagerCreationOptions {
   showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>;
   hideIssueSetting?: Common.Settings.Setting<HideIssueMenuSetting>;
 }
+export type HideIssueFilter = {
+  'included': [],
+  'excluded': [],
+};
+
+export type JointHideIssueFilter = {
+  'issueKind': HideIssueFilter,
+  'issueCategory': HideIssueFilter,
+  'issueCode': HideIssueFilter,
+};
+
+export const enum HideIssueFilterType {
+  Kind = 'issueKind',
+  Category = 'issueCategory',
+  Code = 'issueCode',
+}
+
+export function defaultJointHideIssueFilter(): JointHideIssueFilter {
+  const setting: JointHideIssueFilter = {
+    'issueKind': {included: [], excluded: []},
+    'issueCategory': {included: [], excluded: []},
+    'issueCode': {included: [], excluded: []},
+  };
+  return setting;
+}
+
+export function getJointHideIssueFilter(): Common.Settings.Setting<JointHideIssueFilter> {
+  return Common.Settings.Settings.instance().createSetting(
+      'JointHideIssueFilterSetting-Experiment-2021', defaultJointHideIssueFilter());
+}
 
 export type HideIssueMenuSetting = {
   [x: string]: IssueStatus,
