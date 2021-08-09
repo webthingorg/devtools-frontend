@@ -16,6 +16,23 @@
       "message": "Removed the changes from third_party.",
       "revId": "bc160287d8d67de841abc63b710114f8768dedc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c5d8f39_e2e9c808",
+        "filename": "front_end/panels/lighthouse/LighthouseReportRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-08-09T17:34:59Z",
+      "side": 1,
+      "message": "Can a private method in a subclass override the public method of its superclass? `ReportUIFeatures` from Lighthouse is public.",
+      "revId": "bc160287d8d67de841abc63b710114f8768dedc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
