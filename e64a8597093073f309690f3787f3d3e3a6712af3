@@ -16,6 +16,29 @@
       "message": "Jack, PTAL",
       "revId": "e64a8597093073f309690f3787f3d3e3a6712af3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d1fdb4_58fe3241",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-09T11:21:35Z",
+      "side": 1,
+      "message": "I wonder if this should be `null` by default such that we enforce users pass in a `variant`. That way it would be self-documenting in the code that each button is a primary/secondary button. WDYT?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "e64a8597093073f309690f3787f3d3e3a6712af3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
