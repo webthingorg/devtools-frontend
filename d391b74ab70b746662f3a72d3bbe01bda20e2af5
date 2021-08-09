@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a5bf5eb_97eedc0e",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-09T12:01:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aae83548_3aafef49",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 31
+      },
+      "revId": "d391b74ab70b746662f3a72d3bbe01bda20e2af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65535ac0_1c8a529c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-09T10:27:21Z",
       "side": 1,
       "message": "The nodeId is currently unused. Do we expect to need it later?",
+      "range": {
+        "startLine": 211,
+        "startChar": 46,
+        "endLine": 211,
+        "endChar": 61
+      },
+      "revId": "d391b74ab70b746662f3a72d3bbe01bda20e2af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "893bce7c_7619bdb7",
+        "filename": "front_end/core/sdk/OverlayPersistentHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-09T12:01:03Z",
+      "side": 1,
+      "message": "Good question. I inherited this part of the code from `buildScrollSnap...`, but I think it should be OK if we remove it.",
+      "parentUuid": "65535ac0_1c8a529c",
       "range": {
         "startLine": 211,
         "startChar": 46,
