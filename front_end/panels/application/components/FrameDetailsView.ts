@@ -313,15 +313,11 @@ export class FrameDetailsReportView extends HTMLElement {
   }
 
   private renderOriginTrial(): LitHtml.TemplateResult|{} {
-    const originTrials = this.frame?.getOriginTrials();
-    if (!originTrials?.length) {
-      return LitHtml.nothing;
-    }
     return LitHtml.html`
     <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.originTrials)}
     </${ReportView.ReportView.ReportSectionHeader.litTagName}>
     <${OriginTrialTreeView.litTagName} class="span-cols"
-      .data=${{trials: originTrials} as OriginTrialTreeViewData}>
+      .data=${{getOriginTrials: this.frame?.getOriginTrials.bind(this.frame)} as OriginTrialTreeViewData}>
     </${OriginTrialTreeView.litTagName}>
     <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>

@@ -20,6 +20,9 @@ async function renderOriginTrialTreeView(
 }> {
   const component = new ApplicationComponents.OriginTrialTreeView.OriginTrialTreeView();
   component.data = data;
+  // Note: needs to call refresh explicitly in order to ensure that
+  // component is rendered, as data setter does not return a `Promise`.
+  await component.refresh();
   renderElementIntoDOM(component);
   assertShadowRoot(component.shadowRoot);
   await coordinator.done();
@@ -207,11 +210,11 @@ async function waitForRenderedTreeNodeCount(shadowRoot: ShadowRoot, expectedNode
 describe('OriginTrialTreeView', () => {
   it('renders trial names as root tree nodes', async () => {
     const {shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,
-        trialWithSingleToken,
-        trialWithUnparsableToken,
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,
+           trialWithSingleToken,
+           trialWithUnparsableToken,
+    ],
     });
     const visibleItems = shadowRoot.querySelectorAll<HTMLLIElement>('li[role="treeitem"]');
     assert.lengthOf(visibleItems, 3);
@@ -222,9 +225,9 @@ describe('OriginTrialTreeView', () => {
 
   it('renders token with status when there are more than 1 tokens', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
+    ],
     });
 
     await component.expandRecursively(/* maxDepth= */ 0);
@@ -249,9 +252,9 @@ describe('OriginTrialTreeView', () => {
 
   it('skips token with status when there is only 1 token', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithSingleToken,  // Node counts by level: 1/2/1
-      ],
+      getOriginTrials: async () =>
+          [trialWithSingleToken,  // Node counts by level: 1/2/1
+    ],
     });
     await component.expandRecursively(/* maxDepth= */ 1);
     await waitForRenderedTreeNodeCount(shadowRoot, 3);
@@ -268,9 +271,9 @@ describe('OriginTrialTreeView', () => {
 
   it('renders token fields', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithSingleToken,  // Node counts by level: 1/2/1
-      ],
+      getOriginTrials: async () =>
+          [trialWithSingleToken,  // Node counts by level: 1/2/1
+    ],
     });
     await component.expandRecursively(/* maxDepth= */ 1);
     await waitForRenderedTreeNodeCount(shadowRoot, 3);
@@ -303,9 +306,9 @@ describe('OriginTrialTreeView', () => {
 
   it('renders raw token text', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithSingleToken,  // Node counts by level: 1/2/1
-      ],
+      getOriginTrials: async () =>
+          [trialWithSingleToken,  // Node counts by level: 1/2/1
+    ],
     });
     await component.expandRecursively(/* maxDepth= */ 2);
     await waitForRenderedTreeNodeCount(shadowRoot, 4);
@@ -329,9 +332,9 @@ describe('OriginTrialTreeView', () => {
 
   it('shows token count when there are more than 1 tokens in a trial', async () => {
     const {shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,
+    ],
     });
     await waitForRenderedTreeNodeCount(shadowRoot, 1);
     const visibleTree = visibleNodesToTree(shadowRoot);
@@ -344,9 +347,9 @@ describe('OriginTrialTreeView', () => {
 
   it('shows trial status', async () => {
     const {shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,
+    ],
     });
     await waitForRenderedTreeNodeCount(shadowRoot, 1);
     const visibleTree = visibleNodesToTree(shadowRoot);
@@ -359,9 +362,9 @@ describe('OriginTrialTreeView', () => {
 
   it('shows token status, when token with status node not expanded', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
+    ],
     });
     await component.expandRecursively(/* maxDepth= */ 0);
     await waitForRenderedTreeNodeCount(shadowRoot, 4);
@@ -383,9 +386,9 @@ describe('OriginTrialTreeView', () => {
   });
   it('hide token status, when token with status node is expanded', async () => {
     const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
-      trials: [
-        trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
-      ],
+      getOriginTrials: async () =>
+          [trialWithMultipleTokens,  // Node counts by level: 1/3/6/3
+    ],
     });
     await component.expandRecursively(/* maxDepth= */ 1);
     await waitForRenderedTreeNodeCount(shadowRoot, 4);
