@@ -39,6 +39,30 @@
       },
       "revId": "e64a8597093073f309690f3787f3d3e3a6712af3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "402214f7_a07dff22",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-09T11:29:06Z",
+      "side": 1,
+      "message": "SGTM! Updated the CL.",
+      "parentUuid": "24d1fdb4_58fe3241",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "e64a8597093073f309690f3787f3d3e3a6712af3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
