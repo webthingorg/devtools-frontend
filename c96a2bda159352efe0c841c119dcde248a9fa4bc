@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5713e1ea_520aea53",
+        "filename": "front_end/models/workspace/FileManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-09T13:30:34Z",
+      "side": 0,
+      "message": "We\u0027ve had trouble with const enums in the past. I\u0027d recommend keeping this comment.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 47
+      },
+      "revId": "c96a2bda159352efe0c841c119dcde248a9fa4bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
