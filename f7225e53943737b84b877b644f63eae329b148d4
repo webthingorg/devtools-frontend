@@ -39,6 +39,30 @@
       },
       "revId": "f7225e53943737b84b877b644f63eae329b148d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12978ef_00db5575",
+        "filename": "front_end/third_party/lighthouse/report/bundle.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-08-09T10:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af1abb6_7930dd51",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 18
+      },
+      "revId": "f7225e53943737b84b877b644f63eae329b148d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
