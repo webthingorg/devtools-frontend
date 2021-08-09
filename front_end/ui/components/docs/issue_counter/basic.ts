@@ -30,6 +30,6 @@ const mockIssueManager = {
 
 appendComponent({issuesManager: mockIssueManager});
 
-appendComponent({issuesManager: mockIssueManager, clickHandler: () => {}});
+appendComponent({issuesManager: mockIssueManager, clickHandler: async () => {}});
 
-appendComponent({issuesManager: mockIssueManager, clickHandler: () => {}, compact: true});
+appendComponent({issuesManager: mockIssueManager, clickHandler: async () => {}, compact: true});

@@ -11,17 +11,17 @@ function appendComponent(data: IconButton.IconButton.IconButtonData) {
 }
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [{iconName: 'feedback_thin_16x16_icon', iconColor: 'black', text: '1 item'}],
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [{iconName: 'feedback_thin_16x16_icon', iconColor: 'black', text: '1 item'}],
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [
     {iconName: 'feedback_thin_16x16_icon', iconColor: 'blue', text: 'Test'},
     {iconName: 'warning_icon', iconColor: '', text: '1'},
@@ -29,7 +29,7 @@ appendComponent({
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [
     {iconName: 'issue-exclamation-icon', iconColor: 'yellow', text: '23', iconHeight: '2ex', iconWidth: '2ex'},
     {iconName: 'issue-text-icon', iconColor: 'blue', text: '1'},
@@ -44,7 +44,7 @@ appendComponent({
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [
     {iconName: 'issue-exclamation-icon', iconColor: 'yellow', text: '23'},
     {iconName: 'issue-text-icon', iconColor: 'blue', text: '1'},
@@ -53,7 +53,7 @@ appendComponent({
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [
     {iconName: 'issue-exclamation-icon', iconColor: 'yellow', text: '23'},
     {iconName: 'issue-text-icon', iconColor: 'blue', text: '1'},
@@ -62,7 +62,7 @@ appendComponent({
 });
 
 appendComponent({
-  clickHandler: (): void => {},
+  clickHandler: async(): Promise<void> => {},
   groups: [
     {iconName: 'issue-exclamation-icon', iconColor: 'yellow', text: '23'},
     {iconName: 'issue-text-icon', iconColor: 'blue', text: '1'},

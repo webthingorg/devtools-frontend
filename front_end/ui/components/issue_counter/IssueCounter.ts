@@ -53,7 +53,7 @@ export const enum DisplayMode {
 }
 
 export interface IssueCounterData {
-  clickHandler?: () => void;
+  clickHandler?: () => Promise<void>;
   tooltipCallback?: () => void;
   leadingText?: string;
   displayMode?: DisplayMode;
@@ -84,7 +84,7 @@ export function getIssueCountsEnumeration(
 export class IssueCounter extends HTMLElement {
   static readonly litTagName = LitHtml.literal`issue-counter`;
   private readonly shadow = this.attachShadow({mode: 'open'});
-  private clickHandler: undefined|(() => void) = undefined;
+  private clickHandler: undefined|(() => Promise<void>) = undefined;
   private tooltipCallback: undefined|(() => void) = undefined;
   private leadingText: string = '';
   private throttler: undefined|Common.Throttler.Throttler;

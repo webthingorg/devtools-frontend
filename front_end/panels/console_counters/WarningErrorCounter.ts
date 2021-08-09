@@ -53,7 +53,8 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     this.consoleCounter = new IconButton.IconButton.IconButton();
     countersWrapper.appendChild(this.consoleCounter);
     this.consoleCounter.data = {
-      clickHandler: Common.Console.Console.instance().show.bind(Common.Console.Console.instance()),
+      clickHandler: async(): Promise<void> =>
+          Common.Console.Console.instance().show.bind(Common.Console.Console.instance())(),
       groups: [{iconName: 'error_icon'}, {iconName: 'warning_icon'}],
     };
 
@@ -61,7 +62,7 @@ export class WarningErrorCounter implements UI.Toolbar.Provider {
     this.issueCounter = new IssueCounter.IssueCounter.IssueCounter();
     countersWrapper.appendChild(this.issueCounter);
     this.issueCounter.data = {
-      clickHandler: (): void => {
+      clickHandler: async(): Promise<void> => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
         UI.ViewManager.ViewManager.instance().showView('issues-pane');
       },
