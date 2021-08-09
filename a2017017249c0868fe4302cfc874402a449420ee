@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd81a0de_7f9614b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-09T20:37:30Z",
+      "side": 1,
+      "message": "Hi Sigurd and Wolfgang,\n\nCan you take a look at this CL?\n\nNote: IconButtonData.clickHandler cannot accept async function, so I changed the signature and convert every callsite to async function. Is there a better way to\npass the async clickHandler into IconButton other than the current approach?",
+      "revId": "a2017017249c0868fe4302cfc874402a449420ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
