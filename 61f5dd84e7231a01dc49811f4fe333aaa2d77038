@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4decf8_354c3e34",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-09T11:19:00Z",
+      "side": 1,
+      "message": "We could, but at the moment everyone except the two use-sites below /seems to/ accept the full type.",
+      "parentUuid": "bfc1b394_3538c6e4",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 72
+      },
+      "revId": "61f5dd84e7231a01dc49811f4fe333aaa2d77038",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a562640_9b70c8fa",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-09T11:04:14Z",
       "side": 1,
       "message": "Nit: I think we should make this a `Platform.DCHECK`, as I am not sure we can handle throwing errors here in production.",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 3
+      },
+      "revId": "61f5dd84e7231a01dc49811f4fe333aaa2d77038",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0739c00d_3c0bf1ed",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-09T11:19:00Z",
+      "side": 1,
+      "message": "This should really never trigger. If it does (and we don\u0027t throw) we end up calling functions with undefined that don\u0027t expect it.",
+      "parentUuid": "0a562640_9b70c8fa",
       "range": {
         "startLine": 182,
         "startChar": 2,
