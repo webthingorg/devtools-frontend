@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd2cfe19_39d503ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-10T09:18:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure that this is the best way to split the CLs. The changes in this CL are a bit difficult to verify if they are not actually being used anywhere.\nBut please keep it like this for now, I haven\u0027t had time to look at the other CLs yet.",
+      "revId": "7ab5322830e7f3bfdeff7d9e51f2c54c2630d325",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

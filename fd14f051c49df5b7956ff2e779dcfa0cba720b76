@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70e075e_a495abe8",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-10T09:18:40Z",
+      "side": 1,
+      "message": "Should those previous ones be removed with your latest changes?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 1
+      },
+      "revId": "fd14f051c49df5b7956ff2e779dcfa0cba720b76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc43e8b8_0e22bdf8",
+        "filename": "front_end/panels/issues/components/HideIssueLabel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-10T09:18:40Z",
+      "side": 1,
+      "message": "I\u0027m confused here. There are 3 possible states: include (blue), exclude (red) and none (grey), correct? So both `included` and `excluded` true should not happen. Is this then just some kind of error handling?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "fd14f051c49df5b7956ff2e779dcfa0cba720b76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ebdda6_c92773ae",
+        "filename": "front_end/panels/issues/components/hideIssueLabel.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-10T09:18:40Z",
+      "side": 1,
+      "message": "UX will probably have suggestions for which colours to use.",
+      "revId": "fd14f051c49df5b7956ff2e779dcfa0cba720b76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
