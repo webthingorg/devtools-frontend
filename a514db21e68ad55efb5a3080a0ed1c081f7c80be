@@ -50,6 +50,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "998dc66f_027a13a0",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T14:22:27Z",
+      "side": 1,
+      "message": "Let\u0027s not change this component at all, but handle the fetching of the information on the outside.",
+      "parentUuid": "21b75a4b_2bb63083",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 15
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1110c8d5_4378b8b3",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T14:22:27Z",
+      "side": 1,
+      "message": "Move this button to the outside (FrameDetailsView). Then just use a non-async wrapper to initiate fetching the new data.",
+      "range": {
+        "startLine": 319,
+        "startChar": 4,
+        "endLine": 328,
+        "endChar": 55
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94925032_9faae1a8",
         "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
         "patchSetId": 3
