@@ -4898,6 +4898,15 @@
   "panels/issues/CSPViolationsView.ts | filter": {
     "message": "F̂íl̂t́êŕ"
   },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByCategory": {
+    "message": "Ĥíd̂é îśŝúêś b̂ý ĉát̂éĝór̂ý"
+  },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByCode": {
+    "message": "Îńd̂ív̂íd̂úâĺl̂ý ĥíd̂é îśŝúêś"
+  },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByKind": {
+    "message": "Ĥíd̂é îśŝúêś b̂ý k̂ín̂d́"
+  },
   "panels/issues/issues-meta.ts | cspViolations": {
     "message": "ĈŚP̂ V́îól̂át̂íôńŝ"
   },
