@@ -16,6 +16,24 @@
       "message": "tvanderlippe: I am new to this repo. Do you know what the presubmit error means and how to resolve it? Thanks!",
       "revId": "5b852cbeaef63ba8c0d1c1e346a5402852cd6800",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4cf6ac4_3481114a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-10T08:59:20Z",
+      "side": 1,
+      "message": "Normally, `git cl upload` should run the presubmits for you. When you do, it will state that there are changed files that you need to add to your commit. Do a `git commit --amend` and then `git cl upload` again to incorporate the missing changes.",
+      "parentUuid": "f4d988bd_5e7a90f5",
+      "revId": "5b852cbeaef63ba8c0d1c1e346a5402852cd6800",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
