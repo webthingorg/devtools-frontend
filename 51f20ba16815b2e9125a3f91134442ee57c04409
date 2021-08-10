@@ -16,6 +16,70 @@
       "message": "Hi Sigurd, \n\nDo you know why e2e tests are failing? Seems like e2e tests are not using the most recent version of browser protocol.",
       "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed7b85f_f6b83320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T15:06:25Z",
+      "side": 1,
+      "message": "It usually takes half a day for the chromium version that we use to run the e2e tests to get updated to current chromium.",
+      "parentUuid": "c7620b48_048864bc",
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a97666a_c50a42e3",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T15:06:25Z",
+      "side": 1,
+      "message": "If you just want to add a CSS class consider .classList.add(\u0027span-cols\u0027)",
+      "range": {
+        "startLine": 321,
+        "startChar": 28,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acfe79a4_d97735a9",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T15:06:25Z",
+      "side": 1,
+      "message": "It seems we need some space after this.",
+      "range": {
+        "startLine": 333,
+        "startChar": 6,
+        "endLine": 333,
+        "endChar": 43
+      },
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
