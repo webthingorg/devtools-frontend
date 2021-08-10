@@ -94,6 +94,14 @@ const UIStrings = {
    * @description Tooltip label for the button which reveals all hidden isssues.
    */
   unHideAllHiddenIssues: 'Unhide all hidden issues',
+  /**
+   * @description Title for revealing hide issues sidebar.
+   */
+  revealSidebar: 'Reveal hide issues sidebar',
+  /**
+   * @description Title for hiding hide issues sidebar.
+   */
+  closeSidebar: 'Close hide issues sidebar',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/issues/IssuesPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -182,11 +190,11 @@ export class IssuesPane extends UI.Widget.VBox {
     this.categoryViews = new Map();
     this.issueViews = new Map();
     this.showThirdPartyCheckbox = null;
+    this.splitWidget = new UI.SplitWidget.SplitWidget(
+        true /* isVertical */, false /* secondIsSidebar */, 'issuespane.sidebar.width', 100);
 
     this.createToolbars();
 
-    this.splitWidget = new UI.SplitWidget.SplitWidget(
-        true /* isVertical */, false /* secondIsSidebar */, 'issuespane.sidebar.width', 100);
     this.sidebarWidget = new HideIssuesSidebarFilter();
     this.sidebarWidget.setMinimumSize(125, 0);
     this.paneContent = new UI.Widget.VBox(true);
@@ -233,9 +241,11 @@ export class IssuesPane extends UI.Widget.VBox {
 
   private createToolbars(): {toolbarContainer: Element} {
     const toolbarContainer = this.contentElement.createChild('div', 'issues-toolbar-container');
-    new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
+    const leftToolbar = new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
     const rightToolbar = new UI.Toolbar.Toolbar('issues-toolbar-right', toolbarContainer);
 
+    leftToolbar.appendToolbarItem(this.splitWidget.createShowHideSidebarButton(
+        i18nString(UIStrings.revealSidebar), i18nString(UIStrings.closeSidebar)));
     const groupByCategorySetting = getGroupIssuesByCategorySetting();
     const groupByCategoryCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         groupByCategorySetting, i18nString(UIStrings.groupDisplayedIssuesUnder), i18nString(UIStrings.groupByCategory));
