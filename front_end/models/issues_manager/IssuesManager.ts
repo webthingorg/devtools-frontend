@@ -115,7 +115,7 @@ export interface IssuesManagerCreationOptions {
   /** Throw an error if this is not the first instance created */
   ensureFirst: boolean;
   showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>;
-  hideIssueSetting?: Common.Settings.Setting<HideIssueMenuSetting>;
+  hideIssueSetting?: Common.Settings.Setting<JointHideIssueFilter>;
 }
 export type HideIssueFilter = {
   'included': string[],
@@ -148,25 +148,6 @@ export function getJointHideIssueFilter(): Common.Settings.Setting<JointHideIssu
       'JointHideIssueFilterSetting-Experiment-2021', defaultJointHideIssueFilter());
 }
 
-export type HideIssueMenuSetting = {
-  [x: string]: IssueStatus,
-};
-
-export const enum IssueStatus {
-  Hidden = 'Hidden',
-  Unhidden = 'Unhidden',
-}
-
-export function defaultHideIssueByCodeSetting(): HideIssueMenuSetting {
-  const setting: HideIssueMenuSetting = {};
-  return setting;
-}
-
-export function getHideIssueByCodeSetting(): Common.Settings.Setting<HideIssueMenuSetting> {
-  return Common.Settings.Settings.instance().createSetting(
-      'HideIssueByCodeSetting-Experiment-2021', defaultHideIssueByCodeSetting());
-}
-
 /**
  * The `IssuesManager` is the central storage for issues. It collects issues from all the
  * `IssuesModel` instances in the page, and deduplicates them wrt their primary key.
@@ -190,7 +171,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
 
   constructor(
       private readonly showThirdPartyIssuesSetting?: Common.Settings.Setting<boolean>,
-      private readonly hideIssueSetting?: Common.Settings.Setting<HideIssueMenuSetting>) {
+      private readonly hideIssueSetting?: Common.Settings.Setting<JointHideIssueFilter>) {
     super();
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.IssuesModel.IssuesModel, this);
     SDK.FrameManager.FrameManager.instance().addEventListener(
@@ -324,21 +305,40 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     return this.showThirdPartyIssuesSetting?.get() || !issue.isCausedByThirdParty();
   }
 
-  private updateIssueHiddenStatus(issue: Issue, values: HideIssueMenuSetting|undefined): void {
+  private updateIssueHiddenStatus(issue: Issue, values: JointHideIssueFilter|undefined): void {
+    const kind = issue.getKind();
+    const category = issue.getCategory();
     const code = issue.code();
-    // All issues are hidden via their code.
-    // For hiding we check whether the issue code is present and has a value of IssueStatus.Hidden
-    // assosciated with it. If all these conditions are met the issue is hidden.
-    // IssueStatus is set in hidden issues menu.
-    // In case a user wants to hide a specific issue, the issue code is added to "code" section
-    // of our setting and its value is set to IssueStatus.Hidden. Then issue then gets hidden.
-    if (values && values[code]) {
-      if (values[code] === IssueStatus.Hidden) {
+
+    issue.setHidden(false);
+    if (values && values[HideIssueFilterType.Kind]) {
+      if (values[HideIssueFilterType.Kind].included.includes(kind)) {
         issue.setHidden(true);
+      }
+      if (values[HideIssueFilterType.Kind].excluded.includes(kind)) {
+        issue.setHidden(false);
         return;
       }
-      issue.setHidden(false);
-      return;
+    }
+
+    if (values && values[HideIssueFilterType.Category]) {
+      if (values[HideIssueFilterType.Category].included.includes(category)) {
+        issue.setHidden(true);
+      }
+      if (values[HideIssueFilterType.Category].excluded.includes(category)) {
+        issue.setHidden(false);
+        return;
+      }
+    }
+
+    if (values && values[HideIssueFilterType.Code]) {
+      if (values[HideIssueFilterType.Code].included.includes(code)) {
+        issue.setHidden(true);
+      }
+      if (values[HideIssueFilterType.Code].excluded.includes(code)) {
+        issue.setHidden(false);
+        return;
+      }
     }
   }
 
@@ -366,7 +366,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     for (const issue of this.allIssues.values()) {
       issue.setHidden(false);
     }
-    this.hideIssueSetting?.set(defaultHideIssueByCodeSetting());
+    this.hideIssueSetting?.set(defaultJointHideIssueFilter());
   }
 
   getIssueById(id: string): Issue|undefined {
