@@ -956,6 +956,7 @@ grd_files_debug_sources = [
   "front_end/panels/issues/CSPViolationsView.js",
   "front_end/panels/issues/ComboBoxOfCheckBoxes.js",
   "front_end/panels/issues/CorsIssueDetailsView.js",
+  "front_end/panels/issues/HideIssuesSidebarFilter.js",
   "front_end/panels/issues/IssueAggregator.js",
   "front_end/panels/issues/IssueRevealer.js",
   "front_end/panels/issues/IssueView.js",

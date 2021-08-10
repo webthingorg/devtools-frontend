@@ -1,0 +1,77 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  user-select: none;
+}
+
+.title {
+  flex: 1;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: normal;
+  user-select: none;
+}
+
+.expandable-tree-content,
+.expandable-tree-element {
+  padding: 0;
+}
+
+.tree-outline-disclosure:not(.tree-outline-disclosure-hide-overflow) .tree-outline.hide-selection-when-blurred .issue-category.selected:focus-visible,
+.tree-outline-disclosure:not(.tree-outline-disclosure-hide-overflow) .tree-outline.hide-selection-when-blurred .issue.selected:focus-visible {
+  width: 100%;
+}
+
+.expandable-filter-row {
+  padding: 5px;
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 1px 0;
+}
+
+.expandable-filter-row.selected {
+  background-color: var(--legacy-focus-bg-color);
+  padding: 5px;
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 1px 0;
+}
+
+.expandable-filter-row.expanded {
+  background-color: var(--color-background-elevation-1);
+  border: 0;
+}
+
+.expandable-filter-row.expanded.selected {
+  background-color: var(--legacy-focus-bg-color);
+  border: 0;
+}
+
+.expandable-filter-row.header {
+  font-size: 1.1em;
+}
+
+.expandable-filter-row.expanded .header .title {
+  font-size: 1.1em;
+  font-weight: 450;
+}
+
+.expandable-filter-row-body {
+  position: relative;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.expandable-filter-row-body.expanded {
+  padding: 0;
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 1px 0;
+  height: 110px;
+  margin-top: 4px;
+}
