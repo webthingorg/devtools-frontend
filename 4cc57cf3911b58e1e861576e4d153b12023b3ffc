@@ -16,6 +16,98 @@
       "message": "Taking a look...",
       "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35bc20af_1a59f288",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T13:56:37Z",
+      "side": 1,
+      "message": "At the moment, each issue code (which is the key for both categoryViews and hiddenIssueViews) is either hidden or not: Do we need the second map then?",
+      "range": {
+        "startLine": 167,
+        "startChar": 10,
+        "endLine": 167,
+        "endChar": 26
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a316f3d9_55b049c5",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T13:56:37Z",
+      "side": 1,
+      "message": "Could you use issue.isHidden() instead of this argument?",
+      "range": {
+        "startLine": 286,
+        "startChar": 58,
+        "endLine": 286,
+        "endChar": 73
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04b6e571_489863df",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T13:56:37Z",
+      "side": 1,
+      "message": "Could this code move into updateCounts()? Also: Should we get the number of hidden (unaggregated) issues from the issues manager similar to how we get the number of unhidden issues?",
+      "range": {
+        "startLine": 318,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 5
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "106a2892_9c146120",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T13:56:37Z",
+      "side": 1,
+      "message": "Could we use issue.isHidden() instead of this argument?",
+      "range": {
+        "startLine": 328,
+        "startChar": 53,
+        "endLine": 328,
+        "endChar": 68
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
