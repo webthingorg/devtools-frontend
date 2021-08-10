@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd520e1_eaa135b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T14:00:36Z",
+      "side": 1,
+      "message": "A test would be nice.",
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bd2b7c_23bda4dd",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T14:00:36Z",
+      "side": 1,
+      "message": "Let\u0027s call \n\n  aggregatedIssue.setHidden(issue.isHidden())\n\nhere instead of in aggregateIssue\n\nThen the only thing different in aggregateIssue between hidden is the map in which we insert (and you can hence simplify aggregateIssue).",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 21
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35bc20af_1a59f288",
