@@ -16,6 +16,23 @@
       "message": "Hi Mathias, this should be the front-end work needed to emulate prefers-contrast in the Rendering tab of devtools. As mentioned in the description, it won\u0027t be merged until the blink-side changes are merged.\n\nI\u0027m not familiar with how the processes in this repo work. I noticed that the presubmit updated some localization .jsons by emptying them. I was wondering if this is intentional or due to a mistake on my end.\n\nOtherwise, I\u0027m not really sure how the front-end is tested, beyond opening a local build of Chrome and poking around the emulation (it works! at least it worked before the presubmit checks).\n\nThanks!",
       "revId": "786b428e985beb02a8d52cdb4226038825685601",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9de0348_ced53db0",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-10T21:35:45Z",
+      "side": 1,
+      "message": "typo, should be appendSelect",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
