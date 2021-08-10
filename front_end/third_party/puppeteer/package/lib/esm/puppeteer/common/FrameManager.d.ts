@@ -69,17 +69,17 @@ export declare class FrameManager extends EventEmitter {
     }): Promise<HTTPResponse | null>;
     private _onFrameMoved;
     _onLifecycleEvent(event: Protocol.Page.LifecycleEventEvent): void;
-    _onFrameStoppedLoading(frameId: string): void;
+    _onFrameStoppedLoading(frameId: Protocol.Page.FrameId): void;
     _handleFrameTree(frameTree: Protocol.Page.FrameTree): void;
     page(): Page;
     mainFrame(): Frame;
     frames(): Frame[];
-    frame(frameId: string): Frame | null;
-    _onFrameAttached(frameId: string, parentFrameId?: string): void;
+    frame(frameId: Protocol.Page.FrameId): Frame | null;
+    _onFrameAttached(frameId: Protocol.Page.FrameId, parentFrameId?: string): void;
     _onFrameNavigated(framePayload: Protocol.Page.Frame): void;
     _ensureIsolatedWorld(name: string): Promise<void>;
-    _onFrameNavigatedWithinDocument(frameId: string, url: string): void;
-    _onFrameDetached(frameId: string): void;
+    _onFrameNavigatedWithinDocument(frameId: Protocol.Page.FrameId, url: string): void;
+    _onFrameDetached(frameId: Protocol.Page.FrameId): void;
     _onExecutionContextCreated(contextPayload: Protocol.Runtime.ExecutionContextDescription): void;
     private _onExecutionContextDestroyed;
     private _onExecutionContextsCleared;
@@ -242,7 +242,7 @@ export declare class Frame {
     /**
      * @internal
      */
-    constructor(frameManager: FrameManager, parentFrame: Frame | null, frameId: string);
+    constructor(frameManager: FrameManager, parentFrame: Frame | null, frameId: Protocol.Page.FrameId);
     /**
      * @remarks
      *
