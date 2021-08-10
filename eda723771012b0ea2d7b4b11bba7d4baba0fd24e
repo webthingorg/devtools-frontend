@@ -16,6 +16,138 @@
       "message": "PTAL :)",
       "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0529ea6_5344d8dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780e0bf5_ace27cd2",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "Please remove this import. Cross module references should always go via the modules entry point. In this case we already import `Workspace` so the types are already available as `Workspace.UISourceCode.UISourceCode`.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 89
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de2816d8_7f4eb21a",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "nit: Since the argument is unused, we can just remove it straight-up and make it\n\n workingCopyCommitted(): void { ...",
+      "range": {
+        "startLine": 320,
+        "startChar": 31,
+        "endLine": 320,
+        "endChar": 100
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69282b4_d64ea045",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "Same comment as before: Please use the `Workspace` import.",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85bb9d30_d4eee5f0",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "nit: here and below, we can just remove the unused argument.",
+      "range": {
+        "startLine": 236,
+        "startChar": 10,
+        "endLine": 236,
+        "endChar": 30
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a8e064_86aecc1b",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T09:19:27Z",
+      "side": 1,
+      "message": "nit: Remove.",
+      "range": {
+        "startLine": 501,
+        "startChar": 24,
+        "endLine": 501,
+        "endChar": 30
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
