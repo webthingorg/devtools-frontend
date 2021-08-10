@@ -75,6 +75,7 @@ const createSettingSelect = function(
     name: string, options: Common.Settings.SimpleSettingOption[], requiresReload: boolean|null,
     setting: Common.Settings.Setting<unknown>, subtitle?: string): Element {
   const settingSelectElement = document.createElement('p');
+  settingSelectElement.classList.add('settings-select');
   const label = settingSelectElement.createChild('label');
   const select = (settingSelectElement.createChild('select', 'chrome-select') as HTMLSelectElement);
   label.textContent = name;
@@ -92,7 +93,7 @@ const createSettingSelect = function(
 
   let reloadWarning: HTMLElement|(Element | null) = (null as Element | null);
   if (requiresReload) {
-    reloadWarning = settingSelectElement.createChild('span', 'reload-warning hidden');
+    reloadWarning = settingSelectElement.createChild('p', 'reload-warning hidden');
     reloadWarning.textContent = i18nString(UIStrings.srequiresReload);
     ARIAUtils.markAsAlert(reloadWarning);
   }

@@ -88,6 +88,10 @@ fieldset {
   padding-left: 30px;
 }
 
+.settings-select {
+  white-space: nowrap;
+}
+
 .settings-experiments-warning-subsection-warning {
   color: var(--color-accent-red);
 }
