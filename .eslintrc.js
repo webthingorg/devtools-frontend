@@ -123,57 +123,63 @@ module.exports = {
     'rulesdir/es_modules_import': 2,
     'rulesdir/check_license_header': 2,
   },
-  'overrides': [{
-    'files': ['*.ts'],
-    'parserOptions': {
-      'allowAutomaticSingleRunInference': true,
-      'project': './config/typescript/tsconfig.eslint.json',
+  'overrides': [
+    {
+      'files': ['*/panels/timeline/*.ts'],
+      'rules': {'rulesdir/migrate_register_required_css': 2, 'rulesdir/migrate_create_shadow_root_with_styles': 2}
     },
-    'rules': {
-      '@typescript-eslint/explicit-member-accessibility': [2, {'accessibility': 'no-public'}],
-      'comma-dangle': 'off',
-      '@typescript-eslint/comma-dangle': [2, 'always-multiline'],
+    {
+      'files': ['*.ts'],
+      'parserOptions': {
+        'allowAutomaticSingleRunInference': true,
+        'project': './config/typescript/tsconfig.eslint.json',
+      },
+      'rules': {
+        '@typescript-eslint/explicit-member-accessibility': [2, {'accessibility': 'no-public'}],
+        'comma-dangle': 'off',
+        '@typescript-eslint/comma-dangle': [2, 'always-multiline'],
 
-      // run just the TypeScript unused-vars rule, else we get duplicate errors
-      'no-unused-vars': 0,
-      '@typescript-eslint/no-unused-vars': [2, {'argsIgnorePattern': '^_'}],
-      // run just the TypeScript semi rule, else we get duplicate errors
-      'semi': 0,
-      '@typescript-eslint/semi': ['error'],
-      '@typescript-eslint/member-delimiter-style': [
-        'error', {
-          'multiline': {'delimiter': 'semi', 'requireLast': true},
-          'singleline': {'delimiter': 'comma', 'requireLast': false},
-          'overrides': {
-            'interface': {
-              'singleline': {'delimiter': 'semi', 'requireLast': false},
-              'multiline': {'delimiter': 'semi', 'requireLast': true}
-            },
-            'typeLiteral': {
-              'singleline': {'delimiter': 'comma', 'requireLast': false},
-              'multiline': {'delimiter': 'comma', 'requireLast': true}
+        // run just the TypeScript unused-vars rule, else we get duplicate errors
+        'no-unused-vars': 0,
+        '@typescript-eslint/no-unused-vars': [2, {'argsIgnorePattern': '^_'}],
+        // run just the TypeScript semi rule, else we get duplicate errors
+        'semi': 0,
+        '@typescript-eslint/semi': ['error'],
+        '@typescript-eslint/member-delimiter-style': [
+          'error', {
+            'multiline': {'delimiter': 'semi', 'requireLast': true},
+            'singleline': {'delimiter': 'comma', 'requireLast': false},
+            'overrides': {
+              'interface': {
+                'singleline': {'delimiter': 'semi', 'requireLast': false},
+                'multiline': {'delimiter': 'semi', 'requireLast': true}
+              },
+              'typeLiteral': {
+                'singleline': {'delimiter': 'comma', 'requireLast': false},
+                'multiline': {'delimiter': 'comma', 'requireLast': true}
+              }
             }
           }
-        }
-      ],
-      // func-call-spacing doesn't work well with .ts
-      'func-call-spacing': 0,
-      '@typescript-eslint/func-call-spacing': 2,
+        ],
+        // func-call-spacing doesn't work well with .ts
+        'func-call-spacing': 0,
+        '@typescript-eslint/func-call-spacing': 2,
 
-      /**
+        /**
        * Enforce that enum members are explicitly defined:
        * const enum Foo { A = 'a' } rather than const enum Foo { A }
        */
-      '@typescript-eslint/prefer-enum-initializers': 2,
-      /**
+        '@typescript-eslint/prefer-enum-initializers': 2,
+        /**
        * Ban non-null assertion operator, e.g.:
        * this.foo!.toLowerCase()
        */
-      '@typescript-eslint/no-non-null-assertion': 2,
-      '@typescript-eslint/consistent-type-imports': 2,
-      'rulesdir/const_enum': 2,
-      'rulesdir/no_underscored_properties': 2,
-      'rulesdir/prefer_readonly_keyword': 2,
+        '@typescript-eslint/no-non-null-assertion': 2,
+        '@typescript-eslint/consistent-type-imports': 2,
+        'rulesdir/const_enum': 2,
+        'rulesdir/no_underscored_properties': 2,
+        'rulesdir/prefer_readonly_keyword': 2,
+      }
     }
-  }]
+  ]
 };

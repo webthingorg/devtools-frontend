@@ -42,6 +42,8 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
+import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
+
 import type {PerformanceModel} from './PerformanceModel.js';
 import {FlameChartStyle, Selection, TimelineFlameChartMarker} from './TimelineFlameChartView.js';
 import {TimelineSelection} from './TimelinePanel.js';
@@ -1036,7 +1038,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
     const element = document.createElement('div');
     const root = UI.Utils.createShadowRootWithCoreStyles(element, {
-      cssFile: 'panels/timeline/timelineFlamechartPopover.css',
+      cssFile: [timelineFlamechartPopoverStyles],
       delegatesFocus: undefined,
     });
     const contents = root.createChild('div', 'timeline-flamechart-popover');
