@@ -148,6 +148,10 @@ const UIStrings = {
   */
   forcesCssPrefersreducedmotion: 'Forces CSS `prefers-reduced-motion` media feature',
   /**
+   * @description Explanation text for the 'Forces CSS prefers-contrast media' setting in the Rendering tool.
+   */
+  forcesCssPreferscontrastMedia: 'Forces CSS `prefers-contrast` media feature',
+  /**
   * @description Explanation text for the 'Forces CSS prefers-reduced-data media' setting in the Rendering tool.
   */
   forcesCssPrefersreduceddataMedia: 'Forces CSS `prefers-reduced-data` media feature',
@@ -253,6 +257,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this._appendSelect(
         i18nString(UIStrings.forcesCssPrefersreducedmotion),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
+    this._appendSelect(
+        i18nString(UIStrings.forcesCssPreferscontrastMedia),
+        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersContrast'));
     if (supportsPrefersReducedData()) {
       this._appendSelect(
           i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
