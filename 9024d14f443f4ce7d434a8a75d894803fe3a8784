@@ -128,6 +128,30 @@
       },
       "revId": "9024d14f443f4ce7d434a8a75d894803fe3a8784",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841e1ec9_fd5e096d",
+        "filename": "front_end/models/persistence/IsolatedFileSystemManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T08:32:14Z",
+      "side": 1,
+      "message": "Seems that way. @Kateryna, please revert `Events` to a normal enum (remove the \"const\").",
+      "parentUuid": "bdcbfdaa_2f2a0d44",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 47
+      },
+      "revId": "9024d14f443f4ce7d434a8a75d894803fe3a8784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
