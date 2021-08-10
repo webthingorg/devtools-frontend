@@ -286,6 +286,16 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     return this.filteredIssues.size;
   }
 
+  numberOfHiddenIssues(): number {
+    let count = 0;
+    for (const issue of this.filteredIssues.values()) {
+      if (issue.isHidden()) {
+        count++;
+      }
+    }
+    return count;
+  }
+
   numberOfAllStoredIssues(): number {
     return this.allIssues.size;
   }

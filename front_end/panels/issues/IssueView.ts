@@ -335,6 +335,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       header.appendChild(this.hiddenIssuesMenu);
       const data: HiddenIssuesMenuData = {
         issueCode: this._issue.code(),
+        forHiddenIssue: this._issue.isHidden(),
       };
       this.hiddenIssuesMenu.data = data;
     }
@@ -434,6 +435,11 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
     this.needsUpdateOnExpand = !this.expanded;
     this.updateFromIssue();
+  }
+
+  toggleIssueHidden(): void {
+    this.listItemElement.classList.toggle('hidden-issue', this._issue.isHidden());
+    return;
   }
 
   update(): void {
