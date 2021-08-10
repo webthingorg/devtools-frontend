@@ -4898,6 +4898,15 @@
   "panels/issues/CSPViolationsView.ts | filter": {
     "message": "Filter"
   },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByCategory": {
+    "message": "Hide issues by category"
+  },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByCode": {
+    "message": "Individually hide issues"
+  },
+  "panels/issues/HideIssuesSidebarFilter.ts | hideByKind": {
+    "message": "Hide issues by kind"
+  },
   "panels/issues/issues-meta.ts | cspViolations": {
     "message": "CSP Violations"
   },
