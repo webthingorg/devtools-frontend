@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fb803da_4e8aea68",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T14:14:16Z",
+      "side": 1,
+      "message": "I suggest just using\n\n  this.listItemElement.classList.add(\u0027issue-category\u0027, \u0027hidden-issues\u0027);\n\nthen we can add \n\n  .issue-category.hidden-issues.parent.expanded {\n    border-width: 0 0 1px 0;\n    background-color: var(--color-background-elevation-1);\n  }\n\nto front_end/panels/issues/issuesTree.css and remove front_end/panels/issues/hiddenIssuesRow.css altogether. (This also fixes a bug with borders that front_end/panels/issues/hiddenIssuesRow.css currently introduces).",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6bd2b7c_23bda4dd",
         "filename": "front_end/panels/issues/IssueAggregator.ts",
         "patchSetId": 1
