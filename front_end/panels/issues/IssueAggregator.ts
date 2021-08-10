@@ -233,9 +233,13 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
   private aggregateIssue(issue: IssuesManager.Issue.Issue): AggregatedIssue {
     if (issue.isHidden()) {
-      return this.aggregateIssueByStatus(this.hiddenAggregatedIssuesByCode, issue);
+      const aggregatedIssue = this.aggregateIssueByStatus(this.hiddenAggregatedIssuesByCode, issue);
+      aggregatedIssue.setHidden(true);
+      this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
+      return aggregatedIssue;
     }
     const aggregatedIssue = this.aggregateIssueByStatus(this.aggregatedIssuesByCode, issue);
+    aggregatedIssue.setHidden(false);
     this.dispatchEventToListeners(Events.AggregatedIssueUpdated, aggregatedIssue);
     return aggregatedIssue;
   }
@@ -253,6 +257,10 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
   aggregatedIssues(): Iterable<AggregatedIssue> {
     return this.aggregatedIssuesByCode.values();
+  }
+
+  hiddenAggregatedIssues(): Iterable<AggregatedIssue> {
+    return this.hiddenAggregatedIssuesByCode.values();
   }
 
   aggregatedIssueCodes(): Set<string> {

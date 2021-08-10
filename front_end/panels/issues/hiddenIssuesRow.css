@@ -1,0 +1,76 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+.hidden-issue {
+  border-width: 1px 0 0 1px;
+}
+
+.hidden-issue.expanded.selected {
+  border-radius: 0 0 0 5px;
+}
+
+.hidden-issues-row-header {
+  padding-left: var(--issue-indent);
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 1px 0;
+}
+
+.hidden-issues-row-header.parent.expanded {
+  border-width: 0 0 1px 0;
+  background-color: var(--color-background-elevation-1);
+}
+
+.hidden-issues-row-header > .header {
+  margin-left: 5px;
+}
+
+.hidden-issues-row-header.expanded .title {
+  font-weight: 450;
+}
+
+.hidden-issues-row-body.children {
+  position: relative;
+  padding-left: 22px;
+}
+
+.hidden-issues-row-body.children > li.issue.expanded {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 1px 0 0 0;
+}
+
+.hidden-issues-row-body.children > ol.expanded {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0;
+}
+
+.hidden-issues-row-body.children > li:nth-child(1) {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 0 1px;
+}
+
+.hidden-issues-row-body.children > li.expanded:nth-child(1) {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 0 0;
+}
+
+.hidden-issues-row-body.children.expanded {
+  border: 1px solid var(--color-details-hairline-light);
+  border-width: 0 0 1px 0;
+}
+
+.hidden-issues-row-body::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+}
+
+.hidden-issues-row-body.expanded::before {
+  border-left: 2px solid var(--color-details-hairline);
+}

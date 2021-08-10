@@ -10,6 +10,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import {HiddenIssuesRow} from './HiddenIssuesRow.js';
 import type {AggregatedIssue} from './IssueAggregator.js';
 import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
 import {IssueView} from './IssueView.js';
@@ -163,8 +164,10 @@ let issuesPaneInstance: IssuesPane;
 export class IssuesPane extends UI.Widget.VBox {
   private categoryViews: Map<IssuesManager.Issue.IssueCategory, IssueCategoryView>;
   private issueViews: Map<string, IssueView>;
+  private hiddenIssueViews: Map<string, IssueView>;
   private showThirdPartyCheckbox: UI.Toolbar.ToolbarSettingCheckbox|null;
   private issuesTree: UI.TreeOutline.TreeOutlineInShadow;
+  private hiddenIssuesRow: HiddenIssuesRow;
   private noIssuesMessageDiv: HTMLDivElement;
   private issuesManager: IssuesManager.IssuesManager.IssuesManager;
   private aggregator: IssueAggregator;
@@ -177,15 +180,20 @@ export class IssuesPane extends UI.Widget.VBox {
 
     this.categoryViews = new Map();
     this.issueViews = new Map();
+    this.hiddenIssueViews = new Map();
     this.showThirdPartyCheckbox = null;
 
     this.createToolbars();
 
     this.issuesTree = new UI.TreeOutline.TreeOutlineInShadow();
     this.issuesTree.registerRequiredCSS('panels/issues/issuesTree.css');
+    this.issuesTree.registerRequiredCSS('panels/issues/hiddenIssuesRow.css');
     this.issuesTree.setShowSelectionOnKeyboardFocus(true);
     this.issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this.issuesTree.element);
+
+    this.hiddenIssuesRow = new HiddenIssuesRow();
+    this.issuesTree.appendChild(this.hiddenIssuesRow);
 
     this.noIssuesMessageDiv = document.createElement('div');
     this.noIssuesMessageDiv.classList.add('issues-pane-no-issues');
@@ -195,8 +203,12 @@ export class IssuesPane extends UI.Widget.VBox {
     this.aggregator = new IssueAggregator(this.issuesManager);
     this.aggregator.addEventListener(IssueAggregatorEvents.AggregatedIssueUpdated, this.issueUpdated, this);
     this.aggregator.addEventListener(IssueAggregatorEvents.FullUpdateRequired, this.onFullUpdate, this);
+    this.hiddenIssuesRow.hidden = this.aggregator.numberOfHiddenAggregatedIssues() === 0;
     for (const issue of this.aggregator.aggregatedIssues()) {
-      this.scheduleIssueViewUpdate(issue);
+      this.scheduleIssueViewUpdate(issue, false);
+    }
+    for (const issue of this.aggregator.hiddenAggregatedIssues()) {
+      this.scheduleIssueViewUpdate(issue, true);
     }
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssuesCountUpdated, this.updateCounts, this);
     this.updateCounts();
@@ -268,16 +280,16 @@ export class IssuesPane extends UI.Widget.VBox {
   }
 
   private issueUpdated(event: Common.EventTarget.EventTargetEvent<AggregatedIssue>): void {
-    this.scheduleIssueViewUpdate(event.data);
+    this.scheduleIssueViewUpdate(event.data, event.data.isHidden());
   }
 
-  private scheduleIssueViewUpdate(issue: AggregatedIssue): void {
-    this.issueViewUpdatePromise = this.issueViewUpdatePromise.then(() => this.updateIssueView(issue));
+  private scheduleIssueViewUpdate(issue: AggregatedIssue, hidden: boolean): void {
+    this.issueViewUpdatePromise = this.issueViewUpdatePromise.then(() => this.updateIssueView(issue, hidden));
   }
 
   /** Don't call directly. Use `scheduleIssueViewUpdate` instead. */
-  private async updateIssueView(issue: AggregatedIssue): Promise<void> {
-    let issueView = this.issueViews.get(issue.code());
+  private async updateIssueView(issue: AggregatedIssue, hidden: boolean): Promise<void> {
+    let issueView = hidden ? this.hiddenIssueViews.get(issue.code()) : this.issueViews.get(issue.code());
     if (!issueView) {
       const description = issue.getDescription();
       if (!description) {
@@ -287,9 +299,12 @@ export class IssuesPane extends UI.Widget.VBox {
       const markdownDescription =
           await IssuesManager.MarkdownIssueDescription.createIssueDescriptionFromMarkdown(description);
       issueView = new IssueView(this, issue, markdownDescription);
-      this.issueViews.set(issue.code(), issueView);
-      const parent = this.getIssueViewParent(issue);
+      hidden ? this.hiddenIssueViews.set(issue.code(), issueView) : this.issueViews.set(issue.code(), issueView);
+      const parent = this.getIssueViewParent(issue, hidden);
       parent.appendChild(issueView, (a, b) => {
+        if (a instanceof HiddenIssuesRow || b instanceof HiddenIssuesRow) {
+          return -1;
+        }
         if (a instanceof IssueView && b instanceof IssueView) {
           return a.getIssueTitle().localeCompare(b.getIssueTitle());
         }
@@ -297,12 +312,25 @@ export class IssuesPane extends UI.Widget.VBox {
         return 0;
       });
     }
+    issueView.toggleIssueHidden();
     issueView.update();
     this.updateCounts();
+    if (hidden) {
+      this.hiddenIssuesRow.hidden = this.aggregator.numberOfHiddenAggregatedIssues() === 0;
+      let count = 0;
+      for (const issue of this.aggregator.hiddenAggregatedIssues()) {
+        count += issue.getAggregatedIssuesCount();
+      }
+      this.hiddenIssuesRow.update(count);
+    }
   }
 
-  private getIssueViewParent(issue: AggregatedIssue): UI.TreeOutline.TreeOutline|UI.TreeOutline.TreeElement {
+  private getIssueViewParent(issue: AggregatedIssue, hidden: boolean): UI.TreeOutline.TreeOutline
+      |UI.TreeOutline.TreeElement {
     if (!getGroupIssuesByCategorySetting().get()) {
+      if (hidden) {
+        return this.hiddenIssuesRow;
+      }
       return this.issuesTree;
     }
 
@@ -340,9 +368,14 @@ export class IssuesPane extends UI.Widget.VBox {
   private fullUpdate(force: boolean): void {
     this.clearViews(this.categoryViews, force ? undefined : this.aggregator.aggregatedIssueCategories());
     this.clearViews(this.issueViews, force ? undefined : this.aggregator.aggregatedIssueCodes());
+    this.clearViews(this.hiddenIssueViews);
+    this.hiddenIssuesRow.hidden = this.aggregator.numberOfHiddenAggregatedIssues() === 0;
     if (this.aggregator) {
       for (const issue of this.aggregator.aggregatedIssues()) {
-        this.scheduleIssueViewUpdate(issue);
+        this.scheduleIssueViewUpdate(issue, false);
+      }
+      for (const issue of this.aggregator.hiddenAggregatedIssues()) {
+        this.scheduleIssueViewUpdate(issue, true);
       }
     }
     this.updateCounts();
@@ -377,10 +410,18 @@ export class IssuesPane extends UI.Widget.VBox {
   async revealByCode(code: string): Promise<void> {
     await this.issueViewUpdatePromise;
     const issueView = this.issueViews.get(code);
+    const hiddenIssueView = this.hiddenIssueViews.get(code);
     if (issueView) {
       issueView.expand();
       issueView.reveal();
       issueView.select(false, true);
+    }
+    if (hiddenIssueView) {
+      this.hiddenIssuesRow.expand();
+      this.hiddenIssuesRow.reveal();
+      hiddenIssueView.expand();
+      hiddenIssueView.reveal();
+      hiddenIssueView.select(false, true);
     }
   }
 }

@@ -253,6 +253,7 @@ all_devtools_files = [
   "front_end/models/issues_manager/descriptions/TwaDigitalAssetLinksFailed.md",
   "front_end/models/issues_manager/descriptions/TwaHttpError.md",
   "front_end/models/issues_manager/descriptions/TwaPageUnavailableOffline.md",
+  "front_end/panels/issues/hiddenIssuesRow.css",
   "front_end/panels/issues/issuesPane.css",
   "front_end/panels/issues/issuesTree.css",
   "front_end/panels/issues/cspViolationsView.css",
