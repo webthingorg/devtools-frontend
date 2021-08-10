@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21b75a4b_2bb63083",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T14:08:16Z",
+      "side": 1,
+      "message": "The async refresh is currently necessary in unittest to ensure element rendered properly. Do we want to add a fixed sleep delay there?\n\nAlso, can you elaborate more on rate limiting? Maybe some examples in other parts of devtools?",
+      "parentUuid": "b5149dc8_a3dd530a",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 15
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94925032_9faae1a8",
         "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
         "patchSetId": 3
