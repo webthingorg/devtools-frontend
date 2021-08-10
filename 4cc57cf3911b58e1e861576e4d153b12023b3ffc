@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7352ada3_75e7ef37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T17:36:25Z",
+      "side": 1,
+      "message": "IssuesManager and IssueAggregator already has unittests for unhiding issues. So i have only added e2etests for HideIssuesMenu and HiddenIssuesRow. However, if you feel more tests are needed i will add them",
+      "parentUuid": "acd520e1_eaa135b3",
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fb803da_4e8aea68",
