@@ -33,6 +33,24 @@
       "message": "Can a private method in a subclass override the public method of its superclass? `ReportUIFeatures` from Lighthouse is public.",
       "revId": "bc160287d8d67de841abc63b710114f8768dedc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13b46ba_d5b342c7",
+        "filename": "front_end/panels/lighthouse/LighthouseReportRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-08-10T10:55:30Z",
+      "side": 1,
+      "message": "The compiler didn\u0027t complain so far but I think it\u0027s still worth fixing it. Thanks!",
+      "parentUuid": "0c5d8f39_e2e9c808",
+      "revId": "bc160287d8d67de841abc63b710114f8768dedc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
