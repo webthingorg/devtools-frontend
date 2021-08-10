@@ -97,6 +97,11 @@ const UIStrings = {
   */
   videoFreezingScore: 'Video freezing score',
   /**
+  *@description Media property giving the name of the renderer being used
+  */
+  rendererName: 'Renderer name',
+
+  /**
   *@description Media property giving the name of the decoder being used
   */
   decoderName: 'Decoder name',
@@ -149,6 +154,7 @@ export const enum PlayerPropertyKeys {
   FrameTitle = 'kFrameTitle',
   IsSingleOrigin = 'kIsSingleOrigin',
   IsRangeHeaderSupported = 'kIsRangeHeaderSupported',
+  RendererName = 'kRendererName',
   VideoDecoderName = 'kVideoDecoderName',
   AudioDecoderName = 'kAudioDecoderName',
   IsPlatformVideoDecoder = 'kIsPlatformVideoDecoder',
@@ -580,6 +586,10 @@ export class PlayerPropertiesView extends UI.Widget.VBox {
     const freezingScore = new PropertyRenderer(i18nString(UIStrings.videoFreezingScore));
     this._mediaElements.push(freezingScore);
     this._attributeMap.set(PlayerPropertyKeys.VideoPlaybackFreezing, freezingScore);
+
+    const rendererName = new PropertyRenderer(i18nString(UIStrings.rendererName));
+    this._mediaElements.push(rendererName);
+    this._attributeMap.set(PlayerPropertyKeys.RendererName, rendererName);
 
     /* Video Decoder Properties */
     const decoderName = new DefaultPropertyRenderer(i18nString(UIStrings.decoderName), i18nString(UIStrings.noDecoder));
