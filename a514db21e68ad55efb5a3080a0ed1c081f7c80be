@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5149dc8_a3dd530a",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T09:02:08Z",
+      "side": 1,
+      "message": "I think this doesn\u0027t need to be async, we can just do something along the lines of \nthis.getOriginTrials().then(trials \u003d\u003e this.render(trials)). \n\nWe might want to use rate limiting.",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 15
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94925032_9faae1a8",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T09:02:08Z",
+      "side": 1,
+      "message": "Please leave this as void.",
+      "range": {
+        "startLine": 56,
+        "startChar": 23,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
