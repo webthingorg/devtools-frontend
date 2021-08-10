@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "644386ed_29747f77",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T17:34:51Z",
+      "side": 1,
+      "message": "Please ignore the above comment, i just added this.childrenListElement.classList.add(\u0027hidden-issues-body\u0027) to help in e2etests.",
+      "parentUuid": "486fbe2e_323f735f",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6bd2b7c_23bda4dd",
@@ -166,6 +190,30 @@
       "writtenOn": "2021-08-10T13:56:37Z",
       "side": 1,
       "message": "At the moment, each issue code (which is the key for both categoryViews and hiddenIssueViews) is either hidden or not: Do we need the second map then?",
+      "range": {
+        "startLine": 167,
+        "startChar": 10,
+        "endLine": 167,
+        "endChar": 26
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "081efd14_ce0c350c",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T17:34:51Z",
+      "side": 1,
+      "message": "When Event.FullUpdateRequired is dispacthes this.clearViews() is called on issueViews and categoryViews. Since clearViews takes in aggregatedIssueCodes (which won\u0027t contain entries for hiddenAggregatedIssues) those issueViews never get appended to the issueTree upon update. This could be solved by including hiddenAggregatedIssueCodes into clearViews but then we would have to check which issueView is hidden or not and depending on that continue to the next entry or (if the condition isn\u0027t satisfied) `if (preservedSet?.has(key))` either delete from view.parent or delete view.parent and then delete the hiddenIssuesRow itself if there are no hidden issues. Doing this makes the clearViews functions very complex. The additional complexity can be avoided just by using a new hiddenIssuesView map.",
+      "parentUuid": "35bc20af_1a59f288",
       "range": {
         "startLine": 167,
         "startChar": 10,
