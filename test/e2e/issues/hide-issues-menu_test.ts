@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {$$, assertNotNullOrUndefined, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {getHideIssuesMenu, getHideIssuesMenuItem, getIssueHeaderByTitle, getUnhideAllIssuesBtn, ISSUE, navigateToIssuesTab} from '../helpers/issues-helpers.js';
+import {getHiddenIssuesRow, getHiddenIssuesRowBody, getHideIssuesMenu, getHideIssuesMenuItem, getIssueHeaderByTitle, getUnhideAllIssuesBtn, getUnhideIssuesMenuItem, ISSUE, navigateToIssuesTab} from '../helpers/issues-helpers.js';
 
 describe('Hide issues menu', async () => {
   it('should be appended to the issue header', async () => {
@@ -116,5 +116,64 @@ describe('Hide issues menu', async () => {
     await btn.click();
     const issues = await waitFor(ISSUE);
     assertNotNullOrUndefined(issues);
+  });
+
+  it('should contain unhide issues like this entry while hovering over a hidden issue', async () => {
+    await enableExperiment('hideIssuesFeature');
+    await goToResource('issues/sab-issue.rawresponse');
+    await navigateToIssuesTab();
+    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueHeader = await getIssueHeaderByTitle(issueTitle);
+    assertNotNullOrUndefined(issueHeader);
+    await issueHeader.hover();
+    let hideIssuesMenuBtn = await getHideIssuesMenu();
+    await hideIssuesMenuBtn.click();
+    const menuItem = await getHideIssuesMenuItem();
+    assertNotNullOrUndefined(menuItem);
+    await menuItem.click();
+    const row = await getHiddenIssuesRow();
+    assertNotNullOrUndefined(row);
+    await row.click();
+    const body = await getHiddenIssuesRowBody();
+    assertNotNullOrUndefined(body);
+    const hiddenIssueHeader = await getIssueHeaderByTitle(issueTitle);
+    assertNotNullOrUndefined(hiddenIssueHeader);
+    await hiddenIssueHeader.hover();
+    hideIssuesMenuBtn = await getHideIssuesMenu();
+    await hideIssuesMenuBtn.click();
+    const unhideMenuItem = await getUnhideIssuesMenuItem();
+    assertNotNullOrUndefined(unhideMenuItem);
+  });
+
+  it('should unhide issue after clicking the unhide issues like this entry', async () => {
+    await enableExperiment('hideIssuesFeature');
+    await goToResource('issues/sab-issue.rawresponse');
+    await navigateToIssuesTab();
+    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueHeader = await getIssueHeaderByTitle(issueTitle);
+    assertNotNullOrUndefined(issueHeader);
+    await issueHeader.hover();
+    let hideIssuesMenuBtn = await getHideIssuesMenu();
+    await hideIssuesMenuBtn.click();
+    const menuItem = await getHideIssuesMenuItem();
+    assertNotNullOrUndefined(menuItem);
+    await menuItem.click();
+    const row = await getHiddenIssuesRow();
+    assertNotNullOrUndefined(row);
+    await row.click();
+    const body = await getHiddenIssuesRowBody();
+    assertNotNullOrUndefined(body);
+    const hiddenIssueHeader = await getIssueHeaderByTitle(issueTitle);
+    assertNotNullOrUndefined(hiddenIssueHeader);
+    await hiddenIssueHeader.hover();
+    hideIssuesMenuBtn = await getHideIssuesMenu();
+    await hideIssuesMenuBtn.click();
+    const unhideMenuItem = await getUnhideIssuesMenuItem();
+    assertNotNullOrUndefined(unhideMenuItem);
+    await unhideMenuItem.click();
+    const issue = await waitFor(ISSUE);
+    assertNotNullOrUndefined(issue);
+    const classes = await issue.evaluate(node => node.classList.toString());
+    assert.notInclude(classes, 'hidden-issue');
   });
 });
