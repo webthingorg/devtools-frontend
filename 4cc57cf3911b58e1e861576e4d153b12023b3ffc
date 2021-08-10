@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f1075d0_31844852",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fb803da_4e8aea68",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6bd2b7c_23bda4dd",
         "filename": "front_end/panels/issues/IssueAggregator.ts",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-08-10T14:00:36Z",
       "side": 1,
       "message": "Let\u0027s call \n\n  aggregatedIssue.setHidden(issue.isHidden())\n\nhere instead of in aggregateIssue\n\nThen the only thing different in aggregateIssue between hidden is the map in which we insert (and you can hence simplify aggregateIssue).",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 21
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bd7186_ab9db301",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bd2b7c_23bda4dd",
       "range": {
         "startLine": 251,
         "startChar": 6,
@@ -127,6 +175,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f21c21b_518c732f",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a316f3d9_55b049c5",
+      "range": {
+        "startLine": 286,
+        "startChar": 58,
+        "endLine": 286,
+        "endChar": 73
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04b6e571_489863df",
@@ -140,6 +212,30 @@
       "writtenOn": "2021-08-10T13:56:37Z",
       "side": 1,
       "message": "Could this code move into updateCounts()? Also: Should we get the number of hidden (unaggregated) issues from the issues manager similar to how we get the number of unhidden issues?",
+      "range": {
+        "startLine": 318,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 5
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f6a7144_054c0225",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b6e571_489863df",
       "range": {
         "startLine": 318,
         "startChar": 4,
@@ -173,6 +269,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad5f4b6_be4a1245",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "106a2892_9c146120",
+      "range": {
+        "startLine": 328,
+        "startChar": 53,
+        "endLine": 328,
+        "endChar": 68
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12140b3d_d307f6a3",
@@ -186,6 +306,30 @@
       "writtenOn": "2021-08-10T14:18:33Z",
       "side": 1,
       "message": "not completely happy with this, but we can refactor this in a follow up.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "4cc57cf3911b58e1e861576e4d153b12023b3ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "404c67bf_ee88a349",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-10T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12140b3d_d307f6a3",
       "range": {
         "startLine": 36,
         "startChar": 2,
