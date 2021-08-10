@@ -94,6 +94,30 @@
       },
       "revId": "c96a2bda159352efe0c841c119dcde248a9fa4bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdf6502_9f308612",
+        "filename": "front_end/models/workspace/FileManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T07:16:59Z",
+      "side": 0,
+      "message": "I was saying: Keep the comment, sorry if that was unclear.",
+      "parentUuid": "a141f084_4b497f5c",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 47
+      },
+      "revId": "c96a2bda159352efe0c841c119dcde248a9fa4bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
