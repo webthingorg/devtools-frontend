@@ -16,6 +16,24 @@
       "message": "Ted/Tim: I updated the CL as discussed. But I feel something is going wrong. I don\u0027t see how my CL should remove almost all the contents from en-US.json and en-XL.json, unless this is something missed in previous CLs. Any thoughts before I land it?",
       "revId": "9911005c20a94b83b641c497202a67d68180b251",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e23895_98b56e7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-08-10T21:23:10Z",
+      "side": 1,
+      "message": "this kind of thing happens super frequently to me in this repo - My understanding is that the devtools team works on devtools as a standalone thing in it\u0027s own repo that isn\u0027t part of chromium_src/third_party. as a result, a ton of the scripts break when you try to use them from within the chromium third_party directory. I\u0027ve sometimes kept a second standalone checkout to try to mimick the setup that the scripts were written for, but in your case i think the best move is to probably just manually apply the patch from the bottom of the failed bot on patch set 2: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8839353254192420913/+/u/presubmit_py3/stdout\nand then upload it bypassing hooks again.",
+      "parentUuid": "9c90d345_605f81fe",
+      "revId": "9911005c20a94b83b641c497202a67d68180b251",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
