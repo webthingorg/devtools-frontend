@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd12e935_4b2d248d",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T15:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a97666a_c50a42e3",
+      "range": {
+        "startLine": 321,
+        "startChar": 28,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acfe79a4_d97735a9",
@@ -72,6 +96,30 @@
       "writtenOn": "2021-08-10T15:06:25Z",
       "side": 1,
       "message": "It seems we need some space after this.",
+      "range": {
+        "startLine": 333,
+        "startChar": 6,
+        "endLine": 333,
+        "endChar": 43
+      },
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a91aceee_5a8754a7",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T15:35:37Z",
+      "side": 1,
+      "message": "Padding added.",
+      "parentUuid": "acfe79a4_d97735a9",
       "range": {
         "startLine": 333,
         "startChar": 6,
