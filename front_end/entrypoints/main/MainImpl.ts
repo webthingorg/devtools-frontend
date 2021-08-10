@@ -387,7 +387,7 @@ export class MainImpl {
       forceNew: true,
       ensureFirst: true,
       showThirdPartyIssuesSetting: IssuesManager.Issue.getShowThirdPartyIssuesSetting(),
-      hideIssueSetting: IssuesManager.IssuesManager.getHideIssueByCodeSetting(),
+      hideIssueSetting: IssuesManager.IssuesManager.getJointHideIssueFilter(),
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
 

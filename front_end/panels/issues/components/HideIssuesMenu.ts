@@ -19,9 +19,13 @@ const UIStrings = {
   */
   tooltipTitle: 'Hide issues menu',
   /**
-  *@description Menu entry for hiding a particular issue, in the Hide Issues context menu.
+  *@description Menu entry for hiding individual issues, in the Hide Issues context menu.
   */
-  hideIssueByCode: 'Hide issues like this',
+  hideIssues: 'Hide issues like this',
+  /**
+  *@description Menu entry for excluding individual issues, in the Hide Issues context menu.
+  */
+  excludeIssues: 'Exclude issues like this',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/issues/components/HideIssuesMenu.ts', UIStrings);
@@ -36,8 +40,8 @@ export class HideIssuesMenu extends HTMLElement {
   private readonly shadow: ShadowRoot = this.attachShadow({mode: 'open'});
   private code: string = '';
   private visible: boolean = false;
-  private hideIssueSetting: Common.Settings.Setting<IssuesManager.IssuesManager.HideIssueMenuSetting> =
-      IssuesManager.IssuesManager.getHideIssueByCodeSetting();
+  private hideIssueSetting: Common.Settings.Setting<IssuesManager.IssuesManager.JointHideIssueFilter> =
+      IssuesManager.IssuesManager.getJointHideIssueFilter();
 
   set data(data: HiddenIssuesMenuData) {
     this.classList.add('hide-issues-menu');
@@ -60,13 +64,20 @@ export class HideIssuesMenu extends HTMLElement {
   onMenuOpen(event: Event): void {
     event.stopPropagation();
     const contextMenu = new UI.ContextMenu.ContextMenu(event, true);
-    contextMenu.headerSection().appendItem(i18nString(UIStrings.hideIssueByCode), () => this.onHideIssueByCode());
+    contextMenu.headerSection().appendItem(i18nString(UIStrings.hideIssues), () => this.onHideIssue());
+    contextMenu.headerSection().appendItem(i18nString(UIStrings.excludeIssues), () => this.onExcludeIssue());
     contextMenu.show();
   }
 
-  onHideIssueByCode(): void {
+  onHideIssue(): void {
     const values = this.hideIssueSetting.get();
-    values[this.code] = IssuesManager.IssuesManager.IssueStatus.Hidden;
+    values[IssuesManager.IssuesManager.HideIssueFilterType.Code].included.push(this.code);
+    this.hideIssueSetting.set(values);
+  }
+
+  onExcludeIssue(): void {
+    const values = this.hideIssueSetting.get();
+    values[IssuesManager.IssuesManager.HideIssueFilterType.Code].excluded.push(this.code);
     this.hideIssueSetting.set(values);
   }
 

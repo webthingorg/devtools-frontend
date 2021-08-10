@@ -4811,7 +4811,10 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | untrustworthyOrigin": {
     "message": "Untrustworthy origin"
   },
-  "panels/issues/components/HideIssuesMenu.ts | hideIssueByCode": {
+  "panels/issues/components/HideIssuesMenu.ts | excludeIssues": {
+    "message": "Exclude issues like this"
+  },
+  "panels/issues/components/HideIssuesMenu.ts | hideIssues": {
     "message": "Hide issues like this"
   },
   "panels/issues/components/HideIssuesMenu.ts | tooltipTitle": {
