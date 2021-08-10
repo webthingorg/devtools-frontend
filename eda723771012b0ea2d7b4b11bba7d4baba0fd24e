@@ -146,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e055dd08_f1005c74",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-10T10:42:24Z",
+      "side": 1,
+      "message": "Yes :)",
+      "parentUuid": "46c98962_8634d638",
+      "range": {
+        "startLine": 320,
+        "startChar": 31,
+        "endLine": 320,
+        "endChar": 100
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69282b4_d64ea045",
