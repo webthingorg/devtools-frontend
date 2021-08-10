@@ -9,6 +9,8 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import timelineHistoryManagerStyles from './timelineHistoryManager.css.js';
+
 import type {PerformanceModel} from './PerformanceModel.js';
 import {TimelineEventOverviewCPUActivity, TimelineEventOverviewFrames, TimelineEventOverviewNetwork, TimelineEventOverviewResponsiveness} from './TimelineEventOverview.js';
 
@@ -334,7 +336,7 @@ export class DropDown implements UI.ListControl.ListDelegate<PerformanceModel> {
     this._glassPane.element.addEventListener('blur', () => this._close(null));
 
     const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(this._glassPane.contentElement, {
-      cssFile: 'panels/timeline/timelineHistoryManager.css',
+      cssFile: [timelineHistoryManagerStyles],
       delegatesFocus: undefined,
     });
     const contentElement = shadowRoot.createChild('div', 'drop-down');
