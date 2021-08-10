@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cf3db4_dc4b1e57",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-10T10:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780e0bf5_ace27cd2",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 89
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de2816d8_7f4eb21a",
@@ -88,6 +112,30 @@
       "writtenOn": "2021-08-10T09:19:27Z",
       "side": 1,
       "message": "nit: Since the argument is unused, we can just remove it straight-up and make it\n\n workingCopyCommitted(): void { ...",
+      "range": {
+        "startLine": 320,
+        "startChar": 31,
+        "endLine": 320,
+        "endChar": 100
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c98962_8634d638",
+        "filename": "front_end/models/bindings/ResourceScriptMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-10T10:37:48Z",
+      "side": 1,
+      "message": "Should I also remove the argument above? (workingCopyChanged method)",
+      "parentUuid": "de2816d8_7f4eb21a",
       "range": {
         "startLine": 320,
         "startChar": 31,
@@ -121,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c49a58_ab711ead",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-10T10:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e69282b4_d64ea045",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85bb9d30_d4eee5f0",
@@ -144,6 +216,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be908ec4_bc3f5234",
+        "filename": "front_end/models/bindings/StylesSourceMapping.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-10T10:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85bb9d30_d4eee5f0",
+      "range": {
+        "startLine": 236,
+        "startChar": 10,
+        "endLine": 236,
+        "endChar": 30
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9a8e064_86aecc1b",
@@ -157,6 +253,30 @@
       "writtenOn": "2021-08-10T09:19:27Z",
       "side": 1,
       "message": "nit: Remove.",
+      "range": {
+        "startLine": 501,
+        "startChar": 24,
+        "endLine": 501,
+        "endChar": 30
+      },
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7663364_f1d1b994",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-10T10:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9a8e064_86aecc1b",
       "range": {
         "startLine": 501,
         "startChar": 24,
