@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30dc2ce4_c679dfa8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T11:02:32Z",
+      "side": 1,
+      "message": "Wrong bug id?",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "b58ab9a50c45fb8c24db4e6b1624dcce6e813b29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2da990_40be9717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T11:02:32Z",
+      "side": 1,
+      "message": "I\u0027m seeing overlaps now: https://imgur.com/a/IDg1GOx",
+      "revId": "b58ab9a50c45fb8c24db4e6b1624dcce6e813b29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
