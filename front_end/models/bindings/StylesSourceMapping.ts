@@ -32,6 +32,7 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
+import type {UISourceCode, WorkingCopyCommitedEvent} from '../workspace/UISourceCode.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
@@ -232,7 +233,7 @@ export class StyleFile implements TextUtils.ContentProvider.ContentProvider {
     this.throttler.schedule(mirrorContentBound, false /* asSoonAsPossible */);
   }
 
-  private workingCopyCommitted(_event: Common.EventTarget.EventTargetEvent): void {
+  private workingCopyCommitted(_event: Common.EventTarget.EventTargetEvent<WorkingCopyCommitedEvent>): void {
     if (this.isAddingRevision) {
       return;
     }
@@ -240,7 +241,7 @@ export class StyleFile implements TextUtils.ContentProvider.ContentProvider {
     this.throttler.schedule(mirrorContentBound, true /* asSoonAsPossible */);
   }
 
-  private workingCopyChanged(_event: Common.EventTarget.EventTargetEvent): void {
+  private workingCopyChanged(_event: Common.EventTarget.EventTargetEvent<UISourceCode>): void {
     if (this.isAddingRevision) {
       return;
     }

@@ -40,6 +40,7 @@ import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
 import type {DebuggerSourceMapping, DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
 import {NetworkProject} from './NetworkProject.js';
 import {metadataForURL} from './ResourceUtils.js';
+import type {UISourceCode, WorkingCopyCommitedEvent} from '../workspace/UISourceCode.js';
 
 const UIStrings = {
   /**
@@ -312,11 +313,11 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     return Boolean(suffix.length) && !suffix.match(SDK.Script.sourceURLRegex);
   }
 
-  private workingCopyChanged(_event: Common.EventTarget.EventTargetEvent): void {
+  private workingCopyChanged(_event: Common.EventTarget.EventTargetEvent<UISourceCode>): void {
     this.update();
   }
 
-  private workingCopyCommitted(_event: Common.EventTarget.EventTargetEvent): void {
+  private workingCopyCommitted(_event: Common.EventTarget.EventTargetEvent<WorkingCopyCommitedEvent>): void {
     if (this.uiSourceCodeInternal.project().canSetFileContent()) {
       return;
     }

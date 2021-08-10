@@ -52,7 +52,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('models/workspace/UISourceCode.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper implements
+export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     TextUtils.ContentProvider.ContentProvider {
   private projectInternal: Project;
   private urlInternal: string;
@@ -507,7 +507,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper implements
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
-export enum Events {
+export const enum Events {
   WorkingCopyChanged = 'WorkingCopyChanged',
   WorkingCopyCommitted = 'WorkingCopyCommitted',
   TitleChanged = 'TitleChanged',
@@ -516,6 +516,22 @@ export enum Events {
   LineDecorationAdded = 'LineDecorationAdded',
   LineDecorationRemoved = 'LineDecorationRemoved',
 }
+
+export interface WorkingCopyCommitedEvent {
+  uiSourceCode: UISourceCode;
+  content: string;
+  encoded: boolean|undefined;
+}
+
+export type EventTypes = {
+  [Events.WorkingCopyChanged]: UISourceCode,
+  [Events.WorkingCopyCommitted]: WorkingCopyCommitedEvent,
+  [Events.TitleChanged]: UISourceCode,
+  [Events.MessageAdded]: Message,
+  [Events.MessageRemoved]: Message,
+  [Events.LineDecorationAdded]: LineMarker,
+  [Events.LineDecorationRemoved]: LineMarker,
+};
 
 export class UILocation {
   uiSourceCode: UISourceCode;
