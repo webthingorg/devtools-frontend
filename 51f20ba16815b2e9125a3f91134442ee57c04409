@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7620b48_048864bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T14:50:23Z",
+      "side": 1,
+      "message": "Hi Sigurd, \n\nDo you know why e2e tests are failing? Seems like e2e tests are not using the most recent version of browser protocol.",
+      "revId": "51f20ba16815b2e9125a3f91134442ee57c04409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

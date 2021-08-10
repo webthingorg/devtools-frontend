@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c18038b_f14f8a61",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T14:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21b75a4b_2bb63083",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 15
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1110c8d5_4378b8b3",
@@ -95,6 +119,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4bab34_ca3b39c8",
+        "filename": "front_end/panels/application/components/OriginTrialTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T14:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1110c8d5_4378b8b3",
+      "range": {
+        "startLine": 319,
+        "startChar": 4,
+        "endLine": 328,
+        "endChar": 55
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94925032_9faae1a8",
@@ -108,6 +156,30 @@
       "writtenOn": "2021-08-10T09:02:08Z",
       "side": 1,
       "message": "Please leave this as void.",
+      "range": {
+        "startLine": 56,
+        "startChar": 23,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "a514db21e68ad55efb5a3080a0ed1c081f7c80be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f871d23d_4fc55c8f",
+        "filename": "front_end/ui/components/issue_counter/IssueCounter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-08-10T14:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94925032_9faae1a8",
       "range": {
         "startLine": 56,
         "startChar": 23,
