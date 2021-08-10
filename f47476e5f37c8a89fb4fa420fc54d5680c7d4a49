@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07693c6_f619aa18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2021-08-10T23:39:01Z",
+      "side": 1,
+      "message": "PTAL. Some change to LighthousePanel.ts were required to remove templates.html. These changes are exclusively in patchset 2.",
+      "revId": "f47476e5f37c8a89fb4fa420fc54d5680c7d4a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
