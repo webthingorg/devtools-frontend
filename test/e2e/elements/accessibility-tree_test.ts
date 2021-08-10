@@ -21,7 +21,7 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForAria('link\xa0"cats" [role="treeitem"]');
   });
 
-  it('allows navigating iframes', async () => {
+  it(100, 'allows navigating iframes', async () => {
     await goToResource('elements/accessibility-iframe-page.html');
     await toggleAccessibilityTree();
     const root = await waitForAria('RootWebArea\xa0"Page with nested iframe" [role="treeitem"]');

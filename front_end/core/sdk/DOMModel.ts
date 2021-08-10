@@ -271,7 +271,7 @@ export class DOMNode {
     return this._templateContent || null;
   }
 
-  contentDocument(): DOMNode|null {
+  contentDocument(): DOMDocument|null {
     return this._contentDocument || null;
   }
 

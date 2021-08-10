@@ -42,6 +42,7 @@ export class AccessibilityNode {
   _properties: Protocol.Accessibility.AXProperty[]|null;
   _childIds: string[]|null;
   _parentNode: AccessibilityNode|null;
+  _frameId!: string|null;
 
   constructor(accessibilityModel: AccessibilityModel, payload: Protocol.Accessibility.AXNode) {
     this._accessibilityModel = accessibilityModel;
@@ -69,6 +70,7 @@ export class AccessibilityNode {
     this._properties = payload.properties || null;
     this._childIds = payload.childIds || null;
     this._parentNode = null;
+    this._frameId = null;
   }
 
   id(): Protocol.Accessibility.AXNodeId {
@@ -131,6 +133,10 @@ export class AccessibilityNode {
     this._parentNode = parentNode;
   }
 
+  _setFrameId(frameId: Protocol.Page.FrameId|null): void {
+    this._frameId = frameId;
+  }
+
   isDOMNode(): boolean {
     return Boolean(this._backendDOMNodeId);
   }
@@ -182,6 +188,16 @@ export class AccessibilityNode {
 
     return this._childIds.every(id => this._accessibilityModel.axNodeForId(id) === null);
   }
+
+  frameId(): string|null {
+    let node = this.parentNode() || this;
+    let parent = node.parentNode();
+    while (!node._frameId && parent) {
+      node = parent;
+      parent = node.parentNode();
+    }
+    return node._frameId;
+  }
 }
 
 export class AccessibilityModel extends SDKModel<void> {
@@ -231,8 +247,9 @@ export class AccessibilityModel extends SDKModel<void> {
     }
   }
 
-  async requestRootNode(depth: number = 2): Promise<AccessibilityNode|undefined> {
-    const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: depth});
+  async requestRootNode(depth: number = 2, frameId?: Protocol.Page.FrameId|null): Promise<AccessibilityNode|undefined> {
+    // @ts-ignore
+    const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: depth, frameId});
     if (!nodes) {
       return;
     }
@@ -244,12 +261,16 @@ export class AccessibilityModel extends SDKModel<void> {
         axChild._setParentNode(axNode);
       }
     }
-
-    return axNodes[0];
+    const root = axNodes[0];
+    if (frameId) {
+      root._setFrameId(frameId);
+    }
+    return root;
   }
 
-  async requestAXChildren(nodeId: Protocol.Accessibility.AXNodeId): Promise<AccessibilityNode[]> {
-    const {nodes} = await this._agent.invoke_getChildAXNodes({id: nodeId});
+  async requestAXChildren(nodeId: Protocol.Accessibility.AXNodeId, frameId?: Protocol.Page.FrameId|null):
+      Promise<AccessibilityNode[]> {
+    const {nodes} = await this._agent.invoke_getChildAXNodes({id: nodeId, frameId: frameId || undefined});
     if (!nodes) {
       return [];
     }
