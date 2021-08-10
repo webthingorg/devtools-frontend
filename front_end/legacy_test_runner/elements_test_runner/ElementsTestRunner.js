@@ -126,7 +126,7 @@ function dumpObjectPropertyTreeElement(treeElement) {
  */
 ElementsTestRunner.expandAndDumpEventListeners = function(eventListenersView, callback, force) {
   function listenersArrived() {
-    const listenerTypes = eventListenersView._treeOutline.rootElement().children();
+    const listenerTypes = eventListenersView.treeOutline.rootElement().children();
     for (let i = 0; i < listenerTypes.length; ++i) {
       listenerTypes[i].expand();
       const listenerItems = listenerTypes[i].children();
@@ -138,7 +138,7 @@ ElementsTestRunner.expandAndDumpEventListeners = function(eventListenersView, ca
   }
 
   function objectsExpanded() {
-    const listenerTypes = eventListenersView._treeOutline.rootElement().children();
+    const listenerTypes = eventListenersView.treeOutline.rootElement().children();
     for (let i = 0; i < listenerTypes.length; ++i) {
       if (!listenerTypes[i].children().length) {
         continue;
