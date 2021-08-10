@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2da7f8b_b37bffcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-10T09:22:43Z",
+      "side": 1,
+      "message": "Simon\u0027s got this :)",
+      "revId": "eda723771012b0ea2d7b4b11bba7d4baba0fd24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "780e0bf5_ace27cd2",
