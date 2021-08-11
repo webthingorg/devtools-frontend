@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7780f2a_128413e8",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T11:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e53dddc9_16fc7097",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 32
+      },
+      "revId": "5aac53e9bcdf52bf146c4f1e7146f2269fdc6347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e541a515_4809c5f5",
@@ -84,6 +108,30 @@
       "writtenOn": "2021-08-11T11:41:12Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "5aac53e9bcdf52bf146c4f1e7146f2269fdc6347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857e68ec_b1f12c1d",
+        "filename": "test/e2e/issues/issue-view-reparent_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T11:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9767ddd_ef13a034",
       "range": {
         "startLine": 1,
         "startChar": 13,
