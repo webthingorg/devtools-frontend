@@ -26,6 +26,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3c5cefa3_5a1f3e92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22d30f9_05fe77b2",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b8339e9_f3e452c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22d30f9_05fe77b2",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1bbcf37f_046c1ec9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -90,6 +138,30 @@
       "writtenOn": "2021-08-11T06:44:47Z",
       "side": 1,
       "message": "Nit: declare a const for this argument:\n\nconst map \u003d issue.isHidden() ? ... : ...",
+      "range": {
+        "startLine": 237,
+        "startChar": 52,
+        "endLine": 237,
+        "endChar": 85
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a3765a6_7169b518",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e3d76ac_1734cbd6",
       "range": {
         "startLine": 237,
         "startChar": 52,
