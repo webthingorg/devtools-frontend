@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2544b2c_992b3d06",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T11:49:49Z",
+      "side": 1,
+      "message": "Can we just do\n\n const data: HiddenIssuesMenuData \u003d {\n issueCode: this._issue.code(),\n };\n this.hiddenIssuesMenu.data \u003d data;\n\nunconditionally here?",
+      "range": {
+        "startLine": 439,
+        "startChar": 1,
+        "endLine": 441,
+        "endChar": 5
+      },
+      "revId": "d7d8281dda387022ea4650d3221e03a13034bf31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
