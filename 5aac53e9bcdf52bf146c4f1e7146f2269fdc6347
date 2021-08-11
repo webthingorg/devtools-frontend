@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40fd910c_bcfb84e0",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T11:44:30Z",
+      "side": 1,
+      "message": "typescript doesn\u0027t like issueView.parent.prop, so I modifed the conditional above it.",
+      "parentUuid": "e541a515_4809c5f5",
+      "range": {
+        "startLine": 297,
+        "startChar": 8,
+        "endLine": 297,
+        "endChar": 18
+      },
+      "revId": "5aac53e9bcdf52bf146c4f1e7146f2269fdc6347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9767ddd_ef13a034",
         "filename": "test/e2e/issues/issue-view-reparent_test.ts",
         "patchSetId": 3
