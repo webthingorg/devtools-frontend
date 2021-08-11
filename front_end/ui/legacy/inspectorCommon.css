@@ -422,7 +422,7 @@ input::placeholder {
   flex: none;
 }
 
-.chrome-select-label p {
+.chrome-select-label p p {
   margin-top: 0;
   color: var(--color-text-secondary);
 }

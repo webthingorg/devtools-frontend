@@ -27,3 +27,7 @@
 .chrome-select-label {
   margin-bottom: 16px;
 }
+
+.settings-select {
+  margin: 0 0;
+}
