@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6856ab_c4a5e5ce",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T12:01:47Z",
+      "side": 1,
+      "message": "Ah, disregard, this may mess with our e2e test. Just leave this here.",
+      "parentUuid": "93aaa624_4e1111e1",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 298,
+        "endChar": 20
+      },
+      "revId": "e79400d20ade5729dc18e25f235e6be41d4de3dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8401e00f_97016542",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3415f9ef_3711d3cd",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T12:01:47Z",
+      "side": 1,
+      "message": "Ah, disregard, this may mess with our e2e test. Just leave this here.",
+      "parentUuid": "8401e00f_97016542",
+      "range": {
+        "startLine": 302,
+        "startChar": 4,
+        "endLine": 302,
+        "endChar": 44
+      },
+      "revId": "e79400d20ade5729dc18e25f235e6be41d4de3dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f99481e1_0e1e63e6",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-08-11T11:58:41Z",
       "side": 1,
       "message": "I think we can remove this (since we call this.update in onattach()).",
+      "range": {
+        "startLine": 339,
+        "startChar": 5,
+        "endLine": 342,
+        "endChar": 40
+      },
+      "revId": "e79400d20ade5729dc18e25f235e6be41d4de3dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162dbd6f_253c76a6",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T12:01:47Z",
+      "side": 1,
+      "message": "Ah, disregard, this may mess with our e2e test. Just leave this here.",
+      "parentUuid": "f99481e1_0e1e63e6",
       "range": {
         "startLine": 339,
         "startChar": 5,
