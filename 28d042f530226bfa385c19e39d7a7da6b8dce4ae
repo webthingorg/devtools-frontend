@@ -22,6 +22,30 @@
       },
       "revId": "28d042f530226bfa385c19e39d7a7da6b8dce4ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d918f41_6cbbff6f",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-11T14:26:50Z",
+      "side": 1,
+      "message": "The `chrome-select-label` class is applied to the `div` now. To apply the secondary color to the \"details\" text, we need to select the inner `p`. The \"details\" text gets conditionally added for the \"Rendering\" and \"Sensors\" tab.\n\nI\u0027ll take a look at the keyboard shortcuts page. Similar to \"rendering\" and \"sensors\" it might be enough to reset the margin there manually.",
+      "parentUuid": "7070ee5c_9b03405d",
+      "range": {
+        "startLine": 425,
+        "startChar": 22,
+        "endLine": 425,
+        "endChar": 25
+      },
+      "revId": "28d042f530226bfa385c19e39d7a7da6b8dce4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
