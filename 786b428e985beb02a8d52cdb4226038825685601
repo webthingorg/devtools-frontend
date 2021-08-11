@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e813372_e3b543eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-11T09:15:47Z",
+      "side": 1,
+      "message": "No idea what is going on. I was not able to reproduce this behavior with this CL, here are the steps I tried:\n\n1) Patched in this CL\n2) Reverted the changes to the locale json files\n\n3) Run `npm run collect-strings` OR `git cl presubmit`\n\nBoth options in 3) correctly added the new string RenderingOptions.ts to en-US and en-XL and left the others alone.\n\nAre you running the scripts on windows? There might be something wrong with the recent changes to the script that didn\u0027t account for windows paths.",
+      "parentUuid": "633a99d7_06097dd2",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "386c8aa8_9969204d",
         "filename": "front_end/core/sdk/EmulationModel.ts",
         "patchSetId": 3
