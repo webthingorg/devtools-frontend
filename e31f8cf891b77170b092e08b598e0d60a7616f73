@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10ec76bc_84636716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-08-11T19:29:28Z",
+      "side": 1,
+      "message": "LGTM\n\nError from layout tests:\n\n```\n+PROMISE FAILURE: TypeError: Cannot read properties of undefined (reading \u0027getLocales\u0027)\n+    at Object.override (http://localhost:8000/inspector-sources/legacy_test_runner/test_runner/test_runner.js:1:14642)\n+    at http://127.0.0.1:8000/devtools/lighthouse/lighthouse-i18n-run.js:24:14\n```",
+      "revId": "e31f8cf891b77170b092e08b598e0d60a7616f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
