@@ -33,6 +33,144 @@
       "message": "Please resolve comments with Done if you addressed them.",
       "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60858b1b_00836635",
+        "filename": "front_end/models/issues_manager/IssuesManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "Let\u0027s track this in a variable that is kept up-to-date similar to this.issueCounts",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 22
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72c6a03f_de8ccb28",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "I think we don\u0027t need a throttle for setting the textContent.",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2773fb_09615bcb",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "const map \u003d  issue.isHidden() ? this.hiddenAggregatedIssuesByCode : this.aggregatedIssuesByCode;\n const aggregatedIssue \u003d this.aggregateIssueByStatus(map, issue);",
+      "range": {
+        "startLine": 243,
+        "startChar": 3,
+        "endLine": 245,
+        "endChar": 0
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bc1ace3_79b3bef3",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "Can we replace this by this.onFullUpdate() ? (also remove L212: this.updateCounts())",
+      "range": {
+        "startLine": 205,
+        "startChar": 3,
+        "endLine": 210,
+        "endChar": 5
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f123f3c_75941365",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this return 1 for a instanceof HiddenIssuesRow (so the row alreays gets sorted to the end)?",
+      "range": {
+        "startLine": 316,
+        "startChar": 10,
+        "endLine": 316,
+        "endChar": 38
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f3445e_ed4005c5",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:04:22Z",
+      "side": 1,
+      "message": "Introduce a helper for this (_issue should be private). and merge with the code above (nested if)",
+      "range": {
+        "startLine": 417,
+        "startChar": 19,
+        "endLine": 417,
+        "endChar": 34
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
