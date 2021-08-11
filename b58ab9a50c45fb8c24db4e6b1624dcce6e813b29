@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "61dcec0b_5dd17e28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-11T11:16:41Z",
+      "side": 1,
+      "message": "No, the bad combo rendering was reported as part of this bug.",
+      "parentUuid": "30dc2ce4_c679dfa8",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "b58ab9a50c45fb8c24db4e6b1624dcce6e813b29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6c2da990_40be9717",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2021-08-10T11:02:32Z",
       "side": 1,
       "message": "I\u0027m seeing overlaps now: https://imgur.com/a/IDg1GOx",
+      "revId": "b58ab9a50c45fb8c24db4e6b1624dcce6e813b29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7516f789_68f52f9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-11T11:16:41Z",
+      "side": 1,
+      "message": "Using flexbox fixed the overlap problem. To make it work with the \"Reload required\" message, I had to slightly restructure the html.",
+      "parentUuid": "6c2da990_40be9717",
       "revId": "b58ab9a50c45fb8c24db4e6b1624dcce6e813b29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
