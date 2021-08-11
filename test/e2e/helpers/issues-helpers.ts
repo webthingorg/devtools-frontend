@@ -22,6 +22,7 @@ export const REPORT_ONLY_STATUS = '.affected-resource-report-only-status';
 export const RESOURCES_LABEL = '.affected-resource-label';
 export const HIDE_ISSUES_MENU = '.hide-issues-menu';
 export const HIDE_THIS_ISSUE = 'Hide issues like this';
+export const UNHIDE_THIS_ISSUE = 'Unhide issues like this';
 export const UNHIDE_ALL_ISSUES = '.unhide-all-issues-btn';
 
 export async function getHideIssuesMenu() {
@@ -42,6 +43,30 @@ export async function getHideIssuesMenuItem(): Promise<puppeteer.ElementHandle<H
   const menuItem = await waitFor(`[aria-label="${HIDE_THIS_ISSUE}"]`);
   if (menuItem) {
     return menuItem;
+  }
+  return null;
+}
+
+export async function getUnhideIssuesMenuItem(): Promise<puppeteer.ElementHandle<HTMLElement>|null> {
+  const menuItem = await waitFor(`[aria-label="${UNHIDE_THIS_ISSUE}"]`);
+  if (menuItem) {
+    return menuItem;
+  }
+  return null;
+}
+
+export async function getHiddenIssuesRow(): Promise<puppeteer.ElementHandle<HTMLElement>|null> {
+  const row = await waitFor('.hidden-issues');
+  if (row) {
+    return row;
+  }
+  return null;
+}
+
+export async function getHiddenIssuesRowBody(): Promise<puppeteer.ElementHandle<HTMLElement>|null> {
+  const row = await waitFor('.hidden-issues-body');
+  if (row) {
+    return row;
   }
   return null;
 }

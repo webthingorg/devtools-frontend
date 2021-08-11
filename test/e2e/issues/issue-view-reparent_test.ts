@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {$$, assertNotNullOrUndefined, goToResource, waitFor} from '../../shared/helper.js';
+import {assertNotNullOrUndefined, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CATEGORY, getGroupByCategoryChecked, ISSUE, navigateToIssuesTab, toggleGroupByCategory} from '../helpers/issues-helpers.js';
 
@@ -44,15 +44,19 @@ describe('IssueView', async () => {
     if (await getGroupByCategoryChecked()) {
       await toggleGroupByCategory();
     }
-    let category = await $$(CATEGORY);
-    assert.isEmpty(category);
+    let category = await waitFor(CATEGORY);
+    assertNotNullOrUndefined(category);
+    let categoryClass = await category.evaluate(node => node.classList.contains('hidden'));
+    assert.isTrue(categoryClass);
     const issue = await waitFor(ISSUE);
     assertNotNullOrUndefined(issue);
     const parent = await issue.evaluate(node => node.parentElement?.classList.contains('issue-category-body'));
     assert.isFalse(parent);
     await toggleGroupByCategory();
-    category = await $$(CATEGORY);
-    assert.isNotEmpty(category);
+    category = await waitFor(CATEGORY);
+    assertNotNullOrUndefined(category);
+    categoryClass = await category.evaluate(node => node.classList.contains('hidden'));
+    assert.isFalse(categoryClass);
     const reparentedIssue = await waitFor(ISSUE);
     assertNotNullOrUndefined(issue);
     const newParent =
