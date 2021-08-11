@@ -69,7 +69,7 @@ export interface SourceMap {
   mapsOrigin(): boolean;
 }
 
-class SourceMapV3 {
+export class SourceMapV3 {
   version!: number;
   file!: string|undefined;
   sources!: string[];
@@ -82,7 +82,7 @@ class SourceMapV3 {
   }
 }
 
-class Section {
+export class Section {
   map!: SourceMapV3;
   offset!: Offset;
   url!: string|undefined;
@@ -90,7 +90,7 @@ class Section {
   }
 }
 
-class Offset {
+export class Offset {
   line!: number;
   column!: number;
   constructor() {
