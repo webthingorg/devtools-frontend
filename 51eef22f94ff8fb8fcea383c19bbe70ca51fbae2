@@ -344,6 +344,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29c880c5_8b0e0653",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T14:44:21Z",
+      "side": 1,
+      "message": "If we replace this by 1, Hidden Issues Row gets appended to the Top. Because unhidden issues as well as the row will be taken into account for sorting in the issueTree.\nThis happends because HiddenIssuesRow itself extends TreeElement. So internally TreeElement.append takes it into acccount as well.",
+      "parentUuid": "1d11e04a_f1ed5b1a",
+      "range": {
+        "startLine": 316,
+        "startChar": 10,
+        "endLine": 316,
+        "endChar": 38
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20f3445e_ed4005c5",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 9
