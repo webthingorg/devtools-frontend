@@ -34,6 +34,24 @@
       "parentUuid": "10ec76bc_84636716",
       "revId": "e31f8cf891b77170b092e08b598e0d60a7616f73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7adec7ae_97d0b641",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2021-08-11T19:33:52Z",
+      "side": 1,
+      "message": "LH layout tests weren\u0027t synced before release. Fixed in Patchset 3.",
+      "parentUuid": "10ec76bc_84636716",
+      "revId": "e31f8cf891b77170b092e08b598e0d60a7616f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
