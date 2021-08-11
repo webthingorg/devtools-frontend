@@ -76,6 +76,8 @@ export class EmulationModel extends SDKModel<void> {
         Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersColorScheme');
     const mediaFeaturePrefersReducedMotionSetting =
         Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersReducedMotion');
+    const mediaFeaturePrefersContrastSetting =
+        Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersContrast');
     const mediaFeaturePrefersReducedDataSetting =
         Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersReducedData');
     const mediaFeatureColorGamutSetting =
@@ -88,6 +90,7 @@ export class EmulationModel extends SDKModel<void> {
       ['type', mediaTypeSetting.get()],
       ['prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get()],
       ['prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get()],
+      ['prefers-contrast', mediaFeaturePrefersContrastSetting.get()],
       ['prefers-reduced-data', mediaFeaturePrefersReducedDataSetting.get()],
       ['color-gamut', mediaFeatureColorGamutSetting.get()],
     ]);
@@ -101,6 +104,10 @@ export class EmulationModel extends SDKModel<void> {
     });
     mediaFeaturePrefersReducedMotionSetting.addChangeListener(() => {
       this.mediaConfiguration.set('prefers-reduced-motion', mediaFeaturePrefersReducedMotionSetting.get());
+      this.updateCssMedia();
+    });
+    mediaFeaturePrefersContrastSetting.addChangeListener(() => {
+      this.mediaConfiguration.set('prefers-contrast', mediaFeaturePrefersContrastSetting.get());
       this.updateCssMedia();
     });
     mediaFeaturePrefersReducedDataSetting.addChangeListener(() => {
@@ -335,6 +342,10 @@ export class EmulationModel extends SDKModel<void> {
       {
         name: 'prefers-reduced-motion',
         value: this.mediaConfiguration.get('prefers-reduced-motion') ?? '',
+      },
+      {
+        name: 'prefers-contrast',
+        value: this.mediaConfiguration.get('prefers-contrast') ?? '',
       },
       {
         name: 'prefers-reduced-data',
