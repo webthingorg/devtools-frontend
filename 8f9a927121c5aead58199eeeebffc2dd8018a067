@@ -22,6 +22,30 @@
       },
       "revId": "8f9a927121c5aead58199eeeebffc2dd8018a067",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c9e1c5c_4f2a7fad",
+        "filename": "test/e2e/issues/issue-view-reparent_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T20:47:39Z",
+      "side": 1,
+      "message": "\u003e This is the cause of the failing test because hidden issues row also has \".issue-category\" as one of its classes. So to fix I can either remove this initial assertion or modify the assertion to check if doesn\u0027t contain \"hidden-issues\" (which is an extra class given to hidden issues row). Then only check for the reparenting.\n\u003e Do you think hidden issues row having \".issue-category\" as a class can cause other tests to be flaky?\n\u003e for the time-being I have removed this assertion in the latest PS\n\n\"Haven\u0027t\". Sorry that was a typo.",
+      "parentUuid": "e0555ed5_26eeb898",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "8f9a927121c5aead58199eeeebffc2dd8018a067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
