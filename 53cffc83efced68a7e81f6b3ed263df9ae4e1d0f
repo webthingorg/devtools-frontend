@@ -41,6 +41,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2237a2ad_6443bc82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T11:15:44Z",
+      "side": 1,
+      "message": "I\u0027m done with most changes, although did have a small question.\nCan I add this.childrenListElement.classList.add(\u0027issue-category-body\u0027); IssueCategoryView just to help with e2etests?",
+      "parentUuid": "1bbcf37f_046c1ec9",
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e3d76ac_1734cbd6",
