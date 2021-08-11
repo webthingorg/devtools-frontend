@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1982d0c8_711d750f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-11T16:34:50Z",
+      "side": 1,
+      "message": "TLDR: I was able to recover the .json files by running the collect-strings.js directly. But I don\u0027t know why `npm run collect-strings` isn\u0027t working on my machine.\n\nI probably don\u0027t have the repo set up correctly. When I run `npm run collect-strings`, I get the following output:\n\n\u003e collect-strings\n\u003e third_party/node/node.py --output third_party/i18n/collect-strings.js front_end\n\n\u0027third_party\u0027 is not recognized as an internal or external command,\noperable program or batch file.\nnpm ERR! code 1\nnpm ERR! path D:\\chrome\\src\\third_party\\devtools-frontend\\src\nnpm ERR! command failed\nnpm ERR! command C:\\WINDOWS\\system32\\cmd.exe /d /s /c third_party/node/node.py --output third_party/i18n/collect-strings.js front_end\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     C:\\Users\\sartang\\AppData\\Local\\npm-cache\\_logs\\2021-08-11T16_24_33_709Z-debug.log\n\n---\n\nThis is the error I see when I try to run a .py file without prepending the python command. But adding it doesn\u0027t fix it either, and I\u0027m not sure what this error is trying to tell me:\n\nTraceback (most recent call last):\n  File \"third_party\\node\\node.py\", line 47, in \u003cmodule\u003e\n    RunNode(args, output)\n  File \"third_party\\node\\node.py\", line 28, in RunNode\n    universal_newlines\u003dTrue)\n  File \"D:\\chrome\\depot_tools\\bootstrap-2@3_8_10_chromium_20_bin\\python\\bin\\lib\\subprocess.py\", line 394, in __init__\n    errread, errwrite)\n  File \"D:\\chrome\\depot_tools\\bootstrap-2@3_8_10_chromium_20_bin\\python\\bin\\lib\\subprocess.py\", line 644, in _execute_child\n    startupinfo)\nWindowsError: [Error 2] The system cannot find the file specified\n\n---\n\nOn the plus side, I was able to restore the .json files by running `node third_party\\i18n\\collect-strings.js front_end` directly.",
+      "parentUuid": "a67959f6_2e4104a6",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "386c8aa8_9969204d",
         "filename": "front_end/core/sdk/EmulationModel.ts",
         "patchSetId": 3
