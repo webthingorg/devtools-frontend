@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac6f943_397cb46f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-11T09:05:56Z",
+      "side": 1,
+      "message": "LGTM % question about ts-ignore",
+      "revId": "f488fd31bdc1fc6cf11a9cd6ea017e429c5f9a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e128fb9_37882249",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-11T09:05:56Z",
+      "side": 1,
+      "message": "nit: I think we prefer comments to end with \".\"",
+      "revId": "f488fd31bdc1fc6cf11a9cd6ea017e429c5f9a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a30f248_369340a4",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-11T09:05:56Z",
+      "side": 1,
+      "message": "What would this `@ts-ignore` ignore?",
+      "revId": "f488fd31bdc1fc6cf11a9cd6ea017e429c5f9a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
