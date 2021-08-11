@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b22d30f9_05fe77b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T06:44:47Z",
+      "side": 1,
+      "message": "Hi Rahat, I suggest we create a few smaller CLs that we land up before we land this which contains:\n\nOne CL should change Aggregatedissue we to have\n\n  override isHidden(): boolean {\n    return this.representative?.isHidden() ?? false;\n  }\n\n  override setHidden(_hidden: boolean): void {\n    throw new Error(\u0027Should not call setHidden on aggregatedIssue\u0027);\n  }\n\ninstead of setting the status explicitly. This removes the possibility for the status to get out of sync.\n\nAnother CL should refactor the IssueView to support re-parenting in the tree. This means that if the parent of the IssueView changes, we should be able to re-use the IssueView. This requires the following changes:\n\n- In IssueView.doUpdate update this.hiddenIssuesMenu.data. I suggest creating hiddenIssuesMenu unconditionally, but only do header.appendChild(this.hiddenIssuesMenu); if the experiment is enabled. This will simplify the code.\n- IssueView.onattach needs to be refactored so we can call it multiple times. You may introduce a field contentCreated that is initialized to false and set to true once the issue\u0027s content is created. We can then alter onattach() to have roughly the shape of if (!contentCreated) this.createContent() else this.update()\n- The constructor argument parent (and the field _parent) in IssueView need to be removed (they are unused anyway).\n- In IssuePane we alter updateIssueView to have an else clause to the !issueView conditional that is roughly:\n [... ] else {\n      const newParent \u003d this.getIssueViewParent(issue);\n      if (issueView.parent !\u003d\u003d newParent) {\n        issueView.parent?.removeChild(issueView);\n        newParent.appendChild(issueView, issueViewComparator);\n      }",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbcf37f_046c1ec9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T06:44:47Z",
+      "side": 1,
+      "message": "Hi Rahat, I suggest we create a few smaller CLs that we land up before we land this which contains:\n\nOne CL should change Aggregatedissue we to have\n\n  override isHidden(): boolean {\n    return this.representative?.isHidden() ?? false;\n  }\n\n  override setHidden(_hidden: boolean): void {\n    throw new Error(\u0027Should not call setHidden on aggregatedIssue\u0027);\n  }\n\ninstead of setting the status explicitly. This removes the possibility for the status to get out of sync.\n\nAnother CL should refactor the IssueView to support re-parenting in the tree. This means that if the parent of the IssueView changes, we should be able to re-use the IssueView. This requires the following changes:\n\n- In IssueView.doUpdate update this.hiddenIssuesMenu.data. I suggest creating hiddenIssuesMenu unconditionally, but only do header.appendChild(this.hiddenIssuesMenu); if the experiment is enabled. This will simplify the code.\n- IssueView.onattach needs to be refactored so we can call it multiple times. You may introduce a field contentCreated that is initialized to false and set to true once the issue\u0027s content is created. We can then alter onattach() to have roughly the shape of if (!contentCreated) this.createContent() else this.update()\n- The constructor argument parent (and the field _parent) in IssueView need to be removed (they are unused anyway).\n- In IssuePane we alter updateIssueView to have an else clause to the !issueView conditional that is roughly:\n [... ] else {\n      const newParent \u003d this.getIssueViewParent(issue);\n      if (issueView.parent !\u003d\u003d newParent) {\n        issueView.parent?.removeChild(issueView);\n        newParent.appendChild(issueView, issueViewComparator);\n      }\n      \nThis needs to be covered with tests. Take a look at test/e2e/issues/group-by-categories_test.ts, toggling between the category view and the usual view will trigger the re-parenting.\n",
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3d76ac_1734cbd6",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T06:44:47Z",
+      "side": 1,
+      "message": "Nit: declare a const for this argument:\n\nconst map \u003d issue.isHidden() ? ... : ...",
+      "range": {
+        "startLine": 237,
+        "startChar": 52,
+        "endLine": 237,
+        "endChar": 85
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7370825f_b4a8ecd9",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T06:44:47Z",
+      "side": 1,
+      "message": "Just do this in doUpdate()",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 82
+      },
+      "revId": "53cffc83efced68a7e81f6b3ed263df9ae4e1d0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
