@@ -392,6 +392,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e63a2fd_67b50ecd",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:47:24Z",
+      "side": 1,
+      "message": "All I was saying is that you define it such that the HiddenIssuesRow is both smaller and greater than any element (depending on whether the caller puts it into the first or second arg).\n\nSo you need to return a different value if  a instanceof HiddenIssuesRow than you return if  b instanceof HiddenIssuesRow, and I think you should return 1 in case  a instanceof HiddenIssuesRow.",
+      "parentUuid": "29c880c5_8b0e0653",
+      "range": {
+        "startLine": 316,
+        "startChar": 10,
+        "endLine": 316,
+        "endChar": 38
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20f3445e_ed4005c5",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 9
