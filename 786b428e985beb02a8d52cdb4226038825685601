@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a67959f6_2e4104a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-11T09:48:19Z",
+      "side": 1,
+      "message": "Just tried on a windows box and the presubmit script also did the correct thing. @Sara Could you reset the locale.json and manually run `npm run collect-strings`? Sorry for the inconvenience.",
+      "parentUuid": "2e813372_e3b543eb",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "386c8aa8_9969204d",
         "filename": "front_end/core/sdk/EmulationModel.ts",
         "patchSetId": 3
