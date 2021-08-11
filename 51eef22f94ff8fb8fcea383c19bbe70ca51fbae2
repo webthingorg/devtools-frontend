@@ -267,6 +267,30 @@
       },
       "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df0ab16_6ff717d6",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-11T14:21:15Z",
+      "side": 1,
+      "message": "It should be private issue, but we haven\u0027t gotten around to renaming it. (Please don\u0027t rename in this CL we\u0027re doing bulk renaming at the moment).",
+      "parentUuid": "fb9e01de_6af175b5",
+      "range": {
+        "startLine": 417,
+        "startChar": 19,
+        "endLine": 417,
+        "endChar": 34
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
