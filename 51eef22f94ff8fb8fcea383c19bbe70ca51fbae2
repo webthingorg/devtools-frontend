@@ -291,6 +291,30 @@
       },
       "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d886940a_652b3d35",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T14:23:46Z",
+      "side": 1,
+      "message": "okay, thanks!",
+      "parentUuid": "2df0ab16_6ff717d6",
+      "range": {
+        "startLine": 417,
+        "startChar": 19,
+        "endLine": 417,
+        "endChar": 34
+      },
+      "revId": "51eef22f94ff8fb8fcea383c19bbe70ca51fbae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
