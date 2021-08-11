@@ -22,6 +22,30 @@
       },
       "revId": "d7d8281dda387022ea4650d3221e03a13034bf31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d30ab1_c6b71914",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-11T11:54:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2544b2c_992b3d06",
+      "range": {
+        "startLine": 439,
+        "startChar": 1,
+        "endLine": 441,
+        "endChar": 5
+      },
+      "revId": "d7d8281dda387022ea4650d3221e03a13034bf31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
