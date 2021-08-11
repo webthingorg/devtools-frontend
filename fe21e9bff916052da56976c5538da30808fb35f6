@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9c59cd_35fe0ed9",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-08-11T03:37:35Z",
+      "side": 0,
+      "message": "This startFrame(), as the first frame after an idle period, is removed in the current CL.\n\nIn the old visualization, this frame is a special case in that its visualization does not start at DrawFrame as other frames, but rather at {commit_triggerTime | first_begin_frame_after_idle_period | end_of_idle_period}, whichever is first applicable.\n\nIn the new visualization, on the other hand, such \"half-frames\" are no longer allowed and frames always begin with BeginFrame. Therefore we remove this frame, and lump the CPU time into the next full frame instead if applicable (line 184~186 of patch 5).",
+      "revId": "fe21e9bff916052da56976c5538da30808fb35f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

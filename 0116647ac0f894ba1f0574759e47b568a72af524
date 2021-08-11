@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b12af52_25d22d60",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-08-11T03:37:35Z",
+      "side": 1,
+      "message": "In order to match DrawFrames with their corresponding BeginFrames, this CL uses the following algorithm: \n\n  1. When processing a BeginFrame event of frame id N, add the BeginFrame to queue.\n\n  2. When processing a DroppedFrame event of frame id N, add a BeginFrame of id N to queue if one is not already added, and mark this BeginFrame N as `dropped`.\n\n  3. When processing a DrawFrame event of frame id N, then\n    a. pop all BeginFrames added before BeginFrames N (these are the BeginFrames that never made into the Draw step), and visualize them as dropped frames (red boxes) or continuation of previous frames, whichever is applicable.\n    b. visualize BeginFrame N as a new frame.\n    \nA BeginFrameQueue data structure was added to support these operations.",
+      "revId": "0116647ac0f894ba1f0574759e47b568a72af524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25969070_68298474",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-08-11T03:37:35Z",
+      "side": 1,
+      "message": "A map is used here to quickly determine if a BeginFrame is actually in the queue, so that we can immediately skip those rare DrawFrames that do not have corresponding BeginFrames.",
+      "revId": "0116647ac0f894ba1f0574759e47b568a72af524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
