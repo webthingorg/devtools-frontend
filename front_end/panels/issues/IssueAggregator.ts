@@ -208,6 +208,8 @@ export class AggregatedIssue extends IssuesManager.Issue.Issue {
 export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private readonly aggregatedIssuesByCode = new Map<string, AggregatedIssue>();
   private readonly hiddenAggregatedIssuesByCode = new Map<string, AggregatedIssue>();
+  private readonly hideIssuesFeature: boolean = false;
+
   constructor(private readonly issuesManager: IssuesManager.IssuesManager.IssuesManager) {
     super();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssueAdded, this.onIssueAdded, this);
