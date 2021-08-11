@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ef90f5_3bed10c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-08-11T13:24:14Z",
+      "side": 1,
+      "message": "Paul is currently OOO, let\u0027s wait until he returns to have a look.",
+      "revId": "2eb20352ff6cf86d55c8fbb945cc95b176e4eb2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
