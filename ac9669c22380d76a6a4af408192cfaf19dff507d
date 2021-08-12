@@ -51,6 +51,24 @@
       "message": "P",
       "revId": "ac9669c22380d76a6a4af408192cfaf19dff507d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66130b13_0267834a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T13:00:51Z",
+      "side": 1,
+      "message": "rebasing through the UI leads to merge conflicts. Is there a command I can use to do it through the command line to rebase on your change or wait for your change to get merged and then rebase normally",
+      "parentUuid": "edcfa36b_88726a6a",
+      "revId": "ac9669c22380d76a6a4af408192cfaf19dff507d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
