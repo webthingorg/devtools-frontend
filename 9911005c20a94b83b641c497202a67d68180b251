@@ -34,6 +34,24 @@
       "parentUuid": "9c90d345_605f81fe",
       "revId": "9911005c20a94b83b641c497202a67d68180b251",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "115e4fe7_283dd6e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T06:57:13Z",
+      "side": 1,
+      "message": "Yes, I fear that the `collect-strings.js` script is not intended to be run as part of a chromium checkout, but in the standalone DevTools repo.\n\nYou should be able to manually run it by:\n\n cd third_party/devtools-frontend/src\n npm run collect-strings\n \nI can add the strings to the locales json as a follow-up CL.",
+      "parentUuid": "e3e23895_98b56e7e",
+      "revId": "9911005c20a94b83b641c497202a67d68180b251",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
