@@ -52,7 +52,7 @@ describe('IssueView', async () => {
     assert.isFalse(parent);
     await toggleGroupByCategory();
     category = await $$(CATEGORY);
-    assert.isNotEmpty(category);
+    assert.isNotEmpty(CATEGORY);
     const reparentedIssue = await waitFor(ISSUE);
     assertNotNullOrUndefined(issue);
     const newParent =

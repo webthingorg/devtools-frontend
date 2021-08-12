@@ -154,6 +154,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   private allIssues = new Map<string, Issue>();
   private filteredIssues = new Map<string, Issue>();
   private issueCounts = new Map<IssueKind, number>();
+  private hiddenIssueCount: number = 0;
   private hasSeenTopFrameNavigated = false;
   private sourceFrameIssuesManager = new SourceFrameIssuesManager(this);
   private issuesById: Map<string, Issue> = new Map();
@@ -268,6 +269,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       }
       const values = this.hideIssueSetting?.get();
       this.updateIssueHiddenStatus(issue, values);
+      if (issue.isHidden()) {
+        this.hiddenIssueCount++;
+      }
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
     }
     // Always fire the "count" event even if the issue was filtered out.
@@ -284,6 +288,10 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       return this.issueCounts.get(kind) ?? 0;
     }
     return this.filteredIssues.size;
+  }
+
+  numberOfHiddenIssues(): number {
+    return this.hiddenIssueCount;
   }
 
   numberOfAllStoredIssues(): number {
@@ -316,6 +324,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     this.filteredIssues.clear();
     this.issueCounts.clear();
     this.issuesById.clear();
+    this.hiddenIssueCount = 0;
     const values = this.hideIssueSetting?.get();
     const hideIssuesFeature = Root.Runtime.experiments.isEnabled('hideIssuesFeature');
     for (const [key, issue] of this.allIssues) {
@@ -325,6 +334,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
         }
         this.filteredIssues.set(key, issue);
         this.issueCounts.set(issue.getKind(), 1 + (this.issueCounts.get(issue.getKind()) ?? 0));
+        if (issue.isHidden()) {
+          this.hiddenIssueCount++;
+        }
         const issueId = issue.getIssueId();
         if (issueId) {
           this.issuesById.set(issueId, issue);
