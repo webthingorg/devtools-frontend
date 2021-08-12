@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b26b8bcb_28d3cc3d",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:17:51Z",
+      "side": 1,
+      "message": "I get that hiddenIssuesRow and hiddenIssuesRowBody will always return an Element because the row is appended to the issueTree always. So the checks needs to change and check for whether they are hidden or not.\n\nFor all the checks that don\u0027t trigger did you mean that waitFor will hang execution and should then be replaced by either $ or $$?",
+      "parentUuid": "f599a427_01e6702a",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 46
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58803eb7_c6a534b5",
         "filename": "test/e2e/issues/hidden-issues-row_test.ts",
         "patchSetId": 22
