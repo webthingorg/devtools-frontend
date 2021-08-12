@@ -22,6 +22,30 @@
       },
       "revId": "8f9bed66189ed7e27b12af8413454eaa7bb6e588",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa7fc8a_47455a7d",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T08:59:23Z",
+      "side": 1,
+      "message": "I think the ISSUE selector might be too unspecific, would it help to have another :not selector already there?",
+      "parentUuid": "178e73c4_2dfa3558",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "8f9bed66189ed7e27b12af8413454eaa7bb6e588",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
