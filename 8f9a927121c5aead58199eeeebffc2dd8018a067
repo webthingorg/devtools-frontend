@@ -46,6 +46,30 @@
       },
       "revId": "8f9a927121c5aead58199eeeebffc2dd8018a067",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2655258_4aac3238",
+        "filename": "test/e2e/issues/issue-view-reparent_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:02:47Z",
+      "side": 1,
+      "message": "Just change the definition of CATEGORY in test/e2e/helpers/issues-helpers.ts to\n  export const CATEGORY \u003d \u0027.issue-category:not(.hidden-issues)\u0027;\n\nthen you shouldn\u0027t need to touch the test.",
+      "parentUuid": "5c9e1c5c_4f2a7fad",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "8f9a927121c5aead58199eeeebffc2dd8018a067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
