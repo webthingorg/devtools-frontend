@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178e73c4_2dfa3558",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:08Z",
+      "side": 1,
+      "message": "This part of the test is flaky, it sometime passes and sometime fails. \n\nI guess its due to a time difference between the updates being pushed to the DOM and waitFor acquiring the issue. \n\nShall I just remove this part then?\n\nVisually inspecting by auto-debug-e2etest, follows the correct procedure and attains the correct result",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "8f9bed66189ed7e27b12af8413454eaa7bb6e588",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
