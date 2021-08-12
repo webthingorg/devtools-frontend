@@ -22,6 +22,30 @@
       },
       "revId": "2dff7543db09651018d62fd72c212639bfde166d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8dd7a5b_45957fcd",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T08:34:26Z",
+      "side": 1,
+      "message": "The listeners are using arrow functions with destructuring, so no type casts were needed before and are not needed now. Example:\n\n node.domModel().overlayModel().addEventListener(\n     SDK.OverlayModel.Events.PersistentGridOverlayStateChanged, event \u003d\u003e {\n         const {nodeId: eventNodeId, enabled} \u003d event.data;\n         // ...\n     });",
+      "parentUuid": "c6a5be51_94d7abc7",
+      "range": {
+        "startLine": 789,
+        "startChar": 12,
+        "endLine": 789,
+        "endChar": 23
+      },
+      "revId": "2dff7543db09651018d62fd72c212639bfde166d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
