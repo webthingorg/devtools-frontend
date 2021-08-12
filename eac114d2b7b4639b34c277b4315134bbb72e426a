@@ -50,6 +50,24 @@
       "message": "Worth adding a comment pointing to https://tc39.es/ecma262/#sec-time-values-and-time-range which explains this magical-looking number? We could also consider using numeric separators:\n\n    8_640_000_000_000_000",
       "revId": "eac114d2b7b4639b34c277b4315134bbb72e426a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "132a6bdb_70026dc5",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T10:01:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c4288d_63c2d46e",
+      "revId": "eac114d2b7b4639b34c277b4315134bbb72e426a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
