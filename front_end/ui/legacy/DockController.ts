@@ -68,9 +68,9 @@ let dockControllerInstance: DockController;
 export class DockController extends Common.ObjectWrapper.ObjectWrapper {
   _canDock: boolean;
   _closeButton: ToolbarButton;
-  _currentDockStateSetting: Common.Settings.Setting<string>;
-  _lastDockStateSetting: Common.Settings.Setting<string>;
-  _dockSide!: string;
+  _currentDockStateSetting: Common.Settings.Setting<DockState>;
+  _lastDockStateSetting: Common.Settings.Setting<DockState>;
+  _dockSide!: DockState;
   _titles?: Common.UIString.LocalizedString[];
   _savedFocus?: Element|null;
 
@@ -86,20 +86,22 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
             Host.InspectorFrontendHost.InspectorFrontendHostInstance));
 
     this._currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('currentDockState');
-    this._lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', 'bottom');
+    this._lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', DockState.BOTTOM);
 
     if (!canDock) {
-      this._dockSide = State.Undocked;
+      this._dockSide = DockState.UNDOCKED;
       this._closeButton.setVisible(false);
       return;
     }
 
     this._currentDockStateSetting.addChangeListener(this._dockSideChanged, this);
+    this.setDockSide(this._currentDockStateSetting.get());
+
     if (states.indexOf(this._currentDockStateSetting.get()) === -1) {
-      this._currentDockStateSetting.set('right');
+      this._currentDockStateSetting.set(DockState.RIGHT);
     }
     if (states.indexOf(this._lastDockStateSetting.get()) === -1) {
-      this._currentDockStateSetting.set('bottom');
+      this._currentDockStateSetting.set(DockState.BOTTOM);
     }
   }
 
@@ -133,7 +135,7 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     this.setDockSide(this._currentDockStateSetting.get());
   }
 
-  dockSide(): string {
+  dockSide(): DockState {
     return this._dockSide;
   }
 
@@ -142,11 +144,12 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   isVertical(): boolean {
-    return this._dockSide === State.DockedToRight || this._dockSide === State.DockedToLeft;
+    return this._dockSide === DockState.RIGHT || this._dockSide === DockState.LEFT;
   }
 
-  setDockSide(dockSide: string): void {
+  setDockSide(dockSide: DockState): void {
     if (states.indexOf(dockSide) === -1) {
+      // If the side is invalid, default to a valid one
       dockSide = states[0];
     }
 
@@ -168,8 +171,8 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
     this._dockSide = dockSide;
     this._currentDockStateSetting.set(dockSide);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.setIsDocked(
-        dockSide !== State.Undocked, this._setIsDockedResponse.bind(this, eventData));
-    this._closeButton.setVisible(this._dockSide !== State.Undocked);
+        dockSide !== DockState.UNDOCKED, this._setIsDockedResponse.bind(this, eventData));
+    this._closeButton.setVisible(this._dockSide !== DockState.UNDOCKED);
     this.dispatchEventToListeners(Events.DockSideChanged, eventData);
   }
 
@@ -193,14 +196,23 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
   }
 }
 
+export const enum DockState {
+  BOTTOM = 'bottom',
+  RIGHT = 'right',
+  LEFT = 'left',
+  UNDOCKED = 'undocked',
+}
+
+// LEGACY and used for layout tests. Should not be used generally; please use
+// the DockState enum.
 export const State = {
-  DockedToBottom: 'bottom',
-  DockedToRight: 'right',
-  DockedToLeft: 'left',
-  Undocked: 'undocked',
+  DockedToBottom: DockState.BOTTOM,
+  DockedToRight: DockState.RIGHT,
+  DockedToLeft: DockState.LEFT,
+  Undocked: DockState.UNDOCKED,
 };
 
-const states = [State.DockedToRight, State.DockedToBottom, State.DockedToLeft, State.Undocked];
+const states = [DockState.RIGHT, DockState.BOTTOM, DockState.LEFT, DockState.UNDOCKED];
 
 // Use BeforeDockSideChanged to do something before all the UI bits are updated,
 // DockSideChanged to update UI, and AfterDockSideChanged to perform actions
