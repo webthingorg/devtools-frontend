@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "625f0431_d92adff9",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9eb0531c_26568608",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 46
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58803eb7_c6a534b5",
@@ -85,6 +109,30 @@
       "writtenOn": "2021-08-12T07:42:11Z",
       "side": 1,
       "message": "This can never trigger, can it (looking at the types)?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 46
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f505d48c_ce6a7cad",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58803eb7_c6a534b5",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -118,6 +166,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6029effd_1e5e4cfb",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf9fa8af_b1ca5bf4",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b69535d_3ee55b75",
@@ -131,6 +203,30 @@
       "writtenOn": "2021-08-12T07:42:11Z",
       "side": 1,
       "message": "This can never trigger, can it (looking at the types)?",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 46
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "389c66af_8af243b8",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b69535d_3ee55b75",
       "range": {
         "startLine": 73,
         "startChar": 4,
@@ -164,6 +260,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea10578_49b5a604",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ab6dff6_807eb990",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 50
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09636e2f_5e8116c3",
@@ -177,6 +297,30 @@
       "writtenOn": "2021-08-12T07:42:11Z",
       "side": 1,
       "message": "This can never trigger, can it (looking at the types)?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 34
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "670c2df5_415d3f52",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09636e2f_5e8116c3",
       "range": {
         "startLine": 135,
         "startChar": 4,
@@ -210,6 +354,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a887b129_6631a621",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34ea74e7_1825e09f",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 35
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0376d9bf_61b61821",
@@ -223,6 +391,30 @@
       "writtenOn": "2021-08-12T07:42:11Z",
       "side": 1,
       "message": "This can never trigger, can it?",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4865c8ea_fce8be90",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0376d9bf_61b61821",
       "range": {
         "startLine": 145,
         "startChar": 4,
@@ -256,6 +448,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ddb4ab2_0dfc6eba",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84afc88b_0c2baae2",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 34
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "437b5f01_2a1d93c9",
@@ -279,6 +495,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1424907_89dd40fb",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "437b5f01_2a1d93c9",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 35
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6945d4c6_d04dfed6",
@@ -292,6 +532,30 @@
       "writtenOn": "2021-08-12T07:42:11Z",
       "side": 1,
       "message": "This can never trigger, can it?",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 45
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1fc88f7_bfc07894",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6945d4c6_d04dfed6",
       "range": {
         "startLine": 172,
         "startChar": 4,
