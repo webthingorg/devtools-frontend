@@ -142,6 +142,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3982473b_d8124957",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-12T18:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "386c8aa8_9969204d",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0827eca9_fd8155d6",
@@ -155,6 +173,24 @@
       "writtenOn": "2021-08-11T09:02:15Z",
       "side": 1,
       "message": "Let’s alphasort here too",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee31f2a2_6f5f636b",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-12T18:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0827eca9_fd8155d6",
       "revId": "786b428e985beb02a8d52cdb4226038825685601",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -176,6 +212,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "550836fa_5679be4f",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-12T18:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd4f8d1_fcaebd00",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9de0348_ced53db0",
@@ -189,6 +243,24 @@
       "writtenOn": "2021-08-10T21:35:45Z",
       "side": 1,
       "message": "typo, should be appendSelect",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "699eac0c_cbbf1e23",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-12T18:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9de0348_ced53db0",
       "revId": "786b428e985beb02a8d52cdb4226038825685601",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
