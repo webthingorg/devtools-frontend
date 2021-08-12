@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4877a9fc_8226b874",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T09:40:04Z",
+      "side": 1,
+      "message": "Can you explain why we want to select a non-hidden issue here?",
+      "range": {
+        "startLine": 72,
+        "startChar": 27,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "c49eec644a7c49c25c426357f04282e10d8f99b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
