@@ -37,7 +37,8 @@ describe('IssueView', async () => {
     assert.isTrue(parent);
   });
 
-  it('should reparent correctly after parent change', async () => {
+  // eslint-disable-next-line mocha/no-exclusive-tests
+  it.only('should reparent correctly after parent change', async () => {
     await goToResource('elements/element-reveal-inline-issue.html');
     await navigateToIssuesTab();
 
@@ -52,7 +53,7 @@ describe('IssueView', async () => {
     assert.isFalse(parent);
     await toggleGroupByCategory();
     category = await $$(CATEGORY);
-    assert.isNotEmpty(category);
+    assert.isNotEmpty(CATEGORY);
     const reparentedIssue = await waitFor(ISSUE);
     assertNotNullOrUndefined(issue);
     const newParent =
