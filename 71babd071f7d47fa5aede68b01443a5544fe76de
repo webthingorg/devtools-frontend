@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1026fcc5_7b9dbac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T14:17:27Z",
+      "side": 1,
+      "message": "Awesome work Rahat! Let\u0027s hit +2 😊",
+      "revId": "71babd071f7d47fa5aede68b01443a5544fe76de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
