@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a5be51_94d7abc7",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T08:27:08Z",
+      "side": 1,
+      "message": "Is no one listening to these events or why are there so few listeners updated?",
+      "range": {
+        "startLine": 789,
+        "startChar": 12,
+        "endLine": 789,
+        "endChar": 23
+      },
+      "revId": "2dff7543db09651018d62fd72c212639bfde166d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
