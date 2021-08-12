@@ -70,7 +70,7 @@ export class RequestPreviewView extends RequestResponseView {
     return view;
   }
 
-  async _htmlPreview(): Promise<UI.Widget.Widget|null> {
+  private async htmlPreview(): Promise<UI.Widget.Widget|null> {
     const contentData = await this.request.contentData();
     if (contentData.error) {
       return new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.failedToLoadResponseData) + ': ' + contentData.error);
@@ -103,7 +103,7 @@ export class RequestPreviewView extends RequestResponseView {
       return new WebBundleInfoView(this.request);
     }
 
-    const htmlErrorPreview = await this._htmlPreview();
+    const htmlErrorPreview = await this.htmlPreview();
     if (htmlErrorPreview) {
       return htmlErrorPreview;
     }

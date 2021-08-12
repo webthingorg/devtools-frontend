@@ -36,7 +36,7 @@ export class NetworkSearchScope implements Search.SearchConfig.SearchScope {
         request => searchConfig.filePathMatchesFileQuery(request.url()));
     progress.setTotalWork(requests.length);
     for (const request of requests) {
-      const promise = this._searchRequest(searchConfig, request, progress);
+      const promise = this.searchRequest(searchConfig, request, progress);
       promises.push(promise);
     }
     const resultsWithNull = await Promise.all(promises);
@@ -54,7 +54,7 @@ export class NetworkSearchScope implements Search.SearchConfig.SearchScope {
     searchFinishedCallback(true);
   }
 
-  async _searchRequest(
+  private async searchRequest(
       searchConfig: Search.SearchConfig.SearchConfig, request: SDK.NetworkRequest.NetworkRequest,
       progress: Common.Progress.Progress): Promise<NetworkSearchResult|null> {
     let bodyMatches: TextUtils.ContentProvider.SearchMatch[] = [];
@@ -109,35 +109,35 @@ export class NetworkSearchScope implements Search.SearchConfig.SearchScope {
 }
 
 export class NetworkSearchResult implements Search.SearchConfig.SearchResult {
-  _request: SDK.NetworkRequest.NetworkRequest;
-  _locations: NetworkForward.UIRequestLocation.UIRequestLocation[];
+  private readonly request: SDK.NetworkRequest.NetworkRequest;
+  private readonly locations: NetworkForward.UIRequestLocation.UIRequestLocation[];
 
   constructor(
       request: SDK.NetworkRequest.NetworkRequest, locations: NetworkForward.UIRequestLocation.UIRequestLocation[]) {
-    this._request = request;
-    this._locations = locations;
+    this.request = request;
+    this.locations = locations;
   }
 
   matchesCount(): number {
-    return this._locations.length;
+    return this.locations.length;
   }
 
   label(): string {
-    return this._request.displayName;
+    return this.request.displayName;
   }
 
   description(): string {
-    const parsedUrl = this._request.parsedURL;
+    const parsedUrl = this.request.parsedURL;
     if (!parsedUrl) {
-      return this._request.url();
+      return this.request.url();
     }
     return parsedUrl.urlWithoutScheme();
   }
 
   matchLineContent(index: number): string {
-    const location = this._locations[index];
+    const location = this.locations[index];
     if (location.isUrlMatch) {
-      return this._request.url();
+      return this.request.url();
     }
     const header = location?.header?.header;
     if (header) {
@@ -147,11 +147,11 @@ export class NetworkSearchResult implements Search.SearchConfig.SearchResult {
   }
 
   matchRevealable(index: number): Object {
-    return this._locations[index];
+    return this.locations[index];
   }
 
   matchLabel(index: number): string {
-    const location = this._locations[index];
+    const location = this.locations[index];
     if (location.isUrlMatch) {
       return i18nString(UIStrings.url);
     }
