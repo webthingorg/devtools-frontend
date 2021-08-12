@@ -44,4 +44,21 @@ describe('Rendering pane', () => {
     ].join('');
     assert.deepEqual(actual, expected);
   });
+
+  it('includes UI for emulating prefers-contrast media feature', async () => {
+    await openPanelViaMoreTools('Rendering');
+
+    const option = await waitFor('option[value="custom"]');
+    const actual = await option.evaluate(node => {
+      const select = node.closest('select');
+      return select ? select.textContent : '';
+    });
+    const expected = [
+      'No emulation',
+      'prefers-contrast: more',
+      'prefers-contrast: less',
+      'prefers-contrast: custom',
+    ].join('');
+    assert.deepEqual(actual, expected);
+  });
 });
