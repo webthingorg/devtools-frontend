@@ -46,6 +46,30 @@
       },
       "revId": "c49eec644a7c49c25c426357f04282e10d8f99b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39fa307f_2b15f882",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T09:58:59Z",
+      "side": 1,
+      "message": "I was trying to check whether there are issues to hide, but i see that the getIssueHeaderByTitle check already does that initially",
+      "parentUuid": "d8267a31_07a9a451",
+      "range": {
+        "startLine": 72,
+        "startChar": 27,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "c49eec644a7c49c25c426357f04282e10d8f99b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
