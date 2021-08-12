@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade2ed09_46f74bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:34:17Z",
+      "side": 1,
+      "message": "Almost there, thanks for your incredibly quick reaction to comments!",
+      "revId": "471b2f843648c6e62358cc0efcb36098e7b0c2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e8ebe1_4a4b6186",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:34:17Z",
+      "side": 1,
+      "message": "This is ambiguous, let\u0027s name it isForHiddenIssue()",
+      "range": {
+        "startLine": 453,
+        "startChar": 2,
+        "endLine": 453,
+        "endChar": 14
+      },
+      "revId": "471b2f843648c6e62358cc0efcb36098e7b0c2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15263abb_04ce3f11",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:34:17Z",
+      "side": 1,
+      "message": "This can be just \n   return await waitFor(`[aria-label\u003d\"${UNHIDE_THIS_ISSUE}\"]`);\n\nAlso remove the null from the return type and the corresponding asserts. (The test will timeout if the element isn\u0027t there).",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "471b2f843648c6e62358cc0efcb36098e7b0c2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6757d6a_d6062cc7",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:34:17Z",
+      "side": 1,
+      "message": "Same as comment above.",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "471b2f843648c6e62358cc0efcb36098e7b0c2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a8b416_1adb075c",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T07:34:17Z",
+      "side": 1,
+      "message": "Same as comment above.",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "471b2f843648c6e62358cc0efcb36098e7b0c2e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
