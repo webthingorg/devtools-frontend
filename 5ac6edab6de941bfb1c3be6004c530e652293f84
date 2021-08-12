@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4bf8ab62_7464f81a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-08-12T07:53:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7d5cb79_436dcbc2",
+      "revId": "5ac6edab6de941bfb1c3be6004c530e652293f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b140a942_eae16422",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2021-08-12T06:43:12Z",
       "side": 1,
       "message": "“favor” (we use en-US by default, not en-GB)",
+      "revId": "5ac6edab6de941bfb1c3be6004c530e652293f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d4edf8_981cc629",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-08-12T07:53:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dcb7e5f_45a7b8c8",
       "revId": "5ac6edab6de941bfb1c3be6004c530e652293f84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
