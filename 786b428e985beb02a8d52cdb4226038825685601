@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f82b7f2_7657548e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T05:12:49Z",
+      "side": 1,
+      "message": "The python script tries to invoke the node thats bundled with chromium, if you got it working with a locally installed node than thats a good enough workaround.\n\nThe only thing that comes to mind is either a missing \"gclient sync\" or a python2 vs python3 issue. We have windows bots that are invoking this script as part of presubmit, but the PRESUBMIT.py might do it differently from `npm run`.",
+      "parentUuid": "1982d0c8_711d750f",
+      "revId": "786b428e985beb02a8d52cdb4226038825685601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "386c8aa8_9969204d",
         "filename": "front_end/core/sdk/EmulationModel.ts",
         "patchSetId": 3
