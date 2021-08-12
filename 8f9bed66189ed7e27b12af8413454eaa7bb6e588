@@ -46,6 +46,30 @@
       },
       "revId": "8f9bed66189ed7e27b12af8413454eaa7bb6e588",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21a7ea27_2ff61639",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-12T09:13:27Z",
+      "side": 1,
+      "message": "Thanks! adding :not(.hidden-issue) solved it.",
+      "parentUuid": "afa7fc8a_47455a7d",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "8f9bed66189ed7e27b12af8413454eaa7bb6e588",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
