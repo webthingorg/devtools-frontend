@@ -16,6 +16,24 @@
       "message": "I added an e2etest, but I\u0027m having trouble running it. So far I\u0027ve tried:\n\nautoninja -C out\\Default devtools_all_files\ncd src\nnode scripts/test/run_test_suite.js --config\u003dtest/e2e/test-runner-config.json \"--test-file-pattern\u003drendering/*\" \"--chrome-binary-path\u003dD:\\\\chrome\\\\src\\\\out\\\\release_x64\\\\chrome.exe\"\n\nThis is the output I\u0027m getting:\n\n[run_test_suite.js] Using Chromium binary D:\\\\chrome\\\\src\\\\out\\\\release_x64\\\\chrome.exe\n[run_test_suite.js] Using target Default\n[run_test_suite.js] Using test suite gen\\test\\e2e\\\n[run_test_suite.js] Failed: Full path to test suite [D:\\chrome\\src\\third_party\\devtools-frontend\\out\\Default\\gen\\test\\e2e] does not exist.",
       "revId": "243513950f1dd2e43054a2f928ccaa4162e165df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a23c20e_1cb9b906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T18:34:06Z",
+      "side": 1,
+      "message": "I fear this one might also be related to running the script as part of the chromium checkout and not the standalone repository (just from looking at the paths).",
+      "parentUuid": "447cc166_57cb3ec6",
+      "revId": "243513950f1dd2e43054a2f928ccaa4162e165df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
