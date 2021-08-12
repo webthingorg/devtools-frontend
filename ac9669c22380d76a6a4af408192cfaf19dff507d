@@ -69,6 +69,24 @@
       "parentUuid": "edcfa36b_88726a6a",
       "revId": "ac9669c22380d76a6a4af408192cfaf19dff507d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df67bf17_36f3cf57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T13:08:35Z",
+      "side": 1,
+      "message": "Yes, you create a new branch locally\n  git checkout origin/main -b fix\n  git cl patch -f 3090598\n\nand then rebase locally on fix and re-upload.",
+      "parentUuid": "66130b13_0267834a",
+      "revId": "ac9669c22380d76a6a4af408192cfaf19dff507d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
