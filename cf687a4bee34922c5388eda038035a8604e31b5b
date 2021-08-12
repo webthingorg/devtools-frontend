@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9eb0531c_26568608",
+        "filename": "test/e2e/issues/hidden-issues-row_test.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-12T08:21:57Z",
+      "side": 1,
+      "message": "I meant that we should continue to use waitFor, but we don\u0027t need the null/undefined check: waitFor hanging will be enough to indicate a failed test.\n\nIf you want to check additional invariants that\u0027s fine.",
+      "parentUuid": "b26b8bcb_28d3cc3d",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 46
+      },
+      "revId": "cf687a4bee34922c5388eda038035a8604e31b5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58803eb7_c6a534b5",
         "filename": "test/e2e/issues/hidden-issues-row_test.ts",
         "patchSetId": 22
