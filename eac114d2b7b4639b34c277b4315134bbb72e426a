@@ -16,6 +16,40 @@
       "message": "PTAL, Tim\u0027s OOO",
       "revId": "eac114d2b7b4639b34c277b4315134bbb72e426a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e20b75_a8e0f49d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-12T08:52:37Z",
+      "side": 1,
+      "message": "LGTM % suggestions",
+      "revId": "eac114d2b7b4639b34c277b4315134bbb72e426a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c4288d_63c2d46e",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-12T08:52:37Z",
+      "side": 1,
+      "message": "Worth adding a comment pointing to https://tc39.es/ecma262/#sec-time-values-and-time-range which explains this magical-looking number? We could also consider using numeric separators:\n\n    8_640_000_000_000_000",
+      "revId": "eac114d2b7b4639b34c277b4315134bbb72e426a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
