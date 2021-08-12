@@ -16,6 +16,46 @@
       "message": "PTAL:)",
       "revId": "7e7e383f5dd2bace5ff1501f60d94787b6f59ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0555e408_37f78d45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T16:55:28Z",
+      "side": 1,
+      "message": "lgtm % tiny nit",
+      "revId": "7e7e383f5dd2bace5ff1501f60d94787b6f59ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057c66b3_705b18aa",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-12T16:55:28Z",
+      "side": 1,
+      "message": "ultra-nit:\n\n const {uiSourceCode, oldURL} \u003d event.data;",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 170,
+        "endChar": 37
+      },
+      "revId": "7e7e383f5dd2bace5ff1501f60d94787b6f59ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
