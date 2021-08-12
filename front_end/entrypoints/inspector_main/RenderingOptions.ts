@@ -146,6 +146,10 @@ const UIStrings = {
   */
   forcesCssPrefersreducedmotion: 'Forces CSS `prefers-reduced-motion` media feature',
   /**
+   * @description Explanation text for the 'Forces CSS prefers-contrast media' setting in the Rendering tool.
+   */
+  forcesCssPreferscontrastMedia: 'Forces CSS `prefers-contrast` media feature',
+  /**
   * @description Explanation text for the 'Forces CSS prefers-reduced-data media' setting in the Rendering tool.
   */
   forcesCssPrefersreduceddataMedia: 'Forces CSS `prefers-reduced-data` media feature',
@@ -191,6 +195,13 @@ const supportsPrefersReducedData = (): boolean => {
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
 };
+
+// TODO(1139777): remove this feature detection and expose the UI
+// unconditionally once prefers-contrast ships unflagged.
+const supportsPrefersContrast = (): boolean => {
+  const query = '(prefers-contrast)';
+  return window.matchMedia(query).media === query;
+}
 
 const supportsJpegXl = async(): Promise<boolean> => {
   const JPEG_XL_IMAGE_URL = 'data:image/jxl;base64,/wp/QCQIBgEAFABLEiRhAA==';
@@ -251,6 +262,11 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.appendSelect(
         i18nString(UIStrings.forcesCssPrefersreducedmotion),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedMotion'));
+    if (supportsPrefersContrast()) {
+      this.appendSelect(
+          i18nString(UIStrings.forcesCssPreferscontrastMedia),
+          Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersContrast'));
+    }
     if (supportsPrefersReducedData()) {
       this.appendSelect(
           i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
