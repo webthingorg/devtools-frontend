@@ -50,6 +50,24 @@
       "message": "There seems to be a problem with the tests",
       "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f31da94_473a3c14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T13:54:42Z",
+      "side": 1,
+      "message": "Looking at them. There seems to be problems with the updates being pushes to the DOM. \nThere is a time difference between updates being pushed and e2etest acquiring elements.\nCould this be due to the throttle?",
+      "parentUuid": "357cd8b5_9b2a0828",
+      "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
