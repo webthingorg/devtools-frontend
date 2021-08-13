@@ -56,6 +56,30 @@
       },
       "revId": "7e7e383f5dd2bace5ff1501f60d94787b6f59ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89bf4d08_b11ac17e",
+        "filename": "front_end/models/persistence/Automapping.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-13T06:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "057c66b3_705b18aa",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 170,
+        "endChar": 37
+      },
+      "revId": "7e7e383f5dd2bace5ff1501f60d94787b6f59ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
