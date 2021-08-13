@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a925ca47_ec2aea15",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-13T07:11:07Z",
+      "side": 1,
+      "message": "nit: missing ;",
+      "revId": "e9b376a1d7f44d9c256a0b894a01a88e073a4446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
