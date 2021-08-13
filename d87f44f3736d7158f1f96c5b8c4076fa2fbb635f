@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "d87f44f3736d7158f1f96c5b8c4076fa2fbb635f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f44a56_8bda4c1d",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-13T06:23:01Z",
+      "side": 1,
+      "message": "Just use\n\n  const unhideAllIssuesBtn \u003d new IconButton.IconButton.IconButton();\n  unhideAllIssuesBtn.title \u003d \u0027Foo\u0027;\n  unhideAllIssuesBtn.data \u003d {\n      clickHandler: (): void \u003d\u003e IssuesManager.IssuesManager.IssuesManager.instance().unhideAllIssues(),\n      groups: [{iconName: \u0027refresh_12x12_icon\u0027, iconColor: \u0027\u0027, iconHeight: \u002712px\u0027, iconWidth: \u002712px\u0027, text: \u0027\u0027}],\n      compact: true,\n  };\n\nhere, then we don\u0027t need the UnhideAllIssuesButton component at all.",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "d87f44f3736d7158f1f96c5b8c4076fa2fbb635f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
