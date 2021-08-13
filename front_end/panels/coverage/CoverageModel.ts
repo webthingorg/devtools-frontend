@@ -28,6 +28,11 @@ export enum Events {
   CoverageReset = 'CoverageReset',
 }
 
+export type EventTypes = {
+  [Events.CoverageUpdated]: CoverageInfo[],
+  [Events.CoverageReset]: void,
+};
+
 const COVERAGE_POLLING_PERIOD_MS: number = 200;
 
 interface BacklogItem<T> {
