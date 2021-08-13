@@ -153,7 +153,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.setCanDeleteSelected(false);
   }
 
-  _domStorageItemRemoved(event: Common.EventTarget.EventTargetEvent): void {
+  _domStorageItemRemoved(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemRemovedEvent>): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
@@ -172,7 +172,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
   }
 
-  _domStorageItemAdded(event: Common.EventTarget.EventTargetEvent): void {
+  _domStorageItemAdded(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemAddedEvent>): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
@@ -191,7 +191,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     rootNode.insertChild(childNode, children.length - 1);
   }
 
-  _domStorageItemUpdated(event: Common.EventTarget.EventTargetEvent): void {
+  _domStorageItemUpdated(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemUpdatedEvent>): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }

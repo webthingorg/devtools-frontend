@@ -92,6 +92,28 @@ export namespace DOMStorage {
     DOMStorageItemAdded = 'DOMStorageItemAdded',
     DOMStorageItemUpdated = 'DOMStorageItemUpdated',
   }
+
+  export interface DOMStorageItemRemovedEvent {
+    key: string;
+  }
+
+  export interface DOMStorageItemAddedEvent {
+    key: string;
+    value: string;
+  }
+
+  export interface DOMStorageItemUpdatedEvent {
+    key: string;
+    oldValue: string;
+    value: string;
+  }
+
+  export type EventTypes = {
+    [Events.DOMStorageItemsCleared]: {},
+    [Events.DOMStorageItemRemoved]: DOMStorageItemRemovedEvent,
+    [Events.DOMStorageItemAdded]: DOMStorageItemAddedEvent,
+    [Events.DOMStorageItemUpdated]: DOMStorageItemUpdatedEvent,
+  };
 }
 
 export class DOMStorageModel extends SDK.SDKModel.SDKModel {
@@ -248,6 +270,11 @@ export enum Events {
   DOMStorageAdded = 'DOMStorageAdded',
   DOMStorageRemoved = 'DOMStorageRemoved',
 }
+
+export type EventTypes = {
+  [Events.DOMStorageAdded]: DOMStorage,
+  [Events.DOMStorageRemoved]: DOMStorage,
+};
 
 export class DOMStorageDispatcher implements ProtocolProxyApi.DOMStorageDispatcher {
   _model: DOMStorageModel;
