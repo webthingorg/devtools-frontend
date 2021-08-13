@@ -39,6 +39,53 @@
       },
       "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f015a971_1044d1f8",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-13T05:53:24Z",
+      "side": 1,
+      "message": "Great find! So we are re-parenting a bit too much, but we should be correctly re-parenting issues.\n\nI think we should just modify the condition in L299 to \n if (issueView.parent !\u003d\u003d newParent \u0026\u0026\n    !(newParent instanceof UI.TreeOutline.TreeOutline \n      \u0026\u0026 issueView.parent \u003d\u003d\u003d newParent.rootElement())) {\n\nYou can include the fix in this CL (since this CL is about decreasing the amount of re-parenting anyway) Can you think of a way to test this?",
+      "parentUuid": "4278b4b8_4fb26cbf",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37c8263_8313e882",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-13T05:53:24Z",
+      "side": 1,
+      "message": "I think it would be a better design if we modified aggregatedIssueCodes to return the union of the two sets.\n\nSimilarily, we should make aggregatedIssues() return all aggregated issues.",
+      "range": {
+        "startLine": 367,
+        "startChar": 61,
+        "endLine": 367,
+        "endChar": 81
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
