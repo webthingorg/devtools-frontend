@@ -1610,7 +1610,7 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   constructor(storagePanel: ResourcesPanel, treeElement: UI.TreeOutline.TreeElement) {
     this._panel = storagePanel;
     this._treeElement = treeElement;
-    UI.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
+    UI.ARIAUtils.setAccessibleName(this._treeElement.listItemNode, 'Resources Section');
     this._treeElementForFrameId = new Map();
     this._treeElementForTargetId = new Map();
 
