@@ -146,6 +146,41 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
     return [];
   }
 
+  getLocationRangesForSameSourceLocation(rawLocation: SDK.DebuggerModel.Location): {
+    start: SDK.DebuggerModel.Location,
+    end: SDK.DebuggerModel.Location,
+  }[] {
+    const debuggerModel = rawLocation.debuggerModel;
+    const script = rawLocation.script();
+    if (!script) {
+      return [];
+    }
+    const sourceMap = this.sourceMapManager.sourceMapForClient(script);
+    if (!sourceMap) {
+      return [];
+    }
+
+    // Find the source location for the raw location.
+    const entry = sourceMap.findEntry(rawLocation.lineNumber, rawLocation.columnNumber);
+    if (!entry || !entry.sourceURL) {
+      return [];
+    }
+
+    // Map the source location back to raw location ranges.
+    const ranges = sourceMap.findReverseRanges(entry.sourceURL, entry.sourceLineNumber, entry.sourceColumnNumber);
+    return ranges.map(textRangeToLocationRange);
+
+    function textRangeToLocationRange(t: TextUtils.TextRange.TextRange): {
+      start: SDK.DebuggerModel.Location,
+      end: SDK.DebuggerModel.Location,
+    } {
+      return {
+        start: debuggerModel.createRawLocation(script as SDK.Script.Script, t.startLine, t.startColumn),
+        end: debuggerModel.createRawLocation(script as SDK.Script.Script, t.endLine, t.endColumn),
+      };
+    }
+  }
+
   mapsToSourceCode(rawLocation: SDK.DebuggerModel.Location): boolean {
     const script = rawLocation.script();
     const sourceMap = script ? this.sourceMapManager.sourceMapForClient(script) : null;
