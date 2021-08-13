@@ -206,6 +206,30 @@
       },
       "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec0ce8d3_745aa2b8",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T12:19:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c37c8263_8313e882",
+      "range": {
+        "startLine": 367,
+        "startChar": 61,
+        "endLine": 367,
+        "endChar": 81
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
