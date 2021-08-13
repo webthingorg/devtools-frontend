@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as HideIssuesMenu from './HideIssuesMenu.js';
+import * as UnhideAllIssuesButton from './UnhideAllIssuesButton.js';
 
 export {
   HideIssuesMenu,
+  UnhideAllIssuesButton,
 };
