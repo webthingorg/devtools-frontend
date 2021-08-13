@@ -104,6 +104,24 @@
       "parentUuid": "4a30f248_369340a4",
       "revId": "f488fd31bdc1fc6cf11a9cd6ea017e429c5f9a01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b79418f6_ff486a85",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-13T11:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83757265_dcb9c8e0",
+      "revId": "f488fd31bdc1fc6cf11a9cd6ea017e429c5f9a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
