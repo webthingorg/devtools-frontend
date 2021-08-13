@@ -137,6 +137,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae22653f_02b3faae",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-13T12:07:06Z",
+      "side": 1,
+      "message": "Sorry if this wasn\u0027t clear: Testing whether we reparent is a non-functional requirement (it only affects performance but in a minor way since we keep the view).\n\nSo I\u0027m ok with not having a test for the fix here.",
+      "parentUuid": "e055f3d8_08ac6679",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37c8263_8313e882",
