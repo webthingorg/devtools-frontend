@@ -70,6 +70,24 @@
       "parentUuid": "b08209f6_213df9d1",
       "revId": "243513950f1dd2e43054a2f928ccaa4162e165df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cac609e7_0e524736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-13T09:51:12Z",
+      "side": 1,
+      "message": "As can be seen on the bots, there are still a few issues with the CL. The test is not passing and ESLint wants to do some more formatting.\n\nUnfortunately we do not really support uploading/developing DevTools CLs from a chromium checkout. The path of least resistance would probably be to follow \"Standalone checkout\" here: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#standalone-checkout and patch the current state of the CL via `git cl patch 3086588` and upload the fixes for ESLint and the test.\nAgain, sorry for the inconvenience.",
+      "parentUuid": "5910863c_d0aaf4dc",
+      "revId": "243513950f1dd2e43054a2f928ccaa4162e165df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
