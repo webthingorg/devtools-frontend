@@ -104,6 +104,24 @@
       "parentUuid": "8f31da94_473a3c14",
       "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df23ebdf_7d9d70a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T13:57:35Z",
+      "side": 1,
+      "message": "i think because we merged the two aggregatedIssues array the promise gets scheduled much quicker?\nthan by using two different for loops?\n\nThis is purely conjectural.",
+      "parentUuid": "003e8575_75bd513b",
+      "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
