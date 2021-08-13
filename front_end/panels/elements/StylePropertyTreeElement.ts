@@ -753,9 +753,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   _handleContextMenuEvent(context: Context, event: Event): void {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
     if (this.property.parsedOk && this.section() && this.parent && this.parent.root) {
+      const sectionIndex = this._parentPane.focusedSectionIndex();
       contextMenu.defaultSection().appendCheckboxItem(
           i18nString(UIStrings.togglePropertyAndContinueEditing), async () => {
-            const sectionIndex = this._parentPane.focusedSectionIndex();
             if (this.treeOutline) {
               const propertyIndex = this.treeOutline.rootElement().indexOfChild(this);
               // order matters here: this.editingCancelled may invalidate this.treeOutline.
