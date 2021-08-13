@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4ccb79_f562c58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-08-13T09:34:08Z",
+      "side": 1,
+      "message": "Marian, here\u0027s the flat view for the Properties panel we just discussed.\n\nTim, can you do the code review please (mostly removing code that we no longer need). We\u0027ve decided to go with flat view first and see what developers say before we add more smarts.",
+      "revId": "a5a362585a944c6b71801c2cfed57afd36cdf24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
