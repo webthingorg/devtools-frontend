@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa0fd4d_f2c72e0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-13T12:27:19Z",
+      "side": 1,
+      "message": "@mathias could you PTAL? Jack is OOO today. Thanks!",
+      "revId": "07e62a25e0b850db3fac278ab7f6d90b9b796758",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
