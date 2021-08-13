@@ -68,6 +68,24 @@
       "parentUuid": "357cd8b5_9b2a0828",
       "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e74016_9eae0e81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T13:55:39Z",
+      "side": 1,
+      "message": "i managed to fix two of them just by replacing $$ by waitFor and an appropriate selector. \nSo that was my first clue.",
+      "parentUuid": "8f31da94_473a3c14",
+      "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
