@@ -161,6 +161,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "566de466_9d43aa9e",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T12:12:12Z",
+      "side": 1,
+      "message": "okay thanks! i\u0027ll update the cl",
+      "parentUuid": "ae22653f_02b3faae",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37c8263_8313e882",
