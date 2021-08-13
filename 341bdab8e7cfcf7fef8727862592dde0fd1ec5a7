@@ -122,6 +122,23 @@
       "parentUuid": "003e8575_75bd513b",
       "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7251e438_df89bfbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T14:29:55Z",
+      "side": 1,
+      "message": "I fixed all but one test in hide-issues-menu_test.ts just by introducing waitFor() where $$ was present or where an appropriate call to waitFor() could be made.\n\nIn the last test \u0027should unhide issue after clicking the unhide issues like this entry\u0027, i got this scrrenshot while running auto-debug-e2etest: https://ibb.co/jRZsqzS\n\nSince the only place we update forHiddenIssue is in doUpdate which is controlled by the throttle. \n\nI changed the throttle limit, and the test passes.\n\nShould the throttle limit be changed?",
+      "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
