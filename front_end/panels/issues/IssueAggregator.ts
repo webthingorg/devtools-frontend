@@ -269,6 +269,10 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return new Set(this.aggregatedIssuesByCode.keys());
   }
 
+  hiddenAggregatedIssueCodes(): Set<string> {
+    return new Set(this.hiddenAggregatedIssuesByCode.keys());
+  }
+
   aggregatedIssueCategories(): Set<IssuesManager.Issue.IssueCategory> {
     const result = new Set<IssuesManager.Issue.IssueCategory>();
     for (const issue of this.aggregatedIssuesByCode.values()) {

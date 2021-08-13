@@ -346,9 +346,10 @@ export class IssuesPane extends UI.Widget.VBox {
     return newView;
   }
 
-  private clearViews<T>(views: Map<T, UI.TreeOutline.TreeElement>, preservedSet?: Set<T>): void {
+  private clearViews<T>(
+      views: Map<T, UI.TreeOutline.TreeElement>, preservedSet?: Set<T>, hiddenIssuesPreservedSet?: Set<T>): void {
     for (const [key, view] of Array.from(views.entries())) {
-      if (preservedSet?.has(key)) {
+      if (preservedSet?.has(key) || hiddenIssuesPreservedSet?.has(key)) {
         continue;
       }
       view.parent && view.parent.removeChild(view);
@@ -362,7 +363,9 @@ export class IssuesPane extends UI.Widget.VBox {
 
   private fullUpdate(force: boolean): void {
     this.clearViews(this.categoryViews, force ? undefined : this.aggregator.aggregatedIssueCategories());
-    this.clearViews(this.issueViews, force ? undefined : this.aggregator.aggregatedIssueCodes());
+    this.clearViews(
+        this.issueViews, force ? undefined : this.aggregator.aggregatedIssueCodes(),
+        force ? undefined : this.aggregator.hiddenAggregatedIssueCodes());
     if (this.aggregator) {
       for (const issue of this.aggregator.aggregatedIssues()) {
         this.scheduleIssueViewUpdate(issue);
