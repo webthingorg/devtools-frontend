@@ -1458,7 +1458,7 @@ export class StylePropertiesSection {
   }
 
   _getFocused(): HTMLElement|null {
-    return (this.propertiesTreeOutline._shadowRoot.activeElement as HTMLElement) || null;
+    return (this.propertiesTreeOutline.shadowRoot.activeElement as HTMLElement) || null;
   }
 
   _focusNext(element: HTMLElement): void {
@@ -1470,7 +1470,7 @@ export class StylePropertiesSection {
 
     // Focus the next item and remember it (if in our subtree).
     element.focus();
-    if (this.propertiesTreeOutline._shadowRoot.contains(element)) {
+    if (this.propertiesTreeOutline.shadowRoot.contains(element)) {
       element.tabIndex = 0;
     }
   }
@@ -1484,7 +1484,7 @@ export class StylePropertiesSection {
 
     let focusNext: HTMLElement|null = null;
     const focusable =
-        Array.from((this.propertiesTreeOutline._shadowRoot.querySelectorAll('[tabindex]') as NodeListOf<HTMLElement>));
+        Array.from((this.propertiesTreeOutline.shadowRoot.querySelectorAll('[tabindex]') as NodeListOf<HTMLElement>));
 
     if (focusable.length === 0) {
       return;
