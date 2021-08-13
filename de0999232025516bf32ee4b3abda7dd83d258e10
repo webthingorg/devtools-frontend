@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4278b4b8_4fb26cbf",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T01:53:13Z",
+      "side": 1,
+      "message": "Hey Sigurd,\nThere is a bug here. getIssueViewParent returns either a treeOutline or a treeElement, but IssueViews which inherits TreeElement can only have TreeElement|null as its parent. \nSo when we return this.issueTree which is a TreeOutline, the if statements passes and we end up reparenting in the same parent for issueViews that don\u0027t need to be reparented.\n\nWe can solve this by returning this.issueTree._parent (because this.issueTree.appendChild() is a wrapper around this.issueTree._parent.appendChild) but since this is private i didn\u0027t want to add any code to the legacy component without getting your opinion first.\n\ni have verified this using the debugger and lots of console.logs\n\nI\u0027m attaching a screenshot of the console.log \"console.log(issue.code(), issueView.parent, newParent);\" that I put inside the conditional: https://ibb.co/1d8Tm9s",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
