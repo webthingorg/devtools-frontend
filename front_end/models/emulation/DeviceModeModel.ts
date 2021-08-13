@@ -855,6 +855,10 @@ export const enum Events {
   Updated = 'Updated',
 }
 
+export type EventTypes = {
+  [Events.Updated]: void,
+};
+
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
 export enum Type {
