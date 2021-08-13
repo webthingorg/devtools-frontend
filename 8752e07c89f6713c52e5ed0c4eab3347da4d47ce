@@ -26,6 +26,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec777e88_7a4ff68b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-13T09:51:15Z",
+      "side": 1,
+      "message": "Yup! crbug.com/1009443",
+      "parentUuid": "e1612f85_a6f4a5ff",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "8752e07c89f6713c52e5ed0c4eab3347da4d47ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bfc75db_fb26e648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-13T09:51:15Z",
+      "side": 1,
+      "message": "Nice work!",
+      "revId": "8752e07c89f6713c52e5ed0c4eab3347da4d47ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "698bcc19_6a9030ce",
         "filename": "front_end/ui/legacy/DockController.ts",
         "patchSetId": 2
@@ -37,6 +78,30 @@
       "writtenOn": "2021-08-12T14:10:55Z",
       "side": 1,
       "message": "this is technically new behaviour; without this dockSide() returns `undefined` by default. This doesn\u0027t seem deliberate - and setting it here doesn\u0027t seem to cause any issues.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 58
+      },
+      "revId": "8752e07c89f6713c52e5ed0c4eab3347da4d47ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83136077_8098512e",
+        "filename": "front_end/ui/legacy/DockController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-13T09:51:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "698bcc19_6a9030ce",
       "range": {
         "startLine": 98,
         "startChar": 0,
