@@ -3,8 +3,11 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import * as Components from './components/components.js';
 
 const UIStrings = {
   /**
@@ -29,6 +32,10 @@ export class HiddenIssuesRow extends UI.TreeOutline.TreeElement {
   }
 
   private appendHeader(): void {
+    const unhideAllIssuesBtn = new Components.UnhideAllIssuesButton.UnhideAllIssuesButton();
+    unhideAllIssuesBtn.data = {
+      callback: (): void => IssuesManager.IssuesManager.IssuesManager.instance().unhideAllIssues(),
+    };
     const countAdorner = new Adorners.Adorner.Adorner();
     countAdorner.data = {
       name: 'countWrapper',
@@ -43,6 +50,7 @@ export class HiddenIssuesRow extends UI.TreeOutline.TreeElement {
     title.textContent = i18nString(UIStrings.hiddenIssues);
     header.appendChild(countAdorner);
     header.appendChild(title);
+    header.appendChild(unhideAllIssuesBtn);
     this.listItemElement.appendChild(header);
   }
 

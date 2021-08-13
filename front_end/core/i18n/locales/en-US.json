@@ -4820,6 +4820,9 @@
   "panels/issues/components/HideIssuesMenu.ts | UnhideIssueByCode": {
     "message": "Unhide issues like this"
   },
+  "panels/issues/components/UnhideAllIssuesButton.ts | tooltipTitle": {
+    "message": "Unhide all hidden issues"
+  },
   "panels/issues/CorsIssueDetailsView.ts | allowCredentialsValueFromHeader": {
     "message": "Access-Control-Allow-Credentials Header Value"
   },
@@ -4966,9 +4969,6 @@
   },
   "panels/issues/IssuesPane.ts | trustedWebActivity": {
     "message": "Trusted Web Activity"
-  },
-  "panels/issues/IssuesPane.ts | unHideAllHiddenIssues": {
-    "message": "Unhide all hidden issues"
   },
   "panels/issues/IssueView.ts | affectedResources": {
     "message": "Affected Resources"
