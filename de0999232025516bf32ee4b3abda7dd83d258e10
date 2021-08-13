@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "084f418e_b3569509",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T10:15:08Z",
+      "side": 1,
+      "message": "we can get an IssuePane instance in a unittest and attach an event listener listening for\nthis.treeOutline.dispatchEventToListeners(Events.ElementAttached, child);\nbecause this event is dispatched when an element is inserted. so we can check for repareting\nor we could modify the onattach method in isseView to dispatch an event and then follow the same procedure as above in a unittest.\n\nCases where reparenting should take place will dispatch the event and where it shouldn\u0027t won\u0027t.\n\nIn both cases we would need to get the IssuesPane instance.\n\nDoes that seem like a plausible approach?",
+      "parentUuid": "f015a971_1044d1f8",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c37c8263_8313e882",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 1
