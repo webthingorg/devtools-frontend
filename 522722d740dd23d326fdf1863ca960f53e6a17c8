@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fddd22b_b930ad9f",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T11:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14306bea_496eac05",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 62
+      },
+      "revId": "522722d740dd23d326fdf1863ca960f53e6a17c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4582ecd6_d8ffe9b3",
@@ -95,6 +119,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1429bf0_93882fe4",
+        "filename": "front_end/panels/issues/HiddenIssuesRow.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T11:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15895209_f73044bb",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 48
+      },
+      "revId": "522722d740dd23d326fdf1863ca960f53e6a17c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67fcae39_36e3e138",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "This should do the trick and doesn\u0027t require hard-coding pixel heights (which is something we try to avoid):\n  line-height: normal;",
       "parentUuid": "67fcae39_36e3e138",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "522722d740dd23d326fdf1863ca960f53e6a17c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bd8f360_b4cd7c6a",
+        "filename": "front_end/panels/issues/issuesTree.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T11:00:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54be4543_973b203f",
       "range": {
         "startLine": 70,
         "startChar": 0,
