@@ -113,6 +113,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e055f3d8_08ac6679",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-13T12:05:13Z",
+      "side": 1,
+      "message": "The only way i see of testing the functional requirements without instantiating IssuePane in unittests is to check preservedSet entries through this.aggregator.aggreatedIssueCodes, because instantiating issuePane in unittests gives ERROR: \u0027panels/issues/issuesPane.css not preloaded. Check module.json\u0027",
+      "parentUuid": "26b9ee59_2eaa932d",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 303,
+        "endChar": 5
+      },
+      "revId": "de0999232025516bf32ee4b3abda7dd83d258e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37c8263_8313e882",
