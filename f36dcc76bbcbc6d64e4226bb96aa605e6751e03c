@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50d8f04d_cc37436a",
+        "filename": "front_end/panels/application/DOMStorageModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T09:05:50Z",
+      "side": 1,
+      "message": "To clarify here, I missread the code. The `EventTypes` is declared inside a namespace here, which is fine. You only have to address it correctly, in that its called `DOMStorage.EventTypes`.",
+      "parentUuid": "5fb8526f_db5df23a",
+      "range": {
+        "startLine": 111,
+        "startChar": 14,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "f36dcc76bbcbc6d64e4226bb96aa605e6751e03c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2110015c_58464bac",
         "filename": "front_end/panels/application/DOMStorageModel.ts",
         "patchSetId": 1
