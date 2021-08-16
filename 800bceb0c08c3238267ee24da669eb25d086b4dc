@@ -39,6 +39,30 @@
       },
       "revId": "800bceb0c08c3238267ee24da669eb25d086b4dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f79b716_be2e664c",
+        "filename": "third_party/blink/renderer/core/css/css_properties.json5",
+        "patchSetId": 2
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T07:50:32Z",
+      "side": 1,
+      "message": "No idea, the file is copied 1:1 from third_party/blink/renderer/core/css/css_properties.json5 as part of the \"roll_deps.py\" script.",
+      "parentUuid": "2cf3d0af_29e386f9",
+      "range": {
+        "startLine": 2248,
+        "startChar": 5,
+        "endLine": 2248,
+        "endChar": 81
+      },
+      "revId": "800bceb0c08c3238267ee24da669eb25d086b4dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
