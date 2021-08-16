@@ -33,6 +33,24 @@
       "message": "LGTM. Do we need to back-merge this CL?",
       "revId": "3678076878b2e372fbe0cd3d6f25fe9b47650062",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e18b15e_6b45c17e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T09:28:36Z",
+      "side": 1,
+      "message": "I think so, the renaming CL landed August 6th. I filed https://crbug.com/1240088 and assigned it to Jan.",
+      "parentUuid": "5b734388_f420ade6",
+      "revId": "3678076878b2e372fbe0cd3d6f25fe9b47650062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
