@@ -292,7 +292,7 @@ describe('data grid', async () => {
       await assertDataGridNotScrolled(dataGrid);
       await clickAddButton();
       await getDataGridRows(11, dataGrid);
-      await waitForScrollTopOfDataGrid(dataGrid, 83);
+      await waitForScrollTopOfDataGrid(dataGrid, 89);
     });
 
     it('does not auto-scroll if the user has clicked on a cell', async () => {
@@ -335,7 +335,7 @@ describe('data grid', async () => {
          await waitFor('tr.selected', dataGrid);
          await clickAddButton();
          await getDataGridRows(11, dataGrid);
-         await waitForScrollTopOfDataGrid(dataGrid, 83);
+         await waitForScrollTopOfDataGrid(dataGrid, 89);
        });
 
     it('will resume autoscroll if the user clicks a cell but then scrolls to the bottom', async () => {
@@ -360,7 +360,7 @@ describe('data grid', async () => {
       await getDataGridRows(12, dataGrid);
       // Ensure the scrollTop has changed: we are auto-scrolling again as the
       // user scrolled to the bottom
-      await waitForScrollTopOfDataGrid(dataGrid, 103);
+      await waitForScrollTopOfDataGrid(dataGrid, 83);
     });
   });
 });
