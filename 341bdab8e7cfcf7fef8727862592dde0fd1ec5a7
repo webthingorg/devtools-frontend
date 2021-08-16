@@ -157,6 +157,24 @@
       "parentUuid": "7251e438_df89bfbb",
       "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3397caf1_fa06d6fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-16T08:16:19Z",
+      "side": 1,
+      "message": "Hello,\nI have managed to fix the tests with an appropriate waitFor statement without changing the throttle.\nPTAL again.",
+      "parentUuid": "97b9988f_6a268586",
+      "revId": "341bdab8e7cfcf7fef8727862592dde0fd1ec5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
