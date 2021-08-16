@@ -1182,7 +1182,7 @@ export class CodeMirrorTextEditor extends UI.Widget.VBox implements UI.TextEdito
     }
   }
 
-  static readonly maxHighlightLength = 1000;
+  static readonly maxHighlightLength = 10000;
   static readonly LongLineModeLineLengthThreshold = 2000;
   static readonly MaxEditableTextSize = 1024 * 1024 * 10;
 }
