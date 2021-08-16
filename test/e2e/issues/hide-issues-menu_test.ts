@@ -4,11 +4,12 @@
 
 import {assert} from 'chai';
 
-import {$$, assertNotNullOrUndefined, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {assertNotNullOrUndefined, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getHiddenIssuesRow, getHiddenIssuesRowBody, getHideIssuesMenu, getHideIssuesMenuItem, getIssueHeaderByTitle, getUnhideAllIssuesBtn, getUnhideIssuesMenuItem, ISSUE, navigateToIssuesTab} from '../helpers/issues-helpers.js';
 
-describe('Hide issues menu', async () => {
+// eslint-disable-next-line mocha/no-exclusive-tests
+describe.only('Hide issues menu', async () => {
   it('should be appended to the issue header', async () => {
     await enableExperiment('hideIssuesFeature');
     await goToResource('issues/sab-issue.rawresponse');
@@ -90,11 +91,9 @@ describe('Hide issues menu', async () => {
     await hideIssuesMenuBtn.click();
     const menuItem = await getHideIssuesMenuItem();
     assertNotNullOrUndefined(menuItem);
-    let issue = await $$(ISSUE);
-    assert.isNotEmpty(issue);
+    await waitFor(ISSUE);
     await menuItem.click();
-    issue = await $$(ISSUE);
-    assert.isEmpty(issue);
+    await waitFor('.hidden-issue');
   });
 
   it('should unhide all issues upon clicking unhide all issues button', async () => {
@@ -110,12 +109,10 @@ describe('Hide issues menu', async () => {
     const menuItem = await getHideIssuesMenuItem();
     assertNotNullOrUndefined(menuItem);
     await menuItem.click();
-    const issuesBeforeUnHiding = await $$(ISSUE);
-    assert.isEmpty(issuesBeforeUnHiding);
+    await waitFor('.hidden-issue');
     const btn = await getUnhideAllIssuesBtn();
     await btn.click();
-    const issues = await waitFor(ISSUE);
-    assertNotNullOrUndefined(issues);
+    await waitFor(ISSUE);
   });
 
   it('should contain unhide issues like this entry while hovering over a hidden issue', async () => {
@@ -131,6 +128,7 @@ describe('Hide issues menu', async () => {
     const menuItem = await getHideIssuesMenuItem();
     assertNotNullOrUndefined(menuItem);
     await menuItem.click();
+    await waitFor('.hidden-issue');
     const row = await getHiddenIssuesRow();
     let isHidden = await row?.evaluate(node => node.classList.contains('hidden'));
     assert.isFalse(isHidden);
@@ -159,6 +157,7 @@ describe('Hide issues menu', async () => {
     const menuItem = await getHideIssuesMenuItem();
     assertNotNullOrUndefined(menuItem);
     await menuItem.click();
+    await waitFor('.hidden-issue');
     const row = await getHiddenIssuesRow();
     let isHidden = await row?.evaluate(node => node.classList.contains('hidden'));
     assert.isFalse(isHidden);
@@ -171,8 +170,8 @@ describe('Hide issues menu', async () => {
     await hiddenIssueHeader.hover();
     hideIssuesMenuBtn = await getHideIssuesMenu();
     await hideIssuesMenuBtn.click();
-    const unhideMenuItem = await getUnhideIssuesMenuItem();
-    await unhideMenuItem?.click();
-    await waitFor(ISSUE);
+    const unhideIssue = await getUnhideIssuesMenuItem();
+    await unhideIssue?.click();
+    waitFor(ISSUE);
   });
 });
