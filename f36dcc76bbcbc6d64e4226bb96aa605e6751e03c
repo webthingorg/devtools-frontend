@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02a27fc_1661e4e8",
+        "filename": "front_end/panels/application/DOMStorageModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-16T07:04:42Z",
+      "side": 1,
+      "message": "Done % question\n\nWhy should it not be passed to `ObjectWrapper` of DOMStorage? Like:\n\nexport class DOMStorage extends Common.ObjectWrapper.ObjectWrapper\u003cEventTypes\u003e",
+      "parentUuid": "64416463_43bdcc63",
+      "range": {
+        "startLine": 111,
+        "startChar": 14,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "f36dcc76bbcbc6d64e4226bb96aa605e6751e03c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2110015c_58464bac",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-16T05:30:10Z",
       "side": 1,
       "message": "nit: Better to use `void`.",
+      "range": {
+        "startLine": 112,
+        "startChar": 37,
+        "endLine": 112,
+        "endChar": 39
+      },
+      "revId": "f36dcc76bbcbc6d64e4226bb96aa605e6751e03c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2238f98b_33f66a09",
+        "filename": "front_end/panels/application/DOMStorageModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-16T07:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2110015c_58464bac",
       "range": {
         "startLine": 112,
         "startChar": 37,
