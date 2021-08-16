@@ -39,6 +39,30 @@
       },
       "revId": "4471801b97d8eecff0ab576860fcacd6d9cd9bf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c586fbcb_e0af02cd",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-16T08:23:03Z",
+      "side": 1,
+      "message": "yeah sorry! that was just a stray change.",
+      "parentUuid": "c96d34fc_5b1ba0fb",
+      "range": {
+        "startLine": 172,
+        "startChar": 10,
+        "endLine": 172,
+        "endChar": 22
+      },
+      "revId": "4471801b97d8eecff0ab576860fcacd6d9cd9bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
