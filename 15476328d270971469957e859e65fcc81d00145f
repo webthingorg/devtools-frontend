@@ -39,6 +39,30 @@
       },
       "revId": "15476328d270971469957e859e65fcc81d00145f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1ad984_d31658e6",
+        "filename": "front_end/models/workspace/FileManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-16T07:24:44Z",
+      "side": 1,
+      "message": "Fixed in: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3097208\n\nWill check all the other CLs",
+      "parentUuid": "f4b3f9ba_eb37a3ff",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "15476328d270971469957e859e65fcc81d00145f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
