@@ -40,6 +40,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as CookieTable from '../../ui/legacy/components/cookie_table/cookie_table.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import cookieItemsViewStyles from './cookieItemsView.css.js';
 import {StorageItemsView} from './StorageItemsView.js';
 
 const UIStrings = {
@@ -172,7 +173,6 @@ export class CookieItemsView extends StorageItemsView {
   constructor(model: SDK.CookieModel.CookieModel, cookieDomain: string) {
     super(i18nString(UIStrings.cookies), 'cookiesPanel');
 
-    this.registerRequiredCSS('panels/application/cookieItemsView.css');
     this.element.classList.add('storage-view');
 
     this.model = model;
@@ -334,5 +334,9 @@ export class CookieItemsView extends StorageItemsView {
 
   private onLoadingFinished(): void {
     this.refreshItemsThrottled();
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([cookieItemsViewStyles]);
   }
 }

@@ -10,6 +10,8 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import frameDetailsReportViewStyles from './frameDetailsReportView.css.js';
+
 const UIStrings = {
   /**
   *@description Text in Timeline indicating that input has happened recently
@@ -158,11 +160,11 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
     super();
     this.targetInfo = targetInfo;
     this.isWindowClosed = isWindowClosed;
-    this.registerRequiredCSS('panels/application/frameDetailsReportView.css');
+
     this.contentElement.classList.add('frame-details-container');
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
     this.reportView = new UI.ReportView.ReportView(this.buildTitle());
-    this.reportView.registerRequiredCSS('panels/application/frameDetailsReportView.css');
+
     this.reportView.show(this.contentElement);
     this.reportView.element.classList.add('frame-details-report-container');
 
@@ -210,6 +212,11 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
   setTargetInfo(targetInfo: Protocol.Target.TargetInfo): void {
     this.targetInfo = targetInfo;
   }
+  wasShown(): void {
+    super.wasShown();
+    this.reportView.registerCSSFiles([frameDetailsReportViewStyles]);
+    this.registerCSSFiles([frameDetailsReportViewStyles]);
+  }
 }
 
 export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
@@ -225,12 +232,12 @@ export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   constructor(targetInfo: Protocol.Target.TargetInfo) {
     super();
     this.targetInfo = targetInfo;
-    this.registerRequiredCSS('panels/application/frameDetailsReportView.css');
+
     this.contentElement.classList.add('frame-details-container');
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
     this.reportView =
         new UI.ReportView.ReportView(this.targetInfo.title || this.targetInfo.url || i18nString(UIStrings.worker));
-    this.reportView.registerRequiredCSS('panels/application/frameDetailsReportView.css');
+
     this.reportView.show(this.contentElement);
     this.reportView.element.classList.add('frame-details-report-container');
 
@@ -300,5 +307,10 @@ export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
 
   async doUpdate(): Promise<void> {
     await this.updateCoopCoepStatus();
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.reportView.registerCSSFiles([frameDetailsReportViewStyles]);
+    this.registerCSSFiles([frameDetailsReportViewStyles]);
   }
 }
