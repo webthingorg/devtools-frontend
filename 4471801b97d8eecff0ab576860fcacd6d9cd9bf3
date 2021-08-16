@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae31ccd_b4ffe9f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-16T08:18:18Z",
+      "side": 1,
+      "message": "still LGTM, thanks!",
+      "revId": "4471801b97d8eecff0ab576860fcacd6d9cd9bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c96d34fc_5b1ba0fb",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-16T08:18:18Z",
+      "side": 1,
+      "message": "nit: we don\u0027t need this rename, do we?",
+      "range": {
+        "startLine": 172,
+        "startChar": 10,
+        "endLine": 172,
+        "endChar": 22
+      },
+      "revId": "4471801b97d8eecff0ab576860fcacd6d9cd9bf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
