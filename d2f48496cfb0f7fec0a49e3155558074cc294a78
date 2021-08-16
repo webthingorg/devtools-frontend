@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "d2f48496cfb0f7fec0a49e3155558074cc294a78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c7cda0_4e22e12d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T05:34:58Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "d2f48496cfb0f7fec0a49e3155558074cc294a78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8a3572_58e9dfd5",
+        "filename": "front_end/models/emulation/DeviceModeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T05:34:58Z",
+      "side": 1,
+      "message": "Must be\n\n Common.ObjectWrapper.ObjectWrapper\u003cEventTypes\u003e {",
+      "range": {
+        "startLine": 74,
+        "startChar": 37,
+        "endLine": 74,
+        "endChar": 71
+      },
+      "revId": "d2f48496cfb0f7fec0a49e3155558074cc294a78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
