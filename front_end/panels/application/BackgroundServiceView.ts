@@ -4,6 +4,9 @@
 
 /* eslint-disable rulesdir/no_underscored_properties */
 
+// eslint-disable-next-line rulesdir/es_modules_import
+import emptyWidgetStyles from '../../ui/legacy/emptyWidget.css.js';
+import backgroundServiceViewStyles from './backgroundServiceView.css.js';
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
@@ -157,8 +160,6 @@ export class BackgroundServiceView extends UI.Widget.VBox {
 
   constructor(serviceName: Protocol.BackgroundService.ServiceName, model: BackgroundServiceModel) {
     super(true);
-    this.registerRequiredCSS('panels/application/backgroundServiceView.css');
-    this.registerRequiredCSS('ui/legacy/emptyWidget.css');
 
     this.serviceName = serviceName;
 
@@ -469,6 +470,10 @@ export class BackgroundServiceView extends UI.Widget.VBox {
     const events = this.model.getEvents(this.serviceName).filter(event => this.acceptEvent(event));
     await stream.write(JSON.stringify(events, undefined, 2));
     stream.close();
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([emptyWidgetStyles, backgroundServiceViewStyles]);
   }
 }
 

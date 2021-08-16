@@ -52,6 +52,7 @@ import {AppManifestView} from './AppManifestView.js';
 import {BackgroundServiceModel} from './BackgroundServiceModel.js';
 import {BackgroundServiceView} from './BackgroundServiceView.js';
 import * as ApplicationComponents from './components/components.js';
+import resourcesSidebarStyles from './resourcesSidebar.css.js';
 
 import type {Database as DatabaseModelDatabase} from './DatabaseModel.js';
 import {DatabaseModel, Events as DatabaseModelEvents} from './DatabaseModel.js';
@@ -233,7 +234,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.sidebarTree = new UI.TreeOutline.TreeOutlineInShadow();
     this.sidebarTree.element.classList.add('resources-sidebar');
-    this.sidebarTree.registerRequiredCSS('panels/application/resourcesSidebar.css');
+
     this.sidebarTree.element.classList.add('filter-all');
     // Listener needs to have been set up before the elements are added
     this.sidebarTree.addEventListener(UI.TreeOutline.Events.ElementAttached, this.treeElementAdded, this);
@@ -853,6 +854,10 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       this.previousHoveredElement.hovered = false;
       delete this.previousHoveredElement;
     }
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.sidebarTree.registerCSSFiles([resourcesSidebarStyles]);
   }
 }
 

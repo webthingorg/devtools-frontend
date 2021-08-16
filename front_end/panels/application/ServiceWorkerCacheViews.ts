@@ -10,6 +10,9 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import serviceWorkerCacheViewsStyles from './serviceWorkerCacheViews.css.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 import * as Network from '../network/network.js';
 
@@ -91,7 +94,6 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
   }>|null;
   constructor(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache) {
     super(i18nString(UIStrings.cache));
-    this.registerRequiredCSS('panels/application/serviceWorkerCacheViews.css');
 
     this.model = model;
     this.entriesForTest = null;
@@ -153,6 +155,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
   wasShown(): void {
     this.model.addEventListener(
         SDK.ServiceWorkerCacheModel.Events.CacheStorageContentUpdated, this.cacheContentUpdated, this);
+    this.registerCSSFiles([serviceWorkerCacheViewsStyles]);
     this.updateData(true);
   }
 
