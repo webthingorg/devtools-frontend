@@ -16,6 +16,29 @@
       "message": "Resolved",
       "revId": "15476328d270971469957e859e65fcc81d00145f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b3f9ba_eb37a3ff",
+        "filename": "front_end/models/workspace/FileManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T05:34:09Z",
+      "side": 1,
+      "message": "I overlooked that this should actually be:\n\n `extends Common.ObjectWrapper.ObjectWrapper\u003cEventTypes\u003e {`\n \nCan you double-check all the type-safe event listener CLs you have landed so far that the CLs pass `EventTypes` as a generic argument? Otherwise no type-checking will actually happen. Sorry for missing this during reviews.",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "15476328d270971469957e859e65fcc81d00145f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
