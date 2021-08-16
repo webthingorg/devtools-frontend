@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d234714_fae3cc91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-16T09:22:54Z",
+      "side": 1,
+      "message": "EventTypes followup fix: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3097217",
+      "revId": "18636ff7177ef6403ac5dd20a87369dad826bb96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
