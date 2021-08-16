@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca2b578a_9183ea1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-16T09:17:05Z",
+      "side": 1,
+      "message": "Followup passing EventTypes to WorkspaceImpl: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3097215",
+      "revId": "799d1e2b59890909d3a4637d9f94fdf2d00b62b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
