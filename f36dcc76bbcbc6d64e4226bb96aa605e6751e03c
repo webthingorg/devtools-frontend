@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fb8526f_db5df23a",
+        "filename": "front_end/panels/application/DOMStorageModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-16T07:06:47Z",
+      "side": 1,
+      "message": "It needs both. DOMStorage has events, and DOMStorageModel has events. You need to pass the respective `EventTypes` type to both. It may require moving DOMStorage.EventTypes outside of DOMStorage, as I am not sure you can use an inner type as a type parameter for the outer class. It may also work.",
+      "parentUuid": "b02a27fc_1661e4e8",
+      "range": {
+        "startLine": 111,
+        "startChar": 14,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "f36dcc76bbcbc6d64e4226bb96aa605e6751e03c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2110015c_58464bac",
         "filename": "front_end/panels/application/DOMStorageModel.ts",
         "patchSetId": 1
