@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa95a87_6174c42a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "It would be nice if you could add a screenshot to the CL description.",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b3cab510_c3549060",
@@ -14,6 +31,131 @@
       "writtenOn": "2021-08-17T08:13:34Z",
       "side": 1,
       "message": "PTAL, Thanks.",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aff6c94_b18717d3",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "How about dropping the `issue-category` class here and adding the `issue-kind` class selector to the css where necessary?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a128ea0_c9664a85",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "Is this only needed for the test? Maybe we can find another way to test this then?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "810b532c_433a1e33",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "Different CL?",
+      "range": {
+        "startLine": 447,
+        "startChar": 1,
+        "endLine": 450,
+        "endChar": 5
+      },
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b47a99a_0ecb6406",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "nit: remove",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae3cd482_bca4deb1",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "How about \u0027Group by page errors, breaking changes, and improvements`?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a6812d_05d2aaee",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be part of your other CL?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78e3473_b8169e98",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-17T15:07:18Z",
+      "side": 1,
+      "message": "Could you avoid the `as type` by having `getIssueKind()` return an `IssueKind` instead of a string?",
       "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
