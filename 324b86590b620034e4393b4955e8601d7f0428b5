@@ -16,6 +16,46 @@
       "message": "Very nice, thanks! LGTM",
       "revId": "324b86590b620034e4393b4955e8601d7f0428b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f458f73_a1b0e970",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-17T08:31:21Z",
+      "side": 1,
+      "message": "LGTM with question about if we could be more specific on the types. Thanks!",
+      "revId": "324b86590b620034e4393b4955e8601d7f0428b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b6f77c_8c9ef08c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-17T08:31:21Z",
+      "side": 1,
+      "message": "can we be a bit tighter on this type? Could this be `\u0027sent\u0027|\u0027received\u0027|undefined` rather than all strings? Can\u0027t remember if we have more strings that could occur here or not.",
+      "range": {
+        "startLine": 492,
+        "startChar": 10,
+        "endLine": 492,
+        "endChar": 16
+      },
+      "revId": "324b86590b620034e4393b4955e8601d7f0428b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
