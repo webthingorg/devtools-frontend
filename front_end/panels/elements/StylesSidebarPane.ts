@@ -2921,6 +2921,7 @@ export class StylesSidebarPropertyRenderer {
   private gridHandler: ((arg0: string, arg1: string) => Node)|null;
   private varHandler: ((arg0: string) => Node)|null;
   private angleHandler: ((arg0: string) => Node)|null;
+  private lengthHandler: ((arg0: string) => Node)|null;
 
   constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
     this.rule = rule;
@@ -2934,6 +2935,7 @@ export class StylesSidebarPropertyRenderer {
     this.gridHandler = null;
     this.varHandler = document.createTextNode.bind(document);
     this.angleHandler = null;
+    this.lengthHandler = null;
   }
 
   setColorHandler(handler: (arg0: string) => Node): void {
@@ -2962,6 +2964,10 @@ export class StylesSidebarPropertyRenderer {
 
   setAngleHandler(handler: (arg0: string) => Node): void {
     this.angleHandler = handler;
+  }
+
+  setLengthHandler(handler: (arg0: string) => Node): void {
+    this.lengthHandler = handler;
   }
 
   renderName(): Element {
@@ -3007,6 +3013,11 @@ export class StylesSidebarPropertyRenderer {
     if (this.colorHandler && metadata.isColorAwareProperty(this.propertyName)) {
       regexes.push(Common.Color.Regex);
       processors.push(this.colorHandler);
+    }
+    if (this.lengthHandler) {
+      // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
+      regexes.push(InlineEditor.CSSLengthUtils.CSSLengthRegex);
+      processors.push(this.lengthHandler);
     }
     if (this.angleHandler && metadata.isAngleAwareProperty(this.propertyName)) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
