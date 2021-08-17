@@ -7311,7 +7311,7 @@
     "message": "{PH1} k̂B́"
   },
   "panels/profiler/HeapSnapshotView.ts | snapshotD": {
-    "message": "Ŝńâṕŝh́ôt́ {PH1}"
+    "message": "Ŝńâṕŝh́ôt́ {PH1} "
   },
   "panels/profiler/HeapSnapshotView.ts | snapshotting": {
     "message": "Ŝńâṕŝh́ôt́t̂ín̂ǵ…"

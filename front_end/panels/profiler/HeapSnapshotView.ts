@@ -184,7 +184,7 @@ const UIStrings = {
   *@description Profile title in Heap Snapshot View of a profiler tool
   *@example {1} PH1
   */
-  snapshotD: 'Snapshot {PH1}',
+  snapshotD: 'Snapshot {PH1} ',
   /**
   *@description Text for a percentage value
   *@example {13.0} PH1

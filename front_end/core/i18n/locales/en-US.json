@@ -7311,7 +7311,7 @@
     "message": "{PH1} kB"
   },
   "panels/profiler/HeapSnapshotView.ts | snapshotD": {
-    "message": "Snapshot {PH1}"
+    "message": "Snapshot {PH1} "
   },
   "panels/profiler/HeapSnapshotView.ts | snapshotting": {
     "message": "Snapshotting…"
