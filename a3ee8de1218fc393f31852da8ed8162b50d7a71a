@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f274188c_38f7f797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-08-17T12:49:32Z",
+      "side": 1,
+      "message": "Yeah, I think it\u0027s good to go. Let\u0027s unblock first and then improve later.",
+      "revId": "a3ee8de1218fc393f31852da8ed8162b50d7a71a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
