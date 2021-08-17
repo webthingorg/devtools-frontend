@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c53ae53e_69b36651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-17T07:45:16Z",
+      "side": 1,
+      "message": "Did you check that taking a snapshot actually works? (See the bug that causes the revert previously)\n\nNote that we apparently are missing test coverage.",
+      "revId": "db03d7622f64a2a36d5273b1715e9f1a347a3ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
