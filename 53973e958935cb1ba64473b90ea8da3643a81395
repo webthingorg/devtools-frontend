@@ -16,6 +16,24 @@
       "message": "I\u0027m a little hesitant here only because if the default is 10,000 there\u0027s presumably a reason that someone previously ended up setting it down to 1,000.  \n\nTim, wdyt?",
       "revId": "53973e958935cb1ba64473b90ea8da3643a81395",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a9d2f8_cc7dcca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-17T10:29:49Z",
+      "side": 1,
+      "message": "Yeah I am a bit hesitant as well. That said, I guess we can try it out and see what happens? We will soon be working on our CodeMirror integration, so let\u0027s tackle it when we get there.",
+      "parentUuid": "09377e8f_f72bc23b",
+      "revId": "53973e958935cb1ba64473b90ea8da3643a81395",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
