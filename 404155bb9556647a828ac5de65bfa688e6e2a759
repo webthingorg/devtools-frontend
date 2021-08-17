@@ -16,6 +16,24 @@
       "message": "Alternative suggestion below:\n* Removed the note on noise, because it\u0027s unrelated and has no effect on the 3-bit limit\n* Tweaked the language - Open to iterations, LMK what you think!\n\n---\n\n# Ensure the \"trigger-data\" query parameter for an attribution redirect doesn\u0027t exceed the 3-bit limit\n\nThe data associated with an attribution was truncated to the lowest 3 bits, because it was exceeding the limit.\nReplace the \"trigger-data\" parameter with an integer that respects the 3-bit limit, that is a number between 0 and 7.",
       "revId": "404155bb9556647a828ac5de65bfa688e6e2a759",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf7fe4b1_6a0d187e",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionTriggerDataTooLarge.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-17T07:20:40Z",
+      "side": 1,
+      "message": "Thanks for the fast response and the improved description!",
+      "parentUuid": "4d49bdb4_a9d6d04f",
+      "revId": "404155bb9556647a828ac5de65bfa688e6e2a759",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
