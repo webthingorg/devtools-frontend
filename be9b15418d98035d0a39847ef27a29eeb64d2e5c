@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9ef5f18_37d2b9e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-17T23:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de5b71d3_579d70c6",
+      "revId": "be9b15418d98035d0a39847ef27a29eeb64d2e5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0960633_8129d684",
@@ -101,6 +119,30 @@
       "writtenOn": "2021-08-17T13:51:16Z",
       "side": 1,
       "message": "The affected resource views haven\u0027t been updated and will still be using the old issue.",
+      "range": {
+        "startLine": 449,
+        "startChar": 6,
+        "endLine": 449,
+        "endChar": 16
+      },
+      "revId": "be9b15418d98035d0a39847ef27a29eeb64d2e5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16930969_0f418408",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-17T23:54:50Z",
+      "side": 1,
+      "message": "PTAL again.",
+      "parentUuid": "a0960633_8129d684",
       "range": {
         "startLine": 449,
         "startChar": 6,
