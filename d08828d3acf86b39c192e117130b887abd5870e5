@@ -73,6 +73,30 @@
       },
       "revId": "d08828d3acf86b39c192e117130b887abd5870e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dac19e9_9c9f188a",
+        "filename": "front_end/legacy_test_runner/console_test_runner/console_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-17T12:22:48Z",
+      "side": 1,
+      "message": "As discussed offline, this test wants to check whether elementInternal was created, and hence can\u0027t use the public getter (that one will force-create it).\n\nThe concern about private fields is somewhat orthogonal, this CL basically just follows-up with a rename that has already happened (inconsistently though).",
+      "parentUuid": "a86baec7_a1656e9e",
+      "range": {
+        "startLine": 690,
+        "startChar": 14,
+        "endLine": 690,
+        "endChar": 29
+      },
+      "revId": "d08828d3acf86b39c192e117130b887abd5870e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
