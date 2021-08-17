@@ -284,7 +284,7 @@ export class IssuesPane extends UI.Widget.VBox {
         this.appendIssueViewToParent(issueView, newParent);
       }
     }
-    issueView.update();
+    issueView.update(issue);
     this.updateCounts();
   }
 
