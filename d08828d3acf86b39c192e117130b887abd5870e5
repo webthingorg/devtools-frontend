@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "d08828d3acf86b39c192e117130b887abd5870e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe47544b_ef495684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-17T12:12:22Z",
+      "side": 1,
+      "message": "I am not sure if this is the correct solution, since they refer to private fields. Can you please coordinate with Jan to make sure we have these issues tracked?",
+      "revId": "d08828d3acf86b39c192e117130b887abd5870e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86baec7_a1656e9e",
+        "filename": "front_end/legacy_test_runner/console_test_runner/console_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-17T12:12:22Z",
+      "side": 1,
+      "message": "Since these are private fields, I don\u0027t think we should be referencing them here. Can we use the public fields instead?",
+      "range": {
+        "startLine": 690,
+        "startChar": 14,
+        "endLine": 690,
+        "endChar": 29
+      },
+      "revId": "d08828d3acf86b39c192e117130b887abd5870e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
