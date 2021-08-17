@@ -56,6 +56,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
 
     this._delegate = delegate;
 
+<<<<<<< HEAD   (bf8154 Fix incorrect method shadowing)
     this.codeMirror().on('cursorActivity', this._cursorActivity.bind(this));
     this.codeMirror().on('gutterClick', this._gutterClick.bind(this));
     this.codeMirror().on('scroll', this._scroll.bind(this));
@@ -65,6 +66,17 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this.codeMirror().on('gutterContextMenu', this._gutterContextMenu.bind(this));
     this.element.addEventListener('contextmenu', this._textAreaContextMenu.bind(this), false);
     this._gutterMouseMove = (event: Event): void => {
+=======
+    this.codeMirror().on('cursorActivity', this.cursorActivity.bind(this));
+    this.codeMirror().on('gutterClick', this.gutterClick.bind(this));
+    this.codeMirror().on('scroll', this.scroll.bind(this));
+    this.codeMirror().on('focus', this.focusInternal.bind(this));
+    this.codeMirror().on('blur', this.blurInternal.bind(this));
+    this.codeMirror().on('beforeSelectionChange', this.fireBeforeSelectionChanged.bind(this));
+    this.codeMirror().on('gutterContextMenu', this.gutterContextMenu.bind(this));
+    this.element.addEventListener('contextmenu', this.textAreaContextMenu.bind(this), false);
+    this.gutterMouseMove = (event: Event): void => {
+>>>>>>> CHANGE (8b5ec2 Fix SourcesTextEditor after underscore migration)
       const mouseEvent = (event as MouseEvent);
       this.element.classList.toggle(
           'CodeMirror-gutter-hovered',
@@ -496,11 +508,19 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this.dispatchEventToListeners(Events.ScrollChanged, topmostLineNumber);
   }
 
+<<<<<<< HEAD   (bf8154 Fix incorrect method shadowing)
   _focus(): void {
+=======
+  focusInternal(): void {
+>>>>>>> CHANGE (8b5ec2 Fix SourcesTextEditor after underscore migration)
     this.dispatchEventToListeners(Events.EditorFocused);
   }
 
+<<<<<<< HEAD   (bf8154 Fix incorrect method shadowing)
   _blur(): void {
+=======
+  private blurInternal(): void {
+>>>>>>> CHANGE (8b5ec2 Fix SourcesTextEditor after underscore migration)
     this.dispatchEventToListeners(Events.EditorBlurred);
   }
 
