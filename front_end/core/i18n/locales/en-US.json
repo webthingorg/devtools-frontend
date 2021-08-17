@@ -4922,6 +4922,9 @@
   "panels/issues/IssuesPane.ts | attributionReporting": {
     "message": "Attribution Reporting API"
   },
+  "panels/issues/IssuesPane.ts | breakingChanges": {
+    "message": "Breaking Changes"
+  },
   "panels/issues/IssuesPane.ts | contentSecurityPolicy": {
     "message": "Content Security Policy"
   },
@@ -4934,11 +4937,20 @@
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Group by category"
   },
+  "panels/issues/IssuesPane.ts | groupByKind": {
+    "message": "Group by kind"
+  },
   "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnder": {
     "message": "Group displayed issues under associated categories"
   },
+  "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnderKind": {
+    "message": "Group displayed issues under associated kind"
+  },
   "panels/issues/IssuesPane.ts | heavyAds": {
     "message": "Heavy Ads"
+  },
+  "panels/issues/IssuesPane.ts | improvements": {
+    "message": "Improvements"
   },
   "panels/issues/IssuesPane.ts | includeCookieIssuesCausedBy": {
     "message": "Include cookie Issues caused by third-party sites"
@@ -4960,6 +4972,9 @@
   },
   "panels/issues/IssuesPane.ts | other": {
     "message": "Other"
+  },
+  "panels/issues/IssuesPane.ts | pageErrors": {
+    "message": "Page Errors"
   },
   "panels/issues/IssuesPane.ts | quirksMode": {
     "message": "Quirks Mode"

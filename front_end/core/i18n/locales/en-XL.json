@@ -4922,6 +4922,9 @@
   "panels/issues/IssuesPane.ts | attributionReporting": {
     "message": "Ât́t̂ŕîb́ût́îón̂ Ŕêṕôŕt̂ín̂ǵ API"
   },
+  "panels/issues/IssuesPane.ts | breakingChanges": {
+    "message": "B̂ŕêák̂ín̂ǵ Ĉh́âńĝéŝ"
+  },
   "panels/issues/IssuesPane.ts | contentSecurityPolicy": {
     "message": "Ĉón̂t́êńt̂ Śêćûŕît́ŷ Ṕôĺîćŷ"
   },
@@ -4934,11 +4937,20 @@
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Ĝŕôúp̂ b́ŷ ćât́êǵôŕŷ"
   },
+  "panels/issues/IssuesPane.ts | groupByKind": {
+    "message": "Ĝŕôúp̂ b́ŷ ḱîńd̂"
+  },
   "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnder": {
     "message": "Ĝŕôúp̂ d́îśp̂ĺâýêd́ îśŝúêś ûńd̂ér̂ áŝśôćîát̂éd̂ ćât́êǵôŕîéŝ"
   },
+  "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnderKind": {
+    "message": "Ĝŕôúp̂ d́îśp̂ĺâýêd́ îśŝúêś ûńd̂ér̂ áŝśôćîát̂éd̂ ḱîńd̂"
+  },
   "panels/issues/IssuesPane.ts | heavyAds": {
     "message": "Ĥéâv́ŷ Ád̂ś"
+  },
+  "panels/issues/IssuesPane.ts | improvements": {
+    "message": "Îḿp̂ŕôv́êḿêńt̂ś"
   },
   "panels/issues/IssuesPane.ts | includeCookieIssuesCausedBy": {
     "message": "Îńĉĺûd́ê ćôók̂íê Íŝśûéŝ ćâúŝéd̂ b́ŷ t́ĥír̂d́-p̂ár̂t́ŷ śît́êś"
@@ -4960,6 +4972,9 @@
   },
   "panels/issues/IssuesPane.ts | other": {
     "message": "Ôt́ĥér̂"
+  },
+  "panels/issues/IssuesPane.ts | pageErrors": {
+    "message": "P̂áĝé Êŕr̂ór̂ś"
   },
   "panels/issues/IssuesPane.ts | quirksMode": {
     "message": "Q̂úîŕk̂ś M̂ód̂é"

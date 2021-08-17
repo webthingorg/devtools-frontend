@@ -5,10 +5,13 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
+import * as Adorners from '../../ui/components/adorners/adorners.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {HiddenIssuesRow} from './HiddenIssuesRow.js';
+
 import type {AggregatedIssue} from './IssueAggregator.js';
 import {Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';
 import {IssueView} from './IssueView.js';
@@ -62,6 +65,14 @@ const UIStrings = {
    */
   groupByCategory: 'Group by category',
   /**
+  * @description Title for a checkbox which toggles grouping by kind in the issues tab
+    */
+  groupDisplayedIssuesUnderKind: 'Group displayed issues under associated kind',
+  /**
+  * @description Label for a checkbox which toggles grouping by kind in the issues tab
+    */
+  groupByKind: 'Group by kind',
+  /**
    * @description Title for a checkbox. Whether the issues tab should include third-party issues or not.
    */
   includeCookieIssuesCausedBy: 'Include cookie Issues caused by third-party sites',
@@ -88,6 +99,18 @@ const UIStrings = {
    *              browser behaviors.
    */
   quirksMode: 'Quirks Mode',
+  /**
+   * @description Kind title for a group of improvements
+   */
+  improvements: 'Improvements',
+  /**
+   * @description Kind title for a group of page errors
+   */
+  pageErrors: 'Page Errors',
+  /**
+   * @description Kind title for a group of breaking changes
+   */
+  breakingChanges: 'Breaking Changes',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/issues/IssuesPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -150,14 +173,97 @@ class IssueCategoryView extends UI.TreeOutline.TreeElement {
   }
 }
 
+function issueKindViewSortPriority(a: IssueKindView, b: IssueKindView): number {
+  if (a.getKind() === IssuesManager.Issue.IssueKind.PageError) {
+    return -1;
+  }
+  if (a.getKind() === IssuesManager.Issue.IssueKind.BreakingChange &&
+      b.getKind() === IssuesManager.Issue.IssueKind.Improvement) {
+    return -1;
+  }
+  return 1;
+}
+
+class IssueKindView extends UI.TreeOutline.TreeElement {
+  private kind: IssuesManager.Issue.IssueKind;
+  private issueCount: HTMLElement;
+
+  constructor(kind: IssuesManager.Issue.IssueKind) {
+    super();
+    this.kind = kind;
+    this.issueCount = document.createElement('span');
+
+    this.toggleOnClick = true;
+    this.listItemElement.classList.add('issue-category');
+    this.listItemElement.classList.add('issue-kind');
+    this.childrenListElement.classList.add('issue-kind-body');
+  }
+
+  getKindName(): string {
+    switch (this.kind) {
+      case IssuesManager.Issue.IssueKind.BreakingChange:
+        return i18nString(UIStrings.breakingChanges);
+      case IssuesManager.Issue.IssueKind.Improvement:
+        return i18nString(UIStrings.improvements);
+      case IssuesManager.Issue.IssueKind.PageError:
+        return i18nString(UIStrings.pageErrors);
+    }
+  }
+
+  getKind(): IssuesManager.Issue.IssueKind {
+    return this.kind;
+  }
+
+  private appendHeader(): void {
+    const header = document.createElement('div');
+    header.classList.add('header');
+
+    const issueKindIcon = new IconButton.Icon.Icon();
+    issueKindIcon.data = IssueCounter.IssueCounter.getIssueKindIconData(this.kind);
+    issueKindIcon.classList.add('leading-issue-icon');
+
+    const countAdorner = new Adorners.Adorner.Adorner();
+    countAdorner.data = {
+      name: 'countWrapper',
+      content: this.issueCount,
+    };
+    countAdorner.classList.add('aggregated-issues-count');
+    this.issueCount.textContent = '0';
+
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.textContent = this.getKindName();
+
+    header.appendChild(issueKindIcon);
+    header.appendChild(countAdorner);
+    header.appendChild(title);
+
+    this.listItemElement.appendChild(header);
+  }
+
+  onattach(): void {
+    this.appendHeader();
+    this.expand();
+  }
+
+  update(count: number): void {
+    this.issueCount.textContent = `${count}`;
+  }
+}
+
 export function getGroupIssuesByCategorySetting(): Common.Settings.Setting<boolean> {
   return Common.Settings.Settings.instance().createSetting('groupIssuesByCategory', false);
+}
+
+export function getGroupIssuesByKindSetting(): Common.Settings.Setting<boolean> {
+  return Common.Settings.Settings.instance().createSetting('groupIssuesByKind', false);
 }
 
 let issuesPaneInstance: IssuesPane;
 
 export class IssuesPane extends UI.Widget.VBox {
   private categoryViews: Map<IssuesManager.Issue.IssueCategory, IssueCategoryView>;
+  private kindViews: Map<IssuesManager.Issue.IssueKind, IssueKindView>;
   private issueViews: Map<string, IssueView>;
   private showThirdPartyCheckbox: UI.Toolbar.ToolbarSettingCheckbox|null;
   private issuesTree: UI.TreeOutline.TreeOutlineInShadow;
@@ -173,6 +279,7 @@ export class IssuesPane extends UI.Widget.VBox {
     this.contentElement.classList.add('issues-pane');
 
     this.categoryViews = new Map();
+    this.kindViews = new Map();
     this.issueViews = new Map();
     this.showThirdPartyCheckbox = null;
 
@@ -225,6 +332,14 @@ export class IssuesPane extends UI.Widget.VBox {
     groupByCategoryCheckbox.setVisible(false);
     rightToolbar.appendToolbarItem(groupByCategoryCheckbox);
     groupByCategorySetting.addChangeListener(() => {
+      this.fullUpdate(true);
+    });
+
+    const groupByKindSetting = getGroupIssuesByKindSetting();
+    const groupByKindSettingCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+        groupByKindSetting, i18nString(UIStrings.groupDisplayedIssuesUnderKind), i18nString(UIStrings.groupByKind));
+    rightToolbar.appendToolbarItem(groupByKindSettingCheckbox);
+    groupByKindSetting.addChangeListener(() => {
       this.fullUpdate(true);
     });
 
@@ -284,7 +399,7 @@ export class IssuesPane extends UI.Widget.VBox {
         this.appendIssueViewToParent(issueView, newParent);
       }
     }
-    issueView.update();
+    issueView.update(issue);
     this.updateCounts();
   }
 
@@ -305,28 +420,44 @@ export class IssuesPane extends UI.Widget.VBox {
   }
 
   private getIssueViewParent(issue: AggregatedIssue): UI.TreeOutline.TreeOutline|UI.TreeOutline.TreeElement {
-    if (!getGroupIssuesByCategorySetting().get()) {
-      if (issue.isHidden()) {
-        return this.hiddenIssuesRow;
-      }
-      return this.issuesTree;
+    if (issue.isHidden()) {
+      return this.hiddenIssuesRow;
     }
-
-    const category = issue.getCategory();
-    const view = this.categoryViews.get(category);
-    if (view) {
-      return view;
-    }
-
-    const newView = new IssueCategoryView(category);
-    this.issuesTree.appendChild(newView, (a, b) => {
-      if (a instanceof IssueCategoryView && b instanceof IssueCategoryView) {
-        return a.getCategoryName().localeCompare(b.getCategoryName());
+    if (getGroupIssuesByCategorySetting().get()) {
+      const category = issue.getCategory();
+      const view = this.categoryViews.get(category);
+      if (view) {
+        return view;
       }
-      return 0;
-    });
-    this.categoryViews.set(category, newView);
-    return newView;
+
+      const newView = new IssueCategoryView(category);
+      this.issuesTree.appendChild(newView, (a, b) => {
+        if (a instanceof IssueCategoryView && b instanceof IssueCategoryView) {
+          return a.getCategoryName().localeCompare(b.getCategoryName());
+        }
+        return 0;
+      });
+      this.categoryViews.set(category, newView);
+      return newView;
+    }
+    if (getGroupIssuesByKindSetting().get()) {
+      const kind = issue.getKind();
+      const view = this.kindViews.get(kind);
+      if (view) {
+        return view;
+      }
+
+      const newView = new IssueKindView(kind);
+      this.issuesTree.appendChild(newView, (a, b) => {
+        if (a instanceof IssueKindView && b instanceof IssueKindView) {
+          return issueKindViewSortPriority(a, b);
+        }
+        return 0;
+      });
+      this.kindViews.set(kind, newView);
+      return newView;
+    }
+    return this.issuesTree;
   }
 
   private clearViews<T>(views: Map<T, UI.TreeOutline.TreeElement>, preservedSet?: Set<T>): void {
@@ -345,6 +476,7 @@ export class IssuesPane extends UI.Widget.VBox {
 
   private fullUpdate(force: boolean): void {
     this.clearViews(this.categoryViews, force ? undefined : this.aggregator.aggregatedIssueCategories());
+    this.clearViews(this.kindViews, force ? undefined : this.aggregator.aggregatedIssueKinds());
     this.clearViews(this.issueViews, force ? undefined : this.aggregator.aggregatedIssueCodes());
     if (this.aggregator) {
       for (const issue of this.aggregator.aggregatedIssues()) {
@@ -354,9 +486,20 @@ export class IssuesPane extends UI.Widget.VBox {
     this.updateCounts();
   }
 
+  private updateIssueKindViewsCount(): void {
+    for (const view of this.kindViews.values()) {
+      const count =
+          this.issuesManager.numberOfIssues(view.getKind()) - this.issuesManager.numberOfHiddenIssues(view.getKind());
+      view.update(count);
+    }
+  }
+
   private updateCounts(): void {
     this.showIssuesTreeOrNoIssuesDetectedMessage(
         this.issuesManager.numberOfIssues(), this.issuesManager.numberOfHiddenIssues());
+    if (getGroupIssuesByKindSetting().get()) {
+      this.updateIssueKindViewsCount();
+    }
   }
 
   private showIssuesTreeOrNoIssuesDetectedMessage(issuesCount: number, hiddenIssueCount: number): void {
