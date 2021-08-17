@@ -409,6 +409,38 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return cssAngle;
   }
 
+  private processLength(lengthText: string): Text|InlineEditor.CSSLength.CSSLength {
+    if (!this.editable()) {
+      return document.createTextNode(lengthText);
+    }
+    const cssLength = new InlineEditor.CSSLength.CSSLength();
+    const valueElement = document.createElement('span');
+    valueElement.textContent = lengthText;
+    cssLength.data = {
+      lengthText,
+    };
+    cssLength.append(valueElement);
+
+    const onValueChanged = (event: Event): void => {
+      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const {data} = (event as any);
+
+      valueElement.textContent = data.value;
+      this.parentPaneInternal.setEditingStyle(true);
+      this.applyStyleText(this.renderedPropertyText(), false);
+    };
+
+    const onDraggingFinished = (): void => {
+      this.parentPaneInternal.setEditingStyle(false);
+    };
+
+    cssLength.addEventListener('valuechanged', onValueChanged);
+    cssLength.addEventListener('draggingfinished', onDraggingFinished);
+
+    return cssLength;
+  }
+
   private updateState(): void {
     if (!this.listItemElement) {
       return;
@@ -596,6 +628,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setShadowHandler(this.processShadow.bind(this));
       propertyRenderer.setGridHandler(this.processGrid.bind(this));
       propertyRenderer.setAngleHandler(this.processAngle.bind(this));
+      propertyRenderer.setLengthHandler(this.processLength.bind(this));
     }
 
     this.listItemElement.removeChildren();
