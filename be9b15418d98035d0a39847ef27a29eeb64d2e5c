@@ -33,6 +33,24 @@
       "message": "Thanks for identifying this bug. Does this affect M94? If no, then let\u0027s first refactor IssueView to support a setIssue method.",
       "revId": "be9b15418d98035d0a39847ef27a29eeb64d2e5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cf5f64_51d09980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-17T08:52:39Z",
+      "side": 1,
+      "message": "The changes do affect M94, sorry took me a while to figure that out.",
+      "parentUuid": "139956a1_8912380c",
+      "revId": "be9b15418d98035d0a39847ef27a29eeb64d2e5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
