@@ -76,6 +76,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/TabbedPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TabbedPane extends VBox {
+<<<<<<< HEAD   (c09852 [Underscore Migration] Fix a race condition)
   _headerElement: HTMLElement;
   _headerContentsElement: HTMLElement;
   _tabSlider: HTMLDivElement;
@@ -105,6 +106,37 @@ export class TabbedPane extends VBox {
   _rightToolbar?: Toolbar;
   _allowTabReorder?: boolean;
   _automaticReorder?: boolean;
+=======
+  private readonly headerElementInternal: HTMLElement;
+  private readonly headerContentsElement: HTMLElement;
+  tabSlider: HTMLDivElement;
+  readonly tabsElement: HTMLElement;
+  private readonly contentElementInternal: HTMLElement;
+  private tabs: TabbedPaneTab[];
+  private readonly tabsHistory: TabbedPaneTab[];
+  tabsById: Map<string, TabbedPaneTab>;
+  private currentTabLocked: boolean;
+  private autoSelectFirstItemOnShow: boolean;
+  private triggerDropDownTimeout: number|null;
+  private dropDownButton: HTMLDivElement;
+  private currentDevicePixelRatio: number;
+  private shrinkableTabs?: boolean;
+  private verticalTabLayout?: boolean;
+  private closeableTabs?: boolean;
+  private delegate?: TabbedPaneTabDelegate;
+  private currentTab?: TabbedPaneTab;
+  private sliderEnabled?: boolean;
+  private placeholderElement?: Element;
+  private focusedPlaceholderElement?: Element;
+  private placeholderContainerElement?: HTMLElement;
+  private lastSelectedOverflowTab?: TabbedPaneTab;
+  private overflowDisabled?: boolean;
+  private measuredDropDownButtonWidth?: number;
+  private leftToolbarInternal?: Toolbar;
+  private rightToolbarInternal?: Toolbar;
+  allowTabReorder?: boolean;
+  private automaticReorder?: boolean;
+>>>>>>> CHANGE (00ff2f Fix incorrect variable shadowing)
 
   constructor() {
     super(true);
@@ -113,6 +145,7 @@ export class TabbedPane extends VBox {
     this.contentElement.classList.add('tabbed-pane-shadow');
     this.contentElement.tabIndex = -1;
     this.setDefaultFocusedElement(this.contentElement);
+<<<<<<< HEAD   (c09852 [Underscore Migration] Fix a race condition)
     this._headerElement = this.contentElement.createChild('div', 'tabbed-pane-header');
     this._headerContentsElement = this._headerElement.createChild('div', 'tabbed-pane-header-contents');
     this._tabSlider = document.createElement('div');
@@ -127,6 +160,22 @@ export class TabbedPane extends VBox {
     this._tabsById = new Map();
     this._currentTabLocked = false;
     this._autoSelectFirstItemOnShow = true;
+=======
+    this.headerElementInternal = this.contentElement.createChild('div', 'tabbed-pane-header');
+    this.headerContentsElement = this.headerElementInternal.createChild('div', 'tabbed-pane-header-contents');
+    this.tabSlider = document.createElement('div');
+    this.tabSlider.classList.add('tabbed-pane-tab-slider');
+    this.tabsElement = this.headerContentsElement.createChild('div', 'tabbed-pane-header-tabs');
+    this.tabsElement.setAttribute('role', 'tablist');
+    this.tabsElement.addEventListener('keydown', this.keyDown.bind(this), false);
+    this.contentElementInternal = this.contentElement.createChild('div', 'tabbed-pane-content') as HTMLDivElement;
+    this.contentElementInternal.createChild('slot');
+    this.tabs = [];
+    this.tabsHistory = [];
+    this.tabsById = new Map();
+    this.currentTabLocked = false;
+    this.autoSelectFirstItemOnShow = true;
+>>>>>>> CHANGE (00ff2f Fix incorrect variable shadowing)
 
     this._triggerDropDownTimeout = null;
     this._dropDownButton = this._createDropDownButton();
@@ -518,6 +567,7 @@ export class TabbedPane extends VBox {
       return;
     }
 
+<<<<<<< HEAD   (c09852 [Underscore Migration] Fix a race condition)
     if (!this._tabs.length) {
       this._contentElement.classList.add('has-no-tabs');
       if (this._placeholderElement && !this._placeholderContainerElement) {
@@ -525,12 +575,28 @@ export class TabbedPane extends VBox {
         this._placeholderContainerElement.appendChild(this._placeholderElement);
         if (this._focusedPlaceholderElement) {
           this.setDefaultFocusedElement(this._focusedPlaceholderElement);
+=======
+    if (!this.tabs.length) {
+      this.contentElementInternal.classList.add('has-no-tabs');
+      if (this.placeholderElement && !this.placeholderContainerElement) {
+        this.placeholderContainerElement =
+            this.contentElementInternal.createChild('div', 'tabbed-pane-placeholder fill');
+        this.placeholderContainerElement.appendChild(this.placeholderElement);
+        if (this.focusedPlaceholderElement) {
+          this.setDefaultFocusedElement(this.focusedPlaceholderElement);
+>>>>>>> CHANGE (00ff2f Fix incorrect variable shadowing)
         }
       }
     } else {
+<<<<<<< HEAD   (c09852 [Underscore Migration] Fix a race condition)
       this._contentElement.classList.remove('has-no-tabs');
       if (this._placeholderContainerElement) {
         this._placeholderContainerElement.remove();
+=======
+      this.contentElementInternal.classList.remove('has-no-tabs');
+      if (this.placeholderContainerElement) {
+        this.placeholderContainerElement.remove();
+>>>>>>> CHANGE (00ff2f Fix incorrect variable shadowing)
         this.setDefaultFocusedElement(this.contentElement);
         delete this._placeholderContainerElement;
       }
@@ -854,7 +920,11 @@ export class TabbedPane extends VBox {
   }
 
   elementsToRestoreScrollPositionsFor(): Element[] {
+<<<<<<< HEAD   (c09852 [Underscore Migration] Fix a race condition)
     return [this._contentElement];
+=======
+    return [this.contentElementInternal];
+>>>>>>> CHANGE (00ff2f Fix incorrect variable shadowing)
   }
 
   _insertBefore(tab: TabbedPaneTab, index: number): void {
