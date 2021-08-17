@@ -48,7 +48,8 @@
   border-width: 0 0 1px;
 }
 
-.issue-category.hidden-issues.parent.expanded {
+.issue-category.hidden-issues.parent.expanded,
+.issue-category.issue-kind.parent.expanded {
   border-width: 0 0 1px 0;
   background-color: var(--color-background-elevation-1);
 }
