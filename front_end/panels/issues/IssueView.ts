@@ -219,7 +219,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   private description: IssuesManager.MarkdownIssueDescription.IssueDescription;
   toggleOnClick: boolean;
   affectedResources: UI.TreeOutline.TreeElement;
-  private readonly affectedResourceViews: AffectedResourcesView[];
+  private affectedResourceViews: AffectedResourcesView[];
   private aggregatedIssuesCount: HTMLElement|null;
   private issueKindIcon: IconButton.Icon.Icon|null = null;
   private hasBeenExpandedBefore: boolean;
@@ -446,6 +446,34 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   update(): void {
     this.throttle.schedule(async () => this.doUpdate());
+  }
+
+  resetIssueAndResources(issue: AggregatedIssue): void {
+    this.issue = issue;
+    this.affectedResources.removeChildren();
+    this.affectedResourceViews = [
+      new AffectedCookiesView(this, this.issue),
+      new AffectedElementsView(this, this.issue),
+      new AffectedRequestsView(this, this.issue),
+      new AffectedMixedContentView(this, this.issue),
+      new AffectedSourcesView(this, this.issue),
+      new AffectedHeavyAdView(this, this.issue),
+      new AffectedDirectivesView(this, this.issue),
+      new AffectedBlockedByResponseView(this, this.issue),
+      new AffectedSharedArrayBufferIssueDetailsView(this, this.issue),
+      new AffectedElementsWithLowContrastView(this, this.issue),
+      new AffectedTrustedWebActivityIssueDetailsView(this, this.issue),
+      new CorsIssueDetailsView(this, this.issue),
+      new AffectedDocumentsInQuirksModeView(this, this.issue),
+      new AttributionReportingIssueDetailsView(this, this.issue),
+      new WasmCrossOriginModuleSharingAffectedResourcesView(this, this.issue),
+      new AffectedRawCookieLinesView(this, this.issue),
+    ];
+    // We don't update views here, because call to this method is followed
+    // a call to update, which handles individual view updates.
+    for (const view of this.affectedResourceViews) {
+      this.appendAffectedResource(view);
+    }
   }
 
   isForHiddenIssue(): boolean {
