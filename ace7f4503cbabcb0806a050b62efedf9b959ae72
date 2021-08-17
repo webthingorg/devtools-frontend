@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e55b51a_52cae958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-08-17T11:37:28Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the second part of the fix for fragmented array object views in DevTools. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "ace7f4503cbabcb0806a050b62efedf9b959ae72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
