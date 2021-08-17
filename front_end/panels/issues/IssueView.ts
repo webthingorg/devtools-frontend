@@ -444,7 +444,10 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.updateFromIssue();
   }
 
-  update(): void {
+  update(issue?: AggregatedIssue): void {
+    if (issue) {
+      this.issue = issue;
+    }
     this.throttle.schedule(async () => this.doUpdate());
   }
 
