@@ -4907,6 +4907,15 @@
   "panels/issues/HiddenIssuesRow.ts | unhideIssues": {
     "message": "Unhide all issues"
   },
+  "panels/issues/IssueKindView.ts | breakingChanges": {
+    "message": "Breaking Changes"
+  },
+  "panels/issues/IssueKindView.ts | improvements": {
+    "message": "Improvements"
+  },
+  "panels/issues/IssueKindView.ts | pageErrors": {
+    "message": "Page Errors"
+  },
   "panels/issues/issues-meta.ts | cspViolations": {
     "message": "CSP Violations"
   },
@@ -4934,8 +4943,14 @@
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Group by category"
   },
+  "panels/issues/IssuesPane.ts | groupByKind": {
+    "message": "Group by kind"
+  },
   "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnder": {
     "message": "Group displayed issues under associated categories"
+  },
+  "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnderKind": {
+    "message": "Group displayed issues under associated kind"
   },
   "panels/issues/IssuesPane.ts | heavyAds": {
     "message": "Heavy Ads"
