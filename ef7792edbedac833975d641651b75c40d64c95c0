@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbf01cf_cd961555",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-08-17T07:33:19Z",
+      "side": 1,
+      "message": "Looking good - Added a few small nits I didn\u0027t think of on the first pass, thank you!",
+      "revId": "ef7792edbedac833975d641651b75c40d64c95c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb9b8ae_f34ce228",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionTriggerDataTooLarge.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-08-17T07:33:19Z",
+      "side": 1,
+      "message": "Suggestion for consistency with the source-side (impression-side) issue title:\n# Ensure the trigger data doesn\u0027t exceed the 3-bit limit",
+      "revId": "ef7792edbedac833975d641651b75c40d64c95c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b840972_90019725",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionTriggerDataTooLarge.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-08-17T07:33:19Z",
+      "side": 1,
+      "message": "Suggestion:\nThe `trigger-data` query parameter of an attribution redirect was truncated to the lowest...",
+      "revId": "ef7792edbedac833975d641651b75c40d64c95c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49fdb264_4b8eb1b4",
+        "filename": "front_end/models/issues_manager/descriptions/arAttributionTriggerDataTooLarge.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-08-17T07:33:19Z",
+      "side": 1,
+      "message": "Maybe `trigger-data` with ticks for formatting?",
+      "revId": "ef7792edbedac833975d641651b75c40d64c95c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
