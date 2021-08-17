@@ -16,6 +16,24 @@
       "message": "Did you check that taking a snapshot actually works? (See the bug that causes the revert previously)\n\nNote that we apparently are missing test coverage.",
       "revId": "db03d7622f64a2a36d5273b1715e9f1a347a3ccd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dffe4e80_ec07e100",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-08-17T10:52:34Z",
+      "side": 1,
+      "message": "I verified this patch manually and it worked.",
+      "parentUuid": "c53ae53e_69b36651",
+      "revId": "db03d7622f64a2a36d5273b1715e9f1a347a3ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
