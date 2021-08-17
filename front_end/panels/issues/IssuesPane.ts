@@ -194,7 +194,7 @@ export class IssuesPane extends UI.Widget.VBox {
     this.issuesManager = IssuesManager.IssuesManager.IssuesManager.instance();
     this.aggregator = new IssueAggregator(this.issuesManager);
     this.aggregator.addEventListener(IssueAggregatorEvents.AggregatedIssueUpdated, this.issueUpdated, this);
-    this.aggregator.addEventListener(IssueAggregatorEvents.FullUpdateRequired, this.onFullUpdate, this);
+    this.aggregator.addEventListener(IssueAggregatorEvents.FullUpdateRequired, () => this.onFullUpdate(true), this);
     this.hiddenIssuesRow.hidden = this.issuesManager.numberOfHiddenIssues() === 0;
     this.onFullUpdate();
     this.issuesManager.addEventListener(IssuesManager.IssuesManager.Events.IssuesCountUpdated, this.updateCounts, this);
@@ -257,12 +257,12 @@ export class IssuesPane extends UI.Widget.VBox {
     this.scheduleIssueViewUpdate(event.data);
   }
 
-  private scheduleIssueViewUpdate(issue: AggregatedIssue): void {
-    this.issueViewUpdatePromise = this.issueViewUpdatePromise.then(() => this.updateIssueView(issue));
+  private scheduleIssueViewUpdate(issue: AggregatedIssue, reset?: boolean): void {
+    this.issueViewUpdatePromise = this.issueViewUpdatePromise.then(() => this.updateIssueView(issue, reset));
   }
 
   /** Don't call directly. Use `scheduleIssueViewUpdate` instead. */
-  private async updateIssueView(issue: AggregatedIssue): Promise<void> {
+  private async updateIssueView(issue: AggregatedIssue, reset?: boolean): Promise<void> {
     let issueView = this.issueViews.get(issue.code());
     if (!issueView) {
       const description = issue.getDescription();
@@ -284,6 +284,12 @@ export class IssuesPane extends UI.Widget.VBox {
         this.appendIssueViewToParent(issueView, newParent);
       }
     }
+    // This should only happen when IssueAggregatorEvents.FullUpdateRequired
+    // is dispatched.
+    if (reset) {
+      issueView.resetIssueAndResources(issue);
+    }
+
     issueView.update();
     this.updateCounts();
   }
@@ -339,16 +345,24 @@ export class IssuesPane extends UI.Widget.VBox {
     }
   }
 
-  private onFullUpdate(): void {
-    this.fullUpdate(false);
+  // The reason we pass reset as a parameter to onFullUpdate
+  // is because this.fullUpdate is forced when groupByCategory or
+  // groupByKind is toggled. So in that case we don't want
+  // aggregated issues to reset, instead we only want
+  // aggregate issues to reset in IssueViews when issue views are
+  // cached and IssueAggregator clears all Aggregated Issues. That
+  // only happens when IssueAggregatorEvents.FullUpdateRequired
+  // is dispatched.
+  private onFullUpdate(reset?: boolean): void {
+    this.fullUpdate(false, reset);
   }
 
-  private fullUpdate(force: boolean): void {
+  private fullUpdate(force: boolean, reset?: boolean): void {
     this.clearViews(this.categoryViews, force ? undefined : this.aggregator.aggregatedIssueCategories());
     this.clearViews(this.issueViews, force ? undefined : this.aggregator.aggregatedIssueCodes());
     if (this.aggregator) {
       for (const issue of this.aggregator.aggregatedIssues()) {
-        this.scheduleIssueViewUpdate(issue);
+        this.scheduleIssueViewUpdate(issue, reset);
       }
     }
     this.updateCounts();
