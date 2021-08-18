@@ -227,6 +227,7 @@ export class HeapSnapshotSortableDataGrid extends DataGrid.DataGrid.DataGridImpl
   }
 
   wasShown(): void {
+    super.wasShown();
     if (this.nameFilter) {
       this.nameFilter.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.onNameFilterChanged, this);
       this.updateVisibleNodes(true);
