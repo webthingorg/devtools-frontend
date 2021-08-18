@@ -44,22 +44,23 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class EmptyWidget extends VBox {
   private textElement: HTMLElement;
+  private contentElementInternal: HTMLElement;
 
   constructor(text: string) {
     super();
     this.registerRequiredCSS('ui/legacy/emptyWidget.css');
     this.element.classList.add('empty-view-scroller');
-    this.contentElement = this.element.createChild('div', 'empty-view') as HTMLDivElement;
+    this.contentElementInternal = this.element.createChild('div', 'empty-view') as HTMLDivElement;
     this.textElement = this.contentElement.createChild('div', 'empty-bold-text');
     this.textElement.textContent = text;
   }
 
   appendParagraph(): Element {
-    return this.contentElement.createChild('p');
+    return this.contentElementInternal.createChild('p');
   }
 
   appendLink(link: string): HTMLElement {
-    return this.contentElement.appendChild(XLink.create(link, i18nString(UIStrings.learnMore))) as HTMLElement;
+    return this.contentElementInternal.appendChild(XLink.create(link, i18nString(UIStrings.learnMore))) as HTMLElement;
   }
 
   set text(text: string) {
