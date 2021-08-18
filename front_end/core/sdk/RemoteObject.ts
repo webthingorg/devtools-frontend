@@ -151,10 +151,12 @@ export class RemoteObject {
     return {value: objectAsProtocolRemoteObject.value};
   }
 
-  static async loadFromObjectPerProto(object: RemoteObject, generatePreview: boolean): Promise<GetPropertiesResult> {
+  static async loadFromObjectPerProto(
+      object: RemoteObject, generatePreview: boolean,
+      nonIndexedPropertiesOnly: boolean = false): Promise<GetPropertiesResult> {
     const result = await Promise.all([
       object.getAllProperties(true /* accessorPropertiesOnly */, generatePreview),
-      object.getOwnProperties(generatePreview),
+      object.getOwnProperties(generatePreview, nonIndexedPropertiesOnly),
     ]);
     const accessorProperties = result[0].properties;
     const ownProperties = result[1].properties;
@@ -245,7 +247,7 @@ export class RemoteObject {
     throw 'Not implemented';
   }
 
-  getOwnProperties(_generatePreview: boolean): Promise<GetPropertiesResult> {
+  getOwnProperties(_generatePreview: boolean, _nonIndexedPropertiesOnly?: boolean): Promise<GetPropertiesResult> {
     throw 'Not implemented';
   }
 
@@ -408,26 +410,32 @@ export class RemoteObjectImpl extends RemoteObject {
     return this.classNameInternal;
   }
 
-  getOwnProperties(generatePreview: boolean): Promise<GetPropertiesResult> {
-    return this.doGetProperties(true, false, generatePreview);
+  getOwnProperties(generatePreview: boolean, nonIndexedPropertiesOnly: boolean = false): Promise<GetPropertiesResult> {
+    return this.doGetProperties(true, false, nonIndexedPropertiesOnly, generatePreview);
   }
 
   getAllProperties(accessorPropertiesOnly: boolean, generatePreview: boolean): Promise<GetPropertiesResult> {
-    return this.doGetProperties(false, accessorPropertiesOnly, generatePreview);
+    return this.doGetProperties(false, accessorPropertiesOnly, false, generatePreview);
   }
 
   async createRemoteObject(object: Protocol.Runtime.RemoteObject): Promise<RemoteObject> {
     return this.runtimeModelInternal.createRemoteObject(object);
   }
 
-  async doGetProperties(ownProperties: boolean, accessorPropertiesOnly: boolean, generatePreview: boolean):
-      Promise<GetPropertiesResult> {
+  async doGetProperties(
+      ownProperties: boolean, accessorPropertiesOnly: boolean, nonIndexedPropertiesOnly: boolean,
+      generatePreview: boolean): Promise<GetPropertiesResult> {
     if (!this.objectIdInternal) {
       return {properties: null, internalProperties: null} as GetPropertiesResult;
     }
 
-    const response = await this.runtimeAgent.invoke_getProperties(
-        {objectId: this.objectIdInternal, ownProperties, accessorPropertiesOnly, generatePreview});
+    const response = await this.runtimeAgent.invoke_getProperties({
+      objectId: this.objectIdInternal,
+      ownProperties,
+      accessorPropertiesOnly,
+      nonIndexedPropertiesOnly,
+      generatePreview,
+    });
     if (response.getError()) {
       return {properties: null, internalProperties: null} as GetPropertiesResult;
     }
@@ -633,8 +641,8 @@ export class ScopeRemoteObject extends RemoteObjectImpl {
       return {properties: this.savedScopeProperties.slice(), internalProperties: null};
     }
 
-    const allProperties =
-        await super.doGetProperties(ownProperties, accessorPropertiesOnly, true /* generatePreview */);
+    const allProperties = await super.doGetProperties(
+        ownProperties, accessorPropertiesOnly, false /* nonIndexedPropertiesOnly */, true /* generatePreview */);
     if (this.scopeRef && Array.isArray(allProperties.properties)) {
       this.savedScopeProperties = allProperties.properties.slice();
       if (!this.scopeRef.callFrameId) {
@@ -859,8 +867,18 @@ export class LocalJSONObject extends RemoteObject {
     return Boolean(Object.keys((this.valueInternal as Object)).length);
   }
 
-  async getOwnProperties(_generatePreview: boolean): Promise<GetPropertiesResult> {
-    return {properties: this.children(), internalProperties: null} as GetPropertiesResult;
+  async getOwnProperties(_generatePreview: boolean, nonIndexedPropertiesOnly: boolean = false):
+      Promise<GetPropertiesResult> {
+    function isArrayIndex(name: string): boolean {
+      const index = Number(name) >>> 0;
+      return String(index) === name;
+    }
+
+    let properties = this.children();
+    if (nonIndexedPropertiesOnly) {
+      properties = properties.filter(property => !isArrayIndex(property.name));
+    }
+    return {properties, internalProperties: null} as GetPropertiesResult;
   }
 
   async getAllProperties(accessorPropertiesOnly: boolean, _generatePreview: boolean): Promise<GetPropertiesResult> {
