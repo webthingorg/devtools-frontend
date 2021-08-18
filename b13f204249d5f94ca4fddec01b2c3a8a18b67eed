@@ -16,6 +16,24 @@
       "message": "Isn\u0027t there an issueKind type?",
       "revId": "b13f204249d5f94ca4fddec01b2c3a8a18b67eed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "652a5564_b00c340f",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T21:57:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87587aae_1d69aff4",
+      "revId": "b13f204249d5f94ca4fddec01b2c3a8a18b67eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
