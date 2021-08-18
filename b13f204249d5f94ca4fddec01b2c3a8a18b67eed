@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87587aae_1d69aff4",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-18T12:00:22Z",
+      "side": 1,
+      "message": "Isn\u0027t there an issueKind type?",
+      "revId": "b13f204249d5f94ca4fddec01b2c3a8a18b67eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
