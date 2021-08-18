@@ -66,6 +66,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/profiler/ProfileLauncherView.ts
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ProfileLauncherView extends UI.Widget.VBox {
   readonly panel: ProfilesPanel;
+  private contentElementInternal: HTMLElement;
   readonly selectedProfileTypeSetting: Common.Settings.Setting<string>;
   profileTypeHeaderElement: HTMLElement;
   readonly profileTypeSelectorForm: HTMLElement;
@@ -86,7 +87,8 @@ export class ProfileLauncherView extends UI.Widget.VBox {
 
     this.panel = profilesPanel;
     this.element.classList.add('profile-launcher-view');
-    this.contentElement = this.element.createChild('div', 'profile-launcher-view-content vbox') as HTMLDivElement;
+    this.contentElementInternal =
+        this.element.createChild('div', 'profile-launcher-view-content vbox') as HTMLDivElement;
 
     const profileTypeSelectorElement = this.contentElement.createChild('div', 'vbox');
     this.selectedProfileTypeSetting = Common.Settings.Settings.instance().createSetting('selectedProfileType', 'CPU');
