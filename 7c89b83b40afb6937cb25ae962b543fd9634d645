@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e1f9b5_08f55b6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-18T13:36:36Z",
+      "side": 1,
+      "message": "I believe that this should work, but I defer to Sigurd who has been involved in the previous issue caching CLs.",
+      "revId": "7c89b83b40afb6937cb25ae962b543fd9634d645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
