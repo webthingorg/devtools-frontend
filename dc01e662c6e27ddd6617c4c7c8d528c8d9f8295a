@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e310699_b6c9fe15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-18T13:16:15Z",
+      "side": 1,
+      "message": "super nit: we normally try to have header titles within the 80 character limit. Maybe something like this (or anything similar): \n\n[DevTools Protocol Monitor] UX updates\n\nMake table header same height as tabs on the right side\nand hide the scrollbar in the table.",
+      "revId": "dc01e662c6e27ddd6617c4c7c8d528c8d9f8295a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "587df631_15b1563c",
@@ -14,6 +31,23 @@
       "writtenOn": "2021-08-18T13:02:03Z",
       "side": 1,
       "message": "LGTM",
+      "revId": "dc01e662c6e27ddd6617c4c7c8d528c8d9f8295a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb4f680b_083cdc31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-18T13:16:15Z",
+      "side": 1,
+      "message": "LGTM, thanks Nancy!",
       "revId": "dc01e662c6e27ddd6617c4c7c8d528c8d9f8295a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
