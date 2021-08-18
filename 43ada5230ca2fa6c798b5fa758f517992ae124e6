@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6263277e_50fa2ac5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T11:16:35Z",
+      "side": 1,
+      "message": "@petermueller PTAL at the design part. Thanks!",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
