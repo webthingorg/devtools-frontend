@@ -13,7 +13,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {EditingLocationHistoryManager} from './EditingLocationHistoryManager.js';
-import type {TabbedEditorContainerDelegate} from './TabbedEditorContainer.js';
+import type {EditorSelectedEvent, TabbedEditorContainerDelegate} from './TabbedEditorContainer.js';
 import {Events as TabbedEditorContainerEvents, TabbedEditorContainer} from './TabbedEditorContainer.js';
 import {Events as UISourceCodeFrameEvents, UISourceCodeFrame} from './UISourceCodeFrame.js';
 
@@ -406,8 +406,8 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
     }
   }
 
-  private editorClosed(event: Common.EventTarget.EventTargetEvent): void {
-    const uiSourceCode = (event.data as Workspace.UISourceCode.UISourceCode);
+  private editorClosed(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+    const uiSourceCode = event.data;
     this.historyManager.removeHistoryForSourceCode(uiSourceCode);
 
     let wasSelected = false;
@@ -427,7 +427,7 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
     this.dispatchEventToListeners(Events.EditorClosed, data);
   }
 
-  private editorSelected(event: Common.EventTarget.EventTargetEvent): void {
+  private editorSelected(event: Common.EventTarget.EventTargetEvent<EditorSelectedEvent>): void {
     const previousSourceFrame = event.data.previousView instanceof UISourceCodeFrame ? event.data.previousView : null;
     if (previousSourceFrame) {
       previousSourceFrame.setSearchableView(null);
@@ -437,7 +437,8 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
       currentSourceFrame.setSearchableView(this.searchableViewInternal);
     }
 
-    this.searchableViewInternal.setReplaceable(Boolean(currentSourceFrame) && currentSourceFrame.canEditSource());
+    this.searchableViewInternal.setReplaceable(
+        Boolean(currentSourceFrame) && (currentSourceFrame ? currentSourceFrame.canEditSource() : false));
     this.searchableViewInternal.refreshSearch();
     this.updateToolbarChangedListener();
     this.updateScriptViewToolbarItems();
