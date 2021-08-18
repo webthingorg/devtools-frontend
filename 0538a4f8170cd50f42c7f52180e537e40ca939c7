@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc02729_556e2460",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aff6c94_b18717d3",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a128ea0_c9664a85",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-08-17T15:07:18Z",
       "side": 1,
       "message": "Is this only needed for the test? Maybe we can find another way to test this then?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa8b2dbc_01e49cc3",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "I thought it would be nice to add a dedicated class to each row incase any styling related changes need to be made in the future.\n\nThey also help with tests but I can make the tests work without these additonal classes.\n\nHowever, if you want i can remove it.",
+      "parentUuid": "0a128ea0_c9664a85",
       "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +128,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd4c3b96_e615cf58",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810b532c_433a1e33",
+      "range": {
+        "startLine": 447,
+        "startChar": 1,
+        "endLine": 450,
+        "endChar": 5
+      },
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b47a99a_0ecb6406",
@@ -105,6 +165,24 @@
       "writtenOn": "2021-08-17T15:07:18Z",
       "side": 1,
       "message": "nit: remove",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35441d76_d6894fd0",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b47a99a_0ecb6406",
       "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -126,6 +204,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "092542e6_569bbb3e",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae3cd482_bca4deb1",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5a6812d_05d2aaee",
@@ -143,6 +239,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af78d40a_72e1e230",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5a6812d_05d2aaee",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d78e3473_b8169e98",
@@ -156,6 +270,24 @@
       "writtenOn": "2021-08-17T15:07:18Z",
       "side": 1,
       "message": "Could you avoid the `as type` by having `getIssueKind()` return an `IssueKind` instead of a string?",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc94738_8451a333",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-18T00:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d78e3473_b8169e98",
       "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
