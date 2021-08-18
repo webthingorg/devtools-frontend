@@ -35,6 +35,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae56aaa6_bde2754a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T10:58:42Z",
+      "side": 1,
+      "message": "LGTM % naming super-nits",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8053f2f_6ae491d7",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T10:58:42Z",
+      "side": 1,
+      "message": "nit: it seems from the rest of the code that we treat `Frontend` as a single word. Maybe we want to do this for the method name as well, i.e. `pushNodesToFrontend`?",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bb44999_01662d73",
@@ -54,6 +88,57 @@
         "endLine": 246,
         "endChar": 16
       },
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88971e12_6d3444ba",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T10:58:42Z",
+      "side": 1,
+      "message": "This is a bit surprising to me: the children of a sdkNode doesn\u0027t yet know their parent node is this sdkNode :D. Is `sdkNode.children()` dynamically computing / getting the current children from the backend or something?",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fafc621_b8d4a3ee",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T10:58:42Z",
+      "side": 1,
+      "message": "nit: maybe name it to `axModel`?",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95b5120_68a76246",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T10:58:42Z",
+      "side": 1,
+      "message": "nit: what does `1` here mean? Maybe we could add a comment here?",
       "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
