@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb991f7_e43b1f0a",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-18T13:12:16Z",
+      "side": 1,
+      "message": "getGroupByKindChecked()?",
+      "revId": "4e65d6aa41ce427868645afdbb4e27fa64152135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
