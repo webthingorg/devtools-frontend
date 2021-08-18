@@ -855,10 +855,17 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 }
 
 export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
+<<<<<<< HEAD   (745842 Disable caching of issue views)
   _serviceName: Protocol.BackgroundService.ServiceName;
   _selected: boolean;
   _view: BackgroundServiceView|null;
   _model: BackgroundServiceModel|null;
+=======
+  private serviceName: Protocol.BackgroundService.ServiceName;
+  private view: BackgroundServiceView|null;
+  private model: BackgroundServiceModel|null;
+  private selectedInternal: boolean;
+>>>>>>> CHANGE (969afd Fix incorrect variable shadowing)
 
   constructor(storagePanel: ResourcesPanel, serviceName: Protocol.BackgroundService.ServiceName) {
     super(storagePanel, BackgroundServiceView.getUIString(serviceName), false);
@@ -866,7 +873,11 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
     this._serviceName = serviceName;
 
     /* Whether the element has been selected. */
+<<<<<<< HEAD   (745842 Disable caching of issue views)
     this._selected = false;
+=======
+    this.selectedInternal = false;
+>>>>>>> CHANGE (969afd Fix incorrect variable shadowing)
 
     this._view = null;
 
@@ -899,7 +910,11 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
   _initialize(model: BackgroundServiceModel|null): void {
     this._model = model;
     // Show the view if the model was initialized after selection.
+<<<<<<< HEAD   (745842 Disable caching of issue views)
     if (this._selected && !this._view) {
+=======
+    if (this.selectedInternal && !this.view) {
+>>>>>>> CHANGE (969afd Fix incorrect variable shadowing)
       this.onselect(false);
     }
   }
@@ -910,7 +925,11 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
+<<<<<<< HEAD   (745842 Disable caching of issue views)
     this._selected = true;
+=======
+    this.selectedInternal = true;
+>>>>>>> CHANGE (969afd Fix incorrect variable shadowing)
 
     if (!this._model) {
       return false;
