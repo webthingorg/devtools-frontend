@@ -22,6 +22,30 @@
       },
       "revId": "29efd1639d424fa5fe9396ede0c321de2f618b16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "245f09f8_bacf4395",
+        "filename": "front_end/panels/profiler/HeapSnapshotDataGrids.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-18T11:54:45Z",
+      "side": 1,
+      "message": "It does seem to work exactly the same with or without the call so removed it incase of unnoticeable side effects.",
+      "parentUuid": "96d09c3f_b1c2ff3c",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 21
+      },
+      "revId": "29efd1639d424fa5fe9396ede0c321de2f618b16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
