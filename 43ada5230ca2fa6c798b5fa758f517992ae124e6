@@ -16,6 +16,74 @@
       "message": "@petermueller PTAL at the design part. Thanks!",
       "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef90882_8615bee0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T12:52:46Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071facf3_f9dbbf53",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T12:52:46Z",
+      "side": 1,
+      "message": "Can we just do `const {data} \u003d (event as ValueChangedEvent);`?",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7040f8c4_73709dc5",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T12:52:46Z",
+      "side": 1,
+      "message": "Is this a left over from somewhere?",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03494313_6d01606d",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T12:52:46Z",
+      "side": 1,
+      "message": "Should we maybe add a `stopPropagation()` here too? Right now the mouse up seems to trigger e.g editing values or properties.",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
