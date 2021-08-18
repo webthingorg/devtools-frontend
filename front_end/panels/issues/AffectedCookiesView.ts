@@ -102,6 +102,10 @@ export class AffectedCookiesView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendAffectedCookies(this.issue.cookiesWithRequestIndicator());
@@ -117,6 +121,10 @@ export class AffectedRawCookieLinesView extends AffectedResourcesView {
 
   protected override getResourceNameWithCount(count: number): Platform.UIString.LocalizedString {
     return i18nString(UIStrings.nRawCookieLines, {n: count});
+  }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
   }
 
   override update(): void {

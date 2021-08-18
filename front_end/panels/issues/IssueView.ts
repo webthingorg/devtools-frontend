@@ -79,7 +79,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/issues/IssueView.ts', UIStrings
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 class AffectedRequestsView extends AffectedResourcesView {
-  private readonly issue: IssuesManager.Issue.Issue;
+  private issue: IssuesManager.Issue.Issue;
   constructor(parent: IssueView, issue: IssuesManager.Issue.Issue) {
     super(parent);
     this.issue = issue;
@@ -106,6 +106,10 @@ class AffectedRequestsView extends AffectedResourcesView {
 
   protected getResourceNameWithCount(count: number): Platform.UIString.LocalizedString {
     return i18nString(UIStrings.nRequests, {n: count});
+  }
+
+  setIssue(issue: IssuesManager.Issue.Issue): void {
+    this.issue = issue;
   }
 
   update(): void {
@@ -143,7 +147,7 @@ const issueTypeToNetworkHeaderMap =
     ]);
 
 class AffectedMixedContentView extends AffectedResourcesView {
-  private readonly issue: AggregatedIssue;
+  private issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
     super(parent);
     this.issue = issue;
@@ -208,6 +212,10 @@ class AffectedMixedContentView extends AffectedResourcesView {
     }
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendAffectedMixedContentDetails(this.issue.getMixedContentIssues());
@@ -219,7 +227,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   private description: IssuesManager.MarkdownIssueDescription.IssueDescription;
   toggleOnClick: boolean;
   affectedResources: UI.TreeOutline.TreeElement;
-  private readonly affectedResourceViews: AffectedResourcesView[];
+  private affectedResourceViews: AffectedResourcesView[];
   private aggregatedIssuesCount: HTMLElement|null;
   private issueKindIcon: IconButton.Icon.Icon|null = null;
   private hasBeenExpandedBefore: boolean;
@@ -446,6 +454,15 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   update(): void {
     this.throttle.schedule(async () => this.doUpdate());
+  }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+    // We don't update views here, because call to this method is followed
+    // a call to update, which handles individual view updates.
+    for (const view of this.affectedResourceViews) {
+      view.setIssue(issue);
+    }
   }
 
   isForHiddenIssue(): boolean {
