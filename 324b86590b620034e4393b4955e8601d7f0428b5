@@ -56,6 +56,30 @@
       },
       "revId": "324b86590b620034e4393b4955e8601d7f0428b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7115d03_cbd4020f",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-18T10:29:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69b6f77c_8c9ef08c",
+      "range": {
+        "startLine": 492,
+        "startChar": 10,
+        "endLine": 492,
+        "endChar": 16
+      },
+      "revId": "324b86590b620034e4393b4955e8601d7f0428b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
