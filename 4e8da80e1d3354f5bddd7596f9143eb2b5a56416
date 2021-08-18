@@ -92,6 +92,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb30bb9_4bd3e641",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T11:56:05Z",
+      "side": 1,
+      "message": "Thanks, I have renamed to `newNodesToTrack`.",
+      "parentUuid": "9bb44999_01662d73",
+      "range": {
+        "startLine": 246,
+        "startChar": 10,
+        "endLine": 246,
+        "endChar": 16
+      },
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88971e12_6d3444ba",
@@ -105,6 +129,24 @@
       "writtenOn": "2021-08-18T10:58:42Z",
       "side": 1,
       "message": "This is a bit surprising to me: the children of a sdkNode doesn\u0027t yet know their parent node is this sdkNode :D. Is `sdkNode.children()` dynamically computing / getting the current children from the backend or something?",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e80fd17_ecb2c985",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T11:56:05Z",
+      "side": 1,
+      "message": "I think there are two questions here, so I\u0027ll try to separate them :-) \nQ1: Do protocol nodes not know their parent?\nA1: No, protocol AXNodes don\u0027t have a parentId, so we re-establish the parent relationships when we receive nodes.\nQ2: What does `.children()` do?\nA2: sdkNodes internally only know the ids of their children. The `children()` getter looks up each id in the AccessibilityModel and returns the nodes. This entails that `node.numChildren() !\u003d\u003d node.children().length` if one or more of the children haven\u0027t been requested from the backend.",
+      "parentUuid": "88971e12_6d3444ba",
       "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -126,6 +168,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efbc08ae_2e88dbeb",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T11:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fafc621_b8d4a3ee",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c95b5120_68a76246",
@@ -139,6 +199,24 @@
       "writtenOn": "2021-08-18T10:58:42Z",
       "side": 1,
       "message": "nit: what does `1` here mean? Maybe we could add a comment here?",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d60d81_e0324ab5",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T11:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c95b5120_68a76246",
       "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
