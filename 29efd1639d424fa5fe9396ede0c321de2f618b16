@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d09c3f_b1c2ff3c",
+        "filename": "front_end/panels/profiler/HeapSnapshotDataGrids.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-18T11:39:03Z",
+      "side": 1,
+      "message": "can we check these still work correctly? Just wondering if this will have any negative side effects and maybe it was left out on purpose",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 21
+      },
+      "revId": "29efd1639d424fa5fe9396ede0c321de2f618b16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
