@@ -16,6 +16,23 @@
       "message": "I believe that this should work, but I defer to Sigurd who has been involved in the previous issue caching CLs.",
       "revId": "7c89b83b40afb6937cb25ae962b543fd9634d645",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9b9425_4e7d9c16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-18T13:38:44Z",
+      "side": 1,
+      "message": "I think we should restructure this CL to support a setIssue method on IssueView and on the resource views as well.",
+      "revId": "7c89b83b40afb6937cb25ae962b543fd9634d645",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
