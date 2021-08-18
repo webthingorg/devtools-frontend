@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f2a0c546_b333df27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-18T11:58:30Z",
+      "side": 1,
+      "message": "fyi for next time: We typically use imgur, so that there are no problems with access controls or dead links.",
+      "parentUuid": "2f9cbc7b_92497930",
+      "revId": "0538a4f8170cd50f42c7f52180e537e40ca939c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b3cab510_c3549060",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
