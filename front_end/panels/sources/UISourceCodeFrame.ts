@@ -209,9 +209,15 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
   wasShown(): void {
     super.wasShown();
     // We need CodeMirrorTextEditor to be initialized prior to this call as it calls |cursorPositionToCoordinates| internally. @see crbug.com/506566
+<<<<<<< HEAD   (f28ab9 Fix incorrect variable shadowing)
     window.setTimeout(() => this._updateBucketDecorations(), 0);
     this.setEditable(this._canEditSource());
     for (const plugin of this._plugins) {
+=======
+    window.setTimeout(() => this.updateBucketDecorations(), 0);
+    this.setEditable(this.canEditSourceInternal());
+    for (const plugin of this.plugins) {
+>>>>>>> CHANGE (814b6b Fix incorrect method shadowing)
       plugin.wasShown();
     }
   }
@@ -236,7 +242,11 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     this._ensurePluginsLoaded();
   }
 
+<<<<<<< HEAD   (f28ab9 Fix incorrect variable shadowing)
   _canEditSource(): boolean {
+=======
+  canEditSourceInternal(): boolean {
+>>>>>>> CHANGE (814b6b Fix incorrect method shadowing)
     if (this.hasLoadError()) {
       return false;
     }
@@ -266,8 +276,13 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     return this._uiSourceCode.contentType() !== Common.ResourceType.resourceTypes.Document;
   }
 
+<<<<<<< HEAD   (f28ab9 Fix incorrect variable shadowing)
   _onNetworkPersistenceChanged(): void {
     this.setEditable(this._canEditSource());
+=======
+  private onNetworkPersistenceChanged(): void {
+    this.setEditable(this.canEditSourceInternal());
+>>>>>>> CHANGE (814b6b Fix incorrect method shadowing)
   }
 
   commitEditing(): void {
@@ -395,8 +410,13 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     this._initializeUISourceCode();
   }
 
+<<<<<<< HEAD   (f28ab9 Fix incorrect variable shadowing)
   _updateStyle(): void {
     this.setEditable(this._canEditSource());
+=======
+  private updateStyle(): void {
+    this.setEditable(this.canEditSourceInternal());
+>>>>>>> CHANGE (814b6b Fix incorrect method shadowing)
   }
 
   _innerSetContent(content: string): void {
