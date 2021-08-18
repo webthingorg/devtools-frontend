@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb946f78_9d9e667e",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-18T11:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8053f2f_6ae491d7",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bb44999_01662d73",
