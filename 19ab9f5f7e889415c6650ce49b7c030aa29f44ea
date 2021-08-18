@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "19ab9f5f7e889415c6650ce49b7c030aa29f44ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd6b14d1_3621aaf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-18T08:53:15Z",
+      "side": 1,
+      "message": "Did you double-check that none of the fields was renamed to ...Internal?",
+      "revId": "19ab9f5f7e889415c6650ce49b7c030aa29f44ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
