@@ -169,6 +169,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f731091b_5721aba2",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-18T12:00:59Z",
+      "side": 1,
+      "message": "Execellent explanation, thanks!",
+      "parentUuid": "3e80fd17_ecb2c985",
+      "revId": "4e8da80e1d3354f5bddd7596f9143eb2b5a56416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fafc621_b8d4a3ee",
