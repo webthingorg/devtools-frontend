@@ -198,4 +198,8 @@ export class AttributionReportingIssueDetailsView extends AffectedResourcesView 
     };
     parent.appendChild(this.createRequestCell(request, opts));
   }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
 }

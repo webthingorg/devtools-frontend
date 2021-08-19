@@ -49,4 +49,8 @@ export class AffectedElementsView extends AffectedResourcesView {
     this.clear();
     this.appendAffectedElements(this.issue.elements());
   }
+
+  setIssue(issue: IssuesManager.Issue.Issue): void {
+    this.issue = issue;
+  }
 }
