@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9dd49f1_8eb9b431",
+        "filename": "test/unittests/front_end/panels/issues/IssueView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T13:36:36Z",
+      "side": 1,
+      "message": "Example of a unittest, I\u0027m trying to write for this CL",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "76c4752687e13b56c908c6a3b3b939447492662e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
