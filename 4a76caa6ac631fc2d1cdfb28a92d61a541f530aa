@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d092ea53_400c952b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "This is looking great already, thanks! I only have nits about the structure, but other than that this LGTM.",
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8313560d_2bdcaf12",
+        "filename": "front_end/third_party/codemirror.next/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "Nit: since we are only using the `devtools_pre_built` template here, we only need to import that file as well.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b87f81f_5167a8e5",
+        "filename": "front_end/third_party/codemirror.next/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "Nit: I think we can copy the OWNERS of third_party/codemirror in here as well: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/third_party/codemirror/OWNERS;drc\u003db0452695d927dc2882617798a500079487e3642e",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 25
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ea8bfd_28161bf9",
+        "filename": "front_end/third_party/codemirror.next/package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "Nit: to ensure deterministic version resolution (to the extent possible with NPM), we typically use strict versioning rather than caret-range. For example, we use strict versions for all our `node_modules` deps as well: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/deps/manage_node_deps.py;l\u003d40;drc\u003d01ee32f6326a487701bac216c4dd69eeabafe4ae\n\nI think it is better if we use specific versions here, since the versions of all CodeMirror packages typically all use the same version number?",
+      "range": {
+        "startLine": 6,
+        "startChar": 28,
+        "endLine": 6,
+        "endChar": 38
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4be94e5b_670c3714",
+        "filename": "front_end/third_party/codemirror.next/package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "TIL! That\u0027s actually very helpful for another package we were importing. Sending this over to a colleague who ran into that problem.",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2552144f_f64111c4",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s worth it, but we could consider moving the `dependencies` into the bash script here and then extract a variable for the codemirror version?\n\nE.g. something along the lines of\n\n```\nCODEMIRROR_VERSION\u003d\"0.19.0\"\n\nnpm install @codemirror/commands@$CODEMIRROR_VERSION\nnpm install @codemirror/closebrackets@$CODEMIRROR_VERSION\n\n\u003cetc\u003e\n```\n\nWDYT?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "374c8e11_8be8a884",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "Nit: we already check in a version of Rollup into `node_modules`, so I think we can use https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/node_modules/rollup/dist/bin/rollup here (and then remove `rollup` from the `package.json`.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 6
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bf5d91_38ca3eec",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T15:37:46Z",
+      "side": 1,
+      "message": "WDYT about moving these files into a `generated/` sub-folder or `packages` sub-folder? That way, it is clear which files we expect to regenerate and which files we consider the source-of-truth.\n\nBased on that, I think we only need to move `codemirror.js` and `codemirror.d.ts` into the sub-folder and all other files can stay as-is?",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
