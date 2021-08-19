@@ -439,6 +439,10 @@ export class CorsIssueDetailsView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     const issues = this.issue.getCorsIssues();

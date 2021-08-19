@@ -123,6 +123,10 @@ export class AffectedSharedArrayBufferIssueDetailsView extends AffectedResources
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendDetails(this.issue.getSharedArrayBufferIssues());
