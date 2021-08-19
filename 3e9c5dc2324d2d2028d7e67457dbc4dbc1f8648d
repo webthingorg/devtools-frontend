@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a715eab6_226f3d18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-19T14:29:16Z",
+      "side": 1,
+      "message": "LGTM - and kudos for a very clear CL description.",
+      "revId": "3e9c5dc2324d2d2028d7e67457dbc4dbc1f8648d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
