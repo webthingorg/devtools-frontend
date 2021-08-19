@@ -16,6 +16,24 @@
       "message": "Thanks for implementing this feature and owning it end-to-end Rahat!",
       "revId": "5e7a2eace7f2c0fb28a2ad023de8092e13fe096d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8377ad31_19ad6c5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T14:20:08Z",
+      "side": 1,
+      "message": "Cheers!\nThank you helping me acheive this.",
+      "parentUuid": "7f19990c_e9546954",
+      "revId": "5e7a2eace7f2c0fb28a2ad023de8092e13fe096d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
