@@ -46,6 +46,30 @@
       },
       "revId": "fa95a6b4ab11b443ea17d430770e8215967f3833",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced1ccd1_a62ece68",
+        "filename": "front_end/panels/emulation/components/DeviceSizeInputElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T11:46:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4db0710e_55afe198",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "fa95a6b4ab11b443ea17d430770e8215967f3833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
