@@ -71,6 +71,10 @@ export class AffectedElementsWithLowContrastView extends AffectedElementsView {
     }
     this.updateAffectedResourceCount(count);
   }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.aggregateIssue = issue;
+  }
 }
 
 const UIStrings = {

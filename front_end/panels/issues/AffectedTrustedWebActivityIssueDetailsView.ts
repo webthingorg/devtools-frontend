@@ -87,6 +87,10 @@ export class AffectedTrustedWebActivityIssueDetailsView extends AffectedResource
     this.updateAffectedResourceCount(count);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendDetails(this.issue.getTrustedWebActivityIssues());
