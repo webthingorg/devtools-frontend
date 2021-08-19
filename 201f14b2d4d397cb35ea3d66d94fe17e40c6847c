@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59aab457_99f38a68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T11:23:16Z",
+      "side": 1,
+      "message": "Error: Markdown issue descriptions must start with a heading\n\t    at createIssueDescriptionFromRawMarkdown (front_end/models/issues_manager/MarkdownIssueDescription.ts:87:11 \u003c- out/Default/gen/front_end/models/issues_manager/MarkdownIssueDescription.js:49:15)\n\t    at Module.createIssueDescriptionFromMarkdown (front_end/models/issues_manager/MarkdownIssueDescription.ts:76:10 \u003c- out/Default/gen/front_end/models/issues_manager/MarkdownIssueDescription.js:40:12)\n\t    at async Context.\u003canonymous\u003e (test/unittests/front_end/panels/issues/IssueView_test.ts:58:33 \u003c- out/Default/gen/test/unittests/front_end/panels/issues/IssueView_test.js:45:37)",
+      "parentUuid": "9f5cd64f_18e0bfcf",
+      "revId": "201f14b2d4d397cb35ea3d66d94fe17e40c6847c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50e66e5_249a9cc6",
