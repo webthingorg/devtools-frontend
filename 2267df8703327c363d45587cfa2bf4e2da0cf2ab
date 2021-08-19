@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f256a58_8c24bae8",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T17:00:38Z",
+      "side": 1,
+      "message": "Alternatively you could use a union type string|IssueKind. This would allow to get rid of the optional and ensures that either code or kind is passed.\nBut then you\u0027d need `instanceof` for the if-clauses, and I\u0027m not sure whether this would be an improvement overall.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "2267df8703327c363d45587cfa2bf4e2da0cf2ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "535eaa66_aa17daa4",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T17:00:38Z",
+      "side": 1,
+      "message": "It looks like the first 2 tests are a subset of the third one. Are they then even needed?\nWould it be possible to check not only that the issue is hidden, but also that the category-view is not visible anymore after hiding all issues?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "2267df8703327c363d45587cfa2bf4e2da0cf2ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
