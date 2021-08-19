@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8628a1ab_ed581f23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T11:23:31Z",
+      "side": 1,
+      "message": "Unable to create settings: global and local storage must be provided: Error\n\t    at Function.instance (front_end/core/common/Settings.ts:100:98 \u003c- out/Default/gen/front_end/core/common/Settings.js:80:106)\n\t    at new NetworkLog (front_end/models/logs/NetworkLog.ts:75:34 \u003c- out/Default/gen/front_end/models/logs/NetworkLog.js:67:59)\n\t    at Function.instance (front_end/models/logs/NetworkLog.ts:88:28 \u003c- out/Default/gen/front_end/models/logs/NetworkLog.js:79:34)\n\t    at new RequestResolver (front_end/models/logs/RequestResolver.ts:25:51 \u003c- out/Default/gen/front_end/models/logs/RequestResolver.js:18:41)\n\t    at new AffectedResourcesView (front_end/panels/issues/AffectedResourcesView.ts:84:28 \u003c- out/Default/gen/front_end/panels/issues/AffectedResourcesView.js:56:32)\n\t    at new AffectedCookiesView (front_end/panels/issues/AffectedCookiesView.ts:48:5 \u003c- out/Default/gen/front_end/panels/issues/AffectedCookiesView.js:41:9)\n\t    at new IssueView (front_end/panels/issues/IssueView.ts:255:7 \u003c- out/Default/gen/front_end/panels/issues/IssueView.js:221:13)\n\t    at Context.\u003canonymous\u003e (test/unittests/front_end/panels/issues/IssueView_test.ts:59:23 \u003c- out/Default/gen/test/unittests/front_end/panels/issues/IssueView_test.js:46:27)",
+      "parentUuid": "59aab457_99f38a68",
+      "revId": "201f14b2d4d397cb35ea3d66d94fe17e40c6847c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50e66e5_249a9cc6",
