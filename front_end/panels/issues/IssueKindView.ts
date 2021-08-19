@@ -9,6 +9,7 @@ import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as Components from './components/components.js';
 
 const UIStrings = {
   /**
@@ -104,9 +105,23 @@ export class IssueKindView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this.getKindName();
 
+    const hideAvailableIssuesBtn = new Components.HideIssuesMenu.HideIssuesMenu();
+    hideAvailableIssuesBtn.classList.add('hide-available-issues');
+    hideAvailableIssuesBtn.data = {
+      issueKind: this.kind,
+      forHiddenIssue: false,
+    };
+
     header.appendChild(issueKindIcon);
     header.appendChild(countAdorner);
     header.appendChild(title);
+    header.appendChild(hideAvailableIssuesBtn);
+    header.addEventListener('mouseenter', () => {
+      hideAvailableIssuesBtn.setVisible(true);
+    });
+    header.addEventListener('mouseleave', () => {
+      hideAvailableIssuesBtn.setVisible(false);
+    });
 
     this.listItemElement.appendChild(header);
   }
