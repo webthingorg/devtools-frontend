@@ -16,6 +16,24 @@
       "message": "nit: missing ;",
       "revId": "e9b376a1d7f44d9c256a0b894a01a88e073a4446",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "613c7300_62cfd52a",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-19T17:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a925ca47_ec2aea15",
+      "revId": "e9b376a1d7f44d9c256a0b894a01a88e073a4446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

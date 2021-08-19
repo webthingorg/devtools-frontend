@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059da2ae_299ade6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-19T17:11:23Z",
+      "side": 1,
+      "message": "Hi there, I am having some trouble coordinating the e2etest with the feature flag enablement.\n\nI would like to either skip the test until the feature is enabled or conditionally enable the test depending on whether (prefers-contrast) is a valid mediaquery.\n\nTo skip a test I need to attach it to a crbug, which I don\u0027t have, and I\u0027m having trouble writing the helper function to test the validity of (prefers-contrast). I would like to use the same template as SupportsReducedData in RenderingOptions.ts but `window` is undefined in the test file.\n\nI notice there are a lot of test helpers but I don\u0027t know which ones would be relevant for my case, and thought it might be faster just to ask you guys.\n\nBTW currently the test passes because we display prefers-contrast emulation in the DevTools unconditionally.",
+      "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
