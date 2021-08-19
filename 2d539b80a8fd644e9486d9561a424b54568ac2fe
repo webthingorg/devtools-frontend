@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c8d65a_76ce3eb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-08-19T09:21:20Z",
+      "side": 1,
+      "message": "Once https://crbug.com/1231981 gets fixed I will come back to the template and apply the suggested improvements.",
+      "revId": "2d539b80a8fd644e9486d9561a424b54568ac2fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad9de0a9_5bbeef67",
@@ -48,6 +65,30 @@
       "writtenOn": "2021-08-19T09:09:25Z",
       "side": 1,
       "message": "Does this step show an easy link to the failed roll CL? It\u0027d be nice to direct folks as easily and quickly as possible to the right links.\n\nE.g. instead of \"Please check roll CLs.\" a hint on where to find the link to it? Or maybe if that\u0027s not easy, maybe add a generic link to auto-rolled CLs? E.g. here I assume https://chromium-review.googlesource.com/q/owner:devtools-ci-autoroll-builder%2540chops-service-accounts.iam.gserviceaccount.com - maybe create a go-link to it and use it - also if it\u0027s public...",
+      "range": {
+        "startLine": 160,
+        "startChar": 9,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "2d539b80a8fd644e9486d9561a424b54568ac2fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b0fc3a3_ad80a114",
+        "filename": "main.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-08-19T09:21:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ad9de0a9_5bbeef67",
       "range": {
         "startLine": 160,
         "startChar": 9,
@@ -81,6 +122,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97373e23_f8f264bf",
+        "filename": "main.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-08-19T09:21:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "02bb81ed_24fcb695",
+      "range": {
+        "startLine": 170,
+        "startChar": 8,
+        "endLine": 170,
+        "endChar": 34
+      },
+      "revId": "2d539b80a8fd644e9486d9561a424b54568ac2fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f4e0075_530fbb75",
@@ -94,6 +159,30 @@
       "writtenOn": "2021-08-19T09:09:25Z",
       "side": 1,
       "message": "How will this look like in practice? Is it not enough that the email will have a time stamp (a little bit later maybe, but maybe that\u0027s not important)?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 30
+      },
+      "revId": "2d539b80a8fd644e9486d9561a424b54568ac2fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4fcdc1_e6ff67cb",
+        "filename": "main.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-08-19T09:21:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f4e0075_530fbb75",
       "range": {
         "startLine": 172,
         "startChar": 0,
