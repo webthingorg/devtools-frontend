@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "520bd99a_23dfcf35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T09:32:38Z",
+      "side": 1,
+      "message": "I\u0027m a bit stuck on writing tests and have a few questions? \nIn case we are writing unittests, we can call setIssue with a different aggregatedIssue, but in that case we can only check if the issue updates correctly and IssueDescription.\n\nHowever, in case of E2ETests we can check for updates, but I don\u0027t see a way of calling setIssue with a different AggregatedIssue, as that is something governed by \nEvents.FullUpdateRequired.",
+      "parentUuid": "51dce4f8_8f2af666",
+      "revId": "201f14b2d4d397cb35ea3d66d94fe17e40c6847c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50e66e5_249a9cc6",
