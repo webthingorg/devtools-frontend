@@ -92,6 +92,10 @@ export class WasmCrossOriginModuleSharingAffectedResourcesView extends AffectedR
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendIssues(this.issue.getWasmCrossOriginModuleSharingIssue());

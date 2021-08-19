@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import type * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
 import {Issue, IssueCategory, IssueKind} from '../../../../../front_end/models/issues_manager/Issue.js';  // eslint-disable-line rulesdir/es_modules_import
 
 export class StubIssue extends Issue {
@@ -11,6 +12,7 @@ export class StubIssue extends Issue {
   private issueKind: IssueKind;
   private locations: Protocol.Audits.SourceCodeLocation[] = [];
   private mockIssueId?: Protocol.Audits.IssueId;
+  private description?: IssuesManager.MarkdownIssueDescription.MarkdownIssueDescription;
 
   constructor(code: string, requestIds: string[], cookieNames: string[], issueKind = IssueKind.Improvement) {
     super(code);
@@ -20,10 +22,13 @@ export class StubIssue extends Issue {
   }
 
   getDescription() {
+    if (this.description) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return (this.description as any);
+    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return ({} as any);
   }
-
   primaryKey(): string {
     return `${this.code()}-(${this.cookieNames.join(';')})-(${this.requestIds.join(';')})`;
   }
@@ -32,6 +37,10 @@ export class StubIssue extends Issue {
     return this.requestIds.map(id => {
       return {requestId: id as Protocol.Network.RequestId, url: ''};
     });
+  }
+
+  setDescription(description: IssuesManager.MarkdownIssueDescription.MarkdownIssueDescription): void {
+    this.description = description;
   }
 
   getCategory() {

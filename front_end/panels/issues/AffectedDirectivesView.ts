@@ -61,7 +61,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/issues/AffectedDirectivesView.t
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class AffectedDirectivesView extends AffectedResourcesView {
-  private readonly issue: AggregatedIssue;
+  private issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
     super(parent);
     this.issue = issue;
@@ -209,6 +209,10 @@ export class AffectedDirectivesView extends AffectedResourcesView {
     }
 
     this.affectedResources.appendChild(element);
+  }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
   }
 
   update(): void {

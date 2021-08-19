@@ -59,6 +59,10 @@ export class AffectedSourcesView extends AffectedResourcesView {
     this.affectedResources.appendChild(rowElement);
   }
 
+  setIssue(issue: IssuesManager.Issue.Issue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendAffectedSources(this.issue.sources());
