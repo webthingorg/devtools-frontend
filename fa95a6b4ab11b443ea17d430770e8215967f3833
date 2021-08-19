@@ -22,6 +22,30 @@
       },
       "revId": "fa95a6b4ab11b443ea17d430770e8215967f3833",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf9e21ae_ae64a296",
+        "filename": "front_end/panels/emulation/components/DeviceSizeInputElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-19T11:46:26Z",
+      "side": 1,
+      "message": "is it also worth disabling the rule for panels/emulation?",
+      "parentUuid": "4db0710e_55afe198",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "fa95a6b4ab11b443ea17d430770e8215967f3833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
