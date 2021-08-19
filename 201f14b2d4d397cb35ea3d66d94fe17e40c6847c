@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5cd64f_18e0bfcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-19T11:22:46Z",
+      "side": 1,
+      "message": "I tried writing some unit tests but I get a alot of initialisation based errors as soon as i try to instantiate new IssueView(). Also IssueViews required markdown description, which I also sort of hacked together. But i also got errors from there as well.",
+      "parentUuid": "520bd99a_23dfcf35",
+      "revId": "201f14b2d4d397cb35ea3d66d94fe17e40c6847c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50e66e5_249a9cc6",
