@@ -79,7 +79,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/issues/IssueView.ts', UIStrings
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 class AffectedRequestsView extends AffectedResourcesView {
-  private readonly issue: IssuesManager.Issue.Issue;
+  private issue: IssuesManager.Issue.Issue;
   constructor(parent: IssueView, issue: IssuesManager.Issue.Issue) {
     super(parent);
     this.issue = issue;
@@ -106,6 +106,10 @@ class AffectedRequestsView extends AffectedResourcesView {
 
   protected getResourceNameWithCount(count: number): Platform.UIString.LocalizedString {
     return i18nString(UIStrings.nRequests, {n: count});
+  }
+
+  setIssue(issue: IssuesManager.Issue.Issue): void {
+    this.issue = issue;
   }
 
   update(): void {
@@ -143,7 +147,7 @@ const issueTypeToNetworkHeaderMap =
     ]);
 
 class AffectedMixedContentView extends AffectedResourcesView {
-  private readonly issue: AggregatedIssue;
+  private issue: AggregatedIssue;
   constructor(parent: IssueView, issue: AggregatedIssue) {
     super(parent);
     this.issue = issue;
@@ -208,6 +212,10 @@ class AffectedMixedContentView extends AffectedResourcesView {
     }
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendAffectedMixedContentDetails(this.issue.getMixedContentIssues());
@@ -219,7 +227,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   private description: IssuesManager.MarkdownIssueDescription.IssueDescription;
   toggleOnClick: boolean;
   affectedResources: UI.TreeOutline.TreeElement;
-  private readonly affectedResourceViews: AffectedResourcesView[];
+  private affectedResourceViews: AffectedResourcesView[];
   private aggregatedIssuesCount: HTMLElement|null;
   private issueKindIcon: IconButton.Icon.Icon|null = null;
   private hasBeenExpandedBefore: boolean;
@@ -227,6 +235,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   private needsUpdateOnExpand = true;
   private hiddenIssuesMenu: Components.HideIssuesMenu.HideIssuesMenu;
   private contentCreated: boolean = false;
+  private linkWrapper: UI.TreeOutline.TreeElement;
+  private messageElement: UI.TreeOutline.TreeElement;
 
   constructor(issue: AggregatedIssue, description: IssuesManager.MarkdownIssueDescription.IssueDescription) {
     super();
@@ -262,6 +272,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.hiddenIssuesMenu = new Components.HideIssuesMenu.HideIssuesMenu();
     this.aggregatedIssuesCount = null;
     this.hasBeenExpandedBefore = false;
+    this.linkWrapper = new UI.TreeOutline.TreeElement();
+    this.messageElement = new UI.TreeOutline.TreeElement();
   }
 
   private static getBodyCSSClass(issueKind: IssuesManager.Issue.IssueKind): string {
@@ -391,27 +403,26 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     wrapper.childrenListElement.classList.add('affected-resources');
     return wrapper;
   }
-
-  private createBody(): void {
-    const messageElement = new UI.TreeOutline.TreeElement();
-    messageElement.setCollapsible(false);
-    messageElement.selectable = false;
+  private createBodyContent(): void {
     const markdownComponent = new MarkdownView.MarkdownView.MarkdownView();
     markdownComponent.data = {tokens: this.description.markdown};
-    messageElement.listItemElement.appendChild(markdownComponent);
-    this.appendChild(messageElement);
+    this.messageElement.listItemElement.appendChild(markdownComponent);
   }
 
-  private createReadMoreLinks(): void {
-    if (this.description.links.length === 0) {
-      return;
-    }
+  private createBody(): void {
+    this.messageElement.setCollapsible(false);
+    this.messageElement.selectable = false;
+    this.createBodyContent();
+    this.appendChild(this.messageElement);
+  }
 
-    const linkWrapper = new UI.TreeOutline.TreeElement();
-    linkWrapper.setCollapsible(false);
-    linkWrapper.listItemElement.classList.add('link-wrapper');
+  resetIssueViewBody(): void {
+    this.messageElement.listItemElement.removeChildren();
+    this.createBodyContent();
+  }
 
-    const linkList = linkWrapper.listItemElement.createChild('ul', 'link-list');
+  private createLinksFromDescription(): void {
+    const linkList = this.linkWrapper.listItemElement.createChild('ul', 'link-list');
     for (const description of this.description.links) {
       const link = UI.Fragment.html`<x-link class="link devtools-link" tabindex="0" href=${description.link}>${
                        i18nString(UIStrings.learnMoreS, {PH1: description.linkTitle})}</x-link>` as UI.XLink.XLink;
@@ -426,7 +437,22 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       const linkListItem = linkList.createChild('li');
       linkListItem.appendChild(link);
     }
-    this.appendChild(linkWrapper);
+  }
+
+  private createReadMoreLinks(): void {
+    if (this.description.links.length === 0) {
+      return;
+    }
+    this.linkWrapper.setCollapsible(false);
+    this.linkWrapper.listItemElement.classList.add('link-wrapper');
+
+    this.createLinksFromDescription();
+    this.appendChild(this.linkWrapper);
+  }
+
+  resetReadMoreLinks(): void {
+    this.linkWrapper.listItemElement.removeChildren();
+    this.createLinksFromDescription();
   }
 
   private doUpdate(): void {
@@ -446,6 +472,28 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   update(): void {
     this.throttle.schedule(async () => this.doUpdate());
+  }
+
+  async setIssue(issue: AggregatedIssue): Promise<void> {
+    const oldIssue = this.issue;
+    const description = issue.getDescription();
+    if (!description) {
+      console.warn('Could not find description when resetting issue in IssueView for issue code:', issue.code());
+      return;
+    }
+    if (description.file !== oldIssue.getDescription()?.file) {
+      this.description = await IssuesManager.MarkdownIssueDescription.createIssueDescriptionFromMarkdown(description);
+      this.resetIssueViewBody();
+    }
+    this.issue = issue;
+    // We don't update views here, because call to this method is followed
+    // a call to update, which handles individual view updates.
+    for (const view of this.affectedResourceViews) {
+      view.setIssue(issue);
+    }
+    // This is something which never happens during an update
+    // So we ne reset readMore links when the Aggregated Issue changes.
+    this.resetReadMoreLinks();
   }
 
   isForHiddenIssue(): boolean {
