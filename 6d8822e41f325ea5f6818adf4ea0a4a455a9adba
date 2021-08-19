@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "6d8822e41f325ea5f6818adf4ea0a4a455a9adba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "214aa99a_914152b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-19T09:53:15Z",
+      "side": 1,
+      "message": "I think something went wrong, as this appears to be a duplicate of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3104549 ?",
+      "revId": "6d8822e41f325ea5f6818adf4ea0a4a455a9adba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
