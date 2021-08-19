@@ -87,4 +87,8 @@ export class AffectedDocumentsInQuirksModeView extends AffectedElementsView {
     }
     this.updateAffectedResourceCount(count);
   }
+
+  setIssue(issue: AggregatedIssue): void {
+    this.aggregateIssue = issue;
+  }
 }
