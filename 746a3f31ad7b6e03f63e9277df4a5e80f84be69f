@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "130cb53b_b2e497cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T15:39:20Z",
+      "side": 1,
+      "message": "Jack PTAL. This fixes the behaviour described in the bug, but I\u0027m not sure whether this might cause a side-effect I\u0027m unaware of.",
+      "revId": "746a3f31ad7b6e03f63e9277df4a5e80f84be69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
