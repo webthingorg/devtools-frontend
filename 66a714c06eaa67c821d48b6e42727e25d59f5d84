@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b875574d_87bb0ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T16:46:06Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d650302_803eff7e",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T16:46:06Z",
+      "side": 1,
+      "message": "IIUC this means that grouping by categories takes precedence over grouping by kind i.e. if both settings are true, DevTools will group by category.\nSince the group by category functionality is inactivated for now, I think this is fine, but once we do allow this, we need to ensure that both play nicely with eachother.\nAn idea would be: when one of the 2 is set to true, automatically set the other to false. The UI shouldn\u0027t be 2 checkboxes then, probably a dropdown/radio buttons would make more sense.",
+      "range": {
+        "startLine": 336,
+        "startChar": 3,
+        "endLine": 352,
+        "endChar": 5
+      },
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3734c5c_9acb5055",
+        "filename": "test/e2e/issues/group-by-kind_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-19T16:46:06Z",
+      "side": 1,
+      "message": "super-nit: add empty line between tests",
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
