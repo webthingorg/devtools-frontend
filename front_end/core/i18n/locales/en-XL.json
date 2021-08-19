@@ -4907,6 +4907,15 @@
   "panels/issues/HiddenIssuesRow.ts | unhideIssues": {
     "message": "Ûńĥíd̂é âĺl̂ íŝśûéŝ"
   },
+  "panels/issues/IssueKindView.ts | breakingChanges": {
+    "message": "B̂ŕêák̂ín̂ǵ Ĉh́âńĝéŝ"
+  },
+  "panels/issues/IssueKindView.ts | improvements": {
+    "message": "Îḿp̂ŕôv́êḿêńt̂ś"
+  },
+  "panels/issues/IssueKindView.ts | pageErrors": {
+    "message": "P̂áĝé Êŕr̂ór̂ś"
+  },
   "panels/issues/issues-meta.ts | cspViolations": {
     "message": "ĈŚP̂ V́îól̂át̂íôńŝ"
   },
@@ -4934,8 +4943,14 @@
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Ĝŕôúp̂ b́ŷ ćât́êǵôŕŷ"
   },
+  "panels/issues/IssuesPane.ts | groupByKind": {
+    "message": "Ĝŕôúp̂ b́ŷ ḱîńd̂"
+  },
   "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnder": {
     "message": "Ĝŕôúp̂ d́îśp̂ĺâýêd́ îśŝúêś ûńd̂ér̂ áŝśôćîát̂éd̂ ćât́êǵôŕîéŝ"
+  },
+  "panels/issues/IssuesPane.ts | groupDisplayedIssuesUnderKind": {
+    "message": "Ĝŕôúp̂ d́îśp̂ĺâýêd́ îśŝúêś âś P̂áĝé êŕr̂ór̂ś, B̂ŕêák̂ín̂ǵ ĉh́âńĝéŝ án̂d́ Îḿp̂ŕôv́êḿêńt̂ś"
   },
   "panels/issues/IssuesPane.ts | heavyAds": {
     "message": "Ĥéâv́ŷ Ád̂ś"
