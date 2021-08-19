@@ -90,6 +90,10 @@ export class AffectedBlockedByResponseView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: IssuesManager.Issue.Issue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendDetails(this.issue.getBlockedByResponseDetails());

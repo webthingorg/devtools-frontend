@@ -127,6 +127,10 @@ export class AffectedHeavyAdView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
+  setIssue(issue: AggregatedIssue): void {
+    this.issue = issue;
+  }
+
   update(): void {
     this.clear();
     this.appendAffectedHeavyAds(this.issue.getHeavyAdIssues());

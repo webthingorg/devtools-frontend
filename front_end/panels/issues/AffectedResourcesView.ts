@@ -16,6 +16,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as RequestLinkIcon from '../../ui/components/request_link_icon/request_link_icon.js';
 
 import type {IssueView} from './IssueView.js';
+import type {AggregatedIssue} from './IssueAggregator.js';
 
 const UIStrings = {
   /**
@@ -280,4 +281,7 @@ export abstract class AffectedResourcesView extends UI.TreeOutline.TreeElement {
   }
 
   abstract update(): void;
+
+  abstract setIssue(issue: IssuesManager.Issue.Issue): void;
+  abstract setIssue(issue: AggregatedIssue): void;
 }
