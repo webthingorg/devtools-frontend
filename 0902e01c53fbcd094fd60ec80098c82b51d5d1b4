@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3ece49d_adad6b1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-08-20T10:52:45Z",
+      "side": 1,
+      "message": "Hey Simon,\n\nHere\u0027s a CL to migrate the Events for SourceMapManager.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "0902e01c53fbcd094fd60ec80098c82b51d5d1b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
