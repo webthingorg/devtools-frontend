@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8149291e_09080fd9",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-20T10:30:50Z",
+      "side": 1,
+      "message": "is there a reason we can\u0027t update this use case to adopted stylesheets?",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "689924e0ff395c3be0d599824a397648738bdc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
