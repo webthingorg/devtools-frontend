@@ -118,7 +118,7 @@ describe('CSSAngle', () => {
 
     let cssAngleText = initialData.angleText;
     component.addEventListener('valuechanged', (event: Event) => {
-      const {data} = event as InlineEditor.CSSAngleImpl.ValueChangedEvent;
+      const {data} = event as InlineEditor.InlineEditorUtils.ValueChangedEvent;
       cssAngleText = data.value;
     });
 
