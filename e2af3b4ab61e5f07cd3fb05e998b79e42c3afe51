@@ -16,6 +16,41 @@
       "message": "Hi there, I am having some trouble coordinating the e2etest with the feature flag enablement.\n\nI would like to either skip the test until the feature is enabled or conditionally enable the test depending on whether (prefers-contrast) is a valid mediaquery.\n\nTo skip a test I need to attach it to a crbug, which I don\u0027t have, and I\u0027m having trouble writing the helper function to test the validity of (prefers-contrast). I would like to use the same template as SupportsReducedData in RenderingOptions.ts but `window` is undefined in the test file.\n\nI notice there are a lot of test helpers but I don\u0027t know which ones would be relevant for my case, and thought it might be faster just to ask you guys.\n\nBTW currently the test passes because we display prefers-contrast emulation in the DevTools unconditionally.",
       "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cebe959_6e3cb2cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-20T10:21:38Z",
+      "side": 1,
+      "message": "\u003e Hi there, I am having some trouble coordinating the e2etest with the feature flag enablement.\n\u003e \n\u003e I would like to either skip the test until the feature is enabled or conditionally enable the test depending on whether (prefers-contrast) is a valid mediaquery.\n\nLeft an inline comment with a pointer.\n\n\u003e To skip a test I need to attach it to a crbug, which I don\u0027t have\n\nYou could use the one for this feature (1139777).\n\n\u003e and I\u0027m having trouble writing the helper function to test the validity of (prefers-contrast). I would like to use the same template as SupportsReducedData in RenderingOptions.ts but `window` is undefined in the test file.\n\nSee inline comment",
+      "parentUuid": "059da2ae_299ade6b",
+      "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ade918_53bd344b",
+        "filename": "test/e2e/rendering/Rendering_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-20T10:21:38Z",
+      "side": 1,
+      "message": "The reason `window` isn’t available here is because this is run in Node.js. You want the code to be evaluated in the page context. To do this,`.evaluate()` the code that feature-tests prefers-contrast support in the page context here, and `.skip()` the test in that case.",
+      "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
