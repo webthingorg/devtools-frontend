@@ -229,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfeccd8_ef595114",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T11:29:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3fe1a300_9ac74312",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "374c8e11_8be8a884",
@@ -313,6 +337,30 @@
       "side": 1,
       "message": "I was following the way the other third_party directories usually have their main imports directly at the top level. Adding a directory here would require a longer path in all consumers and mentions in the build files, so my impulse would be not to, but I\u0027ll happily add it if you prefer.",
       "parentUuid": "03bf5d91_38ca3eec",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a22e7d_ee6d5ef1",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T11:29:51Z",
+      "side": 1,
+      "message": "That\u0027s fine by me. I did just realize that (for our imports and rollup bundling to be correct), we do need the file to have the same name as the folder. E.g. the file should be named `codemirror.next.js`, since the folder it is in is called `codemirror.next`.",
+      "parentUuid": "a2fb8ecd_3e8d0907",
       "range": {
         "startLine": 9,
         "startChar": 13,

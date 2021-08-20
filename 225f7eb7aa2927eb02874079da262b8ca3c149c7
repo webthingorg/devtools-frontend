@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0765d8d9_67408164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T11:29:51Z",
+      "side": 1,
+      "message": "1 nit with regards to the filename (sorry for not realizing earlier). Other than that LGTM!",
+      "revId": "225f7eb7aa2927eb02874079da262b8ca3c149c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
