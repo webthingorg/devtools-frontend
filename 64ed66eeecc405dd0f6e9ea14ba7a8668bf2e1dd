@@ -56,6 +56,30 @@
       },
       "revId": "64ed66eeecc405dd0f6e9ea14ba7a8668bf2e1dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c494952_b7d4a03e",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-08-20T11:52:29Z",
+      "side": 1,
+      "message": "Yes, this is destructuring assignment syntax (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).",
+      "parentUuid": "921b833f_e39aad6d",
+      "range": {
+        "startLine": 1544,
+        "startChar": 10,
+        "endLine": 1544,
+        "endChar": 36
+      },
+      "revId": "64ed66eeecc405dd0f6e9ea14ba7a8668bf2e1dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
