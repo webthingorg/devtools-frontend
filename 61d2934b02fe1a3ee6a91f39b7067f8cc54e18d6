@@ -16,6 +16,23 @@
       "message": "Hi Jack, PTAL regarding the modification of DOMExtension. Thanks!",
       "revId": "61d2934b02fe1a3ee6a91f39b7067f8cc54e18d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c61904da_07df30bc",
+        "filename": "front_end/core/dom_extension/DOMExtension.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-20T11:15:22Z",
+      "side": 1,
+      "message": "This parameter is added to give more control to the call site, because for example, the CSSLength component renders a DOM structure like this under the shadow DOM:\n```\n\u003cselect\u003e\n  \u003coption\u003epx\u003c/option\u003e\n  \u003coption\u003ech\u003c/option\u003e\n  ...\n\u003c/select\u003e\n```\nand currently the traversal looks inside this shadow DOM part and get its text content for layout tests. This brutal-force traversal would constrain how the CSSLength component and other web components can be developed because layout tests have access to these shadow DOM content and make comparisons on them. This shouldn\u0027t happen because these web components already use light DOM and slots to communicate to the outside about its updated content. Therefore this parameter allows certain web components to avoid being traversed inside their shadow DOM, thus avoid breaking tests.",
+      "revId": "61d2934b02fe1a3ee6a91f39b7067f8cc54e18d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
