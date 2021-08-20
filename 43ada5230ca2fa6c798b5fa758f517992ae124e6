@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c41e5f7_9129d78b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-20T08:54:10Z",
+      "side": 1,
+      "message": "I didn\u0027t realize I could do this. Thanks for the advice!",
+      "parentUuid": "071facf3_f9dbbf53",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7040f8c4_73709dc5",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7068c81e_a0ca3903",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-20T08:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7040f8c4_73709dc5",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03494313_6d01606d",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-08-18T12:52:46Z",
       "side": 1,
       "message": "Should we maybe add a `stopPropagation()` here too? Right now the mouse up seems to trigger e.g editing values or properties.",
+      "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c48e05_dcaf4e2d",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-20T08:54:10Z",
+      "side": 1,
+      "message": "Good catch, done!",
+      "parentUuid": "03494313_6d01606d",
       "revId": "43ada5230ca2fa6c798b5fa758f517992ae124e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
