@@ -16,7 +16,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/inline_editor/ColorSwatch.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
+const legacyGetStyleSheets = ComponentHelpers.LegacyGetStylesheet.legacyGetStyleSheets;
 
 export class FormatChangedEvent extends Event {
   data: {format: string, text: string|null};
@@ -47,7 +47,7 @@ export class ColorSwatch extends HTMLElement {
   constructor() {
     super();
     this.shadow.adoptedStyleSheets = [
-      ...getStyleSheets('ui/legacy/components/inline_editor/colorSwatch.css'),
+      ...legacyGetStyleSheets('ui/legacy/components/inline_editor/colorSwatch.css'),
     ];
   }
 
