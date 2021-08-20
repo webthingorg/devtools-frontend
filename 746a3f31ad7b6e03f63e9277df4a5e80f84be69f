@@ -33,6 +33,23 @@
       "message": "LGTM, thanks!",
       "revId": "746a3f31ad7b6e03f63e9277df4a5e80f84be69f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac930617_e397308a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-20T07:11:19Z",
+      "side": 1,
+      "message": "Wouldn\u0027t be against adding a test for this behaviour to ensure it doesn\u0027t regress in the future. WDYT?",
+      "revId": "746a3f31ad7b6e03f63e9277df4a5e80f84be69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
