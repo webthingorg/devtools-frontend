@@ -65,6 +65,10 @@ export class HelpQuickOpen extends Provider {
     }
   }
 
+  renderIcon(): boolean {
+    return false;
+  }
+
   renderAsTwoRows(): boolean {
     return false;
   }

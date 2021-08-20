@@ -252,9 +252,17 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   }
 
   createElementForItem(item: number): Element {
+    const wrapperElement = document.createElement('div');
+    wrapperElement.className = 'filtered-list-widget-item-wrapper';
+
+    if (this.provider && this.provider.renderIcon()) {
+      this.provider.renderIconItem(item, wrapperElement);
+    }
+
     const itemElement = document.createElement('div');
     const renderAsTwoRows = this.provider && this.provider.renderAsTwoRows();
     itemElement.className = 'filtered-list-widget-item ' + (renderAsTwoRows ? 'two-rows' : 'one-row');
+
     const titleElement = itemElement.createChild('div', 'filtered-list-widget-title');
     const subtitleElement = itemElement.createChild('div', 'filtered-list-widget-subtitle');
     subtitleElement.textContent = '\u200B';
@@ -262,7 +270,9 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
       this.provider.renderItem(item, this.cleanValue(), titleElement, subtitleElement);
     }
     UI.ARIAUtils.markAsOption(itemElement);
-    return itemElement;
+
+    wrapperElement.appendChild(itemElement);
+    return wrapperElement;
   }
 
   heightForItem(_item: number): number {
@@ -544,6 +554,13 @@ export class Provider {
 
   itemScoreAt(_itemIndex: number, _query: string): number {
     return 1;
+  }
+
+  renderIcon(): boolean {
+    return false;
+  }
+
+  renderIconItem(_itemIndex: number, _wrapperElement: Element): void {
   }
 
   renderItem(_itemIndex: number, _query: string, _titleElement: Element, _subtitleElement: Element): void {

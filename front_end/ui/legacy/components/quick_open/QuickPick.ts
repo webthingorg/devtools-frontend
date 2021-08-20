@@ -114,6 +114,10 @@ class QuickPickProvider extends Provider {
     }
   }
 
+  renderIcon(): boolean {
+    return false;
+  }
+
   renderAsTwoRows(): boolean {
     return this.items.some(i => Boolean(i.detail));
   }
