@@ -40,7 +40,7 @@ import {LiveLocationPool} from './LiveLocation.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
-export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
+export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   readonly storage: Storage;
   private readonly workspace: Workspace.Workspace.WorkspaceImpl;
   readonly targetManager: SDK.TargetManager.TargetManager;
@@ -290,12 +290,15 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Events {
+export const enum Events {
   BreakpointAdded = 'breakpoint-added',
   BreakpointRemoved = 'breakpoint-removed',
 }
+
+export type EventTypes = {
+  [Events.BreakpointAdded]: BreakpointLocation,
+  [Events.BreakpointRemoved]: BreakpointLocation,
+};
 
 export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.DebuggerModel.DebuggerModel> {
   readonly breakpointManager: BreakpointManager;
