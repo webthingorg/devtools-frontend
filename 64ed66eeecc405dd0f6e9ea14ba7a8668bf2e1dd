@@ -16,6 +16,46 @@
       "message": "Hey Kateryna,\n\nHere\u0027s the migration for the BreakpointManager events. Please take a look.\n\nthanks,\nBenedikt",
       "revId": "64ed66eeecc405dd0f6e9ea14ba7a8668bf2e1dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "332cc0e9_751dc098",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-20T11:11:08Z",
+      "side": 1,
+      "message": "One question and one small change",
+      "revId": "64ed66eeecc405dd0f6e9ea14ba7a8668bf2e1dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921b833f_e39aad6d",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-20T11:11:08Z",
+      "side": 1,
+      "message": "Will this assign the value of event.data.uiLocation to uiLocation? (I\u0027ve just never seen it done this way before)",
+      "range": {
+        "startLine": 1544,
+        "startChar": 10,
+        "endLine": 1544,
+        "endChar": 36
+      },
+      "revId": "64ed66eeecc405dd0f6e9ea14ba7a8668bf2e1dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

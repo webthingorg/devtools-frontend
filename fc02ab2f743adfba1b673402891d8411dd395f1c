@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63284a7d_7c520edb",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-20T11:11:08Z",
+      "side": 0,
+      "message": "The TODO and eslint-disable lines should stay as there were some flaky non-determinism issues in the past (at least this was the state 10 days ago). The enum should be made back non-const because of this as well",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 20
+      },
+      "revId": "fc02ab2f743adfba1b673402891d8411dd395f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
