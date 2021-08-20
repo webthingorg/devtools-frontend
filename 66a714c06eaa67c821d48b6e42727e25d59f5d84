@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3317058c_659ef66f",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-20T11:53:05Z",
+      "side": 1,
+      "message": "No, I wouldn\u0027t change anything now. It\u0027s just something to be aware of in the future.",
+      "parentUuid": "ae2df60e_c9d5e60c",
+      "range": {
+        "startLine": 336,
+        "startChar": 3,
+        "endLine": 352,
+        "endChar": 5
+      },
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3734c5c_9acb5055",
