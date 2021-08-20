@@ -39,6 +39,30 @@
       },
       "revId": "94419d724ca5d8ee0d941b0a9b9e431fb673af6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feab70bd_62e38763",
+        "filename": "front_end/panels/elements/components/CSSQuery.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T11:18:07Z",
+      "side": 1,
+      "message": "I am not a fan of it, since I would prefer to keep the imports per folder. Instead, I think we should refactor these components so that they don\u0027t import from random locations. So disabling the rule is better imo than allowing this pattern to spread even more.",
+      "parentUuid": "6f5f37a4_0d0668f2",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "94419d724ca5d8ee0d941b0a9b9e431fb673af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
