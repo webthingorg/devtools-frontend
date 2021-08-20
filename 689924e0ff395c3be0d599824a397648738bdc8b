@@ -46,6 +46,30 @@
       },
       "revId": "689924e0ff395c3be0d599824a397648738bdc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506f8e13_eb5a7212",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-20T13:22:44Z",
+      "side": 1,
+      "message": "Ah yeah sorry that makes sense. I think in this case because this is a new component and quite specific to the inline_editor (e.g. not anywhere close to the emulation/toolbar) we\u0027re safe. Sorry - I didn\u0027t do a good job of explaining that when I left the original comment.",
+      "parentUuid": "422bf671_87e86fad",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "689924e0ff395c3be0d599824a397648738bdc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
