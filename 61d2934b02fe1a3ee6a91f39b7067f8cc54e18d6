@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6493c89_7fb87a3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-08-20T11:08:30Z",
+      "side": 1,
+      "message": "Hi Jack, PTAL regarding the modification of DOMExtension. Thanks!",
+      "revId": "61d2934b02fe1a3ee6a91f39b7067f8cc54e18d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
