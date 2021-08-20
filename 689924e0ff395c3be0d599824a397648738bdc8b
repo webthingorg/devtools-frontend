@@ -22,6 +22,30 @@
       },
       "revId": "689924e0ff395c3be0d599824a397648738bdc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "422bf671_87e86fad",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-08-20T12:45:05Z",
+      "side": 1,
+      "message": "I left it since we were not migrating ui/legacy but can change it now.",
+      "parentUuid": "8149291e_09080fd9",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "689924e0ff395c3be0d599824a397648738bdc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
