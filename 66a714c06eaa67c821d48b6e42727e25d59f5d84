@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2df60e_c9d5e60c",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-20T10:24:59Z",
+      "side": 1,
+      "message": "Should the dropdown be included in this CL?\n\nSince grouping by category is not included as a functionality yet and not even behind an experiment should we still go for the dropdown?",
+      "parentUuid": "3d650302_803eff7e",
+      "range": {
+        "startLine": 336,
+        "startChar": 3,
+        "endLine": 352,
+        "endChar": 5
+      },
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3734c5c_9acb5055",
@@ -54,6 +78,42 @@
       "writtenOn": "2021-08-19T16:46:06Z",
       "side": 1,
       "message": "super-nit: add empty line between tests",
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e9ab798_175c6812",
+        "filename": "test/e2e/issues/group-by-kind_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-20T10:24:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3734c5c_9acb5055",
+      "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2752f9a4_aa51aacb",
+        "filename": "test/e2e/issues/group-by-kind_test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-20T10:24:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3734c5c_9acb5055",
       "revId": "66a714c06eaa67c821d48b6e42727e25d59f5d84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
