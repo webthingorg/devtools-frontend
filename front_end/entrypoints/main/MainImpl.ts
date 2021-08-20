@@ -314,6 +314,9 @@ export class MainImpl {
     // Hide Issues Feature.
     Root.Runtime.experiments.register('hideIssuesFeature', 'Enable experimental hide issues menu');
 
+    // Hide Issues Feature.
+    Root.Runtime.experiments.register('groupAndHideIssuesByKind', 'Allow grouping and hiding of issues by IssueKind');
+
     // Localized DevTools, hide "locale selector" setting behind an experiment.
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS, 'Enable localized DevTools');
 
