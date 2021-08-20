@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f8552d2_39259273",
+        "filename": "front_end/panels/sources/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T13:35:48Z",
+      "side": 1,
+      "message": "Per the below comment, I think it is better to depend on the utils, rather than the whole panel.",
+      "parentUuid": "cb76d935_ce8e5b22",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "daa09c8d_1988503b",
         "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2021-08-20T12:37:52Z",
       "side": 1,
       "message": "Then we could use something like `import * as Network from \u0027../network.js\u0027` and then `Network.NetworkUtils.imageNameForResourceType`",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c84c478_06b6f96d",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-20T13:35:48Z",
+      "side": 1,
+      "message": "Since this is a cross-module import, I think this should be the following:\n\n```\nimport * as NetworkUtils from \u0027../network/utils/utils.js\u0027;\n```\n\nPanels shouldn\u0027t directly depend on other panels (e.g. not network/network.js, but maybe some of its utils it could). Unfortunately, there are still quite a few panels that do that, but we should not encourage that.\n\nIf `network/utils/utils.js` is not a great place for `imageNameForResourceType`, you could also consider moving it into a separate file, but not sure if that\u0027s worth it.",
+      "parentUuid": "daa09c8d_1988503b",
       "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
