@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "829f07a9_66498d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-20T20:35:10Z",
+      "side": 1,
+      "message": "I\u0027ve re-introduced the conditional enablement of the prefers-contrast emulation in the UI and I\u0027ve opted to skip the e2etest until the feature is fully enabled.",
+      "revId": "906e79728de4da512e5280179412edfcb3698bae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
