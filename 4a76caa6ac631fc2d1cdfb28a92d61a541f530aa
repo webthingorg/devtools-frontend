@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b060c58_aa2a3031",
+        "filename": "front_end/third_party/codemirror.next/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8313560d_2bdcaf12",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b87f81f_5167a8e5",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3935a772_532e1c6c",
+        "filename": "front_end/third_party/codemirror.next/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b87f81f_5167a8e5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 25
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9ea8bfd_28161bf9",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-08-19T15:37:46Z",
       "side": 1,
       "message": "Nit: to ensure deterministic version resolution (to the extent possible with NPM), we typically use strict versioning rather than caret-range. For example, we use strict versions for all our `node_modules` deps as well: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/deps/manage_node_deps.py;l\u003d40;drc\u003d01ee32f6326a487701bac216c4dd69eeabafe4ae\n\nI think it is better if we use specific versions here, since the versions of all CodeMirror packages typically all use the same version number?",
+      "range": {
+        "startLine": 6,
+        "startChar": 28,
+        "endLine": 6,
+        "endChar": 38
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75dfb323_9ade2060",
+        "filename": "front_end/third_party/codemirror.next/package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "No, they are versioned independently (though for 0.x versions the minor number is bumped in sync on breaking changes, due to how version compatibility works in 0.x).\n\nI\u0027ve locked down the versions in the updated patch.",
+      "parentUuid": "e9ea8bfd_28161bf9",
       "range": {
         "startLine": 6,
         "startChar": 28,
@@ -135,6 +207,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fe1a300_9ac74312",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "Given that there won\u0027t be a single version, and that running `npm install` often tends to be slow, I think I prefer the declarative approach of using a package.json file.",
+      "parentUuid": "2552144f_f64111c4",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "374c8e11_8be8a884",
         "filename": "front_end/third_party/codemirror.next/rebuild.sh",
         "patchSetId": 1
@@ -146,6 +242,30 @@
       "writtenOn": "2021-08-19T15:37:46Z",
       "side": 1,
       "message": "Nit: we already check in a version of Rollup into `node_modules`, so I think we can use https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/node_modules/rollup/dist/bin/rollup here (and then remove `rollup` from the `package.json`.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 6
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa5dec0_1c7163e9",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "374c8e11_8be8a884",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -169,6 +289,30 @@
       "writtenOn": "2021-08-19T15:37:46Z",
       "side": 1,
       "message": "WDYT about moving these files into a `generated/` sub-folder or `packages` sub-folder? That way, it is clear which files we expect to regenerate and which files we consider the source-of-truth.\n\nBased on that, I think we only need to move `codemirror.js` and `codemirror.d.ts` into the sub-folder and all other files can stay as-is?",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2fb8ecd_3e8d0907",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-20T08:13:58Z",
+      "side": 1,
+      "message": "I was following the way the other third_party directories usually have their main imports directly at the top level. Adding a directory here would require a longer path in all consumers and mentions in the build files, so my impulse would be not to, but I\u0027ll happily add it if you prefer.",
+      "parentUuid": "03bf5d91_38ca3eec",
       "range": {
         "startLine": 9,
         "startChar": 13,
