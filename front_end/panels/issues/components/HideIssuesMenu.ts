@@ -26,20 +26,26 @@ const UIStrings = {
   *@description Menu entry for Unhiding a particular issue, in the Hide Issues context menu.
   */
   UnhideIssueByCode: 'Unhide issues like this',
+  /**
+  *@description Menu entry for hiding all available issues belonging to a particular kind.
+  */
+  hideAllAvailableIssues: 'Hide all available issues',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/issues/components/HideIssuesMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export interface HiddenIssuesMenuData {
-  issueCode: string;
+  issueCode?: string;
+  issueKind?: IssuesManager.Issue.IssueKind;
   forHiddenIssue: boolean;
 }
 
 export class HideIssuesMenu extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-hide-issues-menu`;
   private readonly shadow: ShadowRoot = this.attachShadow({mode: 'open'});
-  private code: string = '';
+  private code: string|null = null;
+  private kind: IssuesManager.Issue.IssueKind|null = null;
   private visible: boolean = false;
   private hideIssueSetting: Common.Settings.Setting<IssuesManager.IssuesManager.HideIssueMenuSetting> =
       IssuesManager.IssuesManager.getHideIssueByCodeSetting();
@@ -47,7 +53,12 @@ export class HideIssuesMenu extends HTMLElement {
 
   set data(data: HiddenIssuesMenuData) {
     this.classList.add('hide-issues-menu');
-    this.code = data.issueCode;
+    if (data.issueCode) {
+      this.code = data.issueCode;
+    }
+    if (data.issueKind) {
+      this.kind = data.issueKind;
+    }
     this.forHiddenIssue = data.forHiddenIssue;
     this.render();
   }
@@ -68,23 +79,41 @@ export class HideIssuesMenu extends HTMLElement {
     event.stopPropagation();
     const contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
     if (this.forHiddenIssue) {
-      contextMenu.headerSection().appendItem(i18nString(UIStrings.UnhideIssueByCode), () => this.onUnhideIssueByCode());
-      contextMenu.show();
-      return;
+      contextMenu.headerSection().appendItem(i18nString(UIStrings.UnhideIssueByCode), () => this.unhideIssueByCode());
     }
-    contextMenu.headerSection().appendItem(i18nString(UIStrings.hideIssueByCode), () => this.onHideIssueByCode());
+    if (this.kind) {
+      contextMenu.headerSection().appendItem(
+          i18nString(UIStrings.hideAllAvailableIssues), () => this.hideAllAvailableIssues());
+    }
+    if (this.code && !this.forHiddenIssue) {
+      contextMenu.headerSection().appendItem(i18nString(UIStrings.hideIssueByCode), () => this.hideIssueByCode());
+    }
     contextMenu.show();
   }
 
-  onHideIssueByCode(): void {
+  hideIssueByCode(): void {
     const values = this.hideIssueSetting.get();
-    values[this.code] = IssuesManager.IssuesManager.IssueStatus.Hidden;
-    this.hideIssueSetting.set(values);
+    if (this.code) {
+      values[this.code] = IssuesManager.IssuesManager.IssueStatus.Hidden;
+      this.hideIssueSetting.set(values);
+    }
   }
 
-  onUnhideIssueByCode(): void {
+  unhideIssueByCode(): void {
     const values = this.hideIssueSetting.get();
-    values[this.code] = IssuesManager.IssuesManager.IssueStatus.Unhidden;
+    if (this.code) {
+      values[this.code] = IssuesManager.IssuesManager.IssueStatus.Unhidden;
+      this.hideIssueSetting.set(values);
+    }
+  }
+
+  hideAllAvailableIssues(): void {
+    const values = this.hideIssueSetting.get();
+    for (const issue of IssuesManager.IssuesManager.IssuesManager.instance().issues()) {
+      if (issue.getKind() === this.kind) {
+        values[issue.code()] = IssuesManager.IssuesManager.IssueStatus.Hidden;
+      }
+    }
     this.hideIssueSetting.set(values);
   }
 
