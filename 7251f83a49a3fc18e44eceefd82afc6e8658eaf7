@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1c2997_1ecb5c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-20T12:37:52Z",
+      "side": 1,
+      "message": "Thanks for the changes Nancy! The icons in the list look great! Some comments on the issues we have talked about and adding Tim as discussed offline.\n\n@Tim: could you have a look at the comments related to how to import the utils from network?",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d0bf2c_5785740f",
+        "filename": "front_end/panels/network/utils/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-20T12:37:52Z",
+      "side": 1,
+      "message": "See below: with exposing it via network we wouldn\u0027t need to expose it here.",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb76d935_ce8e5b22",
+        "filename": "front_end/panels/sources/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-20T12:37:52Z",
+      "side": 1,
+      "message": "Maybe we want to depend on network here, and then export the utils explicitly in `network.ts`?",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa09c8d_1988503b",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-20T12:37:52Z",
+      "side": 1,
+      "message": "Then we could use something like `import * as Network from \u0027../network.js\u0027` and then `Network.NetworkUtils.imageNameForResourceType`",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e204767_2405a8e0",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-20T12:37:52Z",
+      "side": 1,
+      "message": "How about changing `renderItem` to also accept a `wrapperElement`, such that renderItem is responsible for rendering the icon? As is, `renderIcon` is only used by one Provider, and it feels as if we already have a \"general\" function for the provider to render items. In that case, we wouldn\u0027t need to declare the icon specific functions on top of `FilteredListWidget` and keep it more general? WDYT?",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
