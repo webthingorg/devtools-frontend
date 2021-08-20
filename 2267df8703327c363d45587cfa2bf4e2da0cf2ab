@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f9f7e78_b8935188",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-20T10:33:55Z",
+      "side": 1,
+      "message": "IMO, combining the two types can be a bit confusing. I think it\u0027s better if they are both separate.",
+      "parentUuid": "6f256a58_8c24bae8",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "2267df8703327c363d45587cfa2bf4e2da0cf2ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "535eaa66_aa17daa4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-19T17:00:38Z",
       "side": 1,
       "message": "It looks like the first 2 tests are a subset of the third one. Are they then even needed?\nWould it be possible to check not only that the issue is hidden, but also that the category-view is not visible anymore after hiding all issues?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "2267df8703327c363d45587cfa2bf4e2da0cf2ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24937a3_e460d80f",
+        "filename": "test/e2e/issues/hide-issues-menu_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-20T10:33:55Z",
+      "side": 1,
+      "message": "I think the second one can be removed but the first one should be kept, becuase we append three different variations of hideIssuesMenu, one for code, one for kind and one for hiddenIssues. \n\nThe first test although a subset of the other two, tests that hide by kind variation is also present.\n\nWDYT?",
+      "parentUuid": "535eaa66_aa17daa4",
       "range": {
         "startLine": 209,
         "startChar": 0,
