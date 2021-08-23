@@ -39,6 +39,30 @@
       },
       "revId": "225f7eb7aa2927eb02874079da262b8ca3c149c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fd32e0b_88139bd0",
+        "filename": "front_end/third_party/codemirror.next/rebuild.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-23T15:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d98b1d2_effa6eb3",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "225f7eb7aa2927eb02874079da262b8ca3c149c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
