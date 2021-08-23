@@ -369,6 +369,30 @@
       },
       "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91da5125_9c1d9b19",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-23T15:44:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a22e7d_ee6d5ef1",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "4a76caa6ac631fc2d1cdfb28a92d61a541f530aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

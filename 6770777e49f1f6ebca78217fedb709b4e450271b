@@ -16,6 +16,69 @@
       "message": "Updated this based on your approach in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3107134, added the +x flag, and modified the import list based on my current code.",
       "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4f69944_fea134e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-23T15:44:59Z",
+      "side": 1,
+      "message": "Still LGTM. I have 1 more question with regards to the Rollup configuration, but I am fine with keeping it as-is (with a code comment explaining why).",
+      "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf2e88f_a12f4a35",
+        "filename": "front_end/third_party/codemirror.next/README.chromium",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-23T15:44:59Z",
+      "side": 1,
+      "message": "Ultra-nit: `codemirror.next.js` and `codemirror.next.d.ts`",
+      "range": {
+        "startLine": 18,
+        "startChar": 118,
+        "endLine": 18,
+        "endChar": 151
+      },
+      "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "767a10b7_9e01fc43",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-23T15:44:59Z",
+      "side": 1,
+      "message": "I missed this in the initial review round. Reading the documentation of this option (https://rollupjs.org/guide/en/#outputexternallivebindings), it seems like this could have unintended side-effects.\n\nI don\u0027t mind adding this, but could you document the reason for doing so in a code comment above this line? (I am assuming this is to limit filesize, do you have any numbers of how many lines we save by setting this option?)",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
