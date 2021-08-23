@@ -102,8 +102,8 @@ async function activateContextMenuOnBodyCell(cellText: string) {
 async function waitForFirstBodyCellText(cellText: string) {
   await waitForFunction(async () => {
     const dataGrid = await getDataGrid();
-    const firstBodyCell = await $('tbody td', dataGrid);
-    const text = firstBodyCell && await firstBodyCell.evaluate(cell => (cell as HTMLElement).innerText);
+    const firstBodyCell = await $<HTMLTableCellElement>('tbody td', dataGrid);
+    const text = firstBodyCell && await firstBodyCell.evaluate(cell => cell.innerText);
     return text === cellText;
   });
 }
