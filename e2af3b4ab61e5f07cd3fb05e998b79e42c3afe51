@@ -87,6 +87,24 @@
       "parentUuid": "a8ade918_53bd344b",
       "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568c8b17_5d538e8b",
+        "filename": "test/e2e/rendering/Rendering_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-23T08:36:42Z",
+      "side": 1,
+      "message": "Ideally we land+enable the test as part of this CL. It feels we’re already really close! This is the one missing piece:\n\n\u003e I don\u0027t understand how to access the page context.\n\nYou’re already accessing the page context on line 53-56: the function you pass in there gets evaluated in the page context.\n\nYou could do conceptually the same thing here, e.g.:\n\n    import {getBrowserAndPages} from \u0027../../shared/helper.js\u0027;\n    const {frontend} \u003d getBrowserAndPages;\n    const hasSupport \u003d await frontend.evaluate(() \u003d\u003e {\n      // feature test code here\n      // return true if supported and false otherwise\n    });\n    // Now, skip() based on hasSupport.",
+      "parentUuid": "8b82d822_8f1d547b",
+      "revId": "e2af3b4ab61e5f07cd3fb05e998b79e42c3afe51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
