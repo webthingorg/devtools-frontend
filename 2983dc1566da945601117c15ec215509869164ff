@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "2983dc1566da945601117c15ec215509869164ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1581f36f_5630b1e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-23T07:51:37Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "2983dc1566da945601117c15ec215509869164ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2fbbf05_8a9a77d7",
+        "filename": "front_end/ui/legacy/SoftDropDown.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-23T07:51:37Z",
+      "side": 1,
+      "message": "ultra-nit:\n\n const {removed} \u003d event.data;",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 39
+      },
+      "revId": "2983dc1566da945601117c15ec215509869164ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6045fb_4845892b",
+        "filename": "test/unittests/front_end/ui/ListModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-23T07:51:37Z",
+      "side": 1,
+      "message": "I don\u0027t think this line does anything?",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "2983dc1566da945601117c15ec215509869164ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
