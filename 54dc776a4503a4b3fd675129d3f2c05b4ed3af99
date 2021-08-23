@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "54dc776a4503a4b3fd675129d3f2c05b4ed3af99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3274c97c_7b5da573",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-23T15:41:01Z",
+      "side": 1,
+      "message": "Ultra-nit: it might even be possible to use field initialisation here and remove the `undefined` checks from below.\n\n```\nconstructor(event: Event, {x: event.x, y: event.y, useSoftMenu: false}: ContextMenuOptions \u003d {}) {\n```\n\n(Not 100% sure if this actually works, but I think it should?)",
+      "range": {
+        "startLine": 351,
+        "startChar": 28,
+        "endLine": 351,
+        "endChar": 35
+      },
+      "revId": "54dc776a4503a4b3fd675129d3f2c05b4ed3af99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
