@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -384,9 +382,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     };
 
     const valueChanged = async(event: Event): Promise<void> => {
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const {data} = (event as any);
+      const {data} = (event as InlineEditor.InlineEditorUtils.ValueChangedEvent);
 
       valueElement.textContent = data.value;
       await this.applyStyleText(this.renderedPropertyText(), false);
@@ -396,9 +392,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     };
 
     const unitChanged = async(event: Event): Promise<void> => {
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const {data} = (event as any);
+      const {data} = (event as InlineEditor.CSSAngle.UnitChangedEvent);
       valueElement.textContent = data.value;
     };
 
@@ -407,6 +401,36 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     cssAngle.addEventListener('unitchanged', unitChanged);
 
     return cssAngle;
+  }
+
+  private processLength(lengthText: string): Text|InlineEditor.CSSLength.CSSLength {
+    if (!this.editable()) {
+      return document.createTextNode(lengthText);
+    }
+    const cssLength = new InlineEditor.CSSLength.CSSLength();
+    const valueElement = document.createElement('span');
+    valueElement.textContent = lengthText;
+    cssLength.data = {
+      lengthText,
+    };
+    cssLength.append(valueElement);
+
+    const onValueChanged = (event: Event): void => {
+      const {data} = (event as InlineEditor.InlineEditorUtils.ValueChangedEvent);
+
+      valueElement.textContent = data.value;
+      this.parentPaneInternal.setEditingStyle(true);
+      this.applyStyleText(this.renderedPropertyText(), false);
+    };
+
+    const onDraggingFinished = (): void => {
+      this.parentPaneInternal.setEditingStyle(false);
+    };
+
+    cssLength.addEventListener('valuechanged', onValueChanged);
+    cssLength.addEventListener('draggingfinished', onDraggingFinished);
+
+    return cssLength;
   }
 
   private updateState(): void {
@@ -596,6 +620,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setShadowHandler(this.processShadow.bind(this));
       propertyRenderer.setGridHandler(this.processGrid.bind(this));
       propertyRenderer.setAngleHandler(this.processAngle.bind(this));
+      propertyRenderer.setLengthHandler(this.processLength.bind(this));
     }
 
     this.listItemElement.removeChildren();
@@ -756,9 +781,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private handleContextMenuEvent(context: Context, event: Event): void {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
     if (this.property.parsedOk && this.section() && this.parent && this.parent.root) {
+      const sectionIndex = this.parentPaneInternal.focusedSectionIndex();
       contextMenu.defaultSection().appendCheckboxItem(
           i18nString(UIStrings.togglePropertyAndContinueEditing), async () => {
-            const sectionIndex = this.parentPaneInternal.focusedSectionIndex();
             if (this.treeOutline) {
               const propertyIndex = this.treeOutline.rootElement().indexOfChild(this);
               // order matters here: this.editingCancelled may invalidate this.treeOutline.

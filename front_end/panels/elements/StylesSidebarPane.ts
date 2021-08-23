@@ -31,8 +31,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -56,6 +54,8 @@ import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
+import stylesSectionTreeStyles from './stylesSectionTree.css.js';
+import stylesSidebarPaneStyles from './stylesSidebarPane.css.js';
 
 import type {Context} from './StylePropertyTreeElement.js';
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';
@@ -228,8 +228,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   private constructor() {
     super(true /* delegatesFocus */);
     this.setMinimumSize(96, 26);
-    this.registerRequiredCSS('panels/elements/stylesSidebarPane.css');
-
+    this.registerCSSFiles([stylesSidebarPaneStyles]);
     Common.Settings.Settings.instance().moduleSetting('colorFormat').addChangeListener(this.update.bind(this));
     Common.Settings.Settings.instance().moduleSetting('textEditorIndent').addChangeListener(this.update.bind(this));
 
@@ -1211,7 +1210,7 @@ export class StylePropertiesSection {
 
     this.propertiesTreeOutline = new UI.TreeOutline.TreeOutlineInShadow();
     this.propertiesTreeOutline.setFocusable(false);
-    this.propertiesTreeOutline.registerRequiredCSS('panels/elements/stylesSectionTree.css');
+    this.propertiesTreeOutline.registerCSSFiles([stylesSectionTreeStyles]);
     this.propertiesTreeOutline.element.classList.add('style-properties', 'matched-styles', 'monospace');
     // @ts-ignore TODO: fix ad hoc section property in a separate CL to be safe
     this.propertiesTreeOutline.section = this;
@@ -1457,7 +1456,7 @@ export class StylePropertiesSection {
   }
 
   private getFocused(): HTMLElement|null {
-    return (this.propertiesTreeOutline._shadowRoot.activeElement as HTMLElement) || null;
+    return (this.propertiesTreeOutline.shadowRoot.activeElement as HTMLElement) || null;
   }
 
   private focusNext(element: HTMLElement): void {
@@ -1469,7 +1468,7 @@ export class StylePropertiesSection {
 
     // Focus the next item and remember it (if in our subtree).
     element.focus();
-    if (this.propertiesTreeOutline._shadowRoot.contains(element)) {
+    if (this.propertiesTreeOutline.shadowRoot.contains(element)) {
       element.tabIndex = 0;
     }
   }
@@ -1483,7 +1482,7 @@ export class StylePropertiesSection {
 
     let focusNext: HTMLElement|null = null;
     const focusable =
-        Array.from((this.propertiesTreeOutline._shadowRoot.querySelectorAll('[tabindex]') as NodeListOf<HTMLElement>));
+        Array.from((this.propertiesTreeOutline.shadowRoot.querySelectorAll('[tabindex]') as NodeListOf<HTMLElement>));
 
     if (focusable.length === 0) {
       return;
@@ -2921,6 +2920,7 @@ export class StylesSidebarPropertyRenderer {
   private gridHandler: ((arg0: string, arg1: string) => Node)|null;
   private varHandler: ((arg0: string) => Node)|null;
   private angleHandler: ((arg0: string) => Node)|null;
+  private lengthHandler: ((arg0: string) => Node)|null;
 
   constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
     this.rule = rule;
@@ -2934,6 +2934,7 @@ export class StylesSidebarPropertyRenderer {
     this.gridHandler = null;
     this.varHandler = document.createTextNode.bind(document);
     this.angleHandler = null;
+    this.lengthHandler = null;
   }
 
   setColorHandler(handler: (arg0: string) => Node): void {
@@ -2962,6 +2963,10 @@ export class StylesSidebarPropertyRenderer {
 
   setAngleHandler(handler: (arg0: string) => Node): void {
     this.angleHandler = handler;
+  }
+
+  setLengthHandler(handler: (arg0: string) => Node): void {
+    this.lengthHandler = handler;
   }
 
   renderName(): Element {
@@ -3020,6 +3025,11 @@ export class StylesSidebarPropertyRenderer {
         regexes.push(InlineEditor.FontEditorUtils.FontPropertiesRegex);
       }
       processors.push(this.fontHandler);
+    }
+    if (this.lengthHandler) {
+      // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
+      regexes.push(InlineEditor.CSSLengthUtils.CSSLengthRegex);
+      processors.push(this.lengthHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this.propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {

@@ -43,6 +43,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Protocol from '../../generated/protocol.js';
+import invalidationsTreeStyles from './invalidationsTree.css.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import {TimelinePanel, TimelineSelection} from './TimelinePanel.js';
@@ -1783,7 +1784,7 @@ export class TimelineUIUtils {
     return detailsText;
 
     async function linkifyLocationAsText(
-        scriptId: string, lineNumber: number, columnNumber: number): Promise<string|null> {
+        scriptId: Protocol.Runtime.ScriptId, lineNumber: number, columnNumber: number): Promise<string|null> {
       const debuggerModel = target ? target.model(SDK.DebuggerModel.DebuggerModel) : null;
       if (!target || target.isDisposed() || !scriptId || !debuggerModel) {
         return null;
@@ -1887,7 +1888,7 @@ export class TimelineUIUtils {
       }
 
       case recordType.CompileModule: {
-        details = linkifyLocation('', event.args['fileName'], 0, 0);
+        details = linkifyLocation(null, event.args['fileName'], 0, 0);
         break;
       }
 
@@ -1895,7 +1896,7 @@ export class TimelineUIUtils {
       case recordType.EvaluateScript: {
         const url = eventData['url'];
         if (url) {
-          details = linkifyLocation('', url, eventData['lineNumber'], 0);
+          details = linkifyLocation(null, url, eventData['lineNumber'], 0);
         }
         break;
       }
@@ -1903,7 +1904,7 @@ export class TimelineUIUtils {
       case recordType.StreamingCompileScript: {
         const url = eventData['url'];
         if (url) {
-          details = linkifyLocation('', url, 0, 0);
+          details = linkifyLocation(null, url, 0, 0);
         }
         break;
       }
@@ -1923,7 +1924,9 @@ export class TimelineUIUtils {
     }
     return details;
 
-    function linkifyLocation(scriptId: string, url: string, lineNumber: number, columnNumber?: number): Element|null {
+    function linkifyLocation(
+        scriptId: Protocol.Runtime.ScriptId|null, url: string, lineNumber: number, columnNumber?: number): Element|
+        null {
       const options = {columnNumber, inlineFrameIndex: 0, className: 'timeline-details', tabStop: true};
       return linkifier.linkifyScriptLocation(target, scriptId, url, lineNumber, options);
     }
@@ -2818,7 +2821,7 @@ export class TimelineUIUtils {
     }
 
     const invalidationsTreeOutline = new UI.TreeOutline.TreeOutlineInShadow();
-    invalidationsTreeOutline.registerRequiredCSS('panels/timeline/invalidationsTree.css');
+    invalidationsTreeOutline.registerCSSFiles([invalidationsTreeStyles]);
     invalidationsTreeOutline.element.classList.add('invalidations-tree');
 
     const invalidationGroups = groupInvalidationsByCause(invalidations);

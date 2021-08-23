@@ -6275,8 +6275,8 @@
   "panels/network/NetworkLogView.ts | recordingNetworkActivity": {
     "message": "R̂éĉór̂d́îńĝ ńêt́ŵór̂ḱ âćt̂ív̂ít̂ý…"
   },
-  "panels/network/NetworkLogView.ts | recordSToDisplayNetworkActivity": {
-    "message": "R̂éĉór̂d́ ({PH1}) t̂ó d̂íŝṕl̂áŷ ńêt́ŵór̂ḱ âćt̂ív̂ít̂ý."
+  "panels/network/NetworkLogView.ts | recordToDisplayNetworkActivity": {
+    "message": "R̂éĉór̂d́ n̂ét̂ẃôŕk̂ ĺôǵ ({PH1}) t̂ó d̂íŝṕl̂áŷ ńêt́ŵór̂ḱ âćt̂ív̂ít̂ý."
   },
   "panels/network/NetworkLogView.ts | replayXhr": {
     "message": "R̂ép̂ĺâý X̂H́R̂"
@@ -7622,9 +7622,6 @@
   "panels/protocol_monitor/ProtocolMonitor.ts | clearAll": {
     "message": "Ĉĺêár̂ ál̂ĺ"
   },
-  "panels/protocol_monitor/ProtocolMonitor.ts | direction": {
-    "message": "D̂ír̂éĉt́îón̂"
-  },
   "panels/protocol_monitor/ProtocolMonitor.ts | documentation": {
     "message": "D̂óĉúm̂én̂t́ât́îón̂"
   },
@@ -7663,6 +7660,9 @@
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | timestamp": {
     "message": "T̂ím̂éŝt́âḿp̂"
+  },
+  "panels/protocol_monitor/ProtocolMonitor.ts | type": {
+    "message": "T̂ýp̂é"
   },
   "panels/screencast/ScreencastApp.ts | toggleScreencast": {
     "message": "T̂óĝǵl̂é ŝćr̂éêńĉáŝt́"

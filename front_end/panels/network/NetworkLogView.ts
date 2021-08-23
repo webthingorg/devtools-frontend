@@ -50,6 +50,8 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
+import networkLogViewStyles from './networkLogView.css.js';
+
 import type {NetworkLogViewInterface, NetworkNode} from './NetworkDataGridNode.js';
 import {Events, NetworkGroupNode, NetworkRequestNode} from './NetworkDataGridNode.js';
 import {NetworkFrameGrouper} from './NetworkFrameGrouper.js';
@@ -123,7 +125,7 @@ const UIStrings = {
   * show network activity in the current UI.
   *@example {Ctrl + E} PH1
   */
-  recordSToDisplayNetworkActivity: 'Record ({PH1}) to display network activity.',
+  recordToDisplayNetworkActivity: 'Record network log ({PH1}) to display network activity.',
   /**
   *@description Text that is usually a hyperlink to more documentation
   */
@@ -393,7 +395,6 @@ export class NetworkLogView extends UI.Widget.VBox implements
       networkLogLargeRowsSetting: Common.Settings.Setting<boolean>) {
     super();
     this.setMinimumSize(50, 64);
-    this.registerRequiredCSS('panels/network/networkLogView.css');
 
     this.element.id = 'network-container';
     this.element.classList.add('no-node-selected');
@@ -896,7 +897,7 @@ export class NetworkLogView extends UI.Widget.VBox implements
       recordNode.textContent =
           UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction('network.toggle-recording') || '';
       hintText.appendChild(
-          i18n.i18n.getFormatLocalizedString(str_, UIStrings.recordSToDisplayNetworkActivity, {PH1: recordNode}));
+          i18n.i18n.getFormatLocalizedString(str_, UIStrings.recordToDisplayNetworkActivity, {PH1: recordNode}));
     }
     hintText.createChild('br');
     hintText.appendChild(UI.XLink.XLink.create(
@@ -1185,6 +1186,7 @@ export class NetworkLogView extends UI.Widget.VBox implements
 
   wasShown(): void {
     this.refreshIfNeeded();
+    this.registerCSSFiles([networkLogViewStyles]);
     this.columns.wasShown();
   }
 

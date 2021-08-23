@@ -28,8 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
@@ -153,7 +151,8 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.setCanDeleteSelected(false);
   }
 
-  private domStorageItemRemoved(event: Common.EventTarget.EventTargetEvent): void {
+  private domStorageItemRemoved(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemRemovedEvent>):
+      void {
     if (!this.isShowing() || !this.dataGrid) {
       return;
     }
@@ -172,7 +171,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
   }
 
-  private domStorageItemAdded(event: Common.EventTarget.EventTargetEvent): void {
+  private domStorageItemAdded(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemAddedEvent>): void {
     if (!this.isShowing() || !this.dataGrid) {
       return;
     }
@@ -191,7 +190,8 @@ export class DOMStorageItemsView extends StorageItemsView {
     rootNode.insertChild(childNode, children.length - 1);
   }
 
-  private domStorageItemUpdated(event: Common.EventTarget.EventTargetEvent): void {
+  private domStorageItemUpdated(event: Common.EventTarget.EventTargetEvent<DOMStorage.DOMStorageItemUpdatedEvent>):
+      void {
     if (!this.isShowing() || !this.dataGrid) {
       return;
     }

@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import nodeStackTraceWidgetStyles from './nodeStackTraceWidget.css.js';
 
 const UIStrings = {
   /**
@@ -26,7 +26,6 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
 
   constructor() {
     super(true /* isWebComponent */);
-    this.registerRequiredCSS('panels/elements/nodeStackTraceWidget.css');
 
     this.noStackTraceElement = this.contentElement.createChild('div', 'gray-info-message');
     this.noStackTraceElement.textContent = i18nString(UIStrings.noStackTraceAvailable);
@@ -47,7 +46,9 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   wasShown(): void {
+    super.wasShown();
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
+    this.registerCSSFiles([nodeStackTraceWidgetStyles]);
     this.update();
   }
 

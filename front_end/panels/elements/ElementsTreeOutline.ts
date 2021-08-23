@@ -32,8 +32,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -42,7 +40,9 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
+import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
+
 import type {MarkerDecoratorRegistration} from './MarkerDecorator.js';
 
 const UIStrings = {
@@ -103,7 +103,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     this.treeElementByNode = new WeakMap();
     const shadowContainer = document.createElement('div');
     this.shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
-        shadowContainer, {cssFile: 'panels/elements/elementsTreeOutline.css', delegatesFocus: undefined});
+        shadowContainer, {cssFile: [elementsTreeOutlineStyles], delegatesFocus: undefined});
     const outlineDisclosureElement = this.shadowRoot.createChild('div', 'elements-disclosure');
 
     this.elementInternal = this.element;
@@ -540,7 +540,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     treeElement.revealAndSelect(omitFocus);
   }
 
-  treeElementFromEvent(event: MouseEvent): UI.TreeOutline.TreeElement|null {
+  treeElementFromEventInternal(event: MouseEvent): UI.TreeOutline.TreeElement|null {
     const scrollContainer = this.element.parentElement;
     if (!scrollContainer) {
       return null;
@@ -573,7 +573,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   }
 
   private onmousedown(event: MouseEvent): void {
-    const element = this.treeElementFromEvent(event);
+    const element = this.treeElementFromEventInternal(event);
 
     if (!element || element.isEventWithinDisclosureTriangle(event)) {
       return;
@@ -599,7 +599,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   }
 
   private onmousemove(event: MouseEvent): void {
-    const element = this.treeElementFromEvent(event);
+    const element = this.treeElementFromEventInternal(event);
     if (element && this.previousHoveredElement === element) {
       return;
     }
@@ -636,7 +636,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
       return false;
     }
 
-    const treeElement = this.validDragSourceOrTarget(this.treeElementFromEvent(event));
+    const treeElement = this.validDragSourceOrTarget(this.treeElementFromEventInternal(event));
     if (!treeElement) {
       return false;
     }
@@ -662,7 +662,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
       return false;
     }
 
-    const treeElement = this.validDragSourceOrTarget(this.treeElementFromEvent(event));
+    const treeElement = this.validDragSourceOrTarget(this.treeElementFromEventInternal(event));
     if (!treeElement) {
       return false;
     }
@@ -710,7 +710,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
 
   private ondrop(event: DragEvent): void {
     event.preventDefault();
-    const treeElement = this.treeElementFromEvent(event);
+    const treeElement = this.treeElementFromEventInternal(event);
     if (treeElement instanceof ElementsTreeElement) {
       this.doMove(treeElement);
     }
@@ -757,7 +757,7 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   }
 
   private contextMenuEventFired(event: MouseEvent): void {
-    const treeElement = this.treeElementFromEvent(event);
+    const treeElement = this.treeElementFromEventInternal(event);
     if (treeElement instanceof ElementsTreeElement) {
       this.showContextMenu(treeElement, event);
     }

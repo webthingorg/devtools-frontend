@@ -42,7 +42,14 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as ClientVariations from '../../third_party/chromium/client-variations/client-variations.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import objectPropertiesSectionStyles from '../../ui/legacy/components/object_ui/objectPropertiesSection.css.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import requestHeadersTreeStyles from './requestHeadersTree.css.js';
+import requestHeadersViewStyles from './requestHeadersView.css.js';
 
 const UIStrings = {
   /**
@@ -261,7 +268,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
   constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
-    this.registerRequiredCSS('panels/network/requestHeadersView.css');
+
     this.element.classList.add('request-headers-view');
 
     this.request = request;
@@ -277,9 +284,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this.highlightedElement = null;
 
     const root = new UI.TreeOutline.TreeOutlineInShadow();
-    root.registerRequiredCSS('ui/legacy/components/object_ui/objectValue.css');
-    root.registerRequiredCSS('ui/legacy/components/object_ui/objectPropertiesSection.css');
-    root.registerRequiredCSS('panels/network/requestHeadersTree.css');
+    root.registerCSSFiles([objectValueStyles, objectPropertiesSectionStyles, requestHeadersTreeStyles]);
+
     root.element.classList.add('request-headers-tree');
     root.makeDense();
     this.element.appendChild(root.element);
@@ -307,6 +313,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
   wasShown(): void {
     this.clearHighlight();
+    this.registerCSSFiles([requestHeadersViewStyles]);
     this.request.addEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this.refreshRemoteAddress, this);
     this.request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this.refreshRequestHeaders, this);
     this.request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this.refreshResponseHeaders, this);

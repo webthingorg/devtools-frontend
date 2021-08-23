@@ -32,8 +32,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -52,6 +50,7 @@ import {AppManifestView} from './AppManifestView.js';
 import {BackgroundServiceModel} from './BackgroundServiceModel.js';
 import {BackgroundServiceView} from './BackgroundServiceView.js';
 import * as ApplicationComponents from './components/components.js';
+import resourcesSidebarStyles from './resourcesSidebar.css.js';
 
 import type {Database as DatabaseModelDatabase} from './DatabaseModel.js';
 import {DatabaseModel, Events as DatabaseModelEvents} from './DatabaseModel.js';
@@ -233,7 +232,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.sidebarTree = new UI.TreeOutline.TreeOutlineInShadow();
     this.sidebarTree.element.classList.add('resources-sidebar');
-    this.sidebarTree.registerRequiredCSS('panels/application/resourcesSidebar.css');
+
     this.sidebarTree.element.classList.add('filter-all');
     // Listener needs to have been set up before the elements are added
     this.sidebarTree.addEventListener(UI.TreeOutline.Events.ElementAttached, this.treeElementAdded, this);
@@ -586,7 +585,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     }
   }
 
-  private domStorageAdded(event: Common.EventTarget.EventTargetEvent): void {
+  private domStorageAdded(event: Common.EventTarget.EventTargetEvent<DOMStorage>): void {
     const domStorage = (event.data as DOMStorage);
     this.addDOMStorage(domStorage);
   }
@@ -603,7 +602,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     }
   }
 
-  private domStorageRemoved(event: Common.EventTarget.EventTargetEvent): void {
+  private domStorageRemoved(event: Common.EventTarget.EventTargetEvent<DOMStorage>): void {
     const domStorage = (event.data as DOMStorage);
     this.removeDOMStorage(domStorage);
   }
@@ -854,12 +853,17 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       delete this.previousHoveredElement;
     }
   }
+  wasShown(): void {
+    super.wasShown();
+    this.sidebarTree.registerCSSFiles([resourcesSidebarStyles]);
+  }
 }
 
 export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
   private serviceName: Protocol.BackgroundService.ServiceName;
   private view: BackgroundServiceView|null;
   private model: BackgroundServiceModel|null;
+  private selectedInternal: boolean;
 
   constructor(storagePanel: ResourcesPanel, serviceName: Protocol.BackgroundService.ServiceName) {
     super(storagePanel, BackgroundServiceView.getUIString(serviceName), false);
@@ -867,7 +871,7 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
     this.serviceName = serviceName;
 
     /* Whether the element has been selected. */
-    this.selected = false;
+    this.selectedInternal = false;
 
     this.view = null;
 
@@ -900,7 +904,7 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
   initialize(model: BackgroundServiceModel|null): void {
     this.model = model;
     // Show the view if the model was initialized after selection.
-    if (this.selected && !this.view) {
+    if (this.selectedInternal && !this.view) {
       this.onselect(false);
     }
   }
@@ -911,7 +915,7 @@ export class BackgroundServiceTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
-    this.selected = true;
+    this.selectedInternal = true;
 
     if (!this.model) {
       return false;
@@ -1608,7 +1612,7 @@ export class ResourcesSection implements SDK.TargetManager.Observer {
   constructor(storagePanel: ResourcesPanel, treeElement: UI.TreeOutline.TreeElement) {
     this.panel = storagePanel;
     this.treeElement = treeElement;
-    UI.ARIAUtils.setAccessibleName(this.treeElement._listItemNode, 'Resources Section');
+    UI.ARIAUtils.setAccessibleName(this.treeElement.listItemNode, 'Resources Section');
     this.treeElementForFrameId = new Map();
     this.treeElementForTargetId = new Map();
 
@@ -1816,8 +1820,8 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
   private frameId: string;
   private readonly categoryElements: Map<string, ExpandableApplicationPanelTreeElement>;
   private readonly treeElementForResource: Map<string, FrameResourceTreeElement>;
-  private treeElementForWindow: Map<string, FrameWindowTreeElement>;
-  private treeElementForWorker: Map<string, WorkerTreeElement>;
+  private treeElementForWindow: Map<Protocol.Target.TargetID, FrameWindowTreeElement>;
+  private treeElementForWorker: Map<Protocol.Target.TargetID, WorkerTreeElement>;
   private view: ApplicationComponents.FrameDetailsView.FrameDetailsView|null;
 
   constructor(section: ResourcesSection, frame: SDK.ResourceTreeModel.ResourceTreeFrame) {
@@ -1991,7 +1995,7 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     windowTreeElement.update(targetInfo);
   }
 
-  windowDestroyed(targetId: string): void {
+  windowDestroyed(targetId: Protocol.Target.TargetID): void {
     const windowTreeElement = this.treeElementForWindow.get(targetId);
     if (windowTreeElement) {
       windowTreeElement.windowClosed();

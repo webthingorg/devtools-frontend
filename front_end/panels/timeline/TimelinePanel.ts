@@ -44,10 +44,14 @@ import * as Extensions from '../../models/extensions/extensions.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import timelinePanelStyles from './timelinePanel.css.js';
+import timelineStatusDialogStyles from './timelineStatusDialog.css.js';
+
 import type * as Coverage from '../coverage/coverage.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
-import type {Window} from './PerformanceModel.js';
+import type {WindowChangedEvent} from './PerformanceModel.js';
 import {Events, PerformanceModel} from './PerformanceModel.js';
 import type {Client} from './TimelineController.js';
 import {TimelineController} from './TimelineController.js';
@@ -313,7 +317,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private selection?: TimelineSelection|null;
   constructor() {
     super('timeline');
-    this.registerRequiredCSS('panels/timeline/timelinePanel.css');
     this.element.addEventListener('contextmenu', this.contextMenu.bind(this), false);
     this.dropTarget = new UI.DropTarget.DropTarget(
         this.element, [UI.DropTarget.Type.File, UI.DropTarget.Type.URI],
@@ -424,7 +427,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   wasShown(): void {
+    super.wasShown();
     UI.Context.Context.instance().setFlavor(TimelinePanel, this);
+    this.registerCSSFiles([timelinePanelStyles]);
     // Record the performance tool load time.
     Host.userMetrics.panelLoaded('timeline', 'DevTools.Launch.Timeline');
   }
@@ -451,8 +456,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.performanceModel.setWindow({left, right}, /* animate */ true);
   }
 
-  private onModelWindowChanged(event: Common.EventTarget.EventTargetEvent): void {
-    const window = (event.data.window as Window);
+  private onModelWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
+    const window = event.data.window;
     this.overviewPane.setWindowTimes(window.left, window.right);
   }
 
@@ -1356,7 +1361,7 @@ export class StatusPane extends UI.Widget.VBox {
       },
       buttonCallback: () => (Promise<void>| void)) {
     super(true);
-    this.registerRequiredCSS('panels/timeline/timelineStatusDialog.css');
+
     this.contentElement.classList.add('timeline-status-dialog');
 
     const statusLine = this.contentElement.createChild('div', 'status-dialog-line status');
@@ -1452,6 +1457,10 @@ export class StatusPane extends UI.Widget.VBox {
     const isSmallDialog = parent.clientWidth < 325;
     this.element.classList.toggle('small-dialog', isSmallDialog);
     this.contentElement.classList.toggle('small-dialog', isSmallDialog);
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([timelineStatusDialogStyles]);
   }
 }
 

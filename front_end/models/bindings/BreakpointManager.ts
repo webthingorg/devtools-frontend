@@ -30,6 +30,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -535,7 +536,7 @@ export class ModelBreakpoint {
   private isUpdating: boolean;
   private cancelCallback: boolean;
   private currentState: Breakpoint.State|null;
-  private breakpointIds: string[];
+  private breakpointIds: Protocol.Debugger.BreakpointId[];
 
   constructor(
       debuggerModel: SDK.DebuggerModel.DebuggerModel, breakpoint: Breakpoint,
@@ -607,7 +608,6 @@ export class ModelBreakpoint {
     const condition = this.breakpoint.condition();
 
     let newState: Breakpoint.State|null = null;
-    const currentState = this.breakpoint.currentState;
     if (!this.breakpoint.getIsRemoved() && this.breakpoint.enabled() && !this.scriptDiverged()) {
       let debuggerLocations: SDK.DebuggerModel.Location[] = [];
       for (const uiSourceCode of this.breakpoint.getUiSourceCodes()) {
@@ -630,13 +630,19 @@ export class ModelBreakpoint {
           };
         });
         newState = new Breakpoint.State(positions, condition);
-      } else if (currentState) {
-        newState = new Breakpoint.State(currentState.positions, condition);
+      } else if (this.breakpoint.currentState) {
+        newState = new Breakpoint.State(this.breakpoint.currentState.positions, condition);
       } else {
         // TODO(bmeurer): This fallback doesn't make a whole lot of sense, we should
         // at least signal a warning to the developer that this breakpoint wasn't
         // really resolved.
-        const position = {url: this.breakpoint.url(), scriptId: '', scriptHash: '', lineNumber, columnNumber};
+        const position = {
+          url: this.breakpoint.url(),
+          scriptId: '' as Protocol.Runtime.ScriptId,
+          scriptHash: '',
+          lineNumber,
+          columnNumber,
+        };
         newState = new Breakpoint.State([position], condition);
       }
     }
@@ -660,9 +666,9 @@ export class ModelBreakpoint {
         return this.debuggerModel.setBreakpointByURL(pos.url, pos.lineNumber, pos.columnNumber, condition);
       }
       return this.debuggerModel.setBreakpointInAnonymousScript(
-          pos.scriptId as string, pos.scriptHash as string, pos.lineNumber, pos.columnNumber, condition);
+          pos.scriptId, pos.scriptHash as string, pos.lineNumber, pos.columnNumber, condition);
     }));
-    const breakpointIds: string[] = [];
+    const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
     let maybeRescheduleUpdate = false;
     for (const result of results) {
@@ -780,7 +786,7 @@ export class ModelBreakpoint {
 
 interface Position {
   url: string;
-  scriptId: string;
+  scriptId: Protocol.Runtime.ScriptId;
   scriptHash: string;
   lineNumber: number;
   columnNumber?: number;

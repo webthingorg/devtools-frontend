@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+
+import resourcesPanelStyles from './resourcesPanel.css.js';
 
 import type {CookieTreeElement} from './ApplicationPanelSidebar.js';
 import {ApplicationPanelSidebar, StorageCategoryView} from './ApplicationPanelSidebar.js';
@@ -34,7 +34,6 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
 
   private constructor() {
     super('resources');
-    this.registerRequiredCSS('panels/application/resourcesPanel.css');
 
     this.resourcesLastSelectedItemSetting =
         Common.Settings.Settings.instance().createSetting('resourcesLastSelectedElementPath', []);
@@ -186,6 +185,10 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
         this.cookieView.refreshItems();
       }
     });
+  }
+  wasShown(): void {
+    super.wasShown();
+    this.registerCSSFiles([resourcesPanelStyles]);
   }
 }
 

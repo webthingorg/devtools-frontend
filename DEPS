@@ -11,16 +11,16 @@ vars = {
   'checkout_reclient': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '3fdcec6e56607102c420fa0d0fe36696870475db',
+  'build_revision': '7855b2c342cd3a322b068bbe5352f38014dc5727',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
-  'buildtools_revision': '6810b870e0dc60ed108969a7ade77308f689b469',
+  'buildtools_revision': '88e9a2946f93d667d787e875c55537c568397f18',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '699d70d878603ebb3861c8f4487c4b05f5d81643',
+  'depot_tools_revision': 'ea47c3cff3c9ee17169908575ca40394ea012153',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': '32cf5f2bf4dc20c73ead291e68d2e2f6b638cd57',
+  'inspector_protocol_revision': '79d309325cafed50853b7111b54ab294b9e36d59',
 
   'clang_format_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git',
   'clang_format_revision': '99803d74e35962f63a775f29477882afd4d57d94',
@@ -35,11 +35,11 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '911968',
+  'chromium_linux': '912893',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '911968',
+  'chromium_win': '912873',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '911980',
+  'chromium_mac': '912888',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
