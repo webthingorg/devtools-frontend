@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c089907a_a6c72470",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499133
+      },
+      "writtenOn": "2021-08-23T15:53:15Z",
+      "side": 1,
+      "message": "Experimental CL, includes abandoned model not used for the final feature",
+      "revId": "5cdff9ddea7a003f285846c8a8a57d7106302364",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
