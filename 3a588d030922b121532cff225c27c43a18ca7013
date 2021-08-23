@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "3a588d030922b121532cff225c27c43a18ca7013",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "038194d5_846c4bb9",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-23T13:49:54Z",
+      "side": 1,
+      "message": "tried changing this from Event to MouseEvent but it causes more errors then I would like (mostly incorrectly typed `Event`s in call sites) so I will do this in a follow-up update.",
+      "range": {
+        "startLine": 353,
+        "startChar": 21,
+        "endLine": 353,
+        "endChar": 26
+      },
+      "revId": "3a588d030922b121532cff225c27c43a18ca7013",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
