@@ -51,6 +51,24 @@
       "parentUuid": "6cd4ab1b_ea68c7d4",
       "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1bab7a5_a1f95519",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-24T08:59:10Z",
+      "side": 1,
+      "message": "Do we know whether the event is even recorded correctly in the back-end then? In principle, we aren\u0027t in a hurry to record the metric. How about moving the recording to a later place?",
+      "parentUuid": "954ad74c_fc5b03ec",
+      "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
