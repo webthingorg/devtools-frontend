@@ -49,11 +49,15 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('core/host/InspectorFrontendHost.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+const MAX_RECORDED_ENUMERATED_HISTOGRAMS_SIZE = 1000;
+
 export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   private readonly urlsBeingSaved: Map<string, string[]>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   events!: Common.EventTarget.EventTarget<any>;
   private windowVisible?: boolean;
+  recordedEnumeratedHistograms: {actionName: EnumeratedHistogram, actionCode: number}[] = [];
 
   constructor() {
     function stopEventPropagation(this: InspectorFrontendHostAPI, event: KeyboardEvent): void {
@@ -186,6 +190,10 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
 
   recordEnumeratedHistogram(actionName: EnumeratedHistogram, actionCode: number, bucketSize: number): void {
+    if (this.recordedEnumeratedHistograms.length >= MAX_RECORDED_ENUMERATED_HISTOGRAMS_SIZE) {
+      this.recordedEnumeratedHistograms.shift();
+    }
+    this.recordedEnumeratedHistograms.push({actionName, actionCode});
   }
 
   recordPerformanceHistogram(histogramName: string, duration: number): void {

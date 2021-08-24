@@ -33,6 +33,11 @@ interface UserMetrics {
   Action: {[name: string]: number};
 }
 
+interface HistogramEvent {
+  actionName: string;
+  actionCode: number;
+}
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
@@ -150,11 +155,24 @@ function retrieveCapturedEvents(frontend: puppeteer.Page) {
   return frontend.evaluate(() => window.__caughtEvents);
 }
 
+function retrieveRecordedHistogramEvents(frontend: puppeteer.Page):
+    Promise<{actionName: string, actionCode: number}[]> {
+  // @ts-ignore
+  return frontend.evaluate(() => window.InspectorFrontendHost.recordedEnumeratedHistograms);
+}
+
 async function assertCapturedEvents(expected: UserMetric[]) {
   const {frontend} = getBrowserAndPages();
   const events = await retrieveCapturedEvents(frontend);
 
   assert.deepEqual(events, expected);
+}
+
+async function assertHistogramEventsInclude(expected: HistogramEvent[]) {
+  const {frontend} = getBrowserAndPages();
+  const events = await retrieveRecordedHistogramEvents(frontend);
+
+  assert.includeDeepMembers(events, expected);
 }
 
 async function awaitCapturedEvent(expected: UserMetricWithOptionalValue) {
@@ -182,14 +200,14 @@ describe('User Metrics', () => {
       self.Host.userMetrics.actionTaken(self.Host.UserMetrics.Action.WindowDocked);
       self.Host.userMetrics.actionTaken(self.Host.UserMetrics.Action.WindowUndocked);
     });
-    await assertCapturedEvents([
+    await assertHistogramEventsInclude([
       {
-        name: 'DevTools.ActionTaken',
-        value: 1,  // WindowDocked.
+        actionName: 'DevTools.ActionTaken',
+        actionCode: 1,  // WindowDocked.
       },
       {
-        name: 'DevTools.ActionTaken',
-        value: 2,  // WindowUndocked.
+        actionName: 'DevTools.ActionTaken',
+        actionCode: 2,  // WindowUndocked.
       },
     ]);
   });
@@ -200,14 +218,14 @@ describe('User Metrics', () => {
     await frontend.keyboard.press('Escape');
     await frontend.waitForSelector('.console-view');
 
-    await assertCapturedEvents([
+    await assertHistogramEventsInclude([
       {
-        name: 'DevTools.PanelShown',
-        value: 10,  // drawer-console-view.
+        actionName: 'DevTools.PanelShown',
+        actionCode: 10,  // drawer-console-view.
       },
       {
-        name: 'DevTools.KeyboardShortcutFired',
-        value: 17,  // main.toggle-drawer
+        actionName: 'DevTools.KeyboardShortcutFired',
+        actionCode: 17,  // main.toggle-drawer
       },
     ]);
   });
