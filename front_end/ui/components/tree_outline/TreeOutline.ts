@@ -65,7 +65,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-tree-outline`;
   private readonly shadow = this.attachShadow({mode: 'open'});
   private treeData: readonly TreeNode<TreeNodeDataType>[] = [];
-  private nodeExpandedMap: WeakMap<TreeNode<TreeNodeDataType>, boolean> = new WeakMap();
+  private nodeExpandedMap: Map<string, boolean> = new Map();
   private domNodeToTreeNodeMap: WeakMap<HTMLLIElement, TreeNode<TreeNodeDataType>> = new WeakMap();
   private hasRenderedAtLeastOnce = false;
   /**
@@ -207,11 +207,11 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   private setNodeExpandedState(node: TreeNode<TreeNodeDataType>, newExpandedState: boolean): void {
-    this.nodeExpandedMap.set(node, newExpandedState);
+    this.nodeExpandedMap.set(node.id, newExpandedState);
   }
 
   private nodeIsExpanded(node: TreeNode<TreeNodeDataType>): boolean {
-    return this.nodeExpandedMap.get(node) || false;
+    return this.nodeExpandedMap.get(node.id) || false;
   }
 
   private async expandAndRecurse(node: TreeNode<TreeNodeDataType>, currentDepth: number, maxDepth: number):
