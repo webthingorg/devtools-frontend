@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1399e139_7aedf61f",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-08-24T21:27:31Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "6da8c8b7_16c7aca6",
+      "range": {
+        "startLine": 1057,
+        "startChar": 105,
+        "endLine": 1058,
+        "endChar": 13
+      },
+      "revId": "cadcb4565c42a3d18cc43b186f5469c0329cd973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f74c2a92_20c98950",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-08-24T10:54:37Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 1067,
+        "startChar": 35,
+        "endLine": 1067,
+        "endChar": 43
+      },
+      "revId": "cadcb4565c42a3d18cc43b186f5469c0329cd973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f94cc81_f06698e0",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-08-24T21:27:31Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "f74c2a92_20c98950",
       "range": {
         "startLine": 1067,
         "startChar": 35,
