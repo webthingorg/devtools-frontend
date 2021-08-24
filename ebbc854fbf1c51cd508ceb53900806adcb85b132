@@ -164,6 +164,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0186d0ad_63d02470",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T15:06:54Z",
+      "side": 1,
+      "message": "Would it maybe be possible to only override `renderItem` in `OpenFileQuickOpen` and implement it using something along the lines of\n\n```\nrenderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {\n  super.renderItem(itemIndex, query, titleElement, subtitleElement);\n  const iconElement \u003d new IconButton.Icon.Icon();\n  iconElement.data \u003d {\n    iconName: NetworkUtils.imageNameForResourceType(uiSourceCode.contentType()),\n    color: \u0027\u0027,\n    width: \u002718px\u0027,\n    height: \u002718px\u0027,\n  };\n  titleElement.parentElement?.insertBefore(titleElement, iconElement);\n}\n```\n\nE.g. we remove all other changes, but we only modify `OpenFileQuickOpen` and we augment its DOM with the iconElement. For this, we do somehow need to get hold of the `uiSourceCode`, but I think we can introduce a public API on `FilteredUISourceCodeListProvider` for that someway?",
+      "parentUuid": "667859fe_8309fd6b",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3b92086_964e1683",
         "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
         "patchSetId": 3
