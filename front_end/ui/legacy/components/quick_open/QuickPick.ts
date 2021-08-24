@@ -93,7 +93,9 @@ class QuickPickProvider extends Provider {
     return score;
   }
 
-  renderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {
+  renderItem(
+      itemIndex: number, query: string, titleElement: Element, subtitleElement: Element,
+      _wrapperElement: Element): void {
     const item = this.items[itemIndex];
     titleElement.removeChildren();
     const labelElement = titleElement.createChild('span');
@@ -112,6 +114,10 @@ class QuickPickProvider extends Provider {
         FilteredListWidget.highlightRanges(subtitleElement, query, true);
       }
     }
+  }
+
+  renderIcon(): boolean {
+    return false;
   }
 
   renderAsTwoRows(): boolean {

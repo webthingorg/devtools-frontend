@@ -252,17 +252,23 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   }
 
   createElementForItem(item: number): Element {
+    const wrapperElement = document.createElement('div');
+    wrapperElement.className = 'filtered-list-widget-item-wrapper';
+
     const itemElement = document.createElement('div');
     const renderAsTwoRows = this.provider && this.provider.renderAsTwoRows();
     itemElement.className = 'filtered-list-widget-item ' + (renderAsTwoRows ? 'two-rows' : 'one-row');
+
     const titleElement = itemElement.createChild('div', 'filtered-list-widget-title');
     const subtitleElement = itemElement.createChild('div', 'filtered-list-widget-subtitle');
     subtitleElement.textContent = '\u200B';
     if (this.provider) {
-      this.provider.renderItem(item, this.cleanValue(), titleElement, subtitleElement);
+      this.provider.renderItem(item, this.cleanValue(), titleElement, subtitleElement, wrapperElement);
     }
     UI.ARIAUtils.markAsOption(itemElement);
-    return itemElement;
+
+    wrapperElement.appendChild(itemElement);
+    return wrapperElement;
   }
 
   heightForItem(_item: number): number {
@@ -546,7 +552,13 @@ export class Provider {
     return 1;
   }
 
-  renderItem(_itemIndex: number, _query: string, _titleElement: Element, _subtitleElement: Element): void {
+  renderIcon(): boolean {
+    return false;
+  }
+
+  renderItem(
+      _itemIndex: number, _query: string, _titleElement: Element, _subtitleElement: Element,
+      _wrapperElement: Element): void {
   }
 
   renderAsTwoRows(): boolean {
