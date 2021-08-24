@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "38651e33e09fdffa805ae9c735cd238d9bc50704",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6333b95f_b857cadc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-24T10:04:34Z",
+      "side": 1,
+      "message": "Is it worth a unit test confirming that now we do this, we\u0027ve got rid of the bug you mentioned where the object changes and its expanded state is lost? WDYT?\n\nOtherwise, LGTM - thanks :)",
+      "revId": "38651e33e09fdffa805ae9c735cd238d9bc50704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
