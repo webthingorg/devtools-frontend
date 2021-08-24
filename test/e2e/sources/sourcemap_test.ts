@@ -4,10 +4,10 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, goToResource, step, waitFor, waitForElementWithTextContent} from '../../shared/helper.js';
+import {click, enableExperiment, getBrowserAndPages, goToResource, step, waitFor, waitForElementWithTextContent, waitForFunctionWithTries} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {clickNthChildOfSelectedElementNode, focusElementsTree, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
-import {addBreakpointForLine, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, openSourceCodeEditorForFile, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   // Flaky test
@@ -29,6 +29,69 @@ describe('The Sources Tab', async () => {
 
     const scriptLocation1 = await retrieveTopCallFrameScriptLocation('functions[1]();', target);
     assert.deepEqual(scriptLocation1, 'sourcemap-codesplit.ts:3');
+  });
+
+  async function waitForStackTopMatch(matcher: RegExp) {
+    // The call stack is updated asynchronously, so let us wait until we see the correct one
+    // (or report the last one we have seen before timeout).
+    let stepLocation = '<no call stack>';
+    await waitForFunctionWithTries(async () => {
+      stepLocation = await retrieveTopCallFrameWithoutResuming() ?? '<invalid>';
+      return stepLocation?.match(matcher);
+    }, {tries: 10});
+    return stepLocation;
+  }
+
+  it('steps over multiple statements with source map', async () => {
+    await enableExperiment('emptySourceMapAutoStepping');
+
+    const {target, frontend} = getBrowserAndPages();
+
+    await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-stepping.html');
+
+    await step('Step over a source line mapping to a range with several statements', async () => {
+      await addBreakpointForLine(frontend, 12);
+
+      const scriptEvaluation = target.evaluate('singleline();');
+
+      // DevTools is contracting long filenames with ellipses.
+      // Let us match the location with regexp to match even contracted locations.
+      const breakLocationRegExp = /.*source\.js:12$/;
+      const stepLocationRegExp = /.*source\.js:13$/;
+
+      const scriptLocation = await waitForStackTopMatch(breakLocationRegExp);
+      assert.match(scriptLocation, breakLocationRegExp);
+
+      await click(STEP_OVER_BUTTON);
+
+      const stepLocation = await waitForStackTopMatch(stepLocationRegExp);
+      assert.match(stepLocation, stepLocationRegExp);
+
+      await click(RESUME_BUTTON);
+      await scriptEvaluation;
+    });
+
+    await step('Step over a source line with mappings to several adjacent target lines', async () => {
+      await addBreakpointForLine(frontend, 4);
+
+      const scriptEvaluation = target.evaluate('multiline();');
+
+      // DevTools is contracting long filenames with ellipses.
+      // Let us match the location with regexp to match even contracted locations.
+      const breakLocationRegExp = /.*source\.js:4$/;
+      const stepLocationRegExp = /.*source\.js:5$/;
+
+      const scriptLocation = await waitForStackTopMatch(breakLocationRegExp);
+      assert.match(scriptLocation, breakLocationRegExp);
+
+      await click(STEP_OVER_BUTTON);
+
+      const stepLocation = await waitForStackTopMatch(stepLocationRegExp);
+      assert.match(stepLocation, stepLocationRegExp);
+
+      await click(RESUME_BUTTON);
+      await scriptEvaluation;
+    });
   });
 });
 

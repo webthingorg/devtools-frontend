@@ -35,7 +35,7 @@ import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
-import type {DebuggerSourceMapping, DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import type {DebuggerSourceMapping, DebuggerWorkspaceBinding, RawLocationRange} from './DebuggerWorkspaceBinding.js';
 import {IgnoreListManager} from './IgnoreListManager.js';
 import {NetworkProject} from './NetworkProject.js';
 
@@ -129,6 +129,35 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return binding.getReferringSourceMaps().map((sourceMap: SDK.SourceMap.SourceMap) => sourceMap.compiledURL());
     }
     return [];
+  }
+
+  getLocationRangesForSameSourceLocation(rawLocation: SDK.DebuggerModel.Location): RawLocationRange[] {
+    const debuggerModel = rawLocation.debuggerModel;
+    const script = rawLocation.script();
+    if (!script) {
+      return [];
+    }
+    const sourceMap = this.sourceMapManager.sourceMapForClient(script);
+    if (!sourceMap) {
+      return [];
+    }
+
+    // Find the source location for the raw location.
+    const entry = sourceMap.findEntry(rawLocation.lineNumber, rawLocation.columnNumber);
+    if (!entry || !entry.sourceURL) {
+      return [];
+    }
+
+    // Map the source location back to raw location ranges.
+    const ranges = sourceMap.findReverseRanges(entry.sourceURL, entry.sourceLineNumber, entry.sourceColumnNumber);
+    return ranges.map(textRangeToLocationRange);
+
+    function textRangeToLocationRange(t: TextUtils.TextRange.TextRange): RawLocationRange {
+      return {
+        start: debuggerModel.createRawLocation(script as SDK.Script.Script, t.startLine, t.startColumn),
+        end: debuggerModel.createRawLocation(script as SDK.Script.Script, t.endLine, t.endColumn),
+      };
+    }
   }
 
   mapsToSourceCode(rawLocation: SDK.DebuggerModel.Location): boolean {
