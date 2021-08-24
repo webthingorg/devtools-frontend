@@ -33,6 +33,24 @@
       "message": "Is it worth a unit test confirming that now we do this, we\u0027ve got rid of the bug you mentioned where the object changes and its expanded state is lost? WDYT?\n\nOtherwise, LGTM - thanks :)",
       "revId": "38651e33e09fdffa805ae9c735cd238d9bc50704",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "833362b2_3f84808c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-08-24T10:42:31Z",
+      "side": 1,
+      "message": "Yes that\u0027s a good idea. I\u0027ll add that and fix the other tests I\u0027ve broken :D",
+      "parentUuid": "6333b95f_b857cadc",
+      "revId": "38651e33e09fdffa805ae9c735cd238d9bc50704",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
