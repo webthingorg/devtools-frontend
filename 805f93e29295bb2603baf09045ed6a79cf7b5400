@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e6d7ec_5df5cc8d",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T13:14:18Z",
+      "side": 0,
+      "message": "Ah yes, this is a very nice cleanup! Didn\u0027t realize we could remove all of this as well.",
+      "range": {
+        "startLine": 73,
+        "startChar": 15,
+        "endLine": 73,
+        "endChar": 31
+      },
+      "revId": "805f93e29295bb2603baf09045ed6a79cf7b5400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
