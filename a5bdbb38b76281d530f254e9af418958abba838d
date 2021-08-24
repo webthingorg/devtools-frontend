@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee6ba50_8f8f28a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-08-24T17:09:48Z",
+      "side": 1,
+      "message": "Sorry for being a bit late in noticing this, but I have a couple of questions (probably for Tim to answer) related to keeping the module and import structure consistent with other places in DevTools.",
+      "revId": "a5bdbb38b76281d530f254e9af418958abba838d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248bd217_6807343a",
+        "filename": "front_end/panels/settings/emulation/emulation-meta.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-08-24T17:09:48Z",
+      "side": 1,
+      "message": "Another question: shouldn\u0027t the DeviceSettingsTab module have been lazy-imported to avoid loading the implementation code during meta registration?\n\nE.g. settings-meta.ts has code like this:\n```\nlet loadedSettingsModule: (typeof Settings|undefined);\n\nasync function loadSettingsModule(): Promise\u003ctypeof Settings\u003e {\n  if (!loadedSettingsModule) {\n    // Side-effect import resources in module.json\n    await Root.Runtime.Runtime.instance().loadModulePromise(\u0027panels/settings\u0027);\n    loadedSettingsModule \u003d await import(\u0027./settings.js\u0027);\n  }\n  return loadedSettingsModule;\n}\n\n// ...\n\n  async loadView() {\n    const Settings \u003d await loadSettingsModule();\n    return Settings.SettingsScreen.GenericSettingsTab.instance();\n  },\n\n```",
+      "revId": "a5bdbb38b76281d530f254e9af418958abba838d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
