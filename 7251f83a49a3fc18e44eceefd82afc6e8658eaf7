@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00747175_1d3c2b8a",
+        "filename": "front_end/panels/network/utils/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-24T13:49:40Z",
+      "side": 1,
+      "message": "Based on other comment, I guess I should keep this for now.",
+      "parentUuid": "a0d0bf2c_5785740f",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb76d935_ce8e5b22",
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Per the below comment, I think it is better to depend on the utils, rather than the whole panel.",
       "parentUuid": "cb76d935_ce8e5b22",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82934fdc_37be6d04",
+        "filename": "front_end/panels/sources/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-24T13:49:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f8552d2_39259273",
       "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da40322_7f3a9444",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-24T13:49:40Z",
+      "side": 1,
+      "message": "Done. I do think `network/utils/utils.js` is not a good place, I plan to do a follow up cl to move it one level up, so can keep this cl more clear.",
+      "parentUuid": "4c84c478_06b6f96d",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e204767_2405a8e0",
@@ -118,6 +172,24 @@
       "writtenOn": "2021-08-20T12:37:52Z",
       "side": 1,
       "message": "How about changing `renderItem` to also accept a `wrapperElement`, such that renderItem is responsible for rendering the icon? As is, `renderIcon` is only used by one Provider, and it feels as if we already have a \"general\" function for the provider to render items. In that case, we wouldn\u0027t need to declare the icon specific functions on top of `FilteredListWidget` and keep it more general? WDYT?",
+      "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae7a799_308ff709",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-24T13:49:40Z",
+      "side": 1,
+      "message": "Done. Yes the `renderIcon` is only needed for File view.",
+      "parentUuid": "7e204767_2405a8e0",
       "revId": "7251f83a49a3fc18e44eceefd82afc6e8658eaf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
