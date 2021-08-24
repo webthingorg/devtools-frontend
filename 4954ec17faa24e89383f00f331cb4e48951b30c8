@@ -87,6 +87,24 @@
       "parentUuid": "e1bab7a5_a1f95519",
       "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937801d5_f7ae2ae3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-24T09:31:38Z",
+      "side": 1,
+      "message": "Still to early. Between each test, DevTools is reloaded and we wait until the elements panel is shown properly.\n\nI also can\u0027t reload DevTools in the test itself, since reloading resets the \"window\" object on which the user metrics instrumentation is installed.\n\nOne way to solve this, would be to inject the user metric instrumentation even earlier, but that would require us to fiddle with the global `beforeEach`.\n\nI\u0027m reluctant to push the histogram recording to some arbitrary point to make an e2e test happy that doesn\u0027t exercise the backend path.",
+      "parentUuid": "db023782_0f5de6db",
+      "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
