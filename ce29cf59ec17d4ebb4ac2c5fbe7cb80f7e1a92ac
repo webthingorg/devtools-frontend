@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "566b7b42_ce830652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-08-24T06:53:21Z",
+      "side": 1,
+      "message": "PTAL! Here\u0027s a related chain of back-end changes: https://chromium-review.googlesource.com/c/chromium/src/+/3115848\n\nThis is for us to be able to support service worker based extensions.",
+      "revId": "ce29cf59ec17d4ebb4ac2c5fbe7cb80f7e1a92ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
