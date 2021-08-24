@@ -33,6 +33,24 @@
       "message": "I think this skips not just the it() but the entire describe() block (including the other, unrelated tests). Is there a way to skip just the current it() block? If not, we’ll need to move this test to a separate describe().",
       "revId": "97e33e9053079a8cc31bdd353e3bcad91e088674",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c4f5bf_dd0b13f6",
+        "filename": "test/e2e/rendering/Rendering_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1418022
+      },
+      "writtenOn": "2021-08-24T17:18:37Z",
+      "side": 1,
+      "message": "I tried moving this test to the center of the describe() block and it only skips the current it() block 😊",
+      "parentUuid": "b96205a2_bc6f6caf",
+      "revId": "97e33e9053079a8cc31bdd353e3bcad91e088674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
