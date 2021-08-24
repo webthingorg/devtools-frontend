@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f49aae_a828eb67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T14:33:52Z",
+      "side": 1,
+      "message": "I would prefer not to make an API change of an abstract method if only 1 of the child classes actually implements it. Can we instead change the 1 instance where we need to add the icon to manually construct it, outside of `renderItem`? We can maybe design an API that would allow us to retrieve the `uiSourceCode` separately and then render that in the `wrapperElement`?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebfba98f_da6e7b37",
+        "filename": "front_end/panels/network/utils/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T14:33:52Z",
+      "side": 1,
+      "message": "This should be a relative path, to make sure it works both in a standalone project and in Chromium. E.g. `../../sources:*`",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad62434d_d0302fc6",
@@ -37,6 +77,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02fd44f4_bd9fbf92",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T14:33:52Z",
+      "side": 1,
+      "message": "Many of the other implementations of this method don\u0027t use this `wrapperElement` (given the ignored added arguments in the other usages). Is there maybe an alternative solution that we can use to avoid having to change the method signature?",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7698cbb2_42682af4",
         "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
         "patchSetId": 3
@@ -48,6 +111,29 @@
       "writtenOn": "2021-08-24T14:33:39Z",
       "side": 1,
       "message": "This doesn\u0027t need to be conditional right? Since it\u0027s now only in FilteredUISourceCodeLIstProvider?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad3a25a8_9375385a",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T14:33:52Z",
+      "side": 1,
+      "message": "Why is this particular switch implemented as an abstract method rather than an argument to this method? E.g. I would have expected both `wrapperElement` and `shouldRenderIcon` to be methods, or both be arguments, but not one or the other.\n\nThat said, I wonder if we can somehow change the structure here so that we don\u0027t need to change the implementation of `renderItem` and instead put this bit of code in the user of `renderItem`. Since the only requirement here is retrieving the `uiSourceCode`, can we maybe extract that out in a new public method and retrieve that instead?",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
       "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -150,6 +236,29 @@
       "writtenOn": "2021-08-24T14:33:39Z",
       "side": 1,
       "message": "Why is this commented out?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f79fa26_693be8b4",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-24T14:33:52Z",
+      "side": 1,
+      "message": "Ultra-nit: remove commented code",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 4
+      },
       "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
