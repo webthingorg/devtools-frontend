@@ -80,6 +80,10 @@ export class FilteredUISourceCodeListProvider extends QuickOpen.FilteredListWidg
     return this.uiSourceCodes.length;
   }
 
+  itemContentTypeAt(itemIndex: number): Common.ResourceType.ResourceType {
+    return this.uiSourceCodes[itemIndex].contentType();
+  }
+
   itemKeyAt(itemIndex: number): string {
     return this.uiSourceCodes[itemIndex].url();
   }
@@ -113,6 +117,7 @@ export class FilteredUISourceCodeListProvider extends QuickOpen.FilteredListWidg
   renderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {
     query = this.rewriteQuery(query);
     const uiSourceCode = this.uiSourceCodes[itemIndex];
+
     const fullDisplayName = uiSourceCode.fullDisplayName();
     const indexes: number[] = [];
     new FilePathScoreFunction(query).calculateScore(fullDisplayName, indexes);
