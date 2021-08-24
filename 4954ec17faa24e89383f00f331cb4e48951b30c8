@@ -105,6 +105,24 @@
       "parentUuid": "db023782_0f5de6db",
       "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5462ccf_cb3d70c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-24T09:37:31Z",
+      "side": 1,
+      "message": "Since we run DevTools in hosted mode for e2e tests, we could also updated the binding implementation for `recordEnumeratedHistogram` instead. It is currently a no-op, but we could have a limited round-robin buffer that collects the histogram events and that we can then access from the e2e test. Than we wouldn\u0027t have to use this custom instrumentation path in the first place.",
+      "parentUuid": "937801d5_f7ae2ae3",
+      "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
