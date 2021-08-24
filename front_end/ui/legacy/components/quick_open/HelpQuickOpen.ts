@@ -52,7 +52,9 @@ export class HelpQuickOpen extends Provider {
     return -this.providers[itemIndex].prefix.length;
   }
 
-  renderItem(itemIndex: number, _query: string, titleElement: Element, _subtitleElement: Element): void {
+  renderItem(
+      itemIndex: number, _query: string, titleElement: Element, _subtitleElement: Element,
+      _wrapperElement: Element): void {
     const provider = this.providers[itemIndex];
     const prefixElement = titleElement.createChild('span', 'monospace');
     prefixElement.textContent = (provider.prefix || '…') + ' ';
@@ -63,6 +65,10 @@ export class HelpQuickOpen extends Provider {
     if (itemIndex !== null) {
       QuickOpenImpl.show(this.providers[itemIndex].prefix);
     }
+  }
+
+  renderIcon(): boolean {
+    return false;
   }
 
   renderAsTwoRows(): boolean {

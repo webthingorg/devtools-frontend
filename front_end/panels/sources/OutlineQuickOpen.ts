@@ -85,7 +85,9 @@ export class OutlineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     return -item.line - 1;
   }
 
-  renderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {
+  renderItem(
+      itemIndex: number, query: string, titleElement: Element, subtitleElement: Element,
+      _wrapperElement: Element): void {
     const item = this.items[itemIndex];
     titleElement.textContent = item.title + (item.subtitle ? item.subtitle : '');
     QuickOpen.FilteredListWidget.FilteredListWidget.highlightRanges(titleElement, query);

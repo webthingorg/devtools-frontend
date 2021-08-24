@@ -46,6 +46,10 @@ export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
     return !project.isServiceProject();
   }
 
+  renderIcon(): boolean {
+    return true;
+  }
+
   renderAsTwoRows(): boolean {
     return true;
   }

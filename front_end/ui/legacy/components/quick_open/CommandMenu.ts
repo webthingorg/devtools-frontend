@@ -269,7 +269,9 @@ export class CommandMenuProvider extends Provider {
     return score;
   }
 
-  renderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {
+  renderItem(
+      itemIndex: number, query: string, titleElement: Element, subtitleElement: Element,
+      _wrapperElement: Element): void {
     const command = this.commands[itemIndex];
     titleElement.removeChildren();
     const tagElement = (titleElement.createChild('span', 'tag') as HTMLElement);
