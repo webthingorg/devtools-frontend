@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa377949_193960d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-08-24T07:51:34Z",
+      "side": 1,
+      "message": "LGTM - would you consider adding an e2e test to cover this behaviour?",
+      "revId": "cadcb4565c42a3d18cc43b186f5469c0329cd973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
