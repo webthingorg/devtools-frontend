@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d260fcd4_fcf9e8eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "Thanks for the changes, Nancy!",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad62434d_d0302fc6",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "I don\u0027t see a reason for why the parameters here should be prefixed with an underscore, am I missing something? (I see that you have only adapted to the other naming, but I\u0027m wondering why this is like that to begin with)",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7698cbb2_42682af4",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be conditional right? Since it\u0027s now only in FilteredUISourceCodeLIstProvider?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b92086_964e1683",
+        "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this anymore, or? Since it\u0027s always true, and only in this file.",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f7860f_e71f0169",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "I guess this is a left over? We do not need to declare it in FilteredListWidget right?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e11198e1_85406c66",
+        "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "I can see that you have adapted the naming according to the other variables, but I do not see a reason to use underscore here. Should we change that to not using underscore at all in this function?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005df87f_0891ae6a",
+        "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b5db9f_cf5087f2",
+        "filename": "front_end/ui/legacy/components/quick_open/QuickPick.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d000e6b_e0c0c10c",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:33:39Z",
+      "side": 1,
+      "message": "Why is this commented out?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
