@@ -69,6 +69,24 @@
       "parentUuid": "954ad74c_fc5b03ec",
       "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db023782_0f5de6db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-24T09:01:32Z",
+      "side": 1,
+      "message": "How about trying to record after the Promise.all in lateInitialization ?",
+      "parentUuid": "e1bab7a5_a1f95519",
+      "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
