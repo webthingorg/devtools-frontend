@@ -140,6 +140,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "667859fe_8309fd6b",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-24T14:54:03Z",
+      "side": 1,
+      "message": "I don\u0027t think that we need this switch (this was part of the previous patch). So in the previous patch it was a method used by the user of this, and I requested it to be a parameter instead (but the current state contains both.\n\nA bit of context:\nSo before, Nancy had a function that was called `renderIcon` and one function that would render it. These two functions were added to the FilteredListWidget.\nSince these two methods were basically only used in `FilteredUISourceCodeListProvider` I asked if Nancy could change it to only be taken care of in the `FilteredUISourceCodeListProvider` (and to remove the two other functions).\n\nThe reasoning for me to add the `wrapperElement` to `renderItem` is that each Provider knows how to render its item that is shown in the list, and it feels as if the caller shouldn\u0027t know about that (how to render it). I agree though that now the wrapperElement is only used in the `FilteredUISourceCodeListProvider.ts`. So maybe we can find an alternative. WDYT?",
+      "parentUuid": "ad3a25a8_9375385a",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3b92086_964e1683",
         "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
         "patchSetId": 3
