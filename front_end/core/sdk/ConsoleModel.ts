@@ -84,6 +84,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
   private violationsInternal: number;
   private pageLoadSequenceNumber: number;
   private readonly targetListeners: WeakMap<Target, Common.EventTarget.EventDescriptor[]>;
+  private consoleGroupMessageStack: ConsoleMessage[] = [];
 
   private constructor() {
     super();
@@ -275,6 +276,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
       message = call.args[0].description;
     }
     const callFrame = call.stackTrace && call.stackTrace.callFrames.length ? call.stackTrace.callFrames[0] : null;
+    const groupParent = this.consoleGroupMessageStack[this.consoleGroupMessageStack.length - 1];
     const details = {
       type: call.type,
       url: callFrame?.url,
@@ -285,9 +287,20 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
       timestamp: call.timestamp,
       executionContextId: call.executionContextId,
       context: call.context,
+      groupParent,
+      groupChildren: [],
     };
     const consoleMessage =
         new ConsoleMessage(runtimeModel, FrontendMessageSource.ConsoleAPI, level, (message as string), details);
+    if (call.type === Protocol.Runtime.ConsoleAPICalledEventType.StartGroup) {
+      this.consoleGroupMessageStack.push(consoleMessage);
+    }
+    if (call.type === Protocol.Runtime.ConsoleAPICalledEventType.EndGroup) {
+      this.consoleGroupMessageStack.pop();
+    }
+    if (groupParent && call.type !== Protocol.Runtime.ConsoleAPICalledEventType.EndGroup) {
+      groupParent.groupChildren?.push(consoleMessage);
+    }
     this.addMessage(consoleMessage);
   }
 
@@ -379,6 +392,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper implements 
 
   private clear(): void {
     this.messagesInternal = [];
+    this.consoleGroupMessageStack = [];
     this.messageByExceptionId.clear();
     this.errorsInternal = 0;
     this.warningsInternal = 0;
@@ -491,6 +505,8 @@ export interface ConsoleMessageDetails {
   workerId?: string;
   context?: string;
   affectedResources?: AffectedResources;
+  groupParent?: ConsoleMessage;
+  groupChildren?: ConsoleMessage[];
 }
 
 export class ConsoleMessage {
@@ -513,6 +529,8 @@ export class ConsoleMessage {
   private pageLoadSequenceNumber?: number = undefined;
   private exceptionId?: number = undefined;
   private affectedResources?: AffectedResources;
+  groupParent?: ConsoleMessage;
+  groupChildren?: Array<ConsoleMessage>;
 
   constructor(
       runtimeModel: RuntimeModel|null, source: MessageSource, level: Protocol.Log.LogEntryLevel|null,
@@ -532,6 +550,8 @@ export class ConsoleMessage {
     this.scriptId = details?.scriptId;
     this.workerId = details?.workerId;
     this.affectedResources = details?.affectedResources;
+    this.groupParent = details?.groupParent;
+    this.groupChildren = details?.groupChildren;
 
     if (!this.executionContextId && this.runtimeModelInternal) {
       if (this.scriptId) {
