@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "961cb737_d6d26d15",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-08-25T14:03:03Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "248fcd8a_d62c1a2f",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b5511f1_9622d577",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-08-25T06:57:31Z",
       "side": 1,
       "message": "nit: Shall we use Infinity here too? Probably one would never look at the columnNumber alone when debugging, but I find it slightly more expressive if the columnNumber can also encode that the last range is open.",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c0f30f1_61069b4a",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-08-25T14:03:03Z",
+      "side": 1,
+      "message": "I prefer using infinities only when really necessary. Do you insist on this one?",
+      "parentUuid": "8b5511f1_9622d577",
       "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d851389a_641d0a1b",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-08-25T14:03:03Z",
+      "side": 1,
+      "message": "As discussed offline, I only need to give the callstack a tiny bit of time to update. Each try is 100ms, so 10 tries is 1s. That should be more than enough and we should not see any flakiness here.",
+      "parentUuid": "1f8e0688_c0a8a68f",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "986ffa22_257df0da",
@@ -169,6 +223,24 @@
       "side": 1,
       "message": "(oh weird. The comment didn\u0027t show up when I wanted to send it so I rewrote it. Closing this, since it\u0027s a duplicate).",
       "parentUuid": "986ffa22_257df0da",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "120b60d7_7a50031a",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-08-25T14:03:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4da95ff8_712e03f8",
       "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
