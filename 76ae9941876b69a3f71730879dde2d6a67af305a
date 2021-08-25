@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ceb1d1d_0bbaf164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "Thanks Jaro, adding some comments!",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248fcd8a_d62c1a2f",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken we may run out of bounds here, i.e.: `i \u003c (indices.length - 1)` since we access `indices[i+1]`.",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b5511f1_9622d577",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "nit: Shall we use Infinity here too? Probably one would never look at the columnNumber alone when debugging, but I find it slightly more expressive if the columnNumber can also encode that the last range is open.",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "420a060a_1a2c1e58",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "mapping now contains array of indices in mappings that have that sourceURL",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f8e0688_c0a8a68f",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "Why do we wait for a number of tries? If we expect it to (at some point) get to this step location, can\u0027t we explicitly wait until the stepLocation is the one that we expect? Is there a timeout problem, maybe? I\u0027m mentioning this, as it seems as it has the potential for flakiness.",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "986ffa22_257df0da",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "super nit: can we make steps a bit smaller? I\u0027d suggest to break this `it()` into two `it()` tests, one for multiline and one for singleline, and then to add the steps. The steps concept is \"kind of\" new, so not all tests are using it at the moment, but the I think the intention is that they should actually be a \u0027single step\u0027 (but yeah, that makes it more verbose too..).",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da95ff8_712e03f8",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:57:31Z",
+      "side": 1,
+      "message": "super nit: can we make steps a bit smaller? I\u0027d suggest to break this `it()` up into two, and to add the steps within them. Many tests don\u0027t have the steps yet since it is \"kind of\" new, but I think the intention is that the steps should be actual \u0027steps\u0027, but yeah.. that makes it also more verbose but describes what is happening.. .",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
