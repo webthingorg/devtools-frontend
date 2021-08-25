@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "473491c5_64ec3ef5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:59:26Z",
+      "side": 1,
+      "message": "Resolving two comments.",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "248fcd8a_d62c1a2f",
@@ -69,6 +86,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbf363e1_1f7e34d1",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:59:26Z",
+      "side": 1,
+      "message": "Oops: ignore this (static debugging comment for myself :))",
+      "parentUuid": "420a060a_1a2c1e58",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f8e0688_c0a8a68f",
@@ -116,6 +151,24 @@
       "writtenOn": "2021-08-25T06:57:31Z",
       "side": 1,
       "message": "super nit: can we make steps a bit smaller? I\u0027d suggest to break this `it()` up into two, and to add the steps within them. Many tests don\u0027t have the steps yet since it is \"kind of\" new, but I think the intention is that the steps should be actual \u0027steps\u0027, but yeah.. that makes it also more verbose but describes what is happening.. .",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9439d7d4_e20a6938",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T06:59:26Z",
+      "side": 1,
+      "message": "(oh weird. The comment didn\u0027t show up when I wanted to send it so I rewrote it. Closing this, since it\u0027s a duplicate).",
+      "parentUuid": "986ffa22_257df0da",
       "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
