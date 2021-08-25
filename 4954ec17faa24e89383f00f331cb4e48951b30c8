@@ -123,6 +123,24 @@
       "parentUuid": "937801d5_f7ae2ae3",
       "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5613dc6e_c5ff3683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-08-25T07:24:29Z",
+      "side": 1,
+      "message": "After the UMA refactoring, implementing the test was straight-forward.",
+      "parentUuid": "c5462ccf_cb3d70c3",
+      "revId": "4954ec17faa24e89383f00f331cb4e48951b30c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
