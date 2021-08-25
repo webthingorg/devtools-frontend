@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd430071_9b0824eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-25T13:46:39Z",
+      "side": 1,
+      "message": "PTAL. IIUC there is no need anymore to optimise the SVG? ",
+      "revId": "c19aeae6cc2c466316478f95c6b45f5fd1683db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
