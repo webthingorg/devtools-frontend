@@ -271,6 +271,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90512243_6f5b22e8",
+        "filename": "front_end/panels/settings/settings-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-08-25T22:27:06Z",
+      "side": 1,
+      "message": "Not at all. I posted a follow-up CL to address both the naming convention and lazy-loading patterns: https://crrev.com/c/3120075",
+      "parentUuid": "4f861f9f_13a756f9",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 49
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2bc4c2a_9af40e84",

@@ -51,6 +51,24 @@
       "parentUuid": "248bd217_6807343a",
       "revId": "a5bdbb38b76281d530f254e9af418958abba838d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a684e6_41a00fe0",
+        "filename": "front_end/panels/settings/emulation/emulation-meta.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-08-25T22:27:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59041542_da4a3a56",
+      "revId": "a5bdbb38b76281d530f254e9af418958abba838d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
