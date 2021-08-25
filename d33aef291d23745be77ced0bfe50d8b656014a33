@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3952fdac_60f42eed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-08-25T22:24:13Z",
+      "side": 1,
+      "message": "Currently this CL just aligns to the existing conventions, but I\u0027m curious if you think we should add a presubmit rule or two to help catch these in the future. I\u0027m willing to give it a shot, but am also fine waiting to see if either of these become recurring issues.\n\nFor the naming convention I could see:\n* Requiring *-meta.ts files to follow the {folder}-meta.ts convention\n* Ensuring a {folder}.ts (or .js) file exists for every {folder}-meta.ts file\n\nFor the lazy-loading issue I could see:\n* Disallowing non-type imports from the same module in *-meta.ts files\n  (e.g. failing for any `import ... from \u0027./[path-to-file-under-module]\u0027;`)",
+      "revId": "d33aef291d23745be77ced0bfe50d8b656014a33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
