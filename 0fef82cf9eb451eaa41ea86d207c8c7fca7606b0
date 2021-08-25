@@ -33,6 +33,23 @@
       "message": "INFRA LGTM",
       "revId": "0fef82cf9eb451eaa41ea86d207c8c7fca7606b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4695a8f6_6bbf3fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T15:06:00Z",
+      "side": 1,
+      "message": "Thanks Tim and Kim 😊",
+      "revId": "0fef82cf9eb451eaa41ea86d207c8c7fca7606b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
