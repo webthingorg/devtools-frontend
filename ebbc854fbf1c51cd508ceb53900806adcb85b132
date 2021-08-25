@@ -188,6 +188,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cc590a3_62d47598",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T07:17:13Z",
+      "side": 1,
+      "message": "Hmm, I\u0027m not a huge fan of accessing a `parentElement` in order to add the component, as I think that it is very hidden (having side effects that are not visible from the API) and assumes that we have one, while the previous version was explicit in what it needs. But, on the other hand I don\u0027t have a better idea and this seems nicer than before (less unused parameters and no change in FilteredListWidget API) :D. So, LGTM!",
+      "parentUuid": "0186d0ad_63d02470",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3b92086_964e1683",
         "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
         "patchSetId": 3

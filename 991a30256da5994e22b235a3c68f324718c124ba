@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c012ae1c_63172ea7",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T07:17:13Z",
+      "side": 1,
+      "message": "`filtered-list-widget-item.two-rows` seems still to be used but is removed in `filteredListWidget.css`, am I missing something?",
+      "revId": "991a30256da5994e22b235a3c68f324718c124ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
