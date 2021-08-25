@@ -16,6 +16,24 @@
       "message": "PTAL. IIUC there is no need anymore to optimise the SVG? ",
       "revId": "c19aeae6cc2c466316478f95c6b45f5fd1683db9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd916503_a46db8e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-25T14:13:41Z",
+      "side": 1,
+      "message": "Nope, we now do this automatically in the build 😊",
+      "parentUuid": "cd430071_9b0824eb",
+      "revId": "c19aeae6cc2c466316478f95c6b45f5fd1683db9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
