@@ -318,6 +318,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccb690c9_88a72277",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-25T14:17:21Z",
+      "side": 1,
+      "message": "Yeah, at this point we are mostly trading techdebt here. I think this solution has less impact on the wider codebase, so it has my preference. That said, I do agree that this is not ideal.\n\nIf we ever get to rewriting this component, we should keep the icon requirement in mind and make sure we don\u0027t have to resort to such hacks again.",
+      "parentUuid": "2618afa9_26b454d5",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3b92086_964e1683",
