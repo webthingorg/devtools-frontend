@@ -43,4 +43,20 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     link?.evaluate(node => node.setAttribute('aria-label', 'birds'));
     await waitForAria('link\xa0"birds" [role="treeitem"]');
   });
+
+  it('listens for changes to DOM and redraws the tree', async () => {
+    const {target} = getBrowserAndPages();
+    await goToResource('elements/accessibility-simple-page.html');
+    await toggleAccessibilityPane();
+    await toggleAccessibilityTree();
+    await waitForAria('heading\xa0"Title" [role="treeitem"]');
+    await waitForAria('link\xa0"cats" [role="treeitem"]');
+    const link = await target.$('aria/cats [role="link"]');
+    link?.evaluate(node => {
+      (node as HTMLElement).innerText = 'dogs';
+    });
+    await waitForAria('link\xa0"dogs" [role="treeitem"]');
+    link?.evaluate(node => node.setAttribute('aria-label', 'birds'));
+    await waitForAria('link\xa0"birds" [role="treeitem"]');
+  });
 });
