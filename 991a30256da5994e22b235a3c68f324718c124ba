@@ -16,6 +16,24 @@
       "message": "`filtered-list-widget-item.two-rows` seems still to be used but is removed in `filteredListWidget.css`, am I missing something?",
       "revId": "991a30256da5994e22b235a3c68f324718c124ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f146754a_a13cdd4c",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "This line is here because \u0027one-row\u0027 still have some special css.\nAnd the css is deleted cause in the old design, only two rows has a bottom border line, but now both two rows and one row need a bottom line",
+      "parentUuid": "c012ae1c_63172ea7",
+      "revId": "991a30256da5994e22b235a3c68f324718c124ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

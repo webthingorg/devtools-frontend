@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aaf6c90_2b429167",
+        "filename": "front_end/panels/network/utils/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebfba98f_da6e7b37",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad62434d_d0302fc6",
@@ -75,6 +99,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69733885_d3f9d32c",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure, but I saw all the variables that \u0027unused\u0027 have an underscore, so I just learnt it.",
+      "parentUuid": "ad62434d_d0302fc6",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02fd44f4_bd9fbf92",
@@ -88,6 +130,30 @@
       "writtenOn": "2021-08-24T14:33:52Z",
       "side": 1,
       "message": "Many of the other implementations of this method don\u0027t use this `wrapperElement` (given the ignored added arguments in the other usages). Is there maybe an alternative solution that we can use to avoid having to change the method signature?",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ab7454a_a9c113ff",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fd44f4_bd9fbf92",
       "range": {
         "startLine": 117,
         "startChar": 6,
@@ -210,6 +276,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db399820_21dcad74",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7698cbb2_42682af4",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2618afa9_26b454d5",
+        "filename": "front_end/panels/sources/FilteredUISourceCodeListProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done. Thanks Tim for the advice!",
+      "parentUuid": "0186d0ad_63d02470",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3b92086_964e1683",
@@ -223,6 +331,24 @@
       "writtenOn": "2021-08-24T14:33:39Z",
       "side": 1,
       "message": "I don\u0027t think we need this anymore, or? Since it\u0027s always true, and only in this file.",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "461b3587_fb6c0bea",
+        "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3b92086_964e1683",
       "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -244,6 +370,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38fdc34_526b4177",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f7860f_e71f0169",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e11198e1_85406c66",
@@ -257,6 +401,24 @@
       "writtenOn": "2021-08-24T14:33:39Z",
       "side": 1,
       "message": "I can see that you have adapted the naming according to the other variables, but I do not see a reason to use underscore here. Should we change that to not using underscore at all in this function?",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8fd7d34_527d1b4d",
+        "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e11198e1_85406c66",
       "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -278,6 +440,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2993ce9d_d63d3536",
+        "filename": "front_end/ui/legacy/components/quick_open/HelpQuickOpen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "005df87f_0891ae6a",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76b5db9f_cf5087f2",
@@ -291,6 +471,24 @@
       "writtenOn": "2021-08-24T14:33:39Z",
       "side": 1,
       "message": "Same here.",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e414911f_3b27af8c",
+        "filename": "front_end/ui/legacy/components/quick_open/QuickPick.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76b5db9f_cf5087f2",
       "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -312,6 +510,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "569bccfe_7a515070",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d000e6b_e0c0c10c",
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f79fa26_693be8b4",
@@ -325,6 +541,30 @@
       "writtenOn": "2021-08-24T14:33:52Z",
       "side": 1,
       "message": "Ultra-nit: remove commented code",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 4
+      },
+      "revId": "ebbc854fbf1c51cd508ceb53900806adcb85b132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a709a9e2_e5737ae7",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-25T11:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f79fa26_693be8b4",
       "range": {
         "startLine": 116,
         "startChar": 0,
