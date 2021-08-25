@@ -249,6 +249,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f861f9f_13a756f9",
+        "filename": "front_end/panels/settings/settings-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-25T14:12:47Z",
+      "side": 1,
+      "message": "Ah yes, indeed. Do you mind sending a CL for that?",
+      "parentUuid": "6672e5a2_c18a6e61",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 49
+      },
+      "revId": "15ebbddf6e09a79fa4e4c946c51f8d98d9deed3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2bc4c2a_9af40e84",
         "filename": "test/unittests/front_end/panels/emulation/components/UserAgentClientHintsForm_test.ts",
         "patchSetId": 5
