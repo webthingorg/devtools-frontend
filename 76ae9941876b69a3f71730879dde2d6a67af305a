@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c4cc51_713cb086",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-25T14:36:10Z",
+      "side": 1,
+      "message": "No, not insisting. SG!",
+      "parentUuid": "8c0f30f1_61069b4a",
+      "revId": "76ae9941876b69a3f71730879dde2d6a67af305a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "420a060a_1a2c1e58",
