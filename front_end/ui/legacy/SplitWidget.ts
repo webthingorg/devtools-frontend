@@ -810,7 +810,7 @@ export class SplitWidget extends Widget {
     this.updateLayout();
   }
 
-  private onZoomChanged(_event: Common.EventTarget.EventTargetEvent): void {
+  private onZoomChanged(): void {
     this.forceUpdateLayout();
   }
 
