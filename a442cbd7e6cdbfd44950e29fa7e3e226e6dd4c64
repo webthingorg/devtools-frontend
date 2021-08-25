@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea5fc6ca_8ee96c19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1275796
+      },
+      "writtenOn": "2021-08-25T00:43:47Z",
+      "side": 1,
+      "message": "This CL isn\u0027t correct. The issue with the template is that the second line *isn\u0027t* blank. There\u0027s a blank first line produced by the newline immediately after the triple quote, then the intended subject line is on the second line, and the intended blank second line is instead on the third line.",
+      "revId": "a442cbd7e6cdbfd44950e29fa7e3e226e6dd4c64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
