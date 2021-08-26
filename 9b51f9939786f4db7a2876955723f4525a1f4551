@@ -128,6 +128,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "661295b7_b3b372b0",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:56:05Z",
+      "side": 1,
+      "message": "Yeah casts usually are a bit clearer and require an explicit developer intent, whereas `any` is very easy to accidentally miss a usage, cause `tsc` never complains about it.",
+      "parentUuid": "64ea4b16_543b45c7",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e565f1_671a8955",
@@ -165,6 +189,30 @@
       "side": 1,
       "message": "Why, though? What\u0027s the advantage of forcing consumers to deal with another level of indirection?",
       "parentUuid": "a0e565f1_671a8955",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1116a493_6d4e64d2",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:56:05Z",
+      "side": 1,
+      "message": "To maintain consistency with the wider codebase. Historically, the codebase used a mix-match of the shorthand and longhand imports, which led to a very mess codebase to traverse. You can still see some of the remnants of the inconsistency in the `-legacy.ts` files (such as https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/elements-legacy.ts). Over time, we agreed that the mixmatch was hurting readability than it was gaining us in code writing. So we opted for consistency over the one level of indirection.",
+      "parentUuid": "006536be_4445b803",
       "range": {
         "startLine": 6,
         "startChar": 0,
