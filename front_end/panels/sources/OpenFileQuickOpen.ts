@@ -61,6 +61,17 @@ export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
     titleElement.parentElement?.parentElement?.insertBefore(iconElement, titleElement.parentElement);
   }
 
+  selectedItemChanged(fromElement: Element|null, toElement: Element|null): void {
+    const fromElementIcon = fromElement?.querySelector('devtools-icon');
+    if (fromElementIcon) {
+      fromElementIcon.data = {...fromElementIcon?.data, color: ''};
+    }
+    const toElementIcon = toElement?.querySelector('devtools-icon');
+    if (toElementIcon) {
+      toElementIcon.data = {...toElementIcon.data, color: 'var(--color-background)'};
+    }
+  }
+
   renderAsTwoRows(): boolean {
     return true;
   }

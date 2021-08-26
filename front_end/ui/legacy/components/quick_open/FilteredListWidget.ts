@@ -284,6 +284,9 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     if (toElement) {
       toElement.classList.add('selected');
     }
+    if (this.provider) {
+      this.provider.selectedItemChanged(fromElement, toElement);
+    }
     UI.ARIAUtils.setActiveDescendant(this.promptElement, toElement);
   }
 
@@ -554,6 +557,9 @@ export class Provider {
 
   renderAsTwoRows(): boolean {
     return false;
+  }
+
+  selectedItemChanged(_fromElement: Element|null, _toElement: Element|null): void {
   }
 
   selectItem(_itemIndex: number|null, _promptValue: string): void {
