@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac630c8_70f670bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:36:33Z",
+      "side": 1,
+      "message": "1 suggestion, but I am not sure if that actually works. If it doesn\u0027t, then this approach is fine by me.",
+      "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8474d0_5116a5de",
+        "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:36:33Z",
+      "side": 1,
+      "message": "Rather than setting an explicit color, can we instead set an attribute maybe? E.g. something along the lines of `fromElement.removeAttribute(\u0027has-focus\u0027)` and `toElement.setAttribute(\u0027has-focus\u0027)`. Then we can use the attribute selector in CSS and we don\u0027t have to handle the color.\n\nWe could maybe even use focus-within to do the styling: https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within That would be the best outcome I think, but I am not 100% sure we properly set the focus on the relevant elements, since we maybe also keep the focus on the editor itself?",
+      "range": {
+        "startLine": 71,
+        "startChar": 51,
+        "endLine": 71,
+        "endChar": 83
+      },
+      "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
