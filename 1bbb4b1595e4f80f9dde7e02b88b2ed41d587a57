@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "1bbb4b1595e4f80f9dde7e02b88b2ed41d587a57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "526190ab_74fcbf72",
+        "filename": "scripts/eslint_rules/lib/static_custom_event_names.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T15:45:43Z",
+      "side": 1,
+      "message": "Love this name 😄",
+      "range": {
+        "startLine": 147,
+        "startChar": 21,
+        "endLine": 147,
+        "endChar": 40
+      },
+      "revId": "1bbb4b1595e4f80f9dde7e02b88b2ed41d587a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ea39a4_5a049167",
+        "filename": "scripts/eslint_rules/tests/static_custom_event_names_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T15:45:43Z",
+      "side": 1,
+      "message": "Nit: can this be put on a newline maybe?",
+      "range": {
+        "startLine": 139,
+        "startChar": 47,
+        "endLine": 139,
+        "endChar": 60
+      },
+      "revId": "1bbb4b1595e4f80f9dde7e02b88b2ed41d587a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
