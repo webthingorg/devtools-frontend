@@ -106,6 +106,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64ea4b16_543b45c7",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-26T14:52:41Z",
+      "side": 1,
+      "message": "That still requires some casts due to obscure variance issues, but I guess those are indeed preferable to the eslint-disable comments. Will do.",
+      "parentUuid": "bac2a4e3_92de4c2f",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0e565f1_671a8955",
         "filename": "front_end/ui/components/text_editor/text_editor.ts",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "writtenOn": "2021-08-26T14:28:42Z",
       "side": 1,
       "message": "Nit: these statements should be `export * as TextEditor from` to be inline with the other entrypoints.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "006536be_4445b803",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-26T14:52:41Z",
+      "side": 1,
+      "message": "Why, though? What\u0027s the advantage of forcing consumers to deal with another level of indirection?",
+      "parentUuid": "a0e565f1_671a8955",
       "range": {
         "startLine": 6,
         "startChar": 0,
