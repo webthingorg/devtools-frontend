@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c0418704_bbabfdb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:31:56Z",
+      "side": 1,
+      "message": "Oh, I just discovered that my console had some errors in it as well:\n\n```\n[76217:259:0826/152027.222758:ERROR:CONSOLE(1)] \"TypeError: Cannot read properties of null (reading \u0027children\u0027)\", source: devtools://devtools/bundled/third_party/codemirror.next/codemirror.next.js (1)\n[76217:259:0826/152027.226524:ERROR:CONSOLE(1)] \"Uncaught TypeError: Cannot read properties of null (reading \u0027children\u0027)\", source: devtools://devtools/bundled/third_party/codemirror.next/codemirror.next.js (1)\n[76217:259:0826/152028.605474:ERROR:CONSOLE(1)] \"TypeError: Cannot read properties of null (reading \u0027children\u0027)\", source: devtools://devtools/bundled/third_party/codemirror.next/codemirror.next.js (1)\n[76217:259:0826/152028.609186:ERROR:CONSOLE(1)] \"Uncaught TypeError: Cannot read properties of null (reading \u0027children\u0027)\", source: devtools://devtools/bundled/third_party/codemirror.next/codemirror.next.js (1)\n```\n\nThis appears to happen when I do the `shift + \u003c` combination. This is the full stacktrace:\n\n```\nUncaught TypeError: Cannot read properties of null (reading \u0027children\u0027)\n    at Ss.hasNode (codemirror.next.js:1)\n    at Ps.hasNode (codemirror.next.js:1)\n    at $s.startInner (codemirror.next.js:1)\n    at $s.advance (codemirror.next.js:1)\n    at codemirror.next.js:1\n    at Zs.withContext (codemirror.next.js:1)\n    at Zs.work (codemirror.next.js:1)\n    at Ds.apply (codemirror.next.js:1)\n    at L.update [as updateF] (codemirror.next.js:1)\n    at Array.\u003canonymous\u003e (codemirror.next.js:1)\n```",
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f5566df1_76584413",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 1
