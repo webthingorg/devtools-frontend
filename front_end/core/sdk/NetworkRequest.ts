@@ -710,6 +710,11 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
     this.dispatchEventToListeners(Events.TimingChanged, this);
   }
 
+  private setConnectTimingFromExtraInfo(connectTiming: Protocol.Network.ConnectTiming): void {
+    this.startTimeInternal = connectTiming.requestTime;
+    this.dispatchEventToListeners(Events.TimingChanged, this);
+  }
+
   get mimeType(): MIME_TYPE {
     return this.mimeTypeInternal;
   }
@@ -1335,6 +1340,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper implement
     this.hasExtraRequestInfoInternal = true;
     this.setRequestHeadersText('');  // Mark request headers as non-provisional
     this.clientSecurityStateInternal = extraRequestInfo.clientSecurityState;
+    this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
   }
 
   hasExtraRequestInfo(): boolean {
@@ -1648,6 +1654,7 @@ export interface ExtraRequestInfo {
   requestHeaders: NameValue[];
   includedRequestCookies: Cookie[];
   clientSecurityState?: Protocol.Network.ClientSecurityState;
+  connectTiming: Protocol.Network.ConnectTiming;
 }
 
 export interface ExtraResponseInfo {
