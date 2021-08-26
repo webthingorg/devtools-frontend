@@ -245,6 +245,30 @@
       },
       "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c672aa6_0dfe63ba",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T15:19:24Z",
+      "side": 1,
+      "message": "Yeah. So it becomes `TextEditor.Config.autoDetectIndent`.",
+      "parentUuid": "fb4b70de_7c2f3b88",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
