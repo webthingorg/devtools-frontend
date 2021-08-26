@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad965888_5b8eec99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:28:42Z",
+      "side": 1,
+      "message": "This is looking great, nice work!\n\nI found a couple of nits and issues. One problem I did discover: on Mac, if I type `shift + \u003c` (where the \u003c means the key that has the \"\u003c\" character on top, requiring me to press shift at the same time), then the character very briefly shows up and then the cursor moves to the right. Video: https://drive.google.com/file/d/1wVS59ntnTHceLPE9oKKF9mCKv4TvyKzh/view?usp\u003dsharing\n\nAnother minor issue: selecting the text \"\u003cstyle\u003e\", have your cursor on the second character, select the line to the end with `shift + End` and then hit `del`, doesn\u0027t actually delete the line. Having the cursor on the first character does properly delete it. Having the cursor on the third character doesn\u0027t delete it either, so I assume it has something to the with the HTML tag itself. Video: https://drive.google.com/file/d/148Tj8nKtIhe0EAKUx5mNUkeqP4Yn3hDY/view?usp\u003dsharing\n\nLastly, it seems like the indentation is two off. I am not sure if that is because I am editing a particular node or my DevTools settings take precedence (my indentation is set to 4 spaces), but it always appears to add 2 spaces too many. Video: https://drive.google.com/file/d/1BM1sFR3J7tNzbUdmEUQRD43IZs9fF1AF/view?usp\u003dsharing\n\nFor these issues, I am not sure if we should have tests for them in DevTools or we can rely solely on tests in CodeMirror. I guess we can add some tests in DevTools for these behaviors if we want to. If so, let me know and we can work on some interaction tests for this component.",
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5566df1_76584413",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:28:42Z",
+      "side": 1,
+      "message": "FYI I found a very minor issue in the HTML/css implementation. If you set your cursor on the following line:\n\n```css\n[hidden],\n:host([hidden])| {\n  display: none !important;\n}\n```\n\n(|) denotes where the cursors is, e.g. after the closing parenthesis. Then the parenthesis shows as red (presuming there is no match), but I think the matching parenthesis should be the opening parenthesis. Other than that, the angle-bracket matching etc... is working really nice, nice work!\n\nP.S. I got this snippet from the new tab page in Chrome btw.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 19,
+        "endLine": 1021,
+        "endChar": 23
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95647b59_49ce7fe1",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:28:42Z",
+      "side": 1,
+      "message": "Nit: same here, favor `unknown` over `any`.",
+      "range": {
+        "startLine": 97,
+        "startChar": 38,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac2a4e3_92de4c2f",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:28:42Z",
+      "side": 1,
+      "message": "Nit: use `unknown` rather than `any`, to make sure that any usages of a setting have to ensure that the type is the one they expect.",
+      "range": {
+        "startLine": 13,
+        "startChar": 61,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e565f1_671a8955",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-26T14:28:42Z",
+      "side": 1,
+      "message": "Nit: these statements should be `export * as TextEditor from` to be inline with the other entrypoints.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
