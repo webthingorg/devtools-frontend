@@ -221,6 +221,30 @@
       },
       "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4b70de_7c2f3b88",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-26T15:00:27Z",
+      "side": 1,
+      "message": "Okay, I\u0027d have gone with a flat namespace per module, but fair enough. What\u0027s the rule, precisely? Should the full file path be reproduced, so that the exports from config go under a `config` object?",
+      "parentUuid": "1116a493_6d4e64d2",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
