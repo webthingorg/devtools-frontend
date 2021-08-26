@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bfd49da_75819080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-26T14:30:04Z",
+      "side": 1,
+      "message": "Hi Jack, I just noticed I had a typo in the protocolMonitor.css. I tested the code when the whole devTools in dark mode, so this didn\u0027t affect.\nSorry for the inconvenience.",
+      "revId": "479a83fc6dbf55ec6dd3fa69727f57fc206df323",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
