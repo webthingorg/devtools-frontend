@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b16df5c_e67f4012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-26T08:02:48Z",
+      "side": 1,
+      "message": "I did use \u0027git mv\u0027 but i don\u0027t know why they didn\u0027t recognize the BUILD file",
+      "revId": "195a76547e6520bf0c6d7fca201d3298eb522121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
