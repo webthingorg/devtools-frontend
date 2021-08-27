@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d8b4b5c_a13deccb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "LGTM after final comments are addressed.",
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afb5b3e1_10123ac9",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "nit: return 0 if kinds are equal?",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 41
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a036c327_091947d6",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "We should probably consolidate this class with the other classes for bars we have. But this can be done in a follow-up.",
+      "range": {
+        "startLine": 57,
+        "startChar": 13,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f342e7_0558dfd5",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "Nit: move to front_end/models/issues_manager/Issue.ts as standalone function to make it re-usable.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 13
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b03e4e4f_2916ca3c",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "It\u0027s fine to use kind here for now, but we should talk to DevRel what a more intuitive word would be. Candidates are severity, level, etc.",
+      "range": {
+        "startLine": 76,
+        "startChar": 25,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9307b6d4_de354e8c",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:34:24Z",
+      "side": 1,
+      "message": "This is now executed even if getGroupIssuesByCategorySetting().get() is true (which seems to me like a change in behavior). Is this intended?",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 335,
+        "endChar": 5
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
