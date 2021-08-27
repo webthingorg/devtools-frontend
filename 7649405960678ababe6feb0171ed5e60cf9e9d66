@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5774ad9e_10e8f4c4",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-27T06:11:08Z",
+      "side": 1,
+      "message": "so this won\u0027t work in the hosted mode, right?",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
