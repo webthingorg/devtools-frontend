@@ -16,6 +16,24 @@
       "message": "so this won\u0027t work in the hosted mode, right?",
       "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439894f4_fe4c3e1d",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-08-27T16:51:28Z",
+      "side": 1,
+      "message": "It won\u0027t yet, but it shouldn\u0027t be broken entirely (i.e. beyond the way it is now), because we wouldn\u0027t be appending browserConnection to the query params either. For the hosted mode, we could opt for passing the targetId as part of the query params, but I don\u0027t want this to happen normally due to security considerations (the targetId is somewhat sensitive, so I\u0027m a bit paranoid about extensions enumerating tab urls and using that; this isn\u0027t really an issue for SW in particular, though).",
+      "parentUuid": "5774ad9e_10e8f4c4",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
