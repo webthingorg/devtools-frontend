@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51238b70_8984450f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-27T06:17:13Z",
+      "side": 1,
+      "message": "Thanks Nancy!",
+      "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a8474d0_5116a5de",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-08-26T14:36:33Z",
       "side": 1,
       "message": "Rather than setting an explicit color, can we instead set an attribute maybe? E.g. something along the lines of `fromElement.removeAttribute(\u0027has-focus\u0027)` and `toElement.setAttribute(\u0027has-focus\u0027)`. Then we can use the attribute selector in CSS and we don\u0027t have to handle the color.\n\nWe could maybe even use focus-within to do the styling: https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within That would be the best outcome I think, but I am not 100% sure we properly set the focus on the relevant elements, since we maybe also keep the focus on the editor itself?",
+      "range": {
+        "startLine": 71,
+        "startChar": 51,
+        "endLine": 71,
+        "endChar": 83
+      },
+      "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6306ea56_78a40145",
+        "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-08-27T06:17:13Z",
+      "side": 1,
+      "message": "+1 for not explictly setting the color. I can see that the class \".selected\" is already set on selected items by the current code. Maybe it\u0027s already possible to use the `selected` attribute in order to change the item color already? E.g. something like this, for changing the color of the devtools icon using css:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/linear_memory_inspector/linearMemoryNavigator.css;l\u003d57;drc\u003d3d3a8365142369de06b45d0448c8c0e8e170fb8c",
+      "parentUuid": "9a8474d0_5116a5de",
       "range": {
         "startLine": 71,
         "startChar": 51,
