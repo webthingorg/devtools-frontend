@@ -51,6 +51,24 @@
       "message": "Colors: I\u0027m fine, I don\u0027t think this will be an issue. Can we align the colors at a later point? We should at least track it in a bug.\n\nFont family and style: I\u0027m a little bit concerned that the font and the font size is different from the surrounding \"non editable\" text. Is there anything we can do regarding styling here?\n\nBug: When placing the cursor behind an opening bracket \u003c and pressing enter, the new line is indented one indentation level too much. https://i.imgur.com/dtGQoeC.gif",
       "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d60cd95_770176fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-27T15:51:01Z",
+      "side": 1,
+      "message": "Aligning colors later should be easy.\n\nThe font looked the same on my machine, but indeed, I saw there\u0027s a CSS variable for the code font family and size, which I\u0027ve updated the code to use.\n\nThe indentation after a less-than is more of a feature, not a bug—the automatic indentation assumes that when you\u0027re continuing an open tag, you\u0027ll want to indent its content relative to its opening line. Is that something you consider harmful?",
+      "parentUuid": "9621ca00_7f4f5b9a",
+      "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
