@@ -69,6 +69,24 @@
       "parentUuid": "9621ca00_7f4f5b9a",
       "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f3fe4a_3e0c582d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-27T15:53:55Z",
+      "side": 1,
+      "message": "I just checked the behavior of VS Code and it aligns with the new version of CodeMirror. E.g. it also indents `meta\u003e` two spaces more than where the `\u003c` is. Therefore, I think this is working consistently across editors and we should keep that behavior?",
+      "parentUuid": "7d60cd95_770176fe",
+      "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
