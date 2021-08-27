@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79355b59_f5bbf914",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-27T08:36:02Z",
+      "side": 1,
+      "message": "What if this.code / this.kind has previously been set, shouldn\u0027t we clear it?",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "8478633589ecf05ad0d507793715630522f369f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
