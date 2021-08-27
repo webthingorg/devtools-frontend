@@ -146,7 +146,7 @@ export class Spectrum extends UI.Widget.VBox {
   private contrastOverlay: ContrastOverlay|undefined;
   private contrastDetails: ContrastDetails|undefined;
   private readonly contrastDetailsBackgroundColorPickedToggledBound: ((event: {
-                                                                        data: unknown,
+                                                                        data: boolean,
                                                                       }) => void)|undefined;
   private readonly palettes: Map<string, Palette>;
   private readonly palettePanel: HTMLElement;
