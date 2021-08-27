@@ -12,7 +12,7 @@ export interface ActionDelegate {
   handleAction(_context: Context, _actionId: string): boolean;
 }
 
-export class Action extends Common.ObjectWrapper.ObjectWrapper {
+export class Action extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private enabledInternal = true;
   private toggledInternal = false;
   private actionRegistration: ActionRegistration;
@@ -180,9 +180,16 @@ export const enum Platforms {
   Windows = 'windows',
 }
 
-export const Events = {
-  Enabled: Symbol('Enabled'),
-  Toggled: Symbol('Toggled'),
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum Events {
+  Enabled = 'Enabled',
+  Toggled = 'Toggled',
+}
+
+export type EventTypes = {
+  [Events.Enabled]: boolean,
+  [Events.Toggled]: boolean,
 };
 
 // TODO(crbug.com/1181019)
