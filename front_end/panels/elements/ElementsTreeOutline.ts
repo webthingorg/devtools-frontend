@@ -1624,7 +1624,6 @@ export interface MultilineEditorController {
   cancel: () => void;
   commit: () => void;
   resize: () => void;
-  editor: UI.TextEditor.TextEditor;
 }
 
 export interface ClipboardData {
