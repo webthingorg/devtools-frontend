@@ -317,6 +317,30 @@
       },
       "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8dae74_92f372d8",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-27T10:27:02Z",
+      "side": 1,
+      "message": "Yes, I agree. It is unfortunately the trade-off we were willing to make.",
+      "parentUuid": "86a7b4e1_972259b9",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

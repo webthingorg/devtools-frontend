@@ -16,6 +16,24 @@
       "message": "Addressed the notes.\n\nGoing to spend a bit more time proving this general approach by working on features that may be outside of the scope of this change, and making sure no features that are visible in the HTML editor were dropped.\n\nWe should also definitely get someone who can say something about styling to look at this before it\u0027s merged. Because this editor is inline between the HTML elements rendered by `ElementsTreeElement`, which are styled with the \u0027old\u0027 styles (not using the CSS variables), and the \u0027new\u0027 styles are very different from those styles (different colors, and simply less colors), the nice property of the editable text looking the same as the surrounding text is broken by this change.",
       "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd2ddc9_fb73687f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-27T10:27:02Z",
+      "side": 1,
+      "message": "I have pinged our UX folks to take a look! In my opinion, I am okay if the colours don\u0027t match 100%. When I tested it yesterday, they looked fine to me, but let\u0027s see what the UX folks say!",
+      "parentUuid": "9b6d5213_59ef1ba1",
+      "revId": "2b6c0d931a7801252c87a4e218ac8fe70042a68a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
