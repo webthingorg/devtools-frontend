@@ -81,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "602cb7c2_6898c799",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-27T09:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95647b59_49ce7fe1",
+      "range": {
+        "startLine": 97,
+        "startChar": 38,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bac2a4e3_92de4c2f",
@@ -261,6 +285,30 @@
       "side": 1,
       "message": "Yeah. So it becomes `TextEditor.Config.autoDetectIndent`.",
       "parentUuid": "fb4b70de_7c2f3b88",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a7b4e1_972259b9",
+        "filename": "front_end/ui/components/text_editor/text_editor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-27T09:11:09Z",
+      "side": 1,
+      "message": "Done, though I\u0027d like to express again that a system that requires me to write `TextEditor.TextEditor.TextEditor` to refer to the (common) type of a text editor may not be ideal.",
+      "parentUuid": "2c672aa6_0dfe63ba",
       "range": {
         "startLine": 6,
         "startChar": 0,
