@@ -46,6 +46,7 @@ import {Events as TextPromptEvents, TextPrompt} from './TextPrompt.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, LongClickController} from './UIUtils.js';
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
+import toolbarStyles from './toolbar.css.js';
 
 const UIStrings = {
   /**
@@ -76,7 +77,7 @@ export class Toolbar {
     this.element.classList.add('toolbar');
     this.enabled = true;
     this.shadowRoot =
-        createShadowRootWithCoreStyles(this.element, {cssFile: 'ui/legacy/toolbar.css', delegatesFocus: undefined});
+        createShadowRootWithCoreStyles(this.element, {cssFile: [toolbarStyles], delegatesFocus: undefined});
     this.contentElement = this.shadowRoot.createChild('div', 'toolbar-shadow');
     this.insertionPoint = this.contentElement.createChild('slot');
   }
