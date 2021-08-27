@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e07cd4_da439cf9",
+        "filename": "front_end/third_party/codemirror.next/README.chromium",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-27T08:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf2e88f_a12f4a35",
+      "range": {
+        "startLine": 18,
+        "startChar": 118,
+        "endLine": 18,
+        "endChar": 151
+      },
+      "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "767a10b7_9e01fc43",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-08-23T15:44:59Z",
       "side": 1,
       "message": "I missed this in the initial review round. Reading the documentation of this option (https://rollupjs.org/guide/en/#outputexternallivebindings), it seems like this could have unintended side-effects.\n\nI don\u0027t mind adding this, but could you document the reason for doing so in a code comment above this line? (I am assuming this is to limit filesize, do you have any numbers of how many lines we save by setting this option?)",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "6770777e49f1f6ebca78217fedb709b4e450271b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49b20c87_9f70302b",
+        "filename": "front_end/third_party/codemirror.next/rollup.config.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-27T08:49:58Z",
+      "side": 1,
+      "message": "It\u0027s something I do as a matter of course to, indeed, avoid some ugly output code. Not sure if it even does anything in this context. I\u0027ll investigate.",
+      "parentUuid": "767a10b7_9e01fc43",
       "range": {
         "startLine": 10,
         "startChar": 4,
