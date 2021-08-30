@@ -344,6 +344,10 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   setAddExtensionCallback(callback: (arg0: ExtensionDescriptor) => void): void {
     // Extensions are not supported in hosted mode.
   }
+
+  initialTargetId(): Promise<string|null> {
+    return Promise.resolve(null);
+  }
 }
 
 // @ts-ignore Global injected by devtools-compatibility.js
