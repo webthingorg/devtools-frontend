@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "393a1970_c20b991e",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-30T07:16:38Z",
+      "side": 1,
+      "message": "Is there a reason why we need this enum non-const?",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 47
+      },
+      "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "096ef945_a998d39a",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-08-30T07:16:38Z",
+      "side": 1,
+      "message": "Can we use the named type?",
+      "range": {
+        "startLine": 148,
+        "startChar": 71,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
