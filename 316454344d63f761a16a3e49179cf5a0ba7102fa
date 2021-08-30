@@ -80,6 +80,30 @@
       },
       "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73658376_eb1e908a",
+        "filename": "front_end/panels/sources/OpenFileQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-08-30T08:37:37Z",
+      "side": 1,
+      "message": "In fact Tim\u0027s suggestion doesn\u0027t work because of the IconButton class uses `webkit-mask-image` when there is color defined, but uses `backgroud-color` when there is no color defined.\nBut I checked Kim\u0027s example, so I\u0027m using a very different approach now. (I did check with Marian with adding color to themeColor.css, and in fact he prefers that more than \u0027hard-code\u0027 color in the icon)",
+      "parentUuid": "6306ea56_78a40145",
+      "range": {
+        "startLine": 71,
+        "startChar": 51,
+        "endLine": 71,
+        "endChar": 83
+      },
+      "revId": "316454344d63f761a16a3e49179cf5a0ba7102fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
