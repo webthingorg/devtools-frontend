@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 
 import type {DOMNode} from './DOMModel.js';
@@ -39,7 +39,7 @@ export class AccessibilityNode {
   private readonly descriptionInternal: Protocol.Accessibility.AXValue|null;
   private readonly valueInternal: Protocol.Accessibility.AXValue|null;
   private readonly propertiesInternal: Protocol.Accessibility.AXProperty[]|null;
-  private childIds: string[]|null;
+  private childIdsInternal: Protocol.Accessibility.AXNodeId[]|null;
   private parentNodeInternal: AccessibilityNode|null;
 
   constructor(accessibilityModel: AccessibilityModel, payload: Protocol.Accessibility.AXNode) {
@@ -66,12 +66,16 @@ export class AccessibilityNode {
     this.descriptionInternal = payload.description || null;
     this.valueInternal = payload.value || null;
     this.propertiesInternal = payload.properties || null;
-    this.childIds = payload.childIds || null;
+    this.childIdsInternal = payload.childIds || null;
     this.parentNodeInternal = null;
   }
 
   id(): Protocol.Accessibility.AXNodeId {
     return this.idInternal;
+  }
+
+  childIds(): Protocol.Accessibility.AXNodeId[]|null {
+    return this.childIdsInternal;
   }
 
   accessibilityModel(): AccessibilityModel {
@@ -152,12 +156,12 @@ export class AccessibilityNode {
   }
 
   children(): AccessibilityNode[] {
-    if (!this.childIds) {
+    if (!this.childIdsInternal) {
       return [];
     }
 
     const children = [];
-    for (const childId of this.childIds) {
+    for (const childId of this.childIdsInternal) {
       const child = this.accessibilityModelInternal.axNodeForId(childId);
       if (child) {
         children.push(child);
@@ -168,18 +172,18 @@ export class AccessibilityNode {
   }
 
   numChildren(): number {
-    if (!this.childIds) {
+    if (!this.childIdsInternal) {
       return 0;
     }
-    return this.childIds.length;
+    return this.childIdsInternal.length;
   }
 
   hasOnlyUnloadedChildren(): boolean {
-    if (!this.childIds || !this.childIds.length) {
+    if (!this.childIdsInternal || !this.childIdsInternal.length) {
       return false;
     }
 
-    return this.childIds.every(id => this.accessibilityModelInternal.axNodeForId(id) === null);
+    return this.childIdsInternal.every(id => this.accessibilityModelInternal.axNodeForId(id) === null);
   }
 
   // Only the root node gets a frameId, so nodes have to walk up the tree to find their frameId.
@@ -194,9 +198,11 @@ export class AccessibilityNode {
 
 export class AccessibilityModel extends SDKModel<void> {
   agent: ProtocolProxyApi.AccessibilityApi;
-  private axIdToAXNode: Map<string, AccessibilityNode>;
+  private axIdToAXNode: Map<Protocol.Accessibility.AXNodeId, AccessibilityNode>;
   private readonly backendDOMNodeIdToAXNode: Map<Protocol.DOM.BackendNodeId, AccessibilityNode>;
   private readonly backendDOMNodeIdToDOMNode: Map<Protocol.DOM.BackendNodeId, DOMNode|null>;
+  private readonly backendDOMNodeIdToDependentAXNodeIds:
+      Map<Protocol.DOM.BackendNodeId, Protocol.Accessibility.AXNodeId[]>;
 
   constructor(target: Target) {
     super(target);
@@ -206,6 +212,7 @@ export class AccessibilityModel extends SDKModel<void> {
     this.axIdToAXNode = new Map();
     this.backendDOMNodeIdToAXNode = new Map();
     this.backendDOMNodeIdToDOMNode = new Map();
+    this.backendDOMNodeIdToDependentAXNodeIds = new Map();
   }
 
   clear(): void {
@@ -220,8 +227,8 @@ export class AccessibilityModel extends SDKModel<void> {
     await this.agent.invoke_disable();
   }
 
-  async requestPartialAXTree(node: DOMNode): Promise<void> {
-    const {nodes} = await this.agent.invoke_getPartialAXTree({nodeId: node.id, fetchRelatives: true});
+  async requestPartialAXTree(node: DOMNode, fetchRelatives?: boolean): Promise<void> {
+    const {nodes} = await this.agent.invoke_getPartialAXTree({nodeId: node.id, fetchRelatives});
     if (!nodes) {
       return;
     }
@@ -246,9 +253,38 @@ export class AccessibilityModel extends SDKModel<void> {
     newNodesToTrack?.forEach((value, key) => this.backendDOMNodeIdToDOMNode.set(key, value));
   }
 
+  private getRelatedNodeBackendNodeIds(node: AccessibilityNode): Protocol.DOM.BackendNodeId[] {
+    const ids: Protocol.DOM.BackendNodeId[] = [];
+    const sources = node.name()?.sources;
+    if (!sources) {
+      return ids;
+    }
+    for (const source of sources) {
+      if (!source.superseded && source.type === Protocol.Accessibility.AXValueSourceType.RelatedElement) {
+        if (!source.attributeValue?.relatedNodes) {
+          continue;
+        }
+        for (const relatedNodeInfo of source.attributeValue.relatedNodes) {
+          ids.push(relatedNodeInfo.backendDOMNodeId);
+        }
+      }
+      if (!source.superseded && source.type === Protocol.Accessibility.AXValueSourceType.Contents) {
+        const childIds = node.children().map(child => child.backendDOMNodeId());
+        childIds.forEach(child => {
+          if (child) {
+            ids.push(child);
+          }
+        });
+      }
+    }
+    return ids;
+  }
+
   private createNodesFromPayload(payloadNodes: Protocol.Accessibility.AXNode[]): AccessibilityNode[] {
     const backendIds: Set<Protocol.DOM.BackendNodeId> = new Set();
     const accessibilityNodes = payloadNodes.map(node => {
+      node.name?.relatedNodes?.forEach(
+          relNode => this.removeDependentForBackendNodeId(node.nodeId, relNode.backendDOMNodeId));
       const sdkNode = new AccessibilityNode(this, node);
       const backendId = sdkNode.backendDOMNodeId();
       if (backendId) {
@@ -261,6 +297,9 @@ export class AccessibilityModel extends SDKModel<void> {
     for (const sdkNode of accessibilityNodes) {
       for (const sdkChild of sdkNode.children()) {
         sdkChild.setParentNode(sdkNode);
+      }
+      for (const backendId of this.getRelatedNodeBackendNodeIds(sdkNode)) {
+        this.addDependentForBackendNodeId(sdkNode.id(), backendId);
       }
     }
     return accessibilityNodes;
@@ -306,19 +345,72 @@ export class AccessibilityModel extends SDKModel<void> {
     return this.axNodeForDOMNode(node);
   }
 
-  async updateSubtreeAndAncestors(backendNodeId: Protocol.DOM.BackendNodeId): Promise<void> {
-    const {nodes} = await this.agent.invoke_getPartialAXTree({backendNodeId, fetchRelatives: true});
-    if (!nodes) {
+  async updateNode(axNode: AccessibilityNode): Promise<void> {
+    const axNodeBackendId = axNode.backendDOMNodeId();
+    if (!axNodeBackendId) {
       return;
     }
-    this.createNodesFromPayload(nodes);
+    const backendIdsToUpdate = [axNodeBackendId];
+    for (const axId of this.dependentsForBackendNodeId(axNodeBackendId)) {
+      const backendId = this.axIdToAXNode.get(axId)?.backendDOMNodeId();
+      if (backendId) {
+        backendIdsToUpdate.push(backendId);
+      }
+    }
+
+    for (const backendId of backendIdsToUpdate) {
+      const {nodes} = await this.agent.invoke_getPartialAXTree({backendNodeId: backendId, fetchRelatives: false});
+      if (!nodes) {
+        return;
+      }
+      this.createNodesFromPayload(nodes);
+    }
   }
 
-  axNodeForId(axId: string): AccessibilityNode|null {
+  private removeDependentForBackendNodeId(
+      dependentId: Protocol.Accessibility.AXNodeId, backendNodeId: Protocol.DOM.BackendNodeId): void {
+    const deps = this.backendDOMNodeIdToDependentAXNodeIds.get(backendNodeId);
+    if (!deps) {
+      return;
+    }
+    const index = deps.indexOf(dependentId);
+    if (index > 0) {
+      deps.splice(index, 1);
+    }
+  }
+
+  private addDependentForBackendNodeId(
+      dependentId: Protocol.Accessibility.AXNodeId, backendNodeId: Protocol.DOM.BackendNodeId): void {
+    const deps = this.backendDOMNodeIdToDependentAXNodeIds.get(backendNodeId);
+    if (!deps) {
+      this.backendDOMNodeIdToDependentAXNodeIds.set(backendNodeId, [dependentId]);
+    } else {
+      deps.push(dependentId);
+    }
+  }
+
+  private dependentsForBackendNodeId(backendNodeId: Protocol.DOM.BackendNodeId): Protocol.Accessibility.AXNodeId[] {
+    const allDeps: Set<Protocol.Accessibility.AXNodeId> = new Set();
+    const dependentsToProcess = Array.from(this.backendDOMNodeIdToDependentAXNodeIds.get(backendNodeId) || []);
+    const nodeId = dependentsToProcess.shift();
+    while (nodeId) {
+      const backendId = this.axNodeForId(nodeId)?.backendDOMNodeId();
+      if (backendId) {
+        allDeps.add(nodeId);
+        const transitiveDependents = this.backendDOMNodeIdToDependentAXNodeIds.get(backendNodeId);
+        if (transitiveDependents) {
+          dependentsToProcess.push(...transitiveDependents);
+        }
+      }
+    }
+    return Array.from(allDeps);
+  }
+
+  axNodeForId(axId: Protocol.Accessibility.AXNodeId): AccessibilityNode|null {
     return this.axIdToAXNode.get(axId) || null;
   }
 
-  setAXNodeForAXId(axId: string, axNode: AccessibilityNode): void {
+  setAXNodeForAXId(axId: Protocol.Accessibility.AXNodeId, axNode: AccessibilityNode): void {
     this.axIdToAXNode.set(axId, axNode);
   }
 

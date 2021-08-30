@@ -2,45 +2,63 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {click, enableExperiment, getBrowserAndPages, goToResource, waitForAria} from '../../shared/helper.js';
+import {assertNotNullOrUndefined, click, enableExperiment, getBrowserAndPages, goToResource, waitForAria, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {toggleAccessibilityPane, toggleAccessibilityTree} from '../helpers/elements-helpers.js';
+import {toggleAccessibilityTree} from '../helpers/elements-helpers.js';
 
 describe('Accessibility Tree in the Elements Tab', async function() {
-  beforeEach(async () => {
-    await enableExperiment('fullAccessibilityTree');
-  });
-
   it('displays the fuller accessibility tree', async () => {
+    await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-simple-page.html');
-    await toggleAccessibilityPane();
     await toggleAccessibilityTree();
     await waitForAria('heading\xa0"Title" [role="treeitem"]');
     await waitForAria('link\xa0"cats" [role="treeitem"]');
   });
 
   it('allows navigating iframes', async () => {
+    await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-iframe-page.html');
-    await toggleAccessibilityPane();
     await toggleAccessibilityTree();
+    waitForAria('RootWebArea\xa0"Page with nested iframe" [role="treeitem"]');
     const iframeDoc = await waitForAria('RootWebArea\xa0"Simple page with aria labeled element" [role="treeitem"]');
+    assertNotNullOrUndefined(iframeDoc);
     await click('.arrow-icon', {root: iframeDoc});
     await waitForAria('link\xa0"cats" [role="treeitem"]');
   });
 
-  it('listens for changes to DOM and redraws the tree', async () => {
-    const {target} = getBrowserAndPages();
+  it('listens for text changes to DOM and redraws the tree', async () => {
+    await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-simple-page.html');
-    await toggleAccessibilityPane();
     await toggleAccessibilityTree();
-    await waitForAria('heading\xa0"Title" [role="treeitem"]');
+    const {target} = getBrowserAndPages();
     await waitForAria('link\xa0"cats" [role="treeitem"]');
-    const link = await target.$('aria/cats [role="link"]');
-    link?.evaluate(node => {
+    const link = await target.waitForSelector('aria/cats [role="link"]');
+    assertNotNullOrUndefined(link);
+    await link.evaluate(node => {
       (node as HTMLElement).innerText = 'dogs';
     });
     await waitForAria('link\xa0"dogs" [role="treeitem"]');
-    link?.evaluate(node => node.setAttribute('aria-label', 'birds'));
+  });
+
+  it('listen for changes to properties and redraws tree', async () => {
+    await enableExperiment('fullAccessibilityTree');
+    await goToResource('elements/accessibility-simple-page.html');
+    await toggleAccessibilityTree();
+    const {target} = getBrowserAndPages();
+    const link = await target.waitForSelector('aria/cats [role="link"]');
+    assertNotNullOrUndefined(link);
+    await link.evaluate(node => node.setAttribute('aria-label', 'birds'));
     await waitForAria('link\xa0"birds" [role="treeitem"]');
+  });
+
+  it('listen for removed nodes and redraw tree', async () => {
+    await enableExperiment('fullAccessibilityTree');
+    await goToResource('elements/accessibility-simple-page.html');
+    await toggleAccessibilityTree();
+    const {target} = getBrowserAndPages();
+    const link = await target.waitForSelector('aria/cats [role="link"]');
+    assertNotNullOrUndefined(link);
+    await link.evaluate(node => node.remove());
+    await waitForNone('link\xa0"birds" [role="treeitem"]', undefined, undefined, 'aria');
   });
 });

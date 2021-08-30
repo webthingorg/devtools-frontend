@@ -108,7 +108,7 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
       return;
     }
     accessibilityModel.clear();
-    await accessibilityModel.requestPartialAXTree(node);
+    await accessibilityModel.requestPartialAXTree(node, Boolean(this.breadcrumbsSubPane));
     this.accessibilityNodeCallback(accessibilityModel.axNodeForDOMNode(node));
   }
 

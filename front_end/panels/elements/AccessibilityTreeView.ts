@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Protocol from '../../generated/protocol.js';
 import type * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
@@ -15,7 +16,7 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   private treeData: AccessibilityTreeUtils.AXTreeNode[] = [];
   private readonly toggleButton: HTMLButtonElement;
   private accessibilityModel: SDK.AccessibilityModel.AccessibilityModel|null = null;
-  private rootAXNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private rootAXNodeId: Protocol.Accessibility.AXNodeId|null = null;
   private selectedTreeNode: AccessibilityTreeUtils.AXTreeNode|null = null;
   private inspectedDOMNode: SDK.DOMModel.DOMNode|null = null;
 
@@ -73,8 +74,8 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
     if (!domModel.parentModel()) {
       this.setAccessibilityModel(domModel.target().model(SDK.AccessibilityModel.AccessibilityModel));
     }
-    domModel.addEventListener(SDK.DOMModel.Events.NodeInserted, this.domUpdated, this);
-    domModel.addEventListener(SDK.DOMModel.Events.NodeRemoved, this.domUpdatedNode, this);
+    domModel.addEventListener(SDK.DOMModel.Events.NodeInserted, this.domNodeInserted, this);
+    domModel.addEventListener(SDK.DOMModel.Events.NodeRemoved, this.domNodeRemoved, this);
     domModel.addEventListener(SDK.DOMModel.Events.AttrModified, this.domUpdatedNode, this);
     domModel.addEventListener(SDK.DOMModel.Events.AttrRemoved, this.domUpdatedNode, this);
     domModel.addEventListener(SDK.DOMModel.Events.CharacterDataModified, this.domUpdated, this);
@@ -84,14 +85,25 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   }
 
   unwireFromDOMModel(domModel: SDK.DOMModel.DOMModel): void {
-    domModel.removeEventListener(SDK.DOMModel.Events.NodeInserted, this.domUpdated, this);
-    domModel.removeEventListener(SDK.DOMModel.Events.NodeRemoved, this.domUpdatedNode, this);
+    domModel.removeEventListener(SDK.DOMModel.Events.NodeInserted, this.domNodeInserted, this);
+    domModel.removeEventListener(SDK.DOMModel.Events.NodeRemoved, this.domNodeRemoved, this);
     domModel.removeEventListener(SDK.DOMModel.Events.AttrModified, this.domUpdatedNode, this);
     domModel.removeEventListener(SDK.DOMModel.Events.AttrRemoved, this.domUpdatedNode, this);
     domModel.removeEventListener(SDK.DOMModel.Events.CharacterDataModified, this.domUpdated, this);
     domModel.removeEventListener(SDK.DOMModel.Events.ChildNodeCountUpdated, this.domUpdated, this);
     domModel.removeEventListener(SDK.DOMModel.Events.DistributedNodesChanged, this.domUpdated, this);
     domModel.removeEventListener(SDK.DOMModel.Events.DocumentUpdated, this.documentUpdated, this);
+  }
+
+  domNodeInserted(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode>): void {
+    const parent = event.data.parentNode;
+    if (parent) {
+      this.update(parent);
+    }
+  }
+
+  domNodeRemoved(event: Common.EventTarget.EventTargetEvent<{parent: SDK.DOMModel.DOMNode}>): void {
+    this.update(event.data.parent);
   }
 
   domUpdatedNode(event: Common.EventTarget.EventTargetEvent<{node: SDK.DOMModel.DOMNode}>): void {
@@ -104,7 +116,18 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
 
   async update(node: SDK.DOMModel.DOMNode): Promise<void> {
     const axModel = node.domModel().target().model(SDK.AccessibilityModel.AccessibilityModel);
-    await axModel?.updateSubtreeAndAncestors(node.backendNodeId());
+    if (!axModel) {
+      return;
+    }
+    let axNode = axModel.axNodeForDOMNode(node);
+    while (!axNode && node.parentNode) {
+      node = node.parentNode;
+      axNode = axModel.axNodeForDOMNode(node);
+    }
+    if (!axNode) {
+      return;
+    }
+    await axModel.updateNode(axNode);
     this.renderTree();
   }
 
@@ -117,37 +140,38 @@ export class AccessibilityTreeView extends UI.Widget.VBox {
   }
 
   renderTree(): void {
-    if (!this.rootAXNode) {
+    if (!this.accessibilityModel || !this.rootAXNodeId) {
+      return;
+    }
+    const root = this.accessibilityModel.axNodeForId(this.rootAXNodeId);
+    if (!root) {
       this.treeData = [];
     } else {
-      this.treeData = [AccessibilityTreeUtils.sdkNodeToAXTreeNode(this.rootAXNode)];
+      this.treeData = [AccessibilityTreeUtils.sdkNodeToAXTreeNode(root)];
     }
-
     this.accessibilityTreeComponent.data = {
       defaultRenderer: AccessibilityTreeUtils.accessibilityNodeRenderer,
       tree: this.treeData,
     };
+  }
 
-    const axModel = this.inspectedDOMNode?.domModel().target().model(SDK.AccessibilityModel.AccessibilityModel);
-    const inspectedAXNode = axModel?.axNodeForDOMNode(this.inspectedDOMNode);
+  async refreshAccessibilityTree(accessibilityModel: SDK.AccessibilityModel.AccessibilityModel): Promise<void> {
+    // We always expand the root node so we might as well fetch one level of children immediately.
+    const root = await accessibilityModel.requestRootNode(2);
+    if (!root) {
+      return;
+    }
+
+    this.rootAXNodeId = root.id();
+    this.inspectedDOMNode = null;
+    this.renderTree();
+    const inspectedAXNode = accessibilityModel.axNodeForDOMNode(this.inspectedDOMNode);
     if (inspectedAXNode) {
       this.selectedTreeNode = AccessibilityTreeUtils.sdkNodeToAXTreeNode(inspectedAXNode);
       this.accessibilityTreeComponent.expandToAndSelectTreeNode(this.selectedTreeNode);
     } else {
       this.accessibilityTreeComponent.expandRecursively(1);
     }
-  }
-
-  async refreshAccessibilityTree(accessibilityModel: SDK.AccessibilityModel.AccessibilityModel): Promise<void> {
-    // We always expand the root node so we might as well fetch one level of children immediately.
-    const root = await accessibilityModel.requestRootNode(1);
-    if (!root) {
-      return;
-    }
-
-    this.rootAXNode = root;
-    this.inspectedDOMNode = null;
-    this.renderTree();
   }
 
   // Given a selected DOM node, asks the model to load the missing subtree from the root to the
