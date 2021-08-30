@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e4b910e_00450e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-30T10:06:27Z",
+      "side": 1,
+      "message": "(I think, once the indentation question is resolved, it might be a good idea to start moving towards merging this and https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3107134 — so that I can move on with further patches without building up too deep a stack of interdependent change sets.)",
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
