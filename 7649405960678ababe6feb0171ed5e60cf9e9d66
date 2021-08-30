@@ -34,6 +34,58 @@
       "parentUuid": "5774ad9e_10e8f4c4",
       "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "969c0c1a_8886527e",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-30T09:17:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "439894f4_fe4c3e1d",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4970b789_f59502b5",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-30T09:17:19Z",
+      "side": 1,
+      "message": "would we need the logic in the `if (!parentTarget.parentTarget() \u0026\u0026 !Host.InspectorFrontendHost.isUnderTest()) {` here?",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f1164e7_0aae2208",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-08-30T09:17:19Z",
+      "side": 1,
+      "message": "would we need the rest of the logic from createTarget() for the browser target?",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
