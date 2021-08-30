@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa7b1fb_8e22ca73",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-08-30T17:46:21Z",
+      "side": 1,
+      "message": "Good point, it\u0027s not really required right now when the mode is limited to service workers, but it would generally make sense when we support it for other targets, so fixed that.",
+      "parentUuid": "4970b789_f59502b5",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f1164e7_0aae2208",
@@ -84,6 +102,24 @@
       "writtenOn": "2021-08-30T09:17:19Z",
       "side": 1,
       "message": "would we need the rest of the logic from createTarget() for the browser target?",
+      "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f30adf6_e489b178",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-08-30T17:46:21Z",
+      "side": 1,
+      "message": "I don\u0027t think so -- the rest of the logic is about dispatching the events for added targets/models, which are not quite relevant for what models are on the browser target right now. We also explicitly don\u0027t want this target to be among targetsInternal, because this is what we use to return the main target. Pretty much all we care here at the moment is being able to send Target.autoattachRelated to the browser target, so I\u0027d keep this target aside for now to minimize the side effects.",
+      "parentUuid": "5f1164e7_0aae2208",
       "revId": "7649405960678ababe6feb0171ed5e60cf9e9d66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
