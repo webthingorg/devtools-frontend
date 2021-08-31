@@ -108,6 +108,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab865117_ddae970e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T16:36:04Z",
+      "side": 1,
+      "message": "Though I wasn\u0027t able to reproduce this on typing \u0027\u003c\u0027, I ran into a crash with an identical stack trace, which I assume is the same issue. I\u0027m including a fix in Lezer in the third_party changeset which addresses it.",
+      "parentUuid": "90817b85_804a9b54",
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26a2e9e3_4d5d33c1",
@@ -169,6 +187,30 @@
       "side": 1,
       "message": "Yes that\u0027s true, but I would like to be cautious here. E.g. until we switch over the console prompt, we are still in a state where we would load 2 CodeMirrors on bootup (since most users have both the Elements panel and Console panel open at bootup).\n\nSo given that it is a relatively trivial change, I think it is safer to go for that for now. Later, we can clean things up again once we remove the old CodeMirror version. WDYT?",
       "parentUuid": "dc12e93c_f01ee626",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 83
+      },
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d891e5df_e0068448",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T16:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185515db_1f75c384",
       "range": {
         "startLine": 41,
         "startChar": 0,

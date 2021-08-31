@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "227919f5_1ef38e23",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T16:36:04Z",
+      "side": 1,
+      "message": "This was an issue in the CSS parser. I\u0027ve published a new version and will update https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3107134 to include the fix.",
+      "parentUuid": "10fe3313_6420f719",
+      "range": {
+        "startLine": 1021,
+        "startChar": 19,
+        "endLine": 1021,
+        "endChar": 23
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95647b59_49ce7fe1",
