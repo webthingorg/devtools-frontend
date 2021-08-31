@@ -50,11 +50,11 @@ export class DynamicSetting<T> {
 
 export const tabMovesFocus = DynamicSetting.bool('textEditorTabMovesFocus', CM.keymap.of([CM.indentWithTab]));
 
-// export const autocompletion = DynamicSetting.bool('textEditorAutocompletion', FIXME);
+export const autocompletion = DynamicSetting.bool('textEditorAutocompletion', CM.autocompletion());
 
 export const bracketMatching = DynamicSetting.bool('textEditorBracketMatching', CM.bracketMatching());
 
-// export const autocompletion = DynamicSetting.bool('textEditorCodeFolding', FIXME);
+export const codeFolding = DynamicSetting.bool('textEditorCodeFolding', [CM.foldGutter(), CM.keymap.of(CM.foldKeymap)]);
 
 const LinesToScanForIndentationGuessing = 1000;
 
@@ -176,5 +176,7 @@ export function baseConfiguration(text: string): CM.Extension {
     indentUnit,
     CM.Prec.fallback(CM.EditorView.contentAttributes.of({label: i18nString(UIStrings.codeEditor)})),
     detectLineSeparator(text),
+    autocompletion,
+    CM.tooltips({position: 'absolute'}),
   ];
 }
