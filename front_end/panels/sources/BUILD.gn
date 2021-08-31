@@ -83,13 +83,12 @@ devtools_module("sources") {
     "../../third_party/diff:bundle",
     "../../ui/components/icon_button:bundle",
     "../../ui/components/linear_memory_inspector:bundle",
+    "../../ui/components/text_editor:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/color_picker:bundle",
     "../../ui/legacy/components/inline_editor:bundle",
-    "../../ui/legacy/components/object_ui:bundle",
     "../../ui/legacy/components/quick_open:bundle",
     "../../ui/legacy/components/source_frame:bundle",
-    "../../ui/legacy/components/text_editor:bundle",
     "../../ui/legacy/components/utils:bundle",
   ]
 }
@@ -100,7 +99,6 @@ devtools_entrypoint("bundle") {
   deps = [
     ":css_files",
     ":sources",
-    "../../ui/legacy/components/object_ui:bundle",
   ]
 
   visibility = [
