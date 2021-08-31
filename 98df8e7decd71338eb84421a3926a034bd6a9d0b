@@ -86,6 +86,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b94975_9cdf5549",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T10:48:43Z",
+      "side": 1,
+      "message": "INFRA LGTM",
+      "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cf05e69_b11c0f72",
@@ -99,6 +116,52 @@
       "writtenOn": "2021-08-31T08:41:48Z",
       "side": 1,
       "message": "Consider making this `async initialTargetId` to avoid the redundant Promise.resolve (https://crbug.com/1161501)",
+      "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0cb7e3b_0343ebdb",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T10:48:43Z",
+      "side": 1,
+      "message": "FYI this returns a promise, so this is technically a race-condition. Unfortunately we can\u0027t `await` in the constructor. Also, the `invoke_setAutoAttach` already returned a promise as well, so we aren\u0027t particularly in a worse state than we were before.",
+      "range": {
+        "startLine": 36,
+        "startChar": 36,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc246ba_8952ff1e",
+        "filename": "front_end/core/sdk/TargetManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T10:48:43Z",
+      "side": 1,
+      "message": "Nit: this returns a promise that we should probably await.",
+      "range": {
+        "startLine": 256,
+        "startChar": 45,
+        "endLine": 256,
+        "endChar": 69
+      },
       "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
