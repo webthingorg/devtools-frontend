@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f931ed17_6c0b9492",
+        "filename": "front_end/panels/lighthouse/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T15:57:26Z",
+      "side": 0,
+      "message": "I think we still need this one here, as we refer to it with https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/lighthouse/LighthouseReportRenderer.ts;l\u003d209;drc\u003dda506bcafd11cbeb38c011effd58811ee46d18f6\n\nYou can test this by running a LightHouse run and then attempt to \"Export as HTML\".",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "a1380231488489e8e57eebe9d3fb82f5cc4f010b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
