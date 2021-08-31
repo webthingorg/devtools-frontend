@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "801fb5ae_7c6a559a",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-31T15:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27f5c270_509d91fb",
+      "range": {
+        "startLine": 442,
+        "startChar": 28,
+        "endLine": 442,
+        "endChar": 44
+      },
+      "revId": "e48917052a019ba7db3a2c0862d4e4e053d29718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c29b334_8b099022",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-31T13:46:01Z",
       "side": 1,
       "message": "Mention that the tests are related to installable PWAs, which is only available in chrome/ and hence doesn\u0027t work in headless mode.\n\nAlso mention that they are provided for local debugging convenience.",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 76
+      },
+      "revId": "e48917052a019ba7db3a2c0862d4e4e053d29718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a577745d_a4eab991",
+        "filename": "test/e2e/application/manifest_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-08-31T15:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c29b334_8b099022",
       "range": {
         "startLine": 17,
         "startChar": 3,
