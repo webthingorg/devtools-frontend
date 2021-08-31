@@ -16,6 +16,47 @@
       "message": "(I think, once the indentation question is resolved, it might be a good idea to start moving towards merging this and https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3107134 — so that I can move on with further patches without building up too deep a stack of interdependent change sets.)",
       "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc92c474_6e3b6112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T11:26:27Z",
+      "side": 1,
+      "message": "Let\u0027s align indentation with VS Code, e.g. maintain the current version.\n\nWith respect to the indentation issues I posted: that seems to be the case where we don\u0027t detect the indentation of the current document. E.g. if I explicitly set my indentation to 4 spaces, despite the HTML document being indented with 2 spaces, it uses 4 spaces. I just checked and we currently do the same in stable, so I think it is fine to keep the behavior as-is and disregard my indentation comments.\n\nUnfortunately I still can\u0027t enter the \"\u003c\" character on Mac. Do we still need to fix that bug?\n\nAnd +1 to not letting the chain get too deep.",
+      "parentUuid": "2e4b910e_00450e75",
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a2e9e3_4d5d33c1",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T11:26:27Z",
+      "side": 1,
+      "message": "One thought I had: since CodeMirror.next is relatively large (not terribly, but still quit a bit), I wonder if we can lazily load the editor when we need to? E.g. I think we can do the following and avoid the static import:\n\n```\nconst TextEditor \u003d await import(\u0027../../ui/components/text_editor/text_editor.js\u0027);\nconst CodeMirror \u003d await import(\u0027../../third_party/codemirror.next/codemirror.next.js\u0027);\nconst editor \u003d new TextEditor.TextEditor.TextEditor(CodeMirror.EditorState.create({\n```\n\nYou will still need the `TextEditor` import for the type, but then we can change that into `import type * as TextEditor`.\n\nThis is not only nice during the migration, but also saves the user from loading the code until the editor is actually needed, which is a small optimization anyways.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 83
+      },
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
