@@ -12,16 +12,6 @@
     "panels/sources"
   ],
     "resources": [
-    "appManifestView.css",
-    "backgroundServiceView.css",
-    "storageView.css",
-    "indexedDBViews.css",
-    "resourcesPanel.css",
-    "resourcesSidebar.css",
-    "serviceWorkerCacheViews.css",
-    "serviceWorkersView.css",
-    "serviceWorkerUpdateCycleView.css",
-    "cookieItemsView.css",
-    "frameDetailsReportView.css"
+      "serviceWorkersView.css"
   ]
 }
