@@ -38,6 +38,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 
+import type {BackgroundColorPickerWillBeToggledEvent} from './ContrastDetails.js';
 import {ContrastDetails, Events as ContrastDetailsEvents} from './ContrastDetails.js';
 
 import type {ContrastInfo} from './ContrastInfo.js';
@@ -145,9 +146,8 @@ export class Spectrum extends UI.Widget.VBox {
   private readonly contrastInfo: ContrastInfo|undefined;
   private contrastOverlay: ContrastOverlay|undefined;
   private contrastDetails: ContrastDetails|undefined;
-  private readonly contrastDetailsBackgroundColorPickedToggledBound: ((event: {
-                                                                        data: unknown,
-                                                                      }) => void)|undefined;
+  private readonly contrastDetailsBackgroundColorPickedToggledBound:
+      ((event: Common.EventTarget.EventTargetEvent<BackgroundColorPickerWillBeToggledEvent>) => void)|undefined;
   private readonly palettes: Map<string, Palette>;
   private readonly palettePanel: HTMLElement;
   private palettePanelShowing: boolean;
