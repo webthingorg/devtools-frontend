@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae5b11b_cb35de4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "Adding Mathias as domain reviewer for the implementation of autocomplete. I think implementing unit tests is a good thing here, what would be your suggestion to go about that? I can throw together a small CL that shows how you could write and run these.",
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568d1585_0b5c1e55",
+        "filename": "front_end/models/javascript_metadata/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "Nit: I think this was a left-over dep that we no longer need?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd696aea_6d34e71f",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "I think for Mac we need to do `Cmd-Enter` here as well.",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 24
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da1e5805_c6cba968",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "The dependencies are a bit awkward here. From a glance, I would have expected this implementation to reside somewhere in `models/`, since it handles business logic. However, at the same time it relies on UI code, which warrants its inclusion here.\n\nI am fine with keeping it here for now, but we probably should at some point clean this up and move most of the business logic into `models/` (but I consider that out-of-scope for the CodeMirror upgrade).",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df370a6c_0d1ac088",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "Functions like this one seem like a perfect candidate for some unit tests, WDYT? If yes, then let me know and I can write a dummy unit test for you to further build upon.",
+      "range": {
+        "startLine": 90,
+        "startChar": 9,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "904ceb07_c5e4c451",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 1,
+      "message": "Ultra-nit: extract into a constant.",
+      "range": {
+        "startLine": 321,
+        "startChar": 30,
+        "endLine": 321,
+        "endChar": 32
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

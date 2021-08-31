@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa63847b_5ddd5566",
+        "filename": "front_end/panels/sources/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-08-31T12:55:41Z",
+      "side": 0,
+      "message": "Nit: in other parts of `sources/`, we still rely on `object_ui`. (same is true for `text_editor`). Therefore, I think we have to keep these deps for now.\n\nI reckon the reason this still works is that GN checks for transitive dependencies as well. So there is probably a path from `sources` to `object_ui` somewhere, which still satisfies GN.",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 50
+      },
+      "revId": "b5ffd89d721c9cb8a30be86a32a9ea4532c253ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
