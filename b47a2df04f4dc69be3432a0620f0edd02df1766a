@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de88580c_d12c3968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Updated to take care of the comments. Also changed the CodeMirror/TextEditor loading to be asynchronous as discussed in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3114445",
+      "revId": "b47a2df04f4dc69be3432a0620f0edd02df1766a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

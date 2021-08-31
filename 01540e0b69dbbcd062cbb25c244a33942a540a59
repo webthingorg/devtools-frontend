@@ -94,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85eb14f3_5600e8de",
+        "filename": "front_end/models/javascript_metadata/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568d1585_0b5c1e55",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd696aea_6d34e71f",
@@ -107,6 +131,30 @@
       "writtenOn": "2021-08-31T12:55:41Z",
       "side": 1,
       "message": "I think for Mac we need to do `Cmd-Enter` here as well.",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 24
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc37f89b_f9ffc8be",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "The old code used just Ctrl, but I agree, also for consistency with other similar bindings, that using Cmd on Mac is probably preferable. Changed it.",
+      "parentUuid": "bd696aea_6d34e71f",
       "range": {
         "startLine": 100,
         "startChar": 14,
@@ -163,6 +211,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b768fbb7_ca1df6f2",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "I\u0027m used to using a null-prototype object for maps from strings, since last time I benchmarked they beat Maps. But I guess this codebase prefers Map—I\u0027ve moved the relevant objects over.",
+      "parentUuid": "3a24cf6b_55acd9b8",
+      "range": {
+        "startLine": 15,
+        "startChar": 37,
+        "endLine": 15,
+        "endChar": 56
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e95ddc8e_57094a34",
@@ -180,6 +252,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c438a192_4a110d97",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e95ddc8e_57094a34",
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b2d8bc6_49491b45",
@@ -193,6 +283,24 @@
       "writtenOn": "2021-08-31T13:20:45Z",
       "side": 1,
       "message": "This is used like a Set, so please make it one",
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a212dd75_af3cdb5c",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b2d8bc6_49491b45",
       "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -222,6 +330,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "743a8444_1bbe8129",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Sure, sounds good. The interesting stuff in the file hooks into execution context, unfortunately, and would be more awkward to test.",
+      "parentUuid": "df370a6c_0d1ac088",
+      "range": {
+        "startLine": 90,
+        "startChar": 9,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d047e5e_794e0773",
         "filename": "front_end/ui/components/text_editor/javascript.ts",
         "patchSetId": 1
@@ -233,6 +365,24 @@
       "writtenOn": "2021-08-31T13:20:45Z",
       "side": 1,
       "message": "super minor nit: please end with a period (comments should be sentences), here and below",
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1fe2738_ea9a6f32",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d047e5e_794e0773",
       "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -260,6 +410,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0e0e1c_063e86cd",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "That\u0027s actually a typo—it\u0027s trying to cover all non-ASCII characters. Adjusted, and added a comment. Also removed the underscore and code-golfed down two characters using `\\x`.",
+      "parentUuid": "9de94ceb_2826f2d7",
+      "range": {
+        "startLine": 175,
+        "startChar": 16,
+        "endLine": 175,
+        "endChar": 22
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c146e1e9_4add61ed",
@@ -277,6 +451,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3548361f_8b0b5d5e",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c146e1e9_4add61ed",
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecf7df12_bfa9c7de",
@@ -290,6 +482,30 @@
       "writtenOn": "2021-08-31T13:20:45Z",
       "side": 1,
       "message": "nit: opportunity to use a numeric separator, i.e. `30_000`",
+      "range": {
+        "startLine": 213,
+        "startChar": 20,
+        "endLine": 213,
+        "endChar": 25
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc7a31f0_bee6be20",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecf7df12_bfa9c7de",
       "range": {
         "startLine": 213,
         "startChar": 20,
@@ -323,6 +539,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6642767a_fb56622e",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "904ceb07_c5e4c451",
+      "range": {
+        "startLine": 321,
+        "startChar": 30,
+        "endLine": 321,
+        "endChar": 32
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c58bae60_0760c322",
@@ -336,6 +576,30 @@
       "writtenOn": "2021-08-31T13:20:45Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 378,
+        "startChar": 7,
+        "endLine": 378,
+        "endChar": 10
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "298bd945_b1d7442d",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T21:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c58bae60_0760c322",
       "range": {
         "startLine": 378,
         "startChar": 7,
