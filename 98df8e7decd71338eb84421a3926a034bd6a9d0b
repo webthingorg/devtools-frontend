@@ -67,6 +67,40 @@
       "message": "Mathias, Tim, could you PTAL? ",
       "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "152bcdd5_ad60ad52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-31T08:41:48Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf05e69_b11c0f72",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-08-31T08:41:48Z",
+      "side": 1,
+      "message": "Consider making this `async initialTargetId` to avoid the redundant Promise.resolve (https://crbug.com/1161501)",
+      "revId": "98df8e7decd71338eb84421a3926a034bd6a9d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
