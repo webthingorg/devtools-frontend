@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10fe3313_6420f719",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-08-31T12:03:31Z",
+      "side": 1,
+      "message": "Oh, it seems I missed a whole bunch of comments before, not realizing there was stuff at the bottom of the page. Not sure how this got marked as resolved, though. I can reproduce this, will look into it.",
+      "parentUuid": "f5566df1_76584413",
+      "range": {
+        "startLine": 1021,
+        "startChar": 19,
+        "endLine": 1021,
+        "endChar": 23
+      },
+      "revId": "9b51f9939786f4db7a2876955723f4525a1f4551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95647b59_49ce7fe1",
         "filename": "front_end/ui/components/text_editor/TextEditor.ts",
         "patchSetId": 1
