@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8251060_beb9abab",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-31T14:11:55Z",
+      "side": 1,
+      "message": "Not sure, I saw some CLs doing it this way and Simon LGTMed some where I did the same too",
+      "parentUuid": "393a1970_c20b991e",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 47
+      },
+      "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "096ef945_a998d39a",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-30T07:16:38Z",
       "side": 1,
       "message": "Can we use the named type?",
+      "range": {
+        "startLine": 148,
+        "startChar": 71,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e413ff6f_2540bbfd",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-08-31T14:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "096ef945_a998d39a",
       "range": {
         "startLine": 148,
         "startChar": 71,
