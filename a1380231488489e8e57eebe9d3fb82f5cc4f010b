@@ -22,6 +22,30 @@
       },
       "revId": "a1380231488489e8e57eebe9d3fb82f5cc4f010b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db8017a_4758f2ed",
+        "filename": "front_end/panels/lighthouse/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-08-31T18:58:58Z",
+      "side": 0,
+      "message": "nice catch!\n\nShould we change the line you linked to to throw an error if resource is missing? there is a layout test that exercises the Export as HTML feature, which would have caught this if checked",
+      "parentUuid": "f931ed17_6c0b9492",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "a1380231488489e8e57eebe9d3fb82f5cc4f010b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
