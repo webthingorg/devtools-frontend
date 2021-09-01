@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de945e4a_0bff418f",
+        "filename": "front_end/panels/network/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-01T11:43:47Z",
+      "side": 1,
+      "message": "I am assuming we missed this one during the migration so this is still a TODO?",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "e68d39510f89adca7b739240a0aac2d310c9f733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
