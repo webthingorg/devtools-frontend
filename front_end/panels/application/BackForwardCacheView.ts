@@ -129,10 +129,12 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     if (explanations.length === 0) {
       return LitHtml.nothing;
     }
+
     return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.explanations)}</${
         ReportView.ReportView.ReportKey.litTagName}>
     <${ReportView.ReportView.ReportValue.litTagName}>${LitHtml.html`${explanations.map(explanation => {
-      return LitHtml.html`<div>${explanation.reason} (${explanation.type})</div>`;
+      return LitHtml.html`<div>${explanation.reason}
+      (${explanation.type})</div><div>YuzuYuzu</div>`;
     })}`}</${ReportView.ReportView.ReportValue.litTagName}>`;
   }
 }
