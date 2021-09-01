@@ -39,6 +39,30 @@
       },
       "revId": "e771dd99e2e6d6a030e2b9ce56101b221746a077",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee4f839b_6a054920",
+        "filename": "front_end/panels/elements/ComputedStyleModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-01T07:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c89784_a2602d23",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 47
+      },
+      "revId": "e771dd99e2e6d6a030e2b9ce56101b221746a077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
