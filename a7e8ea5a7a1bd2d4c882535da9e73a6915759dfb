@@ -16,6 +16,52 @@
       "message": "PTAnotherL:)",
       "revId": "a7e8ea5a7a1bd2d4c882535da9e73a6915759dfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44949963_b1f86248",
+        "filename": "front_end/panels/elements/ComputedStyleModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-01T08:34:12Z",
+      "side": 1,
+      "message": "nit: event?.data ?? null might help here.",
+      "range": {
+        "startLine": 62,
+        "startChar": 63,
+        "endLine": 62,
+        "endChar": 88
+      },
+      "revId": "a7e8ea5a7a1bd2d4c882535da9e73a6915759dfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca613ed_f5deb9af",
+        "filename": "front_end/panels/elements/ComputedStyleModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-01T08:34:12Z",
+      "side": 1,
+      "message": "This is imprecise, but I understand the problem arising from L47-L53.\n\nPlease replace unknown by a type that amounts to a union type over all possible argument types (arising from L47-L53). Introduce a type definition for this type. Note that TypeScript understands Common.EventTarget.EventTargetEvent\u003cA|B\u003e is equivalent to Common.EventTarget.EventTargetEvent\u003cA\u003e|Common.EventTarget.EventTargetEvent\u003cB\u003e.\n\nTo make things more readable, please also go back to CSSModel and introduce type definitions for the object literal types of the PseudoStateForced and StyleSheetChanged (make sure to use those consistently).",
+      "range": {
+        "startLine": 128,
+        "startChar": 33,
+        "endLine": 128,
+        "endChar": 40
+      },
+      "revId": "a7e8ea5a7a1bd2d4c882535da9e73a6915759dfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
