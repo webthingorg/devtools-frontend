@@ -39,6 +39,30 @@
       },
       "revId": "8ccc23dbc0553657cb41416905a511902f0e0b60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e88075e_5038b393",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-01T07:38:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e29ad35e_04317ac0",
+      "range": {
+        "startLine": 471,
+        "startChar": 12,
+        "endLine": 471,
+        "endChar": 52
+      },
+      "revId": "8ccc23dbc0553657cb41416905a511902f0e0b60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
