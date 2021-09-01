@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86cd7202_f4782738",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-09-01T07:12:10Z",
+      "side": 1,
+      "message": "LGTM from my side but please wait for other reviewers’ LGTMs before landing",
+      "revId": "9bebc30c6a43ff92ba5a7a47ea64d870f2e81c13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

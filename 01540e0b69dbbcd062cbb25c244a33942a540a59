@@ -434,6 +434,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b4e9e9_d8e3ffc4",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-09-01T07:12:10Z",
+      "side": 1,
+      "message": "I see, that makes more sense. Thanks for adding the code comment.\n\nOptional suggestion: for readability, the `\\x80-\\uFFFF` part could be written as `\\P{ASCII}` with the `u` flag set:\n\n    /^[\\w\\P{ASCII}]*/u\n\n(and the code comment could then be removed)",
+      "parentUuid": "2e0e0e1c_063e86cd",
+      "range": {
+        "startLine": 175,
+        "startChar": 16,
+        "endLine": 175,
+        "endChar": 22
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c146e1e9_4add61ed",
