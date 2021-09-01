@@ -224,11 +224,11 @@ export class ResourceScriptMapping implements DebuggerSourceMapping {
 
   private executionContextDestroyed(event: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext>):
       void {
-    const executionContext = event.data;
-    const scripts = this.debuggerModel.scriptsForExecutionContext(executionContext);
-    for (const script of scripts) {
-      this.removeScript(script);
-    }
+    //     const executionContext = event.data;
+    //     const scripts = this.debuggerModel.scriptsForExecutionContext(executionContext);
+    //     for (const script of scripts) {
+    //       this.removeScript(script);
+    //     }
   }
 
   private globalObjectCleared(): void {
