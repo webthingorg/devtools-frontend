@@ -16,6 +16,29 @@
       "message": "PTAnotherL (regarding const/non-const enum)",
       "revId": "8ccc23dbc0553657cb41416905a511902f0e0b60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29ad35e_04317ac0",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-01T07:02:26Z",
+      "side": 1,
+      "message": "I think we can get away without this time (just use boolean).",
+      "range": {
+        "startLine": 471,
+        "startChar": 12,
+        "endLine": 471,
+        "endChar": 52
+      },
+      "revId": "8ccc23dbc0553657cb41416905a511902f0e0b60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

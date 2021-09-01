@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72c7ed65_6302bcc0",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-01T07:02:26Z",
+      "side": 1,
+      "message": "There might have been different circumstances where Simon LGTM\u0027d.\n\nIn general, let\u0027s try to not change constness of enums in this line of work (don\u0027t add or remove const from existing enums) so your CLs come as close to the ideal \"only one logical change per CL\" as we can.\n\nIf you want to help with the const enum story, I suggest you talk to Tim.",
+      "parentUuid": "d8251060_beb9abab",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 47
+      },
+      "revId": "e82531a3f3eeb23ec62346571bf12b46ecba3c25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "096ef945_a998d39a",
