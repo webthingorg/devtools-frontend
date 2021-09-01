@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "384b33b6_0ef3cf00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-01T04:54:10Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "e656dd5faf29832938598063cc6419b4f697b453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bebda00f_2cc25b43",
+        "filename": "front_end/panels/help/HelpImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-01T04:54:10Z",
+      "side": 1,
+      "message": "nit: Unused parameters can be omitted:\n\n handleAction(): boolean {",
+      "range": {
+        "startLine": 118,
+        "startChar": 15,
+        "endLine": 118,
+        "endChar": 62
+      },
+      "revId": "e656dd5faf29832938598063cc6419b4f697b453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
