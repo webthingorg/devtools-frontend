@@ -110,6 +110,30 @@
       },
       "revId": "b3766250d1adc7787cd9e7867cd84ca176ab263b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0925a63b_4717aa0c",
+        "filename": "front_end/ui/legacy/ActionRegistration.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-01T06:57:59Z",
+      "side": 1,
+      "message": "I was worried about the one in TimelineHistoryManager, but I think it\u0027s fine.",
+      "parentUuid": "796ead44_f2670204",
+      "range": {
+        "startLine": 191,
+        "startChar": 10,
+        "endLine": 191,
+        "endChar": 17
+      },
+      "revId": "b3766250d1adc7787cd9e7867cd84ca176ab263b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
