@@ -4,7 +4,6 @@
 
 import * as Host from '../../../core/host/host.js';
 import * as Platform from '../../../core/platform/platform.js';
-import inspectorScrollbarsStyles from '../../legacy/inspectorScrollbars.css.js';
 import * as UI from '../../legacy/legacy.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
@@ -118,7 +117,7 @@ export class DataGrid extends HTMLElement {
 
   constructor() {
     super();
-    this.shadow.adoptedStyleSheets = [inspectorScrollbarsStyles];
+    this.shadow.adoptedStyleSheets = [];
   }
   connectedCallback(): void {
     this.shadow.adoptedStyleSheets = [dataGridStyles];
