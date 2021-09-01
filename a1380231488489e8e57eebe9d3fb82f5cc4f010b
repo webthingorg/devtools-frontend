@@ -46,6 +46,30 @@
       },
       "revId": "a1380231488489e8e57eebe9d3fb82f5cc4f010b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4169cf3_9e5951a4",
+        "filename": "front_end/panels/lighthouse/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-01T09:58:30Z",
+      "side": 0,
+      "message": "Yes I think that makes sense. At least then we will prevent regressions, which is good in any case!",
+      "parentUuid": "3db8017a_4758f2ed",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "a1380231488489e8e57eebe9d3fb82f5cc4f010b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
