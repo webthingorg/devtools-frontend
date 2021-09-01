@@ -69,6 +69,23 @@
       "parentUuid": "74c6014b_e042a700",
       "revId": "a41fa1d64df075cdf014d26a76a9ffc7e70fc382",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33e45e6_77527a6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-09-01T08:02:10Z",
+      "side": 1,
+      "message": "Thanks Tim and Kim for letting me know some new css tricks 😊",
+      "revId": "a41fa1d64df075cdf014d26a76a9ffc7e70fc382",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
