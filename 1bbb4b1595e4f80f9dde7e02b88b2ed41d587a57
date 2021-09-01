@@ -62,6 +62,30 @@
       },
       "revId": "1bbb4b1595e4f80f9dde7e02b88b2ed41d587a57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c9f2842_00b8cc02",
+        "filename": "scripts/eslint_rules/tests/static_custom_event_names_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-01T07:47:58Z",
+      "side": 1,
+      "message": "I decided not to bother because then it\u0027d be on a new line but indented all wrong - ESLint\u0027s fixers don\u0027t (as far as I can work out) give you the best control. So I\u0027ll leave this be because a run of Clang-format will fix it.",
+      "parentUuid": "a3ea39a4_5a049167",
+      "range": {
+        "startLine": 139,
+        "startChar": 47,
+        "endLine": 139,
+        "endChar": 60
+      },
+      "revId": "1bbb4b1595e4f80f9dde7e02b88b2ed41d587a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
