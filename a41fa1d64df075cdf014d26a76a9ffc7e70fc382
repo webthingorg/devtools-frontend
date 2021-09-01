@@ -34,6 +34,41 @@
       "parentUuid": "a64ca4a1_78649b77",
       "revId": "a41fa1d64df075cdf014d26a76a9ffc7e70fc382",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95312403_8a94bc49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-01T05:26:26Z",
+      "side": 1,
+      "message": "LGTM, thanks Nancy! Sorry for some reason I didn\u0027t get an update on your new patch. ",
+      "revId": "a41fa1d64df075cdf014d26a76a9ffc7e70fc382",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68febc96_e9ccfc7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-01T05:26:26Z",
+      "side": 1,
+      "message": "Oops. I didn\u0027t get any mail on the updated patch, so I misunderstood your comment here Tim. LGTM too.",
+      "parentUuid": "74c6014b_e042a700",
+      "revId": "a41fa1d64df075cdf014d26a76a9ffc7e70fc382",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
