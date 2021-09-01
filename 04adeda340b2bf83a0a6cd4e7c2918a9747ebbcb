@@ -39,6 +39,30 @@
       },
       "revId": "04adeda340b2bf83a0a6cd4e7c2918a9747ebbcb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0188ee23_60dca133",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2021-09-01T13:56:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a36e6ef_484263b6",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 40
+      },
+      "revId": "04adeda340b2bf83a0a6cd4e7c2918a9747ebbcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
