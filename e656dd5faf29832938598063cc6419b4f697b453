@@ -63,6 +63,30 @@
       },
       "revId": "e656dd5faf29832938598063cc6419b4f697b453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a401607c_85516d36",
+        "filename": "front_end/panels/help/HelpImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-01T05:52:54Z",
+      "side": 1,
+      "message": "JavaScript/TypeScript doesn\u0027t have argument overloading, so for implementing an interface all that matters is the method name. Leaving off unused parameters from interface implementations is perfectly fine.",
+      "parentUuid": "8c738a45_0e56d075",
+      "range": {
+        "startLine": 118,
+        "startChar": 15,
+        "endLine": 118,
+        "endChar": 62
+      },
+      "revId": "e656dd5faf29832938598063cc6419b4f697b453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
