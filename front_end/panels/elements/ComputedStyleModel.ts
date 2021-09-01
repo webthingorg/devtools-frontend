@@ -6,7 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
+export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private nodeInternal: SDK.DOMModel.DOMNode|null;
   private cssModelInternal: SDK.CSSModel.CSSModel|null;
   private eventListeners: Common.EventTarget.EventDescriptor[];
@@ -123,6 +123,10 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
 export const enum Events {
   ComputedStyleChanged = 'ComputedStyleChanged',
 }
+
+export type EventTypes = {
+  [Events.ComputedStyleChanged]: unknown|null,
+};
 
 export class ComputedStyle {
   node: SDK.DOMModel.DOMNode;
