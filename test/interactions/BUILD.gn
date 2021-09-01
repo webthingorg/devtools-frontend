@@ -8,17 +8,10 @@ import("../../third_party/typescript/typescript.gni")
 group("interactions") {
   deps = [
     ":config",
-    ":tests",
-  ]
-}
-
-ts_library("tests") {
-  testonly = true
-
-  deps = [
     "data_grid",
     "data_grid_controller",
     "helpers",
+    "text_editor",
     "tree_outline",
   ]
 }
