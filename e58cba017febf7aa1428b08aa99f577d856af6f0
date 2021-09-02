@@ -16,6 +16,75 @@
       "message": "Sigurd, I addressed the comments, there\u0027s still a TS error though I am a bit stuck with, could you PTAL?",
       "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0961199_11023e0b",
+        "filename": "front_end/panels/elements/ElementsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T08:25:46Z",
+      "side": 1,
+      "message": "ComputedStyleChangedEvent?",
+      "range": {
+        "startLine": 60,
+        "startChar": 64,
+        "endLine": 60,
+        "endChar": 71
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd59859_2ff21bb8",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T08:25:46Z",
+      "side": 1,
+      "message": "ComputedStyleChangedEvent?",
+      "range": {
+        "startLine": 673,
+        "startChar": 73,
+        "endLine": 673,
+        "endChar": 80
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c4704a_ba6f9b40",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T08:25:46Z",
+      "side": 1,
+      "message": "I think we can get rid of the \u0027as\u0027 cast now if we use a \u0027edit\u0027 in data and the proper type above.",
+      "range": {
+        "startLine": 674,
+        "startChar": 36,
+        "endLine": 674,
+        "endChar": 64
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
