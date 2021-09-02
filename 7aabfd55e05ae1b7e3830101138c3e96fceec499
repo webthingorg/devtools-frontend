@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81cf12a8_decca689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-02T07:28:51Z",
+      "side": 1,
+      "message": "Hi Alex, here\u0027s the workaround, ptal!",
+      "revId": "7aabfd55e05ae1b7e3830101138c3e96fceec499",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
