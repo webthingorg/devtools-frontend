@@ -40,6 +40,9 @@ declare_args() {
   # every toolchain can pass through the "global" value via toolchain_args().
   host_toolchain = ""
 
+  # Define this flag as a temporary workaround, see crrev.com/c/2162136.
+  enable_rust = false
+
   # DON'T ADD MORE FLAGS HERE. Read the comment above.
 }
 
