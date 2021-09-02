@@ -134,6 +134,15 @@ const UIStrings = {
   */
   emulatesAFocusedPage: 'Emulates a focused page.',
   /**
+  * @description The name of a checkbox setting in the Rendering tool. This setting
+  * emulates that the webpage is in forced dark mode.
+  */
+  emulateForcedDarkMode: 'Emulate forced dark mode',
+  /**
+  * @description Explanation text for the 'Emulate a focused page' setting in the Rendering tool.
+  */
+  emulatesForcedDarkMode: 'Enables "Force Dark Mode for Web Contents" for the inspected page.',
+  /**
   * @description Explanation text for the 'Emulate CSS media type' setting in the Rendering tool.
   * This setting overrides the CSS media type on the page:
   * https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_types
@@ -250,6 +259,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.appendCheckbox(
         i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage),
         Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
+    this.appendCheckbox(
+        i18nString(UIStrings.emulateForcedDarkMode), i18nString(UIStrings.emulatesForcedDarkMode),
+        Common.Settings.Settings.instance().moduleSetting('emulateForcedDarkMode'));
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this.appendSelect(

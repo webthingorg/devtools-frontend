@@ -587,6 +587,9 @@
   "core/sdk/sdk-meta.ts | doNotEmulateCssMediaType": {
     "message": "Do not emulate CSS media type"
   },
+  "core/sdk/sdk-meta.ts | doNotEmulateForcedDarkMode": {
+    "message": "Do not emulate forced dark mode"
+  },
   "core/sdk/sdk-meta.ts | doNotExtendGridLines": {
     "message": "Do not extend grid lines"
   },
@@ -631,6 +634,9 @@
   },
   "core/sdk/sdk-meta.ts | emulateDeuteranopia": {
     "message": "Emulate deuteranopia"
+  },
+  "core/sdk/sdk-meta.ts | emulateForcedDarkMode": {
+    "message": "Emulate forced dark mode"
   },
   "core/sdk/sdk-meta.ts | emulateProtanopia": {
     "message": "Emulate protanopia"
@@ -908,8 +914,14 @@
   "entrypoints/inspector_main/RenderingOptions.ts | emulateAFocusedPage": {
     "message": "Emulate a focused page"
   },
+  "entrypoints/inspector_main/RenderingOptions.ts | emulateForcedDarkMode": {
+    "message": "Emulate forced dark mode"
+  },
   "entrypoints/inspector_main/RenderingOptions.ts | emulatesAFocusedPage": {
     "message": "Emulates a focused page."
+  },
+  "entrypoints/inspector_main/RenderingOptions.ts | emulatesForcedDarkMode": {
+    "message": "Enables \"Force Dark Mode for Web Contents\" for the inspected page."
   },
   "entrypoints/inspector_main/RenderingOptions.ts | forcesCssColorgamutMediaFeature": {
     "message": "Forces CSS color-gamut media feature"

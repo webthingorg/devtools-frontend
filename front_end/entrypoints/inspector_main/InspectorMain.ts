@@ -209,6 +209,7 @@ export class BackendSettingsSync implements SDK.TargetManager.Observer {
   private readonly autoAttachSetting: Common.Settings.Setting<boolean>;
   private readonly adBlockEnabledSetting: Common.Settings.Setting<boolean>;
   private readonly emulatePageFocusSetting: Common.Settings.Setting<boolean>;
+  private readonly emulateForcedDarkModeSetting: Common.Settings.Setting<boolean>;
 
   constructor() {
     this.autoAttachSetting = Common.Settings.Settings.instance().moduleSetting('autoAttachToCreatedPages');
@@ -220,6 +221,9 @@ export class BackendSettingsSync implements SDK.TargetManager.Observer {
 
     this.emulatePageFocusSetting = Common.Settings.Settings.instance().moduleSetting('emulatePageFocus');
     this.emulatePageFocusSetting.addChangeListener(this.update, this);
+
+    this.emulateForcedDarkModeSetting = Common.Settings.Settings.instance().moduleSetting('emulateForcedDarkMode');
+    this.emulateForcedDarkModeSetting.addChangeListener(this.update, this);
 
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
   }
@@ -239,6 +243,7 @@ export class BackendSettingsSync implements SDK.TargetManager.Observer {
   private update(): void {
     for (const target of SDK.TargetManager.TargetManager.instance().targets()) {
       this.updateTarget(target);
+      target.emulationAgent().invoke_setForceDarkModeEnabled({enabled: this.emulateForcedDarkModeSetting.get()});
     }
   }
 
