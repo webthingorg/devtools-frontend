@@ -2,24 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as i18n from '../../../../core/i18n/i18n.js';
 import type * as UI from '../../legacy.js';
 
 import type {Provider} from './FilteredListWidget.js';
 import {FilteredListWidget, getRegisteredProviders} from './FilteredListWidget.js';
-
-const UIStrings = {
-  /**
-  * @description Text in Quick Open of the Command Menu
-  */
-  typeToSeeAvailableCommands: 'Type \'?\' to see available commands',
-  /**
-  * @description Aria-placeholder text for quick open dialog prompt
-  */
-  typeQuestionMarkToSeeAvailable: 'Type question mark to see available commands',
-};
-const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/QuickOpen.ts', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export const history: string[] = [];
 
@@ -28,12 +14,16 @@ export class QuickOpenImpl {
   private readonly query: string;
   private readonly providers: Map<string, () => Promise<Provider>>;
   private readonly prefixes: string[];
+  private readonly titlePrefixs: Map<string, () => string>;
+  private readonly titleSuggestions: Map<string, (() => string)|undefined>;
   private filteredListWidget: FilteredListWidget|null;
   constructor() {
     this.prefix = null;
     this.query = '';
     this.providers = new Map();
     this.prefixes = [];
+    this.titlePrefixs = new Map();
+    this.titleSuggestions = new Map();
     this.filteredListWidget = null;
 
     getRegisteredProviders().forEach(this.addProvider.bind(this));
@@ -44,27 +34,33 @@ export class QuickOpenImpl {
     const quickOpen = new this();
     const filteredListWidget = new FilteredListWidget(null, history, quickOpen.queryChanged.bind(quickOpen));
     quickOpen.filteredListWidget = filteredListWidget;
-    filteredListWidget.setPlaceholder(
-        i18nString(UIStrings.typeToSeeAvailableCommands), i18nString(UIStrings.typeQuestionMarkToSeeAvailable));
+    filteredListWidget.setPlaceholder(' ');
     filteredListWidget.showAsDialog();
     filteredListWidget.setQuery(query);
   }
 
   private addProvider(extension: {
     prefix: string,
-    provider: () => Promise<Provider>,
+    titlePrefix: () => string,
+    titleSuggestion?: (() => string), provider: () => Promise<Provider>,
   }): void {
     const prefix = extension.prefix;
     if (prefix === null) {
       return;
     }
     this.prefixes.push(prefix);
+    this.titlePrefixs.set(prefix, extension.titlePrefix);
+    this.titleSuggestions.set(prefix, extension.titleSuggestion);
     this.providers.set(prefix, extension.provider);
   }
 
   private queryChanged(query: string): void {
     const prefix = this.prefixes.find(prefix => query.startsWith(prefix));
     if (typeof prefix !== 'string' || this.prefix === prefix) {
+      if (this.filteredListWidget) {
+        const showHint = prefix === undefined || query.length === prefix.length;
+        this.filteredListWidget.updateCommandHintElmentHidden(!showHint);
+      }
       return;
     }
 
@@ -73,6 +69,14 @@ export class QuickOpenImpl {
       return;
     }
     this.filteredListWidget.setPrefix(prefix);
+
+    const titlePrefixFunction = this.titlePrefixs.get(prefix);
+    if (titlePrefixFunction) {
+      this.filteredListWidget.setCommandTypeIndicatorElement(titlePrefixFunction());
+    }
+    const titleSuggestionFunction = this.titleSuggestions.get(prefix);
+    this.filteredListWidget.setCommandHintElement(titleSuggestionFunction ? titleSuggestionFunction() : '');
+
     this.filteredListWidget.setProvider(null);
     const providerFunction = this.providers.get(prefix);
     if (!providerFunction) {

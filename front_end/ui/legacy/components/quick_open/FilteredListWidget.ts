@@ -36,7 +36,9 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   private refreshListWithCurrentResult!: (() => void)|undefined;
   private dialog!: UI.Dialog.Dialog|undefined;
   private query!: string|undefined;
+  private readonly promptCommandPrefixElement: HTMLElement;
   private readonly promptElement: HTMLElement;
+  private readonly promptCommandSuggestionElement: HTMLElement;
   private readonly prompt: UI.TextPrompt.TextPrompt;
   private readonly bottomElementsContainer: HTMLElement;
   private readonly progressElement: HTMLElement;
@@ -63,10 +65,20 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     UI.ARIAUtils.markAsCombobox(this.contentElement);
     this.registerRequiredCSS('ui/legacy/components/quick_open/filteredListWidget.css');
 
-    this.promptElement = this.contentElement.createChild('div', 'filtered-list-widget-input');
+    const wrapperElement = this.contentElement.createChild('div', 'filtered-list-widget-input-wrapper');
+
+    this.promptCommandPrefixElement = wrapperElement.createChild('div', 'filtered-list-widget-command-prefix');
+
+    this.promptElement = wrapperElement.createChild('div', 'filtered-list-widget-input');
     UI.ARIAUtils.setAccessibleName(this.promptElement, i18nString(UIStrings.quickOpenPrompt));
     this.promptElement.setAttribute('spellcheck', 'false');
     this.promptElement.setAttribute('contenteditable', 'plaintext-only');
+    wrapperElement.onclick = (): void => {
+      this.promptElement.focus();
+    };
+
+    this.promptCommandSuggestionElement = wrapperElement.createChild('div', 'filtered-list-widget-command-suggestion');
+
     this.prompt = new UI.TextPrompt.TextPrompt();
     this.prompt.initialize(() => Promise.resolve([]));
     const promptProxy = this.prompt.attach(this.promptElement);
@@ -131,6 +143,18 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
       return true;
     }
     return false;
+  }
+
+  setCommandTypeIndicatorElement(commandType: string): void {
+    this.promptCommandPrefixElement.textContent = commandType;
+  }
+
+  setCommandHintElement(hint: string): void {
+    this.promptCommandSuggestionElement.textContent = hint;
+  }
+
+  updateCommandHintElmentHidden(hide: boolean): void {
+    this.promptCommandSuggestionElement.classList.toggle('hidden', hide);
   }
 
   setPlaceholder(placeholder: string, ariaPlaceholder?: string): void {
@@ -590,6 +614,7 @@ export function getRegisteredProviders(): ProviderRegistration[] {
 }
 export interface ProviderRegistration {
   provider: () => Promise<Provider>;
-  title?: (() => string);
   prefix: string;
+  titlePrefix: (() => string);
+  titleSuggestion?: (() => string);
 }
