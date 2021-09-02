@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd23f973_416aef3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-02T08:19:10Z",
+      "side": 1,
+      "message": "LGTM with stylelint tweak",
+      "revId": "9b6a6c5b38025269aa90640b3fb315b4d10c410f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd24b8bd_334e9058",
+        "filename": "front_end/panels/network/networkWaterfallColumn.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-02T08:19:10Z",
+      "side": 1,
+      "message": "I think this is going to fail stylelint (which is yet to run on bots https://crbug.com/1237045), but you can run locally with npm run check-lint. I think it\u0027ll ask you to define an override variable or use an actual theme color",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "9b6a6c5b38025269aa90640b3fb315b4d10c410f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
