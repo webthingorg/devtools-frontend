@@ -33,6 +33,24 @@
       "message": "How would an extension to this CL, where a `key` is not equal to `code` anymore, look like?\n\nWould `aggregateIssueByStatus()` and `keyForIssue()` need to change?",
       "revId": "8a8d9bd3dd3a508c5dfa55c94c3540ece7d9df2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c5b3227_3b0d95a1",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T09:22:53Z",
+      "side": 1,
+      "message": "Aggregate issue by status would produce a proper key (subject to the constraint above) and this method would need to reproduce the aggregation key or look-up the proper aggregated issue by a different means.",
+      "parentUuid": "e6b458eb_243123d6",
+      "revId": "8a8d9bd3dd3a508c5dfa55c94c3540ece7d9df2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
