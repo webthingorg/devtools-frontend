@@ -16,6 +16,23 @@
       "message": "Updated according to remarks.",
       "revId": "51e74a137a2bc026e95c6152e2ff4d6d8cc5ecd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b16cf6_63ef1835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1397310
+      },
+      "writtenOn": "2021-09-02T23:44:01Z",
+      "side": 1,
+      "message": "This looks great! We should have the devrel post published early next week.",
+      "revId": "51e74a137a2bc026e95c6152e2ff4d6d8cc5ecd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
