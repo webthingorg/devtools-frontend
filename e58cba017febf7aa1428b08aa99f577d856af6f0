@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42316723_c4ff460e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-02T08:10:58Z",
+      "side": 1,
+      "message": "Sigurd, I addressed the comments, there\u0027s still a TS error though I am a bit stuck with, could you PTAL?",
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
