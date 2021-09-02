@@ -37,7 +37,7 @@ export class WasmDisassembly {
         return m;
       }
     }
-    return l;
+    return r;
   }
 
   lineNumberToBytecodeOffset(lineNumber: number): number {
