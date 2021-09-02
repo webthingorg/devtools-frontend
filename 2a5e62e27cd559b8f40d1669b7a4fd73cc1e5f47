@@ -16,6 +16,24 @@
       "message": "一丝，there\u0027s a merge conflict. Could you rebase and upload again? Do you need help?",
       "revId": "2a5e62e27cd559b8f40d1669b7a4fd73cc1e5f47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d80ce5_a18ecdf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-09-02T09:33:17Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "bbd1b836_a46938bf",
+      "revId": "2a5e62e27cd559b8f40d1669b7a4fd73cc1e5f47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
