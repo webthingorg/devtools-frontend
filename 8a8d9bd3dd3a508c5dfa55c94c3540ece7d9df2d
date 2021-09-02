@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a48b3a2_24b66b04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-02T09:25:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8a8d9bd3dd3a508c5dfa55c94c3540ece7d9df2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6b458eb_243123d6",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "Aggregate issue by status would produce a proper key (subject to the constraint above) and this method would need to reproduce the aggregation key or look-up the proper aggregated issue by a different means.",
       "parentUuid": "e6b458eb_243123d6",
+      "revId": "8a8d9bd3dd3a508c5dfa55c94c3540ece7d9df2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb01b553_40865a90",
+        "filename": "front_end/panels/issues/IssueAggregator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-02T09:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c5b3227_3b0d95a1",
       "revId": "8a8d9bd3dd3a508c5dfa55c94c3540ece7d9df2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
