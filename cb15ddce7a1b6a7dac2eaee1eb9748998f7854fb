@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb142824_0a1ac750",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-02T12:17:38Z",
+      "side": 1,
+      "message": "Are we sure this correctly persists the styles in the correct location? As far as I know, this `tableElement` is somewhere deep in a shadow root, so any styles attached to `document` wouldn\u0027t be able to pierce into it.\n\nIf this is working as expected, then disregard the comment. But it would be worth double-checking the styles end up in the correct place.",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 31
+      },
+      "revId": "cb15ddce7a1b6a7dac2eaee1eb9748998f7854fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
