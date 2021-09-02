@@ -104,7 +104,7 @@ async function requestHandler(request, response) {
 
   let encoding = 'utf8';
   if (absoluteFilePath.endsWith('.wasm') || absoluteFilePath.endsWith('.png') || absoluteFilePath.endsWith('.jpg') ||
-      absoluteFilePath.endsWith('.avif') || absoluteFilePath.endsWith('.wbn')) {
+      absoluteFilePath.endsWith('.avif') || absoluteFilePath.endsWith('.wbn') || absoluteFilePath.endsWith('.dwp')) {
     encoding = 'binary';
   }
 
