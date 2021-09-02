@@ -56,6 +56,30 @@
       },
       "revId": "adafc5954881e3f86daeb23ab8ed95afedd56c82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c22832e_873f7f35",
+        "filename": "front_end/panels/issues/AffectedResourcesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T11:56:25Z",
+      "side": 1,
+      "message": "Good catch, thanks, updated.",
+      "parentUuid": "17c37b4d_724130e7",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 0
+      },
+      "revId": "adafc5954881e3f86daeb23ab8ed95afedd56c82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
