@@ -2312,6 +2312,9 @@
   "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
     "message": "B̂áĉḱ-f̂ór̂ẃâŕd̂ Ćâćĥé Ŝt́ât́ûś"
   },
+  "panels/application/BackForwardCacheView.ts | chromeSupportNeeded": {
+    "message": "T̂h́ê ĺâśt̂ ńâv́îǵât́îón̂ ẃâś n̂ót̂ ćâćĥéd̂ b́êćâúŝé"
+  },
   "panels/application/BackForwardCacheView.ts | explanations": {
     "message": "Êx́p̂ĺâńât́îón̂ś"
   },
@@ -2323,6 +2326,9 @@
   },
   "panels/application/BackForwardCacheView.ts | normalNavigation": {
     "message": "N̂ór̂ḿâĺ n̂áv̂íĝát̂íôń"
+  },
+  "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
+    "message": "F̂éât́ûŕêś p̂ŕêv́êńt̂ín̂ǵ b̂áĉḱ f̂ór̂ẃâŕd̂ ćâćĥé"
   },
   "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
     "message": "R̂éŝt́ôŕêd́ f̂ŕôḿ b̂áĉḱ-f̂ór̂ẃâŕd̂ ćâćĥé"

@@ -2312,6 +2312,9 @@
   "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
     "message": "Back-forward Cache Status"
   },
+  "panels/application/BackForwardCacheView.ts | chromeSupportNeeded": {
+    "message": "The last navigation was not cached because"
+  },
   "panels/application/BackForwardCacheView.ts | explanations": {
     "message": "Explanations"
   },
@@ -2323,6 +2326,9 @@
   },
   "panels/application/BackForwardCacheView.ts | normalNavigation": {
     "message": "Normal navigation"
+  },
+  "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
+    "message": "Features preventing back forward cache"
   },
   "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
     "message": "Restored from back-forward cache"
