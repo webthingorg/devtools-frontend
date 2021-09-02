@@ -44,6 +44,9 @@ declare_args() {
 }
 
 declare_args() {
+  # Define this flag as a temporary workaround, see crrev.com/c/2162136.
+  enable_rust = false
+
   # Debug build. Enabling official builds automatically sets is_debug to false.
   is_debug = !is_official_build
 }
