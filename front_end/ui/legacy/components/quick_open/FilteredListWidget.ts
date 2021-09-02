@@ -63,10 +63,16 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     UI.ARIAUtils.markAsCombobox(this.contentElement);
     this.registerRequiredCSS('ui/legacy/components/quick_open/filteredListWidget.css');
 
+    // const wrapperElement = this.contentElement.createChild('div', 'filtered-list-widget-input-wrapper')
+
     this.promptElement = this.contentElement.createChild('div', 'filtered-list-widget-input');
     UI.ARIAUtils.setAccessibleName(this.promptElement, i18nString(UIStrings.quickOpenPrompt));
     this.promptElement.setAttribute('spellcheck', 'false');
     this.promptElement.setAttribute('contenteditable', 'plaintext-only');
+    // this.contentElement.onclick = (): void => {
+    //      this.promptElement.focus();
+    // };
+
     this.prompt = new UI.TextPrompt.TextPrompt();
     this.prompt.initialize(() => Promise.resolve([]));
     const promptProxy = this.prompt.attach(this.promptElement);
@@ -131,6 +137,15 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
       return true;
     }
     return false;
+  }
+
+  setCommandTypeIndicatorElement(commandType: string): void {
+    // this.promptCommandPrefixElement.textContent = commandType;
+    this.promptElement.setAttribute('command-prefix', commandType);
+  }
+
+  setCommandHintElement(hint: string): void {
+    this.promptElement.setAttribute('command-suggestion', ' ' + hint);
   }
 
   setPlaceholder(placeholder: string, ariaPlaceholder?: string): void {
@@ -590,6 +605,7 @@ export function getRegisteredProviders(): ProviderRegistration[] {
 }
 export interface ProviderRegistration {
   provider: () => Promise<Provider>;
-  title?: (() => string);
   prefix: string;
+  titlePrefix: (() => string);
+  titleSuggestion?: (() => string);
 }
