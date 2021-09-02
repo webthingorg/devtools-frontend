@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "1c1a703907bf2e49ffc594bf1dcdedb385c017a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f528323_e5f9afc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T13:04:02Z",
+      "side": 1,
+      "message": "Simon, apparently I don\u0027t own panels/elements. PTAL",
+      "revId": "1c1a703907bf2e49ffc594bf1dcdedb385c017a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c258c6_98f6290a",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T13:04:02Z",
+      "side": 1,
+      "message": "ultra-nit: Could also be used directly below.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 4,
+        "endLine": 1044,
+        "endChar": 28
+      },
+      "revId": "1c1a703907bf2e49ffc594bf1dcdedb385c017a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae50c4c_c98278fc",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-02T13:04:02Z",
+      "side": 1,
+      "message": "ultra-nit: Could also be used directly below.",
+      "range": {
+        "startLine": 1095,
+        "startChar": 3,
+        "endLine": 1095,
+        "endChar": 28
+      },
+      "revId": "1c1a703907bf2e49ffc594bf1dcdedb385c017a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
