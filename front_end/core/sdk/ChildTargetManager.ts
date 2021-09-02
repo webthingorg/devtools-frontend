@@ -131,7 +131,7 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     // TODO(lfg): ensure proper capabilities for child pages (e.g. portals).
     else if (targetInfo.type === 'page') {
       type = Type.Frame;
-    } else if (targetInfo.type === 'worker') {
+    } else if (targetInfo.type === 'worker' || targetInfo.type === 'shared_worker') {
       type = Type.Worker;
     } else if (targetInfo.type === 'service_worker') {
       type = Type.ServiceWorker;
