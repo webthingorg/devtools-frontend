@@ -8,7 +8,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
   /**
@@ -129,10 +129,59 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     if (explanations.length === 0) {
       return LitHtml.nothing;
     }
-    return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.explanations)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
-    <${ReportView.ReportView.ReportValue.litTagName}>${LitHtml.html`${explanations.map(explanation => {
-      return LitHtml.html`<div>${explanation.reason} (${explanation.type})</div>`;
-    })}`}</${ReportView.ReportView.ReportValue.litTagName}>`;
+
+    // return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.explanations)}</${
+    //     ReportView.ReportView.ReportKey.litTagName}>
+    // <${ReportView.ReportView.ReportValue.litTagName}>${LitHtml.html`${explanations.map(explanation => {
+    //   return LitHtml.html`<div>${explanation.reason}
+    //   (${explanation.type})</div>`;
+    // })}`}</${ReportView.ReportView.ReportValue.litTagName}>`;
+
+    const explanationMap = this.groupByType(explanations);
+
+    return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>
+    ${i18nString(UIStrings.explanations)}
+    </${ReportView.ReportView.ReportKey.litTagName}>
+    <${ReportView.ReportView.ReportValue.litTagName}>
+    ${
+        LitHtml.html`
+    ${
+                [Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending,
+                 Protocol.Page.BackForwardCacheNotRestoredReasonType.PageSupportNeeded,
+                 Protocol.Page.BackForwardCacheNotRestoredReasonType.Circumstantial]
+                    .map(type => {
+                      // groupedExplanations is an array of reasons that has |type|.
+                      const groupedExplanations = explanationMap.get(type);
+                      if (groupedExplanations === undefined) {
+                        return LitHtml.nothing;
+                      }
+                      let reasonExplanationString;
+                      switch (type) {
+                        case Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending:
+                          reasonExplanationString = 'Features preventing back forward cache';
+                          break;
+                        case Protocol.Page.BackForwardCacheNotRestoredReasonType.PageSupportNeeded:
+                        case Protocol.Page.BackForwardCacheNotRestoredReasonType.Circumstantial:
+                          reasonExplanationString = 'The last navigation was not cached because';
+                          break;
+                      }
+                      return LitHtml.html`<h1>${reasonExplanationString}</h1>
+        <div>${groupedExplanations.map(explanation => explanation.reason)}</div>`;
+                    })}`}</${ReportView.ReportView.ReportValue.litTagName}>`;
+  }
+
+  private groupByType(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
+      Map<Protocol.Page.BackForwardCacheNotRestoredReasonType, Protocol.Page.BackForwardCacheNotRestoredExplanation[]> {
+    const result = new Map();
+    explanations.forEach(explanation => {
+      const key = explanation.type;
+      const collection = result.get(key);
+      if (!collection) {
+        result.set(key, [explanation]);
+      } else {
+        collection.push(explanation);
+      }
+    });
+    return result;
   }
 }
