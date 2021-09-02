@@ -670,8 +670,9 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     }
   }
 
-  onCSSModelChanged(event?: Common.EventTarget.EventTargetEvent): void {
-    const edit = event && event.data ? event.data.edit as SDK.CSSModel.Edit | null : null;
+  override onCSSModelChanged(event?: Common.EventTarget.EventTargetEvent<unknown>|null): void {
+    const data = event ? event.data as {edit: SDK.CSSModel.Edit} : null;
+    const edit = data ? data.edit : null;
     if (edit) {
       for (const section of this.allSections()) {
         section.styleSheetEdited(edit);
