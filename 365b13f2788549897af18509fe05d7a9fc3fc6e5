@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3747bab_11d9205e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1338728
+      },
+      "writtenOn": "2021-09-02T22:53:45Z",
+      "side": 1,
+      "message": "Thanks for your change to integrate the EyeDropper API!",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b76652_9a36f9f5",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1338728
+      },
+      "writtenOn": "2021-09-02T22:53:45Z",
+      "side": 1,
+      "message": "Is console.error useful? Note that when the user aborts the selection, the promise is going to be rejected with \"AbortError\".\n\nThe current behavior for when the user cancels the selection is to just dismiss the UI without any console.error being shown.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1188,
+        "endChar": 29
+      },
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
