@@ -22,6 +22,30 @@
       },
       "revId": "e68d39510f89adca7b739240a0aac2d310c9f733",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9508fca3_e4fe8fe2",
+        "filename": "front_end/panels/network/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-09-02T09:03:16Z",
+      "side": 1,
+      "message": "I discovered that there are some usages of `appendStyle` that are not wrapped in a `registerRequiredCSS` call, so were not automatically migrated. I will figure out the best approach for those and land them in a separate CL.",
+      "parentUuid": "de945e4a_0bff418f",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "e68d39510f89adca7b739240a0aac2d310c9f733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
