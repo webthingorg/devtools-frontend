@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1d8b36_78793516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1397310
+      },
+      "writtenOn": "2021-09-02T23:45:00Z",
+      "side": 1,
+      "message": "Having the Learn More in the main UI sounds great to me",
+      "parentUuid": "2f44f03e_565abbdf",
+      "revId": "e48917052a019ba7db3a2c0862d4e4e053d29718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27f5c270_509d91fb",
