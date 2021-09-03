@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5f70e5_ba3667cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-03T09:56:48Z",
+      "side": 1,
+      "message": "Made a suggestion how this could be restructured.\n\nIs the intermediate goal to keep the current \"report with 2 columns\" layout or to switch to a more custom layout similar to the linked UX mocks?",
+      "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6434b90_5a069d1b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-03T09:56:48Z",
+      "side": 1,
+      "message": "I believe you can actually avoid creating this map. How about doing something like the following here instead?\n```\nconst pageSupportNeeded \u003d explanations.filter(explanation \u003d\u003e explanation.type \u003d\u003d\u003d Protocol.Page.BackForwardCacheNotRestoredReasonType.PageSupportNeeded);\n    const supportPending \u003d explanations.filter(explanation \u003d\u003e explanation.type \u003d\u003d\u003d Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending);\n    const circumstantial \u003d explanations.filter(explanation \u003d\u003e explanation.type \u003d\u003d\u003d Protocol.Page.BackForwardCacheNotRestoredReasonType.Circumstantial);\n```\n\nAnd in the LitHtml you could do:\n```\n${pageSupportNeeded.length + supportPending.length \u003e 0 ? LitHtml.html`\u003ch2\u003e${i18nString(UIStrings.pageSupportNeeded)}\u003c/h2\u003e` : LitHtml.nothing}\n${this.renderReasonsHelper(pageSupportNeeded)}\n${this.renderReasonsHelper(supportPending)}\n        ${circumstantial.length \u003e 0 ? LitHtml.html`\u003ch2\u003e${i18nString(UIStrings.chromeSupportNeeded)}\u003c/h2\u003e` : LitHtml.nothing}\n${this.renderReasonsHelper(circumstantial)}        \n```\nWDYT?",
+      "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "badef67c_08a6f457",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-03T09:56:48Z",
+      "side": 1,
+      "message": "There is no whitespace when rendering multiple reasons after eachother.",
+      "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
