@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9bc7afdd_55f98dfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-03T11:29:08Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f6cf923b152cf70a7da866b6a22482c06a909767",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "764d9f1c_c7523fec",
         "filename": "front_end/panels/search/SearchResultsPane.ts",
         "patchSetId": 1
