@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3558baa4_e1ddeef1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-03T13:42:55Z",
+      "side": 1,
+      "message": "tvanderlippe: PTAL, specifically for the new test utilities. We still can\u0027t test with \"real\" extensions, but at least we can offer the API surfice this way.\n\ncaseq: Does the API change make sense? This is the only use of a columnNumber in chrome.devtools. Despite the fact that wasm bytecode offests are encoded as columnNumbers is sort of an implementation detail, and not relevant anywhere else in chrome.devtools, it\u0027s consistent with CDP (and thus chrome.debugger).",
+      "revId": "533c9df03b6382bb2730d211570ed1af24049e4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
