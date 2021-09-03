@@ -16,6 +16,23 @@
       "message": "Hi Philip,\n\nupdating server.js to also consider .dwo (in preparation for later) and .dwp files as binaries.\n\nPTAL!",
       "revId": "34e6843c300282b5c844395af2470cde39635d15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00cb9c63_b72c5dfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-03T12:34:32Z",
+      "side": 1,
+      "message": "Hi Tim,\n\nadding binary encoding for dwo + dwp files, ptal!",
+      "revId": "34e6843c300282b5c844395af2470cde39635d15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
