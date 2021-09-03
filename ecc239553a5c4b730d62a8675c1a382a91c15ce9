@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f696c4a_ec97a34c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T04:00:43Z",
+      "side": 1,
+      "message": "Thanks! I wrote down some context here: https://docs.google.com/document/d/1jRSmS3geJ3dYbjjustc2SRXPUqq-8mgQgxIlmPD6lwc/edit?usp\u003dsharing",
+      "parentUuid": "7a4abbe1_3e18480c",
+      "revId": "ecc239553a5c4b730d62a8675c1a382a91c15ce9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb8bf8c7_181ebf5a",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-02T15:12:22Z",
       "side": 1,
       "message": "nit: back-forward",
+      "revId": "ecc239553a5c4b730d62a8675c1a382a91c15ce9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c305d172_58958dec",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T04:00:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb8bf8c7_181ebf5a",
       "revId": "ecc239553a5c4b730d62a8675c1a382a91c15ce9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
