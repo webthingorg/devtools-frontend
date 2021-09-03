@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d50effe1_6d20e3f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-03T05:51:30Z",
+      "side": 1,
+      "message": "This is the wrong way to sync protocol changes to DevTools. I\u0027ll block this CL for now as to not accidentally commit it since it could have adverse effects even though bots are fine at the moment :)\n\nThe right way to do this is to sync the \"browser_protocol.pdl\" from Chromium into the DevTools repo. This is done regularly by DevTools engineers, but if you want to submit a CL yourself, feel free to do so. The steps involved are:\n\n  1) Run the scripts/deps/roll_deps.py script from the DevTools frontend repo, e.g:\n     ./scripts/deps/roll_deps.py ~/dev/chromium/src ~/dev/devtools/devtools-frontend\n     \nThis will copy over the \"browser_protcol.pdl\" plus some other files.\n\n  2) Run \"npm run generate-protocol-resources\", which will auto-generate the TypeScript bindings, plus some other files needed based on the \"browser_protocol.pdl\". ",
+      "revId": "2450737985a3c5a9065a7552f1c65c6414e6130d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
