@@ -56,6 +56,30 @@
       },
       "revId": "93453015e435cd3cde3e60c4fd9348282468aa60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3405b549_7e8bcbce",
+        "filename": "scripts/eslint_rules/lib/check_component_naming.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-03T13:13:03Z",
+      "side": 1,
+      "message": "Yes, good catch, thanks!",
+      "parentUuid": "3383b148_98c3813d",
+      "range": {
+        "startLine": 166,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 14
+      },
+      "revId": "93453015e435cd3cde3e60c4fd9348282468aa60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
