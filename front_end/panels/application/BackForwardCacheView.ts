@@ -8,7 +8,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
   /**
@@ -53,6 +53,21 @@ const UIStrings = {
    * the back-forward cache was used to restore the page instead of reloading it.
    */
   restoredFromBFCache: 'Restored from back-forward cache',
+  /**
+   * @description Category text for the reasons which need to be cleaned up on the websites in
+   * order to make the page eligible for the back-forward cache.
+   */
+  pageSupportNeeded: 'Features preventing back-forward cache:',
+  /**
+   * @description Category text for the reasons which need to be addressed on the chrome's side
+   * in order to make the page eligible for the back-forward cache.
+   */
+  chromeSupportNeeded: 'The last navigation was not cached because:',
+  /**
+   * @description Explanation text for the reasons which will be supported in a future version
+   * of Chrome.
+   */
+  willBeSupported: '(Supported in a future version of Chrome)',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -129,10 +144,39 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     if (explanations.length === 0) {
       return LitHtml.nothing;
     }
-    return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.explanations)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
-    <${ReportView.ReportView.ReportValue.litTagName}>${LitHtml.html`${explanations.map(explanation => {
-      return LitHtml.html`<div>${explanation.reason} (${explanation.type})</div>`;
-    })}`}</${ReportView.ReportView.ReportValue.litTagName}>`;
+
+    const pageSupportNeeded = explanations.filter(
+        explanation => explanation.type === Protocol.Page.BackForwardCacheNotRestoredReasonType.PageSupportNeeded);
+    const supportPending = explanations.filter(
+        explanation => explanation.type === Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending);
+    const circumstantial = explanations.filter(
+        explanation => explanation.type === Protocol.Page.BackForwardCacheNotRestoredReasonType.Circumstantial);
+
+    return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>
+    ${i18nString(UIStrings.explanations)}
+    </${ReportView.ReportView.ReportKey.litTagName}>
+    <${ReportView.ReportView.ReportValue.litTagName}>
+    ${
+        pageSupportNeeded.length + supportPending.length > 0 ?
+            LitHtml.html`<h2>${i18nString(UIStrings.pageSupportNeeded)}</h2>` :
+            LitHtml.nothing}
+${this.renderReasonsHelper(pageSupportNeeded)}
+${this.renderReasonsHelper(supportPending)}
+        ${
+        circumstantial.length > 0 ? LitHtml.html`<h2>${i18nString(UIStrings.chromeSupportNeeded)}</h2>` :
+                                    LitHtml.nothing}
+${this.renderReasonsHelper(circumstantial)}
+    </${ReportView.ReportView.ReportValue.litTagName}>`;
+  }
+
+  private renderReasonsHelper(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
+      LitHtml.TemplateResult|{} {
+    // return LitHtml.html`<div>${explanations.map(explanation => explanation.reason))}</div>`;
+    return LitHtml.html`<div>${
+        explanations.map(
+            explanation => String(explanation.reason) + explanation.type ===
+                    Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending ?
+                i18nString(UIStrings.willBeSupported) :
+                ', ')}</div>`;
   }
 }
