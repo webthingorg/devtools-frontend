@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b03e3e68_c9f771ab",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-03T11:54:59Z",
+      "side": 1,
+      "message": "Just curious, why was this changed to false?",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d611e0ce_5686a200",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-03T11:54:59Z",
+      "side": 1,
+      "message": "nit: could we add a link to the EyeDropper API spec here, so that we could easily track when it\u0027s official, and can ask the TypeScript side to recognize it?",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2b76652_9a36f9f5",
         "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
         "patchSetId": 2
@@ -55,6 +89,30 @@
       "side": 1,
       "message": "It seems to be cancelled because when the DevTools window is docked, it\u0027s using another browser window instance (devtools_window.h), which didn\u0027t implement OpenEyeDropper in web_contents_delegate.h like a regular browser_window.h does. This should be fixed in this CL: https://crrev.com/c/3140605.",
       "parentUuid": "c2b76652_9a36f9f5",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1188,
+        "endChar": 29
+      },
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e45bbed_2ef9dc80",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-03T11:54:59Z",
+      "side": 1,
+      "message": "I just realized that I didn\u0027t really answer Ionel\u0027s question :D\n\nIMO, `console.error` would work fine at this stage, because although the error message says the user cancelled the selection, it\u0027s actually not the case: it happened because the eyedropper instance was not successfully created from the frame host\u0027s web content delegate. In these cases I think we do want to know explicitly what went wrong and act on them. And of course if you or yiorsi wants to do more, that would be awesome as well :)",
+      "parentUuid": "c8a8e045_7b5a6ff4",
       "range": {
         "startLine": 1188,
         "startChar": 0,
