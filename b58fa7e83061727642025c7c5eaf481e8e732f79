@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a556cf_bf77d3d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-03T09:59:51Z",
+      "side": 1,
+      "message": "INFRA LGTM. I don\u0027t have the domain knowledge required to review the actual implementation, so I am assuming Alex has done so.",
+      "revId": "b58fa7e83061727642025c7c5eaf481e8e732f79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
