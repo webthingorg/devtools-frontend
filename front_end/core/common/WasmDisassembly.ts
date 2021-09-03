@@ -37,7 +37,7 @@ export class WasmDisassembly {
         return m;
       }
     }
-    return l;
+    return r;
   }
 
   lineNumberToBytecodeOffset(lineNumber: number): number {
@@ -54,7 +54,7 @@ export class WasmDisassembly {
       if (functionIndex < this.functionBodyOffsets.length) {
         const offset = this.lineNumberToBytecodeOffset(lineNumber);
         if (offset >= this.functionBodyOffsets[functionIndex].start) {
-          lineNumber = this.bytecodeOffsetToLineNumber(this.functionBodyOffsets[functionIndex++].end);
+          lineNumber = this.bytecodeOffsetToLineNumber(this.functionBodyOffsets[functionIndex++].end) + 1;
           continue;
         }
       }
