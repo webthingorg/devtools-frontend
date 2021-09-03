@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4b2c91_a4fb9dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-09-03T09:32:05Z",
+      "side": 1,
+      "message": "This CL is done as a response to https://crrev.com/c/3136214 to allow rolls from DevTools frontend to internal to occur.",
+      "revId": "bd4edee638f5c8b85ed99d517a723412578de274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
