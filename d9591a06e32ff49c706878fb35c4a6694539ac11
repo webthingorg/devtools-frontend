@@ -51,6 +51,24 @@
       "parentUuid": "13fca8ab_cf4f4e8d",
       "revId": "d9591a06e32ff49c706878fb35c4a6694539ac11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b855f90f_14eb32a4",
+        "filename": "front_end/panels/utils/utils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-03T09:09:34Z",
+      "side": 1,
+      "message": "Yes I know that you didn\u0027t change the logic in it. I was just wondering as what ts files are categorized according to `resourceType`? (And whether we\u0027d want to change that to be categorized as script as well)",
+      "parentUuid": "9ad40de1_a5d9a964",
+      "revId": "d9591a06e32ff49c706878fb35c4a6694539ac11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
