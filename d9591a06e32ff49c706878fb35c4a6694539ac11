@@ -33,6 +33,24 @@
       "message": "Q: Would it make sense to reflect source map script files as scripts in ResourceType as well? I think my question is: what is ts classified as right now, and do we want to change that?",
       "revId": "d9591a06e32ff49c706878fb35c4a6694539ac11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad40de1_a5d9a964",
+        "filename": "front_end/panels/utils/utils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-09-03T09:04:09Z",
+      "side": 1,
+      "message": "In fact I didn\u0027t change that part\u0027s logic, the |isScript| function exists before.\nAnd the old logic is source map script is script but not Common.ResourceType.resourceTypes.Script",
+      "parentUuid": "13fca8ab_cf4f4e8d",
+      "revId": "d9591a06e32ff49c706878fb35c4a6694539ac11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
