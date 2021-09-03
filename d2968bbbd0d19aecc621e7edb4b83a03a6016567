@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a984986a_a1d9648e",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-09-03T05:32:35Z",
+      "side": 1,
+      "message": "+ alphasort",
+      "parentUuid": "0c0f7532_a4a68a42",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbee932d_a58bb4ae",
         "filename": "front_end/panels/help/ReleaseNoteText.ts",
         "patchSetId": 1
@@ -83,6 +107,23 @@
         "endLine": 32,
         "endChar": 0
       },
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7557bdb2_3a81de51",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-09-03T05:32:35Z",
+      "side": 1,
+      "message": "Why does getReleaseNoteLang return the `/` as well as the language code? It seems confusing and out of place / beyond its scope, IMHO.",
       "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
