@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "368d59fb_65264cee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-03T05:27:56Z",
+      "side": 1,
+      "message": "Some comments :)",
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c0f7532_a4a68a42",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-03T05:27:56Z",
+      "side": 1,
+      "message": "nit: Move this into a module constant outside of this function and use a `Set` instead.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbee932d_a58bb4ae",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-03T05:27:56Z",
+      "side": 1,
+      "message": "Please do not determine the language this way. E.g. if the user chose a locale but it failed to load, then we would use english. Also the setting could have the value \"browserLanguage\", to match whatever chrome is doing. So if chrome is set to \u0027zh\u0027, but DevTools is set to \u0027browserLanguage\u0027, then you would get the wrong language.\n\nThe currently used UI language is available via:\n\n  i18n.i18n.DevToosLocale.instance().locale",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a16dcc_338943b7",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-03T05:27:56Z",
+      "side": 1,
+      "message": "This can be re-written using the Intl.Locale API, no need to manual parsing:\n\n  const currentDevToolsUILanguage \u003d i18n.i18n.DevToosLocale.instance().locale;\n  const currentDevToolsLocale \u003d new Intl.Locale(currentDevToolsUILanguage);\n  \n  if (releaseNoteLangs.includes(currentDevToosLocale.language)) {\n    // ...\n  }",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "d2968bbbd0d19aecc621e7edb4b83a03a6016567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
