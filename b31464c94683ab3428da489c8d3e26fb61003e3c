@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bb0eb0_898f3a3b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T11:22:28Z",
+      "side": 1,
+      "message": "This is much more organized! Thanks so much! :D",
+      "parentUuid": "e6434b90_5a069d1b",
+      "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "badef67c_08a6f457",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-09-03T09:56:48Z",
       "side": 1,
       "message": "There is no whitespace when rendering multiple reasons after eachother.",
+      "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08039d0_e39e2fc4",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T11:22:28Z",
+      "side": 1,
+      "message": "I would actually like to insert a new line after each reason. How would I do that?",
+      "parentUuid": "badef67c_08a6f457",
       "revId": "b31464c94683ab3428da489c8d3e26fb61003e3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

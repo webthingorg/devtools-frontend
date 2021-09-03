@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5af3fd8_e2eb8cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T11:22:28Z",
+      "side": 1,
+      "message": "Thanks for the review, PTAL again 😊",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120b66ee_7e092512",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-03T11:22:28Z",
+      "side": 1,
+      "message": "Currently this is only showing commas (\", ,\") and not the reason strings. Maybe String(explanation.reason) is not accessing the content strings?\n\nWhat I would like to do is:\n- show explanation.reason\n- add willBeSupported text if the type is SupportPending\n\nPlease let me know if you know how to make this work.",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
