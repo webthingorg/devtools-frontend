@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "f6cf923b152cf70a7da866b6a22482c06a909767",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "764d9f1c_c7523fec",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-03T10:51:25Z",
+      "side": 1,
+      "message": "this class is globally styled in inspectorCommon.css so we can just use that and not have to style anything ourselves.",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 100
+      },
+      "revId": "f6cf923b152cf70a7da866b6a22482c06a909767",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
