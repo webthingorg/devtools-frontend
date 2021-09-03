@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9dd7005_0122637a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-09-03T19:04:40Z",
+      "side": 1,
+      "message": "extensions lgtm",
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58035345_a9e98f2c",
+        "filename": "front_end/core/common/WasmDisassembly.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-09-03T19:04:40Z",
+      "side": 1,
+      "message": "just use upperBound(this.offsets, number) - 1 here? Having a domain-specific version of a common algorithm is unfortunate.",
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4aa4133_e12970b3",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-09-03T19:04:40Z",
+      "side": 1,
+      "message": "That would be too late for normal extension code. Perhaps, we could do it in a way similar to prod, i.e. with Page.addScriptToEvaluateOnNewDocument?",
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
