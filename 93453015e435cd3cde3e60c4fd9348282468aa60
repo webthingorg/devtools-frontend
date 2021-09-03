@@ -16,6 +16,46 @@
       "message": "PTAL, thanks!",
       "revId": "93453015e435cd3cde3e60c4fd9348282468aa60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45903aa2_18ecbda8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-09-03T12:51:44Z",
+      "side": 1,
+      "message": "Nice! LGTM with a nit to delete commented code",
+      "revId": "93453015e435cd3cde3e60c4fd9348282468aa60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3383b148_98c3813d",
+        "filename": "scripts/eslint_rules/lib/check_component_naming.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-09-03T12:51:44Z",
+      "side": 1,
+      "message": "nit: I think we can delete this?",
+      "range": {
+        "startLine": 166,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 14
+      },
+      "revId": "93453015e435cd3cde3e60c4fd9348282468aa60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
