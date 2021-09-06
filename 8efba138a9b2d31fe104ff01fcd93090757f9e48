@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b50cbe9_043420ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-06T09:20:36Z",
+      "side": 1,
+      "message": "CL is temporarily on hold until we have figured out how to do the host bindings.",
+      "revId": "8efba138a9b2d31fe104ff01fcd93090757f9e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
