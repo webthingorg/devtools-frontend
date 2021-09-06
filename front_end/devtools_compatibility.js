@@ -532,9 +532,12 @@
      * @override
      * @param {string} name
      * @param {string} value
+     * @param {!Object=} options
      */
-    setPreference(name, value) {
-      DevToolsAPI.sendMessageToEmbedder('setPreference', [name, value], null);
+    setPreference(name, value, options = {}) {
+      // The backend does not support optional parameters so pass default values if no
+      // options bag was specified.
+      DevToolsAPI.sendMessageToEmbedder('setPreference', [name, value, options], null);
     }
 
     /**

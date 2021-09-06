@@ -128,7 +128,7 @@ export interface InspectorFrontendHostAPI {
                    [x: string]: string,
                  }) => void): void;
 
-  setPreference(name: string, value: string): void;
+  setPreference(name: string, value: string, options?: {}): void;
 
   removePreference(name: string): void;
 
