@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8091dec8_7ac1eda4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-06T09:51:45Z",
+      "side": 1,
+      "message": "Formatting the header of each list of reasons as \u003ch2\u003e puts too much emphasis on it imo.\n\nWhat do you think of trying to make the 2 headers shorter and using them as ReportKeys (so that they show up in the left column)? The right column would then not need any header and just contain a list of reasons.",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "120b66ee_7e092512",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-09-03T11:22:28Z",
       "side": 1,
       "message": "Currently this is only showing commas (\", ,\") and not the reason strings. Maybe String(explanation.reason) is not accessing the content strings?\n\nWhat I would like to do is:\n- show explanation.reason\n- add willBeSupported text if the type is SupportPending\n\nPlease let me know if you know how to make this work.",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e1e372_5cd74bb3",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-06T09:51:45Z",
+      "side": 1,
+      "message": "I think if you put the whole ternary in brackets, it should work.\n\nBut I have an alternative suggestion which renders each reason on a separate line as you mentioned in your other comment:\n```\nprivate renderExplanation(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {\n    return LitHtml.html`\n      \u003cdiv\u003e\n        ${explanation.reason}\n        ${explanation.type \u003d\u003d\u003d Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending ? i18nString(UIStrings.willBeSupported) : \u0027\u0027}\n      \u003c/div\u003e\n    `;\n  }\n```\nand call it via\n```\n${pageSupportNeeded.map(explanation \u003d\u003e this.renderExplanation(explanation))}\n\n```\nThis would also make it easier to potentially translate the reasons.",
+      "parentUuid": "120b66ee_7e092512",
       "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
