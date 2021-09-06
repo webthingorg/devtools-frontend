@@ -37,6 +37,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d61ee2fa_a91f9f89",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-06T09:35:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be 0 instead, to make sure we always send a value for `columnNumber` to the backend?",
+      "range": {
+        "startLine": 594,
+        "startChar": 80,
+        "endLine": 594,
+        "endChar": 89
+      },
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52a7b20_0eed716b",
+        "filename": "scripts/eslint_rules/lib/compare_arrays_with_assert_deepequal.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-06T09:35:54Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t see new usage of this particular check and also I don\u0027t think it performs the deep check as required. Can we remove it?",
+      "range": {
+        "startLine": 12,
+        "startChar": 80,
+        "endLine": 12,
+        "endChar": 94
+      },
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a0757f_c3f50d49",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-06T09:35:54Z",
+      "side": 1,
+      "message": "I am assuming this implementation suffers from the same limitations as the e2e-tests for the DWARF extension? E.g. it is not great that we are poking into the internals of DevTools here and call some functions on the global scope (that we are going to remove at some point as well).\n\nThat said, if we really have no other way of doing this, then I guess it has to suffice. But it is not ideal that we have to land this code to make things work 😞 Can we file a bug to investigate how we can improve the code here, to avoid poking into internals and remove the reliance of the global scope?",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bce0f8d_a18be3cf",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-06T09:35:54Z",
+      "side": 1,
+      "message": "Nit: inline this function above, to avoid another function declaration below a return-statement.",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4aa4133_e12970b3",
         "filename": "test/e2e/helpers/extension-helpers.ts",
         "patchSetId": 13
