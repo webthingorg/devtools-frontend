@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5930d6_6f9b11e8",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-06T15:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61ee2fa_a91f9f89",
+      "range": {
+        "startLine": 594,
+        "startChar": 80,
+        "endLine": 594,
+        "endChar": 89
+      },
+      "revId": "efdea8c5a442b9f0aa12f7f22c50d593d52127fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c52a7b20_0eed716b",
