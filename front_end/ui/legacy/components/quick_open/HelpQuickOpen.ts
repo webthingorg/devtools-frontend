@@ -33,10 +33,12 @@ export class HelpQuickOpen extends Provider {
 
   private addProvider(extension: {
     prefix: string,
-    title?: () => string,
+    titlePrefix: () => string,
+    titleSuggestion?: () => string,
   }): void {
-    if (extension.title) {
-      this.providers.push({prefix: extension.prefix || '', title: extension.title()});
+    if (extension.titleSuggestion) {
+      this.providers.push(
+          {prefix: extension.prefix || '', title: extension.titlePrefix() + ' ' + extension.titleSuggestion()});
     }
   }
 
@@ -72,6 +74,7 @@ export class HelpQuickOpen extends Provider {
 
 registerProvider({
   prefix: '?',
-  title: undefined,
   provider: () => Promise.resolve(HelpQuickOpen.instance()),
+  titlePrefix: () => 'Help',
+  titleSuggestion: undefined,
 });
