@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3048f70b_7953bb14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-06T15:02:23Z",
+      "side": 1,
+      "message": "Sounds good! I was not sure how to make the strings shorter, so left them as is for now. \nThis is how it looks like now: https://screenshot.googleplex.com/8B2mMPLBbjAqypV.png\n\n(Did I insert too many blank lines, or is this how they are supposed to be styled?)\n\nAnother question: The current strings (\"Feature preventing bfcache...\" and \"The page was not cached because...\") were suggested by the UX team.\nIs there any process involved in changing the strings, or is the code review +1 fine?",
+      "parentUuid": "8091dec8_7ac1eda4",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "120b66ee_7e092512",
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "I think if you put the whole ternary in brackets, it should work.\n\nBut I have an alternative suggestion which renders each reason on a separate line as you mentioned in your other comment:\n```\nprivate renderExplanation(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {\n    return LitHtml.html`\n      \u003cdiv\u003e\n        ${explanation.reason}\n        ${explanation.type \u003d\u003d\u003d Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending ? i18nString(UIStrings.willBeSupported) : \u0027\u0027}\n      \u003c/div\u003e\n    `;\n  }\n```\nand call it via\n```\n${pageSupportNeeded.map(explanation \u003d\u003e this.renderExplanation(explanation))}\n\n```\nThis would also make it easier to potentially translate the reasons.",
       "parentUuid": "120b66ee_7e092512",
+      "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "675fe55d_6bac4a65",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-09-06T15:02:23Z",
+      "side": 1,
+      "message": "Thanks for the suggestion! I wrote what you suggested, and now new lines are inserted.",
+      "parentUuid": "35e1e372_5cd74bb3",
       "revId": "eb995b559fe3e343b41bf6a2bee4c1ed264ab626",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
