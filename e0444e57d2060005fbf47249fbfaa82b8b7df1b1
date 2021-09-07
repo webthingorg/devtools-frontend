@@ -16,6 +16,46 @@
       "message": "This is from chat with mraz@ https://imgur.com/a/29wKnt3",
       "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca6bf16d_ce971b82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-07T15:07:08Z",
+      "side": 1,
+      "message": "INFRA LGTM",
+      "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3938279d_b9f57d04",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-07T15:07:08Z",
+      "side": 1,
+      "message": "Compared to the image on the bug, this seems a bit too small? Now, the text is quite close to the rest. Could you please double-check with Marian that is WAI?",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
