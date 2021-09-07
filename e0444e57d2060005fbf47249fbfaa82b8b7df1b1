@@ -74,6 +74,30 @@
       },
       "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6e99375_91054bdb",
+        "filename": "front_end/ui/legacy/components/quick_open/filteredListWidget.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-09-07T15:56:11Z",
+      "side": 1,
+      "message": "Thanks Tim, I chatted with Marian, and we decide to revert this change.\n\nThe original idea is to show more items for autocomplete, but then we do agree it\u0027s kinda too small and also it only add 1.5 more items. So we decide to change back.",
+      "parentUuid": "3938279d_b9f57d04",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
