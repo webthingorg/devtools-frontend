@@ -11,7 +11,6 @@ generate_css("css_files") {
   sources = [
     "emptyWidget.css",
     "inspectorCommon.css",
-    "inspectorScrollbars.css",
   ]
 }
 
@@ -87,8 +86,9 @@ devtools_module("ui") {
     "../../ui/legacy/theme_support:bundle",
     "../components/helpers:bundle",
     "../components/icon_button:bundle",
-    "utils:bundle",
   ]
+
+  public_deps = [ "utils:bundle" ]
 }
 
 copy_to_gen("legacy_css") {
@@ -104,7 +104,6 @@ copy_to_gen("legacy_css") {
     "infobar.css",
     "inlineButton.css",
     "inspectorCommon.css",
-    "inspectorScrollbars.css",
     "inspectorSyntaxHighlight.css",
     "inspectorSyntaxHighlightDark.css",
     "inspectorViewTabbedPane.css",
@@ -137,7 +136,7 @@ copy_to_gen("legacy_css") {
 devtools_entrypoint("bundle") {
   entrypoint = "legacy.ts"
 
-  deps = [ ":ui" ]
+  public_deps = [ ":ui" ]
 
   visibility = [
     "../../../test/unittests/front_end/*",
@@ -161,7 +160,7 @@ devtools_entrypoint("bundle") {
 devtools_entrypoint("legacy") {
   entrypoint = "legacy-legacy.ts"
 
-  deps = [ ":bundle" ]
+  public_deps = [ ":bundle" ]
 
   visibility = [
     "../..:legacy_entrypoints",
