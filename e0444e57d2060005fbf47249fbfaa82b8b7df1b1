@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f50665e6_9246fe89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-09-07T15:05:25Z",
+      "side": 1,
+      "message": "This is from chat with mraz@ https://imgur.com/a/29wKnt3",
+      "revId": "e0444e57d2060005fbf47249fbfaa82b8b7df1b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
