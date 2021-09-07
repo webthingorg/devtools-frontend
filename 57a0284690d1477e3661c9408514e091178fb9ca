@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42591058_2a6c9332",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-09-07T00:03:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa1e6ff_682d3f23",
+      "range": {
+        "startLine": 175,
+        "startChar": 12,
+        "endLine": 175,
+        "endChar": 31
+      },
+      "revId": "57a0284690d1477e3661c9408514e091178fb9ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eedbc3b_3e679761",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-25T12:05:36Z",
       "side": 1,
       "message": "I think we should export this and write some unit tests for it. It\u0027s worth looking under test/unittest at how we do our tests, but let me know if you need any pointers.",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 5
+      },
+      "revId": "57a0284690d1477e3661c9408514e091178fb9ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41071917_76713d75",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2021-09-07T00:03:19Z",
+      "side": 1,
+      "message": "The class is now exported (with a more specific name). Unittests are also added as `test/unittests/front_end/models/timeline_model/TimelineFrameBeginFrameQueue_test.ts`",
+      "parentUuid": "0eedbc3b_3e679761",
       "range": {
         "startLine": 559,
         "startChar": 0,
