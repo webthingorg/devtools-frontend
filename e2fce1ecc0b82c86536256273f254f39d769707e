@@ -16,6 +16,23 @@
       "message": "PTAL 😊\n\nNow the web tests are failing, but fixing them here on the chromium side:\nhttps://chromium-review.googlesource.com/c/chromium/src/+/3140807",
       "revId": "e2fce1ecc0b82c86536256273f254f39d769707e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc4fd45_06d548f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-07T08:37:07Z",
+      "side": 1,
+      "message": "This probably requires a 3-way merge to make the tests pass.\n\n1) Disable failing tests in Chromium\n2) This CL\n3) Update and enable tests in Chromium\n\n(see https://crrev.com/c/2862803 and https://crrev.com/c/2862770/2 for an example)",
+      "revId": "e2fce1ecc0b82c86536256273f254f39d769707e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
