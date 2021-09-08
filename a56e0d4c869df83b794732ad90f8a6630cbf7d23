@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea1995f4_bced7065",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-08T12:01:52Z",
+      "side": 1,
+      "message": "Since we tend to update NPM packages in separate CLs, I would prefer to split these CLs up. However, I don\u0027t know if that is actually possible. In any case, the CL is luckily quite small, so I am happy to submit as-is.",
+      "revId": "a56e0d4c869df83b794732ad90f8a6630cbf7d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
