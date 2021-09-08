@@ -27,16 +27,16 @@ describe('The Console Tab', async () => {
     const stack = await $(STACK_PREVIEW_CONTAINER);
 
     const expected = [
-      {text: '\nshown3 @ showMe.js:10', classes: {}},
-      {text: '\nshown2 @ showMe.js:6', classes: {}},
-      {text: '\nshown1 @ showMe.js:2', classes: {}},
-      {text: '\n(anonymous) @ ignoreMe.js:21', classes: {}},
+      {text: '\nshown3 @ showMe.js:10:12', classes: {}},
+      {text: '\nshown2 @ showMe.js:6:3', classes: {}},
+      {text: '\nshown1 @ showMe.js:2:3', classes: {}},
+      {text: '\n(anonymous) @ ignoreMe.js:21:5', classes: {}},
       {text: '\nPromise.then (async)', classes: {}},
-      {text: '\nignoreListed4 @ ignoreMe.js:20', classes: {}},
-      {text: '\nignoreListed3 @ ignoreMe.js:16', classes: {}},
-      {text: '\nignoreListed2 @ ignoreMe.js:12', classes: {}},
-      {text: '\nignoreListed1 @ ignoreMe.js:8', classes: {}},
-      {text: '\n(anonymous) @ ignoreMe.js:5', classes: {}},
+      {text: '\nignoreListed4 @ ignoreMe.js:20:13', classes: {}},
+      {text: '\nignoreListed3 @ ignoreMe.js:16:3', classes: {}},
+      {text: '\nignoreListed2 @ ignoreMe.js:12:3', classes: {}},
+      {text: '\nignoreListed1 @ ignoreMe.js:8:3', classes: {}},
+      {text: '\n(anonymous) @ ignoreMe.js:5:1', classes: {}},
     ];
 
     await waitForFunction(async () => {
@@ -64,16 +64,16 @@ describe('The Console Tab', async () => {
     const stack = await $(STACK_PREVIEW_CONTAINER);
 
     const expected = [
-      {text: '\nshown3 @ showMe.js:10', classes: {}},
-      {text: '\nshown2 @ showMe.js:6', classes: {}},
-      {text: '\nshown1 @ showMe.js:2', classes: {}},
-      {text: '\n(anonymous) @ ignoreMe.js:21', classes: {'0': 'hidden-row'}},
+      {text: '\nshown3 @ showMe.js:10:12', classes: {}},
+      {text: '\nshown2 @ showMe.js:6:3', classes: {}},
+      {text: '\nshown1 @ showMe.js:2:3', classes: {}},
+      {text: '\n(anonymous) @ ignoreMe.js:21:5', classes: {'0': 'hidden-row'}},
       {text: '\nPromise.then (async)', classes: {'0': 'hidden-row'}},
-      {text: '\nignoreListed4 @ ignoreMe.js:20', classes: {'0': 'hidden-row'}},
-      {text: '\nignoreListed3 @ ignoreMe.js:16', classes: {'0': 'hidden-row'}},
-      {text: '\nignoreListed2 @ ignoreMe.js:12', classes: {'0': 'hidden-row'}},
-      {text: '\nignoreListed1 @ ignoreMe.js:8', classes: {'0': 'hidden-row'}},
-      {text: '\n(anonymous) @ ignoreMe.js:5', classes: {'0': 'hidden-row'}},
+      {text: '\nignoreListed4 @ ignoreMe.js:20:13', classes: {'0': 'hidden-row'}},
+      {text: '\nignoreListed3 @ ignoreMe.js:16:3', classes: {'0': 'hidden-row'}},
+      {text: '\nignoreListed2 @ ignoreMe.js:12:3', classes: {'0': 'hidden-row'}},
+      {text: '\nignoreListed1 @ ignoreMe.js:8:3', classes: {'0': 'hidden-row'}},
+      {text: '\n(anonymous) @ ignoreMe.js:5:1', classes: {'0': 'hidden-row'}},
       {text: '\nShow 6 more frames', classes: {'0': 'show-all-link'}},
     ];
 

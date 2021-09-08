@@ -39,7 +39,7 @@ describe('Navigator User Agent Issues', async () => {
     const section = await getResourcesElement('1 source', issueElement, '.affected-resource-label');
     await ensureResourceSectionIsExpanded(section);
     const expectedTableRows = [
-      ['empty.html:2'],
+      ['empty.html:2:2'],
     ];
     await waitForTableFromResourceSectionContents(section.content, expectedTableRows);
   });

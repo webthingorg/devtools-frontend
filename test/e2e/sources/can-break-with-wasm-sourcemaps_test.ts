@@ -16,7 +16,7 @@ describe('The Sources Tab', async () => {
     await addBreakpointForLine(frontend, 5);
 
     const scriptLocation = await retrieveTopCallFrameScriptLocation('main();', target);
-    assert.deepEqual(scriptLocation, 'with-sourcemap.ll:5');
+    assert.deepEqual(scriptLocation, 'with-sourcemap.ll:5:24');
   });
 
   it('hits two breakpoints that are set and activated separately', async function() {
@@ -39,7 +39,7 @@ describe('The Sources Tab', async () => {
 
     await step('check that the code has paused on the breakpoint at the correct script location', async () => {
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
-      assert.deepEqual(scriptLocation, 'with-sourcemap.ll:5');
+      assert.deepEqual(scriptLocation, 'with-sourcemap.ll:5:24');
     });
 
     await step('remove the breakpoint from the fifth line', async () => {
@@ -72,7 +72,7 @@ describe('The Sources Tab', async () => {
 
     await step('check that the code has paused on the breakpoint at the correct script location', async () => {
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
-      assert.deepEqual(scriptLocation, 'with-sourcemap.ll:6');
+      assert.deepEqual(scriptLocation, 'with-sourcemap.ll:6:24');
     });
   });
 });

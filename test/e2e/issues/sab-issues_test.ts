@@ -25,8 +25,8 @@ describe('SAB issues test', async () => {
       await ensureResourceSectionIsExpanded(section);
       const expectedTableRows = [
         ['Source Location', 'Trigger', 'Status'],
-        ['corp-frame.rawresponse:1', 'Instantiation', /warning|blocked/],
-        ['corp-frame.rawresponse:1', 'Transfer', /warning|blocked/],
+        ['corp-frame.rawresponse:1:91', 'Instantiation', /warning|blocked/],
+        ['corp-frame.rawresponse:1:176', 'Transfer', /warning|blocked/],
       ];
       await waitForTableFromResourceSectionContents(section.content, expectedTableRows);
     }

@@ -108,9 +108,9 @@ describe('The Application Tab', async () => {
       return undefined;
     });
     const expected = [
-      'second\xA0@\xA0js-oopif.html:17',
-      'first\xA0@\xA0js-oopif.html:11',
-      '(anonymous)\xA0@\xA0js-oopif.html:20',
+      'second\xA0@\xA0js-oopif.html:17:21',
+      'first\xA0@\xA0js-oopif.html:11:7',
+      '(anonymous)\xA0@\xA0js-oopif.html:20:5',
     ];
     assert.deepEqual(stackTraceRowsTextContent, expected);
   });

@@ -48,52 +48,52 @@ describe('The Console Tab', async () => {
     });
 
     await step('check that the first log is not truncated', async () => {
-      const expectedLog = '\trecursive\t@\tVM11:6\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\t(anonymous)\t@\tVM11:9';
+      const expectedLog = '\trecursive\t@\tVM11:6:28\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\t(anonymous)\t@\tVM11:9:9';
 
       assert.strictEqual(messages[0], await unifyLogVM(messages[0], expectedLog));
     });
 
     await step('check that the second log is truncated', async () => {
-      const expectedLog = '\trecursive\t@\tVM11:6\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
-          '\trecursive\t@\tVM11:4\n' +
+      const expectedLog = '\trecursive\t@\tVM11:6:28\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
+          '\trecursive\t@\tVM11:4:20\n' +
           '\tShow 21 more frames';
 
       assert.strictEqual(messages[1], await unifyLogVM(messages[1], expectedLog));

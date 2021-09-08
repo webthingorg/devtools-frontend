@@ -186,10 +186,10 @@ describe('The Styles pane', async () => {
         subtitles,
         [
           '',
-          'css-module.css:1',
+          'css-module.css:1:25',
           'constructed stylesheet',
-          'stylesheets…ces.html:10',
-          'stylesheets…rces.html:7',
+          'stylesheets….html:10:27',
+          'stylesheets…s.html:7:45',
           'user agent stylesheet',
         ],
         'incorrectly displayed style sources');

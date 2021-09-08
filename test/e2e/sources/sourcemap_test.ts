@@ -17,7 +17,7 @@ describe('The Sources Tab', async () => {
     await addBreakpointForLine(frontend, 3);
 
     const scriptLocation0 = await retrieveTopCallFrameScriptLocation('functions[0]();', target);
-    assert.deepEqual(scriptLocation0, 'sourcemap-codesplit.ts:3');
+    assert.deepEqual(scriptLocation0, 'sourcemap-codesplit.ts:3:2');
 
     await target.evaluate(
         'var s = document.createElement("script"); s.src = "sourcemap-codesplit2.js"; document.body.appendChild(s);');
@@ -28,7 +28,7 @@ describe('The Sources Tab', async () => {
     await waitForElementWithTextContent('sourcemap-codesplit2.js', toolbarHandle);
 
     const scriptLocation1 = await retrieveTopCallFrameScriptLocation('functions[1]();', target);
-    assert.deepEqual(scriptLocation1, 'sourcemap-codesplit.ts:3');
+    assert.deepEqual(scriptLocation1, 'sourcemap-codesplit.ts:3:2');
   });
 });
 
@@ -41,7 +41,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
+    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6:1');
     await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
@@ -54,7 +54,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
+    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6:1');
     await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
@@ -67,7 +67,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
+    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6:1');
     await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });
@@ -80,7 +80,7 @@ describe('The Elements Tab', async () => {
       await focusElementsTree();
       await clickNthChildOfSelectedElementNode(1);
     });
-    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6');
+    const value = await waitForCSSPropertyValue('body .text', 'color', 'green', 'app.scss:6:1');
     await click(value, {clickOptions: {modifier: 'ControlOrMeta'}});
     await waitForElementWithTextContent('Line 12, Column 9');
   });

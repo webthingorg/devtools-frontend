@@ -110,11 +110,11 @@ describe('The Sources Tab', async function() {
     assert.deepEqual(messageLinks, [
       {
         message: 'Test for correct line number',
-        lineNumber: 'minified-sourcecode.js:formatted:8 ',
+        lineNumber: 'minified-sourcecode.js:formatted:8:9 ',
       },
       {
         message: 'second log',
-        lineNumber: 'minified-sourcecode.js:formatted:10 ',
+        lineNumber: 'minified-sourcecode.js:formatted:10:13 ',
       },
     ]);
   });
@@ -128,7 +128,7 @@ describe('The Sources Tab', async function() {
     await addBreakpointForLine(frontend, 10);
 
     const scriptLocation = await retrieveTopCallFrameScriptLocation('notFormattedFunction();', target);
-    assert.deepEqual(scriptLocation, 'minified-source…s:formatted:10');
+    assert.deepEqual(scriptLocation, 'minified-source…formatted:10:5');
   });
 
   it('can add breakpoint for unformatted file', async () => {
@@ -138,7 +138,7 @@ describe('The Sources Tab', async function() {
     await addBreakpointForLine(frontend, 6);
 
     const scriptLocation = await retrieveTopCallFrameScriptLocation('notFormattedFunction();', target);
-    assert.deepEqual(scriptLocation, 'minified-sourcecode.js:6');
+    assert.deepEqual(scriptLocation, 'minified-sourcecode.js:6:35');
   });
 
   it('can add breakpoint on minified source and then break correctly on formatted source', async () => {
@@ -149,7 +149,7 @@ describe('The Sources Tab', async function() {
     await prettyPrintMinifiedFile(frontend);
 
     const scriptLocation = await retrieveTopCallFrameScriptLocation('notFormattedFunction();', target);
-    assert.deepEqual(scriptLocation, 'minified-source…s:formatted:10');
+    assert.deepEqual(scriptLocation, 'minified-source…formatted:10:5');
   });
 
   // This requires additional fixes

@@ -19,7 +19,7 @@ describe('The Console Tab', async () => {
         message: 'log',
         messageClasses: 'console-message',
         repeatCount: null,
-        source: '__puppeteer_evaluation_script__:1',
+        source: '__puppeteer_evaluation_script__:1:16',
         stackPreview: null,
         wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
       }],
@@ -31,7 +31,7 @@ describe('The Console Tab', async () => {
         message: 'debug',
         messageClasses: 'console-message',
         repeatCount: null,
-        source: '__puppeteer_evaluation_script__:1',
+        source: '__puppeteer_evaluation_script__:1:16',
         stackPreview: null,
         wrapperClasses: 'console-message-wrapper console-from-api console-verbose-level',
       }],
@@ -43,8 +43,8 @@ describe('The Console Tab', async () => {
         message: 'warn',
         messageClasses: 'console-message',
         repeatCount: null,
-        source: '__puppeteer_evaluation_script__:1',
-        stackPreview: '\n(anonymous) @ __puppeteer_evaluation_script__:1',
+        source: '__puppeteer_evaluation_script__:1:16',
+        stackPreview: '\n(anonymous) @ __puppeteer_evaluation_script__:1:16',
         wrapperClasses: 'console-message-wrapper console-from-api console-warning-level',
       }],
     },
@@ -55,8 +55,8 @@ describe('The Console Tab', async () => {
         message: 'error',
         messageClasses: 'console-message',
         repeatCount: null,
-        source: '__puppeteer_evaluation_script__:1',
-        stackPreview: '\n(anonymous) @ __puppeteer_evaluation_script__:1',
+        source: '__puppeteer_evaluation_script__:1:16',
+        stackPreview: '\n(anonymous) @ __puppeteer_evaluation_script__:1:16',
         wrapperClasses: 'console-message-wrapper console-from-api console-error-level',
       }],
     },
@@ -71,7 +71,7 @@ describe('The Console Tab', async () => {
         message: 'repeated',
         messageClasses: 'console-message repeated-message',
         repeatCount: '5',
-        source: '__puppeteer_evaluation_script__:3',
+        source: '__puppeteer_evaluation_script__:3:29',
         stackPreview: null,
         wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
       }],
@@ -88,7 +88,7 @@ describe('The Console Tab', async () => {
           message: 'count: 1',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:3',
+          source: '__puppeteer_evaluation_script__:3:29',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -96,7 +96,7 @@ describe('The Console Tab', async () => {
           message: 'count: 2',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:3',
+          source: '__puppeteer_evaluation_script__:3:29',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -113,7 +113,7 @@ describe('The Console Tab', async () => {
           message: 'group',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:2',
+          source: '__puppeteer_evaluation_script__:2:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-group-title console-from-api console-info-level',
         },
@@ -129,7 +129,7 @@ describe('The Console Tab', async () => {
           message: '1 2 3',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:2',
+          source: '__puppeteer_evaluation_script__:2:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -156,7 +156,7 @@ describe('The Console Tab', async () => {
           message: 'groupCollapsed',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:2',
+          source: '__puppeteer_evaluation_script__:2:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-group-title console-from-api console-info-level',
         },
@@ -177,7 +177,7 @@ describe('The Console Tab', async () => {
           message: 'default: 1',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:2',
+          source: '__puppeteer_evaluation_script__:2:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -185,7 +185,7 @@ describe('The Console Tab', async () => {
           message: 'default: 2',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:3',
+          source: '__puppeteer_evaluation_script__:3:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -193,7 +193,7 @@ describe('The Console Tab', async () => {
           message: 'default: 3',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:4',
+          source: '__puppeteer_evaluation_script__:4:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -201,7 +201,7 @@ describe('The Console Tab', async () => {
           message: 'title: 1',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:5',
+          source: '__puppeteer_evaluation_script__:5:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -209,7 +209,7 @@ describe('The Console Tab', async () => {
           message: 'title: 2',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:6',
+          source: '__puppeteer_evaluation_script__:6:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -217,7 +217,7 @@ describe('The Console Tab', async () => {
           message: 'title: 3',
           messageClasses: 'console-message',
           repeatCount: null,
-          source: '__puppeteer_evaluation_script__:7',
+          source: '__puppeteer_evaluation_script__:7:25',
           stackPreview: null,
           wrapperClasses: 'console-message-wrapper console-from-api console-info-level',
         },
@@ -246,22 +246,22 @@ describe('The Console Tab', async () => {
       await focusConsolePrompt();
 
       await tabBackward();
-      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9');
+      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9:11');
 
       await frontend.keyboard.press('ArrowUp');
-      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9 Third message');
+      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9:11 Third message');
 
       await frontend.keyboard.press('ArrowUp');
-      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:8');
+      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:8:11');
 
       await frontend.keyboard.press('ArrowDown');
-      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9 Third message');
+      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9:11 Third message');
 
       await tabBackward();  // Focus should now be on the console settings, e.g. out of the list of console messages
       assert.strictEqual(await activeElementAccessibleName(), 'Console settings');
 
       await tabForward();  // Focus is now back to the list, selecting the last message source URL
-      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9');
+      assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9:11');
 
       await tabForward();
       assert.strictEqual(await activeElementAccessibleName(), 'Console prompt');
