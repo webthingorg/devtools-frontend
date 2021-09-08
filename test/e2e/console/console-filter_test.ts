@@ -60,18 +60,18 @@ describe('The Console Tab', async () => {
 
     await step('check that all console messages appear', async () => {
       assert.deepEqual(messages, [
-        'console-filter.html:10 1topGroup: log1()',
-        'log-source.js:6 2topGroup: log2()',
-        'console-filter.html:10 3topGroup: log1()',
-        'console-filter.html:17 outerGroup',
-        'console-filter.html:10 1outerGroup: log1()',
-        'log-source.js:6 2outerGroup: log2()',
-        'console-filter.html:21 innerGroup',
-        'console-filter.html:10 1innerGroup: log1()',
-        'log-source.js:6 2innerGroup: log2()',
-        'console-filter.html:30 Hello 1',
-        'console-filter.html:31 Hello 2',
-        'console-filter.html:34 end',
+        'console-filter.html:10:17 1topGroup: log1()',
+        'log-source.js:6:15 2topGroup: log2()',
+        'console-filter.html:10:17 3topGroup: log1()',
+        'console-filter.html:17:9 outerGroup',
+        'console-filter.html:10:17 1outerGroup: log1()',
+        'log-source.js:6:15 2outerGroup: log2()',
+        'console-filter.html:21:9 innerGroup',
+        'console-filter.html:10:17 1innerGroup: log1()',
+        'log-source.js:6:15 2innerGroup: log2()',
+        'console-filter.html:30:9 Hello 1',
+        'console-filter.html:31:9 Hello 2',
+        'console-filter.html:34:9 end',
       ]);
     });
   });
@@ -90,19 +90,19 @@ describe('The Console Tab', async () => {
 
     await step('check that all console messages appear', async () => {
       assert.deepEqual(messages, [
-        'console-filter.html:10 1topGroup: log1()',
-        'log-source.js:6 2topGroup: log2()',
-        'console-filter.html:10 3topGroup: log1()',
-        'console-filter.html:17 outerGroup',
-        'console-filter.html:10 1outerGroup: log1()',
-        'log-source.js:6 2outerGroup: log2()',
-        'console-filter.html:21 innerGroup',
-        'console-filter.html:10 1innerGroup: log1()',
-        'log-source.js:6 2innerGroup: log2()',
-        'console-filter.html:30 Hello 1',
-        'console-filter.html:31 Hello 2',
-        'console-filter.html:33 verbose debug message',
-        'console-filter.html:34 end',
+        'console-filter.html:10:17 1topGroup: log1()',
+        'log-source.js:6:15 2topGroup: log2()',
+        'console-filter.html:10:17 3topGroup: log1()',
+        'console-filter.html:17:9 outerGroup',
+        'console-filter.html:10:17 1outerGroup: log1()',
+        'log-source.js:6:15 2outerGroup: log2()',
+        'console-filter.html:21:9 innerGroup',
+        'console-filter.html:10:17 1innerGroup: log1()',
+        'log-source.js:6:15 2innerGroup: log2()',
+        'console-filter.html:30:9 Hello 1',
+        'console-filter.html:31:9 Hello 2',
+        'console-filter.html:33:9 verbose debug message',
+        'console-filter.html:34:9 end',
       ]);
     });
   });

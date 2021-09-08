@@ -160,6 +160,6 @@ describe('FrameDetailsView', () => {
       stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
     });
 
-    assert.deepEqual(stackTraceText, ['function1\xA0@\xA0www.example.com/script.js:16']);
+    assert.deepEqual(stackTraceText, ['function1\xA0@\xA0www.example.com/script.js:16:11']);
   });
 });

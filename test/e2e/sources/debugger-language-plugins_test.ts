@@ -133,7 +133,7 @@ describe('The Debugger Language Plugins', async () => {
 
     const callFrameLoc = await waitFor('.call-frame-location');
     const scriptLocation = await callFrameLoc.evaluate(location => location.textContent);
-    assert.deepEqual(scriptLocation, 'unreachable.ll:6');
+    assert.deepEqual(scriptLocation, 'unreachable.ll:6:3');
 
     await click(RESUME_BUTTON);
     const error = await waitForFunction(async () => {
@@ -141,7 +141,7 @@ describe('The Debugger Language Plugins', async () => {
       return messages.find(message => message.message.startsWith('Uncaught (in promise) RuntimeError: unreachable'));
     });
     const callframes = error.message.split('\n').slice(1);
-    assert.deepEqual(callframes, ['    at Main (unreachable.ll:6)', '    at go (unreachable.html:27)']);
+    assert.deepEqual(callframes, ['    at Main (unreachable.ll:6:3)', '    at go (unreachable.html:27:29)']);
   });
 
   // Resolve the location for a breakpoint.
@@ -359,9 +359,13 @@ describe('The Debugger Language Plugins', async () => {
     assert.deepEqual(
         funcNames, ['inner_inline_func', 'outer_inline_func', 'Main', 'go', 'await in go (async)', '(anonymous)']);
     const sourceLocations = await getCallFrameLocations();
-    assert.deepEqual(
-        sourceLocations,
-        ['unreachable.ll:6', 'unreachable.ll:11', 'unreachable.ll:16', 'unreachable.html:27', 'unreachable.html:30']);
+    assert.deepEqual(sourceLocations, [
+      'unreachable.ll:6:3',
+      'unreachable.ll:11:3',
+      'unreachable.ll:16:3',
+      'unreachable.html:27:29',
+      'unreachable.html:30:1',
+    ]);
 
     // We see variables for innermost frame.
     assert.deepEqual(await getValuesForScope('LOCAL', 0, 1), ['localX0: undefined']);
@@ -381,10 +385,10 @@ describe('The Debugger Language Plugins', async () => {
       }
       const message = messages[messages.length - 1];
       return message.message === `Uncaught (in promise) RuntimeError: unreachable
-    at inner_inline_func (unreachable.ll:6)
-    at outer_inline_func (unreachable.ll:11)
-    at Main (unreachable.ll:16)
-    at go (unreachable.html:27)`;
+    at inner_inline_func (unreachable.ll:6:3)
+    at outer_inline_func (unreachable.ll:11:3)
+    at Main (unreachable.ll:16:3)
+    at go (unreachable.html:27:29)`;
     });
   });
 
@@ -452,7 +456,7 @@ describe('The Debugger Language Plugins', async () => {
     const funcNames = await getCallFrameNames();
     assert.deepEqual(funcNames, ['$Main', 'go', 'await in go (async)', '(anonymous)']);
     const sourceLocations = await getCallFrameLocations();
-    assert.deepEqual(sourceLocations, ['unreachable.ll:6', 'unreachable.html:27', 'unreachable.html:30']);
+    assert.deepEqual(sourceLocations, ['unreachable.ll:6:3', 'unreachable.html:27:29', 'unreachable.html:30:1']);
   });
 
   it('shows variable values with JS formatters', async () => {

@@ -17,7 +17,7 @@ describe('The Sources Tab', async () => {
     const scriptEvaluation = target.evaluate('f2();');
 
     const scriptLocation = await retrieveTopCallFrameWithoutResuming();
-    assert.deepEqual(scriptLocation, 'click-breakpoint.js:4');
+    assert.deepEqual(scriptLocation, 'click-breakpoint.js:4:13');
 
     const breakpointHandle = await $('label', await waitFor('.breakpoint-hit'));
     const breakpointLocation = await breakpointHandle?.evaluate(label => label.textContent);
