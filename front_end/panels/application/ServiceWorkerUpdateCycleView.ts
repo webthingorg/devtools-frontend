@@ -7,6 +7,8 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import serviceWorkerUpdateCycleViewStyles from './serviceWorkerUpdateCycleView.css.js';
+
 const UIStrings = {
   /**
   *@description Text in Indexed DBViews of the Application panel
@@ -133,7 +135,7 @@ export class ServiceWorkerUpdateCycleView {
 
   private createTimingTable(): void {
     this.tableElement.classList.add('service-worker-update-timing-table');
-    UI.Utils.appendStyle(this.tableElement, 'panels/application/serviceWorkerUpdateCycleView.css');
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, serviceWorkerUpdateCycleViewStyles];
     const timeRanges = this.calculateServiceWorkerUpdateRanges();
     this.updateTimingTable(timeRanges);
   }
