@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14034481_48846917",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1338728
+      },
+      "writtenOn": "2021-09-08T16:58:47Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03e3e68_c9f771ab",
@@ -113,6 +130,30 @@
       "side": 1,
       "message": "I just realized that I didn\u0027t really answer Ionel\u0027s question :D\n\nIMO, `console.error` would work fine at this stage, because although the error message says the user cancelled the selection, it\u0027s actually not the case: it happened because the eyedropper instance was not successfully created from the frame host\u0027s web content delegate. In these cases I think we do want to know explicitly what went wrong and act on them. And of course if you or yiorsi wants to do more, that would be awesome as well :)",
       "parentUuid": "c8a8e045_7b5a6ff4",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1188,
+        "endChar": 29
+      },
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c9037ec_b97b0a94",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1338728
+      },
+      "writtenOn": "2021-09-08T16:58:47Z",
+      "side": 1,
+      "message": "changhaohan@ - thanks for solving the issue with docked DevTools scenario.",
+      "parentUuid": "5e45bbed_2ef9dc80",
       "range": {
         "startLine": 1188,
         "startChar": 0,
