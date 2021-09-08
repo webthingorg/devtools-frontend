@@ -51,6 +51,23 @@
       "message": "Alright, to unblock this I stamp now as I\u0027ll be around this evening to have an eye.",
       "revId": "3a2c87cf414b7f7f8446d98c09c40fc0b3e7f8b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a99bc09_8b432d42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-09-08T17:27:36Z",
+      "side": 1,
+      "message": "What are the possible points of failures of this? E.g. some missing ACLs on our service accounts? Also, what can I expect to see when it works?",
+      "revId": "3a2c87cf414b7f7f8446d98c09c40fc0b3e7f8b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
