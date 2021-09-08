@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15231401_a98a1ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-09-08T11:21:02Z",
+      "side": 1,
+      "message": "Liviu please review and watch this.\n\nWouldn\u0027t it be enough to enable results_db for the builders that use the chromium recipe? E.g. here I think chromium_trybot and chromium_integration. Or is setting reqults_db on all the other builders just a no-op? Does V8 have something like this already?",
+      "revId": "3a2c87cf414b7f7f8446d98c09c40fc0b3e7f8b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
