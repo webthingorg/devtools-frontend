@@ -68,6 +68,24 @@
       "message": "What are the possible points of failures of this? E.g. some missing ACLs on our service accounts? Also, what can I expect to see when it works?",
       "revId": "3a2c87cf414b7f7f8446d98c09c40fc0b3e7f8b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ff7496_6ab01dd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1170419
+      },
+      "writtenOn": "2021-09-08T17:33:39Z",
+      "side": 1,
+      "message": "That\u0027s the only failure mode I can imagine we might see.\n\nAnd it should be mostly invisible when it works. The only difference is that the new milo UI should then have a \"test reuslts\" tab for new builds, eg:\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/ci/DevTools%20Linux%20(chromium)/25342/overview",
+      "parentUuid": "8a99bc09_8b432d42",
+      "revId": "3a2c87cf414b7f7f8446d98c09c40fc0b3e7f8b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
