@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82ef6c49_8a73ee58",
+        "filename": "front_end/ui/components/docs/report/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T09:46:28Z",
+      "side": 1,
+      "message": "Nit: I think we should revert this one as well?",
+      "range": {
+        "startLine": 52,
+        "startChar": 15,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "1b0de8b9b0066d6f75e13fdb1d2cf2a95707c6b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
