@@ -52,6 +52,24 @@
       "parentUuid": "03130de1_5b1d771a",
       "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ca32a6_16977580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T14:20:37Z",
+      "side": 1,
+      "message": "Given the size of the CL and the amount of implementation, I think the only thing I can do is rubber stamp here.\n\nIn terms of testing, you can opt for writing 1 e2e-test to at least cover the basic workflow for the tab. That should already get you quite far in terms of knowing whether the feature works in the first place.\n\nOther than that, some manual testing would be required. But anything automatable would require refactorings to make it testable and as you say, that\u0027s not likely to happen anytime soon.\n\nSo I am rubberstamping this CL as I don\u0027t see anything obviously wrong with it.",
+      "parentUuid": "f6e182d4_b2cdb211",
+      "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
