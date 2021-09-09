@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b904b6_f6b37bb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-09T13:55:15Z",
+      "side": 1,
+      "message": "Hey Simon,\n\nHere\u0027s another fix for FilterBar.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "c2404f034567537833110a7fc4795fe47b2da2e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
