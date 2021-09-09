@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b2decb_93ba4d68",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T11:34:04Z",
+      "side": 1,
+      "message": "Do we need to do the same for `Events` here?",
+      "range": {
+        "startLine": 43,
+        "startChar": 20,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "5a0e2edb6e21b13b8e3c490a838f0955984b3616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
