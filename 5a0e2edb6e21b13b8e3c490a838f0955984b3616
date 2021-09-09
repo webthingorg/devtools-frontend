@@ -22,6 +22,30 @@
       },
       "revId": "5a0e2edb6e21b13b8e3c490a838f0955984b3616",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a662997c_4e99d0bd",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-09T12:40:46Z",
+      "side": 1,
+      "message": "Moving it out of the private namespace you mean? In that case no. SearchAction probably should in fact stay in here too, at least moving it isn\u0027t necessary for the fix. We might consider moving ot to the PublicAPI though!",
+      "parentUuid": "75b2decb_93ba4d68",
+      "range": {
+        "startLine": 43,
+        "startChar": 20,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "5a0e2edb6e21b13b8e3c490a838f0955984b3616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
