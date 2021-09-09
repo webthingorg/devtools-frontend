@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a274e0_3b91ee56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-09T13:03:20Z",
+      "side": 1,
+      "message": "Hey Simon,\n\nHere\u0027s another easy migration. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "8c0698f7bf828f62b8cb2b2c6f262e5935491743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
