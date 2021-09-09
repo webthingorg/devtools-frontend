@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06cbea5c_ef68bc35",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-09T20:57:15Z",
+      "side": 1,
+      "message": "I see. This makes sense then. Thanks for the explanation!",
+      "parentUuid": "30e630b4_b41569ec",
+      "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3d68700_bd767d91",
