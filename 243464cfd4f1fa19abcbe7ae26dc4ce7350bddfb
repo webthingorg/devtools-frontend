@@ -86,6 +86,23 @@
       "parentUuid": "a35c6ea2_c7d6dab0",
       "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09861e25_882c23cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-09T11:13:48Z",
+      "side": 1,
+      "message": "Kateryna, this might be something you could take up.",
+      "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
