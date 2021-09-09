@@ -16,6 +16,24 @@
       "message": "Please advice if you can think of a reasonable way to test this.",
       "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03130de1_5b1d771a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T14:03:10Z",
+      "side": 1,
+      "message": "Unfortunately, a lot of this is legacy widget code that is generally not testable. If you want to make this testable, rewriting into a standalone web component would work.\n\nI am not 100% sure, but how much of this CL is new implementation versus what is copied from before and slightly changed? The diff is showing 400 line additions, so that is quite a lot.\n\nI am not sure how feasible it is to now rewrite to a reusable web component, but that might be worth considering if you think you can invest the time to do so. If this is mostly copying code around (which didn\u0027t have tests to begin with), then I think we could land this as-is.",
+      "parentUuid": "a145f638_a60b138f",
+      "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
