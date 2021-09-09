@@ -49,4 +49,4 @@ LitHtml.render(
         ReportView.ReportView.ReportSectionDivider.litTagName}>
         </${ReportView.ReportView.Report.litTagName}>
       `,
-    container);
+    container, {host: this});
