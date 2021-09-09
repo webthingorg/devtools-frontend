@@ -39,6 +39,53 @@
       },
       "revId": "2b1d9cd5c8a90108ab2246531dca55235c282d40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6967cd_4cea8fa8",
+        "filename": "scripts/eslint_rules/lib/lit_html_host_this.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T09:44:29Z",
+      "side": 1,
+      "message": "Yeah let\u0027s leave this as TODO for now. If we see this pattern emerge (and I don\u0027t think we will), we can revisit.",
+      "parentUuid": "815ac235_cd28814c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "2b1d9cd5c8a90108ab2246531dca55235c282d40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31aaab49_d0b9eeb2",
+        "filename": "scripts/eslint_rules/lib/lit_html_host_this.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-09T09:44:29Z",
+      "side": 1,
+      "message": "Nit: I think this comma should be after `this`, as the following test case would break:\n\n```ts\nLitHtml.render(someHtml, this.shadow, { renderBefore: foo, }\n```\n\n(see the trailing comma)",
+      "range": {
+        "startLine": 81,
+        "startChar": 53,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "2b1d9cd5c8a90108ab2246531dca55235c282d40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
