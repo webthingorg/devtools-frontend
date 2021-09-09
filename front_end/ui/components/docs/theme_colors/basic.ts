@@ -84,7 +84,7 @@ function appendStyles(mode: 'light'|'dark') {
     const liStyles = LitHtml.Directives.styleMap(styles);
     return LitHtml.html`<li style=${liStyles}><code>${varName}: ${value}</code></li>`;
   });
-  LitHtml.render(LitHtml.html`${listItems}`, container);
+  LitHtml.render(LitHtml.html`${listItems}`, container, {host: this});
 }
 
 appendStyles('light');

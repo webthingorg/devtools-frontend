@@ -34,7 +34,7 @@ export function init(): void {
   <ul class="docs-breadcrumbs">
     <li><a href="/">Index</a></li>
     <li><a href=".">All component examples</a></li>
-  </ul>`, container);
+  </ul>`, container, {host: this});
   // clang-format on
 
   document.body.appendChild(container);
