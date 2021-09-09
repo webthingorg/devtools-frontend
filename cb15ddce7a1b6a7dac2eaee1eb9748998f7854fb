@@ -46,6 +46,30 @@
       },
       "revId": "cb15ddce7a1b6a7dac2eaee1eb9748998f7854fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ce9e2ca_450c11fe",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-09-09T11:08:43Z",
+      "side": 1,
+      "message": "getRootNode() did not work in this case as at the current point there is not root associated to the table, hence it was just returning an HTMLElement with the table. I also tried to add styles using the document but that did not work either as Tim mentioned it is deep in a shadow root somewhere. \n\nIn another CL I will implement the changes we discussed where the styles will be handled in the closest possible UI.Widget with a comment explaining why we have chosen to add them there.",
+      "parentUuid": "a72ba696_40a5e765",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 31
+      },
+      "revId": "cb15ddce7a1b6a7dac2eaee1eb9748998f7854fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
