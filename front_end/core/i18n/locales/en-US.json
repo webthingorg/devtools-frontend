@@ -6563,20 +6563,8 @@
   "panels/network/RequestCookiesView.ts | thisRequestHasNoCookies": {
     "message": "This request has no cookies."
   },
-  "panels/network/RequestHeadersView.ts | activeClientExperimentVariation": {
-    "message": "Active client experiment variation IDs."
-  },
-  "panels/network/RequestHeadersView.ts | activeClientExperimentVariationIds": {
-    "message": "Active client experiment variation IDs that trigger server-side behavior."
-  },
-  "panels/network/RequestHeadersView.ts | chooseThisOptionIfTheResourceAnd": {
-    "message": "Choose this option if the resource and the document are served from the same site."
-  },
   "panels/network/RequestHeadersView.ts | copyValue": {
     "message": "Copy value"
-  },
-  "panels/network/RequestHeadersView.ts | decoded": {
-    "message": "Decoded:"
   },
   "panels/network/RequestHeadersView.ts | empty": {
     "message": "(empty)"
@@ -6584,89 +6572,14 @@
   "panels/network/RequestHeadersView.ts | formData": {
     "message": "Form Data"
   },
-  "panels/network/RequestHeadersView.ts | fromDiskCache": {
-    "message": "(from disk cache)"
-  },
-  "panels/network/RequestHeadersView.ts | fromMemoryCache": {
-    "message": "(from memory cache)"
-  },
-  "panels/network/RequestHeadersView.ts | fromPrefetchCache": {
-    "message": "(from prefetch cache)"
-  },
-  "panels/network/RequestHeadersView.ts | fromServiceWorker": {
-    "message": "(from service worker)"
-  },
-  "panels/network/RequestHeadersView.ts | fromSignedexchange": {
-    "message": "(from signed-exchange)"
-  },
-  "panels/network/RequestHeadersView.ts | general": {
-    "message": "General"
-  },
-  "panels/network/RequestHeadersView.ts | learnMore": {
-    "message": "Learn more"
-  },
-  "panels/network/RequestHeadersView.ts | learnMoreInTheIssuesTab": {
-    "message": "Learn more in the issues tab"
-  },
-  "panels/network/RequestHeadersView.ts | onlyChooseThisOptionIfAn": {
-    "message": "Only choose this option if an arbitrary website including this resource does not impose a security risk."
-  },
-  "panels/network/RequestHeadersView.ts | onlyProvisionalHeadersAre": {
-    "message": "Only provisional headers are available because this request was not sent over the network and instead was served from a local cache, which doesn’t store the original request headers. Disable cache to see full request headers."
-  },
-  "panels/network/RequestHeadersView.ts | provisionalHeadersAreShown": {
-    "message": "Provisional headers are shown"
-  },
-  "panels/network/RequestHeadersView.ts | provisionalHeadersAreShownS": {
-    "message": "Provisional headers are shown. Disable cache to see full headers."
-  },
   "panels/network/RequestHeadersView.ts | queryStringParameters": {
     "message": "Query String Parameters"
-  },
-  "panels/network/RequestHeadersView.ts | recordedAttribution": {
-    "message": "Recorded attribution with trigger-data: {PH1}"
-  },
-  "panels/network/RequestHeadersView.ts | referrerPolicy": {
-    "message": "Referrer Policy"
-  },
-  "panels/network/RequestHeadersView.ts | remoteAddress": {
-    "message": "Remote Address"
-  },
-  "panels/network/RequestHeadersView.ts | requestHeaders": {
-    "message": "Request Headers"
-  },
-  "panels/network/RequestHeadersView.ts | requestMethod": {
-    "message": "Request Method"
   },
   "panels/network/RequestHeadersView.ts | requestPayload": {
     "message": "Request Payload"
   },
-  "panels/network/RequestHeadersView.ts | requestUrl": {
-    "message": "Request URL"
-  },
-  "panels/network/RequestHeadersView.ts | responseHeaders": {
-    "message": "Response Headers"
-  },
   "panels/network/RequestHeadersView.ts | showMore": {
     "message": "Show more"
-  },
-  "panels/network/RequestHeadersView.ts | statusCode": {
-    "message": "Status Code"
-  },
-  "panels/network/RequestHeadersView.ts | thisDocumentWasBlockedFrom": {
-    "message": "This document was blocked from loading in an iframe with a sandbox attribute because this document specified a cross-origin opener policy."
-  },
-  "panels/network/RequestHeadersView.ts | toEmbedThisFrameInYourDocument": {
-    "message": "To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferent": {
-    "message": "To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferentOrigin": {
-    "message": "To use this resource from a different origin, the server may relax the cross-origin resource policy response header:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferentSite": {
-    "message": "To use this resource from a different site, the server may relax the cross-origin resource policy response header:"
   },
   "panels/network/RequestHeadersView.ts | unableToDecodeValue": {
     "message": "(unable to decode value)"

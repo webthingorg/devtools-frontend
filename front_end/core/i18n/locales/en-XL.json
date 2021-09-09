@@ -6563,20 +6563,8 @@
   "panels/network/RequestCookiesView.ts | thisRequestHasNoCookies": {
     "message": "T̂h́îś r̂éq̂úêśt̂ h́âś n̂ó ĉóôḱîéŝ."
   },
-  "panels/network/RequestHeadersView.ts | activeClientExperimentVariation": {
-    "message": "Âćt̂ív̂é client experiment variation IDs."
-  },
-  "panels/network/RequestHeadersView.ts | activeClientExperimentVariationIds": {
-    "message": "Âćt̂ív̂é client experiment variation IDs t̂h́ât́ t̂ŕîǵĝér̂ śêŕv̂ér̂-śîd́ê b́êh́âv́îór̂."
-  },
-  "panels/network/RequestHeadersView.ts | chooseThisOptionIfTheResourceAnd": {
-    "message": "Ĉh́ôóŝé t̂h́îś ôṕt̂íôń îf́ t̂h́ê ŕêśôúr̂ćê án̂d́ t̂h́ê d́ôćûḿêńt̂ ár̂é ŝér̂v́êd́ f̂ŕôḿ t̂h́ê śâḿê śît́ê."
-  },
   "panels/network/RequestHeadersView.ts | copyValue": {
     "message": "Ĉóp̂ý v̂ál̂úê"
-  },
-  "panels/network/RequestHeadersView.ts | decoded": {
-    "message": "D̂éĉód̂éd̂:"
   },
   "panels/network/RequestHeadersView.ts | empty": {
     "message": "(êḿp̂t́ŷ)"
@@ -6584,89 +6572,14 @@
   "panels/network/RequestHeadersView.ts | formData": {
     "message": "F̂ór̂ḿ D̂át̂á"
   },
-  "panels/network/RequestHeadersView.ts | fromDiskCache": {
-    "message": "(f̂ŕôḿ d̂íŝḱ ĉáĉh́ê)"
-  },
-  "panels/network/RequestHeadersView.ts | fromMemoryCache": {
-    "message": "(f̂ŕôḿ m̂ém̂ór̂ý ĉáĉh́ê)"
-  },
-  "panels/network/RequestHeadersView.ts | fromPrefetchCache": {
-    "message": "(f̂ŕôḿ p̂ŕêf́êt́ĉh́ ĉáĉh́ê)"
-  },
-  "panels/network/RequestHeadersView.ts | fromServiceWorker": {
-    "message": "(f̂ŕôḿ service worker)"
-  },
-  "panels/network/RequestHeadersView.ts | fromSignedexchange": {
-    "message": "(f̂ŕôḿ ŝíĝńêd́-êx́ĉh́âńĝé)"
-  },
-  "panels/network/RequestHeadersView.ts | general": {
-    "message": "Ĝén̂ér̂ál̂"
-  },
-  "panels/network/RequestHeadersView.ts | learnMore": {
-    "message": "L̂éâŕn̂ ḿôŕê"
-  },
-  "panels/network/RequestHeadersView.ts | learnMoreInTheIssuesTab": {
-    "message": "L̂éâŕn̂ ḿôŕê ín̂ t́ĥé îśŝúêś t̂áb̂"
-  },
-  "panels/network/RequestHeadersView.ts | onlyChooseThisOptionIfAn": {
-    "message": "Ôńl̂ý ĉh́ôóŝé t̂h́îś ôṕt̂íôń îf́ âń âŕb̂ít̂ŕâŕŷ ẃêb́ŝít̂é îńĉĺûd́îńĝ t́ĥíŝ ŕêśôúr̂ćê d́ôéŝ ńôt́ îḿp̂óŝé â śêćûŕît́ŷ ŕîśk̂."
-  },
-  "panels/network/RequestHeadersView.ts | onlyProvisionalHeadersAre": {
-    "message": "Ôńl̂ý p̂ŕôv́îśîón̂ál̂ h́êád̂ér̂ś âŕê áv̂áîĺâb́l̂é b̂éĉáûśê t́ĥíŝ ŕêq́ûéŝt́ ŵáŝ ńôt́ ŝén̂t́ ôv́êŕ t̂h́ê ńêt́ŵór̂ḱ âńd̂ ín̂śt̂éâd́ ŵáŝ śêŕv̂éd̂ f́r̂óm̂ á l̂óĉál̂ ćâćĥé, ŵh́îćĥ d́ôéŝń’t̂ śt̂ór̂é t̂h́ê ór̂íĝín̂ál̂ ŕêq́ûéŝt́ ĥéâd́êŕŝ. D́îśâb́l̂é ĉáĉh́ê t́ô śêé f̂úl̂ĺ r̂éq̂úêśt̂ h́êád̂ér̂ś."
-  },
-  "panels/network/RequestHeadersView.ts | provisionalHeadersAreShown": {
-    "message": "P̂ŕôv́îśîón̂ál̂ h́êád̂ér̂ś âŕê śĥóŵń"
-  },
-  "panels/network/RequestHeadersView.ts | provisionalHeadersAreShownS": {
-    "message": "P̂ŕôv́îśîón̂ál̂ h́êád̂ér̂ś âŕê śĥóŵń. D̂íŝáb̂ĺê ćâćĥé t̂ó ŝéê f́ûĺl̂ h́êád̂ér̂ś."
-  },
   "panels/network/RequestHeadersView.ts | queryStringParameters": {
     "message": "Q̂úêŕŷ Śt̂ŕîńĝ Ṕâŕâḿêt́êŕŝ"
-  },
-  "panels/network/RequestHeadersView.ts | recordedAttribution": {
-    "message": "R̂éĉór̂d́êd́ ât́t̂ŕîb́ût́îón̂ ẃît́ĥ trigger-data: {PH1}"
-  },
-  "panels/network/RequestHeadersView.ts | referrerPolicy": {
-    "message": "R̂éf̂ér̂ŕêŕ P̂ól̂íĉý"
-  },
-  "panels/network/RequestHeadersView.ts | remoteAddress": {
-    "message": "R̂ém̂ót̂é Âd́d̂ŕêśŝ"
-  },
-  "panels/network/RequestHeadersView.ts | requestHeaders": {
-    "message": "R̂éq̂úêśt̂ H́êád̂ér̂ś"
-  },
-  "panels/network/RequestHeadersView.ts | requestMethod": {
-    "message": "R̂éq̂úêśt̂ Ḿêt́ĥód̂"
   },
   "panels/network/RequestHeadersView.ts | requestPayload": {
     "message": "R̂éq̂úêśt̂ Ṕâýl̂óâd́"
   },
-  "panels/network/RequestHeadersView.ts | requestUrl": {
-    "message": "R̂éq̂úêśt̂ ÚR̂Ĺ"
-  },
-  "panels/network/RequestHeadersView.ts | responseHeaders": {
-    "message": "R̂éŝṕôńŝé Ĥéâd́êŕŝ"
-  },
   "panels/network/RequestHeadersView.ts | showMore": {
     "message": "Ŝh́ôẃ m̂ór̂é"
-  },
-  "panels/network/RequestHeadersView.ts | statusCode": {
-    "message": "Ŝt́ât́ûś Ĉód̂é"
-  },
-  "panels/network/RequestHeadersView.ts | thisDocumentWasBlockedFrom": {
-    "message": "T̂h́îś d̂óĉúm̂én̂t́ ŵáŝ b́l̂óĉḱêd́ f̂ŕôḿ l̂óâd́îńĝ ín̂ án̂ iframe ẃît́ĥ á sandbox ât́t̂ŕîb́ût́ê b́êćâúŝé t̂h́îś d̂óĉúm̂én̂t́ ŝṕêćîf́îéd̂ á ĉŕôśŝ-ór̂íĝín̂ óp̂én̂ér̂ ṕôĺîćŷ."
-  },
-  "panels/network/RequestHeadersView.ts | toEmbedThisFrameInYourDocument": {
-    "message": "T̂ó êḿb̂éd̂ t́ĥíŝ f́r̂ám̂é îń ŷóûŕ d̂óĉúm̂én̂t́, t̂h́ê ŕêśp̂ón̂śê ńêéd̂ś t̂ó êńâb́l̂é t̂h́ê ćr̂óŝś-ôŕîǵîń êḿb̂éd̂d́êŕ p̂ól̂íĉý b̂ý ŝṕêćîf́ŷín̂ǵ t̂h́ê f́ôĺl̂óŵín̂ǵ r̂éŝṕôńŝé ĥéâd́êŕ:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferent": {
-    "message": "T̂ó ûśê t́ĥíŝ ŕêśôúr̂ćê f́r̂óm̂ á d̂íf̂f́êŕêńt̂ ór̂íĝín̂, t́ĥé ŝér̂v́êŕ n̂éêd́ŝ t́ô śp̂éĉíf̂ý â ćr̂óŝś-ôŕîǵîń r̂éŝóûŕĉé p̂ól̂íĉý îń t̂h́ê ŕêśp̂ón̂śê h́êád̂ér̂ś:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferentOrigin": {
-    "message": "T̂ó ûśê t́ĥíŝ ŕêśôúr̂ćê f́r̂óm̂ á d̂íf̂f́êŕêńt̂ ór̂íĝín̂, t́ĥé ŝér̂v́êŕ m̂áŷ ŕêĺâx́ t̂h́ê ćr̂óŝś-ôŕîǵîń r̂éŝóûŕĉé p̂ól̂íĉý r̂éŝṕôńŝé ĥéâd́êŕ:"
-  },
-  "panels/network/RequestHeadersView.ts | toUseThisResourceFromADifferentSite": {
-    "message": "T̂ó ûśê t́ĥíŝ ŕêśôúr̂ćê f́r̂óm̂ á d̂íf̂f́êŕêńt̂ śît́ê, t́ĥé ŝér̂v́êŕ m̂áŷ ŕêĺâx́ t̂h́ê ćr̂óŝś-ôŕîǵîń r̂éŝóûŕĉé p̂ól̂íĉý r̂éŝṕôńŝé ĥéâd́êŕ:"
   },
   "panels/network/RequestHeadersView.ts | unableToDecodeValue": {
     "message": "(ûńâb́l̂é t̂ó d̂éĉód̂é v̂ál̂úê)"
