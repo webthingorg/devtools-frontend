@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dce84706_83787e97",
+        "filename": "front_end/models/bindings/ResourceMapping.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-09T07:45:34Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 192,
+        "startChar": 90,
+        "endLine": 192,
+        "endChar": 111
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b56cc69_840ab7a9",
+        "filename": "front_end/panels/elements/ComputedStyleModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-09T07:45:34Z",
+      "side": 1,
+      "message": "Do we need to add\n  |null",
+      "range": {
+        "startLine": 128,
+        "startChar": 116,
+        "endLine": 128,
+        "endChar": 117
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0961199_11023e0b",
         "filename": "front_end/panels/elements/ElementsSidebarPane.ts",
         "patchSetId": 3
