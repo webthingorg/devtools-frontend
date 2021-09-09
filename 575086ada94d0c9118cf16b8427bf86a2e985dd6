@@ -34,6 +34,24 @@
       "parentUuid": "a145f638_a60b138f",
       "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e182d4_b2cdb211",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-09T14:10:23Z",
+      "side": 1,
+      "message": "This is a pure refactoring and no, I don\u0027t feel like rewriting it all from scratch right now:)\n\nI don\u0027t think there\u0027s anything like `g4 integrate -i` in Gerrit that would let me annotate RequestPayloadView.ts as derived from RequestHeadersView.ts, but here\u0027s a fake CL with a nicer diff: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3151796/1/front_end/panels/network/RequestHeadersView.ts\n\nFeel free to comment on either CL, I will apply all the changes here.",
+      "parentUuid": "03130de1_5b1d771a",
+      "revId": "575086ada94d0c9118cf16b8427bf86a2e985dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
