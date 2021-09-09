@@ -16,6 +16,74 @@
       "message": "PTAL.\n-1 since backend change has not rolled yet.",
       "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c6b96f_7c7a4358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-09T08:08:28Z",
+      "side": 1,
+      "message": "LGTM % (naming) nits",
+      "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8cf14f_78aaa1f0",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-09T08:08:28Z",
+      "side": 1,
+      "message": "nit: could we use `this.emulateAutoDarkMode(true)` here to be more explicit, since it has to be true in this case?",
+      "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3d68700_bd767d91",
+        "filename": "front_end/core/sdk/sdk-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-09T08:08:28Z",
+      "side": 1,
+      "message": "Should we maybe update \"Forced\" to \"Auto\" here and after to be consistent?",
+      "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8098fcff_f441656b",
+        "filename": "front_end/core/sdk/sdk-meta.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-09T08:08:28Z",
+      "side": 1,
+      "message": "Maybe update the settingName to `emulateAutoDarkMode`?",
+      "revId": "8c731280c93aa2983a44aed4e16fc4ea88169067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
