@@ -32,16 +32,14 @@ import type * as PublicAPI from '../../../extension-api/ExtensionAPI'; // eslint
 import type * as HAR from '../har/har.js';
 
 /* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-non-null-assertion */
-export namespace PrivateAPI {
-  export namespace Panels {
-    export const enum SearchAction {
-      CancelSearch = 'cancelSearch',
-      PerformSearch = 'performSearch',
-      NextSearchResult = 'nextSearchResult',
-      PreviousSearchResult = 'previousSearchResult',
-    }
-  }
+export const enum SearchAction {
+  CancelSearch = 'cancelSearch',
+  PerformSearch = 'performSearch',
+  NextSearchResult = 'nextSearchResult',
+  PreviousSearchResult = 'previousSearchResult',
+}
 
+export namespace PrivateAPI {
   export const enum Events {
     ButtonClicked = 'button-clicked-',
     PanelObjectSelected = 'panel-objectSelected-',
@@ -459,10 +457,6 @@ self.injectedExtensionAPI = function(
     return ctor as unknown as new (...args: Parameters<NewT>) => ThisParameterType<NewT>;
   }
 
-  /**
-   * @constructor
-   */
-
   function InspectorExtensionAPI(this: APIImpl.InspectorExtensionAPI): void {
     this.inspectedWindow = new (Constructor(InspectedWindow))();
     this.panels = new (Constructor(Panels))();
@@ -471,10 +465,6 @@ self.injectedExtensionAPI = function(
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
   }
-
-  /**
-   * @constructor
-   */
 
   function Network(this: APIImpl.Network): void {
     function dispatchRequestEvent(
@@ -529,9 +519,6 @@ self.injectedExtensionAPI = function(
     },
   };
 
-  /**
-   * @constructor
-   */
   function Panels(this: APIImpl.Panels): void {
     const panels: {[key: string]: ElementsPanel|SourcesPanel} = {
       elements: new ElementsPanel(),
@@ -593,17 +580,14 @@ self.injectedExtensionAPI = function(
 
     get SearchAction(): {[key: string]: string} {
       return {
-        CancelSearch: PrivateAPI.Panels.SearchAction.CancelSearch,
-        PerformSearch: PrivateAPI.Panels.SearchAction.PerformSearch,
-        NextSearchResult: PrivateAPI.Panels.SearchAction.NextSearchResult,
-        PreviousSearchResult: PrivateAPI.Panels.SearchAction.PreviousSearchResult,
+        CancelSearch: SearchAction.CancelSearch,
+        PerformSearch: SearchAction.PerformSearch,
+        NextSearchResult: SearchAction.NextSearchResult,
+        PreviousSearchResult: SearchAction.PreviousSearchResult,
       };
     },
   };
 
-  /**
-   * @constructor
-   */
   function ExtensionViewImpl(this: APIImpl.ExtensionView, id: string|null): void {
     this._id = id;
 
@@ -624,10 +608,6 @@ self.injectedExtensionAPI = function(
     }
   }
 
-  /**
-   * @constructor
-   * @extends {ExtensionViewImpl}
-   */
   function PanelWithSidebarImpl(this: APIImpl.PanelWithSidebar, hostPanelName: string): void {
     ExtensionViewImpl.call(this, null);
     this._hostPanelName = hostPanelName;
@@ -652,9 +632,6 @@ self.injectedExtensionAPI = function(
     __proto__: ExtensionViewImpl.prototype,
   };
 
-  /**
-   * @constructor
-   */
   function LanguageServicesAPIImpl(this: APIImpl.LanguageExtensions): void {
     /** @type {!Map<*, !MessagePort>} */
     this._plugins = new Map();
@@ -776,10 +753,6 @@ self.injectedExtensionAPI = function(
   const EventSink = declareInterfaceClass(EventSinkImpl);
   const ExtensionPanel = declareInterfaceClass(ExtensionPanelImpl);
   const ExtensionSidebarPane = declareInterfaceClass(ExtensionSidebarPaneImpl);
-  /**
-   * @constructor
-   * @param {string} hostPanelName
-   */
   const PanelWithSidebarClass = declareInterfaceClass(PanelWithSidebarImpl);
   const Request = declareInterfaceClass(RequestImpl);
   const Resource = declareInterfaceClass(ResourceImpl);
@@ -797,10 +770,6 @@ self.injectedExtensionAPI = function(
     }
   }
 
-  /**
-   * @constructor
-   * @extends {ExtensionViewImpl}
-   */
   function ExtensionPanelImpl(this: APIImpl.ExtensionPanel, id: string): void {
     ExtensionViewImpl.call(this, id);
 
@@ -836,10 +805,6 @@ self.injectedExtensionAPI = function(
     __proto__: ExtensionViewImpl.prototype,
   };
 
-  /**
-   * @constructor
-   * @extends {ExtensionViewImpl}
-   */
   function ExtensionSidebarPaneImpl(this: APIImpl.ExtensionSidebarPane, id: string): void {
     ExtensionViewImpl.call(this, id);
   }
@@ -886,9 +851,6 @@ self.injectedExtensionAPI = function(
     __proto__: ExtensionViewImpl.prototype,
   };
 
-  /**
-   * @constructor
-   */
   function ButtonImpl(this: APIImpl.Button, id: string): void {
     this._id = id;
 
@@ -907,9 +869,6 @@ self.injectedExtensionAPI = function(
     },
   };
 
-  /**
-   * @constructor
-   */
   function Timeline(this: APIImpl.Timeline): void {
   }
 
@@ -928,9 +887,6 @@ self.injectedExtensionAPI = function(
                           },
   };
 
-  /**
-   * @constructor
-   */
   function TraceSessionImpl(this: APIImpl.TraceSession, id: string): void {
     this._id = id;
   }
@@ -946,9 +902,6 @@ self.injectedExtensionAPI = function(
     },
   };
 
-  /**
-   * @constructor
-   */
   function TraceProvider(this: APIImpl.TraceProvider, id: string): void {
     function dispatchRecordingStarted(
         this: APIImpl.EventSink<APIImpl.Callable>, message: {arguments: unknown[]}): void {
@@ -963,9 +916,6 @@ self.injectedExtensionAPI = function(
     this.onRecordingStopped = new (Constructor(EventSink))(PrivateAPI.Events.RecordingStopped + id);
   }
 
-  /**
-   * @constructor
-   */
   function InspectedWindow(this: PublicAPI.Chrome.DevTools.InspectedWindow): void {
     function dispatchResourceEvent(
         this: APIImpl.EventSink<(resource: APIImpl.Resource) => unknown>, message: {arguments: unknown[]}): void {
@@ -1044,9 +994,6 @@ self.injectedExtensionAPI = function(
     },
   };
 
-  /**
-   * @constructor
-   */
   function ResourceImpl(this: APIImpl.Resource, resourceData: APIImpl.ResourceData): void {
     this._url = resourceData.url;
     this._type = resourceData.type;
@@ -1143,9 +1090,6 @@ self.injectedExtensionAPI = function(
 
   document.addEventListener('keydown', forwardKeyboardEvent, false);
 
-  /**
-   * @constructor
-   */
   function ExtensionServerClient(this: APIImpl.ExtensionServerClient): void {
     this._callbacks = {};
     this._handlers = {};
