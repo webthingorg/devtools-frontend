@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eac58b7_0ab98247",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-09T13:22:23Z",
+      "side": 1,
+      "message": "Hey Tim,\n\nHere\u0027s some trivial cleanup.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "0e31944a84bccd85f6ab7ba1d51fc39fc7a363aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
