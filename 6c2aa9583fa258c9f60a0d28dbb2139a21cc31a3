@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3db54c4_a0c94a94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-09T13:40:18Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "6c2aa9583fa258c9f60a0d28dbb2139a21cc31a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809b5127_9f19ba43",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-09T13:40:18Z",
+      "side": 1,
+      "message": "nit: Change to\n\n Common.EventTarget.EventTargetEvent\u003cWatchExpression\u003e\n \nand remove the cast in the next line :)",
+      "range": {
+        "startLine": 206,
+        "startChar": 40,
+        "endLine": 206,
+        "endChar": 75
+      },
+      "revId": "6c2aa9583fa258c9f60a0d28dbb2139a21cc31a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
