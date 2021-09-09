@@ -251,6 +251,30 @@
       },
       "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bde12f1_33e91cd1",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-09-09T08:18:59Z",
+      "side": 1,
+      "message": "The following will do it:\n\n  const edit \u003d event?.data \u0026\u0026 \u0027edit\u0027 in event.data ? event.data.edit : null;\n  \nNote that TypeScript understands that if \u0027edit\u0027 in event.data is true, then we must have a StyleSheetChangedEvent at hand.",
+      "parentUuid": "76ac145c_75aef4a6",
+      "range": {
+        "startLine": 674,
+        "startChar": 36,
+        "endLine": 674,
+        "endChar": 64
+      },
+      "revId": "e58cba017febf7aa1428b08aa99f577d856af6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
