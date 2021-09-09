@@ -197,7 +197,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
   private createWatchExpression(expression: string|null): WatchExpression {
     this.contentElement.appendChild(this.treeOutline.element);
     const watchExpression = new WatchExpression(expression, this.expandController, this.linkifier);
-    watchExpression.addEventListener(WatchExpression.Events.ExpressionUpdated, this.watchExpressionUpdated, this);
+    watchExpression.addEventListener(Events.ExpressionUpdated, this.watchExpressionUpdated, this);
     this.treeOutline.appendChild(watchExpression.treeElement());
     this.watchExpressions.push(watchExpression);
     return watchExpression;
@@ -292,7 +292,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
   }
 }
 
-export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper {
+export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private treeElementInternal!: UI.TreeOutline.TreeElement;
   private nameElement!: Element;
   private valueElement!: Element;
@@ -415,7 +415,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper {
     }
     this.expressionInternal = newExpression;
     this.update();
-    this.dispatchEventToListeners(WatchExpression.Events.ExpressionUpdated, this);
+    this.dispatchEventToListeners(Events.ExpressionUpdated, this);
   }
 
   private deleteWatchExpression(event: Event): void {
@@ -554,10 +554,10 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper {
   private static readonly watchObjectGroupId = 'watch-group';
 }
 
-export namespace WatchExpression {
-  // TODO(crbug.com/1167717): Make this a const enum again
-  // eslint-disable-next-line rulesdir/const_enum
-  export const Events = {
-    ExpressionUpdated: Symbol('ExpressionUpdated'),
-  };
+const enum Events {
+  ExpressionUpdated = 'ExpressionUpdated',
 }
+
+type EventTypes = {
+  [Events.ExpressionUpdated]: WatchExpression,
+};
