@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc14703d_bbee9e4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-10T07:24:09Z",
+      "side": 1,
+      "message": "Hey Kateryna,\n\nHere\u0027s the next type-safetification.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
