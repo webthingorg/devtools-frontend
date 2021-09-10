@@ -83,7 +83,7 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
       file: 'CoepCorpNotSameOriginAfterDefaultedToSameOriginByCoep.md',
       links: [
         {link: 'https://web.dev/coop-coep/', linkTitle: i18nLazyString(UIStrings.coopAndCoep)},
-        {link: 'https://web.dev/same-site-same-origin/', linkTitle: i18nLazyString(UIStrings.samesiteAndSameorigin)},
+        {link: 'https://web.dev/same-site-same-origin/', linkTitle: i18nLazyString(UIStrings.samesiteAndSameorigin)}
       ],
     },
   ],
