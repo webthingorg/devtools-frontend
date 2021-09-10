@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c7324d5_eb7ab9da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-10T09:24:02Z",
+      "side": 1,
+      "message": "LGTM! I am assuming you ran the e2e-test on the stressor bot for flakiness?",
+      "revId": "a18b0758688e4f523516d43341874b1f17fba81e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
