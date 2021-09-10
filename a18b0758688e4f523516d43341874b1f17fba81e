@@ -16,6 +16,24 @@
       "message": "LGTM! I am assuming you ran the e2e-test on the stressor bot for flakiness?",
       "revId": "a18b0758688e4f523516d43341874b1f17fba81e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42c8fdb_e80a17c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-10T14:09:25Z",
+      "side": 1,
+      "message": "I did, using it.only, as TEST_PATTERNS don\u0027t see to work.",
+      "parentUuid": "6c7324d5_eb7ab9da",
+      "revId": "a18b0758688e4f523516d43341874b1f17fba81e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
