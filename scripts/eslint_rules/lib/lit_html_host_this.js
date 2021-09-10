@@ -51,7 +51,7 @@ module.exports = {
             messageId: 'missingHostOption',
             fix(fixer) {
               if (argumentsToRenderCall[1]) {
-                return [fixer.insertTextAfter(argumentsToRenderCall[1], ', {host: this}')];
+                // return [fixer.insertTextAfter(argumentsToRenderCall[1], ', {host: this}')];
               }
               return [];
             }
