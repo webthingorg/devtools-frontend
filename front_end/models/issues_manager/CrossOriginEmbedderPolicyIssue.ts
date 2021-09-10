@@ -84,6 +84,10 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
       links: [
         {link: 'https://web.dev/coop-coep/', linkTitle: i18nLazyString(UIStrings.coopAndCoep)},
         {link: 'https://web.dev/same-site-same-origin/', linkTitle: i18nLazyString(UIStrings.samesiteAndSameorigin)},
+        {
+          link: 'https://developer.chrome.com/blog/coep-credentialless-origin-trial/',
+          linkTitle: i18nLazyString(UIStrings.samesiteAndSameorigin)
+        },
       ],
     },
   ],
@@ -93,6 +97,10 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
       file: 'CoepFrameResourceNeedsCoepHeader.md',
       links: [
         {link: 'https://web.dev/coop-coep/', linkTitle: i18nLazyString(UIStrings.coopAndCoep)},
+        {
+          link: 'https://developer.chrome.com/blog/coep-credentialless-origin-trial/',
+          linkTitle: i18nLazyString(UIStrings.samesiteAndSameorigin)
+        },
       ],
     },
   ],
