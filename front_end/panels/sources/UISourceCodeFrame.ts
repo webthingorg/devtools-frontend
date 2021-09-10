@@ -50,6 +50,8 @@ import type {Plugin} from './Plugin.js';
 import {ScriptOriginPlugin} from './ScriptOriginPlugin.js';
 import {SnippetsPlugin} from './SnippetsPlugin.js';
 import {SourcesPanel} from './SourcesPanel.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import messagesPopoverStyles from '../../ui/legacy/components/source_frame/messagesPopover.css.js';
 
 export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
   private uiSourceCodeInternal: Workspace.UISourceCode.UISourceCode;
@@ -210,6 +212,8 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     // We need CodeMirrorTextEditor to be initialized prior to this call as it calls |cursorPositionToCoordinates| internally. @see crbug.com/506566
     window.setTimeout(() => this.updateBucketDecorations(), 0);
     this.setEditable(this.canEditSourceInternal());
+    /* These styles are for the messages popover for erros but this is the place where we can register the styles. */
+    this.registerCSSFiles([messagesPopoverStyles]);
     for (const plugin of this.plugins) {
       plugin.wasShown();
     }
@@ -739,7 +743,6 @@ export class RowMessageBucket {
 
   private messageDescription(levels: Set<Workspace.UISourceCode.Message.Level>): Element {
     this.messagesDescriptionElement.removeChildren();
-    UI.Utils.appendStyle(this.messagesDescriptionElement, 'ui/legacy/components/source_frame/messagesPopover.css');
     for (const message of this.messages.filter(m => levels.has(m.getMessage().level()))) {
       this.messagesDescriptionElement.append(message.element);
     }
