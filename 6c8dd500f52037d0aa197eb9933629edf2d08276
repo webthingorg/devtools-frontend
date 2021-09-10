@@ -56,6 +56,30 @@
       },
       "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffcf7db5_cbce0dac",
+        "filename": "front_end/panels/layer_viewer/LayerTreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-10T08:13:59Z",
+      "side": 1,
+      "message": "This particular one is safe because it\u0027s not used in layout tests.",
+      "parentUuid": "2e3a0366_2e482a9e",
+      "range": {
+        "startLine": 234,
+        "startChar": 7,
+        "endLine": 234,
+        "endChar": 12
+      },
+      "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
