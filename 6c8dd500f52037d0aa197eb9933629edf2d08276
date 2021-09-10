@@ -16,6 +16,46 @@
       "message": "Hey Kateryna,\n\nHere\u0027s the next type-safetification.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc17db4_b48b6a50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-10T07:32:31Z",
+      "side": 1,
+      "message": "One small comment!:)",
+      "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e3a0366_2e482a9e",
+        "filename": "front_end/panels/layer_viewer/LayerTreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-10T07:32:31Z",
+      "side": 1,
+      "message": "Please make non-const again and add the comment back",
+      "range": {
+        "startLine": 234,
+        "startChar": 7,
+        "endLine": 234,
+        "endChar": 12
+      },
+      "revId": "6c8dd500f52037d0aa197eb9933629edf2d08276",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
