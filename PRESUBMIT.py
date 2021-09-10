@@ -200,6 +200,31 @@ def _CheckFormat(input_api, output_api):
 
     return _ExecuteSubProcess(input_api, output_api, ['git', 'cl', 'format', '--js'], [], results)
 
+def _CheckDevToolsRunESLintTests(input_api, output_api):
+    # Check for changes in the eslint_rules directory, and run the eslint rules
+    # tests if so.
+    # We don't do this on every CL as most do not touch the rules, but if we do
+    # change them we need to make sure all the tests are passing.
+    eslint_rules_dir_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'eslint_rules')
+    eslint_rules_affected_files = _getAffectedFiles(input_api, [
+        eslint_rules_dir_path
+    ], [], [])
+
+    if (len(eslint_rules_affected_files) == 0):
+        return []
+
+    mocha_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                       'node_modules', '.bin',
+                                       'mocha')
+    eslint_tests_path = input_api.os_path.join(eslint_rules_dir_path, 'tests', '*_test.js')
+
+    results = [output_api.PresubmitNotifyResult('ESLint rules unit tests')]
+    results.extend(
+        # The dot reporter is more concise which is useful to not get LOADS of
+        # output when just one test fails.
+        _checkWithNodeScript(input_api, output_api, mocha_path, ['--reporter', 'dot', eslint_tests_path]))
+    return results
+
 def _CheckDevToolsStyleJS(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('JS style check:')]
     lint_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
@@ -510,17 +535,18 @@ def _CommonChecks(input_api, output_api):
     results.extend(
         input_api.canned_checks.CheckAuthorizedAuthor(
             input_api, output_api, bot_allowlist=[AUTOROLL_ACCOUNT]))
-    results.extend(_CheckBuildGN(input_api, output_api))
-    results.extend(_CheckExperimentTelemetry(input_api, output_api))
-    results.extend(_CheckGeneratedFiles(input_api, output_api))
-    results.extend(_CheckJSON(input_api, output_api))
-    results.extend(_CheckDevToolsStyleJS(input_api, output_api))
-    results.extend(_CheckDevToolsStyleCSS(input_api, output_api))
-    results.extend(_CheckDevToolsNonJSFileLicenseHeaders(
-        input_api, output_api))
+    # results.extend(_CheckBuildGN(input_api, output_api))
+    # results.extend(_CheckExperimentTelemetry(input_api, output_api))
+    # results.extend(_CheckGeneratedFiles(input_api, output_api))
+    # results.extend(_CheckJSON(input_api, output_api))
+    # results.extend(_CheckDevToolsStyleJS(input_api, output_api))
+    # results.extend(_CheckDevToolsStyleCSS(input_api, output_api))
+    results.extend(_CheckDevToolsRunESLintTests(input_api, output_api))
+    # results.extend(_CheckDevToolsNonJSFileLicenseHeaders(
+    #     input_api, output_api))
 
-    results.extend(_CheckFormat(input_api, output_api))
-    results.extend(_CheckChangesAreExclusiveToDirectory(input_api, output_api))
+    # results.extend(_CheckFormat(input_api, output_api))
+    # results.extend(_CheckChangesAreExclusiveToDirectory(input_api, output_api))
     # Run the canned checks from `depot_tools` after the custom DevTools checks.
     # The canned checks for example check that lines have line endings. The
     # DevTools presubmit checks automatically fix these issues. If we would run
