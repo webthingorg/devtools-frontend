@@ -85,6 +85,24 @@
       "parentUuid": "ac20d459_855efee3",
       "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e115cec_28968a55",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-13T12:45:10Z",
+      "side": 1,
+      "message": "Good question; I think this is fine.\n\nReally I think most of this module isn\u0027t \"legacy\" as such, and we should probably move into front_end/ui/aria/aria.js or similar and \"promote\" them.",
+      "parentUuid": "1396fc6b_9a8c38c4",
+      "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
