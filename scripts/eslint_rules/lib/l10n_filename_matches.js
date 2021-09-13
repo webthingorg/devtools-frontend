@@ -8,6 +8,13 @@ const path = require('path');
 
 const FRONT_END_DIRECTORY = path.join(__dirname, '..', '..', '..', 'front_end');
 
+function windowsToJsImportPath(path) {
+  if (path.sep === '/') {
+    return path;
+  }
+  return path.split(path.sep).join('/');
+}
+
 function isModuleScope(context) {
   return context.getScope().type === 'module';
 }
@@ -67,9 +74,10 @@ module.exports = {
           context.report({
             node: callExpression,
             message: `First argument to 'registerUIStrings' call must be '${
-                currentFileRelativeToFrontEnd}' or the ModuleUIStrings.(js|ts)`,
+                windowsToJsImportPath(currentFileRelativeToFrontEnd)}' or the ModuleUIStrings.(js|ts)`,
             fix(fixer) {
-              return fixer.replaceText(previousFileLocationArgument, `'${currentFileRelativeToFrontEnd}'`);
+              return fixer.replaceText(
+                  previousFileLocationArgument, `'${windowsToJsImportPath(currentFileRelativeToFrontEnd)}'`);
             }
           });
         }

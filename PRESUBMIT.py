@@ -216,7 +216,8 @@ def _CheckDevToolsRunESLintTests(input_api, output_api):
         return []
 
     mocha_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
-                                        'node_modules', '.bin', 'mocha')
+                                        'node_modules', 'mocha', 'bin',
+                                        'mocha')
     eslint_tests_path = input_api.os_path.join(eslint_rules_dir_path, 'tests',
                                                '*_test.js')
 

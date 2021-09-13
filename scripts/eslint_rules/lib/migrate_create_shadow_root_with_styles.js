@@ -7,6 +7,13 @@
 const path = require('path');
 const fs = require('fs');
 
+function windowsToJsImportPath(path) {
+  if (path.sep === '/') {
+    return path;
+  }
+  return path.split(path.sep).join('/');
+}
+
 function lookForCSSFileProperty(node) {
   for (let i = 0; i < node.length; i++) {
     const propertyNode = node[i];
@@ -63,7 +70,7 @@ module.exports = {
 
               const importDir = 'front_end/' + path.dirname(filenameWithExtension);
               const fileDir = path.dirname(context.getFilename());
-              const relativeImport = path.relative(fileDir, importDir);
+              const relativeImport = windowsToJsImportPath(path.relative(fileDir, importDir));
               const importStatement = relativeImport === '' ?
                   `import ${newFileName} from \'./${filename}.css.js\';\n` :
                   `import ${newFileName} from \'${relativeImport}/${filename}.css.js\';\n`;
