@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0130d1_230b573e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-13T12:09:29Z",
+      "side": 1,
+      "message": "@Jack, please see comment by Changhao: Should we rather inline calls to `setAttribute` than extend `ARIAUtils`?",
+      "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac20d459_855efee3",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-09-13T12:01:49Z",
       "side": 1,
       "message": "I\u0027m a bit unsure of adding more one-line helper functions in ARIAUtils, because it\u0027s under `ui/legacy`. Maybe we could get Jack\u0027s opinion on this?",
+      "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1396fc6b_9a8c38c4",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-13T12:09:29Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll ask Jack.",
+      "parentUuid": "ac20d459_855efee3",
       "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
