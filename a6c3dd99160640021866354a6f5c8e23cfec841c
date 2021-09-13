@@ -46,6 +46,30 @@
       },
       "revId": "a6c3dd99160640021866354a6f5c8e23cfec841c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ab5bcc_3e99006c",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-13T14:44:04Z",
+      "side": 1,
+      "message": "By setting this flag to true, we tell `ts_library` to keep track of the timestamps precompilation and the corresponding content. Then, when `tsc` is done, we compare the contents and if it is equal to what it was before, we reset the timestamp.\n\nWe only do this in `devtools_module` atm, but we don\u0027t do it in `devtools_entrypoint` (to avoid the non-determinism when rolling up). Before this CL, `devtools_module` was the only usage of this flag. With this cl, we now also include Node targets, which were never affected by the non-determinism in our production build.",
+      "parentUuid": "e0f43186_76095244",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 20
+      },
+      "revId": "a6c3dd99160640021866354a6f5c8e23cfec841c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
