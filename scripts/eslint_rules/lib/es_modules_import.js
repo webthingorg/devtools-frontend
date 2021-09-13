@@ -53,7 +53,7 @@ function checkImportExtension(importPath, context, node) {
       node,
       message: 'Missing file extension for import "{{importPath}}"',
       data: {
-        importPath,
+        importPath: importPath.split(path.sep).join('/'),
       },
       fix(fixer) {
         return fixer.replaceText(node.source, `'${importPath}.js'`);
@@ -95,7 +95,7 @@ function checkStarImport(context, node, importPath, importingFileName, exporting
       message:
           'Incorrect same-namespace import: "{{importPath}}". Use "import { Symbol } from \'./relative-file.js\';" instead.',
       data: {
-        importPath,
+        importPath: importPath.split(path.sep).join('/'),
       },
     });
   }
@@ -105,7 +105,7 @@ function checkStarImport(context, node, importPath, importingFileName, exporting
       node,
       message: CROSS_NAMESPACE_MESSAGE,
       data: {
-        importPath,
+        importPath: importPath.split(path.sep).join('/'),
       },
     });
   }
@@ -206,7 +206,7 @@ module.exports = {
               node,
               message,
               data: {
-                importPath,
+                importPath: importPath.split(path.sep).join('/'),
               },
             });
           } else if (isModuleEntrypoint(importingFileName)) {
@@ -224,7 +224,7 @@ module.exports = {
               message:
                   'Incorrect same-namespace import: "{{importPath}}". Use "import * as File from \'./File.js\';" instead.',
               data: {
-                importPath,
+                importPath: importPath.split(path.sep).join('/'),
               }
             });
           }

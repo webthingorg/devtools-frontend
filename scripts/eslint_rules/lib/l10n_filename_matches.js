@@ -67,9 +67,10 @@ module.exports = {
           context.report({
             node: callExpression,
             message: `First argument to 'registerUIStrings' call must be '${
-                currentFileRelativeToFrontEnd}' or the ModuleUIStrings.(js|ts)`,
+                currentFileRelativeToFrontEnd.split(path.sep).join('/')}' or the ModuleUIStrings.(js|ts)`,
             fix(fixer) {
-              return fixer.replaceText(previousFileLocationArgument, `'${currentFileRelativeToFrontEnd}'`);
+              return fixer.replaceText(
+                  previousFileLocationArgument, `'${currentFileRelativeToFrontEnd.split(path.sep).join('/')}'`);
             }
           });
         }
