@@ -18,6 +18,10 @@ const COMPONENT_DOCS_DIRECTORY = path.join(FRONT_END_DIRECTORY, 'ui', 'component
 const CROSS_NAMESPACE_MESSAGE =
     'Incorrect cross-namespace import: "{{importPath}}". Use "import * as Namespace from \'../namespace/namespace.js\';" instead.';
 
+function windowsToJsImportPath(path) {
+  return path.split(path.sep).join('/');
+}
+
 // ------------------------------------------------------------------------------
 // Rule Definition
 // ------------------------------------------------------------------------------
@@ -53,10 +57,10 @@ function checkImportExtension(importPath, context, node) {
       node,
       message: 'Missing file extension for import "{{importPath}}"',
       data: {
-        importPath,
+        importPath: windowsToJsImportPath(importPath),
       },
       fix(fixer) {
-        return fixer.replaceText(node.source, `'${importPath}.js'`);
+        return fixer.replaceText(node.source, `'${windowsToJsImportPath(importPath)}.js'`);
       }
     });
   }
@@ -95,7 +99,7 @@ function checkStarImport(context, node, importPath, importingFileName, exporting
       message:
           'Incorrect same-namespace import: "{{importPath}}". Use "import { Symbol } from \'./relative-file.js\';" instead.',
       data: {
-        importPath,
+        importPath: windowsToJsImportPath(importPath),
       },
     });
   }
@@ -105,7 +109,7 @@ function checkStarImport(context, node, importPath, importingFileName, exporting
       node,
       message: CROSS_NAMESPACE_MESSAGE,
       data: {
-        importPath,
+        importPath: windowsToJsImportPath(importPath),
       },
     });
   }
@@ -206,7 +210,7 @@ module.exports = {
               node,
               message,
               data: {
-                importPath,
+                importPath: windowsToJsImportPath(importPath),
               },
             });
           } else if (isModuleEntrypoint(importingFileName)) {
@@ -224,7 +228,7 @@ module.exports = {
               message:
                   'Incorrect same-namespace import: "{{importPath}}". Use "import * as File from \'./File.js\';" instead.',
               data: {
-                importPath,
+                importPath: windowsToJsImportPath(importPath),
               }
             });
           }
