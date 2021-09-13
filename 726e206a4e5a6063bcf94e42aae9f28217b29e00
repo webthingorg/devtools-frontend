@@ -103,6 +103,24 @@
       "parentUuid": "1396fc6b_9a8c38c4",
       "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04db477_cf50117e",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-13T12:48:25Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll land as is then.",
+      "parentUuid": "9e115cec_28968a55",
+      "revId": "726e206a4e5a6063bcf94e42aae9f28217b29e00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
