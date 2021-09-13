@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42b6015_ca034ae9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-13T12:54:53Z",
+      "side": 1,
+      "message": "FYI, I\u0027ve created https://crbug.com/1248992 to do the AriaUtils tidy up",
+      "revId": "409dce1427ec6a6e2ac540f7c281b56d1ba39223",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
