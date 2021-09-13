@@ -317,7 +317,8 @@ export function isBeingEdited(node?: Node|null): boolean {
     return false;
   }
   const element = (node as Element);
-  if (element.classList.contains('text-prompt') || element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+  if (element.classList.contains('text-prompt') || element.classList.contains('text-prompt-input') ||
+      element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
     return true;
   }
 
@@ -344,7 +345,8 @@ export function isEditing(): boolean {
   if (!focused) {
     return false;
   }
-  return focused.classList.contains('text-prompt') || focused.nodeName === 'INPUT' || focused.nodeName === 'TEXTAREA';
+  return focused.classList.contains('text-prompt') || focused.classList.contains('text-prompt-input') ||
+      focused.nodeName === 'INPUT' || focused.nodeName === 'TEXTAREA';
 }
 
 export function markBeingEdited(element: Element, value: boolean): boolean {

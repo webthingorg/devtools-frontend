@@ -9,6 +9,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Diff from '../../../../third_party/diff/diff.js';
+import * as TextPrompt from '../../../../ui/components/text_prompt/text_prompt.js';
 import * as UI from '../../legacy.js';
 
 const UIStrings = {
@@ -36,8 +37,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   private refreshListWithCurrentResult!: (() => void)|undefined;
   private dialog!: UI.Dialog.Dialog|undefined;
   private query!: string|undefined;
-  private readonly promptElement: HTMLElement;
-  private readonly prompt: UI.TextPrompt.TextPrompt;
+  private readonly inputBoxElement: TextPrompt.TextPrompt.TextPrompt;
   private readonly hintElement: HTMLElement;
   private readonly bottomElementsContainer: HTMLElement;
   private readonly progressElement: HTMLElement;
@@ -64,15 +64,11 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     UI.ARIAUtils.markAsCombobox(this.contentElement);
     this.registerRequiredCSS('ui/legacy/components/quick_open/filteredListWidget.css');
 
-    this.promptElement = this.contentElement.createChild('div', 'filtered-list-widget-input');
-    UI.ARIAUtils.setAccessibleName(this.promptElement, i18nString(UIStrings.quickOpenPrompt));
-    this.promptElement.setAttribute('spellcheck', 'false');
-    this.promptElement.setAttribute('contenteditable', 'plaintext-only');
-    this.prompt = new UI.TextPrompt.TextPrompt();
-    this.prompt.initialize(() => Promise.resolve([]));
-    const promptProxy = this.prompt.attach(this.promptElement);
-    promptProxy.addEventListener('input', this.onInput.bind(this), false);
-    promptProxy.classList.add('filtered-list-widget-prompt-element');
+    this.inputBoxElement = new TextPrompt.TextPrompt.TextPrompt();
+    this.inputBoxElement.data = {prefix: 'Open', suggestion: 'File'};  // , inputElement: this.promptElement};
+    UI.ARIAUtils.setAccessibleName(this.inputBoxElement, i18nString(UIStrings.quickOpenPrompt));
+    this.inputBoxElement.input().addEventListener('input', this.onInput.bind(this), false);
+    this.contentElement.appendChild(this.inputBoxElement);
 
     this.hintElement = this.contentElement.createChild('div', 'filtered-list-widget-hint');
 
@@ -87,13 +83,13 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     this.bottomElementsContainer.appendChild(this.itemElementsContainer);
     this.itemElementsContainer.addEventListener('click', this.onClick.bind(this), false);
     UI.ARIAUtils.markAsListBox(this.itemElementsContainer);
-    UI.ARIAUtils.setControls(this.promptElement, this.itemElementsContainer);
-    UI.ARIAUtils.setAutocomplete(this.promptElement, UI.ARIAUtils.AutocompleteInteractionModel.list);
+    UI.ARIAUtils.setControls(this.inputBoxElement, this.itemElementsContainer);
+    UI.ARIAUtils.setAutocomplete(this.inputBoxElement, UI.ARIAUtils.AutocompleteInteractionModel.list);
 
     this.notFoundElement = this.bottomElementsContainer.createChild('div', 'not-found-text');
     this.notFoundElement.classList.add('hidden');
 
-    this.setDefaultFocusedElement(this.promptElement);
+    this.setDefaultFocusedElement(this.inputBoxElement);
 
     this.prefix = '';
     this.provider = provider;
@@ -136,6 +132,14 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     return false;
   }
 
+  setCommandPrefix(commandPrefix: string): void {
+    this.inputBoxElement.setPrefix(commandPrefix);
+  }
+
+  setCommandSuggestion(suggestion: string): void {
+    this.inputBoxElement.setSuggestion(suggestion);
+  }
+
   setHintElement(hint: string): void {
     this.hintElement.textContent = hint;
   }
@@ -144,7 +148,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
    * Sets the text prompt's accessible title. By default, it is "Quick open prompt".
    */
   setPromptTitle(title: string): void {
-    UI.ARIAUtils.setAccessibleName(this.promptElement, title);
+    UI.ARIAUtils.setAccessibleName(this.inputBoxElement, title);
   }
 
   showAsDialog(dialogTitle?: string): void {
@@ -188,7 +192,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   }
 
   setQuerySelectedRange(startIndex: number, endIndex: number): void {
-    this.prompt.setSelectedRange(startIndex, endIndex);
+    this.inputBoxElement.setSelectedRange(startIndex, endIndex);
   }
 
   private attachProvider(): void {
@@ -202,7 +206,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   }
 
   private value(): string {
-    return this.prompt.text().trim();
+    return this.inputBoxElement.text().trim();
   }
 
   private cleanValue(): string {
@@ -288,7 +292,7 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     if (toElement) {
       toElement.classList.add('selected');
     }
-    UI.ARIAUtils.setActiveDescendant(this.promptElement, toElement);
+    UI.ARIAUtils.setActiveDescendant(this.inputBoxElement, toElement);
   }
 
   private onClick(event: Event): void {
@@ -305,15 +309,14 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
   }
 
   setQuery(query: string): void {
-    this.prompt.focus();
-    this.prompt.setText(query);
+    this.inputBoxElement.focus();
+    this.inputBoxElement.setText(query);
     this.queryChanged();
-    this.prompt.autoCompleteSoon(true);
     this.scheduleFilter();
   }
 
   private tabKeyPressed(): boolean {
-    const userEnteredText = this.prompt.text();
+    const userEnteredText = this.inputBoxElement.text();
     let completion;
     for (let i = this.promptHistory.length - 1; i >= 0; i--) {
       if (this.promptHistory[i] !== userEnteredText && this.promptHistory[i].startsWith(userEnteredText)) {
@@ -324,9 +327,9 @@ export class FilteredListWidget extends UI.Widget.VBox implements UI.ListControl
     if (!completion) {
       return false;
     }
-    this.prompt.focus();
-    this.prompt.setText(completion);
-    this.prompt.setDOMSelection(userEnteredText.length, completion.length);
+    this.inputBoxElement.focus();
+    this.inputBoxElement.setText(completion);
+    this.inputBoxElement.setSelectedRange(userEnteredText.length, completion.length);
     this.scheduleFilter();
     return true;
   }
@@ -593,8 +596,9 @@ export function getRegisteredProviders(): ProviderRegistration[] {
   return registeredProviders;
 }
 export interface ProviderRegistration {
-  provider: () => Promise<Provider>;
-  title?: (() => string);
   prefix: string;
   iconName: string;
+  provider: () => Promise<Provider>;
+  titlePrefix: (() => string);
+  titleSuggestion?: (() => string);
 }
