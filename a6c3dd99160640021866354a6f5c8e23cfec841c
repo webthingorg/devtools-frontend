@@ -22,6 +22,30 @@
       },
       "revId": "a6c3dd99160640021866354a6f5c8e23cfec841c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0f43186_76095244",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-13T14:41:09Z",
+      "side": 1,
+      "message": "Wait, I read the description and I think I understand. But I thought for some of the main codebase we still do some timestamp tweaking? Or is that wrong?",
+      "parentUuid": "dbe60160_55fae0af",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 20
+      },
+      "revId": "a6c3dd99160640021866354a6f5c8e23cfec841c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
