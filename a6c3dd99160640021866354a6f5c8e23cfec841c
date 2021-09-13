@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe60160_55fae0af",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-13T14:40:11Z",
+      "side": 1,
+      "message": "maybe I\u0027m thinking about it wrong, but to me this flag should be false? At least in my head, for node, because it\u0027s not rolled-up, we don\u0027t want to include the reset-timestamps \"hack\" ? Or is that wrong?",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 20
+      },
+      "revId": "a6c3dd99160640021866354a6f5c8e23cfec841c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
