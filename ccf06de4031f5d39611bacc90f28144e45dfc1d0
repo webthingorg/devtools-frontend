@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12fed156_1025b76c",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-13T13:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "751f613f_b2866411",
+      "range": {
+        "startLine": 6,
+        "startChar": 17,
+        "endLine": 6,
+        "endChar": 21
+      },
+      "revId": "ccf06de4031f5d39611bacc90f28144e45dfc1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b46e1c7_304b41ba",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-13T12:11:12Z",
       "side": 1,
       "message": "Nit: add `TODO(crbug.com/1246836)` to make sure we remove these global usages.",
+      "range": {
+        "startLine": 58,
+        "startChar": 27,
+        "endLine": 58,
+        "endChar": 64
+      },
+      "revId": "ccf06de4031f5d39611bacc90f28144e45dfc1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6aaffc4_7b89fd2c",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-13T13:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b46e1c7_304b41ba",
       "range": {
         "startLine": 58,
         "startChar": 27,
