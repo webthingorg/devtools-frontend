@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddce9dd6_dfea58a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1228344
+      },
+      "writtenOn": "2021-09-13T15:42:21Z",
+      "side": 1,
+      "message": "Hi,\nCould you please take a look?\n\nEiji: Would you have comments about the way this is communicated to developers?\nSimon: As OWNER.",
+      "revId": "f5f07135b66a0d00db64e6df6802627837b41d5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
