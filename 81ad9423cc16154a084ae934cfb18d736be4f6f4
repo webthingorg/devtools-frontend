@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3127301b_a6b32e40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-13T11:04:55Z",
+      "side": 1,
+      "message": "I split this change out of the openResources change to make sure we can revert that, if necessary! PTAL!",
+      "revId": "81ad9423cc16154a084ae934cfb18d736be4f6f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
