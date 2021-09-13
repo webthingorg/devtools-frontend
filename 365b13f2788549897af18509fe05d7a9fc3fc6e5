@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30b9351_063276b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2021-09-13T16:59:48Z",
+      "side": 1,
+      "message": "I am waiting for the conclusion of this issue[1], because the current API will cause the interaction behavior to be inconsistent with Chrome DevTools.\n\n[1] https://github.com/WICG/eyedropper-api/issues/9",
+      "parentUuid": "e4649f4b_4a668af2",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03e3e68_c9f771ab",
