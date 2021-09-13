@@ -100,6 +100,10 @@ const UIStrings = {
   */
   samePartyFromCrossPartyContext: 'This cookie was blocked because it had the "`SameParty`" attribute but the request was cross-party. The request was considered cross-party because the domain of the resource\'s URL and the domains of the resource\'s enclosing frames/documents are neither owners nor members in the same First-Party Set.',
   /**
+  *@description Tooltip to explain why a cookie was blocked due to exceeding the maximum size
+  */
+  nameValuePairExceedsMaxSize: 'The cookie was blocked because it was too large. The combined size of the name and value must be less than 4096 characters.',
+  /**
   *@description Tooltip to explain why an attempt to set a cookie via `Set-Cookie` HTTP header on a request's response was blocked.
   */
   thisSetcookieWasBlockedDueToUser: 'This attempt to set a cookie via a `Set-Cookie` header was blocked due to user preferences.',
@@ -161,6 +165,10 @@ const UIStrings = {
    *@description Tooltip to explain why an attempt to set a cookie via a `Set-Cookie` HTTP header on a request's response was blocked.
   */
   blockedReasonInvalidPrefix: 'This attempt to set a cookie via a `Set-Cookie` header was blocked because it used the "`__Secure-`" or "`__Host-`" prefix in its name and broke the additional rules applied to cookies with these prefixes as defined in `https://tools.ietf.org/html/draft-west-cookie-prefixes-05`.',
+  /**
+  *@description Tooltip to explain why a cookie was bocked when the size of name plus the size of value exceeds the max size.
+  */
+  thisSetcookieWasBlockedBecauseTheNameValuePairExceedsMaxSize: 'This attempt to set a cookie via a `Set-Cookie` header was blocked because the cookie was too large. The combined size of the name and value must be less than 4096 characters.',
   /**
   *@description Text in Network Manager
   *@example {https://example.com} PH1
@@ -1390,6 +1398,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.hasExtraResponseInfoInternal = true;
 
     const networkManager = NetworkManager.forRequest(this);
+    // TODO(awillia) This should be removed, but first I'd like to understand
+    // how this error message shows up today - is it worth having the updated
+    // check use something similar to this, or is presenting the error the way
+    // that the other cookie errors are presented sufficient.
     // net::ParsedCookie::kMaxCookieSize = 4096 (net/cookies/parsed_cookie.h)
     if (networkManager) {
       for (const {name, value} of this.responseHeaders) {
@@ -1519,6 +1531,8 @@ export const cookieBlockedReasonToUiString = function(blockedReason: Protocol.Ne
       return i18nString(UIStrings.schemefulSameSiteUnspecifiedTreatedAsLax);
     case Protocol.Network.CookieBlockedReason.SamePartyFromCrossPartyContext:
       return i18nString(UIStrings.samePartyFromCrossPartyContext);
+    case Protocol.Network.CookieBlockedReason.NameValuePairExceedsMaxSize:
+      return i18nString(UIStrings.nameValuePairExceedsMaxSize);
   }
   return '';
 };
@@ -1560,6 +1574,8 @@ export const setCookieBlockedReasonToUiString = function(
       return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSameparty);
     case Protocol.Network.SetCookieBlockedReason.SamePartyConflictsWithOtherAttributes:
       return i18nString(UIStrings.thisSetcookieWasBlockedBecauseItHadTheSamepartyAttribute);
+    case Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize:
+      return i18nString(UIStrings.thisSetcookieWasBlockedBecauseTheNameValuePairExceedsMaxSize);
   }
   return '';
 };
@@ -1583,6 +1599,8 @@ export const cookieBlockedReasonToAttribute = function(blockedReason: Protocol.N
           return Attributes.SameSite;
         case Protocol.Network.CookieBlockedReason.SamePartyFromCrossPartyContext:
           return Attributes.SameParty;
+        case Protocol.Network.CookieBlockedReason.NameValuePairExceedsMaxSize:
+          return Attributes.Name;
         case Protocol.Network.CookieBlockedReason.UserPreferences:
         case Protocol.Network.CookieBlockedReason.UnknownError:
           return null;
@@ -1607,6 +1625,7 @@ export const setCookieBlockedReasonToAttribute = function(blockedReason: Protoco
         case Protocol.Network.SetCookieBlockedReason.InvalidDomain:
           return Attributes.Domain;
         case Protocol.Network.SetCookieBlockedReason.InvalidPrefix:
+        case Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize:
           return Attributes.Name;
         case Protocol.Network.SetCookieBlockedReason.SamePartyConflictsWithOtherAttributes:
         case Protocol.Network.SetCookieBlockedReason.SamePartyFromCrossPartyContext:
