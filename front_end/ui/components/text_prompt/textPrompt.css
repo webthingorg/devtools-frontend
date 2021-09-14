@@ -1,0 +1,28 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.prefix {
+  color: var(--color-primary);
+  white-space: pre;
+}
+
+.text-prompt-input {
+  border: none;
+  outline: none;
+  display: inline;
+  flex: 1 0 auto;
+  white-space: pre;
+}
+
+.text-prompt-input::after {
+  content: attr(suggestion);
+  color: var(--color-background-highlight);
+}
