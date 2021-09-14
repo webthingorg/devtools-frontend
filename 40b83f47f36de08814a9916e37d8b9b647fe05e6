@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b58ff00b_721febf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-14T09:55:46Z",
+      "side": 1,
+      "message": "Looks great!",
+      "revId": "40b83f47f36de08814a9916e37d8b9b647fe05e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78b66b6_7335da9c",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-14T09:55:46Z",
+      "side": 1,
+      "message": "Can we only disable this for the constructor line?",
+      "revId": "40b83f47f36de08814a9916e37d8b9b647fe05e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9a041ed_ed53fa85",
