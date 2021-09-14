@@ -27,82 +27,122 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type * as Platform from '../platform/platform.js';
 import type {EventDescriptor, EventTarget, EventTargetEvent, EventType, EventPayload, EventPayloadToRestParameters} from './EventTarget.js';
 
-interface ListenerCallbackTuple {
+export interface ListenerCallbackTuple {
   thisObject?: Object;
   listener: (arg0: EventTargetEvent) => void;
   disposed?: boolean;
 }
 
-// TODO(crbug.com/1228674) Remove defaults for generic type parameters once
-//                         all event emitters and sinks have been migrated.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor = new (...args: any[]) => {};
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function eventMixin<Events, Base extends Constructor>(base: Base) {
+  return class EventHandling extends base implements EventTarget<Events> {
+    listeners?: Map<EventType<Events>, Set<ListenerCallbackTuple>>;
+
+    constructor(...args: any[]) {
+      super(...args);
+    }
+
+    addEventListener<T extends EventType<Events>>(
+        eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void,
+        thisObject?: Object): EventDescriptor<Events, T> {
+      if (!this.listeners) {
+        this.listeners = new Map();
+      }
+
+      let listenersForEventType = this.listeners.get(eventType);
+      if (!listenersForEventType) {
+        listenersForEventType = new Set();
+        this.listeners.set(eventType, listenersForEventType);
+      }
+      listenersForEventType.add({thisObject, listener});
+      return {eventTarget: this, eventType, thisObject, listener};
+    }
+
+    once<T extends EventType<Events>>(eventType: T): Promise<EventPayload<Events, T>> {
+      return new Promise(resolve => {
+        const descriptor = this.addEventListener(eventType, event => {
+          this.removeEventListener(eventType, descriptor.listener);
+          resolve(event.data);
+        });
+      });
+    }
+
+    removeEventListener<T extends EventType<Events>>(
+        eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void, thisObject?: Object): void {
+      const listeners = this.listeners?.get(eventType);
+      if (!listeners) {
+        return;
+      }
+      for (const listenerTuple of listeners) {
+        if (listenerTuple.listener === listener && listenerTuple.thisObject === thisObject) {
+          listenerTuple.disposed = true;
+          listeners.delete(listenerTuple);
+        }
+      }
+
+      if (!listeners.size) {
+        this.listeners?.delete(eventType);
+      }
+    }
+
+    hasEventListeners(eventType: EventType<Events>): boolean {
+      return Boolean(this.listeners && this.listeners.has(eventType));
+    }
+
+    dispatchEventToListeners<T extends EventType<Events>>(
+        eventType: Platform.TypeScriptUtilities.NoUnion<T>,
+        ...[eventData]: EventPayloadToRestParameters<EventPayload<Events, T>>): void {
+      const listeners = this.listeners?.get(eventType);
+      if (!listeners) {
+        return;
+      }
+      const event = {data: eventData};
+      // Work on a snapshot of the current listeners, callbacks might remove/add
+      // new listeners.
+      for (const listener of [...listeners]) {
+        if (!listener.disposed) {
+          listener.listener.call(listener.thisObject, event);
+        }
+      }
+    }
+  };
+}
+
+class EventHandlingBase {}
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function eventHandlingBase<Events = any>() {
+  return eventMixin<Events, typeof EventHandlingBase>(EventHandlingBase);
+}
+
 export class ObjectWrapper<Events = any> implements EventTarget<Events> {
-  listeners?: Map<EventType<Events>, Set<ListenerCallbackTuple>>;
+  private impl = new(eventHandlingBase<Events>())();
 
   addEventListener<T extends EventType<Events>>(
       eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void,
       thisObject?: Object): EventDescriptor<Events, T> {
-    if (!this.listeners) {
-      this.listeners = new Map();
-    }
-
-    let listenersForEventType = this.listeners.get(eventType);
-    if (!listenersForEventType) {
-      listenersForEventType = new Set();
-      this.listeners.set(eventType, listenersForEventType);
-    }
-    listenersForEventType.add({thisObject, listener});
-    return {eventTarget: this, eventType, thisObject, listener};
+    return this.impl.addEventListener(eventType, listener, thisObject);
   }
-
   once<T extends EventType<Events>>(eventType: T): Promise<EventPayload<Events, T>> {
-    return new Promise(resolve => {
-      const descriptor = this.addEventListener(eventType, event => {
-        this.removeEventListener(eventType, descriptor.listener);
-        resolve(event.data);
-      });
-    });
+    return this.impl.once(eventType);
   }
-
   removeEventListener<T extends EventType<Events>>(
       eventType: T, listener: (arg0: EventTargetEvent<EventPayload<Events, T>>) => void, thisObject?: Object): void {
-    const listeners = this.listeners?.get(eventType);
-    if (!listeners) {
-      return;
-    }
-    for (const listenerTuple of listeners) {
-      if (listenerTuple.listener === listener && listenerTuple.thisObject === thisObject) {
-        listenerTuple.disposed = true;
-        listeners.delete(listenerTuple);
-      }
-    }
-
-    if (!listeners.size) {
-      this.listeners?.delete(eventType);
-    }
+    this.impl.removeEventListener(eventType, listener, thisObject);
   }
-
   hasEventListeners(eventType: EventType<Events>): boolean {
-    return Boolean(this.listeners && this.listeners.has(eventType));
+    return this.impl.hasEventListeners(eventType);
   }
-
   dispatchEventToListeners<T extends EventType<Events>>(
       eventType: Platform.TypeScriptUtilities.NoUnion<T>,
       ...[eventData]: EventPayloadToRestParameters<EventPayload<Events, T>>): void {
-    const listeners = this.listeners?.get(eventType);
-    if (!listeners) {
-      return;
-    }
-    const event = {data: eventData};
-    // Work on a snapshot of the current listeners, callbacks might remove/add
-    // new listeners.
-    for (const listener of [...listeners]) {
-      if (!listener.disposed) {
-        listener.listener.call(listener.thisObject, event);
-      }
-    }
+    this.impl.dispatchEventToListeners(
+        eventType, ...[eventData] as EventPayloadToRestParameters<EventPayload<Events, T>>);
   }
 }
