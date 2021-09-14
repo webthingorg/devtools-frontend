@@ -50,6 +50,23 @@
       "message": "ping",
       "revId": "6f414cc901461a504fb9a35f17be66d42a5c3ffb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e3d85b_3f12f028",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-09-14T17:16:39Z",
+      "side": 1,
+      "message": "From what I can see on the back-end, the field wouldn\u0027t be there altogether, would it? (I think it generally makes more sense rather than sending \u00270\u0027). Can we ditch parsing here and just have eventData[\u0027nodeId\u0027] or even (\u0027nodeId\u0027 in eventData)?",
+      "revId": "6f414cc901461a504fb9a35f17be66d42a5c3ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
