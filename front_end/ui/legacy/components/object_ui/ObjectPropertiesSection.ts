@@ -1599,19 +1599,19 @@ export class ObjectPropertiesSectionsTreeExpandController {
     }
   }
 
-  private elementAttached(event: Common.EventTarget.EventTargetEvent): void {
+  private elementAttached(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
     const element = (event.data as UI.TreeOutline.TreeElement);
     if (element.isExpandable() && this.expandedProperties.has(this.propertyPath(element))) {
       element.expand();
     }
   }
 
-  private elementExpanded(event: Common.EventTarget.EventTargetEvent): void {
+  private elementExpanded(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
     const element = (event.data as UI.TreeOutline.TreeElement);
     this.expandedProperties.add(this.propertyPath(element));
   }
 
-  private elementCollapsed(event: Common.EventTarget.EventTargetEvent): void {
+  private elementCollapsed(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
     const element = (event.data as UI.TreeOutline.TreeElement);
     this.expandedProperties.delete(this.propertyPath(element));
   }
