@@ -35,10 +35,11 @@ import {Constraints} from './Geometry.js';
 import type {ResizeUpdatePositionEvent} from './ResizerWidget.js';
 import {Events as ResizerWidgetEvents, SimpleResizerWidget} from './ResizerWidget.js';
 import {ToolbarButton} from './Toolbar.js';
-import {Widget} from './Widget.js';
+import type {Widget} from './Widget.js';
+import {WidgetWithEvents} from './Widget.js';
 import {Events as ZoomManagerEvents, ZoomManager} from './ZoomManager.js';
 
-export class SplitWidget extends Widget {
+export class SplitWidget extends WidgetWithEvents {
   private sidebarElementInternal: HTMLElement;
   private mainElement: HTMLElement;
   private resizerElementInternal: HTMLElement;

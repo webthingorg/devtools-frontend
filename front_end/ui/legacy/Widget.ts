@@ -48,7 +48,7 @@ export class WidgetElement extends HTMLDivElement {
   }
 }
 
-export class Widget extends Common.ObjectWrapper.ObjectWrapper {
+export class Widget {
   element!: WidgetElement;
   contentElement: HTMLDivElement;
   private shadowRoot: ShadowRoot|undefined;
@@ -69,7 +69,6 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
   private invalidationsRequested?: boolean;
   private externallyManaged?: boolean;
   constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
-    super();
     this.contentElement = document.createElement('div');
     this.contentElement.classList.add('widget');
     if (isWebComponent) {
@@ -616,12 +615,15 @@ export class Widget extends Common.ObjectWrapper.ObjectWrapper {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export class WidgetWithEvents extends Common.ObjectWrapper.eventMixin<any, typeof Widget>(Widget) {}
+
 const storedScrollPositions = new WeakMap<Element, {
   scrollLeft: number,
   scrollTop: number,
 }>();
 
-export class VBox extends Widget {
+export class VBox extends WidgetWithEvents {
   constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
     super(isWebComponent, delegatesFocus);
     this.contentElement.classList.add('vbox');
@@ -641,7 +643,7 @@ export class VBox extends Widget {
   }
 }
 
-export class HBox extends Widget {
+export class HBox extends WidgetWithEvents {
   constructor(isWebComponent?: boolean) {
     super(isWebComponent);
     this.contentElement.classList.add('hbox');

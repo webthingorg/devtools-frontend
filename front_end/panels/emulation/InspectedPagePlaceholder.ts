@@ -2,11 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../core/common/common.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 let inspectedPagePlaceholderInstance: InspectedPagePlaceholder;
 
-export class InspectedPagePlaceholder extends UI.Widget.Widget {
+export class InspectedPagePlaceholder extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.Widget>(
+    UI.Widget.Widget) {
   private updateId?: number;
   constructor() {
     super(true);
@@ -81,3 +83,7 @@ export class InspectedPagePlaceholder extends UI.Widget.Widget {
 export const enum Events {
   Update = 'Update',
 }
+
+export type EventTypes = {
+  [Events.Update]: void,
+};
