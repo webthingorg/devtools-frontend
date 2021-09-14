@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "960ca22a_ac137fc0",
+        "filename": "front_end/core/common/Object.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-14T10:10:39Z",
+      "side": 1,
+      "message": "Curious, the change only adds 1. But if it\u0027s indeed multiple new occurences I\u0027m fine either way!",
+      "parentUuid": "1757ac41_854cffbb",
+      "revId": "40b83f47f36de08814a9916e37d8b9b647fe05e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9a041ed_ed53fa85",
