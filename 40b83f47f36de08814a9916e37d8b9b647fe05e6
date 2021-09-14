@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf2da2b_f37fac25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-14T09:35:53Z",
+      "side": 1,
+      "message": "Please take a look, I uploaded an example CL that showcases the error message and how to use the mixin here: https://crrev.com/c/3160005.\n\nBenedikt FYI",
+      "revId": "40b83f47f36de08814a9916e37d8b9b647fe05e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
