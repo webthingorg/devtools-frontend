@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "464ed3bf_dda41879",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1338728
+      },
+      "writtenOn": "2021-09-14T20:52:03Z",
+      "side": 1,
+      "message": "Note that we are not planning to support multi-selection for now and we are using that issue to track support for it.",
+      "parentUuid": "a30b9351_063276b1",
+      "revId": "365b13f2788549897af18509fe05d7a9fc3fc6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03e3e68_c9f771ab",
