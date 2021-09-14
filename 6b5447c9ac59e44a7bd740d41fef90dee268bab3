@@ -16,6 +16,24 @@
       "message": "Overall change lgtm.\n\nUnfortunately some of our scripts don\u0027t support uploading CLs via a chromium checkout, in this case the script that handles our localization. That is why the en-US.json and en-XL.json files are truncated. To fix this please do:\n\n1) Follow https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#standalone-checkout to get a standalone DevTools checkout\n2) Patch in this CL via `git cl patch -f 3158643`\n3) Run `npm run collect-strings`\n4) Upload the new patchset via `git cl upload`.\n\nThat should fix the truncated locale json files. I\u0027m sorry for the inconvenience.\n\nI\u0027ll +1 the CL regardless, to reduce turn-around time.\n\n@Maud, PTAL at the issue description.",
       "revId": "6b5447c9ac59e44a7bd740d41fef90dee268bab3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "686c3107_57ddccab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1433106
+      },
+      "writtenOn": "2021-09-14T12:55:41Z",
+      "side": 1,
+      "message": "Done. Thanks for the detailed instructions!",
+      "parentUuid": "65099f3e_8f6ed401",
+      "revId": "6b5447c9ac59e44a7bd740d41fef90dee268bab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
