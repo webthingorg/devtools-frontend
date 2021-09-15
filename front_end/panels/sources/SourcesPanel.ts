@@ -643,8 +643,8 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     }
   }
 
-  private editorSelected(event: Common.EventTarget.EventTargetEvent): void {
-    const uiSourceCode = (event.data as Workspace.UISourceCode.UISourceCode);
+  private editorSelected(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode|null>): void {
+    const uiSourceCode = event?.data ?? null as any;
     if (this.editorView.mainWidget() &&
         Common.Settings.Settings.instance().moduleSetting('autoRevealInNavigator').get()) {
       this.revealInNavigator(uiSourceCode, true);
@@ -1111,7 +1111,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
       return;
     }
     const entry = items[0].webkitGetAsEntry();
-    if (!entry.isDirectory) {
+    if (!entry?.isDirectory) {
       return;
     }
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.upgradeDraggedFileSystemPermissions(entry.filesystem);

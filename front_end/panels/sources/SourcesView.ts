@@ -581,6 +581,16 @@ export  // TODO(crbug.com/1167717): Make this a const enum again
       EditorSelected = 'EditorSelected',
     }
 
+export interface EditorClosedEvent {
+  uiSourceCode: Workspace.UISourceCode.UISourceCode;
+  wasSelected: boolean;
+}
+
+export type EventTypes = {
+  [Events.EditorClosed]: EditorClosedEvent,
+  [Events.EditorSelected]: Workspace.UISourceCode.UISourceCode|null,
+};
+
 /**
  * @interface
  */
