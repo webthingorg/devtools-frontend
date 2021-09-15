@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdd7e7cf_fe5be92b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T15:53:06Z",
+      "side": 1,
+      "message": "Alex, wdyt? This will enable a much easier `itFoo \u003d makeCustomWrappedIt(\u0027[foo]\u0027)` and avoid any duplication of `.skip`, etc.",
+      "revId": "cc1946e5842f1dbaadc08c3f564f3848a4931f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
