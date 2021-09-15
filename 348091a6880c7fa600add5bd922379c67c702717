@@ -56,6 +56,30 @@
       },
       "revId": "348091a6880c7fa600add5bd922379c67c702717",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aed1da2_837e97ff",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T14:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e971fea9_6571e979",
+      "range": {
+        "startLine": 199,
+        "startChar": 34,
+        "endLine": 199,
+        "endChar": 38
+      },
+      "revId": "348091a6880c7fa600add5bd922379c67c702717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
