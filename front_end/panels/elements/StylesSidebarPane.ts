@@ -192,7 +192,8 @@ let _stylesSidebarPaneInstance: StylesSidebarPane;
 const STYLE_TAG = '<' +
     'style>';
 
-export class StylesSidebarPane extends ElementsSidebarPane {
+export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventTypes, typeof ElementsSidebarPane>(
+    ElementsSidebarPane) {
   private currentToolbarPane: UI.Widget.Widget|null;
   private animatedToolbarPane: UI.Widget.Widget|null;
   private pendingWidget: UI.Widget.Widget|null;
@@ -1059,6 +1060,21 @@ export const enum Events {
   InitialUpdateCompleted = 'InitialUpdateCompleted',
   StylesUpdateCompleted = 'StylesUpdateCompleted',
 }
+
+export interface MatchedStylesUpdate {
+  hasMatchedStyles: boolean;
+}
+
+export interface StyleUpdate {
+  hasStyle: boolean;
+}
+
+export type StylesUpdateCompletedEvent = MatchedStylesUpdate|StyleUpdate;
+
+export type EventTypes = {
+  [Events.InitialUpdateCompleted]: void,
+  [Events.StylesUpdateCompleted]: StylesUpdateCompletedEvent,
+};
 
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
 // eslint-disable-next-line @typescript-eslint/naming-convention
