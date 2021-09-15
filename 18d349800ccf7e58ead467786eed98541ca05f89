@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808d79b7_c8afd607",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T10:50:23Z",
+      "side": 1,
+      "message": "LGTM % nit\n\nAlso it is a bit easier to review when submitted file-wise and not as a folder:)",
+      "revId": "18d349800ccf7e58ead467786eed98541ca05f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a0384bc_f51bff40",
+        "filename": "front_end/ui/legacy/components/inline_editor/FontEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T10:50:23Z",
+      "side": 1,
+      "message": "Could you please make it a separate type (interface) `FontChangedEvent`?",
+      "range": {
+        "startLine": 433,
+        "startChar": 24,
+        "endLine": 433,
+        "endChar": 61
+      },
+      "revId": "18d349800ccf7e58ead467786eed98541ca05f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
