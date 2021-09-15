@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "df33c424506b615b81575ec4779d19459bf9d0e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d428bb_fe61c5ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T11:16:59Z",
+      "side": 1,
+      "message": "There is a use-site in TimelineLayersView (i think) that would benefit from the type.",
+      "revId": "df33c424506b615b81575ec4779d19459bf9d0e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
