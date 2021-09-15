@@ -291,8 +291,8 @@ export class CSSPlugin extends Plugin {
     this.swatchPopoverHelper.show(this.bezierEditor, swatch.iconElement(), this.swatchPopoverHidden.bind(this));
   }
 
-  private bezierChanged(event: Common.EventTarget.EventTargetEvent): void {
-    const bezierString = (event.data as string);
+  private bezierChanged(event: Common.EventTarget.EventTargetEvent<string>): void {
+    const bezierString = event.data;
     if (this.currentSwatch instanceof InlineEditor.Swatches.BezierSwatch) {
       this.currentSwatch.setBezierText(bezierString);
     }
