@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3e5c41_d7671591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-15T12:50:04Z",
+      "side": 1,
+      "message": "Alex, looking for an OWNER\u0027s +1, PTAL!",
+      "revId": "0507a75ca375378a1962f7cc6917d915dd9b5a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbba5f7a_81012acd",
@@ -41,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9166328e_1e8b7d51",
+        "filename": "front_end/panels/elements/ColorSwatchPopoverIcon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-15T12:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbba5f7a_81012acd",
+      "range": {
+        "startLine": 209,
+        "startChar": 26,
+        "endLine": 209,
+        "endChar": 75
+      },
+      "revId": "0507a75ca375378a1962f7cc6917d915dd9b5a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a90acd98_14d2b021",
@@ -54,6 +95,30 @@
       "writtenOn": "2021-09-15T10:56:40Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 264,
+        "startChar": 26,
+        "endLine": 264,
+        "endChar": 75
+      },
+      "revId": "0507a75ca375378a1962f7cc6917d915dd9b5a50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1922e17c_41bff837",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-15T12:50:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a90acd98_14d2b021",
       "range": {
         "startLine": 264,
         "startChar": 26,
