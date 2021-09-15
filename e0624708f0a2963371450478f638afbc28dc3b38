@@ -16,6 +16,75 @@
       "message": "PTAL as WIP, doesn\u0027t pass the presubmit check because of any (NetworkItemView line 285)",
       "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5101b28d_b4c982ad",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T16:18:40Z",
+      "side": 1,
+      "message": "Use the standard `EventTargetEvent` here. And remove the TODO + lint disable. We are no longer using `any` so no need.",
+      "range": {
+        "startLine": 277,
+        "startChar": 22,
+        "endLine": 281,
+        "endChar": 3
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f68d983c_015254d2",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T16:18:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure this does even work. Since the keys in the enum do not match 1:1 the values. I think its fine to cast the string to `NetworkForward.UIRequestLocation.UIRequestTabs`",
+      "range": {
+        "startLine": 285,
+        "startChar": 36,
+        "endLine": 285,
+        "endChar": 107
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e81cbea3_d6421409",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T16:18:40Z",
+      "side": 1,
+      "message": "Having looked through the code, I think we should split this up. The number originates from `DetailsView`, that re-purposes the event code to send a number. Lets refactor `DetailsView` to use a separate event instead that.\n\nProbably better to do that in a separate CL before we land this CL.",
+      "range": {
+        "startLine": 963,
+        "startChar": 31,
+        "endLine": 963,
+        "endChar": 39
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
