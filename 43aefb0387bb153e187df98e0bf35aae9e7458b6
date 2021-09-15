@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69939045_914c9716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T10:38:20Z",
+      "side": 1,
+      "message": "lgtm % nit, thanks!",
+      "revId": "43aefb0387bb153e187df98e0bf35aae9e7458b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29bb3652_81bee5bc",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T10:38:20Z",
+      "side": 1,
+      "message": "FYI: This could have stayed at the bottom of the file. `EventTypes` doesn\u0027t need to be declared before `TreeOutline`.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 2
+      },
+      "revId": "43aefb0387bb153e187df98e0bf35aae9e7458b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8b78b2_0369b113",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T10:38:20Z",
+      "side": 1,
+      "message": "nit: Remove cast here and below",
+      "range": {
+        "startLine": 1603,
+        "startChar": 20,
+        "endLine": 1603,
+        "endChar": 63
+      },
+      "revId": "43aefb0387bb153e187df98e0bf35aae9e7458b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
