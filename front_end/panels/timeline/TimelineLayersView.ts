@@ -63,8 +63,9 @@ export class TimelineLayersView extends UI.SplitWidget.SplitWidget {
     }
   }
 
-  private onPaintProfilerRequested(event: Common.EventTarget.EventTargetEvent): void {
-    const selection = (event.data as LayerViewer.LayerViewHost.Selection);
+  private onPaintProfilerRequested(event: Common.EventTarget.EventTargetEvent<LayerViewer.LayerViewHost.Selection>):
+      void {
+    const selection = event.data;
     this.layers3DView.snapshotForSelection(selection).then(snapshotWithRect => {
       if (snapshotWithRect) {
         this.showPaintProfilerCallback(snapshotWithRect.snapshot);
