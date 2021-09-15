@@ -16,6 +16,46 @@
       "message": "Not WIP anymore, PTAL",
       "revId": "9e429fc0e9a4971ef20c6eaeb619029ab15e2a0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92e75a9_53ebf1fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T08:15:04Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "9e429fc0e9a4971ef20c6eaeb619029ab15e2a0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f8c8dc_bab1e716",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T08:15:04Z",
+      "side": 1,
+      "message": "This only works because we still inherit from `ObjectWrapper\u003cany\u003e`, as soon as we remove that, TS will complain that `UISourceCode` doesn\u0027t match `UISourceCode|null`.\n\nThis needs to be:\n\n const currentFile \u003d this.editorContainer.currentFile();\n if (currentFile) {\n   this.dispatch\n }",
+      "range": {
+        "startLine": 450,
+        "startChar": 59,
+        "endLine": 450,
+        "endChar": 93
+      },
+      "revId": "9e429fc0e9a4971ef20c6eaeb619029ab15e2a0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
