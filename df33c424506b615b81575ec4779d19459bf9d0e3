@@ -33,6 +33,24 @@
       "message": "There is a use-site in TimelineLayersView (i think) that would benefit from the type.",
       "revId": "df33c424506b615b81575ec4779d19459bf9d0e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8dc8f81_3bb8724b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T11:31:42Z",
+      "side": 1,
+      "message": "The use-sites are also used by Layer3DView, which has an event of the same type (Selection). I updated those already there",
+      "parentUuid": "16d428bb_fe61c5ce",
+      "revId": "df33c424506b615b81575ec4779d19459bf9d0e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
