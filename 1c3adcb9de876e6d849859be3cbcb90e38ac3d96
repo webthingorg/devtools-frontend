@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c399896f_cce0f419",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T11:40:45Z",
+      "side": 1,
+      "message": "Question",
+      "revId": "1c3adcb9de876e6d849859be3cbcb90e38ac3d96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40a35c1a_5fd5d3ae",
@@ -48,6 +65,30 @@
       "writtenOn": "2021-09-15T10:43:00Z",
       "side": 1,
       "message": "Given that this is unused, should we just remove it? The call-site can use \"{hasMatchedStyles: false}\" to keep backwards compatibility.",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 1
+      },
+      "revId": "1c3adcb9de876e6d849859be3cbcb90e38ac3d96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d0618a_aee09ccb",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T11:40:45Z",
+      "side": 1,
+      "message": "One of the dispatchers sends this out, will it still work if I remove this?",
+      "parentUuid": "40a35c1a_5fd5d3ae",
       "range": {
         "startLine": 1068,
         "startChar": 0,
