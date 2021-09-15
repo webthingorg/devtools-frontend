@@ -197,8 +197,8 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     });
   }
 
-  private onTabClosed(event: Common.EventTarget.EventTargetEvent): void {
-    if (event.data.tabId !== DetailsViewTabs.Profiler || !this.layerBeingProfiled) {
+  private onTabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData|number>): void {
+    if ((typeof event.data !== 'number' && event.data.tabId !== DetailsViewTabs.Profiler) || !this.layerBeingProfiled) {
       return;
     }
     this.paintProfilerView.reset();

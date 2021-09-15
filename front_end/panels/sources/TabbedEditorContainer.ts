@@ -511,39 +511,38 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     }
   }
 
-  private tabClosed(event: Common.EventTarget.EventTargetEvent): void {
-    const tabId = (event.data.tabId as string);
-    const userGesture = (event.data.isUserGesture as boolean);
+  private tabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData|number>): void {
+    if (typeof event.data !== 'number') {
+      const {tabId, isUserGesture} = event.data;
+      const uiSourceCode = this.files.get(tabId);
+      if (this.currentFileInternal === uiSourceCode) {
+        this.removeViewListeners();
+        this.currentView = null;
+        this.currentFileInternal = null;
+      }
+      if (uiSourceCode) {
+        this.tabIds.delete(uiSourceCode);
+      }
+      this.files.delete(tabId);
 
-    const uiSourceCode = this.files.get(tabId);
-    if (this.currentFileInternal === uiSourceCode) {
-      this.removeViewListeners();
-      this.currentView = null;
-      this.currentFileInternal = null;
-    }
-    if (uiSourceCode) {
-      this.tabIds.delete(uiSourceCode);
-    }
-    this.files.delete(tabId);
+      if (uiSourceCode) {
+        this.removeUISourceCodeListeners(uiSourceCode);
 
-    if (uiSourceCode) {
-      this.removeUISourceCodeListeners(uiSourceCode);
+        this.dispatchEventToListeners(Events.EditorClosed, uiSourceCode);
 
-      this.dispatchEventToListeners(Events.EditorClosed, uiSourceCode);
-
-      if (userGesture) {
-        this.editorClosedByUserAction(uiSourceCode);
+        if (isUserGesture) {
+          this.editorClosedByUserAction(uiSourceCode);
+        }
       }
     }
   }
 
-  private tabSelected(event: Common.EventTarget.EventTargetEvent): void {
-    const tabId = (event.data.tabId as string);
-    const userGesture = (event.data.isUserGesture as boolean);
+  private tabSelected(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void {
+    const {tabId, isUserGesture} = event.data;
 
     const uiSourceCode = this.files.get(tabId);
     if (uiSourceCode) {
-      this.innerShowFile(uiSourceCode, userGesture);
+      this.innerShowFile(uiSourceCode, isUserGesture);
     }
   }
 
