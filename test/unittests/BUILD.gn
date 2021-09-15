@@ -20,9 +20,11 @@ group("unittests") {
 copy("copy_to_gen") {
   sources = [ "karma.conf.js" ]
   outputs = [ "$target_gen_dir/karma.conf.js" ]
+  data = [ "$target_gen_dir/karma.conf.js" ]
 }
 
 copy("copy_debug_check") {
   sources = [ "debug-check.js" ]
   outputs = [ "$target_gen_dir/debug-check.js" ]
+  data = [ "$target_gen_dir/debug-check.js" ]
 }
