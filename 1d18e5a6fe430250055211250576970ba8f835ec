@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "1d18e5a6fe430250055211250576970ba8f835ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe42ae2_9d912c83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T08:57:00Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "1d18e5a6fe430250055211250576970ba8f835ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a29f3e3_317891d6",
+        "filename": "front_end/panels/timeline/TimelineLayersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-15T08:57:00Z",
+      "side": 1,
+      "message": "nit: Lets cleanup here\n\n async private onPaintProfilerRequested(event: Common.EventTarget.EventTargetEvent\u003cLayerViewer.LayerViewHost.Selection\u003e):\n      Promise\u003cvoid\u003e {\n    const selection \u003d event.data;\n    const snapshotWithRect \u003d await this.layers3DView.snapshotForSelection(selection);\n    if (snapshotWithRect) {\n      this.showPaintProfilerCallback(snapshotWithRect.snapshot);\n    }\n  }",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "1d18e5a6fe430250055211250576970ba8f835ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
