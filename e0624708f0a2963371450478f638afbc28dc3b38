@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4cda4f_e9c62c8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-15T12:33:10Z",
+      "side": 1,
+      "message": "PTAL as WIP, doesn\u0027t pass the presubmit check because of any (NetworkItemView line 285)",
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
