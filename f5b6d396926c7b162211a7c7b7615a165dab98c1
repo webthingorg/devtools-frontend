@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f669d0_f12a7581",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "Nice! This is definitely going in the right direction but I have some thoughts about some architectural changes. Let me know what you think. Thanks!",
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83894760_57965180",
+        "filename": "front_end/ui/components/docs/text_prompt/basic.html",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "nit: these should have a space around them\n\n#container \u003e devtools-text-prompt",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30504836_471df9d8",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "nit: when assigning the value which is a primitive, we will often drop the type because TS will infer it correctly.\n\nprivate prefixText \u003d \u0027\u0027",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81f2d4d_2be50a75",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "we can avoid this by declaring the event listener in the lit render:\n\n```\n\u003cinput @keydown\u003d{this.onKeyDown}\n```\n\nThat way you don\u0027t have to manage the input yourself, query for it from the DOM, or bind the keydown event (Lit will do it all for you)",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f974de_0c2b1653",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "I would have thought we could have `onKeyDown(event: KeyboardEvent)` and not have to type cast. Does that not work?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e54bbf3_8bb1fa49",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "A nice follow-up would add `\u0027Enter\u0027` as a key to https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/platform/keyboard-utilities.ts;l\u003d1?q\u003dkeyboard-ut\u0026sq\u003d\u0026ss\u003dchromium and use it rather than the string :)",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41650d5e_200075be",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "is this whitespace here on purpose?",
+      "range": {
+        "startLine": 110,
+        "startChar": 101,
+        "endLine": 110,
+        "endChar": 102
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ab8b33_4898131f",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "Querying for a given class name on an element that\u0027s inside a shadow root of a component is very brittle; is there anything better we can do here do you think? Where and when is this function called? \n\nBy updating this we are relying on the text-prompt-input classname to never be removed from the TextInput component, and that concerns me.\n\nAt the very least if we were to use:\n\n```\n\u003cinput data-internal-text-prompt-input\n```\n\nThat would be a little clearer and less likely for someone to remove.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 101
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdfc57fd_7e8203f5",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "See the comment below which is similar, but we shouldn\u0027t expose internal DOM elements of the TextPrompt component like this. We should use custom events to have the TextPrompt component let parent elements know about its values.\n\nSo this should probably become something like:\n\nthis.inputBoxElement.addEventListener(TextPrompt.TextPrompt.PromptInputEvent.eventName, this.onInput.bind(this), false);",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 91
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14accb61_dc2eb2a9",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "I don\u0027t think we should do this: the goal with components is to not allow their parents to dive into them and read out values at will.\n\nInstead we want to have the component dispatch events that the parent can listen to. So in this case we should:\n\n1. Track when the value of the text input inside TextPrompt changes.\n2. When it does change, dispatch a custom event (\"prompttextchanged\" maybe?)\n3. Have this file listen to that event, and update some value with the new prompt text.\n\nThat way we don\u0027t need the public text() method in the component, and if we change how we structure the internal representation, we can do that without breaking any other call sites, because the way we expose that data is only via events.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 46
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05cd3f27_2b22711f",
+        "filename": "test/unittests/front_end/ui/components/TextPrompt_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-15T13:30:28Z",
+      "side": 1,
+      "message": "nit: for all of these it would be nice if they read like sentences with the it at the start. So here:\n\nit(\u0027sets the prefix correctly\u0027)\n\nAnd similarly for the rest.\n\nTiny nit btw - otherwise these tests are great.",
+      "range": {
+        "startLine": 39,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
