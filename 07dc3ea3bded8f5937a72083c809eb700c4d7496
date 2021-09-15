@@ -33,6 +33,24 @@
       "message": "ultra-nit: remove the blank line",
       "revId": "07dc3ea3bded8f5937a72083c809eb700c4d7496",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a631a0bc_0a530e88",
+        "filename": "front_end/ui/components/helpers/custom-elements.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1510057
+      },
+      "writtenOn": "2021-09-15T12:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91015b5_be099766",
+      "revId": "07dc3ea3bded8f5937a72083c809eb700c4d7496",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
