@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "7a0a7a9c680d2a406201b0a6507fc210ae8eb6ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09acd7dc_d8df693c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-09-15T10:03:50Z",
+      "side": 1,
+      "message": "You have my lgtm, but you will need an owner. Like in V8, also in DevTools the ownership of the OWNERS file itself is a bottleneck of only two people:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/config/owner/ENG_REVIEW_OWNERS\n\nYang could you stamp this? Could we add 1-2 more people to this owners file or at least specifically to owning the OWNERS file?",
+      "revId": "7a0a7a9c680d2a406201b0a6507fc210ae8eb6ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
