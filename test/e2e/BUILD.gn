@@ -11,6 +11,8 @@ group("e2e") {
     ":tests",
     "resources",
   ]
+
+  data = ["../../"]
 }
 
 node_ts_library("tests") {
