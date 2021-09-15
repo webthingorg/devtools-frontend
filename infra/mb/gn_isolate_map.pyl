@@ -1,0 +1,14 @@
+{
+  "All": {
+    "label": "//:All",
+    "type": "script",
+  },
+  "e2e": {
+    "label": "//test/e2e:e2e",
+    "type": "script",
+  },
+  "unittests": {
+    "label": "//test:test",
+    "type": "script",
+  },
+}
