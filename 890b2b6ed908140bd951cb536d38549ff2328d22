@@ -16,6 +16,23 @@
       "message": "PTAL, also I left comments on the spreadsheet from which files the extension was removed and from which not, if that might be helpful",
       "revId": "890b2b6ed908140bd951cb536d38549ff2328d22",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c72522_5862982d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-16T15:59:30Z",
+      "side": 1,
+      "message": "lgtm, lets wait and see what the bots say",
+      "revId": "890b2b6ed908140bd951cb536d38549ff2328d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
