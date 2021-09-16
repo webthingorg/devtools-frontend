@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ea1021_d9fd8423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T08:33:20Z",
+      "side": 1,
+      "message": "Should I also rename the other one to TabClosedWithEventData? Or is leaving it just TabClosed fine?",
+      "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
