@@ -56,6 +56,30 @@
       },
       "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd27b6e_dfc846db",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T08:59:51Z",
+      "side": 1,
+      "message": "Sure, makes sense, I misread it:)\nDone",
+      "parentUuid": "8743925d_a382e459",
+      "range": {
+        "startLine": 843,
+        "startChar": 36,
+        "endLine": 843,
+        "endChar": 72
+      },
+      "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
