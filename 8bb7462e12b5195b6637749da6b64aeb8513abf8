@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2a6e93_9c5d36e2",
+        "filename": "front_end/panels/sources/OutlineQuickOpen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-16T07:37:12Z",
+      "side": 1,
+      "message": "should we check here that `tagElement` exists and error if it does not? Or is there a more robust way to find the right element to create the new span for?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 110
+      },
+      "revId": "8bb7462e12b5195b6637749da6b64aeb8513abf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
