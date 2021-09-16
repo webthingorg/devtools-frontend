@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aba83b43_82243778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T14:16:45Z",
+      "side": 1,
+      "message": "PTAL, also I left comments on the spreadsheet from which files the extension was removed and from which not, if that might be helpful",
+      "revId": "890b2b6ed908140bd951cb536d38549ff2328d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
