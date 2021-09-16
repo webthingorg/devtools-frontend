@@ -953,6 +953,7 @@ export enum Events {
   TabInvoked = 'TabInvoked',
   TabSelected = 'TabSelected',
   TabClosed = 'TabClosed',
+  TabClosedWithId = 'TabClosedWithId',
   TabOrderChanged = 'TabOrderChanged',
 }
 

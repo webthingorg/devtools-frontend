@@ -246,7 +246,7 @@ export class CSSOverviewCompletedView extends UI.Panel.PanelWithSidebar {
     this.elementContainer = new DetailsView();
 
     // If closing the last tab, collapse the sidebar.
-    this.elementContainer.addEventListener(UI.TabbedPane.Events.TabClosed, evt => {
+    this.elementContainer.addEventListener(UI.TabbedPane.Events.TabClosedWithId, evt => {
       if (evt.data === 0) {
         this.mainContainer.setSidebarMinimized(true);
       }
@@ -840,7 +840,7 @@ export class DetailsView extends UI.Widget.VBox {
     this.tabbedPane = new UI.TabbedPane.TabbedPane();
     this.tabbedPane.show(this.element);
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabClosed, () => {
-      this.dispatchEventToListeners(UI.TabbedPane.Events.TabClosed, this.tabbedPane.tabIds().length);
+      this.dispatchEventToListeners(UI.TabbedPane.Events.TabClosedWithId, this.tabbedPane.tabIds().length);
     });
   }
 
