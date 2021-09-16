@@ -16,6 +16,23 @@
       "message": "OWNERS +1",
       "revId": "d4162aa3a91a2adaa49ccf2a9be1a19fafceedee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd7b973_2e94cb0b",
+        "filename": "front_end/models/issues_manager/descriptions/CoepFrameResourceNeedsCoepHeader.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2021-09-16T06:00:09Z",
+      "side": 1,
+      "message": "What is the last bit `(Chrome \u003e 83)`? Does this mean you can use `credentialless` after Chrome 83? If so, I thought it\u0027s available only after Chrome 95?",
+      "revId": "d4162aa3a91a2adaa49ccf2a9be1a19fafceedee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
