@@ -33,6 +33,29 @@
       "message": "Should I also rename the other one to TabClosedWithEventData? Or is leaving it just TabClosed fine?",
       "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8743925d_a382e459",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-16T08:34:23Z",
+      "side": 1,
+      "message": "This event is specific to `DetailsView`. Can we introduce it as such?\nThat means:\n\n  export class DetailsView extends Common.ObjectWrapper.eventMixin\u003cEvents, ...\u003e() {\n\n  enum const Events {\n    TabClosed \u003d \u0027TabClosed\u0027\n  }\n  \nAlso, I\u0027m not sure if the name is appropriate. We don\u0027t send the tab id, but rather the number of tabs.",
+      "range": {
+        "startLine": 843,
+        "startChar": 36,
+        "endLine": 843,
+        "endChar": 72
+      },
+      "revId": "4b9156d3edea255900db1eccd681c348a67c9dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
