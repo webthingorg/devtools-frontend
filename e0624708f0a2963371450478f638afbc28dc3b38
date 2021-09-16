@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefd09d1_a336ec9b",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T11:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5101b28d_b4c982ad",
+      "range": {
+        "startLine": 277,
+        "startChar": 22,
+        "endLine": 281,
+        "endChar": 3
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f68d983c_015254d2",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b729da98_dcfd1d2d",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T11:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f68d983c_015254d2",
+      "range": {
+        "startLine": 285,
+        "startChar": 36,
+        "endLine": 285,
+        "endChar": 107
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e81cbea3_d6421409",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-09-15T16:18:40Z",
       "side": 1,
       "message": "Having looked through the code, I think we should split this up. The number originates from `DetailsView`, that re-purposes the event code to send a number. Lets refactor `DetailsView` to use a separate event instead that.\n\nProbably better to do that in a separate CL before we land this CL.",
+      "range": {
+        "startLine": 963,
+        "startChar": 31,
+        "endLine": 963,
+        "endChar": 39
+      },
+      "revId": "e0624708f0a2963371450478f638afbc28dc3b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba0c45d4_6e2660dd",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-16T11:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81cbea3_d6421409",
       "range": {
         "startLine": 963,
         "startChar": 31,
