@@ -33,6 +33,7 @@ import type * as SDK from '../../../../core/sdk/sdk.js';
 import * as UI from '../../legacy.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 
+import type {WindowChangedWithPositionEvent} from './OverviewGrid.js';
 import {Events as OverviewGridEvents, OverviewGrid} from './OverviewGrid.js';
 import type {Calculator} from './TimelineGrid.js';
 
@@ -209,7 +210,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     return this.overviewControls.some(control => control.onClick(event));
   }
 
-  private onWindowChanged(event: Common.EventTarget.EventTargetEvent): void {
+  private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedWithPositionEvent>): void {
     if (this.muteOnWindowChanged) {
       return;
     }
