@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "c13f1dee43d78bdd2c543333e3b1400bada671a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d8b737_20817ab1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-17T08:54:43Z",
+      "side": 1,
+      "message": "Whilst I am happy to land this, I don\u0027t love that after this change our fonts in the screenshots will not match the fonts we actually ship as part of DevTools.\n\nCan we consider putting the font we need (Roboto?) into this repo (it\u0027s an open source google font I think?) to make them align?\n\nHappy for this to land to unblock things, but long term I think it\u0027s something worth resolving rather than having the Linux screenshot tests use Arial which isn\u0027t what we actually use when deployed.",
+      "revId": "c13f1dee43d78bdd2c543333e3b1400bada671a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
