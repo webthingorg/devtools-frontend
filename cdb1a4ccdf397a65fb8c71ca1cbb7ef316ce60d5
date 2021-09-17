@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9e81ed_4191153c",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-17T11:29:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0983f962_c135c196",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 16
+      },
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eaf2e72f_f05de158",
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "I uploaded that as a follow up change, PTAL!\n\nUnfortunately in this instence, the event sender parses the Id from string, so I\u0027m not sure I can make a BackendNodeId from that.",
       "parentUuid": "c2cc8ae1_102f1aa4",
+      "range": {
+        "startLine": 103,
+        "startChar": 72,
+        "endLine": 103,
+        "endChar": 78
+      },
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb1874e_49f0cb1f",
+        "filename": "front_end/panels/css_overview/CSSOverviewPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-17T11:29:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8179533c_9e16780f",
       "range": {
         "startLine": 103,
         "startChar": 72,
