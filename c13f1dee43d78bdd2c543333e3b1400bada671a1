@@ -33,6 +33,24 @@
       "message": "Whilst I am happy to land this, I don\u0027t love that after this change our fonts in the screenshots will not match the fonts we actually ship as part of DevTools.\n\nCan we consider putting the font we need (Roboto?) into this repo (it\u0027s an open source google font I think?) to make them align?\n\nHappy for this to land to unblock things, but long term I think it\u0027s something worth resolving rather than having the Linux screenshot tests use Arial which isn\u0027t what we actually use when deployed.",
       "revId": "c13f1dee43d78bdd2c543333e3b1400bada671a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d8f3169_332e919f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-17T09:04:44Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t love that after this change our fonts in the screenshots will not match the fonts we actually ship as part of DevTools.\n\nWe don\u0027t ship any fonts as part of DevTools, do we? \n\n\u003e Can we consider putting the font we need (Roboto?) into this repo (it\u0027s an open source google font I think?) to make them align?\n\nIt\u0027d require installing it either as a system font (which I don\u0027t think is possible) or including as a web font with all variants (like Light, Normal, Bold). Which is possible but I am not sure it\u0027s worth it given that DevTools defined multiple supported fonts.  \n\n\u003e Happy for this to land to unblock things, but long term I think it\u0027s something worth resolving rather than having the Linux screenshot tests use Arial which isn\u0027t what we actually use when deployed.\n\nIt completely depends on what the user machine has. `font-family: Roboto, Ubuntu, Arial, sans-serif;` theoretically we should support all of those fonts according to our fallback list.",
+      "parentUuid": "67d8b737_20817ab1",
+      "revId": "c13f1dee43d78bdd2c543333e3b1400bada671a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
