@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e576b7b_7fe85da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-09-17T10:19:11Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf2e72f_f05de158",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-09-17T10:19:11Z",
+      "side": 1,
+      "message": "I think we should handle this case. If frontendNode is null we shouldn\u0027t create the cell or we shouldn\u0027t attempt to linkify.",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
