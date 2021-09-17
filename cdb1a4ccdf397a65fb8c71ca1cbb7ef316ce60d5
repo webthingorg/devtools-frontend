@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0983f962_c135c196",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-17T11:09:55Z",
+      "side": 1,
+      "message": "Neither of the node types declares that property.",
+      "parentUuid": "eaec85fc_44eebf13",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 16
+      },
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eaf2e72f_f05de158",
         "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
         "patchSetId": 2
@@ -77,6 +101,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0cd8eb27_4c77d193",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-17T11:09:55Z",
+      "side": 1,
+      "message": "As per :1033, if nodeId is set, frontendNode can\u0027t be null.",
+      "parentUuid": "eaf2e72f_f05de158",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2cc8ae1_102f1aa4",
         "filename": "front_end/panels/css_overview/CSSOverviewPanel.ts",
         "patchSetId": 2
@@ -88,6 +130,30 @@
       "writtenOn": "2021-09-17T10:19:50Z",
       "side": 1,
       "message": "q: Would it be possible to use `Protocol.DOM.BackendNodeId` consistently where we are currently using numbers for \"nodeId\"? Or are not all nodeIds originating from the backend?",
+      "range": {
+        "startLine": 103,
+        "startChar": 72,
+        "endLine": 103,
+        "endChar": 78
+      },
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8179533c_9e16780f",
+        "filename": "front_end/panels/css_overview/CSSOverviewPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-17T11:09:55Z",
+      "side": 1,
+      "message": "I uploaded that as a follow up change, PTAL!\n\nUnfortunately in this instence, the event sender parses the Id from string, so I\u0027m not sure I can make a BackendNodeId from that.",
+      "parentUuid": "c2cc8ae1_102f1aa4",
       "range": {
         "startLine": 103,
         "startChar": 72,
