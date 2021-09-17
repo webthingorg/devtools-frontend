@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d5c430_273bbca1",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-17T11:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cd8eb27_4c77d193",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2cc8ae1_102f1aa4",
