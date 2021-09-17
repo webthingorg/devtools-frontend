@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1daf740f_ad92d161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-17T10:19:50Z",
+      "side": 1,
+      "message": "lgtm % questions",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaec85fc_44eebf13",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-17T10:19:50Z",
+      "side": 1,
+      "message": "So `hasChildren` has never been set when dispatching the event?",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 16
+      },
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eaf2e72f_f05de158",
@@ -31,6 +71,29 @@
       "writtenOn": "2021-09-17T10:19:11Z",
       "side": 1,
       "message": "I think we should handle this case. If frontendNode is null we shouldn\u0027t create the cell or we shouldn\u0027t attempt to linkify.",
+      "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2cc8ae1_102f1aa4",
+        "filename": "front_end/panels/css_overview/CSSOverviewPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-17T10:19:50Z",
+      "side": 1,
+      "message": "q: Would it be possible to use `Protocol.DOM.BackendNodeId` consistently where we are currently using numbers for \"nodeId\"? Or are not all nodeIds originating from the backend?",
+      "range": {
+        "startLine": 103,
+        "startChar": 72,
+        "endLine": 103,
+        "endChar": 78
+      },
       "revId": "cdb1a4ccdf397a65fb8c71ca1cbb7ef316ce60d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
