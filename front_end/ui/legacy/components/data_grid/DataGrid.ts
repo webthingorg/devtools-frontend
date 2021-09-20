@@ -118,7 +118,7 @@ const elementToPositionMap = new WeakMap<Element, number>();
 
 const elementToIndexMap = new WeakMap<Element, number>();
 
-export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
+export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTypes<T>> {
   element: HTMLDivElement;
   private displayName: string;
   private editCallback: ((arg0: any, arg1: string, arg2: any, arg3: any) => any)|undefined;
@@ -1516,6 +1516,14 @@ export enum Events {
   PaddingChanged = 'PaddingChanged',
 }
 
+export type EventTypes<T> = {
+  [Events.SelectedNode]: DataGridNode<T>,
+  [Events.DeselectedNode]: void,
+  [Events.OpenedNode]: DataGridNode<T>,
+  [Events.SortingChanged]: void,
+  [Events.PaddingChanged]: void,
+};
+
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
 export enum Order {
@@ -1552,7 +1560,7 @@ export type DataGridData = {
   [key: string]: any,
 };
 
-export class DataGridNode<T> extends Common.ObjectWrapper.ObjectWrapper {
+export class DataGridNode<T> {
   elementInternal: Element|null;
   expandedInternal: boolean;
   private selectedInternal: boolean;
@@ -1582,7 +1590,6 @@ export class DataGridNode<T> extends Common.ObjectWrapper.ObjectWrapper {
   isCreationNode: boolean;
 
   constructor(data?: DataGridData|null, hasChildren?: boolean) {
-    super();
     this.elementInternal = null;
     this.expandedInternal = false;
     this.selectedInternal = false;
