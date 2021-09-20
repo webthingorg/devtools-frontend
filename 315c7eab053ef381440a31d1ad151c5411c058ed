@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8116a4de_72db0a44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-20T07:22:49Z",
+      "side": 1,
+      "message": "PTAL, a CL in preparation to remove default `any` from `EventTargetEvent`.",
+      "revId": "315c7eab053ef381440a31d1ad151c5411c058ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

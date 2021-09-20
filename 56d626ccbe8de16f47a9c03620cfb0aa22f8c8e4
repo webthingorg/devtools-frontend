@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41b71d3a_75297abd",
+        "filename": "front_end/models/persistence/IsolatedFileSystemManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-20T07:22:49Z",
+      "side": 0,
+      "message": "I renamed this type to \"DevToolsFileSystem\" and moved it to the host bindings layer. The rename happened as to not clash with the native \"FileSystem\" type, that is also used by the host bindings layer. The data structure was moved as to avoid a cyclic dependency: \"core/host\" should not depend on \"models/persistence\".",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 1
+      },
+      "revId": "56d626ccbe8de16f47a9c03620cfb0aa22f8c8e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
