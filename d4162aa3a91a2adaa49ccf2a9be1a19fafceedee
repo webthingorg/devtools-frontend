@@ -51,6 +51,24 @@
       "parentUuid": "1bd7b973_2e94cb0b",
       "revId": "d4162aa3a91a2adaa49ccf2a9be1a19fafceedee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791ee277_a4a61e5e",
+        "filename": "front_end/models/issues_manager/descriptions/CoepFrameResourceNeedsCoepHeader.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2021-09-20T10:02:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eb70363_0b8ebdab",
+      "revId": "d4162aa3a91a2adaa49ccf2a9be1a19fafceedee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
