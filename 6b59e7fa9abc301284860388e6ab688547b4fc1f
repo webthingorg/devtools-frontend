@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b9bea5_92862865",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-20T12:57:45Z",
+      "side": 1,
+      "message": "Hey Yang,\n\nHere\u0027s a trivial fix for the missing indicator shown next to bound functions (we might want to at some point consider showing even more information).\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "6b59e7fa9abc301284860388e6ab688547b4fc1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
