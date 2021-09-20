@@ -308,7 +308,7 @@ export class NetworkLogViewColumns {
       this.syncScrollers();
     });
     this.dataGridInternal.addEventListener(
-        DataGrid.ViewportDataGrid.Events.ViewportCalculated, this.redrawWaterfallColumn.bind(this));
+        DataGrid.DataGrid.Events.ViewportCalculated, this.redrawWaterfallColumn.bind(this));
 
     this.createWaterfallHeader();
     this.waterfallColumn.contentElement.classList.add('network-waterfall-view');

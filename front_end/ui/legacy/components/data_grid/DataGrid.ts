@@ -118,7 +118,7 @@ const elementToPositionMap = new WeakMap<Element, number>();
 
 const elementToIndexMap = new WeakMap<Element, number>();
 
-export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper {
+export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTypes<T>> {
   element: HTMLDivElement;
   private displayName: string;
   private editCallback: ((arg0: any, arg1: string, arg2: any, arg3: any) => any)|undefined;
@@ -1514,7 +1514,21 @@ export enum Events {
   OpenedNode = 'OpenedNode',
   SortingChanged = 'SortingChanged',
   PaddingChanged = 'PaddingChanged',
+
+  // TODO(crbug.com/1228674): Find a solution that allows sub-classes to augment the
+  // event set of the base class. Normally this is solved via the `eventMixin`, but
+  // `eventMixin` is disallowed by TS when the base class uses generics.
+  ViewportCalculated = 'ViewportCalculated',  // Only emitted by ViewportDataGrid.
 }
+
+export type EventTypes<T> = {
+  [Events.SelectedNode]: DataGridNode<T>,
+  [Events.DeselectedNode]: void,
+  [Events.OpenedNode]: DataGridNode<T>,
+  [Events.SortingChanged]: void,
+  [Events.PaddingChanged]: void,
+  [Events.ViewportCalculated]: void,
+};
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
@@ -1552,7 +1566,7 @@ export type DataGridData = {
   [key: string]: any,
 };
 
-export class DataGridNode<T> extends Common.ObjectWrapper.ObjectWrapper {
+export class DataGridNode<T> {
   elementInternal: Element|null;
   expandedInternal: boolean;
   private selectedInternal: boolean;
@@ -1582,7 +1596,6 @@ export class DataGridNode<T> extends Common.ObjectWrapper.ObjectWrapper {
   isCreationNode: boolean;
 
   constructor(data?: DataGridData|null, hasChildren?: boolean) {
-    super();
     this.elementInternal = null;
     this.expandedInternal = false;
     this.selectedInternal = false;
