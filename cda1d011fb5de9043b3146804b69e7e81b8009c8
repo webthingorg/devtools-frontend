@@ -16,6 +16,23 @@
       "message": "Hey Jack, PTAL! I don\u0027t have a good idea how to test this yet, I\u0027m afraid.",
       "revId": "cda1d011fb5de9043b3146804b69e7e81b8009c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be056d15_3a235231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-20T13:47:12Z",
+      "side": 1,
+      "message": "LGTM. Afraid I have no suggestions for the testing either :(",
+      "revId": "cda1d011fb5de9043b3146804b69e7e81b8009c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
