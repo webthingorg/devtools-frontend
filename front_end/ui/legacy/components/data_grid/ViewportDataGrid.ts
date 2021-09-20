@@ -7,7 +7,7 @@ import * as Platform from '../../../../core/platform/platform.js';
 import * as UI from '../../legacy.js';
 
 import type {DataGridData, Parameters} from './DataGrid.js';
-import {DataGridImpl, DataGridNode} from './DataGrid.js';
+import {Events, DataGridImpl, DataGridNode} from './DataGrid.js';
 
 const UIStrings = {
   /**
@@ -255,12 +255,6 @@ export class ViewportDataGrid<T> extends DataGridImpl<ViewportDataGridNode<T>> {
     }
     this.scrollContainer.scrollTop = scrollTop;
   }
-}
-
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Events {
-  ViewportCalculated = 'ViewportCalculated',
 }
 
 export class ViewportDataGridNode<T> extends DataGridNode<ViewportDataGridNode<T>> {

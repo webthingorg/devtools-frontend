@@ -324,7 +324,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
       {id: 'swScope', title: i18nString(UIStrings.swScope), weight: 5},
       {id: 'instanceId', title: i18nString(UIStrings.instanceId), weight: 10},
     ] as DataGrid.DataGrid.ColumnDescriptor[]);
-    const dataGrid = new DataGrid.DataGrid.DataGridImpl({
+    const dataGrid = new DataGrid.DataGrid.DataGridImpl<EventData>({
       displayName: i18nString(UIStrings.backgroundServices),
       columns,
       editCallback: undefined,
@@ -334,7 +334,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
     dataGrid.setStriped(true);
 
     dataGrid.addEventListener(
-        DataGrid.DataGrid.Events.SelectedNode, event => this.showPreview((event.data as EventDataNode)));
+        DataGrid.DataGrid.Events.SelectedNode, event => this.showPreview(event.data as EventDataNode));
 
     return dataGrid;
   }
