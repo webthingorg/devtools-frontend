@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebc8b668_e11c82af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-20T11:54:17Z",
+      "side": 1,
+      "message": "LGTM with two questions! Thanks!",
+      "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b44d02_f9bcd021",
+        "filename": "front_end/panels/network/ResourceWebSocketFrameView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-20T11:54:17Z",
+      "side": 1,
+      "message": "Do we know anything about the Datagrid nodes? Could we do better than unknown?",
+      "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c550bc_f358955f",
+        "filename": "front_end/panels/profiler/HeapSnapshotDataGrids.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-20T11:54:17Z",
+      "side": 1,
+      "message": "Should this really be here instead of its own enum?",
+      "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
