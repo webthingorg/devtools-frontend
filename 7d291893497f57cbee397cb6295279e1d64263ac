@@ -51,6 +51,24 @@
       "parentUuid": "c9d0af74_5b0b514c",
       "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3139165_a0a84c54",
+        "filename": "front_end/ui/legacy/Context.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-20T15:04:52Z",
+      "side": 1,
+      "message": "Ack. The Map uses Object, would that be an option? If not feasible, we can go with any!",
+      "parentUuid": "9c1fe48e_0e1e738f",
+      "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
