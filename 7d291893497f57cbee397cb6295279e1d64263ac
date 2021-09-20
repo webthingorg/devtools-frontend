@@ -33,6 +33,24 @@
       "message": "I wonder if we could do better than `any` here. How about `unknown`? The calls above pass Object|null, could we use that?",
       "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c1fe48e_0e1e738f",
+        "filename": "front_end/ui/legacy/Context.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-20T12:03:29Z",
+      "side": 1,
+      "message": "The problem is the `Map` above. If we use `unknown` we have to cast every time we `set` or `get` on the map. This is normal, as every element in the map has a different specialisation. So for \"generic\" collections I\u0027d prefer to any instead of unknown to get rid of pointless casting.",
+      "parentUuid": "c9d0af74_5b0b514c",
+      "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
