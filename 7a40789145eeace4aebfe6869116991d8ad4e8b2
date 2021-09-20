@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d0c816d_43fe5b8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115935
+      },
+      "writtenOn": "2021-09-20T18:39:26Z",
+      "side": 1,
+      "message": "PTAL. As usual for rolls, only the changes to README.chromium are manually created, everything else is auto-generated (via the command in said README).",
+      "revId": "7a40789145eeace4aebfe6869116991d8ad4e8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
