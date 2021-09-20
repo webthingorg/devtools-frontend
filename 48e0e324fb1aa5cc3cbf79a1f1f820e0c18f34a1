@@ -16,6 +16,24 @@
       "message": "lgtm\n\nCan you do a quick search for \"as Protocol.DOM.BackendNodeId\" and remove any unnecessary casts that might pop up? :)",
       "revId": "48e0e324fb1aa5cc3cbf79a1f1f820e0c18f34a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9c8d550_7c9be1e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-20T09:00:41Z",
+      "side": 1,
+      "message": "Caught two more cases :)",
+      "parentUuid": "4e4dd5c3_3ba3e0c4",
+      "revId": "48e0e324fb1aa5cc3cbf79a1f1f820e0c18f34a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
