@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "f19f658dde8a903a346de92405e57f755714caf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2256ef17_4506a38c",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-21T15:25:52Z",
+      "side": 1,
+      "message": "What does this line do?",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 41
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10852a6e_2d805b71",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-21T15:25:52Z",
+      "side": 1,
+      "message": "Basing CSS selector on inline style set in JS is both brittle and hard to understand. I think you can simply add \n\n.network-log-grid.data-grid:focus .data-grid-data-grid-node.selected [is\u003dui-icon].icon-mask {\n...\n}\n\nto the networkLogView.css",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 103
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
