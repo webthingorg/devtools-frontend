@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11c90c5_1de13a86",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T12:11:05Z",
+      "side": 1,
+      "message": "The event bus is passed down, so not specific for an individual setting. That makes the mapping from event name to type an \"any to any\".",
+      "range": {
+        "startLine": 290,
+        "startChar": 45,
+        "endLine": 290,
+        "endChar": 81
+      },
+      "revId": "85e953f6e4069e1bb519445d1aa2da9b34b9c2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
