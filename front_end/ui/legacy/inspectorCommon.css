@@ -499,6 +499,12 @@ span[is=dt-icon-label] {
 .-theme-with-dark-background [is=ui-icon].icon-mask,
 :host-context(.-theme-with-dark-background) [is=ui-icon].icon-mask {
   --override-icon-mask-background-color: rgb(145 145 145);
+  --network-grid-selected-color: #454545;
+}
+
+tr[style*="background-color: var(--network-grid-focus-selected-color)"] > td > [is=ui-icon].icon-mask {
+  --network-grid-selected-color: #dadce0;
+  --override-icon-mask-background-color: var(--network-grid-selected-color);
 }
 
 [is=ui-icon]:not(.icon-mask) {
