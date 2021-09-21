@@ -16,6 +16,23 @@
       "message": "PTAL. As usual for rolls, only the changes to README.chromium are manually created, everything else is auto-generated (via the command in said README).",
       "revId": "7a40789145eeace4aebfe6869116991d8ad4e8b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d915677_9265976f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-21T06:18:29Z",
+      "side": 1,
+      "message": "LGTM, modulo missing Bug: line. Can you link the wasm-gc tracking bug?",
+      "revId": "7a40789145eeace4aebfe6869116991d8ad4e8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
