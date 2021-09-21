@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e9c1e5_bd95e8df",
+        "filename": "front_end/core/common/EventTarget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T12:28:43Z",
+      "side": 0,
+      "message": "Turns out we still need a couple of places that need to be able to use unknown/any. Most of them are generic dispatchers that don\u0027t actually know what the types are at compile time.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 54
+      },
+      "revId": "85e953f6e4069e1bb519445d1aa2da9b34b9c2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
