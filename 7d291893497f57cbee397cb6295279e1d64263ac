@@ -69,6 +69,24 @@
       "parentUuid": "9c1fe48e_0e1e738f",
       "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3665eb3d_aafd1bc0",
+        "filename": "front_end/ui/legacy/Context.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T05:54:44Z",
+      "side": 1,
+      "message": "`object` has the same problem as `unknown`. We will have to cast the listeners we get/set from the map as well as cast the flavor value when dispatching.",
+      "parentUuid": "c3139165_a0a84c54",
+      "revId": "7d291893497f57cbee397cb6295279e1d64263ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
