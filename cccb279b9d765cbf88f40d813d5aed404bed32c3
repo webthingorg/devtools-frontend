@@ -16,6 +16,24 @@
       "message": "I think you dropped the trailing `this` argument here.",
       "revId": "cccb279b9d765cbf88f40d813d5aed404bed32c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9facc9d4_0058c497",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T11:16:11Z",
+      "side": 1,
+      "message": "Indeed, PS2 fixes that, thanks!",
+      "parentUuid": "d48ce2af_b9ac5a4b",
+      "revId": "cccb279b9d765cbf88f40d813d5aed404bed32c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
