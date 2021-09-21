@@ -123,7 +123,7 @@ function convertToSamplingHeapProfile(profileHeader: SamplingHeapProfileHeader):
 
 export class HeapProfileView extends ProfileView implements UI.SearchableView.Searchable {
   profileHeader: SamplingHeapProfileHeader;
-  readonly profileType: ProfileType;
+  readonly profileType: SamplingHeapProfileTypeBase;
   adjustedTotal: number;
   readonly selectedSizeText: UI.Toolbar.ToolbarText;
   timestamps: number[];
@@ -243,7 +243,8 @@ export class HeapProfileView extends ProfileView implements UI.SearchableView.Se
   }
 }
 
-export class SamplingHeapProfileTypeBase extends ProfileType {
+export class SamplingHeapProfileTypeBase extends
+    Common.ObjectWrapper.eventMixin<SamplingHeapProfileType.EventTypes, typeof ProfileType>(ProfileType) {
   recording: boolean;
   clearedDuringRecording: boolean;
 
@@ -346,7 +347,9 @@ export class SamplingHeapProfileTypeBase extends ProfileType {
 
 let samplingHeapProfileTypeInstance: SamplingHeapProfileType;
 
-export class SamplingHeapProfileType extends SamplingHeapProfileTypeBase {
+export class SamplingHeapProfileType extends
+    Common.ObjectWrapper.eventMixin<SamplingHeapProfileType.EventTypes, typeof SamplingHeapProfileTypeBase>(
+        SamplingHeapProfileTypeBase) {
   updateTimer: number;
   updateIntervalMs: number;
   constructor() {
@@ -445,6 +448,11 @@ export namespace SamplingHeapProfileType {
     RecordingStopped = 'RecordingStopped',
     StatsUpdate = 'StatsUpdate',
   }
+
+  export type EventTypes = {
+    [Events.RecordingStopped]: void,
+    [Events.StatsUpdate]: Protocol.HeapProfiler.SamplingHeapProfile|null,
+  };
 }
 
 export class SamplingHeapProfileHeader extends WritableProfileHeader {
@@ -504,6 +512,10 @@ export class SamplingHeapProfileHeader extends WritableProfileHeader {
 
   heapProfilerModel(): SDK.HeapProfilerModel.HeapProfilerModel|null {
     return this.heapProfilerModelInternal;
+  }
+
+  override profileType(): SamplingHeapProfileTypeBase {
+    return super.profileType() as SamplingHeapProfileTypeBase;
   }
 }
 
