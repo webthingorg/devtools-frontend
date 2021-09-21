@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "034edb89_3c2954df",
+        "filename": "front_end/panels/network/ResourceWebSocketFrameView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T08:50:19Z",
+      "side": 1,
+      "message": "Changed to `DataGrid.DataGrid.DataGridNode\u003cunknown\u003e`.\n\n1) It needs still to be down-cast to `ResourceWebSocketFrameNode` as that is a subclass of `DataGridNode`.\n2) We need to use `DataGridNode\u003cunknown\u003e` with `unknown`, as the DataGrid in this view is created with \"new SortableDataGrid(\" without specifying a generic parameter.",
+      "parentUuid": "06b44d02_f9bcd021",
+      "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92c550bc_f358955f",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-09-20T11:54:17Z",
       "side": 1,
       "message": "Should this really be here instead of its own enum?",
+      "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "954f9afb_9b47a932",
+        "filename": "front_end/panels/profiler/HeapSnapshotDataGrids.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-21T08:50:19Z",
+      "side": 1,
+      "message": "No. The single dispatch site looks like this:\n\n`this.dataGridInternal.dispatchEventToListeners(HeapSnapshotSortableDataGridEvents.ExpandRetainersComplete);`\n\nWhere `dataGridInternal is `HeapSnapshotSortableDataGrid`. So the event fits perfectly here, with the other events that `HeapSnapshotSortableDataGrid` is dispatching.",
+      "parentUuid": "92c550bc_f358955f",
       "revId": "817b2af9c39e6a543f6968ef85a0bb67f25c7939",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
