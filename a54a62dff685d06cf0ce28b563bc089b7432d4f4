@@ -33,6 +33,29 @@
       "message": "Can you also add the link to the published devrel post?",
       "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f78543_25c4818f",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1001917
+      },
+      "writtenOn": "2021-09-21T22:48:46Z",
+      "side": 1,
+      "message": "This should be a more direct computation - can we do the evaluation algo in here? Where does this come from - can we have the manifest data above provide the id?\n\nI believe... it somehow comes from https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/mojom/manifest/manifest.mojom;l\u003d22;drc\u003d8f95b5eab2797a3e26bba299f3b0df85bfc98bf5;bpv\u003d1;bpt\u003d1\n\nBy use of getAppManifest devtools protocol stuff? here?\nhttps://source.chromium.org/chromium/chromium/src/+/main:content/browser/devtools/protocol/page_handler.cc;l\u003d998;drc\u003d8f95b5eab2797a3e26bba299f3b0df85bfc98bf5;bpv\u003d1;bpt\u003d1\n\nThis means that `id` should be there?\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/mojom/manifest/manifest.mojom;l\u003d30;drc\u003d8f95b5eab2797a3e26bba299f3b0df85bfc98bf5\n\nCan we put that in there? Hard part actually is detecting whether or not it is set, but maybe we already do that somehow? It looks like it is set by default.\n\nAnyways - I imagine it wouldn\u0027t be terribly hard to construct this url either just knowing the start_url - we want to use the origin of the document + the start_url, evaluating away any relative stuff (like \"foo/../bar/index.html\" etc). Is that possible here in typescript?",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 53
+      },
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
