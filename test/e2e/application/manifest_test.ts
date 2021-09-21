@@ -43,6 +43,11 @@ describe.skip('The Manifest Page', async () => {
     const fieldValues = await getTrimmedTextContent(FIELD_VALUES_SELECTOR);
     assert.strictEqual(fieldNames[3], 'App Id');
     assert.strictEqual(
-        fieldValues[3], `https://localhost:${getTestServerPort()}/test/e2e/resources/application/some_start_url`);
+        fieldValues[3],
+        `https://localhost:${getTestServerPort()}/test/e2e/resources/application/some_start_url` +
+            'Note: id is not specified in the manifest, start_url is used instead. To specify an ' +
+            'App Id that matches the current identity, set the id field to /some_start_url .',
+    );
+    await waitFor('icon-button[title="Copy to clipboard"]');
   });
 });
