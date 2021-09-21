@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7801de61_eb12245e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-09-21T10:45:05Z",
+      "side": 1,
+      "message": "Could you take a look, please? Note that this is a reland of exactly the same CL.",
+      "revId": "6cea077a798a554007199253d522700e86ad3e7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
