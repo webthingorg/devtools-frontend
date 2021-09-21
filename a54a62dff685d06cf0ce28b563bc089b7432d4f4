@@ -52,6 +52,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "471d1bfb_891d5135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1397310
+      },
+      "writtenOn": "2021-09-21T23:59:43Z",
+      "side": 1,
+      "message": "LGTM % comments addressed. Thanks for the improvements!",
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b2750b_9a92fff8",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1397310
+      },
+      "writtenOn": "2021-09-21T23:59:43Z",
+      "side": 1,
+      "message": "somewhere to add a link to the devrel post?",
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6f78543_25c4818f",
