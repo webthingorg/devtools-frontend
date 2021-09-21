@@ -16,6 +16,29 @@
       "message": "PTAL:)",
       "revId": "3b0533d03a8eec42a8cdb020313ef747adab0981",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2696905_d231a46a",
+        "filename": "front_end/panels/sensors/SensorsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-21T11:29:03Z",
+      "side": 1,
+      "message": "Any chance we can have a test coverage for this change, particularly for this line?",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 36
+      },
+      "revId": "3b0533d03a8eec42a8cdb020313ef747adab0981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
