@@ -6,7 +6,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import type * as Protocol from '../../generated/protocol.js';
 
-export class WebAudioModel extends SDK.SDKModel.SDKModel implements ProtocolProxyApi.WebAudioDispatcher {
+export class WebAudioModel extends SDK.SDKModel.SDKModel<EventTypes> implements ProtocolProxyApi.WebAudioDispatcher {
   private enabled: boolean;
   private readonly agent: ProtocolProxyApi.WebAudioApi;
   constructor(target: SDK.Target.Target) {
@@ -138,3 +138,53 @@ export const enum Events {
   NodeParamConnected = 'NodeParamConnected',
   NodeParamDisconnected = 'NodeParamDisconnected',
 }
+
+export type EventTypes = {
+  [Events.ContextCreated]: Protocol.WebAudio.BaseAudioContext,
+  [Events.ContextDestroyed]: Protocol.WebAudio.GraphObjectId,
+  [Events.ContextChanged]: Protocol.WebAudio.BaseAudioContext,
+  [Events.ModelReset]: void,
+  [Events.ModelSuspend]: void,
+  [Events.AudioListenerCreated]: Protocol.WebAudio.AudioListener,
+  [Events.AudioListenerWillBeDestroyed]: {
+    listenerId: Protocol.WebAudio.GraphObjectId,
+    contextId: Protocol.WebAudio.GraphObjectId,
+  },
+  [Events.AudioNodeCreated]: Protocol.WebAudio.AudioNode,
+  [Events.AudioNodeWillBeDestroyed]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    nodeId: Protocol.WebAudio.GraphObjectId,
+  },
+  [Events.AudioParamCreated]: Protocol.WebAudio.AudioParam,
+  [Events.AudioParamWillBeDestroyed]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    nodeId: Protocol.WebAudio.GraphObjectId,
+    paramId: Protocol.WebAudio.GraphObjectId,
+  },
+  [Events.NodesConnected]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    sourceId: Protocol.WebAudio.GraphObjectId,
+    destinationId: Protocol.WebAudio.GraphObjectId,
+    sourceOutputIndex: number|undefined,
+    destinationInputIndex: number|undefined,
+  },
+  [Events.NodesDisconnected]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    sourceId: Protocol.WebAudio.GraphObjectId,
+    destinationId: Protocol.WebAudio.GraphObjectId,
+    sourceOutputIndex: number|undefined,
+    destinationInputIndex: number|undefined,
+  },
+  [Events.NodeParamConnected]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    sourceId: Protocol.WebAudio.GraphObjectId,
+    destinationId: Protocol.WebAudio.GraphObjectId,
+    sourceOutputIndex: number|undefined,
+  },
+  [Events.NodeParamDisconnected]: {
+    contextId: Protocol.WebAudio.GraphObjectId,
+    sourceId: Protocol.WebAudio.GraphObjectId,
+    destinationId: Protocol.WebAudio.GraphObjectId,
+    sourceOutputIndex: number|undefined,
+  },
+};
