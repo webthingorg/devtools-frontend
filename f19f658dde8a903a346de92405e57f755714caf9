@@ -206,6 +206,30 @@
       },
       "revId": "f19f658dde8a903a346de92405e57f755714caf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f5d4829_1f191468",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-22T13:53:07Z",
+      "side": 1,
+      "message": "Do you mean like this(patch 5)? I tried moving to networkLogView as-is, that didn\u0027t work, or I missed importing the styles somewhere.",
+      "parentUuid": "65e42e8f_c9e79e0c",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 103
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

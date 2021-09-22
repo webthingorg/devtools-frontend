@@ -22,6 +22,30 @@
       },
       "revId": "8d4bbdb78740c790040881f89ea66412186b4a5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9946e49_0064030c",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-22T13:53:07Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded another patch since then, this was accidental:)",
+      "parentUuid": "8bde5bbb_896ad13e",
+      "range": {
+        "startLine": 504,
+        "startChar": 51,
+        "endLine": 504,
+        "endChar": 52
+      },
+      "revId": "8d4bbdb78740c790040881f89ea66412186b4a5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
