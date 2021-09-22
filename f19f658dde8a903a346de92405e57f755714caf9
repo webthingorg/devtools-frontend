@@ -110,6 +110,30 @@
       },
       "revId": "f19f658dde8a903a346de92405e57f755714caf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d07483fe_fc7533d0",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-22T11:35:03Z",
+      "side": 1,
+      "message": "Did you try my line? The classes don\u0027t change but pseudo-classes (like :focus) do.",
+      "parentUuid": "b0a4e935_c951713a",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 103
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
