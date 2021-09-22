@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6338c9db_25f90824",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-22T11:29:15Z",
+      "side": 1,
+      "message": "It sets the variable for the dark mode, so that on focus+select in dark-mode this color is used. But I needed to move the variable-setting for the light mode to another selector for that to work. Now it seems to be correct.",
+      "parentUuid": "2256ef17_4506a38c",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 41
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10852a6e_2d805b71",
         "filename": "front_end/ui/legacy/inspectorCommon.css",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-21T15:25:52Z",
       "side": 1,
       "message": "Basing CSS selector on inline style set in JS is both brittle and hard to understand. I think you can simply add \n\n.network-log-grid.data-grid:focus .data-grid-data-grid-node.selected [is\u003dui-icon].icon-mask {\n...\n}\n\nto the networkLogView.css",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 103
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a4e935_c951713a",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-22T11:29:15Z",
+      "side": 1,
+      "message": "The problem is that the classes of tr do not change when element is in one \u0027state\u0027 (selected + focused) and in the other \u0027state\u0027 (selected), the only thing that changes when transferring between these states is the background-color variable of tr. And the color of the icon should be different in these two \u0027states\u0027",
+      "parentUuid": "10852a6e_2d805b71",
       "range": {
         "startLine": 505,
         "startChar": 0,
