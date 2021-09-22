@@ -18,9 +18,9 @@
   height: 100%;
 }
 
-.wrapping-container::-webkit-scrollbar {
+/* .wrapping-container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 table {
   border-spacing: 0;

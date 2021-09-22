@@ -2603,6 +2603,12 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Ŝh́ôẃ d̂ét̂áîĺŝ"
   },
+  "panels/application/components/ReportingApiView.ts | clickToDisplayBody": {
+    "message": "Ĉĺîćk̂ ón̂ án̂ý r̂ép̂ór̂t́ t̂ó d̂íŝṕl̂áŷ ít̂ś b̂ód̂ý"
+  },
+  "panels/application/components/ReportingApiView.ts | noEndpointsToDisplay": {
+    "message": "N̂ó êńd̂ṕôín̂t́ŝ t́ô d́îśp̂ĺâý"
+  },
   "panels/application/components/ReportingApiView.ts | noReportsToDisplay": {
     "message": "N̂ó r̂ép̂ór̂t́ŝ t́ô d́îśp̂ĺâý"
   },
