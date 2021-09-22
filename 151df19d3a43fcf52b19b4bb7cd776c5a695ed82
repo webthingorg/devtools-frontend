@@ -16,6 +16,46 @@
       "message": "Simon, PTAL",
       "revId": "151df19d3a43fcf52b19b4bb7cd776c5a695ed82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e30441ce_6d48a05d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-22T10:57:22Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
+      "revId": "151df19d3a43fcf52b19b4bb7cd776c5a695ed82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e28e0acb_24f0fd06",
+        "filename": "test/e2e/application/manifest_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-22T10:57:22Z",
+      "side": 1,
+      "message": "Maybe instead of a strictEqual we could do a \"startsWith\", just to make sure that the link is there, but not assert on the exact message? Wdyt?",
+      "range": {
+        "startLine": 45,
+        "startChar": 11,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "151df19d3a43fcf52b19b4bb7cd776c5a695ed82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
