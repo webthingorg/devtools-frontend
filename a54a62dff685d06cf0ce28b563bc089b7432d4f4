@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25f275d2_7902f93b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-22T10:42:55Z",
+      "side": 1,
+      "message": "Correct, it should work now that https://crrev.com/c/3172838 has been merged.",
+      "parentUuid": "30296568_e7fdd88f",
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24b2750b_9a92fff8",
@@ -82,6 +100,24 @@
       "writtenOn": "2021-09-21T23:59:43Z",
       "side": 1,
       "message": "somewhere to add a link to the devrel post?",
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c42feb2_ef9c7463",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-22T10:42:55Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "24b2750b_9a92fff8",
       "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -123,6 +159,30 @@
       "side": 1,
       "message": "I created a CL to provide the recommended id from backend.\nhttps://chromium-review.googlesource.com/c/chromium/src/+/3174299.\n@wolfi can you pull the latest HEAD and use |GenerateRecommendedId|? The start_url here can be \"../start\" which makes your algorithm to recommend \"/../start\" for manifest id.\n\nYeah the detection is already handled in the page_handler I think. @wolfi can confirm and resolve this",
       "parentUuid": "d6f78543_25c4818f",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 53
+      },
+      "revId": "a54a62dff685d06cf0ce28b563bc089b7432d4f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e570bf_c3885bc3",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-22T10:42:55Z",
+      "side": 1,
+      "message": "Thanks Phillis! I am removing the leading \u0027/\u0027 from this CL, so that this CL only handles UX changes. After landing https://crrev.com/c/3173360 which exposes the recommended id to DevTools, I\u0027ll create a follow-up for the DevTools frontend to display the backend\u0027s recommended id.",
+      "parentUuid": "95ef58c0_fe478243",
       "range": {
         "startLine": 586,
         "startChar": 0,
