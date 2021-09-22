@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6764e128_c836bd0a",
+        "filename": "front_end/panels/application/ApplicationCacheModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-22T06:48:19Z",
+      "side": 1,
+      "message": "Can we do the listener side as well? The next cleanup will be to remove the \"default any\" from `EventTargetEvent`, so we should also add explicit types from listeners and remove casts there. They can easily be found with \"Find All References\" for the Event enum variants.",
+      "range": {
+        "startLine": 186,
+        "startChar": 10,
+        "endLine": 186,
+        "endChar": 36
+      },
+      "revId": "2e46b7ed35a919869876665fdab57eadd5371034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
