@@ -2156,7 +2156,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const onClick = (((): void => {
                        const model = node.domModel().overlayModel();
                        if (adorner.isActive()) {
-                         model.highlightContainerQueryInPersistentOverlay(nodeId);
+                         model.highlightIsolatedElementInPersistentOverlay(nodeId);
                        } else {
                          model.hideContainerQueryInPersistentOverlay(nodeId);
                        }

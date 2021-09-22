@@ -30,19 +30,67 @@
 
 import type {ResetData} from './common.js';
 import {Overlay} from './common.js';
+import type {Delegate} from './drag_resize_handler.js';
+import {DragResizeHandler} from './drag_resize_handler.js';
 import type {ContainerQueryHighlight} from './highlight_container_query.js';
 import {drawContainerQueryHighlight} from './highlight_container_query.js';
 import type {FlexContainerHighlight} from './highlight_flex_common.js';
 import {drawLayoutFlexContainerHighlight} from './highlight_flex_common.js';
 import type {GridHighlight} from './highlight_grid_common.js';
 import {drawLayoutGridHighlight} from './highlight_grid_common.js';
+import type {IsolatedElementHighlight} from './highlight_isolated_element.js';
+import {drawIsolatedElementHighlight} from './highlight_isolated_element.js';
 import type {ScrollSnapHighlight} from './highlight_scroll_snap.js';
 import {drawScrollSnapHighlight} from './highlight_scroll_snap.js';
+
+const enum DraggableType {
+  WIDTH = 'width',
+  HEIGHT = 'height',
+}
+
+interface DraggableMetadata {
+  type: DraggableType;
+  highlightIndex: number;
+  initialValue: number;
+}
+
+function makeDraggableDelegate(overlay: PersistentOverlay): Delegate {
+  return {
+    getDraggable: (x, y) => {
+      const result = overlay.isPointInDraggablePath(x, y);
+      if (!result) {
+        return;
+      }
+
+      return {
+        draggableCoordinate: result.type === DraggableType.WIDTH ? 'clientX' : 'clientY',
+        initialValue: result.initialValue,
+        id: result.highlightIndex,
+        update: newValue => {
+          window.InspectorOverlayHost.send(JSON.stringify({
+            highlightType: 'isolatedElement',
+            highlightIndex: result.highlightIndex,
+            newValue: `${newValue}px`,
+            property: result.type,
+          }));
+        },
+      };
+    },
+  };
+}
 
 export class PersistentOverlay extends Overlay {
   private gridLabelState = {gridLayerCounter: 0};
 
   private gridLabels!: HTMLElement;
+  private draggableBorders: Map<number, {
+    widthPath: Path2D,
+    heightPath: Path2D,
+    highlightIndex: number,
+    initialWidth: number,
+    initialHeight: number,
+  }> = new Map();
+  private dragHandler = new DragResizeHandler(document, makeDraggableDelegate(this));
 
   reset(data: ResetData) {
     super.reset(data);
@@ -70,12 +118,16 @@ export class PersistentOverlay extends Overlay {
     this.setCanvas(canvas);
 
     super.install();
+
+    this.dragHandler.install();
   }
 
   uninstall() {
     this.document.body.classList.remove('fill');
     this.document.body.innerHTML = '';
+    this.draggableBorders = new Map();
     super.uninstall();
+    this.dragHandler.uninstall();
   }
 
   drawGridHighlight(highlight: GridHighlight) {
@@ -104,5 +156,40 @@ export class PersistentOverlay extends Overlay {
     this.context.save();
     drawContainerQueryHighlight(highlight, this.context, this.emulationScaleFactor);
     this.context.restore();
+  }
+
+  drawIsolatedElementHighlight(highlight: IsolatedElementHighlight) {
+    this.context.save();
+    const {widthPath, heightPath, currentWidth, currentHeight, highlightIndex} = drawIsolatedElementHighlight(
+        highlight, this.context, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor);
+    this.draggableBorders.set(highlightIndex, {
+      widthPath,
+      heightPath,
+      highlightIndex,
+      initialWidth: currentWidth,
+      initialHeight: currentHeight,
+    });
+    this.context.restore();
+  }
+
+  isPointInDraggablePath(x: number, y: number): DraggableMetadata|undefined {
+    for (const {widthPath, heightPath, highlightIndex, initialWidth, initialHeight} of this.draggableBorders.values()) {
+      if (this.context.isPointInPath(widthPath, x, y)) {
+        return {
+          type: DraggableType.WIDTH,
+          highlightIndex,
+          initialValue: initialWidth,
+        };
+      }
+      if (this.context.isPointInPath(heightPath, x, y)) {
+        return {
+          type: DraggableType.HEIGHT,
+          highlightIndex,
+          initialValue: initialHeight,
+        };
+      }
+    }
+
+    return;
   }
 }
