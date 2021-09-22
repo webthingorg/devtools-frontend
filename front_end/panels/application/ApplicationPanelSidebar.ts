@@ -753,8 +753,8 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
         ApplicationCacheModelEvents.NetworkStateChanged, this.applicationCacheNetworkStateChanged, this);
   }
 
-  private applicationCacheFrameManifestAdded(event: Common.EventTarget.EventTargetEvent): void {
-    const frameId = event.data;
+  private applicationCacheFrameManifestAdded({data: frameId}:
+                                                 Common.EventTarget.EventTargetEvent<Protocol.Page.FrameId>): void {
     if (!this.applicationCacheModel || !this.target || frameId !== 'string') {
       return;
     }
@@ -777,9 +777,8 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     }
   }
 
-  private applicationCacheFrameManifestRemoved(event: Common.EventTarget.EventTargetEvent<Protocol.Page.FrameId>):
-      void {
-    const frameId = event.data;
+  private applicationCacheFrameManifestRemoved({data: frameId}:
+                                                   Common.EventTarget.EventTargetEvent<Protocol.Page.FrameId>): void {
     const frameTreeElement = this.applicationCacheFrameElements.get(frameId);
     if (!frameTreeElement) {
       return;
@@ -813,9 +812,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     }
   }
 
-  private applicationCacheNetworkStateChanged(event: Common.EventTarget.EventTargetEvent): void {
-    const isNowOnline = (event.data as boolean);
-
+  private applicationCacheNetworkStateChanged({data: isNowOnline}: Common.EventTarget.EventTargetEvent<boolean>): void {
     for (const view of this.applicationCacheViews.values()) {
       view.updateNetworkState(isNowOnline);
     }
