@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f4f454_324c07cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-22T07:11:32Z",
+      "side": 1,
+      "message": "There were no tests as it seems ¯\\_(ツ)_/¯",
+      "revId": "fa3886b7a9b3c15e18873088d8832372e13b9ca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
