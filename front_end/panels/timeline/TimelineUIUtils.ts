@@ -1821,10 +1821,7 @@ export class TimelineUIUtils {
       let text: string|(string | null) =
           await linkifyLocationAsText(frame.scriptId, frame.lineNumber, frame.columnNumber);
       if (!text) {
-        text = frame.url;
-        if (typeof frame.lineNumber === 'number') {
-          text += ':' + (frame.lineNumber + 1);
-        }
+        text = frame.url + ':' + (frame.lineNumber + 1) + ':' + frame.columnNumber;
       }
       return text;
     }

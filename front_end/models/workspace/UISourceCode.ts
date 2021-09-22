@@ -550,8 +550,11 @@ export class UILocation {
       if (typeof this.columnNumber === 'number') {
         linkText += `:0x${this.columnNumber.toString(16)}`;
       }
-    } else if (typeof this.lineNumber === 'number') {
+    } else {
       linkText += ':' + (this.lineNumber + 1);
+      if (typeof this.columnNumber === 'number') {
+        linkText += ':' + (this.columnNumber + 1);
+      }
     }
     return linkText;
   }
