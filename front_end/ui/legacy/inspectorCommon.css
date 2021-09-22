@@ -491,6 +491,7 @@ span[is=dt-icon-label] {
 
 [is=ui-icon].icon-mask {
   --override-icon-mask-background-color: rgb(110 110 110);
+  --network-grid-selected-color: #dadce0;
 
   background-color: var(--override-icon-mask-background-color);
   -webkit-mask-position: var(--spritesheet-position);
@@ -499,6 +500,10 @@ span[is=dt-icon-label] {
 .-theme-with-dark-background [is=ui-icon].icon-mask,
 :host-context(.-theme-with-dark-background) [is=ui-icon].icon-mask {
   --override-icon-mask-background-color: rgb(145 145 145);
+}
+
+.network-log-grid.data-grid:focus .data-grid-data-grid-node.selected [is=ui-icon].icon-mask {
+  --override-icon-mask-background-color: var(--network-grid-selected-color);
 }
 
 [is=ui-icon]:not(.icon-mask) {
