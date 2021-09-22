@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526f57d3_33f359da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-22T11:16:28Z",
+      "side": 1,
+      "message": "Can you let me know with what kind of union types there were problems before? If its not similar to the now added test case maybe we can add that as well for better coverage.",
+      "revId": "a098fa9139fdf91680a4c0dd0a0bfcf0036885ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
