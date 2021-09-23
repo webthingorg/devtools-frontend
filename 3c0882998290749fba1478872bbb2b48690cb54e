@@ -16,6 +16,24 @@
       "message": "Simon, PTAL. AFAICT it\u0027s ok to not update the FrameDetailsView whenever a resource is added, but I am not 100% confident. The call I am removing was introduced in https://crrev.com/c/2300114 and I double-checked that the links created by that CL are still working. I do not see any other reason why adding a resource requires an update of FrameDetailsView either.",
       "revId": "3c0882998290749fba1478872bbb2b48690cb54e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753f7237_c28e1aeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-23T07:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fecb72cd_4fcecda7",
+      "revId": "3c0882998290749fba1478872bbb2b48690cb54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
