@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7e05651_6a73dfdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-09-23T22:12:48Z",
+      "side": 1,
+      "message": "PTAL, thanks!\n\nNote: This requires updates to the blink tests in Chromium.src. Hoping to get sign-off on this CL first and then I\u0027ll follow up with the necessary CLs to get this all landed.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
