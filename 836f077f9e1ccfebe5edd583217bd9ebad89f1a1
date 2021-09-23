@@ -80,6 +80,30 @@
       },
       "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2849fe8_6e91a162",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-23T09:46:40Z",
+      "side": 1,
+      "message": "This was a genuine question. I don\u0027t know if there\u0027s a reasonable way to test this. e2e test might be an overkill. Generally I\u0027d like us to be in a position where we can have ~20 LOC test for this kind of change. We\u0027re probably not there yet. Maybe we can have slightly longer test, which is better than nothing.\n\nAnyway, I trust you to decide if we can have a test with a reasonable effort.",
+      "parentUuid": "c23ba2f0_f778bf09",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 72
+      },
+      "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
