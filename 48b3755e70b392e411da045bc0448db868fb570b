@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ad1ba2_7af1c4e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-23T08:15:38Z",
+      "side": 1,
+      "message": "Jack, could you also take a look? :) I don\u0027t know whats the latest on how to do entrypoints correctly.",
+      "revId": "48b3755e70b392e411da045bc0448db868fb570b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f2db7b1_4f638d1c",
