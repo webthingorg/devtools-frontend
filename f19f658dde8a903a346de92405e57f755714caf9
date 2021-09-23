@@ -230,6 +230,30 @@
       },
       "revId": "f19f658dde8a903a346de92405e57f755714caf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfc08eb4_c74ba76a",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-23T06:35:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f5d4829_1f191468",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 103
+      },
+      "revId": "f19f658dde8a903a346de92405e57f755714caf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
