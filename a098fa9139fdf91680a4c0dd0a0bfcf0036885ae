@@ -16,6 +16,23 @@
       "message": "Can you let me know with what kind of union types there were problems before? If its not similar to the now added test case maybe we can add that as well for better coverage.",
       "revId": "a098fa9139fdf91680a4c0dd0a0bfcf0036885ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6add80_055b0c6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-09-23T07:30:16Z",
+      "side": 1,
+      "message": "Great solution!",
+      "revId": "a098fa9139fdf91680a4c0dd0a0bfcf0036885ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
