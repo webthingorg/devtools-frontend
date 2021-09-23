@@ -56,6 +56,30 @@
       },
       "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c23ba2f0_f778bf09",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-23T09:38:39Z",
+      "side": 1,
+      "message": "Do you mean creating 2 (e2e-)tests (1 with the experiment enabled, the other with the experiment disabled) and making sure the result is different?",
+      "parentUuid": "be63ca1d_e4f57933",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 72
+      },
+      "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
