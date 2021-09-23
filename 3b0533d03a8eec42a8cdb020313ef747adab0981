@@ -39,6 +39,30 @@
       },
       "revId": "3b0533d03a8eec42a8cdb020313ef747adab0981",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1adc755a_3f13c6e4",
+        "filename": "front_end/panels/sensors/SensorsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-23T16:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2696905_d231a46a",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 36
+      },
+      "revId": "3b0533d03a8eec42a8cdb020313ef747adab0981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
