@@ -16,6 +16,24 @@
       "message": "I think these imports were used by web audio legacy file?",
       "revId": "a7f873b90383a48544e06471dea8c45f7655d4f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e7643f_e7214e5c",
+        "filename": "front_end/panels/web_audio/web_audio.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-23T08:09:01Z",
+      "side": 0,
+      "message": "Re-added an export from the entrypoint. Good catch!",
+      "parentUuid": "6a10d407_1d841b6f",
+      "revId": "a7f873b90383a48544e06471dea8c45f7655d4f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
