@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2db7b1_4f638d1c",
+        "filename": "front_end/panels/web_audio/web_audio.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-23T08:11:03Z",
+      "side": 1,
+      "message": "EdgeView not used?",
+      "revId": "48b3755e70b392e411da045bc0448db868fb570b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
