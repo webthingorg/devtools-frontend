@@ -50,6 +50,24 @@
       "message": "LGTM, but let’s move this to the start of the pattern so that it’s tried first. I suspect a backslash is more common than control characters or surrogates. In `patternsToEscapePlusSingleQuote`, we can do the same for the single quote.",
       "revId": "fcd829ee8f6cb1f05e54e7d253a2816beef91af9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afeed2e1_09df3ff0",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-23T18:31:01Z",
+      "side": 1,
+      "message": "Ah good point. Done.",
+      "parentUuid": "fb4181b3_7d733251",
+      "revId": "fcd829ee8f6cb1f05e54e7d253a2816beef91af9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
