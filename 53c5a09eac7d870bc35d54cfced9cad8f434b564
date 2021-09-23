@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd0f74bf_8b061ce0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-23T07:05:07Z",
+      "side": 1,
+      "message": "Jecelyn, PTAL. Do we want to add \u0027?utm_source\u003ddevtools\u0027 to links to developer.chrome.com as well?",
+      "revId": "53c5a09eac7d870bc35d54cfced9cad8f434b564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
