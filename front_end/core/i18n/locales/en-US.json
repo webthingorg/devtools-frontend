@@ -2612,6 +2612,12 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Show details"
   },
+  "panels/application/components/ReportingApiView.ts | clickToDisplayBody": {
+    "message": "Click on any report to display its body"
+  },
+  "panels/application/components/ReportingApiView.ts | noEndpointsToDisplay": {
+    "message": "No endpoints to display"
+  },
   "panels/application/components/ReportingApiView.ts | noReportsToDisplay": {
     "message": "No reports to display"
   },
