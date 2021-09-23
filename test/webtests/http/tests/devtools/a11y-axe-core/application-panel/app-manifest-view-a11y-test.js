@@ -11,6 +11,7 @@
     "short_name": "TestManifest",
     "display": "standalone",
     "start_url": ".",
+    "id": "/testId",
     "background_color": "#fff123",
     "theme_color": "#123fff",
     "description": "A test manifest.",
