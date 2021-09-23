@@ -44,6 +44,7 @@ import {LogModel} from './LogModel.js';
 import {RemoteObject} from './RemoteObject.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import type {ConsoleAPICall, ExceptionWithTimestamp, ExecutionContext, QueryObjectRequestedEvent} from './RuntimeModel.js';
+import {cleanRedundantFrames} from './RuntimeModel.js';
 import {Events as RuntimeModelEvents, RuntimeModel} from './RuntimeModel.js';
 import type {Target} from './Target.js';
 import {TargetManager} from './TargetManager.js';
@@ -557,7 +558,7 @@ export class ConsoleMessage {
     this.line = details?.line || 0;
     this.column = details?.column || 0;
     this.parameters = details?.parameters;
-    this.stackTrace = details?.stackTrace;
+    this.stackTrace = cleanRedundantFrames(details?.stackTrace);
     this.timestamp = details?.timestamp || Date.now();
     this.executionContextId = details?.executionContextId || 0;
     this.scriptId = details?.scriptId;

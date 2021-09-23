@@ -40,7 +40,7 @@ import type {GetPropertiesResult, RemoteObject} from './RemoteObject.js';
 import {ScopeRef} from './RemoteObject.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import type {EvaluationOptions, EvaluationResult, ExecutionContext} from './RuntimeModel.js';
-import {RuntimeModel} from './RuntimeModel.js';
+import {RuntimeModel, cleanRedundantFrames} from './RuntimeModel.js';
 import {Script} from './Script.js';
 import type {Target} from './Target.js';
 import {Capability, Type} from './Target.js';
@@ -1532,9 +1532,7 @@ export class DebuggerPausedDetails {
     this.reason = reason;
     this.auxData = auxData;
     this.breakpointIds = breakpointIds;
-    if (asyncStackTrace) {
-      this.asyncStackTrace = this.cleanRedundantFrames(asyncStackTrace);
-    }
+    this.asyncStackTrace = cleanRedundantFrames(asyncStackTrace);
     this.asyncStackTraceId = asyncStackTraceId;
   }
 
@@ -1544,23 +1542,6 @@ export class DebuggerPausedDetails {
       return null;
     }
     return this.debuggerModel.runtimeModel().createRemoteObject((this.auxData as Protocol.Runtime.RemoteObject));
-  }
-
-  private cleanRedundantFrames(asyncStackTrace: Protocol.Runtime.StackTrace): Protocol.Runtime.StackTrace {
-    let stack: (Protocol.Runtime.StackTrace|undefined)|Protocol.Runtime.StackTrace = asyncStackTrace;
-    let previous: Protocol.Runtime.StackTrace|null = null;
-    while (stack) {
-      if (stack.description === 'async function' && stack.callFrames.length) {
-        stack.callFrames.shift();
-      }
-      if (previous && !stack.callFrames.length) {
-        previous.parent = stack.parent;
-      } else {
-        previous = stack;
-      }
-      stack = stack.parent;
-    }
-    return asyncStackTrace;
   }
 }
 

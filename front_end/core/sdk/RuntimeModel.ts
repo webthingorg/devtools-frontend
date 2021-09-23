@@ -756,3 +756,23 @@ export interface EvaluationOptions {
 export type QueryObjectResult = {
   objects: RemoteObject,
 }|{error: string};
+
+/**
+ * Removes redundant frames from the {@param stackTrace} in-place
+ * and returns {@param stackTrace}.
+ */
+export function cleanRedundantFrames(stackTrace: Protocol.Runtime.StackTrace|undefined): Protocol.Runtime.StackTrace|
+    undefined {
+  let previous: Protocol.Runtime.StackTrace|undefined;
+  for (let current = stackTrace; current; current = current.parent) {
+    if (current.description === 'async function') {
+      current.callFrames.shift();
+    }
+    if (previous && !current.callFrames.length) {
+      previous.parent = current.parent;
+    } else {
+      previous = current;
+    }
+  }
+  return stackTrace;
+}

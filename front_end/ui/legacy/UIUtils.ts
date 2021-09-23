@@ -602,13 +602,19 @@ export function anotherProfilerActiveLabel(): string {
   return i18nString(UIStrings.anotherProfilerIsAlreadyActive);
 }
 
-export function asyncStackTraceLabel(description: string|undefined): string {
+export function asyncStackTraceLabel(
+    description: string|undefined, previousCallFrames: {functionName: string}[]): string {
   if (description) {
     if (description === 'Promise.resolve') {
       return i18nString(UIStrings.promiseResolvedAsync);
     }
     if (description === 'Promise.reject') {
       return i18nString(UIStrings.promiseRejectedAsync);
+    }
+    if (description === 'async function' && previousCallFrames.length !== 0) {
+      const lastPreviousFrame = previousCallFrames[previousCallFrames.length - 1];
+      const lastPreviousFrameName = beautifyFunctionName(lastPreviousFrame.functionName);
+      description = `await in ${lastPreviousFrameName}`;
     }
     return i18nString(UIStrings.sAsync, {PH1: description});
   }
