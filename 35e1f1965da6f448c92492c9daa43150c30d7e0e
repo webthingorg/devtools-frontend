@@ -39,6 +39,30 @@
       },
       "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4d44644_4d5dfe23",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-24T12:57:41Z",
+      "side": 1,
+      "message": "Done and checked that, actually a blur needed to be added",
+      "parentUuid": "5f190e47_332833a6",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 15
+      },
+      "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
