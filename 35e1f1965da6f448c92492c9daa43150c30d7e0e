@@ -63,6 +63,30 @@
       },
       "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9524a5c2_934c8c22",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T13:03:03Z",
+      "side": 1,
+      "message": "just await tabForward();",
+      "parentUuid": "f4d44644_4d5dfe23",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 15
+      },
+      "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
