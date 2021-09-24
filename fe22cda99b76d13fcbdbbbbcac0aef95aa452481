@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "fe22cda99b76d13fcbdbbbbcac0aef95aa452481",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5049f3_9fb232e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T09:47:15Z",
+      "side": 1,
+      "message": "As discussed offline, I have a few high level comments:\n1) CL size: ~400LOC is at the end of a reasonable size spectrum and we don\u0027t have enough test yet IMO.\n2) Not just lines of code, but also the amount of different things that CL does: you can trivially have NetworkManager.ts part in a separate CL without changing any code at all. OTOH it makes reviewing easier as I don\u0027t have to map the code changes on various aspects of the implementation. Ideally it also makes submitting CLs easier as they are quicker to review. I understand there\u0027s an argument for larger CLs wrt. having context, but I trust you that you have run this UI end-to-end (you even attached a screenshot) so if I see the CL doing event propagation without a context, I won\u0027t question that you need it.\n3) Multiple classes in single file: this already makes reading hard as one needs to mentally fragment the file in sections and it will get even harder when these classes grow in complexity. OTOH I don\u0027t see how can it hurt to have a separate file per class.\n4) Most importantly, testability: this is a new code, we shouldn\u0027t need to resort to e2e test as the only way to test. Fortunately the current code structure lends itself well to a more fine-grained testing: you can test the \u0027leaf views\u0027 (ReportsGrid and EndpointsGrid) in isolation by setting their data and checking either HTML output or DataGridControllerData (you would have to make the method constructing it private for that though). Then you can also test the logic in ReportingApiView in isolation: its constructor doesn\u0027t require any parameters, if there are any UI dependencies that cause you troubles, you can easily fake them as this is JavaScript. And the logic of building the list of reports or showing the individual report when the row is selected is already worth testing but imagine if it would get more complicated. \n\nToo closing comments:\n1) Yes, most of the current logic is trivial and one could argue that the tests aren\u0027t adding much value. However, if we don\u0027t add tests now, we would never have motivation to add them later once the logic gets more complicated.\n2) These suggestions apply to this specific CL. Generally I\u0027d like us to follow more MVC-like approach where the business logic lives in the controller that doesn\u0027t require UI to be tested.",
+      "revId": "fe22cda99b76d13fcbdbbbbcac0aef95aa452481",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
