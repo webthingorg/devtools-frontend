@@ -157,6 +157,30 @@
       },
       "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6fbef4d_5a34fc57",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T10:41:05Z",
+      "side": 1,
+      "message": "I see. Well this is very indirect and brittle, it would break should we change the styling of the invalid input. Also as you can see from my question, this is very cryptic for the reader.\n\nI suggest you check for the presence of \u0027error-input\u0027 class instead, using smth like waitForNone(\u0027.error-input\u0027)",
+      "parentUuid": "eecc8f28_24c81774",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
