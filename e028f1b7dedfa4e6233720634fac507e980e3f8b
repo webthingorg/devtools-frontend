@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04217fbe_e4ddb21e",
+        "filename": "test/e2e/helpers/sensors-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-24T10:35:38Z",
+      "side": 1,
+      "message": "I see, didn\u0027t know that!",
+      "parentUuid": "43275a3c_b6786b34",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6952d311_162819d1",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2202b22f_cb09bea3",
+        "filename": "test/e2e/helpers/sensors-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-24T10:35:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6952d311_162819d1",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54ad518c_59488809",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-09-24T07:44:17Z",
       "side": 1,
       "message": "What are you verifying here?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eecc8f28_24c81774",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-24T10:35:38Z",
+      "side": 1,
+      "message": "The bug also mentions that negative alpha values are not allowed (in which case the box-shadow color turns red), here I am checking that the box-shadow is of \u0027allowing\u0027 color upon entering a negative value.",
+      "parentUuid": "54ad518c_59488809",
       "range": {
         "startLine": 43,
         "startChar": 0,
