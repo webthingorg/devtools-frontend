@@ -111,6 +111,30 @@
       },
       "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c41e81c1_533f4725",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T13:08:05Z",
+      "side": 1,
+      "message": "I meant you can do \u0027tabForward();\u0027 instead of \u0027evaluate(elem \u003d\u003e (elem as HTMLInputElement).blur());\u0027",
+      "parentUuid": "1eb3cb49_80be81b9",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 15
+      },
+      "revId": "35e1f1965da6f448c92492c9daa43150c30d7e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
