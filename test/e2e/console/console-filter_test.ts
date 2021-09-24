@@ -6,8 +6,8 @@ import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
 import {$, getBrowserAndPages, step} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
-import {CONSOLE_MESSAGE_WRAPPER_SELECTOR, deleteConsoleMessagesFilter, filterConsoleMessages, getConsoleMessages, getCurrentConsoleMessages, showVerboseMessages} from '../helpers/console-helpers.js';
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
+import {CONSOLE_MESSAGE_WRAPPER_SELECTOR, deleteConsoleMessagesFilter, filterConsoleMessages, getConsoleMessages, getCurrentConsoleMessages, showVerboseMessages, toggleShowCorsErrors} from '../helpers/console-helpers.js';
 
 type MessageCheck = (msg: string) => boolean;
 
@@ -254,4 +254,29 @@ describe('The Console Tab', async () => {
     };
     await testMessageFilter(filter, expectedMessageFilter);
   });
+
+  it('can exclude CORS error messages', async () => {
+    const CORS_DETAILED_ERROR_PATTERN =
+        /Access to fetch at 'https:.*' from origin 'https:.*' has been blocked by CORS policy: .*/;
+    const NETWORK_ERROR_PATTERN = /GET https:.* net::ERR_FAILED/;
+    const JS_ERROR_PATTERN = /Uncaught \(in promise\) TypeError: Failed to fetch.*/;
+    const allMessages = await getConsoleMessages('cors-issue');
+    allMessages.sort();
+    await takeScreenshots();
+    assert.strictEqual(allMessages.length, 6);
+    assert.match(allMessages[0], CORS_DETAILED_ERROR_PATTERN);
+    assert.match(allMessages[1], CORS_DETAILED_ERROR_PATTERN);
+    assert.match(allMessages[2], NETWORK_ERROR_PATTERN);
+    assert.match(allMessages[3], NETWORK_ERROR_PATTERN);
+    assert.match(allMessages[4], JS_ERROR_PATTERN);
+    assert.match(allMessages[5], JS_ERROR_PATTERN);
+
+    await toggleShowCorsErrors();
+    const filteredMessages = await getCurrentConsoleMessages();
+    assert.strictEqual(2, filteredMessages.length);
+    for (const message of filteredMessages) {
+      assert.match(message, JS_ERROR_PATTERN);
+    }
+  });
+
 });
