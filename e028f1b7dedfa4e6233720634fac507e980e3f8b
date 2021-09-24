@@ -16,6 +16,75 @@
       "message": "PTAL",
       "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43275a3c_b6786b34",
+        "filename": "test/e2e/helpers/sensors-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T07:44:17Z",
+      "side": 1,
+      "message": "These IDs are generated dynamically at third_party/devtools-frontend/src/front_end/ui/legacy/ARIAUtils.ts, we can\u0027t expect them to be stable.\n\nIt\u0027s also pretty hard to follow what\u0027s going on when reading the code (although I admit helper functions make it easier).\n\nHow about something like\n\n```import {selectOption, waitFor} from \u0027../../shared/helper.js\u0027;```\n \n```const dropDown \u003d await waitFor(\u0027.orientation-fields select\u0027);```\n```selectOption(dropDown, \u0027custom\u0027);```",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6952d311_162819d1",
+        "filename": "test/e2e/helpers/sensors-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T07:44:17Z",
+      "side": 1,
+      "message": "ditto. How about \n\n```function getOrientationInputs() {```\n```  return waitForMany(\u0027.orientation-axis-input-container input\u0027, 3);```\n```}```\n\n```function getOrientationValues() {```\n```  return Promise.all(await getOrientationInputs().map(```\n```    i \u003d\u003e i.evaluate(i \u003d\u003e parseInt(i.value, 10))));```\n```}```",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ad518c_59488809",
+        "filename": "test/e2e/sensors/orientation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-24T07:44:17Z",
+      "side": 1,
+      "message": "What are you verifying here?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "e028f1b7dedfa4e6233720634fac507e980e3f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
