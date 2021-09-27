@@ -271,6 +271,8 @@ export function registerCommands(inspectorBackend) {
     AttributionTriggerDataTooLarge: 'AttributionTriggerDataTooLarge',
     AttributionEventSourceTriggerDataTooLarge: 'AttributionEventSourceTriggerDataTooLarge'
   });
+  inspectorBackend.registerEnum(
+      'Audits.GenericIssueErrorType', {CrossOriginPortalPostMessageError: 'CrossOriginPortalPostMessageError'});
   inspectorBackend.registerEnum('Audits.InspectorIssueCode', {
     SameSiteCookieIssue: 'SameSiteCookieIssue',
     MixedContentIssue: 'MixedContentIssue',
@@ -284,7 +286,8 @@ export function registerCommands(inspectorBackend) {
     AttributionReportingIssue: 'AttributionReportingIssue',
     QuirksModeIssue: 'QuirksModeIssue',
     NavigatorUserAgentIssue: 'NavigatorUserAgentIssue',
-    WasmCrossOriginModuleSharingIssue: 'WasmCrossOriginModuleSharingIssue'
+    WasmCrossOriginModuleSharingIssue: 'WasmCrossOriginModuleSharingIssue',
+    GenericIssue: 'GenericIssue'
   });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});
