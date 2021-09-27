@@ -104,6 +104,30 @@
       },
       "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff3b40e_af339210",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-27T12:27:47Z",
+      "side": 1,
+      "message": "I played around a bit with instantiating the ApplicationPanelSidebar in a unit test, but it\u0027s not working immediately and I think it would take quite some effort to get there. I don\u0027t think it\u0027s worth it putting in more time to write such a test, so I am electing to merge without it.",
+      "parentUuid": "f2849fe8_6e91a162",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 72
+      },
+      "revId": "836f077f9e1ccfebe5edd583217bd9ebad89f1a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
