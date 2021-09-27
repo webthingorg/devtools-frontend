@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "830c1492_31adba7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-09-27T13:21:41Z",
+      "side": 1,
+      "message": "This CL is blocking my TextPrompt one, cause GoToLine originally used NotFoundElement so there was a wrong order to update NotFoundElement and SuggestBox, and this change is needed later, so I just change this first. This took me a while cause it touch some \u0027fuzzy search\u0027 part and some async function problem. Sorry for the delay the past week.",
+      "revId": "095be09e20a9de2be3492b8d67cfa941634c9062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
