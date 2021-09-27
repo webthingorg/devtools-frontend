@@ -16,6 +16,24 @@
       "message": "Hi Wolfgang, please take a look when you have a chance.\n\nThere\u0027s a test that currently fails because of this change, even though I\u0027ve landed a corresponding change to the TestExpectations file to ignore failures of that test. Is anything else necessary to have this test get ignored when testing on `devtools_frontend_linux_blink_light_rel`?\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/3179486\n\nThank you!",
       "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf94e86_aba74ae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-27T17:37:29Z",
+      "side": 1,
+      "message": "Will take a closer look tomorrow.\n\nRegarding the bot failure, it looks like the test is timing out, not failing, so you\u0027ll need to add `Timeout` to the test expectations.\n\nI am not sure tooltips are a full replacement for console messages. We are usually hesitant to remove console messages except for replacing them with issues (where the user is directed by counter to take a look). Tooltips would be up to the user to discover, or am I missing something here?",
+      "parentUuid": "481f2d84_75bbc421",
+      "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
