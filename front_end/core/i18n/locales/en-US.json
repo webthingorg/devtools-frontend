@@ -1322,6 +1322,9 @@
   "models/issues_manager/DeprecationIssue.ts | userAgentReduction": {
     "message": "User-Agent String Reduction"
   },
+  "models/issues_manager/GenericIssue.ts | crossOriginPortalPostMessage": {
+    "message": "Cross-origin portal post message error"
+  },
   "models/issues_manager/HeavyAdIssue.ts | handlingHeavyAdInterventions": {
     "message": "Handling Heavy Ad Interventions"
   },
@@ -4954,6 +4957,9 @@
   },
   "panels/issues/IssuesPane.ts | crossOriginEmbedderPolicy": {
     "message": "Cross Origin Embedder Policy"
+  },
+  "panels/issues/IssuesPane.ts | generic": {
+    "message": "Generic"
   },
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Group by category"
