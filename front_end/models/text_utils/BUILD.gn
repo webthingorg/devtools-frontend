@@ -4,10 +4,16 @@
 
 import("../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../scripts/build/ninja/devtools_module.gni")
+import("../../../scripts/build/ninja/generate_css.gni")
 import("../visibility.gni")
+
+generate_css("css_files") {
+  sources = [ "codeHighlighting.css" ]
+}
 
 devtools_module("text_utils") {
   sources = [
+    "CodeHighlighter.ts",
     "CodeMirrorUtils.ts",
     "ContentProvider.ts",
     "StaticContentProvider.ts",
@@ -22,6 +28,7 @@ devtools_module("text_utils") {
     "../../core/platform:bundle",
     "../../core/root:bundle",
     "../../third_party/codemirror:bundle",
+    "../../third_party/codemirror.next:bundle",
   ]
 
   visibility =
@@ -32,8 +39,10 @@ devtools_entrypoint("bundle") {
   entrypoint = "text_utils.ts"
 
   deps = [
+    ":css_files",
     ":text_utils",
     "../../third_party/codemirror:bundle",
+    "../../third_party/codemirror.next:bundle",
   ]
 
   visibility = [
@@ -49,6 +58,7 @@ devtools_entrypoint("bundle") {
     "../../ui/components/data_grid/*",
     "../../ui/components/docs/data_grid_controller/*",
     "../../ui/components/markdown_view/*",
+    "../../ui/components/text_editor/*",
     "../../ui/legacy/*",
   ]
 
