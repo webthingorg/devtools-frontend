@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0011c68e_49442807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-27T12:33:57Z",
+      "side": 1,
+      "message": "Simon, PTAL as owner of UserMetrics.ts and MainImpl.ts",
+      "revId": "37979696abb655e1acf97ede592c332b1264a5cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
