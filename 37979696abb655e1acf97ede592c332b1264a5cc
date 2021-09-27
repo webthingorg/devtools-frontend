@@ -16,6 +16,23 @@
       "message": "Simon, PTAL as owner of UserMetrics.ts and MainImpl.ts",
       "revId": "37979696abb655e1acf97ede592c332b1264a5cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29fa127f_68d2738b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-27T15:21:59Z",
+      "side": 1,
+      "message": "UserMetrics and MainImpl lgtm",
+      "revId": "37979696abb655e1acf97ede592c332b1264a5cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
