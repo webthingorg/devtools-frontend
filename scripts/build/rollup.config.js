@@ -131,6 +131,12 @@ export default commandLineArgs => ({
           return null;
         }
 
+        // The CodeMirror addons look like bundles (addon/comment/comment.js) but are not.
+        if (importedFileDirectory.includes(
+                path.join('front_end', 'third_party', 'lighthouse', 'lighthouse-dt-bundle.js'))) {
+          return null;
+        }
+
         const importedFileName = path.basename(importedFilelocation, '.js');
         const importedFileParentDirectory = path.basename(path.dirname(importedFilelocation));
         const isExternal = importedFileName === importedFileParentDirectory;
