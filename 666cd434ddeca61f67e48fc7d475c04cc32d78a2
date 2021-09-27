@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322c8810_b61787f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-27T12:36:20Z",
+      "side": 1,
+      "message": "I\u0027ve updated this to reflect the changes made in the past weeks. The main change to this patch is that it now generates a bunch of chunks (most of which contain the code to support a specific language) that can be dynamically imported via shims in the main bundle.\n\nI\u0027m fine with merging this as it is now. Without a doubt further library upgrades will be required in the near future, but I\u0027ll just include those in the relevant patches.",
+      "revId": "666cd434ddeca61f67e48fc7d475c04cc32d78a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
