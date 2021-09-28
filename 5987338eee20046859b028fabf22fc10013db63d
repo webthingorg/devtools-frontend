@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0e7f82_c1192f85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-28T09:33:34Z",
+      "side": 1,
+      "message": "Sure, no problem:)",
+      "parentUuid": "964db343_96ebe60f",
+      "revId": "5987338eee20046859b028fabf22fc10013db63d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76cafde8_fb044452",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-09-27T15:26:48Z",
       "side": 1,
       "message": "\"A single blank line appears [b]etween consecutive methods in a class or object literal.\"\nSee https://google.github.io/styleguide/jsguide.html#formatting-vertical-whitespace",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "5987338eee20046859b028fabf22fc10013db63d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c65756db_41b559a7",
+        "filename": "test/unittests/front_end/panels/issues/GenericIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-09-28T09:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76cafde8_fb044452",
       "range": {
         "startLine": 14,
         "startChar": 2,
