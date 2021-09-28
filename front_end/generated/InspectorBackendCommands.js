@@ -1538,7 +1538,6 @@ export function registerCommands(inspectorBackend) {
     HeaderDisallowedByPreflightResponse: 'HeaderDisallowedByPreflightResponse',
     RedirectContainsCredentials: 'RedirectContainsCredentials',
     InsecurePrivateNetwork: 'InsecurePrivateNetwork',
-    InvalidPrivateNetworkAccess: 'InvalidPrivateNetworkAccess',
     NoCorsRedirectModeNotFollow: 'NoCorsRedirectModeNotFollow'
   });
   inspectorBackend.registerEnum(

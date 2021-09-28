@@ -7194,7 +7194,6 @@ declare namespace Protocol {
       HeaderDisallowedByPreflightResponse = 'HeaderDisallowedByPreflightResponse',
       RedirectContainsCredentials = 'RedirectContainsCredentials',
       InsecurePrivateNetwork = 'InsecurePrivateNetwork',
-      InvalidPrivateNetworkAccess = 'InvalidPrivateNetworkAccess',
       NoCorsRedirectModeNotFollow = 'NoCorsRedirectModeNotFollow',
     }
 
