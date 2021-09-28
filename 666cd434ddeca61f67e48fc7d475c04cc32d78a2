@@ -56,6 +56,30 @@
       },
       "revId": "666cd434ddeca61f67e48fc7d475c04cc32d78a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88fb917a_f30fe4e9",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-28T05:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2bae069_618a8968",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 61
+      },
+      "revId": "666cd434ddeca61f67e48fc7d475c04cc32d78a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
