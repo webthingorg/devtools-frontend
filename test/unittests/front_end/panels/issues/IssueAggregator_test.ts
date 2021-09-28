@@ -14,6 +14,7 @@ import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
 import {MockIssuesManager} from '../../models/issues_manager/MockIssuesManager.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {createFakeSetting, enableFeatureForTest} from '../../helpers/EnvironmentHelpers.js';
+import * as Root from '../../../../../front_end/core/root/root.js';
 
 describe('AggregatedIssue', async () => {
   const aggregationKey = 'key' as unknown as Issues.IssueAggregator.AggregationKey;
