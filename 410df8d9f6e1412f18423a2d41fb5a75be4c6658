@@ -52,6 +52,24 @@
       "parentUuid": "ddf94e86_aba74ae5",
       "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d423b5ff_6d2485c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-28T15:37:31Z",
+      "side": 1,
+      "message": "Thanks for keeping the console message in (for now)!\n\nThe disappearing message seems to be a separate issue.",
+      "parentUuid": "05c1bcc9_db8840fd",
+      "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

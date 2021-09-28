@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa5bb3b_508dd4d8",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-28T15:37:31Z",
+      "side": 0,
+      "message": "I don\u0027t understand the reason for this change, is it intentional?",
+      "revId": "1fc91d67bf1a8363fdf800aa665402537c729ef2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
