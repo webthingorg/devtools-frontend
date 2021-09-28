@@ -2414,6 +2414,9 @@
   "panels/application/BackgroundServiceView.ts | timestamp": {
     "message": "Timestamp"
   },
+  "panels/application/components/EndpointsGrid.ts | noEndpointsToDisplay": {
+    "message": "No endpoints to display"
+  },
   "panels/application/components/FrameDetailsView.ts | additionalInformation": {
     "message": "Additional Information"
   },
@@ -2612,7 +2615,7 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Show details"
   },
-  "panels/application/components/ReportingApiView.ts | noReportsToDisplay": {
+  "panels/application/components/ReportsGrid.ts | noReportsToDisplay": {
     "message": "No reports to display"
   },
   "panels/application/components/StackTrace.ts | cannotRenderStackTrace": {
@@ -2836,6 +2839,9 @@
   },
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
+  },
+  "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
+    "message": "Click on any report to display its body"
   },
   "panels/application/ReportingApiTreeElement.ts | reportingApi": {
     "message": "Reporting API"

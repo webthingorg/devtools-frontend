@@ -2414,6 +2414,9 @@
   "panels/application/BackgroundServiceView.ts | timestamp": {
     "message": "T̂ím̂éŝt́âḿp̂"
   },
+  "panels/application/components/EndpointsGrid.ts | noEndpointsToDisplay": {
+    "message": "N̂ó êńd̂ṕôín̂t́ŝ t́ô d́îśp̂ĺâý"
+  },
   "panels/application/components/FrameDetailsView.ts | additionalInformation": {
     "message": "Âd́d̂ít̂íôńâĺ Îńf̂ór̂ḿât́îón̂"
   },
@@ -2612,7 +2615,7 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Ŝh́ôẃ d̂ét̂áîĺŝ"
   },
-  "panels/application/components/ReportingApiView.ts | noReportsToDisplay": {
+  "panels/application/components/ReportsGrid.ts | noReportsToDisplay": {
     "message": "N̂ó r̂ép̂ór̂t́ŝ t́ô d́îśp̂ĺâý"
   },
   "panels/application/components/StackTrace.ts | cannotRenderStackTrace": {
@@ -2836,6 +2839,9 @@
   },
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Ŷéŝ"
+  },
+  "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
+    "message": "Ĉĺîćk̂ ón̂ án̂ý r̂ép̂ór̂t́ t̂ó d̂íŝṕl̂áŷ ít̂ś b̂ód̂ý"
   },
   "panels/application/ReportingApiTreeElement.ts | reportingApi": {
     "message": "R̂ép̂ór̂t́îńĝ ÁP̂Í"
