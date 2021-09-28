@@ -34,6 +34,24 @@
       "parentUuid": "481f2d84_75bbc421",
       "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05c1bcc9_db8840fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1516692
+      },
+      "writtenOn": "2021-09-28T03:50:53Z",
+      "side": 1,
+      "message": "AH, I didn\u0027t realize there was a distinction between \u0027Failure\u0027 and \u0027Timeout\u0027. Thanks for spotting this!\n\nMy initial plan was to remove the existing console warning now and add a DevTools issue once we figured out how to add them from the Chromium Set-Cookie header parsing code (to avoid replicating the size check logic within DevTools). After taking a closer look, though, we can just leverage the new Set-Cookie blocked reason enum we added to easily display an updated warning from DevTools the same way it\u0027s done now. 🎉\n\nFrom my testing, the warning message still disappears as described in [1], but hopefully that issue is due to specific behavior of my test site or something.\n\nAnyway, I\u0027ve implemented a corresponding CL [2] on the Chromium side to re-enable the web test and update it to look for the new warning message that this CL introduces.\n\n[1] https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1250828\n[2] https://chromium-review.googlesource.com/c/chromium/src/+/3189493",
+      "parentUuid": "ddf94e86_aba74ae5",
+      "revId": "410df8d9f6e1412f18423a2d41fb5a75be4c6658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
