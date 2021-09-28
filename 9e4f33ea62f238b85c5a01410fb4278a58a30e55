@@ -16,6 +16,23 @@
       "message": "Goes along with the C++ changed to add a new target host.\n(Also, I do wonder about things like log capabilities...)",
       "revId": "9e4f33ea62f238b85c5a01410fb4278a58a30e55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ece0d3a8_3984da04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-09-28T17:31:29Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "9e4f33ea62f238b85c5a01410fb4278a58a30e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
