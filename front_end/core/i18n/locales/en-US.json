@@ -4940,6 +4940,12 @@
   "panels/issues/CSPViolationsView.ts | filter": {
     "message": "Filter"
   },
+  "panels/issues/GenericIssueDetailsView.ts | frameId": {
+    "message": "Frame"
+  },
+  "panels/issues/GenericIssueDetailsView.ts | nViolations": {
+    "message": "{n, plural, =1 {# violation} other {# violations}}"
+  },
   "panels/issues/HiddenIssuesRow.ts | hiddenIssues": {
     "message": "Hidden issues"
   },
