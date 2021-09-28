@@ -16,6 +16,29 @@
       "message": "Thank you for taking a look.",
       "revId": "b26f8b4a129b71239557884b173c6f6ec9cebefb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae4fe9f_51fb255f",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-28T09:19:10Z",
+      "side": 1,
+      "message": "what do you think about moving this into a new file (`StylePropertyUtils.ts` or similar) and then unit testing this function?",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 907,
+        "endChar": 0
+      },
+      "revId": "b26f8b4a129b71239557884b173c6f6ec9cebefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
