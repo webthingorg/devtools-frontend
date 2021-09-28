@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca5895db_9782ff67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-28T15:34:32Z",
+      "side": 1,
+      "message": "Updated on top of current main branch. This is also ready for detailed review and/or merge now.",
+      "revId": "9e0c355792c5e52db2a4f0ac6db28f603ac2800a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
