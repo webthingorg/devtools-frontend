@@ -39,6 +39,30 @@
       },
       "revId": "b26f8b4a129b71239557884b173c6f6ec9cebefb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1eb7eca_432b5109",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-09-28T18:04:41Z",
+      "side": 1,
+      "message": "Good idea, added.",
+      "parentUuid": "3ae4fe9f_51fb255f",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 907,
+        "endChar": 0
+      },
+      "revId": "b26f8b4a129b71239557884b173c6f6ec9cebefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
