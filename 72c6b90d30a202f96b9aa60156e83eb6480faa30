@@ -22,6 +22,30 @@
       },
       "revId": "72c6b90d30a202f96b9aa60156e83eb6480faa30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "445a0459_4d1daa43",
+        "filename": "v8/include/js_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-28T08:34:29Z",
+      "side": 0,
+      "message": "The canonical js_protocol.pdl is in v8/include: https://source.chromium.org/chromium/_/chromium/v8/v8.git/+/77322420c6e9d74498e54cb2c95b3630cff13cee:include/js_protocol.pdl;l\u003d1;drc\u003dffa4cda65ca38e57cae9c35b3c0db6f97b063870\n\nIt was removed with this CL: https://crrev.com/c/2998585",
+      "parentUuid": "117cfa70_ae425db4",
+      "range": {
+        "startLine": 931,
+        "startChar": 2,
+        "endLine": 931,
+        "endChar": 14
+      },
+      "revId": "72c6b90d30a202f96b9aa60156e83eb6480faa30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
