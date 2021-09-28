@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as CodeHighlighter from './CodeHighlighter.js';
+import * as CodeHighlightStyle from './codeHighlighting.css.js';
 import * as CodeMirrorUtils from './CodeMirrorUtils.js';
 import * as ContentProvider from './ContentProvider.js';
 import * as StaticContentProvider from './StaticContentProvider.js';
@@ -11,6 +13,8 @@ import * as TextRange from './TextRange.js';
 import * as TextUtils from './TextUtils.js';
 
 export {
+  CodeHighlighter,
+  CodeHighlightStyle,
   CodeMirrorUtils,
   ContentProvider,
   StaticContentProvider,
