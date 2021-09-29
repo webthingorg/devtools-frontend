@@ -22,6 +22,30 @@
       },
       "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cdb193c_df7bbffb",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T15:09:42Z",
+      "side": 1,
+      "message": "I think the one that\u0027s failing is a few lines down, where 3 is expected. The test looks correct, and passes on my machine. Are the interaction tests run on macOS? Might be some modifier confusion.",
+      "parentUuid": "cf07b709_f9ed0fa9",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
