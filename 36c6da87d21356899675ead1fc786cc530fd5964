@@ -421,6 +421,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "143423dc_beb04a7b",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T13:17:34Z",
+      "side": 1,
+      "message": "Submitted the theme part as https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3194197 . (I also accidentally updated this CL because I don\u0027t know how to work with these tools yet, but we\u0027ll just abandon it and move to the new CLs.)",
+      "parentUuid": "216911d8_fca988fd",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "35837759_2906ad5f",
         "filename": "test/interactions/text_editor/text_editor_test.ts",
         "patchSetId": 8
