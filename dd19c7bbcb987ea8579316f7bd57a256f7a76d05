@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2855cac7_65390856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-29T07:25:32Z",
+      "side": 1,
+      "message": "PTAL (I have changed the icon from a data URL to a proper URL because that stopped working for some reason)",
+      "revId": "dd19c7bbcb987ea8579316f7bd57a256f7a76d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
