@@ -31,6 +31,7 @@ describeWithEnvironment('OverlayColorGenerator', () => {
             invoke_setShowFlexOverlays() {},
             invoke_setShowScrollSnapOverlays() {},
             invoke_setShowContainerQueryOverlays() {},
+            invoke_setShowIsolatedElements() {},
           };
         },
       };
