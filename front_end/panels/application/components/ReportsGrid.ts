@@ -10,19 +10,18 @@ import reportingApiGridStyles from './reportingApiGrid.css.js';
 
 const UIStrings = {
   /**
-  *@description Placeholder text when there are no Reporting API endpoints.
-  *(https://developers.google.com/web/updates/2018/09/reportingapi#tldr)
+  *@description Placeholder text when there are no Reporting API reports.
+  *(https://developers.google.com/web/updates/2018/09/reportingapi#sending)
   */
-  noEndpointsToDisplay: 'No endpoints to display',
+  noReportsToDisplay: 'No reports to display',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/application/components/EndpointsGrid.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/application/components/ReportsGrid.ts', UIStrings);
 export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const {render, html} = LitHtml;
 
-export class EndpointsGrid extends HTMLElement {
-  static readonly litTagName = LitHtml.literal`devtools-resources-endpoints-grid`;
-
+export class ReportsGrid extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-resources-reports-grid`;
   private readonly shadow = this.attachShadow({mode: 'open'});
 
   connectedCallback(): void {
@@ -35,20 +34,20 @@ export class EndpointsGrid extends HTMLElement {
     // clang-format off
     render(html`
       <div class="reporting-container">
-        <div class="reporting-header">Endpoints</div>
-        <div class="reporting-placeholder">
-          <div>${i18nString(UIStrings.noEndpointsToDisplay)}</div>
-        </div>
+        <div class="reporting-header">Reports</div>
+          <div class="reporting-placeholder">
+            <div>${i18nString(UIStrings.noReportsToDisplay)}</div>
+          </div>
       </div>
     `, this.shadow);
     // clang-format on
   }
 }
 
-ComponentHelpers.CustomElements.defineComponent('devtools-resources-endpoints-grid', EndpointsGrid);
+ComponentHelpers.CustomElements.defineComponent('devtools-resources-reports-grid', ReportsGrid);
 
 declare global {
   interface HTMLElementTagNameMap {
-    'devtools-resources-endpoints-grid': EndpointsGrid;
+    'devtools-resources-reports-grid': ReportsGrid;
   }
 }

@@ -12,7 +12,6 @@ const {assert} = chai;
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 describe('EndpointsGrid', async () => {
-  // TODO(crbug.com/1200732): Once endpoint info is displayed, add more tests
   it('displays placeholder text if no data', async () => {
     const component = new ApplicationComponents.EndpointsGrid.EndpointsGrid();
     renderElementIntoDOM(component);
