@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d5fe9d_71a911dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T15:40:43Z",
+      "side": 1,
+      "message": "FYI I updated the bug number to 1215072 as that is the new tracking bug (the other one was closed as a duplicate).\n\nThe failing layout test will be removed in https://chromium-review.googlesource.com/c/chromium/src/+/3194610/, so we have to wait for that to land and then we can submit this CL.",
+      "revId": "2cc7b1e233e7010bdc2ae0f1eeb9da15250a6e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
