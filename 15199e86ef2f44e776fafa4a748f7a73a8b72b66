@@ -16,6 +16,29 @@
       "message": "This LGTM. We still had the bug with the insertion of `\u003c`, but let\u0027s tackle that in the follow-up CL, so that we have a good basis to work on.",
       "revId": "15199e86ef2f44e776fafa4a748f7a73a8b72b66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3579705_fab54f4e",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T14:23:21Z",
+      "side": 1,
+      "message": "Interesting. It seems like this fails compilation. I guess we can rename it to `obtainSetting` to avoid the problem? https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8834747720806239873/+/u/compile/stdout",
+      "range": {
+        "startLine": 38,
+        "startChar": 23,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "15199e86ef2f44e776fafa4a748f7a73a8b72b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
