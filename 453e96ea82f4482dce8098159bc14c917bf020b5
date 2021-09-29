@@ -118,6 +118,30 @@
       },
       "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a10843a_3ac4042e",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T15:43:47Z",
+      "side": 1,
+      "message": "Ha, I am glad we have tests for this and caught this issue!\n\nYour intuition sounds plausible to me. Do you think this is an issue in how we handle key-bindings in DevTools or how it is implemented in CodeMirror instead? We do have some special key-binding logic in DevTools to support various user-defined key-bindings, so I am wondering if we are running into a conflict there.\n\nWhat we could do is implement some bogus key-binding (like pressing \"Delete\" would do \"ArrowRight + ctrl\") that we for sure know should work on both Linux and Windows and then verify at least then the test passes on the Windows bot. If that\u0027s the case, then we can figure out what part of the implementation is missing some check. WDYT?",
+      "parentUuid": "37171561_7bec212f",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
