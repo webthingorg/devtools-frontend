@@ -16,6 +16,24 @@
       "message": "hm, I think this method was used by other overlays. Would it break?",
       "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42db04da_b992bc29",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-29T13:17:09Z",
+      "side": 1,
+      "message": "I think you might have fixed other usages in the backend CL? In that case, could we define a specific type of what we are sending here?",
+      "parentUuid": "4356042d_bcb1bb9c",
+      "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
