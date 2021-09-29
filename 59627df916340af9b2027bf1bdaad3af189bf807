@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edfafe1a_70f4571a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T14:58:57Z",
+      "side": 1,
+      "message": "bmeurer@ FYI per our chat about the CodeMirror upgrade and improvements to the sources panel.",
+      "revId": "59627df916340af9b2027bf1bdaad3af189bf807",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
