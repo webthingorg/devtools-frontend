@@ -1328,6 +1328,9 @@
   "models/issues_manager/DeprecationIssue.ts | userAgentReduction": {
     "message": "Ûśêŕ-Âǵêńt̂ Śt̂ŕîńĝ Ŕêd́ûćt̂íôń"
   },
+  "models/issues_manager/GenericIssue.ts | crossOriginPortalPostMessage": {
+    "message": "Ĉŕôśŝ-ór̂íĝín̂ ṕôŕt̂ál̂ ṕôśt̂ ḿêśŝáĝé êŕr̂ór̂"
+  },
   "models/issues_manager/HeavyAdIssue.ts | handlingHeavyAdInterventions": {
     "message": "Ĥán̂d́l̂ín̂ǵ Ĥéâv́ŷ Ád̂ Ín̂t́êŕv̂én̂t́îón̂ś"
   },
@@ -4972,6 +4975,9 @@
   },
   "panels/issues/IssuesPane.ts | crossOriginEmbedderPolicy": {
     "message": "Ĉŕôśŝ Ór̂íĝín̂ Ém̂b́êd́d̂ér̂ Ṕôĺîćŷ"
+  },
+  "panels/issues/IssuesPane.ts | generic": {
+    "message": "Ĝén̂ér̂íĉ"
   },
   "panels/issues/IssuesPane.ts | groupByCategory": {
     "message": "Ĝŕôúp̂ b́ŷ ćât́êǵôŕŷ"
