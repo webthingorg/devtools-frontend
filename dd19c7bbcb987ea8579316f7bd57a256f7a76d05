@@ -33,6 +33,24 @@
       "message": "can we write a unit test perhaps that asserts the button gets the right classes when it\u0027s rendered:\n\n1. with text\n2. with an icon + text\n3. with just an icon\n\nwdyt?",
       "revId": "dd19c7bbcb987ea8579316f7bd57a256f7a76d05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a9c12b_6abbadf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-29T11:03:33Z",
+      "side": 1,
+      "message": "Makes sense, done.",
+      "parentUuid": "52b1ce73_518a156b",
+      "revId": "dd19c7bbcb987ea8579316f7bd57a256f7a76d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
