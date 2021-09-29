@@ -94,6 +94,30 @@
       },
       "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37171561_7bec212f",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T15:36:42Z",
+      "side": 1,
+      "message": "Given that there\u0027s only a single line in the example editor, and CodeMirror normalizes newlines anyway, I agree that it\u0027s unlikely to be a line ending thing. \n\nA possible explanation could be that somehow the keymaps aren\u0027t taking effect and we\u0027re seeing windows\u0027 native behavior here (which does indeed jump past the space when you ctrl-arrow in such a situation, whereas on linux it moves to the end of the current word).\n\nI unfortunately don\u0027t have a windows dev environment set up, so it\u0027s difficult to dig into this. If we run out of ideas I guess I could try to see if I can get this to run inside a VM tomorrow.",
+      "parentUuid": "f0206a2a_19a4bac1",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
