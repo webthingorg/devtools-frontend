@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51dddaab_e5d218a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T14:16:44Z",
+      "side": 1,
+      "message": "This LGTM. We still had the bug with the insertion of `\u003c`, but let\u0027s tackle that in the follow-up CL, so that we have a good basis to work on.",
+      "revId": "15199e86ef2f44e776fafa4a748f7a73a8b72b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
