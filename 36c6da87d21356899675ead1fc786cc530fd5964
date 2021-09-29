@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf21e38_73f438ed",
+        "filename": "front_end/models/text_utils/text_utils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T11:36:27Z",
+      "side": 1,
+      "message": "It\u0027s not used in any other components yet, but will be in subsequent changes (anything that syntax-highlights). I first had the various things that need this import the .css.js directly, but that causes some presubmit checks to complain.\n\nMaybe move code highlighting out of text_utils and into its own module? Would having it under models/code_highlighter be okay? (There another model module with CSS files, so there\u0027s a precedent for that.)",
+      "parentUuid": "5041fc08_bf7de341",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 64
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "363f286d_0cdcf381",
@@ -112,6 +136,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0f3a705_f0696eaa",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T11:36:27Z",
+      "side": 1,
+      "message": "That won\u0027t clear the array, which is necessary here.",
+      "parentUuid": "9621cd12_ed0a9405",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31e33724_d0a71193",
         "filename": "front_end/ui/components/text_editor/TextEditor.ts",
         "patchSetId": 8
@@ -123,6 +171,30 @@
       "writtenOn": "2021-09-29T10:35:42Z",
       "side": 1,
       "message": "Can we add a comment here why this `setTimeout` is required? Or is there maybe a different way we can detect when we should run this code, based on some listener or callback maybe?",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 14
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e5c47b_148c03ce",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T11:36:27Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth the extra mess to try and hook this into an `animationend` event (since those won\u0027t always fire, and make it somewhat tricky to match the event to the animation). I\u0027ll add a comment.",
+      "parentUuid": "31e33724_d0a71193",
       "range": {
         "startLine": 129,
         "startChar": 4,
@@ -169,6 +241,30 @@
       "writtenOn": "2021-09-29T10:35:42Z",
       "side": 1,
       "message": "Can we extract out the changes here, in the dark style sheet and the additions in `theme.css` into a separate CL? I would like to reduce the scope of this single CL and it seems like we can make that a standalone CL which will help with triaging later if we run into any regressions.\n\nThe files that I think we should move into a standalone CL are:\n- inspectorSyntaxHighlight.css\n- inspectorSyntaxHighlightDark.css\n- themeColors.css\n- screencastView.css\n- layoutPane.css\n- nodeText.css",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b262ec4a_c6372b64",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T11:36:27Z",
+      "side": 1,
+      "message": "So are you proposing one CL for the editor + styling stuff, and one that replaces the elements editor? Or three, with the CSS split out from the corresponding code changes? (That seems unnecessarily confusing to me—especially since the code isn\u0027t called yet if the editor isn\u0027t switched.)",
+      "parentUuid": "ec4eb516_1d3cdfe3",
       "range": {
         "startLine": 132,
         "startChar": 2,
@@ -238,6 +334,30 @@
       "writtenOn": "2021-09-29T10:35:42Z",
       "side": 1,
       "message": "I am not sure if it is possible, but is there a way we could write this test without relying on the internal CodeMirror classes? I can imagine that at some point CodeMirror wants to update these class names and then we would have to update our own tests. Is there maybe a programmatic API on CodeMirror that we can use to retrieve this information?",
+      "range": {
+        "startLine": 43,
+        "startChar": 62,
+        "endLine": 43,
+        "endChar": 83
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9fd4d8_db38454a",
+        "filename": "test/unittests/front_end/ui/components/text_editor/TextEditor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T11:36:27Z",
+      "side": 1,
+      "message": "These are from the devtools codebase, not core CodeMirror.",
+      "parentUuid": "4f9fb5d7_27cd6fee",
       "range": {
         "startLine": 43,
         "startChar": 62,
