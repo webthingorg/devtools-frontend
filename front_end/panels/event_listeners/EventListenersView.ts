@@ -224,6 +224,8 @@ export class EventListenersView extends UI.Widget.VBox {
     if (firstVisibleChild) {
       firstVisibleChild.select(true /* omitFocus */);
     }
+
+    this.treeOutline.setFocusable(!!firstVisibleChild);
   }
 
   reset(): void {
