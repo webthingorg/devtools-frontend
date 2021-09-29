@@ -467,6 +467,20 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
     return this.sourceOrderModeActiveInternal;
   }
 
+  highlightIsolatedElementInPersistentOverlay(nodeId: Protocol.DOM.NodeId): void {
+    if (!this.persistentHighlighter) {
+      return;
+    }
+    this.persistentHighlighter.highlightIsolatedElementInOverlay(nodeId);
+  }
+
+  hideIsolatedElementInPersistentOverlay(nodeId: Protocol.DOM.NodeId): void {
+    if (!this.persistentHighlighter) {
+      return;
+    }
+    this.persistentHighlighter.hideIsolatedElementInOverlay(nodeId);
+  }
+
   private delayedHideHighlight(delay: number): void {
     if (this.hideHighlightTimeout === null) {
       this.hideHighlightTimeout = window.setTimeout(() => this.highlightInOverlay({clear: true}), delay);
