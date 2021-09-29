@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "549c7f3c9c45af5c4b91a1b9331c7c1dfb3e877f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea8f70d2_d1c8be53",
+        "filename": "front_end/models/persistence/WorkspaceSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-29T11:13:19Z",
+      "side": 1,
+      "message": "purely a re-ordering so it\u0027s not hidden away at the bottom of the class",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 3
+      },
+      "revId": "549c7f3c9c45af5c4b91a1b9331c7c1dfb3e877f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
