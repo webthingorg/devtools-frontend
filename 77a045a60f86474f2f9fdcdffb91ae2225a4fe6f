@@ -16,6 +16,91 @@
       "message": "PTAL, thanks!\n\nNote: This requires updates to the blink tests in Chromium.src. Hoping to get sign-off on this CL first and then I\u0027ll follow up with the necessary CLs to get this all landed.",
       "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bead95cf_63b48a08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-29T21:12:53Z",
+      "side": 1,
+      "message": "I like your change and that you\u0027ve included a corresponding test. I noted that there are several places in which you\u0027ve changed the semantics of if-else if conditionals which could result in changing the output to include \"undefined\". \n\nI\u0027ll vote +1, but note that you can\u0027t land with just my +1.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78e4c08_836983ed",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-29T21:12:53Z",
+      "side": 1,
+      "message": "I don\u0027t think you can convert this `else` to an unconditional one. With this change, you\u0027ve introduced a possibility of adding in `\u0027:undefined\u0027` to the link text, which is actually a bug we have seen before.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3cd5a07_f9920874",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-29T21:12:53Z",
+      "side": 1,
+      "message": "This introduces the same possibility as before of introducing `\u0027:undefined\u0027`. I think instead you should rewrite:\n\n    text \u003d frame.url;\n    if (typeof frame.lineNumber \u003d\u003d\u003d \u0027number\u0027) {\n      text +\u003d `:${frame.lineNumber + 1):${frame.columnNumber}`;\n    }\n\nThis preserves the prior semantics but adds the column number.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d983cb_d77718e0",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-29T21:12:53Z",
+      "side": 1,
+      "message": "Since we\u0027re in TypeScript, can we simplify this to a double-bang with the null-coalescing operator?\n\n    showColumnNumber: !!options?.showColumnNumber,",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062a0d95_9aea009c",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-29T21:12:53Z",
+      "side": 1,
+      "message": "Another case where we shouldn\u0027t transition the conditional else.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
