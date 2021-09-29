@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf64f0a_61b7cffa",
+        "filename": "front_end/models/text_utils/text_utils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T13:04:42Z",
+      "side": 1,
+      "message": "We are trying to remove all CSS files from `models/`, so I would prefer if we don\u0027t add it here. Assuming that the subsequent changes are all in `panels/` and `ui/`, I think we can put it in `ui/components/syntax-highlighter`?",
+      "parentUuid": "8bf21e38_73f438ed",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 64
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "363f286d_0cdcf381",
@@ -160,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05c911e5_e4922a15",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T13:04:42Z",
+      "side": 1,
+      "message": "Ah, in that case I would prefer the following for readability:\n\n```\nfor (const [setting, listener] of this.activeSettingsListeners) {\n  setting.removeChangeListener(listener);\n}\nthis.activeSettingsListeners \u003d []\n```",
+      "parentUuid": "f0f3a705_f0696eaa",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31e33724_d0a71193",
         "filename": "front_end/ui/components/text_editor/TextEditor.ts",
         "patchSetId": 8
@@ -195,6 +243,30 @@
       "side": 1,
       "message": "I don\u0027t think it\u0027s worth the extra mess to try and hook this into an `animationend` event (since those won\u0027t always fire, and make it somewhat tricky to match the event to the animation). I\u0027ll add a comment.",
       "parentUuid": "31e33724_d0a71193",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 14
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "203b568b_997899c9",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T13:04:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d3e5c47b_148c03ce",
       "range": {
         "startLine": 129,
         "startChar": 4,
@@ -265,6 +337,30 @@
       "side": 1,
       "message": "So are you proposing one CL for the editor + styling stuff, and one that replaces the elements editor? Or three, with the CSS split out from the corresponding code changes? (That seems unnecessarily confusing to me—especially since the code isn\u0027t called yet if the editor isn\u0027t switched.)",
       "parentUuid": "ec4eb516_1d3cdfe3",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "216911d8_fca988fd",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T13:04:42Z",
+      "side": 1,
+      "message": "Yes, 1 for the CSS split, 1 for the new component code (which includes the tests, so that is already a functional change impacting our CI) and then the one actually landing the elements editor. I know that sounds like a lot, but from a organisational perspective it makes it easier for us to manage the CLs and deal with the outfall (if any). This guidance is written up at https://google.github.io/eng-practices/review/developer/small-cls.html if you want to have more background information.",
+      "parentUuid": "b262ec4a_c6372b64",
       "range": {
         "startLine": 132,
         "startChar": 2,
@@ -358,6 +454,30 @@
       "side": 1,
       "message": "These are from the devtools codebase, not core CodeMirror.",
       "parentUuid": "4f9fb5d7_27cd6fee",
+      "range": {
+        "startLine": 43,
+        "startChar": 62,
+        "endLine": 43,
+        "endChar": 83
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c25648_43bd61d0",
+        "filename": "test/unittests/front_end/ui/components/text_editor/TextEditor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T13:04:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2a9fd4d8_db38454a",
       "range": {
         "startLine": 43,
         "startChar": 62,
