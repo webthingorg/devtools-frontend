@@ -15,6 +15,7 @@ import {HighlightOverlay} from './tool_highlight.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import pausedStyle from './tool_paused.css'; // eslint-disable-line rulesdir/es_modules_import
 import {PausedOverlay} from './tool_paused.js';
+import type {PersistentToolMessage} from './tool_persistent.js';
 import {PersistentOverlay} from './tool_persistent.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import screenshotStyle from './tool_screenshot.css'; // eslint-disable-line rulesdir/es_modules_import
@@ -28,7 +29,7 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    InspectorOverlayHost: {send(data: string): void};
+    InspectorOverlayHost: {send(data: PersistentToolMessage|string): void};
   }
 }
 
