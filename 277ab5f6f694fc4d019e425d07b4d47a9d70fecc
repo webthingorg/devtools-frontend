@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe01d64d_8fad2458",
+        "filename": "front_end/panels/application/components/EndpointsGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-29T11:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84614558_ecb6fdde",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 9
+      },
+      "revId": "277ab5f6f694fc4d019e425d07b4d47a9d70fecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1c08f65_6e2a640e",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-29T10:54:54Z",
       "side": 1,
       "message": "Also add TODO here?",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "277ab5f6f694fc4d019e425d07b4d47a9d70fecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9af70f_c2bb2bc6",
+        "filename": "test/unittests/front_end/panels/application/components/EndpointsGrid_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-09-29T11:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1c08f65_6e2a640e",
       "range": {
         "startLine": 21,
         "startChar": 4,
