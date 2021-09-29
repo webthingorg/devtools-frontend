@@ -46,6 +46,30 @@
       },
       "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ec32c3_4cbd6e7d",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T15:16:53Z",
+      "side": 1,
+      "message": "Oh, it says win64 in the job name, so I guess it\u0027s failing on Windows?",
+      "parentUuid": "7cdb193c_df7bbffb",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
