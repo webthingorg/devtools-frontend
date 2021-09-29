@@ -4232,6 +4232,12 @@
   "panels/elements/ElementsTreeElement.ts | enableScrollSnap": {
     "message": "Enable scroll-snap overlay"
   },
+  "panels/elements/ElementsTreeElement.ts | enterIsolationMode": {
+    "message": "Enter Isolation Mode"
+  },
+  "panels/elements/ElementsTreeElement.ts | exitIsolationMode": {
+    "message": "Exit Isolation Mode"
+  },
   "panels/elements/ElementsTreeElement.ts | expandRecursively": {
     "message": "Expand recursively"
   },

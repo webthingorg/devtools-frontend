@@ -27,8 +27,8 @@ import {ViewportSizeOverlay} from './tool_viewport_size.js';
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    InspectorOverlayHost: {send(data: string): void};
+    // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-explicit-any
+    InspectorOverlayHost: {send(data: any): void};
   }
 }
 
