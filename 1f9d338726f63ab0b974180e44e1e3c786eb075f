@@ -52,6 +52,24 @@
       "parentUuid": "42db04da_b992bc29",
       "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8064584b_58c59f96",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-29T13:25:06Z",
+      "side": 1,
+      "message": "I changed the type to \"any\" in the backend\u0027s idl: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_overlay_host.idl;l\u003d34;drc\u003dab24109ebff41d668fa343d90fc5e2b7f160f20e\n\nso it should be able to take anything. The consumers either consume the message as a string or as an object (i.e. the Isolation Mode case).\n\nBut since we control both ends, we can define a stricter type, something like \"object|string\". Do you prefer it this way?",
+      "parentUuid": "55b4eb6c_25eedf26",
+      "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
