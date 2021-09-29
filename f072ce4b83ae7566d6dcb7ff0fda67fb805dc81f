@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e758a71_6d503797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-29T08:42:13Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the front-end update for the improved async stack trace reporting with `await`. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "f072ce4b83ae7566d6dcb7ff0fda67fb805dc81f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
