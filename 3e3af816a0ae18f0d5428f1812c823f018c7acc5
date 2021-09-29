@@ -16,6 +16,24 @@
       "message": "we should probably only install it when we are in the right mode.",
       "revId": "3e3af816a0ae18f0d5428f1812c823f018c7acc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "516483e4_4be3489e",
+        "filename": "inspector_overlay/tool_persistent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-29T13:12:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ff614d_cb1e7d0a",
+      "revId": "3e3af816a0ae18f0d5428f1812c823f018c7acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
