@@ -183,6 +183,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5d34e8_520ef8dc",
+        "filename": "front_end/ui/components/text_editor/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T14:01:25Z",
+      "side": 1,
+      "message": "Done in  https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3194198",
+      "parentUuid": "f7edd278_255dcd8d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9621cd12_ed0a9405",
@@ -244,6 +268,30 @@
       "side": 1,
       "message": "Ah, in that case I would prefer the following for readability:\n\n```\nfor (const [setting, listener] of this.activeSettingsListeners) {\n  setting.removeChangeListener(listener);\n}\nthis.activeSettingsListeners \u003d []\n```",
       "parentUuid": "f0f3a705_f0696eaa",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a4509b_ebd86a5e",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T14:01:25Z",
+      "side": 1,
+      "message": "Done in new CL.",
+      "parentUuid": "05c911e5_e4922a15",
       "range": {
         "startLine": 77,
         "startChar": 4,
@@ -338,6 +386,30 @@
       "writtenOn": "2021-09-29T10:35:42Z",
       "side": 1,
       "message": "Ultra-nit: `LINES_TO_SCAN_FOR_INDENTATION_GUESSING` and move it to the top of this file, as it is a constant (https://google.github.io/styleguide/jsguide.html#naming-constant-names)",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53baaec_d006dc8f",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T14:01:25Z",
+      "side": 1,
+      "message": "Done in the new CL",
+      "parentUuid": "e804278b_86ec9364",
       "range": {
         "startLine": 60,
         "startChar": 6,
@@ -479,6 +551,30 @@
       "writtenOn": "2021-09-29T10:35:42Z",
       "side": 1,
       "message": "Nit: change `describe(\u0027TextEditor\u0027` to `describeWithEnvironment(\u0027TextEditor\u0027` (from `EnvironmentHelpers` as well). This function properly initializes and deinitializes all relevant global variables whenever the test launches/finishes, even if the test fails. Now, the test can fail on an assert and then the global variables won\u0027t get cleaned up.",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267218be_aa61835f",
+        "filename": "test/unittests/front_end/ui/components/text_editor/TextEditor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-29T14:01:25Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "9cd8152a_2c4e3883",
       "range": {
         "startLine": 20,
         "startChar": 6,
