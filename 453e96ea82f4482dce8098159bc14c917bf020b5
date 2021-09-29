@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf07b709_f9ed0fa9",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T15:04:52Z",
+      "side": 1,
+      "message": "I think this should be 3, as \"two\" is 3 characters, so 6 minus 3 equals 3 (assuming 0-based indexing, where 6 is the 7th character)? https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_win64_rel/b8834745749770022721/test-results",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
