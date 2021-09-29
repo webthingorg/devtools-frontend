@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s a fix to only show \"interesting properties\" in the Properties tab (basically restoring the filtering out of inherited constants and methods, which are useless in this view). Please take a look.\n\nthanks,\nBenedikt",
       "revId": "d74af6f9ee39cebb45ee7cbab9ea548e52e7fac3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6224c5_85db30dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-09-29T11:09:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "d74af6f9ee39cebb45ee7cbab9ea548e52e7fac3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
