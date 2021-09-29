@@ -34,6 +34,24 @@
       "parentUuid": "4356042d_bcb1bb9c",
       "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55b4eb6c_25eedf26",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-29T13:18:10Z",
+      "side": 1,
+      "message": "I will take another look later (this was just the first point I noticed)",
+      "parentUuid": "42db04da_b992bc29",
+      "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
