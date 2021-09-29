@@ -105,6 +105,24 @@
       "parentUuid": "8064584b_58c59f96",
       "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc7197e_2ffc54a2",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-29T13:53:59Z",
+      "side": 1,
+      "message": "so I am thinking about more specific types like `\u0027resume\u0027|\u0027pause\u0027|string|{highlightType:...}` this way we can be sure the frontend code is sending messages of specific type.",
+      "parentUuid": "2b43f149_e000063d",
+      "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
