@@ -2621,6 +2621,9 @@
   "panels/application/components/PermissionsPolicySection.ts | showDetails": {
     "message": "Show details"
   },
+  "panels/application/components/ReportsGrid.ts | noReportsToDisplay": {
+    "message": "No reports to display"
+  },
   "panels/application/components/StackTrace.ts | cannotRenderStackTrace": {
     "message": "Cannot render stack trace"
   },
@@ -2843,11 +2846,11 @@
   "panels/application/OpenedWindowDetailsView.ts | yes": {
     "message": "Yes"
   },
+  "panels/application/ReportingApiReportsView.ts | clickToDisplayBody": {
+    "message": "Click on any report to display its body"
+  },
   "panels/application/ReportingApiTreeElement.ts | reportingApi": {
     "message": "Reporting API"
-  },
-  "panels/application/ReportingApiView.ts | noReportsToDisplay": {
-    "message": "No reports to display"
   },
   "panels/application/ServiceWorkerCacheViews.ts | cache": {
     "message": "Cache"
