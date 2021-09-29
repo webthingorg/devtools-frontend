@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4666b25f_9054547d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Overall, this is looking good. To make sure we can safely land this change, I think we should split it up into a couple of standalone CLs. This will help us triaging any potential regressions and makes reviewing a bit easier.\n\nSome things are broken atm, but most of them have simple fixes. E.g. pretty-printing is broken, but moving the files from `text_utils` to the component should fix that.\n\nSadly, the insertion of `\u003c` on my Macbook is still broken. I wanted to debug this issue further, but for that I need to pretty-print the CodeMirror file which I then discovered was broken. Once we fix pretty-printing I can help you debug what is going on and hopefully provide some actionable feedback on what the fix should be.\n\nNice work Marijn, I am very impressed with the usage of new CodeMirror and how the component is shaping up 😊",
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5041fc08_bf7de341",
+        "filename": "front_end/models/text_utils/text_utils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "The `text_utils` module gets loaded in a worker context as well: https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/fded5ecced0120b0f76d743dcbf4d9060ea9912b:front_end/entrypoints/formatter_worker/HTMLOutline.ts;l\u003d6;drc\u003dd5bf8795588af194b53920e168856ecd9975cb91\n\nThe `.css.js` files use `CSSStylesheet` objects that are only intended to be loaded in the main web frame. Since this is a model, it is not intended to know about styling and should be importable in a worker context (which doesn\u0027t have CSSStyleSheet).\n\nYou can see this breaking when attempting to pretty-print any source file, which now fails with\n\n```\nUncaught ReferenceError: CSSStyleSheet is not defined\n    at codeHighlighting.css.js:5\n```\n\nSince `ui/components/text_editor/TextEditor.ts` is the only file that needs the styles (and is a component intended to be rendered), I think we should move the styling into that module. If we later want to share these styles, I think we can figure out a better place somewhere in `front_end/ui`, but for now let\u0027s put them next to the component.\n\nThe same would be true for `CodeHighlighter.ts` which I think we should also move into `ui/components/text_editor`.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 64
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363f286d_0cdcf381",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "I love how much simpler this configuration is, rather than all the custom listening and modifications we were doing previously. Nice work 🎉",
+      "range": {
+        "startLine": 1003,
+        "startChar": 19,
+        "endLine": 1003,
+        "endChar": 55
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7edd278_255dcd8d",
+        "filename": "front_end/ui/components/text_editor/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "I think it is best if we extract `front_end/ui/components/text_editor`, its corresponding docs, interaction and unit tests into a standalone CL. That makes it easier to track test flakiness (which sometimes unexpectedly happens), which makes it easier for us to triage which particular CL is the culprit.\n\nIt also makes reverting easier when we actually ship the \"Edit as HTML\" feature, so that we don\u0027t have to revert the underpinning infrastructure.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9621cd12_ed0a9405",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Nit:\n\n```\nfor (const [setting, listener] of this.activeSettingsListeners) {\n  setting.removeChangeListener(listener);\n}\n```",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e33724_d0a71193",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Can we add a comment here why this `setTimeout` is required? Or is there maybe a different way we can detect when we should run this code, based on some listener or callback maybe?",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 14
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e804278b_86ec9364",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Ultra-nit: `LINES_TO_SCAN_FOR_INDENTATION_GUESSING` and move it to the top of this file, as it is a constant (https://google.github.io/styleguide/jsguide.html#naming-constant-names)",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4eb516_1d3cdfe3",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Can we extract out the changes here, in the dark style sheet and the additions in `theme.css` into a separate CL? I would like to reduce the scope of this single CL and it seems like we can make that a standalone CL which will help with triaging later if we run into any regressions.\n\nThe files that I think we should move into a standalone CL are:\n- inspectorSyntaxHighlight.css\n- inspectorSyntaxHighlightDark.css\n- themeColors.css\n- screencastView.css\n- layoutPane.css\n- nodeText.css",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 32
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35837759_2906ad5f",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Nice test, good job 👍",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 29
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd8152a_2c4e3883",
+        "filename": "test/unittests/front_end/ui/components/text_editor/TextEditor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "Nit: change `describe(\u0027TextEditor\u0027` to `describeWithEnvironment(\u0027TextEditor\u0027` (from `EnvironmentHelpers` as well). This function properly initializes and deinitializes all relevant global variables whenever the test launches/finishes, even if the test fails. Now, the test can fail on an assert and then the global variables won\u0027t get cleaned up.",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f9fb5d7_27cd6fee",
+        "filename": "test/unittests/front_end/ui/components/text_editor/TextEditor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-29T10:35:42Z",
+      "side": 1,
+      "message": "I am not sure if it is possible, but is there a way we could write this test without relying on the internal CodeMirror classes? I can imagine that at some point CodeMirror wants to update these class names and then we would have to update our own tests. Is there maybe a programmatic API on CodeMirror that we can use to retrieve this information?",
+      "range": {
+        "startLine": 43,
+        "startChar": 62,
+        "endLine": 43,
+        "endChar": 83
+      },
+      "revId": "36c6da87d21356899675ead1fc786cc530fd5964",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
