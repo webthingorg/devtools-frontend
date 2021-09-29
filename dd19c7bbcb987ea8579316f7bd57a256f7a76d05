@@ -16,6 +16,23 @@
       "message": "PTAL (I have changed the icon from a data URL to a proper URL because that stopped working for some reason)",
       "revId": "dd19c7bbcb987ea8579316f7bd57a256f7a76d05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b1ce73_518a156b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-29T10:44:52Z",
+      "side": 1,
+      "message": "can we write a unit test perhaps that asserts the button gets the right classes when it\u0027s rendered:\n\n1. with text\n2. with an icon + text\n3. with just an icon\n\nwdyt?",
+      "revId": "dd19c7bbcb987ea8579316f7bd57a256f7a76d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
