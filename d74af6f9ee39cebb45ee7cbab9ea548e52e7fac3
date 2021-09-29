@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "156fe30c_b131c7f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-09-29T10:48:32Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a fix to only show \"interesting properties\" in the Properties tab (basically restoring the filtering out of inherited constants and methods, which are useless in this view). Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "d74af6f9ee39cebb45ee7cbab9ea548e52e7fac3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
