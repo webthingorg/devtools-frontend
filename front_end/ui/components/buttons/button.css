@@ -11,7 +11,9 @@
 }
 
 *:focus,
-*:focus-visible {
+*:focus-visible,
+:host(:focus),
+:host(:focus-visible) {
   outline: none;
 }
 
@@ -69,6 +71,10 @@ button.secondary:active {
 
 button.secondary:focus-visible {
   border: 1px solid var(--color-background);
+}
+
+button.secondary:active:focus-visible {
+  border: 1px solid var(--color-button-secondary-background-pressed);
 }
 
 button.text-with-icon {
