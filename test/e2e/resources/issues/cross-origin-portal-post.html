@@ -1,0 +1,26 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // Load cross origin resource by switching the hostname to devtools.xopp.test.
+    const url = new URL('cross-origin-portal.html', document.location);
+    window.onload = () => {
+      const xoriginportal = document.getElementById("x-origin-portal");
+      xoriginportal.postMessage('test');
+      console.log(xoriginportal.src);
+    };
+  </script>
+</head>
+
+<body>
+  <portal id="x-origin-portal" src="https://other-iframe.glitch.me/"></portal>
+</body>
+
+</html>
+

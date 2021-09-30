@@ -4952,6 +4952,12 @@
   "panels/issues/CSPViolationsView.ts | filter": {
     "message": "F̂íl̂t́êŕ"
   },
+  "panels/issues/GenericIssueDetailsView.ts | frameId": {
+    "message": "F̂ŕâḿê"
+  },
+  "panels/issues/GenericIssueDetailsView.ts | nViolations": {
+    "message": "{n, plural, =1 {# v̂íôĺât́îón̂} other {# v́îól̂át̂íôńŝ}}"
+  },
   "panels/issues/HiddenIssuesRow.ts | hiddenIssues": {
     "message": "Ĥíd̂d́êń îśŝúêś"
   },
