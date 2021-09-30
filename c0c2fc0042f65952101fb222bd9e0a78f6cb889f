@@ -56,6 +56,30 @@
       },
       "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6bc2b8_2f602d39",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-30T09:12:55Z",
+      "side": 1,
+      "message": "I chose letters because we can extend with \u0027XS\u0027, \u0027XXS\u0027, \u0027XL\u0027 etc whereas with small and medium we\u0027d need to for `EXTRA_SMALL` and `EXTRA_EXTRA_SMALL` or come up with something else. Happy to change to `SMALL` and `MEDIUM` though. Upd: changed.",
+      "parentUuid": "052647c6_3714439b",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
