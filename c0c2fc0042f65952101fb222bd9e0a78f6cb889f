@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "595b5295_e81bc4ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-30T08:26:33Z",
+      "side": 1,
+      "message": "PTAL (discussed the change upfront with Marian)",
+      "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
