@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb5dc9d_03c1b659",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-30T15:51:01Z",
+      "side": 0,
+      "message": "Ah yes of course. On Mac, `control` here implies `Command`. And `Command + Arrow left` means \"go all the way to the start. If you want to do `ctrl + arrow left` on Mac, it\u0027s `Option + arrow left`. I guess we can extract the logic here into a helper function for this one single test file and then on Mac use `Option` and on all other systems use `Ctrl`.",
+      "range": {
+        "startLine": 52,
+        "startChar": 32,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "f7c7c9271940392ba3aeb5a095dced09026fb0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
