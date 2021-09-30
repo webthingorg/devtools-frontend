@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fe6a7e_c8708c52",
+        "filename": "front_end/panels/application/ReportingApiReportsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-30T04:48:42Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 14
+      },
+      "revId": "aafa77c1db57c85a90a69d89957faa68a5041d11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
