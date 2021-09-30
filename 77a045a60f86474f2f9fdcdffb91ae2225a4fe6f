@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0789506_ab8e532a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-30T06:10:31Z",
+      "side": 1,
+      "message": "lgtm % the semantic changes Robert pointed out. Please wait for Jacks +1 as well.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c78e4c08_836983ed",
@@ -88,6 +105,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69f73307_65bb3f9a",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-30T06:10:31Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a3cd5a07_f9920874",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10d983cb_d77718e0",
         "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
         "patchSetId": 7
@@ -99,6 +134,24 @@
       "writtenOn": "2021-09-29T21:12:53Z",
       "side": 1,
       "message": "Since we\u0027re in TypeScript, can we simplify this to a double-bang with the null-coalescing operator?\n\n    showColumnNumber: !!options?.showColumnNumber,",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e60c2e_2a4b664d",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-30T06:10:31Z",
+      "side": 1,
+      "message": "Not sure about the current linter rules but it might convert the double-bang to `Boolean` constructor:\n\n  Boolean(options?.showColumnNumber)",
+      "parentUuid": "10d983cb_d77718e0",
       "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
