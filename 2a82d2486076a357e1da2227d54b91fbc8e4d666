@@ -39,6 +39,30 @@
       },
       "revId": "2a82d2486076a357e1da2227d54b91fbc8e4d666",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20663c7_43513453",
+        "filename": "inspector_overlay/tool_persistent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-09-30T07:07:05Z",
+      "side": 1,
+      "message": "I tried it, but `git cl format --js` insists on doing this in one line :(",
+      "parentUuid": "aa4e5443_2b3a3777",
+      "range": {
+        "startLine": 190,
+        "startChar": 108,
+        "endLine": 191,
+        "endChar": 13
+      },
+      "revId": "2a82d2486076a357e1da2227d54b91fbc8e4d666",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
