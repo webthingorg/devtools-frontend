@@ -16,6 +16,24 @@
       "message": "Got an email about a merge conflict, to I rebased this again (there was no actual merge conflict, though?)",
       "revId": "44754004e3feec8dca1fcb2fbbcbb6013fce3776",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869e9259_57f73f2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-30T10:56:02Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s Gerrit being a bit overeager at times. We can typically click \"Rebase\" on the top right menu and then everything is fine. I hit submit again and we should be good to go.",
+      "parentUuid": "cb91cc79_18f94f0e",
+      "revId": "44754004e3feec8dca1fcb2fbbcbb6013fce3776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
