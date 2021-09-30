@@ -141,6 +141,24 @@
       "parentUuid": "0bc7197e_2ffc54a2",
       "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92710ce_5311ce41",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-30T05:37:49Z",
+      "side": 1,
+      "message": "Looks great! Andrey opened a CL too https://chromium-review.googlesource.com/c/chromium/src/+/3194764 so there could be conflicts here but we will be able to add a type for the screenshot tool too.",
+      "parentUuid": "c7e5b853_c629da42",
+      "revId": "1f9d338726f63ab0b974180e44e1e3c786eb075f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
