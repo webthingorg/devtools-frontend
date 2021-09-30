@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f647bab7_afb2e986",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-30T08:46:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26661d5c_69dac367",
+      "range": {
+        "startLine": 98,
+        "startChar": 33,
+        "endLine": 98,
+        "endChar": 37
+      },
+      "revId": "27162732cbe1f908230b66fb5aaf28582ca3d674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10e6c98d_fb60542b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-30T08:12:26Z",
       "side": 1,
       "message": "I think we want to lock the `CORS` part since it most likely shouldn\u0027t be translated. Also lower case \"Errors\" maybe? Wdyt?\n\n showCorsErrorsInConsole: \u0027Show `CORS` errors in console\u0027,",
+      "range": {
+        "startLine": 85,
+        "startChar": 33,
+        "endLine": 85,
+        "endChar": 37
+      },
+      "revId": "27162732cbe1f908230b66fb5aaf28582ca3d674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b98b36_4fe45a69",
+        "filename": "front_end/panels/console/console-meta.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-30T08:46:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10e6c98d_fb60542b",
       "range": {
         "startLine": 85,
         "startChar": 33,
