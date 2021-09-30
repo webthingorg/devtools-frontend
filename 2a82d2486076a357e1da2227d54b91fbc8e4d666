@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606fa78a_7293f4ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-30T06:04:32Z",
+      "side": 1,
+      "message": "Nice! LGTM.",
+      "revId": "2a82d2486076a357e1da2227d54b91fbc8e4d666",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4e5443_2b3a3777",
+        "filename": "inspector_overlay/tool_persistent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-09-30T06:04:32Z",
+      "side": 1,
+      "message": "Nit: can we split the destructuring pattern over multiple lines instead? So we do\n\n   const {widthPath, heightPath, bidirectionPath, \n          highlightIndex, initialWidth, initialHeight} of ...",
+      "range": {
+        "startLine": 190,
+        "startChar": 108,
+        "endLine": 191,
+        "endChar": 13
+      },
+      "revId": "2a82d2486076a357e1da2227d54b91fbc8e4d666",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
