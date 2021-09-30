@@ -16,6 +16,46 @@
       "message": "PTAL (discussed the change upfront with Marian)",
       "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394a026c_3c544ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-30T08:56:57Z",
+      "side": 1,
+      "message": "LGTM with a unit test that checks a small button has the right class applied, etc, and presuming UX are happy. Thanks Alex!",
+      "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "052647c6_3714439b",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-30T08:56:57Z",
+      "side": 1,
+      "message": "nit, but I think we should go `SMALL` and `MEDIUM` here.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
