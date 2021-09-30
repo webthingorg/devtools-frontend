@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5ce1fa_307099e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-30T08:57:39Z",
+      "side": 1,
+      "message": "LGTM with suggestion that you can take or leave! :)",
+      "revId": "e21450c1916c2cd8747a5e48d4199fb42cb90fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456c5941_41f67de6",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-30T08:57:39Z",
+      "side": 1,
+      "message": "nit: worth a comment explaining why? Basically what you wrote in the CL description.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "e21450c1916c2cd8747a5e48d4199fb42cb90fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
