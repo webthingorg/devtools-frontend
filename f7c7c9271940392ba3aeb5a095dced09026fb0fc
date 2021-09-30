@@ -22,6 +22,30 @@
       },
       "revId": "f7c7c9271940392ba3aeb5a095dced09026fb0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e4ac138_eba749d7",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-30T16:19:48Z",
+      "side": 0,
+      "message": "Ugh, right. I\u0027ll take care of it.",
+      "parentUuid": "0fb5dc9d_03c1b659",
+      "range": {
+        "startLine": 52,
+        "startChar": 32,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "f7c7c9271940392ba3aeb5a095dced09026fb0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
