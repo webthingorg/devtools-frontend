@@ -80,6 +80,30 @@
       },
       "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89d9b48_fbb8cbca",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-09-30T09:22:26Z",
+      "side": 1,
+      "message": "Ah fair point, I hadn\u0027t thought of that. However I\u0027d hope we don\u0027t end up with that many sizes. Let\u0027s stick with SMALL / MEDIUM as it\u0027s an easy rename and code update in the future should we think it\u0027s getting too much. Thanks Alex :)",
+      "parentUuid": "6d6bc2b8_2f602d39",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "c0c2fc0042f65952101fb222bd9e0a78f6cb889f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
