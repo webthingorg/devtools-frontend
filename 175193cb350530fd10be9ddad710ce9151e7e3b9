@@ -33,6 +33,24 @@
       "message": "lgtm otherwise",
       "revId": "175193cb350530fd10be9ddad710ce9151e7e3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb33ea91_fb471898",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-09-30T13:43:30Z",
+      "side": 1,
+      "message": "What we want to know is when people stop touching it, which is also what we are capturing here.",
+      "parentUuid": "59fdfdf0_954c4062",
+      "revId": "175193cb350530fd10be9ddad710ce9151e7e3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
