@@ -52,6 +52,24 @@
       "parentUuid": "7d9e9799_30061765",
       "revId": "1b77bf9d26a5d12470f3567ede7a27b2ce6e0f35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29b227d_202d3a20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-30T16:05:51Z",
+      "side": 1,
+      "message": "Aha. I figured out that editing the `iframe` on the new page tab actually works, but editing the `dom-module` doesn\u0027t.\n\nIn other words: if I click \"edit as HTML\" on a `\u003cdom-module\u003e` node, then I can type some text *before* the tag and *after* the tag. But, if I am inside the tag, it doesn\u0027t. So that would be:\n\n`\u003cdom-module id\u003d\"cr-icons\" assetpath\u003d\"chrome://resources/\"\u003e|` where `|` is the cursor position, then a new `\u003c` insertion doesn\u0027t work. I could actually also reproduce this issue on my Linux machine.\n\nWhat works:\n\n`|\u003cdom-module id\u003d\"cr-icons\" assetpath\u003d\"chrome://resources/\"\u003e`\n\nand\n\n`\u003cdom-module id\u003d\"cr-icons\" assetpath\u003d\"chrome://resources/\"\u003e\u003c/dom-module\u003e|`\n\nSo I can reproduce this on both machines, but I can\u0027t reproduce this issue with the `\u003ciframe` tag on the same page or any other tag like a `\u003cdiv\u003e`.",
+      "parentUuid": "c5f2a9e9_f5276602",
+      "revId": "1b77bf9d26a5d12470f3567ede7a27b2ce6e0f35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
