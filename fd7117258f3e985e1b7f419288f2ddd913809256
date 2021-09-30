@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c91ea94_75dd1b8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-09-30T16:18:47Z",
+      "side": 1,
+      "message": "Marijn, you can use the following commands to locally get the reland CL and make the appropriate fixes:\n\n```\ngit checkout main\ngit checkout -t -b reland-codemirror-component\ngit cl patch 3197674\n\u003cmake your changes\u003e\ngit commit --amend\ngit cl upload\n```\n\nThe last command will then upload to this CL. If that doesn\u0027t work, you can also upload a new CL:\n\n```\ngit cl issue 0\ngit cl upload\n```",
+      "revId": "fd7117258f3e985e1b7f419288f2ddd913809256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
