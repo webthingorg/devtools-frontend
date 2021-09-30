@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a7035a_e16d16f4",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-09-30T05:32:59Z",
+      "side": 1,
+      "message": "I think it\u0027d be a good chance to define that we expect `{x: number; y: number; width: number; height:number;}` here. It\u0027d help catch potential type errors on the frontend.",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "76b61853307eaf9eba69f699816bb2ef86d17b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
