@@ -71,6 +71,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66cd2708_6aa4c5e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-09-30T06:11:56Z",
+      "side": 1,
+      "message": "One unfortunate side-effect of this CL is that blink web tests have to re-baselined since the expected output changes. This requires a 3-way change:\n  1) Disable tests on the chromium side\n  2) Land this CL\n  3) Re-enable plus re-baseline the tests on the Chromium side.",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c78e4c08_836983ed",
         "filename": "front_end/models/workspace/UISourceCode.ts",
         "patchSetId": 7
