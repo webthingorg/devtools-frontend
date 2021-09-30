@@ -16,6 +16,24 @@
       "message": "I had another attempt at the Mac issue. The stacktrace I got is in `hasNode`. In it, it tries to access `e.children` where `e \u003d this.cursor.tree`. However, `tree` is empty on the object: https://imgur.com/qwpGYlr\n\nIt is a closeTag node apparently, which makes sense, as my cursor is right in front a close tag. However, I am trying to insert an opening tag.\n\nDoes this stacktrace maybe ring any bells? Not sure how best I can help out with debugging this issue.\n\nFWIW I think this is a bug in the `@lezer` package somehow, as it is getting the incorrect information, but that confuses me as it is a simple parser. I will ask a colleague on a Macbook to attempt to reproduce this issue and see if they encounter the same problem.\n\nThis is the full stacktrace with formatted locations:\n\n```\nUncaught TypeError: Cannot read properties of null (reading \u0027children\u0027)\n    at L.hasNode (codemirror.js:formatted:1201)\n    at N.hasNode (codemirror.js:formatted:1221)\n    at T.startInner (codemirror.js:formatted:1084)\n    at T.advance (codemirror.js:formatted:1050)\n    at codemirror.js:formatted:9419\n    at Gr.withContext (codemirror.js:formatted:9451)\n    at Gr.work (codemirror.js:formatted:9413)\n    at Jr.apply (codemirror.js:formatted:9568)\n    at Rt.update [as updateF] (codemirror.js:formatted:9586)\n    at Array.\u003canonymous\u003e (codemirror.js:formatted:2585)\n```",
       "revId": "1b77bf9d26a5d12470f3567ede7a27b2ce6e0f35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9e9799_30061765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-30T14:41:06Z",
+      "side": 1,
+      "message": "That seems unlikely to be macOS-related. Can you show the precise document and cursor position you have when it occurs?",
+      "parentUuid": "2e4297ff_180cb1b6",
+      "revId": "1b77bf9d26a5d12470f3567ede7a27b2ce6e0f35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
