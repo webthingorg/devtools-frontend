@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a27ac8_037a78c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-09-30T22:01:31Z",
+      "side": 1,
+      "message": "XS CL fixing a high contrast A11y issue. PTAL",
+      "revId": "f6dc4e4b5eb1b84d6b73da6984084510ccb2126f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
