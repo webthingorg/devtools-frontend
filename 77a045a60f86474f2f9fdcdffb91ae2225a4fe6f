@@ -105,6 +105,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4be2c29_9cf2de53",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-09-30T19:29:12Z",
+      "side": 1,
+      "message": "Was that before or after the typescript migration? If the typescript typings are accurate, lineNumber must be a number at this point.",
+      "parentUuid": "c78e4c08_836983ed",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3cd5a07_f9920874",
         "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
         "patchSetId": 7
@@ -140,6 +158,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acff1b4c_d69195d9",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-09-30T19:29:12Z",
+      "side": 1,
+      "message": "See other comment. frame.lineNumber\u0027s type is known to be a number at this point so the if statement shouldn\u0027t be necessary anymore.",
+      "parentUuid": "69f73307_65bb3f9a",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10d983cb_d77718e0",
         "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
         "patchSetId": 7
@@ -169,6 +205,24 @@
       "side": 1,
       "message": "Not sure about the current linter rules but it might convert the double-bang to `Boolean` constructor:\n\n  Boolean(options?.showColumnNumber)",
       "parentUuid": "10d983cb_d77718e0",
+      "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20473e52_8719f73e",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-09-30T19:29:12Z",
+      "side": 1,
+      "message": "Thanks, I made the change. The linter converted this to Boolean(options?.showColumnNumber).",
+      "parentUuid": "c7e60c2e_2a4b664d",
       "revId": "77a045a60f86474f2f9fdcdffb91ae2225a4fe6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
