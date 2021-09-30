@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5368083_9a25c4a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-09-30T19:51:06Z",
+      "side": 1,
+      "message": "If the `lineNumber` properties are strongly typed as `number` and not `number?` then I\u0027m OK with taking the semantic changes (although it would be good to find out the origins of those so we can make sure that the type of `number` is legit).",
+      "revId": "6e285e00b3d26b164b5af17598dd795b32c3a17e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
