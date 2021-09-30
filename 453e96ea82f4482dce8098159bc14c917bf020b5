@@ -142,6 +142,30 @@
       },
       "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d7de8f_5efbdc61",
+        "filename": "test/interactions/text_editor/text_editor_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-09-30T06:53:37Z",
+      "side": 1,
+      "message": "I think I figured it out--the doc page wasn\u0027t explicitly loading a configured editor state, so it got a bare one without our keybindings. The new patch I uploaded should address this. Let\u0027s see what CI does with it.",
+      "parentUuid": "8a10843a_3ac4042e",
+      "range": {
+        "startLine": 53,
+        "startChar": 68,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "453e96ea82f4482dce8098159bc14c917bf020b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
