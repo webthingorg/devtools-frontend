@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a3aedddf_011e4dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-01T09:52:20Z",
+      "side": 1,
+      "message": "Nice! One more tiny thought but this is looking great, nice work Nancy!",
+      "revId": "fa2cbc8440ddf6b54fe8fb860ed6aa2fb1d0829c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "80bf9f7d_19261837",
         "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
         "patchSetId": 17
@@ -14,6 +31,30 @@
       "writtenOn": "2021-10-01T08:53:35Z",
       "side": 1,
       "message": "I noticed |query| is not used (only be assigned once but never be read), and it is the variable name I want, so i delete the old one line code and use this for new code.",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 15
+      },
+      "revId": "fa2cbc8440ddf6b54fe8fb860ed6aa2fb1d0829c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "661ed0c7_3fce59e8",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-01T09:52:20Z",
+      "side": 1,
+      "message": "You could change this to `private query \u003d \u0027\u0027;` and then lose the `this.query \u003d \u0027\u0027` in the constructor :) \n\nThat way you also avoid the ! which is a nice way to avoid losing a bit of type-safety.",
+      "parentUuid": "80bf9f7d_19261837",
       "range": {
         "startLine": 41,
         "startChar": 10,
