@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04160f27_d8a20a26",
+        "filename": "front_end/ui/components/docs/text_prompt/basic.html",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83894760_57965180",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30504836_471df9d8",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-15T13:30:28Z",
       "side": 1,
       "message": "nit: when assigning the value which is a primitive, we will often drop the type because TS will infer it correctly.\n\nprivate prefixText \u003d \u0027\u0027",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900949f6_caccd27a",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30504836_471df9d8",
       "range": {
         "startLine": 18,
         "startChar": 1,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa31e81a_4ff6bd68",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done. Thanks for this! I originally missed \u0027@\u0027 in the lithtml so it didn;t work 😂",
+      "parentUuid": "a81f2d4d_2be50a75",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0f974de_0c2b1653",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-09-15T13:30:28Z",
       "side": 1,
       "message": "I would have thought we could have `onKeyDown(event: KeyboardEvent)` and not have to type cast. Does that not work?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a64615_54174601",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f974de_0c2b1653",
       "range": {
         "startLine": 57,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "374ae504_4dc8fc1e",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e54bbf3_8bb1fa49",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 32
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41650d5e_200075be",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-09-15T13:30:28Z",
       "side": 1,
       "message": "is this whitespace here on purpose?",
+      "range": {
+        "startLine": 110,
+        "startChar": 101,
+        "endLine": 110,
+        "endChar": 102
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5e041d9_0339a745",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Yes, this is meant to have a space between suggestion and the input.",
+      "parentUuid": "41650d5e_200075be",
       "range": {
         "startLine": 110,
         "startChar": 101,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed20ce41_46e516e6",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ab8b33_4898131f",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 101
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdfc57fd_7e8203f5",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-09-15T13:30:28Z",
       "side": 1,
       "message": "See the comment below which is similar, but we shouldn\u0027t expose internal DOM elements of the TextPrompt component like this. We should use custom events to have the TextPrompt component let parent elements know about its values.\n\nSo this should probably become something like:\n\nthis.inputBoxElement.addEventListener(TextPrompt.TextPrompt.PromptInputEvent.eventName, this.onInput.bind(this), false);",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 91
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c21279da_a87c8cb0",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdfc57fd_7e8203f5",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -225,6 +417,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d8cf785_8ac7f3e2",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14accb61_dc2eb2a9",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 46
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05cd3f27_2b22711f",
@@ -238,6 +454,30 @@
       "writtenOn": "2021-09-15T13:30:28Z",
       "side": 1,
       "message": "nit: for all of these it would be nice if they read like sentences with the it at the start. So here:\n\nit(\u0027sets the prefix correctly\u0027)\n\nAnd similarly for the rest.\n\nTiny nit btw - otherwise these tests are great.",
+      "range": {
+        "startLine": 39,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "f5b6d396926c7b162211a7c7b7615a165dab98c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07eddfd_e9ce84c8",
+        "filename": "test/unittests/front_end/ui/components/TextPrompt_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T08:53:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05cd3f27_2b22711f",
       "range": {
         "startLine": 39,
         "startChar": 3,
