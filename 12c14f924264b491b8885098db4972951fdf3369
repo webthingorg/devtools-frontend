@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714e5af3_5f4e3d74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-01T13:43:37Z",
+      "side": 1,
+      "message": "This all looks good to me, woohoo! Let\u0027s ship it 🎉",
+      "revId": "12c14f924264b491b8885098db4972951fdf3369",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
