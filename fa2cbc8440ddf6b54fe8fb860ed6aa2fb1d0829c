@@ -63,6 +63,30 @@
       },
       "revId": "fa2cbc8440ddf6b54fe8fb860ed6aa2fb1d0829c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e24cfe_c023b566",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-01T10:22:13Z",
+      "side": 1,
+      "message": "Done. Thanks Jack, I always forget this 😂. Also changed `prefix` since it is just the next line;",
+      "parentUuid": "661ed0c7_3fce59e8",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 15
+      },
+      "revId": "fa2cbc8440ddf6b54fe8fb860ed6aa2fb1d0829c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
