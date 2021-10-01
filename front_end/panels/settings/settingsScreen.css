@@ -187,3 +187,21 @@ fieldset {
 .settings-experiment-unstable {
   color: var(--color-text-secondary);
 }
+
+@media (forced-colors: active) {
+  .settings-window-title {
+    color: canvastext;
+  }
+
+  .tabbed-pane-header-tab {
+    background: ButtonFace;
+    color: canvastext !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+@media (forced-colors: active) and (prefers-color-scheme: dark) {
+  .tabbed-pane-header-tab.selected {
+    background: ButtonFace;
+    color: HighlightText !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
