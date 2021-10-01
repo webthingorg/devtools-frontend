@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9101da5_ba4ab38b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-01T11:57:28Z",
+      "side": 1,
+      "message": "Fix LGTM. Unfortunately, it requires a rebase. Do you mind doing a rebase locally and upload the merge conflict fix?",
+      "revId": "2d907c2f8f37607040d1eb8c5293f3f563c0b668",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
