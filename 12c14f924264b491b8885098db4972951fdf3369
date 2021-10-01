@@ -16,6 +16,29 @@
       "message": "This all looks good to me, woohoo! Let\u0027s ship it 🎉",
       "revId": "12c14f924264b491b8885098db4972951fdf3369",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b282f374_d920b104",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 6
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-01T13:58:02Z",
+      "side": 1,
+      "message": "We expect these sources to exist in both debug and release builds, so I think we have to remove `sources_are_release` from https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/9889b057fc2ecc3c2e6c381e24c06c1a16cac8a6:front_end/third_party/codemirror.next/BUILD.gn;l\u003d8;drc\u003d6da128c3ae6b6dd0d4602059c23f8c4003823f5b\n\nThat\u0027s a bit annoying, as we also need the `tsconfig` file, which we *don\u0027t* want at all.\n\nTherefore, I think we can do the following (similar to what we do with LightHouse)\n\n```\ngroup(\"bundle\") {\n  public_deps \u003d [\n    \":codemirror.next-sources\",\n    \":codemirror.next-compilation\",\n  ]\n}\n\ndevtools_pre_built(\"codemirror.next-sources\") {\n  sources \u003d [\n    \"chunk/codemirror.js\",\n    \"chunk/cpp.js\",\n    \"chunk/css.js\",\n    \"chunk/html.js\",\n    \"chunk/java.js\",\n    \"chunk/javascript.js\",\n    \"chunk/json.js\",\n    \"chunk/legacy.js\",\n    \"chunk/markdown.js\",\n    \"chunk/php.js\",\n    \"chunk/python.js\",\n    \"chunk/wast.js\",\n    \"chunk/xml.js\",\n    \"codemirror.next.js\",\n  ]\n}\n\ndevtools_pre_built(\"codemirror.next-compilation\") {\n  sources_are_release \u003d false\n\n  sources \u003d [\n    \"bundle-tsconfig.json\",\n    \"codemirror.next.d.ts\",\n  ]\n}\n```",
+      "range": {
+        "startLine": 463,
+        "startChar": 2,
+        "endLine": 476,
+        "endChar": 61
+      },
+      "revId": "12c14f924264b491b8885098db4972951fdf3369",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
