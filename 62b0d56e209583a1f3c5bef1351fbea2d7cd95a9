@@ -33,6 +33,24 @@
       "message": "The dark mode looks good.  Did anything in the Light mode change?",
       "revId": "62b0d56e209583a1f3c5bef1351fbea2d7cd95a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a38e6f_c1b00ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-01T22:49:12Z",
+      "side": 1,
+      "message": "Yes. In light mode, the text in the left panel is darker and more clear after adjustment. Please take a look this side by side comparison, left (before), right (after):\nhttps://imgur.com/a/zjPysb8",
+      "parentUuid": "cc59172b_96e75589",
+      "revId": "62b0d56e209583a1f3c5bef1351fbea2d7cd95a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
