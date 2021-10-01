@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbdf1c0_982acec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-01T09:53:16Z",
+      "side": 1,
+      "message": "Paul, PTAL. I feel a bit icky exposing something globally but not sure how else to do it. Happy to take opinions!\n\nI have confirmed that this fixes any tests that wait for a render coordinator empty when actually the work has already been done.",
+      "revId": "6ed33dc606e4731ffa323cd5ff52c7f268110f07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
