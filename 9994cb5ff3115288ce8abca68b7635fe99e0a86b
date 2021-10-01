@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae58b0d6_7ba4040e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-10-01T23:25:00Z",
+      "side": 1,
+      "message": "I\u0027m sure this is helpful for some use cases but I would prefer to see a proper initialize() call to \"alert nothing\" which feels more like a hack.\n\nI can\u0027t approve your code review for submission, but that\u0027s the only thing I\u0027d change for this review.",
+      "revId": "9994cb5ff3115288ce8abca68b7635fe99e0a86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3eecc74_ce0c5ae6",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-10-01T23:25:00Z",
+      "side": 1,
+      "message": "I would prefer to see an initialize() call instead of an empty alert. This feels like an \"I\u0027m doing something clever with a side effect\".",
+      "revId": "9994cb5ff3115288ce8abca68b7635fe99e0a86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
