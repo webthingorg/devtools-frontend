@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec4851b_68fc7442",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-01T11:43:49Z",
+      "side": 1,
+      "message": "Unfortunately, I don\u0027t think we can disable the minification process and we have to keep on checking in pre-built sources. The reason is that, while we indeed run `terser` in our production build, we can only run that on first-party code.\n\nThe logic that does so is in `devtools_entrypoint` (https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/b91ba37982882c44bfc316321edf6c9ac628a8c4:scripts/build/ninja/devtools_entrypoint.gni;l\u003d132-147;drc\u003d8b929548c05518a8c574ec97eb1578ef57c1d5de) which uses the Rollup configuration in https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/b91ba37982882c44bfc316321edf6c9ac628a8c4:scripts/build/rollup.config.js;l\u003d83-87;drc\u003dfc6226b017c84300643ac5bfc7d57b5a1e95b7df\n\nHowever, for third-party code, we usually can\u0027t use `devtools_entrypoint`. That\u0027s because the pre-built sources usually expects a certain configuration which Rollup can sometimes break. In the case of CodeMirror.next, I don\u0027t think we have that restriction, but we do have the special handling of the chunks.\n\nIf we were to want to use `devtools_entrypoint` and perform minification at build time, we would need to significantly refactor the way we integrate with CodeMirror.next to adhere to these invariants. I don\u0027t think that is worth doing, especially as we already include minified pre-built third-party sources in our tree (both in node_modules and in front_end/third_party).\n\nBtw, if you want to check how this would get built in a Release build, you can perform the following steps:\n\n```\ngn gen out/Release # create a new output folder\ngn args out/Release # change the arguments for this specific build\n```\n\nIn there, add the following line:\n```\nis_debug\u003dfalse\n```\n\nThis will enable the release build. This build will use even more CPU than a default build, so for this use case, you can specifically tell it to only build the CodeMirror.next targets:\n\n```\nautoninja -C out/Release front_end/third_party/codemirror.next:bundle\n```\n\nThe output will be put in `out/Release/gen/front_end/third_party/codemirror.next/` where you can see that the output will not be minified. That\u0027s because `devtools_pre_built` (that we use in front_end/third_party/codemirror.next/BUILD.gn) only does a plain copy, since it is intended for third-party code.\n\nHopefully that helps with the requirements and invariants we need to keep into account. Given that we have precedent for checking in minified code and the current integration with CodeMirror.next is good, I think it would be good to keep that as-is. Let me know if you have any other questions!",
+      "revId": "e8d62b94036cac6546bfe7a9fc9f18bff6ba2aa2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
