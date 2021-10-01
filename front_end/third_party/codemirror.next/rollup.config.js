@@ -1,6 +1,5 @@
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
-import {terser} from 'rollup-plugin-terser';
 
 export default [{
   input: './bundle.js',
@@ -23,7 +22,10 @@ export default [{
   },
   plugins: [
     nodeResolve(),
-    terser()
+    {
+      name: 'strip-trailing-space',
+      renderChunk: code => ({code: code.replace(/ +(\n|$)/g, '$1')})
+    },
   ]
 }, {
   input: './bundle.d.ts',
