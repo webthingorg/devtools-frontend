@@ -526,6 +526,9 @@ export class MainImpl {
       Timeline.TimelinePanel.LoadTimelineHandler.instance().handleQueryParam(value);
     }
 
+    // Initialize ARIAUtils.alert Element
+    UI.ARIAUtils.alert('');
+
     // Allow UI cycles to repaint prior to creating connection.
     setTimeout(this.initializeTarget.bind(this), 0);
     MainImpl.timeEnd('Main._showAppUI');
