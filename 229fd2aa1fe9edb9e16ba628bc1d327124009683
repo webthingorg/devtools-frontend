@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "831694e1_716138ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-01T13:38:14Z",
+      "side": 1,
+      "message": "Rubber stamping, as I am not really familiar with browser test implementations here.",
+      "revId": "229fd2aa1fe9edb9e16ba628bc1d327124009683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
