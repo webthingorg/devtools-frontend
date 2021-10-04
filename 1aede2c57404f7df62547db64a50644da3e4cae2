@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a021c4_7b038e56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-04T16:19:32Z",
+      "side": 1,
+      "message": "The change to UserMetrics.ts does not actually exist in my local patch, but gerrit is showing it even though I uploaded that very patch as this CI. Am I losing my mind here or is there a reasonable explanation for that?",
+      "revId": "1aede2c57404f7df62547db64a50644da3e4cae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
