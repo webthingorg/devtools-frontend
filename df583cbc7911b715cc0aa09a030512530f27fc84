@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bdb2021_f8df5090",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-04T16:14:51Z",
+      "side": 1,
+      "message": "I am really puzzled how those made it into my patch -- I wasn\u0027t even aware there _is_ an inspector_overlay directory. There\u0027s a bunch of other inexplicable stuff in the current patch. Going to check every file.",
+      "parentUuid": "b7e28ace_a61704b4",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb95a62f_91639e28",
