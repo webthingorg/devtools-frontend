@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3194f841_3c7e80b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-04T12:22:00Z",
+      "side": 1,
+      "message": "Splitting this up per https://crbug.com/1255619#c3. PTAL. ",
+      "revId": "a1797778fbe69c2a38da33a5715d2877367d8887",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
