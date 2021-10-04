@@ -33,6 +33,24 @@
       "message": "nit: licence",
       "revId": "12c95239e7fe97ec1f7196b683959a2077447ba3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c0e1fd_6b8588bf",
+        "filename": "scripts/migration/class-fields/migrate.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T12:00:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "327279fe_93abadcf",
+      "revId": "12c95239e7fe97ec1f7196b683959a2077447ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
