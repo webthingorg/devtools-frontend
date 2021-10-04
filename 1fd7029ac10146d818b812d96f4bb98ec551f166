@@ -22,6 +22,30 @@
       },
       "revId": "1fd7029ac10146d818b812d96f4bb98ec551f166",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5769b5_5d1ee6e3",
+        "filename": "scripts/javascript_natives/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-04T11:36:00Z",
+      "side": 1,
+      "message": "We are still checking in the generated output. The difference is that this output used to be minified but, with this patch, no longer is.",
+      "parentUuid": "4a38ace0_39ba6fd2",
+      "range": {
+        "startLine": 218,
+        "startChar": 102,
+        "endLine": 218,
+        "endChar": 104
+      },
+      "revId": "1fd7029ac10146d818b812d96f4bb98ec551f166",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
