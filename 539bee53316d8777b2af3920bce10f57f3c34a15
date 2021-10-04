@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a68497_61aa8933",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2021-10-04T07:58:12Z",
+      "side": 1,
+      "message": "why don\u0027t we have any text for circumstantial?",
+      "revId": "539bee53316d8777b2af3920bce10f57f3c34a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362ec947_a4770c34",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2021-10-04T07:58:12Z",
+      "side": 1,
+      "message": "I would say \"actionable\" rather than \"fixable\". How about\n\nActionable - changes to the page would make it cacheable while using these features\nPending - future versions of chrome will makes these features compatible with back-forward cache",
+      "revId": "539bee53316d8777b2af3920bce10f57f3c34a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
