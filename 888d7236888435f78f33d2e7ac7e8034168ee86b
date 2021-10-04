@@ -16,6 +16,29 @@
       "message": "Danil, PTAnotherL",
       "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd55a301_abe9f858",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-04T07:58:08Z",
+      "side": 1,
+      "message": "To reduce overhead for other users, we should not switch on the sub-code here (and above), but rather whether the \"frame\" is present in the details.\n\nFor new generic issues, ideally the only thing necessary to be modified on the frontend should be to add a corresponding markdown file. Nothing more.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
