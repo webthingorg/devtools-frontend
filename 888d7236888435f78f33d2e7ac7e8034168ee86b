@@ -39,6 +39,52 @@
       },
       "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ac5284_7c991f88",
+        "filename": "test/e2e/issues/generic-issues_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-04T08:00:27Z",
+      "side": 1,
+      "message": "Please also test that it correctly handles adding one more issue, and clearing issues if possible.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06215b41_7b681743",
+        "filename": "test/e2e/resources/issues/cross-origin-portal-post.html",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-04T08:00:27Z",
+      "side": 1,
+      "message": "What makes it cross-origin?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 71
+      },
+      "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
