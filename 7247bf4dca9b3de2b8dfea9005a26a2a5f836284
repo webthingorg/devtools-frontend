@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c3a80d2_afb2e1c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-04T07:41:57Z",
+      "side": 1,
+      "message": "Changed description",
+      "parentUuid": "cd173754_a454503f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "7247bf4dca9b3de2b8dfea9005a26a2a5f836284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d744ecad_5d47a7d4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2021-09-29T07:07:01Z",
       "side": 1,
       "message": "This needs to be tested. Given the current code structure, I think it makes more sense to have an e2e test.",
+      "revId": "7247bf4dca9b3de2b8dfea9005a26a2a5f836284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c2035f_55244a34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-04T07:41:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d744ecad_5d47a7d4",
       "revId": "7247bf4dca9b3de2b8dfea9005a26a2a5f836284",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2021-09-29T07:07:01Z",
       "side": 1,
       "message": "Add one blank line before the class, please.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "7247bf4dca9b3de2b8dfea9005a26a2a5f836284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf7bd41_12dc5cab",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-04T07:41:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8ca3ce1_918cf1bc",
       "range": {
         "startLine": 24,
         "startChar": 0,
