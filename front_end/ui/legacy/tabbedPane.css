@@ -316,6 +316,22 @@
   flex: none;
 }
 
+.preview-icon {
+  --override-tabbed-pane-preview-icon-color: rgb(110 110 110);
+
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+}
+
+.-theme-with-dark-background .preview-icon,
+:host-context(.-theme-with-dark-background) .preview-icon {
+  --override-tabbed-pane-preview-icon-color: rgb(145 145 145);
+}
+
 .close-button {
   --tabbed-pane-close-icon-color: var(--color-text-primary);
 
