@@ -62,6 +62,30 @@
       },
       "revId": "4a11c8ff72743869613d78298cb02f54b447d70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcef18ba_23ddb54e",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-04T13:58:04Z",
+      "side": 1,
+      "message": "We are not anymore, removed this",
+      "parentUuid": "ccb4b6b1_16d6e448",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "4a11c8ff72743869613d78298cb02f54b447d70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
