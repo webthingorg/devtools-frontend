@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21218441_87c17c28",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T16:26:29Z",
+      "side": 0,
+      "message": "It still has these changes in 😞 Are you sure you are up-to-date with `main`? If you want, I can take over the CL and remove the files. Let me know what you prefer.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "8366cfbafff318b8d0e10d866c32399cb0363fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
