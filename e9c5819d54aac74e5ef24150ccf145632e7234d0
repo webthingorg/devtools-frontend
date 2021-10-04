@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dbcf6ad_c4bac8e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-04T16:31:40Z",
+      "side": 1,
+      "message": "Of course in the few seconds since I rebased a new \u0027merge conflict\u0027 materialized. Uploading again. This is great.",
+      "revId": "e9c5819d54aac74e5ef24150ccf145632e7234d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
