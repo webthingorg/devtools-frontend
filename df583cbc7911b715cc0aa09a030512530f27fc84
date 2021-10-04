@@ -16,6 +16,69 @@
       "message": "Hm, not sure how but the diff shows a DEPS change that is causing some merge conflicts. Could you please rebase on main again? (sorry) Sadly, the \"Rebase\" button in the Gerrit UI doesn\u0027t work this time around.",
       "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e476eb6_d26b6872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T13:48:57Z",
+      "side": 1,
+      "message": "There are some more files that were accidentally included in the diff.",
+      "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e28ace_a61704b4",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T13:48:57Z",
+      "side": 1,
+      "message": "I think we have to revert these changes as well.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb95a62f_91639e28",
+        "filename": "inspector_overlay/tool_screenshot.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T13:48:57Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 2
+      },
+      "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
