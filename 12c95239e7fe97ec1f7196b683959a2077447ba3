@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a86bd10_0efcaf43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-10-04T11:51:15Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "12c95239e7fe97ec1f7196b683959a2077447ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "327279fe_93abadcf",
+        "filename": "scripts/migration/class-fields/migrate.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-10-04T11:51:15Z",
+      "side": 1,
+      "message": "nit: licence",
+      "revId": "12c95239e7fe97ec1f7196b683959a2077447ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
