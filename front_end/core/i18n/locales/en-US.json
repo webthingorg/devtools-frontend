@@ -3980,6 +3980,9 @@
   "panels/elements/components/ElementsBreadcrumbsUtils.ts | text": {
     "message": "(text)"
   },
+  "panels/elements/components/LayoutPane.ts | chooseElementOverlayColor": {
+    "message": "Choose the overlay color for this element"
+  },
   "panels/elements/components/LayoutPane.ts | flexbox": {
     "message": "Flexbox"
   },
