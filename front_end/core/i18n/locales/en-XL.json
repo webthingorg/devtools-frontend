@@ -7737,7 +7737,7 @@
     "message": "Ŝáv̂é"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | sendRawCDPCommand": {
-    "message": "Ŝén̂d́ â ŕâẃ CDP ĉóm̂ḿâńd̂"
+    "message": "Ŝén̂d́ â ŕâẃ CDP ĉóm̂ḿâńd̂, f́ôŕ êx́âḿp̂ĺê, Page.captureScreenshot (ńô ṕâŕâḿêt́êŕŝ) ór̂ {\"command\":\"Page.captureScreenshot\",\"parameters\":{\"format\":\"jpeg\"}} (ẃît́ĥ ṕâŕâḿêt́êŕŝ áŝ J́ŜÓN̂)"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | session": {
     "message": "Ŝéŝśîón̂"

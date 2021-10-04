@@ -7737,7 +7737,7 @@
     "message": "Save"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | sendRawCDPCommand": {
-    "message": "Send a raw CDP command"
+    "message": "Send a raw CDP command, for example, Page.captureScreenshot (no parameters) or {\"command\":\"Page.captureScreenshot\",\"parameters\":{\"format\":\"jpeg\"}} (with parameters as JSON)"
   },
   "panels/protocol_monitor/ProtocolMonitor.ts | session": {
     "message": "Session"

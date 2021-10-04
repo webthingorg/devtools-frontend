@@ -81,7 +81,8 @@ const UIStrings = {
   /**
   *@description A placeholder for an input in Protocol Monitor. The input accepts commands that are sent to the backend on Enter. CDP stands for Chrome DevTools Protocol.
   */
-  sendRawCDPCommand: 'Send a raw `CDP` command',
+  sendRawCDPCommand:
+      'Send a raw `CDP` command, for example, \`Page.captureScreenshot\` (no parameters) or \`{"command":"Page.captureScreenshot","parameters":{"format":"jpeg"}}\` (with parameters as JSON)',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/ProtocolMonitor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
