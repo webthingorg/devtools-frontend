@@ -21,7 +21,6 @@ import {PersistentOverlay} from './tool_persistent.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import screenshotStyle from './tool_screenshot.css'; // eslint-disable-line rulesdir/es_modules_import
 import {ScreenshotOverlay} from './tool_screenshot.js';
-import type {ScreenshotToolMessage} from './tool_screenshot.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import sourceOrderStyle from './tool_source_order.css'; // eslint-disable-line rulesdir/es_modules_import
 import {SourceOrderOverlay} from './tool_source_order.js';
