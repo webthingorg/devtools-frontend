@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5225db6d_f9473abf",
+        "filename": "front_end/panels/event_listeners/EventListenersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-04T10:31:16Z",
+      "side": 1,
+      "message": "Readability suggestion: instead of\n\n    !!firstVisibleChild\n    \nuse\n\n    Boolean(firstVisibleChild)",
+      "range": {
+        "startLine": 228,
+        "startChar": 34,
+        "endLine": 228,
+        "endChar": 36
+      },
+      "revId": "0f296c557e0a73d2ed69b8e6178fcf246206ac8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
