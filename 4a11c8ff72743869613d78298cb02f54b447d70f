@@ -39,6 +39,29 @@
       "message": "rubber-stamp +1",
       "revId": "4a11c8ff72743869613d78298cb02f54b447d70f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb4b6b1_16d6e448",
+        "filename": "front_end/models/issues_manager/GenericIssue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-04T08:02:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is used for anything, no?\n\nAs mentioned in the follow-up CL, the view is not really interested in what kind of sub-type the generic issue is. Rather it should include frames/nodes whether they are present in the details object, not depending on the sub-code.\n\nWe want to keep the overhead for generic issues as low as possible. We can even go further and calculate a default `MarkdownIssueDescription` based on the sub-code. That would mean the default `MarkdownIssueDescription` wouldn\u0027t include links, but the only thing required by third-party contributors would be to add a correctly named markdown file.\n\nThe default could still be overwritten by providing an entry in the map here, to include substitutions and links.\n\nDanil, wdyt?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "4a11c8ff72743869613d78298cb02f54b447d70f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
