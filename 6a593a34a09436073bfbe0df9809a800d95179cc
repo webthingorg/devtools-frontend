@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ea84d9_196ac121",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-04T04:51:52Z",
+      "side": 1,
+      "message": "typo: constrast",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "6a593a34a09436073bfbe0df9809a800d95179cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947507bf_0d2c8826",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-04T04:51:52Z",
+      "side": 1,
+      "message": "please move these two lines to the footer",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "6a593a34a09436073bfbe0df9809a800d95179cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c69714_d5f773d2",
+        "filename": "front_end/panels/settings/settingsScreen.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-04T04:51:52Z",
+      "side": 1,
+      "message": "can we get rid of !important and use a CSS rule with higher specificity?",
+      "range": {
+        "startLine": 198,
+        "startChar": 23,
+        "endLine": 198,
+        "endChar": 32
+      },
+      "revId": "6a593a34a09436073bfbe0df9809a800d95179cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
