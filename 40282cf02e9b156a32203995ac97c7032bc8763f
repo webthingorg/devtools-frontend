@@ -33,6 +33,24 @@
       "message": "Have you tested this and see that it works on VoiceOver? I would probably rather have this on the \u003cinput\u003e element rather than the \u003clabel\u003e element since the input is what is going to get focus.",
       "revId": "40282cf02e9b156a32203995ac97c7032bc8763f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596a5a0c_36b21812",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-04T23:05:04Z",
+      "side": 1,
+      "message": "Moved to \u003cinput\u003e element. Thanks.",
+      "parentUuid": "eed66d8d_8c30075b",
+      "revId": "40282cf02e9b156a32203995ac97c7032bc8763f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
