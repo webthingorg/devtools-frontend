@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0829059_0c4eb2b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-04T04:53:10Z",
+      "side": 1,
+      "message": "nit: please move this to the footer for the CL description",
+      "revId": "d679718e2534ab762db7345beb2decfe29cefd3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e16eee49_22a46d3e",
