@@ -59,7 +59,7 @@ glob('../../../../blink/renderer/+(core|modules)/**/*.idl', {cwd: process.env.PW
     const data = fs.readFileSync(path.join(process.env.PWD, file), 'utf8');
     const lines = data.split('\n');
     const newLines = [];
-    for (line of lines) {
+    for (const line of lines) {
       if (!line.includes(' attribute ')) {
         newLines.push(line);
       }
@@ -215,11 +215,14 @@ function postProcess() {
   }
 
   fs.writeFileSync(
-      path.join(__dirname, '..', '..', 'front_end', 'javascript_metadata', 'NativeFunctions.js'),
+      path.join(__dirname, '..', '..', 'front_end', 'models', 'javascript_metadata', 'NativeFunctions.js'),
       `// Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 // Generated from ${path.relative(path.join(__dirname, '..', '..'), __filename)}
-export const NativeFunctions = ${JSON.stringify(functions)};
+
+/* eslint-disable */
+
+export const NativeFunctions = ${JSON.stringify(functions, null, 2)};
 `);
 }
