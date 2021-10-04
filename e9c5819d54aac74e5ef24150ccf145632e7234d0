@@ -16,6 +16,24 @@
       "message": "Of course in the few seconds since I rebased a new \u0027merge conflict\u0027 materialized. Uploading again. This is great.",
       "revId": "e9c5819d54aac74e5ef24150ccf145632e7234d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6acdff9_74d91d74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T16:32:58Z",
+      "side": 1,
+      "message": "I clicked \"Rebase\" for you in the Gerrit UI, which convinced the system that everything was in order.",
+      "parentUuid": "7dbcf6ad_c4bac8e1",
+      "revId": "e9c5819d54aac74e5ef24150ccf145632e7234d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
