@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20825efc_2be0362f",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-04T10:03:04Z",
+      "side": 1,
+      "message": "We use chromeSupportNeeded for both \"Chrome support needed\" and \"Circumstantial\"",
+      "parentUuid": "58a68497_61aa8933",
+      "revId": "539bee53316d8777b2af3920bce10f57f3c34a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "362ec947_a4770c34",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-04T07:58:12Z",
       "side": 1,
       "message": "I would say \"actionable\" rather than \"fixable\". How about\n\nActionable - changes to the page would make it cacheable while using these features\nPending - future versions of chrome will makes these features compatible with back-forward cache",
+      "revId": "539bee53316d8777b2af3920bce10f57f3c34a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df1a991_736fc269",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-04T10:03:04Z",
+      "side": 1,
+      "message": "I don\u0027t think these category explanations should be too long - they show up on the left side\nhttps://screenshot.googleplex.com/KTd27mdvWgMSKPB.png\n\nMaybe we can say \"Actionable\" \"Pending\" \"Circumstantial\" ?",
+      "parentUuid": "362ec947_a4770c34",
       "revId": "539bee53316d8777b2af3920bce10f57f3c34a15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
