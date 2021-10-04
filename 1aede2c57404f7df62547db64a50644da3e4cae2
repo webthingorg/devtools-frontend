@@ -69,6 +69,23 @@
       "parentUuid": "a5ae3cb2_25eb2ff0",
       "revId": "1aede2c57404f7df62547db64a50644da3e4cae2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910d898a_12a08fa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-04T16:24:54Z",
+      "side": 1,
+      "message": "Abandoning this one, new CL at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3201989 , which doesn\u0027t seem to have the ghost changes.",
+      "revId": "1aede2c57404f7df62547db64a50644da3e4cae2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
