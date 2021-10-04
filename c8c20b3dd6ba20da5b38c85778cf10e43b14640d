@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6288c30_f0fabeee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-04T09:09:12Z",
+      "side": 1,
+      "message": "Post-merge LGTM :\u0027) ",
+      "revId": "c8c20b3dd6ba20da5b38c85778cf10e43b14640d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
