@@ -157,6 +157,30 @@
       },
       "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55dd2d37_897cb558",
+        "filename": "test/e2e/resources/issues/cross-origin-portal-post.html",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-04T14:54:24Z",
+      "side": 1,
+      "message": "That different URL used to be of the same origin though, right? Where did the issue come from then?",
+      "parentUuid": "2975882b_5c7cae4b",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 71
+      },
+      "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
