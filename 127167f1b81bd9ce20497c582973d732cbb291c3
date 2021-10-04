@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acda0bef_679f35d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-04T11:50:39Z",
+      "side": 1,
+      "message": "I was originally planning to address https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1255619#c2 in a separate CL, but that’d force us to land this CL without checking in the generated output. So instead I’m addressing it as part of the same patch.",
+      "revId": "127167f1b81bd9ce20497c582973d732cbb291c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
