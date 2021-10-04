@@ -53,12 +53,12 @@ const UIStrings = {
    * @description Category text for the reasons which need to be cleaned up on the websites in
    * order to make the page eligible for the back-forward cache.
    */
-  pageSupportNeeded: 'Features preventing back-forward cache',
+  pageSupportNeeded: 'Features preventing back-forward cache (fixable)',
   /**
-   * @description Category text for the reasons which need to be addressed on the chrome's side
+   * @description Category text for the reasons which need to be addressed on the developers' side
    * in order to make the page eligible for the back-forward cache.
    */
-  chromeSupportNeeded: 'The last navigation was not cached because',
+  chromeSupportNeeded: 'Not restored from back-forward cache (not fixable at the moment)',
   /**
    * @description Explanation text appended to a reason why the usage of the back-forward cache
    * is not possible, if in a future version of Chrome this reason will not prevent the usage
