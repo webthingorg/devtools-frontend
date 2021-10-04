@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69407ea_7a749f22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T13:42:27Z",
+      "side": 1,
+      "message": "Hm, not sure how but the diff shows a DEPS change that is causing some merge conflicts. Could you please rebase on main again? (sorry) Sadly, the \"Rebase\" button in the Gerrit UI doesn\u0027t work this time around.",
+      "revId": "df583cbc7911b715cc0aa09a030512530f27fc84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
