@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a38ace0_39ba6fd2",
+        "filename": "scripts/javascript_natives/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-04T11:33:20Z",
+      "side": 1,
+      "message": "Nit: if we no longer check in the minified version, I think we can also make this file a `.ts` file along the way?",
+      "range": {
+        "startLine": 218,
+        "startChar": 102,
+        "endLine": 218,
+        "endChar": 104
+      },
+      "revId": "1fd7029ac10146d818b812d96f4bb98ec551f166",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
