@@ -244,10 +244,20 @@ export class LayoutPane extends HTMLElement {
         event.preventDefault();
       }
     };
+    const getElementAriaLabel = (): string => {
+      let ariaLabel = element.name;
+      if (element.domId) {
+        ariaLabel += '#' + CSS.escape(element.domId);
+      }
+      if (element.domClasses && element.domClasses.length > 0) {
+        ariaLabel += element.domClasses.map(c => `.${CSS.escape(c)}`).join('');
+      }
+      return ariaLabel;
+    };
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`<div class="element">
-      <label data-element="true" class="checkbox-label" title=${element.name}>
+      <label data-element="true" class="checkbox-label" title=${element.name} aria-label=${getElementAriaLabel()}>
         <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
         <span class="node-text-container" data-label="true" @mouseenter=${onMouseEnter} @mouseleave=${onMouseLeave}>
           <${NodeText.litTagName} .data=${{
