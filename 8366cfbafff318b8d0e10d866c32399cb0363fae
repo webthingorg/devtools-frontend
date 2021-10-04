@@ -22,6 +22,30 @@
       },
       "revId": "8366cfbafff318b8d0e10d866c32399cb0363fae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17064081_ca5853bf",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-04T16:30:45Z",
+      "side": 0,
+      "message": "Yeah, now it\u0027s deleting them whereas before it was adding them. Uploading a patch that reverts the deletions.",
+      "parentUuid": "21218441_87c17c28",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "8366cfbafff318b8d0e10d866c32399cb0363fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
