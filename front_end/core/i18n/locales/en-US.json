@@ -2325,7 +2325,7 @@
     "message": "Back-forward Cache Status"
   },
   "panels/application/BackForwardCacheView.ts | chromeSupportNeeded": {
-    "message": "The last navigation was not cached because"
+    "message": "Not restored from back-forward cache (not fixable at the moment)"
   },
   "panels/application/BackForwardCacheView.ts | lastMainFrameNavigation": {
     "message": "Last Main Frame Navigation"
@@ -2337,7 +2337,7 @@
     "message": "Normal navigation"
   },
   "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
-    "message": "Features preventing back-forward cache"
+    "message": "Features preventing back-forward cache (fixable)"
   },
   "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
     "message": "Restored from back-forward cache"
