@@ -480,8 +480,10 @@ export function alertElementInstance(): HTMLElement {
 export function alert(message: string): void {
   const element = alertElementInstance();
 
-  // We first set the textContent to blank so that the string will announce even if it is replaced
-  // with the same string.
-  element.textContent = '';
   element.textContent = Platform.StringUtilities.trimEndWithMaxLength(message, 10000);
+  setTimeout(() => {
+    // We set the textContent to blank so that the string will announce even if it is replaced
+    // with the same string.
+    element.textContent = '';
+  }, 200);
 }
