@@ -33,6 +33,24 @@
       "message": "LGTM but looks like I need a chromium account to +1 the review. I think it\u0027s finally time to make one lol.",
       "revId": "1044e2b87926ae8cd7df62d2572805b2f51679b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a223d648_f0f52858",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-10-05T23:48:58Z",
+      "side": 1,
+      "message": "hypothetically you\u0027re an owner with this account.\nhttps://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/config/owner/LIGHTHOUSE_OWNERS\n\ngerrit is weird thl",
+      "parentUuid": "54fb626f_e7e81778",
+      "revId": "1044e2b87926ae8cd7df62d2572805b2f51679b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
