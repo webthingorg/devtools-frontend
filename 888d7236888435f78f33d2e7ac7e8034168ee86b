@@ -181,6 +181,30 @@
       },
       "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed6819f_4c9392a3",
+        "filename": "test/e2e/resources/issues/cross-origin-portal-post.html",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-05T07:07:25Z",
+      "side": 1,
+      "message": "Figured it out, different ports after all",
+      "parentUuid": "55dd2d37_897cb558",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 71
+      },
+      "revId": "888d7236888435f78f33d2e7ac7e8034168ee86b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
