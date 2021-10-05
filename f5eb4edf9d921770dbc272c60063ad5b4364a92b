@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d37adb_1a97efe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-05T05:13:12Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "f5eb4edf9d921770dbc272c60063ad5b4364a92b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b62a564f_16e98b64",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-05T05:13:12Z",
+      "side": 1,
+      "message": "I wonder how this worked before? Is this call needed? Does it have any side effects? I think tabbedPane might not be using shadow DOM so there is no isolation and the stylesheet might be included elsewhere too.",
+      "revId": "f5eb4edf9d921770dbc272c60063ad5b4364a92b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
