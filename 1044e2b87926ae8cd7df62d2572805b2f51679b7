@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce213c6d_7347523e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-10-05T19:16:44Z",
+      "side": 1,
+      "message": "I wanted to add a test, but spent 90minutes struggling with the unittests framework and failing. Regardless, the unit test would be overly narrow and arguably not worth it.\n\nSome details back here: https://github.com/GoogleChrome/lighthouse/issues/13154#issuecomment-934698445",
+      "revId": "1044e2b87926ae8cd7df62d2572805b2f51679b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
