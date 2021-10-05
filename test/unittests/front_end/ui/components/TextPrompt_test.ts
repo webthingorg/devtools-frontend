@@ -32,7 +32,7 @@ describe('TextPrompt', () => {
 
     const textPromptInputs = component.shadowRoot.querySelectorAll('.text-prompt-input');
     assert.strictEqual(textPromptInputs.length, 1);
-    assertElements(textPromptInputs, HTMLDivElement);
+    assertElements(textPromptInputs, HTMLSpanElement);
     assert.deepEqual(component.data, defaultTextPromptData);
   });
 
@@ -55,7 +55,7 @@ describe('TextPrompt', () => {
 
       component.setSuggestion('Command');
 
-      const textPromptInputs = component.shadowRoot.querySelectorAll('.text-prompt-input');
+      const textPromptInputs = component.shadowRoot.querySelectorAll('.suggestion');
       assert.strictEqual(textPromptInputs.length, 1);
       assert.strictEqual(textPromptInputs[0].getAttribute('suggestion')?.trim(), 'Command');
     });
