@@ -16,6 +16,46 @@
       "message": "still LGTM.",
       "revId": "a8e0651e17f91a61a560bb8593fda58233dafdac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce076de_adf06143",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-05T10:21:29Z",
+      "side": 1,
+      "message": "My understanding (from http://doc/1nVOSDwMgYXtFw25KUkUm2fX1DB1NT6_n96of1My3gfk#heading\u003dh.7nki9mck5t64) is:\n\n\"actionable\" \u003d some changes in the website could make it work with bfcache\n\n\"pending support\" \u003d bfcache should work once support for additional features is added to chrome\n\n\"circumstantial\" \u003d website isn\u0027t eligible for bfcache (and there is nothing which can be done about it)\n\nIf that\u0027s correct, then the description for circumstantial should be updated.\n\nAnd I don\u0027t want to start a whole bike-shedding discussion about it, but I don\u0027t think that the meaning of \"circumstantial\" will be obvious to developers.",
+      "revId": "a8e0651e17f91a61a560bb8593fda58233dafdac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935c3e9c_b3659657",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-05T10:21:29Z",
+      "side": 1,
+      "message": "This is now simple enough that it probably doesn\u0027t justify having a separate helper function for it anymore.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 3
+      },
+      "revId": "a8e0651e17f91a61a560bb8593fda58233dafdac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
