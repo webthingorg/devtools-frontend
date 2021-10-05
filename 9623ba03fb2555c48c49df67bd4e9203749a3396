@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fa3ecf03_07a486df",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-05T14:16:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb5b3e1_10123ac9",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 41
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a036c327_091947d6",
         "filename": "front_end/panels/issues/IssueKindView.ts",
         "patchSetId": 24
@@ -89,6 +113,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2025e974_d10f6dcd",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-05T14:16:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8f342e7_0558dfd5",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 13
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b03e4e4f_2916ca3c",
         "filename": "front_end/panels/issues/IssuesPane.ts",
         "patchSetId": 24
@@ -123,6 +171,30 @@
       "writtenOn": "2021-08-27T08:34:24Z",
       "side": 1,
       "message": "This is now executed even if getGroupIssuesByCategorySetting().get() is true (which seems to me like a change in behavior). Is this intended?",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 335,
+        "endChar": 5
+      },
+      "revId": "9623ba03fb2555c48c49df67bd4e9203749a3396",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85420611_901639ae",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-05T14:16:30Z",
+      "side": 1,
+      "message": "(see comments at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3099005/comments/3d650302_803eff7e)\n\nThis seems fine as long as grouping by kind and grouping by category are not both activated at the same time (grouping by category is permanently deactivated for now).",
+      "parentUuid": "9307b6d4_de354e8c",
       "range": {
         "startLine": 333,
         "startChar": 4,
