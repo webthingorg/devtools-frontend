@@ -33,6 +33,24 @@
       "message": "I wonder how this worked before? Is this call needed? Does it have any side effects? I think tabbedPane might not be using shadow DOM so there is no isolation and the stylesheet might be included elsewhere too.",
       "revId": "f5eb4edf9d921770dbc272c60063ad5b4364a92b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab34f84_2efcb374",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-05T16:27:54Z",
+      "side": 1,
+      "message": "This line of change is to isolate the CSS changes to the settings page only, since the tabbed pane is used in some other places. Tabbed pane in settings page is in a shadow DOM.",
+      "parentUuid": "b62a564f_16e98b64",
+      "revId": "f5eb4edf9d921770dbc272c60063ad5b4364a92b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
