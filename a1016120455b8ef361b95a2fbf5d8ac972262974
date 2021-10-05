@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b772925b_ed37bab1",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-05T21:49:21Z",
+      "side": 1,
+      "message": "Thanks for pointing out this issue. Updated codes to find element by Id instead of aria-label.",
+      "parentUuid": "b9b71c16_8273ec9a",
+      "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87c691a_21a596c0",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-10-05T21:26:49Z",
       "side": 1,
       "message": "Use localized text for aria-label.",
+      "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a732dd38_c5bdd4d2",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-05T21:49:21Z",
+      "side": 1,
+      "message": "Updated to use i18String for aria-label. Thanks.",
+      "parentUuid": "f87c691a_21a596c0",
       "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
