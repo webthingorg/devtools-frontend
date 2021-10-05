@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288b6bfd_f7bbe917",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-05T15:31:14Z",
+      "side": 1,
+      "message": "Can we also use at least one of these tags somewhere, to make sure they work as expected?",
+      "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
