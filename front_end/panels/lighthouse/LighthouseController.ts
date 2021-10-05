@@ -262,9 +262,16 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
       return '';
     }
     const mainTarget = this.manager.target();
-    const runtimeModel = mainTarget.model(SDK.RuntimeModel.RuntimeModel);
-    const executionContext = runtimeModel && runtimeModel.defaultExecutionContext();
     let inspectedURL = mainTarget.inspectedURL();
+    const runtimeModel = mainTarget.model(SDK.RuntimeModel.RuntimeModel);
+    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    const frame = resourceTreeModel && resourceTreeModel.mainFrame;
+    if (!frame || !runtimeModel) {
+      return inspectedURL;
+    }
+    // There can be multiple isDefault contexts, so we'll borrow some isDefaultContext() logic
+    const executionContext = runtimeModel.executionContexts().find(e => e.frameId === frame.id && e.isDefault);
+
     if (!executionContext) {
       return inspectedURL;
     }
@@ -288,7 +295,9 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
           },
           /* userGesture */ false, /* awaitPromise */ false);
       if ((!('exceptionDetails' in result) || !result.exceptionDetails) && 'object' in result && result.object) {
-        inspectedURL = result.object.value;
+        if (result.object.value) {
+          inspectedURL = result.object.value;
+        }
         result.object.release();
       }
     } catch (err) {
