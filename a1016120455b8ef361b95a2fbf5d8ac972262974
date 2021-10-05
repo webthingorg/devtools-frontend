@@ -16,6 +16,40 @@
       "message": "This change is to fix a focus order issue in the user agent client hint form. Please take a look.",
       "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b71c16_8273ec9a",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-10-05T21:26:49Z",
+      "side": 1,
+      "message": "These selectors will not work if DevTools is used in a different language. Instead use class or assign an id.",
+      "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87c691a_21a596c0",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-10-05T21:26:49Z",
+      "side": 1,
+      "message": "Use localized text for aria-label.",
+      "revId": "a1016120455b8ef361b95a2fbf5d8ac972262974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
