@@ -193,6 +193,21 @@ const UIStrings = {
   *@description Text for the service worker type.
   */
   worker: 'Worker',
+
+  /**
+   * @description Category of breakpoints
+   */
+  auctionWorklet: 'FLEDGE Auction Worklet',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeBidderWorkletStart: 'Bidder Worklet First Statement',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeSellerWorkletStart: 'Seller Worklet First Statement',
 };
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DOMDebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -788,6 +803,8 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
     this.createInstrumentationBreakpoints(
         i18nString(UIStrings.webaudio),
         ['audioContextCreated', 'audioContextClosed', 'audioContextResumed', 'audioContextSuspended']);
+    this.createInstrumentationBreakpoints(
+        i18nString(UIStrings.auctionWorklet), ['beforeSellerWorkletStart', 'beforeBidderWorkletStart']);
 
     this.createEventListenerBreakpoints(
         i18nString(UIStrings.media),
@@ -954,6 +971,14 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
     breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:audioContextSuspended');
     if (breakpoint) {
       breakpoint.setTitle(i18nString(UIStrings.suspendAudiocontext));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeBidderWorkletStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeBidderWorkletStart));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeSellerWorkletStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeSellerWorkletStart));
     }
 
     TargetManager.instance().observeModels(DOMDebuggerModel, this);

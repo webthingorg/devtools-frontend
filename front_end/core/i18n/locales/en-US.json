@@ -281,6 +281,15 @@
   "core/sdk/DOMDebuggerModel.ts | animationFrameFired": {
     "message": "Animation Frame Fired"
   },
+  "core/sdk/DOMDebuggerModel.ts | auctionWorklet": {
+    "message": "FLEDGE Auction Worklet"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeBidderWorkletStart": {
+    "message": "Bidder Worklet First Statement"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeSellerWorkletStart": {
+    "message": "Seller Worklet First Statement"
+  },
   "core/sdk/DOMDebuggerModel.ts | cancelAnimationFrame": {
     "message": "Cancel Animation Frame"
   },

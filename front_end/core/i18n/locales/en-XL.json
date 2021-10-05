@@ -281,6 +281,15 @@
   "core/sdk/DOMDebuggerModel.ts | animationFrameFired": {
     "message": "Âńîḿât́îón̂ F́r̂ám̂é F̂ír̂éd̂"
   },
+  "core/sdk/DOMDebuggerModel.ts | auctionWorklet": {
+    "message": "F̂ĹÊD́ĜÉ Âúĉt́îón̂ Ẃôŕk̂ĺêt́"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeBidderWorkletStart": {
+    "message": "B̂íd̂d́êŕ Ŵór̂ḱl̂ét̂ F́îŕŝt́ Ŝt́ât́êḿêńt̂"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeSellerWorkletStart": {
+    "message": "Ŝél̂ĺêŕ Ŵór̂ḱl̂ét̂ F́îŕŝt́ Ŝt́ât́êḿêńt̂"
+  },
   "core/sdk/DOMDebuggerModel.ts | cancelAnimationFrame": {
     "message": "Ĉán̂ćêĺ Âńîḿât́îón̂ F́r̂ám̂é"
   },
