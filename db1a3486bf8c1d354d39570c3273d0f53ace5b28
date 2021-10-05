@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca1d5ab_d864c840",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-05T05:10:48Z",
+      "side": 1,
+      "message": "thanks for the fix, but I was expecting the readers to consider label.title? Should not the fix be \u003clabel ... title\u003d${getElementAriaLabel()}?",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
