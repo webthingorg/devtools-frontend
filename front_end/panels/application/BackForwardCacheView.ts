@@ -43,7 +43,7 @@ const UIStrings = {
    * @description Status text for the status of the back-forward cache status indicating that
    * the back-forward cache was not used and a normal navigation occured instead.
    */
-  normalNavigation: 'Normal navigation',
+  normalNavigation: 'Normal navigation (Not restored from back-forward cache)',
   /**
    * @description Status text for the status of the back-forward cache status indicating that
    * the back-forward cache was used to restore the page instead of reloading it.
@@ -53,18 +53,18 @@ const UIStrings = {
    * @description Category text for the reasons which need to be cleaned up on the websites in
    * order to make the page eligible for the back-forward cache.
    */
-  pageSupportNeeded: 'Features preventing back-forward cache',
+  pageSupportNeeded: 'Actionable',
   /**
-   * @description Category text for the reasons which need to be addressed on the chrome's side
+   * @description Category text for the reasons which need to be addressed on the developers' side
    * in order to make the page eligible for the back-forward cache.
    */
-  chromeSupportNeeded: 'The last navigation was not cached because',
+  circumstantial: 'Circumstantial',
   /**
    * @description Explanation text appended to a reason why the usage of the back-forward cache
    * is not possible, if in a future version of Chrome this reason will not prevent the usage
    * of the back-forward cache anymore.
    */
-  willBeSupported: '(Supported in a future version of Chrome)',
+  supportPending: 'Pending Support',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -152,19 +152,28 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return LitHtml.html`
-      ${pageSupportNeeded.length + supportPending.length > 0 ?
+      ${pageSupportNeeded.length > 0 ?
         LitHtml.html`
           <${ReportView.ReportView.ReportKey.litTagName}>${
             i18nString(UIStrings.pageSupportNeeded)
           }</${ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName}>${
-            pageSupportNeeded.concat(supportPending).map(explanation => this.renderExplanation(explanation))
+            pageSupportNeeded.map(explanation => this.renderExplanation(explanation))
+          }</${ReportView.ReportView.ReportValue.litTagName}>
+        ` : LitHtml.nothing}
+      ${supportPending.length > 0 ?
+        LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${
+            i18nString(UIStrings.supportPending)
+          }</${ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>${
+            supportPending.map(explanation => this.renderExplanation(explanation))
           }</${ReportView.ReportView.ReportValue.litTagName}>
         ` : LitHtml.nothing}
       ${circumstantial.length > 0 ?
         LitHtml.html`
           <${ReportView.ReportView.ReportKey.litTagName}>${
-            i18nString(UIStrings.chromeSupportNeeded)
+            i18nString(UIStrings.circumstantial)
           }</${ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName}>${
             circumstantial.map(explanation => this.renderExplanation(explanation))
@@ -178,10 +187,6 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return LitHtml.html`
       <div>
         ${explanation.reason}
-        ${
-        explanation.type === Protocol.Page.BackForwardCacheNotRestoredReasonType.SupportPending ?
-            i18nString(UIStrings.willBeSupported) :
-            LitHtml.nothing}
       </div>
     `;
   }
