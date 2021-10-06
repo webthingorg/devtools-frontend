@@ -16,6 +16,23 @@
       "message": "Rebased, fixed legacy_test_runner bug, and added basic highlighter tests.",
       "revId": "0f268ddfd7daec3ec2563548c469929a7a73a8d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3903d6de_6db873cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-06T12:58:42Z",
+      "side": 1,
+      "message": "Nice unit test! For my understanding: we can now delete the corresponding layout tests, as the unit test already covers it right?\n\nWe are about to hit branch point and I would like to submit this CL after it. Therefore I am running CQ to see if everything is green, but will submit on Friday/next week.",
+      "revId": "0f268ddfd7daec3ec2563548c469929a7a73a8d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
