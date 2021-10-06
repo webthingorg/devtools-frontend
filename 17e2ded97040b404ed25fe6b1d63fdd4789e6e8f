@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719d1d8a_8ece1c6e",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-06T09:50:22Z",
+      "side": 1,
+      "message": "Any change to test logic in this file?",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 9
+      },
+      "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
