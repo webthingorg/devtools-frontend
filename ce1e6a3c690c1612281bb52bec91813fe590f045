@@ -33,6 +33,70 @@
       "message": "Can we also use at least one of these tags somewhere, to make sure they work as expected?",
       "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92369759_698f1979",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T05:51:15Z",
+      "side": 1,
+      "message": "I actually propose to add a \"compilation test\" for these. You can do it as follows:\n\n1) Add a test/unittests/front_end/core/platform/DevToolsPath_test.ts as normal\n2) Add the test to the BUILD.gn\n\nInstead of using the normal describe/it, you can work \"@ts-expect-error\". As an example:\n\n function fnExpectingAUrlString(urlString: UrlString): void {}\n \n // @ts-expect-error Passing a plain string when UrlString is expected\n fnExpectingAUrlString(\u0027foo\u0027);\n \n const rawPathString \u003d \u0027...\u0027 as RawPathString;\n // @ts-expect-error Passing a RawPathString when UrlString is expected\n fnExpectingAUrlString(rawPathString);\n \n // Probably good idea to test the whole matrix, its super cheap and we only\n // have 3 types.\n \nWhile these tests wouldn\u0027t actually be doing anything at runtime - TS starts screaming if we mess up the types in the future.",
+      "parentUuid": "288b6bfd_f7bbe917",
+      "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "601b430a_aebb3d01",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T05:51:15Z",
+      "side": 1,
+      "message": "There is a second file this path needs to be added in. The CL as-is is probably not building at the moment.",
+      "range": {
+        "startLine": 571,
+        "startChar": 2,
+        "endLine": 571,
+        "endChar": 44
+      },
+      "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d85b03_8e7821ab",
+        "filename": "front_end/core/platform/DevToolsPath.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T05:51:15Z",
+      "side": 1,
+      "message": "Please add a JSDoc comment to all these types explaining the particulars and how they differentiate from each other.",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "ce1e6a3c690c1612281bb52bec91813fe590f045",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
