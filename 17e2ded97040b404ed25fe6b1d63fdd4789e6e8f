@@ -22,6 +22,30 @@
       },
       "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d5c64f_38d3ac45",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T09:58:55Z",
+      "side": 1,
+      "message": "MainImpl doesn\u0027t have unit test coverage. To get coverage for the changed lines above we would have to write an e2e test that instruments the stubbed out InspectorFrontendHost bindings. (We\u0027d have to instrument the stub as e2e runs DevTools in \"hosted\" mode). Such an e2e test would also be blocked on the presence of an actual synced setting as currently all settings are marked as \"Global\" at most. The next CL in the chain will change that.\n\nUnless I\u0027m miss-understanding your comment?",
+      "parentUuid": "719d1d8a_8ece1c6e",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 9
+      },
+      "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
