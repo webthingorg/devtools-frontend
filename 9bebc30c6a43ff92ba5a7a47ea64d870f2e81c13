@@ -50,6 +50,24 @@
       "message": "Marijn, let\u0027s land this CL next week. Can you rebase the CL based on `main` to get it into shape by then?",
       "revId": "9bebc30c6a43ff92ba5a7a47ea64d870f2e81c13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b5119b_983c0fd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-06T14:16:32Z",
+      "side": 1,
+      "message": "Yes, I have an updated version of the patch locally that applies cleanly to current main. But updating this CL will cause us to run into relation chain issues again, I suspect. Maybe easier to start a new CL?",
+      "parentUuid": "9dacd0d0_29a0d7ac",
+      "revId": "9bebc30c6a43ff92ba5a7a47ea64d870f2e81c13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
