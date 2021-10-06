@@ -70,6 +70,30 @@
       },
       "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c670a703_69ee7b78",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T10:10:21Z",
+      "side": 1,
+      "message": "I double checked just to be sure, but instantiating MainImpl in a test is rather tricky as its job is to mainly initialize all the DevTools globals in correct order. This involves calls to the embedder via host bindings, as well as e.g. fetch calls to load locale files.\n\nMid- to long term we might be able to improve the situation by splitting out heavy-duty business logic into standalone classes that can be unit tested. This should be doable e.g. for experiment handling (and settings).",
+      "parentUuid": "0f875b3e_75313f68",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 9
+      },
+      "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
