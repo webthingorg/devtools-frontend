@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4234a5ed_6546d3b5",
+        "filename": "test/unittests/front_end/core/common/Settings_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-06T08:36:04Z",
+      "side": 1,
+      "message": "if preferred, I can split the test case in two - one tests setting registrations (aka settings showing up in the settings UI) and the other for dynamic UI state settings.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 51
+      },
+      "revId": "42a60c02de7c92ddcb3bf771a9d6724105dded75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
