@@ -54,6 +54,22 @@ export async function create(code: string, mimeType: string): Promise<CodeHighli
   return new CodeHighlighter(code, tree, CM);
 }
 
+export async function highlightNode(node: Element, mimeType: string): Promise<void> {
+  const code = node.textContent || '';
+  const highlighter = await create(code, mimeType);
+  node.removeChildren();
+  highlighter.highlight((text, style) => {
+    let token: Node = document.createTextNode(text);
+    if (style) {
+      const span = document.createElement('span');
+      span.className = style;
+      span.appendChild(token);
+      token = span;
+    }
+    node.appendChild(token);
+  });
+}
+
 export async function languageFromMIME(mimeType: string): Promise<CodeMirror.LanguageSupport|null> {
   const CM = await importCM();
 
