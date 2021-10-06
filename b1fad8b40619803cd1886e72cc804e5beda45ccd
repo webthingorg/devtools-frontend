@@ -46,6 +46,30 @@
       },
       "revId": "b1fad8b40619803cd1886e72cc804e5beda45ccd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d4cd7bd_df543907",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-06T15:36:55Z",
+      "side": 0,
+      "message": "Okay, this was intentional after all, since the z-index problem only became an issue after enabling autocompletion in the new editors, which is one of the effects of this CL.\n\nI\u0027ve updated the patch to also remove the explicit background from `#elements-content`, which seems to be the reason this z-index was necessary, and which doesn\u0027t itself seem to have served a purpose, since this component is already shown over the proper background.",
+      "parentUuid": "2477e859_7cf0d628",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 1
+      },
+      "revId": "b1fad8b40619803cd1886e72cc804e5beda45ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
