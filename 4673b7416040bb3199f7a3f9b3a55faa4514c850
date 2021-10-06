@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f489bf7e_6ff0fcc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-06T14:52:09Z",
+      "side": 1,
+      "message": "Glad to see about the tests, given the amount of code involved. I tried the feature and it seems to work as expected.\n\nIt seems like the old autocompletion code is still used by \"ObjectPropertyPrompt\", which is consequently used in \"WatchExpressionsSidebarPane.ts\". That should hopefully be fairly straightforward to port, given that it is also a simple prompt with auto-completion, wouldn\u0027t it be? We can do that in a follow-up to not make this CL any larger than it already is, but it would be good to keep in mind how the watch expressions bit will turn out and potentially make some changes in this CL to accomodate that (if any).\n\nThe last usage appears to be the console, but we already agreed we are tackling that one last.",
+      "revId": "4673b7416040bb3199f7a3f9b3a55faa4514c850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8bc304f_476fe608",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-06T14:52:09Z",
+      "side": 0,
+      "message": "It seems like we still need this for showing the highlight of the elements panel node: https://drive.google.com/file/d/1tJ3y2OtHXV_TZIv8gEJJcQC-rTJFXWVO/view?usp\u003dsharing Without this line, the highlight no longer shows up.\n\nIt\u0027s not 100% clear to me why this change is necessary, given that the CL intends to port the \"Edit breakpoint\" dialog in the sources panel, which afaik never shows up in the elements panel. I know we talked about this before, but I lost the context and wasn\u0027t sure if things have since changed such that this is still required?",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 1
+      },
+      "revId": "b1fad8b40619803cd1886e72cc804e5beda45ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
