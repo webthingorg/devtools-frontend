@@ -86,6 +86,7 @@ const OTHER_LICENSE_HEADERS = [
   'elements/PropertiesWidget.js',
   'elements/StylesSidebarPane.js',
   'main/MainImpl.ts',
+  'platform/DevToolsPath.ts',
   'platform/UIString.ts',
   'sdk/DOMModel.js',
   'sources/ScopeChainSidebarPane.js',
