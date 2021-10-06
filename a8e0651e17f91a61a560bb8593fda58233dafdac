@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be66478_f7432aea",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-06T02:38:39Z",
+      "side": 1,
+      "message": "Yes, I updated the description. Also I changed \"circumstantial\" to \"not actionable\". Lemme know what you think!",
+      "parentUuid": "dce076de_adf06143",
+      "revId": "a8e0651e17f91a61a560bb8593fda58233dafdac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "935c3e9c_b3659657",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-10-05T10:21:29Z",
       "side": 1,
       "message": "This is now simple enough that it probably doesn\u0027t justify having a separate helper function for it anymore.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 3
+      },
+      "revId": "a8e0651e17f91a61a560bb8593fda58233dafdac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2d347f_85b6f8a9",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-06T02:38:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "935c3e9c_b3659657",
       "range": {
         "startLine": 186,
         "startChar": 0,
