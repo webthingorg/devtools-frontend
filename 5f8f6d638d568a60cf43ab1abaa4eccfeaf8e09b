@@ -34,6 +34,24 @@
       "parentUuid": "a952da53_aa90e70a",
       "revId": "5f8f6d638d568a60cf43ab1abaa4eccfeaf8e09b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2e6cb7_21cfeb1b",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-10-06T06:32:18Z",
+      "side": 1,
+      "message": "That\u0027s correct. This method deletes a single inline breakpoint decoration for the given UILocation. If there are other UILocations in the list, there will be a separate call to breakpointRemoved to remove their decorators.",
+      "parentUuid": "0fd46c3f_13c965ff",
+      "revId": "5f8f6d638d568a60cf43ab1abaa4eccfeaf8e09b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
