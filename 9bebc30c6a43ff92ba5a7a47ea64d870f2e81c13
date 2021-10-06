@@ -68,6 +68,24 @@
       "parentUuid": "9dacd0d0_29a0d7ac",
       "revId": "9bebc30c6a43ff92ba5a7a47ea64d870f2e81c13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5e4b28_a8506fd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-06T14:20:55Z",
+      "side": 1,
+      "message": "If your local branch is tracking main, you can safely upload to this CL and Gerrit will automatically determine the relation chain is gone (and that\u0027s fine). If uploading doesn\u0027t work, then yes let\u0027s create a new CL.",
+      "parentUuid": "95b5119b_983c0fd0",
+      "revId": "9bebc30c6a43ff92ba5a7a47ea64d870f2e81c13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
