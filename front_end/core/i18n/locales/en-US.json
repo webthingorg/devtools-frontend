@@ -4022,6 +4022,9 @@
   "panels/elements/components/LayoutPane.ts | chooseElementOverlayColor": {
     "message": "Choose the overlay color for this element"
   },
+  "panels/elements/components/LayoutPane.ts | colorPickerOpened": {
+    "message": "Color picker opened."
+  },
   "panels/elements/components/LayoutPane.ts | flexbox": {
     "message": "Flexbox"
   },
