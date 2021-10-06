@@ -196,12 +196,14 @@ export class Settings {
 }
 
 export interface SettingsBackingStore {
+  register(setting: string): void;
   set(setting: string, value: string): void;
   remove(setting: string): void;
   clear(): void;
 }
 
 export const NOOP_STORAGE: SettingsBackingStore = {
+  register: () => {},
   set: () => {},
   remove: () => {},
   clear: () => {},
@@ -211,6 +213,10 @@ export class SettingsStorage {
   constructor(
       private object: Record<string, string>, private readonly backingStore: SettingsBackingStore = NOOP_STORAGE,
       private readonly storagePrefix: string = '') {
+  }
+
+  register(name: string): void {
+    this.backingStore.register(name);
   }
 
   set(name: string, value: string): void {
@@ -287,6 +293,7 @@ export class Setting<V> {
   constructor(
       readonly name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
       readonly storage: SettingsStorage) {
+    storage.register(name);
   }
 
   setSerializer(serializer: Serializer<unknown, V>): void {
