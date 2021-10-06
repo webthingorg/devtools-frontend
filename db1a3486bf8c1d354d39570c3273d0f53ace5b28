@@ -52,6 +52,24 @@
       "parentUuid": "0eca13b3_6e24672c",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc944c18_df44a012",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-06T19:01:00Z",
+      "side": 1,
+      "message": "Hi Alex. I made two videos (GIFs) to show the difference of the two scenarios (#2 and #3), please take a look: https://imgur.com/a/OGKYNsh. FYI, I made the test on MacOS 11.6 (Big Sur). Let me know how did you test and what you got.",
+      "parentUuid": "f9d1845c_ba855e25",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
