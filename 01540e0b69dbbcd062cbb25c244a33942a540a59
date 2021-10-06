@@ -352,6 +352,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3ebeff_b72e00fe",
+        "filename": "front_end/ui/components/text_editor/javascript.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-06T14:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "743a8444_1bbe8129",
+      "range": {
+        "startLine": 90,
+        "startChar": 9,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "01540e0b69dbbcd062cbb25c244a33942a540a59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d047e5e_794e0773",
