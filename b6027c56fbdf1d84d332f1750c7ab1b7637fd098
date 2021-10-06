@@ -16,6 +16,29 @@
       "message": "Thanks for taking a look, PTAL again 😊",
       "revId": "b6027c56fbdf1d84d332f1750c7ab1b7637fd098",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b605a4_1474711a",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2021-10-06T02:44:40Z",
+      "side": 1,
+      "message": "This basically the same code x3 now. It seems like we should be a function that takes a section title and a list of reasons.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 28
+      },
+      "revId": "b6027c56fbdf1d84d332f1750c7ab1b7637fd098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
