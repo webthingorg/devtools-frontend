@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c96db5_40b074c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-06T14:26:57Z",
+      "side": 1,
+      "message": "Thanks, LGTM!",
+      "revId": "150e83dccadc7e70f66cfca46a4fd46f51054447",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2e0965_76922dde",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-06T14:26:57Z",
+      "side": 1,
+      "message": "super-nit: indent 1 char less",
+      "range": {
+        "startLine": 155,
+        "startChar": 1,
+        "endLine": 157,
+        "endChar": 75
+      },
+      "revId": "150e83dccadc7e70f66cfca46a4fd46f51054447",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
