@@ -46,6 +46,30 @@
       },
       "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f875b3e_75313f68",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-06T10:02:09Z",
+      "side": 1,
+      "message": "I think you understand my comment correctly. Ok, let\u0027s proceed without testing this.",
+      "parentUuid": "60d5c64f_38d3ac45",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 9
+      },
+      "revId": "17e2ded97040b404ed25fe6b1d63fdd4789e6e8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
