@@ -33,6 +33,24 @@
       "message": "Nice unit test! For my understanding: we can now delete the corresponding layout tests, as the unit test already covers it right?\n\nWe are about to hit branch point and I would like to submit this CL after it. Therefore I am running CQ to see if everything is green, but will submit on Friday/next week.",
       "revId": "0f268ddfd7daec3ec2563548c469929a7a73a8d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4efc70_ae982a7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-06T13:38:26Z",
+      "side": 1,
+      "message": "I think syntax-highlight-html and syntax-highlight-javascript can be deleted, yes.\n\nI\u0027m not sure what the failing copy-styles test is. It\u0027s error message (\".647554:ERROR:css_computed_style_declaration.cc(72)] Blink does not yet implement getComputedStyle for \u0027all\u0027\") doesn\u0027t seem obviously related to this patch (which shouldn\u0027t be triggering any new getComputedStyle calls). Any idea what that might be?",
+      "parentUuid": "3903d6de_6db873cb",
+      "revId": "0f268ddfd7daec3ec2563548c469929a7a73a8d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
