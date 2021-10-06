@@ -62,7 +62,8 @@ export class Settings {
     this.moduleSettings = new Map();
 
     for (const registration of getRegisteredSettings()) {
-      const {settingName, defaultValue, storageType} = registration;
+      const {settingName, defaultValue} = registration;
+      const storageType = registration.storageType ?? SettingStorageType.Synced;
       const isRegex = registration.settingType === SettingType.REGEX;
 
       const setting = isRegex && typeof defaultValue === 'string' ?
