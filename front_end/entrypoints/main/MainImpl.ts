@@ -328,6 +328,7 @@ export class MainImpl {
       'sourceOrderViewer',
       'hideIssuesFeature',
       'bfcacheDebugging',
+      'cssOverview',
     ]);
 
     // Debugging of Reporting API
