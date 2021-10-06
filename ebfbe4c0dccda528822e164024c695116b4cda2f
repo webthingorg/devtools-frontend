@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e3ef85_abb8431e",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-10-06T23:37:33Z",
+      "side": 0,
+      "message": "With the new ARIAUtils.alert system, we don\u0027t need to manually reset the alert element here.",
+      "revId": "ebfbe4c0dccda528822e164024c695116b4cda2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
