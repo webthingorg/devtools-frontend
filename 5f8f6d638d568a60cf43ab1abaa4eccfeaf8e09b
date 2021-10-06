@@ -52,6 +52,24 @@
       "parentUuid": "0fd46c3f_13c965ff",
       "revId": "5f8f6d638d568a60cf43ab1abaa4eccfeaf8e09b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4785b5_21800f0e",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-06T11:37:17Z",
+      "side": 1,
+      "message": "Ah, yes, that makes sense. Thanks",
+      "parentUuid": "0c2e6cb7_21cfeb1b",
+      "revId": "5f8f6d638d568a60cf43ab1abaa4eccfeaf8e09b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
