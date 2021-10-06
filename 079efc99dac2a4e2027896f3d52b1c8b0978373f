@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42630350_c1e91c78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-06T07:06:12Z",
+      "side": 1,
+      "message": "I think it would make more sense for whoever ends up handling such Escape presses (I never found them) to check for `defaultPrevented`, but this is the minimal least invasive fix for that part of  https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1257086",
+      "revId": "079efc99dac2a4e2027896f3d52b1c8b0978373f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
