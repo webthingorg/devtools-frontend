@@ -479,9 +479,13 @@ export function alertElementInstance(): HTMLElement {
  */
 export function alert(message: string): void {
   const element = alertElementInstance();
-
-  // We first set the textContent to blank so that the string will announce even if it is replaced
+  // We set the textContent to blank so that the string will announce even if it is replaced
   // with the same string.
   element.textContent = '';
-  element.textContent = Platform.StringUtilities.trimEndWithMaxLength(message, 10000);
+
+  // We want to register delay into setting the element's text so that the screen reader can register
+  // the text change.
+  setTimeout(() => {
+    element.textContent = Platform.StringUtilities.trimEndWithMaxLength(message, 10000);
+  }, 0);
 }
