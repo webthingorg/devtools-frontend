@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5788b3_6bf774a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-06T12:36:54Z",
+      "side": 1,
+      "message": "Rebased, fixed legacy_test_runner bug, and added basic highlighter tests.",
+      "revId": "0f268ddfd7daec3ec2563548c469929a7a73a8d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
