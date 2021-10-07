@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9b19c0_d63c3273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-07T05:20:26Z",
+      "side": 1,
+      "message": "Looking at the unit tests, this usually happens when a base class construtor calls a method that is overwritten of a subclass and the overwritten method accesses a private field. At base class constructor time, the private field of the subclass is not yet available.",
+      "revId": "6ceb68804edc743841aec9b1b6b962e0c898d766",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
