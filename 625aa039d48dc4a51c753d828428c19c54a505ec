@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0826deb4_27d78214",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-10-07T11:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b219b651_22c14387",
+      "range": {
+        "startLine": 44,
+        "startChar": 75,
+        "endLine": 44,
+        "endChar": 77
+      },
+      "revId": "625aa039d48dc4a51c753d828428c19c54a505ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf85652b_0db59cc7",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404cb155_7ae57aa5",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-10-07T11:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf85652b_0db59cc7",
+      "revId": "625aa039d48dc4a51c753d828428c19c54a505ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cd793e4_826be239",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-10-07T10:06:39Z",
       "side": 1,
       "message": "suggestion:\n\n    \u0027Now that CORS errors are reported in the Issues tab, you can hide CORS errors in the Console to reduce clutter.\u0027",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 124
+      },
+      "revId": "625aa039d48dc4a51c753d828428c19c54a505ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39b4dd6_9a370948",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-10-07T11:12:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cd793e4_826be239",
       "range": {
         "startLine": 60,
         "startChar": 13,
