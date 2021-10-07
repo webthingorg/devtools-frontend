@@ -52,6 +52,24 @@
       "parentUuid": "377dc3c8_5a52729f",
       "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d88914_592975de",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T13:37:54Z",
+      "side": 1,
+      "message": "See https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/XLink.ts;l\u003d16;drc\u003df8a9476e05d95ad8e81f7ffbc438e9c5da671037 it is using bindings to open things in a new tab because navigations are not generally supported in DevTools window. Plus it adds required referrer to the URL and a bunch of other checks.",
+      "parentUuid": "377dc3c8_5a52729f",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
