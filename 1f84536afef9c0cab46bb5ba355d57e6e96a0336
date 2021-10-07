@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2451fd83_cbe89d89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-07T10:21:53Z",
+      "side": 1,
+      "message": "LGTM with nit about type casting. Thanks!",
+      "revId": "1f84536afef9c0cab46bb5ba355d57e6e96a0336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd1da286_fbf086e6",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-07T10:21:53Z",
+      "side": 1,
+      "message": "if you change the querySelector line to:\n\nthis.shadow.querySelector\u003cHTMLSpanElement\u003e(\u0027.suggestion\u0027)\n\nThen you can avoid the type casting.\n\nFYI, because this is a `.ts` file, the `/** @type */` comments are completely ignored so you don\u0027t need them.",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "1f84536afef9c0cab46bb5ba355d57e6e96a0336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
