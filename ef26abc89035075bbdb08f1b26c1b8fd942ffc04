@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9a2af1_6addc3c7",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T12:34:29Z",
+      "side": 1,
+      "message": "should be using x-link for consistency",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
