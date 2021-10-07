@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d68bbaa_dcd7a027",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T07:02:33Z",
+      "side": 1,
+      "message": "hm, is there some other way? I don\u0027t think like adding arbitrary timeouts is a good idea.",
+      "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
