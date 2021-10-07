@@ -16,6 +16,24 @@
       "message": "hm, is there some other way? I don\u0027t think like adding arbitrary timeouts is a good idea.",
       "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bba695e7_a4413321",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-10-07T17:56:33Z",
+      "side": 1,
+      "message": "Unfortunately, this seems like the most straightforward way to fix the alert functionality. I tested on multiple machines that 200ms is the minimum needed for NVDA to register that the alert string has changed from a blank string to the desired string, so that number isn\u0027t completely arbitrary. Plus, the timeout only occurs when the announced string is the same as the current string which I don\u0027t believe should happen very often.\n\nAnother solution I can think of would be to create another alert element and alternate between the two. When one alert string is set, it resets the other alert element string to prime it for the next alert call. I believe this should also work, but seems a bit messier than the original solution.\n\nLet me know what you think.",
+      "parentUuid": "0d68bbaa_dcd7a027",
+      "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
