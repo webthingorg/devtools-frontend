@@ -36,6 +36,34 @@ function getLocalizedReleaseNoteURL(url: string): string {
 
 export const releaseNoteText: ReleaseNote[] = [
   {
+    version: 38,
+    header: 'Highlights from the Chrome 96 update',
+    highlights: [
+      {
+        title: 'New preview feature: CSS Overview panel',
+        subtitle: 'Use the CSS overview panel to identify CSS improvements of your page.',
+        link: getLocalizedReleaseNoteURL('https://developer.chrome.com/blog/new-in-devtools-96/#css-overview'),
+      },
+      {
+        title: 'Enable emulating prefers-contrast media and auto dark mode',
+        subtitle: 'Emulate the user preference on using different contrast level for the page and auto dark mode.',
+        link: getLocalizedReleaseNoteURL('https://developer.chrome.com/blog/new-in-devtools-96/#emulation'),
+      },
+      {
+        title: 'New Payload tab in the Network panel',
+        subtitle: 'A new Payload tab is available when you click to inspect a network request.',
+        link: getLocalizedReleaseNoteURL('https://developer.chrome.com/blog/new-in-devtools-96/#payload'),
+      },
+      {
+        title: 'Option to hide CORS errors in the Console',
+        subtitle:
+            'With CORS errors reported in the Issues tab, you can opt to hide CORS errors in the Console to reduce clutters.',
+        link: getLocalizedReleaseNoteURL('https://developer.chrome.com/blog/new-in-devtools-96/#hide-cors-errors'),
+      },
+    ],
+    link: getLocalizedReleaseNoteURL('https://developer.chrome.com/blog/new-in-devtools-96'),
+  },
+  {
     version: 37,
     header: 'Highlights from the Chrome 95 update',
     highlights: [
