@@ -2330,40 +2330,40 @@
   "panels/application/AppManifestView.ts | theSpecifiedApplicationPlatform": {
     "message": "The specified application platform is not supported on Android"
   },
-  "panels/application/BackForwardCacheView.ts | backForwardCacheTitle": {
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheTitle": {
     "message": "Back-forward Cache"
   },
-  "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
+  "panels/application/BackForwardCacheStrings.ts | bfcacheStatus": {
     "message": "Back-forward Cache Status"
   },
-  "panels/application/BackForwardCacheView.ts | circumstantial": {
+  "panels/application/BackForwardCacheStrings.ts | circumstantial": {
     "message": "Not Actionable"
   },
-  "panels/application/BackForwardCacheView.ts | lastMainFrameNavigation": {
+  "panels/application/BackForwardCacheStrings.ts | lastMainFrameNavigation": {
     "message": "Last Main Frame Navigation"
   },
-  "panels/application/BackForwardCacheView.ts | mainFrame": {
+  "panels/application/BackForwardCacheStrings.ts | mainFrame": {
     "message": "Main Frame"
   },
-  "panels/application/BackForwardCacheView.ts | normalNavigation": {
+  "panels/application/BackForwardCacheStrings.ts | normalNavigation": {
     "message": "Normal navigation (Not restored from back-forward cache)"
   },
-  "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
+  "panels/application/BackForwardCacheStrings.ts | pageSupportNeeded": {
     "message": "Actionable"
   },
-  "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
+  "panels/application/BackForwardCacheStrings.ts | restoredFromBFCache": {
     "message": "Restored from back-forward cache"
   },
-  "panels/application/BackForwardCacheView.ts | supportPending": {
+  "panels/application/BackForwardCacheStrings.ts | supportPending": {
     "message": "Pending Support"
   },
-  "panels/application/BackForwardCacheView.ts | unavailable": {
+  "panels/application/BackForwardCacheStrings.ts | unavailable": {
     "message": "unavailable"
   },
-  "panels/application/BackForwardCacheView.ts | unknown": {
+  "panels/application/BackForwardCacheStrings.ts | unknown": {
     "message": "unknown"
   },
-  "panels/application/BackForwardCacheView.ts | url": {
+  "panels/application/BackForwardCacheStrings.ts | url": {
     "message": "URL"
   },
   "panels/application/BackgroundServiceView.ts | backgroundFetch": {
