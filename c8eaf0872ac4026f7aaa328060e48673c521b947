@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "c8eaf0872ac4026f7aaa328060e48673c521b947",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6cd073d_22175174",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-07T12:18:44Z",
+      "side": 1,
+      "message": "LGTM (but what was the flake about?)",
+      "revId": "c8eaf0872ac4026f7aaa328060e48673c521b947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
