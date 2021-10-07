@@ -33,6 +33,24 @@
       "message": "Tiny nit: delete whitespace",
       "revId": "d44489298a13380fe1771d07b553c081338ad2b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6bf86c_f6a0318f",
+        "filename": "front_end/panels/css_overview/components/cssOverviewStartView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-07T07:16:09Z",
+      "side": 1,
+      "message": "Good catch! I\u0027ll fix this as a drive-by today. Thanks!",
+      "parentUuid": "ac1156eb_2fbd1ec5",
+      "revId": "d44489298a13380fe1771d07b553c081338ad2b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
