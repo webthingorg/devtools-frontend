@@ -16,6 +16,24 @@
       "message": "should be using x-link for consistency",
       "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377dc3c8_5a52729f",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-07T13:33:31Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with \u003cx-link\u003e. What\u0027s the advantage of \u003cx-link\u003e of \u003ca\u003e in this case? I also couldn\u0027t find it in the spec. Is it standardized yet?",
+      "parentUuid": "8f9a2af1_6addc3c7",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
