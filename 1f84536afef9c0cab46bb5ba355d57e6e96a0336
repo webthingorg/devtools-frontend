@@ -39,6 +39,30 @@
       },
       "revId": "1f84536afef9c0cab46bb5ba355d57e6e96a0336",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9884c073_81a21f99",
+        "filename": "front_end/ui/components/text_prompt/TextPrompt.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-10-07T10:43:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd1da286_fbf086e6",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "1f84536afef9c0cab46bb5ba355d57e6e96a0336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
