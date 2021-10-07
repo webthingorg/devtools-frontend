@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bebc8d4_337396c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-10-07T06:14:01Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "d44489298a13380fe1771d07b553c081338ad2b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac1156eb_2fbd1ec5",
+        "filename": "front_end/panels/css_overview/components/cssOverviewStartView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-10-07T06:14:01Z",
+      "side": 1,
+      "message": "Tiny nit: delete whitespace",
+      "revId": "d44489298a13380fe1771d07b553c081338ad2b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
