@@ -70,6 +70,24 @@
       "parentUuid": "f9d1845c_ba855e25",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ced0310d_fbcd80b2",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T07:00:57Z",
+      "side": 1,
+      "message": "Thanks, I see the difference now. I think VoiceOver is correctly using the label\u0027s title when you first focus on the element. But when you tick/untick the checkbox it actually tries to read the content instead of the label.\n\nI am wondering if that should be fixed inside the NodeText component instead? Isn\u0027t the same problem affecting the breadcrumbs component?",
+      "parentUuid": "fc944c18_df44a012",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
