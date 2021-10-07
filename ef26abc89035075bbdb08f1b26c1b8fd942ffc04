@@ -34,6 +34,24 @@
       "parentUuid": "8f9a2af1_6addc3c7",
       "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63113790_fd0fdd6e",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-07T13:36:17Z",
+      "side": 1,
+      "message": "Oh nevermind I think I found it in our codebase. It\u0027s defined as a custom elements by us (as a legacy). OK I\u0027ll change this to \u003cx-link\u003e then.",
+      "parentUuid": "377dc3c8_5a52729f",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
