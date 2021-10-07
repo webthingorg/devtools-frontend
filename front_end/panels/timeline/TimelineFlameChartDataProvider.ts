@@ -144,6 +144,10 @@ const UIStrings = {
   */
   droppedFrame: 'Dropped Frame',
   /**
+  *@description Text in Timeline Frame Chart Data Provider of the Performance panel
+  */
+  partiallyPresentedFrame: 'Partially Presented Frame',
+  /**
   *@description Text for a rendering frame
   */
   frame: 'Frame',
@@ -1019,7 +1023,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (frame.idle) {
         title = i18nString(UIStrings.idleFrame);
       } else if (frame.dropped) {
-        title = i18nString(UIStrings.droppedFrame);
+        if (frame.isPartial) {
+          title = i18nString(UIStrings.partiallyPresentedFrame);
+        } else {
+          title = i18nString(UIStrings.droppedFrame);
+        }
         nameSpanTimelineInfoTime = 'timeline-info-warning';
       } else {
         title = i18nString(UIStrings.frame);
@@ -1117,8 +1125,19 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const frame = (this.entryData[entryIndex] as TimelineModel.TimelineFrameModel.TimelineFrame);
     barX += hPadding;
     barWidth -= 2 * hPadding;
-    context.fillStyle =
-        frame.idle ? 'white' : frame.dropped ? '#f0b7b1' : (frame.hasWarnings() ? '#fad1d1' : '#d7f0d1');
+    if (frame.idle) {
+      context.fillStyle = 'white';
+    } else if (frame.dropped) {
+      if (frame.isPartial) {
+        context.fillStyle = '#ffd700';
+      } else {
+        context.fillStyle = '#f0b7b1';
+      }
+    } else if (frame.hasWarnings()) {
+      context.fillStyle = '#fad1d1';
+    } else {
+      context.fillStyle = '#d7f0d1';
+    }
     context.fillRect(barX, barY, barWidth, barHeight);
 
     const frameDurationText = i18n.TimeUtilities.preciseMillisToString(frame.duration, 1);
