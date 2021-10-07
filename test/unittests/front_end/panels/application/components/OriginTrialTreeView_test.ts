@@ -403,4 +403,44 @@ describe('OriginTrialTreeView', () => {
       assert.lengthOf(badges, 0);
     }
   });
+
+  it('shows trial name for token with status UnknownTrial', async () => {
+    const {component, shadowRoot} = await renderOriginTrialTreeViewTreeOutline({
+      trials: [
+        {
+          trialName: 'UNKNOWN',
+          status: Protocol.Page.OriginTrialStatus.ValidTokenNotProvided,
+          tokensWithStatus: [
+            {
+              status: Protocol.Page.OriginTrialTokenStatus.UnknownTrial,
+              rawTokenText: tokenPlaceHolder,
+            },
+          ],
+        },
+      ],
+    });  // Node counts by level: 1/2/1
+
+    await component.expandRecursively(/* maxDepth= */ 1);
+    await waitForRenderedTreeNodeCount(shadowRoot, 3);
+    const visibleTree = visibleNodesToTree(shadowRoot);
+
+    const tokenDetailNodes = visibleTree[0].children;
+    assert.isDefined(tokenDetailNodes);
+    if (tokenDetailNodes === undefined) {
+      return;
+    }
+    assert.lengthOf(tokenDetailNodes, 2);
+    const tokenFieldsNode = tokenDetailNodes[0];
+    const rowsComponent = tokenFieldsNode.nodeElement.querySelector('devtools-resources-origin-trial-token-rows');
+    assertElement(rowsComponent, ApplicationComponents.OriginTrialTreeView.OriginTrialTokenRows);
+    assertShadowRoot(rowsComponent.shadowRoot);
+    const innerHTML = rowsComponent.shadowRoot.innerHTML;
+    const parsedToken = trialWithSingleToken.tokensWithStatus[0].parsedToken;
+    assert.isDefined(parsedToken);
+    if (parsedToken === undefined) {
+      return;
+    }
+
+    assert.include(innerHTML, parsedToken.trialName);
+  });
 });
