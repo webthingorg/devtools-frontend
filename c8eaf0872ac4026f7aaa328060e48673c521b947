@@ -33,6 +33,24 @@
       "message": "LGTM (but what was the flake about?)",
       "revId": "c8eaf0872ac4026f7aaa328060e48673c521b947",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5c8cbe_c9172c07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-07T12:25:54Z",
+      "side": 1,
+      "message": "I think the problem was calling \u0027enableExperiment()\u0027 twice in a row, because DevTools gets reloaded in each call which potentially messes things up.",
+      "parentUuid": "c6cd073d_22175174",
+      "revId": "c8eaf0872ac4026f7aaa328060e48673c521b947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
