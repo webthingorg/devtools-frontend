@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9fafc529_4c423231",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T13:40:26Z",
+      "side": 1,
+      "message": "nit: that should go through render",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8078cb7e_83ddd352",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T13:40:26Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca25361_51bd658e",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T13:40:26Z",
+      "side": 1,
+      "message": "curious if it\u0027s the recommended way? looks a bit odd to pass the entire element into getFormatLocalizedString",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f9a2af1_6addc3c7",
         "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
         "patchSetId": 7
@@ -68,6 +119,23 @@
       "side": 1,
       "message": "See https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/XLink.ts;l\u003d16;drc\u003df8a9476e05d95ad8e81f7ffbc438e9c5da671037 it is using bindings to open things in a new tab because navigations are not generally supported in DevTools window. Plus it adds required referrer to the URL and a bunch of other checks.",
       "parentUuid": "377dc3c8_5a52729f",
+      "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e5ca086_3224ade6",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-07T13:40:26Z",
+      "side": 1,
+      "message": "it probably should be moved to the connectedCallback. Otherwise, in the future it\u0027d focus after every render() (if there is more than one eventually)",
       "revId": "ef26abc89035075bbdb08f1b26c1b8fd942ffc04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
