@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "117b04a3_8cb3ed32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-10-07T02:20:11Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nThis is a small fix for an accessibility issue. PTAL.",
+      "revId": "3b772b762f8cb64ac8801684f5cbb820e6efa783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
