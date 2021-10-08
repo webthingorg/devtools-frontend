@@ -16,6 +16,29 @@
       "message": "Please take a look!",
       "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a8d4d2_f8a9653f",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-08T15:13:51Z",
+      "side": 1,
+      "message": "Does this fail without your change?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
