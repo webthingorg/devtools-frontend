@@ -227,6 +227,30 @@
       },
       "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33337974_3e9c4485",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-08T16:01:30Z",
+      "side": 1,
+      "message": "(with await in this line)",
+      "parentUuid": "c4907986_e84a66b1",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
