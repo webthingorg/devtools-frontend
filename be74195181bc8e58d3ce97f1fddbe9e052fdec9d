@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7bb7372_46cb8cbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T08:42:32Z",
+      "side": 1,
+      "message": "also, is it a specific screen reader that has this problem? On MacOS it seems to notify of the new window and that it can be interacted with using Caps Lock + Shift + Down",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "be74195181bc8e58d3ce97f1fddbe9e052fdec9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
