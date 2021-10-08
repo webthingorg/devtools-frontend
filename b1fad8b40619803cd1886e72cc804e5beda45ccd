@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a81299ab_22ebc208",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-08T10:56:08Z",
+      "side": 0,
+      "message": "FYI Victor we need to revert this change (from https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3136215), as it is breaking the color rendering in the elements panel. Otherwise, we need to maintain the z-index hack that was used in `elementsTreeOutline.css`, but that breaks the ordering of popup elements such as autocompletion.\n\nI think we will need a different mechanism in the elements panel to implement scrolling, as forcing the colors is probably going to cause more problems than solving it unfortunately. I did try to work with the z-index values a bit, but none of it works and it feels like we add more hacks for it than solving it.\n\nTo solve this in the future, I think we will need to refactor how `.selection.fill` works, which is currently a `position: absolute` element in the panel. This filling then gets `z-index: -1`, which seems wrong on its own as well. However, that is quite a bit of work that I don\u0027t think is worth blocking this CL on.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "b1fad8b40619803cd1886e72cc804e5beda45ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8bc304f_476fe608",
         "filename": "front_end/panels/elements/elementsTreeOutline.css",
         "patchSetId": 4

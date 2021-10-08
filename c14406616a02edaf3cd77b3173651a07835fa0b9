@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95bbf752_1da0014b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-08T10:56:08Z",
+      "side": 1,
+      "message": "Nice work! I can confirm it is working as expected in the elements panel. Turns out that the background color workaround was coming from https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3136215 In this case, I think it is better to revert that change for now and figure out a better solution for the dark mode issue. Added Victor as FYI on this CL about the context for the change.\n\nI will submit this CL on Monday!",
+      "revId": "c14406616a02edaf3cd77b3173651a07835fa0b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
