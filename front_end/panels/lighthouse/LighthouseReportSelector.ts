@@ -31,8 +31,10 @@ export class ReportSelector {
     this.newLighthouseItem = document.createElement('option');
     this.comboBoxInternal = new UI.Toolbar.ToolbarComboBox(
         this.handleChange.bind(this), i18nString(UIStrings.reports), 'lighthouse-report');
-    this.comboBoxInternal.setMaxWidth(180);
-    this.comboBoxInternal.setMinWidth(140);
+    this.comboBoxInternal.element.style.flexShrink = '1';
+    this.comboBoxInternal.element.style.flexGrow = '1';
+    this.comboBoxInternal.element.style.maxWidth = '180px';
+    this.comboBoxInternal.selectElement().style.width = '100%';
     this.itemByOptionElement = new Map();
     this.setEmptyState();
   }
