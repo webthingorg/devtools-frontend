@@ -87,6 +87,24 @@
       "parentUuid": "bba695e7_a4413321",
       "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5435825_6be52caa",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-10-08T16:03:56Z",
+      "side": 1,
+      "message": "I discussed this issue with the Chrome accessibility team. They also think this is caused by the issue described above.\nOne quick solution they suggested: Check if the alert message is identical to the current one. If it is, add a space to the string before assigning.",
+      "parentUuid": "71f3fbe9_678180bd",
+      "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
