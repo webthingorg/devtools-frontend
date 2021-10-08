@@ -88,6 +88,24 @@
       "parentUuid": "fc944c18_df44a012",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a55a7c9_79968a64",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-08T03:45:06Z",
+      "side": 1,
+      "message": "I am not sure what the issue is in the breadcrumbs component. Do we have a CRBug to track the issue? The console layout checkbox is using LayoutElement class while the breadcrumb is using NodeText class. I would fix the breadcrumbs component issue in a different CL. What do you think?",
+      "parentUuid": "ced0310d_fbcd80b2",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
