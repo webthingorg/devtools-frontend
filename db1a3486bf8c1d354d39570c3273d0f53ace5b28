@@ -106,6 +106,24 @@
       "parentUuid": "ced0310d_fbcd80b2",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bcc488_7569776f",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T05:38:20Z",
+      "side": 1,
+      "message": "The layout panel is using the NodeText component a few lines below. I am a bit hesitant for adding getElementAriaLabel here when the logic for computing the node text is inside the NodeText class. I am not sure we should be fixing the label computation for every consumer of the NodeText class.\n\nSo the following seems to work (removing title from the label?):\n\n```\n\u003cdiv class\u003d\"element\"\u003e\n  \u003clabel data-element\u003d\"true\"\u003e\n    \u003cinput data-input\u003d\"true\" type\u003d\"checkbox\" tabindex\u003d\"0\"\u003e\n    \u003cspan data-label\u003d\"true\"\u003e\n      \u003cspan\u003ediv\u003c/span\u003e\n      \u003cspan\u003e#headerGrid\u003c/span\u003e\n    \u003c/span\u003e\n  \u003c/label\u003e\n\u003c/div\u003e\n```",
+      "parentUuid": "9a55a7c9_79968a64",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
