@@ -20,6 +20,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "563eee68_20e3e1a2",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T15:45:33Z",
+      "side": 1,
+      "message": "nit: I think you can use waitForAria helper",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 38
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9785debd_bb045f6d",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T15:45:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 27,
+        "startChar": 30,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b792d03_a26e1397",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T15:45:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 30,
+        "startChar": 49,
+        "endLine": 30,
+        "endChar": 56
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31785c31_f31c8f4d",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T15:45:33Z",
+      "side": 1,
+      "message": "nit: does fst stand for first? Can we just wait for `.blocked-url`? I think that might be unique enough?",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9a8d4d2_f8a9653f",
         "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
         "patchSetId": 2
@@ -79,6 +171,30 @@
       "side": 1,
       "message": "Hmmm, don\u0027t you need await here?",
       "parentUuid": "1d8bb893_a49562e0",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "11b5c33e9042a39086f9aaeda2ef21fecff7e7a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89552b10_cbab4026",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T15:45:33Z",
+      "side": 1,
+      "message": "I have the same question as Danil: I am not sure there is anything to fail in this assertion. In general, I think it\u0027d want to await here and also wait for the scroll position to change as scrolling might be async.",
+      "parentUuid": "ee5309cf_3e97ce65",
       "range": {
         "startLine": 45,
         "startChar": 0,
