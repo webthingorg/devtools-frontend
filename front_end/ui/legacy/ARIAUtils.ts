@@ -460,17 +460,32 @@ function hideFromLayout(element: HTMLElement): void {
   element.style.overflow = 'hidden';
 }
 
-let alertElement: HTMLElement|undefined;
+let alertElementOne: HTMLElement|undefined;
+let alertElementTwo: HTMLElement|undefined;
+let alertToggle: boolean = false;
 
 export function alertElementInstance(): HTMLElement {
-  if (!alertElement) {
+  if (!alertElementOne) {
     const element = document.body.createChild('div') as HTMLElement;
     hideFromLayout(element);
     element.setAttribute('role', 'alert');
     element.setAttribute('aria-atomic', 'true');
-    alertElement = element;
+    alertElementOne = element;
   }
-  return alertElement;
+  if (!alertElementTwo) {
+    const element = document.body.createChild('div') as HTMLElement;
+    hideFromLayout(element);
+    element.setAttribute('role', 'alert');
+    element.setAttribute('aria-atomic', 'true');
+    alertElementTwo = element;
+  }
+  alertToggle = !alertToggle;
+  if (alertToggle) {
+    alertElementTwo.textContent = '';
+    return alertElementOne;
+  }
+  alertElementOne.textContent = '';
+  return alertElementTwo;
 }
 
 /**
@@ -479,9 +494,5 @@ export function alertElementInstance(): HTMLElement {
  */
 export function alert(message: string): void {
   const element = alertElementInstance();
-
-  // We first set the textContent to blank so that the string will announce even if it is replaced
-  // with the same string.
-  element.textContent = '';
   element.textContent = Platform.StringUtilities.trimEndWithMaxLength(message, 10000);
 }
