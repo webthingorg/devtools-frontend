@@ -142,6 +142,24 @@
       "parentUuid": "f6bcc488_7569776f",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4bd82d7_df8ccf39",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T20:33:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b1c41389_2f8a5f38",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
