@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a96da8a7_ade5bfbd",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2021-10-08T14:21:53Z",
+      "side": 0,
+      "message": "I\u0027m not sure I have enough context to understand what you\u0027re suggesting here, I\u0027d love it if we could have a chat about it on Monday.",
+      "parentUuid": "a81299ab_22ebc208",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "b1fad8b40619803cd1886e72cc804e5beda45ccd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8bc304f_476fe608",
         "filename": "front_end/panels/elements/elementsTreeOutline.css",
         "patchSetId": 4
