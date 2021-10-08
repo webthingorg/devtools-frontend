@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa252c16_eaafe4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-08T12:11:57Z",
+      "side": 1,
+      "message": "Hey Tim, in that case, let’s reduce the scope of this CL to just the uncontroversial bits (i.e. fixing the broken paths in the generator script). We can then address the remaining work separately. PTAL (you technically already LGTM’d this)",
+      "revId": "2fcd693af25d547722cd6d7fcaa55f17684eb766",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
