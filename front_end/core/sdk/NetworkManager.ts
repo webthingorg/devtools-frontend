@@ -418,9 +418,9 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       networkRequest.setUrl(response.url);
     }
     networkRequest.mimeType = (response.mimeType as MIME_TYPE);
-    networkRequest.statusCode = response.status;
-    networkRequest.statusText = response.statusText;
     if (!networkRequest.hasExtraResponseInfo()) {
+      networkRequest.statusCode = response.status;
+      networkRequest.statusText = response.statusText;
       networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
     }
 
