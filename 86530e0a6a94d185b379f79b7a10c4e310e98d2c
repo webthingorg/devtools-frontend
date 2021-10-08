@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff23abb_b869644f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-08T09:52:32Z",
+      "side": 1,
+      "message": "PTAL 😊",
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e082cfc6_e811e3ad",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-08T09:52:32Z",
+      "side": 1,
+      "message": "@Wolfgang\nI\u0027m having a presubmit error for a trailing white space, but I would like to insert a white space. Is that okay?",
+      "range": {
+        "startLine": 121,
+        "startChar": 33,
+        "endLine": 121,
+        "endChar": 34
+      },
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
