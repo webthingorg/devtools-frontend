@@ -124,6 +124,24 @@
       "parentUuid": "9a55a7c9_79968a64",
       "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c41389_2f8a5f38",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2021-10-08T20:01:44Z",
+      "side": 1,
+      "message": "I tested the solution in both Windows Narrator and Mac VoiceOver. It did solve the problem in VoiceOver. This solution is simpler than adding an aria-label to the input element. Thanks for the suggestion.",
+      "parentUuid": "f6bcc488_7569776f",
+      "revId": "db1a3486bf8c1d354d39570c3273d0f53ace5b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
