@@ -226,6 +226,12 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
   private update(): Promise<void> {
     const enabled = this.manager.blockingEnabled();
     this.list.element.classList.toggle('blocking-disabled', !enabled && Boolean(this.manager.blockedPatterns().length));
+    if (!enabled && Boolean(this.manager.blockedPatterns().length)) {
+      this.list.element.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+      }, true);
+    }
     this.enabledCheckbox.setChecked(enabled);
     this.list.clear();
     for (const pattern of this.manager.blockedPatterns()) {
