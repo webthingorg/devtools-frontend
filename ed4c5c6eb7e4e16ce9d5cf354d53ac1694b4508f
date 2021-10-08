@@ -56,6 +56,30 @@
       },
       "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a0a788_36518e58",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T12:36:26Z",
+      "side": 1,
+      "message": "That\u0027d be always possible via the individual setters but we can tighten the data setter type.",
+      "parentUuid": "8ab1a61a_33af140a",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 7
+      },
+      "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
