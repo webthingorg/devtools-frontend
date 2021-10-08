@@ -16,6 +16,24 @@
       "message": "Looking at the unit tests, this usually happens when a base class construtor calls a method that is overwritten of a subclass and the overwritten method accesses a private field. At base class constructor time, the private field of the subclass is not yet available.",
       "revId": "6ceb68804edc743841aec9b1b6b962e0c898d766",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c61fa0a4_5940c8e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-08T14:04:47Z",
+      "side": 1,
+      "message": "Turns out that `Object.create(_AgentPrototype)` does weird things. I have reverted using private class fields in `_AgentPrototype` for now, as it is doing weird stuff anyways. Not worth the time fixing that.",
+      "parentUuid": "8e9b19c0_d63c3273",
+      "revId": "6ceb68804edc743841aec9b1b6b962e0c898d766",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
