@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b69ecc5_122e0090",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-08T08:02:04Z",
+      "side": 1,
+      "message": "PTAL. Peter/Marian please check the implementation if that is according to the plan (I think I got different versions of this in different features over time vs the design system). Jack, please also suggest tests and/or how to name this variant. ",
+      "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
