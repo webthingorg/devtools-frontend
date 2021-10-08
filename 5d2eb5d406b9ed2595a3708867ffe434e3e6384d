@@ -16,6 +16,40 @@
       "message": "to repro, just dock CDT, make it narrow, and increase the font a bit. you won\u0027t be able to lose the clear button now",
       "revId": "5d2eb5d406b9ed2595a3708867ffe434e3e6384d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e92b01_68c00aae",
+        "filename": "front_end/panels/lighthouse/LighthouseReportSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-10-08T01:51:07Z",
+      "side": 1,
+      "message": "seeing these both together is odd, but basically is makes the select element grow when there is space (up to a max b/c of the next line), or shrink when necessary (to make room for the min-width elements on either side of it)",
+      "revId": "5d2eb5d406b9ed2595a3708867ffe434e3e6384d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed9e94c_87779147",
+        "filename": "front_end/panels/lighthouse/LighthouseReportSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-10-08T01:51:07Z",
+      "side": 1,
+      "message": "i get this is bordering treason, but I\u0027m not familiar enough with the component system/devtools ui so I was scared to modify at the source.",
+      "revId": "5d2eb5d406b9ed2595a3708867ffe434e3e6384d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
