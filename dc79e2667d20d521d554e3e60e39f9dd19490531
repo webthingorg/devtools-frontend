@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "dc79e2667d20d521d554e3e60e39f9dd19490531",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d759f93_7cd9f406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-08T09:48:20Z",
+      "side": 1,
+      "message": "Have you considered adding a test?",
+      "revId": "dc79e2667d20d521d554e3e60e39f9dd19490531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11a592ae_8861a517",
+        "filename": "front_end/panels/network/BlockedURLsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-08T09:48:20Z",
+      "side": 1,
+      "message": "Please extract this into a variable for better readability",
+      "range": {
+        "startLine": 229,
+        "startChar": 9,
+        "endLine": 229,
+        "endChar": 66
+      },
+      "revId": "dc79e2667d20d521d554e3e60e39f9dd19490531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12fc753e_e846cbf7",
+        "filename": "front_end/panels/network/BlockedURLsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-08T09:48:20Z",
+      "side": 1,
+      "message": "When is this event handler removed?",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 28
+      },
+      "revId": "dc79e2667d20d521d554e3e60e39f9dd19490531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
