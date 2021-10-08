@@ -17,6 +17,7 @@ declare global {
 export const enum Variant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
+  TOOLBAR = 'toolbar',
 }
 
 export const enum Size {
@@ -94,9 +95,18 @@ export class Button extends HTMLElement {
     if (!this.props.variant) {
       throw new Error('Button requires a variant to be defined');
     }
+    if (this.props.variant === Variant.TOOLBAR) {
+      if (!this.props.iconUrl) {
+        throw new Error('Toolbar button requires an icon');
+      }
+      if (!this.isEmpty) {
+        throw new Error('Tooblar button does not accept children');
+      }
+    }
     const classes = {
       primary: this.props.variant === Variant.PRIMARY,
       secondary: this.props.variant === Variant.SECONDARY,
+      toolbar: this.props.variant === Variant.TOOLBAR,
       'text-with-icon': Boolean(this.props.iconUrl) && !this.isEmpty,
       'only-icon': Boolean(this.props.iconUrl) && this.isEmpty,
       small: Boolean(this.props.size === Size.SMALL),
