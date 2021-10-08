@@ -2330,41 +2330,374 @@
   "panels/application/AppManifestView.ts | theSpecifiedApplicationPlatform": {
     "message": "The specified application platform is not supported on Android"
   },
-  "panels/application/BackForwardCacheView.ts | backForwardCacheTitle": {
+  "panels/application/BackForwardCacheStrings.ts | appBanner": {
+    "message": "AppBanner"
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheDisabled": {
+    "message": "Back/forward cache is disabled by flags. Visit chrome://flags/#back-forward-cache to enable it locally on this device."
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheDisabledByCommandLine": {
+    "message": "Back/forward cache is disabled by the command line."
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheDisabledByLowMemory": {
+    "message": "Back/forward cache is disabled due to insufficient memory."
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheDisabledForDelegate": {
+    "message": "Back/forward cache is not supported by delegate."
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheDisabledForPrerender": {
+    "message": "Back/forward cache is disabled for prerenderer."
+  },
+  "panels/application/BackForwardCacheStrings.ts | backForwardCacheTitle": {
     "message": "Back-forward Cache"
   },
-  "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
+  "panels/application/BackForwardCacheStrings.ts | bfcacheStatus": {
     "message": "Back-forward Cache Status"
   },
-  "panels/application/BackForwardCacheView.ts | circumstantial": {
+  "panels/application/BackForwardCacheStrings.ts | broadcastChannel": {
+    "message": "BroadcastChannel"
+  },
+  "panels/application/BackForwardCacheStrings.ts | cacheControlNoStore": {
+    "message": "Pages with cache-control:no-store header cannot enter back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | cacheFlushed": {
+    "message": "The cache was intentionally cleared."
+  },
+  "panels/application/BackForwardCacheStrings.ts | cacheLimit": {
+    "message": "The page was evicted from the cache to allow another page to be cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | circumstantial": {
     "message": "Not Actionable"
   },
-  "panels/application/BackForwardCacheView.ts | lastMainFrameNavigation": {
+  "panels/application/BackForwardCacheStrings.ts | containsPlugins": {
+    "message": "ContainsPlugins"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentFileChooser": {
+    "message": "ContentFileChooser"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentFileSystemAccess": {
+    "message": "ContentFileSystemAccess"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentMediaDevicesDispatcherHost": {
+    "message": "ContentMediaDevicesDispatcherHost"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentMediaPlay": {
+    "message": "ContentMediaPlay"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentMediaSession": {
+    "message": "ContentMediaSession"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentMediaSessionService": {
+    "message": "ContentMediaSessionService"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentSecurityHandler": {
+    "message": "ContentSecurityHandler"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentSerial": {
+    "message": "ContentSerial"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
+    "message": "ContentWebAuthenticationAPI"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentWebBluetooth": {
+    "message": "ContentWebBluetooth"
+  },
+  "panels/application/BackForwardCacheStrings.ts | contentWebUSB": {
+    "message": "ContentWebUSB"
+  },
+  "panels/application/BackForwardCacheStrings.ts | dedicatedWorkerOrWorklet": {
+    "message": "DedicatedWorkerOrWorklet"
+  },
+  "panels/application/BackForwardCacheStrings.ts | documentLoaded": {
+    "message": "DocumentLoaded"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderAppBannerManager": {
+    "message": "EmbedderAppBannerManager"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderChromePasswordManagerClientBindCredentialManager": {
+    "message": "EmbedderChromePasswordManagerClientBindCredentialManager"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderDomDistillerSelfDeletingRequestDelegate": {
+    "message": "EmbedderDomDistillerSelfDeletingRequestDelegate"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderDomDistillerViewerSource": {
+    "message": "EmbedderDomDistillerViewerSource"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderExtensionMessaging": {
+    "message": "EmbedderExtensionMessaging"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderExtensionMessagingForOpenPort": {
+    "message": "EmbedderExtensionMessagingForOpenPort"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderExtensions": {
+    "message": "EmbedderExtensions"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderExtensionSentMessageToCachedFrame": {
+    "message": "EmbedderExtensionSentMessageToCachedFrame"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderModalDialog": {
+    "message": "EmbedderModalDialog"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderOfflinePage": {
+    "message": "EmbedderOfflinePage"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderOomInterventionTabHelper": {
+    "message": "EmbedderOomInterventionTabHelper"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderPermissionRequestManager": {
+    "message": "EmbedderPermissionRequestManager"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderPopupBlockerTabHelper": {
+    "message": "EmbedderPopupBlockerTabHelper"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderSafeBrowsingThreatDetails": {
+    "message": "EmbedderSafeBrowsingThreatDetails"
+  },
+  "panels/application/BackForwardCacheStrings.ts | embedderSafeBrowsingTriggeredPopupBlocker": {
+    "message": "EmbedderSafeBrowsingTriggeredPopupBlocker"
+  },
+  "panels/application/BackForwardCacheStrings.ts | enteredBackForwardCacheBeforeServiceWorkerHostAdded": {
+    "message": "A service worker was activated while the page was in back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | foregroundCacheLimit": {
+    "message": "The page was evicted from the cache to allow another page to be cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | grantedMediaStreamAccess": {
+    "message": "Pages that have granted media stream access are not currently eligible for back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | haveInnerContents": {
+    "message": "Pages that use portals are not currently eligible for back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | HTTPMethodNotGET": {
+    "message": "Only pages loaded via a GET request are eligible for back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | HTTPStatusNotOK": {
+    "message": "Only pages with a status code of 2XX can be cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | idleManager": {
+    "message": "IdleManager"
+  },
+  "panels/application/BackForwardCacheStrings.ts | indexedDBConnection": {
+    "message": "IndexedDBConnection"
+  },
+  "panels/application/BackForwardCacheStrings.ts | ineligibleAPI": {
+    "message": "Ineligible APIs were used."
+  },
+  "panels/application/BackForwardCacheStrings.ts | injectedJavascript": {
+    "message": "InjectedJavascript"
+  },
+  "panels/application/BackForwardCacheStrings.ts | injectedStyleSheet": {
+    "message": "InjectedStyleSheet"
+  },
+  "panels/application/BackForwardCacheStrings.ts | internalError": {
+    "message": "Internal error."
+  },
+  "panels/application/BackForwardCacheStrings.ts | JavaScriptExecution": {
+    "message": "Chrome detected an attempt to execute JavaScript while in the cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | keyboardLock": {
+    "message": "KeyboardLock"
+  },
+  "panels/application/BackForwardCacheStrings.ts | lastMainFrameNavigation": {
     "message": "Last Main Frame Navigation"
   },
-  "panels/application/BackForwardCacheView.ts | mainFrame": {
+  "panels/application/BackForwardCacheStrings.ts | loading": {
+    "message": "The page did not finish loading before navigating away."
+  },
+  "panels/application/BackForwardCacheStrings.ts | mainFrame": {
     "message": "Main Frame"
   },
-  "panels/application/BackForwardCacheView.ts | normalNavigation": {
+  "panels/application/BackForwardCacheStrings.ts | mainResourceHasCacheControlNoCache": {
+    "message": "MainResourceHasCacheControlNoCache"
+  },
+  "panels/application/BackForwardCacheStrings.ts | mainResourceHasCacheControlNoStore": {
+    "message": "MainResourceHasCacheControlNoStore"
+  },
+  "panels/application/BackForwardCacheStrings.ts | navigationCancelledWhileRestoring": {
+    "message": "Navigation was cancelled before the page could be restored from back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | networkExceedsBufferLimit": {
+    "message": "The page was evicted from the cache because an active network connection received too much data. Chrome limits the amount of data that a page may receive while cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | networkRequestDatapipeDrainedAsBytesConsumer": {
+    "message": "Pages that have inflight fetch() or XHR are not currently eligible for back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | networkRequestRedirected": {
+    "message": "The page was evicted from back/forward cache because an active network request involved a redirect."
+  },
+  "panels/application/BackForwardCacheStrings.ts | networkRequestTimeout": {
+    "message": "The page was evicted from the cache because a network connection was open too long. Chrome limits the amount of time that a page may receive data while cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | noResponseHead": {
+    "message": "Pages that do not have a valid response head cannot enter back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | normalNavigation": {
     "message": "Normal navigation (Not restored from back-forward cache)"
   },
-  "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
+  "panels/application/BackForwardCacheStrings.ts | notMainFrame": {
+    "message": "Navigation happened in a frame other than the main frame."
+  },
+  "panels/application/BackForwardCacheStrings.ts | optInUnloadHeaderNotPresent": {
+    "message": "The page has unload handler without the back/forward cache opt-in header."
+  },
+  "panels/application/BackForwardCacheStrings.ts | outstandingIndexedDBTransaction": {
+    "message": "OutstandingIndexedDBTransaction"
+  },
+  "panels/application/BackForwardCacheStrings.ts | outstandingNetworkRequestDirectSocket": {
+    "message": "OutstandingNetworkRequestDirectSocket"
+  },
+  "panels/application/BackForwardCacheStrings.ts | outstandingNetworkRequestFetch": {
+    "message": "OutstandingNetworkRequestFetch"
+  },
+  "panels/application/BackForwardCacheStrings.ts | outstandingNetworkRequestOthers": {
+    "message": "OutstandingNetworkRequestOthers"
+  },
+  "panels/application/BackForwardCacheStrings.ts | outstandingNetworkRequestXHR": {
+    "message": "OutstandingNetworkRequestXHR"
+  },
+  "panels/application/BackForwardCacheStrings.ts | pageSupportNeeded": {
     "message": "Actionable"
   },
-  "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
+  "panels/application/BackForwardCacheStrings.ts | paymentManager": {
+    "message": "PaymentManager"
+  },
+  "panels/application/BackForwardCacheStrings.ts | pictureInPicture": {
+    "message": "PictureInPicture"
+  },
+  "panels/application/BackForwardCacheStrings.ts | portal": {
+    "message": "Portal"
+  },
+  "panels/application/BackForwardCacheStrings.ts | printing": {
+    "message": "Printing"
+  },
+  "panels/application/BackForwardCacheStrings.ts | relatedActiveContentsExist": {
+    "message": "The page was opened using window.open() and another tab has a reference to it, or the page opened a window."
+  },
+  "panels/application/BackForwardCacheStrings.ts | rendererProcessCrashed": {
+    "message": "The renderer process for the page in back/forward cache crashed."
+  },
+  "panels/application/BackForwardCacheStrings.ts | rendererProcessKilled": {
+    "message": "The renderer process for the page in back/forward cache was killed."
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedAudioCapturePermission": {
+    "message": "RequestedAudioCapturePermission"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedBackForwardCacheBlockedSensors": {
+    "message": "RequestedBackForwardCacheBlockedSensors"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedBackgroundWorkPermission": {
+    "message": "RequestedBackgroundWorkPermission"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedMIDIPermission": {
+    "message": "RequestedMIDIPermission"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedNotificationsPermission": {
+    "message": "RequestedNotificationsPermission"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedStorageAccessGrant": {
+    "message": "RequestedStorageAccessGrant"
+  },
+  "panels/application/BackForwardCacheStrings.ts | requestedVideoCapturePermission": {
+    "message": "RequestedVideoCapturePermission"
+  },
+  "panels/application/BackForwardCacheStrings.ts | restoredFromBFCache": {
     "message": "Restored from back-forward cache"
   },
-  "panels/application/BackForwardCacheView.ts | supportPending": {
+  "panels/application/BackForwardCacheStrings.ts | schemeNotHTTPOrHTTPS": {
+    "message": "Only pages whose URL scheme is HTTP / HTTPS can be cached."
+  },
+  "panels/application/BackForwardCacheStrings.ts | serviceWorkerClaim": {
+    "message": "The page was claimed by a service worker while it is in back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | serviceWorkerPostMessage": {
+    "message": "A service worker attempted to send the page in back/forward cache a MessageEvent."
+  },
+  "panels/application/BackForwardCacheStrings.ts | serviceWorkerUnregistration": {
+    "message": "ServiceWorker was unregistered while a page was in back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | serviceWorkerVersionActivation": {
+    "message": "The page was evicted from back/forward cache due to a service worker activation."
+  },
+  "panels/application/BackForwardCacheStrings.ts | sessionRestored": {
+    "message": "Chrome restarted and cleared the back/forward cache entries."
+  },
+  "panels/application/BackForwardCacheStrings.ts | sharedWorker": {
+    "message": "SharedWorker"
+  },
+  "panels/application/BackForwardCacheStrings.ts | speechRecognizer": {
+    "message": "SpeechRecognizer"
+  },
+  "panels/application/BackForwardCacheStrings.ts | speechSynthesis": {
+    "message": "SpeechSynthesis"
+  },
+  "panels/application/BackForwardCacheStrings.ts | subframeIsNavigating": {
+    "message": "An iframe on the page started a navigation that did not complete."
+  },
+  "panels/application/BackForwardCacheStrings.ts | subresourceHasCacheControlNoCache": {
+    "message": "SubresourceHasCacheControlNoCache"
+  },
+  "panels/application/BackForwardCacheStrings.ts | subresourceHasCacheControlNoStore": {
+    "message": "SubresourceHasCacheControlNoStore"
+  },
+  "panels/application/BackForwardCacheStrings.ts | supportPending": {
     "message": "Pending Support"
   },
-  "panels/application/BackForwardCacheView.ts | unavailable": {
+  "panels/application/BackForwardCacheStrings.ts | timeout": {
+    "message": "The page exceeded the maximum time in back/forward cache and was expired."
+  },
+  "panels/application/BackForwardCacheStrings.ts | timeoutPuttingInCache": {
+    "message": "The page timed out entering back/forward cache (likely due to long-running pagehide handlers)."
+  },
+  "panels/application/BackForwardCacheStrings.ts | unavailable": {
     "message": "unavailable"
   },
-  "panels/application/BackForwardCacheView.ts | unknown": {
+  "panels/application/BackForwardCacheStrings.ts | unknown": {
     "message": "unknown"
   },
-  "panels/application/BackForwardCacheView.ts | url": {
+  "panels/application/BackForwardCacheStrings.ts | unloadHandlerExistsInMainFrame": {
+    "message": "The page has an unload handler in the main frame."
+  },
+  "panels/application/BackForwardCacheStrings.ts | unloadHandlerExistsInSubFrame": {
+    "message": "The page has an unload handler in a sub frame."
+  },
+  "panels/application/BackForwardCacheStrings.ts | url": {
     "message": "URL"
+  },
+  "panels/application/BackForwardCacheStrings.ts | userAgentOverrideDiffers": {
+    "message": "Browser has changed the user agent override header."
+  },
+  "panels/application/BackForwardCacheStrings.ts | wasGrantedMediaAccess": {
+    "message": "Pages that have granted access to record video or audio are not currently eligible for back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | webDatabase": {
+    "message": "WebDatabase"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webHID": {
+    "message": "WebHID"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webLocks": {
+    "message": "WebLocks"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webNfc": {
+    "message": "WebNfc"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webOTPService": {
+    "message": "WebOTPService"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webRTC": {
+    "message": "Pages with WebRTC cannot enter back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | webShare": {
+    "message": "WebShare"
+  },
+  "panels/application/BackForwardCacheStrings.ts | webSocket": {
+    "message": "Pages with WebSocket cannot enter back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | webTransport": {
+    "message": "Pages with WebTransport cannot enter back/forward cache."
+  },
+  "panels/application/BackForwardCacheStrings.ts | webXR": {
+    "message": "WebXR"
   },
   "panels/application/BackgroundServiceView.ts | backgroundFetch": {
     "message": "Background Fetch"
