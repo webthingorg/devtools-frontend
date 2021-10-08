@@ -16,6 +16,46 @@
       "message": "PTAL. Peter/Marian please check the implementation if that is according to the plan (I think I got different versions of this in different features over time vs the design system). Jack, please also suggest tests and/or how to name this variant. ",
       "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06ff815e_f7c9d4d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-08T09:48:27Z",
+      "side": 1,
+      "message": "Code LGTM with nit. Not sure RE testing; really this might be where we\u0027d like to have some screenshot tests but we aren\u0027t quite there yet.\n\nIf Peter and/or Marian are happy this LGTM to land",
+      "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab1a61a_33af140a",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-08T09:48:27Z",
+      "side": 1,
+      "message": "can we define the types so that this is impossible?\n\ne.g.\n\n{ variant: TOOLBAR; iconUrl: string } | { variant: PRIMARY|SECONDARY; iconUrl?: string\n}\n\n(I know that\u0027s not valid TS but you hopefully get the point!)",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 7
+      },
+      "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
