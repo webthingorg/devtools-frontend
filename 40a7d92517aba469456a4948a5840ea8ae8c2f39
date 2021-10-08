@@ -16,6 +16,24 @@
       "message": "Marking as -1 since additional issues popped up that need addressing before this can land, and I won’t get to it soon.",
       "revId": "40a7d92517aba469456a4948a5840ea8ae8c2f39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62dc8d27_39ba4af7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-08T11:58:09Z",
+      "side": 1,
+      "message": "SGTM. Removing myself as reviewer for now to clean up my queue. Let me know when this is ready for review again!",
+      "parentUuid": "51c96ab4_62530106",
+      "revId": "40a7d92517aba469456a4948a5840ea8ae8c2f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
