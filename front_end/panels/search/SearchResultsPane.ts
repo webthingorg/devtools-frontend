@@ -36,6 +36,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SearchResultsPane extends UI.Widget.VBox {
   private readonly searchConfig: SearchConfig;
   private readonly searchResults: SearchResult[];
+  private readonly treeElements: SearchResultsTreeElement[];
   private treeOutline: UI.TreeOutline.TreeOutlineInShadow;
   private matchesExpandedCount: number;
 
@@ -44,6 +45,7 @@ export class SearchResultsPane extends UI.Widget.VBox {
     this.searchConfig = searchConfig;
 
     this.searchResults = [];
+    this.treeElements = [];
     this.treeOutline = new UI.TreeOutline.TreeOutlineInShadow();
     this.treeOutline.hideOverflow();
 
@@ -57,6 +59,18 @@ export class SearchResultsPane extends UI.Widget.VBox {
     this.addTreeElement(searchResult);
   }
 
+  expandAllResults(): void {
+    this.treeElements.forEach(treeElement => {
+      treeElement.expand();
+    });
+  }
+
+  collapseAllResults(): void {
+    this.treeElements.forEach(treeElement => {
+      treeElement.collapse();
+    });
+  }
+
   private addTreeElement(searchResult: SearchResult): void {
     const treeElement = new SearchResultsTreeElement(this.searchConfig, searchResult);
     this.treeOutline.appendChild(treeElement);
@@ -68,6 +82,7 @@ export class SearchResultsPane extends UI.Widget.VBox {
       treeElement.expand();
     }
     this.matchesExpandedCount += searchResult.matchesCount();
+    this.treeElements.push(treeElement);
   }
   wasShown(): void {
     super.wasShown();

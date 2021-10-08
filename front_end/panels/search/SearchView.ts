@@ -127,6 +127,9 @@ export class SearchView extends UI.Widget.VBox {
     this.visiblePane = null;
 
     this.contentElement.classList.add('search-view');
+    this.contentElement.addEventListener('keydown', event => {
+      this.onKeyDownOnPanel((event as KeyboardEvent));
+    });
 
     this.searchPanelElement = this.contentElement.createChild('div', 'search-drawer-header');
     this.searchResultsElement = this.contentElement.createChild('div');
@@ -425,6 +428,15 @@ export class SearchView extends UI.Widget.VBox {
       case UI.KeyboardShortcut.Keys.Enter.code:
         this.onAction();
         break;
+    }
+  }
+
+  private onKeyDownOnPanel(event: KeyboardEvent): void {
+    const hasCtrlOrMeta = UI.KeyboardShortcut.KeyboardShortcut.eventHasEitherCtrlOrMeta(event);
+    if (hasCtrlOrMeta && event.shiftKey && event.key === '}') {
+      this.searchResultsPane?.expandAllResults();
+    } else if (hasCtrlOrMeta && event.shiftKey && event.key === '{') {
+      this.searchResultsPane?.collapseAllResults();
     }
   }
 
