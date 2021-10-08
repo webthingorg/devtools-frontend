@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a33fbff7_ee264de9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-10-08T01:49:17Z",
+      "side": 1,
+      "message": "to repro, just dock CDT, make it narrow, and increase the font a bit. you won\u0027t be able to lose the clear button now",
+      "revId": "5d2eb5d406b9ed2595a3708867ffe434e3e6384d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
