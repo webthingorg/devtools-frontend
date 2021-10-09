@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc72b08c_c984c92a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-10-09T19:27:02Z",
+      "side": 1,
+      "message": "+Jack as an owner of SearchView.ts to review\n\nHey, Jack. PTAL when you can, thanks!",
+      "revId": "f2f63a1a985bfe8f4e8a4da65b4ab9b57694bb62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
