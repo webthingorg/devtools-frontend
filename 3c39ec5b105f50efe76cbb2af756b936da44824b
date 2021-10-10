@@ -123,6 +123,24 @@
       "parentUuid": "f5435825_6be52caa",
       "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d57e34c_ddcc62cf",
+        "filename": "front_end/ui/legacy/ARIAUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-10-10T06:37:19Z",
+      "side": 1,
+      "message": "Ah okay. The two alert element approach looks good to me too. Thank you!",
+      "parentUuid": "718683e8_6d5913e2",
+      "revId": "3c39ec5b105f50efe76cbb2af756b936da44824b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
