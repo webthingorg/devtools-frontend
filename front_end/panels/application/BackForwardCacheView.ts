@@ -10,6 +10,8 @@ import * as ReportView from '../../ui/components/report_view/report_view.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Protocol from '../../generated/protocol.js';
 
+import {NotRestoredReasonDescription} from './BackForwardCacheStrings.js';
+
 const UIStrings = {
   /**
    * @description Title text in Back-forward Cache view of the Application panel
@@ -152,25 +154,34 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return LitHtml.html`
-      ${this.renderExplanations(UIStrings.pageSupportNeeded, pageSupportNeeded)}
-      ${this.renderExplanations(UIStrings.supportPending, supportPending)}
-      ${this.renderExplanations(UIStrings.circumstantial, circumstantial)}
+      ${this.renderExplanations(i18nString(UIStrings.pageSupportNeeded), pageSupportNeeded)}
+      ${this.renderExplanations(i18nString(UIStrings.supportPending), supportPending)}
+      ${this.renderExplanations(i18nString(UIStrings.circumstantial), circumstantial)}
     `;
     // clang-format on
   }
 
-  private renderExplanations(description: string, explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
+  private renderExplanations(category: string, explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
       LitHtml.TemplateResult {
     return LitHtml.html`
       ${
-        explanations.length > 0 ?
-            LitHtml.html`
-          <${ReportView.ReportView.ReportKey.litTagName}>${description}</${ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName}>${
-                explanations.map(explanation => LitHtml.html`<div>${explanation.reason}</div>`)}</${
-                ReportView.ReportView.ReportValue.litTagName}>
+        explanations.length > 0 ? LitHtml.html`
+          <${ReportView.ReportView.ReportKey.litTagName}>${category}</${ReportView.ReportView.ReportKey.litTagName}>
+          <${ReportView.ReportView.ReportValue.litTagName}>
+          <ul style="margin: 0; list-style-type: none; padding-inline-start: 0;">${
+                                      explanations.map(explanation => this.renderReason(explanation))}</ul>
+          </${ReportView.ReportView.ReportValue.litTagName}>
         ` :
-            LitHtml.nothing}
+                                  LitHtml.nothing}
+    `;
+  }
+
+  private renderReason(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <li>${explanation.reason} : ${
+        (explanation.reason in NotRestoredReasonDescription) ?
+            LitHtml.html`${NotRestoredReasonDescription[explanation.reason].name()}` :
+            LitHtml.nothing} </li>
     `;
   }
 }
