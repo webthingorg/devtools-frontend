@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04897a13_79fdb043",
+        "filename": "front_end/panels/application/BackForwardCacheStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-11T08:17:44Z",
+      "side": 1,
+      "message": "Do you plan on adding other attributes besides `name` in the future? If not, you could just drop it and do `\u0027mainFrame\u0027:i18nLazyString(UIStrings.mainFrame)`",
+      "parentUuid": "dd0e3a23_3032d4bd",
+      "range": {
+        "startLine": 523,
+        "startChar": 16,
+        "endLine": 523,
+        "endChar": 20
+      },
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e082cfc6_e811e3ad",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 3
@@ -89,6 +113,30 @@
       "writtenOn": "2021-10-08T09:52:32Z",
       "side": 1,
       "message": "@Wolfgang\nI\u0027m having a presubmit error for a trailing white space, but I would like to insert a white space. Is that okay?",
+      "range": {
+        "startLine": 121,
+        "startChar": 33,
+        "endLine": 121,
+        "endChar": 34
+      },
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f5a6e4c_5455f33f",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-11T08:17:44Z",
+      "side": 1,
+      "message": "I\u0027d remove the space before the colon and pull up the next line to avoid the trailing whitespace: `\u003cli\u003e${explanation.reason}: ${`",
+      "parentUuid": "e082cfc6_e811e3ad",
       "range": {
         "startLine": 121,
         "startChar": 33,

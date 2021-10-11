@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "043548bf_4a2ce436",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-11T08:17:44Z",
+      "side": 1,
+      "message": "What do you think of just moving the NotRestoredReasonDescription into a separate file and keeping the other strings in this file? Basically only having this 1 huge enum translated elsewhere and keeping the UI strings close to the UI code?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 101
+      },
+      "revId": "e399c7fd866ef843b7176566225b172a972379a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7381bd1_1b8675af",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-11T08:17:44Z",
+      "side": 1,
+      "message": "Semantically the unordered list makes total sense, but I think you should add some CSS rules to keep the style the way it currently is. Something along the lines of\nmargin: 0;\nlist-style-type: none;\npadding-inline-start: 0;\nmight work.",
+      "range": {
+        "startLine": 111,
+        "startChar": 59,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "e399c7fd866ef843b7176566225b172a972379a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
