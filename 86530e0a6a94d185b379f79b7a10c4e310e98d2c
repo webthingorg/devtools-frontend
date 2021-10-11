@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f1b3ed_ad645910",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-11T03:20:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f393833_6fd46527",
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd0e3a23_3032d4bd",
