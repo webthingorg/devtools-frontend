@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ef28b1_5b7a08f4",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-11T10:37:16Z",
+      "side": 1,
+      "message": "Sounds better! Done.",
+      "parentUuid": "043548bf_4a2ce436",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 101
+      },
+      "revId": "e399c7fd866ef843b7176566225b172a972379a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7381bd1_1b8675af",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-11T08:17:44Z",
       "side": 1,
       "message": "Semantically the unordered list makes total sense, but I think you should add some CSS rules to keep the style the way it currently is. Something along the lines of\nmargin: 0;\nlist-style-type: none;\npadding-inline-start: 0;\nmight work.",
+      "range": {
+        "startLine": 111,
+        "startChar": 59,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "e399c7fd866ef843b7176566225b172a972379a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fcd49d1_037ff360",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-11T10:37:16Z",
+      "side": 1,
+      "message": "Added the styling directly into the LitHtml code. Please lemme know if there\u0027s a better way of adding CSS!",
+      "parentUuid": "e7381bd1_1b8675af",
       "range": {
         "startLine": 111,
         "startChar": 59,
