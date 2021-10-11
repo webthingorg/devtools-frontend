@@ -16,6 +16,23 @@
       "message": "+Jack as an owner of SearchView.ts to review\n\nHey, Jack. PTAL when you can, thanks!",
       "revId": "f2f63a1a985bfe8f4e8a4da65b4ab9b57694bb62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "412a4823_92e2ec86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-11T11:21:35Z",
+      "side": 1,
+      "message": "LGTM; wouldn\u0027t mind a comment in the code with some context as to why we have to do this (basically taking it from the comments on this CL). Thanks!",
+      "revId": "f2f63a1a985bfe8f4e8a4da65b4ab9b57694bb62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
