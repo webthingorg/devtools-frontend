@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "7f941af8852c12c913899abde32edcb52f28e034",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d322f6f_620bce06",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-11T14:31:34Z",
+      "side": 1,
+      "message": "nit: let\u0027s give some more meaningful names to the bounding boxes? e.g., `elementBox`, \u0027containerBox\u0027",
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e37585_33e3ca51",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-11T14:31:34Z",
+      "side": 1,
+      "message": "unrelated: it looks like this input has no ARIA name and it\u0027s like not accessible for keyboard users. No need to address in this CL but perhaps we can file an issue for the future or fix it in a follow-up.",
+      "range": {
+        "startLine": 41,
+        "startChar": 39,
+        "endLine": 41,
+        "endChar": 72
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d40483_30b14739",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-11T14:31:34Z",
+      "side": 1,
+      "message": "nit: curious if we can introduce waitForAriaNone",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48927fdf_f2c628de",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-11T14:31:34Z",
+      "side": 1,
+      "message": "should we fail if there is no .list?",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 14
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
