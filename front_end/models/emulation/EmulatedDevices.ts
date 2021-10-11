@@ -1011,7 +1011,7 @@ const emulatedDevices = [
   },
   {
     'order': 20,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Pixel 2',
     'screen': {
       'horizontal': {'width': 731, 'height': 411},
@@ -1027,7 +1027,7 @@ const emulatedDevices = [
   },
   {
     'order': 21,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Pixel 2 XL',
     'screen': {
       'horizontal': {'width': 823, 'height': 411},
@@ -1057,7 +1057,7 @@ const emulatedDevices = [
     'type': 'phone',
   },
   {
-    'show-by-default': false,
+    'show-by-default': true,
     'title': 'Pixel 4',
     'screen': {
       'horizontal': {'width': 745, 'height': 353},
