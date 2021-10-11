@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ac1f94_a6bf8134",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-11T15:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d322f6f_620bce06",
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6e37585_33e3ca51",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-10-11T14:31:34Z",
       "side": 1,
       "message": "unrelated: it looks like this input has no ARIA name and it\u0027s like not accessible for keyboard users. No need to address in this CL but perhaps we can file an issue for the future or fix it in a follow-up.",
+      "range": {
+        "startLine": 41,
+        "startChar": 39,
+        "endLine": 41,
+        "endChar": 72
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf2f014_219135a6",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-11T15:29:57Z",
+      "side": 1,
+      "message": "Will file a bug",
+      "parentUuid": "a6e37585_33e3ca51",
       "range": {
         "startLine": 41,
         "startChar": 39,
@@ -81,6 +123,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "708cb3a0_6fcc125d",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-11T15:29:57Z",
+      "side": 1,
+      "message": "Hope I did it correctly:)",
+      "parentUuid": "81d40483_30b14739",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3495a94_7ada5a00",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-11T15:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d40483_30b14739",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48927fdf_f2c628de",
@@ -94,6 +184,30 @@
       "writtenOn": "2021-10-11T14:31:34Z",
       "side": 1,
       "message": "should we fail if there is no .list?",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 14
+      },
+      "revId": "7f941af8852c12c913899abde32edcb52f28e034",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7218e176_f3ba10fc",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-11T15:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48927fdf_f2c628de",
       "range": {
         "startLine": 66,
         "startChar": 8,
