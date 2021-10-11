@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ab9308e_69329057",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-11T07:21:38Z",
+      "side": 1,
+      "message": "Chosen shortcuts SGTM (thanks for the investivation)!",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f743ede2_fdab4825",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-11T07:21:38Z",
+      "side": 1,
+      "message": "Very much appreciate this. I\u0027m all for consistency and reducing surprises.",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e87684_7e5bbe9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-11T07:21:38Z",
+      "side": 1,
+      "message": "Please reach out to jec@ to add them to https://developer.chrome.com/docs/devtools/shortcuts/ once the CL hits Chrome.",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fef2fa8_0b11601b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-11T07:21:38Z",
+      "side": 1,
+      "message": "Yes. I think the point is to be able to see everything, and from the user\u0027s perspective that is IMHO that all occurrences are visible afterwards",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27bde2c_cfc7d2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-11T07:21:38Z",
+      "side": 1,
+      "message": "Thanks a lot for the CL. I left comments on the questions in the commit message. Please address the comments and update the commit message to remove the questions and discussion from it.\n\nGenerally, we use Gerrit comments for discussion and questions, rather than the commit message 😊",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
