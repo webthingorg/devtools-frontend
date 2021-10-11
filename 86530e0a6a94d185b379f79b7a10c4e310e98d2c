@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f393833_6fd46527",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2021-10-11T01:22:48Z",
+      "side": 1,
+      "message": "Don\u0027t we have a sentence for this one?",
+      "revId": "86530e0a6a94d185b379f79b7a10c4e310e98d2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd0e3a23_3032d4bd",
         "filename": "front_end/panels/application/BackForwardCacheStrings.ts",
         "patchSetId": 3
