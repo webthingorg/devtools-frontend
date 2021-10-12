@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "194c2244_4399c131",
+        "filename": "front_end/core/platform/DevToolsPath.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-12T08:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b89c97_7be03eb0",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "85528d9ce225d3febff0d5cde5b6254ff1099472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27fbc6eb_68ea80c7",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "079f11e2_e8d9f07e",
+        "filename": "test/unittests/front_end/core/platform/DevToolsPath_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-12T08:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27fbc6eb_68ea80c7",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "85528d9ce225d3febff0d5cde5b6254ff1099472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c29ac81_ad2f3529",
@@ -60,6 +108,24 @@
       "writtenOn": "2021-10-07T05:30:21Z",
       "side": 1,
       "message": "Please also add positive test cases for all 3. That is, pass a urlString to fnExpectingUrlString :)",
+      "revId": "85528d9ce225d3febff0d5cde5b6254ff1099472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44b6a74b_55ef65a6",
+        "filename": "test/unittests/front_end/core/platform/DevToolsPath_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-12T08:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c29ac81_ad2f3529",
       "revId": "85528d9ce225d3febff0d5cde5b6254ff1099472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
