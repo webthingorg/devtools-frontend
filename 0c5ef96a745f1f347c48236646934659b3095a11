@@ -33,6 +33,23 @@
       "message": "LGTM, it is weird to resolve one issue by regressing another one, but since the change is temporary and we are getting a new grid component it sounds like an OK compromise. ",
       "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d71ca6_61371335",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-10-12T18:00:21Z",
+      "side": 1,
+      "message": "+Jan as owner to review\n\nPTAL when you have time and let me know if you have any questions about the context of the fix.",
+      "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
