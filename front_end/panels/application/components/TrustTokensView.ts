@@ -15,7 +15,7 @@ import type * as Protocol from '../../../generated/protocol.js';
 
 const UIStrings = {
   /**
-  *@description Text for the issuer of an item
+  *@description Text for the #issuer of an item
   */
   issuer: 'Issuer',
   /**
@@ -48,22 +48,22 @@ interface TrustTokensDeleteButtonData {
 
 class TrustTokensDeleteButton extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-trust-tokens-delete-button`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private issuer: DataGrid.DataGridUtils.CellValue|null = null;
-  private deleteClickHandler: (issuerOrigin: string) => void = () => {};
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #issuer: DataGrid.DataGridUtils.CellValue|null = null;
+  #deleteClickHandler: (issuerOrigin: string) => void = () => {};
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [trustTokensViewDeleteButtonStyles];
+    this.#shadow.adoptedStyleSheets = [trustTokensViewDeleteButtonStyles];
   }
 
   set data(data: TrustTokensDeleteButtonData) {
-    this.issuer = data.issuer;
-    this.deleteClickHandler = data.deleteClickHandler;
+    this.#issuer = data.issuer;
+    this.#deleteClickHandler = data.deleteClickHandler;
     this.render();
   }
 
   private render(): void {
-    if (!this.issuer) {
+    if (!this.#issuer) {
       return;
     }
     // clang-format off
@@ -71,14 +71,14 @@ class TrustTokensDeleteButton extends HTMLElement {
       <!-- Wrap the button in a container, otherwise we can't center it inside the column. -->
       <span class="button-container">
         <button class="delete-button"
-          title=${i18nString(UIStrings.deleteTrustTokens, {PH1: this.issuer as string})}
-          @click=${(): void => this.deleteClickHandler(this.issuer as string)}>
+          title=${i18nString(UIStrings.deleteTrustTokens, {PH1: this.#issuer as string})}
+          @click=${(): void => this.#deleteClickHandler(this.#issuer as string)}>
           <${IconButton.Icon.Icon.litTagName} .data=${
         {iconName: 'trash_bin_icon', color: 'var(--color-text-secondary)', width: '9px', height: '14px'} as
         IconButton.Icon.IconWithName}>
           </${IconButton.Icon.Icon.litTagName}>
         </button>
-      </span>`, this.shadow, {host: this});
+      </span>`, this.#shadow, {host: this});
     // clang-format on
   }
 }
@@ -90,18 +90,18 @@ export interface TrustTokensViewData {
 
 export class TrustTokensView extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-trust-tokens-storage-view`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private tokens: Protocol.Storage.TrustTokens[] = [];
-  private deleteClickHandler: (issuerOrigin: string) => void = () => {};
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #tokens: Protocol.Storage.TrustTokens[] = [];
+  #deleteClickHandler: (issuerOrigin: string) => void = () => {};
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [trustTokensViewStyles];
+    this.#shadow.adoptedStyleSheets = [trustTokensViewStyles];
     this.render();
   }
 
   set data(data: TrustTokensViewData) {
-    this.tokens = data.tokens;
-    this.deleteClickHandler = data.deleteClickHandler;
+    this.#tokens = data.tokens;
+    this.#deleteClickHandler = data.deleteClickHandler;
     this.render();
   }
 
@@ -118,12 +118,12 @@ export class TrustTokensView extends HTMLElement {
         </${IconButton.Icon.Icon.litTagName}>
         ${this.renderGridOrNoDataMessage()}
       </div>
-    `, this.shadow, {host: this});
+    `, this.#shadow, {host: this});
     // clang-format on
   }
 
   private renderGridOrNoDataMessage(): LitHtml.TemplateResult {
-    if (this.tokens.length === 0) {
+    if (this.#tokens.length === 0) {
       return LitHtml.html`<div class="no-tt-message">${i18nString(UIStrings.noTrustTokensStored)}</div>`;
     }
 
@@ -169,7 +169,7 @@ export class TrustTokensView extends HTMLElement {
   }
 
   private buildRowsFromTokens(): DataGrid.DataGridUtils.Row[] {
-    const tokens = this.tokens.filter(token => token.count > 0);
+    const tokens = this.#tokens.filter(token => token.count > 0);
     return tokens.map(token => ({
                         cells: [
                           {
@@ -186,7 +186,7 @@ export class TrustTokensView extends HTMLElement {
   private deleteButtonRendererForDataGridCell(issuer: DataGrid.DataGridUtils.CellValue): LitHtml.TemplateResult {
     // clang-format off
     return LitHtml.html`<${TrustTokensDeleteButton.litTagName}
-     .data=${{issuer, deleteClickHandler: this.deleteClickHandler} as TrustTokensDeleteButtonData}
+     .data=${{issuer, deleteClickHandler: this.#deleteClickHandler} as TrustTokensDeleteButtonData}
     ></${TrustTokensDeleteButton.litTagName}>`;
     // clang-format on
   }

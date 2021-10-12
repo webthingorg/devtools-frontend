@@ -33,21 +33,21 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/ApplicationPanelCacheSection.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTreeElement {
-  private swCacheModel: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null;
-  private swCacheTreeElements: Set<SWCacheTreeElement>;
+  #swCacheModel: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null;
+  #swCacheTreeElements: Set<SWCacheTreeElement>;
 
   constructor(resourcesPanel: ResourcesPanel) {
     super(resourcesPanel, i18nString(UIStrings.cacheStorage), 'CacheStorage');
     const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
     this.setLink('https://developer.chrome.com/docs/devtools/storage/cache/?utm_source=devtools');
     this.setLeadingIcons([icon]);
-    this.swCacheModel = null;
-    this.swCacheTreeElements = new Set();
+    this.#swCacheModel = null;
+    this.#swCacheTreeElements = new Set();
   }
 
   initialize(model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel|null): void {
-    this.swCacheTreeElements.clear();
-    this.swCacheModel = model;
+    this.#swCacheTreeElements.clear();
+    this.#swCacheModel = model;
     if (model) {
       for (const cache of model.caches()) {
         this.addCache(model, cache);
@@ -73,8 +73,8 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
   }
 
   private refreshCaches(): void {
-    if (this.swCacheModel) {
-      this.swCacheModel.refreshCacheNames();
+    if (this.#swCacheModel) {
+      this.#swCacheModel.refreshCacheNames();
     }
   }
 
@@ -86,7 +86,7 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
   private addCache(
       model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache): void {
     const swCacheTreeElement = new SWCacheTreeElement(this.resourcesPanel, model, cache);
-    this.swCacheTreeElements.add(swCacheTreeElement);
+    this.#swCacheTreeElements.add(swCacheTreeElement);
     this.appendChild(swCacheTreeElement);
   }
 
@@ -98,14 +98,14 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
     }
 
     this.removeChild(swCacheTreeElement);
-    this.swCacheTreeElements.delete(swCacheTreeElement);
+    this.#swCacheTreeElements.delete(swCacheTreeElement);
     this.setExpandable(this.childCount() > 0);
   }
 
   private cacheTreeElement(
       model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel,
       cache: SDK.ServiceWorkerCacheModel.Cache): SWCacheTreeElement|null {
-    for (const cacheTreeElement of this.swCacheTreeElements) {
+    for (const cacheTreeElement of this.#swCacheTreeElements) {
       if (cacheTreeElement.hasModelAndCache(model, cache)) {
         return cacheTreeElement;
       }
@@ -115,25 +115,25 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
 }
 
 export class SWCacheTreeElement extends ApplicationPanelTreeElement {
-  private readonly model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel;
-  private cache: SDK.ServiceWorkerCacheModel.Cache;
-  private view: ServiceWorkerCacheView|null;
+  readonly #model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel;
+  #cache: SDK.ServiceWorkerCacheModel.Cache;
+  #view: ServiceWorkerCacheView|null;
 
   constructor(
       resourcesPanel: ResourcesPanel, model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel,
       cache: SDK.ServiceWorkerCacheModel.Cache) {
     super(resourcesPanel, cache.cacheName + ' - ' + cache.securityOrigin, false);
-    this.model = model;
-    this.cache = cache;
+    this.#model = model;
+    this.#cache = cache;
     /** @type {?} */
-    this.view = null;
+    this.#view = null;
     const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
     this.setLeadingIcons([icon]);
   }
 
   get itemURL(): string {
     // I don't think this will work at all.
-    return 'cache://' + this.cache.cacheId;
+    return 'cache://' + this.#cache.cacheId;
   }
 
   onattach(): void {
@@ -148,34 +148,34 @@ export class SWCacheTreeElement extends ApplicationPanelTreeElement {
   }
 
   private clearCache(): void {
-    this.model.deleteCache(this.cache);
+    this.#model.deleteCache(this.#cache);
   }
 
   update(cache: SDK.ServiceWorkerCacheModel.Cache): void {
-    this.cache = cache;
-    if (this.view) {
-      this.view.update(cache);
+    this.#cache = cache;
+    if (this.#view) {
+      this.#view.update(cache);
     }
   }
 
   onselect(selectedByUser: boolean|undefined): boolean {
     super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new ServiceWorkerCacheView(this.model, this.cache);
+    if (!this.#view) {
+      this.#view = new ServiceWorkerCacheView(this.#model, this.#cache);
     }
 
-    this.showView(this.view);
+    this.showView(this.#view);
     return false;
   }
 
   hasModelAndCache(
       model: SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, cache: SDK.ServiceWorkerCacheModel.Cache): boolean {
-    return this.cache.equals(cache) && this.model === model;
+    return this.#cache.equals(cache) && this.#model === model;
   }
 }
 
 export class BackForwardCacheTreeElement extends ApplicationPanelTreeElement {
-  private view?: BackForwardCacheView;
+  #view?: BackForwardCacheView;
 
   constructor(resourcesPanel: ResourcesPanel) {
     super(resourcesPanel, i18nString(UIStrings.backForwardCache), false);
@@ -189,10 +189,10 @@ export class BackForwardCacheTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new BackForwardCacheView();
+    if (!this.#view) {
+      this.#view = new BackForwardCacheView();
     }
-    this.showView(this.view);
+    this.showView(this.#view);
     return false;
   }
 }

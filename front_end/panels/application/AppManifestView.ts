@@ -388,29 +388,29 @@ type ParsedSize = {
 };
 
 export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager.Observer {
-  private readonly emptyView: UI.EmptyWidget.EmptyWidget;
-  private readonly reportView: UI.ReportView.ReportView;
-  private readonly errorsSection: UI.ReportView.Section;
-  private readonly installabilitySection: UI.ReportView.Section;
-  private readonly identitySection: UI.ReportView.Section;
-  private readonly presentationSection: UI.ReportView.Section;
-  private readonly iconsSection: UI.ReportView.Section;
-  private readonly shortcutSections: UI.ReportView.Section[];
-  private readonly screenshotsSections: UI.ReportView.Section[];
-  private nameField: HTMLElement;
-  private shortNameField: HTMLElement;
-  private descriptionField: Element;
-  private readonly startURLField: HTMLElement;
-  private readonly themeColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
-  private readonly backgroundColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
-  private orientationField: HTMLElement;
-  private displayField: HTMLElement;
-  private readonly newNoteUrlField: HTMLElement;
-  private readonly throttler: Common.Throttler.Throttler;
-  private registeredListeners: Common.EventTarget.EventDescriptor[];
-  private target?: SDK.Target.Target;
-  private resourceTreeModel?: SDK.ResourceTreeModel.ResourceTreeModel|null;
-  private serviceWorkerManager?: SDK.ServiceWorkerManager.ServiceWorkerManager|null;
+  readonly #emptyView: UI.EmptyWidget.EmptyWidget;
+  readonly #reportView: UI.ReportView.ReportView;
+  readonly #errorsSection: UI.ReportView.Section;
+  readonly #installabilitySection: UI.ReportView.Section;
+  readonly #identitySection: UI.ReportView.Section;
+  readonly #presentationSection: UI.ReportView.Section;
+  readonly #iconsSection: UI.ReportView.Section;
+  readonly #shortcutSections: UI.ReportView.Section[];
+  readonly #screenshotsSections: UI.ReportView.Section[];
+  #nameField: HTMLElement;
+  #shortNameField: HTMLElement;
+  #descriptionField: Element;
+  readonly #startURLField: HTMLElement;
+  readonly #themeColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
+  readonly #backgroundColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
+  #orientationField: HTMLElement;
+  #displayField: HTMLElement;
+  readonly #newNoteUrlField: HTMLElement;
+  readonly #throttler: Common.Throttler.Throttler;
+  #registeredListeners: Common.EventTarget.EventDescriptor[];
+  #target?: SDK.Target.Target;
+  #resourceTreeModel?: SDK.ResourceTreeModel.ResourceTreeModel|null;
+  #serviceWorkerManager?: SDK.ServiceWorkerManager.ServiceWorkerManager|null;
   constructor() {
     super(true);
 
@@ -420,72 +420,72 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
         .moduleSetting('colorFormat')
         .addChangeListener(this.updateManifest.bind(this, true));
 
-    this.emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
-    this.emptyView.appendLink('https://web.dev/add-manifest/');
+    this.#emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
+    this.#emptyView.appendLink('https://web.dev/add-manifest/');
 
-    this.emptyView.show(this.contentElement);
-    this.emptyView.hideWidget();
+    this.#emptyView.show(this.contentElement);
+    this.#emptyView.hideWidget();
 
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
-    this.reportView = new UI.ReportView.ReportView(i18nString(UIStrings.appManifest));
+    this.#reportView = new UI.ReportView.ReportView(i18nString(UIStrings.appManifest));
 
-    this.reportView.element.classList.add('manifest-view-header');
-    this.reportView.show(this.contentElement);
-    this.reportView.hideWidget();
+    this.#reportView.element.classList.add('manifest-view-header');
+    this.#reportView.show(this.contentElement);
+    this.#reportView.hideWidget();
 
-    this.errorsSection = this.reportView.appendSection(i18nString(UIStrings.errorsAndWarnings));
-    this.installabilitySection = this.reportView.appendSection(i18nString(UIStrings.installability));
-    this.identitySection = this.reportView.appendSection(i18nString(UIStrings.identity));
+    this.#errorsSection = this.#reportView.appendSection(i18nString(UIStrings.errorsAndWarnings));
+    this.#installabilitySection = this.#reportView.appendSection(i18nString(UIStrings.installability));
+    this.#identitySection = this.#reportView.appendSection(i18nString(UIStrings.identity));
 
-    this.presentationSection = this.reportView.appendSection(i18nString(UIStrings.presentation));
-    this.iconsSection = this.reportView.appendSection(i18nString(UIStrings.icons), 'report-section-icons');
-    this.shortcutSections = [];
-    this.screenshotsSections = [];
+    this.#presentationSection = this.#reportView.appendSection(i18nString(UIStrings.presentation));
+    this.#iconsSection = this.#reportView.appendSection(i18nString(UIStrings.icons), 'report-section-icons');
+    this.#shortcutSections = [];
+    this.#screenshotsSections = [];
 
-    this.nameField = this.identitySection.appendField(i18nString(UIStrings.name));
-    this.shortNameField = this.identitySection.appendField(i18nString(UIStrings.shortName));
-    this.descriptionField = this.identitySection.appendFlexedField(i18nString(UIStrings.description));
+    this.#nameField = this.#identitySection.appendField(i18nString(UIStrings.name));
+    this.#shortNameField = this.#identitySection.appendField(i18nString(UIStrings.shortName));
+    this.#descriptionField = this.#identitySection.appendFlexedField(i18nString(UIStrings.description));
 
-    this.startURLField = this.presentationSection.appendField(i18nString(UIStrings.startUrl));
+    this.#startURLField = this.#presentationSection.appendField(i18nString(UIStrings.startUrl));
 
-    const themeColorField = this.presentationSection.appendField(i18nString(UIStrings.themeColor));
-    this.themeColorSwatch = new InlineEditor.ColorSwatch.ColorSwatch();
-    themeColorField.appendChild(this.themeColorSwatch);
+    const themeColorField = this.#presentationSection.appendField(i18nString(UIStrings.themeColor));
+    this.#themeColorSwatch = new InlineEditor.ColorSwatch.ColorSwatch();
+    themeColorField.appendChild(this.#themeColorSwatch);
 
-    const backgroundColorField = this.presentationSection.appendField(i18nString(UIStrings.backgroundColor));
-    this.backgroundColorSwatch = new InlineEditor.ColorSwatch.ColorSwatch();
-    backgroundColorField.appendChild(this.backgroundColorSwatch);
+    const backgroundColorField = this.#presentationSection.appendField(i18nString(UIStrings.backgroundColor));
+    this.#backgroundColorSwatch = new InlineEditor.ColorSwatch.ColorSwatch();
+    backgroundColorField.appendChild(this.#backgroundColorSwatch);
 
-    this.orientationField = this.presentationSection.appendField(i18nString(UIStrings.orientation));
-    this.displayField = this.presentationSection.appendField(i18nString(UIStrings.display));
+    this.#orientationField = this.#presentationSection.appendField(i18nString(UIStrings.orientation));
+    this.#displayField = this.#presentationSection.appendField(i18nString(UIStrings.display));
 
-    this.newNoteUrlField = this.presentationSection.appendField(i18nString(UIStrings.newNoteUrl));
+    this.#newNoteUrlField = this.#presentationSection.appendField(i18nString(UIStrings.newNoteUrl));
 
-    this.throttler = new Common.Throttler.Throttler(1000);
+    this.#throttler = new Common.Throttler.Throttler(1000);
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
-    this.registeredListeners = [];
+    this.#registeredListeners = [];
   }
 
   targetAdded(target: SDK.Target.Target): void {
-    if (this.target) {
+    if (this.#target) {
       return;
     }
-    this.target = target;
-    this.resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    this.serviceWorkerManager = target.model(SDK.ServiceWorkerManager.ServiceWorkerManager);
-    if (!this.resourceTreeModel || !this.serviceWorkerManager) {
+    this.#target = target;
+    this.#resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    this.#serviceWorkerManager = target.model(SDK.ServiceWorkerManager.ServiceWorkerManager);
+    if (!this.#resourceTreeModel || !this.#serviceWorkerManager) {
       return;
     }
 
     this.updateManifest(true);
 
-    this.registeredListeners = [
-      this.resourceTreeModel.addEventListener(
+    this.#registeredListeners = [
+      this.#resourceTreeModel.addEventListener(
           SDK.ResourceTreeModel.Events.DOMContentLoaded,
           () => {
             this.updateManifest(true);
           }),
-      this.serviceWorkerManager.addEventListener(
+      this.#serviceWorkerManager.addEventListener(
           SDK.ServiceWorkerManager.Events.RegistrationUpdated,
           () => {
             this.updateManifest(false);
@@ -494,29 +494,29 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
   }
 
   targetRemoved(target: SDK.Target.Target): void {
-    if (this.target !== target) {
+    if (this.#target !== target) {
       return;
     }
-    if (!this.resourceTreeModel || !this.serviceWorkerManager) {
+    if (!this.#resourceTreeModel || !this.#serviceWorkerManager) {
       return;
     }
-    delete this.resourceTreeModel;
-    delete this.serviceWorkerManager;
-    Common.EventTarget.removeEventListeners(this.registeredListeners);
+    this.#resourceTreeModel = undefined;
+    this.#serviceWorkerManager = undefined;
+    Common.EventTarget.removeEventListeners(this.#registeredListeners);
   }
 
   private async updateManifest(immediately: boolean): Promise<void> {
-    if (!this.resourceTreeModel) {
+    if (!this.#resourceTreeModel) {
       return;
     }
     const [{url, data, errors}, installabilityErrors, manifestIcons, appId] = await Promise.all([
-      this.resourceTreeModel.fetchAppManifest(),
-      this.resourceTreeModel.getInstallabilityErrors(),
-      this.resourceTreeModel.getManifestIcons(),
-      this.resourceTreeModel.getAppId(),
+      this.#resourceTreeModel.fetchAppManifest(),
+      this.#resourceTreeModel.getInstallabilityErrors(),
+      this.#resourceTreeModel.getManifestIcons(),
+      this.#resourceTreeModel.getAppId(),
     ]);
 
-    this.throttler.schedule(
+    this.#throttler.schedule(
         () => this.renderManifest(url, data, errors, installabilityErrors, manifestIcons, appId), immediately);
   }
 
@@ -529,20 +529,20 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     const appId = appIdResponse?.appId || null;
     const recommendedId = appIdResponse?.recommendedId || null;
     if (!data && !errors.length) {
-      this.emptyView.showWidget();
-      this.reportView.hideWidget();
+      this.#emptyView.showWidget();
+      this.#reportView.hideWidget();
       return;
     }
-    this.emptyView.hideWidget();
-    this.reportView.showWidget();
+    this.#emptyView.hideWidget();
+    this.#reportView.showWidget();
 
     const link = Components.Linkifier.Linkifier.linkifyURL(url);
     link.tabIndex = 0;
-    this.reportView.setURL(link);
-    this.errorsSection.clearContent();
-    this.errorsSection.element.classList.toggle('hidden', !errors.length);
+    this.#reportView.setURL(link);
+    this.#errorsSection.clearContent();
+    this.#errorsSection.element.classList.toggle('hidden', !errors.length);
     for (const error of errors) {
-      this.errorsSection.appendRow().appendChild(
+      this.#errorsSection.appendRow().appendChild(
           UI.UIUtils.createIconLabel(error.message, error.critical ? 'smallicon-error' : 'smallicon-warning'));
     }
 
@@ -552,23 +552,23 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
 
     if (data.charCodeAt(0) === 0xFEFF) {
       data = data.slice(1);
-    }  // Trim the BOM as per https://tools.ietf.org/html/rfc7159#section-8.1.
+    }  // Trim the BOM as per https://tools.ietf.org/html/rfc7159##section-8.1.
 
     const parsedManifest = JSON.parse(data);
-    this.nameField.textContent = stringProperty('name');
-    this.shortNameField.textContent = stringProperty('short_name');
+    this.#nameField.textContent = stringProperty('name');
+    this.#shortNameField.textContent = stringProperty('short_name');
 
     const warnings = [];
 
     const description = stringProperty('description');
-    this.descriptionField.textContent = description;
+    this.#descriptionField.textContent = description;
     if (description.length > 324) {
       warnings.push(i18nString(UIStrings.descriptionMayBeTruncated));
     }
 
     const startURL = stringProperty('start_url');
     if (appId && recommendedId) {
-      const appIdField = this.identitySection.appendField(i18nString(UIStrings.computedAppId));
+      const appIdField = this.#identitySection.appendField(i18nString(UIStrings.computedAppId));
       UI.ARIAUtils.setAccessibleName(appIdField, 'App Id');
       appIdField.textContent = appId;
 
@@ -609,58 +609,58 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
             {PH1: noteSpan, PH2: idSpan, PH3: startUrlSpan, PH4: idSpan2, PH5: suggestedIdSpan, PH6: copyButton}));
       }
     } else {
-      this.identitySection.removeField(i18nString(UIStrings.computedAppId));
+      this.#identitySection.removeField(i18nString(UIStrings.computedAppId));
     }
 
-    this.startURLField.removeChildren();
+    this.#startURLField.removeChildren();
     if (startURL) {
       const completeURL = (Common.ParsedURL.ParsedURL.completeURL(url, startURL) as string);
       const link = Components.Linkifier.Linkifier.linkifyURL(
           completeURL, ({text: startURL} as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
-      this.startURLField.appendChild(link);
+      this.#startURLField.appendChild(link);
     }
 
-    this.themeColorSwatch.classList.toggle('hidden', !stringProperty('theme_color'));
+    this.#themeColorSwatch.classList.toggle('hidden', !stringProperty('theme_color'));
     const themeColor =
         Common.Color.Color.parse(stringProperty('theme_color') || 'white') || Common.Color.Color.parse('white');
     if (themeColor) {
-      this.themeColorSwatch.renderColor(themeColor, true);
+      this.#themeColorSwatch.renderColor(themeColor, true);
     }
-    this.backgroundColorSwatch.classList.toggle('hidden', !stringProperty('background_color'));
+    this.#backgroundColorSwatch.classList.toggle('hidden', !stringProperty('background_color'));
     const backgroundColor =
         Common.Color.Color.parse(stringProperty('background_color') || 'white') || Common.Color.Color.parse('white');
     if (backgroundColor) {
-      this.backgroundColorSwatch.renderColor(backgroundColor, true);
+      this.#backgroundColorSwatch.renderColor(backgroundColor, true);
     }
 
-    this.orientationField.textContent = stringProperty('orientation');
+    this.#orientationField.textContent = stringProperty('orientation');
     const displayType = stringProperty('display');
-    this.displayField.textContent = displayType;
+    this.#displayField.textContent = displayType;
 
     const noteTaking = parsedManifest['note_taking'] || {};
     const newNoteUrl = noteTaking['new_note_url'];
     const hasNewNoteUrl = typeof newNoteUrl === 'string';
-    this.newNoteUrlField.parentElement?.classList.toggle('hidden', !hasNewNoteUrl);
-    this.newNoteUrlField.removeChildren();
+    this.#newNoteUrlField.parentElement?.classList.toggle('hidden', !hasNewNoteUrl);
+    this.#newNoteUrlField.removeChildren();
     if (hasNewNoteUrl) {
       const completeURL = (Common.ParsedURL.ParsedURL.completeURL(url, newNoteUrl) as string);
       const link = Components.Linkifier.Linkifier.linkifyURL(
           completeURL, ({text: newNoteUrl} as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
-      this.newNoteUrlField.appendChild(link);
+      this.#newNoteUrlField.appendChild(link);
     }
 
     const icons = parsedManifest['icons'] || [];
-    this.iconsSection.clearContent();
+    this.#iconsSection.clearContent();
 
     const shortcuts = parsedManifest['shortcuts'] || [];
-    for (const shortcutsSection of this.shortcutSections) {
+    for (const shortcutsSection of this.#shortcutSections) {
       shortcutsSection.detach(/** overrideHideOnDetach= */ true);
     }
 
     const screenshots = parsedManifest['screenshots'] || [];
-    for (const screenshotSection of this.screenshotsSections) {
+    for (const screenshotSection of this.#screenshotsSections) {
       screenshotSection.detach(/** overrideHideOnDetach= */ true);
     }
 
@@ -669,12 +669,12 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     const setIconMaskedCheckbox = UI.UIUtils.CheckboxLabel.create(i18nString(UIStrings.showOnlyTheMinimumSafeAreaFor));
     setIconMaskedCheckbox.classList.add('mask-checkbox');
     setIconMaskedCheckbox.addEventListener('click', () => {
-      this.iconsSection.setIconMasked(setIconMaskedCheckbox.checkboxElement.checked);
+      this.#iconsSection.setIconMasked(setIconMaskedCheckbox.checkboxElement.checked);
     });
-    this.iconsSection.appendRow().appendChild(setIconMaskedCheckbox);
+    this.#iconsSection.appendRow().appendChild(setIconMaskedCheckbox);
     const documentationLink =
         UI.XLink.XLink.create('https://web.dev/maskable-icon/', i18nString(UIStrings.documentationOnMaskableIcons));
-    this.iconsSection.appendRow().appendChild(
+    this.#iconsSection.appendRow().appendChild(
         i18n.i18n.getFormatLocalizedString(str_, UIStrings.needHelpReadOurS, {PH1: documentationLink}));
 
     if (manifestIcons && manifestIcons.primaryIcon) {
@@ -686,14 +686,14 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
       image.src = 'data:image/png;base64,' + manifestIcons.primaryIcon;
       image.alt = i18nString(UIStrings.primaryManifestIconFromS, {PH1: url});
       const title = i18nString(UIStrings.primaryIconasUsedByChrome);
-      const field = this.iconsSection.appendFlexedField(title);
+      const field = this.#iconsSection.appendFlexedField(title);
       wrapper.appendChild(image);
       field.appendChild(wrapper);
     }
 
     let squareSizedIconAvailable = false;
     for (const icon of icons) {
-      const result = await this.appendImageResourceToSection(url, icon, this.iconsSection, /** isScreenshot= */ false);
+      const result = await this.appendImageResourceToSection(url, icon, this.#iconsSection, /** isScreenshot= */ false);
       imageErrors.push(...result.imageResourceErrors);
       squareSizedIconAvailable = result.squareSizedIconAvailable || squareSizedIconAvailable;
     }
@@ -703,8 +703,8 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
 
     let shortcutIndex = 1;
     for (const shortcut of shortcuts) {
-      const shortcutSection = this.reportView.appendSection(i18nString(UIStrings.shortcutS, {PH1: shortcutIndex}));
-      this.shortcutSections.push(shortcutSection);
+      const shortcutSection = this.#reportView.appendSection(i18nString(UIStrings.shortcutS, {PH1: shortcutIndex}));
+      this.#shortcutSections.push(shortcutSection);
 
       shortcutSection.appendFlexedField('Name', shortcut.name);
       if (shortcut.short_name) {
@@ -742,27 +742,27 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
     let screenshotIndex = 1;
     for (const screenshot of screenshots) {
       const screenshotSection =
-          this.reportView.appendSection(i18nString(UIStrings.screenshotS, {PH1: screenshotIndex}));
-      this.screenshotsSections.push(screenshotSection);
+          this.#reportView.appendSection(i18nString(UIStrings.screenshotS, {PH1: screenshotIndex}));
+      this.#screenshotsSections.push(screenshotSection);
       const {imageResourceErrors: screenshotErrors} =
           await this.appendImageResourceToSection(url, screenshot, screenshotSection, /** isScreenshot= */ true);
       imageErrors.push(...screenshotErrors);
       screenshotIndex++;
     }
 
-    this.installabilitySection.clearContent();
-    this.installabilitySection.element.classList.toggle('hidden', !installabilityErrors.length);
+    this.#installabilitySection.clearContent();
+    this.#installabilitySection.element.classList.toggle('hidden', !installabilityErrors.length);
     const errorMessages = this.getInstallabilityErrorMessages(installabilityErrors);
     for (const error of errorMessages) {
-      this.installabilitySection.appendRow().appendChild(UI.UIUtils.createIconLabel(error, 'smallicon-warning'));
+      this.#installabilitySection.appendRow().appendChild(UI.UIUtils.createIconLabel(error, 'smallicon-warning'));
     }
 
-    this.errorsSection.element.classList.toggle('hidden', !errors.length && !imageErrors.length && !warnings.length);
+    this.#errorsSection.element.classList.toggle('hidden', !errors.length && !imageErrors.length && !warnings.length);
     for (const warning of warnings) {
-      this.errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(warning, 'smallicon-warning'));
+      this.#errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(warning, 'smallicon-warning'));
     }
     for (const error of imageErrors) {
-      this.errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(error, 'smallicon-warning'));
+      this.#errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(error, 'smallicon-warning'));
     }
 
     function stringProperty(name: string): string {
@@ -1032,7 +1032,7 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
   }
   wasShown(): void {
     super.wasShown();
-    this.reportView.registerCSSFiles([appManifestViewStyles]);
+    this.#reportView.registerCSSFiles([appManifestViewStyles]);
     this.registerCSSFiles([appManifestViewStyles]);
   }
 }

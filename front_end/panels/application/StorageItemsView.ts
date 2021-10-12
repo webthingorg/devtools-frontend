@@ -32,50 +32,50 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/StorageItemsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class StorageItemsView extends UI.Widget.VBox {
-  private filterRegex: RegExp|null;
-  private readonly refreshButton: UI.Toolbar.ToolbarButton;
-  private readonly mainToolbar: UI.Toolbar.Toolbar;
-  private readonly filterItem: UI.Toolbar.ToolbarInput;
-  private readonly deleteAllButton: UI.Toolbar.ToolbarButton;
-  private readonly deleteSelectedButton: UI.Toolbar.ToolbarButton;
+  #filterRegex: RegExp|null;
+  readonly #refreshButton: UI.Toolbar.ToolbarButton;
+  readonly #mainToolbar: UI.Toolbar.Toolbar;
+  readonly #filterItem: UI.Toolbar.ToolbarInput;
+  readonly #deleteAllButton: UI.Toolbar.ToolbarButton;
+  readonly #deleteSelectedButton: UI.Toolbar.ToolbarButton;
 
   constructor(_title: string, _filterName: string) {
     super(false);
-    this.filterRegex = null;
+    this.#filterRegex = null;
 
-    this.refreshButton = this.addButton(i18nString(UIStrings.refresh), 'largeicon-refresh', () => {
+    this.#refreshButton = this.addButton(i18nString(UIStrings.refresh), 'largeicon-refresh', () => {
       this.refreshItems();
       UI.ARIAUtils.alert(i18nString(UIStrings.refreshedStatus));
     });
 
-    this.mainToolbar = new UI.Toolbar.Toolbar('top-resources-toolbar', this.element);
+    this.#mainToolbar = new UI.Toolbar.Toolbar('top-resources-toolbar', this.element);
 
-    this.filterItem = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filter), '', 0.4);
-    this.filterItem.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.filterChanged, this);
+    this.#filterItem = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filter), '', 0.4);
+    this.#filterItem.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.filterChanged, this);
 
     const toolbarSeparator = new UI.Toolbar.ToolbarSeparator();
-    this.deleteAllButton = this.addButton(i18nString(UIStrings.clearAll), 'largeicon-clear', this.deleteAllItems);
-    this.deleteSelectedButton =
+    this.#deleteAllButton = this.addButton(i18nString(UIStrings.clearAll), 'largeicon-clear', this.deleteAllItems);
+    this.#deleteSelectedButton =
         this.addButton(i18nString(UIStrings.deleteSelected), 'largeicon-delete', this.deleteSelectedItem);
-    this.deleteAllButton.element.id = 'storage-items-delete-all';
+    this.#deleteAllButton.element.id = 'storage-items-delete-all';
 
     const toolbarItems =
-        [this.refreshButton, this.filterItem, toolbarSeparator, this.deleteAllButton, this.deleteSelectedButton];
+        [this.#refreshButton, this.#filterItem, toolbarSeparator, this.#deleteAllButton, this.#deleteSelectedButton];
     for (const item of toolbarItems) {
-      this.mainToolbar.appendToolbarItem(item);
+      this.#mainToolbar.appendToolbarItem(item);
     }
   }
 
   setDeleteAllTitle(title: string): void {
-    this.deleteAllButton.setTitle(title);
+    this.#deleteAllButton.setTitle(title);
   }
 
   setDeleteAllGlyph(glyph: string): void {
-    this.deleteAllButton.setGlyph(glyph);
+    this.#deleteAllButton.setGlyph(glyph);
   }
 
   appendToolbarItem(item: UI.Toolbar.ToolbarItem): void {
-    this.mainToolbar.appendToolbarItem(item);
+    this.#mainToolbar.appendToolbarItem(item);
   }
 
   private addButton(label: string, glyph: string, callback: (arg0: Common.EventTarget.EventTargetEvent<Event>) => void):
@@ -86,20 +86,20 @@ export class StorageItemsView extends UI.Widget.VBox {
   }
 
   private filterChanged({data: text}: Common.EventTarget.EventTargetEvent<string|null>): void {
-    this.filterRegex = text ? new RegExp(Platform.StringUtilities.escapeForRegExp(text), 'i') : null;
+    this.#filterRegex = text ? new RegExp(Platform.StringUtilities.escapeForRegExp(text), 'i') : null;
     this.refreshItems();
   }
 
   filter<T>(items: T[], keyFunction: (arg0: T) => string): T[] {
-    if (this.filterRegex) {
-      const regExp = this.filterRegex;
+    if (this.#filterRegex) {
+      const regExp = this.#filterRegex;
       return items.filter(item => regExp.test(keyFunction(item)));
     }
     return items;
   }
 
   hasFilter(): boolean {
-    return Boolean(this.filterRegex);
+    return Boolean(this.#filterRegex);
   }
 
   wasShown(): void {
@@ -107,19 +107,19 @@ export class StorageItemsView extends UI.Widget.VBox {
   }
 
   setCanDeleteAll(enabled: boolean): void {
-    this.deleteAllButton.setEnabled(enabled);
+    this.#deleteAllButton.setEnabled(enabled);
   }
 
   setCanDeleteSelected(enabled: boolean): void {
-    this.deleteSelectedButton.setEnabled(enabled);
+    this.#deleteSelectedButton.setEnabled(enabled);
   }
 
   setCanRefresh(enabled: boolean): void {
-    this.refreshButton.setEnabled(enabled);
+    this.#refreshButton.setEnabled(enabled);
   }
 
   setCanFilter(enabled: boolean): void {
-    this.filterItem.setEnabled(enabled);
+    this.#filterItem.setEnabled(enabled);
   }
 
   deleteAllItems(): void {

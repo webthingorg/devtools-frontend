@@ -49,12 +49,12 @@ const UIStrings = {
   visibleColumns: 'Visible columns',
   /**
   *@description Text in Database Table View of the Application panel
-  *@example {database} PH1
+  *@example {#database} PH1
   */
   theStableIsEmpty: 'The "{PH1}" table is empty.',
   /**
   *@description Error msg element text content in Database Table View of the Application panel
-  *@example {database} PH1
+  *@example {#database} PH1
   */
   anErrorOccurredTryingToreadTheS: 'An error occurred trying to read the "{PH1}" table.',
 };
@@ -67,35 +67,34 @@ export interface VisibleColumnsSetting {
 export class DatabaseTableView extends UI.View.SimpleView {
   database: Database;
   tableName: string;
-  private lastVisibleColumns: string;
-  private readonly columnsMap: Map<string, string>;
-  private readonly visibleColumnsSetting: Common.Settings.Setting<VisibleColumnsSetting>;
+  #lastVisibleColumns: string;
+  readonly #columnsMap: Map<string, string>;
+  readonly #visibleColumnsSetting: Common.Settings.Setting<VisibleColumnsSetting>;
   refreshButton: UI.Toolbar.ToolbarButton;
-  private readonly visibleColumnsInput: UI.Toolbar.ToolbarInput;
-  private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<DataGrid.SortableDataGrid.SortableDataGridNode<unknown>>|
-      null;
-  private emptyWidget?: UI.EmptyWidget.EmptyWidget;
+  readonly #visibleColumnsInput: UI.Toolbar.ToolbarInput;
+  #dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<DataGrid.SortableDataGrid.SortableDataGridNode<unknown>>|null;
+  #emptyWidget?: UI.EmptyWidget.EmptyWidget;
 
   constructor(database: Database, tableName: string) {
     super(i18nString(UIStrings.database));
 
     this.database = database;
     this.tableName = tableName;
-    this.lastVisibleColumns = '';
-    this.columnsMap = new Map();
+    this.#lastVisibleColumns = '';
+    this.#columnsMap = new Map();
 
     this.element.classList.add('storage-view', 'table');
 
-    this.visibleColumnsSetting =
+    this.#visibleColumnsSetting =
         Common.Settings.Settings.instance().createSetting('databaseTableViewVisibleColumns', {});
 
     this.refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'largeicon-refresh');
     this.refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.refreshButtonClicked, this);
-    this.visibleColumnsInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.visibleColumns), '', 1);
-    this.visibleColumnsInput.addEventListener(
+    this.#visibleColumnsInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.visibleColumns), '', 1);
+    this.#visibleColumnsInput.addEventListener(
         UI.Toolbar.ToolbarInput.Event.TextChanged, this.onVisibleColumnsChanged, this);
 
-    this.dataGrid = null;
+    this.#dataGrid = null;
   }
 
   wasShown(): void {
@@ -103,7 +102,7 @@ export class DatabaseTableView extends UI.View.SimpleView {
   }
 
   async toolbarItems(): Promise<UI.Toolbar.ToolbarItem[]> {
-    return [this.refreshButton, this.visibleColumnsInput];
+    return [this.refreshButton, this.#visibleColumnsInput];
   }
 
   private escapeTableName(tableName: string): string {
@@ -122,39 +121,39 @@ export class DatabaseTableView extends UI.View.SimpleView {
     this.detachChildWidgets();
     this.element.removeChildren();
 
-    this.dataGrid =
+    this.#dataGrid =
         DataGrid.SortableDataGrid.SortableDataGrid.create(columnNames, values, i18nString(UIStrings.database));
-    this.visibleColumnsInput.setVisible(Boolean(this.dataGrid));
-    if (!this.dataGrid) {
-      this.emptyWidget = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.theStableIsEmpty, {PH1: this.tableName}));
-      this.emptyWidget.show(this.element);
+    this.#visibleColumnsInput.setVisible(Boolean(this.#dataGrid));
+    if (!this.#dataGrid) {
+      this.#emptyWidget = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.theStableIsEmpty, {PH1: this.tableName}));
+      this.#emptyWidget.show(this.element);
       return;
     }
-    this.dataGrid.setStriped(true);
-    this.dataGrid.asWidget().show(this.element);
-    this.dataGrid.autoSizeColumns(5);
+    this.#dataGrid.setStriped(true);
+    this.#dataGrid.asWidget().show(this.element);
+    this.#dataGrid.autoSizeColumns(5);
 
-    this.columnsMap.clear();
+    this.#columnsMap.clear();
     for (let i = 1; i < columnNames.length; ++i) {
-      this.columnsMap.set(columnNames[i], String(i));
+      this.#columnsMap.set(columnNames[i], String(i));
     }
-    this.lastVisibleColumns = '';
-    const visibleColumnsText = this.visibleColumnsSetting.get()[this.tableName] || '';
-    this.visibleColumnsInput.setValue(visibleColumnsText);
+    this.#lastVisibleColumns = '';
+    const visibleColumnsText = this.#visibleColumnsSetting.get()[this.tableName] || '';
+    this.#visibleColumnsInput.setValue(visibleColumnsText);
     this.onVisibleColumnsChanged();
   }
 
   private onVisibleColumnsChanged(): void {
-    if (!this.dataGrid) {
+    if (!this.#dataGrid) {
       return;
     }
-    const text = this.visibleColumnsInput.value();
+    const text = this.#visibleColumnsInput.value();
     const parts = text.split(/[\s,]+/);
     const matches = new Set<string>();
     const columnsVisibility = new Set<string>();
     columnsVisibility.add('0');
     for (const part of parts) {
-      const mappedColumn = this.columnsMap.get(part);
+      const mappedColumn = this.#columnsMap.get(part);
       if (mappedColumn !== undefined) {
         matches.add(part);
         columnsVisibility.add(mappedColumn);
@@ -162,18 +161,18 @@ export class DatabaseTableView extends UI.View.SimpleView {
     }
     const newVisibleColumns = [...matches].sort().join(', ');
     if (newVisibleColumns.length === 0) {
-      for (const v of this.columnsMap.values()) {
+      for (const v of this.#columnsMap.values()) {
         columnsVisibility.add(v);
       }
     }
-    if (newVisibleColumns === this.lastVisibleColumns) {
+    if (newVisibleColumns === this.#lastVisibleColumns) {
       return;
     }
-    const visibleColumnsRegistry = this.visibleColumnsSetting.get();
+    const visibleColumnsRegistry = this.#visibleColumnsSetting.get();
     visibleColumnsRegistry[this.tableName] = text;
-    this.visibleColumnsSetting.set(visibleColumnsRegistry);
-    this.dataGrid.setColumnsVisiblity(columnsVisibility);
-    this.lastVisibleColumns = newVisibleColumns;
+    this.#visibleColumnsSetting.set(visibleColumnsRegistry);
+    this.#dataGrid.setColumnsVisiblity(columnsVisibility);
+    this.#lastVisibleColumns = newVisibleColumns;
   }
 
   private queryError(): void {

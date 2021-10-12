@@ -23,10 +23,10 @@ const {render, html} = LitHtml;
 export class EndpointsGrid extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-resources-endpoints-grid`;
 
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  readonly #shadow = this.attachShadow({mode: 'open'});
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [reportingApiGridStyles];
+    this.#shadow.adoptedStyleSheets = [reportingApiGridStyles];
     this.render();
   }
 
@@ -41,7 +41,7 @@ export class EndpointsGrid extends HTMLElement {
           <div>${i18nString(UIStrings.noEndpointsToDisplay)}</div>
         </div>
       </div>
-    `, this.shadow);
+    `, this.#shadow);
     // clang-format on
   }
 }
