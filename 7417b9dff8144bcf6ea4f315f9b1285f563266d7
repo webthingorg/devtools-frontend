@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72a5206_58a6f886",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-10-12T22:02:47Z",
+      "side": 1,
+      "message": "CL to remove \u0027unsafe-inline\u0027 from CSP. PTAL!",
+      "revId": "7417b9dff8144bcf6ea4f315f9b1285f563266d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
