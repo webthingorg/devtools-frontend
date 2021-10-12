@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (з карти джерела)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Додавання: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Додавання: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Видалення: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Видалення: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Пропускаються збіги рядків: {PH1} … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Двійкові дані"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Перегляд різниці в інструменті \"Зміни\""
   },
   "panels/changes/ChangesView.ts | noChanges": {

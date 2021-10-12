@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (من خريطة المصادر)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "الإضافات:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "الإضافات:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "حذف:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "حذف:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … جارٍ تخطّي {PH1} سطر مطابق … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "البيانات الثنائية"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "أداة عرض الاختلافات الناتجة عن التغييرات"
   },
   "panels/changes/ChangesView.ts | noChanges": {

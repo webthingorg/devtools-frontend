@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (aus Quellzuordnung)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Hinzufügen: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Hinzufügen: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Löschen: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Löschen: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Überspringen {PH1} übereinstimmende Zeilen … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binärdaten"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Viewer für Änderungen"
   },
   "panels/changes/ChangesView.ts | noChanges": {

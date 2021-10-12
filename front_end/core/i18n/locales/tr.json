@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (kaynak eşleşmesinden)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Ekleme:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Ekleme:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Silme: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Silme: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Eşleşen {PH1} satır atlanıyor … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "İkili veri"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Değişiklik farkları görüntüleyici"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (з карты крыніц)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Дадаванне: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Дадаванне: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Выдаленне: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Выдаленне: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … прапускаецца наступная колькасць супадаючых радкоў: {PH1} … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Двайковыя даныя"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Сродак прагляду адрозненняў пры зменах"
   },
   "panels/changes/ChangesView.ts | noChanges": {

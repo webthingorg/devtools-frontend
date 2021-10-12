@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (kutoka ramani chanzo)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Nyongeza:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Nyongeza:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Ufutaji:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Ufutaji:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Inaruka mistari {PH1} inayolingana … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Data ya mfumo wa jozi"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Inabadilisha kitazamaji cha mabadiliko"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (lähtekoodi kaardist)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Lisamine: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Lisamine: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Kustutamine: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Kustutamine: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "(… {PH1} ühtivat rida jäetakse vahele …)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Kahendandmed"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Muudatuste erinevuste vaatur"
   },
   "panels/changes/ChangesView.ts | noChanges": {

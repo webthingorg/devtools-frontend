@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (lähdekartasta)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Lisäys: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Lisäys: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Poisto: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Poisto: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Ohitetaan {PH1} vastaavaa riviä …)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binaaridata"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Muutosten eronäkymä"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (úr kóðavörpun)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Viðbót:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Viðbót:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Eyðing:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Eyðing:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Sleppir {PH1} samsvarandi línum … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Tvíundagögn"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Breytingaskoðari"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ماخذ نقشہ سے)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "اضافہ:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "اضافہ:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "حذف کرنا:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "حذف کرنا:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} مماثل لائنز نظر انداز کی جا رہی ہیں … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "بائنری ڈیٹا"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "تبدیلیوں کے فرق کا ویور"
   },
   "panels/changes/ChangesView.ts | noChanges": {

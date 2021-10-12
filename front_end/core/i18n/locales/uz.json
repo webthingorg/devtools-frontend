@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (manba xaritasidan)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Kiritish:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Kiritish:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Oʻchirildi:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Oʻchirildi:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} bilan mos qatorlar tashlab ketilmoqda … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binar axborot"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Oʻzgarishlarni taqqoslar vositasi"
   },
   "panels/changes/ChangesView.ts | noChanges": {

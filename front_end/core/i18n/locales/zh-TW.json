@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (來自來源對應)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "增加：{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "增加："
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "刪除：{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "刪除："
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … 略過 {PH1} 行相符內容 … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "二進位資料"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "變更差異檢視畫面"
   },
   "panels/changes/ChangesView.ts | noChanges": {

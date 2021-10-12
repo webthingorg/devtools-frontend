@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (de la carte source)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Ajout : {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Ajout : "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Suppression : {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Suppression : "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "(… {PH1} lignes correspondantes ignorées …)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Données binaires"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Visionneuse des différences de changements"
   },
   "panels/changes/ChangesView.ts | noChanges": {

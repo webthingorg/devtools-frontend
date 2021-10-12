@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (fra kildekort)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Tilføjelse: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Tilføjelse: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Sletning: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Sletning: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Springer {PH1} matchende linjer over … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binære data"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Oversigt over ændringer"
   },
   "panels/changes/ChangesView.ts | noChanges": {

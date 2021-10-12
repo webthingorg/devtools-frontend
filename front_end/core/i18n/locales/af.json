@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (van bronkaart af)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Byvoeging:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Byvoeging:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Uitvee:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Uitvee:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … slaan tans {PH1} passende reëls oor … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binêre data"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Veranderingverskilbekyker"
   },
   "panels/changes/ChangesView.ts | noChanges": {

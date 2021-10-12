@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (මූලාශ්‍ර සිතියම වෙතින්)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "එක් කිරීම:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "එක් කිරීම:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "මැකීම:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "මැකීම:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … ගැළපෙන පේළි {PH1}ක් මග හරිමින් … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ද්විමය දත්ත"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "වෙනස් කිරීම් දක්වනය"
   },
   "panels/changes/ChangesView.ts | noChanges": {

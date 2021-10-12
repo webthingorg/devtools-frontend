@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ရင်းမြစ်မြေပုံမှ)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "ထပ်ဆောင်းဖြည့်ခြင်း-{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "ထပ်ဆောင်းဖြည့်ခြင်း-"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "ဖျက်ခြင်း- {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "ဖျက်ခြင်း- "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … တူညီသောစာကြောင်း {PH1} ကြောင်းကို ကျော်ခြင်း … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binary ဒေတာ"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "အပြောင်းအလဲများ ကွဲပြားမှု ကြည့်ရှုရေးစနစ်"
   },
   "panels/changes/ChangesView.ts | noChanges": {

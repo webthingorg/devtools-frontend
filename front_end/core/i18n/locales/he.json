@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ממפת המקור)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "תוספת: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "תוספת: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "מחיקה: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "מחיקה: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … מתבצע דילוג על {PH1} שורות תואמות … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "נתונים בינאריים"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "כלי להצגת תוכנית להשוואת נתוני שינויים"
   },
   "panels/changes/ChangesView.ts | noChanges": {

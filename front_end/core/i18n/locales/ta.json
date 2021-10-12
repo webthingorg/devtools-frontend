@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (சோர்ஸ் மேப்பில் இருந்து)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "சேர்க்கை:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "சேர்க்கை:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "நீக்குதல்:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "நீக்குதல்:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … பொருந்தும் {PH1} வரிகளைத் தவிர்க்கிறது … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "பைனரித் தரவு"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "மாற்றங்களைக் காட்டும் பக்கம்"
   },
   "panels/changes/ChangesView.ts | noChanges": {

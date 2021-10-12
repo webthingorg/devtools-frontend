@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (от картата на изходния код)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Допълнение: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Допълнение: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Изтриване: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Изтриване: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "(… пропускат се {PH1} съответстващи реда…)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Двоични данни"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Инструмент за преглед на разликите в промените"
   },
   "panels/changes/ChangesView.ts | noChanges": {

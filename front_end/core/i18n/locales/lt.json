@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (iš šaltinio žemėlapio)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Pridėjimas: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Pridėjimas: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Trynimas: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Trynimas: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Praleidžiamos atitinkančios eilutės ({PH1}) … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Dvejetainiai duomenys"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Pakeitimų skirtumų žiūriklis"
   },
   "panels/changes/ChangesView.ts | noChanges": {

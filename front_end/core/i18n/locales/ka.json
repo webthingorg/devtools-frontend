@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (წყაროს რუკიდან)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "დამატება: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "დამატება: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "წაშლა: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "წაშლა: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( …{PH1} შესატყვისი სტრიქონი გამოტოვებული იქნება… )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ორობითი მონაცემები"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "ცვლილებებში სხვაობის მნახველი"
   },
   "panels/changes/ChangesView.ts | noChanges": {

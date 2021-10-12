@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (از نقشه منبع)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "تکمیلی:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "تکمیلی:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "حذف: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "حذف: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … درحال رد کردن {PH1} خط منطبق … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "داده دودویی"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "نمایشگر diff تغییرات"
   },
   "panels/changes/ChangesView.ts | noChanges": {

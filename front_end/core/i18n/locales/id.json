@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (dari peta sumber)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Tambahan:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Tambahan:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Penghapusan:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Penghapusan:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Melewati {PH1} baris yang cocok … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Data biner"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Mengubah penampil diff"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (จากการแมปแหล่งที่มา)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "การเพิ่ม: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "การเพิ่ม: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "การลบ: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "การลบ: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … ข้าม {PH1} บรรทัดที่ตรงกัน … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ข้อมูลไบนารี"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "โปรแกรมดูความแตกต่างของการเปลี่ยนแปลง"
   },
   "panels/changes/ChangesView.ts | noChanges": {

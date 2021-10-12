@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (स्रोत मैप से)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "जोड़ी जाने वाली चीज़ें:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "जोड़ी जाने वाली चीज़ें:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "मिटाई जाने वाली चीज़ें:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "मिटाई जाने वाली चीज़ें:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} से मिलती-जुलती लाइनें स्किप की जा रही हैं … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "बाइनरी डेटा"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "बदलाव दिखाने वाला व्यूअर"
   },
   "panels/changes/ChangesView.ts | noChanges": {

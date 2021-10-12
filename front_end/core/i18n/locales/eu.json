@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (iturburu-mapakoa)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Gehitutako elementua: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Gehitutako elementua: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "{PH1} ezabatu da"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": " ezabatu da"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Bat datozen {PH1} lerro saltatzen … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Datu bitarrak"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Aldaketa-ikustailea"
   },
   "panels/changes/ChangesView.ts | noChanges": {

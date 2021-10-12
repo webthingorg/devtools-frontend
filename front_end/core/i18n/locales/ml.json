@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (സോഴ്‌സ് മാപ്പിൽ നിന്ന്)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "ചേർക്കൽ:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "ചേർക്കൽ:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "ഇല്ലാതാക്കൽ:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "ഇല്ലാതാക്കൽ:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} പൊരുത്തപ്പെടുന്ന വരികൾ ഒഴിവാക്കുന്നു … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ബൈനറി ഡാറ്റ"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "മാറ്റങ്ങളിലെ വ്യത്യാസം കാണുന്നതിനുള്ള വ്യൂവർ"
   },
   "panels/changes/ChangesView.ts | noChanges": {

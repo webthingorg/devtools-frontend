@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (సోర్స్ మ్యాప్ నుండి)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "జోడింపు:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "జోడింపు:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "{PH1}:తొలగింపు"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": ":తొలగింపు"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} మ్యాచ్ అయ్యే లైన్‌లను స్కిప్ చేస్తోంది … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "బైనరీ డేటా"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "మార్పుల డిఫ్ వ్యూయర్"
   },
   "panels/changes/ChangesView.ts | noChanges": {

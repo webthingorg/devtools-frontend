@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (бастапқы картадан)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Қосымша: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Қосымша: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Жою:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Жою:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} сәйкес жол өткізіп жіберілуде … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Бинарлы деректер"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Өзгерістердегі айырмашылықтарды көру құралы"
   },
   "panels/changes/ChangesView.ts | noChanges": {

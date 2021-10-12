@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (từ bản đồ nguồn)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Lần thêm:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Lần thêm:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Xóa:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Xóa:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Đang bỏ qua {PH1} dòng trùng khớp … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Dữ liệu nhị phân"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Trình xem các thay đổi do người dùng thực hiện"
   },
   "panels/changes/ChangesView.ts | noChanges": {

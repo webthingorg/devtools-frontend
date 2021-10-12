@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (din harta sursă)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Adăugare:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Adăugare:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Ștergere: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Ștergere: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Se omit {PH1} linii corespunzătoare … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Date binare"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Vizualizatorul de diferențe ale modificărilor"
   },
   "panels/changes/ChangesView.ts | noChanges": {

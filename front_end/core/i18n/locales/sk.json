@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (z mapy zdroja)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Doplnenie:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Doplnenie:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Odstránenie:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Odstránenie:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Preskakujú sa zodpovedajúce riadky ({PH1}) … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binárne dáta"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Zobrazovač rozdielov zmien"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (са мапе извора)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Додатак:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Додатак:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Брисање:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Брисање:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Прескачу се редови који се подударају – {PH1} … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Бинарни подаци"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Приказивач diff фајла са променама"
   },
   "panels/changes/ChangesView.ts | noChanges": {

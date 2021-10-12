@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (সোর্স ম্যাপ থেকে)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "যোগ করা:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "যোগ করা:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "মোছা:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "মোছা:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … মিলছে এমন {PH1}টি লাইন এড়িয়ে যাওয়া হচ্ছে … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "বাইনারি ডেটা"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "পার্থক্য দেখার ভিউয়ার পরিবর্তন করে"
   },
   "panels/changes/ChangesView.ts | noChanges": {

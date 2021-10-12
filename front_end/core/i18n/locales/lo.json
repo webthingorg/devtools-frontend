@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ຈາກແຜນທີ່ແຫຼ່ງທີ່ມາ)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "ການເພີ່ມ:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "ການເພີ່ມ:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "ການລຶບ:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "ການລຶບ:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … ກຳລັງຂ້າມ {PH1} ແຖວທີ່ກົງກັນ … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ຂໍ້ມູນໄບນາຣີ"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "ໂປຣແກຣມເບິ່ງຄວາມແຕກຕ່າງຂອງການປ່ຽນແປງ"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (nga harta e burimit)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Shtimi: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Shtimi: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Fshirje: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Fshirje: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "(…Duke kapërcyer {PH1} linja të përputhshme…)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Të dhëna binare"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Ndryshon shikuesin e ndryshimeve"
   },
   "panels/changes/ChangesView.ts | noChanges": {

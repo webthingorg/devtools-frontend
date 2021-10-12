@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (iz zemljevida izvorne kode)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Seštevanje: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Seštevanje: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Brisanje: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Brisanje: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "(… preskočitev toliko ujemajočih se vrstic: {PH1} …)"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binarni podatki"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Prikazovalnik razlik med spremembami"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (z mapy zdrojů)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Přidání:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Přidání:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Smazání:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Smazání:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Přeskakování {PH1} odpovídajících řádků… )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binární data"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Prohlížeč rozdílů změn"
   },
   "panels/changes/ChangesView.ts | noChanges": {

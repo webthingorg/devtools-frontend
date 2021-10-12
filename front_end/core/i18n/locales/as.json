@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (উৎসৰ মেপৰ পৰা)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "সংযোজন:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "সংযোজন:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "মচা কাৰ্য:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "মচা কাৰ্য:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} টা মিলা শাৰী বাদ দি … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "বাইনেৰী ডেটা"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "ডিফ ভিউৱাৰ সলনি কৰে"
   },
   "panels/changes/ChangesView.ts | noChanges": {

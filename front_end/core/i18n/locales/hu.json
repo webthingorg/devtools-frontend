@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (forrás-hozzárendelésből)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Hozzáadás: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Hozzáadás: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Törlés: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Törlés: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} egyező sor átugrása … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Bináris adatok"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Módosítások eltérő megjelenítője"
   },
   "panels/changes/ChangesView.ts | noChanges": {

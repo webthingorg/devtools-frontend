@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (સૉર્સના નકશામાંથી)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "વધારો:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "વધારો:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "આને ડિલીટ કરો:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "આને ડિલીટ કરો:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … મેળ ખાતી {PH1} પંક્તિ છોડી રહ્યાં છીએ … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "બાઇનરી ડેટા"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "તફાવત બતાવતું 'ફેરફારો' સાધન"
   },
   "panels/changes/ChangesView.ts | noChanges": {

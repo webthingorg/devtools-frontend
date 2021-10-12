@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ସୋର୍ସ ମ୍ୟାପରୁ)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "ଏହା ସହିତ :{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "ଏହା ସହିତ :"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "ଡିଲିଟ୍ କରିବା କାର୍ଯ୍ୟ: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "ଡିଲିଟ୍ କରିବା କାର୍ଯ୍ୟ: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1}ଟି ମେଳ ହେଉଥିବା ଲାଇନକୁ ବାଦ୍ ଦିଆଯାଉଛି … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ବାଇନେରୀ ଡାଟା"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "ବିଭିନ୍ନ ଦର୍ଶକଙ୍କୁ ପରିବର୍ତ୍ତନ କରେ"
   },
   "panels/changes/ChangesView.ts | noChanges": {

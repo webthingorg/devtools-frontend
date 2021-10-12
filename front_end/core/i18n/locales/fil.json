@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (mula sa source map)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Idinagdag:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Idinagdag:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Pag-delete:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Pag-delete:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Nilalaktawan ang {PH1} (na) tumutugmang linya … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binary na data"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Viewer ng pagkakaiba ng mga pagbabago"
   },
   "panels/changes/ChangesView.ts | noChanges": {

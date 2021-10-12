@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (ಸೋರ್ಸ್-ಮ್ಯಾಪ್‌ನಿಂದ)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "ಸೇರ್ಪಡೆ:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "ಸೇರ್ಪಡೆ:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "ಅಳಿಸುವಿಕೆ:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "ಅಳಿಸುವಿಕೆ:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … {PH1} ಹೊಂದಾಣಿಕೆಯಾಗುವ ಸಾಲುಗಳನ್ನು ಸ್ಕಿಪ್ ಮಾಡಲಾಗುತ್ತಿದೆ … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "ಬೈನರಿ ಡೇಟಾ"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "ಬದಲಾವಣೆಗಳ ವಿಭಿನ್ನ ವೀಕ್ಷಕ"
   },
   "panels/changes/ChangesView.ts | noChanges": {

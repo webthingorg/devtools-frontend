@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1}(소스 맵에서)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "추가: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "추가: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "삭제: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "삭제: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … 일치하는 행 {PH1}개 건너뛰기 … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "바이너리 데이터"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "차이 뷰어 변경"
   },
   "panels/changes/ChangesView.ts | noChanges": {

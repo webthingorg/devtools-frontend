@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (स्रोत नकाशावरून)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "जोड:{PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "जोड:"
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "हटवणे: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "हटवणे: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … वगळत आहे {PH1} ओळी जुळवत आहे … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "बायनरी डेटा"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "बदलांमधील फरकांचा दर्शक"
   },
   "panels/changes/ChangesView.ts | noChanges": {

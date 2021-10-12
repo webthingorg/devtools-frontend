@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (աղբյուրի քարտեզից)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Լրացում՝ {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Լրացում՝ "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Ջնջում․ {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Ջնջում․ "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Բաց է թողնվում համընկնող {PH1} տող … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Բինարային տվյալներ"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Փոփոխությունների դիտում"
   },
   "panels/changes/ChangesView.ts | noChanges": {

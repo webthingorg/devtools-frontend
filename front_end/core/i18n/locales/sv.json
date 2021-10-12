@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (från källkarta)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Tillägg: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Tillägg: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Borttagning: {PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Borttagning: "
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Hoppar över {PH1} matchande rader … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Binär data"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Visningsprogram för ändringar i differens"
   },
   "panels/changes/ChangesView.ts | noChanges": {

@@ -3242,19 +3242,19 @@
   "panels/changes/ChangesSidebar.ts | sFromSourceMap": {
     "message": "{PH1} (από αντιστοίχιση πηγής)"
   },
-  "panels/changes/ChangesTextEditor.ts | additions": {
-    "message": "Προσθήκη: {PH1}"
+  "panels/changes/DiffRenderer.ts | additions": {
+    "message": "Προσθήκη: "
   },
-  "panels/changes/ChangesTextEditor.ts | deletions": {
-    "message": "Διαγραφή:{PH1}"
+  "panels/changes/DiffRenderer.ts | deletions": {
+    "message": "Διαγραφή:"
   },
-  "panels/changes/ChangesView.ts | SkippingDMatchingLines": {
+  "panels/changes/DiffRenderer.ts | SkippingDMatchingLines": {
     "message": "( … Παράβλεψη {PH1} γραμμών που αντιστοιχούν … )"
   },
   "panels/changes/ChangesView.ts | binaryData": {
     "message": "Δυαδικά δεδομένα"
   },
-  "panels/changes/ChangesView.ts | changesDiffViewer": {
+  "panels/changes/DiffRenderer.ts | changesDiffViewer": {
     "message": "Εργαλείο προβολής διαφορών από αλλαγές"
   },
   "panels/changes/ChangesView.ts | noChanges": {
