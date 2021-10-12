@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "1362ee116d4e7379b3445ca892ac069bcb6e60af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "946412dd_89116597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-12T14:18:25Z",
+      "side": 1,
+      "message": "Looks great so far! Two suggestions.",
+      "revId": "1362ee116d4e7379b3445ca892ac069bcb6e60af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a63db1_907874fe",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-12T14:18:25Z",
+      "side": 1,
+      "message": "You should be able to do something like\n\nlet path : string \u003d fileSystemPath;\n\nThen use path instead of fileSystemPath and get rid of all the `as string`s.",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 30
+      },
+      "revId": "1362ee116d4e7379b3445ca892ac069bcb6e60af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "727830b1_1a3d5ab8",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-12T14:18:25Z",
+      "side": 1,
+      "message": "Would changing the type of files to be RawPathString[] make this change too large? Might be worth adding\n\n// TODO(crbug.com/1253323): All casts to RawPathString will be removed from this file when migration to branded types is complete.\n\nHere and in IsolatedFileSystemManager.ts.",
+      "range": {
+        "startLine": 515,
+        "startChar": 71,
+        "endLine": 515,
+        "endChar": 109
+      },
+      "revId": "1362ee116d4e7379b3445ca892ac069bcb6e60af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
