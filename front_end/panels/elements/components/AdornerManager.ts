@@ -92,39 +92,39 @@ interface SettingStore<Setting> {
 }
 
 export class AdornerManager {
-  private adornerSettings: AdornerSettingsMap = new Map();
-  private settingStore: SettingStore<AdornerSetting[]>;
+  #adornerSettings: AdornerSettingsMap = new Map();
+  #settingStore: SettingStore<AdornerSetting[]>;
 
   constructor(settingStore: SettingStore<AdornerSetting[]>) {
-    this.settingStore = settingStore;
+    this.#settingStore = settingStore;
     this.syncSettings();
   }
 
   updateSettings(settings: AdornerSettingsMap): void {
-    this.adornerSettings = settings;
+    this.#adornerSettings = settings;
     this.persistCurrentSettings();
   }
 
   getSettings(): Readonly<AdornerSettingsMap> {
-    return this.adornerSettings;
+    return this.#adornerSettings;
   }
 
   isAdornerEnabled(adornerText: string): boolean {
-    return this.adornerSettings.get(adornerText) || false;
+    return this.#adornerSettings.get(adornerText) || false;
   }
 
   private persistCurrentSettings(): void {
     const settingList = [];
-    for (const [adorner, isEnabled] of this.adornerSettings) {
+    for (const [adorner, isEnabled] of this.#adornerSettings) {
       settingList.push({adorner, isEnabled});
     }
-    this.settingStore.set(settingList);
+    this.#settingStore.set(settingList);
   }
 
   private loadSettings(): void {
-    const settingList = this.settingStore.get();
+    const settingList = this.#settingStore.get();
     for (const setting of settingList) {
-      this.adornerSettings.set(setting.adorner, setting.isEnabled);
+      this.#adornerSettings.set(setting.adorner, setting.isEnabled);
     }
   }
 
@@ -132,15 +132,15 @@ export class AdornerManager {
     this.loadSettings();
 
     // Prune outdated adorners and add new ones to the persistence.
-    const outdatedAdorners = new Set(this.adornerSettings.keys());
+    const outdatedAdorners = new Set(this.#adornerSettings.keys());
     for (const {adorner, isEnabled} of DefaultAdornerSettings) {
       outdatedAdorners.delete(adorner);
-      if (!this.adornerSettings.has(adorner)) {
-        this.adornerSettings.set(adorner, isEnabled);
+      if (!this.#adornerSettings.has(adorner)) {
+        this.#adornerSettings.set(adorner, isEnabled);
       }
     }
     for (const outdatedAdorner of outdatedAdorners) {
-      this.adornerSettings.delete(outdatedAdorner);
+      this.#adornerSettings.delete(outdatedAdorner);
     }
 
     this.persistCurrentSettings();

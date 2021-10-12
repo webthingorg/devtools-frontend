@@ -65,12 +65,12 @@ const UIStrings = {
   */
   findByStringSelectorOrXpath: 'Find by string, selector, or `XPath`',
   /**
-  * @description Button text for a button that takes the user to the Accessibility Tree View from the
+  * @description Button text for a #button that takes the user to the Accessibility Tree View from the
   * DOM tree view, in the Elements panel.
   */
   switchToAccessibilityTreeView: 'Switch to Accessibility Tree view',
   /**
-  * @description Button text for a button that takes the user to the DOM tree view from the
+  * @description Button text for a #button that takes the user to the DOM tree view from the
   * Accessibility Tree View, in the Elements panel.
   */
   switchToDomTreeView: 'Switch to DOM Tree view',
@@ -164,70 +164,70 @@ let elementsPanelInstance: ElementsPanel;
 export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.Searchable,
                                                              SDK.TargetManager.SDKModelObserver<SDK.DOMModel.DOMModel>,
                                                              UI.View.ViewLocationResolver {
-  private splitWidget: UI.SplitWidget.SplitWidget;
-  private readonly searchableViewInternal: UI.SearchableView.SearchableView;
-  private contentElementInternal: HTMLDivElement;
-  private splitMode: _splitMode|null;
-  private readonly accessibilityTreeView: AccessibilityTreeView|undefined;
-  private breadcrumbs: ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs;
+  #splitWidget: UI.SplitWidget.SplitWidget;
+  readonly #searchableViewInternal: UI.SearchableView.SearchableView;
+  #contentElementInternal: HTMLDivElement;
+  #splitMode: _splitMode|null;
+  readonly #accessibilityTreeView: AccessibilityTreeView|undefined;
+  #breadcrumbs: ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs;
   stylesWidget: StylesSidebarPane;
-  private readonly computedStyleWidget: ComputedStyleWidget;
-  private readonly metricsWidget: MetricsSidebarPane;
-  private treeOutlines: Set<ElementsTreeOutline> = new Set();
-  private readonly treeOutlineHeaders: Map<ElementsTreeOutline, Element> = new Map();
-  private searchResults!: {
+  readonly #computedStyleWidget: ComputedStyleWidget;
+  readonly #metricsWidget: MetricsSidebarPane;
+  #treeOutlines: Set<ElementsTreeOutline> = new Set();
+  readonly #treeOutlineHeaders: Map<ElementsTreeOutline, Element> = new Map();
+  #searchResults!: {
     domModel: SDK.DOMModel.DOMModel,
     index: number,
     node: ((SDK.DOMModel.DOMNode | undefined)|null),
   }[]|undefined;
-  private currentSearchResultIndex: number;
+  #currentSearchResultIndex: number;
   pendingNodeReveal: boolean;
-  private readonly adornerManager: ElementsComponents.AdornerManager.AdornerManager;
-  private adornerSettingsPane: ElementsComponents.AdornerSettingsPane.AdornerSettingsPane|null;
-  private readonly adornersByName: Map<string, Set<Adorners.Adorner.Adorner>>;
+  readonly #adornerManager: ElementsComponents.AdornerManager.AdornerManager;
+  #adornerSettingsPane: ElementsComponents.AdornerSettingsPane.AdornerSettingsPane|null;
+  readonly #adornersByName: Map<string, Set<Adorners.Adorner.Adorner>>;
   accessibilityTreeButton?: HTMLButtonElement;
   domTreeButton?: HTMLButtonElement;
-  private selectedNodeOnReset?: SDK.DOMModel.DOMNode;
-  private hasNonDefaultSelectedNode?: boolean;
-  private searchConfig?: UI.SearchableView.SearchConfig;
-  private omitDefaultSelection?: boolean;
-  private notFirstInspectElement?: boolean;
+  #selectedNodeOnReset?: SDK.DOMModel.DOMNode;
+  #hasNonDefaultSelectedNode?: boolean;
+  #searchConfig?: UI.SearchableView.SearchConfig;
+  #omitDefaultSelection?: boolean;
+  #notFirstInspectElement?: boolean;
   sidebarPaneView?: UI.View.TabbedViewLocation;
-  private stylesViewToReveal?: UI.View.SimpleView;
+  #stylesViewToReveal?: UI.View.SimpleView;
 
-  private cssStyleTrackerByCSSModel: Map<SDK.CSSModel.CSSModel, SDK.CSSModel.CSSPropertyTracker>;
+  #cssStyleTrackerByCSSModel: Map<SDK.CSSModel.CSSModel, SDK.CSSModel.CSSPropertyTracker>;
 
   constructor() {
     super('elements');
 
-    this.splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
-    this.splitWidget.addEventListener(
+    this.#splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
+    this.#splitWidget.addEventListener(
         UI.SplitWidget.Events.SidebarSizeChanged, this.updateTreeOutlineVisibleWidth.bind(this));
-    this.splitWidget.show(this.element);
+    this.#splitWidget.show(this.element);
 
-    this.searchableViewInternal = new UI.SearchableView.SearchableView(this, null);
-    this.searchableViewInternal.setMinimumSize(25, 28);
-    this.searchableViewInternal.setPlaceholder(i18nString(UIStrings.findByStringSelectorOrXpath));
-    const stackElement = this.searchableViewInternal.element;
+    this.#searchableViewInternal = new UI.SearchableView.SearchableView(this, null);
+    this.#searchableViewInternal.setMinimumSize(25, 28);
+    this.#searchableViewInternal.setPlaceholder(i18nString(UIStrings.findByStringSelectorOrXpath));
+    const stackElement = this.#searchableViewInternal.element;
 
-    this.contentElementInternal = document.createElement('div');
+    this.#contentElementInternal = document.createElement('div');
     const crumbsContainer = document.createElement('div');
     if (Root.Runtime.experiments.isEnabled('fullAccessibilityTree')) {
       this.initializeFullAccessibilityTreeView(stackElement);
     }
-    stackElement.appendChild(this.contentElementInternal);
+    stackElement.appendChild(this.#contentElementInternal);
     stackElement.appendChild(crumbsContainer);
 
-    UI.ARIAUtils.markAsMain(this.contentElementInternal);
-    UI.ARIAUtils.setAccessibleName(this.contentElementInternal, i18nString(UIStrings.domTreeExplorer));
+    UI.ARIAUtils.markAsMain(this.#contentElementInternal);
+    UI.ARIAUtils.setAccessibleName(this.#contentElementInternal, i18nString(UIStrings.domTreeExplorer));
 
-    this.splitWidget.setMainWidget(this.searchableViewInternal);
-    this.splitMode = null;
+    this.#splitWidget.setMainWidget(this.#searchableViewInternal);
+    this.#splitMode = null;
 
-    this.contentElementInternal.id = 'elements-content';
+    this.#contentElementInternal.id = 'elements-content';
     // FIXME: crbug.com/425984
     if (Common.Settings.Settings.instance().moduleSetting('domWordWrap').get()) {
-      this.contentElementInternal.classList.add('elements-wrap');
+      this.#contentElementInternal.classList.add('elements-wrap');
     }
     Common.Settings.Settings.instance()
         .moduleSetting('domWordWrap')
@@ -235,25 +235,25 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     crumbsContainer.id = 'elements-crumbs';
     if (this.domTreeButton) {
-      this.accessibilityTreeView = new AccessibilityTreeView(this.domTreeButton);
+      this.#accessibilityTreeView = new AccessibilityTreeView(this.domTreeButton);
     }
-    this.breadcrumbs = new ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs();
-    this.breadcrumbs.addEventListener('breadcrumbsnodeselected', event => {
+    this.#breadcrumbs = new ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs();
+    this.#breadcrumbs.addEventListener('breadcrumbsnodeselected', event => {
       this.crumbNodeSelected(event);
     });
 
-    crumbsContainer.appendChild(this.breadcrumbs);
+    crumbsContainer.appendChild(this.#breadcrumbs);
 
     this.stylesWidget = StylesSidebarPane.instance();
-    this.computedStyleWidget = new ComputedStyleWidget();
-    this.metricsWidget = new MetricsSidebarPane();
+    this.#computedStyleWidget = new ComputedStyleWidget();
+    this.#metricsWidget = new MetricsSidebarPane();
 
     Common.Settings.Settings.instance()
         .moduleSetting('sidebarPosition')
         .addChangeListener(this.updateSidebarPosition.bind(this));
     this.updateSidebarPosition();
 
-    this.cssStyleTrackerByCSSModel = new Map();
+    this.#cssStyleTrackerByCSSModel = new Map();
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
     SDK.TargetManager.TargetManager.instance().addEventListener(
         SDK.TargetManager.Events.NameChanged, event => this.targetNameChanged(event.data));
@@ -264,14 +264,14 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DocumentUpdated, this.documentUpdatedEvent, this);
     Extensions.ExtensionServer.ExtensionServer.instance().addEventListener(
         Extensions.ExtensionServer.Events.SidebarPaneAdded, this.extensionSidebarPaneAdded, this);
-    this.currentSearchResultIndex = -1;  // -1 represents the initial invalid state
+    this.#currentSearchResultIndex = -1;  // -1 represents the initial invalid state
 
     this.pendingNodeReveal = false;
 
-    this.adornerManager = new ElementsComponents.AdornerManager.AdornerManager(
+    this.#adornerManager = new ElementsComponents.AdornerManager.AdornerManager(
         Common.Settings.Settings.instance().moduleSetting('adornerSettings'));
-    this.adornerSettingsPane = null;
-    this.adornersByName = new Map();
+    this.#adornerSettingsPane = null;
+    this.#adornersByName = new Map();
   }
 
   private initializeFullAccessibilityTreeView(stackElement: UI.Widget.WidgetElement): void {
@@ -285,14 +285,14 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private showAccessibilityTree(): void {
-    if (this.accessibilityTreeView) {
-      this.splitWidget.setMainWidget(this.accessibilityTreeView);
+    if (this.#accessibilityTreeView) {
+      this.#splitWidget.setMainWidget(this.#accessibilityTreeView);
     }
   }
 
   private showDOMTree(): void {
     // TODO(meredithl): Scroll to inspected DOM node.
-    this.splitWidget.setMainWidget(this.searchableViewInternal);
+    this.#splitWidget.setMainWidget(this.#searchableViewInternal);
   }
 
   static instance(opts: {
@@ -307,11 +307,11 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   revealProperty(cssProperty: SDK.CSSProperty.CSSProperty): Promise<void> {
-    if (!this.sidebarPaneView || !this.stylesViewToReveal) {
+    if (!this.sidebarPaneView || !this.#stylesViewToReveal) {
       return Promise.resolve();
     }
 
-    return this.sidebarPaneView.showView(this.stylesViewToReveal).then(() => {
+    return this.sidebarPaneView.showView(this.#stylesViewToReveal).then(() => {
       this.stylesWidget.revealProperty((cssProperty as SDK.CSSProperty.CSSProperty));
     });
   }
@@ -330,8 +330,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     // Different frames will have different DOMModels, we only want to add the accessibility model
     // for the top level frame, as the accessibility tree does not yet support exploring IFrames.
-    if (this.accessibilityTreeView) {
-      this.accessibilityTreeView.wireToDOMModel(domModel);
+    if (this.#accessibilityTreeView) {
+      this.#accessibilityTreeView.wireToDOMModel(domModel);
     }
     let treeOutline: ElementsTreeOutline|null = parentModel ? ElementsTreeOutline.forDOMModel(parentModel) : null;
     if (!treeOutline) {
@@ -340,11 +340,11 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       treeOutline.addEventListener(ElementsTreeOutline.Events.SelectedNodeChanged, this.selectedNodeChanged, this);
       treeOutline.addEventListener(ElementsTreeOutline.Events.ElementsTreeUpdated, this.updateBreadcrumbIfNeeded, this);
       new ElementsTreeElementHighlighter(treeOutline);
-      this.treeOutlines.add(treeOutline);
+      this.#treeOutlines.add(treeOutline);
       if (domModel.target().parentTarget()) {
         const element = document.createElement('div');
         element.classList.add('elements-tree-header');
-        this.treeOutlineHeaders.set(treeOutline, element);
+        this.#treeOutlineHeaders.set(treeOutline, element);
         this.targetNameChanged(domModel.target());
       }
     }
@@ -368,12 +368,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     if (domModel.parentModel()) {
       return;
     }
-    this.treeOutlines.delete(treeOutline);
-    const header = this.treeOutlineHeaders.get(treeOutline);
+    this.#treeOutlines.delete(treeOutline);
+    const header = this.#treeOutlineHeaders.get(treeOutline);
     if (header) {
       header.remove();
     }
-    this.treeOutlineHeaders.delete(treeOutline);
+    this.#treeOutlineHeaders.delete(treeOutline);
     treeOutline.element.remove();
 
     this.removeStyleTracking(domModel.cssModel());
@@ -388,7 +388,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     if (!treeOutline) {
       return;
     }
-    const header = this.treeOutlineHeaders.get(treeOutline);
+    const header = this.#treeOutlineHeaders.get(treeOutline);
     if (!header) {
       return;
     }
@@ -399,27 +399,27 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private updateTreeOutlineVisibleWidth(): void {
-    if (!this.treeOutlines.size) {
+    if (!this.#treeOutlines.size) {
       return;
     }
 
-    let width = this.splitWidget.element.offsetWidth;
-    if (this.splitWidget.isVertical()) {
-      width -= this.splitWidget.sidebarSize();
+    let width = this.#splitWidget.element.offsetWidth;
+    if (this.#splitWidget.isVertical()) {
+      width -= this.#splitWidget.sidebarSize();
     }
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       treeOutline.setVisibleWidth(width);
     }
   }
 
   focus(): void {
-    if (this.treeOutlines.size) {
-      this.treeOutlines.values().next().value.focus();
+    if (this.#treeOutlines.size) {
+      this.#treeOutlines.values().next().value.focus();
     }
   }
 
   searchableView(): UI.SearchableView.SearchableView {
-    return this.searchableViewInternal;
+    return this.#searchableViewInternal;
   }
 
   wasShown(): void {
@@ -427,14 +427,14 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     UI.Context.Context.instance().setFlavor(ElementsPanel, this);
     this.registerCSSFiles([elementsPanelStyles]);
 
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       // Attach heavy component lazily
-      if (treeOutline.element.parentElement !== this.contentElementInternal) {
-        const header = this.treeOutlineHeaders.get(treeOutline);
+      if (treeOutline.element.parentElement !== this.#contentElementInternal) {
+        const header = this.#treeOutlineHeaders.get(treeOutline);
         if (header) {
-          this.contentElementInternal.appendChild(header);
+          this.#contentElementInternal.appendChild(header);
         }
-        this.contentElementInternal.appendChild(treeOutline.element);
+        this.#contentElementInternal.appendChild(treeOutline.element);
       }
     }
 
@@ -462,13 +462,13 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   willHide(): void {
     SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       treeOutline.setVisible(false);
       // Detach heavy component on hide
-      this.contentElementInternal.removeChild(treeOutline.element);
-      const header = this.treeOutlineHeaders.get(treeOutline);
+      this.#contentElementInternal.removeChild(treeOutline.element);
+      const header = this.#treeOutlineHeaders.get(treeOutline);
       if (header) {
-        this.contentElementInternal.removeChild(header);
+        this.#contentElementInternal.removeChild(header);
       }
     }
     super.willHide();
@@ -489,7 +489,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       selectedNode = null;
     }
     const {focus} = event.data;
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       if (!selectedNode || ElementsTreeOutline.forDOMModel(selectedNode.domModel()) !== treeOutline) {
         treeOutline.selectDOMNode(null);
       }
@@ -503,12 +503,12 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         crumbs.push(ElementsComponents.Helper.legacyNodeToElementsComponentsNode(current));
       }
 
-      this.breadcrumbs.data = {
+      this.#breadcrumbs.data = {
         crumbs,
         selectedNode: ElementsComponents.Helper.legacyNodeToElementsComponentsNode(selectedNode),
       };
     } else {
-      this.breadcrumbs.data = {crumbs: [], selectedNode: null};
+      this.#breadcrumbs.data = {crumbs: [], selectedNode: null};
     }
 
     UI.Context.Context.instance().setFlavor(SDK.DOMModel.DOMNode, selectedNode);
@@ -518,8 +518,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     }
     selectedNode.setAsInspectedNode();
     if (focus) {
-      this.selectedNodeOnReset = selectedNode;
-      this.hasNonDefaultSelectedNode = true;
+      this.#selectedNodeOnReset = selectedNode;
+      this.#hasNonDefaultSelectedNode = true;
     }
 
     const executionContexts = selectedNode.domModel().runtimeModel().executionContexts();
@@ -540,7 +540,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private documentUpdated(domModel: SDK.DOMModel.DOMModel): void {
-    this.searchableViewInternal.resetSearch();
+    this.#searchableViewInternal.resetSearch();
 
     if (!domModel.existingDocument()) {
       if (this.isShowing()) {
@@ -549,21 +549,21 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       return;
     }
 
-    this.hasNonDefaultSelectedNode = false;
+    this.#hasNonDefaultSelectedNode = false;
 
-    if (this.omitDefaultSelection) {
+    if (this.#omitDefaultSelection) {
       return;
     }
 
-    const savedSelectedNodeOnReset = this.selectedNodeOnReset;
-    restoreNode.call(this, domModel, this.selectedNodeOnReset || null);
+    const savedSelectedNodeOnReset = this.#selectedNodeOnReset;
+    restoreNode.call(this, domModel, this.#selectedNodeOnReset || null);
 
     async function restoreNode(
         this: ElementsPanel, domModel: SDK.DOMModel.DOMModel, staleNode: SDK.DOMModel.DOMNode|null): Promise<void> {
       const nodePath = staleNode ? staleNode.path() : null;
       const restoredNodeId = nodePath ? await domModel.pushNodeByPathToFrontend(nodePath) : null;
 
-      if (savedSelectedNodeOnReset !== this.selectedNodeOnReset) {
+      if (savedSelectedNodeOnReset !== this.#selectedNodeOnReset) {
         return;
       }
       let node: (SDK.DOMModel.DOMNode|null) = restoredNodeId ? domModel.nodeForId(restoredNodeId) : null;
@@ -586,7 +586,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private setDefaultSelectedNode(node: SDK.DOMModel.DOMNode|null): void {
-    if (!node || this.hasNonDefaultSelectedNode || this.pendingNodeReveal) {
+    if (!node || this.#hasNonDefaultSelectedNode || this.pendingNodeReveal) {
       return;
     }
     const treeOutline = ElementsTreeOutline.forDOMModel(node.domModel());
@@ -600,13 +600,13 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   searchCanceled(): void {
-    this.searchConfig = undefined;
+    this.#searchConfig = undefined;
     this.hideSearchHighlights();
 
-    this.searchableViewInternal.updateSearchMatchesCount(0);
+    this.#searchableViewInternal.updateSearchMatchesCount(0);
 
-    this.currentSearchResultIndex = -1;
-    delete this.searchResults;
+    this.#currentSearchResultIndex = -1;
+    this.#searchResults = undefined;
 
     SDK.DOMModel.DOMModel.cancelSearch();
   }
@@ -619,37 +619,37 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       return;
     }
 
-    if (!this.searchConfig || this.searchConfig.query !== query) {
+    if (!this.#searchConfig || this.#searchConfig.query !== query) {
       this.searchCanceled();
     } else {
       this.hideSearchHighlights();
     }
 
-    this.searchConfig = searchConfig;
+    this.#searchConfig = searchConfig;
 
     const showUAShadowDOM = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get();
     const domModels = SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel);
     const promises = domModels.map(domModel => domModel.performSearch(whitespaceTrimmedQuery, showUAShadowDOM));
     Promise.all(promises).then(resultCounts => {
-      this.searchResults = [];
+      this.#searchResults = [];
       for (let i = 0; i < resultCounts.length; ++i) {
         const resultCount = resultCounts[i];
         for (let j = 0; j < resultCount; ++j) {
-          this.searchResults.push({domModel: domModels[i], index: j, node: undefined});
+          this.#searchResults.push({domModel: domModels[i], index: j, node: undefined});
         }
       }
-      this.searchableViewInternal.updateSearchMatchesCount(this.searchResults.length);
-      if (!this.searchResults.length) {
+      this.#searchableViewInternal.updateSearchMatchesCount(this.#searchResults.length);
+      if (!this.#searchResults.length) {
         return;
       }
-      if (this.currentSearchResultIndex >= this.searchResults.length) {
-        this.currentSearchResultIndex = -1;
+      if (this.#currentSearchResultIndex >= this.#searchResults.length) {
+        this.#currentSearchResultIndex = -1;
       }
 
-      let index: (0|- 1)|number = this.currentSearchResultIndex;
+      let index: (0|- 1)|number = this.#currentSearchResultIndex;
 
       if (shouldJump) {
-        if (this.currentSearchResultIndex === -1) {
+        if (this.#currentSearchResultIndex === -1) {
           index = jumpBackwards ? -1 : 0;
         } else {
           index = jumpBackwards ? index - 1 : index + 1;
@@ -660,39 +660,39 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private domWordWrapSettingChanged(event: Common.EventTarget.EventTargetEvent<boolean>): void {
-    this.contentElementInternal.classList.toggle('elements-wrap', event.data);
-    for (const treeOutline of this.treeOutlines) {
+    this.#contentElementInternal.classList.toggle('elements-wrap', event.data);
+    for (const treeOutline of this.#treeOutlines) {
       treeOutline.setWordWrap(event.data);
     }
   }
 
   switchToAndFocus(node: SDK.DOMModel.DOMNode): void {
     // Reset search restore.
-    this.searchableViewInternal.cancelSearch();
+    this.#searchableViewInternal.cancelSearch();
     UI.ViewManager.ViewManager.instance().showView('elements').then(() => this.selectDOMNode(node, true));
   }
 
   private jumpToSearchResult(index: number): void {
-    if (!this.searchResults) {
+    if (!this.#searchResults) {
       return;
     }
 
-    this.currentSearchResultIndex = (index + this.searchResults.length) % this.searchResults.length;
+    this.#currentSearchResultIndex = (index + this.#searchResults.length) % this.#searchResults.length;
     this.highlightCurrentSearchResult();
   }
 
   jumpToNextSearchResult(): void {
-    if (!this.searchResults || !this.searchConfig) {
+    if (!this.#searchResults || !this.#searchConfig) {
       return;
     }
-    this.performSearch(this.searchConfig, true);
+    this.performSearch(this.#searchConfig, true);
   }
 
   jumpToPreviousSearchResult(): void {
-    if (!this.searchResults || !this.searchConfig) {
+    if (!this.#searchResults || !this.#searchConfig) {
       return;
     }
-    this.performSearch(this.searchConfig, true, true);
+    this.performSearch(this.#searchConfig, true, true);
   }
 
   supportsCaseSensitiveSearch(): boolean {
@@ -704,14 +704,14 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private highlightCurrentSearchResult(): void {
-    const index = this.currentSearchResultIndex;
-    const searchResults = this.searchResults;
+    const index = this.#currentSearchResultIndex;
+    const searchResults = this.#searchResults;
     if (!searchResults) {
       return;
     }
     const searchResult = searchResults[index];
 
-    this.searchableViewInternal.updateCurrentMatchIndex(index);
+    this.#searchableViewInternal.updateCurrentMatchIndex(index);
     if (searchResult.node === null) {
       return;
     }
@@ -723,7 +723,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
         // If any of these properties are undefined or reset to an invalid value,
         // this means the search/highlight request is outdated.
-        const highlightRequestValid = this.searchConfig && this.searchResults && (this.currentSearchResultIndex !== -1);
+        const highlightRequestValid =
+            this.#searchConfig && this.#searchResults && (this.#currentSearchResultIndex !== -1);
         if (highlightRequestValid) {
           this.highlightCurrentSearchResult();
         }
@@ -734,7 +735,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     const treeElement = this.treeElementForNode(searchResult.node);
     searchResult.node.scrollIntoView();
     if (treeElement) {
-      this.searchConfig && treeElement.highlightSearchResults(this.searchConfig.query);
+      this.#searchConfig && treeElement.highlightSearchResults(this.#searchConfig.query);
       treeElement.reveal();
       const matches = treeElement.listItemElement.getElementsByClassName(UI.UIUtils.highlightedSearchResultClassName);
       if (matches.length) {
@@ -744,10 +745,10 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private hideSearchHighlights(): void {
-    if (!this.searchResults || !this.searchResults.length || this.currentSearchResultIndex === -1) {
+    if (!this.#searchResults || !this.#searchResults.length || this.#currentSearchResultIndex === -1) {
       return;
     }
-    const searchResult = this.searchResults[this.currentSearchResultIndex];
+    const searchResult = this.#searchResults[this.#currentSearchResultIndex];
     if (!searchResult.node) {
       return;
     }
@@ -758,7 +759,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   selectedDOMNode(): SDK.DOMModel.DOMNode|null {
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       if (treeOutline.selectedDOMNode()) {
         return treeOutline.selectedDOMNode();
       }
@@ -767,7 +768,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   selectDOMNode(node: SDK.DOMModel.DOMNode, focus?: boolean): void {
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       const outline = ElementsTreeOutline.forDOMModel(node.domModel());
       if (outline === treeOutline) {
         treeOutline.selectDOMNode(node, focus);
@@ -779,10 +780,10 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   private updateBreadcrumbIfNeeded(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode[]>): void {
     const nodes = event.data;
-    /* If we don't have a selected node then we can tell the breadcrumbs that & bail. */
+    /* If we don't have a selected node then we can tell the #breadcrumbs that & bail. */
     const selectedNode = this.selectedDOMNode();
     if (!selectedNode) {
-      this.breadcrumbs.data = {
+      this.#breadcrumbs.data = {
         crumbs: [],
         selectedNode: null,
       };
@@ -792,7 +793,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     /* This function gets called whenever the tree outline is updated
      * and contains any nodes that have changed.
      * What we need to do is construct the new set of breadcrumb nodes, combining the Nodes
-     * that we had before with the new nodes, and pass them into the breadcrumbs component.
+     * that we had before with the new nodes, and pass them into the #breadcrumbs component.
      */
 
     // Get the current set of active crumbs
@@ -815,7 +816,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       return replacement || crumb;
     });
 
-    this.breadcrumbs.data = {
+    this.#breadcrumbs.data = {
       crumbs: newSetOfCrumbs,
       selectedNode: activeNode,
     };
@@ -849,7 +850,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   async revealAndSelectNode(node: SDK.DOMModel.DOMNode, focus: boolean, omitHighlight?: boolean): Promise<void> {
-    this.omitDefaultSelection = true;
+    this.#omitDefaultSelection = true;
 
     node = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get() ?
         node :
@@ -858,23 +859,23 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       node.highlightForTwoSeconds();
     }
 
-    if (this.accessibilityTreeView) {
-      this.accessibilityTreeView.selectedNodeChanged(node);
+    if (this.#accessibilityTreeView) {
+      this.#accessibilityTreeView.selectedNodeChanged(node);
     }
 
     await UI.ViewManager.ViewManager.instance().showView('elements', false, !focus);
     this.selectDOMNode(node, focus);
-    delete this.omitDefaultSelection;
-    if (!this.notFirstInspectElement) {
+    this.#omitDefaultSelection = undefined;
+    if (!this.#notFirstInspectElement) {
       ElementsPanel.firstInspectElementNodeNameForTest = node.nodeName();
       ElementsPanel.firstInspectElementCompletedForTest();
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.inspectElementCompleted();
     }
-    this.notFirstInspectElement = true;
+    this.#notFirstInspectElement = true;
   }
 
   private showUAShadowDOMChanged(): void {
-    for (const treeOutline of this.treeOutlines) {
+    for (const treeOutline of this.#treeOutlines) {
       treeOutline.update();
     }
   }
@@ -895,7 +896,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       if ((event as MouseEvent).button !== 0) {
         return;
       }
-      this.splitWidget.element.classList.add('disable-resizer-for-elements-hack');
+      this.#splitWidget.element.classList.add('disable-resizer-for-elements-hack');
       stylePaneWrapperElement.style.setProperty('height', `${stylePaneWrapperElement.offsetHeight}px`);
       const largeLength = 1000000;
       stylePaneWrapperElement.style.setProperty('left', `${- 1 * largeLength}px`);
@@ -912,7 +913,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     }, true);
 
     function uninstallHack(this: ElementsPanel): void {
-      this.splitWidget.element.classList.remove('disable-resizer-for-elements-hack');
+      this.#splitWidget.element.classList.remove('disable-resizer-for-elements-hack');
       stylePaneWrapperElement.style.removeProperty('left');
       stylePaneWrapperElement.style.removeProperty('padding-left');
       stylePaneWrapperElement.style.removeProperty('width');
@@ -928,7 +929,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   private initializeSidebarPanes(splitMode: _splitMode): void {
-    this.splitWidget.setVertical(splitMode === _splitMode.Vertical);
+    this.#splitWidget.setVertical(splitMode === _splitMode.Vertical);
     this.showToolbarPane(null /* widget */, null /* toggle */);
 
     const matchedStylePanesWrapper = new UI.Widget.VBox();
@@ -938,7 +939,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     const computedStylePanesWrapper = new UI.Widget.VBox();
     computedStylePanesWrapper.element.classList.add('style-panes-wrapper');
-    this.computedStyleWidget.show(computedStylePanesWrapper.element);
+    this.#computedStyleWidget.show(computedStylePanesWrapper.element);
 
     const stylesSplitWidget = new UI.SplitWidget.SplitWidget(
         true /* isVertical */, true /* secondIsSidebar */, 'elements.styles.sidebar.width', 100);
@@ -954,8 +955,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     });
 
     const showMetricsWidgetInComputedPane = (): void => {
-      this.metricsWidget.show(computedStylePanesWrapper.element, this.computedStyleWidget.element);
-      this.metricsWidget.toggleVisibility(true /* visible */);
+      this.#metricsWidget.show(computedStylePanesWrapper.element, this.#computedStyleWidget.element);
+      this.#metricsWidget.toggleVisibility(true /* visible */);
       this.stylesWidget.removeEventListener(StylesSidebarPaneEvents.StylesUpdateCompleted, toggleMetricsWidget);
     };
 
@@ -964,9 +965,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       if (showMergedComputedPane) {
         showMetricsWidgetInComputedPane();
       } else {
-        this.metricsWidget.show(matchedStylePanesWrapper.element);
+        this.#metricsWidget.show(matchedStylePanesWrapper.element);
         if (!this.stylesWidget.hasMatchedStyles) {
-          this.metricsWidget.toggleVisibility(false /* invisible */);
+          this.#metricsWidget.toggleVisibility(false /* invisible */);
         }
         this.stylesWidget.addEventListener(StylesSidebarPaneEvents.StylesUpdateCompleted, toggleMetricsWidget);
       }
@@ -975,7 +976,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     let skippedInitialTabSelectedEvent = false;
 
     const toggleMetricsWidget = (event: Common.EventTarget.EventTargetEvent<StylesUpdateCompletedEvent>): void => {
-      this.metricsWidget.toggleVisibility(event.data.hasMatchedStyles);
+      this.#metricsWidget.toggleVisibility(event.data.hasMatchedStyles);
     };
 
     const tabSelected = (event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void => {
@@ -1000,8 +1001,8 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.sidebarPaneView = UI.ViewManager.ViewManager.instance().createTabbedLocation(
         () => UI.ViewManager.ViewManager.instance().showView('elements'));
     const tabbedPane = this.sidebarPaneView.tabbedPane();
-    if (this.splitMode !== _splitMode.Vertical) {
-      this.splitWidget.installResizer(tabbedPane.headerElement());
+    if (this.#splitMode !== _splitMode.Vertical) {
+      this.#splitWidget.installResizer(tabbedPane.headerElement());
     }
 
     const headerElement = tabbedPane.headerElement();
@@ -1022,7 +1023,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
     this.sidebarPaneView.appendView(computedView);
-    this.stylesViewToReveal = stylesView;
+    this.#stylesViewToReveal = stylesView;
 
     this.sidebarPaneView.appendApplicableItems('elements-sidebar');
     const extensionSidebarPanes = Extensions.ExtensionServer.ExtensionServer.instance().sidebarPanes();
@@ -1030,7 +1031,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       this.addExtensionSidebarPane(extensionSidebarPanes[i]);
     }
 
-    this.splitWidget.setSidebarWidget(this.sidebarPaneView.tabbedPane());
+    this.#splitWidget.setSidebarWidget(this.sidebarPaneView.tabbedPane());
   }
 
   private updateSidebarPosition(): void {
@@ -1048,19 +1049,19 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       this.initializeSidebarPanes(splitMode);
       return;
     }
-    if (splitMode === this.splitMode) {
+    if (splitMode === this.#splitMode) {
       return;
     }
-    this.splitMode = splitMode;
+    this.#splitMode = splitMode;
 
     const tabbedPane = this.sidebarPaneView.tabbedPane();
-    this.splitWidget.uninstallResizer(tabbedPane.headerElement());
+    this.#splitWidget.uninstallResizer(tabbedPane.headerElement());
 
-    this.splitWidget.setVertical(this.splitMode === _splitMode.Vertical);
+    this.#splitWidget.setVertical(this.#splitMode === _splitMode.Vertical);
     this.showToolbarPane(null /* widget */, null /* toggle */);
 
-    if (this.splitMode !== _splitMode.Vertical) {
-      this.splitWidget.installResizer(tabbedPane.headerElement());
+    if (this.#splitMode !== _splitMode.Vertical) {
+      this.#splitWidget.installResizer(tabbedPane.headerElement());
     }
   }
 
@@ -1076,25 +1077,25 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   getComputedStyleWidget(): ComputedStyleWidget {
-    return this.computedStyleWidget;
+    return this.#computedStyleWidget;
   }
 
   private setupStyleTracking(cssModel: SDK.CSSModel.CSSModel): void {
     const cssPropertyTracker = cssModel.createCSSPropertyTracker(TrackedCSSProperties);
     cssPropertyTracker.start();
-    this.cssStyleTrackerByCSSModel.set(cssModel, cssPropertyTracker);
+    this.#cssStyleTrackerByCSSModel.set(cssModel, cssPropertyTracker);
     cssPropertyTracker.addEventListener(
         SDK.CSSModel.CSSPropertyTrackerEvents.TrackedCSSPropertiesUpdated, this.trackedCSSPropertiesUpdated, this);
   }
 
   private removeStyleTracking(cssModel: SDK.CSSModel.CSSModel): void {
-    const cssPropertyTracker = this.cssStyleTrackerByCSSModel.get(cssModel);
+    const cssPropertyTracker = this.#cssStyleTrackerByCSSModel.get(cssModel);
     if (!cssPropertyTracker) {
       return;
     }
 
     cssPropertyTracker.stop();
-    this.cssStyleTrackerByCSSModel.delete(cssModel);
+    this.#cssStyleTrackerByCSSModel.delete(cssModel);
     cssPropertyTracker.removeEventListener(
         SDK.CSSModel.CSSPropertyTrackerEvents.TrackedCSSPropertiesUpdated, this.trackedCSSPropertiesUpdated, this);
   }
@@ -1115,38 +1116,38 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   showAdornerSettingsPane(): void {
     // Delay the initialization of the pane to the first showing
     // since usually this pane won't be used.
-    if (!this.adornerSettingsPane) {
-      this.adornerSettingsPane = new ElementsComponents.AdornerSettingsPane.AdornerSettingsPane();
-      this.adornerSettingsPane.addEventListener('adornersettingupdated', (event: Event) => {
+    if (!this.#adornerSettingsPane) {
+      this.#adornerSettingsPane = new ElementsComponents.AdornerSettingsPane.AdornerSettingsPane();
+      this.#adornerSettingsPane.addEventListener('adornersettingupdated', (event: Event) => {
         const {adornerName, isEnabledNow, newSettings} =
             (event as ElementsComponents.AdornerSettingsPane.AdornerSettingUpdatedEvent).data;
-        const adornersToUpdate = this.adornersByName.get(adornerName);
+        const adornersToUpdate = this.#adornersByName.get(adornerName);
         if (adornersToUpdate) {
           for (const adorner of adornersToUpdate) {
             isEnabledNow ? adorner.show() : adorner.hide();
           }
         }
-        this.adornerManager.updateSettings(newSettings);
+        this.#adornerManager.updateSettings(newSettings);
       });
-      this.searchableViewInternal.element.prepend(this.adornerSettingsPane);
+      this.#searchableViewInternal.element.prepend(this.#adornerSettingsPane);
     }
 
-    const adornerSettings = this.adornerManager.getSettings();
-    this.adornerSettingsPane.data = {
+    const adornerSettings = this.#adornerManager.getSettings();
+    this.#adornerSettingsPane.data = {
       settings: adornerSettings,
     };
-    this.adornerSettingsPane.show();
+    this.#adornerSettingsPane.show();
   }
 
   isAdornerEnabled(adornerText: string): boolean {
-    return this.adornerManager.isAdornerEnabled(adornerText);
+    return this.#adornerManager.isAdornerEnabled(adornerText);
   }
 
   registerAdorner(adorner: Adorners.Adorner.Adorner): void {
-    let adornerSet = this.adornersByName.get(adorner.name);
+    let adornerSet = this.#adornersByName.get(adorner.name);
     if (!adornerSet) {
       adornerSet = new Set();
-      this.adornersByName.set(adorner.name, adornerSet);
+      this.#adornersByName.set(adorner.name, adornerSet);
     }
     adornerSet.add(adorner);
     if (!this.isAdornerEnabled(adorner.name)) {
@@ -1155,7 +1156,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   }
 
   deregisterAdorner(adorner: Adorners.Adorner.Adorner): void {
-    const adornerSet = this.adornersByName.get(adorner.name);
+    const adornerSet = this.#adornersByName.get(adorner.name);
     if (!adornerSet) {
       return;
     }

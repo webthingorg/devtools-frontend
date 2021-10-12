@@ -179,11 +179,11 @@ const UIStrings = {
   */
   children: 'Children:',
   /**
-  *@description ARIA label for Elements Tree adorners
+  *@description ARIA label for Elements Tree #adorners
   */
   enableGridMode: 'Enable grid mode',
   /**
-  *@description ARIA label for Elements Tree adorners
+  *@description ARIA label for Elements Tree #adorners
   */
   disableGridMode: 'Disable grid mode',
   /**
@@ -211,32 +211,32 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   nodeInternal: SDK.DOMModel.DOMNode;
   treeOutline: ElementsTreeOutline|null;
-  private gutterContainer: HTMLElement;
-  private readonly decorationsElement: HTMLElement;
-  private isClosingTagInternal: boolean|undefined;
-  private readonly canAddAttributes: boolean|undefined;
-  private searchQuery: string|null;
-  private expandedChildrenLimitInternal: number;
-  private readonly decorationsThrottler: Common.Throttler.Throttler;
-  private inClipboard: boolean;
-  private hoveredInternal: boolean;
-  private editing: EditorHandles|null;
-  private highlightResult: UI.UIUtils.HighlightChange[];
-  private readonly adornerContainer: HTMLElement|undefined;
+  #gutterContainer: HTMLElement;
+  readonly #decorationsElement: HTMLElement;
+  #isClosingTagInternal: boolean|undefined;
+  readonly #canAddAttributes: boolean|undefined;
+  #searchQuery: string|null;
+  #expandedChildrenLimitInternal: number;
+  readonly #decorationsThrottler: Common.Throttler.Throttler;
+  #inClipboard: boolean;
+  #hoveredInternal: boolean;
+  #editing: EditorHandles|null;
+  #highlightResult: UI.UIUtils.HighlightChange[];
+  readonly #adornerContainer: HTMLElement|undefined;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
-  private adorners: Adorners.Adorner.Adorner[];
+  #adorners: Adorners.Adorner.Adorner[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
-  private styleAdorners: Adorners.Adorner.Adorner[];
+  #styleAdorners: Adorners.Adorner.Adorner[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // @ts-expect-error
-  private readonly adornersThrottler: Common.Throttler.Throttler;
-  private htmlEditElement!: HTMLElement|undefined;
+  readonly #adornersThrottler: Common.Throttler.Throttler;
+  #htmlEditElement!: HTMLElement|undefined;
   expandAllButtonElement: UI.TreeOutline.TreeElement|null;
-  private searchHighlightsVisible?: boolean;
+  #searchHighlightsVisible?: boolean;
   selectionElement?: HTMLDivElement;
-  private hintElement?: HTMLElement;
+  #hintElement?: HTMLElement;
 
   constructor(node: SDK.DOMModel.DOMNode, isClosingTag?: boolean) {
     // The title will be updated in onattach.
@@ -244,33 +244,33 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     this.nodeInternal = node;
     this.treeOutline = null;
 
-    this.gutterContainer = this.listItemElement.createChild('div', 'gutter-container');
-    this.gutterContainer.addEventListener('click', this.showContextMenu.bind(this));
+    this.#gutterContainer = this.listItemElement.createChild('div', 'gutter-container');
+    this.#gutterContainer.addEventListener('click', this.showContextMenu.bind(this));
     const gutterMenuIcon = UI.Icon.Icon.create('largeicon-menu', 'gutter-menu-icon');
-    this.gutterContainer.appendChild(gutterMenuIcon);
-    this.decorationsElement = this.gutterContainer.createChild('div', 'hidden');
+    this.#gutterContainer.appendChild(gutterMenuIcon);
+    this.#decorationsElement = this.#gutterContainer.createChild('div', 'hidden');
 
-    this.isClosingTagInternal = isClosingTag;
+    this.#isClosingTagInternal = isClosingTag;
 
     if (this.nodeInternal.nodeType() === Node.ELEMENT_NODE && !isClosingTag) {
-      this.canAddAttributes = true;
+      this.#canAddAttributes = true;
     }
-    this.searchQuery = null;
-    this.expandedChildrenLimitInternal = InitialChildrenLimit;
-    this.decorationsThrottler = new Common.Throttler.Throttler(100);
+    this.#searchQuery = null;
+    this.#expandedChildrenLimitInternal = InitialChildrenLimit;
+    this.#decorationsThrottler = new Common.Throttler.Throttler(100);
 
-    this.inClipboard = false;
-    this.hoveredInternal = false;
+    this.#inClipboard = false;
+    this.#hoveredInternal = false;
 
-    this.editing = null;
+    this.#editing = null;
 
-    this.highlightResult = [];
+    this.#highlightResult = [];
 
     if (!isClosingTag) {
-      this.adornerContainer = this.listItemElement.createChild('div', 'adorner-container hidden');
-      this.adorners = [];
-      this.styleAdorners = [];
-      this.adornersThrottler = new Common.Throttler.Throttler(100);
+      this.#adornerContainer = this.listItemElement.createChild('div', 'adorner-container hidden');
+      this.#adorners = [];
+      this.#styleAdorners = [];
+      this.#adornersThrottler = new Common.Throttler.Throttler(100);
 
       this.updateStyleAdorners();
 
@@ -338,7 +338,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   isClosingTag(): boolean {
-    return Boolean(this.isClosingTagInternal);
+    return Boolean(this.#isClosingTagInternal);
   }
 
   node(): SDK.DOMModel.DOMNode {
@@ -346,31 +346,31 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   isEditing(): boolean {
-    return Boolean(this.editing);
+    return Boolean(this.#editing);
   }
 
   highlightSearchResults(searchQuery: string): void {
-    if (this.searchQuery !== searchQuery) {
+    if (this.#searchQuery !== searchQuery) {
       this.hideSearchHighlight();
     }
 
-    this.searchQuery = searchQuery;
-    this.searchHighlightsVisible = true;
+    this.#searchQuery = searchQuery;
+    this.#searchHighlightsVisible = true;
     this.updateTitle(null, true);
   }
 
   hideSearchHighlights(): void {
-    delete this.searchHighlightsVisible;
+    this.#searchHighlightsVisible = undefined;
     this.hideSearchHighlight();
   }
 
   private hideSearchHighlight(): void {
-    if (this.highlightResult.length === 0) {
+    if (this.#highlightResult.length === 0) {
       return;
     }
 
-    for (let i = (this.highlightResult.length - 1); i >= 0; --i) {
-      const entry = this.highlightResult[i];
+    for (let i = (this.#highlightResult.length - 1); i >= 0; --i) {
+      const entry = this.#highlightResult[i];
       switch (entry.type) {
         case 'added':
           entry.node.remove();
@@ -381,27 +381,27 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
-    this.highlightResult = [];
+    this.#highlightResult = [];
   }
 
   setInClipboard(inClipboard: boolean): void {
-    if (this.inClipboard === inClipboard) {
+    if (this.#inClipboard === inClipboard) {
       return;
     }
-    this.inClipboard = inClipboard;
+    this.#inClipboard = inClipboard;
     this.listItemElement.classList.toggle('in-clipboard', inClipboard);
   }
 
   get hovered(): boolean {
-    return this.hoveredInternal;
+    return this.#hoveredInternal;
   }
 
   set hovered(isHovered: boolean) {
-    if (this.hoveredInternal === isHovered) {
+    if (this.#hoveredInternal === isHovered) {
       return;
     }
 
-    this.hoveredInternal = isHovered;
+    this.#hoveredInternal = isHovered;
 
     if (this.listItemElement) {
       if (isHovered) {
@@ -414,11 +414,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   expandedChildrenLimit(): number {
-    return this.expandedChildrenLimitInternal;
+    return this.#expandedChildrenLimitInternal;
   }
 
   setExpandedChildrenLimit(expandedChildrenLimit: number): void {
-    this.expandedChildrenLimitInternal = expandedChildrenLimit;
+    this.#expandedChildrenLimitInternal = expandedChildrenLimit;
   }
 
   private createSelection(): void {
@@ -436,24 +436,24 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private createHint(): void {
-    if (this.listItemElement && !this.hintElement) {
-      this.hintElement = this.listItemElement.createChild('span', 'selected-hint');
+    if (this.listItemElement && !this.#hintElement) {
+      this.#hintElement = this.listItemElement.createChild('span', 'selected-hint');
       const selectedElementCommand = '$0';
       UI.Tooltip.Tooltip.install(
-          this.hintElement, i18nString(UIStrings.useSInTheConsoleToReferToThis, {PH1: selectedElementCommand}));
-      UI.ARIAUtils.markAsHidden(this.hintElement);
+          this.#hintElement, i18nString(UIStrings.useSInTheConsoleToReferToThis, {PH1: selectedElementCommand}));
+      UI.ARIAUtils.markAsHidden(this.#hintElement);
     }
   }
 
   onbind(): void {
-    if (this.treeOutline && !this.isClosingTagInternal) {
+    if (this.treeOutline && !this.#isClosingTagInternal) {
       this.treeOutline.treeElementByNode.set(this.nodeInternal, this);
     }
   }
 
   onunbind(): void {
-    if (this.editing) {
-      this.editing.cancel();
+    if (this.#editing) {
+      this.#editing.cancel();
     }
     if (this.treeOutline && this.treeOutline.treeElementByNode.get(this.nodeInternal) === this) {
       this.treeOutline.treeElementByNode.delete(this.nodeInternal);
@@ -461,7 +461,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   onattach(): void {
-    if (this.hoveredInternal) {
+    if (this.#hoveredInternal) {
       this.createSelection();
       this.listItemElement.classList.add('hovered');
     }
@@ -482,7 +482,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   onexpand(): void {
-    if (this.isClosingTagInternal) {
+    if (this.#isClosingTagInternal) {
       return;
     }
 
@@ -490,7 +490,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   oncollapse(): void {
-    if (this.isClosingTagInternal) {
+    if (this.#isClosingTagInternal) {
       return;
     }
 
@@ -498,7 +498,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   select(omitFocus?: boolean, selectedByUser?: boolean): boolean {
-    if (this.editing) {
+    if (this.#editing) {
       return false;
     }
     return super.select(omitFocus, selectedByUser);
@@ -530,9 +530,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   onenter(): boolean {
-    // On Enter or Return start editing the first attribute
+    // On Enter or Return start #editing the first attribute
     // or create a new attribute on the selected element.
-    if (this.editing) {
+    if (this.#editing) {
       return false;
     }
 
@@ -545,7 +545,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   selectOnMouseDown(event: MouseEvent): void {
     super.selectOnMouseDown(event);
 
-    if (this.editing) {
+    if (this.#editing) {
       return;
     }
 
@@ -556,7 +556,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   ondblclick(event: Event): boolean {
-    if (this.editing || this.isClosingTagInternal) {
+    if (this.#editing || this.#isClosingTagInternal) {
       return false;
     }
     if (this.startEditingTarget((event.target as Element))) {
@@ -628,7 +628,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   populateTagContextMenu(contextMenu: UI.ContextMenu.ContextMenu, event: Event): void {
     // Add attribute-related actions.
     const treeElement =
-        this.isClosingTagInternal && this.treeOutline ? this.treeOutline.findTreeElement(this.nodeInternal) : this;
+        this.#isClosingTagInternal && this.treeOutline ? this.treeOutline.findTreeElement(this.nodeInternal) : this;
     if (!treeElement) {
       return;
     }
@@ -667,7 +667,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   populateTextContextMenu(contextMenu: UI.ContextMenu.ContextMenu, textNode: Element): void {
-    if (!this.editing) {
+    if (!this.#editing) {
       contextMenu.editSection().appendItem(
           i18nString(UIStrings.editText), this.startEditingTextNode.bind(this, textNode));
     }
@@ -678,7 +678,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     // Add free-form node-related actions.
     const isEditable = this.hasEditableNode();
     // clang-format off
-    if (isEditable && !this.editing) {
+    if (isEditable && !this.#editing) {
       // Eagerly load CodeMirror to avoid a delay when opening the "Edit as HTML" editor when the user actually clicks on it
       import('../../ui/components/text_editor/text_editor.js');
       contextMenu.editSection().appendItem(i18nString(UIStrings.editAsHtml), this.editAsHTML.bind(this));
@@ -771,7 +771,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     const listItem = this.listItemElement;
 
-    if (this.canAddAttributes) {
+    if (this.#canAddAttributes) {
       const attribute = listItem.getElementsByClassName('webkit-html-attribute')[0];
       if (attribute) {
         return this.startEditingAttribute(
@@ -796,8 +796,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     // a parent node. Use a temporary span container for the HTML.
     const container = document.createElement('span');
     const attr = this.buildAttributeDOM(container, ' ', '', null);
-    attr.style.marginLeft = '2px';   // overrides the .editing margin rule
-    attr.style.marginRight = '2px';  // overrides the .editing margin rule
+    attr.style.marginLeft = '2px';   // overrides the .#editing margin rule
+    attr.style.marginRight = '2px';  // overrides the .#editing margin rule
 
     const tag = this.listItemElement.getElementsByClassName('webkit-html-tag')[0];
     this.insertInLastAttributePosition(tag, attr);
@@ -941,7 +941,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       if ((event as KeyboardEvent).key !== ' ') {
         return;
       }
-      this.editing && this.editing.commit();
+      this.#editing && this.#editing.commit();
       event.consume(true);
     };
 
@@ -983,9 +983,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private updateEditorHandles(element: Element, config?: UI.InplaceEditor.Config<any>): void {
     const editorHandles = UI.InplaceEditor.InplaceEditor.startEditing(element, config);
     if (!editorHandles) {
-      this.editing = null;
+      this.#editing = null;
     } else {
-      this.editing = {
+      this.#editing = {
         commit: editorHandles.commit,
         cancel: editorHandles.cancel,
         editor: undefined,
@@ -1000,13 +1000,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (maybeInitialValue === null) {
       return;
     }
-    if (this.editing) {
+    if (this.#editing) {
       return;
     }
 
     const initialValue = this.convertWhitespaceToEntities(maybeInitialValue).text;
-    this.htmlEditElement = document.createElement('div');
-    this.htmlEditElement.className = 'source-code elements-tree-editor';
+    this.#htmlEditElement = document.createElement('div');
+    this.#htmlEditElement.className = 'source-code elements-tree-editor';
 
     // Hide header items.
     let child: (ChildNode|null) = this.listItemElement.firstChild;
@@ -1019,8 +1019,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       this.childrenListElement.style.display = 'none';
     }
     // Append editor.
-    this.listItemElement.appendChild(this.htmlEditElement);
-    this.htmlEditElement.addEventListener('keydown', event => {
+    this.listItemElement.appendChild(this.#htmlEditElement);
+    this.#htmlEditElement.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         event.consume(true);
       }
@@ -1036,14 +1036,14 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           {
             key: 'Mod-Enter',
             run: (): boolean => {
-              this.editing?.commit();
+              this.#editing?.commit();
               return true;
             },
           },
           {
             key: 'Escape',
             run: (): boolean => {
-              this.editing?.cancel();
+              this.#editing?.cancel();
               return true;
             },
           },
@@ -1060,43 +1060,43 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
             // The relatedTarget is null when no element gains focus, e.g. switching windows.
             const relatedTarget = (event.relatedTarget as Node | null);
             if (relatedTarget && !relatedTarget.isSelfOrDescendant(editor)) {
-              this.editing && this.editing.commit();
+              this.#editing && this.#editing.commit();
             }
           },
         }),
       ],
     }));
-    this.editing = {commit: commit.bind(this), cancel: dispose.bind(this), editor, resize: resize.bind(this)};
+    this.#editing = {commit: commit.bind(this), cancel: dispose.bind(this), editor, resize: resize.bind(this)};
     resize.call(this);
-    this.htmlEditElement.appendChild(editor);
+    this.#htmlEditElement.appendChild(editor);
     editor.editor.focus();
 
-    this.treeOutline && this.treeOutline.setMultilineEditing(this.editing);
+    this.treeOutline && this.treeOutline.setMultilineEditing(this.#editing);
 
     function resize(this: ElementsTreeElement): void {
-      if (this.treeOutline && this.htmlEditElement) {
-        this.htmlEditElement.style.width = this.treeOutline.visibleWidth() - this.computeLeftIndent() - 30 + 'px';
+      if (this.treeOutline && this.#htmlEditElement) {
+        this.#htmlEditElement.style.width = this.treeOutline.visibleWidth() - this.computeLeftIndent() - 30 + 'px';
       }
     }
 
     function commit(this: ElementsTreeElement): void {
-      if (this.editing && this.editing.editor) {
-        commitCallback(initialValue, this.editing.editor.state.doc.toString());
+      if (this.#editing && this.#editing.editor) {
+        commitCallback(initialValue, this.#editing.editor.state.doc.toString());
       }
       dispose.call(this);
     }
 
     function dispose(this: ElementsTreeElement): void {
-      if (!this.editing || !this.editing.editor) {
+      if (!this.#editing || !this.#editing.editor) {
         return;
       }
-      this.editing = null;
+      this.#editing = null;
 
       // Remove editor.
-      if (this.htmlEditElement) {
-        this.listItemElement.removeChild(this.htmlEditElement);
+      if (this.#htmlEditElement) {
+        this.listItemElement.removeChild(this.#htmlEditElement);
       }
-      this.htmlEditElement = undefined;
+      this.#htmlEditElement = undefined;
       // Unhide children item.
       if (this.childrenListElement) {
         this.childrenListElement.style.removeProperty('display');
@@ -1119,7 +1119,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   private attributeEditingCommitted(
       element: Element, newText: string, oldText: string, attributeName: string, moveDirection: string): void {
-    this.editing = null;
+    this.#editing = null;
 
     const treeOutline = this.treeOutline;
 
@@ -1193,7 +1193,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   private tagNameEditingCommitted(
       element: Element, newText: string, oldText: string, tagName: string|null, moveDirection: string): void {
-    this.editing = null;
+    this.#editing = null;
     const self = this;
 
     function cancel(): void {
@@ -1245,7 +1245,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private textNodeEditingCommitted(textNode: SDK.DOMModel.DOMNode, element: Element, newText: string): void {
-    this.editing = null;
+    this.#editing = null;
 
     function callback(this: ElementsTreeElement): void {
       this.updateTitle();
@@ -1256,7 +1256,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private editingCancelled(_element: Element, _context: any): void {
-    this.editing = null;
+    this.#editing = null;
 
     // Need to restore attributes structure.
     this.updateTitle();
@@ -1280,9 +1280,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   updateTitle(updateRecord?: UpdateRecord|null, onlySearchQueryChanged?: boolean): void {
-    // If we are editing, return early to prevent canceling the edit.
-    // After editing is committed updateTitle will be called.
-    if (this.editing) {
+    // If we are #editing, return early to prevent canceling the edit.
+    // After #editing is committed updateTitle will be called.
+    if (this.#editing) {
       return;
     }
 
@@ -1312,13 +1312,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       // fixme: make it clear that `this.title = x` is a setter with significant side effects
       this.title = highlightElement;
       this.updateDecorations();
-      this.listItemElement.insertBefore(this.gutterContainer, this.listItemElement.firstChild);
-      if (!this.isClosingTagInternal && this.adornerContainer) {
-        this.listItemElement.appendChild(this.adornerContainer);
+      this.listItemElement.insertBefore(this.#gutterContainer, this.listItemElement.firstChild);
+      if (!this.#isClosingTagInternal && this.#adornerContainer) {
+        this.listItemElement.appendChild(this.#adornerContainer);
       }
-      this.highlightResult = [];
+      this.#highlightResult = [];
       delete this.selectionElement;
-      delete this.hintElement;
+      this.#hintElement = undefined;
       if (this.selected) {
         this.createSelection();
         this.createHint();
@@ -1341,7 +1341,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   updateDecorations(): void {
-    this.gutterContainer.style.left = (-this.computeLeftIndent()) + 'px';
+    this.#gutterContainer.style.left = (-this.computeLeftIndent()) + 'px';
 
     if (this.isClosingTag()) {
       return;
@@ -1351,7 +1351,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    this.decorationsThrottler.schedule(this.updateDecorationsInternal.bind(this));
+    this.#decorationsThrottler.schedule(this.updateDecorationsInternal.bind(this));
   }
 
   private updateDecorationsInternal(): Promise<void> {
@@ -1400,11 +1400,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     return Promise.all(promises).then(updateDecorationsUI.bind(this));
 
     function updateDecorationsUI(this: ElementsTreeElement): void {
-      this.decorationsElement.removeChildren();
-      this.decorationsElement.classList.add('hidden');
-      this.gutterContainer.classList.toggle(
+      this.#decorationsElement.removeChildren();
+      this.#decorationsElement.classList.add('hidden');
+      this.#gutterContainer.classList.toggle(
           'has-decorations', Boolean(decorations.length || descendantDecorations.length));
-      UI.ARIAUtils.setAccessibleName(this.decorationsElement, '');
+      UI.ARIAUtils.setAccessibleName(this.#decorationsElement, '');
 
       if (!decorations.length && !descendantDecorations.length) {
         return;
@@ -1439,13 +1439,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       if (!this.expanded) {
         processColors.call(this, descendantColors, 'elements-gutter-decoration elements-has-decorated-children');
       }
-      UI.Tooltip.Tooltip.install(this.decorationsElement, titles.textContent);
-      UI.ARIAUtils.setAccessibleName(this.decorationsElement, titles.textContent || '');
+      UI.Tooltip.Tooltip.install(this.#decorationsElement, titles.textContent);
+      UI.ARIAUtils.setAccessibleName(this.#decorationsElement, titles.textContent || '');
 
       function processColors(this: ElementsTreeElement, colors: Set<string>, className: string): void {
         for (const color of colors) {
-          const child = this.decorationsElement.createChild('div', className);
-          this.decorationsElement.classList.remove('hidden');
+          const child = this.#decorationsElement.createChild('div', className);
+          this.#decorationsElement.classList.remove('hidden');
           child.style.backgroundColor = color;
           child.style.borderColor = color;
           if (offset) {
@@ -1667,7 +1667,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const node = this.nodeInternal;
     const titleDOM = document.createDocumentFragment();
     const updateSearchHighlight = (): void => {
-      this.highlightResult = [];
+      this.#highlightResult = [];
       this.highlightSearchResultsInternal();
     };
 
@@ -1684,7 +1684,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         }
 
         const tagName = node.nodeNameInCorrectCase();
-        if (this.isClosingTagInternal) {
+        if (this.#isClosingTagInternal) {
           this.buildTagDOM(titleDOM, tagName, true, true, updateRecord);
           break;
         }
@@ -1816,8 +1816,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   toggleEditAsHTML(callback?: ((arg0: boolean) => any), startEditing?: boolean): void {
-    if (this.editing && this.htmlEditElement) {
-      this.editing.commit();
+    if (this.#editing && this.#htmlEditElement) {
+      this.#editing.commit();
       return;
     }
 
@@ -1895,13 +1895,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private highlightSearchResultsInternal(): void {
-    if (!this.searchQuery || !this.searchHighlightsVisible) {
+    if (!this.#searchQuery || !this.#searchHighlightsVisible) {
       return;
     }
     this.hideSearchHighlight();
 
     const text = this.listItemElement.textContent || '';
-    const regexObject = createPlainTextSearchRegex(this.searchQuery, 'gi');
+    const regexObject = createPlainTextSearchRegex(this.#searchQuery, 'gi');
 
     let match = regexObject.exec(text);
     const matchRanges = [];
@@ -1915,8 +1915,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       matchRanges.push(new TextUtils.TextRange.SourceRange(0, text.length));
     }
 
-    this.highlightResult = [];
-    UI.UIUtils.highlightSearchResults(this.listItemElement, matchRanges, this.highlightResult);
+    this.#highlightResult = [];
+    UI.UIUtils.highlightSearchResults(this.listItemElement, matchRanges, this.#highlightResult);
   }
 
   private editAsHTML(): void {
@@ -1939,14 +1939,14 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       name,
       content: adornerContent,
     };
-    this.adorners.push(adorner);
+    this.#adorners.push(adorner);
     ElementsPanel.instance().registerAdorner(adorner);
     this.updateAdorners();
     return adorner;
   }
 
   removeAdorner(adornerToRemove: Adorners.Adorner.Adorner): void {
-    const adorners = this.adorners;
+    const adorners = this.#adorners;
     ElementsPanel.instance().deregisterAdorner(adornerToRemove);
     adornerToRemove.remove();
     for (let i = 0; i < adorners.length; ++i) {
@@ -1959,25 +1959,25 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   removeAllAdorners(): void {
-    for (const adorner of this.adorners) {
+    for (const adorner of this.#adorners) {
       ElementsPanel.instance().deregisterAdorner(adorner);
       adorner.remove();
     }
 
-    this.adorners = [];
+    this.#adorners = [];
     this.updateAdorners();
   }
 
   private updateAdorners(): void {
-    this.adornersThrottler.schedule(this.updateAdornersInternal.bind(this));
+    this.#adornersThrottler.schedule(this.updateAdornersInternal.bind(this));
   }
 
   private updateAdornersInternal(): Promise<void> {
-    const adornerContainer = this.adornerContainer;
+    const adornerContainer = this.#adornerContainer;
     if (!adornerContainer) {
       return Promise.resolve();
     }
-    const adorners = this.adorners;
+    const adorners = this.#adorners;
     if (adorners.length === 0) {
       adornerContainer.classList.add('hidden');
       return Promise.resolve();
@@ -1994,7 +1994,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   async updateStyleAdorners(): Promise<void> {
-    if (this.isClosingTagInternal) {
+    if (this.#isClosingTagInternal) {
       return;
     }
 
@@ -2006,10 +2006,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const styles = await node.domModel().cssModel().computedStylePromise(nodeId);
-    for (const styleAdorner of this.styleAdorners) {
+    for (const styleAdorner of this.#styleAdorners) {
       this.removeAdorner(styleAdorner);
     }
-    this.styleAdorners = [];
+    this.#styleAdorners = [];
     if (!styles) {
       return;
     }
@@ -2025,7 +2025,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     const appendAdorner = (adorner?: Adorners.Adorner.Adorner|null): void => {
       if (adorner) {
-        this.styleAdorners.push(adorner);
+        this.#styleAdorners.push(adorner);
       }
     };
     if (isGrid) {
@@ -2207,7 +2207,7 @@ export const ForbiddenClosingTagElements = new Set<string>([
   'img',  'input', 'keygen',   'link', 'menuitem', 'meta', 'param',   'source', 'track', 'wbr',
 ]);
 
-// These tags we do not allow editing their tag name.
+// These tags we do not allow #editing their tag name.
 export const EditTagBlocklist = new Set<string>(['html', 'head', 'body']);
 
 export function adornerComparator(adornerA: Adorners.Adorner.Adorner, adornerB: Adorners.Adorner.Adorner): number {

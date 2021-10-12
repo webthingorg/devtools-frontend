@@ -30,28 +30,28 @@ const str_ = i18n.i18n.registerUIStrings('panels/elements/ColorSwatchPopoverIcon
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class BezierPopoverIcon {
-  private treeElement: StylePropertyTreeElement;
-  private readonly swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
-  private swatch: InlineEditor.Swatches.BezierSwatch;
-  private readonly boundBezierChanged: (event: Common.EventTarget.EventTargetEvent<string>) => void;
-  private readonly boundOnScroll: (event: Event) => void;
-  private bezierEditor?: InlineEditor.BezierEditor.BezierEditor;
-  private scrollerElement?: Element;
-  private originalPropertyText?: string|null;
+  #treeElement: StylePropertyTreeElement;
+  readonly #swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  #swatch: InlineEditor.Swatches.BezierSwatch;
+  readonly #boundBezierChanged: (event: Common.EventTarget.EventTargetEvent<string>) => void;
+  readonly #boundOnScroll: (event: Event) => void;
+  #bezierEditor?: InlineEditor.BezierEditor.BezierEditor;
+  #scrollerElement?: Element;
+  #originalPropertyText?: string|null;
 
   constructor(
       treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
       swatch: InlineEditor.Swatches.BezierSwatch) {
-    this.treeElement = treeElement;
-    this.swatchPopoverHelper = swatchPopoverHelper;
-    this.swatch = swatch;
+    this.#treeElement = treeElement;
+    this.#swatchPopoverHelper = swatchPopoverHelper;
+    this.#swatch = swatch;
 
-    UI.Tooltip.Tooltip.install(this.swatch.iconElement(), i18nString(UIStrings.openCubicBezierEditor));
-    this.swatch.iconElement().addEventListener('click', this.iconClick.bind(this), false);
-    this.swatch.iconElement().addEventListener('mousedown', (event: Event) => event.consume(), false);
+    UI.Tooltip.Tooltip.install(this.#swatch.iconElement(), i18nString(UIStrings.openCubicBezierEditor));
+    this.#swatch.iconElement().addEventListener('click', this.iconClick.bind(this), false);
+    this.#swatch.iconElement().addEventListener('mousedown', (event: Event) => event.consume(), false);
 
-    this.boundBezierChanged = this.bezierChanged.bind(this);
-    this.boundOnScroll = this.onScroll.bind(this);
+    this.#boundBezierChanged = this.bezierChanged.bind(this);
+    this.#boundOnScroll = this.onScroll.bind(this);
   }
 
   private iconClick(event: Event): void {
@@ -59,89 +59,89 @@ export class BezierPopoverIcon {
       Host.userMetrics.cssEditorOpened('bezierEditor');
     }
     event.consume(true);
-    if (this.swatchPopoverHelper.isShowing()) {
-      this.swatchPopoverHelper.hide(true);
+    if (this.#swatchPopoverHelper.isShowing()) {
+      this.#swatchPopoverHelper.hide(true);
       return;
     }
 
-    const cubicBezier = UI.Geometry.CubicBezier.parse(this.swatch.bezierText()) ||
+    const cubicBezier = UI.Geometry.CubicBezier.parse(this.#swatch.bezierText()) ||
         (UI.Geometry.CubicBezier.parse('linear') as UI.Geometry.CubicBezier);
-    this.bezierEditor = new InlineEditor.BezierEditor.BezierEditor(cubicBezier);
-    this.bezierEditor.setBezier(cubicBezier);
-    this.bezierEditor.addEventListener(InlineEditor.BezierEditor.Events.BezierChanged, this.boundBezierChanged);
-    this.swatchPopoverHelper.show(this.bezierEditor, this.swatch.iconElement(), this.onPopoverHidden.bind(this));
-    this.scrollerElement = this.swatch.enclosingNodeOrSelfWithClass('style-panes-wrapper');
-    if (this.scrollerElement) {
-      this.scrollerElement.addEventListener('scroll', this.boundOnScroll, false);
+    this.#bezierEditor = new InlineEditor.BezierEditor.BezierEditor(cubicBezier);
+    this.#bezierEditor.setBezier(cubicBezier);
+    this.#bezierEditor.addEventListener(InlineEditor.BezierEditor.Events.BezierChanged, this.#boundBezierChanged);
+    this.#swatchPopoverHelper.show(this.#bezierEditor, this.#swatch.iconElement(), this.onPopoverHidden.bind(this));
+    this.#scrollerElement = this.#swatch.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this.#scrollerElement) {
+      this.#scrollerElement.addEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    this.originalPropertyText = this.treeElement.property.propertyText;
-    this.treeElement.parentPane().setEditingStyle(true);
+    this.#originalPropertyText = this.#treeElement.property.propertyText;
+    this.#treeElement.parentPane().setEditingStyle(true);
     const uiLocation = Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.instance().propertyUILocation(
-        this.treeElement.property, false /* forName */);
+        this.#treeElement.property, false /* forName */);
     if (uiLocation) {
       Common.Revealer.reveal(uiLocation, true /* omitFocus */);
     }
   }
 
   private bezierChanged(event: Common.EventTarget.EventTargetEvent<string>): void {
-    this.swatch.setBezierText(event.data);
-    this.treeElement.applyStyleText(this.treeElement.renderedPropertyText(), false);
+    this.#swatch.setBezierText(event.data);
+    this.#treeElement.applyStyleText(this.#treeElement.renderedPropertyText(), false);
   }
 
   private onScroll(_event: Event): void {
-    this.swatchPopoverHelper.hide(true);
+    this.#swatchPopoverHelper.hide(true);
   }
 
   private onPopoverHidden(commitEdit: boolean): void {
-    if (this.scrollerElement) {
-      this.scrollerElement.removeEventListener('scroll', this.boundOnScroll, false);
+    if (this.#scrollerElement) {
+      this.#scrollerElement.removeEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    if (this.bezierEditor) {
-      this.bezierEditor.removeEventListener(InlineEditor.BezierEditor.Events.BezierChanged, this.boundBezierChanged);
+    if (this.#bezierEditor) {
+      this.#bezierEditor.removeEventListener(InlineEditor.BezierEditor.Events.BezierChanged, this.#boundBezierChanged);
     }
-    this.bezierEditor = undefined;
+    this.#bezierEditor = undefined;
 
-    const propertyText = commitEdit ? this.treeElement.renderedPropertyText() : this.originalPropertyText || '';
-    this.treeElement.applyStyleText(propertyText, true);
-    this.treeElement.parentPane().setEditingStyle(false);
-    delete this.originalPropertyText;
+    const propertyText = commitEdit ? this.#treeElement.renderedPropertyText() : this.#originalPropertyText || '';
+    this.#treeElement.applyStyleText(propertyText, true);
+    this.#treeElement.parentPane().setEditingStyle(false);
+    this.#originalPropertyText = undefined;
   }
 }
 
 export class ColorSwatchPopoverIcon {
-  private treeElement: StylePropertyTreeElement;
-  private readonly swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
-  private swatch: InlineEditor.ColorSwatch.ColorSwatch;
-  private contrastInfo: ColorPicker.ContrastInfo.ContrastInfo|null;
-  private readonly boundSpectrumChanged: (event: Common.EventTarget.EventTargetEvent<string>) => void;
-  private readonly boundOnScroll: (event: Event) => void;
-  private spectrum?: ColorPicker.Spectrum.Spectrum;
-  private scrollerElement?: Element;
-  private originalPropertyText?: string|null;
+  #treeElement: StylePropertyTreeElement;
+  readonly #swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  #swatch: InlineEditor.ColorSwatch.ColorSwatch;
+  #contrastInfo: ColorPicker.ContrastInfo.ContrastInfo|null;
+  readonly #boundSpectrumChanged: (event: Common.EventTarget.EventTargetEvent<string>) => void;
+  readonly #boundOnScroll: (event: Event) => void;
+  #spectrum?: ColorPicker.Spectrum.Spectrum;
+  #scrollerElement?: Element;
+  #originalPropertyText?: string|null;
 
   constructor(
       treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
       swatch: InlineEditor.ColorSwatch.ColorSwatch) {
-    this.treeElement = treeElement;
-    this.swatchPopoverHelper = swatchPopoverHelper;
-    this.swatch = swatch;
-    this.swatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, this.iconClick.bind(this));
-    this.contrastInfo = null;
+    this.#treeElement = treeElement;
+    this.#swatchPopoverHelper = swatchPopoverHelper;
+    this.#swatch = swatch;
+    this.#swatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, this.iconClick.bind(this));
+    this.#contrastInfo = null;
 
-    this.boundSpectrumChanged = this.spectrumChanged.bind(this);
-    this.boundOnScroll = this.onScroll.bind(this);
+    this.#boundSpectrumChanged = this.spectrumChanged.bind(this);
+    this.#boundOnScroll = this.onScroll.bind(this);
   }
 
   private generateCSSVariablesPalette(): ColorPicker.Spectrum.Palette {
-    const matchedStyles = this.treeElement.matchedStyles();
-    const style = this.treeElement.property.ownerStyle;
+    const matchedStyles = this.#treeElement.matchedStyles();
+    const style = this.#treeElement.property.ownerStyle;
     const cssVariables = matchedStyles.availableCSSVariables(style);
     const colors = [];
     const colorNames = [];
     for (const cssVariable of cssVariables) {
-      if (cssVariable === this.treeElement.property.name) {
+      if (cssVariable === this.#treeElement.property.name) {
         continue;
       }
       const value = matchedStyles.computeCSSVariable(style, cssVariable);
@@ -159,7 +159,7 @@ export class ColorSwatchPopoverIcon {
   }
 
   setContrastInfo(contrastInfo: ColorPicker.ContrastInfo.ContrastInfo): void {
-    this.contrastInfo = contrastInfo;
+    this.#contrastInfo = contrastInfo;
   }
 
   private iconClick(event: Event): void {
@@ -171,13 +171,13 @@ export class ColorSwatchPopoverIcon {
   }
 
   showPopover(): void {
-    if (this.swatchPopoverHelper.isShowing()) {
-      this.swatchPopoverHelper.hide(true);
+    if (this.#swatchPopoverHelper.isShowing()) {
+      this.#swatchPopoverHelper.hide(true);
       return;
     }
 
-    const color = this.swatch.getColor();
-    let format = this.swatch.getFormat();
+    const color = this.#swatch.getColor();
+    let format = this.#swatch.getFormat();
     if (!color || !format) {
       return;
     }
@@ -185,29 +185,29 @@ export class ColorSwatchPopoverIcon {
     if (format === Common.Color.Format.Original) {
       format = color.format();
     }
-    this.spectrum = new ColorPicker.Spectrum.Spectrum(this.contrastInfo);
-    this.spectrum.setColor(color, format);
-    this.spectrum.addPalette(this.generateCSSVariablesPalette());
+    this.#spectrum = new ColorPicker.Spectrum.Spectrum(this.#contrastInfo);
+    this.#spectrum.setColor(color, format);
+    this.#spectrum.addPalette(this.generateCSSVariablesPalette());
 
-    this.spectrum.addEventListener(ColorPicker.Spectrum.Events.SizeChanged, this.spectrumResized, this);
-    this.spectrum.addEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.boundSpectrumChanged);
-    this.swatchPopoverHelper.show(this.spectrum, this.swatch, this.onPopoverHidden.bind(this));
-    this.scrollerElement = this.swatch.enclosingNodeOrSelfWithClass('style-panes-wrapper');
-    if (this.scrollerElement) {
-      this.scrollerElement.addEventListener('scroll', this.boundOnScroll, false);
+    this.#spectrum.addEventListener(ColorPicker.Spectrum.Events.SizeChanged, this.spectrumResized, this);
+    this.#spectrum.addEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.#boundSpectrumChanged);
+    this.#swatchPopoverHelper.show(this.#spectrum, this.#swatch, this.onPopoverHidden.bind(this));
+    this.#scrollerElement = this.#swatch.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this.#scrollerElement) {
+      this.#scrollerElement.addEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    this.originalPropertyText = this.treeElement.property.propertyText;
-    this.treeElement.parentPane().setEditingStyle(true);
+    this.#originalPropertyText = this.#treeElement.property.propertyText;
+    this.#treeElement.parentPane().setEditingStyle(true);
     const uiLocation = Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.instance().propertyUILocation(
-        this.treeElement.property, false /* forName */);
+        this.#treeElement.property, false /* forName */);
     if (uiLocation) {
       Common.Revealer.reveal(uiLocation, true /* omitFocus */);
     }
   }
 
   private spectrumResized(): void {
-    this.swatchPopoverHelper.reposition();
+    this.#swatchPopoverHelper.reposition();
   }
 
   private spectrumChanged(event: Common.EventTarget.EventTargetEvent<string>): void {
@@ -216,65 +216,65 @@ export class ColorSwatchPopoverIcon {
       return;
     }
 
-    const colorName = this.spectrum ? this.spectrum.colorName() : undefined;
+    const colorName = this.#spectrum ? this.#spectrum.colorName() : undefined;
     const text = colorName && colorName.startsWith('--') ? `var(${colorName})` : color.asString();
 
-    this.swatch.renderColor(color);
-    const value = this.swatch.firstElementChild;
+    this.#swatch.renderColor(color);
+    const value = this.#swatch.firstElementChild;
     if (value) {
       value.remove();
-      this.swatch.createChild('span').textContent = text;
+      this.#swatch.createChild('span').textContent = text;
     }
 
-    this.treeElement.applyStyleText(this.treeElement.renderedPropertyText(), false);
+    this.#treeElement.applyStyleText(this.#treeElement.renderedPropertyText(), false);
   }
 
   private onScroll(_event: Event): void {
-    this.swatchPopoverHelper.hide(true);
+    this.#swatchPopoverHelper.hide(true);
   }
 
   private onPopoverHidden(commitEdit: boolean): void {
-    if (this.scrollerElement) {
-      this.scrollerElement.removeEventListener('scroll', this.boundOnScroll, false);
+    if (this.#scrollerElement) {
+      this.#scrollerElement.removeEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    if (this.spectrum) {
-      this.spectrum.removeEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.boundSpectrumChanged);
+    if (this.#spectrum) {
+      this.#spectrum.removeEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.#boundSpectrumChanged);
     }
-    this.spectrum = undefined;
+    this.#spectrum = undefined;
 
-    const propertyText = commitEdit ? this.treeElement.renderedPropertyText() : this.originalPropertyText || '';
-    this.treeElement.applyStyleText(propertyText, true);
-    this.treeElement.parentPane().setEditingStyle(false);
-    delete this.originalPropertyText;
+    const propertyText = commitEdit ? this.#treeElement.renderedPropertyText() : this.#originalPropertyText || '';
+    this.#treeElement.applyStyleText(propertyText, true);
+    this.#treeElement.parentPane().setEditingStyle(false);
+    this.#originalPropertyText = undefined;
   }
 }
 
 export class ShadowSwatchPopoverHelper {
-  private treeElement: StylePropertyTreeElement;
-  private readonly swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
-  private readonly shadowSwatch: InlineEditor.Swatches.CSSShadowSwatch;
-  private iconElement: HTMLSpanElement;
-  private readonly boundShadowChanged:
+  #treeElement: StylePropertyTreeElement;
+  readonly #swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  readonly #shadowSwatch: InlineEditor.Swatches.CSSShadowSwatch;
+  #iconElement: HTMLSpanElement;
+  readonly #boundShadowChanged:
       (event: Common.EventTarget.EventTargetEvent<InlineEditor.CSSShadowModel.CSSShadowModel>) => void;
-  private readonly boundOnScroll: (event: Event) => void;
-  private cssShadowEditor?: InlineEditor.CSSShadowEditor.CSSShadowEditor;
-  private scrollerElement?: Element;
-  private originalPropertyText?: string|null;
+  readonly #boundOnScroll: (event: Event) => void;
+  #cssShadowEditor?: InlineEditor.CSSShadowEditor.CSSShadowEditor;
+  #scrollerElement?: Element;
+  #originalPropertyText?: string|null;
   constructor(
       treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
       shadowSwatch: InlineEditor.Swatches.CSSShadowSwatch) {
-    this.treeElement = treeElement;
-    this.swatchPopoverHelper = swatchPopoverHelper;
-    this.shadowSwatch = shadowSwatch;
-    this.iconElement = shadowSwatch.iconElement();
+    this.#treeElement = treeElement;
+    this.#swatchPopoverHelper = swatchPopoverHelper;
+    this.#shadowSwatch = shadowSwatch;
+    this.#iconElement = shadowSwatch.iconElement();
 
-    UI.Tooltip.Tooltip.install(this.iconElement, i18nString(UIStrings.openShadowEditor));
-    this.iconElement.addEventListener('click', this.iconClick.bind(this), false);
-    this.iconElement.addEventListener('mousedown', event => event.consume(), false);
+    UI.Tooltip.Tooltip.install(this.#iconElement, i18nString(UIStrings.openShadowEditor));
+    this.#iconElement.addEventListener('click', this.iconClick.bind(this), false);
+    this.#iconElement.addEventListener('mousedown', event => event.consume(), false);
 
-    this.boundShadowChanged = this.shadowChanged.bind(this);
-    this.boundOnScroll = this.onScroll.bind(this);
+    this.#boundShadowChanged = this.shadowChanged.bind(this);
+    this.#boundOnScroll = this.onScroll.bind(this);
   }
 
   private iconClick(event: Event): void {
@@ -286,89 +286,89 @@ export class ShadowSwatchPopoverHelper {
   }
 
   showPopover(): void {
-    if (this.swatchPopoverHelper.isShowing()) {
-      this.swatchPopoverHelper.hide(true);
+    if (this.#swatchPopoverHelper.isShowing()) {
+      this.#swatchPopoverHelper.hide(true);
       return;
     }
 
-    this.cssShadowEditor = new InlineEditor.CSSShadowEditor.CSSShadowEditor();
-    this.cssShadowEditor.setModel(this.shadowSwatch.model());
-    this.cssShadowEditor.addEventListener(InlineEditor.CSSShadowEditor.Events.ShadowChanged, this.boundShadowChanged);
-    this.swatchPopoverHelper.show(this.cssShadowEditor, this.iconElement, this.onPopoverHidden.bind(this));
-    this.scrollerElement = this.iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
-    if (this.scrollerElement) {
-      this.scrollerElement.addEventListener('scroll', this.boundOnScroll, false);
+    this.#cssShadowEditor = new InlineEditor.CSSShadowEditor.CSSShadowEditor();
+    this.#cssShadowEditor.setModel(this.#shadowSwatch.model());
+    this.#cssShadowEditor.addEventListener(InlineEditor.CSSShadowEditor.Events.ShadowChanged, this.#boundShadowChanged);
+    this.#swatchPopoverHelper.show(this.#cssShadowEditor, this.#iconElement, this.onPopoverHidden.bind(this));
+    this.#scrollerElement = this.#iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this.#scrollerElement) {
+      this.#scrollerElement.addEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    this.originalPropertyText = this.treeElement.property.propertyText;
-    this.treeElement.parentPane().setEditingStyle(true);
+    this.#originalPropertyText = this.#treeElement.property.propertyText;
+    this.#treeElement.parentPane().setEditingStyle(true);
     const uiLocation = Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.instance().propertyUILocation(
-        this.treeElement.property, false /* forName */);
+        this.#treeElement.property, false /* forName */);
     if (uiLocation) {
       Common.Revealer.reveal(uiLocation, true /* omitFocus */);
     }
   }
 
   private shadowChanged(event: Common.EventTarget.EventTargetEvent<InlineEditor.CSSShadowModel.CSSShadowModel>): void {
-    this.shadowSwatch.setCSSShadow(event.data);
-    this.treeElement.applyStyleText(this.treeElement.renderedPropertyText(), false);
+    this.#shadowSwatch.setCSSShadow(event.data);
+    this.#treeElement.applyStyleText(this.#treeElement.renderedPropertyText(), false);
   }
 
   private onScroll(_event: Event): void {
-    this.swatchPopoverHelper.hide(true);
+    this.#swatchPopoverHelper.hide(true);
   }
 
   private onPopoverHidden(commitEdit: boolean): void {
-    if (this.scrollerElement) {
-      this.scrollerElement.removeEventListener('scroll', this.boundOnScroll, false);
+    if (this.#scrollerElement) {
+      this.#scrollerElement.removeEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    if (this.cssShadowEditor) {
-      this.cssShadowEditor.removeEventListener(
-          InlineEditor.CSSShadowEditor.Events.ShadowChanged, this.boundShadowChanged);
+    if (this.#cssShadowEditor) {
+      this.#cssShadowEditor.removeEventListener(
+          InlineEditor.CSSShadowEditor.Events.ShadowChanged, this.#boundShadowChanged);
     }
-    this.cssShadowEditor = undefined;
+    this.#cssShadowEditor = undefined;
 
-    const propertyText = commitEdit ? this.treeElement.renderedPropertyText() : this.originalPropertyText || '';
-    this.treeElement.applyStyleText(propertyText, true);
-    this.treeElement.parentPane().setEditingStyle(false);
-    delete this.originalPropertyText;
+    const propertyText = commitEdit ? this.#treeElement.renderedPropertyText() : this.#originalPropertyText || '';
+    this.#treeElement.applyStyleText(propertyText, true);
+    this.#treeElement.parentPane().setEditingStyle(false);
+    this.#originalPropertyText = undefined;
   }
 }
 
 export class FontEditorSectionManager {
-  private readonly treeElementMap: Map<string, StylePropertyTreeElement>;
-  private readonly swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
-  private readonly section: StylePropertiesSection;
-  private parentPane: StylesSidebarPane|null;
-  private fontEditor: InlineEditor.FontEditor.FontEditor|null;
-  private scrollerElement: Element|null;
-  private readonly boundFontChanged:
+  readonly #treeElementMap: Map<string, StylePropertyTreeElement>;
+  readonly #swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  readonly #section: StylePropertiesSection;
+  #parentPane: StylesSidebarPane|null;
+  #fontEditor: InlineEditor.FontEditor.FontEditor|null;
+  #scrollerElement: Element|null;
+  readonly #boundFontChanged:
       (event: Common.EventTarget.EventTargetEvent<InlineEditor.FontEditor.FontChangedEvent>) => void;
-  private readonly boundOnScroll: () => void;
-  private readonly boundResized: () => void;
+  readonly #boundOnScroll: () => void;
+  readonly #boundResized: () => void;
   constructor(
       swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper, section: StylePropertiesSection) {
-    this.treeElementMap = new Map();
+    this.#treeElementMap = new Map();
 
-    this.swatchPopoverHelper = swatchPopoverHelper;
+    this.#swatchPopoverHelper = swatchPopoverHelper;
 
-    this.section = section;
+    this.#section = section;
 
-    this.parentPane = null;
+    this.#parentPane = null;
 
-    this.fontEditor = null;
+    this.#fontEditor = null;
 
-    this.scrollerElement = null;
+    this.#scrollerElement = null;
 
-    this.boundFontChanged = this.fontChanged.bind(this);
-    this.boundOnScroll = this.onScroll.bind(this);
-    this.boundResized = this.fontEditorResized.bind(this);
+    this.#boundFontChanged = this.fontChanged.bind(this);
+    this.#boundOnScroll = this.onScroll.bind(this);
+    this.#boundResized = this.fontEditorResized.bind(this);
   }
 
   private fontChanged(event: Common.EventTarget.EventTargetEvent<InlineEditor.FontEditor.FontChangedEvent>): void {
     const {propertyName, value} = event.data;
-    const treeElement = this.treeElementMap.get(propertyName);
+    const treeElement = this.#treeElementMap.get(propertyName);
     this.updateFontProperty(propertyName, value, treeElement);
   }
 
@@ -388,32 +388,32 @@ export class FontEditorSectionManager {
         elementRemoved = true;
         this.fixIndex(treeElement.property.index);
       }
-      this.treeElementMap.set(propertyName, treeElement);
+      this.#treeElementMap.set(propertyName, treeElement);
       await treeElement.applyStyleText(styleText, true);
       if (elementRemoved) {
-        this.treeElementMap.delete(propertyName);
+        this.#treeElementMap.delete(propertyName);
       }
     } else if (value.length) {
-      const newProperty = this.section.addNewBlankProperty();
+      const newProperty = this.#section.addNewBlankProperty();
       if (newProperty) {
         newProperty.property.name = propertyName;
         newProperty.property.value = value;
         newProperty.updateTitle();
         await newProperty.applyStyleText(newProperty.renderedPropertyText(), true);
-        this.treeElementMap.set(newProperty.property.name, newProperty);
+        this.#treeElementMap.set(newProperty.property.name, newProperty);
       }
     }
-    this.section.onpopulate();
-    this.swatchPopoverHelper.reposition();
+    this.#section.onpopulate();
+    this.#swatchPopoverHelper.reposition();
     return;
   }
 
   private fontEditorResized(): void {
-    this.swatchPopoverHelper.reposition();
+    this.#swatchPopoverHelper.reposition();
   }
 
   private fixIndex(removedIndex: number): void {
-    for (const treeElement of this.treeElementMap.values()) {
+    for (const treeElement of this.#treeElementMap.values()) {
       if (treeElement.property.index > removedIndex) {
         treeElement.property.index -= 1;
       }
@@ -422,13 +422,13 @@ export class FontEditorSectionManager {
 
   private createPropertyValueMap(): Map<string, string> {
     const propertyMap = new Map<string, string>();
-    for (const fontProperty of this.treeElementMap) {
+    for (const fontProperty of this.#treeElementMap) {
       const propertyName = (fontProperty[0] as string);
       const treeElement = fontProperty[1];
       if (treeElement.property.value.length) {
         propertyMap.set(propertyName, treeElement.property.value);
       } else {
-        this.treeElementMap.delete(propertyName);
+        this.#treeElementMap.delete(propertyName);
       }
     }
     return propertyMap;
@@ -436,53 +436,53 @@ export class FontEditorSectionManager {
 
   registerFontProperty(treeElement: StylePropertyTreeElement): void {
     const propertyName = treeElement.property.name;
-    if (this.treeElementMap.has(propertyName)) {
-      const treeElementFromMap = this.treeElementMap.get(propertyName);
+    if (this.#treeElementMap.has(propertyName)) {
+      const treeElementFromMap = this.#treeElementMap.get(propertyName);
       if (!treeElement.overloaded() || (treeElementFromMap && treeElementFromMap.overloaded())) {
-        this.treeElementMap.set(propertyName, treeElement);
+        this.#treeElementMap.set(propertyName, treeElement);
       }
     } else {
-      this.treeElementMap.set(propertyName, treeElement);
+      this.#treeElementMap.set(propertyName, treeElement);
     }
   }
 
   async showPopover(iconElement: Element, parentPane: StylesSidebarPane): Promise<void> {
-    if (this.swatchPopoverHelper.isShowing()) {
-      this.swatchPopoverHelper.hide(true);
+    if (this.#swatchPopoverHelper.isShowing()) {
+      this.#swatchPopoverHelper.hide(true);
       return;
     }
-    this.parentPane = parentPane;
+    this.#parentPane = parentPane;
     const propertyValueMap = this.createPropertyValueMap();
-    this.fontEditor = new InlineEditor.FontEditor.FontEditor(propertyValueMap);
-    this.fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontChanged, this.boundFontChanged);
-    this.fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontEditorResized, this.boundResized);
-    this.swatchPopoverHelper.show(this.fontEditor, iconElement, this.onPopoverHidden.bind(this));
-    this.scrollerElement = iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
-    if (this.scrollerElement) {
-      this.scrollerElement.addEventListener('scroll', this.boundOnScroll, false);
+    this.#fontEditor = new InlineEditor.FontEditor.FontEditor(propertyValueMap);
+    this.#fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontChanged, this.#boundFontChanged);
+    this.#fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontEditorResized, this.#boundResized);
+    this.#swatchPopoverHelper.show(this.#fontEditor, iconElement, this.onPopoverHidden.bind(this));
+    this.#scrollerElement = iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this.#scrollerElement) {
+      this.#scrollerElement.addEventListener('scroll', this.#boundOnScroll, false);
     }
 
-    this.parentPane.setEditingStyle(true);
+    this.#parentPane.setEditingStyle(true);
   }
 
   private onScroll(): void {
-    this.swatchPopoverHelper.hide(true);
+    this.#swatchPopoverHelper.hide(true);
   }
 
   private onPopoverHidden(): void {
-    if (this.scrollerElement) {
-      this.scrollerElement.removeEventListener('scroll', this.boundOnScroll, false);
+    if (this.#scrollerElement) {
+      this.#scrollerElement.removeEventListener('scroll', this.#boundOnScroll, false);
     }
-    this.section.onpopulate();
-    if (this.fontEditor) {
-      this.fontEditor.removeEventListener(InlineEditor.FontEditor.Events.FontChanged, this.boundFontChanged);
+    this.#section.onpopulate();
+    if (this.#fontEditor) {
+      this.#fontEditor.removeEventListener(InlineEditor.FontEditor.Events.FontChanged, this.#boundFontChanged);
     }
-    this.fontEditor = null;
-    if (this.parentPane) {
-      this.parentPane.setEditingStyle(false);
+    this.#fontEditor = null;
+    if (this.#parentPane) {
+      this.#parentPane.setEditingStyle(false);
     }
-    this.section.resetToolbars();
-    this.section.onpopulate();
+    this.#section.resetToolbars();
+    this.#section.onpopulate();
   }
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration

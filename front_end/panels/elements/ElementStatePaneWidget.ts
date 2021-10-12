@@ -17,7 +17,7 @@ const UIStrings = {
   */
   forceElementState: 'Force element state',
   /**
-  * @description Tooltip text in Element State Pane Widget of the Elements panel. For a button that
+  * @description Tooltip text in Element State Pane Widget of the Elements panel. For a #button that
   * opens a tool that toggles the various states of the selected element on/off.
   */
   toggleElementState: 'Toggle Element State',
@@ -25,9 +25,9 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementStatePaneWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ElementStatePaneWidget extends UI.Widget.Widget {
-  private readonly inputs: HTMLInputElement[];
-  private readonly inputStates: WeakMap<HTMLInputElement, string>;
-  private cssModel?: SDK.CSSModel.CSSModel|null;
+  readonly #inputs: HTMLInputElement[];
+  readonly #inputStates: WeakMap<HTMLInputElement, string>;
+  #cssModel?: SDK.CSSModel.CSSModel|null;
   constructor() {
     super(true);
 
@@ -38,16 +38,16 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     UI.ARIAUtils.markAsPresentation(table);
 
     const inputs: HTMLInputElement[] = [];
-    this.inputs = inputs;
+    this.#inputs = inputs;
 
-    this.inputStates = new WeakMap();
+    this.#inputStates = new WeakMap();
 
     const clickListener = (event: MouseEvent): void => {
       const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
       if (!node || !(event.target instanceof HTMLInputElement)) {
         return;
       }
-      const state = this.inputStates.get(event.target);
+      const state = this.#inputStates.get(event.target);
       if (!state) {
         return;
       }
@@ -58,7 +58,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       const td = document.createElement('td');
       const label = UI.UIUtils.CheckboxLabel.create(':' + state);
       const input = label.checkboxElement;
-      this.inputStates.set(input, state);
+      this.#inputStates.set(input, state);
       input.addEventListener('click', (clickListener as EventListener), false);
       inputs.push(input);
       td.appendChild(label);
@@ -85,15 +85,15 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
   }
 
   private updateModel(cssModel: SDK.CSSModel.CSSModel|null): void {
-    if (this.cssModel === cssModel) {
+    if (this.#cssModel === cssModel) {
       return;
     }
-    if (this.cssModel) {
-      this.cssModel.removeEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
+    if (this.#cssModel) {
+      this.#cssModel.removeEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
     }
-    this.cssModel = cssModel;
-    if (this.cssModel) {
-      this.cssModel.addEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
+    this.#cssModel = cssModel;
+    if (this.#cssModel) {
+      this.#cssModel.addEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
     }
   }
 
@@ -116,13 +116,13 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     this.updateModel(node ? node.domModel().cssModel() : null);
     if (node) {
       const nodePseudoState = node.domModel().cssModel().pseudoState(node);
-      for (const input of this.inputs) {
+      for (const input of this.#inputs) {
         input.disabled = Boolean(node.pseudoType());
-        const state = this.inputStates.get(input);
+        const state = this.#inputStates.get(input);
         input.checked = nodePseudoState && state !== undefined ? nodePseudoState.indexOf(state) >= 0 : false;
       }
     } else {
-      for (const input of this.inputs) {
+      for (const input of this.#inputs) {
         input.disabled = true;
         input.checked = false;
       }
@@ -133,14 +133,14 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
 let buttonProviderInstance: ButtonProvider;
 
 export class ButtonProvider implements UI.Toolbar.Provider {
-  private readonly button: UI.Toolbar.ToolbarToggle;
-  private view: ElementStatePaneWidget;
+  readonly #button: UI.Toolbar.ToolbarToggle;
+  #view: ElementStatePaneWidget;
   private constructor() {
-    this.button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.toggleElementState), '');
-    this.button.setText(i18n.i18n.lockedString(':hov'));
-    this.button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
-    this.button.element.classList.add('monospace');
-    this.view = new ElementStatePaneWidget();
+    this.#button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.toggleElementState), '');
+    this.#button.setText(i18n.i18n.lockedString(':hov'));
+    this.#button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
+    this.#button.element.classList.add('monospace');
+    this.#view = new ElementStatePaneWidget();
   }
 
   static instance(opts: {
@@ -155,10 +155,10 @@ export class ButtonProvider implements UI.Toolbar.Provider {
   }
 
   private clicked(): void {
-    ElementsPanel.instance().showToolbarPane(!this.view.isShowing() ? this.view : null, this.button);
+    ElementsPanel.instance().showToolbarPane(!this.#view.isShowing() ? this.#view : null, this.#button);
   }
 
   item(): UI.Toolbar.ToolbarItem {
-    return this.button;
+    return this.#button;
   }
 }

@@ -31,53 +31,53 @@ export interface QueryContainerData {
 export class QueryContainer extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-query-container`;
 
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private queryName?: string;
-  private container?: DOMNode;
-  private onContainerLinkClick?: (event: Event) => void;
-  private isContainerLinkHovered = false;
-  private queriedSizeDetails?: SDK.CSSContainerQuery.ContainerQueriedSizeDetails;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #queryName?: string;
+  #container?: DOMNode;
+  #onContainerLinkClick?: (event: Event) => void;
+  #isContainerLinkHovered = false;
+  #queriedSizeDetails?: SDK.CSSContainerQuery.ContainerQueriedSizeDetails;
 
   set data(data: QueryContainerData) {
-    this.queryName = data.queryName;
-    this.container = data.container;
-    this.onContainerLinkClick = data.onContainerLinkClick;
+    this.#queryName = data.queryName;
+    this.#container = data.container;
+    this.#onContainerLinkClick = data.onContainerLinkClick;
     this.render();
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [queryContainerStyles];
+    this.#shadow.adoptedStyleSheets = [queryContainerStyles];
   }
 
   updateContainerQueriedSizeDetails(details: SDK.CSSContainerQuery.ContainerQueriedSizeDetails): void {
-    this.queriedSizeDetails = details;
+    this.#queriedSizeDetails = details;
     this.render();
   }
 
   private async onContainerLinkMouseEnter(): Promise<void> {
-    this.container?.highlightNode('container-outline');
-    this.isContainerLinkHovered = true;
+    this.#container?.highlightNode('container-outline');
+    this.#isContainerLinkHovered = true;
     this.dispatchEvent(new QueriedSizeRequestedEvent());
   }
 
   private onContainerLinkMouseLeave(): void {
-    this.container?.clearHighlight();
-    this.isContainerLinkHovered = false;
+    this.#container?.clearHighlight();
+    this.#isContainerLinkHovered = false;
     this.render();
   }
 
   private render(): void {
-    if (!this.container) {
+    if (!this.#container) {
       return;
     }
 
     let idToDisplay, classesToDisplay;
-    if (!this.queryName) {
-      idToDisplay = this.container.getAttribute('id');
-      classesToDisplay = this.container.getAttribute('class')?.split(/\s+/).filter(Boolean);
+    if (!this.#queryName) {
+      idToDisplay = this.#container.getAttribute('id');
+      classesToDisplay = this.#container.getAttribute('class')?.split(/\s+/).filter(Boolean);
     }
 
-    const nodeTitle = this.queryName || this.container.nodeNameNicelyCased;
+    const nodeTitle = this.#queryName || this.#container.nodeNameNicelyCased;
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
@@ -86,7 +86,7 @@ export class QueryContainer extends HTMLElement {
       <a href="#"
         draggable=false
         class="container-link"
-        @click=${this.onContainerLinkClick}
+        @click=${this.#onContainerLinkClick}
         @mouseenter=${this.onContainerLinkMouseEnter}
         @mouseleave=${this.onContainerLinkMouseLeave}
       ><${NodeText.litTagName}
@@ -96,39 +96,39 @@ export class QueryContainer extends HTMLElement {
         nodeId: idToDisplay,
         nodeClasses: classesToDisplay,
       } as NodeTextData}></${NodeText.litTagName}></a>
-      ${this.isContainerLinkHovered ? this.renderQueriedSizeDetails() : LitHtml.nothing}
-    `, this.shadow, {
+      ${this.#isContainerLinkHovered ? this.renderQueriedSizeDetails() : LitHtml.nothing}
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on
   }
 
   private renderQueriedSizeDetails(): LitHtml.TemplateResult|{} {
-    if (!this.queriedSizeDetails || this.queriedSizeDetails.queryAxis === QueryAxis.None) {
+    if (!this.#queriedSizeDetails || this.#queriedSizeDetails.queryAxis === QueryAxis.None) {
       return LitHtml.nothing;
     }
 
-    const areBothAxesQueried = this.queriedSizeDetails.queryAxis === QueryAxis.Both;
+    const areBothAxesQueried = this.#queriedSizeDetails.queryAxis === QueryAxis.Both;
 
     const axisIconClasses = LitHtml.Directives.classMap({
       'axis-icon': true,
       'hidden': areBothAxesQueried,
-      'vertical': this.queriedSizeDetails.physicalAxis === PhysicalAxis.Vertical,
+      'vertical': this.#queriedSizeDetails.physicalAxis === PhysicalAxis.Vertical,
     });
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`
       <span class="queried-size-details">
-        (${this.queriedSizeDetails.queryAxis}<${IconButton.Icon.Icon.litTagName}
+        (${this.#queriedSizeDetails.queryAxis}<${IconButton.Icon.Icon.litTagName}
           class=${axisIconClasses} .data=${{
             iconName: 'ic_dimension_single',
             color: 'var(--color-text-primary)',
           } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>)
-        ${areBothAxesQueried && this.queriedSizeDetails.width ? 'width:' : LitHtml.nothing}
-        ${this.queriedSizeDetails.width || LitHtml.nothing}
-        ${areBothAxesQueried && this.queriedSizeDetails.height ? 'height:' : LitHtml.nothing}
-        ${this.queriedSizeDetails.height || LitHtml.nothing}
+        ${areBothAxesQueried && this.#queriedSizeDetails.width ? 'width:' : LitHtml.nothing}
+        ${this.#queriedSizeDetails.width || LitHtml.nothing}
+        ${areBothAxesQueried && this.#queriedSizeDetails.height ? 'height:' : LitHtml.nothing}
+        ${this.#queriedSizeDetails.height || LitHtml.nothing}
       </span>
     `;
     // clang-format on
