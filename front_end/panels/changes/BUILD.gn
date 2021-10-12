@@ -16,21 +16,22 @@ generate_css("css_files") {
 
 devtools_module("changes") {
   sources = [
-    "ChangesHighlighter.ts",
     "ChangesSidebar.ts",
-    "ChangesTextEditor.ts",
     "ChangesView.ts",
+    "DiffRenderer.ts",
   ]
 
   deps = [
     "../../core/common:bundle",
     "../../core/i18n:bundle",
+    "../../models/text_utils:bundle",
     "../../models/workspace:bundle",
     "../../models/workspace_diff:bundle",
     "../../panels/snippets:bundle",
     "../../third_party/diff:bundle",
+    "../../ui/components/code_highlighter:bundle",
     "../../ui/legacy:bundle",
-    "../../ui/legacy/components/text_editor:bundle",
+    "../../ui/lit-html:bundle",
   ]
 }
 
