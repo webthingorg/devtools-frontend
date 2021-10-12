@@ -848,8 +848,9 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     }
 
     if (project.type() === Workspace.Workspace.projectTypes.FileSystem) {
-      const folderPath = Common.ParsedURL.ParsedURL.urlToPlatformPath(
-          Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.completeURL(project, path),
+      const folderPath = Common.ParsedURL.ParsedURL.urlToRawPathString(
+          Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.completeURL(project, path) as
+              Platform.DevToolsPath.UrlString,
           Host.Platform.isWin());
       contextMenu.revealSection().appendItem(
           i18nString(UIStrings.openFolder),
