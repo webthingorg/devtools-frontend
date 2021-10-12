@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "871cae96_c948cd70",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-12T15:33:58Z",
+      "side": 1,
+      "message": "As in the last cl, I\u0027d add TODOs to change the type of url and remove the casts.",
+      "range": {
+        "startLine": 427,
+        "startChar": 56,
+        "endLine": 427,
+        "endChar": 94
+      },
+      "revId": "23dff83671ccd6f4142633893d0864c3f2919072",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
