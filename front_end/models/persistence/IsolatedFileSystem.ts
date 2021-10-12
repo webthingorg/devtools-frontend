@@ -173,8 +173,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
               this.initialGitFoldersInternal.add(parentFolder);
             }
             if (this.isFileExcluded(entry.fullPath + '/')) {
-              this.excludedEmbedderFolders.push(
-                  Common.ParsedURL.ParsedURL.urlToPlatformPath(this.path() + entry.fullPath, Host.Platform.isWin()));
+              this.excludedEmbedderFolders.push(Common.ParsedURL.ParsedURL.urlToRawPathString(
+                  (this.path() + entry.fullPath) as Platform.DevToolsPath.UrlString, Host.Platform.isWin()));
               continue;
             }
             ++pendingRequests;
@@ -553,7 +553,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
 
   tooltipForURL(url: string): string {
     const path = Platform.StringUtilities.trimMiddle(
-        Common.ParsedURL.ParsedURL.urlToPlatformPath(url, Host.Platform.isWin()), 150);
+        Common.ParsedURL.ParsedURL.urlToRawPathString(url as Platform.DevToolsPath.UrlString, Host.Platform.isWin()),
+        150);
     return i18nString(UIStrings.linkedToS, {PH1: path});
   }
 
