@@ -16,6 +16,23 @@
       "message": "+Jose as MSFT reviewer\n\nPTAL when you have time, thanks!",
       "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc177f14_0df0582e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-10-12T17:58:44Z",
+      "side": 1,
+      "message": "LGTM, it is weird to resolve one issue by regressing another one, but since the change is temporary and we are getting a new grid component it sounds like an OK compromise. ",
+      "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
