@@ -38,10 +38,10 @@ import {ConsoleView} from './ConsoleView.js';
 let consolePanelInstance: ConsolePanel;
 
 export class ConsolePanel extends UI.Panel.Panel {
-  private readonly view: ConsoleView;
+  readonly #view: ConsoleView;
   constructor() {
     super('console');
-    this.view = ConsoleView.instance();
+    this.#view = ConsoleView.instance();
   }
 
   static instance(opts: {
@@ -56,7 +56,7 @@ export class ConsolePanel extends UI.Panel.Panel {
   }
 
   static updateContextFlavor(): void {
-    const consoleView = ConsolePanel.instance().view;
+    const consoleView = ConsolePanel.instance().#view;
     UI.Context.Context.instance().setFlavor(ConsoleView, consoleView.isShowing() ? consoleView : null);
   }
 
@@ -66,7 +66,7 @@ export class ConsolePanel extends UI.Panel.Panel {
     if (wrapper && wrapper.isShowing()) {
       UI.InspectorView.InspectorView.instance().setDrawerMinimized(true);
     }
-    this.view.show(this.element);
+    this.#view.show(this.element);
     ConsolePanel.updateContextFlavor();
   }
 
@@ -89,11 +89,11 @@ export class ConsolePanel extends UI.Panel.Panel {
 let wrapperViewInstance: WrapperView|null = null;
 
 export class WrapperView extends UI.Widget.VBox {
-  private readonly view: ConsoleView;
+  readonly #view: ConsoleView;
 
   private constructor() {
     super();
-    this.view = ConsoleView.instance();
+    this.#view = ConsoleView.instance();
   }
 
   static instance(): WrapperView {
@@ -118,7 +118,7 @@ export class WrapperView extends UI.Widget.VBox {
   }
 
   showViewInWrapper(): void {
-    this.view.show(this.element);
+    this.#view.show(this.element);
   }
 }
 
