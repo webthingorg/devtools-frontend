@@ -15,35 +15,35 @@ import {SourceOrderPane} from './SourceOrderView.js';
 let accessibilitySidebarViewInstance: AccessibilitySidebarView;
 
 export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget {
-  private readonly sourceOrderViewerExperimentEnabled: boolean;
-  private nodeInternal: SDK.DOMModel.DOMNode|null;
-  private axNodeInternal: SDK.AccessibilityModel.AccessibilityNode|null;
-  private skipNextPullNode: boolean;
-  private readonly sidebarPaneStack: UI.View.ViewLocation;
-  private readonly breadcrumbsSubPane: AXBreadcrumbsPane|null = null;
-  private readonly ariaSubPane: ARIAAttributesPane;
-  private readonly axNodeSubPane: AXNodeSubPane;
-  private readonly sourceOrderSubPane: SourceOrderPane|undefined;
+  readonly #sourceOrderViewerExperimentEnabled: boolean;
+  #nodeInternal: SDK.DOMModel.DOMNode|null;
+  #axNodeInternal: SDK.AccessibilityModel.AccessibilityNode|null;
+  #skipNextPullNode: boolean;
+  readonly #sidebarPaneStack: UI.View.ViewLocation;
+  readonly #breadcrumbsSubPane: AXBreadcrumbsPane|null = null;
+  readonly #ariaSubPane: ARIAAttributesPane;
+  readonly #axNodeSubPane: AXNodeSubPane;
+  readonly #sourceOrderSubPane: SourceOrderPane|undefined;
   private constructor() {
     super();
-    this.sourceOrderViewerExperimentEnabled = Root.Runtime.experiments.isEnabled('sourceOrderViewer');
-    this.nodeInternal = null;
-    this.axNodeInternal = null;
-    this.skipNextPullNode = false;
-    this.sidebarPaneStack = UI.ViewManager.ViewManager.instance().createStackLocation();
+    this.#sourceOrderViewerExperimentEnabled = Root.Runtime.experiments.isEnabled('sourceOrderViewer');
+    this.#nodeInternal = null;
+    this.#axNodeInternal = null;
+    this.#skipNextPullNode = false;
+    this.#sidebarPaneStack = UI.ViewManager.ViewManager.instance().createStackLocation();
     if (!Root.Runtime.experiments.isEnabled('fullAccessibilityTree')) {
-      this.breadcrumbsSubPane = new AXBreadcrumbsPane(this);
-      this.sidebarPaneStack.showView(this.breadcrumbsSubPane);
+      this.#breadcrumbsSubPane = new AXBreadcrumbsPane(this);
+      this.#sidebarPaneStack.showView(this.#breadcrumbsSubPane);
     }
-    this.ariaSubPane = new ARIAAttributesPane();
-    this.sidebarPaneStack.showView(this.ariaSubPane);
-    this.axNodeSubPane = new AXNodeSubPane();
-    this.sidebarPaneStack.showView(this.axNodeSubPane);
-    if (this.sourceOrderViewerExperimentEnabled) {
-      this.sourceOrderSubPane = new SourceOrderPane();
-      this.sidebarPaneStack.showView(this.sourceOrderSubPane);
+    this.#ariaSubPane = new ARIAAttributesPane();
+    this.#sidebarPaneStack.showView(this.#ariaSubPane);
+    this.#axNodeSubPane = new AXNodeSubPane();
+    this.#sidebarPaneStack.showView(this.#axNodeSubPane);
+    if (this.#sourceOrderViewerExperimentEnabled) {
+      this.#sourceOrderSubPane = new SourceOrderPane();
+      this.#sidebarPaneStack.showView(this.#sourceOrderSubPane);
     }
-    this.sidebarPaneStack.widget().show(this.element);
+    this.#sidebarPaneStack.widget().show(this.element);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.pullNode, this);
     this.pullNode();
   }
@@ -56,16 +56,16 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
   }
 
   node(): SDK.DOMModel.DOMNode|null {
-    return this.nodeInternal;
+    return this.#nodeInternal;
   }
 
   axNode(): SDK.AccessibilityModel.AccessibilityNode|null {
-    return this.axNodeInternal;
+    return this.#axNodeInternal;
   }
 
   setNode(node: SDK.DOMModel.DOMNode|null, fromAXTree?: boolean): void {
-    this.skipNextPullNode = Boolean(fromAXTree);
-    this.nodeInternal = node;
+    this.#skipNextPullNode = Boolean(fromAXTree);
+    this.#nodeInternal = node;
     this.update();
   }
 
@@ -74,31 +74,31 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
       return;
     }
 
-    this.axNodeInternal = axNode;
+    this.#axNodeInternal = axNode;
 
     if (axNode.isDOMNode()) {
-      this.sidebarPaneStack.showView(this.ariaSubPane, this.axNodeSubPane);
+      this.#sidebarPaneStack.showView(this.#ariaSubPane, this.#axNodeSubPane);
     } else {
-      this.sidebarPaneStack.removeView(this.ariaSubPane);
+      this.#sidebarPaneStack.removeView(this.#ariaSubPane);
     }
 
-    if (this.axNodeSubPane) {
-      this.axNodeSubPane.setAXNode(axNode);
+    if (this.#axNodeSubPane) {
+      this.#axNodeSubPane.setAXNode(axNode);
     }
-    if (this.breadcrumbsSubPane) {
-      this.breadcrumbsSubPane.setAXNode(axNode);
+    if (this.#breadcrumbsSubPane) {
+      this.#breadcrumbsSubPane.setAXNode(axNode);
     }
   }
 
   async doUpdate(): Promise<void> {
     const node = this.node();
-    this.axNodeSubPane.setNode(node);
-    this.ariaSubPane.setNode(node);
-    if (this.breadcrumbsSubPane) {
-      this.breadcrumbsSubPane.setNode(node);
+    this.#axNodeSubPane.setNode(node);
+    this.#ariaSubPane.setNode(node);
+    if (this.#breadcrumbsSubPane) {
+      this.#breadcrumbsSubPane.setNode(node);
     }
-    if (this.sourceOrderViewerExperimentEnabled && this.sourceOrderSubPane) {
-      this.sourceOrderSubPane.setNodeAsync(node);
+    if (this.#sourceOrderViewerExperimentEnabled && this.#sourceOrderSubPane) {
+      this.#sourceOrderSubPane.setNodeAsync(node);
     }
     if (!node) {
       return;
@@ -140,8 +140,8 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
   }
 
   private pullNode(): void {
-    if (this.skipNextPullNode) {
-      this.skipNextPullNode = false;
+    if (this.#skipNextPullNode) {
+      this.#skipNextPullNode = false;
       return;
     }
     this.setNode(UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode));
