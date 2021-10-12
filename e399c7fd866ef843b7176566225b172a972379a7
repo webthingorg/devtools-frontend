@@ -93,6 +93,30 @@
       },
       "revId": "e399c7fd866ef843b7176566225b172a972379a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40e8fd4_00f3fb7f",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-12T16:27:00Z",
+      "side": 1,
+      "message": "There is, please put the CSS in a separate file. I\u0027ll share a short explainer doc with you.",
+      "parentUuid": "0fcd49d1_037ff360",
+      "range": {
+        "startLine": 111,
+        "startChar": 59,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "e399c7fd866ef843b7176566225b172a972379a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
