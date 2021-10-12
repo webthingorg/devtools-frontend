@@ -35,40 +35,40 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const MAX_CHILD_ELEMENTS_THRESHOLD = 300;
 
 export class SourceOrderPane extends AccessibilitySubPane {
-  private readonly noNodeInfo: Element;
-  private readonly warning: Element;
-  private checked: boolean;
-  private checkboxLabel: UI.UIUtils.CheckboxLabel;
-  private checkboxElement: HTMLInputElement;
-  private overlayModel: SDK.OverlayModel.OverlayModel|null;
+  readonly #noNodeInfo: Element;
+  readonly #warning: Element;
+  #checked: boolean;
+  #checkboxLabel: UI.UIUtils.CheckboxLabel;
+  #checkboxElement: HTMLInputElement;
+  #overlayModel: SDK.OverlayModel.OverlayModel|null;
   constructor() {
     super(i18nString(UIStrings.sourceOrderViewer));
 
-    this.noNodeInfo = this.createInfo(i18nString(UIStrings.noSourceOrderInformation));
-    this.warning = this.createInfo(i18nString(UIStrings.thereMayBeADelayInDisplaying));
-    this.warning.id = 'source-order-warning';
-    this.checked = false;
-    this.checkboxLabel =
+    this.#noNodeInfo = this.createInfo(i18nString(UIStrings.noSourceOrderInformation));
+    this.#warning = this.createInfo(i18nString(UIStrings.thereMayBeADelayInDisplaying));
+    this.#warning.id = 'source-order-warning';
+    this.#checked = false;
+    this.#checkboxLabel =
         UI.UIUtils.CheckboxLabel.create(/* title */ i18nString(UIStrings.showSourceOrder), /* checked */ false);
-    this.checkboxElement = this.checkboxLabel.checkboxElement;
+    this.#checkboxElement = this.#checkboxLabel.checkboxElement;
 
-    this.checkboxLabel.classList.add('source-order-checkbox');
-    this.checkboxElement.addEventListener('click', this.checkboxClicked.bind(this), false);
-    this.element.appendChild(this.checkboxLabel);
+    this.#checkboxLabel.classList.add('source-order-checkbox');
+    this.#checkboxElement.addEventListener('click', this.checkboxClicked.bind(this), false);
+    this.element.appendChild(this.#checkboxLabel);
 
     this.nodeInternal = null;
-    this.overlayModel = null;
+    this.#overlayModel = null;
   }
 
   async setNodeAsync(node: SDK.DOMModel.DOMNode|null): Promise<void> {
-    if (!this.checkboxLabel.classList.contains('hidden')) {
-      this.checked = this.checkboxElement.checked;
+    if (!this.#checkboxLabel.classList.contains('hidden')) {
+      this.#checked = this.#checkboxElement.checked;
     }
-    this.checkboxElement.checked = false;
+    this.#checkboxElement.checked = false;
     this.checkboxClicked();
     super.setNode(node);
     if (!this.nodeInternal) {
-      this.overlayModel = null;
+      this.#overlayModel = null;
       return;
     }
 
@@ -82,28 +82,28 @@ export class SourceOrderPane extends AccessibilitySubPane {
       foundSourceOrder = children.some(child => child.nodeType() === Node.ELEMENT_NODE);
     }
 
-    this.noNodeInfo.classList.toggle('hidden', foundSourceOrder);
-    this.warning.classList.toggle('hidden', childCount < MAX_CHILD_ELEMENTS_THRESHOLD);
-    this.checkboxLabel.classList.toggle('hidden', !foundSourceOrder);
+    this.#noNodeInfo.classList.toggle('hidden', foundSourceOrder);
+    this.#warning.classList.toggle('hidden', childCount < MAX_CHILD_ELEMENTS_THRESHOLD);
+    this.#checkboxLabel.classList.toggle('hidden', !foundSourceOrder);
     if (foundSourceOrder) {
-      this.overlayModel = this.nodeInternal.domModel().overlayModel();
-      this.checkboxElement.checked = this.checked;
+      this.#overlayModel = this.nodeInternal.domModel().overlayModel();
+      this.#checkboxElement.checked = this.#checked;
       this.checkboxClicked();
     } else {
-      this.overlayModel = null;
+      this.#overlayModel = null;
     }
   }
 
   private checkboxClicked(): void {
-    if (!this.nodeInternal || !this.overlayModel) {
+    if (!this.nodeInternal || !this.#overlayModel) {
       return;
     }
 
-    if (this.checkboxElement.checked) {
+    if (this.#checkboxElement.checked) {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.SourceOrderViewActivated);
-      this.overlayModel.highlightSourceOrderInOverlay(this.nodeInternal);
+      this.#overlayModel.highlightSourceOrderInOverlay(this.nodeInternal);
     } else {
-      this.overlayModel.hideSourceOrderInOverlay();
+      this.#overlayModel.hideSourceOrderInOverlay();
     }
   }
 }
