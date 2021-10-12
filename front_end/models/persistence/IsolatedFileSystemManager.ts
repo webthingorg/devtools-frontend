@@ -173,7 +173,8 @@ export class IsolatedFileSystemManager extends Common.ObjectWrapper.ObjectWrappe
   private innerAddFileSystem(fileSystem: Host.InspectorFrontendHostAPI.DevToolsFileSystem, dispatchEvent: boolean):
       Promise<IsolatedFileSystem|null> {
     const embedderPath = fileSystem.fileSystemPath;
-    const fileSystemURL = Common.ParsedURL.ParsedURL.platformPathToURL(fileSystem.fileSystemPath);
+    const fileSystemURL =
+        Common.ParsedURL.ParsedURL.rawPathToUrlString(fileSystem.fileSystemPath as Platform.DevToolsPath.RawPathString);
     const promise = IsolatedFileSystem.create(
         this, fileSystemURL, embedderPath, fileSystem.type, fileSystem.fileSystemName, fileSystem.rootURL);
     return promise.then(storeFileSystem.bind(this));
@@ -220,7 +221,8 @@ export class IsolatedFileSystemManager extends Common.ObjectWrapper.ObjectWrappe
 
   private onFileSystemRemoved(event: Common.EventTarget.EventTargetEvent<string>): void {
     const embedderPath = event.data;
-    const fileSystemPath = Common.ParsedURL.ParsedURL.platformPathToURL(embedderPath);
+    const fileSystemPath =
+        Common.ParsedURL.ParsedURL.rawPathToUrlString(embedderPath as Platform.DevToolsPath.RawPathString);
     const isolatedFileSystem = this.fileSystemsInternal.get(fileSystemPath);
     if (!isolatedFileSystem) {
       return;
@@ -244,7 +246,8 @@ export class IsolatedFileSystemManager extends Common.ObjectWrapper.ObjectWrappe
         this: IsolatedFileSystemManager, embedderPaths: string[]): Platform.MapUtilities.Multimap<string, string> {
       const paths = new Platform.MapUtilities.Multimap<string, string>();
       for (const embedderPath of embedderPaths) {
-        const filePath = Common.ParsedURL.ParsedURL.platformPathToURL(embedderPath);
+        const filePath =
+            Common.ParsedURL.ParsedURL.rawPathToUrlString(embedderPath as Platform.DevToolsPath.RawPathString);
         for (const fileSystemPath of this.fileSystemsInternal.keys()) {
           const fileSystem = this.fileSystemsInternal.get(fileSystemPath);
           if (fileSystem && fileSystem.isFileExcluded(embedderPath)) {

@@ -511,7 +511,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
           requestId, this.embedderPathInternal, query);
 
       function innerCallback(files: string[]): void {
-        resolve(files.map(path => Common.ParsedURL.ParsedURL.platformPathToURL(path)));
+        resolve(files.map(
+            path => Common.ParsedURL.ParsedURL.rawPathToUrlString(path as Platform.DevToolsPath.RawPathString)));
         progress.incrementWorked(1);
       }
     });
