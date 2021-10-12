@@ -36,37 +36,37 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ClassesPaneWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ClassesPaneWidget extends UI.Widget.Widget {
-  private input: HTMLElement;
-  private readonly classesContainer: HTMLElement;
-  private readonly prompt: ClassNamePrompt;
-  private readonly mutatingNodes: Set<SDK.DOMModel.DOMNode>;
-  private readonly pendingNodeClasses: Map<SDK.DOMModel.DOMNode, string>;
-  private readonly updateNodeThrottler: Common.Throttler.Throttler;
-  private previousTarget: SDK.DOMModel.DOMNode|null;
+  #input: HTMLElement;
+  readonly #classesContainer: HTMLElement;
+  readonly #prompt: ClassNamePrompt;
+  readonly #mutatingNodes: Set<SDK.DOMModel.DOMNode>;
+  readonly #pendingNodeClasses: Map<SDK.DOMModel.DOMNode, string>;
+  readonly #updateNodeThrottler: Common.Throttler.Throttler;
+  #previousTarget: SDK.DOMModel.DOMNode|null;
 
   constructor() {
     super(true);
     this.contentElement.className = 'styles-element-classes-pane';
     const container = this.contentElement.createChild('div', 'title-container');
-    this.input = container.createChild('div', 'new-class-input monospace');
-    this.setDefaultFocusedElement(this.input);
-    this.classesContainer = this.contentElement.createChild('div', 'source-code');
-    this.classesContainer.classList.add('styles-element-classes-container');
-    this.prompt = new ClassNamePrompt(this.nodeClasses.bind(this));
-    this.prompt.setAutocompletionTimeout(0);
-    this.prompt.renderAsBlock();
+    this.#input = container.createChild('div', 'new-class-input monospace');
+    this.setDefaultFocusedElement(this.#input);
+    this.#classesContainer = this.contentElement.createChild('div', 'source-code');
+    this.#classesContainer.classList.add('styles-element-classes-container');
+    this.#prompt = new ClassNamePrompt(this.nodeClasses.bind(this));
+    this.#prompt.setAutocompletionTimeout(0);
+    this.#prompt.renderAsBlock();
 
-    const proxyElement = (this.prompt.attach(this.input) as HTMLElement);
-    this.prompt.setPlaceholder(i18nString(UIStrings.addNewClass));
-    this.prompt.addEventListener(UI.TextPrompt.Events.TextChanged, this.onTextChanged, this);
+    const proxyElement = (this.#prompt.attach(this.#input) as HTMLElement);
+    this.#prompt.setPlaceholder(i18nString(UIStrings.addNewClass));
+    this.#prompt.addEventListener(UI.TextPrompt.Events.TextChanged, this.onTextChanged, this);
     proxyElement.addEventListener('keydown', this.onKeyDown.bind(this), false);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DOMMutated, this.onDOMMutated, this);
-    this.mutatingNodes = new Set();
-    this.pendingNodeClasses = new Map();
-    this.updateNodeThrottler = new Common.Throttler.Throttler(0);
-    this.previousTarget = null;
+    this.#mutatingNodes = new Set();
+    this.#pendingNodeClasses = new Map();
+    this.#updateNodeThrottler = new Common.Throttler.Throttler(0);
+    this.#previousTarget = null;
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.onSelectedNodeChanged, this);
   }
 
@@ -81,7 +81,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
     if (event.key === 'Enter') {
       event.consume();
-      if (this.prompt.acceptAutoComplete()) {
+      if (this.#prompt.acceptAutoComplete()) {
         return;
       }
     }
@@ -95,7 +95,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       text = '';
     }
 
-    this.prompt.clearAutocomplete();
+    this.#prompt.clearAutocomplete();
     eventTarget.textContent = '';
 
     const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
@@ -133,7 +133,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
   private onDOMMutated(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode>): void {
     const node = event.data;
-    if (this.mutatingNodes.has(node)) {
+    if (this.#mutatingNodes.has(node)) {
       return;
     }
     cachedClassesMap.delete(node);
@@ -141,11 +141,11 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
   }
 
   private onSelectedNodeChanged(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode|null>): void {
-    if (this.previousTarget && this.prompt.text()) {
-      this.input.textContent = '';
-      this.installNodeClasses(this.previousTarget);
+    if (this.#previousTarget && this.#prompt.text()) {
+      this.#input.textContent = '';
+      this.installNodeClasses(this.#previousTarget);
     }
-    this.previousTarget = event.data;
+    this.#previousTarget = event.data;
     this.update();
   }
 
@@ -165,9 +165,9 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       node = node.enclosingElementOrSelf();
     }
 
-    this.classesContainer.removeChildren();
-    // @ts-ignore this.input is a div, not an input element. So this line makes no sense at all
-    this.input.disabled = !node;
+    this.#classesContainer.removeChildren();
+    // @ts-ignore this.#input is a div, not an #input element. So this line makes no sense at all
+    this.#input.disabled = !node;
 
     if (!node) {
       return;
@@ -180,7 +180,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       const label = UI.UIUtils.CheckboxLabel.create(className, classes.get(className));
       label.classList.add('monospace');
       label.checkboxElement.addEventListener('click', this.onClick.bind(this, className), false);
-      this.classesContainer.appendChild(label);
+      this.#classesContainer.appendChild(label);
     }
   }
 
@@ -226,30 +226,30 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       }
     }
 
-    const additionalClasses = this.splitTextIntoClasses(this.prompt.textWithCurrentSuggestion());
+    const additionalClasses = this.splitTextIntoClasses(this.#prompt.textWithCurrentSuggestion());
     for (const className of additionalClasses) {
       activeClasses.add(className);
     }
 
     const newClasses = [...activeClasses.values()].sort();
 
-    this.pendingNodeClasses.set(node, newClasses.join(' '));
-    this.updateNodeThrottler.schedule(this.flushPendingClasses.bind(this));
+    this.#pendingNodeClasses.set(node, newClasses.join(' '));
+    this.#updateNodeThrottler.schedule(this.flushPendingClasses.bind(this));
   }
 
   private async flushPendingClasses(): Promise<void> {
     const promises = [];
-    for (const node of this.pendingNodeClasses.keys()) {
-      this.mutatingNodes.add(node);
-      const promise = node.setAttributeValuePromise('class', (this.pendingNodeClasses.get(node) as string))
+    for (const node of this.#pendingNodeClasses.keys()) {
+      this.#mutatingNodes.add(node);
+      const promise = node.setAttributeValuePromise('class', (this.#pendingNodeClasses.get(node) as string))
                           .then(onClassValueUpdated.bind(this, node));
       promises.push(promise);
     }
-    this.pendingNodeClasses.clear();
+    this.#pendingNodeClasses.clear();
     await Promise.all(promises);
 
     function onClassValueUpdated(this: ClassesPaneWidget, node: SDK.DOMModel.DOMNode): void {
-      this.mutatingNodes.delete(node);
+      this.#mutatingNodes.delete(node);
     }
   }
 }
@@ -259,14 +259,14 @@ const cachedClassesMap = new WeakMap<SDK.DOMModel.DOMNode, Map<string, boolean>>
 let buttonProviderInstance: ButtonProvider;
 
 export class ButtonProvider implements UI.Toolbar.Provider {
-  private readonly button: UI.Toolbar.ToolbarToggle;
-  private view: ClassesPaneWidget;
+  readonly #button: UI.Toolbar.ToolbarToggle;
+  #view: ClassesPaneWidget;
   private constructor() {
-    this.button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.elementClasses), '');
-    this.button.setText('.cls');
-    this.button.element.classList.add('monospace');
-    this.button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
-    this.view = new ClassesPaneWidget();
+    this.#button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.elementClasses), '');
+    this.#button.setText('.cls');
+    this.#button.element.classList.add('monospace');
+    this.#button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
+    this.#view = new ClassesPaneWidget();
   }
 
   static instance(opts: {
@@ -281,36 +281,36 @@ export class ButtonProvider implements UI.Toolbar.Provider {
   }
 
   private clicked(): void {
-    ElementsPanel.instance().showToolbarPane(!this.view.isShowing() ? this.view : null, this.button);
+    ElementsPanel.instance().showToolbarPane(!this.#view.isShowing() ? this.#view : null, this.#button);
   }
 
   item(): UI.Toolbar.ToolbarItem {
-    return this.button;
+    return this.#button;
   }
 }
 
 export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
-  private readonly nodeClasses: (arg0: SDK.DOMModel.DOMNode) => Map<string, boolean>;
-  private selectedFrameId: string|null;
-  private classNamesPromise: Promise<string[]>|null;
+  readonly #nodeClasses: (arg0: SDK.DOMModel.DOMNode) => Map<string, boolean>;
+  #selectedFrameId: string|null;
+  #classNamesPromise: Promise<string[]>|null;
   constructor(nodeClasses: (arg0: SDK.DOMModel.DOMNode) => Map<string, boolean>) {
     super();
-    this.nodeClasses = nodeClasses;
+    this.#nodeClasses = nodeClasses;
     this.initialize(this.buildClassNameCompletions.bind(this), ' ');
     this.disableDefaultSuggestionForEmptyInput();
-    this.selectedFrameId = '';
-    this.classNamesPromise = null;
+    this.#selectedFrameId = '';
+    this.#classNamesPromise = null;
   }
 
   private async getClassNames(selectedNode: SDK.DOMModel.DOMNode): Promise<string[]> {
     const promises = [];
     const completions = new Set<string>();
-    this.selectedFrameId = selectedNode.frameId();
+    this.#selectedFrameId = selectedNode.frameId();
 
     const cssModel = selectedNode.domModel().cssModel();
     const allStyleSheets = cssModel.allStyleSheets();
     for (const stylesheet of allStyleSheets) {
-      if (stylesheet.frameId !== this.selectedFrameId) {
+      if (stylesheet.frameId !== this.#selectedFrameId) {
         continue;
       }
       const cssPromise = cssModel.classNamesPromise(stylesheet.id).then(classes => {
@@ -336,7 +336,7 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
   private async buildClassNameCompletions(expression: string, prefix: string, force?: boolean):
       Promise<UI.SuggestBox.Suggestions> {
     if (!prefix || force) {
-      this.classNamesPromise = null;
+      this.#classNamesPromise = null;
     }
 
     const selectedNode = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
@@ -344,12 +344,12 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
       return [];
     }
 
-    if (!this.classNamesPromise || this.selectedFrameId !== selectedNode.frameId()) {
-      this.classNamesPromise = this.getClassNames(selectedNode);
+    if (!this.#classNamesPromise || this.#selectedFrameId !== selectedNode.frameId()) {
+      this.#classNamesPromise = this.getClassNames(selectedNode);
     }
 
-    let completions: string[] = await this.classNamesPromise;
-    const classesMap = this.nodeClasses((selectedNode as SDK.DOMModel.DOMNode));
+    let completions: string[] = await this.#classNamesPromise;
+    const classesMap = this.#nodeClasses((selectedNode as SDK.DOMModel.DOMNode));
     completions = completions.filter(value => !classesMap.get(value));
 
     if (prefix[0] === '.') {

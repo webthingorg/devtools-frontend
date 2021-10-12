@@ -69,9 +69,9 @@ export class PropertyDeselectedEvent extends Event {
 
 // eslint-disable-next-line rulesdir/check_component_naming
 export class StylePropertyEditor extends HTMLElement {
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private authoredProperties: Map<string, string> = new Map();
-  private computedProperties: Map<string, string> = new Map();
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #authoredProperties: Map<string, string> = new Map();
+  #computedProperties: Map<string, string> = new Map();
   protected readonly editableProperties: EditableProperty[] = [];
 
   constructor() {
@@ -79,7 +79,7 @@ export class StylePropertyEditor extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [stylePropertyEditorStyles];
+    this.#shadow.adoptedStyleSheets = [stylePropertyEditorStyles];
   }
 
   getEditableProperties(): EditableProperty[] {
@@ -87,8 +87,8 @@ export class StylePropertyEditor extends HTMLElement {
   }
 
   set data(data: FlexEditorData) {
-    this.authoredProperties = data.authoredProperties;
-    this.computedProperties = data.computedProperties;
+    this.#authoredProperties = data.authoredProperties;
+    this.#computedProperties = data.computedProperties;
     this.render();
   }
 
@@ -99,16 +99,16 @@ export class StylePropertyEditor extends HTMLElement {
       <div class="container">
         ${this.editableProperties.map(prop => this.renderProperty(prop))}
       </div>
-    `, this.shadow, {
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on
   }
 
   private renderProperty(prop: EditableProperty): LitHtml.TemplateResult {
-    const authoredValue = this.authoredProperties.get(prop.propertyName);
+    const authoredValue = this.#authoredProperties.get(prop.propertyName);
     const notAuthored = !authoredValue;
-    const shownValue = authoredValue || this.computedProperties.get(prop.propertyName);
+    const shownValue = authoredValue || this.#computedProperties.get(prop.propertyName);
     const classes = Directives.classMap({
       'property-value': true,
       'not-authored': notAuthored,
@@ -125,7 +125,7 @@ export class StylePropertyEditor extends HTMLElement {
 
   private renderButton(propertyValue: string, propertyName: string, selected: boolean = false): LitHtml.TemplateResult {
     const query = `${propertyName}: ${propertyValue}`;
-    const iconInfo = this.findIcon(query, this.computedProperties);
+    const iconInfo = this.findIcon(query, this.#computedProperties);
     if (!iconInfo) {
       throw new Error(`Icon for ${query} is not found`);
     }

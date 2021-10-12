@@ -11,16 +11,16 @@ import {ComputedStyleModel, Events} from './ComputedStyleModel.js';
 
 export class ElementsSidebarPane extends UI.Widget.VBox {
   protected computedStyleModelInternal: ComputedStyleModel;
-  private readonly updateThrottler: Common.Throttler.Throttler;
-  private updateWhenVisible: boolean;
+  readonly #updateThrottler: Common.Throttler.Throttler;
+  #updateWhenVisible: boolean;
   constructor(delegatesFocus?: boolean) {
     super(true, delegatesFocus);
     this.element.classList.add('flex-none');
     this.computedStyleModelInternal = new ComputedStyleModel();
     this.computedStyleModelInternal.addEventListener(Events.ComputedStyleChanged, this.onCSSModelChanged, this);
 
-    this.updateThrottler = new Common.Throttler.Throttler(100);
-    this.updateWhenVisible = false;
+    this.#updateThrottler = new Common.Throttler.Throttler(100);
+    this.#updateWhenVisible = false;
   }
 
   node(): SDK.DOMModel.DOMNode|null {
@@ -40,11 +40,11 @@ export class ElementsSidebarPane extends UI.Widget.VBox {
   }
 
   update(): void {
-    this.updateWhenVisible = !this.isShowing();
-    if (this.updateWhenVisible) {
+    this.#updateWhenVisible = !this.isShowing();
+    if (this.#updateWhenVisible) {
       return;
     }
-    this.updateThrottler.schedule(innerUpdate.bind(this));
+    this.#updateThrottler.schedule(innerUpdate.bind(this));
 
     function innerUpdate(this: ElementsSidebarPane): Promise<void> {
       return this.isShowing() ? this.doUpdate() : Promise.resolve();
@@ -53,7 +53,7 @@ export class ElementsSidebarPane extends UI.Widget.VBox {
 
   wasShown(): void {
     super.wasShown();
-    if (this.updateWhenVisible) {
+    if (this.#updateWhenVisible) {
       this.update();
     }
   }

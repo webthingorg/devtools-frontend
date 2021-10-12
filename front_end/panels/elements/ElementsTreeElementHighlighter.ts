@@ -10,27 +10,27 @@ import {ElementsTreeElement} from './ElementsTreeElement.js';
 import {ElementsTreeOutline} from './ElementsTreeOutline.js';
 
 export class ElementsTreeElementHighlighter {
-  private readonly throttler: Common.Throttler.Throttler;
-  private treeOutline: ElementsTreeOutline;
-  private currentHighlightedElement: ElementsTreeElement|null;
-  private alreadyExpandedParentElement: UI.TreeOutline.TreeElement|ElementsTreeElement|null|undefined;
-  private pendingHighlightNode: SDK.DOMModel.DOMNode|null;
-  private isModifyingTreeOutline: boolean;
+  readonly #throttler: Common.Throttler.Throttler;
+  #treeOutline: ElementsTreeOutline;
+  #currentHighlightedElement: ElementsTreeElement|null;
+  #alreadyExpandedParentElement: UI.TreeOutline.TreeElement|ElementsTreeElement|null|undefined;
+  #pendingHighlightNode: SDK.DOMModel.DOMNode|null;
+  #isModifyingTreeOutline: boolean;
   constructor(treeOutline: ElementsTreeOutline) {
-    this.throttler = new Common.Throttler.Throttler(100);
-    this.treeOutline = treeOutline;
-    this.treeOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.clearState, this);
-    this.treeOutline.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.clearState, this);
-    this.treeOutline.addEventListener(ElementsTreeOutline.Events.SelectedNodeChanged, this.clearState, this);
+    this.#throttler = new Common.Throttler.Throttler(100);
+    this.#treeOutline = treeOutline;
+    this.#treeOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.clearState, this);
+    this.#treeOutline.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.clearState, this);
+    this.#treeOutline.addEventListener(ElementsTreeOutline.Events.SelectedNodeChanged, this.clearState, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.HighlightNodeRequested, this.highlightNode, this);
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.InspectModeWillBeToggled, this.clearState, this);
 
-    this.currentHighlightedElement = null;
-    this.alreadyExpandedParentElement = null;
-    this.pendingHighlightNode = null;
-    this.isModifyingTreeOutline = false;
+    this.#currentHighlightedElement = null;
+    this.#alreadyExpandedParentElement = null;
+    this.#pendingHighlightNode = null;
+    this.#isModifyingTreeOutline = false;
   }
 
   private highlightNode(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode>): void {
@@ -40,22 +40,22 @@ export class ElementsTreeElementHighlighter {
 
     const domNode = event.data;
 
-    this.throttler.schedule(async () => {
-      this.highlightNodeInternal(this.pendingHighlightNode);
-      this.pendingHighlightNode = null;
+    this.#throttler.schedule(async () => {
+      this.highlightNodeInternal(this.#pendingHighlightNode);
+      this.#pendingHighlightNode = null;
     });
-    this.pendingHighlightNode =
-        this.treeOutline === ElementsTreeOutline.forDOMModel(domNode.domModel()) ? domNode : null;
+    this.#pendingHighlightNode =
+        this.#treeOutline === ElementsTreeOutline.forDOMModel(domNode.domModel()) ? domNode : null;
   }
 
   private highlightNodeInternal(node: SDK.DOMModel.DOMNode|null): void {
-    this.isModifyingTreeOutline = true;
+    this.#isModifyingTreeOutline = true;
     let treeElement: (ElementsTreeElement|null)|null = null;
 
-    if (this.currentHighlightedElement) {
+    if (this.#currentHighlightedElement) {
       let currentTreeElement: ((UI.TreeOutline.TreeElement & ElementsTreeElement)|null)|ElementsTreeElement =
-          this.currentHighlightedElement;
-      while (currentTreeElement && currentTreeElement !== this.alreadyExpandedParentElement) {
+          this.#currentHighlightedElement;
+      while (currentTreeElement && currentTreeElement !== this.#alreadyExpandedParentElement) {
         if (currentTreeElement.expanded) {
           currentTreeElement.collapse();
         }
@@ -65,11 +65,11 @@ export class ElementsTreeElementHighlighter {
       }
     }
 
-    this.currentHighlightedElement = null;
-    this.alreadyExpandedParentElement = null;
+    this.#currentHighlightedElement = null;
+    this.#alreadyExpandedParentElement = null;
     if (node) {
       let deepestExpandedParent: (SDK.DOMModel.DOMNode|null) = (node as SDK.DOMModel.DOMNode | null);
-      const treeElementByNode = this.treeOutline.treeElementByNode;
+      const treeElementByNode = this.#treeOutline.treeElementByNode;
 
       const treeIsNotExpanded = (deepestExpandedParent: SDK.DOMModel.DOMNode): boolean => {
         const element = treeElementByNode.get(deepestExpandedParent);
@@ -79,27 +79,27 @@ export class ElementsTreeElementHighlighter {
         deepestExpandedParent = deepestExpandedParent.parentNode;
       }
 
-      this.alreadyExpandedParentElement =
-          deepestExpandedParent ? treeElementByNode.get(deepestExpandedParent) : this.treeOutline.rootElement();
-      treeElement = this.treeOutline.createTreeElementFor(node);
+      this.#alreadyExpandedParentElement =
+          deepestExpandedParent ? treeElementByNode.get(deepestExpandedParent) : this.#treeOutline.rootElement();
+      treeElement = this.#treeOutline.createTreeElementFor(node);
     }
 
-    this.currentHighlightedElement = treeElement;
-    this.treeOutline.setHoverEffect(treeElement);
+    this.#currentHighlightedElement = treeElement;
+    this.#treeOutline.setHoverEffect(treeElement);
     if (treeElement) {
       treeElement.reveal(true);
     }
 
-    this.isModifyingTreeOutline = false;
+    this.#isModifyingTreeOutline = false;
   }
 
   private clearState(): void {
-    if (this.isModifyingTreeOutline) {
+    if (this.#isModifyingTreeOutline) {
       return;
     }
 
-    this.currentHighlightedElement = null;
-    this.alreadyExpandedParentElement = null;
-    this.pendingHighlightNode = null;
+    this.#currentHighlightedElement = null;
+    this.#alreadyExpandedParentElement = null;
+    this.#pendingHighlightNode = null;
   }
 }

@@ -52,12 +52,12 @@ import {IdleCallbackManager, StylePropertiesSection, StylesSidebarPane, StylesSi
 
 const UIStrings = {
   /**
-  * @description Placeholder text for a text input used to filter which CSS properties show up in
+  * @description Placeholder text for a text #input used to filter which CSS properties show up in
   * the list of computed properties. In the Computed Style Widget of the Elements panel.
   */
   filter: 'Filter',
   /**
-  * @description ARIA accessible name for the text input used to filter which CSS properties show up
+  * @description ARIA accessible name for the text #input used to filter which CSS properties show up
   * in the list of computed properties. In the Computed Style Widget of the Elements panel.
   */
   filterComputedStyles: 'Filter Computed Styles',
@@ -171,36 +171,36 @@ const propertySorter = (propA: string, propB: string): number => {
 };
 
 export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
-  private computedStyleModel: ComputedStyleModel;
-  private readonly showInheritedComputedStylePropertiesSetting: Common.Settings.Setting<boolean>;
-  private readonly groupComputedStylesSetting: Common.Settings.Setting<boolean>;
+  #computedStyleModel: ComputedStyleModel;
+  readonly #showInheritedComputedStylePropertiesSetting: Common.Settings.Setting<boolean>;
+  readonly #groupComputedStylesSetting: Common.Settings.Setting<boolean>;
   input: Element;
-  private filterRegex: RegExp|null;
-  private readonly noMatchesElement: HTMLElement;
-  private propertiesOutline: UI.TreeOutline.TreeOutlineInShadow;
-  private readonly propertyByTreeElement: WeakMap<UI.TreeOutline.TreeElement, {
+  #filterRegex: RegExp|null;
+  readonly #noMatchesElement: HTMLElement;
+  #propertiesOutline: UI.TreeOutline.TreeOutlineInShadow;
+  readonly #propertyByTreeElement: WeakMap<UI.TreeOutline.TreeElement, {
     name: string,
     value: string,
   }>;
-  private readonly categoryByTreeElement: WeakMap<UI.TreeOutline.TreeElement, Category>;
-  private readonly expandedProperties: Set<string>;
-  private readonly expandedGroups: Set<Category>;
-  private readonly linkifier: Components.Linkifier.Linkifier;
-  private readonly imagePreviewPopover: ImagePreviewPopover;
-  private idleCallbackManager: IdleCallbackManager;
+  readonly #categoryByTreeElement: WeakMap<UI.TreeOutline.TreeElement, Category>;
+  readonly #expandedProperties: Set<string>;
+  readonly #expandedGroups: Set<Category>;
+  readonly #linkifier: Components.Linkifier.Linkifier;
+  readonly #imagePreviewPopover: ImagePreviewPopover;
+  #idleCallbackManager: IdleCallbackManager;
 
   constructor() {
     super(true);
 
-    this.computedStyleModel = new ComputedStyleModel();
-    this.computedStyleModel.addEventListener(Events.ComputedStyleChanged, this.update, this);
+    this.#computedStyleModel = new ComputedStyleModel();
+    this.#computedStyleModel.addEventListener(Events.ComputedStyleChanged, this.update, this);
 
-    this.showInheritedComputedStylePropertiesSetting =
+    this.#showInheritedComputedStylePropertiesSetting =
         Common.Settings.Settings.instance().createSetting('showInheritedComputedStyleProperties', false);
-    this.showInheritedComputedStylePropertiesSetting.addChangeListener(this.update.bind(this));
+    this.#showInheritedComputedStylePropertiesSetting.addChangeListener(this.update.bind(this));
 
-    this.groupComputedStylesSetting = Common.Settings.Settings.instance().createSetting('groupComputedStyles', false);
-    this.groupComputedStylesSetting.addChangeListener(() => {
+    this.#groupComputedStylesSetting = Common.Settings.Settings.instance().createSetting('groupComputedStyles', false);
+    this.#groupComputedStylesSetting.addChangeListener(() => {
       this.update();
     });
 
@@ -211,51 +211,51 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     UI.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterComputedStyles));
     filterContainerElement.appendChild(filterInput);
     this.input = filterInput;
-    this.filterRegex = null;
+    this.#filterRegex = null;
 
     const toolbar = new UI.Toolbar.Toolbar('styles-pane-toolbar', hbox);
     toolbar.appendToolbarItem(new UI.Toolbar.ToolbarSettingCheckbox(
-        this.showInheritedComputedStylePropertiesSetting, undefined, i18nString(UIStrings.showAll)));
-    toolbar.appendToolbarItem(
-        new UI.Toolbar.ToolbarSettingCheckbox(this.groupComputedStylesSetting, undefined, i18nString(UIStrings.group)));
+        this.#showInheritedComputedStylePropertiesSetting, undefined, i18nString(UIStrings.showAll)));
+    toolbar.appendToolbarItem(new UI.Toolbar.ToolbarSettingCheckbox(
+        this.#groupComputedStylesSetting, undefined, i18nString(UIStrings.group)));
 
-    this.noMatchesElement = this.contentElement.createChild('div', 'gray-info-message');
-    this.noMatchesElement.textContent = i18nString(UIStrings.noMatchingProperty);
+    this.#noMatchesElement = this.contentElement.createChild('div', 'gray-info-message');
+    this.#noMatchesElement.textContent = i18nString(UIStrings.noMatchingProperty);
 
-    this.propertiesOutline = new UI.TreeOutline.TreeOutlineInShadow();
-    this.propertiesOutline.hideOverflow();
-    this.propertiesOutline.setShowSelectionOnKeyboardFocus(true);
-    this.propertiesOutline.setFocusable(true);
-    this.propertiesOutline.element.classList.add('monospace', 'computed-properties');
-    this.propertiesOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.onTreeElementToggled, this);
-    this.propertiesOutline.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.onTreeElementToggled, this);
-    this.contentElement.appendChild(this.propertiesOutline.element);
+    this.#propertiesOutline = new UI.TreeOutline.TreeOutlineInShadow();
+    this.#propertiesOutline.hideOverflow();
+    this.#propertiesOutline.setShowSelectionOnKeyboardFocus(true);
+    this.#propertiesOutline.setFocusable(true);
+    this.#propertiesOutline.element.classList.add('monospace', 'computed-properties');
+    this.#propertiesOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.onTreeElementToggled, this);
+    this.#propertiesOutline.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.onTreeElementToggled, this);
+    this.contentElement.appendChild(this.#propertiesOutline.element);
 
-    this.propertyByTreeElement = new WeakMap();
-    this.categoryByTreeElement = new WeakMap();
+    this.#propertyByTreeElement = new WeakMap();
+    this.#categoryByTreeElement = new WeakMap();
 
-    this.expandedProperties = new Set();
-    this.expandedGroups = new Set(DefaultCategoryOrder);
+    this.#expandedProperties = new Set();
+    this.#expandedGroups = new Set(DefaultCategoryOrder);
 
-    this.linkifier = new Components.Linkifier.Linkifier(_maxLinkLength);
+    this.#linkifier = new Components.Linkifier.Linkifier(_maxLinkLength);
 
-    this.imagePreviewPopover = new ImagePreviewPopover(this.contentElement, event => {
+    this.#imagePreviewPopover = new ImagePreviewPopover(this.contentElement, event => {
       const link = event.composedPath()[0];
       if (link instanceof Element) {
         return link;
       }
       return null;
-    }, () => this.computedStyleModel.node());
+    }, () => this.#computedStyleModel.node());
 
-    const fontsWidget = new PlatformFontsWidget(this.computedStyleModel);
+    const fontsWidget = new PlatformFontsWidget(this.#computedStyleModel);
     fontsWidget.show(this.contentElement);
 
-    this.idleCallbackManager = new IdleCallbackManager();
+    this.#idleCallbackManager = new IdleCallbackManager();
   }
 
   onResize(): void {
     const isNarrow = this.contentElement.offsetWidth < 260;
-    this.propertiesOutline.contentElement.classList.toggle('computed-narrow', isNarrow);
+    this.#propertiesOutline.contentElement.classList.toggle('computed-narrow', isNarrow);
   }
 
   private showInheritedComputedStyleChanged(): void {
@@ -263,25 +263,25 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   update(): void {
-    if (this.idleCallbackManager) {
-      this.idleCallbackManager.discard();
+    if (this.#idleCallbackManager) {
+      this.#idleCallbackManager.discard();
     }
-    this.idleCallbackManager = new IdleCallbackManager();
+    this.#idleCallbackManager = new IdleCallbackManager();
     super.update();
   }
 
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([computedStyleSidebarPaneStyles]);
-    this.propertiesOutline.registerCSSFiles([computedStyleWidgetTreeStyles]);
+    this.#propertiesOutline.registerCSSFiles([computedStyleWidgetTreeStyles]);
   }
 
   async doUpdate(): Promise<void> {
     const [nodeStyles, matchedStyles] =
-        await Promise.all([this.computedStyleModel.fetchComputedStyle(), this.fetchMatchedCascade()]);
-    const shouldGroupComputedStyles = this.groupComputedStylesSetting.get();
-    this.propertiesOutline.contentElement.classList.toggle('grouped-list', shouldGroupComputedStyles);
-    this.propertiesOutline.contentElement.classList.toggle('alphabetical-list', !shouldGroupComputedStyles);
+        await Promise.all([this.#computedStyleModel.fetchComputedStyle(), this.fetchMatchedCascade()]);
+    const shouldGroupComputedStyles = this.#groupComputedStylesSetting.get();
+    this.#propertiesOutline.contentElement.classList.toggle('grouped-list', shouldGroupComputedStyles);
+    this.#propertiesOutline.contentElement.classList.toggle('alphabetical-list', !shouldGroupComputedStyles);
     if (shouldGroupComputedStyles) {
       await this.rebuildGroupedList(nodeStyles, matchedStyles);
     } else {
@@ -290,12 +290,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   private async fetchMatchedCascade(): Promise<SDK.CSSMatchedStyles.CSSMatchedStyles|null> {
-    const node = this.computedStyleModel.node();
-    if (!node || !this.computedStyleModel.cssModel()) {
+    const node = this.#computedStyleModel.node();
+    if (!node || !this.#computedStyleModel.cssModel()) {
       return null;
     }
 
-    const cssModel = this.computedStyleModel.cssModel();
+    const cssModel = this.#computedStyleModel.cssModel();
     if (!cssModel) {
       return null;
     }
@@ -304,19 +304,19 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
 
     function validateStyles(this: ComputedStyleWidget, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles|null):
         SDK.CSSMatchedStyles.CSSMatchedStyles|null {
-      return matchedStyles && matchedStyles.node() === this.computedStyleModel.node() ? matchedStyles : null;
+      return matchedStyles && matchedStyles.node() === this.#computedStyleModel.node() ? matchedStyles : null;
     }
   }
 
   private async rebuildAlphabeticalList(
       nodeStyle: ComputedStyle|null, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles|null): Promise<void> {
-    const hadFocus = this.propertiesOutline.element.hasFocus();
-    this.imagePreviewPopover.hide();
-    this.propertiesOutline.removeChildren();
-    this.linkifier.reset();
-    const cssModel = this.computedStyleModel.cssModel();
+    const hadFocus = this.#propertiesOutline.element.hasFocus();
+    this.#imagePreviewPopover.hide();
+    this.#propertiesOutline.removeChildren();
+    this.#linkifier.reset();
+    const cssModel = this.#computedStyleModel.cssModel();
     if (!nodeStyle || !matchedStyles || !cssModel) {
-      this.noMatchesElement.classList.remove('hidden');
+      this.#noMatchesElement.classList.remove('hidden');
       return;
     }
 
@@ -326,7 +326,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     const node = nodeStyle.node;
     const propertyTraces = this.computePropertyTraces(matchedStyles);
     const nonInheritedProperties = this.computeNonInheritedProperties(matchedStyles);
-    const showInherited = this.showInheritedComputedStylePropertiesSetting.get();
+    const showInherited = this.#showInheritedComputedStylePropertiesSetting.get();
     const computedStyleQueue = [];
     // filter and preprocess properties to line up in the computed style queue
     for (const propertyName of uniqueProperties) {
@@ -345,7 +345,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       computedStyleQueue.push({propertyName, propertyValue, isInherited});
     }
 
-    this.propertiesOutline.contentElement.classList.add('render-flash');
+    this.#propertiesOutline.contentElement.classList.add('render-flash');
 
     // Render computed style properties in batches via idle callbacks to avoid a
     // very long task. The batchSize and timeoutInterval should be tweaked in
@@ -358,12 +358,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     while (computedStyleQueue.length > 0) {
       const currentBatch = computedStyleQueue.splice(0, batchSize);
 
-      this.idleCallbackManager.schedule(() => {
+      this.#idleCallbackManager.schedule(() => {
         for (const {propertyName, propertyValue, isInherited} of currentBatch) {
           const treeElement = this.buildPropertyTreeElement(
               propertyTraces, node, (matchedStyles as SDK.CSSMatchedStyles.CSSMatchedStyles), propertyName,
               propertyValue, isInherited, hadFocus);
-          this.propertiesOutline.appendChild(treeElement);
+          this.#propertiesOutline.appendChild(treeElement);
         }
 
         this.filterAlphabeticalList();
@@ -372,26 +372,26 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       timeout += timeoutInterval;
     }
 
-    await this.idleCallbackManager.awaitDone();
-    this.propertiesOutline.contentElement.classList.remove('render-flash');
+    await this.#idleCallbackManager.awaitDone();
+    this.#propertiesOutline.contentElement.classList.remove('render-flash');
   }
 
   private async rebuildGroupedList(
       nodeStyle: ComputedStyle|null, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles|null): Promise<void> {
-    const hadFocus = this.propertiesOutline.element.hasFocus();
-    this.imagePreviewPopover.hide();
-    this.propertiesOutline.removeChildren();
-    this.linkifier.reset();
-    const cssModel = this.computedStyleModel.cssModel();
+    const hadFocus = this.#propertiesOutline.element.hasFocus();
+    this.#imagePreviewPopover.hide();
+    this.#propertiesOutline.removeChildren();
+    this.#linkifier.reset();
+    const cssModel = this.#computedStyleModel.cssModel();
     if (!nodeStyle || !matchedStyles || !cssModel) {
-      this.noMatchesElement.classList.remove('hidden');
+      this.#noMatchesElement.classList.remove('hidden');
       return;
     }
 
     const node = nodeStyle.node;
     const propertyTraces = this.computePropertyTraces(matchedStyles);
     const nonInheritedProperties = this.computeNonInheritedProperties(matchedStyles);
-    const showInherited = this.showInheritedComputedStylePropertiesSetting.get();
+    const showInherited = this.#showInheritedComputedStylePropertiesSetting.get();
 
     const propertiesByCategory = new Map<Category, UI.TreeOutline.TreeElement[]>();
 
@@ -434,12 +434,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
           group.appendChild(property);
         }
 
-        this.propertiesOutline.appendChild(group);
-        if (this.expandedGroups.has(category)) {
+        this.#propertiesOutline.appendChild(group);
+        if (this.#expandedGroups.has(category)) {
           group.expand();
         }
 
-        this.categoryByTreeElement.set(group, category);
+        this.#categoryByTreeElement.set(group, category);
       }
     }
 
@@ -448,13 +448,14 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
 
   private onTreeElementToggled(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
     const treeElement = event.data;
-    const property = this.propertyByTreeElement.get(treeElement);
+    const property = this.#propertyByTreeElement.get(treeElement);
     if (property) {
-      treeElement.expanded ? this.expandedProperties.add(property.name) : this.expandedProperties.delete(property.name);
+      treeElement.expanded ? this.#expandedProperties.add(property.name) :
+                             this.#expandedProperties.delete(property.name);
     } else {
-      const category = this.categoryByTreeElement.get(treeElement);
+      const category = this.#categoryByTreeElement.get(treeElement);
       if (category) {
-        treeElement.expanded ? this.expandedGroups.add(category) : this.expandedGroups.delete(category);
+        treeElement.expanded ? this.#expandedGroups.add(category) : this.#expandedGroups.delete(category);
       }
     }
   }
@@ -485,12 +486,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     };
 
     treeElement.title = propertyElement;
-    this.propertyByTreeElement.set(treeElement, {name: propertyName, value: propertyValue});
-    if (!this.propertiesOutline.selectedTreeElement) {
+    this.#propertyByTreeElement.set(treeElement, {name: propertyName, value: propertyValue});
+    if (!this.#propertiesOutline.selectedTreeElement) {
       treeElement.select(!hadFocus);
     }
 
-    if (this.expandedProperties.has(propertyName)) {
+    if (this.#expandedProperties.has(propertyName)) {
       treeElement.expand();
     }
 
@@ -510,7 +511,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
         rootTreeElement.listItemElement.addEventListener(
             'contextmenu', this.handleContextMenuEvent.bind(this, matchedStyles, property));
       }
-      const trace = createTraceElement(node, property, isPropertyOverloaded, matchedStyles, this.linkifier);
+      const trace = createTraceElement(node, property, isPropertyOverloaded, matchedStyles, this.#linkifier);
       const traceTreeElement = new UI.TreeOutline.TreeElement();
       traceTreeElement.title = trace;
       traceTreeElement.listItemElement.addEventListener(
@@ -574,8 +575,8 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   filterComputedStyles(this: ComputedStyleWidget, regex: RegExp|null): void {
-    this.filterRegex = regex;
-    if (this.groupComputedStylesSetting.get()) {
+    this.#filterRegex = regex;
+    if (this.#groupComputedStylesSetting.get()) {
       this.filterGroupLists();
     } else {
       this.filterAlphabeticalList();
@@ -583,11 +584,11 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   private filterAlphabeticalList(): void {
-    const regex = this.filterRegex;
-    const children = this.propertiesOutline.rootElement().children();
+    const regex = this.#filterRegex;
+    const children = this.#propertiesOutline.rootElement().children();
     let hasMatch = false;
     for (const child of children) {
-      const property = this.propertyByTreeElement.get(child);
+      const property = this.#propertyByTreeElement.get(child);
       if (!property) {
         continue;
       }
@@ -595,19 +596,19 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       child.hidden = !matched;
       hasMatch = hasMatch || matched;
     }
-    this.noMatchesElement.classList.toggle('hidden', Boolean(hasMatch));
+    this.#noMatchesElement.classList.toggle('hidden', Boolean(hasMatch));
   }
 
   private filterGroupLists(): void {
-    const regex = this.filterRegex;
-    const groups = this.propertiesOutline.rootElement().children();
+    const regex = this.#filterRegex;
+    const groups = this.#propertiesOutline.rootElement().children();
     let hasOverallMatch = false;
     let foundFirstGroup = false;
     for (const group of groups) {
       let hasGroupMatch = false;
       const properties = group.children();
       for (const propertyTreeElement of properties) {
-        const property = this.propertyByTreeElement.get(propertyTreeElement);
+        const property = this.#propertyByTreeElement.get(propertyTreeElement);
         if (!property) {
           continue;
         }
@@ -622,7 +623,7 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
       foundFirstGroup = foundFirstGroup || hasGroupMatch;
     }
 
-    this.noMatchesElement.classList.toggle('hidden', hasOverallMatch);
+    this.#noMatchesElement.classList.toggle('hidden', hasOverallMatch);
   }
 }
 

@@ -9,7 +9,7 @@ import type {DOMNode} from './Helper.js';
 const UIStrings = {
   /**
   * @description Text in Elements Breadcrumbs of the Elements panel. Indicates that a HTML element
-  * is a text node, meaning it contains text only and no other HTML elements. Should be translatd.
+  * is a text #node, meaning it contains text only and no other HTML elements. Should be translatd.
   */
   text: '(text)',
 };

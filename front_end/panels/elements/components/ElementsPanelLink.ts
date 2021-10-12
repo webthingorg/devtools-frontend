@@ -13,16 +13,16 @@ export interface ElementsPanelLinkData {
 }
 export class ElementsPanelLink extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-elements-panel-link`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  readonly #shadow = this.attachShadow({mode: 'open'});
 
-  private onElementRevealIconClick: ((event?: Event) => void) = () => {};
-  private onElementRevealIconMouseEnter: ((event?: Event) => void) = () => {};
-  private onElementRevealIconMouseLeave: ((event?: Event) => void) = () => {};
+  #onElementRevealIconClick: ((event?: Event) => void) = () => {};
+  #onElementRevealIconMouseEnter: ((event?: Event) => void) = () => {};
+  #onElementRevealIconMouseLeave: ((event?: Event) => void) = () => {};
 
   set data(data: ElementsPanelLinkData) {
-    this.onElementRevealIconClick = data.onElementRevealIconClick;
-    this.onElementRevealIconMouseEnter = data.onElementRevealIconMouseEnter;
-    this.onElementRevealIconMouseLeave = data.onElementRevealIconMouseLeave;
+    this.#onElementRevealIconClick = data.onElementRevealIconClick;
+    this.#onElementRevealIconMouseEnter = data.onElementRevealIconMouseEnter;
+    this.#onElementRevealIconMouseLeave = data.onElementRevealIconMouseLeave;
     this.update();
   }
 
@@ -31,7 +31,7 @@ export class ElementsPanelLink extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [elementsPanelLinkStyles];
+    this.#shadow.adoptedStyleSheets = [elementsPanelLinkStyles];
   }
 
   private render(): void {
@@ -39,10 +39,10 @@ export class ElementsPanelLink extends HTMLElement {
       LitHtml.render(LitHtml.html`
       <span
         class="element-reveal-icon"
-        @click=${this.onElementRevealIconClick}
-        @mouseenter=${this.onElementRevealIconMouseEnter}
-        @mouseleave=${this.onElementRevealIconMouseLeave}></span>
-      `, this.shadow, {host: this});
+        @click=${this.#onElementRevealIconClick}
+        @mouseenter=${this.#onElementRevealIconMouseEnter}
+        @mouseleave=${this.#onElementRevealIconMouseLeave}></span>
+      `, this.#shadow, {host: this});
     // clang-format on
   }
 }
