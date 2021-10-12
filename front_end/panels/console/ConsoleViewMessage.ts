@@ -200,71 +200,71 @@ const parameterToRemoteObject = (runtimeModel: SDK.RuntimeModel.RuntimeModel|nul
 
 export class ConsoleViewMessage implements ConsoleViewportElement {
   protected message: SDK.ConsoleModel.ConsoleMessage;
-  private readonly linkifier: Components.Linkifier.Linkifier;
-  private repeatCountInternal: number;
-  private closeGroupDecorationCount: number;
-  private readonly nestingLevelInternal: number;
-  private selectableChildren: {
+  readonly #linkifier: Components.Linkifier.Linkifier;
+  #repeatCountInternal: number;
+  #closeGroupDecorationCount: number;
+  readonly #nestingLevelInternal: number;
+  #selectableChildren: {
     element: HTMLElement,
     forceSelect: () => void,
   }[];
-  private readonly messageResized: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void;
+  readonly #messageResized: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void;
   protected elementInternal: HTMLElement|null;
-  private readonly previewFormatter: ObjectUI.RemoteObjectPreviewFormatter.RemoteObjectPreviewFormatter;
-  private searchRegexInternal: RegExp|null;
+  readonly #previewFormatter: ObjectUI.RemoteObjectPreviewFormatter.RemoteObjectPreviewFormatter;
+  #searchRegexInternal: RegExp|null;
   protected messageLevelIcon: UI.Icon.Icon|null;
-  private traceExpanded: boolean;
-  private expandTrace: ((arg0: boolean) => void)|null;
+  #traceExpanded: boolean;
+  #expandTrace: ((arg0: boolean) => void)|null;
   protected anchorElement: HTMLElement|null;
   protected contentElementInternal: HTMLElement|null;
-  private nestingLevelMarkers: HTMLElement[]|null;
-  private searchHighlightNodes: Element[];
-  private searchHighlightNodeChanges: UI.UIUtils.HighlightChange[];
-  private isVisibleInternal: boolean;
-  private cachedHeight: number;
-  private messagePrefix: string;
-  private timestampElement: HTMLElement|null;
-  private inSimilarGroup: boolean;
-  private similarGroupMarker: HTMLElement|null;
-  private lastInSimilarGroup: boolean;
-  private groupKeyInternal: string;
+  #nestingLevelMarkers: HTMLElement[]|null;
+  #searchHighlightNodes: Element[];
+  #searchHighlightNodeChanges: UI.UIUtils.HighlightChange[];
+  #isVisibleInternal: boolean;
+  #cachedHeight: number;
+  #messagePrefix: string;
+  #timestampElement: HTMLElement|null;
+  #inSimilarGroup: boolean;
+  #similarGroupMarker: HTMLElement|null;
+  #lastInSimilarGroup: boolean;
+  #groupKeyInternal: string;
   protected repeatCountElement: UI.UIUtils.DevToolsSmallBubble|null;
-  private requestResolver: Logs.RequestResolver.RequestResolver;
-  private issueResolver: IssuesManager.IssueResolver.IssueResolver;
+  #requestResolver: Logs.RequestResolver.RequestResolver;
+  #issueResolver: IssuesManager.IssueResolver.IssueResolver;
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier,
       requestResolver: Logs.RequestResolver.RequestResolver, issueResolver: IssuesManager.IssueResolver.IssueResolver,
       nestingLevel: number, onResize: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void) {
     this.message = consoleMessage;
-    this.linkifier = linkifier;
-    this.requestResolver = requestResolver;
-    this.issueResolver = issueResolver;
-    this.repeatCountInternal = 1;
-    this.closeGroupDecorationCount = 0;
-    this.nestingLevelInternal = nestingLevel;
-    this.selectableChildren = [];
-    this.messageResized = onResize;
+    this.#linkifier = linkifier;
+    this.#requestResolver = requestResolver;
+    this.#issueResolver = issueResolver;
+    this.#repeatCountInternal = 1;
+    this.#closeGroupDecorationCount = 0;
+    this.#nestingLevelInternal = nestingLevel;
+    this.#selectableChildren = [];
+    this.#messageResized = onResize;
     this.elementInternal = null;
 
-    this.previewFormatter = new ObjectUI.RemoteObjectPreviewFormatter.RemoteObjectPreviewFormatter();
-    this.searchRegexInternal = null;
+    this.#previewFormatter = new ObjectUI.RemoteObjectPreviewFormatter.RemoteObjectPreviewFormatter();
+    this.#searchRegexInternal = null;
     this.messageLevelIcon = null;
-    this.traceExpanded = false;
-    this.expandTrace = null;
+    this.#traceExpanded = false;
+    this.#expandTrace = null;
     this.anchorElement = null;
     this.contentElementInternal = null;
-    this.nestingLevelMarkers = null;
-    this.searchHighlightNodes = [];
-    this.searchHighlightNodeChanges = [];
-    this.isVisibleInternal = false;
-    this.cachedHeight = 0;
-    this.messagePrefix = '';
-    this.timestampElement = null;
-    this.inSimilarGroup = false;
-    this.similarGroupMarker = null;
-    this.lastInSimilarGroup = false;
-    this.groupKeyInternal = '';
+    this.#nestingLevelMarkers = null;
+    this.#searchHighlightNodes = [];
+    this.#searchHighlightNodeChanges = [];
+    this.#isVisibleInternal = false;
+    this.#cachedHeight = 0;
+    this.#messagePrefix = '';
+    this.#timestampElement = null;
+    this.#inSimilarGroup = false;
+    this.#similarGroupMarker = null;
+    this.#lastInSimilarGroup = false;
+    this.#groupKeyInternal = '';
     this.repeatCountElement = null;
   }
 
@@ -273,24 +273,24 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   wasShown(): void {
-    this.isVisibleInternal = true;
+    this.#isVisibleInternal = true;
   }
 
   onResize(): void {
   }
 
   willHide(): void {
-    this.isVisibleInternal = false;
-    this.cachedHeight = this.element().offsetHeight;
+    this.#isVisibleInternal = false;
+    this.#cachedHeight = this.element().offsetHeight;
   }
 
   isVisible(): boolean {
-    return this.isVisibleInternal;
+    return this.#isVisibleInternal;
   }
 
   fastHeight(): number {
-    if (this.cachedHeight) {
-      return this.cachedHeight;
+    if (this.#cachedHeight) {
+      return this.#cachedHeight;
     }
     return this.approximateFastHeight();
   }
@@ -336,7 +336,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
           break;
         default: {
           if (this.message.type === Protocol.Runtime.ConsoleAPICalledEventType.Assert) {
-            this.messagePrefix = i18nString(UIStrings.assertionFailed);
+            this.#messagePrefix = i18nString(UIStrings.assertionFailed);
           }
           if (this.message.parameters && this.message.parameters.length === 1) {
             const parameter = this.message.parameters[0];
@@ -391,7 +391,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const linkElement = Components.Linkifier.Linkifier.linkifyRevealable(request, request.url(), request.url());
       // Focus is handled by the viewport.
       linkElement.tabIndex = -1;
-      this.selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
+      this.#selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
       messageElement.appendChild(linkElement);
       if (request.failed) {
         UI.UIUtils.createTextChildren(messageElement, ' ', request.localizedFailDescription || '');
@@ -411,7 +411,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
             Components.Linkifier.Linkifier.linkifyURL(
                 url, ({text, lineNumber, columnNumber} as Components.Linkifier.LinkifyURLOptions));
         linkElement.tabIndex = -1;
-        this.selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
+        this.#selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
         return linkElement;
       });
       messageElement.appendChild(fragment);
@@ -427,7 +427,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       icon.classList.add('resource-links');
       icon.data = {
         affectedRequest: {requestId},
-        requestResolver: this.requestResolver,
+        requestResolver: this.#requestResolver,
         displayURL: false,
       };
       elements.push(icon);
@@ -436,7 +436,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (issueId) {
       const icon = new IssueCounter.IssueLinkIcon.IssueLinkIcon();
       icon.classList.add('resource-links');
-      icon.data = {issueId, issueResolver: this.issueResolver};
+      icon.data = {issueId, issueResolver: this.#issueResolver};
       elements.push(icon);
     }
     return elements;
@@ -459,7 +459,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     // Append a space to prevent the anchor text from being glued to the console message when the user selects and copies the console messages.
     if (anchorElement) {
       anchorElement.tabIndex = -1;
-      this.selectableChildren.push({
+      this.#selectableChildren.push({
         element: anchorElement,
         forceSelect: (): void => anchorElement.focus(),
       });
@@ -493,16 +493,16 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     clickableElement.appendChild(messageElement);
     const stackTraceElement = contentElement.createChild('div');
     const stackTracePreview = Components.JSPresentationUtils.buildStackTracePreviewContents(
-        runtimeModel.target(), this.linkifier, {stackTrace: this.message.stackTrace, tabStops: undefined});
+        runtimeModel.target(), this.#linkifier, {stackTrace: this.message.stackTrace, tabStops: undefined});
     stackTraceElement.appendChild(stackTracePreview.element);
     for (const linkElement of stackTracePreview.links) {
-      this.selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
+      this.#selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
     }
     stackTraceElement.classList.add('hidden');
     UI.ARIAUtils.setAccessibleName(
         contentElement, `${messageElement.textContent} ${i18nString(UIStrings.stackMessageCollapsed)}`);
     UI.ARIAUtils.markAsGroup(stackTraceElement);
-    this.expandTrace = (expand: boolean): void => {
+    this.#expandTrace = (expand: boolean): void => {
       icon.setIconType(expand ? 'smallicon-triangle-down' : 'smallicon-triangle-right');
       stackTraceElement.classList.toggle('hidden', !expand);
       const stackTableState =
@@ -510,24 +510,24 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       UI.ARIAUtils.setAccessibleName(contentElement, `${messageElement.textContent} ${stackTableState}`);
       UI.ARIAUtils.alert(stackTableState);
       UI.ARIAUtils.setExpanded(clickableElement, expand);
-      this.traceExpanded = expand;
+      this.#traceExpanded = expand;
     };
 
     const toggleStackTrace = (event: Event): void => {
       if (UI.UIUtils.isEditing() || contentElement.hasSelection()) {
         return;
       }
-      this.expandTrace && this.expandTrace(stackTraceElement.classList.contains('hidden'));
+      this.#expandTrace && this.#expandTrace(stackTraceElement.classList.contains('hidden'));
       event.consume();
     };
 
     clickableElement.addEventListener('click', toggleStackTrace, false);
     if (this.message.type === Protocol.Runtime.ConsoleAPICalledEventType.Trace) {
-      this.expandTrace(true);
+      this.#expandTrace(true);
     }
 
     // @ts-ignore
-    toggleElement._expandStackTraceForTest = this.expandTrace.bind(this, true);
+    toggleElement._expandStackTraceForTest = this.#expandTrace.bind(this, true);
     return toggleElement;
   }
 
@@ -536,7 +536,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (!runtimeModel) {
       return null;
     }
-    return this.linkifier.linkifyScriptLocation(
+    return this.#linkifier.linkifyScriptLocation(
         runtimeModel.target(), /* scriptId */ null, url, lineNumber,
         {columnNumber, className: undefined, tabStop: undefined, inlineFrameIndex: 0});
   }
@@ -546,7 +546,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (!runtimeModel) {
       return null;
     }
-    return this.linkifier.linkifyStackTraceTopFrame(runtimeModel.target(), stackTrace);
+    return this.#linkifier.linkifyStackTraceTopFrame(runtimeModel.target(), stackTrace);
   }
 
   private linkifyScriptId(scriptId: Protocol.Runtime.ScriptId, url: string, lineNumber: number, columnNumber: number):
@@ -555,7 +555,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (!runtimeModel) {
       return null;
     }
-    return this.linkifier.linkifyScriptLocation(
+    return this.#linkifier.linkifyScriptLocation(
         runtimeModel.target(), scriptId, url, lineNumber,
         {columnNumber, className: undefined, tabStop: undefined, inlineFrameIndex: 0});
   }
@@ -564,8 +564,8 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       HTMLElement {
     // This node is used like a Builder. Values are continually appended onto it.
     const formattedResult = document.createElement('span');
-    if (this.messagePrefix) {
-      formattedResult.createChild('span').textContent = this.messagePrefix;
+    if (this.#messagePrefix) {
+      formattedResult.createChild('span').textContent = this.#messagePrefix;
     }
     if (!rawParameters.length) {
       return formattedResult;
@@ -697,7 +697,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     titleElement.classList.add('console-object');
     if (includePreview && obj.preview) {
       titleElement.classList.add('console-object-preview');
-      this.previewFormatter.appendObjectPreview(titleElement, obj.preview, false /* isEntry */);
+      this.#previewFormatter.appendObjectPreview(titleElement, obj.preview, false /* isEntry */);
     } else if (obj.type === 'function') {
       const functionElement = titleElement.createChild('span');
       ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.formatObjectAsFunction(obj, functionElement, false);
@@ -719,14 +719,14 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       UI.Tooltip.Tooltip.install(note, i18nString(UIStrings.thisValueWasEvaluatedUponFirst));
     }
 
-    const section = new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection(obj, titleElement, this.linkifier);
+    const section = new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection(obj, titleElement, this.#linkifier);
     section.element.classList.add('console-view-object-properties-section');
     section.enableContextMenu();
     section.setShowSelectionOnKeyboardFocus(true, true);
-    this.selectableChildren.push(section);
-    section.addEventListener(UI.TreeOutline.Events.ElementAttached, this.messageResized);
-    section.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.messageResized);
-    section.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.messageResized);
+    this.#selectableChildren.push(section);
+    section.addEventListener(UI.TreeOutline.Events.ElementAttached, this.#messageResized);
+    section.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.#messageResized);
+    section.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.#messageResized);
     return section.element;
   }
 
@@ -765,7 +765,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (property.type === 'accessor') {
       return this.formatAsAccessorProperty(object, propertyPath.map(property => property.name.toString()), false);
     }
-    return this.previewFormatter.renderPropertyPreview(
+    return this.#previewFormatter.renderPropertyPreview(
         property.type, 'subtype' in property ? property.subtype : undefined, null, property.value);
   }
 
@@ -784,10 +784,10 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const renderResult = await UI.UIUtils.Renderer.render((node as Object));
       if (renderResult) {
         if (renderResult.tree) {
-          this.selectableChildren.push(renderResult.tree);
-          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementAttached, this.messageResized);
-          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.messageResized);
-          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.messageResized);
+          this.#selectableChildren.push(renderResult.tree);
+          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementAttached, this.#messageResized);
+          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementExpanded, this.#messageResized);
+          renderResult.tree.addEventListener(UI.TreeOutline.Events.ElementCollapsed, this.#messageResized);
         }
         result.appendChild(renderResult.node);
       } else {
@@ -819,7 +819,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   private formatAsArrayEntry(output: SDK.RemoteObject.RemoteObject): HTMLElement {
-    return this.previewFormatter.renderPropertyPreview(
+    return this.#previewFormatter.renderPropertyPreview(
         output.type, output.subtype, output.className, output.description);
   }
 
@@ -856,7 +856,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
           }
         }
         rootElement.appendChild(
-            this.previewFormatter.renderPropertyPreview(type, subtype, object.className, description));
+            this.#previewFormatter.renderPropertyPreview(type, subtype, object.className, description));
       }
     }
 
@@ -1084,69 +1084,69 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
 
     if (Common.Settings.Settings.instance().moduleSetting('consoleTimestampsEnabled').get()) {
-      if (!this.timestampElement) {
-        this.timestampElement = document.createElement('span');
-        this.timestampElement.classList.add('console-timestamp');
+      if (!this.#timestampElement) {
+        this.#timestampElement = document.createElement('span');
+        this.#timestampElement.classList.add('console-timestamp');
       }
-      this.timestampElement.textContent = UI.UIUtils.formatTimestamp(this.message.timestamp, false) + ' ';
-      UI.Tooltip.Tooltip.install(this.timestampElement, UI.UIUtils.formatTimestamp(this.message.timestamp, true));
-      this.contentElementInternal.insertBefore(this.timestampElement, this.contentElementInternal.firstChild);
-    } else if (this.timestampElement) {
-      this.timestampElement.remove();
-      this.timestampElement = null;
+      this.#timestampElement.textContent = UI.UIUtils.formatTimestamp(this.message.timestamp, false) + ' ';
+      UI.Tooltip.Tooltip.install(this.#timestampElement, UI.UIUtils.formatTimestamp(this.message.timestamp, true));
+      this.contentElementInternal.insertBefore(this.#timestampElement, this.contentElementInternal.firstChild);
+    } else if (this.#timestampElement) {
+      this.#timestampElement.remove();
+      this.#timestampElement = null;
     }
   }
 
   nestingLevel(): number {
-    return this.nestingLevelInternal;
+    return this.#nestingLevelInternal;
   }
 
   setInSimilarGroup(inSimilarGroup: boolean, isLast?: boolean): void {
-    this.inSimilarGroup = inSimilarGroup;
-    this.lastInSimilarGroup = inSimilarGroup && Boolean(isLast);
-    if (this.similarGroupMarker && !inSimilarGroup) {
-      this.similarGroupMarker.remove();
-      this.similarGroupMarker = null;
-    } else if (this.elementInternal && !this.similarGroupMarker && inSimilarGroup) {
-      this.similarGroupMarker = document.createElement('div');
-      this.similarGroupMarker.classList.add('nesting-level-marker');
-      this.elementInternal.insertBefore(this.similarGroupMarker, this.elementInternal.firstChild);
-      this.similarGroupMarker.classList.toggle('group-closed', this.lastInSimilarGroup);
+    this.#inSimilarGroup = inSimilarGroup;
+    this.#lastInSimilarGroup = inSimilarGroup && Boolean(isLast);
+    if (this.#similarGroupMarker && !inSimilarGroup) {
+      this.#similarGroupMarker.remove();
+      this.#similarGroupMarker = null;
+    } else if (this.elementInternal && !this.#similarGroupMarker && inSimilarGroup) {
+      this.#similarGroupMarker = document.createElement('div');
+      this.#similarGroupMarker.classList.add('nesting-level-marker');
+      this.elementInternal.insertBefore(this.#similarGroupMarker, this.elementInternal.firstChild);
+      this.#similarGroupMarker.classList.toggle('group-closed', this.#lastInSimilarGroup);
     }
   }
 
   isLastInSimilarGroup(): boolean {
-    return Boolean(this.inSimilarGroup) && Boolean(this.lastInSimilarGroup);
+    return Boolean(this.#inSimilarGroup) && Boolean(this.#lastInSimilarGroup);
   }
 
   resetCloseGroupDecorationCount(): void {
-    if (!this.closeGroupDecorationCount) {
+    if (!this.#closeGroupDecorationCount) {
       return;
     }
-    this.closeGroupDecorationCount = 0;
+    this.#closeGroupDecorationCount = 0;
     this.updateCloseGroupDecorations();
   }
 
   incrementCloseGroupDecorationCount(): void {
-    ++this.closeGroupDecorationCount;
+    ++this.#closeGroupDecorationCount;
     this.updateCloseGroupDecorations();
   }
 
   private updateCloseGroupDecorations(): void {
-    if (!this.nestingLevelMarkers) {
+    if (!this.#nestingLevelMarkers) {
       return;
     }
-    for (let i = 0, n = this.nestingLevelMarkers.length; i < n; ++i) {
-      const marker = this.nestingLevelMarkers[i];
-      marker.classList.toggle('group-closed', n - i <= this.closeGroupDecorationCount);
+    for (let i = 0, n = this.#nestingLevelMarkers.length; i < n; ++i) {
+      const marker = this.#nestingLevelMarkers[i];
+      marker.classList.toggle('group-closed', n - i <= this.#closeGroupDecorationCount);
     }
   }
 
   protected focusedChildIndex(): number {
-    if (!this.selectableChildren.length) {
+    if (!this.#selectableChildren.length) {
       return -1;
     }
-    return this.selectableChildren.findIndex(child => child.element.hasFocus());
+    return this.#selectableChildren.findIndex(child => child.element.hasFocus());
   }
 
   private onKeyDown(event: KeyboardEvent): void {
@@ -1163,13 +1163,13 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     // Handle trace expansion.
     const focusedChildIndex = this.focusedChildIndex();
     const isWrapperFocused = focusedChildIndex === -1;
-    if (this.expandTrace && isWrapperFocused) {
-      if ((event.key === 'ArrowLeft' && this.traceExpanded) || (event.key === 'ArrowRight' && !this.traceExpanded)) {
-        this.expandTrace(!this.traceExpanded);
+    if (this.#expandTrace && isWrapperFocused) {
+      if ((event.key === 'ArrowLeft' && this.#traceExpanded) || (event.key === 'ArrowRight' && !this.#traceExpanded)) {
+        this.#expandTrace(!this.#traceExpanded);
         return true;
       }
     }
-    if (!this.selectableChildren.length) {
+    if (!this.#selectableChildren.length) {
       return false;
     }
 
@@ -1184,7 +1184,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
     if (event.key === 'ArrowUp') {
       const firstVisibleChild = this.nearestVisibleChild(0);
-      if (this.selectableChildren[focusedChildIndex] === firstVisibleChild && firstVisibleChild) {
+      if (this.#selectableChildren[focusedChildIndex] === firstVisibleChild && firstVisibleChild) {
         this.elementInternal && this.elementInternal.focus();
         return true;
       }
@@ -1216,25 +1216,25 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     element: Element,
     forceSelect: () => void,
   }|null {
-    const childCount = this.selectableChildren.length;
+    const childCount = this.#selectableChildren.length;
     if (fromIndex < 0 || fromIndex >= childCount) {
       return null;
     }
     const direction = backwards ? -1 : 1;
     let index = fromIndex;
 
-    while (!this.selectableChildren[index].element.offsetParent) {
+    while (!this.#selectableChildren[index].element.offsetParent) {
       index += direction;
       if (index < 0 || index >= childCount) {
         return null;
       }
     }
-    return this.selectableChildren[index];
+    return this.#selectableChildren[index];
   }
 
   focusLastChildOrSelf(): void {
     if (this.elementInternal &&
-        !this.selectNearestVisibleChild(this.selectableChildren.length - 1, true /* backwards */)) {
+        !this.selectNearestVisibleChild(this.#selectableChildren.length - 1, true /* backwards */)) {
       this.elementInternal.focus();
     }
   }
@@ -1303,14 +1303,14 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (this.message.source === SDK.ConsoleModel.FrontendMessageSource.ConsoleAPI) {
       this.elementInternal.classList.add('console-from-api');
     }
-    if (this.inSimilarGroup) {
-      this.similarGroupMarker = (this.elementInternal.createChild('div', 'nesting-level-marker') as HTMLElement);
-      this.similarGroupMarker.classList.toggle('group-closed', this.lastInSimilarGroup);
+    if (this.#inSimilarGroup) {
+      this.#similarGroupMarker = (this.elementInternal.createChild('div', 'nesting-level-marker') as HTMLElement);
+      this.#similarGroupMarker.classList.toggle('group-closed', this.#lastInSimilarGroup);
     }
 
-    this.nestingLevelMarkers = [];
-    for (let i = 0; i < this.nestingLevelInternal; ++i) {
-      this.nestingLevelMarkers.push(this.elementInternal.createChild('div', 'nesting-level-marker'));
+    this.#nestingLevelMarkers = [];
+    for (let i = 0; i < this.#nestingLevelInternal; ++i) {
+      this.#nestingLevelMarkers.push(this.elementInternal.createChild('div', 'nesting-level-marker'));
     }
     this.updateCloseGroupDecorations();
     elementToMessage.set(this.elementInternal, this);
@@ -1338,7 +1338,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
 
     this.elementInternal.appendChild(this.contentElement());
-    if (this.repeatCountInternal > 1) {
+    if (this.#repeatCountInternal > 1) {
       this.showRepeatCountElement();
     }
   }
@@ -1376,11 +1376,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   repeatCount(): number {
-    return this.repeatCountInternal || 1;
+    return this.#repeatCountInternal || 1;
   }
 
   resetIncrementRepeatCount(): void {
-    this.repeatCountInternal = 1;
+    this.#repeatCountInternal = 1;
     if (!this.repeatCountElement) {
       return;
     }
@@ -1393,12 +1393,12 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   incrementRepeatCount(): void {
-    this.repeatCountInternal++;
+    this.#repeatCountInternal++;
     this.showRepeatCountElement();
   }
 
   setRepeatCount(repeatCount: number): void {
-    this.repeatCountInternal = repeatCount;
+    this.#repeatCountInternal = repeatCount;
     this.showRepeatCountElement();
   }
 
@@ -1431,15 +1431,15 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.elementInternal.insertBefore(this.repeatCountElement, this.contentElementInternal);
       this.contentElement().classList.add('repeated-message');
     }
-    this.repeatCountElement.textContent = `${this.repeatCountInternal}`;
+    this.repeatCountElement.textContent = `${this.#repeatCountInternal}`;
 
     let accessibleName;
     if (this.message.level === Protocol.Log.LogEntryLevel.Warning) {
-      accessibleName = i18nString(UIStrings.warningS, {n: this.repeatCountInternal});
+      accessibleName = i18nString(UIStrings.warningS, {n: this.#repeatCountInternal});
     } else if (this.message.level === Protocol.Log.LogEntryLevel.Error) {
-      accessibleName = i18nString(UIStrings.errorS, {n: this.repeatCountInternal});
+      accessibleName = i18nString(UIStrings.errorS, {n: this.#repeatCountInternal});
     } else {
-      accessibleName = i18nString(UIStrings.repeatS, {n: this.repeatCountInternal});
+      accessibleName = i18nString(UIStrings.repeatS, {n: this.#repeatCountInternal});
     }
     UI.ARIAUtils.setAccessibleName(this.repeatCountElement, accessibleName);
   }
@@ -1459,40 +1459,40 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   setSearchRegex(regex: RegExp|null): void {
-    if (this.searchHighlightNodeChanges && this.searchHighlightNodeChanges.length) {
-      UI.UIUtils.revertDomChanges(this.searchHighlightNodeChanges);
+    if (this.#searchHighlightNodeChanges && this.#searchHighlightNodeChanges.length) {
+      UI.UIUtils.revertDomChanges(this.#searchHighlightNodeChanges);
     }
-    this.searchRegexInternal = regex;
-    this.searchHighlightNodes = [];
-    this.searchHighlightNodeChanges = [];
-    if (!this.searchRegexInternal) {
+    this.#searchRegexInternal = regex;
+    this.#searchHighlightNodes = [];
+    this.#searchHighlightNodeChanges = [];
+    if (!this.#searchRegexInternal) {
       return;
     }
 
     const text = this.contentElement().deepTextContent();
     let match;
-    this.searchRegexInternal.lastIndex = 0;
+    this.#searchRegexInternal.lastIndex = 0;
     const sourceRanges = [];
-    while ((match = this.searchRegexInternal.exec(text)) && match[0]) {
+    while ((match = this.#searchRegexInternal.exec(text)) && match[0]) {
       sourceRanges.push(new TextUtils.TextRange.SourceRange(match.index, match[0].length));
     }
 
     if (sourceRanges.length) {
-      this.searchHighlightNodes =
-          UI.UIUtils.highlightSearchResults(this.contentElement(), sourceRanges, this.searchHighlightNodeChanges);
+      this.#searchHighlightNodes =
+          UI.UIUtils.highlightSearchResults(this.contentElement(), sourceRanges, this.#searchHighlightNodeChanges);
     }
   }
 
   searchRegex(): RegExp|null {
-    return this.searchRegexInternal;
+    return this.#searchRegexInternal;
   }
 
   searchCount(): number {
-    return this.searchHighlightNodes.length;
+    return this.#searchHighlightNodes.length;
   }
 
   searchHighlightNode(index: number): Element {
-    return this.searchHighlightNodes[index];
+    return this.#searchHighlightNodes[index];
   }
 
   private async getInlineFrames(
@@ -1530,11 +1530,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const {name} = frames[f];
       const formattedLine = document.createElement('span');
       formattedLine.appendChild(this.linkifyStringAsFragment(`${prefix} ${name} (`));
-      const scriptLocationLink = this.linkifier.linkifyScriptLocation(
+      const scriptLocationLink = this.#linkifier.linkifyScriptLocation(
           debuggerModel.target(), null, url, lineNumber,
           {columnNumber, className: undefined, tabStop: undefined, inlineFrameIndex: f});
       scriptLocationLink.tabIndex = -1;
-      this.selectableChildren.push({element: scriptLocationLink, forceSelect: (): void => scriptLocationLink.focus()});
+      this.#selectableChildren.push({element: scriptLocationLink, forceSelect: (): void => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
       stackTrace.insertBefore(formattedLine, insertBefore);
@@ -1650,11 +1650,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const suffix = `${line.substring(link.positionRight)}${newline}`;
 
       formattedLine.appendChild(this.linkifyStringAsFragment(prefix));
-      const scriptLocationLink = this.linkifier.linkifyScriptLocation(
+      const scriptLocationLink = this.#linkifier.linkifyScriptLocation(
           debuggerModel.target(), null, link.url, link.lineNumber,
           {columnNumber: link.columnNumber, className: undefined, tabStop: undefined, inlineFrameIndex: 0});
       scriptLocationLink.tabIndex = -1;
-      this.selectableChildren.push({element: scriptLocationLink, forceSelect: (): void => scriptLocationLink.focus()});
+      this.#selectableChildren.push({element: scriptLocationLink, forceSelect: (): void => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
       formattedResult.appendChild(formattedLine);
@@ -1667,14 +1667,14 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
       // If we were able to parse the function name from the stack trace line, try to replace it with an expansion of
       // any inline frames.
-      const selectableChildIndex = this.selectableChildren.length - 1;
+      const selectableChildIndex = this.#selectableChildren.length - 1;
       this.expandInlineStackFrames(
               debuggerModel, prefixWithoutFunction, suffix, link.url, link.lineNumber, link.columnNumber,
               formattedResult, formattedLine)
           .then(modified => {
             if (modified) {
               formattedResult.removeChild(formattedLine);
-              this.selectableChildren.splice(selectableChildIndex, 1);
+              this.#selectableChildren.splice(selectableChildIndex, 1);
             }
           });
     }
@@ -1753,7 +1753,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const linkElement =
           Components.Linkifier.Linkifier.linkifyURL(url, (options as Components.Linkifier.LinkifyURLOptions));
       linkElement.tabIndex = -1;
-      this.selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
+      this.#selectableChildren.push({element: linkElement, forceSelect: (): void => linkElement.focus()});
       return linkElement;
     });
   }
@@ -1770,10 +1770,10 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   groupKey(): string {
-    if (!this.groupKeyInternal) {
-      this.groupKeyInternal = this.message.groupCategoryKey() + ':' + this.groupTitle();
+    if (!this.#groupKeyInternal) {
+      this.#groupKeyInternal = this.message.groupCategoryKey() + ':' + this.groupTitle();
     }
-    return this.groupKeyInternal;
+    return this.#groupKeyInternal;
   }
 
   groupTitle(): string {
@@ -1830,9 +1830,9 @@ function getOrCreateTokenizers(): {
 }
 
 export class ConsoleGroupViewMessage extends ConsoleViewMessage {
-  private collapsedInternal: boolean;
-  private expandGroupIcon: UI.Icon.Icon|null;
-  private readonly onToggle: () => void;
+  #collapsedInternal: boolean;
+  #expandGroupIcon: UI.Icon.Icon|null;
+  readonly #onToggle: () => void;
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier,
@@ -1841,29 +1841,30 @@ export class ConsoleGroupViewMessage extends ConsoleViewMessage {
       onResize: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void) {
     console.assert(consoleMessage.isGroupStartMessage());
     super(consoleMessage, linkifier, requestResolver, issueResolver, nestingLevel, onResize);
-    this.collapsedInternal = consoleMessage.type === Protocol.Runtime.ConsoleAPICalledEventType.StartGroupCollapsed;
-    this.expandGroupIcon = null;
-    this.onToggle = onToggle;
+    this.#collapsedInternal = consoleMessage.type === Protocol.Runtime.ConsoleAPICalledEventType.StartGroupCollapsed;
+    this.#expandGroupIcon = null;
+    this.#onToggle = onToggle;
   }
 
   private setCollapsed(collapsed: boolean): void {
-    this.collapsedInternal = collapsed;
-    if (this.expandGroupIcon) {
-      this.expandGroupIcon.setIconType(this.collapsedInternal ? 'smallicon-triangle-right' : 'smallicon-triangle-down');
+    this.#collapsedInternal = collapsed;
+    if (this.#expandGroupIcon) {
+      this.#expandGroupIcon.setIconType(
+          this.#collapsedInternal ? 'smallicon-triangle-right' : 'smallicon-triangle-down');
     }
-    this.onToggle.call(null);
+    this.#onToggle.call(null);
   }
 
   collapsed(): boolean {
-    return this.collapsedInternal;
+    return this.#collapsedInternal;
   }
 
   maybeHandleOnKeyDown(event: KeyboardEvent): boolean {
     const focusedChildIndex = this.focusedChildIndex();
     if (focusedChildIndex === -1) {
-      if ((event.key === 'ArrowLeft' && !this.collapsedInternal) ||
-          (event.key === 'ArrowRight' && this.collapsedInternal)) {
-        this.setCollapsed(!this.collapsedInternal);
+      if ((event.key === 'ArrowLeft' && !this.#collapsedInternal) ||
+          (event.key === 'ArrowRight' && this.#collapsedInternal)) {
+        this.setCollapsed(!this.#collapsedInternal);
         return true;
       }
     }
@@ -1874,37 +1875,37 @@ export class ConsoleGroupViewMessage extends ConsoleViewMessage {
     let element: HTMLElement|null = this.elementInternal || null;
     if (!element) {
       element = super.toMessageElement();
-      const iconType = this.collapsedInternal ? 'smallicon-triangle-right' : 'smallicon-triangle-down';
-      this.expandGroupIcon = UI.Icon.Icon.create(iconType, 'expand-group-icon');
+      const iconType = this.#collapsedInternal ? 'smallicon-triangle-right' : 'smallicon-triangle-down';
+      this.#expandGroupIcon = UI.Icon.Icon.create(iconType, 'expand-group-icon');
       // Intercept focus to avoid highlight on click.
       this.contentElement().tabIndex = -1;
       if (this.repeatCountElement) {
-        this.repeatCountElement.insertBefore(this.expandGroupIcon, this.repeatCountElement.firstChild);
+        this.repeatCountElement.insertBefore(this.#expandGroupIcon, this.repeatCountElement.firstChild);
       } else {
-        element.insertBefore(this.expandGroupIcon, this.contentElementInternal);
+        element.insertBefore(this.#expandGroupIcon, this.contentElementInternal);
       }
-      element.addEventListener('click', () => this.setCollapsed(!this.collapsedInternal));
+      element.addEventListener('click', () => this.setCollapsed(!this.#collapsedInternal));
     }
     return element;
   }
 
   showRepeatCountElement(): void {
     super.showRepeatCountElement();
-    if (this.repeatCountElement && this.expandGroupIcon) {
-      this.repeatCountElement.insertBefore(this.expandGroupIcon, this.repeatCountElement.firstChild);
+    if (this.repeatCountElement && this.#expandGroupIcon) {
+      this.repeatCountElement.insertBefore(this.#expandGroupIcon, this.repeatCountElement.firstChild);
     }
   }
 }
 
 export class ConsoleCommand extends ConsoleViewMessage {
-  private formattedCommand: HTMLElement|null;
+  #formattedCommand: HTMLElement|null;
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier,
       requestResolver: Logs.RequestResolver.RequestResolver, issueResolver: IssuesManager.IssueResolver.IssueResolver,
       nestingLevel: number, onResize: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void) {
     super(consoleMessage, linkifier, requestResolver, issueResolver, nestingLevel, onResize);
-    this.formattedCommand = null;
+    this.#formattedCommand = null;
   }
 
   contentElement(): HTMLElement {
@@ -1919,13 +1920,13 @@ export class ConsoleCommand extends ConsoleViewMessage {
     newContentElement.appendChild(icon);
 
     elementToMessage.set(newContentElement, this);
-    this.formattedCommand = document.createElement('span');
-    this.formattedCommand.classList.add('source-code');
-    this.formattedCommand.textContent = Platform.StringUtilities.replaceControlCharacters(this.text);
-    newContentElement.appendChild(this.formattedCommand);
+    this.#formattedCommand = document.createElement('span');
+    this.#formattedCommand.classList.add('source-code');
+    this.#formattedCommand.textContent = Platform.StringUtilities.replaceControlCharacters(this.text);
+    newContentElement.appendChild(this.#formattedCommand);
 
-    if (this.formattedCommand.textContent.length < MaxLengthToIgnoreHighlighter) {
-      CodeHighlighter.CodeHighlighter.highlightNode(this.formattedCommand, 'text/javascript')
+    if (this.#formattedCommand.textContent.length < MaxLengthToIgnoreHighlighter) {
+      CodeHighlighter.CodeHighlighter.highlightNode(this.#formattedCommand, 'text/javascript')
           .then(this.updateSearch.bind(this));
     } else {
       this.updateSearch();
@@ -1955,7 +1956,7 @@ export class ConsoleCommandResult extends ConsoleViewMessage {
 }
 
 export class ConsoleTableMessageView extends ConsoleViewMessage {
-  private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<unknown>|null;
+  #dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<unknown>|null;
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier,
@@ -1963,12 +1964,12 @@ export class ConsoleTableMessageView extends ConsoleViewMessage {
       nestingLevel: number, onResize: (arg0: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void) {
     super(consoleMessage, linkifier, requestResolver, issueResolver, nestingLevel, onResize);
     console.assert(consoleMessage.type === Protocol.Runtime.ConsoleAPICalledEventType.Table);
-    this.dataGrid = null;
+    this.#dataGrid = null;
   }
 
   wasShown(): void {
-    if (this.dataGrid) {
-      this.dataGrid.updateWidths();
+    if (this.#dataGrid) {
+      this.#dataGrid.updateWidths();
     }
     super.wasShown();
   }
@@ -1977,8 +1978,8 @@ export class ConsoleTableMessageView extends ConsoleViewMessage {
     if (!this.isVisible()) {
       return;
     }
-    if (this.dataGrid) {
-      this.dataGrid.onResize();
+    if (this.#dataGrid) {
+      this.#dataGrid.onResize();
     }
   }
 
@@ -2068,20 +2069,20 @@ export class ConsoleTableMessageView extends ConsoleViewMessage {
         columnNames.map(name => name === rawValueColumnSymbol ? i18nString(UIStrings.value) : name.toString());
 
     if (flatValues.length) {
-      this.dataGrid = DataGrid.SortableDataGrid.SortableDataGrid.create(
+      this.#dataGrid = DataGrid.SortableDataGrid.SortableDataGrid.create(
           columnDisplayNames, flatValues, i18nString(UIStrings.console));
-      if (this.dataGrid) {
-        this.dataGrid.setStriped(true);
-        this.dataGrid.setFocusable(false);
+      if (this.#dataGrid) {
+        this.#dataGrid.setStriped(true);
+        this.#dataGrid.setFocusable(false);
 
         const formattedResult = document.createElement('span');
         formattedResult.classList.add('console-message-text');
         const tableElement = formattedResult.createChild('div', 'console-message-formatted-table');
         const dataGridContainer = tableElement.createChild('span');
         tableElement.appendChild(this.formatParameter(actualTable, true, false));
-        dataGridContainer.appendChild(this.dataGrid.element);
+        dataGridContainer.appendChild(this.#dataGrid.element);
         formattedMessage.appendChild(formattedResult);
-        this.dataGrid.renderInline();
+        this.#dataGrid.renderInline();
       }
     }
     return formattedMessage;
