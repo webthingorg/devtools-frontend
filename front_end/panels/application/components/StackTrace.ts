@@ -44,38 +44,38 @@ interface StackTraceRowData {
 
 export class StackTraceRow extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-stack-trace-row`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  readonly #shadow = this.attachShadow({mode: 'open'});
 
-  private stackTraceRowItem: Components.JSPresentationUtils.StackTraceRegularRow|null = null;
+  #stackTraceRowItem: Components.JSPresentationUtils.StackTraceRegularRow|null = null;
 
   set data(data: StackTraceRowData) {
-    this.stackTraceRowItem = data.stackTraceRowItem;
+    this.#stackTraceRowItem = data.stackTraceRowItem;
     this.render();
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [stackTraceRowStyles];
+    this.#shadow.adoptedStyleSheets = [stackTraceRowStyles];
   }
 
   private render(): void {
-    if (!this.stackTraceRowItem) {
+    if (!this.#stackTraceRowItem) {
       return;
     }
     LitHtml.render(
         LitHtml.html`
       <div class="stack-trace-row">
-              <div class="stack-trace-function-name text-ellipsis" title="${this.stackTraceRowItem.functionName}">
-                ${this.stackTraceRowItem.functionName}
+              <div class="stack-trace-function-name text-ellipsis" title="${this.#stackTraceRowItem.functionName}">
+                ${this.#stackTraceRowItem.functionName}
               </div>
               <div class="stack-trace-source-location">
                 ${
-            this.stackTraceRowItem.link ?
-                LitHtml.html`<div class="text-ellipsis">\xA0@\xA0${this.stackTraceRowItem.link}</div>` :
+            this.#stackTraceRowItem.link ?
+                LitHtml.html`<div class="text-ellipsis">\xA0@\xA0${this.#stackTraceRowItem.link}</div>` :
                 LitHtml.nothing}
               </div>
             </div>
     `,
-        this.shadow, {host: this});
+        this.#shadow, {host: this});
   }
 }
 
@@ -86,75 +86,75 @@ interface StackTraceLinkButtonData {
 
 export class StackTraceLinkButton extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-stack-trace-link-button`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  readonly #shadow = this.attachShadow({mode: 'open'});
 
-  private onShowAllClick: () => void = () => {};
-  private hiddenCallFramesCount: number|null = null;
+  #onShowAllClick: () => void = () => {};
+  #hiddenCallFramesCount: number|null = null;
 
   set data(data: StackTraceLinkButtonData) {
-    this.onShowAllClick = data.onShowAllClick;
-    this.hiddenCallFramesCount = data.hiddenCallFramesCount;
+    this.#onShowAllClick = data.onShowAllClick;
+    this.#hiddenCallFramesCount = data.hiddenCallFramesCount;
     this.render();
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [stackTraceLinkButtonStyles];
+    this.#shadow.adoptedStyleSheets = [stackTraceLinkButtonStyles];
   }
 
   private render(): void {
-    if (!this.hiddenCallFramesCount) {
+    if (!this.#hiddenCallFramesCount) {
       return;
     }
 
     LitHtml.render(
         LitHtml.html`
       <div class="stack-trace-row">
-          <button class="link" @click=${(): void => this.onShowAllClick()}>
+          <button class="link" @click=${(): void => this.#onShowAllClick()}>
             ${i18nString(UIStrings.showSMoreFrames, {
-          n: this.hiddenCallFramesCount,
+          n: this.#hiddenCallFramesCount,
         })}
           </button>
         </div>
     `,
-        this.shadow, {host: this});
+        this.#shadow, {host: this});
   }
 }
 
 export class StackTrace extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-resources-stack-trace`;
 
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private readonly linkifier = new Components.Linkifier.Linkifier();
-  private stackTraceRows: (Components.JSPresentationUtils.StackTraceRegularRow|
-                           Components.JSPresentationUtils.StackTraceAsyncRow)[] = [];
-  private showHidden = false;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly #linkifier = new Components.Linkifier.Linkifier();
+  #stackTraceRows: (Components.JSPresentationUtils.StackTraceRegularRow|
+                    Components.JSPresentationUtils.StackTraceAsyncRow)[] = [];
+  #showHidden = false;
 
   set data(data: StackTraceData) {
     const frame = data.frame;
     const {creationStackTrace, creationStackTraceTarget} = frame.getCreationStackTraceData();
     if (creationStackTrace) {
-      this.stackTraceRows = data.buildStackTraceRows(
-          creationStackTrace, creationStackTraceTarget, this.linkifier, true, this.onStackTraceRowsUpdated.bind(this));
+      this.#stackTraceRows = data.buildStackTraceRows(
+          creationStackTrace, creationStackTraceTarget, this.#linkifier, true, this.onStackTraceRowsUpdated.bind(this));
     }
     this.render();
   }
 
   private onStackTraceRowsUpdated(stackTraceRows: (Components.JSPresentationUtils.StackTraceRegularRow|
                                                    Components.JSPresentationUtils.StackTraceAsyncRow)[]): void {
-    this.stackTraceRows = stackTraceRows;
+    this.#stackTraceRows = stackTraceRows;
     this.render();
   }
 
   private onShowAllClick(): void {
-    this.showHidden = true;
+    this.#showHidden = true;
     this.render();
   }
 
   createRowTemplates(): LitHtml.TemplateResult[] {
     const expandableRows = [];
     let hiddenCallFramesCount = 0;
-    for (const item of this.stackTraceRows) {
-      if (this.showHidden || (!item.ignoreListHide && !item.rowCountHide)) {
+    for (const item of this.#stackTraceRows) {
+      if (this.#showHidden || (!item.ignoreListHide && !item.rowCountHide)) {
         if ('functionName' in item) {
           expandableRows.push(LitHtml.html`
           <${StackTraceRow.litTagName} data-stack-trace-row .data=${{
@@ -167,7 +167,7 @@ export class StackTrace extends HTMLElement {
           `);
         }
       }
-      if (!this.showHidden && 'functionName' in item && (item.ignoreListHide || item.rowCountHide)) {
+      if (!this.#showHidden && 'functionName' in item && (item.ignoreListHide || item.rowCountHide)) {
         hiddenCallFramesCount++;
       }
     }
@@ -184,14 +184,14 @@ export class StackTrace extends HTMLElement {
   }
 
   private render(): void {
-    if (!this.stackTraceRows.length) {
+    if (!this.#stackTraceRows.length) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       LitHtml.render(
         LitHtml.html`
           <span>${i18nString(UIStrings.cannotRenderStackTrace)}</span>
         `,
-        this.shadow, {host: this});
+        this.#shadow, {host: this});
       return;
     }
     const expandableRows = this.createRowTemplates();
@@ -202,7 +202,7 @@ export class StackTrace extends HTMLElement {
         } as ExpandableList.ExpandableList.ExpandableListData}>
         </${ExpandableList.ExpandableList.ExpandableList.litTagName}>
       `,
-      this.shadow, {host: this});
+      this.#shadow, {host: this});
     // clang-format on
   }
 }

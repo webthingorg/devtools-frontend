@@ -34,14 +34,14 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/ServiceWorkerUpdateCycleView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ServiceWorkerUpdateCycleView {
-  private registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration;
-  private rows: Array<HTMLTableRowElement>;
-  private selectedRowIndex: number;
+  #registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration;
+  #rows: Array<HTMLTableRowElement>;
+  #selectedRowIndex: number;
   tableElement: HTMLElement;
   constructor(registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration) {
-    this.registration = registration;
-    this.rows = [];
-    this.selectedRowIndex = -1;
+    this.#registration = registration;
+    this.#rows = [];
+    this.#selectedRowIndex = -1;
     this.tableElement = document.createElement('table');
     this.createTimingTable();
   }
@@ -112,7 +112,7 @@ export class ServiceWorkerUpdateCycleView {
       return ranges;
     }
 
-    const versions = this.registration.versionsByMode();
+    const versions = this.#registration.versionsByMode();
     const modes = [
       SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Active,
       SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Waiting,
@@ -151,11 +151,11 @@ export class ServiceWorkerUpdateCycleView {
         rows[0].parentNode.removeChild(rows[0]);
       }
     }
-    this.rows = [];
+    this.#rows = [];
   }
 
   private updateTimingTable(timeRanges: Array<ServiceWorkerUpdateRange>): void {
-    this.selectedRowIndex = -1;
+    this.#selectedRowIndex = -1;
     this.removeRows();
     this.createTimingTableHead();
     /** @type {!Array<ServiceWorkerUpdateRange>} */
@@ -177,7 +177,7 @@ export class ServiceWorkerUpdateCycleView {
       const right = (scale * (endTime - range.end));
 
       const tr = this.tableElement.createChild('tr', 'service-worker-update-timeline');
-      this.rows.push(tr as HTMLTableRowElement);
+      this.#rows.push(tr as HTMLTableRowElement);
       const timingBarVersionElement = tr.createChild('td');
       UI.UIUtils.createTextChild(timingBarVersionElement, '#' + range.id);
       timingBarVersionElement.classList.add('service-worker-update-timing-bar-clickable');
@@ -250,7 +250,7 @@ export class ServiceWorkerUpdateCycleView {
       return;
     }
 
-    this.selectedRowIndex = this.rows.indexOf(tr);
+    this.#selectedRowIndex = this.#rows.indexOf(tr);
   }
 
   private onKeydown(event: Event, startRow: HTMLElement, endRow: HTMLElement): void {
@@ -272,7 +272,7 @@ export class ServiceWorkerUpdateCycleView {
       return;
     }
     if (keyboardEvent.key === 'ArrowDown') {
-      if (this.selectedRowIndex >= 0) {
+      if (this.#selectedRowIndex >= 0) {
         this.selectNextRow();
       } else {
         this.selectFirstRow();
@@ -280,7 +280,7 @@ export class ServiceWorkerUpdateCycleView {
       event.preventDefault();
     }
     if (keyboardEvent.key === 'ArrowUp') {
-      if (this.selectedRowIndex >= 0) {
+      if (this.#selectedRowIndex >= 0) {
         this.selectPreviousRow();
       } else {
         this.selectLastRow();
@@ -298,45 +298,45 @@ export class ServiceWorkerUpdateCycleView {
   }
 
   private selectFirstRow(): void {
-    if (this.rows.length === 0) {
+    if (this.#rows.length === 0) {
       return;
     }
-    this.selectedRowIndex = 0;
-    this.focusRow(this.rows[0]);
+    this.#selectedRowIndex = 0;
+    this.focusRow(this.#rows[0]);
   }
 
   private selectLastRow(): void {
-    if (this.rows.length === 0) {
+    if (this.#rows.length === 0) {
       return;
     }
-    this.selectedRowIndex = this.rows.length - 1;
-    this.focusRow(this.rows[this.selectedRowIndex]);
+    this.#selectedRowIndex = this.#rows.length - 1;
+    this.focusRow(this.#rows[this.#selectedRowIndex]);
   }
 
   private selectNextRow(): void {
-    if (this.rows.length === 0) {
+    if (this.#rows.length === 0) {
       return;
     }
-    const previousRowIndex = this.selectedRowIndex;
-    this.selectedRowIndex++;
-    if (this.selectedRowIndex >= this.rows.length) {
-      this.selectedRowIndex = 0;
+    const previousRowIndex = this.#selectedRowIndex;
+    this.#selectedRowIndex++;
+    if (this.#selectedRowIndex >= this.#rows.length) {
+      this.#selectedRowIndex = 0;
     }
-    this.blurRow(this.rows[previousRowIndex]);
-    this.focusRow(this.rows[this.selectedRowIndex]);
+    this.blurRow(this.#rows[previousRowIndex]);
+    this.focusRow(this.#rows[this.#selectedRowIndex]);
   }
 
   private selectPreviousRow(): void {
-    if (this.rows.length === 0) {
+    if (this.#rows.length === 0) {
       return;
     }
-    const previousRowIndex = this.selectedRowIndex;
-    this.selectedRowIndex--;
-    if (this.selectedRowIndex < 0) {
-      this.selectedRowIndex = this.rows.length - 1;
+    const previousRowIndex = this.#selectedRowIndex;
+    this.#selectedRowIndex--;
+    if (this.#selectedRowIndex < 0) {
+      this.#selectedRowIndex = this.#rows.length - 1;
     }
-    this.blurRow(this.rows[previousRowIndex]);
-    this.focusRow(this.rows[this.selectedRowIndex]);
+    this.blurRow(this.#rows[previousRowIndex]);
+    this.focusRow(this.#rows[this.#selectedRowIndex]);
   }
 
   private onClick(event: Event, startRow: Element, endRow: Element): void {

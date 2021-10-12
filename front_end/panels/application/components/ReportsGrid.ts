@@ -14,7 +14,7 @@ import reportingApiGridStyles from './reportingApiGrid.css.js';
 
 const UIStrings = {
   /**
-  *@description Placeholder text when there are no Reporting API reports.
+  *@description Placeholder text when there are no Reporting API #reports.
   *(https://developers.google.com/web/updates/2018/09/reportingapi#sending)
   */
   noReportsToDisplay: 'No reports to display',
@@ -31,18 +31,18 @@ export interface ReportsGridData {
 export class ReportsGrid extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-resources-reports-grid`;
 
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private reports: Protocol.Network.ReportingApiReport[] = [];
-  private protocolMonitorExperimentEnabled = false;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #reports: Protocol.Network.ReportingApiReport[] = [];
+  #protocolMonitorExperimentEnabled = false;
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [reportingApiGridStyles];
-    this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
+    this.#shadow.adoptedStyleSheets = [reportingApiGridStyles];
+    this.#protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
     this.render();
   }
 
   set data(data: ReportsGridData) {
-    this.reports = data.reports;
+    this.#reports = data.reports;
     this.render();
   }
 
@@ -95,7 +95,7 @@ export class ReportsGrid extends HTMLElement {
       rows: this.buildReportRows(),
     };
 
-    if (this.protocolMonitorExperimentEnabled) {
+    if (this.#protocolMonitorExperimentEnabled) {
       reportsGridData.columns.unshift(
           {id: 'id', title: 'ID', widthWeighting: 30, hideable: false, visible: true},
       );
@@ -106,7 +106,7 @@ export class ReportsGrid extends HTMLElement {
     render(html`
       <div class="reporting-container">
         <div class="reporting-header">Reports</div>
-        ${this.reports.length > 0 ? html`
+        ${this.#reports.length > 0 ? html`
           <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
               reportsGridData as DataGrid.DataGridController.DataGridControllerData}>
           </${DataGrid.DataGridController.DataGridController.litTagName}>
@@ -116,22 +116,22 @@ export class ReportsGrid extends HTMLElement {
           </div>
         `}
       </div>
-    `, this.shadow);
+    `, this.#shadow);
     // clang-format on
   }
 
   private buildReportRows(): DataGrid.DataGridUtils.Row[] {
-    return this.reports.map(report => ({
-                              cells: [
-                                {columnId: 'id', value: report.id},
-                                {columnId: 'url', value: report.initiatorUrl},
-                                {columnId: 'type', value: report.type},
-                                {columnId: 'status', value: report.status},
-                                {columnId: 'destination', value: report.destination},
-                                {columnId: 'timestamp', value: new Date(report.timestamp * 1000).toLocaleString()},
-                                {columnId: 'body', value: JSON.stringify(report.body)},
-                              ],
-                            }));
+    return this.#reports.map(report => ({
+                               cells: [
+                                 {columnId: 'id', value: report.id},
+                                 {columnId: 'url', value: report.initiatorUrl},
+                                 {columnId: 'type', value: report.type},
+                                 {columnId: 'status', value: report.status},
+                                 {columnId: 'destination', value: report.destination},
+                                 {columnId: 'timestamp', value: new Date(report.timestamp * 1000).toLocaleString()},
+                                 {columnId: 'body', value: JSON.stringify(report.body)},
+                               ],
+                             }));
   }
 }
 

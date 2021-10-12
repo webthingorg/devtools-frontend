@@ -23,8 +23,8 @@ const str_ = i18n.i18n.registerUIStrings('panels/application/ReportingApiReports
 export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class ReportingApiReportsView extends UI.SplitWidget.SplitWidget {
-  private readonly reportsGrid = new ApplicationComponents.ReportsGrid.ReportsGrid();
-  private reports: Protocol.Network.ReportingApiReport[] = [];
+  readonly #reportsGrid = new ApplicationComponents.ReportsGrid.ReportsGrid();
+  #reports: Protocol.Network.ReportingApiReport[] = [];
 
   constructor(networkManager: SDK.NetworkManager.NetworkManager) {
     super(/* isVertical: */ false, /* secondIsSidebar: */ true);
@@ -35,8 +35,8 @@ export class ReportingApiReportsView extends UI.SplitWidget.SplitWidget {
     this.setSidebarWidget(bottomPanel);
     this.installResizer(resizer);
 
-    topPanel.contentElement.appendChild(this.reportsGrid);
-    this.reportsGrid.addEventListener('cellfocused', this.onFocus.bind(this));
+    topPanel.contentElement.appendChild(this.#reportsGrid);
+    this.#reportsGrid.addEventListener('cellfocused', this.onFocus.bind(this));
 
     bottomPanel.contentElement.classList.add('placeholder');
     const centered = bottomPanel.contentElement.createChild('div');
@@ -57,20 +57,20 @@ export class ReportingApiReportsView extends UI.SplitWidget.SplitWidget {
   }
 
   private onReportAdded(report: Protocol.Network.ReportingApiReport): void {
-    this.reports.push(report);
-    this.reportsGrid.data = {reports: this.reports};
+    this.#reports.push(report);
+    this.#reportsGrid.data = {reports: this.#reports};
   }
 
   private onReportUpdated(report: Protocol.Network.ReportingApiReport): void {
-    const index = this.reports.findIndex(oldReport => oldReport.id === report.id);
-    this.reports[index] = report;
-    this.reportsGrid.data = {reports: this.reports};
+    const index = this.#reports.findIndex(oldReport => oldReport.id === report.id);
+    this.#reports[index] = report;
+    this.#reportsGrid.data = {reports: this.#reports};
   }
 
   private async onFocus(event: Event): Promise<void> {
     const focusedEvent = event as DataGrid.DataGridEvents.BodyCellFocusedEvent;
     const cell = focusedEvent.data.row.cells.find(cell => cell.columnId === 'id');
-    const report = cell && this.reports.find(report => report.id === cell.value);
+    const report = cell && this.#reports.find(report => report.id === cell.value);
     if (report) {
       const jsonView = await SourceFrame.JSONView.JSONView.createView(JSON.stringify(report.body));
       if (jsonView) {
@@ -80,10 +80,10 @@ export class ReportingApiReportsView extends UI.SplitWidget.SplitWidget {
   }
 
   getReports(): Protocol.Network.ReportingApiReport[] {
-    return this.reports;
+    return this.#reports;
   }
 
   getReportsGrid(): ApplicationComponents.ReportsGrid.ReportsGrid {
-    return this.reportsGrid;
+    return this.#reportsGrid;
   }
 }
