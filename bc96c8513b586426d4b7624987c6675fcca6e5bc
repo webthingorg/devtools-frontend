@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7453cd2d_152d0d7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-12T14:22:41Z",
+      "side": 1,
+      "message": "That\u0027s looking a lot simpler and easier to follow, nice!\n\nI uploaded a new patchset to remove the non-en locales, as they are updated only once by us during branchpoint. I reset them with the following commands:\n\n```\ngit checkout origin/main front_end/core/i18n/locales/\ngit add .\ngit commit --amend\ngit cl presubmit --upload # This will run the presubmits only, you can also run `git cl upload` instead\ngit add .\ngit commit --amend\n```\n\nOverall, the feature is working and we cleaned up a lot of code. The only nits are with regards to making it a proper custom element and write some unit tests. Then this is good to go!",
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d451f43_ef8f9c02",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-12T14:22:41Z",
+      "side": 1,
+      "message": "Is there any particular reason why `DiffRenderer` isn\u0027t a custom element? E.g. I would have expected us to do the following:\n\n```\nconst renderer \u003d new DiffRenderer();\nthis.diffContainer.appendChild(renderer);\n// Here, setting `data` will internally call `render()` with the required information\nrenderer.data \u003d {\n  diff,\n  mime,\n};\n```\n\nThis would be equivalent to how we handle other elements, for example https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ElementsPanel.ts;l\u003d240-245;drc\u003d574cf2dc19143a5b315546e5e4ed08d4f719c917 and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ElementsPanel.ts;l\u003d506-509;drc\u003d574cf2dc19143a5b315546e5e4ed08d4f719c917\n\nThis pattern is described in the UI components DevTools doc athttps://docs.google.com/document/d/1Gwd-w7LoW1qnWu3uku438-MQ82m4AinKDIdy9z3fl3Q/edit?resourcekey\u003d0-vxHqiKAvfJ4JAOj4bZ4EFA#heading\u003dh.ursox9gg7myw",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6353ea79_302e2769",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-12T14:22:41Z",
+      "side": 1,
+      "message": "Can we have some unit tests for this class and the corresponding underlying helper methods? As inspiration, you can use https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/elements/components/ElementsBreadcrumbs_test.ts;drc\u003d56daf78ddb14ccba613c6f26d5efb9dc68547784 and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/ui/components/DataGrid_test.ts;l\u003d1;drc\u003df57df153b9111b0a7fa6ff8e6712c48c71bdb4ab\n\nWe don\u0027t need to achieve 100% code coverage, but a couple of rudimentary tests sounds appropriate here. You can obtain the code coverage with the following command:\n\n```\nCOVERAGE_FOLDERS\u003dfront_end/panels/changes/ npm run auto-unittest\n```",
+      "range": {
+        "startLine": 180,
+        "startChar": 13,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "341c3214_883b889f",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-12T14:22:41Z",
+      "side": 1,
+      "message": "Nit: `private renderRow`",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e838d4_71ea1cbf",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-12T14:22:41Z",
+      "side": 1,
+      "message": "Nit: `private renderRowContent`",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 18
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
