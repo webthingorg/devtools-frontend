@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8966a36f_1fc4da52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-13T03:24:00Z",
+      "side": 1,
+      "message": "Thanks Wolfgang for the CSS guide. PTAL again!",
+      "revId": "2c2761fe1c91d0b9fe16db2377214a2b3c6168c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
