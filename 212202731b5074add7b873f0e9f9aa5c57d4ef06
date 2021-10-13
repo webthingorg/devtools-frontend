@@ -122,6 +122,24 @@
       "parentUuid": "9ba06981_51dd354a",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72587ff_e5b2b5d2",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T08:56:33Z",
+      "side": 1,
+      "message": "I see, thanks for the explanation. So how does the frontend get forwarded events? I don\u0027t find the place where the overlay code forwards the event to the frontend?",
+      "parentUuid": "6495e836_98c067f4",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
