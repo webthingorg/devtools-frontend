@@ -140,6 +140,24 @@
       "parentUuid": "6495e836_98c067f4",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "464d5bfe_5c623580",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T09:40:18Z",
+      "side": 1,
+      "message": "The forwarding of events goes through this (not really through the inspector overlay, sorry for being unclear):\n\n* ShortcutRegistry:  In the ShortcutRegistry the \u0027toggle-pause\u0027 event is registered as an event to be forwarded: \n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ShortcutRegistry.ts;l\u003d495;drc\u003d8709d85833f2fde27bea7a396d5e2ffda0340c8a\n\nIt will then be added to the whitelisted shortcuts:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ShortcutRegistry.ts;l\u003d390;drc\u003d8709d85833f2fde27bea7a396d5e2ffda0340c8a\n\nAnd on click, I think it will be forwarded here:\nhttps://source.chromium.org/chromium/chromium/src/+/main:chrome/browser/devtools/devtools_window.cc;l\u003d320;drc\u003d439c6ac35199f3828faf0f0d070d84109c9bf6a1\n\nWhich eventually calls the ForwardedEventInputHandler:\n* https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ForwardedInputEventHandler.ts;l\u003d29;drc\u003d8709d85833f2fde27bea7a396d5e2ffda0340c8a",
+      "parentUuid": "d72587ff_e5b2b5d2",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
