@@ -187,6 +187,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9de4b194_c5fd13a1",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T15:52:55Z",
+      "side": 1,
+      "message": "Imagine my joy when, after lining up all the filename changes and build scripts to make this change, the presubmit hooks told me I can\u0027t have a component under panels/ and I need to move my implementation once again. So I moved everything once more, to ui/components. But now the build is failing with (among the large amount of filename gunk that always seems to come with build errors):\n\n    Cannot write file \u0027/home/marijn/src/chrome-devtools/devtools-frontend/front_end/third_party/diff/diff_match_patch.js\u0027 because it would overwrite input file\n    \nI only added a visibility line to the build script for third_party/diff. So yeah, I\u0027m going to put this aside for a bit before I start throwing things through windows. Tim, if you have time to figure out why that would happen (I\u0027ve uploaded my work so far on this CL), that would be really great.",
+      "parentUuid": "c9d31955_166a5b68",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6353ea79_302e2769",
         "filename": "front_end/panels/changes/DiffRenderer.ts",
         "patchSetId": 2
