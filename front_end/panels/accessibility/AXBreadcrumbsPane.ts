@@ -31,12 +31,12 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/accessibility/AXBreadcrumbsPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class AXBreadcrumbsPane extends AccessibilitySubPane {
-  private readonly axSidebarView: AccessibilitySidebarView;
-  private preselectedBreadcrumb: AXBreadcrumb|null;
-  private inspectedNodeBreadcrumb: AXBreadcrumb|null;
-  private collapsingBreadcrumbId: number;
-  private hoveredBreadcrumb: AXBreadcrumb|null;
-  private readonly rootElement: HTMLElement;
+  readonly #axSidebarView: AccessibilitySidebarView;
+  #preselectedBreadcrumb: AXBreadcrumb|null;
+  #inspectedNodeBreadcrumb: AXBreadcrumb|null;
+  #collapsingBreadcrumbId: number;
+  #hoveredBreadcrumb: AXBreadcrumb|null;
+  readonly #rootElement: HTMLElement;
 
   constructor(axSidebarView: AccessibilitySidebarView) {
     super(i18nString(UIStrings.accessibilityTree));
@@ -45,27 +45,27 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     UI.ARIAUtils.markAsTree(this.element);
     this.element.tabIndex = -1;
 
-    this.axSidebarView = axSidebarView;
+    this.#axSidebarView = axSidebarView;
 
-    this.preselectedBreadcrumb = null;
-    this.inspectedNodeBreadcrumb = null;
+    this.#preselectedBreadcrumb = null;
+    this.#inspectedNodeBreadcrumb = null;
 
-    this.collapsingBreadcrumbId = -1;
+    this.#collapsingBreadcrumbId = -1;
 
-    this.hoveredBreadcrumb = null;
-    this.rootElement = this.element.createChild('div', 'ax-breadcrumbs');
+    this.#hoveredBreadcrumb = null;
+    this.#rootElement = this.element.createChild('div', 'ax-breadcrumbs');
 
-    this.rootElement.addEventListener('keydown', this.onKeyDown.bind(this), true);
-    this.rootElement.addEventListener('mousemove', this.onMouseMove.bind(this), false);
-    this.rootElement.addEventListener('mouseleave', this.onMouseLeave.bind(this), false);
-    this.rootElement.addEventListener('click', this.onClick.bind(this), false);
-    this.rootElement.addEventListener('contextmenu', this.contextMenuEventFired.bind(this), false);
-    this.rootElement.addEventListener('focusout', this.onFocusOut.bind(this), false);
+    this.#rootElement.addEventListener('keydown', this.onKeyDown.bind(this), true);
+    this.#rootElement.addEventListener('mousemove', this.onMouseMove.bind(this), false);
+    this.#rootElement.addEventListener('mouseleave', this.onMouseLeave.bind(this), false);
+    this.#rootElement.addEventListener('click', this.onClick.bind(this), false);
+    this.#rootElement.addEventListener('contextmenu', this.contextMenuEventFired.bind(this), false);
+    this.#rootElement.addEventListener('focusout', this.onFocusOut.bind(this), false);
   }
 
   focus(): void {
-    if (this.inspectedNodeBreadcrumb) {
-      this.inspectedNodeBreadcrumb.nodeElement().focus();
+    if (this.#inspectedNodeBreadcrumb) {
+      this.#inspectedNodeBreadcrumb.nodeElement().focus();
     } else {
       this.element.focus();
     }
@@ -75,7 +75,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     const hadFocus = this.element.hasFocus();
     super.setAXNode(axNode);
 
-    this.rootElement.removeChildren();
+    this.#rootElement.removeChildren();
 
     if (!axNode) {
       return;
@@ -91,24 +91,24 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
 
     let depth = 0;
     let parent: AXBreadcrumb|null = null;
-    this.inspectedNodeBreadcrumb = null;
+    this.#inspectedNodeBreadcrumb = null;
     for (ancestor of ancestorChain) {
       const breadcrumb = new AXBreadcrumb(ancestor, depth, (ancestor === axNode));
       if (parent) {
         parent.appendChild(breadcrumb);
       } else {
-        this.rootElement.appendChild(breadcrumb.element());
+        this.#rootElement.appendChild(breadcrumb.element());
       }
       parent = breadcrumb;
       depth++;
-      this.inspectedNodeBreadcrumb = breadcrumb;
+      this.#inspectedNodeBreadcrumb = breadcrumb;
     }
 
-    if (this.inspectedNodeBreadcrumb) {
-      this.inspectedNodeBreadcrumb.setPreselected(true, hadFocus);
+    if (this.#inspectedNodeBreadcrumb) {
+      this.#inspectedNodeBreadcrumb.setPreselected(true, hadFocus);
     }
 
-    this.setPreselectedBreadcrumb(this.inspectedNodeBreadcrumb);
+    this.setPreselectedBreadcrumb(this.#inspectedNodeBreadcrumb);
 
     function append(
         parentBreadcrumb: AXBreadcrumb, axNode: SDK.AccessibilityModel.AccessibilityNode, localDepth: number): void {
@@ -121,15 +121,15 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       }
     }
 
-    if (this.inspectedNodeBreadcrumb) {
+    if (this.#inspectedNodeBreadcrumb) {
       for (const child of axNode.children()) {
-        append(this.inspectedNodeBreadcrumb, child, depth);
-        if (child.backendDOMNodeId() === this.collapsingBreadcrumbId) {
-          this.setPreselectedBreadcrumb(this.inspectedNodeBreadcrumb.lastChild());
+        append(this.#inspectedNodeBreadcrumb, child, depth);
+        if (child.backendDOMNodeId() === this.#collapsingBreadcrumbId) {
+          this.setPreselectedBreadcrumb(this.#inspectedNodeBreadcrumb.lastChild());
         }
       }
     }
-    this.collapsingBreadcrumbId = -1;
+    this.#collapsingBreadcrumbId = -1;
   }
 
   willHide(): void {
@@ -137,7 +137,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private onKeyDown(event: Event): void {
-    const preselectedBreadcrumb = this.preselectedBreadcrumb;
+    const preselectedBreadcrumb = this.#preselectedBreadcrumb;
     if (!preselectedBreadcrumb) {
       return;
     }
@@ -172,10 +172,10 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private preselectPrevious(): boolean {
-    if (!this.preselectedBreadcrumb) {
+    if (!this.#preselectedBreadcrumb) {
       return false;
     }
-    const previousBreadcrumb = this.preselectedBreadcrumb.previousBreadcrumb();
+    const previousBreadcrumb = this.#preselectedBreadcrumb.previousBreadcrumb();
     if (!previousBreadcrumb) {
       return false;
     }
@@ -184,10 +184,10 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private preselectNext(): boolean {
-    if (!this.preselectedBreadcrumb) {
+    if (!this.#preselectedBreadcrumb) {
       return false;
     }
-    const nextBreadcrumb = this.preselectedBreadcrumb.nextBreadcrumb();
+    const nextBreadcrumb = this.#preselectedBreadcrumb.nextBreadcrumb();
     if (!nextBreadcrumb) {
       return false;
     }
@@ -196,10 +196,10 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private preselectParent(): boolean {
-    if (!this.preselectedBreadcrumb) {
+    if (!this.#preselectedBreadcrumb) {
       return false;
     }
-    const parentBreadcrumb = this.preselectedBreadcrumb.parentBreadcrumb();
+    const parentBreadcrumb = this.#preselectedBreadcrumb.parentBreadcrumb();
     if (!parentBreadcrumb) {
       return false;
     }
@@ -208,21 +208,21 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private setPreselectedBreadcrumb(breadcrumb: AXBreadcrumb|null): void {
-    if (breadcrumb === this.preselectedBreadcrumb) {
+    if (breadcrumb === this.#preselectedBreadcrumb) {
       return;
     }
     const hadFocus = this.element.hasFocus();
-    if (this.preselectedBreadcrumb) {
-      this.preselectedBreadcrumb.setPreselected(false, hadFocus);
+    if (this.#preselectedBreadcrumb) {
+      this.#preselectedBreadcrumb.setPreselected(false, hadFocus);
     }
 
     if (breadcrumb) {
-      this.preselectedBreadcrumb = breadcrumb;
+      this.#preselectedBreadcrumb = breadcrumb;
     } else {
-      this.preselectedBreadcrumb = this.inspectedNodeBreadcrumb;
+      this.#preselectedBreadcrumb = this.#inspectedNodeBreadcrumb;
     }
-    if (this.preselectedBreadcrumb) {
-      this.preselectedBreadcrumb.setPreselected(true, hadFocus);
+    if (this.#preselectedBreadcrumb) {
+      this.#preselectedBreadcrumb.setPreselected(true, hadFocus);
     }
     if (!breadcrumb && hadFocus) {
       SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
@@ -235,7 +235,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     }
     const backendNodeId = breadcrumb.axNode().backendDOMNodeId();
     if (backendNodeId !== null) {
-      this.collapsingBreadcrumbId = backendNodeId;
+      this.#collapsingBreadcrumbId = backendNodeId;
     }
     const parentBreadcrumb = breadcrumb.parentBreadcrumb();
     if (parentBreadcrumb) {
@@ -265,7 +265,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private onFocusOut(event: Event): void {
-    if (!this.preselectedBreadcrumb || event.target !== this.preselectedBreadcrumb.nodeElement()) {
+    if (!this.#preselectedBreadcrumb || event.target !== this.#preselectedBreadcrumb.nodeElement()) {
       return;
     }
     this.setPreselectedBreadcrumb(null);
@@ -298,12 +298,12 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
   }
 
   private setHoveredBreadcrumb(breadcrumb: AXBreadcrumb|null): void {
-    if (breadcrumb === this.hoveredBreadcrumb) {
+    if (breadcrumb === this.#hoveredBreadcrumb) {
       return;
     }
 
-    if (this.hoveredBreadcrumb) {
-      this.hoveredBreadcrumb.setHovered(false);
+    if (this.#hoveredBreadcrumb) {
+      this.#hoveredBreadcrumb.setHovered(false);
     }
     const node = this.node();
     if (breadcrumb) {
@@ -313,7 +313,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
       node.domModel().overlayModel().nodeHighlightRequested({nodeId: node.id});
     }
 
-    this.hoveredBreadcrumb = breadcrumb;
+    this.#hoveredBreadcrumb = breadcrumb;
   }
 
   private inspectDOMNode(axNode: SDK.AccessibilityModel.AccessibilityNode): boolean {
@@ -324,7 +324,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     const deferredNode = axNode.deferredDOMNode();
     if (deferredNode) {
       deferredNode.resolve(domNode => {
-        this.axSidebarView.setNode(domNode, true /* fromAXTree */);
+        this.#axSidebarView.setNode(domNode, true /* fromAXTree */);
         Common.Revealer.reveal(domNode, true /* omitFocus */);
       });
     }
@@ -381,119 +381,119 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
 const elementsToAXBreadcrumb = new WeakMap<Element, AXBreadcrumb>();
 
 export class AXBreadcrumb {
-  private readonly axNodeInternal: SDK.AccessibilityModel.AccessibilityNode;
-  private readonly elementInternal: HTMLDivElement;
-  private nodeElementInternal: HTMLDivElement;
-  private readonly nodeWrapper: HTMLDivElement;
-  private readonly selectionElement: HTMLDivElement;
-  private readonly childrenGroupElement: HTMLDivElement;
-  private readonly children: AXBreadcrumb[];
-  private hovered: boolean;
-  private preselectedInternal: boolean;
-  private parent: AXBreadcrumb|null;
-  private inspectedInternal: boolean;
+  readonly #axNodeInternal: SDK.AccessibilityModel.AccessibilityNode;
+  readonly #elementInternal: HTMLDivElement;
+  #nodeElementInternal: HTMLDivElement;
+  readonly #nodeWrapper: HTMLDivElement;
+  readonly #selectionElement: HTMLDivElement;
+  readonly #childrenGroupElement: HTMLDivElement;
+  readonly #children: AXBreadcrumb[];
+  #hovered: boolean;
+  #preselectedInternal: boolean;
+  #parent: AXBreadcrumb|null;
+  #inspectedInternal: boolean;
   constructor(axNode: SDK.AccessibilityModel.AccessibilityNode, depth: number, inspected: boolean) {
-    this.axNodeInternal = axNode;
+    this.#axNodeInternal = axNode;
 
-    this.elementInternal = document.createElement('div');
-    this.elementInternal.classList.add('ax-breadcrumb');
-    elementsToAXBreadcrumb.set(this.elementInternal, this);
+    this.#elementInternal = document.createElement('div');
+    this.#elementInternal.classList.add('ax-breadcrumb');
+    elementsToAXBreadcrumb.set(this.#elementInternal, this);
 
-    this.nodeElementInternal = document.createElement('div');
-    this.nodeElementInternal.classList.add('ax-node');
-    UI.ARIAUtils.markAsTreeitem(this.nodeElementInternal);
-    this.nodeElementInternal.tabIndex = -1;
-    this.elementInternal.appendChild(this.nodeElementInternal);
-    this.nodeWrapper = document.createElement('div');
-    this.nodeWrapper.classList.add('wrapper');
-    this.nodeElementInternal.appendChild(this.nodeWrapper);
+    this.#nodeElementInternal = document.createElement('div');
+    this.#nodeElementInternal.classList.add('ax-node');
+    UI.ARIAUtils.markAsTreeitem(this.#nodeElementInternal);
+    this.#nodeElementInternal.tabIndex = -1;
+    this.#elementInternal.appendChild(this.#nodeElementInternal);
+    this.#nodeWrapper = document.createElement('div');
+    this.#nodeWrapper.classList.add('wrapper');
+    this.#nodeElementInternal.appendChild(this.#nodeWrapper);
 
-    this.selectionElement = document.createElement('div');
-    this.selectionElement.classList.add('selection');
-    this.selectionElement.classList.add('fill');
-    this.nodeElementInternal.appendChild(this.selectionElement);
+    this.#selectionElement = document.createElement('div');
+    this.#selectionElement.classList.add('selection');
+    this.#selectionElement.classList.add('fill');
+    this.#nodeElementInternal.appendChild(this.#selectionElement);
 
-    this.childrenGroupElement = document.createElement('div');
-    this.childrenGroupElement.classList.add('children');
-    UI.ARIAUtils.markAsGroup(this.childrenGroupElement);
-    this.elementInternal.appendChild(this.childrenGroupElement);
+    this.#childrenGroupElement = document.createElement('div');
+    this.#childrenGroupElement.classList.add('children');
+    UI.ARIAUtils.markAsGroup(this.#childrenGroupElement);
+    this.#elementInternal.appendChild(this.#childrenGroupElement);
 
-    this.children = [];
-    this.hovered = false;
-    this.preselectedInternal = false;
-    this.parent = null;
+    this.#children = [];
+    this.#hovered = false;
+    this.#preselectedInternal = false;
+    this.#parent = null;
 
-    this.inspectedInternal = inspected;
-    this.nodeElementInternal.classList.toggle('inspected', inspected);
+    this.#inspectedInternal = inspected;
+    this.#nodeElementInternal.classList.toggle('inspected', inspected);
 
-    this.nodeElementInternal.style.paddingLeft = (16 * depth + 4) + 'px';
+    this.#nodeElementInternal.style.paddingLeft = (16 * depth + 4) + 'px';
 
-    if (this.axNodeInternal.ignored()) {
+    if (this.#axNodeInternal.ignored()) {
       this.appendIgnoredNodeElement();
     } else {
-      this.appendRoleElement(this.axNodeInternal.role());
-      const axNodeName = this.axNodeInternal.name();
+      this.appendRoleElement(this.#axNodeInternal.role());
+      const axNodeName = this.#axNodeInternal.name();
       if (axNodeName && axNodeName.value) {
-        this.nodeWrapper.createChild('span', 'separator').textContent = '\xA0';
+        this.#nodeWrapper.createChild('span', 'separator').textContent = '\xA0';
         this.appendNameElement(axNodeName.value as string);
       }
     }
 
-    if (this.axNodeInternal.hasOnlyUnloadedChildren()) {
-      this.nodeElementInternal.classList.add('children-unloaded');
-      UI.ARIAUtils.setExpanded(this.nodeElementInternal, false);
+    if (this.#axNodeInternal.hasOnlyUnloadedChildren()) {
+      this.#nodeElementInternal.classList.add('children-unloaded');
+      UI.ARIAUtils.setExpanded(this.#nodeElementInternal, false);
     }
 
-    if (!this.axNodeInternal.isDOMNode()) {
-      this.nodeElementInternal.classList.add('no-dom-node');
+    if (!this.#axNodeInternal.isDOMNode()) {
+      this.#nodeElementInternal.classList.add('no-dom-node');
     }
   }
 
   element(): HTMLElement {
-    return /** @type {!HTMLElement} */ this.elementInternal as HTMLElement;
+    return /** @type {!HTMLElement} */ this.#elementInternal as HTMLElement;
   }
 
   nodeElement(): HTMLElement {
-    return /** @type {!HTMLElement} */ this.nodeElementInternal as HTMLElement;
+    return /** @type {!HTMLElement} */ this.#nodeElementInternal as HTMLElement;
   }
 
   appendChild(breadcrumb: AXBreadcrumb): void {
-    this.children.push(breadcrumb);
+    this.#children.push(breadcrumb);
     breadcrumb.setParent(this);
-    this.nodeElementInternal.classList.add('parent');
-    UI.ARIAUtils.setExpanded(this.nodeElementInternal, true);
-    this.childrenGroupElement.appendChild(breadcrumb.element());
+    this.#nodeElementInternal.classList.add('parent');
+    UI.ARIAUtils.setExpanded(this.#nodeElementInternal, true);
+    this.#childrenGroupElement.appendChild(breadcrumb.element());
   }
 
   hasExpandedChildren(): number {
-    return this.children.length;
+    return this.#children.length;
   }
 
   setParent(breadcrumb: AXBreadcrumb): void {
-    this.parent = breadcrumb;
+    this.#parent = breadcrumb;
   }
 
   preselected(): boolean {
-    return this.preselectedInternal;
+    return this.#preselectedInternal;
   }
 
   setPreselected(preselected: boolean, selectedByUser: boolean): void {
-    if (this.preselectedInternal === preselected) {
+    if (this.#preselectedInternal === preselected) {
       return;
     }
-    this.preselectedInternal = preselected;
-    this.nodeElementInternal.classList.toggle('preselected', preselected);
+    this.#preselectedInternal = preselected;
+    this.#nodeElementInternal.classList.toggle('preselected', preselected);
     if (preselected) {
-      this.nodeElementInternal.tabIndex = 0;
+      this.#nodeElementInternal.tabIndex = 0;
     } else {
-      this.nodeElementInternal.tabIndex = -1;
+      this.#nodeElementInternal.tabIndex = -1;
     }
-    if (this.preselectedInternal) {
+    if (this.#preselectedInternal) {
       if (selectedByUser) {
-        this.nodeElementInternal.focus();
+        this.#nodeElementInternal.focus();
       }
-      if (!this.inspectedInternal) {
-        this.axNodeInternal.highlightDOMNode();
+      if (!this.#inspectedInternal) {
+        this.#axNodeInternal.highlightDOMNode();
       } else {
         SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
       }
@@ -501,32 +501,32 @@ export class AXBreadcrumb {
   }
 
   setHovered(hovered: boolean): void {
-    if (this.hovered === hovered) {
+    if (this.#hovered === hovered) {
       return;
     }
-    this.hovered = hovered;
-    this.nodeElementInternal.classList.toggle('hovered', hovered);
-    if (this.hovered) {
-      this.nodeElementInternal.classList.toggle('hovered', true);
-      this.axNodeInternal.highlightDOMNode();
+    this.#hovered = hovered;
+    this.#nodeElementInternal.classList.toggle('hovered', hovered);
+    if (this.#hovered) {
+      this.#nodeElementInternal.classList.toggle('hovered', true);
+      this.#axNodeInternal.highlightDOMNode();
     }
   }
 
   axNode(): SDK.AccessibilityModel.AccessibilityNode {
-    return this.axNodeInternal;
+    return this.#axNodeInternal;
   }
 
   inspected(): boolean {
-    return this.inspectedInternal;
+    return this.#inspectedInternal;
   }
 
   isDOMNode(): boolean {
-    return this.axNodeInternal.isDOMNode();
+    return this.#axNodeInternal.isDOMNode();
   }
 
   nextBreadcrumb(): AXBreadcrumb|null {
-    if (this.children.length) {
-      return this.children[0];
+    if (this.#children.length) {
+      return this.#children[0];
     }
     const nextSibling = this.element().nextSibling;
     if (nextSibling) {
@@ -541,22 +541,22 @@ export class AXBreadcrumb {
       return elementsToAXBreadcrumb.get(previousSibling as HTMLElement) || null;
     }
 
-    return this.parent;
+    return this.#parent;
   }
 
   parentBreadcrumb(): AXBreadcrumb|null {
-    return this.parent;
+    return this.#parent;
   }
 
   lastChild(): AXBreadcrumb {
-    return this.children[this.children.length - 1];
+    return this.#children[this.#children.length - 1];
   }
 
   private appendNameElement(name: string): void {
     const nameElement = document.createElement('span');
     nameElement.textContent = '"' + name + '"';
     nameElement.classList.add('ax-readable-string');
-    this.nodeWrapper.appendChild(nameElement);
+    this.#nodeWrapper.appendChild(nameElement);
   }
 
   private appendRoleElement(role: Protocol.Accessibility.AXValue|null): void {
@@ -569,7 +569,7 @@ export class AXBreadcrumb {
     roleElement.classList.add(RoleStyles[role.type]);
     roleElement.setTextContentTruncatedIfNeeded(role.value || '');
 
-    this.nodeWrapper.appendChild(roleElement);
+    this.#nodeWrapper.appendChild(roleElement);
   }
 
   private appendIgnoredNodeElement(): void {
@@ -577,7 +577,7 @@ export class AXBreadcrumb {
     ignoredNodeElement.classList.add('monospace');
     ignoredNodeElement.textContent = i18nString(UIStrings.ignored);
     ignoredNodeElement.classList.add('ax-breadcrumbs-ignored-node');
-    this.nodeWrapper.appendChild(ignoredNodeElement);
+    this.#nodeWrapper.appendChild(ignoredNodeElement);
   }
 }
 
