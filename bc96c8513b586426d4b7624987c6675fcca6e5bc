@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a09ad4f_06a36bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-13T06:35:08Z",
+      "side": 1,
+      "message": "Moving translated strings between files is fine. Thats why Tim was able to re-organize the code base into the current folder structure without needing to re-translate. The reason is that the message itself (plus the description) are used as the key. Not the location where the string is found.\n\nWe only need to keep en-US and en-XL up-to-date. And never modify locale files manually. The other locales will be back-merged once final translation happened after branch cut.\n\nAs a side-note, to update the localization files, you don\u0027t have to run the whole presubmit, running \"npm run collect-strings\" is enough.",
+      "parentUuid": "c7dadd71_36ecc1ef",
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d451f43_ef8f9c02",
         "filename": "front_end/panels/changes/ChangesView.ts",
         "patchSetId": 2
