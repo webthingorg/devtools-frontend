@@ -522,11 +522,7 @@ UI.ActionRegistration.registerActionExtension({
     return Sources.SourcesPanel.RevealingActionDelegate.instance();
   },
   contextTypes() {
-    return maybeRetrieveContextTypes(
-        Sources =>
-            [Sources.SourcesView.SourcesView,
-             UI.ShortcutRegistry.ForwardedShortcut,
-    ]);
+    return maybeRetrieveContextTypes(Sources => [Sources.SourcesView.SourcesView]);
   },
   options: [
     {

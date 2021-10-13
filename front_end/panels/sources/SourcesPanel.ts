@@ -1226,7 +1226,10 @@ export class RevealingActionDelegate implements UI.ActionRegistration.ActionDele
   }
   handleAction(context: UI.Context.Context, actionId: string): boolean {
     const panel = SourcesPanel.instance();
-    if (!panel.ensureSourcesViewVisible()) {
+    // Only handle on action if this is not a forwarded action (inspector
+    // overlay already taking care of this action), and if sources panel can
+    // be open.
+    if (context.flavor(UI.ShortcutRegistry.ForwardedShortcut) || !panel.ensureSourcesViewVisible()) {
       return false;
     }
     switch (actionId) {

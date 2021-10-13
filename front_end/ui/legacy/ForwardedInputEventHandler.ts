@@ -15,8 +15,8 @@ export class ForwardedInputEventHandler {
         Host.InspectorFrontendHostAPI.Events.KeyEventUnhandled, this.onKeyEventUnhandled, this);
   }
 
-  private onKeyEventUnhandled(
-      event: Common.EventTarget.EventTargetEvent<Host.InspectorFrontendHostAPI.KeyEventUnhandledEvent>): void {
+  private async onKeyEventUnhandled(
+      event: Common.EventTarget.EventTargetEvent<Host.InspectorFrontendHostAPI.KeyEventUnhandledEvent>): Promise<void> {
     const {type, key, keyCode, modifiers} = event.data;
     if (type !== 'keydown') {
       return;
@@ -26,7 +26,7 @@ export class ForwardedInputEventHandler {
     const shortcutRegistry = ShortcutRegistry.instance();
 
     context.setFlavor(ForwardedShortcut, ForwardedShortcut.instance);
-    shortcutRegistry.handleKey(KeyboardShortcut.makeKey(keyCode, modifiers), key);
+    await shortcutRegistry.handleKey(KeyboardShortcut.makeKey(keyCode, modifiers), key);
     context.setFlavor(ForwardedShortcut, null);
   }
 }
