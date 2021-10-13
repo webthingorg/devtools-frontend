@@ -16,6 +16,23 @@
       "message": "CL to remove \u0027unsafe-inline\u0027 from CSP. PTAL!",
       "revId": "7417b9dff8144bcf6ea4f315f9b1285f563266d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dbfa752_f647c8cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T10:48:24Z",
+      "side": 1,
+      "message": "I am confused as to how the tests are passing, as I was assuming that we need to land https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3219662 first. Are we sure that the above CL is required for us to land it, or is there a different reason as to why CQ would be green here, even though we would expect it to fail?",
+      "revId": "7417b9dff8144bcf6ea4f315f9b1285f563266d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
