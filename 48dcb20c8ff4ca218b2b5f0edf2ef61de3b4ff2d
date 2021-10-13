@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34722a6f_a9bbe50a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-13T06:40:48Z",
+      "side": 1,
+      "message": "Seems there are some layout test failures.",
+      "revId": "48dcb20c8ff4ca218b2b5f0edf2ef61de3b4ff2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
