@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b88166_417acf00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T14:48:07Z",
+      "side": 1,
+      "message": "This LGTM pending the discussion in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3220638",
+      "revId": "a529bf8cffd0d6068d8a096e12704d065d419113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
