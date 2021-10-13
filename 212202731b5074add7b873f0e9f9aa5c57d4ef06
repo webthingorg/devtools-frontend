@@ -86,6 +86,24 @@
       "parentUuid": "389b2f0f_90d3ddbb",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ba06981_51dd354a",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T08:28:41Z",
+      "side": 1,
+      "message": "1) is correct\n2) depends on which version you mean; do you mean without this change or with the change?\n\n2.1. without the change\n* overlay code handles the resume and forwards the event to the frontend\n* front-end receives forwarded event and also handles an F8 \n* \u003d\u003e we trigger resume twice, and if we have several breakpoints directly next to each other, we will skip a breakpoint\n\n2.2. with the change\n* overlay code handles the resume and forwards the event to the frontend\n* front-end receives forwarded event, but does not handle the F8 as it was forwarded \n* \u003d\u003e we trigger resume only once, but we are registering the user metric in the front-end (we could not forward, but then we would also not register the user metric)",
+      "parentUuid": "076cce71_3f6a5a1c",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
