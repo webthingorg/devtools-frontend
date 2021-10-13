@@ -68,6 +68,24 @@
       "parentUuid": "48689f21_86fc8f7f",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076cce71_3f6a5a1c",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T08:21:16Z",
+      "side": 1,
+      "message": "Ah ok, so is the following correct:\n\n1) If the focus is in the DevTools window, and the user presses F8\n- overlay code path is not triggered\n- DevTools handled F8 in the sources panel\n2) If the focus is in the target page, and the user pressed F8\n- overlay code handles the resume but does not forward the event to the frontend\n- the frontend has some other way to receive forwarded events, and it handles F8 again\n\nI wonder how the event forwarding works?",
+      "parentUuid": "389b2f0f_90d3ddbb",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
