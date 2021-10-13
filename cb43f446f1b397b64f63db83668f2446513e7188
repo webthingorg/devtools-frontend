@@ -16,6 +16,24 @@
       "message": "Nice! This LGTM with only one minor bug: the autocompletion menu appears to be partially hidden (presumably because it gets rendered in a different child div?): https://imgur.com/a/84fTBbE",
       "revId": "cb43f446f1b397b64f63db83668f2446513e7188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ebdb3e_4148a449",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T12:17:20Z",
+      "side": 1,
+      "message": "Ah, indeed. Due to a parent being `overflow: auto`, it is not possible to position tooltips without having them being clipped by that parent. That\u0027s why these tooltips get `position: fixed` by default, but _that_ doesn\u0027t work due to the `contain` styles. I\u0027ll see if I can find a workaround.",
+      "parentUuid": "19d4560d_91c4477b",
+      "revId": "cb43f446f1b397b64f63db83668f2446513e7188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
