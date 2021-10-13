@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9adf3b7_e936ff17",
+        "filename": "front_end/third_party/codemirror.next/bundle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T14:38:27Z",
+      "side": 1,
+      "message": "Is this style-mod intended to be used by DevTools or is it used internally in CodeMirror? Looking at https://www.npmjs.com/package/style-mod it seems like it is used to dynamically inject styles in shadow roots. For DevTools specific, we use `adoptedStyleSheets` which get passed in `new CSSStyleSheet()`. I am not sure if we want an alternative solution, if we can avoid it. But if this is used internally in CodeMirror, then I think that is okay?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "d3968be925470413510f2583ad5033a196660969",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
