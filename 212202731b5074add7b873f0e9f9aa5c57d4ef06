@@ -50,6 +50,24 @@
       "message": "could you link to the where the inspector overlay is handling this? I though the overlay just forwards the events and handling should be here.",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389b2f0f_90d3ddbb",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T08:12:09Z",
+      "side": 1,
+      "message": "Sure, on the frontend part:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/inspector_overlay/tool_paused.ts;l\u003d19;drc\u003d8709d85833f2fde27bea7a396d5e2ffda0340c8a\n\nbackend:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspect_tools.cc;l\u003d841;drc\u003d8ad5a8c531afa65d84c2cdf9d8ffad1841b1b498\n\nI would have expected the same --- but it seems as if it\u0027s not. Not all events are forwarded either, e.g. F10 (step over).",
+      "parentUuid": "48689f21_86fc8f7f",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
