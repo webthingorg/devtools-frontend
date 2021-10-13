@@ -29,21 +29,21 @@ const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleContextSelector.
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserver<SDK.RuntimeModel.RuntimeModel>,
                                                UI.SoftDropDown.Delegate<SDK.RuntimeModel.ExecutionContext> {
-  private readonly items: UI.ListModel.ListModel<SDK.RuntimeModel.ExecutionContext>;
-  private readonly dropDown: UI.SoftDropDown.SoftDropDown<SDK.RuntimeModel.ExecutionContext>;
-  private readonly toolbarItemInternal: UI.Toolbar.ToolbarItem;
+  readonly #items: UI.ListModel.ListModel<SDK.RuntimeModel.ExecutionContext>;
+  readonly #dropDown: UI.SoftDropDown.SoftDropDown<SDK.RuntimeModel.ExecutionContext>;
+  readonly #toolbarItemInternal: UI.Toolbar.ToolbarItem;
 
   constructor() {
-    this.items = new UI.ListModel.ListModel();
-    this.dropDown = new UI.SoftDropDown.SoftDropDown(this.items, this);
-    this.dropDown.setRowHeight(36);
-    this.toolbarItemInternal = new UI.Toolbar.ToolbarItem(this.dropDown.element);
-    this.toolbarItemInternal.setEnabled(false);
-    this.toolbarItemInternal.setTitle(i18nString(UIStrings.javascriptContextNotSelected));
-    this.items.addEventListener(
-        UI.ListModel.Events.ItemsReplaced, () => this.toolbarItemInternal.setEnabled(Boolean(this.items.length)));
+    this.#items = new UI.ListModel.ListModel();
+    this.#dropDown = new UI.SoftDropDown.SoftDropDown(this.#items, this);
+    this.#dropDown.setRowHeight(36);
+    this.#toolbarItemInternal = new UI.Toolbar.ToolbarItem(this.#dropDown.element);
+    this.#toolbarItemInternal.setEnabled(false);
+    this.#toolbarItemInternal.setTitle(i18nString(UIStrings.javascriptContextNotSelected));
+    this.#items.addEventListener(
+        UI.ListModel.Events.ItemsReplaced, () => this.#toolbarItemInternal.setEnabled(Boolean(this.#items.length)));
 
-    this.toolbarItemInternal.element.classList.add('toolbar-has-dropdown');
+    this.#toolbarItemInternal.element.classList.add('toolbar-has-dropdown');
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this.onExecutionContextCreated,
@@ -68,8 +68,12 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
         this);
   }
 
+  get items(): UI.ListModel.ListModel<SDK.RuntimeModel.ExecutionContext> {
+    return this.#items;
+  }
+
   toolbarItem(): UI.Toolbar.ToolbarItem {
-    return this.toolbarItemInternal;
+    return this.#toolbarItemInternal;
   }
 
   highlightedItemChanged(
@@ -135,10 +139,10 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   private executionContextCreated(executionContext: SDK.RuntimeModel.ExecutionContext): void {
-    this.items.insertWithComparator(executionContext, executionContext.runtimeModel.executionContextComparator());
+    this.#items.insertWithComparator(executionContext, executionContext.runtimeModel.executionContextComparator());
 
     if (executionContext === UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext)) {
-      this.dropDown.selectItem(executionContext);
+      this.#dropDown.selectItem(executionContext);
     }
   }
 
@@ -151,7 +155,7 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   private onExecutionContextChanged(event: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext>):
       void {
     const executionContext = event.data;
-    if (this.items.indexOf(executionContext) === -1) {
+    if (this.#items.indexOf(executionContext) === -1) {
       return;
     }
     this.executionContextDestroyed(executionContext);
@@ -159,11 +163,11 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   private executionContextDestroyed(executionContext: SDK.RuntimeModel.ExecutionContext): void {
-    const index = this.items.indexOf(executionContext);
+    const index = this.#items.indexOf(executionContext);
     if (index === -1) {
       return;
     }
-    this.items.remove(index);
+    this.#items.remove(index);
   }
 
   private onExecutionContextDestroyed(event: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext>):
@@ -175,7 +179,7 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   private executionContextChangedExternally({
     data: executionContext,
   }: Common.EventTarget.EventTargetEvent<SDK.RuntimeModel.ExecutionContext|null>): void {
-    this.dropDown.selectItem(executionContext);
+    this.#dropDown.selectItem(executionContext);
   }
 
   private isTopContext(executionContext: SDK.RuntimeModel.ExecutionContext|null): boolean {
@@ -192,7 +196,7 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   private hasTopContext(): boolean {
-    return this.items.some(executionContext => this.isTopContext(executionContext));
+    return this.#items.some(executionContext => this.isTopContext(executionContext));
   }
 
   modelAdded(runtimeModel: SDK.RuntimeModel.RuntimeModel): void {
@@ -200,9 +204,9 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   modelRemoved(runtimeModel: SDK.RuntimeModel.RuntimeModel): void {
-    for (let i = this.items.length - 1; i >= 0; i--) {
-      if (this.items.at(i).runtimeModel === runtimeModel) {
-        this.executionContextDestroyed(this.items.at(i));
+    for (let i = this.#items.length - 1; i >= 0; i--) {
+      if (this.#items.at(i).runtimeModel === runtimeModel) {
+        this.executionContextDestroyed(this.#items.at(i));
       }
     }
   }
@@ -254,10 +258,10 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   itemSelected(item: SDK.RuntimeModel.ExecutionContext|null): void {
-    this.toolbarItemInternal.element.classList.toggle('warning', !this.isTopContext(item) && this.hasTopContext());
+    this.#toolbarItemInternal.element.classList.toggle('warning', !this.isTopContext(item) && this.hasTopContext());
     const title = item ? i18nString(UIStrings.javascriptContextS, {PH1: this.titleFor(item)}) :
                          i18nString(UIStrings.javascriptContextNotSelected);
-    this.toolbarItemInternal.setTitle(title);
+    this.#toolbarItemInternal.setTitle(title);
     UI.Context.Context.instance().setFlavor(SDK.RuntimeModel.ExecutionContext, item);
   }
 
@@ -271,9 +275,9 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
 
   private callFrameSelectedInModel(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): void {
     const debuggerModel = event.data;
-    for (const executionContext of this.items) {
+    for (const executionContext of this.#items) {
       if (executionContext.debuggerModel === debuggerModel) {
-        this.dropDown.refreshItem(executionContext);
+        this.#dropDown.refreshItem(executionContext);
       }
     }
   }
@@ -286,7 +290,7 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
     }
     for (const executionContext of runtimeModel.executionContexts()) {
       if (frame.id === executionContext.frameId) {
-        this.dropDown.refreshItem(executionContext);
+        this.#dropDown.refreshItem(executionContext);
       }
     }
   }

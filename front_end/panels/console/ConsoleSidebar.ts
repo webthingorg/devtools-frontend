@@ -51,20 +51,20 @@ const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleSidebar.ts', UIS
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
-  private readonly tree: UI.TreeOutline.TreeOutlineInShadow;
-  private selectedTreeElement: UI.TreeOutline.TreeElement|null;
-  private readonly treeElements: FilterTreeElement[];
+  readonly #tree: UI.TreeOutline.TreeOutlineInShadow;
+  #selectedTreeElement: UI.TreeOutline.TreeElement|null;
+  readonly #treeElements: FilterTreeElement[];
 
   constructor() {
     super(true);
     this.setMinimumSize(125, 0);
 
-    this.tree = new UI.TreeOutline.TreeOutlineInShadow();
-    this.tree.addEventListener(UI.TreeOutline.Events.ElementSelected, this.selectionChanged.bind(this));
+    this.#tree = new UI.TreeOutline.TreeOutlineInShadow();
+    this.#tree.addEventListener(UI.TreeOutline.Events.ElementSelected, this.selectionChanged.bind(this));
 
-    this.contentElement.appendChild(this.tree.element);
-    this.selectedTreeElement = null;
-    this.treeElements = [];
+    this.contentElement.appendChild(this.#tree.element);
+    this.#selectedTreeElement = null;
+    this.#treeElements = [];
     const selectedFilterSetting =
         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
         // @ts-expect-error
@@ -96,7 +96,7 @@ export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, 
         UI.Icon.Icon.create('mediumicon-bug'), selectedFilterSetting);
     const selectedTreeElementName = selectedFilterSetting.get();
     const defaultTreeElement =
-        this.treeElements.find(x => x.name() === selectedTreeElementName) || this.treeElements[0];
+        this.#treeElements.find(x => x.name() === selectedTreeElementName) || this.#treeElements[0];
     defaultTreeElement.select();
   }
 
@@ -105,37 +105,37 @@ export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, 
       selectedFilterSetting: Common.Settings.Setting<string>): void {
     const filter = new ConsoleFilter(name, parsedFilters, null, levelsMask);
     const treeElement = new FilterTreeElement(filter, icon, selectedFilterSetting);
-    this.tree.appendChild(treeElement);
-    this.treeElements.push(treeElement);
+    this.#tree.appendChild(treeElement);
+    this.#treeElements.push(treeElement);
   }
 
   clear(): void {
-    for (const treeElement of this.treeElements) {
+    for (const treeElement of this.#treeElements) {
       treeElement.clear();
     }
   }
 
   onMessageAdded(viewMessage: ConsoleViewMessage): void {
-    for (const treeElement of this.treeElements) {
+    for (const treeElement of this.#treeElements) {
       treeElement.onMessageAdded(viewMessage);
     }
   }
 
   shouldBeVisible(viewMessage: ConsoleViewMessage): boolean {
-    if (this.selectedTreeElement instanceof ConsoleSidebarTreeElement) {
-      return this.selectedTreeElement.filter().shouldBeVisible(viewMessage);
+    if (this.#selectedTreeElement instanceof ConsoleSidebarTreeElement) {
+      return this.#selectedTreeElement.filter().shouldBeVisible(viewMessage);
     }
     return true;
   }
 
   private selectionChanged(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
-    this.selectedTreeElement = event.data;
+    this.#selectedTreeElement = event.data;
     this.dispatchEventToListeners(Events.FilterSelected);
   }
 
   wasShown(): void {
     super.wasShown();
-    this.tree.registerCSSFiles([consoleSidebarStyles]);
+    this.#tree.registerCSSFiles([consoleSidebarStyles]);
   }
 }
 
@@ -161,20 +161,20 @@ class ConsoleSidebarTreeElement extends UI.TreeOutline.TreeElement {
 }
 
 export class URLGroupTreeElement extends ConsoleSidebarTreeElement {
-  private countElement: HTMLElement;
-  private messageCount: number;
+  #countElement: HTMLElement;
+  #messageCount: number;
 
   constructor(filter: ConsoleFilter) {
     super(filter.name, filter);
-    this.countElement = this.listItemElement.createChild('span', 'count');
+    this.#countElement = this.listItemElement.createChild('span', 'count');
     const leadingIcons = [UI.Icon.Icon.create('largeicon-navigator-file')];
     this.setLeadingIcons(leadingIcons);
-    this.messageCount = 0;
+    this.#messageCount = 0;
   }
 
   incrementAndUpdateCounter(): void {
-    this.messageCount++;
-    this.countElement.textContent = `${this.messageCount}`;
+    this.#messageCount++;
+    this.#countElement.textContent = `${this.#messageCount}`;
   }
 }
 
@@ -193,25 +193,25 @@ const stringForFilterSidebarItemMap = new Map<GroupName, string>([
 ]);
 
 export class FilterTreeElement extends ConsoleSidebarTreeElement {
-  private readonly selectedFilterSetting: Common.Settings.Setting<string>;
-  private readonly urlTreeElements: Map<string|null, URLGroupTreeElement>;
-  private messageCount: number;
-  private uiStringForFilterCount: string;
+  readonly #selectedFilterSetting: Common.Settings.Setting<string>;
+  readonly #urlTreeElements: Map<string|null, URLGroupTreeElement>;
+  #messageCount: number;
+  #uiStringForFilterCount: string;
 
   constructor(filter: ConsoleFilter, icon: UI.Icon.Icon, selectedFilterSetting: Common.Settings.Setting<string>) {
     super(filter.name, filter);
-    this.uiStringForFilterCount = stringForFilterSidebarItemMap.get(filter.name as GroupName) || '';
-    this.selectedFilterSetting = selectedFilterSetting;
-    this.urlTreeElements = new Map();
+    this.#uiStringForFilterCount = stringForFilterSidebarItemMap.get(filter.name as GroupName) || '';
+    this.#selectedFilterSetting = selectedFilterSetting;
+    this.#urlTreeElements = new Map();
     this.setLeadingIcons([icon]);
-    this.messageCount = 0;
+    this.#messageCount = 0;
     this.updateCounter();
   }
 
   clear(): void {
-    this.urlTreeElements.clear();
+    this.#urlTreeElements.clear();
     this.removeChildren();
-    this.messageCount = 0;
+    this.#messageCount = 0;
     this.updateCounter();
   }
 
@@ -220,19 +220,19 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
   }
 
   onselect(selectedByUser?: boolean): boolean {
-    this.selectedFilterSetting.set(this.filterInternal.name);
+    this.#selectedFilterSetting.set(this.filterInternal.name);
     return super.onselect(selectedByUser);
   }
 
   private updateCounter(): void {
-    this.title = this.updateGroupTitle(this.messageCount);
+    this.title = this.updateGroupTitle(this.#messageCount);
     this.setExpandable(Boolean(this.childCount()));
   }
 
   private updateGroupTitle(messageCount: number): string {
-    if (this.uiStringForFilterCount) {
+    if (this.#uiStringForFilterCount) {
       // eslint-disable-next-line rulesdir/l10n_i18nString_call_only_with_uistrings
-      return i18nString(this.uiStringForFilterCount, {n: messageCount});
+      return i18nString(this.#uiStringForFilterCount, {n: messageCount});
     }
     return '';
   }
@@ -246,13 +246,13 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
     }
     const child = this.childElement(message.url);
     child.incrementAndUpdateCounter();
-    this.messageCount++;
+    this.#messageCount++;
     this.updateCounter();
   }
 
   private childElement(url?: string): URLGroupTreeElement {
     const urlValue = url || null;
-    let child = this.urlTreeElements.get(urlValue);
+    let child = this.#urlTreeElements.get(urlValue);
     if (child) {
       return child;
     }
@@ -269,7 +269,7 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
     if (urlValue) {
       child.tooltip = urlValue;
     }
-    this.urlTreeElements.set(urlValue, child);
+    this.#urlTreeElements.set(urlValue, child);
     this.appendChild(child);
     return child;
   }
