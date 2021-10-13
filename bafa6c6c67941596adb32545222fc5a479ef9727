@@ -33,6 +33,24 @@
       "message": "should we have a test with the overlay disabled? I am not very happy that we have this dependency across multiple code bases but I am not sure how to work around it. At least an extra test would help catch problems if one of the dependencies changes.",
       "revId": "bafa6c6c67941596adb32545222fc5a479ef9727",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe197e9b_cdeb8240",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T11:38:16Z",
+      "side": 1,
+      "message": "Yeah I agree, it\u0027s a very hidden dependency. I\u0027ll add a test!",
+      "parentUuid": "b1e7c554_73a17ad7",
+      "revId": "bafa6c6c67941596adb32545222fc5a479ef9727",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

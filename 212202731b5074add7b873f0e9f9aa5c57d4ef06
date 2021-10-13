@@ -360,6 +360,30 @@
       },
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0890609_e34b6575",
+        "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T11:38:16Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with the forwarding code, so I just gave it a try. In this case, you can\u0027t currently (in neither versions) resume using F8 on the debuggee.",
+      "parentUuid": "073711d8_d22546d8",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
