@@ -70,6 +70,30 @@
       },
       "revId": "d3968be925470413510f2583ad5033a196660969",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4687b0b_a316774d",
+        "filename": "front_end/third_party/codemirror.next/bundle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T14:58:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ffaf033_a4690f1c",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "d3968be925470413510f2583ad5033a196660969",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
