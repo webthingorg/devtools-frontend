@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// TODO(crbug.com/1253323): All casts to UrlString will be removed from this file when migration to branded types is complete.
+
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -183,9 +185,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     PersistenceImpl.instance().refreshAutomapping();
   }
 
-  private encodedPathFromUrl(url: string): string {
+  private encodedPathFromUrlString(url: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.EncodedPathString {
     if (!this.activeInternal || !this.projectInternal) {
-      return '';
+      return '' as Platform.DevToolsPath.EncodedPathString;
     }
     let urlPath = Common.ParsedURL.ParsedURL.urlWithoutHash(url.replace(/^https?:\/\//, ''));
     if (urlPath.endsWith('/') && urlPath.indexOf('?') === -1) {
@@ -206,7 +208,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         shortFileName + Platform.StringUtilities.hashCode(encodedPath).toString(16) + extensionPart,
       ];
     }
-    return encodedPathParts.join('/');
+    return encodedPathParts.join('/') as Platform.DevToolsPath.EncodedPathString;
 
     function encodeUrlPathToLocalPathParts(urlPath: string): string[] {
       const encodedParts = [];
@@ -298,12 +300,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return;
     }
     this.savingForOverrides.add(uiSourceCode);
-    let encodedPath = this.encodedPathFromUrl(uiSourceCode.url());
+    let encodedPath = this.encodedPathFromUrlString(uiSourceCode.url() as Platform.DevToolsPath.UrlString);
     const content = (await uiSourceCode.requestContent()).content || '';
     const encoded = await uiSourceCode.contentEncoded();
     const lastIndexOfSlash = encodedPath.lastIndexOf('/');
     const encodedFileName = encodedPath.substr(lastIndexOfSlash + 1);
-    encodedPath = encodedPath.substr(0, lastIndexOfSlash);
+    encodedPath = encodedPath.substr(0, lastIndexOfSlash) as Platform.DevToolsPath.EncodedPathString;
     if (this.projectInternal) {
       await this.projectInternal.createFile(encodedPath, encodedFileName, content, encoded);
     }
@@ -339,12 +341,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         !this.canHandleNetworkUISourceCode(uiSourceCode)) {
       return;
     }
-    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url());
-    this.networkUISourceCodeForEncodedPath.set(this.encodedPathFromUrl(url), uiSourceCode);
+    const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url()) as Platform.DevToolsPath.UrlString;
+    this.networkUISourceCodeForEncodedPath.set(this.encodedPathFromUrlString(url), uiSourceCode);
 
     const project = this.projectInternal as FileSystem;
     const fileSystemUISourceCode =
-        project.uiSourceCodeForURL(project.fileSystemPath() + '/' + this.encodedPathFromUrl(url));
+        project.uiSourceCodeForURL(project.fileSystemPath() + '/' + this.encodedPathFromUrlString(url));
     if (fileSystemUISourceCode) {
       await this.bind(uiSourceCode, fileSystemUISourceCode);
     }
@@ -397,7 +399,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private async networkUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network) {
       await this.unbind(uiSourceCode);
-      this.networkUISourceCodeForEncodedPath.delete(this.encodedPathFromUrl(uiSourceCode.url()));
+      this.networkUISourceCodeForEncodedPath.delete(
+          this.encodedPathFromUrlString(uiSourceCode.url() as Platform.DevToolsPath.UrlString));
     }
   }
 
@@ -459,7 +462,8 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return;
     }
     const proj = this.projectInternal as FileSystem;
-    const path = proj.fileSystemPath() + '/' + this.encodedPathFromUrl(interceptedRequest.request.url);
+    const path = proj.fileSystemPath() + '/' +
+        this.encodedPathFromUrlString(interceptedRequest.request.url as Platform.DevToolsPath.UrlString);
     const fileSystemUISourceCode = proj.uiSourceCodeForURL(path);
     if (!fileSystemUISourceCode) {
       return;
