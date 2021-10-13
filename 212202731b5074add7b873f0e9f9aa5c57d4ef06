@@ -203,6 +203,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d47128be_34377a89",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T10:56:56Z",
+      "side": 1,
+      "message": "+1 to double checking that it\u0027s `debugger.toggle-pause`.\n\nNo, it wouldn\u0027t really make sense to double record it. At least we don\u0027t go through `UserMetrics.ts` if we don\u0027t pass true here. Is there another place where it is recorded that I\u0027m not aware of?",
+      "parentUuid": "dfd8d65b_29102812",
+      "range": {
+        "startLine": 1237,
+        "startChar": 13,
+        "endLine": 1237,
+        "endChar": 17
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6f82f03_b776edec",
         "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
         "patchSetId": 2
@@ -214,6 +238,30 @@
       "writtenOn": "2021-10-13T10:42:14Z",
       "side": 1,
       "message": "another thought: does it work when remote debugging a page? e.g. connecting from one browser instance to another one and pressing F8 in the debugee? I think that would be the reason why the overlay is handling that?",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c590c788_01b56bca",
+        "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T10:56:56Z",
+      "side": 1,
+      "message": "Ohh interesting, ok that explains it, haven\u0027t thought of that! Yes, the current implementation without my change is working as expected when hitting F8 in the debuggee.",
+      "parentUuid": "f6f82f03_b776edec",
       "range": {
         "startLine": 18,
         "startChar": 16,
