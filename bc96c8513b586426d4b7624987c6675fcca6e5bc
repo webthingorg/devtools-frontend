@@ -139,6 +139,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6c3d16b_fae7fc8c",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T11:36:44Z",
+      "side": 1,
+      "message": "Good point. I think the primary benefit of moving into a web component is that we have a shadow root to attach to, so that we can cleanly add the styles in here.\n\nThat said, I am not sure if that is fully worth it here. Jack, do you have any thoughts on the situation?",
+      "parentUuid": "29636e61_2f9934bc",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6353ea79_302e2769",
         "filename": "front_end/panels/changes/DiffRenderer.ts",
         "patchSetId": 2
@@ -174,6 +198,30 @@
       "side": 1,
       "message": "Added some tests. It\u0027s always hard to set up tests for rendering logic without them getting annoying to sync with later changes, but I\u0027ve tried to keep them somewhat away from the implementation details (except for hard-coding a bunch of DOM class names).",
       "parentUuid": "6353ea79_302e2769",
+      "range": {
+        "startLine": 180,
+        "startChar": 13,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6423e7c_689b4962",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T11:36:44Z",
+      "side": 1,
+      "message": "Yeah these are looking good. Thanks for writing these!",
+      "parentUuid": "a37c1805_32955232",
       "range": {
         "startLine": 180,
         "startChar": 13,
