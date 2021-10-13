@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "121c9f5c_f3cffc42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T16:42:30Z",
+      "side": 1,
+      "message": "I am glad to see how relatively straightforward this port was, given our previous work on the \"Edit as HTML\" editor. Let\u0027s keep it going 🎉",
+      "revId": "37892f191e6e973af2131e8e315a9e6adbd2b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
