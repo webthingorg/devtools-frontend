@@ -233,6 +233,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b56738a5_af57fbf7",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-13T16:37:52Z",
+      "side": 1,
+      "message": "Well, the good news is that you were very close! The dep on `third_party/diff` was on the wrong target and yes, that generates an awful message. I have https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1211289 filed for that, which hopefully can help with the frustrating experience of TypeScript spitting a bunch of errors that are difficult to grasp. Apologies for that.\n\nI also quickly checked and the editor is worked as expected. I will do a full review tomorrow, but I think we are really close now.\n\nThank you Marijn for taking in the feedback and working on adhering to the DevTools style. I know that can be cumbersome and frustrating at times, but we deeply value the work you do to make it consistent with the wider codebase.",
+      "parentUuid": "7b7cb13b_dc6a1ee9",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6353ea79_302e2769",
