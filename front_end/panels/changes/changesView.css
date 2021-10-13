@@ -13,8 +13,77 @@
   overflow: auto;
 }
 
-.editor-container {
+.diff-container {
   flex: 1;
+  overflow: auto;
+}
+
+.diff-listing {
+  display: grid;
+  grid-template-columns: max-content max-content max-content auto;
+  font-family: var(--source-code-font-family);
+  font-size: var(--source-code-font-size);
+  white-space: pre;
+  line-height: 1.2em;
+}
+
+.diff-line-number {
+  color: var(--color-line-number);
+  padding: 0 3px 0 9px;
+  text-align: right;
+}
+
+.diff-line-marker {
+  border-right: 1px solid var(--color-details-hairline);
+  width: 20px;
+  text-align: center;
+}
+
+.diff-line-content {
+  padding: 0 4px;
+}
+
+.diff-line-marker-addition,
+.diff-line-addition {
+  --override-addition-background-color: hsl(144deg 55% 49% / 20%);
+
+  background-color: var(--override-addition-background-color);
+}
+
+.diff-line-marker-deletion,
+.diff-line-deletion {
+  --override-deletion-background-color: rgb(255 0 0 / 20%);
+
+  background-color: var(--override-deletion-background-color);
+}
+
+.diff-line-addition .inner-diff {
+  --override-addition-inner-diff-background-color: hsl(144deg 55% 49% / 30%);
+
+  background-color: var(--override-addition-inner-diff-background-color);
+}
+
+.diff-line-deletion .inner-diff {
+  --override-deletion-inner-diff-background-color: rgb(255 0 0 / 30%);
+
+  background-color: var(--override-deletion-inner-diff-background-color);
+}
+
+.diff-hidden-text {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+}
+
+.diff-line-equal {
+  opacity: 50%;
+}
+
+.diff-line-spacer {
+  --override-spacer-background-color: rgb(0 0 255 / 10%);
+
+  text-align: center;
+  background-color: var(--override-spacer-background-color);
 }
 
 :focus.selected {
@@ -29,75 +98,7 @@
   --override-selected-color: rgb(0 0 0);
 }
 
-.CodeMirror-lines:not(:active) {
-  cursor: default !important; /* stylelint-disable-line declaration-no-important */
-}
-
-.CodeMirror-line:hover {
-  --override-line-hover-background-color: rgb(0 0 255 / 5%);
-
-  cursor: default !important; /* stylelint-disable-line declaration-no-important */
-  background-color: var(--override-line-hover-background-color) !important; /* stylelint-disable-line declaration-no-important */
-}
-
-.CodeMirror .CodeMirror-linebackground.spacer {
-  --override-spacer-color: rgb(0 0 0 / 50%);
-  --override-spacer-background-color: rgb(0 0 255 / 10%);
-
-  text-align: center;
-  color: var(--override-spacer-color);
-  background-color: var(--override-spacer-background-color);
-}
-
-.-theme-with-dark-background .CodeMirror .CodeMirror-linebackground.spacer,
-:host-context(.-theme-with-dark-background) .CodeMirror .CodeMirror-linebackground.spacer {
-  --override-spacer-color: rgb(230 230 230 / 50%);
-}
-
-.CodeMirror .equal > span > span {
-  opacity: 50%;
-}
-
-.CodeMirror .CodeMirror-selectedtext:not(.CodeMirror-persist-highlight) {
-  opacity: 100%;
-}
-
-.CodeMirror .CodeMirror-linebackground.addition,
-.changes-diff-gutter-marker.addition {
-  --override-addition-background-color: hsl(144deg 55% 49% / 20%);
-
-  background-color: var(--override-addition-background-color);
-}
-
-.CodeMirror .CodeMirror-linebackground.deletion,
-.changes-diff-gutter-marker.deletion {
-  --override-deletion-background-color: rgb(255 0 0 / 20%);
-
-  background-color: var(--override-deletion-background-color);
-}
-
-.CodeMirror .addition .cm-inner-diff:not(.CodeMirror-selectedtext) {
-  --override-addition-inner-diff-background-color: hsl(144deg 55% 49% / 30%);
-
-  background-color: var(--override-addition-inner-diff-background-color);
-}
-
-.CodeMirror .deletion .cm-inner-diff:not(.CodeMirror-selectedtext),
-.-theme-preserve {
-  --override-deletion-inner-diff-background-color: rgb(255 0 0 / 30%);
-
-  background-color: var(--override-deletion-inner-diff-background-color);
-}
-
 .changes-toolbar {
   background-color: var(--color-background-elevation-1);
   border-top: var(--legacy-divider-border);
-}
-
-.changes-diff-gutter {
-  width: 20px;
-}
-
-.changes-diff-gutter-marker {
-  text-align: center;
 }
