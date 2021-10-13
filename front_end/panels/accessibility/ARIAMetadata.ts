@@ -17,11 +17,11 @@ export interface Config {
 }
 
 export class ARIAMetadata {
-  private readonly attributes: Map<string, Attribute>;
-  private roleNames: string[];
+  readonly #attributes: Map<string, Attribute>;
+  #roleNames: string[];
   constructor(config: Config|null) {
-    this.attributes = new Map();
-    this.roleNames = [];
+    this.#attributes = new Map();
+    this.#roleNames = [];
 
     if (config) {
       this.initialize(config);
@@ -36,21 +36,21 @@ export class ARIAMetadata {
       if (attributeConfig.type === 'boolean') {
         attributeConfig.enum = booleanEnum;
       }
-      this.attributes.set(attributeConfig.name, new Attribute(attributeConfig));
+      this.#attributes.set(attributeConfig.name, new Attribute(attributeConfig));
     }
 
     /** @type {!Array<string>} */
-    this.roleNames = config['roles'].map(roleConfig => roleConfig.name);
+    this.#roleNames = config['roles'].map(roleConfig => roleConfig.name);
   }
 
   valuesForProperty(property: string): string[] {
-    const attribute = this.attributes.get(property);
+    const attribute = this.#attributes.get(property);
     if (attribute) {
       return attribute.getEnum();
     }
 
     if (property === 'role') {
-      return this.roleNames;
+      return this.#roleNames;
     }
 
     return [];
@@ -67,16 +67,19 @@ export function ariaMetadata(): ARIAMetadata {
 }
 
 export class Attribute {
-  private readonly enum: string[];
+  readonly #enum: string[];
   constructor(config: AttributeConfig) {
-    this.enum = [];
+    this.#enum
+    = [];
 
     if (config.enum) {
-      this.enum = config.enum;
+      this.#enum
+      = config.enum;
     }
   }
 
   getEnum(): string[] {
-    return this.enum;
+    return this.#enum
+    ;
   }
 }
