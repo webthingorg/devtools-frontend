@@ -28,8 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// TODO(crbug.com/1253323): All casts to UrlString will be removed from this file when migration to branded types is complete.
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -176,7 +174,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
             }
             if (this.isFileExcluded(entry.fullPath + '/')) {
               this.excludedEmbedderFolders.push(Common.ParsedURL.ParsedURL.urlToRawPathString(
-                  (this.path() + entry.fullPath) as Platform.DevToolsPath.UrlString, Host.Platform.isWin()));
+                  this.path() + entry.fullPath as Platform.DevToolsPath.UrlString, Host.Platform.isWin()));
               continue;
             }
             ++pendingRequests;
@@ -552,10 +550,9 @@ export class IsolatedFileSystem extends PlatformFileSystem {
                                              Common.ResourceType.resourceTypes.Document;
   }
 
-  tooltipForURL(url: string): string {
+  tooltipForURL(url: Platform.DevToolsPath.UrlString): string {
     const path = Platform.StringUtilities.trimMiddle(
-        Common.ParsedURL.ParsedURL.urlToRawPathString(url as Platform.DevToolsPath.UrlString, Host.Platform.isWin()),
-        150);
+        Common.ParsedURL.ParsedURL.urlToRawPathString(url, Host.Platform.isWin()), 150);
     return i18nString(UIStrings.linkedToS, {PH1: path});
   }
 
