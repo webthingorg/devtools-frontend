@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4fcea6_b3fe8f58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T11:26:12Z",
+      "side": 1,
+      "message": "Wonderful, that makes sense. Thanks for clarifying.",
+      "parentUuid": "7a09ad4f_06a36bbb",
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d451f43_ef8f9c02",
@@ -85,6 +103,30 @@
       "writtenOn": "2021-10-12T14:22:41Z",
       "side": 1,
       "message": "Is there any particular reason why `DiffRenderer` isn\u0027t a custom element? E.g. I would have expected us to do the following:\n\n```\nconst renderer \u003d new DiffRenderer();\nthis.diffContainer.appendChild(renderer);\n// Here, setting `data` will internally call `render()` with the required information\nrenderer.data \u003d {\n  diff,\n  mime,\n};\n```\n\nThis would be equivalent to how we handle other elements, for example https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ElementsPanel.ts;l\u003d240-245;drc\u003d574cf2dc19143a5b315546e5e4ed08d4f719c917 and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ElementsPanel.ts;l\u003d506-509;drc\u003d574cf2dc19143a5b315546e5e4ed08d4f719c917\n\nThis pattern is described in the UI components DevTools doc athttps://docs.google.com/document/d/1Gwd-w7LoW1qnWu3uku438-MQ82m4AinKDIdy9z3fl3Q/edit?resourcekey\u003d0-vxHqiKAvfJ4JAOj4bZ4EFA#heading\u003dh.ursox9gg7myw",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29636e61_2f9934bc",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T11:26:12Z",
+      "side": 1,
+      "message": "That involves more complexity, implementing capabilities (such as statefulness) that we don\u0027t really need in this case. If you insist, I can rename this to DiffView and make it a web component, but it feels like unwarranted additional code to me.",
+      "parentUuid": "8d451f43_ef8f9c02",
       "range": {
         "startLine": 205,
         "startChar": 6,
@@ -118,6 +160,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37c1805_32955232",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T11:26:12Z",
+      "side": 1,
+      "message": "Added some tests. It\u0027s always hard to set up tests for rendering logic without them getting annoying to sync with later changes, but I\u0027ve tried to keep them somewhat away from the implementation details (except for hard-coding a bunch of DOM class names).",
+      "parentUuid": "6353ea79_302e2769",
+      "range": {
+        "startLine": 180,
+        "startChar": 13,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "341c3214_883b889f",
@@ -141,6 +207,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db3fdba_24800983",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T11:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "341c3214_883b889f",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4e838d4_71ea1cbf",
@@ -154,6 +244,30 @@
       "writtenOn": "2021-10-12T14:22:41Z",
       "side": 1,
       "message": "Nit: `private renderRowContent`",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 18
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4ce5d3_65a3fdf2",
+        "filename": "front_end/panels/changes/DiffRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T11:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4e838d4_71ea1cbf",
       "range": {
         "startLine": 218,
         "startChar": 2,
