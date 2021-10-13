@@ -34,6 +34,24 @@
       "parentUuid": "19d4560d_91c4477b",
       "revId": "cb43f446f1b397b64f63db83668f2446513e7188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e80ec6_8ad1f026",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-13T14:35:06Z",
+      "side": 1,
+      "message": "See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3220638 and https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3220639. It\u0027s annoying and a bit of a hack, but I had to arrange for a shadow root (with editor styles injected) to be added to the top of the document to put editor tooltips into. There just doesn\u0027t seem to be a way to to \u0027punch\u0027 out of overflow: auto elements without position: fixed, and that\u0027s not working in this case.",
+      "parentUuid": "01ebdb3e_4148a449",
+      "revId": "cb43f446f1b397b64f63db83668f2446513e7188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
