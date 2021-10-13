@@ -100,7 +100,7 @@ const UIStrings = {
   */
   primaryKey: 'Primary key',
   /**
-  *@description Text for the value of something
+  *@description Text for the #value of something
   */
   valueString: 'Value',
   /**
@@ -145,42 +145,42 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/IndexedDBViews.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class IDBDatabaseView extends UI.Widget.VBox {
-  private readonly model: IndexedDBModel;
-  private database!: Database;
-  private readonly reportView: UI.ReportView.ReportView;
-  private securityOriginElement: HTMLElement;
-  private versionElement: HTMLElement;
-  private objectStoreCountElement: HTMLElement;
-  private readonly clearButton: HTMLButtonElement;
-  private readonly refreshButton: HTMLButtonElement;
+  readonly #model: IndexedDBModel;
+  #database!: Database;
+  readonly #reportView: UI.ReportView.ReportView;
+  #securityOriginElement: HTMLElement;
+  #versionElement: HTMLElement;
+  #objectStoreCountElement: HTMLElement;
+  readonly #clearButton: HTMLButtonElement;
+  readonly #refreshButton: HTMLButtonElement;
   constructor(model: IndexedDBModel, database: Database|null) {
     super();
 
-    this.model = model;
+    this.#model = model;
     const databaseName = database ? database.databaseId.name : i18nString(UIStrings.loading);
 
     this.contentElement.classList.add('indexed-db-container');
 
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
-    this.reportView = new UI.ReportView.ReportView(databaseName);
-    this.reportView.show(this.contentElement);
+    this.#reportView = new UI.ReportView.ReportView(databaseName);
+    this.#reportView.show(this.contentElement);
 
-    this.reportView.element.classList.add('indexed-db-header');
+    this.#reportView.element.classList.add('indexed-db-header');
 
-    const bodySection = this.reportView.appendSection('');
-    this.securityOriginElement = bodySection.appendField(i18nString(UIStrings.securityOrigin));
-    this.versionElement = bodySection.appendField(i18nString(UIStrings.version));
-    this.objectStoreCountElement = bodySection.appendField(i18nString(UIStrings.objectStores));
+    const bodySection = this.#reportView.appendSection('');
+    this.#securityOriginElement = bodySection.appendField(i18nString(UIStrings.securityOrigin));
+    this.#versionElement = bodySection.appendField(i18nString(UIStrings.version));
+    this.#objectStoreCountElement = bodySection.appendField(i18nString(UIStrings.objectStores));
 
-    const footer = this.reportView.appendSection('').appendRow();
-    this.clearButton = UI.UIUtils.createTextButton(
+    const footer = this.#reportView.appendSection('').appendRow();
+    this.#clearButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.deleteDatabase), () => this.deleteDatabase(), i18nString(UIStrings.deleteDatabase));
-    footer.appendChild(this.clearButton);
+    footer.appendChild(this.#clearButton);
 
-    this.refreshButton = UI.UIUtils.createTextButton(
+    this.#refreshButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.refreshDatabase), () => this.refreshDatabaseButtonClicked(),
         i18nString(UIStrings.refreshDatabase));
-    footer.appendChild(this.refreshButton);
+    footer.appendChild(this.#refreshButton);
 
     if (database) {
       this.update(database);
@@ -188,21 +188,21 @@ export class IDBDatabaseView extends UI.Widget.VBox {
   }
 
   private refreshDatabase(): void {
-    this.securityOriginElement.textContent = this.database.databaseId.securityOrigin;
-    if (this.versionElement) {
-      this.versionElement.textContent = this.database.version.toString();
+    this.#securityOriginElement.textContent = this.#database.databaseId.securityOrigin;
+    if (this.#versionElement) {
+      this.#versionElement.textContent = this.#database.version.toString();
     }
 
-    this.objectStoreCountElement.textContent = this.database.objectStores.size.toString();
+    this.#objectStoreCountElement.textContent = this.#database.objectStores.size.toString();
   }
 
   private refreshDatabaseButtonClicked(): void {
-    this.model.refreshDatabase(this.database.databaseId);
+    this.#model.refreshDatabase(this.#database.databaseId);
   }
 
   update(database: Database): void {
-    this.database = database;
-    this.reportView.setTitle(this.database.databaseId.name);
+    this.#database = database;
+    this.#reportView.setTitle(this.#database.databaseId.name);
     this.refreshDatabase();
     this.updatedForTests();
   }
@@ -213,86 +213,86 @@ export class IDBDatabaseView extends UI.Widget.VBox {
 
   private async deleteDatabase(): Promise<void> {
     const ok = await UI.UIUtils.ConfirmDialog.show(
-        i18nString(UIStrings.pleaseConfirmDeleteOfSDatabase, {PH1: this.database.databaseId.name}), this.element);
+        i18nString(UIStrings.pleaseConfirmDeleteOfSDatabase, {PH1: this.#database.databaseId.name}), this.element);
     if (ok) {
-      this.model.deleteDatabase(this.database.databaseId);
+      this.#model.deleteDatabase(this.#database.databaseId);
     }
   }
   wasShown(): void {
     super.wasShown();
-    this.reportView.registerCSSFiles([indexedDBViewsStyles]);
+    this.#reportView.registerCSSFiles([indexedDBViewsStyles]);
     this.registerCSSFiles([indexedDBViewsStyles]);
   }
 }
 
 export class IDBDataView extends UI.View.SimpleView {
-  private readonly model: IndexedDBModel;
-  private readonly databaseId: DatabaseId;
-  private isIndex: boolean;
-  private readonly refreshObjectStoreCallback: () => void;
-  private readonly refreshButton: UI.Toolbar.ToolbarButton;
-  private readonly deleteSelectedButton: UI.Toolbar.ToolbarButton;
-  private readonly clearButton: UI.Toolbar.ToolbarButton;
-  private readonly needsRefresh: UI.Toolbar.ToolbarItem;
-  private clearingObjectStore: boolean;
-  private pageSize: number;
-  private skipCount: number;
-  private entries: Entry[];
-  private objectStore!: ObjectStore;
-  private index!: Index|null;
-  private keyInput!: UI.Toolbar.ToolbarInput;
-  private dataGrid!: DataGrid.DataGrid.DataGridImpl<unknown>;
-  private lastPageSize!: number;
-  private lastSkipCount!: number;
-  private pageBackButton!: UI.Toolbar.ToolbarButton;
-  private pageForwardButton!: UI.Toolbar.ToolbarButton;
+  readonly #model: IndexedDBModel;
+  readonly #databaseId: DatabaseId;
+  #isIndex: boolean;
+  readonly #refreshObjectStoreCallback: () => void;
+  readonly #refreshButton: UI.Toolbar.ToolbarButton;
+  readonly #deleteSelectedButton: UI.Toolbar.ToolbarButton;
+  readonly #clearButton: UI.Toolbar.ToolbarButton;
+  readonly #needsRefresh: UI.Toolbar.ToolbarItem;
+  #clearingObjectStore: boolean;
+  #pageSize: number;
+  #skipCount: number;
+  #entries: Entry[];
+  #objectStore!: ObjectStore;
+  #index!: Index|null;
+  #keyInput!: UI.Toolbar.ToolbarInput;
+  #dataGrid!: DataGrid.DataGrid.DataGridImpl<unknown>;
+  #lastPageSize!: number;
+  #lastSkipCount!: number;
+  #pageBackButton!: UI.Toolbar.ToolbarButton;
+  #pageForwardButton!: UI.Toolbar.ToolbarButton;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private lastKey?: any;
-  private summaryBarElement?: HTMLElement;
+  #lastKey?: any;
+  #summaryBarElement?: HTMLElement;
 
   constructor(
       model: IndexedDBModel, databaseId: DatabaseId, objectStore: ObjectStore, index: Index|null,
       refreshObjectStoreCallback: () => void) {
     super(i18nString(UIStrings.idb));
 
-    this.model = model;
-    this.databaseId = databaseId;
-    this.isIndex = Boolean(index);
-    this.refreshObjectStoreCallback = refreshObjectStoreCallback;
+    this.#model = model;
+    this.#databaseId = databaseId;
+    this.#isIndex = Boolean(index);
+    this.#refreshObjectStoreCallback = refreshObjectStoreCallback;
 
     this.element.classList.add('indexed-db-data-view', 'storage-view');
 
-    this.refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'largeicon-refresh');
-    this.refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.refreshButtonClicked, this);
+    this.#refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'largeicon-refresh');
+    this.#refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.refreshButtonClicked, this);
 
-    this.deleteSelectedButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.deleteSelected), 'largeicon-delete');
-    this.deleteSelectedButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, _event => {
+    this.#deleteSelectedButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.deleteSelected), 'largeicon-delete');
+    this.#deleteSelectedButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, _event => {
       this.deleteButtonClicked(null);
     });
 
-    this.clearButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clearObjectStore), 'largeicon-clear');
-    this.clearButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
+    this.#clearButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clearObjectStore), 'largeicon-clear');
+    this.#clearButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
       this.clearButtonClicked();
     }, this);
 
-    this.needsRefresh = new UI.Toolbar.ToolbarItem(
+    this.#needsRefresh = new UI.Toolbar.ToolbarItem(
         UI.UIUtils.createIconLabel(i18nString(UIStrings.dataMayBeStale), 'smallicon-warning'));
-    this.needsRefresh.setVisible(false);
-    this.needsRefresh.setTitle(i18nString(UIStrings.someEntriesMayHaveBeenModified));
-    this.clearingObjectStore = false;
+    this.#needsRefresh.setVisible(false);
+    this.#needsRefresh.setTitle(i18nString(UIStrings.someEntriesMayHaveBeenModified));
+    this.#clearingObjectStore = false;
 
     this.createEditorToolbar();
 
-    this.pageSize = 50;
-    this.skipCount = 0;
+    this.#pageSize = 50;
+    this.#skipCount = 0;
 
     this.update(objectStore, index);
-    this.entries = [];
+    this.#entries = [];
   }
 
   private createDataGrid(): DataGrid.DataGrid.DataGridImpl<unknown> {
-    const keyPath = this.isIndex && this.index ? this.index.keyPath : this.objectStore.keyPath;
+    const keyPath = this.#isIndex && this.#index ? this.#index.keyPath : this.#objectStore.keyPath;
 
     const columns = ([] as DataGrid.DataGrid.ColumnDescriptor[]);
 
@@ -323,11 +323,11 @@ export class IDBDataView extends UI.View.SimpleView {
       titleDOMFragment: this.keyColumnHeaderFragment(i18nString(UIStrings.keyString), keyPath),
       sortable: false,
     } as DataGrid.DataGrid.ColumnDescriptor));
-    if (this.isIndex) {
+    if (this.#isIndex) {
       columns.push(({
         ...columnDefaults,
         id: 'primaryKey',
-        titleDOMFragment: this.keyColumnHeaderFragment(i18nString(UIStrings.primaryKey), this.objectStore.keyPath),
+        titleDOMFragment: this.keyColumnHeaderFragment(i18nString(UIStrings.primaryKey), this.#objectStore.keyPath),
         sortable: false,
       } as DataGrid.DataGrid.ColumnDescriptor));
     }
@@ -385,36 +385,37 @@ export class IDBDataView extends UI.View.SimpleView {
   private createEditorToolbar(): void {
     const editorToolbar = new UI.Toolbar.Toolbar('data-view-toolbar', this.element);
 
-    editorToolbar.appendToolbarItem(this.refreshButton);
+    editorToolbar.appendToolbarItem(this.#refreshButton);
 
     editorToolbar.appendToolbarItem(new UI.Toolbar.ToolbarSeparator());
 
-    this.pageBackButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.showPreviousPage), 'largeicon-play-back');
-    this.pageBackButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.pageBackButtonClicked, this);
-    editorToolbar.appendToolbarItem(this.pageBackButton);
+    this.#pageBackButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.showPreviousPage), 'largeicon-play-back');
+    this.#pageBackButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.pageBackButtonClicked, this);
+    editorToolbar.appendToolbarItem(this.#pageBackButton);
 
-    this.pageForwardButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.showNextPage), 'largeicon-play');
-    this.pageForwardButton.setEnabled(false);
-    this.pageForwardButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.pageForwardButtonClicked, this);
-    editorToolbar.appendToolbarItem(this.pageForwardButton);
+    this.#pageForwardButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.showNextPage), 'largeicon-play');
+    this.#pageForwardButton.setEnabled(false);
+    this.#pageForwardButton.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click, this.pageForwardButtonClicked, this);
+    editorToolbar.appendToolbarItem(this.#pageForwardButton);
 
-    this.keyInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.startFromKey), '', 0.5);
-    this.keyInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.updateData.bind(this, false));
-    editorToolbar.appendToolbarItem(this.keyInput);
+    this.#keyInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.startFromKey), '', 0.5);
+    this.#keyInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.updateData.bind(this, false));
+    editorToolbar.appendToolbarItem(this.#keyInput);
     editorToolbar.appendToolbarItem(new UI.Toolbar.ToolbarSeparator());
-    editorToolbar.appendToolbarItem(this.clearButton);
-    editorToolbar.appendToolbarItem(this.deleteSelectedButton);
+    editorToolbar.appendToolbarItem(this.#clearButton);
+    editorToolbar.appendToolbarItem(this.#deleteSelectedButton);
 
-    editorToolbar.appendToolbarItem(this.needsRefresh);
+    editorToolbar.appendToolbarItem(this.#needsRefresh);
   }
 
   private pageBackButtonClicked(): void {
-    this.skipCount = Math.max(0, this.skipCount - this.pageSize);
+    this.#skipCount = Math.max(0, this.#skipCount - this.#pageSize);
     this.updateData(false);
   }
 
   private pageForwardButtonClicked(): void {
-    this.skipCount = this.skipCount + this.pageSize;
+    this.#skipCount = this.#skipCount + this.#pageSize;
     this.updateData(false);
   }
 
@@ -442,17 +443,17 @@ export class IDBDataView extends UI.View.SimpleView {
   }
 
   update(objectStore: ObjectStore, index: Index|null): void {
-    this.objectStore = objectStore;
-    this.index = index;
+    this.#objectStore = objectStore;
+    this.#index = index;
 
-    if (this.dataGrid) {
-      this.dataGrid.asWidget().detach();
+    if (this.#dataGrid) {
+      this.#dataGrid.asWidget().detach();
     }
-    this.dataGrid = this.createDataGrid();
-    this.dataGrid.setRowContextMenuCallback(this.populateContextMenu.bind(this));
-    this.dataGrid.asWidget().show(this.element);
+    this.#dataGrid = this.createDataGrid();
+    this.#dataGrid.setRowContextMenuCallback(this.populateContextMenu.bind(this));
+    this.#dataGrid.asWidget().show(this.element);
 
-    this.skipCount = 0;
+    this.#skipCount = 0;
     this.updateData(true);
   }
 
@@ -469,28 +470,28 @@ export class IDBDataView extends UI.View.SimpleView {
   }
 
   private updateData(force: boolean): void {
-    const key = this.parseKey(this.keyInput.value());
-    const pageSize = this.pageSize;
-    let skipCount: 0|number = this.skipCount;
-    let selected = this.dataGrid.selectedNode ? this.dataGrid.selectedNode.data['number'] : 0;
-    selected = Math.max(selected, this.skipCount);  // Page forward should select top entry
-    this.clearButton.setEnabled(!this.isIndex);
+    const key = this.parseKey(this.#keyInput.value());
+    const pageSize = this.#pageSize;
+    let skipCount: 0|number = this.#skipCount;
+    let selected = this.#dataGrid.selectedNode ? this.#dataGrid.selectedNode.data['number'] : 0;
+    selected = Math.max(selected, this.#skipCount);  // Page forward should select top entry
+    this.#clearButton.setEnabled(!this.#isIndex);
 
-    if (!force && this.lastKey === key && this.lastPageSize === pageSize && this.lastSkipCount === skipCount) {
+    if (!force && this.#lastKey === key && this.#lastPageSize === pageSize && this.#lastSkipCount === skipCount) {
       return;
     }
 
-    if (this.lastKey !== key || this.lastPageSize !== pageSize) {
+    if (this.#lastKey !== key || this.#lastPageSize !== pageSize) {
       skipCount = 0;
-      this.skipCount = 0;
+      this.#skipCount = 0;
     }
-    this.lastKey = key;
-    this.lastPageSize = pageSize;
-    this.lastSkipCount = skipCount;
+    this.#lastKey = key;
+    this.#lastPageSize = pageSize;
+    this.#lastSkipCount = skipCount;
 
     function callback(this: IDBDataView, entries: Entry[], hasMore: boolean): void {
       this.clear();
-      this.entries = entries;
+      this.#entries = entries;
       let selectedNode: IDBDataGridNode|null = null;
       for (let i = 0; i < entries.length; ++i) {
         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
@@ -502,7 +503,7 @@ export class IDBDataView extends UI.View.SimpleView {
         data['value'] = entries[i].value;
 
         const node = new IDBDataGridNode(data);
-        this.dataGrid.rootNode().appendChild(node);
+        this.#dataGrid.rootNode().appendChild(node);
         if (data['number'] <= selected) {
           selectedNode = node;
         }
@@ -511,40 +512,40 @@ export class IDBDataView extends UI.View.SimpleView {
       if (selectedNode) {
         selectedNode.select();
       }
-      this.pageBackButton.setEnabled(Boolean(skipCount));
-      this.pageForwardButton.setEnabled(hasMore);
-      this.needsRefresh.setVisible(false);
+      this.#pageBackButton.setEnabled(Boolean(skipCount));
+      this.#pageForwardButton.setEnabled(hasMore);
+      this.#needsRefresh.setVisible(false);
       this.updateToolbarEnablement();
       this.updatedDataForTests();
     }
 
     const idbKeyRange = key ? window.IDBKeyRange.lowerBound(key) : null;
-    if (this.isIndex && this.index) {
-      this.model.loadIndexData(
-          this.databaseId, this.objectStore.name, this.index.name, idbKeyRange, skipCount, pageSize,
+    if (this.#isIndex && this.#index) {
+      this.#model.loadIndexData(
+          this.#databaseId, this.#objectStore.name, this.#index.name, idbKeyRange, skipCount, pageSize,
           callback.bind(this));
     } else {
-      this.model.loadObjectStoreData(
-          this.databaseId, this.objectStore.name, idbKeyRange, skipCount, pageSize, callback.bind(this));
+      this.#model.loadObjectStoreData(
+          this.#databaseId, this.#objectStore.name, idbKeyRange, skipCount, pageSize, callback.bind(this));
     }
-    this.model.getMetadata(this.databaseId, this.objectStore).then(this.updateSummaryBar.bind(this));
+    this.#model.getMetadata(this.#databaseId, this.#objectStore).then(this.updateSummaryBar.bind(this));
   }
 
   private updateSummaryBar(metadata: ObjectStoreMetadata|null): void {
-    if (!this.summaryBarElement) {
-      this.summaryBarElement = this.element.createChild('div', 'object-store-summary-bar');
+    if (!this.#summaryBarElement) {
+      this.#summaryBarElement = this.element.createChild('div', 'object-store-summary-bar');
     }
-    this.summaryBarElement.removeChildren();
+    this.#summaryBarElement.removeChildren();
     if (!metadata) {
       return;
     }
 
     const separator = '\u2002\u2758\u2002';
 
-    const span = this.summaryBarElement.createChild('span');
+    const span = this.#summaryBarElement.createChild('span');
     span.textContent = i18nString(UIStrings.totalEntriesS, {PH1: String(metadata.entriesCount)});
 
-    if (this.objectStore.autoIncrement) {
+    if (this.#objectStore.autoIncrement) {
       span.textContent += separator;
       span.textContent += i18nString(UIStrings.keyGeneratorValueS, {PH1: String(metadata.keyGeneratorValue)});
     }
@@ -559,45 +560,45 @@ export class IDBDataView extends UI.View.SimpleView {
   }
 
   private async clearButtonClicked(): Promise<void> {
-    this.clearButton.setEnabled(false);
-    this.clearingObjectStore = true;
-    await this.model.clearObjectStore(this.databaseId, this.objectStore.name);
-    this.clearingObjectStore = false;
-    this.clearButton.setEnabled(true);
+    this.#clearButton.setEnabled(false);
+    this.#clearingObjectStore = true;
+    await this.#model.clearObjectStore(this.#databaseId, this.#objectStore.name);
+    this.#clearingObjectStore = false;
+    this.#clearButton.setEnabled(true);
     this.updateData(true);
   }
 
   markNeedsRefresh(): void {
     // We expect that calling clearObjectStore() will cause the backend to send us an update.
-    if (this.clearingObjectStore) {
+    if (this.#clearingObjectStore) {
       return;
     }
-    this.needsRefresh.setVisible(true);
+    this.#needsRefresh.setVisible(true);
   }
 
   private async deleteButtonClicked(node: DataGrid.DataGrid.DataGridNode<unknown>|null): Promise<void> {
     if (!node) {
-      node = this.dataGrid.selectedNode;
+      node = this.#dataGrid.selectedNode;
       if (!node) {
         return;
       }
     }
-    const key = (this.isIndex ? node.data.primaryKey : node.data.key as SDK.RemoteObject.RemoteObject);
+    const key = (this.#isIndex ? node.data.primaryKey : node.data.key as SDK.RemoteObject.RemoteObject);
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const keyValue = (key.value as string | number | any[] | Date);
-    await this.model.deleteEntries(this.databaseId, this.objectStore.name, window.IDBKeyRange.only(keyValue));
-    this.refreshObjectStoreCallback();
+    await this.#model.deleteEntries(this.#databaseId, this.#objectStore.name, window.IDBKeyRange.only(keyValue));
+    this.#refreshObjectStoreCallback();
   }
 
   clear(): void {
-    this.dataGrid.rootNode().removeChildren();
-    this.entries = [];
+    this.#dataGrid.rootNode().removeChildren();
+    this.#entries = [];
   }
 
   private updateToolbarEnablement(): void {
-    const empty = !this.dataGrid || this.dataGrid.rootNode().children.length === 0;
-    this.deleteSelectedButton.setEnabled(!empty && this.dataGrid.selectedNode !== null);
+    const empty = !this.#dataGrid || this.#dataGrid.rootNode().children.length === 0;
+    this.#deleteSelectedButton.setEnabled(!empty && this.#dataGrid.selectedNode !== null);
   }
   wasShown(): void {
     super.wasShown();

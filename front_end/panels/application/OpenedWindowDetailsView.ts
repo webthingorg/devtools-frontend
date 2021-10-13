@@ -143,110 +143,110 @@ async function maybeCreateLinkToElementsPanel(opener: Protocol.Page.FrameId|SDK.
 }
 
 export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget {
-  private targetInfo: Protocol.Target.TargetInfo;
-  private isWindowClosed: boolean;
-  private readonly reportView: UI.ReportView.ReportView;
-  private readonly documentSection: UI.ReportView.Section;
+  #targetInfo: Protocol.Target.TargetInfo;
+  #isWindowClosed: boolean;
+  readonly #reportView: UI.ReportView.ReportView;
+  readonly #documentSection: UI.ReportView.Section;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  private URLFieldValue: HTMLElement;
-  private readonly securitySection: UI.ReportView.Section;
-  private readonly openerElementField: HTMLElement;
-  private hasDOMAccessValue: HTMLElement;
+  #URLFieldValue: HTMLElement;
+  readonly #securitySection: UI.ReportView.Section;
+  readonly #openerElementField: HTMLElement;
+  #hasDOMAccessValue: HTMLElement;
 
   constructor(targetInfo: Protocol.Target.TargetInfo, isWindowClosed: boolean) {
     super();
-    this.targetInfo = targetInfo;
-    this.isWindowClosed = isWindowClosed;
+    this.#targetInfo = targetInfo;
+    this.#isWindowClosed = isWindowClosed;
 
     this.contentElement.classList.add('frame-details-container');
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
-    this.reportView = new UI.ReportView.ReportView(this.buildTitle());
+    this.#reportView = new UI.ReportView.ReportView(this.buildTitle());
 
-    this.reportView.show(this.contentElement);
-    this.reportView.element.classList.add('frame-details-report-container');
+    this.#reportView.show(this.contentElement);
+    this.#reportView.element.classList.add('frame-details-report-container');
 
-    this.documentSection = this.reportView.appendSection(i18nString(UIStrings.document));
-    this.URLFieldValue = this.documentSection.appendField(i18nString(UIStrings.url));
+    this.#documentSection = this.#reportView.appendSection(i18nString(UIStrings.document));
+    this.#URLFieldValue = this.#documentSection.appendField(i18nString(UIStrings.url));
 
-    this.securitySection = this.reportView.appendSection(i18nString(UIStrings.security));
-    this.openerElementField = this.securitySection.appendField(i18nString(UIStrings.openerFrame));
-    this.securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), false);
-    this.hasDOMAccessValue = this.securitySection.appendField(i18nString(UIStrings.accessToOpener));
-    UI.Tooltip.Tooltip.install(this.hasDOMAccessValue, i18nString(UIStrings.showsWhetherTheOpenedWindowIs));
+    this.#securitySection = this.#reportView.appendSection(i18nString(UIStrings.security));
+    this.#openerElementField = this.#securitySection.appendField(i18nString(UIStrings.openerFrame));
+    this.#securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), false);
+    this.#hasDOMAccessValue = this.#securitySection.appendField(i18nString(UIStrings.accessToOpener));
+    UI.Tooltip.Tooltip.install(this.#hasDOMAccessValue, i18nString(UIStrings.showsWhetherTheOpenedWindowIs));
     this.update();
   }
 
   async doUpdate(): Promise<void> {
-    this.reportView.setTitle(this.buildTitle());
-    this.URLFieldValue.textContent = this.targetInfo.url;
-    this.hasDOMAccessValue.textContent = booleanToYesNo(this.targetInfo.canAccessOpener);
+    this.#reportView.setTitle(this.buildTitle());
+    this.#URLFieldValue.textContent = this.#targetInfo.url;
+    this.#hasDOMAccessValue.textContent = booleanToYesNo(this.#targetInfo.canAccessOpener);
     this.maybeDisplayOpenerFrame();
   }
 
   async maybeDisplayOpenerFrame(): Promise<void> {
-    this.openerElementField.removeChildren();
-    const linkElement = await maybeCreateLinkToElementsPanel(this.targetInfo.openerFrameId);
+    this.#openerElementField.removeChildren();
+    const linkElement = await maybeCreateLinkToElementsPanel(this.#targetInfo.openerFrameId);
     if (linkElement) {
-      this.openerElementField.append(linkElement);
-      this.securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), true);
+      this.#openerElementField.append(linkElement);
+      this.#securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), true);
       return;
     }
-    this.securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), false);
+    this.#securitySection.setFieldVisible(i18nString(UIStrings.openerFrame), false);
   }
 
   buildTitle(): string {
-    let title = this.targetInfo.title || i18nString(UIStrings.windowWithoutTitle);
-    if (this.isWindowClosed) {
+    let title = this.#targetInfo.title || i18nString(UIStrings.windowWithoutTitle);
+    if (this.#isWindowClosed) {
       title += ` (${i18nString(UIStrings.closed)})`;
     }
     return title;
   }
 
   setIsWindowClosed(isWindowClosed: boolean): void {
-    this.isWindowClosed = isWindowClosed;
+    this.#isWindowClosed = isWindowClosed;
   }
 
   setTargetInfo(targetInfo: Protocol.Target.TargetInfo): void {
-    this.targetInfo = targetInfo;
+    this.#targetInfo = targetInfo;
   }
   wasShown(): void {
     super.wasShown();
-    this.reportView.registerCSSFiles([frameDetailsReportViewStyles]);
+    this.#reportView.registerCSSFiles([frameDetailsReportViewStyles]);
     this.registerCSSFiles([frameDetailsReportViewStyles]);
   }
 }
 
 export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
-  private readonly targetInfo: Protocol.Target.TargetInfo;
-  private readonly reportView: UI.ReportView.ReportView;
-  private readonly documentSection: UI.ReportView.Section;
+  readonly #targetInfo: Protocol.Target.TargetInfo;
+  readonly #reportView: UI.ReportView.ReportView;
+  readonly #documentSection: UI.ReportView.Section;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  private readonly URLFieldValue: HTMLElement;
-  private readonly isolationSection: UI.ReportView.Section;
-  private readonly coepPolicy: HTMLElement;
+  readonly #URLFieldValue: HTMLElement;
+  readonly #isolationSection: UI.ReportView.Section;
+  readonly #coepPolicy: HTMLElement;
 
   constructor(targetInfo: Protocol.Target.TargetInfo) {
     super();
-    this.targetInfo = targetInfo;
+    this.#targetInfo = targetInfo;
 
     this.contentElement.classList.add('frame-details-container');
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
-    this.reportView =
-        new UI.ReportView.ReportView(this.targetInfo.title || this.targetInfo.url || i18nString(UIStrings.worker));
+    this.#reportView =
+        new UI.ReportView.ReportView(this.#targetInfo.title || this.#targetInfo.url || i18nString(UIStrings.worker));
 
-    this.reportView.show(this.contentElement);
-    this.reportView.element.classList.add('frame-details-report-container');
+    this.#reportView.show(this.contentElement);
+    this.#reportView.element.classList.add('frame-details-report-container');
 
-    this.documentSection = this.reportView.appendSection(i18nString(UIStrings.document));
-    this.URLFieldValue = this.documentSection.appendField(i18nString(UIStrings.url));
-    this.URLFieldValue.textContent = this.targetInfo.url;
-    const workerType = this.documentSection.appendField(i18nString(UIStrings.type));
-    workerType.textContent = this.workerTypeToString(this.targetInfo.type);
+    this.#documentSection = this.#reportView.appendSection(i18nString(UIStrings.document));
+    this.#URLFieldValue = this.#documentSection.appendField(i18nString(UIStrings.url));
+    this.#URLFieldValue.textContent = this.#targetInfo.url;
+    const workerType = this.#documentSection.appendField(i18nString(UIStrings.type));
+    workerType.textContent = this.workerTypeToString(this.#targetInfo.type);
 
-    this.isolationSection = this.reportView.appendSection(i18nString(UIStrings.securityIsolation));
-    this.coepPolicy = this.isolationSection.appendField(i18nString(UIStrings.crossoriginEmbedderPolicy));
+    this.#isolationSection = this.#reportView.appendSection(i18nString(UIStrings.securityIsolation));
+    this.#coepPolicy = this.#isolationSection.appendField(i18nString(UIStrings.crossoriginEmbedderPolicy));
     this.update();
   }
 
@@ -261,7 +261,7 @@ export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   private async updateCoopCoepStatus(): Promise<void> {
-    const target = SDK.TargetManager.TargetManager.instance().targetById(this.targetInfo.targetId);
+    const target = SDK.TargetManager.TargetManager.instance().targetById(this.#targetInfo.targetId);
     if (!target) {
       return;
     }
@@ -273,7 +273,7 @@ export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     const coepIsEnabled =
         (value: Protocol.Network.CrossOriginEmbedderPolicyValue|Protocol.Network.CrossOriginOpenerPolicyValue):
             boolean => value !== Protocol.Network.CrossOriginEmbedderPolicyValue.None;
-    this.fillCrossOriginPolicy(this.coepPolicy, coepIsEnabled, info.coep);
+    this.fillCrossOriginPolicy(this.#coepPolicy, coepIsEnabled, info.coep);
   }
 
   private fillCrossOriginPolicy(
@@ -308,7 +308,7 @@ export class WorkerDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   }
   wasShown(): void {
     super.wasShown();
-    this.reportView.registerCSSFiles([frameDetailsReportViewStyles]);
+    this.#reportView.registerCSSFiles([frameDetailsReportViewStyles]);
     this.registerCSSFiles([frameDetailsReportViewStyles]);
   }
 }

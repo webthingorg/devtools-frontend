@@ -21,42 +21,42 @@ import {StorageItemsView} from './StorageItemsView.js';
 let resourcesPanelInstance: ResourcesPanel;
 
 export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
-  private readonly resourcesLastSelectedItemSetting: Common.Settings.Setting<string[]>;
+  readonly #resourcesLastSelectedItemSetting: Common.Settings.Setting<string[]>;
   visibleView: UI.Widget.Widget|null;
-  private pendingViewPromise: Promise<UI.Widget.Widget>|null;
-  private categoryView: StorageCategoryView|null;
+  #pendingViewPromise: Promise<UI.Widget.Widget>|null;
+  #categoryView: StorageCategoryView|null;
   storageViews: HTMLElement;
-  private readonly storageViewToolbar: UI.Toolbar.Toolbar;
-  private domStorageView: DOMStorageItemsView|null;
-  private cookieView: CookieItemsView|null;
-  private readonly emptyWidget: UI.EmptyWidget.EmptyWidget|null;
-  private readonly sidebar: ApplicationPanelSidebar;
+  readonly #storageViewToolbar: UI.Toolbar.Toolbar;
+  #domStorageView: DOMStorageItemsView|null;
+  #cookieView: CookieItemsView|null;
+  readonly #emptyWidget: UI.EmptyWidget.EmptyWidget|null;
+  readonly #sidebar: ApplicationPanelSidebar;
 
   private constructor() {
     super('resources');
 
-    this.resourcesLastSelectedItemSetting =
+    this.#resourcesLastSelectedItemSetting =
         Common.Settings.Settings.instance().createSetting('resourcesLastSelectedElementPath', []);
 
     this.visibleView = null;
 
-    this.pendingViewPromise = null;
+    this.#pendingViewPromise = null;
 
-    this.categoryView = null;
+    this.#categoryView = null;
 
     const mainContainer = new UI.Widget.VBox();
     this.storageViews = mainContainer.element.createChild('div', 'vbox flex-auto');
-    this.storageViewToolbar = new UI.Toolbar.Toolbar('resources-toolbar', mainContainer.element);
+    this.#storageViewToolbar = new UI.Toolbar.Toolbar('resources-toolbar', mainContainer.element);
     this.splitWidget().setMainWidget(mainContainer);
 
-    this.domStorageView = null;
+    this.#domStorageView = null;
 
-    this.cookieView = null;
+    this.#cookieView = null;
 
-    this.emptyWidget = null;
+    this.#emptyWidget = null;
 
-    this.sidebar = new ApplicationPanelSidebar(this);
-    this.sidebar.show(this.panelSidebarElement());
+    this.#sidebar = new ApplicationPanelSidebar(this);
+    this.#sidebar.show(this.panelSidebarElement());
   }
 
   static instance(opts: {
@@ -84,19 +84,27 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
 
   static async showAndGetSidebar(): Promise<ApplicationPanelSidebar> {
     await UI.ViewManager.ViewManager.instance().showView('resources');
-    return ResourcesPanel.instance().sidebar;
+    return ResourcesPanel.instance().#sidebar;
+  }
+
+  get sidebar(): ApplicationPanelSidebar {
+    return this.#sidebar;
+  }
+
+  get domStorageView(): DOMStorageItemsView|null {
+    return this.#domStorageView;
   }
 
   focus(): void {
-    this.sidebar.focus();
+    this.#sidebar.focus();
   }
 
   lastSelectedItemPath(): string[] {
-    return this.resourcesLastSelectedItemSetting.get();
+    return this.#resourcesLastSelectedItemSetting.get();
   }
 
   setLastSelectedItemPath(path: string[]): void {
-    this.resourcesLastSelectedItemSetting.set(path);
+    this.#resourcesLastSelectedItemSetting.set(path);
   }
 
   resetView(): void {
@@ -106,7 +114,7 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
   }
 
   showView(view: UI.Widget.Widget|null): void {
-    this.pendingViewPromise = null;
+    this.#pendingViewPromise = null;
     if (this.visibleView === view) {
       return;
     }
@@ -120,20 +128,20 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
     }
     this.visibleView = view;
 
-    this.storageViewToolbar.removeToolbarItems();
-    this.storageViewToolbar.element.classList.toggle('hidden', true);
+    this.#storageViewToolbar.removeToolbarItems();
+    this.#storageViewToolbar.element.classList.toggle('hidden', true);
     if (view instanceof UI.View.SimpleView) {
       view.toolbarItems().then(items => {
-        items.map(item => this.storageViewToolbar.appendToolbarItem(item));
-        this.storageViewToolbar.element.classList.toggle('hidden', !items.length);
+        items.map(item => this.#storageViewToolbar.appendToolbarItem(item));
+        this.#storageViewToolbar.element.classList.toggle('hidden', !items.length);
       });
     }
   }
 
   async scheduleShowView(viewPromise: Promise<UI.Widget.Widget>): Promise<UI.Widget.Widget|null> {
-    this.pendingViewPromise = viewPromise;
+    this.#pendingViewPromise = viewPromise;
     const view = await viewPromise;
-    if (this.pendingViewPromise !== viewPromise) {
+    if (this.#pendingViewPromise !== viewPromise) {
       return null;
     }
     this.showView(view);
@@ -141,12 +149,12 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
   }
 
   showCategoryView(categoryName: string, categoryLink: string|null): void {
-    if (!this.categoryView) {
-      this.categoryView = new StorageCategoryView();
+    if (!this.#categoryView) {
+      this.#categoryView = new StorageCategoryView();
     }
-    this.categoryView.setText(categoryName);
-    this.categoryView.setLink(categoryLink);
-    this.showView(this.categoryView);
+    this.#categoryView.setText(categoryName);
+    this.#categoryView.setLink(categoryLink);
+    this.showView(this.#categoryView);
   }
 
   showDOMStorage(domStorage: DOMStorage): void {
@@ -154,12 +162,12 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
       return;
     }
 
-    if (!this.domStorageView) {
-      this.domStorageView = new DOMStorageItemsView(domStorage);
+    if (!this.#domStorageView) {
+      this.#domStorageView = new DOMStorageItemsView(domStorage);
     } else {
-      this.domStorageView.setStorage(domStorage);
+      this.#domStorageView.setStorage(domStorage);
     }
-    this.showView(this.domStorageView);
+    this.showView(this.#domStorageView);
   }
 
   showCookies(cookieFrameTarget: SDK.Target.Target, cookieDomain: string): void {
@@ -167,12 +175,12 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
     if (!model) {
       return;
     }
-    if (!this.cookieView) {
-      this.cookieView = new CookieItemsView(model, cookieDomain);
+    if (!this.#cookieView) {
+      this.#cookieView = new CookieItemsView(model, cookieDomain);
     } else {
-      this.cookieView.setCookiesDomain(model, cookieDomain);
+      this.#cookieView.setCookiesDomain(model, cookieDomain);
     }
-    this.showView(this.cookieView);
+    this.showView(this.#cookieView);
   }
 
   clearCookies(target: SDK.Target.Target, cookieDomain: string): void {
@@ -181,8 +189,8 @@ export class ResourcesPanel extends UI.Panel.PanelWithSidebar {
       return;
     }
     model.clear(cookieDomain).then(() => {
-      if (this.cookieView) {
-        this.cookieView.refreshItems();
+      if (this.#cookieView) {
+        this.#cookieView.refreshItems();
       }
     });
   }
@@ -240,7 +248,7 @@ export class CookieReferenceRevealer implements Common.Revealer.Revealer {
     if (contextUrl && await this.revealByDomain(sidebar, contextUrl)) {
       return;
     }
-    // Fallback: try to reveal the cookie using its domain as context, which may not work, because the
+    // Fallback: try to reveal the #cookie using its domain as context, which may not work, because the
     // Application Panel shows cookies grouped by context, see crbug.com/1060563.
     this.revealByDomain(sidebar, cookie.domain());
   }
