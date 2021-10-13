@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "671a8ef2_b30d083e",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T10:59:02Z",
+      "side": 1,
+      "message": "Probably not, unless the overlay records UMA somehow? I doubt though. Yeah, so probably I\u0027d just move the check inside the case \u0027toogle-pause\u0027.",
+      "parentUuid": "d47128be_34377a89",
+      "range": {
+        "startLine": 1237,
+        "startChar": 13,
+        "endLine": 1237,
+        "endChar": 17
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6f82f03_b776edec",
         "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
         "patchSetId": 2
