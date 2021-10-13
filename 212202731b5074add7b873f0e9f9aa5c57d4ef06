@@ -336,6 +336,30 @@
       },
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "073711d8_d22546d8",
+        "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T11:28:28Z",
+      "side": 1,
+      "message": "I wonder if it works if you have the overlay disabled? That\u0027d be a different issue though. I suspect that in that case: a) overlay does not resume (because it\u0027s off) b) the event is not forwarded? (it would depend on how exactly event forwarding works)",
+      "parentUuid": "c590c788_01b56bca",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
