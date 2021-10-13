@@ -23,7 +23,7 @@ export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const REFRESH_INTERVAL_MS = 1000;
 
 export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
-  private view?: TrustTokensViewWidgetWrapper;
+  #view?: TrustTokensViewWidgetWrapper;
 
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.trustTokens), false);
@@ -37,20 +37,20 @@ export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new TrustTokensViewWidgetWrapper();
+    if (!this.#view) {
+      this.#view = new TrustTokensViewWidgetWrapper();
     }
-    this.showView(this.view);
+    this.showView(this.#view);
     return false;
   }
 }
 
 export class TrustTokensViewWidgetWrapper extends UI.ThrottledWidget.ThrottledWidget {
-  private readonly trustTokensView = new ApplicationComponents.TrustTokensView.TrustTokensView();
+  readonly #trustTokensView = new ApplicationComponents.TrustTokensView.TrustTokensView();
 
   constructor() {
     super(/* isWebComponent */ false, REFRESH_INTERVAL_MS);
-    this.contentElement.appendChild(this.trustTokensView);
+    this.contentElement.appendChild(this.#trustTokensView);
     this.update();
   }
 
@@ -60,7 +60,7 @@ export class TrustTokensViewWidgetWrapper extends UI.ThrottledWidget.ThrottledWi
       return;
     }
     const {tokens} = await mainTarget.storageAgent().invoke_getTrustTokens();
-    this.trustTokensView.data = {
+    this.#trustTokensView.data = {
       tokens,
       deleteClickHandler: (issuer: string): void => {
         mainTarget.storageAgent().invoke_clearTrustTokens({issuerOrigin: issuer});

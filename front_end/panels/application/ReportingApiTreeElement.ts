@@ -19,7 +19,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/application/ReportingApiTreeEle
 export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class ReportingApiTreeElement extends ApplicationPanelTreeElement {
-  private view?: ReportingApiView;
+  #view?: ReportingApiView;
 
   constructor(storagePanel: ResourcesPanel) {
     super(storagePanel, i18nString(UIStrings.reportingApi), false);
@@ -33,10 +33,10 @@ export class ReportingApiTreeElement extends ApplicationPanelTreeElement {
 
   onselect(selectedByUser?: boolean): boolean {
     super.onselect(selectedByUser);
-    if (!this.view) {
-      this.view = new ReportingApiView();
+    if (!this.#view) {
+      this.#view = new ReportingApiView();
     }
-    this.showView(this.view);
+    this.showView(this.#view);
     return false;
   }
 }
