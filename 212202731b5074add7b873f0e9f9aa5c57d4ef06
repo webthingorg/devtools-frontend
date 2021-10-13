@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e8c64f_4362e8ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T07:44:43Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nI\u0027m making a change so that the SourcesPanel knows the source of a keyboard shortcut (whether itw as forwarded or not), as we previously triggered the resume twice (once through the inspector overlay and once through the forwarded event. PTAL!",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
