@@ -163,6 +163,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9d31955_166a5b68",
+        "filename": "front_end/panels/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-13T13:40:19Z",
+      "side": 1,
+      "message": "I appreciate that in this case we are adding some additional complexity, but for consistency I don\u0027t think we should introduce code like this into the codebase when they make heavy use of LitHtml but aren\u0027t custom elements - our goal is to have a consistent story for all of the UI and that story is based in web components, so I think whilst it is a little extra work, it is worth doing please, both for Tim\u0027s point about scoped styling (global CSS has caused a lot of regressions for us) and for consistency with the other newer parts of the UI that we are building.",
+      "parentUuid": "c6c3d16b_fae7fc8c",
+      "range": {
+        "startLine": 205,
+        "startChar": 6,
+        "endLine": 205,
+        "endChar": 25
+      },
+      "revId": "bc96c8513b586426d4b7624987c6675fcca6e5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6353ea79_302e2769",
         "filename": "front_end/panels/changes/DiffRenderer.ts",
         "patchSetId": 2
