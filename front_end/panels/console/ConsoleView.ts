@@ -98,13 +98,13 @@ const UIStrings = {
   */
   showCorsErrorsInConsole: 'Show `CORS` errors in console',
   /**
-  * @description Tooltip for the the console sidebar toggle in the Console panel. Command to
-  * open/show the sidebar.
+  * @description Tooltip for the the console #sidebar toggle in the Console panel. Command to
+  * open/show the #sidebar.
   */
   showConsoleSidebar: 'Show console sidebar',
   /**
-  * @description Tooltip for the the console sidebar toggle in the Console panel. Command to
-  * open/show the sidebar.
+  * @description Tooltip for the the console #sidebar toggle in the Console panel. Command to
+  * open/show the #sidebar.
   */
   hideConsoleSidebar: 'Hide console sidebar',
   /**
@@ -167,7 +167,7 @@ const UIStrings = {
   */
   searching: 'Searching…',
   /**
-  *@description Text to filter result items
+  *@description Text to #filter result items
   */
   filter: 'Filter',
   /**
@@ -239,169 +239,169 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let consoleViewInstance: ConsoleView;
 
 export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Searchable, ConsoleViewportProvider {
-  private readonly searchableViewInternal: UI.SearchableView.SearchableView;
-  private readonly sidebar: ConsoleSidebar;
-  private isSidebarOpen: boolean;
-  private filter: ConsoleViewFilter;
-  private readonly consoleToolbarContainer: HTMLElement;
-  private readonly splitWidget: UI.SplitWidget.SplitWidget;
-  private readonly contentsElement: UI.Widget.WidgetElement;
-  private visibleViewMessages: ConsoleViewMessage[];
-  private hiddenByFilterCount: number;
-  private shouldBeHiddenCache: Set<ConsoleViewMessage>;
-  private lastShownHiddenByFilterCount!: number;
-  private currentMatchRangeIndex!: number;
-  private searchRegex!: RegExp|null;
-  private groupableMessages: Map<string, ConsoleViewMessage[]>;
-  private readonly groupableMessageTitle: Map<string, ConsoleViewMessage>;
-  private readonly shortcuts: Map<number, () => void>;
-  private regexMatchRanges: RegexMatchRange[];
-  private readonly consoleContextSelector: ConsoleContextSelector;
-  private readonly filterStatusText: UI.Toolbar.ToolbarText;
-  private readonly showSettingsPaneSetting: Common.Settings.Setting<boolean>;
-  private readonly showSettingsPaneButton: UI.Toolbar.ToolbarSettingToggle;
-  private readonly progressToolbarItem: UI.Toolbar.ToolbarItem;
-  private readonly groupSimilarSetting: Common.Settings.Setting<boolean>;
-  private readonly showCorsErrorsSetting: Common.Settings.Setting<boolean>;
-  private readonly preserveLogCheckbox: UI.Toolbar.ToolbarSettingCheckbox;
-  private readonly hideNetworkMessagesCheckbox: UI.Toolbar.ToolbarSettingCheckbox;
-  private readonly timestampsSetting: Common.Settings.Setting<unknown>;
-  private readonly consoleHistoryAutocompleteSetting: Common.Settings.Setting<boolean>;
+  readonly #searchableViewInternal: UI.SearchableView.SearchableView;
+  readonly #sidebar: ConsoleSidebar;
+  #isSidebarOpen: boolean;
+  #filter: ConsoleViewFilter;
+  readonly #consoleToolbarContainer: HTMLElement;
+  readonly #splitWidget: UI.SplitWidget.SplitWidget;
+  readonly #contentsElement: UI.Widget.WidgetElement;
+  #visibleViewMessages: ConsoleViewMessage[];
+  #hiddenByFilterCount: number;
+  #shouldBeHiddenCache: Set<ConsoleViewMessage>;
+  #lastShownHiddenByFilterCount!: number;
+  #currentMatchRangeIndex!: number;
+  #searchRegex!: RegExp|null;
+  #groupableMessages: Map<string, ConsoleViewMessage[]>;
+  readonly #groupableMessageTitle: Map<string, ConsoleViewMessage>;
+  readonly #shortcuts: Map<number, () => void>;
+  #regexMatchRanges: RegexMatchRange[];
+  readonly #consoleContextSelector: ConsoleContextSelector;
+  readonly #filterStatusText: UI.Toolbar.ToolbarText;
+  readonly #showSettingsPaneSetting: Common.Settings.Setting<boolean>;
+  readonly #showSettingsPaneButton: UI.Toolbar.ToolbarSettingToggle;
+  readonly #progressToolbarItem: UI.Toolbar.ToolbarItem;
+  readonly #groupSimilarSetting: Common.Settings.Setting<boolean>;
+  readonly #showCorsErrorsSetting: Common.Settings.Setting<boolean>;
+  readonly #preserveLogCheckbox: UI.Toolbar.ToolbarSettingCheckbox;
+  readonly #hideNetworkMessagesCheckbox: UI.Toolbar.ToolbarSettingCheckbox;
+  readonly #timestampsSetting: Common.Settings.Setting<unknown>;
+  readonly #consoleHistoryAutocompleteSetting: Common.Settings.Setting<boolean>;
   readonly pinPane: ConsolePinPane;
-  private viewport: ConsoleViewport;
-  private messagesElement: HTMLElement;
-  private messagesCountElement: HTMLElement;
-  private viewportThrottler: Common.Throttler.Throttler;
-  private pendingBatchResize: boolean;
-  private readonly onMessageResizedBound: (e: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void;
-  private topGroup: ConsoleGroup;
-  private currentGroup: ConsoleGroup;
-  private readonly promptElement: HTMLElement;
-  private readonly linkifier: Components.Linkifier.Linkifier;
-  private consoleMessages: ConsoleViewMessage[];
-  private readonly viewMessageSymbol: symbol;
-  private readonly consoleHistorySetting: Common.Settings.Setting<string[]>;
-  private prompt: ConsolePrompt;
-  private immediatelyFilterMessagesForTest?: boolean;
-  private maybeDirtyWhileMuted?: boolean;
-  private scheduledRefreshPromiseForTest?: Promise<void>;
-  private needsFullUpdate?: boolean;
-  private buildHiddenCacheTimeout?: number;
-  private searchShouldJumpBackwards?: boolean;
-  private searchProgressIndicator?: UI.ProgressIndicator.ProgressIndicator;
-  private innerSearchTimeoutId?: number;
-  private muteViewportUpdates?: boolean;
-  private waitForScrollTimeout?: number;
-  private issueCounter: IssueCounter.IssueCounter.IssueCounter;
-  private pendingSidebarMessages: ConsoleViewMessage[] = [];
-  private userHasOpenedSidebarAtLeastOnce = false;
-  private issueToolbarThrottle: Common.Throttler.Throttler;
-  private requestResolver = new Logs.RequestResolver.RequestResolver();
-  private issueResolver = new IssuesManager.IssueResolver.IssueResolver();
+  #viewport: ConsoleViewport;
+  #messagesElement: HTMLElement;
+  #messagesCountElement: HTMLElement;
+  #viewportThrottler: Common.Throttler.Throttler;
+  #pendingBatchResize: boolean;
+  readonly #onMessageResizedBound: (e: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>) => void;
+  #topGroup: ConsoleGroup;
+  #currentGroup: ConsoleGroup;
+  readonly #promptElement: HTMLElement;
+  readonly #linkifier: Components.Linkifier.Linkifier;
+  #consoleMessages: ConsoleViewMessage[];
+  readonly #viewMessageSymbol: symbol;
+  readonly #consoleHistorySetting: Common.Settings.Setting<string[]>;
+  #prompt: ConsolePrompt;
+  #immediatelyFilterMessagesForTest?: boolean;
+  #maybeDirtyWhileMuted?: boolean;
+  #scheduledRefreshPromiseForTest?: Promise<void>;
+  #needsFullUpdate?: boolean;
+  #buildHiddenCacheTimeout?: number;
+  #searchShouldJumpBackwards?: boolean;
+  #searchProgressIndicator?: UI.ProgressIndicator.ProgressIndicator;
+  #innerSearchTimeoutId?: number;
+  #muteViewportUpdates?: boolean;
+  #waitForScrollTimeout?: number;
+  #issueCounter: IssueCounter.IssueCounter.IssueCounter;
+  #pendingSidebarMessages: ConsoleViewMessage[] = [];
+  #userHasOpenedSidebarAtLeastOnce = false;
+  #issueToolbarThrottle: Common.Throttler.Throttler;
+  #requestResolver = new Logs.RequestResolver.RequestResolver();
+  #issueResolver = new IssuesManager.IssueResolver.IssueResolver();
 
   constructor() {
     super();
     this.setMinimumSize(0, 35);
 
-    this.searchableViewInternal = new UI.SearchableView.SearchableView(this, null);
-    this.searchableViewInternal.element.classList.add('console-searchable-view');
-    this.searchableViewInternal.setPlaceholder(i18nString(UIStrings.findStringInLogs));
-    this.searchableViewInternal.setMinimalSearchQuerySize(0);
-    this.sidebar = new ConsoleSidebar();
-    this.sidebar.addEventListener(Events.FilterSelected, this.onFilterChanged.bind(this));
-    this.isSidebarOpen = false;
-    this.filter = new ConsoleViewFilter(this.onFilterChanged.bind(this));
+    this.#searchableViewInternal = new UI.SearchableView.SearchableView(this, null);
+    this.#searchableViewInternal.element.classList.add('console-searchable-view');
+    this.#searchableViewInternal.setPlaceholder(i18nString(UIStrings.findStringInLogs));
+    this.#searchableViewInternal.setMinimalSearchQuerySize(0);
+    this.#sidebar = new ConsoleSidebar();
+    this.#sidebar.addEventListener(Events.FilterSelected, this.onFilterChanged.bind(this));
+    this.#isSidebarOpen = false;
+    this.#filter = new ConsoleViewFilter(this.onFilterChanged.bind(this));
 
-    this.consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
-    this.splitWidget = new UI.SplitWidget.SplitWidget(
+    this.#consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
+    this.#splitWidget = new UI.SplitWidget.SplitWidget(
         true /* isVertical */, false /* secondIsSidebar */, 'console.sidebar.width', 100);
-    this.splitWidget.setMainWidget(this.searchableViewInternal);
-    this.splitWidget.setSidebarWidget(this.sidebar);
-    this.splitWidget.show(this.element);
-    this.splitWidget.hideSidebar();
-    this.splitWidget.enableShowModeSaving();
-    this.isSidebarOpen = this.splitWidget.showMode() === UI.SplitWidget.ShowMode.Both;
-    this.filter.setLevelMenuOverridden(this.isSidebarOpen);
-    this.splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, event => {
-      this.isSidebarOpen = event.data === UI.SplitWidget.ShowMode.Both;
+    this.#splitWidget.setMainWidget(this.#searchableViewInternal);
+    this.#splitWidget.setSidebarWidget(this.#sidebar);
+    this.#splitWidget.show(this.element);
+    this.#splitWidget.hideSidebar();
+    this.#splitWidget.enableShowModeSaving();
+    this.#isSidebarOpen = this.#splitWidget.showMode() === UI.SplitWidget.ShowMode.Both;
+    this.#filter.setLevelMenuOverridden(this.#isSidebarOpen);
+    this.#splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, event => {
+      this.#isSidebarOpen = event.data === UI.SplitWidget.ShowMode.Both;
 
-      if (this.isSidebarOpen) {
-        if (!this.userHasOpenedSidebarAtLeastOnce) {
+      if (this.#isSidebarOpen) {
+        if (!this.#userHasOpenedSidebarAtLeastOnce) {
           /**
-           * We only want to know if the user opens the sidebar once, not how
+           * We only want to know if the user opens the #sidebar once, not how
            * many times in a given session they might open and close it, hence
-           * the userHasOpenedSidebarAtLeastOnce variable to track this.
+           * the #userHasOpenedSidebarAtLeastOnce variable to track this.
            */
           Host.userMetrics.actionTaken(Host.UserMetrics.Action.ConsoleSidebarOpened);
-          this.userHasOpenedSidebarAtLeastOnce = true;
+          this.#userHasOpenedSidebarAtLeastOnce = true;
         }
 
-        // If the user has now opened the sidebar, we need to update it, so send
+        // If the user has now opened the #sidebar, we need to update it, so send
         // through all the pending messages.
-        this.pendingSidebarMessages.forEach(message => {
-          this.sidebar.onMessageAdded(message);
+        this.#pendingSidebarMessages.forEach(message => {
+          this.#sidebar.onMessageAdded(message);
         });
-        this.pendingSidebarMessages = [];
+        this.#pendingSidebarMessages = [];
       }
-      this.filter.setLevelMenuOverridden(this.isSidebarOpen);
+      this.#filter.setLevelMenuOverridden(this.#isSidebarOpen);
       this.onFilterChanged();
     });
-    this.contentsElement = this.searchableViewInternal.element;
+    this.#contentsElement = this.#searchableViewInternal.element;
     this.element.classList.add('console-view');
 
-    this.visibleViewMessages = [];
-    this.hiddenByFilterCount = 0;
-    this.shouldBeHiddenCache = new Set();
+    this.#visibleViewMessages = [];
+    this.#hiddenByFilterCount = 0;
+    this.#shouldBeHiddenCache = new Set();
 
-    this.groupableMessages = new Map();
-    this.groupableMessageTitle = new Map();
-    this.shortcuts = new Map();
+    this.#groupableMessages = new Map();
+    this.#groupableMessageTitle = new Map();
+    this.#shortcuts = new Map();
 
-    this.regexMatchRanges = [];
+    this.#regexMatchRanges = [];
 
-    this.consoleContextSelector = new ConsoleContextSelector();
+    this.#consoleContextSelector = new ConsoleContextSelector();
 
-    this.filterStatusText = new UI.Toolbar.ToolbarText();
-    this.filterStatusText.element.classList.add('dimmed');
-    this.showSettingsPaneSetting =
+    this.#filterStatusText = new UI.Toolbar.ToolbarText();
+    this.#filterStatusText.element.classList.add('dimmed');
+    this.#showSettingsPaneSetting =
         Common.Settings.Settings.instance().createSetting('consoleShowSettingsToolbar', false);
-    this.showSettingsPaneButton = new UI.Toolbar.ToolbarSettingToggle(
-        this.showSettingsPaneSetting, 'largeicon-settings-gear', i18nString(UIStrings.consoleSettings));
-    this.progressToolbarItem = new UI.Toolbar.ToolbarItem(document.createElement('div'));
-    this.groupSimilarSetting = Common.Settings.Settings.instance().moduleSetting('consoleGroupSimilar');
-    this.groupSimilarSetting.addChangeListener(() => this.updateMessageList());
+    this.#showSettingsPaneButton = new UI.Toolbar.ToolbarSettingToggle(
+        this.#showSettingsPaneSetting, 'largeicon-settings-gear', i18nString(UIStrings.consoleSettings));
+    this.#progressToolbarItem = new UI.Toolbar.ToolbarItem(document.createElement('div'));
+    this.#groupSimilarSetting = Common.Settings.Settings.instance().moduleSetting('consoleGroupSimilar');
+    this.#groupSimilarSetting.addChangeListener(() => this.updateMessageList());
     const groupSimilarToggle = new UI.Toolbar.ToolbarSettingCheckbox(
-        this.groupSimilarSetting, i18nString(UIStrings.groupSimilarMessagesInConsole));
-    this.showCorsErrorsSetting = Common.Settings.Settings.instance().moduleSetting('consoleShowsCorsErrors');
-    this.showCorsErrorsSetting.addChangeListener(() => {
-      Host.userMetrics.showCorsErrorsSettingChanged(this.showCorsErrorsSetting.get());
+        this.#groupSimilarSetting, i18nString(UIStrings.groupSimilarMessagesInConsole));
+    this.#showCorsErrorsSetting = Common.Settings.Settings.instance().moduleSetting('consoleShowsCorsErrors');
+    this.#showCorsErrorsSetting.addChangeListener(() => {
+      Host.userMetrics.showCorsErrorsSettingChanged(this.#showCorsErrorsSetting.get());
       this.updateMessageList();
     });
     const showCorsErrorsToggle = new UI.Toolbar.ToolbarSettingCheckbox(
-        this.showCorsErrorsSetting, i18nString(UIStrings.showCorsErrorsInConsole));
+        this.#showCorsErrorsSetting, i18nString(UIStrings.showCorsErrorsInConsole));
 
-    const toolbar = new UI.Toolbar.Toolbar('console-main-toolbar', this.consoleToolbarContainer);
+    const toolbar = new UI.Toolbar.Toolbar('console-main-toolbar', this.#consoleToolbarContainer);
     toolbar.makeWrappable(true);
-    const rightToolbar = new UI.Toolbar.Toolbar('', this.consoleToolbarContainer);
-    toolbar.appendToolbarItem(this.splitWidget.createShowHideSidebarButton(
+    const rightToolbar = new UI.Toolbar.Toolbar('', this.#consoleToolbarContainer);
+    toolbar.appendToolbarItem(this.#splitWidget.createShowHideSidebarButton(
         i18nString(UIStrings.showConsoleSidebar), i18nString(UIStrings.hideConsoleSidebar)));
     toolbar.appendToolbarItem(UI.Toolbar.Toolbar.createActionButton(
         (UI.ActionRegistry.ActionRegistry.instance().action('console.clear') as UI.ActionRegistration.Action)));
     toolbar.appendSeparator();
-    toolbar.appendToolbarItem(this.consoleContextSelector.toolbarItem());
+    toolbar.appendToolbarItem(this.#consoleContextSelector.toolbarItem());
     toolbar.appendSeparator();
     const liveExpressionButton = UI.Toolbar.Toolbar.createActionButton(
         (UI.ActionRegistry.ActionRegistry.instance().action('console.create-pin') as UI.ActionRegistration.Action));
     toolbar.appendToolbarItem(liveExpressionButton);
     toolbar.appendSeparator();
-    toolbar.appendToolbarItem(this.filter.textFilterUI);
-    toolbar.appendToolbarItem(this.filter.levelMenuButton);
-    toolbar.appendToolbarItem(this.progressToolbarItem);
+    toolbar.appendToolbarItem(this.#filter.textFilterUI);
+    toolbar.appendToolbarItem(this.#filter.levelMenuButton);
+    toolbar.appendToolbarItem(this.#progressToolbarItem);
     toolbar.appendSeparator();
-    this.issueCounter = new IssueCounter.IssueCounter.IssueCounter();
-    this.issueCounter.id = 'console-issues-counter';
-    const issuesToolbarItem = new UI.Toolbar.ToolbarItem(this.issueCounter);
-    this.issueCounter.data = {
+    this.#issueCounter = new IssueCounter.IssueCounter.IssueCounter();
+    this.#issueCounter.id = 'console-issues-counter';
+    const issuesToolbarItem = new UI.Toolbar.ToolbarItem(this.#issueCounter);
+    this.#issueCounter.data = {
       clickHandler: (): void => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
         UI.ViewManager.ViewManager.instance().showView('issues-pane');
@@ -412,33 +412,33 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     };
     toolbar.appendToolbarItem(issuesToolbarItem);
     rightToolbar.appendSeparator();
-    rightToolbar.appendToolbarItem(this.filterStatusText);
-    rightToolbar.appendToolbarItem(this.showSettingsPaneButton);
+    rightToolbar.appendToolbarItem(this.#filterStatusText);
+    rightToolbar.appendToolbarItem(this.#showSettingsPaneButton);
 
-    this.preserveLogCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+    this.#preserveLogCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         Common.Settings.Settings.instance().moduleSetting('preserveConsoleLog'),
         i18nString(UIStrings.doNotClearLogOnPageReload), i18nString(UIStrings.preserveLog));
-    this.hideNetworkMessagesCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
-        this.filter.hideNetworkMessagesSetting, this.filter.hideNetworkMessagesSetting.title(),
+    this.#hideNetworkMessagesCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+        this.#filter.hideNetworkMessagesSetting, this.#filter.hideNetworkMessagesSetting.title(),
         i18nString(UIStrings.hideNetwork));
     const filterByExecutionContextCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
-        this.filter.filterByExecutionContextSetting, i18nString(UIStrings.onlyShowMessagesFromTheCurrentContext),
+        this.#filter.filterByExecutionContextSetting, i18nString(UIStrings.onlyShowMessagesFromTheCurrentContext),
         i18nString(UIStrings.selectedContextOnly));
     const monitoringXHREnabledSetting = Common.Settings.Settings.instance().moduleSetting('monitoringXHREnabled');
-    this.timestampsSetting = Common.Settings.Settings.instance().moduleSetting('consoleTimestampsEnabled');
-    this.consoleHistoryAutocompleteSetting =
+    this.#timestampsSetting = Common.Settings.Settings.instance().moduleSetting('consoleTimestampsEnabled');
+    this.#consoleHistoryAutocompleteSetting =
         Common.Settings.Settings.instance().moduleSetting('consoleHistoryAutocomplete');
 
     const settingsPane = new UI.Widget.HBox();
-    settingsPane.show(this.contentsElement);
+    settingsPane.show(this.#contentsElement);
     settingsPane.element.classList.add('console-settings-pane');
 
     UI.ARIAUtils.setAccessibleName(settingsPane.element, i18nString(UIStrings.consoleSettings));
     UI.ARIAUtils.markAsGroup(settingsPane.element);
     const settingsToolbarLeft = new UI.Toolbar.Toolbar('', settingsPane.element);
     settingsToolbarLeft.makeVertical();
-    settingsToolbarLeft.appendToolbarItem(this.hideNetworkMessagesCheckbox);
-    settingsToolbarLeft.appendToolbarItem(this.preserveLogCheckbox);
+    settingsToolbarLeft.appendToolbarItem(this.#hideNetworkMessagesCheckbox);
+    settingsToolbarLeft.appendToolbarItem(this.#preserveLogCheckbox);
     settingsToolbarLeft.appendToolbarItem(filterByExecutionContextCheckbox);
     settingsToolbarLeft.appendToolbarItem(groupSimilarToggle);
     settingsToolbarLeft.appendToolbarItem(showCorsErrorsToggle);
@@ -451,111 +451,112 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
         i18nString(UIStrings.eagerlyEvaluateTextInThePrompt));
     settingsToolbarRight.appendToolbarItem(eagerEvalCheckbox);
     settingsToolbarRight.appendToolbarItem(
-        new UI.Toolbar.ToolbarSettingCheckbox(this.consoleHistoryAutocompleteSetting));
+        new UI.Toolbar.ToolbarSettingCheckbox(this.#consoleHistoryAutocompleteSetting));
     const userGestureCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         Common.Settings.Settings.instance().moduleSetting('consoleUserActivationEval'));
     settingsToolbarRight.appendToolbarItem(userGestureCheckbox);
-    if (!this.showSettingsPaneSetting.get()) {
+    if (!this.#showSettingsPaneSetting.get()) {
       settingsPane.element.classList.add('hidden');
     }
-    this.showSettingsPaneSetting.addChangeListener(
-        () => settingsPane.element.classList.toggle('hidden', !this.showSettingsPaneSetting.get()));
+    this.#showSettingsPaneSetting.addChangeListener(
+        () => settingsPane.element.classList.toggle('hidden', !this.#showSettingsPaneSetting.get()));
 
     this.pinPane = new ConsolePinPane(liveExpressionButton);
     this.pinPane.element.classList.add('console-view-pinpane');
-    this.pinPane.show(this.contentsElement);
+    this.pinPane.show(this.#contentsElement);
     this.pinPane.element.addEventListener('keydown', event => {
       if ((event.key === 'Enter' &&
            UI.KeyboardShortcut.KeyboardShortcut.eventHasCtrlEquivalentKey((event as KeyboardEvent))) ||
           event.keyCode === UI.KeyboardShortcut.Keys.Esc.code) {
-        this.prompt.focus();
+        this.#prompt.focus();
         event.consume();
       }
     });
 
-    this.viewport = new ConsoleViewport(this);
-    this.viewport.setStickToBottom(true);
-    this.viewport.contentElement().classList.add('console-group', 'console-group-messages');
-    this.contentsElement.appendChild(this.viewport.element);
-    this.messagesElement = this.viewport.element;
-    this.messagesElement.id = 'console-messages';
-    this.messagesElement.classList.add('monospace');
-    this.messagesElement.addEventListener('click', this.messagesClicked.bind(this), false);
-    this.messagesElement.addEventListener('paste', this.messagesPasted.bind(this), true);
-    this.messagesElement.addEventListener('clipboard-paste', this.messagesPasted.bind(this), true);
+    this.#viewport = new ConsoleViewport(this);
+    this.#viewport.setStickToBottom(true);
+    this.#viewport.contentElement().classList.add('console-group', 'console-group-messages');
+    this.#contentsElement.appendChild(this.#viewport.element);
+    this.#messagesElement = this.#viewport.element;
+    this.#messagesElement.id = 'console-messages';
+    this.#messagesElement.classList.add('monospace');
+    this.#messagesElement.addEventListener('click', this.messagesClicked.bind(this), false);
+    this.#messagesElement.addEventListener('paste', this.messagesPasted.bind(this), true);
+    this.#messagesElement.addEventListener('clipboard-paste', this.messagesPasted.bind(this), true);
 
-    this.messagesCountElement = this.consoleToolbarContainer.createChild('div', 'message-count');
-    UI.ARIAUtils.markAsPoliteLiveRegion(this.messagesCountElement, false);
+    this.#messagesCountElement = this.#consoleToolbarContainer.createChild('div', 'message-count');
+    UI.ARIAUtils.markAsPoliteLiveRegion(this.#messagesCountElement, false);
 
-    this.viewportThrottler = new Common.Throttler.Throttler(50);
-    this.pendingBatchResize = false;
-    this.onMessageResizedBound = (e: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void => {
+    this.#viewportThrottler = new Common.Throttler.Throttler(50);
+    this.#pendingBatchResize = false;
+    this.#onMessageResizedBound = (e: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void => {
       this.onMessageResized(e);
     };
 
-    this.topGroup = ConsoleGroup.createTopGroup();
-    this.currentGroup = this.topGroup;
+    this.#topGroup = ConsoleGroup.createTopGroup();
+    this.#currentGroup = this.#topGroup;
 
-    this.promptElement = this.messagesElement.createChild('div', 'source-code');
-    this.promptElement.id = 'console-prompt';
+    this.#promptElement = this.#messagesElement.createChild('div', 'source-code');
+    this.#promptElement.id = 'console-prompt';
 
     // FIXME: This is a workaround for the selection machinery bug. See crbug.com/410899
-    const selectAllFixer = this.messagesElement.createChild('div', 'console-view-fix-select-all');
+    const selectAllFixer = this.#messagesElement.createChild('div', 'console-view-fix-select-all');
     selectAllFixer.textContent = '.';
     UI.ARIAUtils.markAsHidden(selectAllFixer);
 
     this.registerShortcuts();
 
-    this.messagesElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), false);
+    this.#messagesElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), false);
 
     // Filters need to be re-applied to a console message when the message's live location changes.
-    // All relevant live locations are created by the same linkifier, so it is enough to subscribe to
+    // All relevant live locations are created by the same #linkifier, so it is enough to subscribe to
     // the linkifiers live location change event.
     const throttler = new Common.Throttler.Throttler(100);
     const refilterMessages = (): Promise<void> => throttler.schedule(async () => this.onFilterChanged());
-    this.linkifier =
+    this.#linkifier =
         new Components.Linkifier.Linkifier(MaxLengthForLinks, /* useLinkDecorator */ undefined, refilterMessages);
 
-    this.consoleMessages = [];
-    this.viewMessageSymbol = Symbol('viewMessage');
+    this.#consoleMessages = [];
+    this.#viewMessageSymbol = Symbol('viewMessage');
 
-    this.consoleHistorySetting = Common.Settings.Settings.instance().createLocalSetting('consoleHistory', []);
+    this.#consoleHistorySetting = Common.Settings.Settings.instance().createLocalSetting('consoleHistory', []);
 
-    this.prompt = new ConsolePrompt();
-    this.prompt.show(this.promptElement);
-    this.prompt.element.addEventListener('keydown', this.promptKeyDown.bind(this), true);
-    this.prompt.addEventListener(ConsolePromptEvents.TextChanged, this.promptTextChanged, this);
+    this.#prompt = new ConsolePrompt();
+    this.#prompt.show(this.#promptElement);
+    this.#prompt.element.addEventListener('keydown', this.promptKeyDown.bind(this), true);
+    this.#prompt.addEventListener(ConsolePromptEvents.TextChanged, this.promptTextChanged, this);
 
-    this.messagesElement.addEventListener('keydown', this.messagesKeyDown.bind(this), false);
-    this.prompt.element.addEventListener('focusin', () => {
+    this.#messagesElement.addEventListener('keydown', this.messagesKeyDown.bind(this), false);
+    this.#prompt.element.addEventListener('focusin', () => {
       if (this.isScrolledToBottom()) {
-        this.viewport.setStickToBottom(true);
+        this.#viewport.setStickToBottom(true);
       }
     });
 
-    this.consoleHistoryAutocompleteSetting.addChangeListener(this.consoleHistoryAutocompleteChanged, this);
+    this.#consoleHistoryAutocompleteSetting.addChangeListener(this.consoleHistoryAutocompleteChanged, this);
 
-    const historyData = this.consoleHistorySetting.get();
-    this.prompt.history().setHistoryData(historyData);
+    const historyData = this.#consoleHistorySetting.get();
+    this.#prompt.history().setHistoryData(historyData);
     this.consoleHistoryAutocompleteChanged();
 
     this.updateFilterStatus();
-    this.timestampsSetting.addChangeListener(this.consoleTimestampsSettingChanged, this);
+    this.#timestampsSetting.addChangeListener(this.consoleTimestampsSettingChanged, this);
 
     this.registerWithMessageSink();
 
     UI.Context.Context.instance().addFlavorChangeListener(
         SDK.RuntimeModel.ExecutionContext, this.executionContextChanged, this);
 
-    this.messagesElement.addEventListener(
+    this.#messagesElement.addEventListener(
         'mousedown', (event: Event) => this.updateStickToBottomOnPointerDown((event as MouseEvent).button === 2),
         false);
-    this.messagesElement.addEventListener('mouseup', this.updateStickToBottomOnPointerUp.bind(this), false);
-    this.messagesElement.addEventListener('mouseleave', this.updateStickToBottomOnPointerUp.bind(this), false);
-    this.messagesElement.addEventListener('wheel', this.updateStickToBottomOnWheel.bind(this), false);
-    this.messagesElement.addEventListener('touchstart', this.updateStickToBottomOnPointerDown.bind(this, false), false);
-    this.messagesElement.addEventListener('touchend', this.updateStickToBottomOnPointerUp.bind(this), false);
-    this.messagesElement.addEventListener('touchcancel', this.updateStickToBottomOnPointerUp.bind(this), false);
+    this.#messagesElement.addEventListener('mouseup', this.updateStickToBottomOnPointerUp.bind(this), false);
+    this.#messagesElement.addEventListener('mouseleave', this.updateStickToBottomOnPointerUp.bind(this), false);
+    this.#messagesElement.addEventListener('wheel', this.updateStickToBottomOnWheel.bind(this), false);
+    this.#messagesElement.addEventListener(
+        'touchstart', this.updateStickToBottomOnPointerDown.bind(this, false), false);
+    this.#messagesElement.addEventListener('touchend', this.updateStickToBottomOnPointerUp.bind(this), false);
+    this.#messagesElement.addEventListener('touchcancel', this.updateStickToBottomOnPointerUp.bind(this), false);
 
     SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
         SDK.ConsoleModel.Events.ConsoleCleared, this.consoleCleared, this);
@@ -568,10 +569,10 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     SDK.ConsoleModel.ConsoleModel.instance().messages().forEach(this.addConsoleMessage, this);
 
     const issuesManager = IssuesManager.IssuesManager.IssuesManager.instance();
-    this.issueToolbarThrottle = new Common.Throttler.Throttler(100);
+    this.#issueToolbarThrottle = new Common.Throttler.Throttler(100);
     issuesManager.addEventListener(
         IssuesManager.IssuesManager.Events.IssuesCountUpdated,
-        () => this.issueToolbarThrottle.schedule(async () => this.updateIssuesToolbarItem()), this);
+        () => this.#issueToolbarThrottle.schedule(async () => this.updateIssuesToolbarItem()), this);
   }
 
   static instance(): ConsoleView {
@@ -585,47 +586,63 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     SDK.ConsoleModel.ConsoleModel.instance().requestClearMessages();
   }
 
+  get prompt(): ConsolePrompt {
+    return this.#prompt;
+  }
+
+  get consoleContextSelector(): ConsoleContextSelector {
+    return this.#consoleContextSelector;
+  }
+
+  get visibleViewMessages(): ConsoleViewMessage[] {
+    return this.#visibleViewMessages;
+  }
+
+  get viewport(): ConsoleViewport {
+    return this.#viewport;
+  }
+
   private onFilterChanged(): void {
-    this.filter.currentFilter.levelsMask =
-        this.isSidebarOpen ? ConsoleFilter.allLevelsFilterValue() : this.filter.messageLevelFiltersSetting.get();
+    this.#filter.currentFilter.levelsMask =
+        this.#isSidebarOpen ? ConsoleFilter.allLevelsFilterValue() : this.#filter.messageLevelFiltersSetting.get();
     this.cancelBuildHiddenCache();
-    if (this.immediatelyFilterMessagesForTest) {
-      for (const viewMessage of this.consoleMessages) {
+    if (this.#immediatelyFilterMessagesForTest) {
+      for (const viewMessage of this.#consoleMessages) {
         this.computeShouldMessageBeVisible(viewMessage);
       }
       this.updateMessageList();
       return;
     }
-    this.buildHiddenCache(0, this.consoleMessages.slice());
+    this.buildHiddenCache(0, this.#consoleMessages.slice());
   }
 
   private setImmediatelyFilterMessagesForTest(): void {
-    this.immediatelyFilterMessagesForTest = true;
+    this.#immediatelyFilterMessagesForTest = true;
   }
 
   searchableView(): UI.SearchableView.SearchableView {
-    return this.searchableViewInternal;
+    return this.#searchableViewInternal;
   }
 
   clearHistory(): void {
-    this.consoleHistorySetting.set([]);
-    this.prompt.history().setHistoryData([]);
+    this.#consoleHistorySetting.set([]);
+    this.#prompt.history().setHistoryData([]);
   }
 
   private consoleHistoryAutocompleteChanged(): void {
-    this.prompt.setAddCompletionsFromHistory(this.consoleHistoryAutocompleteSetting.get());
+    this.#prompt.setAddCompletionsFromHistory(this.#consoleHistoryAutocompleteSetting.get());
   }
 
   itemCount(): number {
-    return this.visibleViewMessages.length;
+    return this.#visibleViewMessages.length;
   }
 
   itemElement(index: number): ConsoleViewportElement|null {
-    return this.visibleViewMessages[index];
+    return this.#visibleViewMessages[index];
   }
 
   fastHeight(index: number): number {
-    return this.visibleViewMessages[index].fastHeight();
+    return this.#visibleViewMessages[index].fastHeight();
   }
 
   minimumRowHeight(): number {
@@ -661,12 +678,12 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
 
   private consoleTimestampsSettingChanged(): void {
     this.updateMessageList();
-    this.consoleMessages.forEach(viewMessage => viewMessage.updateTimestamp());
-    this.groupableMessageTitle.forEach(viewMessage => viewMessage.updateTimestamp());
+    this.#consoleMessages.forEach(viewMessage => viewMessage.updateTimestamp());
+    this.#groupableMessageTitle.forEach(viewMessage => viewMessage.updateTimestamp());
   }
 
   private executionContextChanged(): void {
-    this.prompt.clearAutocomplete();
+    this.#prompt.clearAutocomplete();
   }
 
   willHide(): void {
@@ -676,30 +693,30 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   wasShown(): void {
     super.wasShown();
     this.updateIssuesToolbarItem();
-    this.viewport.refresh();
+    this.#viewport.refresh();
     this.registerCSSFiles([consoleViewStyles, objectValueStyles, CodeHighlighter.Style.default]);
   }
 
   focus(): void {
-    if (this.viewport.hasVirtualSelection()) {
-      (this.viewport.contentElement() as HTMLElement).focus();
+    if (this.#viewport.hasVirtualSelection()) {
+      (this.#viewport.contentElement() as HTMLElement).focus();
     } else {
       this.focusPrompt();
     }
   }
 
   focusPrompt(): void {
-    if (!this.prompt.hasFocus()) {
-      const oldStickToBottom = this.viewport.stickToBottom();
-      const oldScrollTop = this.viewport.element.scrollTop;
-      this.prompt.focus();
-      this.viewport.setStickToBottom(oldStickToBottom);
-      this.viewport.element.scrollTop = oldScrollTop;
+    if (!this.#prompt.hasFocus()) {
+      const oldStickToBottom = this.#viewport.stickToBottom();
+      const oldScrollTop = this.#viewport.element.scrollTop;
+      this.#prompt.focus();
+      this.#viewport.setStickToBottom(oldStickToBottom);
+      this.#viewport.element.scrollTop = oldScrollTop;
     }
   }
 
   restoreScrollPositions(): void {
-    if (this.viewport.stickToBottom()) {
+    if (this.#viewport.stickToBottom()) {
       this.immediatelyScrollToBottom();
     } else {
       super.restoreScrollPositions();
@@ -709,29 +726,29 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   onResize(): void {
     this.scheduleViewportRefresh();
     this.hidePromptSuggestBox();
-    if (this.viewport.stickToBottom()) {
+    if (this.#viewport.stickToBottom()) {
       this.immediatelyScrollToBottom();
     }
-    for (let i = 0; i < this.visibleViewMessages.length; ++i) {
-      this.visibleViewMessages[i].onResize();
+    for (let i = 0; i < this.#visibleViewMessages.length; ++i) {
+      this.#visibleViewMessages[i].onResize();
     }
   }
 
   private hidePromptSuggestBox(): void {
-    this.prompt.clearAutocomplete();
+    this.#prompt.clearAutocomplete();
   }
 
   private async invalidateViewport(): Promise<void> {
     this.updateIssuesToolbarItem();
-    if (this.muteViewportUpdates) {
-      this.maybeDirtyWhileMuted = true;
+    if (this.#muteViewportUpdates) {
+      this.#maybeDirtyWhileMuted = true;
       return;
     }
-    if (this.needsFullUpdate) {
+    if (this.#needsFullUpdate) {
       this.updateMessageList();
-      delete this.needsFullUpdate;
+      this.#needsFullUpdate = undefined;
     } else {
-      this.viewport.invalidate();
+      this.#viewport.invalidate();
     }
     return;
   }
@@ -744,23 +761,23 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
         i18nString(UIStrings.issueToolbarClickToView, {issueEnumeration});
     const issuesTitleGeneral = i18nString(UIStrings.issueToolbarTooltipGeneral);
     const issuesTitle = `${issuesTitleGeneral} ${issuesTitleGotoIssues}`;
-    UI.Tooltip.Tooltip.install(this.issueCounter, issuesTitle);
-    this.issueCounter.data = {
-      ...this.issueCounter.data,
+    UI.Tooltip.Tooltip.install(this.#issueCounter, issuesTitle);
+    this.#issueCounter.data = {
+      ...this.#issueCounter.data,
       leadingText: i18nString(UIStrings.issuesWithColon, {n: manager.numberOfIssues()}),
       accessibleName: issuesTitle,
     };
   }
 
   private scheduleViewportRefresh(): void {
-    if (this.muteViewportUpdates) {
-      this.maybeDirtyWhileMuted = true;
+    if (this.#muteViewportUpdates) {
+      this.#maybeDirtyWhileMuted = true;
       this.scheduleViewportRefreshForTest(true);
       return;
     }
     this.scheduleViewportRefreshForTest(false);
 
-    this.scheduledRefreshPromiseForTest = this.viewportThrottler.schedule(this.invalidateViewport.bind(this));
+    this.#scheduledRefreshPromiseForTest = this.#viewportThrottler.schedule(this.invalidateViewport.bind(this));
   }
 
   private scheduleViewportRefreshForTest(_muted: boolean): void {
@@ -768,18 +785,18 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private immediatelyScrollToBottom(): void {
-    // This will scroll viewport and trigger its refresh.
-    this.viewport.setStickToBottom(true);
-    this.promptElement.scrollIntoView(true);
+    // This will scroll #viewport and trigger its refresh.
+    this.#viewport.setStickToBottom(true);
+    this.#promptElement.scrollIntoView(true);
   }
 
   private updateFilterStatus(): void {
-    if (this.hiddenByFilterCount === this.lastShownHiddenByFilterCount) {
+    if (this.#hiddenByFilterCount === this.#lastShownHiddenByFilterCount) {
       return;
     }
-    this.filterStatusText.setText(i18nString(UIStrings.sHidden, {n: this.hiddenByFilterCount}));
-    this.filterStatusText.setVisible(Boolean(this.hiddenByFilterCount));
-    this.lastShownHiddenByFilterCount = this.hiddenByFilterCount;
+    this.#filterStatusText.setText(i18nString(UIStrings.sHidden, {n: this.#hiddenByFilterCount}));
+    this.#filterStatusText.setVisible(Boolean(this.#hiddenByFilterCount));
+    this.#lastShownHiddenByFilterCount = this.#hiddenByFilterCount;
   }
 
   private onConsoleMessageAdded(event: Common.EventTarget.EventTargetEvent<SDK.ConsoleModel.ConsoleMessage>): void {
@@ -792,7 +809,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     consoleMessageToViewMessage.set(message, viewMessage);
     if (message.type === SDK.ConsoleModel.FrontendMessageType.Command ||
         message.type === SDK.ConsoleModel.FrontendMessageType.Result) {
-      const lastMessage = this.consoleMessages[this.consoleMessages.length - 1];
+      const lastMessage = this.#consoleMessages[this.#consoleMessages.length - 1];
       const newTimestamp = lastMessage && messagesSortedBySymbol.get(lastMessage) || 0;
       messagesSortedBySymbol.set(viewMessage, newTimestamp);
     } else {
@@ -800,32 +817,32 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     }
 
     let insertAt;
-    if (!this.consoleMessages.length ||
-        timeComparator(viewMessage, this.consoleMessages[this.consoleMessages.length - 1]) > 0) {
-      insertAt = this.consoleMessages.length;
+    if (!this.#consoleMessages.length ||
+        timeComparator(viewMessage, this.#consoleMessages[this.#consoleMessages.length - 1]) > 0) {
+      insertAt = this.#consoleMessages.length;
     } else {
-      insertAt = Platform.ArrayUtilities.upperBound(this.consoleMessages, viewMessage, timeComparator);
+      insertAt = Platform.ArrayUtilities.upperBound(this.#consoleMessages, viewMessage, timeComparator);
     }
-    const insertedInMiddle = insertAt < this.consoleMessages.length;
-    this.consoleMessages.splice(insertAt, 0, viewMessage);
+    const insertedInMiddle = insertAt < this.#consoleMessages.length;
+    this.#consoleMessages.splice(insertAt, 0, viewMessage);
 
-    this.filter.onMessageAdded(message);
-    if (this.isSidebarOpen) {
-      this.sidebar.onMessageAdded(viewMessage);
+    this.#filter.onMessageAdded(message);
+    if (this.#isSidebarOpen) {
+      this.#sidebar.onMessageAdded(viewMessage);
     } else {
-      this.pendingSidebarMessages.push(viewMessage);
+      this.#pendingSidebarMessages.push(viewMessage);
     }
 
     // If we already have similar messages, go slow path.
     let shouldGoIntoGroup = false;
-    const shouldGroupSimilar = this.groupSimilarSetting.get();
+    const shouldGroupSimilar = this.#groupSimilarSetting.get();
     if (message.isGroupable()) {
       const groupKey = viewMessage.groupKey();
-      shouldGoIntoGroup = shouldGroupSimilar && this.groupableMessages.has(groupKey);
-      let list = this.groupableMessages.get(groupKey);
+      shouldGoIntoGroup = shouldGroupSimilar && this.#groupableMessages.has(groupKey);
+      let list = this.#groupableMessages.get(groupKey);
       if (!list) {
         list = [];
-        this.groupableMessages.set(groupKey, list);
+        this.#groupableMessages.set(groupKey, list);
       }
       list.push(viewMessage);
     }
@@ -836,9 +853,9 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
           viewMessage,
           !shouldGroupSimilar /* crbug.com/1082963: prevent collapse of same messages when "Group similar" is false */);
       this.updateFilterStatus();
-      this.searchableViewInternal.updateSearchMatchesCount(this.regexMatchRanges.length);
+      this.#searchableViewInternal.updateSearchMatchesCount(this.#regexMatchRanges.length);
     } else {
-      this.needsFullUpdate = true;
+      this.#needsFullUpdate = true;
     }
 
     this.scheduleViewportRefresh();
@@ -863,53 +880,53 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private shouldMessageBeVisible(viewMessage: ConsoleViewMessage): boolean {
-    return !this.shouldBeHiddenCache.has(viewMessage);
+    return !this.#shouldBeHiddenCache.has(viewMessage);
   }
 
   private computeShouldMessageBeVisible(viewMessage: ConsoleViewMessage): void {
-    if (this.filter.shouldBeVisible(viewMessage) &&
-        (!this.isSidebarOpen || this.sidebar.shouldBeVisible(viewMessage))) {
-      this.shouldBeHiddenCache.delete(viewMessage);
+    if (this.#filter.shouldBeVisible(viewMessage) &&
+        (!this.#isSidebarOpen || this.#sidebar.shouldBeVisible(viewMessage))) {
+      this.#shouldBeHiddenCache.delete(viewMessage);
     } else {
-      this.shouldBeHiddenCache.add(viewMessage);
+      this.#shouldBeHiddenCache.add(viewMessage);
     }
   }
 
   private appendMessageToEnd(viewMessage: ConsoleViewMessage, preventCollapse?: boolean): void {
     if (viewMessage.consoleMessage().category === Protocol.Log.LogEntryCategory.Cors &&
-        !this.showCorsErrorsSetting.get()) {
+        !this.#showCorsErrorsSetting.get()) {
       return;
     }
     if (!this.shouldMessageBeVisible(viewMessage)) {
-      this.hiddenByFilterCount++;
+      this.#hiddenByFilterCount++;
       return;
     }
 
     if (!preventCollapse &&
-        this.tryToCollapseMessages(viewMessage, this.visibleViewMessages[this.visibleViewMessages.length - 1])) {
+        this.tryToCollapseMessages(viewMessage, this.#visibleViewMessages[this.#visibleViewMessages.length - 1])) {
       return;
     }
 
-    const lastMessage = this.visibleViewMessages[this.visibleViewMessages.length - 1];
+    const lastMessage = this.#visibleViewMessages[this.#visibleViewMessages.length - 1];
     if (viewMessage.consoleMessage().type === Protocol.Runtime.ConsoleAPICalledEventType.EndGroup) {
-      if (lastMessage && !this.currentGroup.messagesHidden()) {
+      if (lastMessage && !this.#currentGroup.messagesHidden()) {
         lastMessage.incrementCloseGroupDecorationCount();
       }
-      this.currentGroup = this.currentGroup.parentGroup() || this.currentGroup;
+      this.#currentGroup = this.#currentGroup.parentGroup() || this.#currentGroup;
       return;
     }
-    if (!this.currentGroup.messagesHidden()) {
+    if (!this.#currentGroup.messagesHidden()) {
       const originatingMessage = viewMessage.consoleMessage().originatingMessage();
       if (lastMessage && originatingMessage && lastMessage.consoleMessage() === originatingMessage) {
         viewMessage.toMessageElement().classList.add('console-adjacent-user-command-result');
       }
 
-      this.visibleViewMessages.push(viewMessage);
-      this.searchMessage(this.visibleViewMessages.length - 1);
+      this.#visibleViewMessages.push(viewMessage);
+      this.searchMessage(this.#visibleViewMessages.length - 1);
     }
 
     if (viewMessage.consoleMessage().isGroupStartMessage()) {
-      this.currentGroup = new ConsoleGroup(this.currentGroup, (viewMessage as ConsoleGroupViewMessage));
+      this.#currentGroup = new ConsoleGroup(this.#currentGroup, (viewMessage as ConsoleGroupViewMessage));
     }
 
     this.messageAppendedForTests();
@@ -920,66 +937,66 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private createViewMessage(message: SDK.ConsoleModel.ConsoleMessage): ConsoleViewMessage {
-    const nestingLevel = this.currentGroup.nestingLevel();
+    const nestingLevel = this.#currentGroup.nestingLevel();
     switch (message.type) {
       case SDK.ConsoleModel.FrontendMessageType.Command:
         return new ConsoleCommand(
-            message, this.linkifier, this.requestResolver, this.issueResolver, nestingLevel,
-            this.onMessageResizedBound);
+            message, this.#linkifier, this.#requestResolver, this.#issueResolver, nestingLevel,
+            this.#onMessageResizedBound);
       case SDK.ConsoleModel.FrontendMessageType.Result:
         return new ConsoleCommandResult(
-            message, this.linkifier, this.requestResolver, this.issueResolver, nestingLevel,
-            this.onMessageResizedBound);
+            message, this.#linkifier, this.#requestResolver, this.#issueResolver, nestingLevel,
+            this.#onMessageResizedBound);
       case Protocol.Runtime.ConsoleAPICalledEventType.StartGroupCollapsed:
       case Protocol.Runtime.ConsoleAPICalledEventType.StartGroup:
         return new ConsoleGroupViewMessage(
-            message, this.linkifier, this.requestResolver, this.issueResolver, nestingLevel,
-            this.updateMessageList.bind(this), this.onMessageResizedBound);
+            message, this.#linkifier, this.#requestResolver, this.#issueResolver, nestingLevel,
+            this.updateMessageList.bind(this), this.#onMessageResizedBound);
       case Protocol.Runtime.ConsoleAPICalledEventType.Table:
         return new ConsoleTableMessageView(
-            message, this.linkifier, this.requestResolver, this.issueResolver, nestingLevel,
-            this.onMessageResizedBound);
+            message, this.#linkifier, this.#requestResolver, this.#issueResolver, nestingLevel,
+            this.#onMessageResizedBound);
       default:
         return new ConsoleViewMessage(
-            message, this.linkifier, this.requestResolver, this.issueResolver, nestingLevel,
-            this.onMessageResizedBound);
+            message, this.#linkifier, this.#requestResolver, this.#issueResolver, nestingLevel,
+            this.#onMessageResizedBound);
     }
   }
 
   private async onMessageResized(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>):
       Promise<void> {
     const treeElement = event.data;
-    if (this.pendingBatchResize || !treeElement.treeOutline) {
+    if (this.#pendingBatchResize || !treeElement.treeOutline) {
       return;
     }
-    this.pendingBatchResize = true;
+    this.#pendingBatchResize = true;
     await Promise.resolve();
     const treeOutlineElement = treeElement.treeOutline.element;
-    this.viewport.setStickToBottom(this.isScrolledToBottom());
+    this.#viewport.setStickToBottom(this.isScrolledToBottom());
     // Scroll, in case mutations moved the element below the visible area.
-    if (treeOutlineElement.offsetHeight <= this.messagesElement.offsetHeight) {
+    if (treeOutlineElement.offsetHeight <= this.#messagesElement.offsetHeight) {
       treeOutlineElement.scrollIntoViewIfNeeded();
     }
 
-    this.pendingBatchResize = false;
+    this.#pendingBatchResize = false;
   }
 
   private consoleCleared(): void {
-    const hadFocus = this.viewport.element.hasFocus();
+    const hadFocus = this.#viewport.element.hasFocus();
     this.cancelBuildHiddenCache();
-    this.currentMatchRangeIndex = -1;
-    this.consoleMessages = [];
-    this.groupableMessages.clear();
-    this.groupableMessageTitle.clear();
-    this.sidebar.clear();
+    this.#currentMatchRangeIndex = -1;
+    this.#consoleMessages = [];
+    this.#groupableMessages.clear();
+    this.#groupableMessageTitle.clear();
+    this.#sidebar.clear();
     this.updateMessageList();
     this.hidePromptSuggestBox();
-    this.viewport.setStickToBottom(true);
-    this.linkifier.reset();
-    this.filter.clear();
-    this.requestResolver.clear();
+    this.#viewport.setStickToBottom(true);
+    this.#linkifier.reset();
+    this.#filter.clear();
+    this.#requestResolver.clear();
     if (hadFocus) {
-      this.prompt.focus();
+      this.#prompt.focus();
     }
     UI.ARIAUtils.alert(i18nString(UIStrings.consoleCleared));
   }
@@ -987,7 +1004,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   private handleContextMenuEvent(event: Event): void {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
     const eventTarget = (event.target as Node);
-    if (eventTarget.isSelfOrDescendant(this.promptElement)) {
+    if (eventTarget.isSelfOrDescendant(this.#promptElement)) {
       contextMenu.show();
       return;
     }
@@ -1000,7 +1017,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       const menuTitle = i18nString(
           UIStrings.hideMessagesFromS, {PH1: new Common.ParsedURL.ParsedURL(consoleMessage.url).displayName});
       contextMenu.headerSection().appendItem(
-          menuTitle, this.filter.addMessageURLFilter.bind(this.filter, consoleMessage.url));
+          menuTitle, this.#filter.addMessageURLFilter.bind(this.#filter, consoleMessage.url));
     }
 
     contextMenu.defaultSection().appendAction('console.clear');
@@ -1008,7 +1025,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     contextMenu.saveSection().appendItem(i18nString(UIStrings.saveAs), this.saveConsole.bind(this));
     if (this.element.hasSelection()) {
       contextMenu.clipboardSection().appendItem(
-          i18nString(UIStrings.copyVisibleStyledSelection), this.viewport.copyWithStyles.bind(this.viewport));
+          i18nString(UIStrings.copyVisibleStyledSelection), this.#viewport.copyWithStyles.bind(this.#viewport));
     }
 
     if (consoleMessage) {
@@ -1037,7 +1054,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     if (!await stream.open(filename)) {
       return;
     }
-    this.progressToolbarItem.element.appendChild(progressIndicator.element);
+    this.#progressToolbarItem.element.appendChild(progressIndicator.element);
 
     let messageIndex = 0;
     while (messageIndex < this.itemCount() && !progressIndicator.isCanceled()) {
@@ -1057,7 +1074,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private tryToCollapseMessages(viewMessage: ConsoleViewMessage, lastMessage?: ConsoleViewMessage): boolean {
-    const timestampsShown = this.timestampsSetting.get();
+    const timestampsShown = this.#timestampsSetting.get();
     if (!timestampsShown && lastMessage && !viewMessage.consoleMessage().isGroupMessage() &&
         viewMessage.consoleMessage().type !== SDK.ConsoleModel.FrontendMessageType.Command &&
         viewMessage.consoleMessage().type !== SDK.ConsoleModel.FrontendMessageType.Result &&
@@ -1086,32 +1103,32 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       this.updateMessageList();
       return;
     }
-    this.buildHiddenCacheTimeout =
+    this.#buildHiddenCacheTimeout =
         this.element.window().requestAnimationFrame(this.buildHiddenCache.bind(this, i, viewMessages));
   }
 
   private cancelBuildHiddenCache(): void {
-    this.shouldBeHiddenCache.clear();
-    if (this.buildHiddenCacheTimeout) {
-      this.element.window().cancelAnimationFrame(this.buildHiddenCacheTimeout);
-      delete this.buildHiddenCacheTimeout;
+    this.#shouldBeHiddenCache.clear();
+    if (this.#buildHiddenCacheTimeout) {
+      this.element.window().cancelAnimationFrame(this.#buildHiddenCacheTimeout);
+      this.#buildHiddenCacheTimeout = undefined;
     }
   }
 
   private updateMessageList(): void {
-    this.topGroup = ConsoleGroup.createTopGroup();
-    this.currentGroup = this.topGroup;
-    this.regexMatchRanges = [];
-    this.hiddenByFilterCount = 0;
-    for (const visibleViewMessage of this.visibleViewMessages) {
+    this.#topGroup = ConsoleGroup.createTopGroup();
+    this.#currentGroup = this.#topGroup;
+    this.#regexMatchRanges = [];
+    this.#hiddenByFilterCount = 0;
+    for (const visibleViewMessage of this.#visibleViewMessages) {
       visibleViewMessage.resetCloseGroupDecorationCount();
       visibleViewMessage.resetIncrementRepeatCount();
     }
-    this.visibleViewMessages = [];
-    if (this.groupSimilarSetting.get()) {
+    this.#visibleViewMessages = [];
+    if (this.#groupSimilarSetting.get()) {
       this.addGroupableMessagesToEnd();
     } else {
-      for (const consoleMessage of this.consoleMessages) {
+      for (const consoleMessage of this.#consoleMessages) {
         consoleMessage.setInSimilarGroup(false);
         this.appendMessageToEnd(
             consoleMessage,
@@ -1119,16 +1136,16 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       }
     }
     this.updateFilterStatus();
-    this.searchableViewInternal.updateSearchMatchesCount(this.regexMatchRanges.length);
-    this.viewport.invalidate();
-    this.messagesCountElement.setAttribute(
-        'aria-label', i18nString(UIStrings.filteredMessagesInConsole, {PH1: this.visibleViewMessages.length}));
+    this.#searchableViewInternal.updateSearchMatchesCount(this.#regexMatchRanges.length);
+    this.#viewport.invalidate();
+    this.#messagesCountElement.setAttribute(
+        'aria-label', i18nString(UIStrings.filteredMessagesInConsole, {PH1: this.#visibleViewMessages.length}));
   }
 
   private addGroupableMessagesToEnd(): void {
     const alreadyAdded = new Set<SDK.ConsoleModel.ConsoleMessage>();
     const processedGroupKeys = new Set<string>();
-    for (const viewMessage of this.consoleMessages) {
+    for (const viewMessage of this.#consoleMessages) {
       const message = viewMessage.consoleMessage();
       if (alreadyAdded.has(message)) {
         continue;
@@ -1141,7 +1158,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       }
 
       const key = viewMessage.groupKey();
-      const viewMessagesInGroup = this.groupableMessages.get(key);
+      const viewMessagesInGroup = this.#groupableMessages.get(key);
       if (!viewMessagesInGroup || viewMessagesInGroup.length < 5) {
         viewMessage.setInSimilarGroup(false);
         this.appendMessageToEnd(viewMessage);
@@ -1163,13 +1180,13 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
       }
 
       // Create artificial group start and end messages.
-      let startGroupViewMessage = this.groupableMessageTitle.get(key);
+      let startGroupViewMessage = this.#groupableMessageTitle.get(key);
       if (!startGroupViewMessage) {
         const startGroupMessage = new SDK.ConsoleModel.ConsoleMessage(
             null, message.source, message.level, viewMessage.groupTitle(),
             {type: Protocol.Runtime.ConsoleAPICalledEventType.StartGroupCollapsed});
         startGroupViewMessage = this.createViewMessage(startGroupMessage);
-        this.groupableMessageTitle.set(key, startGroupViewMessage);
+        this.#groupableMessageTitle.set(key, startGroupViewMessage);
       }
       startGroupViewMessage.setRepeatCount(viewMessagesInGroup.length);
       this.appendMessageToEnd(startGroupViewMessage);
@@ -1190,12 +1207,12 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
 
   private messagesClicked(event: Event): void {
     const target = (event.target as Node | null);
-    // Do not focus prompt if messages have selection.
-    if (!this.messagesElement.hasSelection()) {
+    // Do not focus #prompt if messages have selection.
+    if (!this.#messagesElement.hasSelection()) {
       const clickedOutsideMessageList =
-          target === this.messagesElement || this.prompt.belowEditorElement().isSelfOrAncestor(target);
+          target === this.#messagesElement || this.#prompt.belowEditorElement().isSelfOrAncestor(target);
       if (clickedOutsideMessageList) {
-        this.prompt.moveCaretToEndOfPrompt();
+        this.#prompt.moveCaretToEndOfPrompt();
         this.focusPrompt();
       }
     }
@@ -1205,10 +1222,10 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     const keyEvent = (event as KeyboardEvent);
     const hasActionModifier = keyEvent.ctrlKey || keyEvent.altKey || keyEvent.metaKey;
     if (hasActionModifier || keyEvent.key.length !== 1 || UI.UIUtils.isEditing() ||
-        this.messagesElement.hasSelection()) {
+        this.#messagesElement.hasSelection()) {
       return;
     }
-    this.prompt.moveCaretToEndOfPrompt();
+    this.#prompt.moveCaretToEndOfPrompt();
     this.focusPrompt();
   }
 
@@ -1216,17 +1233,17 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     if (UI.UIUtils.isEditing()) {
       return;
     }
-    this.prompt.focus();
+    this.#prompt.focus();
   }
 
   private registerShortcuts(): void {
-    this.shortcuts.set(
+    this.#shortcuts.set(
         UI.KeyboardShortcut.KeyboardShortcut.makeKey('u', UI.KeyboardShortcut.Modifiers.Ctrl),
         this.clearPromptBackwards.bind(this));
   }
 
   private clearPromptBackwards(): void {
-    this.prompt.setText('');
+    this.#prompt.setText('');
   }
 
   private promptKeyDown(event: Event): void {
@@ -1237,7 +1254,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
     }
 
     const shortcut = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(keyboardEvent);
-    const handler = this.shortcuts.get(shortcut);
+    const handler = this.#shortcuts.get(shortcut);
     if (handler) {
       handler();
       keyboardEvent.preventDefault();
@@ -1267,56 +1284,56 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
 
   private commandEvaluated(event: Common.EventTarget.EventTargetEvent<SDK.ConsoleModel.CommandEvaluatedEvent>): void {
     const {data} = event;
-    this.prompt.history().pushHistoryItem(data.commandMessage.messageText);
-    this.consoleHistorySetting.set(this.prompt.history().historyData().slice(-persistedHistorySize));
+    this.#prompt.history().pushHistoryItem(data.commandMessage.messageText);
+    this.#consoleHistorySetting.set(this.#prompt.history().historyData().slice(-persistedHistorySize));
     this.printResult(data.result, data.commandMessage, data.exceptionDetails);
   }
 
   elementsToRestoreScrollPositionsFor(): Element[] {
-    return [this.messagesElement];
+    return [this.#messagesElement];
   }
 
   searchCanceled(): void {
     this.cleanupAfterSearch();
-    for (const message of this.visibleViewMessages) {
+    for (const message of this.#visibleViewMessages) {
       message.setSearchRegex(null);
     }
-    this.currentMatchRangeIndex = -1;
-    this.regexMatchRanges = [];
-    this.searchRegex = null;
-    this.viewport.refresh();
+    this.#currentMatchRangeIndex = -1;
+    this.#regexMatchRanges = [];
+    this.#searchRegex = null;
+    this.#viewport.refresh();
   }
 
   performSearch(searchConfig: UI.SearchableView.SearchConfig, shouldJump: boolean, jumpBackwards?: boolean): void {
     this.searchCanceled();
-    this.searchableViewInternal.updateSearchMatchesCount(0);
+    this.#searchableViewInternal.updateSearchMatchesCount(0);
 
-    this.searchRegex = searchConfig.toSearchRegex(true);
+    this.#searchRegex = searchConfig.toSearchRegex(true);
 
-    this.regexMatchRanges = [];
-    this.currentMatchRangeIndex = -1;
+    this.#regexMatchRanges = [];
+    this.#currentMatchRangeIndex = -1;
 
     if (shouldJump) {
-      this.searchShouldJumpBackwards = Boolean(jumpBackwards);
+      this.#searchShouldJumpBackwards = Boolean(jumpBackwards);
     }
 
-    this.searchProgressIndicator = new UI.ProgressIndicator.ProgressIndicator();
-    this.searchProgressIndicator.setTitle(i18nString(UIStrings.searching));
-    this.searchProgressIndicator.setTotalWork(this.visibleViewMessages.length);
-    this.progressToolbarItem.element.appendChild(this.searchProgressIndicator.element);
+    this.#searchProgressIndicator = new UI.ProgressIndicator.ProgressIndicator();
+    this.#searchProgressIndicator.setTitle(i18nString(UIStrings.searching));
+    this.#searchProgressIndicator.setTotalWork(this.#visibleViewMessages.length);
+    this.#progressToolbarItem.element.appendChild(this.#searchProgressIndicator.element);
 
     this.innerSearch(0);
   }
 
   private cleanupAfterSearch(): void {
-    delete this.searchShouldJumpBackwards;
-    if (this.innerSearchTimeoutId) {
-      clearTimeout(this.innerSearchTimeoutId);
-      delete this.innerSearchTimeoutId;
+    this.#searchShouldJumpBackwards = undefined;
+    if (this.#innerSearchTimeoutId) {
+      clearTimeout(this.#innerSearchTimeoutId);
+      this.#innerSearchTimeoutId = undefined;
     }
-    if (this.searchProgressIndicator) {
-      this.searchProgressIndicator.done();
-      delete this.searchProgressIndicator;
+    if (this.#searchProgressIndicator) {
+      this.#searchProgressIndicator.done();
+      this.#searchProgressIndicator = undefined;
     }
   }
 
@@ -1325,49 +1342,49 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private innerSearch(index: number): void {
-    delete this.innerSearchTimeoutId;
-    if (this.searchProgressIndicator && this.searchProgressIndicator.isCanceled()) {
+    this.#innerSearchTimeoutId = undefined;
+    if (this.#searchProgressIndicator && this.#searchProgressIndicator.isCanceled()) {
       this.cleanupAfterSearch();
       return;
     }
 
     const startTime = Date.now();
-    for (; index < this.visibleViewMessages.length && Date.now() - startTime < 100; ++index) {
+    for (; index < this.#visibleViewMessages.length && Date.now() - startTime < 100; ++index) {
       this.searchMessage(index);
     }
 
-    this.searchableViewInternal.updateSearchMatchesCount(this.regexMatchRanges.length);
-    if (typeof this.searchShouldJumpBackwards !== 'undefined' && this.regexMatchRanges.length) {
-      this.jumpToMatch(this.searchShouldJumpBackwards ? -1 : 0);
-      delete this.searchShouldJumpBackwards;
+    this.#searchableViewInternal.updateSearchMatchesCount(this.#regexMatchRanges.length);
+    if (typeof this.#searchShouldJumpBackwards !== 'undefined' && this.#regexMatchRanges.length) {
+      this.jumpToMatch(this.#searchShouldJumpBackwards ? -1 : 0);
+      this.#searchShouldJumpBackwards = undefined;
     }
 
-    if (index === this.visibleViewMessages.length) {
+    if (index === this.#visibleViewMessages.length) {
       this.cleanupAfterSearch();
       setTimeout(this.searchFinishedForTests.bind(this), 0);
       return;
     }
 
-    this.innerSearchTimeoutId = window.setTimeout(this.innerSearch.bind(this, index), 100);
-    if (this.searchProgressIndicator) {
-      this.searchProgressIndicator.setWorked(index);
+    this.#innerSearchTimeoutId = window.setTimeout(this.innerSearch.bind(this, index), 100);
+    if (this.#searchProgressIndicator) {
+      this.#searchProgressIndicator.setWorked(index);
     }
   }
 
   private searchMessage(index: number): void {
-    const message = this.visibleViewMessages[index];
-    message.setSearchRegex(this.searchRegex);
+    const message = this.#visibleViewMessages[index];
+    message.setSearchRegex(this.#searchRegex);
     for (let i = 0; i < message.searchCount(); ++i) {
-      this.regexMatchRanges.push({messageIndex: index, matchIndex: i});
+      this.#regexMatchRanges.push({messageIndex: index, matchIndex: i});
     }
   }
 
   jumpToNextSearchResult(): void {
-    this.jumpToMatch(this.currentMatchRangeIndex + 1);
+    this.jumpToMatch(this.#currentMatchRangeIndex + 1);
   }
 
   jumpToPreviousSearchResult(): void {
-    this.jumpToMatch(this.currentMatchRangeIndex - 1);
+    this.jumpToMatch(this.#currentMatchRangeIndex - 1);
   }
 
   supportsCaseSensitiveSearch(): boolean {
@@ -1379,58 +1396,58 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private jumpToMatch(index: number): void {
-    if (!this.regexMatchRanges.length) {
+    if (!this.#regexMatchRanges.length) {
       return;
     }
 
     let matchRange;
-    if (this.currentMatchRangeIndex >= 0) {
-      matchRange = this.regexMatchRanges[this.currentMatchRangeIndex];
-      const message = this.visibleViewMessages[matchRange.messageIndex];
+    if (this.#currentMatchRangeIndex >= 0) {
+      matchRange = this.#regexMatchRanges[this.#currentMatchRangeIndex];
+      const message = this.#visibleViewMessages[matchRange.messageIndex];
       message.searchHighlightNode(matchRange.matchIndex)
           .classList.remove(UI.UIUtils.highlightedCurrentSearchResultClassName);
     }
 
-    index = Platform.NumberUtilities.mod(index, this.regexMatchRanges.length);
-    this.currentMatchRangeIndex = index;
-    this.searchableViewInternal.updateCurrentMatchIndex(index);
-    matchRange = this.regexMatchRanges[index];
-    const message = this.visibleViewMessages[matchRange.messageIndex];
+    index = Platform.NumberUtilities.mod(index, this.#regexMatchRanges.length);
+    this.#currentMatchRangeIndex = index;
+    this.#searchableViewInternal.updateCurrentMatchIndex(index);
+    matchRange = this.#regexMatchRanges[index];
+    const message = this.#visibleViewMessages[matchRange.messageIndex];
     const highlightNode = message.searchHighlightNode(matchRange.matchIndex);
     highlightNode.classList.add(UI.UIUtils.highlightedCurrentSearchResultClassName);
-    this.viewport.scrollItemIntoView(matchRange.messageIndex);
+    this.#viewport.scrollItemIntoView(matchRange.messageIndex);
     highlightNode.scrollIntoViewIfNeeded();
   }
 
   private updateStickToBottomOnPointerDown(isRightClick?: boolean): void {
-    this.muteViewportUpdates = !isRightClick;
-    this.viewport.setStickToBottom(false);
-    if (this.waitForScrollTimeout) {
-      clearTimeout(this.waitForScrollTimeout);
-      delete this.waitForScrollTimeout;
+    this.#muteViewportUpdates = !isRightClick;
+    this.#viewport.setStickToBottom(false);
+    if (this.#waitForScrollTimeout) {
+      clearTimeout(this.#waitForScrollTimeout);
+      this.#waitForScrollTimeout = undefined;
     }
   }
 
   private updateStickToBottomOnPointerUp(): void {
-    if (!this.muteViewportUpdates) {
+    if (!this.#muteViewportUpdates) {
       return;
     }
 
     // Delay querying isScrolledToBottom to give time for smooth scroll
     // events to arrive. The value for the longest timeout duration is
     // retrieved from crbug.com/575409.
-    this.waitForScrollTimeout = window.setTimeout(updateViewportState.bind(this), 200);
+    this.#waitForScrollTimeout = window.setTimeout(updateViewportState.bind(this), 200);
 
     function updateViewportState(this: ConsoleView): void {
-      this.muteViewportUpdates = false;
+      this.#muteViewportUpdates = false;
       if (this.isShowing()) {
-        this.viewport.setStickToBottom(this.isScrolledToBottom());
+        this.#viewport.setStickToBottom(this.isScrolledToBottom());
       }
-      if (this.maybeDirtyWhileMuted) {
+      if (this.#maybeDirtyWhileMuted) {
         this.scheduleViewportRefresh();
-        delete this.maybeDirtyWhileMuted;
+        this.#maybeDirtyWhileMuted = undefined;
       }
-      delete this.waitForScrollTimeout;
+      this.#waitForScrollTimeout = undefined;
       this.updateViewportStickinessForTest();
     }
   }
@@ -1445,9 +1462,9 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private promptTextChanged(): void {
-    const oldStickToBottom = this.viewport.stickToBottom();
+    const oldStickToBottom = this.#viewport.stickToBottom();
     const willStickToBottom = this.isScrolledToBottom();
-    this.viewport.setStickToBottom(willStickToBottom);
+    this.#viewport.setStickToBottom(willStickToBottom);
     if (willStickToBottom && !oldStickToBottom) {
       this.scheduleViewportRefresh();
     }
@@ -1459,8 +1476,8 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
   }
 
   private isScrolledToBottom(): boolean {
-    const distanceToPromptEditorBottom = this.messagesElement.scrollHeight - this.messagesElement.scrollTop -
-        this.messagesElement.clientHeight - (this.prompt.belowEditorElement() as HTMLElement).offsetHeight;
+    const distanceToPromptEditorBottom = this.#messagesElement.scrollHeight - this.#messagesElement.scrollTop -
+        this.#messagesElement.clientHeight - (this.#prompt.belowEditorElement() as HTMLElement).offsetHeight;
     return distanceToPromptEditorBottom <= 2;
   }
 }
@@ -1473,20 +1490,20 @@ globalThis.Console.ConsoleView = ConsoleView;
 const persistedHistorySize = 300;
 
 export class ConsoleViewFilter {
-  private readonly filterChanged: () => void;
+  readonly #filterChanged: () => void;
   messageLevelFiltersSetting: Common.Settings.Setting<LevelsMask>;
   hideNetworkMessagesSetting: Common.Settings.Setting<boolean>;
   filterByExecutionContextSetting: Common.Settings.Setting<boolean>;
-  private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
+  readonly #suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
   readonly textFilterUI: UI.Toolbar.ToolbarInput;
-  private readonly textFilterSetting: Common.Settings.Setting<string>;
-  private readonly filterParser: TextUtils.TextUtils.FilterParser;
+  readonly #textFilterSetting: Common.Settings.Setting<string>;
+  readonly #filterParser: TextUtils.TextUtils.FilterParser;
   currentFilter: ConsoleFilter;
-  private levelLabels: Map<Protocol.Log.LogEntryLevel, string>;
+  #levelLabels: Map<Protocol.Log.LogEntryLevel, string>;
   readonly levelMenuButton: UI.Toolbar.ToolbarButton;
 
   constructor(filterChangedCallback: () => void) {
-    this.filterChanged = filterChangedCallback;
+    this.#filterChanged = filterChangedCallback;
 
     this.messageLevelFiltersSetting = ConsoleViewFilter.levelFilterSetting();
     this.hideNetworkMessagesSetting = Common.Settings.Settings.instance().moduleSetting('hideNetworkMessages');
@@ -1500,22 +1517,22 @@ export class ConsoleViewFilter {
         SDK.RuntimeModel.ExecutionContext, this.onFilterChanged, this);
 
     const filterKeys = Object.values(FilterType);
-    this.suggestionBuilder = new UI.FilterSuggestionBuilder.FilterSuggestionBuilder(filterKeys);
+    this.#suggestionBuilder = new UI.FilterSuggestionBuilder.FilterSuggestionBuilder(filterKeys);
     this.textFilterUI = new UI.Toolbar.ToolbarInput(
         i18nString(UIStrings.filter), '', 1, 1, i18nString(UIStrings.egEventdCdnUrlacom),
-        this.suggestionBuilder.completions.bind(this.suggestionBuilder), true);
-    this.textFilterSetting = Common.Settings.Settings.instance().createSetting('console.textFilter', '');
-    if (this.textFilterSetting.get()) {
-      this.textFilterUI.setValue(this.textFilterSetting.get());
+        this.#suggestionBuilder.completions.bind(this.#suggestionBuilder), true);
+    this.#textFilterSetting = Common.Settings.Settings.instance().createSetting('console.textFilter', '');
+    if (this.#textFilterSetting.get()) {
+      this.textFilterUI.setValue(this.#textFilterSetting.get());
     }
     this.textFilterUI.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, () => {
-      this.textFilterSetting.set(this.textFilterUI.value());
+      this.#textFilterSetting.set(this.textFilterUI.value());
       this.onFilterChanged();
     });
-    this.filterParser = new TextUtils.TextUtils.FilterParser(filterKeys);
+    this.#filterParser = new TextUtils.TextUtils.FilterParser(filterKeys);
     this.currentFilter = new ConsoleFilter('', [], null, this.messageLevelFiltersSetting.get());
     this.updateCurrentFilter();
-    this.levelLabels = new Map(([
+    this.#levelLabels = new Map(([
       [Protocol.Log.LogEntryLevel.Verbose, i18nString(UIStrings.verbose)],
       [Protocol.Log.LogEntryLevel.Info, i18nString(UIStrings.info)],
       [Protocol.Log.LogEntryLevel.Warning, i18nString(UIStrings.warnings)],
@@ -1537,13 +1554,13 @@ export class ConsoleViewFilter {
       return;
     }
     if (message.context) {
-      this.suggestionBuilder.addItem(FilterType.Context, message.context);
+      this.#suggestionBuilder.addItem(FilterType.Context, message.context);
     }
     if (message.source) {
-      this.suggestionBuilder.addItem(FilterType.Source, message.source);
+      this.#suggestionBuilder.addItem(FilterType.Source, message.source);
     }
     if (message.url) {
-      this.suggestionBuilder.addItem(FilterType.Url, message.url);
+      this.#suggestionBuilder.addItem(FilterType.Url, message.url);
     }
   }
 
@@ -1562,7 +1579,7 @@ export class ConsoleViewFilter {
   }
 
   private updateCurrentFilter(): void {
-    const parsedFilters = this.filterParser.parse(this.textFilterUI.value());
+    const parsedFilters = this.#filterParser.parse(this.textFilterUI.value());
     if (this.hideNetworkMessagesSetting.get()) {
       parsedFilters.push(
           {key: FilterType.Source, text: Protocol.Log.LogEntrySource.Network, negative: true, regex: undefined});
@@ -1577,7 +1594,7 @@ export class ConsoleViewFilter {
 
   private onFilterChanged(): void {
     this.updateCurrentFilter();
-    this.filterChanged();
+    this.#filterChanged();
   }
 
   private updateLevelMenuButtonText(): void {
@@ -1599,7 +1616,7 @@ export class ConsoleViewFilter {
       isDefault = isDefault && levels[name] === defaultValue[name];
       if (levels[name]) {
         text = text ? i18nString(UIStrings.customLevels) :
-                      i18nString(UIStrings.sOnly, {PH1: String(this.levelLabels.get(name))});
+                      i18nString(UIStrings.sOnly, {PH1: String(this.#levelLabels.get(name))});
       }
     }
     if (isAll) {
@@ -1626,7 +1643,7 @@ export class ConsoleViewFilter {
     });
     contextMenu.headerSection().appendItem(
         i18nString(UIStrings.default), () => setting.set(ConsoleFilter.defaultLevelsFilterValue()));
-    for (const [level, levelText] of this.levelLabels.entries()) {
+    for (const [level, levelText] of this.#levelLabels.entries()) {
       contextMenu.defaultSection().appendCheckboxItem(levelText, toggleShowLevel.bind(null, level), levels[level]);
     }
     contextMenu.show();
@@ -1643,7 +1660,7 @@ export class ConsoleViewFilter {
     }
     const suffix = this.textFilterUI.value() ? ` ${this.textFilterUI.value()}` : '';
     this.textFilterUI.setValue(`-url:${url}${suffix}`);
-    this.textFilterSetting.set(this.textFilterUI.value());
+    this.#textFilterSetting.set(this.textFilterUI.value());
     this.onFilterChanged();
   }
 
@@ -1652,7 +1669,7 @@ export class ConsoleViewFilter {
   }
 
   clear(): void {
-    this.suggestionBuilder.clear();
+    this.#suggestionBuilder.clear();
   }
 
   reset(): void {
@@ -1665,15 +1682,15 @@ export class ConsoleViewFilter {
 }
 
 export class ConsoleGroup {
-  private readonly parentGroupInternal: ConsoleGroup|null;
-  private readonly nestingLevelInternal: number;
-  private readonly messagesHiddenInternal: boolean;
+  readonly #parentGroupInternal: ConsoleGroup|null;
+  readonly #nestingLevelInternal: number;
+  readonly #messagesHiddenInternal: boolean;
 
   constructor(parentGroup: ConsoleGroup|null, groupMessage: ConsoleGroupViewMessage|null) {
-    this.parentGroupInternal = parentGroup;
-    this.nestingLevelInternal = parentGroup ? parentGroup.nestingLevel() + 1 : 0;
-    this.messagesHiddenInternal = groupMessage && groupMessage.collapsed() ||
-        this.parentGroupInternal && this.parentGroupInternal.messagesHidden() || false;
+    this.#parentGroupInternal = parentGroup;
+    this.#nestingLevelInternal = parentGroup ? parentGroup.nestingLevel() + 1 : 0;
+    this.#messagesHiddenInternal = groupMessage && groupMessage.collapsed() ||
+        this.#parentGroupInternal && this.#parentGroupInternal.messagesHidden() || false;
   }
 
   static createTopGroup(): ConsoleGroup {
@@ -1681,15 +1698,15 @@ export class ConsoleGroup {
   }
 
   messagesHidden(): boolean {
-    return this.messagesHiddenInternal;
+    return this.#messagesHiddenInternal;
   }
 
   nestingLevel(): number {
-    return this.nestingLevelInternal;
+    return this.#nestingLevelInternal;
   }
 
   parentGroup(): ConsoleGroup|null {
-    return this.parentGroupInternal;
+    return this.#parentGroupInternal;
   }
 }
 
