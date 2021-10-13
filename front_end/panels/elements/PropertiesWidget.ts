@@ -43,10 +43,10 @@ const OBJECT_GROUP_NAME = 'properties-sidebar-pane';
 let propertiesWidgetInstance: PropertiesWidget;
 
 export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
-  private node: SDK.DOMModel.DOMNode|null;
-  private readonly treeOutline: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeOutline;
-  private readonly expandController: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController;
-  private lastRequestedNode?: SDK.DOMModel.DOMNode;
+  #node: SDK.DOMModel.DOMNode|null;
+  readonly #treeOutline: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeOutline;
+  readonly #expandController: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController;
+  #lastRequestedNode?: SDK.DOMModel.DOMNode;
   constructor() {
     super(true /* isWebComponent */);
 
@@ -59,15 +59,15 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.ChildNodeCountUpdated, this.onNodeChange, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.setNode, this);
-    this.node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
+    this.#node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
 
-    this.treeOutline = new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeOutline({readOnly: true});
-    this.treeOutline.setShowSelectionOnKeyboardFocus(/* show */ true, /* preventTabOrder */ false);
-    this.expandController =
-        new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController(this.treeOutline);
-    this.contentElement.appendChild(this.treeOutline.element);
+    this.#treeOutline = new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeOutline({readOnly: true});
+    this.#treeOutline.setShowSelectionOnKeyboardFocus(/* show */ true, /* preventTabOrder */ false);
+    this.#expandController =
+        new ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController(this.#treeOutline);
+    this.contentElement.appendChild(this.#treeOutline.element);
 
-    this.treeOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, () => {
+    this.#treeOutline.addEventListener(UI.TreeOutline.Events.ElementExpanded, () => {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.DOMPropertiesExpanded);
     });
 
@@ -85,39 +85,39 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   private setNode(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode|null>): void {
-    this.node = event.data;
+    this.#node = event.data;
     this.update();
   }
 
   async doUpdate(): Promise<void> {
-    if (this.lastRequestedNode) {
-      this.lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(OBJECT_GROUP_NAME);
-      delete this.lastRequestedNode;
+    if (this.#lastRequestedNode) {
+      this.#lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(OBJECT_GROUP_NAME);
+      this.#lastRequestedNode = undefined;
     }
 
-    if (!this.node) {
-      this.treeOutline.removeChildren();
+    if (!this.#node) {
+      this.#treeOutline.removeChildren();
       return;
     }
 
-    this.lastRequestedNode = this.node;
-    const object = await this.node.resolveToObject(OBJECT_GROUP_NAME);
+    this.#lastRequestedNode = this.#node;
+    const object = await this.#node.resolveToObject(OBJECT_GROUP_NAME);
     if (!object) {
       return;
     }
 
     await ObjectUI.ObjectPropertiesSection.ObjectPropertyTreeElement.populate(
-        this.treeOutline.rootElement(), object, true, true, undefined, undefined);
+        this.#treeOutline.rootElement(), object, true, true, undefined, undefined);
   }
 
   private onNodeChange(event: Common.EventTarget
                            .EventTargetEvent<{node: SDK.DOMModel.DOMNode, name: string}|SDK.DOMModel.DOMNode>): void {
-    if (!this.node) {
+    if (!this.#node) {
       return;
     }
     const data = event.data;
     const node = (data instanceof SDK.DOMModel.DOMNode ? data : data.node as SDK.DOMModel.DOMNode);
-    if (this.node !== node) {
+    if (this.#node !== node) {
       return;
     }
     this.update();

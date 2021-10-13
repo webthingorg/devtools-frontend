@@ -39,31 +39,31 @@ export interface AccessibilityTreeNodeData {
 
 export class AccessibilityTreeNode extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-accessibility-tree-node`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  readonly #shadow = this.attachShadow({mode: 'open'});
 
-  private ignored = true;
-  private name = '';
-  private role = '';
+  #ignored = true;
+  #name = '';
+  #role = '';
 
   set data(data: AccessibilityTreeNodeData) {
-    this.ignored = data.ignored;
-    this.name = data.name;
-    this.role = data.role;
+    this.#ignored = data.ignored;
+    this.#name = data.name;
+    this.#role = data.role;
     this.render();
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [accessibilityTreeNodeStyles];
+    this.#shadow.adoptedStyleSheets = [accessibilityTreeNodeStyles];
   }
 
   private async render(): Promise<void> {
     await Coordinator.RenderCoordinator.RenderCoordinator.instance().write('Accessibility node render', () => {
       // clang-format off
       LitHtml.render(
-        LitHtml.html`${this.ignored?
+        LitHtml.html`${this.#ignored?
           LitHtml.html`<span>${i18nString(UIStrings.ignored)}</span>`:
-          LitHtml.html`<span class='role-value'>${truncateTextIfNeeded(this.role)}</span>&nbsp"<span class='attribute-value'>${this.name}</span>"`}`,
-        this.shadow,
+          LitHtml.html`<span class='role-value'>${truncateTextIfNeeded(this.#role)}</span>&nbsp"<span class='attribute-value'>${this.#name}</span>"`}`,
+        this.#shadow,
         {host: this});
       // clang-format on
     });

@@ -19,7 +19,7 @@ import inspectorCommonStyles from '../../../ui/legacy/inspectorCommon.css.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 const UIStrings = {
   /**
-  *@description Title of the input to select the overlay color for an element using the color picker
+  *@description Title of the #input to select the overlay #color for an element using the #color picker
   */
   chooseElementOverlayColor: 'Choose the overlay color for this element',
   /**
@@ -55,7 +55,7 @@ const UIStrings = {
   */
   noFlexboxLayoutsFoundOnThisPage: 'No flexbox layouts found on this page',
   /**
-  *@description Screen reader announcement when opening color picker tool.
+  *@description Screen reader announcement when opening #color picker tool.
   */
   colorPickerOpened: 'Color picker opened.',
 };
@@ -95,23 +95,23 @@ export interface LayoutPaneData {
 
 export class LayoutPane extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-layout-pane`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private settings: Readonly<Setting[]> = [];
-  private gridElements: Readonly<LayoutElement[]> = [];
-  private flexContainerElements?: Readonly<LayoutElement[]> = [];
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #settings: Readonly<Setting[]> = [];
+  #gridElements: Readonly<LayoutElement[]> = [];
+  #flexContainerElements?: Readonly<LayoutElement[]> = [];
 
   constructor() {
     super();
-    this.shadow.adoptedStyleSheets = [
+    this.#shadow.adoptedStyleSheets = [
       layoutPaneStyles,
       inspectorCommonStyles,
     ];
   }
 
   set data(data: LayoutPaneData) {
-    this.settings = data.settings;
-    this.gridElements = data.gridElements;
-    this.flexContainerElements = data.flexContainerElements;
+    this.#settings = data.settings;
+    this.#gridElements = data.gridElements;
+    this.#flexContainerElements = data.flexContainerElements;
     this.render();
   }
 
@@ -151,48 +151,48 @@ export class LayoutPane extends HTMLElement {
             ${this.getBooleanSettings().map(setting => this.renderBooleanSetting(setting))}
           </div>
         </div>
-        ${this.gridElements ?
+        ${this.#gridElements ?
           html`<div class="content-section">
             <h3 class="content-section-title">
-              ${this.gridElements.length ? i18nString(UIStrings.gridOverlays) : i18nString(UIStrings.noGridLayoutsFoundOnThisPage)}
+              ${this.#gridElements.length ? i18nString(UIStrings.gridOverlays) : i18nString(UIStrings.noGridLayoutsFoundOnThisPage)}
             </h3>
-            ${this.gridElements.length ?
+            ${this.#gridElements.length ?
               html`<div class="elements">
-                ${this.gridElements.map(element => this.renderElement(element))}
+                ${this.#gridElements.map(element => this.renderElement(element))}
               </div>` : ''}
           </div>` : ''}
       </details>
-      ${this.flexContainerElements !== undefined ?
+      ${this.#flexContainerElements !== undefined ?
         html`
         <details open>
           <summary class="header" @keydown=${this.onSummaryKeyDown}>
             ${i18nString(UIStrings.flexbox)}
           </summary>
-          ${this.flexContainerElements ?
+          ${this.#flexContainerElements ?
             html`<div class="content-section">
               <h3 class="content-section-title">
-                ${this.flexContainerElements.length ? i18nString(UIStrings.flexboxOverlays) : i18nString(UIStrings.noFlexboxLayoutsFoundOnThisPage)}
+                ${this.#flexContainerElements.length ? i18nString(UIStrings.flexboxOverlays) : i18nString(UIStrings.noFlexboxLayoutsFoundOnThisPage)}
               </h3>
-              ${this.flexContainerElements.length ?
+              ${this.#flexContainerElements.length ?
                 html`<div class="elements">
-                  ${this.flexContainerElements.map(element => this.renderElement(element))}
+                  ${this.#flexContainerElements.map(element => this.renderElement(element))}
                 </div>` : ''}
             </div>` : ''}
         </details>
         `
       : ''}
-    `, this.shadow, {
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on
   }
 
   private getEnumSettings(): EnumSetting[] {
-    return this.settings.filter(isEnumSetting);
+    return this.#settings.filter(isEnumSetting);
   }
 
   private getBooleanSettings(): BooleanSetting[] {
-    return this.settings.filter(isBooleanSetting);
+    return this.#settings.filter(isBooleanSetting);
   }
 
   private onBooleanSettingChange(setting: BooleanSetting, event: HTMLInputElementEvent): void {
@@ -238,7 +238,7 @@ export class LayoutPane extends HTMLElement {
     const onMouseEnter = this.onElementMouseEnter.bind(this, element);
     const onMouseLeave = this.onElementMouseLeave.bind(this, element);
     const onColorLabelKeyUp = (event: KeyboardEvent): void => {
-      // Handle Enter and Space events to make the color picker accessible.
+      // Handle Enter and Space events to make the #color picker accessible.
       if (event.key !== 'Enter' && event.key !== ' ') {
         return;
       }

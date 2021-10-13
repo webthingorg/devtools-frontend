@@ -8,9 +8,9 @@ import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';
 import type {StylePropertiesSection, StylesSidebarPane} from './StylesSidebarPane.js';
 
 export class StylePropertyHighlighter {
-  private readonly styleSidebarPane: StylesSidebarPane;
+  readonly #styleSidebarPane: StylesSidebarPane;
   constructor(ssp: StylesSidebarPane) {
-    this.styleSidebarPane = ssp;
+    this.#styleSidebarPane = ssp;
   }
 
   /**
@@ -18,7 +18,7 @@ export class StylePropertyHighlighter {
    */
   highlightProperty(cssProperty: SDK.CSSProperty.CSSProperty): void {
     // Expand all shorthands.
-    for (const section of this.styleSidebarPane.allSections()) {
+    for (const section of this.#styleSidebarPane.allSections()) {
       for (let treeElement = section.propertiesTreeOutline.firstChild(); treeElement;
            treeElement = treeElement.nextSibling) {
         treeElement.onpopulate();
@@ -51,7 +51,7 @@ export class StylePropertyHighlighter {
 
   /**
    * Traverse the styles pane tree, execute the provided callback for every tree element found, and
-   * return the first tree element and corresponding section for which the callback returns a truthy value.
+   * return the first tree element and corresponding #section for which the callback returns a truthy value.
    */
   private findTreeElementAndSection(compareCb: (arg0: StylePropertyTreeElement) => boolean): {
     treeElement: StylePropertyTreeElement|null,
@@ -59,7 +59,7 @@ export class StylePropertyHighlighter {
   } {
     let result: StylePropertyTreeElement|null = null;
     let containingSection: StylePropertiesSection|null = null;
-    for (const section of this.styleSidebarPane.allSections()) {
+    for (const section of this.#styleSidebarPane.allSections()) {
       let treeElement = section.propertiesTreeOutline.firstChild();
       while (treeElement && !result && (treeElement instanceof StylePropertyTreeElement)) {
         if (compareCb(treeElement)) {

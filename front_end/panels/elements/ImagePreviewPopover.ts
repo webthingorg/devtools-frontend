@@ -13,21 +13,21 @@ import * as UI from '../../ui/legacy/legacy.js';
  * set the property HrefSymbol.
  */
 export class ImagePreviewPopover {
-  private readonly getLinkElement: (arg0: Event) => Element | null;
-  private readonly getDOMNode: (arg0: Element) => SDK.DOMModel.DOMNode | null;
-  private readonly popover: UI.PopoverHelper.PopoverHelper;
+  readonly #getLinkElement: (arg0: Event) => Element | null;
+  readonly #getDOMNode: (arg0: Element) => SDK.DOMModel.DOMNode | null;
+  readonly #popover: UI.PopoverHelper.PopoverHelper;
   constructor(
       container: Element, getLinkElement: (arg0: Event) => Element | null,
       getDOMNode: (arg0: Element) => SDK.DOMModel.DOMNode | null) {
-    this.getLinkElement = getLinkElement;
-    this.getDOMNode = getDOMNode;
-    this.popover = new UI.PopoverHelper.PopoverHelper(container, this.handleRequest.bind(this));
-    this.popover.setHasPadding(true);
-    this.popover.setTimeout(0, 100);
+    this.#getLinkElement = getLinkElement;
+    this.#getDOMNode = getDOMNode;
+    this.#popover = new UI.PopoverHelper.PopoverHelper(container, this.handleRequest.bind(this));
+    this.#popover.setHasPadding(true);
+    this.#popover.setTimeout(0, 100);
   }
 
   private handleRequest(event: Event): UI.PopoverHelper.PopoverRequest|null {
-    const link = this.getLinkElement(event);
+    const link = this.#getLinkElement(event);
     if (!link) {
       return null;
     }
@@ -39,7 +39,7 @@ export class ImagePreviewPopover {
       box: link.boxInWindow(),
       hide: undefined,
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
-        const node = this.getDOMNode((link as Element));
+        const node = this.#getDOMNode((link as Element));
         if (!node) {
           return false;
         }
@@ -55,7 +55,7 @@ export class ImagePreviewPopover {
   }
 
   hide(): void {
-    this.popover.hidePopover();
+    this.#popover.hidePopover();
   }
 
   static setImageUrl(element: Element, url: string): Element {

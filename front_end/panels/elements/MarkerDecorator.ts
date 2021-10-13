@@ -29,8 +29,8 @@ export interface MarkerDecorator {
 }
 
 export class GenericDecorator implements MarkerDecorator {
-  private readonly title: string;
-  private readonly color: string;
+  readonly #title: string;
+  readonly #color: string;
 
   constructor(extension: {
     marker: string,
@@ -40,15 +40,15 @@ export class GenericDecorator implements MarkerDecorator {
     if (!extension.title || !extension.color) {
       throw new Error(`Generic decorator requires a color and a title: ${extension.marker}`);
     }
-    this.title = extension.title();
-    this.color = (extension.color as string);
+    this.#title = extension.title();
+    this.#color = (extension.color as string);
   }
 
   decorate(_node: SDK.DOMModel.DOMNode): {
     title: string,
     color: string,
   }|null {
-    return {title: this.title, color: this.color};
+    return {title: this.#title, color: this.#color};
   }
 }
 

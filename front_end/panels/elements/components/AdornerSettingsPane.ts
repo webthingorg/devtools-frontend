@@ -11,11 +11,11 @@ import type {AdornerSettingsMap} from './AdornerManager.js';
 
 const UIStrings = {
   /**
-    * @description Title of a list of settings to toggle badges.
+    * @description Title of a list of #settings to toggle badges.
     */
   settingsTitle: 'Show badges',
   /**
-   * @description ARIA label of the button to close the badge settings pane
+   * @description ARIA label of the button to close the badge #settings pane
    */
   closeButton: 'Close',
 };
@@ -44,21 +44,21 @@ export interface AdornerSettingsPaneData {
 
 export class AdornerSettingsPane extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-adorner-settings-pane`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private settings: AdornerSettingsMap = new Map();
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #settings: AdornerSettingsMap = new Map();
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [adornerSettingsPaneStyles];
+    this.#shadow.adoptedStyleSheets = [adornerSettingsPaneStyles];
   }
 
   set data(data: AdornerSettingsPaneData) {
-    this.settings = new Map(data.settings.entries());
+    this.#settings = new Map(data.settings.entries());
     this.render();
   }
 
   show(): void {
     this.classList.remove('hidden');
-    const settingsPane = this.shadow.querySelector<HTMLElement>('.adorner-settings-pane');
+    const settingsPane = this.#shadow.querySelector<HTMLElement>('.adorner-settings-pane');
     if (settingsPane) {
       settingsPane.focus();
     }
@@ -75,14 +75,14 @@ export class AdornerSettingsPane extends HTMLElement {
       return;
     }
     const isEnabledNow = inputEl.checked;
-    this.settings.set(adorner, isEnabledNow);
-    this.dispatchEvent(new AdornerSettingUpdatedEvent(adorner, isEnabledNow, this.settings));
+    this.#settings.set(adorner, isEnabledNow);
+    this.dispatchEvent(new AdornerSettingUpdatedEvent(adorner, isEnabledNow, this.#settings));
     this.render();
   }
 
   private render(): void {
     const settingTemplates = [];
-    for (const [adorner, isEnabled] of this.settings) {
+    for (const [adorner, isEnabled] of this.#settings) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       settingTemplates.push(html`
@@ -108,7 +108,7 @@ export class AdornerSettingsPane extends HTMLElement {
         </div>
         <button class="close" @click=${this.hide} aria-label=${i18nString(UIStrings.closeButton)}></button>
       </div>
-    `, this.shadow, {
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on
