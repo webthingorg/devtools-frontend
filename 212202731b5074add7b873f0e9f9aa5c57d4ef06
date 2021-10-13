@@ -158,6 +158,47 @@
       "parentUuid": "d72587ff_e5b2b5d2",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a973c91c_1cbb1751",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T10:08:00Z",
+      "side": 1,
+      "message": "Thanks a lot. So I have the following question: with this CL would everything work if the setting \"Disable paused state overlay\" is on? I imagine the overlay would not handle resume in this case.",
+      "parentUuid": "464d5bfe_5c623580",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd8d65b_29102812",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T10:08:00Z",
+      "side": 1,
+      "message": "what if the actionId is not `debugger.toggle-pause`? I think we should return false here then. Also, I want to understand what metric is being recorded here: would it make sense that it is double recorded?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 13,
+        "endLine": 1237,
+        "endChar": 17
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
