@@ -249,6 +249,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca4f6230_581225a5",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T11:05:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "671a8ef2_b30d083e",
+      "range": {
+        "startLine": 1237,
+        "startChar": 13,
+        "endLine": 1237,
+        "endChar": 17
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6f82f03_b776edec",
