@@ -36,7 +36,7 @@ const UIStrings = {
   */
   disabledFeatures: 'Disabled Features',
   /**
-  *@description Tooltip text for a link to a specific request's headers in the Network panel.
+  *@description Tooltip text for a link to a specific #request's headers in the Network panel.
   */
   clickToShowHeader: 'Click to reveal the request whose "`Permissions-Policy`" HTTP header disables this feature.',
   /**
@@ -49,7 +49,7 @@ const UIStrings = {
   */
   disabledByIframe: 'missing in iframe "`allow`" attribute',
   /**
-  *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a request header.
+  *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a #request header.
   */
   disabledByHeader: 'disabled by "`Permissions-Policy`" header',
 };
@@ -84,25 +84,25 @@ export function renderIconLink(
 
 export class PermissionsPolicySection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-resources-permissions-policy-section`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
 
   set data(data: PermissionsPolicySectionData) {
-    this.permissionsPolicySectionData = data;
+    this.#permissionsPolicySectionData = data;
     this.render();
   }
 
   connectedCallback(): void {
-    this.shadow.adoptedStyleSheets = [permissionsPolicySectionStyles];
+    this.#shadow.adoptedStyleSheets = [permissionsPolicySectionStyles];
   }
 
   private toggleShowPermissionsDisallowedDetails(): void {
-    this.permissionsPolicySectionData.showDetails = !this.permissionsPolicySectionData.showDetails;
+    this.#permissionsPolicySectionData.showDetails = !this.#permissionsPolicySectionData.showDetails;
     this.render();
   }
 
   private renderAllowed(): LitHtml.TemplateResult|{} {
-    const allowed = this.permissionsPolicySectionData.policies.filter(p => p.allowed).map(p => p.feature).sort();
+    const allowed = this.#permissionsPolicySectionData.policies.filter(p => p.allowed).map(p => p.feature).sort();
     if (!allowed.length) {
       return LitHtml.nothing;
     }
@@ -116,12 +116,12 @@ export class PermissionsPolicySection extends HTMLElement {
   }
 
   private async renderDisallowed(): Promise<LitHtml.TemplateResult|{}> {
-    const disallowed = this.permissionsPolicySectionData.policies.filter(p => !p.allowed)
+    const disallowed = this.#permissionsPolicySectionData.policies.filter(p => !p.allowed)
                            .sort((a, b) => a.feature.localeCompare(b.feature));
     if (!disallowed.length) {
       return LitHtml.nothing;
     }
-    if (!this.permissionsPolicySectionData.showDetails) {
+    if (!this.#permissionsPolicySectionData.showDetails) {
       return LitHtml.html`
         <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.disabledFeatures)}</${
           ReportView.ReportView.ReportKey.litTagName}>
@@ -219,7 +219,7 @@ export class PermissionsPolicySection extends HTMLElement {
           <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
             ReportView.ReportView.ReportSectionDivider.litTagName}>
         `,
-        this.shadow, {host: this},
+        this.#shadow, {host: this},
       );
       // clang-format on
     });
