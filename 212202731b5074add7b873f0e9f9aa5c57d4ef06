@@ -199,6 +199,29 @@
       },
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f82f03_b776edec",
+        "filename": "front_end/ui/legacy/ForwardedInputEventHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-13T10:42:14Z",
+      "side": 1,
+      "message": "another thought: does it work when remote debugging a page? e.g. connecting from one browser instance to another one and pressing F8 in the debugee? I think that would be the reason why the overlay is handling that?",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
