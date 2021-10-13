@@ -1230,9 +1230,19 @@ export class RevealingActionDelegate implements UI.ActionRegistration.ActionDele
       return false;
     }
     switch (actionId) {
-      case 'debugger.toggle-pause':
+      case 'debugger.toggle-pause': {
+        // Only take action here if this is not a forwarded action and the
+        // paused overlay is enabled.
+        const actionHandledInPausedOverlay = context.flavor(UI.ShortcutRegistry.ForwardedShortcut) &&
+            !Common.Settings.Settings.instance().moduleSetting('disablePausedStateOverlay').get();
+        if (actionHandledInPausedOverlay) {
+          // Taken care of by inspector overlay: handled set to true to
+          // register user metric.
+          return true;
+        }
         panel.togglePause();
         return true;
+      }
     }
     return false;
   }
