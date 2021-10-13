@@ -104,6 +104,24 @@
       "parentUuid": "076cce71_3f6a5a1c",
       "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6495e836_98c067f4",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T08:31:50Z",
+      "side": 1,
+      "message": "But, in general, I\u0027d rather have the isnpector overlay only forwarding events. There is some special handling in the DevTools that the inspector overlay is not aware of (e.g. stepping with skip lists). But I\u0027d suggest to fix this bug first, and then to open a new bug about that, to document how things are / how we want that to change / what would be affected.",
+      "parentUuid": "9ba06981_51dd354a",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
