@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba8ec0a4_ae2e53d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T13:36:39Z",
+      "side": 1,
+      "message": "Thanks a lot Alex for the thorough review! Added more comments to clarify what\u0027s happening in which situations. With the current e2e tests we cannot add a test where the overlay is disabled and we can still step, as the e2e tests run devtools in hosted mode. And in this case the events are not forwarded. Tried to summarize this in the comments now.",
+      "revId": "3d19e33aa017c26e6306749c9bb34021e465cc9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
