@@ -39,6 +39,30 @@
       },
       "revId": "77157a13fc29b150128acc4c5a1c419ab8d41d3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3bc3f1_87e45ae1",
+        "filename": "front_end/core/host/InspectorFrontendHostAPI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-13T14:02:02Z",
+      "side": 1,
+      "message": "If this is one of the spots (https://source.chromium.org/chromium/chromium/src/+/main:chrome/browser/devtools/devtools_ui_bindings.cc;l\u003d186), then yes, the paths there are in the rawPathString form (e.g. /usr/local/google/home/kprokopenko/Pictures)",
+      "parentUuid": "dd94d0a3_24770dd9",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 16
+      },
+      "revId": "77157a13fc29b150128acc4c5a1c419ab8d41d3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
