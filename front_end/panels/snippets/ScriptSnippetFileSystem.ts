@@ -40,7 +40,7 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
   private readonly lastSnippetIdentifierSetting: Common.Settings.Setting<number>;
   private readonly snippetsSetting: Common.Settings.Setting<Snippet[]>;
   constructor() {
-    super('snippet://', 'snippets');
+    super('snippet://' as Platform.DevToolsPath.UrlString, 'snippets');
     this.lastSnippetIdentifierSetting =
         Common.Settings.Settings.instance().createSetting('scriptSnippets_lastIdentifier', 0);
     this.snippetsSetting = Common.Settings.Settings.instance().createSetting('scriptSnippets', []);
