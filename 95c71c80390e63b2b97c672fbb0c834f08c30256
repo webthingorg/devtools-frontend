@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10edf280_f924b34b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-13T15:01:48Z",
+      "side": 1,
+      "message": "PTAL, if you notice that I forgot to add a TODO to remove casts from file once the migration is complete in some of these CLs, please remind me!",
+      "revId": "95c71c80390e63b2b97c672fbb0c834f08c30256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
