@@ -22,18 +22,22 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/accessibility/ARIAAttributesView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ARIAAttributesPane extends AccessibilitySubPane {
-  private readonly noPropertiesInfo: Element;
-  private readonly treeOutline: UI.TreeOutline.TreeOutline;
+  readonly #noPropertiesInfo: Element;
+  readonly #treeOutline: UI.TreeOutline.TreeOutline;
   constructor() {
     super(i18nString(UIStrings.ariaAttributes));
 
-    this.noPropertiesInfo = this.createInfo(i18nString(UIStrings.noAriaAttributes));
-    this.treeOutline = this.createTreeOutline();
+    this.#noPropertiesInfo = this.createInfo(i18nString(UIStrings.noAriaAttributes));
+    this.#treeOutline = this.createTreeOutline();
+  }
+
+  get treeOutline(): UI.TreeOutline.TreeOutline {
+    return this.#treeOutline;
   }
 
   setNode(node: SDK.DOMModel.DOMNode|null): void {
     super.setNode(node);
-    this.treeOutline.removeChildren();
+    this.#treeOutline.removeChildren();
     if (!node) {
       return;
     }
@@ -45,12 +49,12 @@ export class ARIAAttributesPane extends AccessibilitySubPane {
         continue;
       }
 
-      this.treeOutline.appendChild(new ARIAAttributesTreeElement(this, attribute, target));
+      this.#treeOutline.appendChild(new ARIAAttributesTreeElement(this, attribute, target));
     }
 
-    const foundAttributes = (this.treeOutline.rootElement().childCount() !== 0);
-    this.noPropertiesInfo.classList.toggle('hidden', foundAttributes);
-    this.treeOutline.element.classList.toggle('hidden', !foundAttributes);
+    const foundAttributes = (this.#treeOutline.rootElement().childCount() !== 0);
+    this.#noPropertiesInfo.classList.toggle('hidden', foundAttributes);
+    this.#treeOutline.element.classList.toggle('hidden', !foundAttributes);
   }
 
   private isARIAAttribute(attribute: SDK.DOMModel.Attribute): boolean {
@@ -59,17 +63,17 @@ export class ARIAAttributesPane extends AccessibilitySubPane {
 }
 
 export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
-  private readonly parentPane: ARIAAttributesPane;
-  private readonly attribute: SDK.DOMModel.Attribute;
-  private nameElement?: HTMLSpanElement;
-  private valueElement?: Element;
-  private prompt?: ARIAAttributePrompt;
+  readonly #parentPane: ARIAAttributesPane;
+  readonly #attribute: SDK.DOMModel.Attribute;
+  #nameElement?: HTMLSpanElement;
+  #valueElement?: Element;
+  #prompt?: ARIAAttributePrompt;
 
   constructor(parentPane: ARIAAttributesPane, attribute: SDK.DOMModel.Attribute, _target: SDK.Target.Target) {
     super('');
 
-    this.parentPane = parentPane;
-    this.attribute = attribute;
+    this.#parentPane = parentPane;
+    this.#attribute = attribute;
 
     this.selectable = false;
   }
@@ -89,22 +93,22 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
 
   private populateListItem(): void {
     this.listItemElement.removeChildren();
-    this.appendNameElement(this.attribute.name);
+    this.appendNameElement(this.#attribute.name);
     this.listItemElement.createChild('span', 'separator').textContent = ':\xA0';
-    this.appendAttributeValueElement(this.attribute.value);
+    this.appendAttributeValueElement(this.#attribute.value);
   }
 
   appendNameElement(name: string): void {
-    this.nameElement = document.createElement('span');
-    this.nameElement.textContent = name;
-    this.nameElement.classList.add('ax-name');
-    this.nameElement.classList.add('monospace');
-    this.listItemElement.appendChild(this.nameElement);
+    this.#nameElement = document.createElement('span');
+    this.#nameElement.textContent = name;
+    this.#nameElement.classList.add('ax-name');
+    this.#nameElement.classList.add('monospace');
+    this.listItemElement.appendChild(this.#nameElement);
   }
 
   appendAttributeValueElement(value: string): void {
-    this.valueElement = ARIAAttributesTreeElement.createARIAValueElement(value);
-    this.listItemElement.appendChild(this.valueElement);
+    this.#valueElement = ARIAAttributesTreeElement.createARIAValueElement(value);
+    this.listItemElement.appendChild(this.#valueElement);
   }
 
   private mouseClick(event: Event): void {
@@ -118,7 +122,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private startEditing(): void {
-    const valueElement = this.valueElement;
+    const valueElement = this.#valueElement;
 
     if (!valueElement || UI.UIUtils.isBeingEdited(valueElement)) {
       return;
@@ -132,11 +136,11 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
       this.editingCommitted(text, previousContent);
     }
 
-    const attributeName = (this.nameElement as HTMLSpanElement).textContent || '';
-    this.prompt = new ARIAAttributePrompt(ariaMetadata().valuesForProperty(attributeName), this);
-    this.prompt.setAutocompletionTimeout(0);
+    const attributeName = (this.#nameElement as HTMLSpanElement).textContent || '';
+    this.#prompt = new ARIAAttributePrompt(ariaMetadata().valuesForProperty(attributeName), this);
+    this.#prompt.setAutocompletionTimeout(0);
     const proxyElement =
-        this.prompt.attachAndStartEditing(valueElement, blurListener.bind(this, previousContent)) as HTMLElement;
+        this.#prompt.attachAndStartEditing(valueElement, blurListener.bind(this, previousContent)) as HTMLElement;
 
     proxyElement.addEventListener('keydown', event => this.editingValueKeyDown(previousContent, event), false);
 
@@ -147,11 +151,11 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private removePrompt(): void {
-    if (!this.prompt) {
+    if (!this.#prompt) {
       return;
     }
-    this.prompt.detach();
-    delete this.prompt;
+    this.#prompt.detach();
+    this.#prompt = undefined;
   }
 
   private editingCommitted(userInput: string, previousContent: string): void {
@@ -159,8 +163,8 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
 
     // Make the changes to the attribute
     if (userInput !== previousContent) {
-      const node = this.parentPane.node() as SDK.DOMModel.DOMNode;
-      node.setAttributeValue(this.attribute.name, userInput);
+      const node = this.#parentPane.node() as SDK.DOMModel.DOMNode;
+      node.setAttributeValue(this.#attribute.name, userInput);
     }
   }
 
@@ -190,14 +194,14 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
 }
 
 export class ARIAAttributePrompt extends UI.TextPrompt.TextPrompt {
-  private readonly ariaCompletions: string[];
-  private readonly treeElement: ARIAAttributesTreeElement;
+  readonly #ariaCompletions: string[];
+  readonly #treeElement: ARIAAttributesTreeElement;
   constructor(ariaCompletions: string[], treeElement: ARIAAttributesTreeElement) {
     super();
     this.initialize(this.buildPropertyCompletions.bind(this));
 
-    this.ariaCompletions = ariaCompletions;
-    this.treeElement = treeElement;
+    this.#ariaCompletions = ariaCompletions;
+    this.#treeElement = treeElement;
   }
 
   private async buildPropertyCompletions(expression: string, prefix: string, force?: boolean):
@@ -206,7 +210,7 @@ export class ARIAAttributePrompt extends UI.TextPrompt.TextPrompt {
     if (!prefix && !force && expression) {
       return [];
     }
-    return this.ariaCompletions.filter(value => value.startsWith(prefix)).map(c => {
+    return this.#ariaCompletions.filter(value => value.startsWith(prefix)).map(c => {
       return {
         text: c,
         title: undefined,
