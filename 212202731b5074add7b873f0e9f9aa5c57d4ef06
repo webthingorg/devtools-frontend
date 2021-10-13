@@ -180,6 +180,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "449600bf_b8874a93",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-13T11:20:53Z",
+      "side": 1,
+      "message": "Thanks for catching this, I wasn\u0027t aware of the setting. I have extended the if case to include the settings check.",
+      "parentUuid": "a973c91c_1cbb1751",
+      "revId": "212202731b5074add7b873f0e9f9aa5c57d4ef06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfd8d65b_29102812",
         "filename": "front_end/panels/sources/SourcesPanel.ts",
         "patchSetId": 2
