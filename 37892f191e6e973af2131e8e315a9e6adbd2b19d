@@ -33,6 +33,24 @@
       "message": "The failed test seems to be a layout test accessing the pin panel\u0027s editor through the old interface. Either dropping that or changing `editor.text` to `editor.state.doc.toString()` should help.",
       "revId": "37892f191e6e973af2131e8e315a9e6adbd2b19d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b32d0f_afe6ce12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-14T09:30:00Z",
+      "side": 1,
+      "message": "Opted for removal in https://chromium-review.googlesource.com/c/chromium/src/+/3222741/",
+      "parentUuid": "160f351e_b19f85b4",
+      "revId": "37892f191e6e973af2131e8e315a9e6adbd2b19d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
