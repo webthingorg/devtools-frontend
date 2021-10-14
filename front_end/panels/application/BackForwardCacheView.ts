@@ -7,6 +7,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
+import * as Button from '../../ui/components/buttons/buttons.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Protocol from '../../generated/protocol.js';
 
@@ -121,6 +122,8 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return LitHtml.html`
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.lastMainFrameNavigation)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
+<${Button.Button.Button.litTagName}>${i18nString(UIStrings.lastMainFrameNavigation)}
+</${Button.Button.Button.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
