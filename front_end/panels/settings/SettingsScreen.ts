@@ -260,6 +260,9 @@ class SettingsTab extends UI.Widget.VBox {
 let genericSettingsTabInstance: GenericSettingsTab;
 
 export class GenericSettingsTab extends SettingsTab {
+  private customSectionRendering = new Map<Common.Settings.SettingCategory, () => HTMLElement>([
+    [Common.Settings.SettingCategory.SYNC, this.createSyncSectionElement.bind(this)],
+  ]);
   private categoryToSection = new Map<Common.Settings.SettingCategory, Element>();
 
   constructor() {
@@ -369,10 +372,48 @@ export class GenericSettingsTab extends SettingsTab {
   }
 
   private createSectionElement(category: Common.Settings.SettingCategory): Element {
+    const customRenderer = this.customSectionRendering.get(category);
+    if (customRenderer) {
+      return customRenderer();
+    }
+    return this.createStandardSectionElement(category);
+  }
+
+  private createStandardSectionElement(category: Common.Settings.SettingCategory): HTMLElement {
     const uiSectionName = Common.Settings.getLocalizedSettingsCategory(category);
     const sectionElement = this.appendSection(uiSectionName);
     this.categoryToSection.set(category, sectionElement);
     return sectionElement;
+  }
+
+  private createSyncSectionElement(): HTMLElement {
+    const section = this.createStandardSectionElement(Common.Settings.SettingCategory.SYNC);
+    const p = document.createElement('p');
+    section.append(p);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSyncInformation(info => {
+      if (!info.isSyncActive) {
+        const span = document.createElement('span');
+        span.classList.add('settings-sync-warning');
+        const link = UI.XLink.XLink.create('chrome://settings/syncSetup', 'Chrome Sync');
+        span.append('Enable ', link, ' to synchronize DevTools settings.');
+        p.append(span);
+      } else if (!info.arePreferencesSynced) {
+        const span = document.createElement('span');
+        span.classList.add('settings-sync-warning');
+        const link = UI.XLink.XLink.create('chrome://settings/syncSetup/advanced', 'Settings category in Chrome Sync');
+        span.append('Enable the ', link, ' to synchronize DevTools settings.');
+        p.append(span);
+      } else if (info.accountImage && info.accountEmail) {
+        const span = document.createElement('span');
+        p.classList.add('settings-sync-account');
+        span.textContent = info.accountEmail;
+        const image = document.createElement('img');
+        image.classList.add('settings-account-image');
+        image.src = 'data:image/png;base64,' + info.accountImage;
+        p.append(image, span);
+      }
+    });
+    return section;
   }
 
   private sectionElement(category: Common.Settings.SettingCategory): Element|null {
