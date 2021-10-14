@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff51f83_e1a58e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2021-10-14T20:46:03Z",
+      "side": 1,
+      "message": "I have been playing with this patch locally for a week, and it has worked very well.  It is a tremendous improvement!",
+      "revId": "a4f90da7829fa9391632e53fe0f63eadac3d9ee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914bde08_9a1bb8c9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2021-10-14T20:46:03Z",
+      "side": 1,
+      "message": "I know that DevTools was already using Red/Green for frame colors, and I think Yellow matches that color scheme well.\n\nHowever, we received feedback that this is not a very accessible choice.  I wonder if this is something that needs addressing now that we are in here, or wait for future revisions?",
+      "revId": "a4f90da7829fa9391632e53fe0f63eadac3d9ee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
