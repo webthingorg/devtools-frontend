@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "958e923b_ea43b379",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-14T13:20:30Z",
+      "side": 1,
+      "message": "You\u0027ll want a helper function for this rather than have a cast here.",
+      "range": {
+        "startLine": 308,
+        "startChar": 4,
+        "endLine": 308,
+        "endChar": 101
+      },
+      "revId": "e32ebc666d32eacdf643e35a5636da96b74491a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e709bf_07d4ec24",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-14T13:20:30Z",
+      "side": 1,
+      "message": "You\u0027ll want a helper function to do this too, but that can be in a later cl when the type of this changes to EncodedPathString.",
+      "range": {
+        "startLine": 349,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 103
+      },
+      "revId": "e32ebc666d32eacdf643e35a5636da96b74491a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
