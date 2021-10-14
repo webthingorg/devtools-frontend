@@ -51,6 +51,24 @@
       "parentUuid": "b1e7c554_73a17ad7",
       "revId": "bafa6c6c67941596adb32545222fc5a479ef9727",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "466fa95c_ef65fbdf",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-14T08:10:44Z",
+      "side": 1,
+      "message": "With the current e2e tests we cannot add a test where the overlay is disabled and we can still step, as the e2e tests run devtools in hosted mode. And in this case the events are not forwarded.",
+      "parentUuid": "fe197e9b_cdeb8240",
+      "revId": "bafa6c6c67941596adb32545222fc5a479ef9727",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
