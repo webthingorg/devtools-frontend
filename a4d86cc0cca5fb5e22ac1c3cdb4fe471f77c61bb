@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc9f5fb_df341cfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-14T15:34:49Z",
+      "side": 1,
+      "message": "Perhaps reference 1172300 too (as Bug: 1172300)?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "a4d86cc0cca5fb5e22ac1c3cdb4fe471f77c61bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
