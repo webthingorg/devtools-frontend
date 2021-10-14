@@ -211,3 +211,21 @@ fieldset {
     color: HighlightText;
   }
 }
+
+.settings-account-image {
+  background-size: 32px 32px;
+  border: 0;
+  border-radius: 50%;
+  display: block;
+  height: 32px;
+  width: 32px;
+}
+
+.settings-sync-warning {
+  color: var(--color-error-text);
+}
+
+.settings-sync-account {
+  display: flex;
+  align-items: center;
+}
