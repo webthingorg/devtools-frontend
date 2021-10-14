@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a980a094_0125efac",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-10-14T10:40:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a11e11_47a07fdb",
+      "range": {
+        "startLine": 165,
+        "startChar": 35,
+        "endLine": 165,
+        "endChar": 36
+      },
+      "revId": "74052de00d4afe7afbe6c02e243d78e50d4dd6c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44a20ef5_ce5ca68f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-14T10:18:10Z",
       "side": 1,
       "message": "nit: something is missing, or is too much in this sentence piece.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 32
+      },
+      "revId": "74052de00d4afe7afbe6c02e243d78e50d4dd6c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a47120df_20ccc030",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-10-14T10:40:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a20ef5_ce5ca68f",
       "range": {
         "startLine": 166,
         "startChar": 0,
