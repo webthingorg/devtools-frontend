@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41df6f97_4aca3657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-14T12:57:30Z",
+      "side": 1,
+      "message": "Blocking layout test will be removed in https://chromium-review.googlesource.com/c/chromium/src/+/3222843/ as we now have unit tests in place.",
+      "revId": "361a39417265485e7602cc1558a971f21493c896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
