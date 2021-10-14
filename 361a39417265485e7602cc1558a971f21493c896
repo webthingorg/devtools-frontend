@@ -16,6 +16,29 @@
       "message": "Blocking layout test will be removed in https://chromium-review.googlesource.com/c/chromium/src/+/3222843/ as we now have unit tests in place.",
       "revId": "361a39417265485e7602cc1558a971f21493c896",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd80f6a_6875d194",
+        "filename": "front_end/ui/components/diff_view/DiffView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-14T13:45:18Z",
+      "side": 1,
+      "message": "I think we can fold the `DiffRenderer` into this custom element, but I will do that as a follow-up sometime in the future. For now, this works as-is and I want to get this feature in, as it is all working from a user perspective 😊",
+      "range": {
+        "startLine": 277,
+        "startChar": 20,
+        "endLine": 277,
+        "endChar": 39
+      },
+      "revId": "361a39417265485e7602cc1558a971f21493c896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
