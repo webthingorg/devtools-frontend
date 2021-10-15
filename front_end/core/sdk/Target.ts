@@ -67,7 +67,7 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
         this.#capabilitiesMask = Capability.JS;
         break;
       case Type.AuctionWorklet:
-        this.#capabilitiesMask = Capability.JS;
+        this.#capabilitiesMask = Capability.JS | Capability.DOM;
         break;
       case Type.Browser:
         this.#capabilitiesMask = Capability.Target | Capability.IO;
