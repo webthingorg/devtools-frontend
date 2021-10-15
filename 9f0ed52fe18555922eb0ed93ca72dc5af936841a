@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "9f0ed52fe18555922eb0ed93ca72dc5af936841a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb87b0c_9dd1b8ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-10-15T13:04:50Z",
+      "side": 1,
+      "message": "Have you considered adding te... Just kidding.:)\nPlease include where are removing this cursor from in the CL description.",
+      "revId": "9f0ed52fe18555922eb0ed93ca72dc5af936841a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
