@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1c89c86_0706b657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-15T12:45:36Z",
+      "side": 1,
+      "message": "Hi Marian,\n\nPlease take a look. The new look can be found here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1229937#c4\n\nYang",
+      "revId": "7e016e2b8d8437ff37177446745d39f50f50abcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
