@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cbffbfc_47e3ce96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-15T09:42:37Z",
+      "side": 1,
+      "message": "PTAL. Our translators had questions regarding the meaning of \u0027actionable\u0027 etc. (http://b/202732874), so I figured that it might not be clear for users either. WDYT of adding some hover text explanations?",
+      "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
