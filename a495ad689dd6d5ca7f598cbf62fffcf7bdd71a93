@@ -16,6 +16,24 @@
       "message": "non-blocking Q: Rather than overriding it here, have we considered removing the initial `user-select` rule (that we’re overriding here)?",
       "revId": "a495ad689dd6d5ca7f598cbf62fffcf7bdd71a93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f202bc_9bd026b3",
+        "filename": "front_end/panels/security/mainView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-15T13:33:27Z",
+      "side": 1,
+      "message": "Seems to work with setting only where necessary, thanks!",
+      "parentUuid": "e9929cc8_5f5fa87b",
+      "revId": "a495ad689dd6d5ca7f598cbf62fffcf7bdd71a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
