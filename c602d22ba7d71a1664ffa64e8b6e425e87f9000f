@@ -16,6 +16,46 @@
       "message": "PTAL. Our translators had questions regarding the meaning of \u0027actionable\u0027 etc. (http://b/202732874), so I figured that it might not be clear for users either. WDYT of adding some hover text explanations?",
       "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a974eb50_68907a17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-15T13:14:18Z",
+      "side": 1,
+      "message": "Thanks for working on this!",
+      "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06187d63_f003a2e7",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-15T13:14:18Z",
+      "side": 1,
+      "message": "Examples of \u0027circumstantial reasons\u0027 are like \"Not main frame navigation\", \"The page was still loading upon navigation\", and often not feature usage.\nSee the list here: https://docs.google.com/spreadsheets/d/1li0po_ETJAIybpaSX5rW_lUN62upQhY0tH4pR5UPt60/edit#gid\u003d0\n\nSo maybe we could remove this part?\n\n+fergal@ for thoughts",
+      "range": {
+        "startLine": 79,
+        "startChar": 44,
+        "endLine": 79,
+        "endChar": 120
+      },
+      "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
