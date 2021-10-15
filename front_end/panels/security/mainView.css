@@ -84,6 +84,7 @@
   border-width: 1px 1px 0 0;
   background: var(--color-background);
   border-color: var(--color-background-elevation-1);
+  user-select: none;
 }
 
 .security-summary-secure .triangle-pointer-wrapper {
