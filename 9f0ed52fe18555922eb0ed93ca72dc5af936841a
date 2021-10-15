@@ -33,6 +33,24 @@
       "message": "Have you considered adding te... Just kidding.:)\nPlease include where are removing this cursor from in the CL description.",
       "revId": "9f0ed52fe18555922eb0ed93ca72dc5af936841a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74afb573_38831f51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-15T13:07:58Z",
+      "side": 1,
+      "message": "😅",
+      "parentUuid": "6cb87b0c_9dd1b8ee",
+      "revId": "9f0ed52fe18555922eb0ed93ca72dc5af936841a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
