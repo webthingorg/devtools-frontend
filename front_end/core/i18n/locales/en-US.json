@@ -281,6 +281,21 @@
   "core/sdk/DOMDebuggerModel.ts | animationFrameFired": {
     "message": "Animation Frame Fired"
   },
+  "core/sdk/DOMDebuggerModel.ts | auctionWorklet": {
+    "message": "Ad Auction Worklet"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeBidderWorkletBiddingStart": {
+    "message": "Bidder Bidding Phase Start"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeBidderWorkletReportingStart": {
+    "message": "Bidder Reporting Phase Start"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeSellerWorkletReportingStart": {
+    "message": "Seller Scoring Phase Start"
+  },
+  "core/sdk/DOMDebuggerModel.ts | beforeSellerWorkletScoringStart": {
+    "message": "Seller Scoring Phase Start"
+  },
   "core/sdk/DOMDebuggerModel.ts | cancelAnimationFrame": {
     "message": "Cancel Animation Frame"
   },

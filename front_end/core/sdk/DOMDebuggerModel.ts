@@ -193,7 +193,33 @@ const UIStrings = {
   *@description Text for the service worker type.
   */
   worker: 'Worker',
+
+  /**
+   * @description Category of breakpoints
+   */
+  auctionWorklet: 'Ad Auction Worklet',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeBidderWorkletBiddingStart: 'Bidder Bidding Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeBidderWorkletReportingStart: 'Bidder Reporting Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeSellerWorkletScoringStart: 'Seller Scoring Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeSellerWorkletReportingStart: 'Seller Scoring Phase Start',
 };
+
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DOMDebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class DOMDebuggerModel extends SDKModel<EventTypes> {
@@ -788,6 +814,12 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
     this.createInstrumentationBreakpoints(
         i18nString(UIStrings.webaudio),
         ['audioContextCreated', 'audioContextClosed', 'audioContextResumed', 'audioContextSuspended']);
+    this.createInstrumentationBreakpoints(i18nString(UIStrings.auctionWorklet), [
+      'beforeBidderWorkletBiddingStart',
+      'beforeBidderWorkletReportingStart',
+      'beforeSellerWorkletScoringStart',
+      'beforeSellerWorkletReportingStart',
+    ]);
 
     this.createEventListenerBreakpoints(
         i18nString(UIStrings.media),
@@ -954,6 +986,22 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
     breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:audioContextSuspended');
     if (breakpoint) {
       breakpoint.setTitle(i18nString(UIStrings.suspendAudiocontext));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeBidderWorkletBiddingStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeBidderWorkletBiddingStart));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeBidderWorkletReportingStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeBidderWorkletReportingStart));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeSellerWorkletScoringStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeSellerWorkletScoringStart));
+    }
+    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:beforeSellerWorkletReportingStart');
+    if (breakpoint) {
+      breakpoint.setTitle(i18nString(UIStrings.beforeSellerWorkletReportingStart));
     }
 
     TargetManager.instance().observeModels(DOMDebuggerModel, this);
