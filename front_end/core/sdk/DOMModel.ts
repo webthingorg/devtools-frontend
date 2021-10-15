@@ -163,7 +163,9 @@ export class DOMNode {
       this.contentDocumentInternal = new DOMDocument(this.#domModelInternal, payload.contentDocument);
       this.contentDocumentInternal.parentNode = this;
       this.childrenInternal = [];
-    } else if ((payload.nodeName === 'IFRAME' || payload.nodeName === 'PORTAL') && payload.frameId) {
+    } else if (
+        (payload.nodeName === 'IFRAME' || payload.nodeName === 'PORTAL' || payload.nodeName === 'FENCEDFRAME') &&
+        payload.frameId) {
       // At this point we know we are in an OOPIF, otherwise #payload.contentDocument would have been set.
       this.childDocumentPromiseForTesting =
           this.createChildDocumentPromiseForTesting(payload.frameId, this.#domModelInternal.target());
