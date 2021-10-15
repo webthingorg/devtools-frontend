@@ -97,6 +97,30 @@
       },
       "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7334d362_2aa05097",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-15T06:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a0a788_36518e58",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 7
+      },
+      "revId": "ed4c5c6eb7e4e16ce9d5cf354d53ac1694b4508f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
