@@ -9,7 +9,6 @@
 }
 
 .security-main-view {
-  user-select: text;
   overflow-x: hidden;
   overflow-y: auto;
   /* crbug.com/1152736 Consider moving --toolbar-bg-color to theme colors */
