@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c1cbd1_c8de35be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-15T12:45:53Z",
+      "side": 1,
+      "message": "Looks good, just a minor comment!",
+      "revId": "ac498d839ec336daa4d6e686ffa37e4b17fcaedc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f52f79_99341be3",
+        "filename": "front_end/ui/legacy/components/quick_open/FilteredListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-10-15T12:45:53Z",
+      "side": 1,
+      "message": "minor: can we add comments to these steps? Basically what you wrote in the CL message.",
+      "revId": "ac498d839ec336daa4d6e686ffa37e4b17fcaedc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
