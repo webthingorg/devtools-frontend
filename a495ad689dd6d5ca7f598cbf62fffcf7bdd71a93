@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9929cc8_5f5fa87b",
+        "filename": "front_end/panels/security/mainView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-10-15T13:19:50Z",
+      "side": 1,
+      "message": "non-blocking Q: Rather than overriding it here, have we considered removing the initial `user-select` rule (that we’re overriding here)?",
+      "revId": "a495ad689dd6d5ca7f598cbf62fffcf7bdd71a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
