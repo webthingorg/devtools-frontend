@@ -22,6 +22,30 @@
       },
       "revId": "2c27d1f5733e6df9e9673a3446319a9d2e458453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f1f1c0a_28bd9dec",
+        "filename": "front_end/panels/sources/BreakpointEditDialog.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-16T08:43:38Z",
+      "side": 1,
+      "message": "Yes, that keymap binds (and will continue to bind) a command to Enter.",
+      "parentUuid": "f5b15473_04e37678",
+      "range": {
+        "startLine": 137,
+        "startChar": 39,
+        "endLine": 137,
+        "endChar": 45
+      },
+      "revId": "2c27d1f5733e6df9e9673a3446319a9d2e458453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
