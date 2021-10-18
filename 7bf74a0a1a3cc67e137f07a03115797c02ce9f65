@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa281643_3ddbb3e6",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-18T11:56:19Z",
+      "side": 1,
+      "message": "That sounds good to me but it\u0027d be good if it looks okay without the label too. We should also include an example into component docs so that Peter and Marian can double check the styles.",
+      "parentUuid": "0c13a956_fe3e5a95",
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "465e4f8d_28659635",
         "filename": "front_end/ui/legacy/BUILD.gn",
         "patchSetId": 2
