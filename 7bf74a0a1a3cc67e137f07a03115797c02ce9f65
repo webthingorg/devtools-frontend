@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fca3fe1_3a5a9ce1",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-18T11:45:42Z",
+      "side": 1,
+      "message": "Which rules? Really shared should probably only the `input` and `label` rules + the dark mode fix. If we move them to ui/components/inputs we should turn them into classes and then they only really make sense when used together.\n\nIf that is indeed preferred I\u0027ll move them, since I don\u0027t have a strong opinion. Just want to make sure we are clear about the implications.",
+      "parentUuid": "f088daa9_f85f6833",
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "465e4f8d_28659635",
         "filename": "front_end/ui/legacy/BUILD.gn",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-18T11:39:00Z",
       "side": 1,
       "message": "perhaps components/SettingCheckbox:bundle? or components/settings/SettingCheckbox:bundle? so that the setting checkbox could be consumed independently?",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b446fc89_a6866a8a",
+        "filename": "front_end/ui/legacy/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-18T11:45:42Z",
+      "side": 1,
+      "message": "The only additional component I can think of would be select input for enum settings. Is the overhead of two separate entrypoints really worth it in that case?\n\nThe parent component for the Settings UI will live in panels/.",
+      "parentUuid": "465e4f8d_28659635",
       "range": {
         "startLine": 89,
         "startChar": 8,
