@@ -84,6 +84,23 @@
       "message": "Thanks for the detailed explanation here. For me it seems to be a fine compromise, but I believe Jack is more experienced in DataGrid, and may better make the judgement call here.",
       "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b365b9da_548e18c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-18T13:11:55Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation. Agree this is non-ideal but seems reasonable to me, and big +1 on moving to the new data grid - which I\u0027m happy to help with if you have any Qs. Thanks!",
+      "revId": "0c5ef96a745f1f347c48236646934659b3095a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
