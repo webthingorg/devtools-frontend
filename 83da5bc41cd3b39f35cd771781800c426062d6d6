@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "83da5bc41cd3b39f35cd771781800c426062d6d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4009c657_238ceb81",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-18T15:17:30Z",
+      "side": 1,
+      "message": "Do we even need this? I think if a button has a disabled property it\u0027s not clickable by the user, is it?\n\nSecondly, if we do, can we use Lit\u0027s `@click` rather than this? Then it\u0027ll handle the binding and everything for us.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "83da5bc41cd3b39f35cd771781800c426062d6d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f07ae52e_36ede265",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-18T15:17:30Z",
+      "side": 1,
+      "message": "think this should be `disabled`",
+      "range": {
+        "startLine": 91,
+        "startChar": 6,
+        "endLine": 91,
+        "endChar": 13
+      },
+      "revId": "83da5bc41cd3b39f35cd771781800c426062d6d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
