@@ -153,6 +153,30 @@
       },
       "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a802d6a_0eabb03a",
+        "filename": "front_end/ui/legacy/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-18T11:57:46Z",
+      "side": 1,
+      "message": "I am just a little concerned that this structure is inviting to add more setting related components that would be automatically included into the bundle. No strong preference.",
+      "parentUuid": "b446fc89_a6866a8a",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
