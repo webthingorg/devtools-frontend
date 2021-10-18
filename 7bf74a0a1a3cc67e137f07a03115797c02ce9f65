@@ -108,6 +108,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "835e20d4_a82944ed",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-18T12:16:31Z",
+      "side": 1,
+      "message": "I think we can land this and work Peter/Marian to implement a standard component",
+      "parentUuid": "5f584fd6_a9575df3",
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "465e4f8d_28659635",
@@ -169,6 +187,30 @@
       "side": 1,
       "message": "I am just a little concerned that this structure is inviting to add more setting related components that would be automatically included into the bundle. No strong preference.",
       "parentUuid": "b446fc89_a6866a8a",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66400e22_5512d806",
+        "filename": "front_end/ui/legacy/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-18T12:16:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a802d6a_0eabb03a",
       "range": {
         "startLine": 89,
         "startChar": 8,
