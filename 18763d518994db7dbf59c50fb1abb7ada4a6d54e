@@ -16,6 +16,57 @@
       "message": "Please see the other CL for more relevant discussion..",
       "revId": "18763d518994db7dbf59c50fb1abb7ada4a6d54e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b9f388_8e4d5044",
+        "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-18T22:52:20Z",
+      "side": 1,
+      "message": "s/Scoring/Reporting/",
+      "revId": "18763d518994db7dbf59c50fb1abb7ada4a6d54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e33a488_4e910a4e",
+        "filename": "front_end/core/sdk/DOMDebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-18T22:52:20Z",
+      "side": 1,
+      "message": "drive-by: this seems to have grown to the point where we may prefer a loop over a table of (breakpoint type, UIString) tuples.",
+      "revId": "18763d518994db7dbf59c50fb1abb7ada4a6d54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ec5371_35e64962",
+        "filename": "front_end/core/sdk/Target.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-18T22:52:20Z",
+      "side": 1,
+      "message": "That doesn\u0027t look right to me. There\u0027s no DOM there, is there? Should we use a dedicated capability?",
+      "revId": "18763d518994db7dbf59c50fb1abb7ada4a6d54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
