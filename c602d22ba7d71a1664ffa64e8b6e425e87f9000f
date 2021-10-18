@@ -80,6 +80,30 @@
       },
       "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd63fa34_906439cc",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-18T06:52:50Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "ec4edd69_08124db6",
+      "range": {
+        "startLine": 79,
+        "startChar": 44,
+        "endLine": 79,
+        "endChar": 120
+      },
+      "revId": "c602d22ba7d71a1664ffa64e8b6e425e87f9000f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
