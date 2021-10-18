@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20fb4948_576f940a",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-18T11:51:12Z",
+      "side": 1,
+      "message": "I see. So my question would be: does the setting checkbox look like the rest of checkboxes in DevTools? or is it special? I assumed that it looks the same as other checkboxes. Thus, I\u0027d put common checkbox styles (e.g., width/height/padding/margin, are there colors/outlines?) into a separate component. And then import those common styles into the SettingCheckbox component.",
+      "parentUuid": "8fca3fe1_3a5a9ce1",
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "465e4f8d_28659635",
         "filename": "front_end/ui/legacy/BUILD.gn",
         "patchSetId": 2
