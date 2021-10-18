@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c13a956_fe3e5a95",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-18T11:54:24Z",
+      "side": 1,
+      "message": "It does, wdyt about putting these into ui/components/inputs but leave a comment that the classes are supposed to be used like:\n\n \u003clabel class\u003d\"devtools-checkbox-label\"\u003e\n   \u003cinput type\u003d\"checkbox\" class\u003d\"devtools-checkbox-input\" /\u003e\n \u003c/label\u003e",
+      "parentUuid": "20fb4948_576f940a",
+      "revId": "7bf74a0a1a3cc67e137f07a03115797c02ce9f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "465e4f8d_28659635",
         "filename": "front_end/ui/legacy/BUILD.gn",
         "patchSetId": 2
