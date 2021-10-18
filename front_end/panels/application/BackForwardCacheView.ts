@@ -7,6 +7,8 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
+// import * as Button from '../../ui/components/buttons/buttons.js';
+// import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Protocol from '../../generated/protocol.js';
 
@@ -68,18 +70,30 @@ const UIStrings = {
    * of the back-forward cache anymore.
    */
   supportPending: 'Pending Support',
+  /**
+   * @description Button name for showing whether BFcahce is available in the pages.
+   */
+  runTest: 'Run Test',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+export interface FrameDetailsReportViewData {
+  data: SDK.ResourceTreeModel.ResourceTreeModel;
+}
+
 export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
   constructor() {
     super(true, 1000);
+    // this.target = target;
+    // this.model = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     this.getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.MainFrameNavigated, this.onBackForwardCacheUpdate, this);
     this.getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
+    // this.Buttonrender*()
+    this.renderButton();
   }
 
   wasShown(): void {
@@ -110,6 +124,34 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return this.getMainResourceTreeModel()?.mainFrame || null;
   }
 
+  private startButton!: HTMLButtonElement;
+
+  private renderButton(): void {
+    // this.populateRuntimeSettingAsToolbarCheckbox('lighthouse.clear_storage', this.settingsToolbarInternal);
+    // this.populateRuntimeSettingAsToolbarCheckbox('lighthouse.throttling', this.settingsToolbarInternal);
+    this.startButton = UI.UIUtils.createTextButton(
+        i18nString(UIStrings.runTest), () => this.showStatus(), 'runTest-button',
+        /* primary */ true);
+    this.setDefaultFocusedElement(this.startButton);
+    this.contentElement.style.overflow = 'auto';
+  }
+
+  private async showStatus(): Promise<void> {
+    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    if (!mainTarget) {
+      return;
+    }
+    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+
+    if (resourceTreeModel) {
+      await resourceTreeModel.navigate('https://chromium-review.googlesource.com/q/status:open+-is:wip');
+      const results = await resourceTreeModel.navigationHistory();
+      if (results !== null) {
+        resourceTreeModel.navigateToHistoryEntry(results.entries[results.currentIndex]);
+      }
+    }
+  }
+
   private renderMainFrameInformation(mainFrame: SDK.ResourceTreeModel.ResourceTreeFrame|null): LitHtml.TemplateResult {
     if (!mainFrame) {
       return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.mainFrame)}</${
@@ -121,13 +163,14 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return LitHtml.html`
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.lastMainFrameNavigation)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
+${this.startButton}
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
         ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.bfcacheStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
-      <${ReportView.ReportView.ReportValue.litTagName}>${
+        <${ReportView.ReportView.ReportValue.litTagName}>${
         this.renderBackForwardCacheStatus(
             mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
        ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
