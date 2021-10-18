@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15516fe_d7ed1f30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-18T11:03:58Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nHere\u0027s the change we cooked.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "b233d597cc59d1ed38d3650a6d4ae49f5aaac894",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
