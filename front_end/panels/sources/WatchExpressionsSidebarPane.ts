@@ -442,6 +442,18 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       expressionValue?: SDK.RemoteObject.RemoteObject, exceptionDetails?: Protocol.Runtime.ExceptionDetails): Element {
     const headerElement = this.element.createChild('div', 'watch-expression-header');
     const deleteButton = UI.Icon.Icon.create('smallicon-cross', 'watch-expression-delete-button');
+    headerElement.clientWidth < 55 ? deleteButton.classList.add('left-aligned') :
+                                     deleteButton.classList.add('right-aligned');
+    const resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.contentRect.width < 55) {
+          deleteButton.classList.replace('right-aligned', 'left-aligned');
+        } else {
+          deleteButton.classList.replace('left-aligned', 'right-aligned');
+        }
+      });
+    });
+    resizeObserver.observe(headerElement);
     UI.Tooltip.Tooltip.install(deleteButton, i18nString(UIStrings.deleteWatchExpression));
     deleteButton.addEventListener('click', this.deleteWatchExpression.bind(this), false);
 
