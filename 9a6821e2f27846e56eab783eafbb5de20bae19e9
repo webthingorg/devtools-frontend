@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "283c00e9_07b19d4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-19T17:22:08Z",
+      "side": 1,
+      "message": "Thanks a lot for the refactoring, I think this is much more readable this way!",
+      "revId": "9a6821e2f27846e56eab783eafbb5de20bae19e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
