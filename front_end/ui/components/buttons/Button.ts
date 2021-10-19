@@ -29,30 +29,35 @@ interface ButtonState {
   iconUrl?: string;
   variant?: Variant;
   size?: Size;
+  disabled: boolean;
 }
 
 export type ButtonData = {
   variant: Variant.TOOLBAR,
   iconUrl: string,
   size?: Size,
+  disabled?: boolean,
 }|{
   variant: Variant.PRIMARY | Variant.SECONDARY,
   iconUrl?: string,
   size?: Size,
+  disabled?: boolean,
 };
 
 export class Button extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-button`;
   private readonly shadow = this.attachShadow({mode: 'open', delegatesFocus: true});
   private readonly boundRender = this.render.bind(this);
+  private readonly boundOnClick = this.onClick.bind(this);
   private readonly props: ButtonState = {
     size: Size.MEDIUM,
+    disabled: false,
   };
   private isEmpty = true;
 
   constructor() {
     super();
-    this.setAttribute('role', 'button');
+    this.setAttribute('role', 'presentation');
   }
 
   /**
@@ -63,6 +68,7 @@ export class Button extends HTMLElement {
     this.props.variant = data.variant;
     this.props.iconUrl = data.iconUrl;
     this.props.size = data.size || Size.MEDIUM;
+    this.props.disabled = data.disabled || false;
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
@@ -81,6 +87,11 @@ export class Button extends HTMLElement {
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
+  set disabled(disabled: boolean) {
+    this.props.disabled = disabled;
+    ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
+  }
+
   focus(): void {
     this.shadow.querySelector('button')?.focus();
   }
@@ -88,6 +99,13 @@ export class Button extends HTMLElement {
   connectedCallback(): void {
     this.shadow.adoptedStyleSheets = [buttonStyles];
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
+  }
+
+  private onClick(event: Event): void {
+    if (this.props.disabled) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
   }
 
   private onSlotChange(event: Event): void {
@@ -120,7 +138,7 @@ export class Button extends HTMLElement {
     // clang-format off
     LitHtml.render(
       LitHtml.html`
-        <button class=${LitHtml.Directives.classMap(classes)}>
+        <button .disabled=${this.props.disabled} class=${LitHtml.Directives.classMap(classes)}>
           ${this.props.iconUrl ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
             .data=${{
               iconPath: this.props.iconUrl,
@@ -128,7 +146,7 @@ export class Button extends HTMLElement {
             } as IconButton.Icon.IconData}
           >
           </${IconButton.Icon.Icon.litTagName}>` : ''}
-          <slot @slotchange=${this.onSlotChange}></slot>
+          <slot @click=${this.boundOnClick} @slotchange=${this.onSlotChange}></slot>
         </button>
       `, this.shadow, {host: this});
     // clang-format on
