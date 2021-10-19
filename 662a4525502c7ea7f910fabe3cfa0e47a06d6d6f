@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "32ee599a_6202938f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-10-19T16:59:45Z",
+      "side": 1,
+      "message": "It turns out, in Mac, it is \"Command + Alt + ]\"; so I updated accordingly :)",
+      "parentUuid": "2ab9308e_69329057",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f743ede2_fdab4825",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c2f438_23d85de6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-10-19T16:59:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33e87684_7e5bbe9e",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fef2fa8_0b11601b",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-10-11T07:21:38Z",
       "side": 1,
       "message": "Yes. I think the point is to be able to see everything, and from the user\u0027s perspective that is IMHO that all occurrences are visible afterwards",
+      "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c346e4_d20631b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-10-19T16:59:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fef2fa8_0b11601b",
       "revId": "662a4525502c7ea7f910fabe3cfa0e47a06d6d6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
