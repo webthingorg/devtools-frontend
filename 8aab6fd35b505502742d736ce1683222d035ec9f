@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c5167c_c2c8b6fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-19T08:28:03Z",
+      "side": 1,
+      "message": "LGTM. One thing I think it might be worth doing is putting the disabled attribute onto the element itself when it is disabled, so that can be used if required as a styling hook.\n\ne.g. in the code we\u0027d also do `this.setAttribute(\u0027disabled\u0027, \u0027\u0027)` and `this.removeAttribute(\u0027disabled\u0027) so that\u0027s reflected. wdyt?",
+      "revId": "8aab6fd35b505502742d736ce1683222d035ec9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
