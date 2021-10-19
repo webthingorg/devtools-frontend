@@ -260,8 +260,6 @@ class SettingsTab extends UI.Widget.VBox {
 let genericSettingsTabInstance: GenericSettingsTab;
 
 export class GenericSettingsTab extends SettingsTab {
-  private categoryToSection = new Map<Common.Settings.SettingCategory, Element>();
-
   constructor() {
     super(i18nString(UIStrings.preferences), 'preferences-tab-content');
 
@@ -300,35 +298,16 @@ export class GenericSettingsTab extends SettingsTab {
         },
     );
 
-    const visibleSections = explicitSectionOrder.filter(category => {
-      return preRegisteredSettings.some(setting => {
-        return setting.category === category && GenericSettingsTab.isSettingVisible(setting);
-      });
-    });
+    for (const sectionCategory of explicitSectionOrder) {
+      const settingsForSection = preRegisteredSettings.filter(
+          setting => setting.category === sectionCategory && GenericSettingsTab.isSettingVisible(setting));
+      if (settingsForSection.length === 0) {
+        continue;
+      }
 
-    for (const sectionName of visibleSections) {
-      this.createSectionElement(sectionName);
+      this.createSectionElement(sectionCategory, settingsForSection);
     }
-
-    for (const settingRegistration of preRegisteredSettings) {
-      if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
-        continue;
-      }
-      const extensionCategory = settingRegistration.category;
-      if (!extensionCategory) {
-        continue;
-      }
-      const sectionElement = this.sectionElement(extensionCategory);
-      if (!sectionElement) {
-        continue;
-      }
-      const setting = Common.Settings.Settings.instance().moduleSetting(settingRegistration.settingName);
-      const settingControl = UI.SettingsUI.createControlForSetting(setting);
-      if (settingControl) {
-        sectionElement.appendChild(settingControl);
-      }
-    }
-    this.addSettingUI();
+    this.addExtensionsSection();
 
     this.appendSection().appendChild(
         UI.UIUtils.createTextButton(i18nString(UIStrings.restoreDefaultsAndReload), restoreAndReload));
@@ -355,28 +334,28 @@ export class GenericSettingsTab extends SettingsTab {
     return Boolean(title && setting.category);
   }
 
-  private addSettingUI(): void {
+  private addExtensionsSection(): void {
     const sectionName = Common.Settings.SettingCategory.EXTENSIONS;
     const settingUI = Components.Linkifier.LinkHandlerSettingUI.instance() as UI.SettingsUI.SettingUI;
     const element = settingUI.settingElement();
     if (element) {
-      let sectionElement = this.sectionElement(sectionName);
-      if (!sectionElement) {
-        sectionElement = this.createSectionElement(sectionName);
-      }
+      const sectionElement = this.createSectionElement(sectionName, []);
       sectionElement.appendChild(element);
     }
   }
 
-  private createSectionElement(category: Common.Settings.SettingCategory): Element {
+  private createSectionElement(
+      category: Common.Settings.SettingCategory, settings: Common.Settings.SettingRegistration[]): Element {
     const uiSectionName = Common.Settings.getLocalizedSettingsCategory(category);
     const sectionElement = this.appendSection(uiSectionName);
-    this.categoryToSection.set(category, sectionElement);
+    for (const settingRegistration of settings) {
+      const setting = Common.Settings.Settings.instance().moduleSetting(settingRegistration.settingName);
+      const settingControl = UI.SettingsUI.createControlForSetting(setting);
+      if (settingControl) {
+        sectionElement.appendChild(settingControl);
+      }
+    }
     return sectionElement;
-  }
-
-  private sectionElement(category: Common.Settings.SettingCategory): Element|null {
-    return this.categoryToSection.get(category) || null;
   }
 }
 
