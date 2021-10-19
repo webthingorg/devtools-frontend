@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b682090d_bf396be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T10:46:27Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aef8b25_2ceed333",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T10:46:27Z",
+      "side": 1,
+      "message": "nit: I think we can better type-check in createControlForSetting so that if is not required?",
+      "range": {
+        "startLine": 351,
+        "startChar": 67,
+        "endLine": 351,
+        "endChar": 74
+      },
+      "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
