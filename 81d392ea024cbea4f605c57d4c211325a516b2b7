@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d335ff80_2d34a4c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-19T08:41:10Z",
+      "side": 1,
+      "message": "https://crrev.com/c/3082941 is an example of a recent CL which adds a button which basically sends a CDP command. For this case, you probably want to call ResourceTreeModel\u0027s `navigateToHistoryEntry()`",
+      "parentUuid": "1765dfb9_1c635b02",
+      "revId": "81d392ea024cbea4f605c57d4c211325a516b2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5cf6b79_e0d856ad",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 1
