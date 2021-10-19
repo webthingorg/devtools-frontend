@@ -112,6 +112,7 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
     super(true);
     this.registerRequiredCSS('ui/legacy/tabbedPane.css');
     this.element.classList.add('tabbed-pane');
+    this.element.id = 'scope-watch-pane';
     this.contentElement.classList.add('tabbed-pane-shadow');
     this.contentElement.tabIndex = -1;
     this.setDefaultFocusedElement(this.contentElement);

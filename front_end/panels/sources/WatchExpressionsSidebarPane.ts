@@ -442,6 +442,11 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       expressionValue?: SDK.RemoteObject.RemoteObject, exceptionDetails?: Protocol.Runtime.ExceptionDetails): Element {
     const headerElement = this.element.createChild('div', 'watch-expression-header');
     const deleteButton = UI.Icon.Icon.create('smallicon-cross', 'watch-expression-delete-button');
+    headerElement.clientWidth < 55 ? deleteButton.classList.add('left-aligned') :
+                                     deleteButton.classList.add('right-aligned');
+    const scopeWatchPane = document.getElementById('scope-watch-pane');
+    console.log(scopeWatchPane);
+    scopeWatchPane?.addEventListener('resize', () => this.watchPanelResized(headerElement, deleteButton));
     UI.Tooltip.Tooltip.install(deleteButton, i18nString(UIStrings.deleteWatchExpression));
     deleteButton.addEventListener('click', this.deleteWatchExpression.bind(this), false);
 
@@ -548,6 +553,17 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
   private copyValueButtonClicked(): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this.valueElement.textContent);
+  }
+
+  private watchPanelResized(header: HTMLElement, deleteButton: UI.Icon.Icon): void {
+    console.log('WATCH PANEL RESIZED CALLED');
+    if (header.clientWidth < 55) {
+      console.log('NARROW COLUMN, set left-aligned');
+      deleteButton.classList.replace('right-aligned', 'left-aligned');
+    } else {
+      console.log('WIDE COLUMN, set right-aligned');
+      deleteButton.classList.replace('left-aligned', 'right-aligned');
+    }
   }
 
   private static readonly watchObjectGroupId = 'watch-group';
