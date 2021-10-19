@@ -196,6 +196,15 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DOMDebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
+// Some instrumentation breakpoints have their titles localized; this
+// array links breakpoint names and the strings.
+const LocalizedInstrumentationBreakpointTitles: [string, () => Common.UIString.LocalizedString][] = [
+  ['setTimeout.callback', i18nLazyString(UIStrings.setTimeoutOrIntervalFired, {PH1: 'setTimeout'})],
+  ['setInterval.callback', i18nLazyString(UIStrings.setTimeoutOrIntervalFired, {PH1: 'setInterval'})],
+];
+
 export class DOMDebuggerModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.DOMDebuggerApi;
   readonly #runtimeModelInternal: RuntimeModel;
@@ -874,15 +883,15 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
         ['readystatechange', 'load', 'loadstart', 'loadend', 'abort', 'error', 'progress', 'timeout'],
         ['xmlhttprequest', 'xmlhttprequestupload']);
 
+    for (const [name, localizedTitle] of LocalizedInstrumentationBreakpointTitles) {
+      const breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:' + name);
+      if (breakpoint) {
+        breakpoint.setTitle(localizedTitle());
+      }
+    }
+
     let breakpoint;
-    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:setTimeout.callback');
-    if (breakpoint) {
-      breakpoint.setTitle(i18nString(UIStrings.setTimeoutOrIntervalFired, {PH1: 'setTimeout'}));
-    }
-    breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:setInterval.callback');
-    if (breakpoint) {
-      breakpoint.setTitle(i18nString(UIStrings.setTimeoutOrIntervalFired, {PH1: 'setInterval'}));
-    }
+
     breakpoint = this.resolveEventListenerBreakpointInternal('instrumentation:scriptFirstStatement');
     if (breakpoint) {
       breakpoint.setTitle(i18nString(UIStrings.scriptFirstStatement));
