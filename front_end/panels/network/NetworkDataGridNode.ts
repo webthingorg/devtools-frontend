@@ -1313,6 +1313,10 @@ export class NetworkRequestNode extends NetworkNode {
       subtitleElement.classList.add('network-cell-subtitle-show-inline-when-selected');
     }
     subtitleElement.textContent = subtitleText;
+    if (subtitleText.endsWith('μs') || subtitleText.endsWith('ms') || subtitleText.endsWith('s') ||
+        subtitleText.endsWith('min') || subtitleText.endsWith('hrs') || subtitleText.endsWith('days')) {
+      UI.Tooltip.Tooltip.install(subtitleElement, 'Latency (response received time - start time)');
+    }
     cellElement.appendChild(subtitleElement);
   }
 }
