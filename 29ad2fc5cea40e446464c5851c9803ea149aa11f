@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "366000c5_6c23e08a",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-19T14:13:19Z",
+      "side": 1,
+      "message": "Looks like it is, changed to determine this based on an additional function parameter",
+      "parentUuid": "bc0e2c10_93e568fd",
+      "range": {
+        "startLine": 1316,
+        "startChar": 30,
+        "endLine": 1316,
+        "endChar": 34
+      },
+      "revId": "29ad2fc5cea40e446464c5851c9803ea149aa11f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b568e864_04ce5553",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-19T13:52:49Z",
       "side": 1,
       "message": "Should this be translated?",
+      "range": {
+        "startLine": 1318,
+        "startChar": 50,
+        "endLine": 1318,
+        "endChar": 97
+      },
+      "revId": "29ad2fc5cea40e446464c5851c9803ea149aa11f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "755747c5_a74a240c",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-19T14:13:19Z",
+      "side": 1,
+      "message": "Changed to be translated",
+      "parentUuid": "b568e864_04ce5553",
       "range": {
         "startLine": 1318,
         "startChar": 50,
