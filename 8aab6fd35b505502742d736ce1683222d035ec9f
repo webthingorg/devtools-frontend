@@ -16,6 +16,24 @@
       "message": "LGTM. One thing I think it might be worth doing is putting the disabled attribute onto the element itself when it is disabled, so that can be used if required as a styling hook.\n\ne.g. in the code we\u0027d also do `this.setAttribute(\u0027disabled\u0027, \u0027\u0027)` and `this.removeAttribute(\u0027disabled\u0027) so that\u0027s reflected. wdyt?",
       "revId": "8aab6fd35b505502742d736ce1683222d035ec9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79789578_151720e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T10:21:21Z",
+      "side": 1,
+      "message": "Sounds good to me, added that.",
+      "parentUuid": "20c5167c_c2c8b6fc",
+      "revId": "8aab6fd35b505502742d736ce1683222d035ec9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

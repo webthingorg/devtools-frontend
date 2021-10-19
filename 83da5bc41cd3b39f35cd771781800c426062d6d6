@@ -113,6 +113,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9f96ea7_6e0a1a78",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T10:21:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cab72db7_83aa4e87",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "83da5bc41cd3b39f35cd771781800c426062d6d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f07ae52e_36ede265",
