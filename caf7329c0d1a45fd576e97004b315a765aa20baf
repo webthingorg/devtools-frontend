@@ -39,6 +39,30 @@
       },
       "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5b5cfc_67b48b5d",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T10:51:16Z",
+      "side": 1,
+      "message": "The current code logs console.error messages. We also don\u0027t support all kinds of settings in the settings UI, only ENUMS and BOOLEAN, but not ARRAY and REGEX. We could change it to throwing errors instead, but I\u0027d prefer doing that in a separate CL. Wdyt?",
+      "parentUuid": "0aef8b25_2ceed333",
+      "range": {
+        "startLine": 351,
+        "startChar": 67,
+        "endLine": 351,
+        "endChar": 74
+      },
+      "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

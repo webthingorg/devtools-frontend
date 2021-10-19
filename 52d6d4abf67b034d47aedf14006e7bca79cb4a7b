@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d22d333_a14d19ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T10:51:16Z",
+      "side": 1,
+      "message": "I had to change the handling of the EXTENSIONS category a bit. With the initial version of the CL it ended up at the end even though we list it somewhere in the middle via the explicit ordering.",
+      "revId": "52d6d4abf67b034d47aedf14006e7bca79cb4a7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
