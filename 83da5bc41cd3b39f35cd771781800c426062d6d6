@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "592c31b8_e7f088d2",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T05:33:32Z",
+      "side": 1,
+      "message": "Ah sorry, reverted it back: having it on the slot allows sending clicks through the icon.",
+      "parentUuid": "72cd3973_e5889dfc",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "83da5bc41cd3b39f35cd771781800c426062d6d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f07ae52e_36ede265",
         "filename": "front_end/ui/components/buttons/Button.ts",
         "patchSetId": 2
