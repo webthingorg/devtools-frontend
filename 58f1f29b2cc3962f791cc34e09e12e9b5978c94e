@@ -16,6 +16,69 @@
       "message": "PTAnotherL:)",
       "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5afb0af0_dbd0b7f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T14:20:12Z",
+      "side": 1,
+      "message": "Maybe a better approach would be to pass an optional parameter called \"tooltipText\"",
+      "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e653a0_93dafe84",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T14:20:12Z",
+      "side": 1,
+      "message": "This is very confusing to read. Lets improve the description.\n1) \"Large request rows\" doesn\u0027t really make sense without context\n2) \"time subtitle tooltip\" also doesn\u0027t make sense without context for translators.\n3) \"response\" is not explained. We should mention that we are talking about network requests.\n4) \"start time\", is this the time when the request was started?",
+      "range": {
+        "startLine": 238,
+        "startChar": 16,
+        "endLine": 238,
+        "endChar": 83
+      },
+      "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ea54b5_5558b2da",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T14:20:12Z",
+      "side": 1,
+      "message": "call sites become unreadable. Whats \u0027false\u0027 and \u0027true\u0027 here? Maybe a better approach would be to add an optional string parameter `toolTip` and install the tooltip if `tooltipString` was provided?",
+      "range": {
+        "startLine": 1303,
+        "startChar": 97,
+        "endLine": 1303,
+        "endChar": 109
+      },
+      "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
