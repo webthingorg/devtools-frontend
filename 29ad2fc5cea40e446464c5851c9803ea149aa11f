@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "29ad2fc5cea40e446464c5851c9803ea149aa11f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0e2c10_93e568fd",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T13:52:49Z",
+      "side": 1,
+      "message": "q: is `subtitleText` a localized string? Are we sure these endings work in all languages (e.g. days)?",
+      "range": {
+        "startLine": 1316,
+        "startChar": 30,
+        "endLine": 1316,
+        "endChar": 34
+      },
+      "revId": "29ad2fc5cea40e446464c5851c9803ea149aa11f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b568e864_04ce5553",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-19T13:52:49Z",
+      "side": 1,
+      "message": "Should this be translated?",
+      "range": {
+        "startLine": 1318,
+        "startChar": 50,
+        "endLine": 1318,
+        "endChar": 97
+      },
+      "revId": "29ad2fc5cea40e446464c5851c9803ea149aa11f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
