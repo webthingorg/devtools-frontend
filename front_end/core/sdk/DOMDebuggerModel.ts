@@ -193,7 +193,33 @@ const UIStrings = {
   *@description Text for the service worker type.
   */
   worker: 'Worker',
+
+  /**
+   * @description Category of breakpoints
+   */
+  auctionWorklet: 'Ad Auction Worklet',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeBidderWorkletBiddingStart: 'Bidder Bidding Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeBidderWorkletReportingStart: 'Bidder Reporting Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeSellerWorkletScoringStart: 'Seller Scoring Phase Start',
+
+  /**
+   * @description Name of a breakpoint type.
+   */
+  beforeSellerWorkletReportingStart: 'Seller Reporting Phase Start',
 };
+
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DOMDebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
@@ -224,6 +250,10 @@ function getInstrumentationBreakpointTitles(): [string, string|Common.UIString.L
     ['audioContextClosed', i18nString(UIStrings.closeAudiocontext)],
     ['audioContextResumed', i18nString(UIStrings.resumeAudiocontext)],
     ['audioContextSuspended', i18nString(UIStrings.suspendAudiocontext)],
+    ['beforeBidderWorkletBiddingStart', i18nString(UIStrings.beforeBidderWorkletBiddingStart)],
+    ['beforeBidderWorkletReportingStart', i18nString(UIStrings.beforeBidderWorkletReportingStart)],
+    ['beforeSellerWorkletScoringStart', i18nString(UIStrings.beforeSellerWorkletScoringStart)],
+    ['beforeSellerWorkletReportingStart', i18nString(UIStrings.beforeSellerWorkletReportingStart)],
   ];
 }
 
@@ -819,6 +849,12 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
     this.createInstrumentationBreakpoints(
         i18nString(UIStrings.webaudio),
         ['audioContextCreated', 'audioContextClosed', 'audioContextResumed', 'audioContextSuspended']);
+    this.createInstrumentationBreakpoints(i18nString(UIStrings.auctionWorklet), [
+      'beforeBidderWorkletBiddingStart',
+      'beforeBidderWorkletReportingStart',
+      'beforeSellerWorkletScoringStart',
+      'beforeSellerWorkletReportingStart',
+    ]);
 
     this.createEventListenerBreakpoints(
         i18nString(UIStrings.media),
