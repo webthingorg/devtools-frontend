@@ -63,6 +63,30 @@
       },
       "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d29fed3_3647a101",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-19T11:21:39Z",
+      "side": 1,
+      "message": "SGTM don\u0027t need to block on this. Low-prio and probably fixing types would lead into a rabithole",
+      "parentUuid": "3e5b5cfc_67b48b5d",
+      "range": {
+        "startLine": 351,
+        "startChar": 67,
+        "endLine": 351,
+        "endChar": 74
+      },
+      "revId": "caf7329c0d1a45fd576e97004b315a765aa20baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
