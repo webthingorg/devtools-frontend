@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c4b45ca_136ff36a",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-19T14:54:32Z",
+      "side": 1,
+      "message": "Changed to a more detailed one, does it look good?",
+      "parentUuid": "e9e653a0_93dafe84",
+      "range": {
+        "startLine": 238,
+        "startChar": 16,
+        "endLine": 238,
+        "endChar": 83
+      },
+      "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1ea54b5_5558b2da",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 2
@@ -71,6 +95,30 @@
       "writtenOn": "2021-10-19T14:20:12Z",
       "side": 1,
       "message": "call sites become unreadable. Whats \u0027false\u0027 and \u0027true\u0027 here? Maybe a better approach would be to add an optional string parameter `toolTip` and install the tooltip if `tooltipString` was provided?",
+      "range": {
+        "startLine": 1303,
+        "startChar": 97,
+        "endLine": 1303,
+        "endChar": 109
+      },
+      "revId": "58f1f29b2cc3962f791cc34e09e12e9b5978c94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49348a2e_bde8045c",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-19T14:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1ea54b5_5558b2da",
       "range": {
         "startLine": 1303,
         "startChar": 97,
