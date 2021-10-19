@@ -848,8 +848,10 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     }
 
     if (project.type() === Workspace.Workspace.projectTypes.FileSystem) {
-      const folderPath = Common.ParsedURL.ParsedURL.urlToPlatformPath(
-          Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.completeURL(project, path),
+      // TODO(crbug.com/1253323): Cast to RawPathString will be removed when migration to branded types is complete.
+      const folderPath = Common.ParsedURL.ParsedURL.capFilePrefix(
+          Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.completeURL(project, path) as
+              Platform.DevToolsPath.RawPathString,
           Host.Platform.isWin());
       contextMenu.revealSection().appendItem(
           i18nString(UIStrings.openFolder),
