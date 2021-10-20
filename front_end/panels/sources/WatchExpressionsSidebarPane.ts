@@ -303,6 +303,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   private textPrompt?: ObjectUI.ObjectPropertiesSection.ObjectPropertyPrompt;
   private result?: SDK.RemoteObject.RemoteObject|null;
   private preventClickTimeout?: number;
+  private resizeObserver?: ResizeObserver;
   constructor(
       expression: string|null,
       expandController: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController,
@@ -412,6 +413,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (this.expressionInternal) {
       this.expandController.stopWatchSectionsWithId(this.expressionInternal);
     }
+    this.resizeObserver?.disconnect();
     this.expressionInternal = newExpression;
     this.update();
     this.dispatchEventToListeners(Events.ExpressionUpdated, this);
@@ -442,6 +444,19 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       expressionValue?: SDK.RemoteObject.RemoteObject, exceptionDetails?: Protocol.Runtime.ExceptionDetails): Element {
     const headerElement = this.element.createChild('div', 'watch-expression-header');
     const deleteButton = UI.Icon.Icon.create('smallicon-cross', 'watch-expression-delete-button');
+    const widthThreshold = 55;
+    headerElement.clientWidth < widthThreshold ? deleteButton.classList.add('left-aligned') :
+                                                 deleteButton.classList.add('right-aligned');
+    this.resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.contentRect.width < widthThreshold) {
+          deleteButton.classList.replace('right-aligned', 'left-aligned');
+        } else {
+          deleteButton.classList.replace('left-aligned', 'right-aligned');
+        }
+      });
+    });
+    this.resizeObserver.observe(headerElement);
     UI.Tooltip.Tooltip.install(deleteButton, i18nString(UIStrings.deleteWatchExpression));
     deleteButton.addEventListener('click', this.deleteWatchExpression.bind(this), false);
 
