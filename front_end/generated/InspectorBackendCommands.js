@@ -890,6 +890,14 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerCommand(
       'DOMDebugger.setXHRBreakpoint', [{'name': 'url', 'type': 'string', 'optional': false}], []);
 
+  // EventBreakpoints.
+  inspectorBackend.registerCommand(
+      'EventBreakpoints.setInstrumentationBreakpoint', [{'name': 'eventName', 'type': 'string', 'optional': false}],
+      []);
+  inspectorBackend.registerCommand(
+      'EventBreakpoints.removeInstrumentationBreakpoint', [{'name': 'eventName', 'type': 'string', 'optional': false}],
+      []);
+
   // DOMSnapshot.
   inspectorBackend.registerCommand('DOMSnapshot.disable', [], []);
   inspectorBackend.registerCommand('DOMSnapshot.enable', [], []);
