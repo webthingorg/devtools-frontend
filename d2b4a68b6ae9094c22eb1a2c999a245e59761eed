@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe80566_996df141",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T13:37:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6cc7f96_0c447d2b",
+      "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e43e7288_1512ab69",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-10-20T11:58:24Z",
       "side": 1,
       "message": "nit: here and below, to add clang format off to keep manual formatting? the formatting of the templates looks weird sometimes",
+      "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bd6eac_c87119c4",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T13:37:23Z",
+      "side": 1,
+      "message": "Added where I didn\u0027t like the formatting. I don\u0027t think there is any need to disable clang formatting if the default is fine (at least I have seen it like this a couple of times in the code base).",
+      "parentUuid": "e43e7288_1512ab69",
       "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
