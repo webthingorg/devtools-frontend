@@ -127,6 +127,30 @@
       },
       "revId": "3e0e92ac7dda7e343980eb5261d46f2551579461",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141d3370_7f4a7b9e",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-20T06:54:24Z",
+      "side": 1,
+      "message": "Looks good, one style nit: we can use \u0027//\u0027 instead of \u0027/*/\u0027 to be consistent with other comments in the file.",
+      "parentUuid": "9293df69_78628e66",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 6
+      },
+      "revId": "3e0e92ac7dda7e343980eb5261d46f2551579461",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

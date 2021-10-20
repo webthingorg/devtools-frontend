@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "083cd037_c53541a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-20T06:54:24Z",
+      "side": 1,
+      "message": "Mostly LGTM % some nits!",
+      "revId": "7ba63dab4521e1a968ab4e233b7af4694a1b08c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f8fc84e_6d3422b7",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-20T06:54:24Z",
+      "side": 1,
+      "message": "Let\u0027s remove these if we\u0027re not using them.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "7ba63dab4521e1a968ab4e233b7af4694a1b08c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04727cc5_43b588b8",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-20T06:54:24Z",
+      "side": 1,
+      "message": "BFCache",
+      "range": {
+        "startLine": 74,
+        "startChar": 50,
+        "endLine": 74,
+        "endChar": 57
+      },
+      "revId": "7ba63dab4521e1a968ab4e233b7af4694a1b08c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c359e220_374faf85",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-20T06:54:24Z",
+      "side": 1,
+      "message": "Mistakenly added?",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 8
+      },
+      "revId": "7ba63dab4521e1a968ab4e233b7af4694a1b08c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
