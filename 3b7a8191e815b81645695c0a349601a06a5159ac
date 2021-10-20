@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18cf0033_bf58831c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T10:09:14Z",
+      "side": 1,
+      "message": "Alex and Jack for overall component review\nPeter, final UX signoff",
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

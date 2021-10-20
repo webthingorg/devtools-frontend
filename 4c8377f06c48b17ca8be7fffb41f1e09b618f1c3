@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e7ee1c_c09912e7",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T10:09:14Z",
+      "side": 1,
+      "message": "I\u0027m a bit unsure here. We have two options:\n\n  1) Only provide the settings we explicitly list (like currently in the CL)\n  2) Pass in an array of settings that are registered under the SYNC category.\n  \nWith 2) we would also disable the other settings in case the user is not logged in. In addition, only BOOLEAN settings are currently supported as web components.\n\nMaybe go with 1) for now and extend the component once we have more concrete sync settings?\n\nMid to long-term I would also expect that we extract some parts of `SyncSection` and re-use it to render all the other Sections in the SettingsScreen.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "4c8377f06c48b17ca8be7fffb41f1e09b618f1c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
