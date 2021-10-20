@@ -56,6 +56,30 @@
       },
       "revId": "c4d78b131c55452fe4aeaeef94823585f151e37e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "104b89dc_57d8b91b",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-20T15:07:56Z",
+      "side": 1,
+      "message": "That\u0027s indeed the case, I noticed that even earlier, but decided to leave this before to be on the safe side. Removed this now :) Thanks for pointing out!",
+      "parentUuid": "f4daa6a0_3673d85f",
+      "range": {
+        "startLine": 450,
+        "startChar": 3,
+        "endLine": 458,
+        "endChar": 7
+      },
+      "revId": "c4d78b131c55452fe4aeaeef94823585f151e37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
