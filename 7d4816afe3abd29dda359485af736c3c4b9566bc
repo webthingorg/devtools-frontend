@@ -16,6 +16,23 @@
       "message": "Hey Kateryna,\n\nHere\u0027s a oneliner to also include column numbers in pretty printed errors (non-pretty printed version already does include them). Please take a look.\n\nthanks,\nBenedikt",
       "revId": "7d4816afe3abd29dda359485af736c3c4b9566bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f274579_c1ae8f57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-10-20T07:13:08Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "7d4816afe3abd29dda359485af736c3c4b9566bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
