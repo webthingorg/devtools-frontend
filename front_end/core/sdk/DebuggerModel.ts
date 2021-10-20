@@ -85,6 +85,19 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+
+export const enum DebuggerState {
+  Disabled = 0,
+  StartingUp = 1,
+  Enabled = 2,
+  ReadyToPause = 3,
+  Length = 4
+}
+
+function validTransitions(oldState: DebuggerState, newState: DebuggerState): boolean {
+  return (newState == oldState || newState === (oldState + 1) % DebuggerState.Length) || newState === DebuggerState.Disabled;
+}
+
 export function sortAndMergeRanges(locationRanges: LocationRange[]): LocationRange[] {
   if (locationRanges.length === 0) {
     return [];
@@ -125,7 +138,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   private discardableScripts: Script[];
   continueToLocationCallback: ((arg0: DebuggerPausedDetails) => boolean)|null;
   private selectedCallFrameInternal: CallFrame|null;
-  private debuggerEnabledInternal: boolean;
+  private debuggerState: DebuggerState;
   private debuggerId: string|null;
   private skipAllPausesTimeout: number;
   private beforePausedCallback: ((arg0: DebuggerPausedDetails) => boolean)|null;
@@ -144,7 +157,6 @@ export class DebuggerModel extends SDKModel<EventTypes> {
 
   constructor(target: Target) {
     super(target);
-
     target.registerDebuggerDispatcher(new DebuggerDispatcher(this));
     this.agent = target.debuggerAgent();
     this.runtimeModelInternal = (target.model(RuntimeModel) as RuntimeModel);
@@ -158,7 +170,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     this.discardableScripts = [];
     this.continueToLocationCallback = null;
     this.selectedCallFrameInternal = null;
-    this.debuggerEnabledInternal = false;
+    this.debuggerState = DebuggerState.Disabled;
     this.debuggerId = null;
     this.skipAllPausesTimeout = 0;
     this.beforePausedCallback = null;
@@ -214,31 +226,56 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   debuggerEnabled(): boolean {
-    return Boolean(this.debuggerEnabledInternal);
+    return this.debuggerState >= DebuggerState.Enabled;
+  }
+
+  isReadyToParseScripts(): boolean {
+    return this.debuggerState >= DebuggerState.StartingUp;
+  }
+
+  private transition(newState: DebuggerState): void {
+    console.error(`Transition from ${this.debuggerState} to ${newState}`);
+    console.error(new Error().stack);
+    if (validTransitions(this.debuggerState, newState)) {
+      this.debuggerState = newState;
+    } else {
+      throw new Error(`Invalid transition from ${this.debuggerState} to ${newState}`);
+    }
+  }
+
+  allBreakpointsSet(): void {
+    this.transition(DebuggerState.ReadyToPause);
+    this.dispatchEventToListeners(Events.DebuggerIsReadyToPause, this);
+    console.error('Dispatched DebuggerIsReadyToPause')
   }
 
   private async enableDebugger(): Promise<void> {
-    if (this.debuggerEnabledInternal) {
+    if (this.debuggerEnabled()) {
       return;
     }
-    this.debuggerEnabledInternal = true;
+    this.transition(DebuggerState.StartingUp);
 
     // Set a limit for the total size of collected script sources retained by debugger.
     // 10MB for remote frontends, 100MB for others.
     const isRemoteFrontend = Root.Runtime.Runtime.queryParam('remoteFrontend') || Root.Runtime.Runtime.queryParam('ws');
     const maxScriptsCacheSize = isRemoteFrontend ? 10e6 : 100e6;
-    const enablePromise = this.agent.invoke_enable({maxScriptsCacheSize});
-    enablePromise.then(this.registerDebugger.bind(this));
+    const enableResponse = await this.agent.invoke_enable({maxScriptsCacheSize});
+    this.registerDebugger(enableResponse);
+
+    await this.agent.invoke_setInstrumentationBreakpoint({instrumentation: Protocol.Debugger.SetInstrumentationBreakpointRequestInstrumentation.BeforeScriptExecution});
+
     this.pauseOnExceptionStateChanged();
-    this.asyncStackTracesStateChanged();
     if (!Common.Settings.Settings.instance().moduleSetting('breakpointsActive').get()) {
       this.breakpointsActiveChanged();
     }
     if (_scheduledPauseOnAsyncCall) {
       this.pauseOnAsyncCall(_scheduledPauseOnAsyncCall);
     }
+    
+    this.transition(DebuggerState.Enabled);
+    this.asyncStackTracesStateChanged();
     this.dispatchEventToListeners(Events.DebuggerWasEnabled, this);
-    await enablePromise;
+    console.error('dispatched Events.DebuggerWasEnabled');
   }
 
   async syncDebuggerId(): Promise<Protocol.Debugger.EnableResponse> {
@@ -264,11 +301,10 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     const {debuggerId} = response;
     _debuggerIdToModel.set(debuggerId, this);
     this.debuggerId = debuggerId;
-    this.dispatchEventToListeners(Events.DebuggerIsReadyToPause, this);
   }
 
   isReadyToPause(): boolean {
-    return Boolean(this.debuggerId);
+    return this.debuggerState === DebuggerState.ReadyToPause;
   }
 
   static async modelForDebuggerId(debuggerId: string): Promise<DebuggerModel|null> {
@@ -288,11 +324,16 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     }
   }
 
+
+  state(): DebuggerState {
+    return this.debuggerState;
+  }
+
   private async disableDebugger(): Promise<void> {
-    if (!this.debuggerEnabledInternal) {
+    if (this.debuggerState === DebuggerState.Disabled) {
       return;
     }
-    this.debuggerEnabledInternal = false;
+    this.transition(DebuggerState.Disabled);
 
     await this.asyncStackTracesStateChanged();
     await this.agent.invoke_disable();
@@ -338,7 +379,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   private asyncStackTracesStateChanged(): Promise<Protocol.ProtocolResponseWithError> {
     const maxAsyncStackChainDepth = 32;
     const enabled = !Common.Settings.Settings.instance().moduleSetting('disableAsyncStackTraces').get() &&
-        this.debuggerEnabledInternal;
+        this.debuggerEnabled();
     const maxDepth = enabled ? maxAsyncStackChainDepth : 0;
     return this.agent.invoke_setAsyncCallStackDepth({maxDepth});
   }
@@ -646,6 +687,11 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       await Promise.all(promises);
       this.resume();
       return;
+    }
+
+    if (reason === Protocol.Debugger.PausedEventReason.Instrumentation) {
+     this.dispatchEventToListeners(Events.DebuggerPausedOnInstrumentation, callFrames[0].url);
+     return;
     }
 
     const pausedDetails =
@@ -982,6 +1028,7 @@ export enum PauseOnExceptionsState {
 export enum Events {
   DebuggerWasEnabled = 'DebuggerWasEnabled',
   DebuggerWasDisabled = 'DebuggerWasDisabled',
+  DebuggerPausedOnInstrumentation = 'DebuggerPausedOnInstrumentation',
   DebuggerPaused = 'DebuggerPaused',
   DebuggerResumed = 'DebuggerResumed',
   ParsedScriptSource = 'ParsedScriptSource',
@@ -992,6 +1039,7 @@ export enum Events {
 }
 
 export type EventTypes = {
+  [Events.DebuggerPausedOnInstrumentation]: string,
   [Events.DebuggerWasEnabled]: DebuggerModel,
   [Events.DebuggerWasDisabled]: void,
   [Events.DebuggerPaused]: DebuggerModel,
@@ -1047,7 +1095,7 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
     debugSymbols,
     embedderName,
   }: Protocol.Debugger.ScriptParsedEvent): void {
-    if (!this.debuggerModel.debuggerEnabled()) {
+    if (!this.debuggerModel.isReadyToParseScripts()) {
       return;
     }
     this.debuggerModel.parsedScriptSource(
@@ -1075,7 +1123,7 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
     scriptLanguage,
     embedderName,
   }: Protocol.Debugger.ScriptFailedToParseEvent): void {
-    if (!this.debuggerModel.debuggerEnabled()) {
+    if (!this.debuggerModel.isReadyToParseScripts()) {
       return;
     }
     this.debuggerModel.parsedScriptSource(
@@ -1085,7 +1133,7 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
   }
 
   breakpointResolved({breakpointId, location}: Protocol.Debugger.BreakpointResolvedEvent): void {
-    if (!this.debuggerModel.debuggerEnabled()) {
+    if (!this.debuggerModel.isReadyToParseScripts()) {
       return;
     }
     this.debuggerModel.breakpointResolved(breakpointId, location);
