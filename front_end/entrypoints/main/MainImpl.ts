@@ -478,6 +478,8 @@ export class MainImpl {
       debuggerWorkspaceBinding: Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance(),
     });
 
+    Bindings.DebuggerStateManager.DebuggerStateManager.instance({forceNew: true});
+
     new PauseListener();
 
     const actionRegistryInstance = UI.ActionRegistry.ActionRegistry.instance({forceNew: true});

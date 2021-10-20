@@ -26,6 +26,7 @@ devtools_module("bindings") {
     "SASSSourceMapping.ts",
     "StylesSourceMapping.ts",
     "TempFile.ts",
+    "DebuggerStateManager.ts",
   ]
 
   deps = [

@@ -13,6 +13,7 @@ import type {Target} from './Target.js';
 import {Capability, Type} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {Events as TargetManagerEvents, TargetManager} from './TargetManager.js';
+import {DebuggerModel, Events as DebuggerModelEvents} from './DebuggerModel.js';
 
 export class ChildTargetManager extends SDKModel<EventTypes> implements ProtocolProxyApi.TargetDispatcher {
   private readonly targetManager: TargetManager;
@@ -139,13 +140,26 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       type = Type.ServiceWorker;
     }
 
+    console.log('waiting for debugger in child target: ' + waitingForDebugger);
     const target = this.targetManager.createTarget(
-        targetInfo.targetId, targetName, type, this.parentTarget, sessionId, undefined, undefined, targetInfo);
+        targetInfo.targetId, targetName, type, this.parentTarget, sessionId, waitingForDebugger, undefined, targetInfo);
     this.childTargetsBySessionId.set(sessionId, target);
     this.childTargetsById.set(target.id(), target);
 
     if (ChildTargetManager.attachCallback) {
       await ChildTargetManager.attachCallback({target, waitingForDebugger});
+    }
+
+    if (waitingForDebugger) {
+      const debuggerModel = target.model(DebuggerModel);
+      console.error('debuggerModel: ' + debuggerModel)
+      if (debuggerModel) {
+        if (!debuggerModel.isReadyToPause()) {
+          console.error('Waiting on DebuggerIsReadyToPause in ChildTargetManager');
+          await debuggerModel.once(DebuggerModelEvents.DebuggerIsReadyToPause);
+          console.error('Done waiting on DebuggerIsReadyToPause in ChildTargetManager');
+        }
+      }
     }
     target.runtimeAgent().invoke_runIfWaitingForDebugger();
   }

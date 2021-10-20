@@ -184,6 +184,8 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     }
 
     for (const [modelClass, model] of target.models().entries()) {
+      
+      console.error('create target: modelAdded');
       this.modelAdded(target, modelClass, model);
     }
 
