@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "12b5845e3dc0a5504577a21e7af2267fba949823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2a2d234_b6e02193",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:30:06Z",
+      "side": 1,
+      "message": "I\u0027d probably create a variable for this value as it\u0027s used twice",
+      "range": {
+        "startLine": 445,
+        "startChar": 32,
+        "endLine": 445,
+        "endChar": 34
+      },
+      "revId": "12b5845e3dc0a5504577a21e7af2267fba949823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "299cb0d1_537ed6df",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:30:06Z",
+      "side": 1,
+      "message": "do we need to destroy the observer / unobserve when this component is removed from the DOM? Else I think we could have memory leaks",
+      "range": {
+        "startLine": 456,
+        "startChar": 4,
+        "endLine": 456,
+        "endChar": 42
+      },
+      "revId": "12b5845e3dc0a5504577a21e7af2267fba949823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
