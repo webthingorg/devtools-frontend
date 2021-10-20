@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9824ed_4408e154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-20T17:00:09Z",
+      "side": 1,
+      "message": "I found a nicer solution that uses the same ::before mechanism as the grey background for the non-highlighted toolbar item.",
+      "revId": "a6a46856efa23a3822cb9f9a67617cf1f887a7ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

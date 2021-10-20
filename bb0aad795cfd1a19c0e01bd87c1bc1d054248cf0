@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa4d422a_8afb6797",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-20T17:00:09Z",
+      "side": 1,
+      "message": "Yes indeed. I found it to be weird if the margin changed depending on whether it\u0027s the highlighted item.\n\nI found a different and more elegant solution though.",
+      "parentUuid": "c3f2dd15_5cb0a717",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2479f938_59dda683",
         "filename": "front_end/ui/legacy/toolbar.css",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "writtenOn": "2021-10-20T15:06:03Z",
       "side": 1,
       "message": "Can you please use --color-button-primary-text instead?",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8017448b_11c72ca4",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-20T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2479f938_59dda683",
       "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -83,6 +119,24 @@
       "writtenOn": "2021-10-20T15:06:03Z",
       "side": 1,
       "message": "Same here, --color-button-primary-text, instead.",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "550e331f_86f089e3",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-20T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a150e17_bcf55816",
       "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
