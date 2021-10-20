@@ -16,6 +16,92 @@
       "message": "Alex and Jack for overall component review\nPeter, final UX signoff",
       "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cc4903_9899eb1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:17:26Z",
+      "side": 1,
+      "message": "LGTM with some tiny nits. Nice!",
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96bdf3d9_8446a07a",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:17:26Z",
+      "side": 1,
+      "message": "teeeeeeny nit that you can feel free to ignore: I\u0027d probably call this `SettingsComponents`.",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df4a6b6_2ffc6500",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:17:26Z",
+      "side": 1,
+      "message": "nit: worth starting with devtools- perhaps",
+      "range": {
+        "startLine": 45,
+        "startChar": 47,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc668d91_db0c4308",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:17:26Z",
+      "side": 1,
+      "message": "nit: could this use the ScheduledRenderer ? \n\n```\nComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);\n```",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

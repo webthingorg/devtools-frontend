@@ -22,6 +22,30 @@
       },
       "revId": "4c8377f06c48b17ca8be7fffb41f1e09b618f1c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fc1a171_ec2a7059",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T11:17:26Z",
+      "side": 1,
+      "message": "I lean towards 1) for now and extending once we have more settings 👍",
+      "parentUuid": "e9e7ee1c_c09912e7",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "4c8377f06c48b17ca8be7fffb41f1e09b618f1c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
