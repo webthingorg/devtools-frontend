@@ -20,6 +20,7 @@ import * as ResourceUtils from './ResourceUtils.js';
 import * as SASSSourceMapping from './SASSSourceMapping.js';
 import * as StylesSourceMapping from './StylesSourceMapping.js';
 import * as TempFile from './TempFile.js';
+import * as DebuggerStateManager from './DebuggerStateManager.js';
 
 export {
   BreakpointManager,
@@ -40,4 +41,5 @@ export {
   SASSSourceMapping,
   StylesSourceMapping,
   TempFile,
+  DebuggerStateManager
 };
