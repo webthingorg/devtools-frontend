@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c3059c_7e6a045b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "non-owner LGTM with a bunch of nits",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "344aa7f2_a9b7236f",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "2021?",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47502707_c145e0e3",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "nit: if we keep in mind potential for generalizing the domain for multiple target types, I think we might eventually benefit from having a base class that is reusable across different targets (and hence different sets of instrumentation breakpoints), i.e. basically let the client supply the set of supported breakpoints. Or, perhaps, keep one global table of i18n strings for all possible breakpoint names on the front-end, but query the subset of breakpoint types supported by the target from the agent (i.e. `EventBreakpoint.getSupportedBreakpoints`?).\n\nI don\u0027t want to block you on this, we can go with present approach and refactor this later.",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0521fe_4a205a84",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "nit: return here right away? Or, perhaps, just use Array.find()?",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a4d316_67d8449d",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "nit: return breakpoint \u0026\u0026 breakpoint.title() (or use a ternary?)",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1acb436c_3eee3ddb",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-20T20:30:23Z",
+      "side": 1,
+      "message": "It looks like we don\u0027t have these on the PDL level, let\u0027s remove.",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
