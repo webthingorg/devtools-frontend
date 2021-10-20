@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f1a721_f043bb88",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T11:37:57Z",
+      "side": 1,
+      "message": "We already have `ui/components/settings` which this CL imports as `SettingsComponents`. To be really clear a good name would probably be `SettingsPanelComponents`? xD, but I prefer to leave it as-is for now :)",
+      "parentUuid": "96bdf3d9_8446a07a",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2df4a6b6_2ffc6500",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3b8ad4_a3b8cb0d",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T11:37:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2df4a6b6_2ffc6500",
+      "range": {
+        "startLine": 45,
+        "startChar": 47,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc668d91_db0c4308",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-10-20T11:17:26Z",
       "side": 1,
       "message": "nit: could this use the ScheduledRenderer ? \n\n```\nComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);\n```",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6053487_59b7f557",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-20T11:37:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc668d91_db0c4308",
       "range": {
         "startLine": 61,
         "startChar": 0,
