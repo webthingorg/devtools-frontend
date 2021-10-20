@@ -7,8 +7,6 @@
 :host {
   flex: none;
   padding: 0 2px;
-
-  --override-toolbar-warning-red: rgb(238 68 47 / 7%);
 }
 
 .toolbar-shadow {
@@ -407,7 +405,7 @@ input[is=history-input]:not(:placeholder-shown) {
 }
 
 .toolbar-item.warning {
-  background: var(--override-toolbar-warning-red);
+  background: var(--color-error-background);
 }
 
 devtools-icon.leading-issue-icon {
