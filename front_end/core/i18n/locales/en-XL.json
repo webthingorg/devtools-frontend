@@ -2693,6 +2693,9 @@
   "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
     "message": "R̂éŝt́ôŕêd́ f̂ŕôḿ b̂áĉḱ-f̂ór̂ẃâŕd̂ ćâćĥé"
   },
+  "panels/application/BackForwardCacheView.ts | runTest": {
+    "message": "R̂ún̂ T́êśt̂"
+  },
   "panels/application/BackForwardCacheView.ts | supportPending": {
     "message": "P̂én̂d́îńĝ Śûṕp̂ór̂t́"
   },
