@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b289fdce_70ab0d61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-20T14:57:01Z",
+      "side": 1,
+      "message": "This change based on (but not identical to) Peter\u0027s suggestion for how to make the warnings more visible. You can see the result here:\n\nhttps://screencast.googleplex.com/cast/NjQ5NjA3MDQ1NDQ3NjgwMHwyY2RmNTRmMi1hZg\n\nLet me know if you want me to change the look.",
+      "revId": "46893aeebbbe48f4ca7003885b4ab94c780bc7da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
