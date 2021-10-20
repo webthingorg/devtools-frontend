@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bf556f5_8034b281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-20T08:58:41Z",
+      "side": 1,
+      "message": "This is for back-merging CSS Overview preview to M96.",
+      "revId": "cf451913ae8f9d0fdd07fa8b68ef531988058d7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
