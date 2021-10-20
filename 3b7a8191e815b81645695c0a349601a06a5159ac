@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc1e8dc_bcb8c432",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T13:06:33Z",
+      "side": 1,
+      "message": "Ah apologies I missed that! PanelComponents is good :D",
+      "parentUuid": "64f1a721_f043bb88",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "3b7a8191e815b81645695c0a349601a06a5159ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2df4a6b6_2ffc6500",
