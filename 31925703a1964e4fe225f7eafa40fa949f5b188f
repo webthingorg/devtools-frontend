@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16bfe6f4_8090d834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-20T10:51:09Z",
+      "side": 1,
+      "message": "Tiny tip: you could add:\nFixed: chromium:1257485\nand an empty line before the line \"Change-Id: ...\" so that when this CL is merged, the referenced issue can be automatically marked as \"fixed\".\n\nPlease also wait for Tim\u0027s review if you think it needs careful review, since I\u0027m not very familiar with CodeMirror\u0027s styles.",
+      "revId": "31925703a1964e4fe225f7eafa40fa949f5b188f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
