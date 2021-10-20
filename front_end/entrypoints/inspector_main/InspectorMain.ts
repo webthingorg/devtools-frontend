@@ -53,30 +53,35 @@ export class InspectorMainImpl implements Common.Runnable.Runnable {
     let firstCall = true;
     await SDK.Connections.initMainConnection(async () => {
       const type = Root.Runtime.Runtime.queryParam('v8only') ? SDK.Target.Type.Node : SDK.Target.Type.Frame;
-      const waitForDebuggerInPage =
+      const pauseDebugger =
           type === SDK.Target.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';
+      const waitForDebuggerInPage = true;
+      console.error('waitForDebuggerInPage: ' + waitForDebuggerInPage);
       const target = SDK.TargetManager.TargetManager.instance().createTarget(
           'main', i18nString(UIStrings.main), type, null, undefined, waitForDebuggerInPage);
 
-      // Only resume target during the first connection,
-      // subsequent connections are due to connection hand-over,
-      // there is no need to pause in debugger.
-      if (!firstCall) {
-        return;
-      }
-      firstCall = false;
+      const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+      console.error('debuggerModel: ' + debuggerModel)
+      if (debuggerModel) {
+        if (!debuggerModel.isReadyToPause()) {
+          console.error('Waiting on DebuggerIsReadyToPause');
+          await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+          console.error('Done waiting on DebuggerIsReadyToPause');
+        }
 
-      if (waitForDebuggerInPage) {
-        const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
-        if (debuggerModel) {
-          if (!debuggerModel.isReadyToPause()) {
-            await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+        // Only resume target during the first connection,
+        // subsequent connections are due to connection hand-over,
+        // there is no need to pause in debugger.
+        if (firstCall) {
+          firstCall = false;
+          if (pauseDebugger) {
+            debuggerModel.pause();
           }
-          debuggerModel.pause();
         }
       }
 
       target.runtimeAgent().invoke_runIfWaitingForDebugger();
+      console.error('runIfWaitingForDebugger');
     }, Components.TargetDetachedDialog.TargetDetachedDialog.webSocketConnectionLost);
 
     new SourcesPanelIndicator();
