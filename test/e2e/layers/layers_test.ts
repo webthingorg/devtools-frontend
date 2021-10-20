@@ -9,12 +9,16 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentUrl} from '../helpers/layers-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
-describe('The Layers Panel', async () => {
+describe('The Layers Panel', function() {
   it('should keep the currently inspected url as an attribute', async () => {
     const targetUrl = 'layers/default.html';
     await goToResource(targetUrl);
 
     await openPanelViaMoreTools('Layers');
+
+    const {target} = getBrowserAndPages();
+
+    await target.bringToFront();
 
     await waitFor('[aria-label="layers"]:not([test-current-url=""])');
 
