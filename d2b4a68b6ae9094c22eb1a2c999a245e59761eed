@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9fb8ed7_9e7a0c30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-20T11:58:24Z",
+      "side": 1,
+      "message": "LGTM thanks",
+      "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cc7f96_0c447d2b",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-20T11:58:24Z",
+      "side": 1,
+      "message": "nit: extract this into a separate method?",
+      "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e43e7288_1512ab69",
+        "filename": "front_end/panels/settings/components/SyncSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-20T11:58:24Z",
+      "side": 1,
+      "message": "nit: here and below, to add clang format off to keep manual formatting? the formatting of the templates looks weird sometimes",
+      "revId": "d2b4a68b6ae9094c22eb1a2c999a245e59761eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
