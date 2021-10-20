@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "215e00d6_06d78a39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-10-20T13:35:38Z",
+      "side": 1,
+      "message": "PTAL.\n@mathias for owner review: I have agreed with Marian and Peter that we could update the list of devices without new frames.",
+      "revId": "ed888e3b7a09116b20a9b0529a87bf9a6ad45ca1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
