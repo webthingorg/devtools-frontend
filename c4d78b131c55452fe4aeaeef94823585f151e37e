@@ -16,6 +16,46 @@
       "message": "PTAnotherL:)",
       "revId": "c4d78b131c55452fe4aeaeef94823585f151e37e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e570de2_09bb537d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T14:46:35Z",
+      "side": 1,
+      "message": "LGTM with one tiny question to check! Thanks :)",
+      "revId": "c4d78b131c55452fe4aeaeef94823585f151e37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4daa6a0_3673d85f",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-10-20T14:46:35Z",
+      "side": 1,
+      "message": "one thing to check: I think that this might fire immediately when you first start observing which, if so, would mean the code on line 448 would be redundant. I\u0027m not 100% confident though so please check, and if so, we can avoid the tiny duplication. Else let\u0027s leave this as is :)",
+      "range": {
+        "startLine": 450,
+        "startChar": 3,
+        "endLine": 458,
+        "endChar": 7
+      },
+      "revId": "c4d78b131c55452fe4aeaeef94823585f151e37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
