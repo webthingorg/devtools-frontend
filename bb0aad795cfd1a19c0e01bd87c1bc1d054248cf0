@@ -16,6 +16,40 @@
       "message": "Please take another look!",
       "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2479f938_59dda683",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1507397
+      },
+      "writtenOn": "2021-10-20T15:06:03Z",
+      "side": 1,
+      "message": "Can you please use --color-button-primary-text instead?",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a150e17_bcf55816",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1507397
+      },
+      "writtenOn": "2021-10-20T15:06:03Z",
+      "side": 1,
+      "message": "Same here, --color-button-primary-text, instead.",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
