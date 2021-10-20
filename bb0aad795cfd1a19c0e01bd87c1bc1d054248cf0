@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ffce3ec_c65c1e6d",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1507397
+      },
+      "writtenOn": "2021-10-20T15:08:22Z",
+      "side": 1,
+      "message": "Please add an extra pixel here:\n\nmargin: 2px 0;",
+      "revId": "bb0aad795cfd1a19c0e01bd87c1bc1d054248cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2479f938_59dda683",
         "filename": "front_end/ui/legacy/toolbar.css",
         "patchSetId": 2
