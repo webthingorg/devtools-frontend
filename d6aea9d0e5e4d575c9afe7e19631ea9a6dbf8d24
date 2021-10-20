@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5874d809_dd7135d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-10-20T10:16:45Z",
+      "side": 1,
+      "message": "Please take a look. The crbug has screenshots of the new look.",
+      "revId": "d6aea9d0e5e4d575c9afe7e19631ea9a6dbf8d24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
