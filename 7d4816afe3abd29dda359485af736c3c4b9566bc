@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc3df2c_fabf7d6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-10-20T07:10:14Z",
+      "side": 1,
+      "message": "Hey Kateryna,\n\nHere\u0027s a oneliner to also include column numbers in pretty printed errors (non-pretty printed version already does include them). Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "7d4816afe3abd29dda359485af736c3c4b9566bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
