@@ -68,6 +68,10 @@ const UIStrings = {
    * of the back-forward cache anymore.
    */
   supportPending: 'Pending Support',
+  /**
+   * @description Button name for showing whether BFCache is available in the pages.
+   */
+  runTest: 'Run Test',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -110,7 +114,57 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return this.getMainResourceTreeModel()?.mainFrame || null;
   }
 
+  private bfCacheTestButton!: HTMLButtonElement;
+
+  private renderButton(): void {
+    this.bfCacheTestButton = UI.UIUtils.createTextButton(
+        i18nString(UIStrings.runTest), () => this.navigateAwayAndBack(), 'runTest-button',
+        /* primary */ true);
+    this.setDefaultFocusedElement(this.bfCacheTestButton);
+    this.contentElement.style.overflow = 'auto';
+  }
+
+  private async goBackOneHistoryEntry(): Promise<void> {
+    SDK.TargetManager.TargetManager.instance().removeModelListener(
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
+        this.goBackOneHistoryEntry, this);
+    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    if (mainTarget) {
+      const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      if (resourceTreeModel) {
+        const historyResults = await resourceTreeModel.navigationHistory();
+        if (historyResults) {
+          resourceTreeModel.navigateToHistoryEntry(historyResults.entries[historyResults.currentIndex - 1]);
+        }
+      }
+    }
+  }
+
+  private async navigateAwayAndBack(): Promise<void> {
+    // Checking BFCache Compatibility
+
+    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    if (!mainTarget) {
+      return;
+    }
+    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+
+    // This event is removed by inside of goBackOneHistoryEntry().
+    SDK.TargetManager.TargetManager.instance().addModelListener(
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
+        this.goBackOneHistoryEntry, this);
+
+    if (resourceTreeModel) {
+      // We can know whether the current page can use BFCache
+      // as the browser navigates to another unrelated page and goes back to the current page.
+      // We chose "chrome://version" because it must be cross-site.
+      // Ideally, We want to have our own testing page like "chrome: //bfcache-test".
+      resourceTreeModel.navigate('chrome://version/');
+    }
+  }
+
   private renderMainFrameInformation(mainFrame: SDK.ResourceTreeModel.ResourceTreeFrame|null): LitHtml.TemplateResult {
+    this.renderButton();
     if (!mainFrame) {
       return LitHtml.html`<${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.mainFrame)}</${
           ReportView.ReportView.ReportKey.litTagName}>
@@ -121,6 +175,9 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return LitHtml.html`
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.lastMainFrameNavigation)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
+      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      ${this.bfCacheTestButton}
+      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
