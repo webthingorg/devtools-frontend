@@ -33,6 +33,24 @@
       "message": "How about using the same look that we use for the ignoreList message? I think that catches attention pretty well (compared to the gray message).",
       "revId": "46893aeebbbe48f4ca7003885b4ab94c780bc7da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40919983_f561911c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-10-21T14:58:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85377a8_439ef7bb",
+      "revId": "46893aeebbbe48f4ca7003885b4ab94c780bc7da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
