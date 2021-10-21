@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2507267_17a21912",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-21T04:23:21Z",
+      "side": 1,
+      "message": "I made this.renderButton() move to inside of renderMainFrameInformation(). \n\nI am concerned about it and I think createTextButton (inside renderButton()) is more commonly used than using tags like \u003cbutton.button.button.littagname\u003e.",
+      "parentUuid": "eb5bb685_9dbebadd",
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "520044b2_81893a75",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 14
