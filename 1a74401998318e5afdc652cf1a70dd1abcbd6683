@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba231d48_13f8f16e",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-21T06:24:42Z",
+      "side": 1,
+      "message": "nit: frameOwnerTags.includes(payload.nodeName)\nultra-nit: const frameOwnerTags \u003d new Set([\u0027IFRAME\u0027, \u0027PORTAL\u0027, \u0027EMBED\u0027, \u0027OBJECT\u0027]); \u0026\u0026 frameOwnerTags.has(payload.nodeName)",
+      "range": {
+        "startLine": 167,
+        "startChar": 49,
+        "endLine": 167,
+        "endChar": 56
+      },
+      "revId": "1a74401998318e5afdc652cf1a70dd1abcbd6683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
