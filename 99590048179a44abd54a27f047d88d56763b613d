@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "207f8b8f_37946bf0",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-10-21T06:59:09Z",
+      "side": 1,
+      "message": "I would put this before \"Last main frame navigation\".\n(Or we could remove \"Last main frame navigation\"!)",
+      "range": {
+        "startLine": 199,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 64
+      },
+      "revId": "99590048179a44abd54a27f047d88d56763b613d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
