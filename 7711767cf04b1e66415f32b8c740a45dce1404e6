@@ -16,6 +16,98 @@
       "message": "Would it be possible to build the button via LitHtml in the render function instead of creating an element here and then just appending it in the render function?",
       "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520044b2_81893a75",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2021-10-21T00:51:56Z",
+      "side": 1,
+      "message": "\u0027startButton\u0027 isn\u0027t very specific, we could have other things we want to start on this page. so maybe \u0027startBFCacheTestButton\u0027 or something like that?",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 21
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db51aa42_0cb8e42e",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2021-10-21T00:51:56Z",
+      "side": 1,
+      "message": "it\u0027d be good to make this function name an action, like \"goBackOneHistoryEntry\" or maybe even just \"goBack()\"",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ace865e_454095fa",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2021-10-21T00:51:56Z",
+      "side": 1,
+      "message": "is it possible to remove the listener before triggering the navigation? it seems like that would be a tiny bit safer. i think just moving these lines to the start of the function would work",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 14
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45fb0627_05452b8a",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2021-10-21T00:51:56Z",
+      "side": 1,
+      "message": "this name is a little non-specific.\n\ni\u0027d call this something like:\n1) navigateAwayAndBack()  \n2) triggerBackForwardNavigation()\n3) runBFCacheCompatibilityTest() (or something like that, maybe like \u0027checkBFCacheCompatibility\u0027)\n\n(picking names for this sort of thing is very hard)",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
