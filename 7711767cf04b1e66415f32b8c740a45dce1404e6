@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "517462bb_86ed85f3",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-21T02:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "520044b2_81893a75",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 21
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db51aa42_0cb8e42e",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-21T00:51:56Z",
       "side": 1,
       "message": "it\u0027d be good to make this function name an action, like \"goBackOneHistoryEntry\" or maybe even just \"goBack()\"",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b916b25_1afe6930",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-21T02:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db51aa42_0cb8e42e",
       "range": {
         "startLine": 128,
         "startChar": 16,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e55f107_bff8178d",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-21T02:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ace865e_454095fa",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 14
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45fb0627_05452b8a",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-10-21T00:51:56Z",
       "side": 1,
       "message": "this name is a little non-specific.\n\ni\u0027d call this something like:\n1) navigateAwayAndBack()  \n2) triggerBackForwardNavigation()\n3) runBFCacheCompatibilityTest() (or something like that, maybe like \u0027checkBFCacheCompatibility\u0027)\n\n(picking names for this sort of thing is very hard)",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc11572_e0fdc916",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-21T02:47:25Z",
+      "side": 1,
+      "message": "I chose navigateAwayAndBack() and added \"Checking BFCacheCompatibility\" as the comments.",
+      "parentUuid": "45fb0627_05452b8a",
       "range": {
         "startLine": 144,
         "startChar": 16,
