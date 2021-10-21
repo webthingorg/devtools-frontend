@@ -22,6 +22,30 @@
       },
       "revId": "1a74401998318e5afdc652cf1a70dd1abcbd6683",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d740c1_e469c7b0",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-10-21T17:56:50Z",
+      "side": 1,
+      "message": "Done, though kept an array, might be marginally more efficient given we only look up once.",
+      "parentUuid": "ba231d48_13f8f16e",
+      "range": {
+        "startLine": 167,
+        "startChar": 49,
+        "endLine": 167,
+        "endChar": 56
+      },
+      "revId": "1a74401998318e5afdc652cf1a70dd1abcbd6683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
