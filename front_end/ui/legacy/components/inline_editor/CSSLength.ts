@@ -136,9 +136,13 @@ export class CSSLength extends HTMLElement {
         <span class="value"
           @mousedown=${this.onValueMousedown}
           @mouseup=${this.onValueMouseup}
-        >${this.length.value}</span><select class="unit ${this.length.unit}" @mouseup=${this.onUnitMouseup} @change=${this.onUnitChange}>
-          ${options}
-        </select>
+        >${this.length.value}</span>${this.length.unit}
+        <div class="unit">
+          <select @mouseup=${this.onUnitMouseup} @change=${this.onUnitChange}>
+            ${options}
+          </select>
+          <span class="icon"></span>
+        </div>
       `;
     // clang-format on
   }
