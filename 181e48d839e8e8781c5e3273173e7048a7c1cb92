@@ -16,6 +16,24 @@
       "message": "(Accidentally uploaded another patch over this one. Restored this changeset, though I\u0027m not entirely sure what its status was—I guess it was superseded by other solutions.)",
       "revId": "181e48d839e8e8781c5e3273173e7048a7c1cb92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfaa0c8b_0910fe2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-25T10:58:43Z",
+      "side": 1,
+      "message": "I think we initially needed this to make the autocompletion tooltips work, but with your solution to move them to a child of `document.body`, I think this patch is now obsolete? I do prefer the current approach, so if it turns out that we no longer need this patch, I would prefer to drop it. Let me know what you think?",
+      "parentUuid": "6e8acd51_6cbf8267",
+      "revId": "181e48d839e8e8781c5e3273173e7048a7c1cb92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
