@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7443c261_ae1b21bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-25T22:29:47Z",
+      "side": 1,
+      "message": "Hi Peter, could you see if this new UX for \u003clength\u003e work for you? Thanks!",
+      "revId": "74b25cebeea3e1adae60a3bb5a37744ee35fa77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
