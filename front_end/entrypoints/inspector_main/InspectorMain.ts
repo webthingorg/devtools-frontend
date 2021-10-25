@@ -52,6 +52,10 @@ export class InspectorMainImpl implements Common.Runnable.Runnable {
   async run(): Promise<void> {
     let firstCall = true;
     await SDK.Connections.initMainConnection(async () => {
+      if (await SDK.TargetManager.TargetManager.instance().maybeAttachInitialTarget()) {
+        return;
+      }
+
       const type = Root.Runtime.Runtime.queryParam('v8only') ? SDK.Target.Type.Node : SDK.Target.Type.Frame;
       const waitForDebuggerInPage =
           type === SDK.Target.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';

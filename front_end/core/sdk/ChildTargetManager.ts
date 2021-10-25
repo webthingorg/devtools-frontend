@@ -35,6 +35,7 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       if (browserTarget !== parentTarget) {
         browserTarget.targetAgent().invoke_autoAttachRelated(
             {targetId: parentTarget.id() as Protocol.Target.TargetID, waitForDebuggerOnStart: true});
+        this.#targetAgent.invoke_setAutoAttach({autoAttach: true, waitForDebuggerOnStart: true, flatten: true});
       }
     } else {
       this.#targetAgent.invoke_setAutoAttach({autoAttach: true, waitForDebuggerOnStart: true, flatten: true});
@@ -137,6 +138,8 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       type = Type.SharedWorker;
     } else if (targetInfo.type === 'service_worker') {
       type = Type.ServiceWorker;
+    } else if (targetInfo.type === 'prerender') {
+      type = Type.Frame;
     }
 
     const target = this.#targetManager.createTarget(
@@ -148,6 +151,16 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       await ChildTargetManager.attachCallback({target, waitingForDebugger});
     }
     target.runtimeAgent().invoke_runIfWaitingForDebugger();
+
+    // FIXME: Need to avoid creating these targets in the first place, it currently causes
+    // console message duplication (and probably has other side effects). At the same time, we need to
+    // find a way to resume a pending navigation by calling runIfWaitingForDebugger() using the attached
+    // session.
+    if (targetInfo.type === 'prerender' && target.parentTarget() !== this.#targetManager.browserTarget()) {
+      this.#targetManager.removeTarget(target);
+    } else if (targetInfo.type === 'iframe' && target.parentTarget() === this.#targetManager.browserTarget()) {
+      this.#targetManager.removeTarget(target);
+    }
   }
 
   detachedFromTarget({sessionId}: Protocol.Target.DetachedFromTargetEvent): void {
