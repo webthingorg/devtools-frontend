@@ -33,6 +33,24 @@
       "message": "I tested the functionality locally and it works great!\n\nUX-wise this currently adds a \"Run test\" button at the top of the page without any further explanation. I don\u0027t think the button\u0027s function is self-explanatory, it would be great if we gave the users some more guidance. Some ideas:\n- add a hover text explanation to the button\n- move the button into the 2 column layout and place a description of the button\u0027s functionality right next to the button\n- Location of the button: does the location at the very top make the most sense or would a different spot make more sense?\n\nWDYT?\n",
       "revId": "4032d726d6abd88bcee7ab0bddac03572280b069",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b402abb8_ed9e0cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-25T10:24:45Z",
+      "side": 1,
+      "message": "We already have an ideal design created by the UX design team, it includes some descriptions of the BFcache. I\u0027ll reflect the design to the next CL.",
+      "parentUuid": "4c4971df_7354fd78",
+      "revId": "4032d726d6abd88bcee7ab0bddac03572280b069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

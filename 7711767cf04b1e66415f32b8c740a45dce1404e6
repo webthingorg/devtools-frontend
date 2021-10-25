@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "210138b2_440f8442",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-25T10:24:45Z",
+      "side": 1,
+      "message": "Thank you for your helpful explanation, I understood.\nI fixed it to use LitHtml.\n\nI set runTest-button class to make the font bolder by using \"font-weight: 500;\", but it is not reflected. Could you please tell me how to reflect it?",
+      "parentUuid": "96d99254_01a688f5",
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "520044b2_81893a75",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 14
