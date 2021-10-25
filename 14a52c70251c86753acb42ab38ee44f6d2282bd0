@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00df22e0_2f6a2af7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-10-25T12:27:04Z",
+      "side": 1,
+      "message": "Removing out-dated CL from attention list...",
+      "revId": "14a52c70251c86753acb42ab38ee44f6d2282bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
