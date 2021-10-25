@@ -14,21 +14,33 @@
   cursor: ew-resize;
 }
 
-select.unit {
+.unit-dropdown {
+  display: none;
+}
+
+.unit-dropdown select {
   all: unset;
   cursor: pointer;
-  width: 2ch;
+  opacity: 0%;
+  width: 1em;
+  margin-left: 2px;
+  padding-right: 2px;
 }
 
-select.unit:hover {
-  text-decoration: underline;
+.css-length:hover .unit-dropdown {
+  display: inline-block;
 }
 
-select.unit.rem {
-  width: 3ch;
-}
-
-select.unit.vmin,
-select.unit.vmax {
-  width: 4ch;
+.icon {
+  position: absolute;
+  right: 2px;
+  display: inline-block;
+  -webkit-mask-image: var(--image-file-chevrons);
+  -webkit-mask-position: -18px 1px;
+  -webkit-mask-size: 30px 10px;
+  -webkit-mask-repeat: no-repeat;
+  background-color: var(--color-text-primary);
+  content: '';
+  height: 1em;
+  width: 1em;
 }
