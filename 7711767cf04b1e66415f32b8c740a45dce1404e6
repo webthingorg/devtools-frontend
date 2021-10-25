@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96d99254_01a688f5",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-25T08:45:35Z",
+      "side": 1,
+      "message": "We currently have 2 ways of creating the UI in DevTools. The old/legacy way which imperatively creates elements via `document.createElement()` (which is what `createTextButton()` does), and the new way of using LitHtml. Since this file is using the LitHtml way, we should try and keep it consistent and don\u0027t mix approaches in a single file.",
+      "parentUuid": "f2507267_17a21912",
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "520044b2_81893a75",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 14
