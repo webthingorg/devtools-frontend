@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "617f5048_2eb4d4b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372231
+      },
+      "writtenOn": "2021-10-25T15:49:06Z",
+      "side": 1,
+      "message": "lgtm\n- copy/paste spacing issue resolved\n- 1px or similar \"thin hit area\" values are easier to enter edit text mode",
+      "revId": "9b002c0d238e3e08f0a1b88f9049e6ab5d317f02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
