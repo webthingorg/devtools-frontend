@@ -9,6 +9,10 @@
   padding-inline-start: 0;
 }
 
+.runTest-button {
+  font-weight: 500;
+}
+
 .inline-icon {
   vertical-align: sub;
 }
