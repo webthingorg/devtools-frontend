@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81338955_a2176fc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-25T11:05:57Z",
+      "side": 1,
+      "message": "The CL is marked as work-in-progress, but it looks good to me. Let me know if we can merge this as-is?",
+      "revId": "614d056218befef11927663eb87a3605cacde64d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
