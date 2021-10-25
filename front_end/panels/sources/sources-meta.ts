@@ -1249,6 +1249,7 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.SOURCES,
+  storageType: Common.Settings.SettingStorageType.Synced,
   title: i18nLazyString(UIStrings.searchInAnonymousAndContent),
   settingName: 'searchInAnonymousAndContentScripts',
   settingType: Common.Settings.SettingType.BOOLEAN,
