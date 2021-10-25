@@ -33,6 +33,24 @@
       "message": "nit: remove optional quotes around property name to match style of surrounding code",
       "revId": "511ce1b59b9a4c3ef34c3d0c6e401bf6ac187e45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b33ddeb_92e7dcc6",
+        "filename": "front_end/ui/legacy/ViewManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-25T12:44:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57352580_e01b237a",
+      "revId": "511ce1b59b9a4c3ef34c3d0c6e401bf6ac187e45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
