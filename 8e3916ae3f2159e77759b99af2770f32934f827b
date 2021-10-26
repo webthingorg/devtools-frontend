@@ -39,6 +39,30 @@
       },
       "revId": "8e3916ae3f2159e77759b99af2770f32934f827b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "859a0359_33caf587",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-26T08:39:45Z",
+      "side": 1,
+      "message": "+1\n\nDo we also want to lock the `CSS` term? I don\u0027t think it makes sense to translate that.",
+      "parentUuid": "6e608601_7668736f",
+      "range": {
+        "startLine": 164,
+        "startChar": 16,
+        "endLine": 164,
+        "endChar": 58
+      },
+      "revId": "8e3916ae3f2159e77759b99af2770f32934f827b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
