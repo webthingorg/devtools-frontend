@@ -16,6 +16,29 @@
       "message": "Small a11y fix, PTAL. Thanks :) ",
       "revId": "8e3916ae3f2159e77759b99af2770f32934f827b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e608601_7668736f",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-26T07:39:36Z",
+      "side": 1,
+      "message": "could you please describe the strings in more details? E.g., the text that is announced by the screenreader when the user focuses on an input field for entering the name of a CSS property in the Styles panel.",
+      "range": {
+        "startLine": 164,
+        "startChar": 16,
+        "endLine": 164,
+        "endChar": 58
+      },
+      "revId": "8e3916ae3f2159e77759b99af2770f32934f827b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
