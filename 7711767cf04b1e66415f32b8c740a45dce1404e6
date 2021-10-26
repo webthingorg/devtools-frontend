@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a548dce_0bbd282e",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-26T10:26:09Z",
+      "side": 1,
+      "message": "The button is a component with its own shadow DOM. This encapsulation prevents you from reaching into the shadow DOMs css from outside.\n\nBut actually, I think you found a bug here: I believe font-weight should be set to 500 for the button component. The only other place where the new button component is currently being used is the CSS overview. It would be great if you could create a separate CL in which you add that to https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/buttons/button.css;l\u003d29. And add petermueller@chromium.org and myself as reviewers. Thanks a lot!",
+      "parentUuid": "210138b2_440f8442",
+      "revId": "7711767cf04b1e66415f32b8c740a45dce1404e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "520044b2_81893a75",
         "filename": "front_end/panels/application/BackForwardCacheView.ts",
         "patchSetId": 14

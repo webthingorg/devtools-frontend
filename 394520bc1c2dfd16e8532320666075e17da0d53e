@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a504b0f0_58de35d7",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-26T10:26:09Z",
+      "side": 1,
+      "message": "Would it make sense to move this into the `if (resourceTreeModel)` block? If we\u0027re not navigating away, we don\u0027t need to add the listener either, right?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 42
+      },
+      "revId": "394520bc1c2dfd16e8532320666075e17da0d53e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
