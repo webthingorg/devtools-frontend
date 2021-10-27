@@ -14,7 +14,6 @@
     { "name": "panels/profiler" },
     { "name": "panels/protocol_monitor"},
     { "name": "panels/search" },
-    { "name": "panels/settings" },
     { "name": "ui/legacy/components/source_frame" },
     { "name": "panels/sources" },
     { "name": "ui/legacy/components/text_editor" }
