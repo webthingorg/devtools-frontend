@@ -33,6 +33,24 @@
       "message": "lgtm",
       "revId": "57c464a3453f0438a05b139880d0f0c9d22b17e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01d6d7ff_c16b4e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-27T07:11:38Z",
+      "side": 1,
+      "message": "The renaming lgtm, all the try bots should pass once the broken en-US.json and en-XL.json are fixed (by uploading from a standalone checkout).\n\nPlease note that you can just patch this CL into your standalone devtools-frontend checkout via `git cl patch -f 3245990` and then run `npm run collect-strings` to fix the locale json files.",
+      "parentUuid": "d11eb94d_709a8bd3",
+      "revId": "57c464a3453f0438a05b139880d0f0c9d22b17e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
