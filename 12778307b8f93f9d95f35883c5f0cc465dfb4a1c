@@ -16,6 +16,24 @@
       "message": "Could you give a bit more context about what this CL is about? I assume you want to remove font-weight: 500 because it doesn\u0027t exist in DevTools? But otherwise this should have no visual implications, right?\n\nNormally each commit message has to involve a tracking bug on crbug.com/ in the last line of the commit message (e.g. Fixed: \u003cissue\u003e or Bug: \u003cissue\u003e).",
       "revId": "12778307b8f93f9d95f35883c5f0cc465dfb4a1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c526050d_a8c2fbb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-10-27T07:39:06Z",
+      "side": 1,
+      "message": "Wolfgang brought me up to speed. 500 is great, thanks.",
+      "parentUuid": "3f10039f_1a9f1775",
+      "revId": "12778307b8f93f9d95f35883c5f0cc465dfb4a1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
