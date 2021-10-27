@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22e940ba_6636c91c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-10-27T07:08:05Z",
+      "side": 1,
+      "message": "Please upload non-trivial CLs for the devtools-frontend via a Standalone checkout: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#standalone-checkout. The reason is that many of our presubmit scripts (e.g. localization) don\u0027t work when run from a chromium checkout.\n\nSorry for the inconvenience!",
+      "revId": "57c464a3453f0438a05b139880d0f0c9d22b17e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
