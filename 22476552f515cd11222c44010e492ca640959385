@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57349818_5f324afe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-10-27T16:50:28Z",
+      "side": 1,
+      "message": "I am sorry for causing this regression, I will investigate what caused this and will submit a new CR with the fix. Thanks for reverting this.",
+      "revId": "22476552f515cd11222c44010e492ca640959385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
