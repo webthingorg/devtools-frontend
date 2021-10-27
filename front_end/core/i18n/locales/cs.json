@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Otevřít výběr barvy."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Otevřít výběr barvy."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Otevřít editor kubických Bézierových křivek."
   },

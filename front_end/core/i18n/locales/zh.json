@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "打开颜色选择器。"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "打开颜色选择器。"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "打开三次贝塞尔曲线编辑器。"
   },

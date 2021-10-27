@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Բացել գունի ընտրիչը"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Բացել գունի ընտրիչը"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Բացել Բեզյեի կորի խմբագրիչը։"
   },

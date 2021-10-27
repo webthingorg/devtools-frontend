@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Ava värvivalija."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Ava värvivalija."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Ava kuubipõhise Bézier' kõvera redaktor."
   },

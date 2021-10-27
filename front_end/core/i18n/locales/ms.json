@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Buka pemilih warna."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Buka pemilih warna."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Buka editor cubic bezier."
   },

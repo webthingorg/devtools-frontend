@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Agor dewisydd lliw."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Agor dewisydd lliw."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Agor golygydd Bezier ciwb."
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "कलर पिकर खोल्नुहोस्।"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "कलर पिकर खोल्नुहोस्।"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "क्युबिक बेजियर एडिटर खोल्नुहोस्।"
   },

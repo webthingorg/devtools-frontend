@@ -11450,6 +11450,12 @@
   "ui/components/text_editor/config.ts | codeEditor": {
     "message": "Ĉód̂é êd́ît́ôŕ"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Ôṕêń ĉól̂ór̂ ṕîćk̂ér̂."
+  },
+  "ui/components/text_editor/css.ts | openCubicBezierEditor": {
+    "message": "Ôṕêń ĉúb̂íĉ b́êźîér̂ éd̂ít̂ór̂."
+  },
   "ui/legacy/components/color_picker/ContrastDetails.ts | aa": {
     "message": "ÂÁ"
   },

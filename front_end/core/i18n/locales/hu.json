@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Színválasztó megnyitása."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Színválasztó megnyitása."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "A cubic bezier editor megnyitása."
   },

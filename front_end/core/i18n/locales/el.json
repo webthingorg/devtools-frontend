@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Άνοιγμα επιλογέα χρώματος"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Άνοιγμα επιλογέα χρώματος"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Άνοιγμα προγράμματος επεξεργασίας κυβικής bezier."
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "ৰং বাছনি কৰোঁতা খোলক।"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "ৰং বাছনি কৰোঁতা খোলক।"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Cubic Bezier সম্পাদক খোলক।"
   },

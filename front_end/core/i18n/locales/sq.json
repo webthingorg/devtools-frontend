@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Hap zgjedhësin e ngjyrës."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Hap zgjedhësin e ngjyrës."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Hap modifikuesin e kurbës kubike të Bezierit."
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "باز کردن انتخابگر رنگ."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "باز کردن انتخابگر رنگ."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "ویرایشگر منحنی بزیه مکعبی را باز کنید."
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Atidaryti spalvos parinkiklį."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Atidaryti spalvos parinkiklį."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Atidaryti „cubic bezier“ redagavimo priemonę."
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "ਰੰਗ ਚੋਣਕਾਰ ਖੋਲ੍ਹੋ।"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "ਰੰਗ ਚੋਣਕਾਰ ਖੋਲ੍ਹੋ।"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "ਕਿਊਬਿਕ ਬੇਜ਼ੀਅਰ ਸੰਪਾਦਕ ਖੋਲ੍ਹੋ।"
   },

@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "เปิดตัวเลือกสี"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "เปิดตัวเลือกสี"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "เปิดเครื่องมือแก้ไข cubic bezier"
   },

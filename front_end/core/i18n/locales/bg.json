@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Отваряне на инструмента за избор на цветове."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Отваряне на инструмента за избор на цветове."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Отваряне на редактора на кубични криви на Безие."
   },

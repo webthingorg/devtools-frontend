@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Otvorite alat za odabir boja."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Otvorite alat za odabir boja."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Otvorite uređivač kubične Bezierove krivulje."
   },

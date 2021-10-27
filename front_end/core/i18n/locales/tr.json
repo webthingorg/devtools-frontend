@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Renk seçiciyi aç."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Renk seçiciyi aç."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Kübik bezier düzenleyicisini aç."
   },

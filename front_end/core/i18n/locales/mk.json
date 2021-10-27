@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Отвори го избирачот на боја."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Отвори го избирачот на боја."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Отвори го уредникот за кубен безиер."
   },

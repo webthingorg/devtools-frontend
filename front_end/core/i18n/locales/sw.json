@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Fungua kiteua rangi."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Fungua kiteua rangi."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Fungua kihariri cha cubic bezier."
   },

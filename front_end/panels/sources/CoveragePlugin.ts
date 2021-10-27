@@ -6,7 +6,8 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Formatter from '../../models/formatter/formatter.js';
 import type * as Workspace from '../../models/workspace/workspace.js';
-import type * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
+import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
+import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Coverage from '../coverage/coverage.js';
 
@@ -35,16 +36,13 @@ const str_ = i18n.i18n.registerUIStrings('panels/sources/CoveragePlugin.ts', UIS
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class CoveragePlugin extends Plugin {
-  private uiSourceCode: Workspace.UISourceCode.UISourceCode;
   private originalSourceCode: Workspace.UISourceCode.UISourceCode;
   private infoInToolbar: UI.Toolbar.ToolbarButton;
   private model: Coverage.CoverageModel.CoverageModel|null|undefined;
   private coverage: Coverage.CoverageModel.URLCoverageInfo|null|undefined;
 
-  constructor(
-      _textEditor: SourceFrame.SourcesTextEditor.SourcesTextEditor, uiSourceCode: Workspace.UISourceCode.UISourceCode) {
-    super();
-    this.uiSourceCode = uiSourceCode;
+  constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode) {
+    super(uiSourceCode);
     this.originalSourceCode =
         Formatter.SourceFormatter.SourceFormatter.instance().getOriginalUISourceCode(this.uiSourceCode);
     this.infoInToolbar = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clickToShowCoveragePanel));
@@ -106,4 +104,116 @@ export class CoveragePlugin extends Plugin {
   async rightToolbarItems(): Promise<UI.Toolbar.ToolbarItem[]> {
     return [this.infoInToolbar];
   }
+
+  editorExtension(): CodeMirror.Extension {
+    return coverageCompartment.of([]);
+  }
+
+  private getCoverageManager(): Coverage.CoverageDecorationManager.CoverageDecorationManager|undefined {
+    return this.uiSourceCode.getDecorationData(SourceFrame.SourceFrame.DecoratorType.COVERAGE);
+  }
+
+  editorCreated(editor: CodeMirror.EditorView): void {
+    if (this.getCoverageManager()) {
+      this.startDecoUpdate(editor);
+    }
+  }
+
+  decorationChanged(type: SourceFrame.SourceFrame.DecoratorType, editor: CodeMirror.EditorView): void {
+    if (type === SourceFrame.SourceFrame.DecoratorType.COVERAGE) {
+      this.startDecoUpdate(editor);
+    }
+  }
+
+  private startDecoUpdate(editor: CodeMirror.EditorView): void {
+    const manager = this.getCoverageManager();
+    (manager ? manager.usageByLine(this.uiSourceCode) : Promise.resolve([])).then(usageByLine => {
+      const enabled = !!editor.state.field(coverageState, false);
+      if (!usageByLine.length) {
+        if (enabled) {
+          editor.dispatch({effects: coverageCompartment.reconfigure([])});
+        }
+      } else if (!enabled) {
+        editor.dispatch({
+          effects: coverageCompartment.reconfigure([
+            coverageState.init(state => markersFromCoverageData(usageByLine, state)),
+            coverageGutter(this.uiSourceCode.url()),
+          ])
+        });
+      } else {
+        editor.dispatch({effects: setCoverageState.of(usageByLine)});
+      }
+    });
+  }
 }
+
+// FIXME-SF Add/port styles
+
+const coveredMarker = new class extends CodeMirror.GutterMarker {
+  toDOM(): HTMLElement {
+    const elt = document.createElement('div');
+    elt.className = 'text-editor-coverage-used-marker';
+    return elt;
+  }
+};
+
+const notCoveredMarker = new class extends CodeMirror.GutterMarker {
+  toDOM(): HTMLElement {
+    const elt = document.createElement('div');
+    elt.className = 'text-editor-coverage-unused-marker';
+    return elt;
+  }
+};
+
+function markersFromCoverageData(
+    usageByLine: (boolean|undefined)[], state: CodeMirror.EditorState): CodeMirror.RangeSet<CodeMirror.GutterMarker> {
+  const builder = new CodeMirror.RangeSetBuilder<CodeMirror.GutterMarker>();
+  for (let line = 0; line < usageByLine.length; line++) {
+    const usage = usageByLine[line];
+    if (usage !== undefined && line < state.doc.lines) {
+      const lineStart = state.doc.line(line + 1).from;
+      builder.add(lineStart, lineStart, usage ? coveredMarker : notCoveredMarker);
+    }
+  }
+  return builder.finish();
+}
+
+const setCoverageState = CodeMirror.StateEffect.define<(boolean | undefined)[]>();
+
+const coverageState = CodeMirror.StateField.define<CodeMirror.RangeSet<CodeMirror.GutterMarker>>({
+  create(): CodeMirror.RangeSet<CodeMirror.GutterMarker> {
+    return CodeMirror.RangeSet.empty;
+  },
+  update(markers, tr) {
+    return tr.effects.reduce((markers, effect) => {
+      return effect.is(setCoverageState) ? markersFromCoverageData(effect.value, tr.state) : markers;
+    }, markers.map(tr.changes));
+  }
+});
+
+function coverageGutter(url: string) {
+  return CodeMirror.gutter({
+    markers: (view): CodeMirror.RangeSet<CodeMirror.GutterMarker> => view.state.field(coverageState),
+
+    domEventHandlers: {
+      click(view) {
+        UI.ViewManager.ViewManager.instance()
+            .showView('coverage')
+            .then(() => {
+              const view = UI.ViewManager.ViewManager.instance().view('coverage');
+              return view && view.widget();
+            })
+            .then(widget => {
+              const matchFormattedSuffix = url.match(/(.*):formatted$/);
+              const urlWithoutFormattedSuffix = (matchFormattedSuffix && matchFormattedSuffix[1]) || url;
+              (widget as Coverage.CoverageView.CoverageView).selectCoverageItemByUrl(urlWithoutFormattedSuffix);
+            });
+        return true;
+      }
+    },
+
+    class: 'cm-gutter-coverage'
+  });
+}
+
+const coverageCompartment = new CodeMirror.Compartment;

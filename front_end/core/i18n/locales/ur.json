@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "رنگ چنندہ کھولیں۔"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "رنگ چنندہ کھولیں۔"
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "کیوبک بیزیر ایڈیٹر کھولیں۔"
   },

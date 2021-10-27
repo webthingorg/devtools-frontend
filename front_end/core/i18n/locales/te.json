@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "రంగు ఎంపికను తెరవండి."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "రంగు ఎంపికను తెరవండి."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "క్యూబిక్ బెజియర్ ఎడిటర్‌ను తెరవండి."
   },

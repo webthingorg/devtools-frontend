@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "වර්ණ තෝරකය විවෘත කරන්න."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "වර්ණ තෝරකය විවෘත කරන්න."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "කියුබික් බෙසියර් සංස්කාරකය විවෘත කරන්න."
   },

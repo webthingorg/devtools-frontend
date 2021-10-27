@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Түс тандагычты ачуу."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Түс тандагычты ачуу."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Безье куб түзөтүүчүсүн ачуу."
   },

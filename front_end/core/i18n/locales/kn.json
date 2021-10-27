@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "ಬಣ್ಣ ಆಯ್ಕೆಮಾಡುವಿಕೆ ತೆರೆಯಿರಿ."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "ಬಣ್ಣ ಆಯ್ಕೆಮಾಡುವಿಕೆ ತೆರೆಯಿರಿ."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "ಕ್ಯುಬಿಕ್ ಬೆಝೀರ್ ಎಡಿಟರ್ ತೆರೆಯಿರಿ."
   },

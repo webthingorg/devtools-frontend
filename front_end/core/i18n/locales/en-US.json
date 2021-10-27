@@ -11450,6 +11450,12 @@
   "ui/components/text_editor/config.ts | codeEditor": {
     "message": "Code editor"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Open color picker."
+  },
+  "ui/components/text_editor/css.ts | openCubicBezierEditor": {
+    "message": "Open cubic bezier editor."
+  },
   "ui/legacy/components/color_picker/ContrastDetails.ts | aa": {
     "message": "AA"
   },

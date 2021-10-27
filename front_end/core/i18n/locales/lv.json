@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Atveriet krāsu atlasītāju."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Atveriet krāsu atlasītāju."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Atveriet kubisko Bezjē līkņu redaktoru."
   },

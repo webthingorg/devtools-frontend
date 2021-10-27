@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Mở công cụ chọn màu."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Mở công cụ chọn màu."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Mở trình chỉnh sửa cubic bezier."
   },

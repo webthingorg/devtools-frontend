@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Vula isikhethi sombala."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Vula isikhethi sombala."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Vula umhleli we-cubic bezier."
   },

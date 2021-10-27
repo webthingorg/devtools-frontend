@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "வண்ணத் தேர்வியைத் திறத்தல்."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "வண்ணத் தேர்வியைத் திறத்தல்."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "cubic bezier எடிட்டரைத் திற."
   },

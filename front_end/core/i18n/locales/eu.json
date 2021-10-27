@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Ireki kolore-hautatzailea."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Ireki kolore-hautatzailea."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Ireki cubic-bezier editorea."
   },

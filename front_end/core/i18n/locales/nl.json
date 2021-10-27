@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Kleurkiezer openen."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Kleurkiezer openen."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Open de cubic-bezier-editor."
   },

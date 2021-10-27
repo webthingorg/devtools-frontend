@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "ფერის ამომრჩევის გახსნა."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "ფერის ამომრჩევის გახსნა."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "ბეზიეს კუბური რედაქტორის გახსნა."
   },

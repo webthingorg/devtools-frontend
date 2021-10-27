@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Maak kleurkieser oop."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Maak kleurkieser oop."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Maak cubic-bezier-redigeerder oop."
   },

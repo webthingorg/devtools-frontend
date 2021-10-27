@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Відкрити палітру."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Відкрити палітру."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Відкрити редактор кривої Безьє."
   },

@@ -64,7 +64,7 @@ export class BinaryResourceViewFactory {
     return new ResourceSourceFrame(
         TextUtils.StaticContentProvider.StaticContentProvider.fromString(
             this.contentUrl, this.resourceType, this.base64content),
-        /* autoPrettyPrint */ false, ({lineNumbers: false, lineWrapping: true} as UI.TextEditor.Options));
+        {lineNumbers: false, lineWrapping: true});
   }
 
   createHexView(): ResourceSourceFrame {
@@ -74,18 +74,14 @@ export class BinaryResourceViewFactory {
           const content = BinaryResourceViewFactory.uint8ArrayToHexViewer(contentAsArray);
           return {content, isEncoded: false};
         });
-    return new ResourceSourceFrame(
-        hexViewerContentProvider,
-        /* autoPrettyPrint */ false, ({lineNumbers: false, lineWrapping: false} as UI.TextEditor.Options));
+    return new ResourceSourceFrame(hexViewerContentProvider, {lineNumbers: false, lineWrapping: false});
   }
 
   createUtf8View(): ResourceSourceFrame {
     const utf8fn = this.utf8.bind(this);
     const utf8ContentProvider =
         new TextUtils.StaticContentProvider.StaticContentProvider(this.contentUrl, this.resourceType, utf8fn);
-    return new ResourceSourceFrame(
-        utf8ContentProvider,
-        /* autoPrettyPrint */ false, ({lineNumbers: true, lineWrapping: true} as UI.TextEditor.Options));
+    return new ResourceSourceFrame(utf8ContentProvider, {lineNumbers: true, lineWrapping: true});
   }
 
   static uint8ArrayToHexString(uint8Array: Uint8Array): string {

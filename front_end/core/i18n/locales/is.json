@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "Opna litaval."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Opna litaval."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "Opna cubic bezier-ritil."
   },

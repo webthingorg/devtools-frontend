@@ -8714,6 +8714,9 @@
   "panels/sources/CSSPlugin.ts | openColorPicker": {
     "message": "색상 선택 도구를 엽니다."
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "색상 선택 도구를 엽니다."
+  },
   "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
     "message": "cubic bezier 에디터를 엽니다."
   },
