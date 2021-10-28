@@ -5,7 +5,6 @@
     { "name": "panels/browser_debugger" },
     { "name": "ui/legacy/components/cookie_table" },
     { "name": "panels/elements" },
-    { "name": "panels/help" },
     { "name": "panels/issues" },
     { "name": "panels/layer_viewer" },
     { "name": "panels/network" },

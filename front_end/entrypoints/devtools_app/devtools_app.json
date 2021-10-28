@@ -12,7 +12,6 @@
     { "name": "panels/elements" },
     { "name": "emulated_devices" },
     { "name": "panels/issues" },
-    { "name": "panels/help" },
     { "name": "panels/layers" },
     { "name": "panels/layer_viewer" },
     { "name": "panels/network" },
