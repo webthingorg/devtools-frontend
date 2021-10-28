@@ -12,7 +12,8 @@ const CONTRAST_BUTTON_SELECTOR = '[data-type="contrast"]';
 const CONTRAST_ISSUE_IN_GRID_SELECTOR = '.contrast-container-in-grid';
 
 describe('CSS Overview experiment', async () => {
-  it('can display low contrast issues', async () => {
+  // it('can display low contrast issues', async () => {
+  it.only('can display low contrast issues', async () => {
     await goToResource('elements/low-contrast.html');
     await navigateToCssOverviewTab();
     await startCaptureCSSOverview();

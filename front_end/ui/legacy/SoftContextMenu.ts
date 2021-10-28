@@ -193,7 +193,7 @@ export class SoftContextMenu {
       subMenuTimer: undefined,
     };
 
-    if (item.element) {
+    if (item.element && !item.label) {
       const wrapper = menuItemElement.createChild('div', 'soft-context-menu-custom-item');
       wrapper.appendChild(item.element);
       detailsForElement.customElement = (item.element as HTMLElement);
@@ -205,6 +205,9 @@ export class SoftContextMenu {
       menuItemElement.classList.add('soft-context-menu-disabled');
     }
     createTextChild(menuItemElement, item.label || '');
+    if (item.element) {
+      menuItemElement.appendChild(item.element);
+    }
     menuItemElement.createChild('span', 'soft-context-menu-shortcut').textContent = item.shortcut || '';
 
     menuItemElement.addEventListener('mousedown', this.menuItemMouseDown.bind(this), false);
@@ -228,6 +231,7 @@ export class SoftContextMenu {
     } else if (item.shortcut) {
       accessibleName = i18nString(UIStrings.sS, {PH1: String(item.label), PH2: item.shortcut});
     }
+    console.log(accessibleName);
     ARIAUtils.setAccessibleName(menuItemElement, accessibleName);
 
     this.detailsForElementMap.set(menuItemElement, detailsForElement);

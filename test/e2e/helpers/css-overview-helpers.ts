@@ -15,8 +15,10 @@ const CSS_OVERVIEW_COMPLETED_VIEW_SELECTOR = '.overview-completed-view';
 export async function navigateToCssOverviewTab() {
   const cssOverviewTab = await $(CSS_OVERVIEW_TAB_SELECTOR);
   if (!cssOverviewTab) {
+    console.log('no css-overview-tab');
     await openCSSOverviewPanelFromMoreTools();
   } else {
+    console.log('have css-overview-tab');
     await click(CSS_OVERVIEW_TAB_SELECTOR);
     await cssOverviewPanelContentIsLoaded();
   }
@@ -35,7 +37,10 @@ export async function cssOverviewPanelContentIsLoaded() {
 }
 
 export async function openCSSOverviewPanelFromMoreTools() {
+  const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
+  await timeout(5000);
   await openPanelViaMoreTools(CSS_OVERVIEW_PANEL_TITLE);
+  await timeout(5000);
   await cssOverviewTabExists();
   await cssOverviewPanelContentIsLoaded();
 }

@@ -399,7 +399,8 @@ describe('User Metrics for dual screen emulation', () => {
 });
 
 describe('User Metrics for CSS Overview', () => {
-  it('dispatch events when capture overview button hit', async () => {
+  // it('dispatch events when capture overview button hit', async () => {
+  it.only('dispatch events when capture overview button hit', async () => {
     await goToResource('css_overview/default.html');
     await navigateToCssOverviewTab();
 
