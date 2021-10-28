@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "716cebf9_f9133a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-28T23:10:01Z",
+      "side": 1,
+      "message": "Pending the creation of shortlink:\n\nhttps://goo.gle/length-feedback\n-\u003e\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1264619\n\n@Mathias, could you create this shortlink please? Thanks!",
+      "revId": "d465061cd2fa26a7b887ba344318bd4e8460bc6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
