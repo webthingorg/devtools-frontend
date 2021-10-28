@@ -327,10 +327,17 @@ export class MainImpl {
       'sourceOrderViewer',
       'hideIssuesFeature',
       'bfcacheDebugging',
+      'cssTypeComponentLength',
     ]);
 
     // Debugging of Reporting API
     Root.Runtime.experiments.register('reportingApiDebugging', 'Enable Reporting API panel in the Application panel');
+
+    // CSS <length> authoring tool.
+    Root.Runtime.experiments.register(
+        'cssTypeComponentLength',
+        'Enable CSS <length> authoring tool in the Styles pane (https://goo.gle/length-feedback)', undefined,
+        'https://developer.chrome.com/blog/new-in-devtools-96/#length');
 
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.Runtime.queryParam('enabledExperiments');
