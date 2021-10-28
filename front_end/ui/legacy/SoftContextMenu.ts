@@ -193,7 +193,7 @@ export class SoftContextMenu {
       subMenuTimer: undefined,
     };
 
-    if (item.element) {
+    if (item.element && !item.label) {
       const wrapper = menuItemElement.createChild('div', 'soft-context-menu-custom-item');
       wrapper.appendChild(item.element);
       detailsForElement.customElement = (item.element as HTMLElement);
@@ -205,6 +205,17 @@ export class SoftContextMenu {
       menuItemElement.classList.add('soft-context-menu-disabled');
     }
     createTextChild(menuItemElement, item.label || '');
+
+    // const iconElement = Icon.create('largeicon-experimental-api', 'checkmark');
+    // menuItemElement.appendChild(iconElement);
+    // if (!item.isPreview) {
+    //   checkMarkElement.style.opacity = '0';
+    // }
+
+    if (item.iconElement) {
+      menuItemElement.appendChild(item.iconElement);
+      // detailsForElement.customElement = (item.iconElement as HTMLElement);
+    }
     menuItemElement.createChild('span', 'soft-context-menu-shortcut').textContent = item.shortcut || '';
 
     menuItemElement.addEventListener('mousedown', this.menuItemMouseDown.bind(this), false);
@@ -517,8 +528,10 @@ export interface SoftContextMenuDescriptor {
   label?: string;
   enabled?: boolean;
   checked?: boolean;
+  isPreview?: boolean;
   subItems?: SoftContextMenuDescriptor[];
   element?: Element;
+  iconElement?: Element;
   shortcut?: string;
 }
 interface ElementMenuDetails {

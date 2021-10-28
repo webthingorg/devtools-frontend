@@ -43,9 +43,11 @@ export class Item {
   protected readonly label: string|undefined;
   protected disabled: boolean|undefined;
   private readonly checked: boolean|undefined;
+  isPreview: boolean|undefined;
   protected contextMenu: ContextMenu|null;
   protected idInternal: number|undefined;
   customElement?: Element;
+  iconElement?: Element;
   private shortcut?: string;
 
   constructor(contextMenu: ContextMenu|null, type: string, label?: string, disabled?: boolean, checked?: boolean) {
@@ -53,6 +55,7 @@ export class Item {
     this.label = label;
     this.disabled = disabled;
     this.checked = checked;
+    this.isPreview = false;
     this.contextMenu = contextMenu;
     this.idInternal = undefined;
     if (type === 'item' || type === 'checkbox') {
@@ -89,10 +92,15 @@ export class Item {
           enabled: !this.disabled,
           checked: undefined,
           subItems: undefined,
+          isPreview: this.isPreview,
         };
         if (this.customElement) {
           const resultAsSoftContextMenuItem = (result as SoftContextMenuDescriptor);
           resultAsSoftContextMenuItem.element = (this.customElement as Element);
+        }
+        if (this.iconElement) {
+          const resultAsSoftContextMenuItem = (result as SoftContextMenuDescriptor);
+          resultAsSoftContextMenuItem.iconElement = (this.iconElement as Element);
         }
         if (this.shortcut) {
           const resultAsSoftContextMenuItem = (result as SoftContextMenuDescriptor);
@@ -137,8 +145,12 @@ export class Section {
     this.items = [];
   }
 
-  appendItem(label: string, handler: () => void, disabled?: boolean): Item {
+  appendItem(label: string, handler: () => void, disabled?: boolean, additionalElement?: Element): Item {
     const item = new Item(this.contextMenu, 'item', label, disabled);
+    if (additionalElement) {
+      item.iconElement = additionalElement;
+      item.isPreview = true;
+    }
     this.items.push(item);
     if (this.contextMenu) {
       this.contextMenu.setHandler(item.id(), handler);
@@ -147,7 +159,7 @@ export class Section {
   }
 
   appendCustomItem(element: Element): Item {
-    const item = new Item(this.contextMenu, 'item', '<custom>');
+    const item = new Item(this.contextMenu, 'item');
     item.customElement = element;
     this.items.push(item);
     return item;
