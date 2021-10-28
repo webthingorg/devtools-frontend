@@ -2,15 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Platform from '../../core/platform/platform.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import * as LitHtml from '../../ui/lit-html/lit-html.js';
+import * as Protocol from '../../generated/protocol.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ReportView from '../../ui/components/report_view/report_view.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as Protocol from '../../generated/protocol.js';
-import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import {NotRestoredReasonDescription} from './BackForwardCacheStrings.js';
 import backForwardCacheViewStyles from './backForwardCacheView.css.js';
@@ -31,65 +30,45 @@ const UIStrings = {
   /**
    * @description Entry name text in the Back-forward Cache view of the Application panel
    */
-  url: 'URL',
-  /**
-   * @description Entry name text in the Back-forward Cache view of the Application panel
-   */
-  bfcacheStatus: 'Back-forward Cache Status',
+  targetURL: 'Target URL',
   /**
    * @description Status text for the status of the back-forward cache status
    */
   unknown: 'unknown',
   /**
    * @description Status text for the status of the back-forward cache status indicating that
-   * the back-forward cache was not used and a normal navigation occured instead.
-   */
-  normalNavigation: 'Normal navigation (Not restored from back-forward cache)',
-  /**
-   * @description Status text for the status of the back-forward cache status indicating that
    * the back-forward cache was used to restore the page instead of reloading it.
    */
   restoredFromBFCache: 'Restored from back-forward cache',
-  /**
-   * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are actionable i.e. they can be cleaned up to make the
-   * page eligible for back-forward cache.
-   */
-  pageSupportNeeded: 'Actionable',
-  /**
-   * @description Explanation for actionable items which prevent the page from being eligible
-   * for back-forward cache.
-   */
-  pageSupportNeededExplanation:
-      'These reasons are actionable i.e. they can be cleaned up to make the page eligible for back-forward cache.',
-  /**
-   * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are circumstantial / not actionable i.e. they cannot be
-   * cleaned up by developers to make the page eligible for back-forward cache.
-   */
-  circumstantial: 'Not Actionable',
-  /**
-   * @description Explanation for circumstantial/non-actionable items which prevent the page from being eligible
-   * for back-forward cache.
-   */
-  circumstantialExplanation:
-      'These reasons are not actionable i.e. caching was prevented by something outside of the direct control of the page.',
-  /**
-   * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are pending support by chrome i.e. in a future version
-   * of chrome they will not prevent back-forward cache usage anymore.
-   */
-  supportPending: 'Pending Support',
   /**
    * @description Button name for showing whether BFCache is available in the pages.
    */
   runTest: 'Run Test',
   /**
-   * @description Explanation for 'pending support' items which prevent the page from being eligible
-   * for back-forward cache.
+   * @description Explanation of the BFcache Test when the users open the BFcache page of the devtools first
    */
-  supportPendingExplanation:
-      'Chrome support for these reasons is pending i.e. they will not prevent the page from being eligible for back-forward cache in a future version of Chrome.',
+  bfCacheInitialExplanation:
+      'Checks if this site in its current state is being served from Back-forward Cache. This can change at any time based on these Back-Forward Cache criteria',
+  /**
+   * @description Explanation for the result when BFCache cannot be used
+   */
+  bfCacheEnable: 'Some issues prevent this site from being served from BackForward cache',
+  /**
+   * @description Link Text about explanation of BFCache
+   */
+  learnMore: 'Learn more:back-forward cache eligibility',
+  /**
+   * @description URL about explanation of BFCache
+   */
+  bfCacheURL: 'https://web.dev/bfcache/',
+  /**
+   * @description Title of the test result of BFcache
+   */
+  testResult: 'Test Result',
+  /**
+   * @description Explanation of being during running test
+   */
+  runningTest: 'Running Test...',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -97,20 +76,38 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
   constructor() {
     super(true, 1000);
-    this.getMainResourceTreeModel()?.addEventListener(
-        SDK.ResourceTreeModel.Events.MainFrameNavigated, this.onBackForwardCacheUpdate, this);
-    this.getMainResourceTreeModel()?.addEventListener(
-        SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
+    const mainFrame = this.getMainFrame();
+    if (mainFrame) {
+      this.bfCacheStatusHTML = LitHtml.html`
+    <${ReportView.ReportView.ReportExplanation.litTagName}>
+    <div style="display: block;">
+    <div>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+    <div>
+    ${i18nString(UIStrings.bfCacheInitialExplanation)}
+    </div>
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    </div><div>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+      <${Buttons.Button.Button.litTagName}
+            class="runTest-button"
+            .variant=${Buttons.Button.Variant.PRIMARY}
+            @click=${this.navigateAwayAndBack}>
+            ${i18nString(UIStrings.runTest)}
+      </${Buttons.Button.Button.litTagName}>
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    </${ReportView.ReportView.ReportExplanation.litTagName}>`;
+    } else {
+      this.bfCacheStatusHTML = LitHtml.html``;
+    }
   }
+
+  private bfCacheStatusHTML: LitHtml.TemplateResult;
 
   wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([backForwardCacheViewStyles]);
-  }
-
-  private onBackForwardCacheUpdate(): void {
-    this.update();
   }
 
   async doUpdate(): Promise<void> {
@@ -132,10 +129,28 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     return this.getMainResourceTreeModel()?.mainFrame || null;
   }
 
+  private renderBackForwardCacheTestResult(): void {
+    SDK.TargetManager.TargetManager.instance().removeModelListener(
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
+        this.renderBackForwardCacheTestResult, this);
+
+    this.bfCacheStatusHTML = this.getBackForwardCacheTestResultHTML();
+    this.update();
+  }
+
   private async goBackOneHistoryEntry(): Promise<void> {
     SDK.TargetManager.TargetManager.instance().removeModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
         this.goBackOneHistoryEntry, this);
+
+    this.bfCacheStatusHTML = LitHtml.html`
+      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
+        ${i18nString(UIStrings.runningTest)}
+      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      `;
+
+    this.update();
+
     const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
     if (!mainTarget) {
       return;
@@ -145,10 +160,12 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       return;
     }
     const historyResults = await resourceTreeModel.navigationHistory();
-    if (!historyResults) {
-      return;
+    if (historyResults) {
+      SDK.TargetManager.TargetManager.instance().addModelListener(
+          SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated,
+          this.renderBackForwardCacheTestResult, this);
+      resourceTreeModel.navigateToHistoryEntry(historyResults.entries[historyResults.currentIndex - 1]);
     }
-    resourceTreeModel.navigateToHistoryEntry(historyResults.entries[historyResults.currentIndex - 1]);
   }
 
   private async navigateAwayAndBack(): Promise<void> {
@@ -183,34 +200,74 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       </${ReportView.ReportView.ReportValue.litTagName}>`;
     }
     return LitHtml.html`
+      ${this.bfCacheStatusHTML}
+      ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
+      <${ReportView.ReportView.ReportSection.litTagName}>
+      <a href='${i18nString(UIStrings.bfCacheURL)}'>${i18nString(UIStrings.learnMore)}</a>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+    `;
+  }
+
+  private getBackForwardCacheTestResultHTML(): LitHtml.TemplateResult {
+    const mainFrame = this.getMainFrame();
+
+    if (mainFrame) {
+      const status = mainFrame.backForwardCacheDetails.restoredFromCache;
+      switch (status) {
+        case true:
+          return LitHtml.html`
+      <${ReportView.ReportView.ReportSection.litTagName}>
+          <${Buttons.Button.Button.litTagName}
+            class="runTest-button"
+            .variant=${Buttons.Button.Variant.PRIMARY}
+            @click=${this.navigateAwayAndBack}>
+            ${i18nString(UIStrings.runTest)}
+      </${Buttons.Button.Button.litTagName}>
+      </${ReportView.ReportView.ReportSection.litTagName}>
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>
+        ${i18nString(UIStrings.testResult)}
+      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+          <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
+            iconName: 'ic_checkmark_16x16',
+            color: 'green',
+            width: '16px',
+            height: '16px',
+          } as IconButton.Icon.IconData} title=${i18nString(UIStrings.mainFrame)}></${IconButton.Icon.Icon.litTagName}>
+          ${i18nString(UIStrings.restoredFromBFCache)}
+      </${ReportView.ReportView.ReportSection.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.targetURL)}</${
+              ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
+              ReportView.ReportView.ReportValue.litTagName}>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+      `;
+        case false:
+          return LitHtml.html`
+      <${ReportView.ReportView.ReportSection.litTagName}>
       <${Buttons.Button.Button.litTagName}
             .variant=${Buttons.Button.Variant.PRIMARY}
             @click=${this.navigateAwayAndBack}>
             ${i18nString(UIStrings.runTest)}
       </${Buttons.Button.Button.litTagName}>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
+        ${i18nString(UIStrings.testResult)}
       </${ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+      ${i18nString(UIStrings.bfCacheEnable)}
+      </${ReportView.ReportView.ReportSection.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.targetURL)}</${
+              ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
-        ReportView.ReportView.ReportValue.litTagName}>
-      <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.bfcacheStatus)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
-      <${ReportView.ReportView.ReportValue.litTagName}>${
-        this.renderBackForwardCacheStatus(
-            mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
-       ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
-    `;
-  }
-
-  private renderBackForwardCacheStatus(status: boolean|undefined): Platform.UIString.LocalizedString {
-    switch (status) {
-      case true:
-        return i18nString(UIStrings.restoredFromBFCache);
-      case false:
-        return i18nString(UIStrings.normalNavigation);
+              ReportView.ReportView.ReportValue.litTagName}>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+      `;
+      }
     }
-    return i18nString(UIStrings.unknown);
+    return LitHtml.html`${i18nString(UIStrings.unknown)}`;
   }
 
   private maybeRenderExplanations(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
@@ -229,32 +286,20 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return LitHtml.html`
-      ${this.renderExplanations(i18nString(UIStrings.pageSupportNeeded), i18nString(UIStrings.pageSupportNeededExplanation), pageSupportNeeded)}
-      ${this.renderExplanations(i18nString(UIStrings.supportPending), i18nString(UIStrings.supportPendingExplanation), supportPending)}
-      ${this.renderExplanations(i18nString(UIStrings.circumstantial), i18nString(UIStrings.circumstantialExplanation), circumstantial)}
+      ${this.renderExplanations(pageSupportNeeded)}
+      ${this.renderExplanations(supportPending)}
+      ${this.renderExplanations(circumstantial)}
     `;
     // clang-format on
   }
 
-  private renderExplanations(
-      category: Platform.UIString.LocalizedString, explainerText: Platform.UIString.LocalizedString,
-      explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]): LitHtml.TemplateResult {
+  private renderExplanations(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
+      LitHtml.TemplateResult {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return LitHtml.html`
       ${explanations.length > 0 ? LitHtml.html`
-        <${ReportView.ReportView.ReportKey.litTagName}>
-          ${category}
-          <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
-            iconName: 'help_outline',
-            color: 'var(--color-text-secondary)',
-            width: '16px',
-            height: '16px',
-            } as IconButton.Icon.IconData} title=${explainerText}></${IconButton.Icon.Icon.litTagName}>
-        </${ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName}>
-          <ul class='not-restored-reason-list'>${explanations.map(explanation => this.renderReason(explanation))}</ul>
-        </${ReportView.ReportView.ReportValue.litTagName}>
+${explanations.map(explanation => this.renderReason(explanation))}
       ` : LitHtml.nothing}
     `;
     // clang-format on
@@ -262,10 +307,17 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
 
   private renderReason(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
     return LitHtml.html`
-      <li>${explanation.reason} : ${
+      <${ReportView.ReportView.ReportExplanation.litTagName}>
+      <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
+      iconName: 'circled_exclamation_icon',
+      color: 'orange',
+      width: '16px',
+      height: '16px',
+    } as IconButton.Icon.IconData} title=${i18nString(UIStrings.mainFrame)}></${IconButton.Icon.Icon.litTagName}>
+      ${explanation.reason} : ${
         (explanation.reason in NotRestoredReasonDescription) ?
             LitHtml.html`${NotRestoredReasonDescription[explanation.reason].name()}` :
-            LitHtml.nothing} </li>
+            LitHtml.nothing} </${ReportView.ReportView.ReportExplanation.litTagName}>
     `;
   }
 }
