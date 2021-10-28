@@ -7,6 +7,7 @@ import * as ContentSecurityPolicyIssue from './ContentSecurityPolicyIssue.js';
 import * as ContrastCheckTrigger from './ContrastCheckTrigger.js';
 import * as CorsIssue from './CorsIssue.js';
 import * as CrossOriginEmbedderPolicyIssue from './CrossOriginEmbedderPolicyIssue.js';
+import * as DeprecationIssue from './DeprecationIssue.js';
 import * as GenericIssue from './GenericIssue.js';
 import * as HeavyAdIssue from './HeavyAdIssue.js';
 import * as Issue from './Issue.js';
@@ -15,7 +16,6 @@ import * as IssuesManager from './IssuesManager.js';
 import * as LowTextContrastIssue from './LowTextContrastIssue.js';
 import * as MarkdownIssueDescription from './MarkdownIssueDescription.js';
 import * as MixedContentIssue from './MixedContentIssue.js';
-import * as NavigatorUserAgentIssue from './NavigatorUserAgentIssue.js';
 import * as QuirksModeIssue from './QuirksModeIssue.js';
 import * as RelatedIssue from './RelatedIssue.js';
 import * as SameSiteCookieIssue from './SameSiteCookieIssue.js';
@@ -30,6 +30,7 @@ export {
   ContrastCheckTrigger,
   CorsIssue,
   CrossOriginEmbedderPolicyIssue,
+  DeprecationIssue,
   GenericIssue,
   HeavyAdIssue,
   Issue,
@@ -38,7 +39,6 @@ export {
   LowTextContrastIssue,
   MarkdownIssueDescription,
   MixedContentIssue,
-  NavigatorUserAgentIssue,
   QuirksModeIssue,
   RelatedIssue,
   SameSiteCookieIssue,
