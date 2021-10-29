@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2a67a2_8a2a82e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-29T12:33:33Z",
+      "side": 1,
+      "message": "Tim, PTAL. Is it really necessary to define an extra component for the sole reason of adding styling to the icon or is there maybe a simpler way?\nWill add a test if you agree with the general approach.",
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
