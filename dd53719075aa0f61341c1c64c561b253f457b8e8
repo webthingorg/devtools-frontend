@@ -16,6 +16,75 @@
       "message": "Tim, PTAL. Is it really necessary to define an extra component for the sole reason of adding styling to the icon or is there maybe a simpler way?\nWill add a test if you agree with the general approach.",
       "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8eb83ff_6c387841",
+        "filename": "front_end/panels/application/components/ReportsGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-29T13:50:06Z",
+      "side": 1,
+      "message": "Since we can use any template here, we don\u0027t need a separate element for it. I think this should work as-is:\n\n```\ntitleElement: html`\n  ${i18n.i18n.lockedString(\u0027Status\u0027)}\n  \u003cx-link href\u003d\"https://web.dev/reporting-api/#report-status\"\u003e\n    \u003c${IconButton.Icon.Icon.litTagName} class\u003d\"inline-icon\" .data\u003d${{\n      iconName: \u0027help_outline\u0027,\n      color: \u0027var(--color-primary)\u0027,\n      width: \u002716px\u0027,\n      height: \u002716px\u0027,\n      } as IconButton.Icon.IconData}\u003e\u003c/${IconButton.Icon.Icon.litTagName}\u003e\n  \u003c/x-link\u003e\n`\n```",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b44cbdca_bdca8e8c",
+        "filename": "front_end/ui/components/data_grid/DataGridUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-29T13:50:06Z",
+      "side": 1,
+      "message": "Nit: if `titleElement` and `title` are mutually exclusive, we can encode that in the types:\n\n```\ninterface BaseColumnType {\n  id: string;\n  sortable?: boolean;\n  widthWeighting: number;\n  hideable: boolean;\n  visible: boolean;\n}\nexport type Column \u003d (BaseColumnType \u0026 {title: string}) | (BaseColumnType \u0026 {titleElement: LitHtml.TemplateResult})\n```",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a749d96_08dd86f2",
+        "filename": "test/unittests/front_end/panels/application/components/ReportsGrid_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-29T13:50:06Z",
+      "side": 1,
+      "message": "I thought that `.innerText` would take all text, including shadow roots. Can you try using that and see if you can get all text that you need? That should hopefully prevent us from piercing into the shadow root here.",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
