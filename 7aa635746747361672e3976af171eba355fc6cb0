@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "463c5d12_126f31dc",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-10-29T11:33:41Z",
+      "side": 1,
+      "message": "One other question: keeping the key pressed triggers keydown event more than once and I didn\u0027t do anything to prevent it. Does it make sense to debounce the handling of replay XHR so that we only replay once even though user keeps the key pressed; wdyt?",
+      "revId": "7aa635746747361672e3976af171eba355fc6cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a2c2ae1_7935fa41",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 1
