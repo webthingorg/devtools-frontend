@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f68e01a_824f0910",
+        "filename": "front_end/panels/application/components/ReportsGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-29T15:03:56Z",
+      "side": 1,
+      "message": "Ah yes I see. That\u0027s because it is rendered in a different shadowroot than the one we are defining here. That\u0027s not ideal, but a separate component makes sense then 👍",
+      "parentUuid": "345a7716_5080be01",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b44cbdca_bdca8e8c",
