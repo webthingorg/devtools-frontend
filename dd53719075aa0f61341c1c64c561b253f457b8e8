@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "345a7716_5080be01",
+        "filename": "front_end/panels/application/components/ReportsGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-29T14:23:21Z",
+      "side": 1,
+      "message": "That\u0027s what I tried previously, but it wouldn\u0027t apply the `inline-icon` class to the icon. I think this is because of the various nested shadow roots and the only way I got it to work without a style tag in the litHTML was with an additional component (and shadow root).",
+      "parentUuid": "f8eb83ff_6c387841",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b44cbdca_bdca8e8c",
         "filename": "front_end/ui/components/data_grid/DataGridUtils.ts",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-29T13:50:06Z",
       "side": 1,
       "message": "Nit: if `titleElement` and `title` are mutually exclusive, we can encode that in the types:\n\n```\ninterface BaseColumnType {\n  id: string;\n  sortable?: boolean;\n  widthWeighting: number;\n  hideable: boolean;\n  visible: boolean;\n}\nexport type Column \u003d (BaseColumnType \u0026 {title: string}) | (BaseColumnType \u0026 {titleElement: LitHtml.TemplateResult})\n```",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e3c0325_42586a6f",
+        "filename": "front_end/ui/components/data_grid/DataGridUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-29T14:23:21Z",
+      "side": 1,
+      "message": "They are not mutually exclusive. Even with a `titleElement` we still want a title string to be displayed as the hover text.",
+      "parentUuid": "b44cbdca_bdca8e8c",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2021-10-29T13:50:06Z",
       "side": 1,
       "message": "I thought that `.innerText` would take all text, including shadow roots. Can you try using that and see if you can get all text that you need? That should hopefully prevent us from piercing into the shadow root here.",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "dd53719075aa0f61341c1c64c561b253f457b8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a30dba3_2f36e18b",
+        "filename": "test/unittests/front_end/panels/application/components/ReportsGrid_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-10-29T14:23:21Z",
+      "side": 1,
+      "message": "Awesome, that works!",
+      "parentUuid": "3a749d96_08dd86f2",
       "range": {
         "startLine": 38,
         "startChar": 6,
