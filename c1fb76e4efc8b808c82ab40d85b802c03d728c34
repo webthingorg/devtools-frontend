@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be6a60c7_29308924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-10-29T10:49:44Z",
+      "side": 1,
+      "message": "(This is a small bug in the theming that I ran into while working on the sources panel.)",
+      "revId": "c1fb76e4efc8b808c82ab40d85b802c03d728c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
