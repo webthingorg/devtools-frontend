@@ -75,7 +75,7 @@ describe('ReportsGrid', async () => {
     assertShadowRoot(dataGrid.shadowRoot);
 
     const headerCells = getHeaderCells(dataGrid.shadowRoot);
-    const values = Array.from(headerCells, cell => cell.textContent || '');
+    const values = Array.from(headerCells, cell => cell.innerText.trim() || '');
     assert.deepEqual(values, ['URL', 'Type', 'Status', 'Destination', 'Timestamp', 'Body']);
 
     const rowValues = getValuesOfAllBodyRows(dataGrid.shadowRoot);
@@ -114,7 +114,7 @@ describe('ReportsGrid', async () => {
     assertShadowRoot(dataGrid.shadowRoot);
 
     const headerCells = getHeaderCells(dataGrid.shadowRoot);
-    const values = Array.from(headerCells, cell => cell.textContent || '');
+    const values = Array.from(headerCells, getHeaderText);
     assert.deepEqual(values, ['ID', 'URL', 'Type', 'Status', 'Destination', 'Timestamp', 'Body']);
 
     const rowValues = getValuesOfAllBodyRows(dataGrid.shadowRoot);
