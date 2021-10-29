@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b306ef5_bb9d3e6d",
+        "filename": "scripts/eslint_rules/lib/ban_a_tags_in_lit_html.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-29T12:38:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "213954dc_36ab7b12",
+      "range": {
+        "startLine": 41,
+        "startChar": 68,
+        "endLine": 41,
+        "endChar": 168
+      },
+      "revId": "83a0b96b7195974829476a5b1c006ad54213ee17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ec686ba_c1cc0b7a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-29T12:04:58Z",
       "side": 1,
       "message": "Nit: let\u0027s also add tests for some more complicated templates\n\n```\nLitHtml.html`\u003cp\u003e\u003c${DataGrid.litTagName}\u003e\u003c/${DataGrid.litTagName}\u003e\u003ca\u003e\u003c/a\u003e\u003c/p\u003e`\n```\n\n```\nLitHtml.html`\u003c${DataGrid.litTagName}\u003e\u003ca /\u003e\u003c/${DataGrid.litTagName}\u003e`\n```",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "83a0b96b7195974829476a5b1c006ad54213ee17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9465e165_20792fed",
+        "filename": "scripts/eslint_rules/tests/ban_a_tags_in_lit_html_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-29T12:38:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ec686ba_c1cc0b7a",
       "range": {
         "startLine": 39,
         "startChar": 2,
