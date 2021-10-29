@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7a9d71c_a44da0ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-10-29T06:14:39Z",
+      "side": 1,
+      "message": "Procedure\n\nFirst screen\nhttps://screenshot.googleplex.com/pQbs82bafA7CY5a\n↓\nThe user click the button\n↓\nRunning test\nhttps://screenshot.googleplex.com/8zChJGsnHX44kcv.png\n↓\nRestored from BFCache / Not restored from BFCache\nhttps://screenshot.googleplex.com/AamYaHYwXutBwtY.png\nhttps://screenshot.googleplex.com/5P8PzBKuhNpY4tC.png\n\n",
+      "revId": "657c8ecee0302f7d04aa3440e174150bfec9fa68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
