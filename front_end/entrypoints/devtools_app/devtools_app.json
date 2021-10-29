@@ -3,7 +3,6 @@
     { "name": "panels/emulation", "type": "autostart" },
     { "name": "entrypoints/inspector_main", "type": "autostart" },
 
-    { "name": "panels/accessibility" },
     { "name": "panels/lighthouse" },
     { "name": "panels/browser_debugger" },
     { "name": "panels/elements" },
