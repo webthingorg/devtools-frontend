@@ -8,12 +8,9 @@
     { "name": "panels/lighthouse" },
     { "name": "panels/browser_debugger" },
     { "name": "panels/css_overview" },
-    { "name": "ui/legacy/components/cookie_table" },
     { "name": "panels/elements" },
     { "name": "emulated_devices" },
     { "name": "panels/issues" },
-    { "name": "panels/developer_resources" },
-    { "name": "panels/help" },
     { "name": "panels/layers" },
     { "name": "panels/layer_viewer" },
     { "name": "panels/network" },
@@ -21,8 +18,6 @@
     { "name": "panels/application" },
     { "name": "panels/security" },
     { "name": "panels/timeline" },
-    { "name": "panels/web_audio" },
-    { "name": "panels/webauthn"},
     { "name": "panels/media" }
   ],
   "extends": "shell"
