@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20872a3_9376de52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-29T21:15:06Z",
+      "side": 1,
+      "message": "Mostly LGTM % a question. I suppose we\u0027ll add relevant tests once the backend changes comes in?",
+      "revId": "874965b93a59ea30ad076bebef5998944a0fde26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa16d9f_dda1a1c3",
+        "filename": "front_end/panels/accessibility/AXBreadcrumbsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-10-29T21:15:06Z",
+      "side": 1,
+      "message": "Just curious, why would this condition be `\u0026\u0026` instead of `||`? It sounds like a node has to be both non-axNode and ignored to be skipped.",
+      "revId": "874965b93a59ea30ad076bebef5998944a0fde26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
