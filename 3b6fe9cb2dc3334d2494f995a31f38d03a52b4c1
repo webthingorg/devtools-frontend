@@ -22,6 +22,30 @@
       },
       "revId": "3b6fe9cb2dc3334d2494f995a31f38d03a52b4c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a70787_d78301b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-10-29T18:36:11Z",
+      "side": 1,
+      "message": "I was not sure how easy it is to enable minification for a target in unittests. I\u0027d be hesitant to use devtools_entrypoint because that would export grd_files.",
+      "parentUuid": "7bd69c40_0e89e1fa",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "3b6fe9cb2dc3334d2494f995a31f38d03a52b4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
