@@ -958,6 +958,17 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
           (initiatorLink as HTMLElement).focus();
         }
       }
+      if ((event.key === 'r' || event.key === 'R') && this.dataGrid.selectedNode) {
+        const request = (this.dataGrid.selectedNode as NetworkNode).request();
+        if (!request) {
+          return;
+        }
+
+        if (SDK.NetworkManager.NetworkManager.canReplayRequest(request)) {
+          SDK.NetworkManager.NetworkManager.replayRequest(request);
+        }
+      }
+
       if (isEnterOrSpaceKey(event)) {
         this.dispatchEventToListeners(Events.RequestActivated, {showPanel: true, takeFocus: true});
         event.consume(true);
