@@ -9152,12 +9152,6 @@
   "panels/sources/CoveragePlugin.ts | showDetails": {
     "message": "Ŝh́ôẃ D̂ét̂áîĺŝ"
   },
-  "panels/sources/CSSPlugin.ts | openColorPicker": {
-    "message": "Ôṕêń ĉól̂ór̂ ṕîćk̂ér̂."
-  },
-  "panels/sources/CSSPlugin.ts | openCubicBezierEditor": {
-    "message": "Ôṕêń ĉúb̂íĉ b́êźîér̂ éd̂ít̂ór̂."
-  },
   "panels/sources/DebuggerPausedMessage.ts | attributeModifications": {
     "message": "ât́t̂ŕîb́ût́ê ḿôd́îf́îćât́îón̂ś"
   },
@@ -9412,6 +9406,15 @@
   },
   "panels/sources/OutlineQuickOpen.ts | openAJavascriptOrCssFileToSee": {
     "message": "Ôṕêń â J́âv́âŚĉŕîṕt̂ ór̂ ĆŜŚ f̂íl̂é t̂ó ŝéê śŷḿb̂ól̂ś"
+  },
+  "panels/sources/ProfilePlugin.ts | kb": {
+    "message": "k̂B́"
+  },
+  "panels/sources/ProfilePlugin.ts | mb": {
+    "message": "M̂B́"
+  },
+  "panels/sources/ProfilePlugin.ts | ms": {
+    "message": "m̂ś"
   },
   "panels/sources/ScopeChainSidebarPane.ts | closure": {
     "message": "Ĉĺôśûŕê"
@@ -11450,6 +11453,12 @@
   "ui/components/text_editor/config.ts | codeEditor": {
     "message": "Ĉód̂é êd́ît́ôŕ"
   },
+  "ui/components/text_editor/css.ts | openColorPicker": {
+    "message": "Ôṕêń ĉól̂ór̂ ṕîćk̂ér̂."
+  },
+  "ui/components/text_editor/css.ts | openCubicBezierEditor": {
+    "message": "Ôṕêń ĉúb̂íĉ b́êźîér̂ éd̂ít̂ór̂."
+  },
   "ui/legacy/components/color_picker/ContrastDetails.ts | aa": {
     "message": "ÂÁ"
   },
@@ -11809,15 +11818,6 @@
   },
   "ui/legacy/components/perf_ui/FlameChart.ts | sSelected": {
     "message": "{PH1} ŝél̂éĉt́êd́"
-  },
-  "ui/legacy/components/perf_ui/LineLevelProfile.ts | kb": {
-    "message": "k̂B́"
-  },
-  "ui/legacy/components/perf_ui/LineLevelProfile.ts | mb": {
-    "message": "M̂B́"
-  },
-  "ui/legacy/components/perf_ui/LineLevelProfile.ts | ms": {
-    "message": "m̂ś"
   },
   "ui/legacy/components/perf_ui/NetworkPriorities.ts | high": {
     "message": "Ĥíĝh́"

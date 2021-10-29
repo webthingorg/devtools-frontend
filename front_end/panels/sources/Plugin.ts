@@ -3,9 +3,16 @@
 // found in the LICENSE file.
 
 import type * as Workspace from '../../models/workspace/workspace.js';
+import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
+import type * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import type * as UI from '../../ui/legacy/legacy.js';
 
 export class Plugin {
+  constructor(
+      protected readonly uiSourceCode: Workspace.UISourceCode.UISourceCode,
+      _transformer?: SourceFrame.SourceFrame.Transformer) {
+  }
+
   static accepts(_uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
     return false;
   }
@@ -29,13 +36,21 @@ export class Plugin {
     return [];
   }
 
-  populateLineGutterContextMenu(_contextMenu: UI.ContextMenu.ContextMenu, _lineNumber: number): Promise<void> {
-    return Promise.resolve();
+  populateLineGutterContextMenu(_contextMenu: UI.ContextMenu.ContextMenu, _lineNumber: number): void {
   }
 
   populateTextAreaContextMenu(_contextMenu: UI.ContextMenu.ContextMenu, _lineNumber: number, _columnNumber: number):
-      Promise<void> {
-    return Promise.resolve();
+      void {
+  }
+
+  decorationChanged(_type: SourceFrame.SourceFrame.DecoratorType, _editor: CodeMirror.EditorView): void {
+  }
+
+  editorExtension(): CodeMirror.Extension|null {
+    return null;
+  }
+
+  editorCreated(_editor: CodeMirror.EditorView): void {
   }
 
   dispose(): void {
