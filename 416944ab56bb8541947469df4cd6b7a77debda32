@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2445230_d44f7bc4",
+        "filename": "front_end/ui/components/data_grid/DataGridUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-10-29T15:02:46Z",
+      "side": 0,
+      "message": "Initially I wasn\u0027t sure about this approach, but it turns out that we already do it here 😊 Therefore, I assume that Jack already thought about this and I think it is fine to use it here as well!",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "416944ab56bb8541947469df4cd6b7a77debda32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
