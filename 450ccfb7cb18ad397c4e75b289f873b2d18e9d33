@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3fa1397_9172b39b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-11-01T06:22:53Z",
+      "side": 1,
+      "message": "Thanks! Mostly lgtm. I tested this locally, and noticed that URL sometimes go beyond the screen and you have to scroll horizontally? It would be great if you can fix this with css.",
+      "revId": "450ccfb7cb18ad397c4e75b289f873b2d18e9d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
