@@ -46,6 +46,30 @@
       },
       "revId": "3b6fe9cb2dc3334d2494f995a31f38d03a52b4c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b74cc2e6_cfc70dda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-01T11:23:39Z",
+      "side": 1,
+      "message": "Ah yes I forgot about the GRD integration. In any case, this still LGTM as-is.",
+      "parentUuid": "77a70787_d78301b3",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "3b6fe9cb2dc3334d2494f995a31f38d03a52b4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
