@@ -17,67 +17,67 @@ import backForwardCacheViewStyles from './backForwardCacheView.css.js';
 
 const UIStrings = {
   /**
-   * @description Title text in Back-forward Cache view of the Application panel
+   * @description Title text in Back-Forward Cache view of the Application panel
    */
   mainFrame: 'Main Frame',
   /**
-   * @description Title text in Back-forward Cache view of the Application panel
+   * @description Title text in Back-Forward Cache view of the Application panel
    */
-  backForwardCacheTitle: 'Back-forward Cache',
+  backForwardCacheTitle: 'Back-Forward Cache Cache',
   /**
    * @description Status text for the status of the main frame
    */
   unavailable: 'unavailable',
   /**
-   * @description Entry name text in the Back-forward Cache view of the Application panel
+   * @description Entry name text in the Back-Forward Cache view of the Application panel
    */
   url: 'URL',
   /**
-   * @description Entry name text in the Back-forward Cache view of the Application panel
+   * @description Entry name text in the Back-Forward Cache view of the Application panel
    */
-  bfcacheStatus: 'Back-forward Cache Status',
+  bfcacheStatus: 'Back-Forward Cache Status',
   /**
-   * @description Status text for the status of the back-forward cache status
+   * @description Status text for the status of the Back-Forward Cache status
    */
   unknown: 'unknown',
   /**
-   * @description Status text for the status of the back-forward cache status indicating that
-   * the back-forward cache was not used and a normal navigation occured instead.
+   * @description Status text for the status of the Back-Forward Cache status indicating that
+   * the Back-Forward Cache was not used and a normal navigation occured instead.
    */
-  normalNavigation: 'Normal navigation (Not restored from back-forward cache)',
+  normalNavigation: 'Normal navigation (Not restored from Back-Forward Cache)',
   /**
-   * @description Status text for the status of the back-forward cache status indicating that
-   * the back-forward cache was used to restore the page instead of reloading it.
+   * @description Status text for the status of the Back-Forward Cache status indicating that
+   * the Back-Forward Cache was used to restore the page instead of reloading it.
    */
-  restoredFromBFCache: 'Restored from back-forward cache',
+  restoredFromBFCache: 'Restored from Back-Forward Cache',
   /**
    * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are actionable i.e. they can be cleaned up to make the
-   * page eligible for back-forward cache.
+   * Back-Forward Cache. These reasons are actionable i.e. they can be cleaned up to make the
+   * page eligible for Back-Forward Cache.
    */
   pageSupportNeeded: 'Actionable',
   /**
    * @description Explanation for actionable items which prevent the page from being eligible
-   * for back-forward cache.
+   * for Back-Forward Cache.
    */
   pageSupportNeededExplanation:
-      'These reasons are actionable i.e. they can be cleaned up to make the page eligible for back-forward cache.',
+      'These reasons are actionable i.e. they can be cleaned up to make the page eligible for Back-Forward Cache.',
   /**
    * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are circumstantial / not actionable i.e. they cannot be
-   * cleaned up by developers to make the page eligible for back-forward cache.
+   * Back-Forward Cache. These reasons are circumstantial / not actionable i.e. they cannot be
+   * cleaned up by developers to make the page eligible for Back-Forward Cache.
    */
   circumstantial: 'Not Actionable',
   /**
    * @description Explanation for circumstantial/non-actionable items which prevent the page from being eligible
-   * for back-forward cache.
+   * for Back-Forward Cache.
    */
   circumstantialExplanation:
       'These reasons are not actionable i.e. caching was prevented by something outside of the direct control of the page.',
   /**
    * @description Label for a list of reasons which prevent the page from being eligible for
-   * back-forward cache. These reasons are pending support by chrome i.e. in a future version
-   * of chrome they will not prevent back-forward cache usage anymore.
+   * Back-Forward Cache. These reasons are pending support by chrome i.e. in a future version
+   * of chrome they will not prevent Back-Forward Cache usage anymore.
    */
   supportPending: 'Pending Support',
   /**
@@ -85,11 +85,20 @@ const UIStrings = {
    */
   runTest: 'Run Test',
   /**
+   * @description Explanation of the BFcache Test when the users open the BFcache page of the devtools first
+   */
+  bfCacheInitialExplanation:
+      'Checks if this site in its current state is being served from Back-Forward Cache. This can change at any time based on these Back-Forward Cache criteria.',
+  /**
+   * @description Link Text about explanation of BFCache
+   */
+  learnMore: 'Learn more: Back-Forward Cache eligibility',
+  /**
    * @description Explanation for 'pending support' items which prevent the page from being eligible
-   * for back-forward cache.
+   * for Back-Forward Cache.
    */
   supportPendingExplanation:
-      'Chrome support for these reasons is pending i.e. they will not prevent the page from being eligible for back-forward cache in a future version of Chrome.',
+      'Chrome support for these reasons is pending i.e. they will not prevent the page from being eligible for Back-Forward Cache in a future version of Chrome.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -102,7 +111,30 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     this.getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
+    const mainFrame = this.getMainFrame();
+    if (mainFrame) {
+      this.bfCacheStatusHTML = LitHtml.html`
+    <${ReportView.ReportView.ReportExplanation.litTagName}>
+    <div>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+    ${i18nString(UIStrings.bfCacheInitialExplanation)}
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+      <${Buttons.Button.Button.litTagName}
+            class="runTest-button"
+            .variant=${Buttons.Button.Variant.PRIMARY}
+            @click=${this.navigateAwayAndBack}>
+            ${i18nString(UIStrings.runTest)}
+      </${Buttons.Button.Button.litTagName}>
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    </div>
+    </${ReportView.ReportView.ReportExplanation.litTagName}>`;
+    } else {
+      this.bfCacheStatusHTML = LitHtml.html``;
+    }
   }
+
+  private bfCacheStatusHTML: LitHtml.TemplateResult;
 
   wasShown(): void {
     super.wasShown();
@@ -182,14 +214,12 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       ${i18nString(UIStrings.unavailable)}
       </${ReportView.ReportView.ReportValue.litTagName}>`;
     }
+    const webDevBFCacheLink = UI.XLink.XLink.create('https://web.dev/bfcache/', i18nString(UIStrings.learnMore));
     return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${Buttons.Button.Button.litTagName}
-            .variant=${Buttons.Button.Variant.PRIMARY}
-            @click=${this.navigateAwayAndBack}>
-            ${i18nString(UIStrings.runTest)}
-      </${Buttons.Button.Button.litTagName}>
-      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      ${this.bfCacheStatusHTML}
+      <${ReportView.ReportView.ReportSection.litTagName}>
+      ${webDevBFCacheLink}
+      </${ReportView.ReportView.ReportSection.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
