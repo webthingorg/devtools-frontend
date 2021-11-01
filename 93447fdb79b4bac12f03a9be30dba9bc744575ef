@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30440b2e_74470c74",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-01T04:34:07Z",
+      "side": 1,
+      "message": "In this CL, the HTML defined here will be displayed all the time. In the next CLs, this explanation only be displayed before the user clicks the Run Test button.",
+      "revId": "93447fdb79b4bac12f03a9be30dba9bc744575ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
