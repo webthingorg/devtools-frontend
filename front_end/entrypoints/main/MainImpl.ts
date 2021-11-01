@@ -335,7 +335,6 @@ export class MainImpl {
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'hideIssuesFeature',
-      'bfcacheDebugging',
       'cssTypeComponentLength',
     ]);
 
@@ -349,6 +348,7 @@ export class MainImpl {
       'backgroundServicesNotifications',
       'backgroundServicesPushMessaging',
       'backgroundServicesPaymentHandler',
+      'bfcacheDebugging',
       'webauthnPane',
       'developerResourcesView',
     ]);
