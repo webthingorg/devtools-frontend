@@ -7,7 +7,6 @@
     { "name": "panels/lighthouse" },
     { "name": "panels/browser_debugger" },
     { "name": "panels/css_overview" },
-    { "name": "panels/elements" },
     { "name": "emulated_devices" },
     { "name": "panels/issues" },
     { "name": "panels/layers" },
