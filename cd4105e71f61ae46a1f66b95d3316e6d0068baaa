@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f52dc2_ad3c6e24",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-11-01T05:42:06Z",
+      "side": 1,
+      "message": "Can we use \"Back-Forward Cache\" every where, including other texts like \"learnMore\" and \"restoredFromBfcache\"?",
+      "range": {
+        "startLine": 91,
+        "startChar": 69,
+        "endLine": 91,
+        "endChar": 87
+      },
+      "revId": "cd4105e71f61ae46a1f66b95d3316e6d0068baaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea9f681_80bea9bb",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-11-01T05:42:06Z",
+      "side": 1,
+      "message": "Missing \".\"?",
+      "range": {
+        "startLine": 91,
+        "startChar": 159,
+        "endLine": 91,
+        "endChar": 160
+      },
+      "revId": "cd4105e71f61ae46a1f66b95d3316e6d0068baaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
