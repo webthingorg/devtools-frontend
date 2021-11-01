@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7651c1d_7af0186a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-01T06:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce5bdc25_4fb9341a",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "cd4105e71f61ae46a1f66b95d3316e6d0068baaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06f52dc2_ad3c6e24",
@@ -60,6 +84,54 @@
       "writtenOn": "2021-11-01T05:42:06Z",
       "side": 1,
       "message": "Missing \".\"?",
+      "range": {
+        "startLine": 91,
+        "startChar": 159,
+        "endLine": 91,
+        "endChar": 160
+      },
+      "revId": "cd4105e71f61ae46a1f66b95d3316e6d0068baaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d6cfdc_d0f0029d",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-01T06:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06f52dc2_ad3c6e24",
+      "range": {
+        "startLine": 91,
+        "startChar": 69,
+        "endLine": 91,
+        "endChar": 87
+      },
+      "revId": "cd4105e71f61ae46a1f66b95d3316e6d0068baaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c4cc62_2046a9bd",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-01T06:03:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea9f681_80bea9bb",
       "range": {
         "startLine": 91,
         "startChar": 159,
