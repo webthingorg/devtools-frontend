@@ -5,7 +5,6 @@
 
     { "name": "panels/accessibility" },
     { "name": "panels/lighthouse" },
-    { "name": "panels/browser_debugger" },
     { "name": "panels/css_overview" },
     { "name": "emulated_devices" },
     { "name": "panels/issues" },
