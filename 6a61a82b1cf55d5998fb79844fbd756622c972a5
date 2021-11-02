@@ -39,6 +39,30 @@
       },
       "revId": "6a61a82b1cf55d5998fb79844fbd756622c972a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a14e4526_d0edf628",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-02T09:27:08Z",
+      "side": 1,
+      "message": "My understanding is that the `ifDefined` directive removes the `style` attribute entirely if its parameter is undefined, which feels cleaner than setting it to empty object.\nI am following the approach Jack has been using for `row.styles` in L794 (of this file in this CL) and I assume we want to be consistent.",
+      "parentUuid": "4917c752_847b18b6",
+      "range": {
+        "startLine": 732,
+        "startChar": 26,
+        "endLine": 732,
+        "endChar": 120
+      },
+      "revId": "6a61a82b1cf55d5998fb79844fbd756622c972a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
