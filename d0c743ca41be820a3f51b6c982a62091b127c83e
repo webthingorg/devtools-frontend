@@ -16,6 +16,24 @@
       "message": "@szuend@chromium.org - I\u0027m running into a build error like:\n\nTypeScript compilation failed. Used tsconfig gen/front_end/models/issues_manager/issues_manager-tsconfig.json\n\n../../front_end/models/issues_manager/DeprecationIssue.ts(18,41): error TS2694: Namespace \u0027Protocol.Audits\u0027 has no exported member \u0027DeprecationIssueDetails\u0027.\n../../front_end/models/issues_manager/DeprecationIssue.ts(20,45): error TS2694: Namespace \u0027Protocol.Audits\u0027 has no exported member \u0027DeprecationIssueDetails\u0027.\n../../front_end/models/issues_manager/DeprecationIssue.ts(29,30): error TS2694: Namespace \u0027Protocol.Audits\u0027 has no exported member \u0027DeprecationIssueDetails\u0027.\n../../front_end/models/issues_manager/DeprecationIssue.ts(61,7): error TS2304: Cannot find name \u0027DeprecationIssueDetails\u0027.\n../../front_end/models/issues_manager/DeprecationIssue.ts(62,44): error TS2339: Property \u0027deprecationIssueDetails\u0027 does not exist on type \u0027InspectorIssueDetails\u0027.\n../../front_end/models/issues_manager/DeprecationIssue.ts(67,17): error TS2304: Cannot find name \u0027DeprecationIssueDetails\u0027.\n../../front_end/models/issues_manager/IssuesManager.ts(104,40): error TS2339: Property \u0027DeprecationIssue\u0027 does not exist on type \u0027typeof InspectorIssueCode\u0027.\n\nhas the updated pdl not sync\u0027d? Is there a way I can prompt that?",
       "revId": "d0c743ca41be820a3f51b6c982a62091b127c83e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc59b2ca_e0b7cc78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-11-02T22:12:14Z",
+      "side": 1,
+      "message": "I found the answer in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3138978 and made: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3258362",
+      "parentUuid": "4d75f20b_b1c7d60e",
+      "revId": "d0c743ca41be820a3f51b6c982a62091b127c83e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
