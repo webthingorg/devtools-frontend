@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5429288a_2298d71f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-02T07:16:18Z",
+      "side": 1,
+      "message": "Will we see startup performance regression when autostarting these two modules?",
+      "revId": "a19da3f471e490820aec34f7623a8ed222fc0c05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
