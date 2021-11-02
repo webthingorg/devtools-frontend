@@ -1440,11 +1440,27 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     const currentNode = this.parentPaneInternal.node();
     this.parentPaneInternal.setUserOperation(true);
 
+    // Balance quotes. TODO: move this to string utilities
+    let unmatchedQuote = '';
+    for (const char of styleText) {
+      if (char === '\'' || char === '\"') {
+        if (unmatchedQuote === char) {
+          unmatchedQuote = '';
+        } else if (unmatchedQuote === '') {
+          unmatchedQuote = char;
+        }
+      }
+    }
+    if (unmatchedQuote !== '') {
+      styleText += unmatchedQuote;
+    }
+
     // Append a ";" if the new text does not end in ";".
     // FIXME: this does not handle trailing comments.
     if (styleText.length && !/;\s*$/.test(styleText)) {
       styleText += ';';
     }
+
     const overwriteProperty = !this.newProperty || hasBeenEditedIncrementally;
     let success: boolean = await this.property.setText(styleText, majorChange, overwriteProperty);
     // Revert to the original text if applying the new text failed
