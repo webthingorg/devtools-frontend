@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bb5e8c_abbb6dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:16:58Z",
+      "side": 1,
+      "message": "(The trouble with other changes is with hasExtraInfo being added to ResponseReceivedEvent, and I don\u0027t see how to deal with it w/o simultaneously changing the front_end and protocol... though I guess changing the front_end first may work... but it\u0027s probably best for whoever is working on that to do it)",
+      "revId": "bb412fcaa28350723ba2bc7fd2a7c0b87f74bce3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
