@@ -50,6 +50,24 @@
       "message": "nitty question: “Quote” is somewhat ambiguous. For example, `findUnclosedQuote` doesn’t (need to) handle backticks, which can be used to wrap/quote string literals in JS.\n\nDo you think it’s worth naming this `findUnclosedCssQuote` or so, to make it clear that this is for CSS specifically?",
       "revId": "9e4bf723aeced4bcb33d84bcd9c6a55a27c028f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8baac779_992799d4",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-02T14:10:07Z",
+      "side": 1,
+      "message": "Sounds good. I\u0027ll make it more specific.",
+      "parentUuid": "d91f1b22_c56f8378",
+      "revId": "9e4bf723aeced4bcb33d84bcd9c6a55a27c028f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
