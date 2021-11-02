@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c69aa6c_6bfc718a",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-02T16:40:11Z",
+      "side": 1,
+      "message": "I assume this is now the canonical capitalisation of bfcache? There are a few more instances in other files which could be updated accordingly (in a separate CL).",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f6baee_d7b70e1a",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-02T16:40:11Z",
+      "side": 1,
+      "message": "Is there a reason why this is not in `doUpdate()` or `renderMainFrameInformation()`?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae5ba9c_dd1adc0b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-02T16:40:11Z",
+      "side": 1,
+      "message": "\u003cx-link href\u003d\"https://web.dev/bfcache/\"\u003e${i18nString(UIStrings.learnMore)}\u003c/x-link\u003e",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a68d18_d2882b87",
+        "filename": "front_end/ui/components/report_view/reportValue.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-02T16:40:11Z",
+      "side": 1,
+      "message": "If you navigate to Application-\u003eFrames-\u003eTop in DevTools and make the window narrow, you\u0027ll see that we\u0027re adding an ellipsis to URLs instead of line-breaking. You can see how this is done in FrameDetailsView.ts and the corresponding css file.",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
