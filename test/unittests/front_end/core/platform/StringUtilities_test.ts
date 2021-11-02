@@ -778,4 +778,24 @@ describe('StringUtilities', () => {
       assert.strictEqual('\'' + expectedString + '\'', Platform.StringUtilities.formatAsJSLiteral(inputString));
     });
   });
+
+  describe('findUnclosedQuote', () => {
+    it('correctly finds unclosed quotes', () => {
+      assert.strictEqual(Platform.StringUtilities.findUnclosedQuote('\'de'), Platform.StringUtilities.SINGLE_QUOTE);
+      assert.strictEqual(
+          Platform.StringUtilities.findUnclosedQuote('abc\'de\'f\'g'), Platform.StringUtilities.SINGLE_QUOTE);
+      assert.strictEqual(
+          Platform.StringUtilities.findUnclosedQuote('abc\\\'de\'fg'), Platform.StringUtilities.SINGLE_QUOTE);
+      assert.strictEqual(
+          Platform.StringUtilities.findUnclosedQuote('\'ab"c\'de\\\'f\'g'), Platform.StringUtilities.SINGLE_QUOTE);
+      assert.strictEqual(Platform.StringUtilities.findUnclosedQuote('"de'), Platform.StringUtilities.DOUBLE_QUOTE);
+      assert.strictEqual(
+          Platform.StringUtilities.findUnclosedQuote('a\\"b\\""c\'de\'f\'g'), Platform.StringUtilities.DOUBLE_QUOTE);
+      assert.strictEqual(
+          Platform.StringUtilities.findUnclosedQuote('"ab"c"de\\\'f\'g'), Platform.StringUtilities.DOUBLE_QUOTE);
+      assert.strictEqual(Platform.StringUtilities.findUnclosedQuote('a'), '');
+      assert.strictEqual(Platform.StringUtilities.findUnclosedQuote('"ab"c\'de\'f'), '');
+      assert.strictEqual(Platform.StringUtilities.findUnclosedQuote('"a\\\'b"c\\\'de\'f\\\'\''), '');
+    });
+  });
 });
