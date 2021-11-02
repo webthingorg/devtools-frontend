@@ -33,6 +33,24 @@
       "message": "Just curious, why would this condition be `\u0026\u0026` instead of `||`? It sounds like a node has to be both non-axNode and ignored to be skipped.",
       "revId": "874965b93a59ea30ad076bebef5998944a0fde26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed3435c0_f2f2d685",
+        "filename": "front_end/panels/accessibility/AXBreadcrumbsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-02T08:12:47Z",
+      "side": 1,
+      "message": "The first check ensures that we don\u0027t skip the node if it is the inspected node. For the inspected node, we show it even if it is ignored.",
+      "parentUuid": "9fa16d9f_dda1a1c3",
+      "revId": "874965b93a59ea30ad076bebef5998944a0fde26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
