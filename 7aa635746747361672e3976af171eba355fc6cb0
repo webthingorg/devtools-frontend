@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec73f0a8_baac8987",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-02T11:55:18Z",
+      "side": 1,
+      "message": "Just change it to keyup?",
+      "parentUuid": "463c5d12_126f31dc",
+      "revId": "7aa635746747361672e3976af171eba355fc6cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a2c2ae1_7935fa41",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-29T11:19:03Z",
       "side": 1,
       "message": "I wonder how this request can be null, can it really be null?\n\nDidn\u0027t want to assert the type as `NetworkRequestNode` since dataGrid is typed with nodes as `NetworkNode`; that\u0027s why I needed to add this null check.",
+      "revId": "7aa635746747361672e3976af171eba355fc6cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d94166_2309acfc",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-02T11:55:18Z",
+      "side": 1,
+      "message": "It could be for group nodes that appear when you check \"group by frame\"",
+      "parentUuid": "1a2c2ae1_7935fa41",
       "revId": "7aa635746747361672e3976af171eba355fc6cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
