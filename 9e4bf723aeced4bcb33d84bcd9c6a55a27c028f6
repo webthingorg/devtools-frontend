@@ -16,6 +16,40 @@
       "message": "LGTM",
       "revId": "9e4bf723aeced4bcb33d84bcd9c6a55a27c028f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "788fdd18_59070930",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-11-02T13:44:02Z",
+      "side": 1,
+      "message": "LGTM, just a comment/question about naming",
+      "revId": "9e4bf723aeced4bcb33d84bcd9c6a55a27c028f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d91f1b22_c56f8378",
+        "filename": "front_end/core/platform/string-utilities.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-11-02T13:44:02Z",
+      "side": 1,
+      "message": "nitty question: “Quote” is somewhat ambiguous. For example, `findUnclosedQuote` doesn’t (need to) handle backticks, which can be used to wrap/quote string literals in JS.\n\nDo you think it’s worth naming this `findUnclosedCssQuote` or so, to make it clear that this is for CSS specifically?",
+      "revId": "9e4bf723aeced4bcb33d84bcd9c6a55a27c028f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
