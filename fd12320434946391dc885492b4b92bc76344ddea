@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55417c0a_13ca17b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "Thanks. Any chance you could suggest a primary reviewer, if you\u0027re comfortable doing that? I am having a hard time figuring out who usually does what since there are a lot of refactor CLs.",
+      "parentUuid": "60c3059c_7e6a045b",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344aa7f2_a9b7236f",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-20T20:30:23Z",
       "side": 1,
       "message": "2021?",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41b33d1_afcdf43b",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "344aa7f2_a9b7236f",
       "revId": "fd12320434946391dc885492b4b92bc76344ddea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "589a4388_91e4c575",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "It doesn\u0027t feel like there is any harm in sending an unknown type to any target? The sidebar also affects all targets...",
+      "parentUuid": "47502707_c145e0e3",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f0521fe_4a205a84",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 1
@@ -65,6 +119,24 @@
       "writtenOn": "2021-10-20T20:30:23Z",
       "side": 1,
       "message": "nit: return here right away? Or, perhaps, just use Array.find()?",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f68fbce4_c16816f5",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0521fe_4a205a84",
       "revId": "fd12320434946391dc885492b4b92bc76344ddea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da8436f_ecb1368d",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "Used a ternary, mostly because I am too much of a C++ programmer to not read \u0026\u0026 as resulting in a bool.",
+      "parentUuid": "44a4d316_67d8449d",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1acb436c_3eee3ddb",
@@ -99,6 +189,24 @@
       "writtenOn": "2021-10-20T20:30:23Z",
       "side": 1,
       "message": "It looks like we don\u0027t have these on the PDL level, let\u0027s remove.",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fe2b2e_783b296a",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-02T15:30:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1acb436c_3eee3ddb",
       "revId": "fd12320434946391dc885492b4b92bc76344ddea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
