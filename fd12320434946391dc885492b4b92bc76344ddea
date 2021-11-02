@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b76da91_6a60ed94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-11-02T16:56:17Z",
+      "side": 1,
+      "message": "+alexrudenko@ for core/sdk/OWNERS.",
+      "parentUuid": "55417c0a_13ca17b7",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344aa7f2_a9b7236f",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 1
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "It doesn\u0027t feel like there is any harm in sending an unknown type to any target? The sidebar also affects all targets...",
       "parentUuid": "47502707_c145e0e3",
+      "revId": "fd12320434946391dc885492b4b92bc76344ddea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b420f869_435686bc",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-11-02T16:56:17Z",
+      "side": 1,
+      "message": "No harm, as long as we don\u0027t return errors for unsupported/unrecognized breakpoint types (which may by a downside on its own). We can certainly leave this for later.",
+      "parentUuid": "589a4388_91e4c575",
       "revId": "fd12320434946391dc885492b4b92bc76344ddea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
