@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9467d82a_5a7870b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-02T14:43:52Z",
+      "side": 1,
+      "message": "Yang do you mind stamping? Marian LGTM\u0027d the UX change in https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1245249#c12",
+      "revId": "ba4fd123e087fee65dc3d13bea2462eb4d31be17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
