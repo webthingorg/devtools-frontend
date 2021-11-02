@@ -1247,6 +1247,9 @@ export class ElementsTreeOutline extends
     if (node.isPortal()) {
       return true;
     }
+    if (node.nodeName() === 'FENCEDFRAME') {
+      return true;
+    }
     if (node.contentDocument()) {
       return true;
     }
