@@ -94,6 +94,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02341372_8bff303f",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "I understand the significance of these things, but I am at a loss as to what actually would be helpful for the translators here.\n\nWith respect to capitalization, other stuff in that panel (that\u0027s not just a literal), e.g. \"Request Animation Frame\", uses this style.",
+      "parentUuid": "0e8daf32_41f4bec0",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c68ccb7_7fa1e65a",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -111,6 +135,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8ee5c12_c1f78487",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Done. This reminds me that I was thinking of factoring out DOMDebuggerModel.CategorizedBreakpoint out of DOMDebuggerModel (since it doesn\u0027t actually depend on DOMDebuggerModel, which in turns means that neither does CategorizedBreakpointsSidebarPane\n\nDoes this seem appropriate, and would it make sense to just make it another file in front_end/code/sdk/ ?",
+      "parentUuid": "8c68ccb7_7fa1e65a",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bafa92f_1bbea4c0",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -122,6 +164,30 @@
       "writtenOn": "2021-11-03T08:01:43Z",
       "side": 1,
       "message": "nit: Its fine to move trivial initialization into the fields declaration above.",
+      "range": {
+        "startLine": 89,
+        "startChar": 44,
+        "endLine": 89,
+        "endChar": 47
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4736e72f_affc5fdd",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bafa92f_1bbea4c0",
       "range": {
         "startLine": 89,
         "startChar": 44,
@@ -157,6 +223,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7040f49d_f4a35c92",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Specifically what kind of enum are you talking about? Something like \nconst enum BreakpointNames \u003d {\n  BeforeBidderWorkletBiddingStart \u003d \"beforeBidderWorkletBiddingStart\"\n}\n\nhas the disadvantage of mostly duplicating the name. I guess TS may give you exhaustiveness checks though, which is nice. Other stuff feels like capitalization might be unconventional?\n\nActually if you look at what I did with DOMDebuggerModel before this (when I thought I would be adding these here), I ended up putting an array there for these things, but I changed to this form here since it keeps everything in one spot, so it\u0027s really easy to add stuff.",
+      "parentUuid": "9ccc9d90_a7bd4f22",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 7
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d676eeb1_4e4cbdb7",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -168,6 +258,30 @@
       "writtenOn": "2021-11-03T06:57:18Z",
       "side": 1,
       "message": "is it the same as EventListenerBreakpoint.instrumentation ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 31
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aca8306_2fd9dc97",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Yeah, used that.",
+      "parentUuid": "d676eeb1_4e4cbdb7",
       "range": {
         "startLine": 125,
         "startChar": 10,
@@ -191,6 +305,30 @@
       "writtenOn": "2021-11-03T06:57:18Z",
       "side": 1,
       "message": "nit: \n\n```\nif (!eventName.startsWith(instrumentationPrefix)) {\n return null;\n}\nconst instrumentationName \u003d eventName.substring(instrumentationPrefix.length;\n```",
+      "range": {
+        "startLine": 127,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 51
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f09b99fa_4b6c72c1",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42a8d0ae_ca51c7ea",
       "range": {
         "startLine": 127,
         "startChar": 8,
@@ -226,6 +364,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e185c9ad_7cf5d1a6",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "find returns undefined and not null. I could make this function |undefined, but that seems different from the usual practices here?",
+      "parentUuid": "1d528b01_623aede2",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 16
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "901f7bee_15a07553",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -237,6 +399,24 @@
       "writtenOn": "2021-11-03T08:33:36Z",
       "side": 1,
       "message": "You could use `const breakpoint \u003d this.resolveEventListenerBreakpoint(auxData)` here",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb34550_1e40caa0",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Done, and then folded Inernal into plain version, since down to one call site and isn\u0027t complex.",
+      "parentUuid": "901f7bee_15a07553",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -288,6 +468,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa4c9d5_5eeb2a88",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c89b88_f408658b",
+      "range": {
+        "startLine": 149,
+        "startChar": 55,
+        "endLine": 149,
+        "endChar": 75
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea35014_3a4e4e8f",
@@ -301,6 +505,24 @@
       "writtenOn": "2021-11-03T06:57:18Z",
       "side": 1,
       "message": "double checking: we don\u0027t need to disable the breakpoints if the model is being removed?",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26f2447e_7248736c",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-03T14:29:50Z",
+      "side": 1,
+      "message": "Hmm, I assumed this happened on target disconnect? If so, shouldn\u0027t be needed.",
+      "parentUuid": "dea35014_3a4e4e8f",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
