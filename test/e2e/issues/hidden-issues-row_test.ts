@@ -10,10 +10,10 @@ import {getHiddenIssuesRow, getHiddenIssuesRowBody, getHideIssuesMenu, getHideIs
 
 describe('Hide issues row', async () => {
   it('should be visible after hiding an issue', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
 
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();
@@ -52,10 +52,10 @@ describe('Hide issues row', async () => {
   });
 
   it('should contain issue after clicking', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
 
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();

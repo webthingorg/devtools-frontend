@@ -75,10 +75,10 @@ describe('Hide issues menu', async () => {
   });
 
   it('should hide issue upon clicking the context menu entry', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
 
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();
@@ -92,9 +92,9 @@ describe('Hide issues menu', async () => {
   });
 
   it('should unhide all issues upon clicking unhide all issues button', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();
@@ -110,9 +110,9 @@ describe('Hide issues menu', async () => {
   });
 
   it('should contain unhide issues like this entry while hovering over a hidden issue', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();
@@ -138,9 +138,9 @@ describe('Hide issues menu', async () => {
   });
 
   it('should unhide issue after clicking the unhide issues like this entry', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
-    const issueTitle = 'SharedArrayBuffer usage is restricted to cross-origin isolated sites';
+    const issueTitle = 'Ensure preflight responses are valid';
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     await issueHeader.hover();
@@ -174,7 +174,7 @@ describe('After enabling grouping by IssueKind, Hide issues menu', async () => {
   });
 
   it('should be appended to the issue kinds group header', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
     if (!await getGroupByKindChecked()) {
       await toggleGroupByKind();
@@ -186,7 +186,7 @@ describe('After enabling grouping by IssueKind, Hide issues menu', async () => {
   });
 
   it('should hide all available issues upon click menu entry', async () => {
-    await goToResource('issues/sab-issue.rawresponse');
+    await goToResource('issues/invalid-response-code.rawresponse');
     await navigateToIssuesTab();
     if (!await getGroupByKindChecked()) {
       await toggleGroupByKind();
