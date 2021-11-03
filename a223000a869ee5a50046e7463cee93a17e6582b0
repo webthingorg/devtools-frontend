@@ -60,6 +60,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0853687b_1f5017e2",
+        "filename": "front_end/ui/components/report_view/ReportView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-03T08:58:26Z",
+      "side": 1,
+      "message": "Do you plan to reuse ReportSection and ReportExplanation? If not, we don\u0027t really need to define new components.",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e14963c3_273d5409",
+        "filename": "front_end/ui/components/report_view/reportExplanation.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-03T08:58:26Z",
+      "side": 1,
+      "message": "You copied the css from reportSectionHeader.css, right? Do you know whether the various flex-attributes are needed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5a68d18_d2882b87",
         "filename": "front_end/ui/components/report_view/reportValue.css",
         "patchSetId": 11
