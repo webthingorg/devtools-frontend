@@ -175,6 +175,30 @@
       },
       "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbb64e7_677a44aa",
+        "filename": "front_end/ui/legacy/XLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-03T09:09:50Z",
+      "side": 1,
+      "message": "sg",
+      "parentUuid": "a6eb03f9_a477b444",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
