@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d5274eac_c0c82ee6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T08:19:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feab18fd_ca32a2e9",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5e960a77_55d9b31a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-11-03T08:15:54Z",
       "side": 1,
       "message": "What about `href`? I imagine the underscore migration renamed it to `hrefInternal` but we still use the attribute `href` here but have a get accessor for `href` as well.\n\nIf I read the code right then the attribute is reflected back to the hrefInternal property so everything should be fine given that we don\u0027t have a setter.\n\nMaybe we can also get rid of `hrefInternal` and implement `get href()` as a `getAttribute`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2144879_34d28272",
+        "filename": "front_end/ui/legacy/XLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T08:19:47Z",
+      "side": 1,
+      "message": "I think href is still alright because the changes to it are handled by `attributeChangedCallback` instead and there is no property overriding the built-int `href`. I am not sure we can use get href() as I am not sure if the HTML/DOM engine is going to pick up that getter?",
+      "parentUuid": "71328f42_eefb63af",
       "range": {
         "startLine": 30,
         "startChar": 10,
