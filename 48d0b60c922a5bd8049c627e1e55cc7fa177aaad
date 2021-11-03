@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d4f1da3_5d7ff7f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-03T08:33:36Z",
+      "side": 1,
+      "message": "LGTM on breakpoint side % comments",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e8daf32_41f4bec0",
@@ -71,6 +88,23 @@
         "endLine": 18,
         "endChar": 17
       },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c68ccb7_7fa1e65a",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-03T08:33:36Z",
+      "side": 1,
+      "message": "Can you add a comment here that EventListenerBreakpoints are for events in targets that run JS but do not have a DOM?",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -186,6 +220,23 @@
         "endLine": 137,
         "endChar": 16
       },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901f7bee_15a07553",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-03T08:33:36Z",
+      "side": 1,
+      "message": "You could use `const breakpoint \u003d this.resolveEventListenerBreakpoint(auxData)` here",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
