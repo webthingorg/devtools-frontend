@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a6aa77_3afe99df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-03T14:57:21Z",
+      "side": 1,
+      "message": "Reverting the change to use the breakpoint markers, since we decided that this introduces too much clutter. PTAL!",
+      "revId": "4278d20619be0ca6e68d23b5b1894f4fd66f310a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
