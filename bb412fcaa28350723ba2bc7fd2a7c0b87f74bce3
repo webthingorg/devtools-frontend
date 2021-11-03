@@ -50,6 +50,23 @@
       "message": "Woops, assumed Andrey would be an OWNER here, \u0027cause, Protocol stuff, and it looks like he isn\u0027t.\n",
       "revId": "bb412fcaa28350723ba2bc7fd2a7c0b87f74bce3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac2fad5c_bd054d42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-03T07:33:32Z",
+      "side": 1,
+      "message": "Your pdl changes have already been rolled into the front-end:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3258362/\n\nSo there\u0027s no need for this CL anymore :).",
+      "revId": "bb412fcaa28350723ba2bc7fd2a7c0b87f74bce3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
