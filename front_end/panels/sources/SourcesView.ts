@@ -40,8 +40,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/sources/SourcesView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
-    implements TabbedEditorContainerDelegate, UI.SearchableView.Searchable, UI.SearchableView.Replaceable {
+export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainerDelegate, UI.SearchableView.Searchable,
+                                                           UI.SearchableView.Replaceable {
   private placeholderOptionArray: {
     element: HTMLElement,
     handler: Function,
@@ -59,6 +59,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
   private readonly focusedPlaceholderElement?: HTMLElement;
   private searchView?: UISourceCodeFrame;
   private searchConfig?: UI.SearchableView.SearchConfig;
+  readonly events = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
 
   constructor() {
     super();
@@ -427,7 +428,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
       uiSourceCode: uiSourceCode,
       wasSelected: wasSelected,
     };
-    this.dispatchEventToListeners(Events.EditorClosed, data);
+    this.events.dispatchEventToListeners(Events.EditorClosed, data);
   }
 
   private editorSelected(event: Common.EventTarget.EventTargetEvent<EditorSelectedEvent>): void {
@@ -448,7 +449,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
 
     const currentFile = this.editorContainer.currentFile();
     if (currentFile) {
-      this.dispatchEventToListeners(Events.EditorSelected, currentFile);
+      this.events.dispatchEventToListeners(Events.EditorSelected, currentFile);
     }
   }
 
