@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c5bf01_abd8aad1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-03T08:15:54Z",
+      "side": 1,
+      "message": "lgtm % question about href",
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71328f42_eefb63af",
+        "filename": "front_end/ui/legacy/XLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-03T08:15:54Z",
+      "side": 1,
+      "message": "What about `href`? I imagine the underscore migration renamed it to `hrefInternal` but we still use the attribute `href` here but have a get accessor for `href` as well.\n\nIf I read the code right then the attribute is reflected back to the hrefInternal property so everything should be fine given that we don\u0027t have a setter.\n\nMaybe we can also get rid of `hrefInternal` and implement `get href()` as a `getAttribute`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
