@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f566cd95_84504cf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-11-03T14:23:03Z",
+      "side": 1,
+      "message": "I have disabled presubmit on this CL because of crbug.com/1266413. Could you please take another look?\n",
+      "revId": "441d3105542dc15e18e392db5003f96a62848a72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
