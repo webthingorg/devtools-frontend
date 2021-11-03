@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d52083_09bfda81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-03T11:18:30Z",
+      "side": 1,
+      "message": "Good catch, apologies for the regression! Normally, `return await` is not necessary, but in this case the try-catch is the crucial part I was missing.",
+      "revId": "6c6dc45441d27e4912ce890fe3628a9d9e4bdd0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
