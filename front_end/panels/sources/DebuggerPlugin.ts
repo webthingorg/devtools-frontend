@@ -277,7 +277,8 @@ export class DebuggerPlugin extends Plugin {
           this.handleGutterClick(e);
         };
 
-    this.textEditor.addEventListener(SourceFrame.SourcesTextEditor.Events.GutterClick, this.boundGutterClick, this);
+    this.textEditor.sourcesTextEditorEvents.addEventListener(
+        SourceFrame.SourcesTextEditor.Events.GutterClick, this.boundGutterClick, this);
 
     this.breakpointManager.addEventListener(
         Bindings.BreakpointManager.Events.BreakpointAdded, this.breakpointAdded, this);
@@ -1938,7 +1939,8 @@ export class DebuggerPlugin extends Plugin {
     this.textEditor.element.removeEventListener('focusout', this.boundBlur, false);
     this.textEditor.element.removeEventListener('wheel', this.boundWheel, true);
 
-    this.textEditor.removeEventListener(SourceFrame.SourcesTextEditor.Events.GutterClick, this.boundGutterClick, this);
+    this.textEditor.sourcesTextEditorEvents.removeEventListener(
+        SourceFrame.SourcesTextEditor.Events.GutterClick, this.boundGutterClick, this);
     this.popoverHelper.hidePopover();
     this.popoverHelper.dispose();
 

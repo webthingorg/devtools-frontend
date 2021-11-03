@@ -9,9 +9,7 @@ import * as TextEditor from '../text_editor/text_editor.js';
 
 const whitespaceStyleInjectedSet = new WeakSet<Document>();
 
-export class SourcesTextEditor extends
-    Common.ObjectWrapper.eventMixin<EventTypes, typeof TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor>(
-        TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor) {
+export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor {
   private readonly delegate: SourcesTextEditorDelegate;
   private readonly gutterMouseMove: (event: Event) => void;
   private readonly gutterMouseOut: () => void;
@@ -31,6 +29,7 @@ export class SourcesTextEditor extends
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private indentationLevel?: any;
   private autoAppendedSpaces?: TextEditor.CodeMirrorTextEditor.TextEditorPositionHandle[];
+  readonly sourcesTextEditorEvents = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
 
   constructor(delegate: SourcesTextEditorDelegate, codeMirrorOptions?: UI.TextEditor.Options) {
     const defaultCodeMirrorOptions: UI.TextEditor.Options = {
@@ -369,7 +368,7 @@ export class SourcesTextEditor extends
    * |instance| is actually a CodeMirror.Editor
    */
   private gutterClick(_instance: Object, lineNumber: number, gutterType: string, event: MouseEvent): void {
-    this.dispatchEventToListeners(Events.GutterClick, {gutterType, lineNumber, event});
+    this.sourcesTextEditorEvents.dispatchEventToListeners(Events.GutterClick, {gutterType, lineNumber, event});
   }
 
   private textAreaContextMenu(event: MouseEvent): void {
@@ -481,27 +480,28 @@ export class SourcesTextEditor extends
 
     const start = this.codeMirror().getCursor('anchor');
     const end = this.codeMirror().getCursor('head');
-    this.dispatchEventToListeners(Events.SelectionChanged, TextUtils.CodeMirrorUtils.toRange(start, end));
+    this.sourcesTextEditorEvents.dispatchEventToListeners(
+        Events.SelectionChanged, TextUtils.CodeMirrorUtils.toRange(start, end));
   }
 
   private reportJump(from: TextUtils.TextRange.TextRange|null, to: TextUtils.TextRange.TextRange|null): void {
     if (from && to && from.equal(to)) {
       return;
     }
-    this.dispatchEventToListeners(Events.JumpHappened, {from, to});
+    this.sourcesTextEditorEvents.dispatchEventToListeners(Events.JumpHappened, {from, to});
   }
 
   private scroll(): void {
     const topmostLineNumber = this.codeMirror().lineAtHeight(this.codeMirror().getScrollInfo().top, 'local');
-    this.dispatchEventToListeners(Events.ScrollChanged, topmostLineNumber);
+    this.sourcesTextEditorEvents.dispatchEventToListeners(Events.ScrollChanged, topmostLineNumber);
   }
 
   focusInternal(): void {
-    this.dispatchEventToListeners(Events.EditorFocused);
+    this.sourcesTextEditorEvents.dispatchEventToListeners(Events.EditorFocused);
   }
 
   private blurInternal(): void {
-    this.dispatchEventToListeners(Events.EditorBlurred);
+    this.sourcesTextEditorEvents.dispatchEventToListeners(Events.EditorBlurred);
   }
 
   // https://crbug.com/1151919 * = {ranges: !Array.<{head: !CodeMirror.Pos, anchor: !CodeMirror.Pos}>}

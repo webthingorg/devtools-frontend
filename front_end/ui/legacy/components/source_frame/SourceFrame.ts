@@ -154,8 +154,10 @@ export class SourceFrameImpl extends UI.View.SimpleView implements UI.Searchable
     this.searchRegex = null;
     this.loadError = false;
 
-    this.textEditorInternal.addEventListener(Events.EditorFocused, this.resetCurrentSearchResultIndex, this);
-    this.textEditorInternal.addEventListener(Events.SelectionChanged, this.updateSourcePosition, this);
+    this.textEditorInternal.sourcesTextEditorEvents.addEventListener(
+        Events.EditorFocused, this.resetCurrentSearchResultIndex, this);
+    this.textEditorInternal.sourcesTextEditorEvents.addEventListener(
+        Events.SelectionChanged, this.updateSourcePosition, this);
     this.textEditorInternal.textEditorEvents.addEventListener(UI.TextEditor.Events.TextChanged, event => {
       if (!this.muteChangeEventsForSetContent) {
         this.onTextChanged(event.data.oldRange, event.data.newRange);

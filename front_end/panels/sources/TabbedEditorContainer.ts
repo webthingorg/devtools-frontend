@@ -220,9 +220,9 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     if (!this.currentView || !(this.currentView instanceof SourceFrame.SourceFrame.SourceFrameImpl)) {
       return;
     }
-    this.currentView.textEditor.addEventListener(
+    this.currentView.textEditor.sourcesTextEditorEvents.addEventListener(
         SourceFrame.SourcesTextEditor.Events.ScrollChanged, this.scrollChanged, this);
-    this.currentView.textEditor.addEventListener(
+    this.currentView.textEditor.sourcesTextEditorEvents.addEventListener(
         SourceFrame.SourcesTextEditor.Events.SelectionChanged, this.selectionChanged, this);
   }
 
@@ -230,9 +230,9 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
     if (!this.currentView || !(this.currentView instanceof SourceFrame.SourceFrame.SourceFrameImpl)) {
       return;
     }
-    this.currentView.textEditor.removeEventListener(
+    this.currentView.textEditor.sourcesTextEditorEvents.removeEventListener(
         SourceFrame.SourcesTextEditor.Events.ScrollChanged, this.scrollChanged, this);
-    this.currentView.textEditor.removeEventListener(
+    this.currentView.textEditor.sourcesTextEditorEvents.removeEventListener(
         SourceFrame.SourcesTextEditor.Events.SelectionChanged, this.selectionChanged, this);
   }
 

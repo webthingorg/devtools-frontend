@@ -645,14 +645,16 @@ export class LineDecorator implements SourceFrame.SourceFrame.LineDecorator {
       this.listeners.set(textEditor, listener);
     }
     textEditor.installGutter(LineDecorator.GUTTER_TYPE, false);
-    textEditor.addEventListener(SourceFrame.SourcesTextEditor.Events.GutterClick, listener, this);
+    textEditor.sourcesTextEditorEvents.addEventListener(
+        SourceFrame.SourcesTextEditor.Events.GutterClick, listener, this);
   }
 
   private uninstallGutter(textEditor: SourceFrame.SourcesTextEditor.SourcesTextEditor): void {
     textEditor.uninstallGutter(LineDecorator.GUTTER_TYPE);
     const listener = this.listeners.get(textEditor);
     if (listener) {
-      textEditor.removeEventListener(SourceFrame.SourcesTextEditor.Events.GutterClick, listener, this);
+      textEditor.sourcesTextEditorEvents.removeEventListener(
+          SourceFrame.SourcesTextEditor.Events.GutterClick, listener, this);
       this.listeners.delete(textEditor);
     }
   }

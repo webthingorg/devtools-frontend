@@ -81,10 +81,10 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
 
     this.boundOnBindingChanged = this.onBindingChanged.bind(this);
 
-    this.textEditor.addEventListener(
+    this.textEditor.sourcesTextEditorEvents.addEventListener(
         SourceFrame.SourcesTextEditor.Events.EditorBlurred,
         () => UI.Context.Context.instance().setFlavor(UISourceCodeFrame, null));
-    this.textEditor.addEventListener(
+    this.textEditor.sourcesTextEditorEvents.addEventListener(
         SourceFrame.SourcesTextEditor.Events.EditorFocused,
         () => UI.Context.Context.instance().setFlavor(UISourceCodeFrame, this));
     Common.Settings.Settings.instance()
