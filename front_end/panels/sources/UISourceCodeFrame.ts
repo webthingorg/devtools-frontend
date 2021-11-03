@@ -50,9 +50,7 @@ import {ScriptOriginPlugin} from './ScriptOriginPlugin.js';
 import {SnippetsPlugin} from './SnippetsPlugin.js';
 import {SourcesPanel} from './SourcesPanel.js';
 
-export class UISourceCodeFrame extends
-    Common.ObjectWrapper.eventMixin<EventTypes, typeof SourceFrame.SourceFrame.SourceFrameImpl>(
-        SourceFrame.SourceFrame.SourceFrameImpl) {
+export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
   private uiSourceCodeInternal: Workspace.UISourceCode.UISourceCode;
   private muteSourceCodeEvents: boolean;
   private isSettingContent: boolean;
@@ -64,6 +62,7 @@ export class UISourceCodeFrame extends
   private readonly boundOnBindingChanged: () => void;
   private readonly errorPopoverHelper: UI.PopoverHelper.PopoverHelper;
   private plugins: Plugin[];
+  readonly events = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
 
   constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode) {
     super(workingCopy);
@@ -361,7 +360,7 @@ export class UISourceCodeFrame extends
       this.plugins.push(new CoveragePlugin(this.textEditor, pluginUISourceCode));
     }
 
-    this.dispatchEventToListeners(Events.ToolbarItemsChanged);
+    this.events.dispatchEventToListeners(Events.ToolbarItemsChanged);
     for (const plugin of this.plugins) {
       plugin.wasShown();
     }
