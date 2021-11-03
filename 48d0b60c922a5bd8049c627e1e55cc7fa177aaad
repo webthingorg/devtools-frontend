@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dad608a4_51eea04c",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T14:44:33Z",
+      "side": 1,
+      "message": "Re: capitalization, yes, DevTools is currently mixing styles, unfortunately. Let\u0027s stick with what is typical for this panel then.\n\nRe: string descriptions, is there perhaps a link to some public documentation about these terms that we can link to at least? If not, I think we can land but we might reach out to you if translators get specific questions that we cannot answer.",
+      "parentUuid": "02341372_8bff303f",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c68ccb7_7fa1e65a",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -523,6 +547,24 @@
       "side": 1,
       "message": "Hmm, I assumed this happened on target disconnect? If so, shouldn\u0027t be needed.",
       "parentUuid": "dea35014_3a4e4e8f",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e25d5c2_9b1aec8e",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T14:44:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "26f2447e_7248736c",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
