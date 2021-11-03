@@ -127,6 +127,30 @@
       },
       "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da175a7a_6715774f",
+        "filename": "front_end/ui/legacy/XLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-03T08:35:40Z",
+      "side": 1,
+      "message": "I don\u0027t in what cases the getter is honoured and when only the attribute counts.\n\nMaybe we could get rid of `get href` and `hrefInternal` all-together? The few use-sites could use getAttribute instead. (Fine in a followup of course)",
+      "parentUuid": "a2144879_34d28272",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "60b7385c53ab3607ae5f25767704138918ec5179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
