@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "841759c5_b2be54de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T06:57:18Z",
+      "side": 1,
+      "message": "LGTM % comments\n\nKim, could you please review as well since you are more familiar with breakpoints? ",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e8daf32_41f4bec0",
@@ -43,6 +60,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d676eeb1_4e4cbdb7",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T06:57:18Z",
+      "side": 1,
+      "message": "is it the same as EventListenerBreakpoint.instrumentation ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 31
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a8d0ae_ca51c7ea",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T06:57:18Z",
+      "side": 1,
+      "message": "nit: \n\n```\nif (!eventName.startsWith(instrumentationPrefix)) {\n return null;\n}\nconst instrumentationName \u003d eventName.substring(instrumentationPrefix.length;\n```",
+      "range": {
+        "startLine": 127,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 51
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5629d54_207da8db",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4
@@ -60,6 +123,23 @@
         "endLine": 149,
         "endChar": 75
       },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea35014_3a4e4e8f",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-03T06:57:18Z",
+      "side": 1,
+      "message": "double checking: we don\u0027t need to disable the breakpoints if the model is being removed?",
       "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
