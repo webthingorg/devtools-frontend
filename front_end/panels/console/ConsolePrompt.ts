@@ -92,9 +92,9 @@ export class ConsolePrompt extends Common.ObjectWrapper.eventMixin<EventTypes, t
     }));
     this.editor.widget().element.addEventListener('keydown', this.editorKeyDown.bind(this), true);
     this.editor.widget().show(editorContainerElement);
-    this.editor.addEventListener(UI.TextEditor.Events.CursorChanged, this.updatePromptIcon, this);
-    this.editor.addEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
-    this.editor.addEventListener(UI.TextEditor.Events.SuggestionChanged, this.onTextChanged, this);
+    this.editor.textEditorEvents.addEventListener(UI.TextEditor.Events.CursorChanged, this.updatePromptIcon, this);
+    this.editor.textEditorEvents.addEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
+    this.editor.textEditorEvents.addEventListener(UI.TextEditor.Events.SuggestionChanged, this.onTextChanged, this);
 
     this.setText(this.initialText);
     this.initialText = '';

@@ -64,9 +64,7 @@ export interface Coordinates {
 // https://crbug.com/1151919 * = CodeMirror.Editor
 const editorToDevtoolsWrapper = new WeakMap<any, CodeMirrorTextEditor>();
 
-export class CodeMirrorTextEditor extends
-    Common.ObjectWrapper.eventMixin<UI.TextEditor.EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
-        implements UI.TextEditor.TextEditor {
+export class CodeMirrorTextEditor extends UI.Widget.VBox implements UI.TextEditor.TextEditor {
   private options: UI.TextEditor.Options;
   // https://crbug.com/1151919 * = CodeMirror.Editor
   private codeMirrorInternal: any;
@@ -88,6 +86,7 @@ export class CodeMirrorTextEditor extends
   private editorSizeInSync?: boolean;
   private lastSelectionInternal?: TextUtils.TextRange.TextRange;
   private selectionSetScheduled?: boolean;
+  readonly textEditorEvents = new Common.ObjectWrapper.ObjectWrapper<UI.TextEditor.EventTypes>();
 
   constructor(options: UI.TextEditor.Options) {
     super();
@@ -232,7 +231,7 @@ export class CodeMirrorTextEditor extends
     // @ts-ignore https://crbug.com/1151919 CodeMirror types are incorrect
     this.codeMirrorInternal.on('beforeSelectionChange', this.beforeSelectionChange.bind(this));
     this.codeMirrorInternal.on('cursorActivity', () => {
-      this.dispatchEventToListeners(UI.TextEditor.Events.CursorChanged);
+      this.textEditorEvents.dispatchEventToListeners(UI.TextEditor.Events.CursorChanged);
     });
 
     this.element.style.overflow = 'hidden';
@@ -957,7 +956,8 @@ export class CodeMirrorTextEditor extends
     this.codeMirrorInternal.replaceRange(text, pos.start, pos.end, origin);
     const newRange = TextUtils.CodeMirrorUtils.toRange(
         pos.start, this.codeMirrorInternal.posFromIndex(this.codeMirrorInternal.indexFromPos(pos.start) + text.length));
-    this.dispatchEventToListeners(UI.TextEditor.Events.TextChanged, {oldRange: range, newRange: newRange});
+    this.textEditorEvents.dispatchEventToListeners(
+        UI.TextEditor.Events.TextChanged, {oldRange: range, newRange: newRange});
     return newRange;
   }
 
@@ -1017,7 +1017,7 @@ export class CodeMirrorTextEditor extends
     }
 
     for (let i = 0; i < edits.length; i++) {
-      this.dispatchEventToListeners(
+      this.textEditorEvents.dispatchEventToListeners(
           UI.TextEditor.Events.TextChanged, {oldRange: edits[i].oldRange, newRange: edits[i].newRange});
     }
   }

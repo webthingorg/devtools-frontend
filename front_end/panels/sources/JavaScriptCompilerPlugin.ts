@@ -30,7 +30,7 @@ export class JavaScriptCompilerPlugin extends Plugin {
     this.message = null;
     this.disposed = false;
 
-    this.textEditor.addEventListener(UI.TextEditor.Events.TextChanged, this.scheduleCompile, this);
+    this.textEditor.textEditorEvents.addEventListener(UI.TextEditor.Events.TextChanged, this.scheduleCompile, this);
     if (this.uiSourceCode.hasCommits() || this.uiSourceCode.isDirty()) {
       this.scheduleCompile();
     }
@@ -125,7 +125,7 @@ export class JavaScriptCompilerPlugin extends Plugin {
   }
 
   dispose(): void {
-    this.textEditor.removeEventListener(UI.TextEditor.Events.TextChanged, this.scheduleCompile, this);
+    this.textEditor.textEditorEvents.removeEventListener(UI.TextEditor.Events.TextChanged, this.scheduleCompile, this);
     if (this.message) {
       this.uiSourceCode.removeMessage(this.message);
     }

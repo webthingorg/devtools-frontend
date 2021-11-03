@@ -82,7 +82,7 @@ export class CSSPlugin extends Plugin {
       tooltipCallback: undefined,
     });
     this.textEditor.addEventListener(SourceFrame.SourcesTextEditor.Events.ScrollChanged, this.textEditorScrolled, this);
-    this.textEditor.addEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
+    this.textEditor.textEditorEvents.addEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
     this.updateSwatches(0, this.textEditor.linesCount - 1);
     this.boundHandleKeyDown = null;
 
@@ -394,7 +394,7 @@ export class CSSPlugin extends Plugin {
     }
     this.textEditor.removeEventListener(
         SourceFrame.SourcesTextEditor.Events.ScrollChanged, this.textEditorScrolled, this);
-    this.textEditor.removeEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
+    this.textEditor.textEditorEvents.removeEventListener(UI.TextEditor.Events.TextChanged, this.onTextChanged, this);
     this.textEditor.bookmarks(this.textEditor.fullRange(), SwatchBookmark).forEach(marker => marker.clear());
     this.textEditor.element.removeEventListener('keydown', (this.boundHandleKeyDown as EventListener));
   }

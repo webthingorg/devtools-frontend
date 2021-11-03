@@ -13,7 +13,7 @@ export interface TextEditorFactory {
   createEditor(options: Options): TextEditor;
 }
 
-export interface TextEditor extends Common.EventTarget.EventTarget<EventTypes> {
+export interface TextEditor {
   widget(): Widget;
   fullRange(): TextUtils.TextRange.TextRange;
   selection(): TextUtils.TextRange.TextRange;
@@ -36,6 +36,8 @@ export interface TextEditor extends Common.EventTarget.EventTarget<EventTypes> {
     type: string,
   }|null;
   setPlaceholder(placeholder: string): void;
+
+  textEditorEvents: Common.EventTarget.EventTarget<EventTypes>;
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again

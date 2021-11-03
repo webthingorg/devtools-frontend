@@ -389,7 +389,7 @@ export class TextEditorAutocompleteController implements UI.SuggestBox.SuggestBo
     this.queryRange = null;
     this.anchorBox = null;
     this.currentSuggestion = null;
-    this.textEditor.dispatchEventToListeners(UI.TextEditor.Events.SuggestionChanged);
+    this.textEditor.textEditorEvents.dispatchEventToListeners(UI.TextEditor.Events.SuggestionChanged);
     this.clearHint();
     this.onSuggestionsHiddenForTest();
   }
@@ -439,7 +439,7 @@ export class TextEditorAutocompleteController implements UI.SuggestBox.SuggestBo
     this.currentSuggestion = suggestion;
     this.setHint(suggestion ? suggestion.text : '');
     if ((oldSuggestion ? oldSuggestion.text : '') !== (suggestion ? suggestion.text : '')) {
-      this.textEditor.dispatchEventToListeners(UI.TextEditor.Events.SuggestionChanged);
+      this.textEditor.textEditorEvents.dispatchEventToListeners(UI.TextEditor.Events.SuggestionChanged);
     }
   }
 
