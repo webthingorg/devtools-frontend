@@ -47,11 +47,15 @@ module.exports = {
   create: function(context) {
     return {
       MemberExpression(node) {
-        if (node.object.name === 'it' && (node.property.name === 'skip' || node.property.name === 'skipOnPlatforms') &&
+        if ((node.object.name === 'it' || node.object.name === 'describe') &&
+            (node.property.name === 'skip' || node.property.name === 'skipOnPlatforms') &&
             node.parent.type === 'CallExpression') {
-          const testNameNode = node.property.name === 'skip' ? node.parent.arguments[0] : node.parent.arguments[1];
+          let testNameNode;
+          if (node.parent.arguments) {
+            testNameNode = node.property.name === 'skip' ? node.parent.arguments[0] : node.parent.arguments[1];
+          }
 
-          const textValue = getTextValue(testNameNode);
+          const textValue = testNameNode && getTextValue(testNameNode);
 
           if (!textValue || !TEST_NAME_REGEX.test(textValue)) {
             context.report({
