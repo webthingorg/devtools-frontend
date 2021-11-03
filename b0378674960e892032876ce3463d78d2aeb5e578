@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720224fe_d59943f0",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-03T06:41:56Z",
+      "side": 1,
+      "message": "You can use `const enum` directly here. The reason why we can\u0027t migrate existing enums is due to an incremental compilation issue, where TypeScript would not re-compile the right things when an enum is changed from `enum` to `const enum`.",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "b0378674960e892032876ce3463d78d2aeb5e578",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
