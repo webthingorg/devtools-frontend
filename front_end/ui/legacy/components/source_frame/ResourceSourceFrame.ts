@@ -35,6 +35,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import type * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as UI from '../../legacy.js';
 
+import type {SourceFrameOptions} from './SourceFrame.js';
 import {SourceFrameImpl} from './SourceFrame.js';
 
 const UIStrings = {
@@ -49,10 +50,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ResourceSourceFrame extends SourceFrameImpl {
   private readonly resourceInternal: TextUtils.ContentProvider.ContentProvider;
 
-  constructor(
-      resource: TextUtils.ContentProvider.ContentProvider, autoPrettyPrint?: boolean,
-      codeMirrorOptions?: UI.TextEditor.Options) {
-    super(() => resource.requestContent(), codeMirrorOptions);
+  constructor(resource: TextUtils.ContentProvider.ContentProvider, options?: SourceFrameOptions) {
+    super(() => resource.requestContent(), options);
     this.resourceInternal = resource;
   }
 
@@ -66,10 +65,10 @@ export class ResourceSourceFrame extends SourceFrameImpl {
     return this.resourceInternal;
   }
 
-  populateTextAreaContextMenu(contextMenu: UI.ContextMenu.ContextMenu, _lineNumber: number, _columnNumber: number):
-      Promise<void> {
+  protected populateTextAreaContextMenu(
+      contextMenu: UI.ContextMenu.ContextMenu, lineNumber: number, columnNumber: number): void {
+    super.populateTextAreaContextMenu(contextMenu, lineNumber, columnNumber);
     contextMenu.appendApplicableItems(this.resourceInternal);
-    return Promise.resolve();
   }
 }
 
@@ -79,7 +78,7 @@ export class SearchableContainer extends UI.Widget.VBox {
   constructor(resource: TextUtils.ContentProvider.ContentProvider, highlighterType: string, autoPrettyPrint?: boolean) {
     super(true);
     this.registerRequiredCSS('ui/legacy/components/source_frame/resourceSourceFrame.css');
-    const sourceFrame = new ResourceSourceFrame(resource, autoPrettyPrint);
+    const sourceFrame = new ResourceSourceFrame(resource);
     this.sourceFrame = sourceFrame;
     sourceFrame.setHighlighterType(highlighterType);
     const canPrettyPrint = sourceFrame.resource.contentType().isDocumentOrScriptOrStyleSheet() ||
@@ -99,6 +98,6 @@ export class SearchableContainer extends UI.Widget.VBox {
   }
 
   async revealPosition(lineNumber: number, columnNumber?: number): Promise<void> {
-    this.sourceFrame.revealPosition(lineNumber, columnNumber, true);
+    this.sourceFrame.revealPosition({lineNumber, columnNumber}, true);
   }
 }

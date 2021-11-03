@@ -107,20 +107,21 @@ export class TextEditor extends HTMLElement {
     }
   }
 
-  revealPosition(position: number): void {
+  revealPosition(selection: CodeMirror.EditorSelection): void {
     const view = this.activeEditor;
     if (!view) {
       return;
     }
 
-    const line = view.state.doc.lineAt(position);
+    const line = view.state.doc.lineAt(selection.main.head);
     view.dispatch({
-      selection: CodeMirror.EditorSelection.cursor(position),
+      selection,
       scrollIntoView: true,
       effects:
           [view.state.field(highlightState, false) ?
                setHighlightLine.of(line.from) :
                CodeMirror.StateEffect.appendConfig.of(highlightState.init(() => highlightDeco(line.from)))],
+      userEvent: 'select.reveal',
     });
     const {id} = view.state.field(highlightState);
     // Reset the highlight state if, after 2 seconds (the animation
@@ -131,6 +132,25 @@ export class TextEditor extends HTMLElement {
       }
     }, 2000);
   }
+
+  createRange(headLine: number, headOff: number, anchorLine?: number, anchorOff?: number): CodeMirror.SelectionRange {
+    const head = lineCharToPos(this.state.doc, headLine, headOff);
+    if (anchorLine === undefined || anchorOff === undefined) {
+      return CodeMirror.EditorSelection.cursor(head);
+    }
+    return CodeMirror.EditorSelection.range(lineCharToPos(this.state.doc, anchorLine, anchorOff), head);
+  }
+
+  toLineChar(pos: number): {line: number, ch: number} {
+    const {doc} = this.state;
+    pos = Math.max(0, Math.min(doc.length, pos));
+    const line = doc.lineAt(pos);
+    return {line: line.number - 1, ch: pos - line.from};
+  }
+}
+
+function lineCharToPos(doc: CodeMirror.Text, line: number, ch: number): number {
+  return Math.min(doc.line(Math.max(1, Math.min(line + 1, doc.lines))).from + ch, doc.length);
 }
 
 ComponentHelpers.CustomElements.defineComponent('devtools-text-editor', TextEditor);

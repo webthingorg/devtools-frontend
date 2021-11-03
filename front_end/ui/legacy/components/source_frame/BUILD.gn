@@ -18,7 +18,6 @@ devtools_module("source_frame") {
     "PreviewFactory.ts",
     "ResourceSourceFrame.ts",
     "SourceFrame.ts",
-    "SourcesTextEditor.ts",
     "XMLView.ts",
   ]
 
@@ -32,9 +31,9 @@ devtools_module("source_frame") {
     "../../../../models/text_utils:bundle",
     "../../../../models/workspace:bundle",
     "../../../../third_party/diff:bundle",
+    "../../../../ui/components/text_editor:bundle",
     "../../../../ui/legacy:bundle",
     "../../../../ui/legacy/components/object_ui:bundle",
-    "../../../../ui/legacy/components/text_editor:bundle",
   ]
 }
 
