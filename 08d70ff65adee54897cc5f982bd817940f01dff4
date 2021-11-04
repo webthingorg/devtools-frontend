@@ -16,6 +16,184 @@
       "message": "PTAL:)",
       "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019271d4_9608c764",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "probably needs a test update",
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a90738b3_2b49dc87",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "let\u0027s rename to `onSoftMenuClosed`",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4408a56_d7be3e5f",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "nit: I know I suggested this name but let\u0027s rename to \u0027has-content-menu-opened\u0027",
+      "range": {
+        "startLine": 51,
+        "startChar": 31,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c57795bd_00dc1c5c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "I think this the default variable name? we can just put \u0027\u0027?",
+      "range": {
+        "startLine": 65,
+        "startChar": 28,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dda6624_be7bcac8",
+        "filename": "front_end/panels/issues/issuesTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 106,
+        "startChar": 34,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea81ce4a_3052850b",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "let\u0027s rename the callback function consistently everywhere.",
+      "range": {
+        "startLine": 366,
+        "startChar": 38,
+        "endLine": 366,
+        "endChar": 54
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b6a8460_d3c9904c",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "I think just `this.onSoftMenuClosed \u003d options.onClosedCallback;` is enough",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 367,
+        "endChar": 5
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8b908c_4684f8be",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 1,
+      "message": "can we simplify as `this.onMenuClosed?.()` or use `if () {}`",
+      "range": {
+        "startLine": 171,
+        "startChar": 24,
+        "endLine": 171,
+        "endChar": 43
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "687bedbf_95ad6aa9",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-04T15:28:51Z",
+      "side": 0,
+      "message": "is enabling the feature by default intended?",
+      "revId": "98494e9d27686c73dfe10b6a571d0ade673de4d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
