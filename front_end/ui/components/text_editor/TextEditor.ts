@@ -80,6 +80,12 @@ export class TextEditor extends HTMLElement {
     this.activeSettingListeners = [];
   }
 
+  focus(): void {
+    if (this.activeEditor) {
+      this.activeEditor.focus();
+    }
+  }
+
   private updateDynamicSettings(state: CodeMirror.EditorState): CodeMirror.EditorState {
     const settings = Common.Settings.Settings.instance();
     const changes = [];
@@ -107,30 +113,61 @@ export class TextEditor extends HTMLElement {
     }
   }
 
-  revealPosition(position: number): void {
+  revealPosition(selection: CodeMirror.EditorSelection, highlight: boolean = true): void {
     const view = this.activeEditor;
     if (!view) {
       return;
     }
 
-    const line = view.state.doc.lineAt(position);
+    const line = view.state.doc.lineAt(selection.main.head);
+    const effects: CodeMirror.StateEffect<unknown>[] = [];
+    if (highlight) {
+      effects.push(
+          view.state.field(highlightState, false) ?
+              setHighlightLine.of(line.from) :
+              CodeMirror.StateEffect.appendConfig.of(highlightState.init(() => highlightDeco(line.from))));
+    }
+    const editorRect = view.scrollDOM.getBoundingClientRect();
+    const targetPos = view.coordsAtPos(selection.main.head);
+    if (!targetPos || targetPos.top < editorRect.top || targetPos.bottom > editorRect.bottom) {
+      effects.push(CodeMirror.EditorView.centerOn.of(selection.main));
+    }
+
     view.dispatch({
-      selection: CodeMirror.EditorSelection.cursor(position),
-      scrollIntoView: true,
-      effects:
-          [view.state.field(highlightState, false) ?
-               setHighlightLine.of(line.from) :
-               CodeMirror.StateEffect.appendConfig.of(highlightState.init(() => highlightDeco(line.from)))],
+      selection,
+      effects,
+      userEvent: 'select.reveal',
     });
-    const {id} = view.state.field(highlightState);
-    // Reset the highlight state if, after 2 seconds (the animation
-    // duration) it is still showing this highlight.
-    setTimeout(() => {
-      if (view.state.field(highlightState).id === id) {
-        view.dispatch({effects: setHighlightLine.of(null)});
-      }
-    }, 2000);
+    if (highlight) {
+      const {id} = view.state.field(highlightState);
+      // Reset the highlight state if, after 2 seconds (the animation
+      // duration) it is still showing this highlight.
+      setTimeout(() => {
+        if (view.state.field(highlightState).id === id) {
+          view.dispatch({effects: setHighlightLine.of(null)});
+        }
+      }, 2000);
+    }
   }
+
+  createRange(headLine: number, headOff: number, anchorLine?: number, anchorOff?: number): CodeMirror.SelectionRange {
+    const head = lineCharToPos(this.state.doc, headLine, headOff);
+    if (anchorLine === undefined || anchorOff === undefined) {
+      return CodeMirror.EditorSelection.cursor(head);
+    }
+    return CodeMirror.EditorSelection.range(lineCharToPos(this.state.doc, anchorLine, anchorOff), head);
+  }
+
+  toLineChar(pos: number): {line: number, ch: number} {
+    const {doc} = this.state;
+    pos = Math.max(0, Math.min(doc.length, pos));
+    const line = doc.lineAt(pos);
+    return {line: line.number - 1, ch: pos - line.from};
+  }
+}
+
+function lineCharToPos(doc: CodeMirror.Text, line: number, ch: number): number {
+  return Math.min(doc.line(Math.max(1, Math.min(line + 1, doc.lines))).from + ch, doc.length);
 }
 
 ComponentHelpers.CustomElements.defineComponent('devtools-text-editor', TextEditor);

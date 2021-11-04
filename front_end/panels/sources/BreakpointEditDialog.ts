@@ -135,8 +135,8 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
         run: finishIfComplete,
       },
       {
-        ...modCodeMirror.standardKeymap.find(binding => binding.key === 'Enter') as CodeMirror.KeyBinding,
         key: 'Shift-Enter',
+        run: modCodeMirror.insertNewlineAndIndent,
       },
       {
         key: 'Escape',
