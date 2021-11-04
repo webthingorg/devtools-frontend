@@ -72,7 +72,7 @@
 .indexed-db-key-path {
   color: var(--color-accent-red);
   white-space: pre-wrap;
-  unicode-bidi: -webkit-isolate;
+  unicode-bidi: isolate;
 }
 
 .indexed-db-container {

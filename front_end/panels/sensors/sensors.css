@@ -35,7 +35,8 @@
   max-width: 120px;
 }
 
-.sensors-view input:focus::-webkit-input-placeholder {
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+.sensors-view input:focus::input-placeholder {
   color: transparent !important; /* stylelint-disable-line declaration-no-important */
 }
 
@@ -185,7 +186,7 @@
 .orientation-left::after,
 .orientation-right::before,
 .orientation-right::after {
-  content: '';
+  content: "";
   width: 8px;
   height: 6px;
 }
@@ -242,7 +243,7 @@
 .orientation-top::after,
 .orientation-bottom::before,
 .orientation-bottom::after {
-  content: '';
+  content: "";
   width: 8px;
   height: 8px;
 }

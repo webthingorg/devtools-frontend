@@ -240,7 +240,7 @@
   margin-left: 16px;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: -webkit-fill-available;
+  max-width: fill-available;
 }
 
 @media (forced-colors: active) {
