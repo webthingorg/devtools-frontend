@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c85e73_3cb37e0d",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "I uploaded these in a separate CL.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3260050",
+      "parentUuid": "7c69aa6c_6bfc718a",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29f6baee_d7b70e1a",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-11-02T16:40:11Z",
       "side": 1,
       "message": "Is there a reason why this is not in `doUpdate()` or `renderMainFrameInformation()`?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44c1cc0_825556ca",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "We have a plan to display status in 3 stages, before the test, during the test, and the result of the test. \nhttps://docs.google.com/presentation/d/1OWDqFk_AAIKZ11qXgjkXtyiPs34M-Y7S0CeSlY2A5oo/edit#slide\u003did.gf16b0df1d2_0_0\n\nI plan to use this.bfCacheStatusHTML like the following CL.\nI\u0027m going to split up the following CL and this CL is a part of that.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3244992\n\nWe\u0027re currently adjusting the design in detail. \nWe plan to change the design in detail, but there are no plans to change the structure of changing the status.",
+      "parentUuid": "29f6baee_d7b70e1a",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53e888f_e64c74a8",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae5ba9c_dd1adc0b",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0853687b_1f5017e2",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-11-03T08:58:26Z",
       "side": 1,
       "message": "Do you plan to reuse ReportSection and ReportExplanation? If not, we don\u0027t really need to define new components.",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb35bca7_944de7fe",
+        "filename": "front_end/ui/components/report_view/ReportView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "I plan to use ReportSection many times in BackForwardCacheView.ts after this CL, but I plan to use ReportExplanation once.\nShould I add CSS to backForwardCacheView.css about ReportExplanation and use it?",
+      "parentUuid": "0853687b_1f5017e2",
       "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -98,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "928fd3cc_37c5e90e",
+        "filename": "front_end/ui/components/report_view/reportExplanation.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "Yes, I copied it from reportSectionHeader.css.\nreportExplanation doesn\u0027t need that flex-attributes. I removed these. Thank you for noticing.\n\nreportSection needs that flex-attributes after this CL.",
+      "parentUuid": "e14963c3_273d5409",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5a68d18_d2882b87",
@@ -111,6 +213,24 @@
       "writtenOn": "2021-11-02T16:40:11Z",
       "side": 1,
       "message": "If you navigate to Application-\u003eFrames-\u003eTop in DevTools and make the window narrow, you\u0027ll see that we\u0027re adding an ellipsis to URLs instead of line-breaking. You can see how this is done in FrameDetailsView.ts and the corresponding css file.",
+      "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3abe67c_983843ee",
+        "filename": "front_end/ui/components/report_view/reportValue.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-04T09:17:35Z",
+      "side": 1,
+      "message": "I\u0027ll postpone this fix and upload it in another CL.",
+      "parentUuid": "c5a68d18_d2882b87",
       "revId": "a223000a869ee5a50046e7463cee93a17e6582b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
