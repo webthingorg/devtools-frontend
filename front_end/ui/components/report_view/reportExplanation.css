@@ -1,0 +1,20 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+:host {
+  grid-column-start: span 2;
+}
+
+.report-explanation {
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid var(--color-details-hairline);
+  padding: 12px;
+  margin-top: 18px;
+  margin-left: 18px;
+  margin-right: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--color-text-primary);
+}
