@@ -57,7 +57,7 @@ module.exports = {
             const propertyNode = lookForCSSFileProperty(options.properties);
 
             if (propertyNode && propertyNode.value.type === 'Literal') {
-              const filenameWithExtension = propertyNode.value.value;
+              const filenameWithExtension = propertyNode.value.value.replace(/\\/g, '/');
               const filename = path.basename(filenameWithExtension, '.css');
               const newFileName = filename + 'Styles';
 
