@@ -217,6 +217,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacc9a9b_3b7a3c54",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T16:54:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87a5254a_df37510c",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bafa92f_1bbea4c0",
@@ -325,6 +343,30 @@
       "side": 1,
       "message": "Yes, the const enum is fine. The duplication doesn\u0027t really matter, since it goes away at compile time. The main reason would be that TS will complain if you add a new enum variant and forget to add the corresponding translation (if its done via a switch). Plus the loop would also always be complete, creating a EventListenerBreakpoint for each enum variant.",
       "parentUuid": "7040f49d_f4a35c92",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 7
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abfc3245_0df32d51",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T16:54:54Z",
+      "side": 1,
+      "message": "Done. Didn\u0027t do the looping-over-enum, though, since I don\u0027t want to structure this in a way that always assumes a single category.",
+      "parentUuid": "8c22a6cf_48234dca",
       "range": {
         "startLine": 90,
         "startChar": 0,
@@ -490,6 +532,30 @@
       "side": 1,
       "message": "You could always end it with `|| null`.",
       "parentUuid": "e185c9ad_7cf5d1a6",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 16
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b907d4_8ab1a993",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T16:54:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89504dd3_4f0b4749",
       "range": {
         "startLine": 132,
         "startChar": 0,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d3d413_1edb8085",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T16:54:54Z",
+      "side": 1,
+      "message": "CategorizedBreakpoint split out done (and some of the sugestions); PTAL?",
+      "revId": "9d1e90f1355f250c970d76734f9778daa16a4968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
