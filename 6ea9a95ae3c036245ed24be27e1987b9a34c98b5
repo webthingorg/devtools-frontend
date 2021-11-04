@@ -22,6 +22,30 @@
       },
       "revId": "6ea9a95ae3c036245ed24be27e1987b9a34c98b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6554059b_72370f8d",
+        "filename": "front_end/panels/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-11-04T09:48:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f21ae0_c08616b8",
+      "range": {
+        "startLine": 43,
+        "startChar": 46,
+        "endLine": 43,
+        "endChar": 54
+      },
+      "revId": "6ea9a95ae3c036245ed24be27e1987b9a34c98b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
