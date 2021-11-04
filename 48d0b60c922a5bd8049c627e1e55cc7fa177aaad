@@ -142,6 +142,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b3b2dc8_6fdabccc",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T13:55:39Z",
+      "side": 1,
+      "message": "I can link to various points of https://github.com/WICG/turtledove/blob/main/FLEDGE.md, but I am not sure to what extent a localizer would want to wade through that.",
+      "parentUuid": "dad608a4_51eea04c",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c68ccb7_7fa1e65a",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4

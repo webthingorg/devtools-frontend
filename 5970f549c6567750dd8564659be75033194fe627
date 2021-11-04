@@ -16,6 +16,41 @@
       "message": "Yang: for FLEDGE Maksim is reusing CategorizedBreakpoints. I see that this was introduced by Alfonso and reviewed by Sigurd and you. Any concerns about refactoring it out and making it (\u0026 CategorizedBreakpointsSidebarPane) independent of the DOMDebuggerModel?",
       "revId": "5970f549c6567750dd8564659be75033194fe627",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d17301b3_d78487cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T13:55:39Z",
+      "side": 1,
+      "message": "Was there meant to be a CC here?",
+      "parentUuid": "9dff2bf7_3f66b8e3",
+      "revId": "5970f549c6567750dd8564659be75033194fe627",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d652f78d_05905c53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-11-04T13:55:39Z",
+      "side": 1,
+      "message": "Quick replying to a few things, will get to the rest of suggestions later...",
+      "revId": "5970f549c6567750dd8564659be75033194fe627",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
