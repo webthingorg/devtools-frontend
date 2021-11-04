@@ -30,7 +30,6 @@ export interface HiddenIssuesMenuData {
 export class HideIssuesMenu extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-hide-issues-menu`;
   private readonly shadow: ShadowRoot = this.attachShadow({mode: 'open'});
-  private visible: boolean = false;
   private menuItemLabel: Common.UIString.LocalizedString = Common.UIString.LocalizedEmptyString;
   private menuItemAction: () => void = () => {};
 
@@ -44,29 +43,26 @@ export class HideIssuesMenu extends HTMLElement {
     this.shadow.adoptedStyleSheets = [hideIssuesMenuStyles];
   }
 
-  setVisible(x: boolean): void {
-    if (this.visible === x) {
-      return;
-    }
-    this.visible = x;
-    this.render();
-  }
-
   onMenuOpen(event: Event): void {
     event.stopPropagation();
-    const contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+    const contextMenu = new UI.ContextMenu.ContextMenu(event, {
+      useSoftMenu: true,
+      onClosedCallback: (): void => {
+        this.classList.toggle('forced', false);
+      },
+    });
     contextMenu.headerSection().appendItem(this.menuItemLabel, () => this.menuItemAction());
     contextMenu.show();
+    this.classList.toggle('forced', true);
   }
 
   private render(): void {
-    this.classList.toggle('hidden', !this.visible);
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
       LitHtml.render(LitHtml.html`
         <button class="hide-issues-menu-btn" @click=${this.onMenuOpen.bind(this)} title=${i18nString(UIStrings.tooltipTitle)}>
         <${IconButton.Icon.Icon.litTagName}
-          .data=${{ color: '', iconName: 'three_dots_menu_icon', height: '14px', width: '4px' } as IconButton.Icon.IconData}
+          .data=${{ color: '--icon-color', iconName: 'three_dots_menu_icon', height: '14px', width: '4px' } as IconButton.Icon.IconData}
         >
         </${IconButton.Icon.Icon.litTagName}>
         </button>

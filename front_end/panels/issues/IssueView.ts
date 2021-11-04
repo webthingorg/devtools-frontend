@@ -318,10 +318,6 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   private appendHeader(): void {
     const header = document.createElement('div');
-    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
-      header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
-      header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
-    }
     header.classList.add('header');
     this.issueKindIcon = new IconButton.Icon.Icon();
     this.issueKindIcon.classList.add('leading-issue-icon');
@@ -344,13 +340,6 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
     this.updateFromIssue();
     this.listItemElement.appendChild(header);
-  }
-  private showHiddenIssuesMenu(): void {
-    this.hiddenIssuesMenu?.setVisible(true);
-  }
-
-  private hideHiddenIssuesMenu(): void {
-    this.hiddenIssuesMenu?.setVisible(false);
   }
 
   onexpand(): void {
