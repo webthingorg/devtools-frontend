@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f07d4c45_864f6555",
+        "filename": "front_end/ui/components/report_view/reportSection.css",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-04T16:14:26Z",
+      "side": 1,
+      "message": "nit: you probably don\u0027t need to set the color as this is the default anyway.",
+      "revId": "b6af68090bd70ae9a8c1a58477dc17c3a4878f98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
