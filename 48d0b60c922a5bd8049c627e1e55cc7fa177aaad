@@ -177,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87a5254a_df37510c",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-04T08:15:11Z",
+      "side": 1,
+      "message": "Yeah, that would be great. It feels off that we are reusing CategorizedBreakpoint from the DOMDebuggerModel. Also we noticed that there\u0027s already an EventListenerBreakpoint in DomDebuggerModel and there\u0027d be a clash. Can we maybe rename that one to `DomEventListenerBreakpoint`?",
+      "parentUuid": "e8ee5c12_c1f78487",
+      "revId": "48d0b60c922a5bd8049c627e1e55cc7fa177aaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bafa92f_1bbea4c0",
         "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
         "patchSetId": 4

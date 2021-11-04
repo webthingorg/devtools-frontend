@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dff2bf7_3f66b8e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-04T08:15:11Z",
+      "side": 1,
+      "message": "Yang: for FLEDGE Maksim is reusing CategorizedBreakpoints. I see that this was introduced by Alfonso and reviewed by Sigurd and you. Any concerns about refactoring it out and making it (\u0026 CategorizedBreakpointsSidebarPane) independent of the DOMDebuggerModel?",
+      "revId": "5970f549c6567750dd8564659be75033194fe627",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
