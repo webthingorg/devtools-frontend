@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ab6068_689174f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-04T16:01:48Z",
+      "side": 1,
+      "message": "Let\u0027s hope CQ is happy! Seems like the presubmit error was introduced in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3259540/5/PRESUBMIT.py Submitting a fix for that.",
+      "revId": "520c7cf32501c569a35e7ff10c511b0890a9d25b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
