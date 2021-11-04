@@ -85,6 +85,15 @@ const UIStrings = {
    */
   runTest: 'Run Test',
   /**
+   * @description Explanation of the Back-Forward Cache Test when the users open the Back-Forward Cache page of the devtools first
+   */
+  bfCacheInitialExplanation:
+      'Checks if this site in its current state is being served from Back-Forward Cache. This can change at any time based on these Back-Forward Cache criteria.',
+  /**
+   * @description Link Text about explanation of Back-Forward Cache
+   */
+  learnMore: 'Learn more: Back-Forward Cache eligibility',
+  /**
    * @description Explanation for 'pending support' items which prevent the page from being eligible
    * for back-forward cache.
    */
@@ -102,7 +111,30 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     this.getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
+    const mainFrame = this.getMainFrame();
+    if (mainFrame) {
+      this.bfCacheStatusHTML = LitHtml.html`
+    <${ReportView.ReportView.ReportExplanation.litTagName}>
+    <div>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+    ${i18nString(UIStrings.bfCacheInitialExplanation)}
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    <${ReportView.ReportView.ReportSection.litTagName}>
+      <${Buttons.Button.Button.litTagName}
+            class="runTest-button"
+            .variant=${Buttons.Button.Variant.PRIMARY}
+            @click=${this.navigateAwayAndBack}>
+            ${i18nString(UIStrings.runTest)}
+      </${Buttons.Button.Button.litTagName}>
+    </${ReportView.ReportView.ReportSection.litTagName}>
+    </div>
+    </${ReportView.ReportView.ReportExplanation.litTagName}>`;
+    } else {
+      this.bfCacheStatusHTML = LitHtml.html``;
+    }
   }
+
+  private bfCacheStatusHTML: LitHtml.TemplateResult;
 
   wasShown(): void {
     super.wasShown();
@@ -183,13 +215,10 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       </${ReportView.ReportView.ReportValue.litTagName}>`;
     }
     return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${Buttons.Button.Button.litTagName}
-            .variant=${Buttons.Button.Variant.PRIMARY}
-            @click=${this.navigateAwayAndBack}>
-            ${i18nString(UIStrings.runTest)}
-      </${Buttons.Button.Button.litTagName}>
-      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      ${this.bfCacheStatusHTML}
+      <${ReportView.ReportView.ReportSection.litTagName}>
+        <x-link href="https://web.dev/bfcache/" class="link">${i18nString(UIStrings.learnMore)}</x-link>
+      </${ReportView.ReportView.ReportSection.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
