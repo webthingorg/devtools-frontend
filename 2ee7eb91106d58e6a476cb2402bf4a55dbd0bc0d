@@ -87,6 +87,30 @@
       },
       "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4d1f82b_e8ed38a9",
+        "filename": "front_end/panels/network/RequestPayloadView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-05T13:46:34Z",
+      "side": 1,
+      "message": "https://imgur.com/a/B40uS5m\n\nI\u0027ll be fine with role\u003d\"button\". Using button element and then styling it like plain text seems too much to me.",
+      "parentUuid": "d898cf1a_8c8e6870",
+      "range": {
+        "startLine": 492,
+        "startChar": 43,
+        "endLine": 492,
+        "endChar": 47
+      },
+      "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
