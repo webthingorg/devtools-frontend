@@ -111,6 +111,30 @@
       },
       "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "111c4d92_710960b8",
+        "filename": "front_end/panels/network/RequestPayloadView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T14:22:04Z",
+      "side": 1,
+      "message": "Changed the role to button! I talked to Peter and we should turn this to button and style it as one at some point, but this is not in scope of this bug.",
+      "parentUuid": "f4d1f82b_e8ed38a9",
+      "range": {
+        "startLine": 492,
+        "startChar": 43,
+        "endLine": 492,
+        "endChar": 47
+      },
+      "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
