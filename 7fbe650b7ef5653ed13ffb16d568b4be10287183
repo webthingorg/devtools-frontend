@@ -16,6 +16,29 @@
       "message": "PTAnotherL:)",
       "revId": "7fbe650b7ef5653ed13ffb16d568b4be10287183",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08317358_4b4b0cdd",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-05T10:35:20Z",
+      "side": 1,
+      "message": "ah sorry if I was not clear: I think here (in this class) just `onMenuClosed` is enough like it was in the previous PS since it\u0027s already inside the SoftMenu.",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "7fbe650b7ef5653ed13ffb16d568b4be10287183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
