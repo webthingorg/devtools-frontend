@@ -16,6 +16,23 @@
       "message": "CategorizedBreakpoint split out done (and some of the sugestions); PTAL?",
       "revId": "9d1e90f1355f250c970d76734f9778daa16a4968",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe145eef_1abcb60d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-05T08:51:57Z",
+      "side": 1,
+      "message": "Thanks for the changes regarding the naming and breaking out the CategorizedBreakpoints. LGTM on that part.",
+      "revId": "9d1e90f1355f250c970d76734f9778daa16a4968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
