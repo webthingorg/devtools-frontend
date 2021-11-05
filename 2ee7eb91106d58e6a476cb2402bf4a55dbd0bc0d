@@ -63,6 +63,30 @@
       },
       "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d898cf1a_8c8e6870",
+        "filename": "front_end/panels/network/RequestPayloadView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-05T13:42:42Z",
+      "side": 1,
+      "message": "What does it look like? (a screenshot could be helpful). If it opens an URL, it\u0027s a link. If it does another action, it\u0027s a button. A button can be styled differently and made inline. Also, the function is called createToggleButton? :) \n\nSo I am not sure role\u003dlink is the right role (depends of course on whether it\u0027s a button or a link). Perhaps https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role ?",
+      "parentUuid": "4b96c8be_bdafe125",
+      "range": {
+        "startLine": 492,
+        "startChar": 43,
+        "endLine": 492,
+        "endChar": 47
+      },
+      "revId": "2ee7eb91106d58e6a476cb2402bf4a55dbd0bc0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
