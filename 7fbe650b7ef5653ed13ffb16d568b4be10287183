@@ -39,6 +39,30 @@
       },
       "revId": "7fbe650b7ef5653ed13ffb16d568b4be10287183",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30b7c086_fe6a37a4",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:37:24Z",
+      "side": 1,
+      "message": "Was unsure myself, whether I should change it or not. Renamed back now!",
+      "parentUuid": "08317358_4b4b0cdd",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "7fbe650b7ef5653ed13ffb16d568b4be10287183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
