@@ -16,6 +16,23 @@
       "message": "I think this will deflake the test in question. Ideally, this browser test shouldn\u0027t rely on the timings of the internal implementation though, but I don\u0027t know how we can solve that (as I am not familiar with browser tests). Therefore, let\u0027s add this workaround for now to deflake the test and at least get it running again.",
       "revId": "58da253d616c2795435cffd9d4c45e84ab3e10cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f70206_85594380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-11-05T17:41:31Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "58da253d616c2795435cffd9d4c45e84ab3e10cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
