@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9f098f_556ff2fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-05T07:59:21Z",
+      "side": 1,
+      "message": "Check out crbug.com/1189617#c4 for before/after gifs",
+      "revId": "872f1966e1824ecc1481127a42ad3941001651c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4e8b19_45c8ec8b",
+        "filename": "front_end/panels/event_listeners/EventListenersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-05T07:59:21Z",
+      "side": 1,
+      "message": "Previously, `subtitle` was a sibling of `title`. This makes `subtitle` a child of `title`, and therefore part of the flexbox layout next to `valueTitle` and the \"Remove\" button.",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 79
+      },
+      "revId": "872f1966e1824ecc1481127a42ad3941001651c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b02e1444_fe680405",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-05T07:59:21Z",
+      "side": 1,
+      "message": "This is so that .object-value-object (not linkified values, e.g. \"Window\") and .object-value-node (linkified values, e.g. \"document\") are rendered the same.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "872f1966e1824ecc1481127a42ad3941001651c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bd2aee_d8fbd949",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-05T07:59:21Z",
+      "side": 1,
+      "message": "This is to make the margin consistent with .event-listener-tree-subtitle.",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "872f1966e1824ecc1481127a42ad3941001651c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
