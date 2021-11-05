@@ -16,8 +16,8 @@ describe('Hide issues menu', async () => {
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     const hideIssuesMenu = await getHideIssuesMenu();
-    const classList = await hideIssuesMenu.evaluate(node => node.classList.toString());
-    assert.include(classList, 'hidden');
+    const menuDisplay = await hideIssuesMenu.evaluate(node => (node as HTMLElement).style.display);
+    assert.strictEqual(menuDisplay, 'none');
   });
 
   it('should become visible on hovering over the issue header', async () => {
@@ -41,11 +41,11 @@ describe('Hide issues menu', async () => {
     const issueHeader = await getIssueHeaderByTitle(issueTitle);
     assertNotNullOrUndefined(issueHeader);
     const hideIssuesMenu = await getHideIssuesMenu();
-    let classList = await hideIssuesMenu.evaluate(node => node.classList.toString());
-    assert.include(classList, 'hidden');
+    let menuDisplay = await hideIssuesMenu.evaluate(node => (node as HTMLElement).style.display);
+    assert.strictEqual(menuDisplay, 'none');
     await issueHeader.hover();
-    classList = await hideIssuesMenu.evaluate(node => node.classList.toString());
-    assert.notInclude(classList, 'hidden');
+    menuDisplay = await hideIssuesMenu.evaluate(node => (node as HTMLElement).style.display);
+    assert.strictEqual(menuDisplay, 'block');
   });
 
   it('should open a context menu upon clicking', async () => {
