@@ -16,6 +16,24 @@
       "message": "Any thoughts on the accessibility of this change? \n\nUI that only differs in color isn\u0027t easy for folks with some forms of color blindness to see. E.g. the breakpoints next to code have different icons inside the breakpoint indicator which helps differentiate them for a broader audience. Is there something similar we could do for the sidebar?",
       "revId": "ee530da4da283829279bb1b096ebbcad0d42a5c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9b57163_bbd9150c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-05T06:07:47Z",
+      "side": 1,
+      "message": "Thanks a lot for dropping this comment, and pointing it out! Yes you\u0027re right, this is not enough. We previously had a version that introduced a more accessible sidebar indication, but we felt that it ultimately introduced too much clutter (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3229276), and would rather confuse our users (checkbox + breakpoint markers), so we decided to revert it.  We\u0027re still working on a better UX of it to make it more accessible, but this was thought as a first step towards a better indication. If you have suggestions on this, since we\u0027re still working on it, please share!",
+      "parentUuid": "4fca7dc1_b52769b9",
+      "revId": "ee530da4da283829279bb1b096ebbcad0d42a5c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
