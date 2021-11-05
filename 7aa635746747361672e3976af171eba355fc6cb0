@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a6e81c0_a036199c",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-11-05T16:23:45Z",
+      "side": 1,
+      "message": "Makes a lot of sense, updated it!",
+      "parentUuid": "ec73f0a8_baac8987",
+      "revId": "7aa635746747361672e3976af171eba355fc6cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a2c2ae1_7935fa41",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "It could be for group nodes that appear when you check \"group by frame\"",
       "parentUuid": "1a2c2ae1_7935fa41",
+      "revId": "7aa635746747361672e3976af171eba355fc6cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04bd20fb_297b253b",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-11-05T16:23:45Z",
+      "side": 1,
+      "message": "Then, it looks like checking if the request exists make sense; thank you!",
+      "parentUuid": "49d94166_2309acfc",
       "revId": "7aa635746747361672e3976af171eba355fc6cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
