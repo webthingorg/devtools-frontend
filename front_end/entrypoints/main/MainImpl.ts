@@ -146,12 +146,38 @@ export class MainImpl {
     });
 
     console.timeStamp('Main._gotPreferences');
+    this.initializeGlobalsForLayoutTests();
     this.createSettings(prefs);
     await this.requestAndRegisterLocaleData();
 
     Host.userMetrics.syncSetting(Common.Settings.Settings.instance().moduleSetting<boolean>('sync_preferences').get());
 
     this.createAppUI();
+  }
+
+  private initializeGlobalsForLayoutTests(): void {
+    // @ts-ignore layout test global
+    self.Common = self.Common || {};
+    // @ts-ignore layout test global
+    self.UI = self.UI || {};
+    // @ts-ignore layout test global
+    self.UI.panels = self.UI.panels || {};
+    // @ts-ignore layout test global
+    self.SDK = self.SDK || {};
+    // @ts-ignore layout test global
+    self.Bindings = self.Bindings || {};
+    // @ts-ignore layout test global
+    self.Persistence = self.Persistence || {};
+    // @ts-ignore layout test global
+    self.Workspace = self.Workspace || {};
+    // @ts-ignore layout test global
+    self.Extensions = self.Extensions || {};
+    // @ts-ignore e2e test global
+    self.Host = self.Host || {};
+    // @ts-ignore e2e test global
+    self.Host.userMetrics = self.Host.userMetrics || Host.userMetrics;
+    // @ts-ignore e2e test global
+    self.Host.UserMetrics = self.Host.UserMetrics || Host.UserMetrics;
   }
 
   async requestAndRegisterLocaleData(): Promise<void> {
