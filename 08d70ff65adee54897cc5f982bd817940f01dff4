@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b141c8c_c39cf4b3",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a90738b3_2b49dc87",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4408a56_d7be3e5f",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-11-04T15:28:51Z",
       "side": 1,
       "message": "nit: I know I suggested this name but let\u0027s rename to \u0027has-content-menu-opened\u0027",
+      "range": {
+        "startLine": 51,
+        "startChar": 31,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e254cb8e_3d54cde5",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4408a56_d7be3e5f",
       "range": {
         "startLine": 51,
         "startChar": 31,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c982b31c_49e0f94c",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c57795bd_00dc1c5c",
+      "range": {
+        "startLine": 65,
+        "startChar": 28,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1dda6624_be7bcac8",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-11-04T15:28:51Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 106,
+        "startChar": 34,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7252aff_222928f4",
+        "filename": "front_end/panels/issues/issuesTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dda6624_be7bcac8",
       "range": {
         "startLine": 106,
         "startChar": 34,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a52fee4e_3e332622",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea81ce4a_3052850b",
+      "range": {
+        "startLine": 366,
+        "startChar": 38,
+        "endLine": 366,
+        "endChar": 54
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b6a8460_d3c9904c",
@@ -173,6 +293,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4441fdc4_f7b15ca7",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b6a8460_d3c9904c",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 367,
+        "endChar": 5
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce8b908c_4684f8be",
@@ -186,6 +330,30 @@
       "writtenOn": "2021-11-04T15:28:51Z",
       "side": 1,
       "message": "can we simplify as `this.onMenuClosed?.()` or use `if () {}`",
+      "range": {
+        "startLine": 171,
+        "startChar": 24,
+        "endLine": 171,
+        "endChar": 43
+      },
+      "revId": "08d70ff65adee54897cc5f982bd817940f01dff4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b140a14_d31f7f06",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce8b908c_4684f8be",
       "range": {
         "startLine": 171,
         "startChar": 24,

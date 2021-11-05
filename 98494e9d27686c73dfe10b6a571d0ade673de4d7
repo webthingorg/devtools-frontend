@@ -16,6 +16,24 @@
       "message": "is enabling the feature by default intended?",
       "revId": "98494e9d27686c73dfe10b6a571d0ade673de4d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5030fc5_d04b11c5",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-11-05T10:33:47Z",
+      "side": 0,
+      "message": "Changed around a bit, creating a menu only if experiment enabled",
+      "parentUuid": "687bedbf_95ad6aa9",
+      "revId": "98494e9d27686c73dfe10b6a571d0ade673de4d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
