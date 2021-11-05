@@ -105,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3c96d4_a4a3c4a0",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-05T08:31:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c281618b_d92f8f70",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "872f1966e1824ecc1481127a42ad3941001651c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0bd2aee_d8fbd949",
