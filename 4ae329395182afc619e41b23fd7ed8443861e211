@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279bab22_d41d2e55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-11-05T10:42:55Z",
+      "side": 1,
+      "message": "The version of emulation that landed in the platform [1] is works on all OSes. However, the DevTools UI doesn\u0027t indicate that the feature is Windows-only (Perhaps we can introduce a tooltip). I\u0027m going to go ahead and land this as is.\n\n[1] https://chromium-review.googlesource.com/c/chromium/src/+/2333043",
+      "parentUuid": "704a29df_784eef84",
+      "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9f1ba4c_0c568c46",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Unintentional, I\u0027ll fix it during my next rebase.",
       "parentUuid": "a9f1ba4c_0c568c46",
+      "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "447d15d8_3bf6baf3",
+        "filename": "front_end/inspector_main/inspector_main_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-11-05T10:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8583a1a3_f7e5304d",
       "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
