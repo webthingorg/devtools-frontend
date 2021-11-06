@@ -16,6 +16,24 @@
       "message": "LGTM, but please check that the test isn\u0027t flaky by running\n```git cl try -B devtools-frontend/try -b e2e_stressor_linux -b e2e_stressor_win64 -b e2e_stressor_mac -p e2e_env\u003d\u0027{\"TEST_PATTERNS\":\"network/network-datagrid_test.ts\",\"ITERATIONS\":20}\u0027```\n",
       "revId": "46772be059b4cd24cdcb15e1787196a926d45c3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf9dbf6_b0bdd7b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-11-06T12:16:53Z",
+      "side": 1,
+      "message": "I ran the comment and all the checks passed, thank you! :)",
+      "parentUuid": "d922cb3c_00239249",
+      "revId": "46772be059b4cd24cdcb15e1787196a926d45c3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
