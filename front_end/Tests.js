@@ -1698,3 +1698,12 @@
 
   window.uiTests = new TestSuite(window.domAutomationController);
 })(window);
+
+(async function loadLegacyModules() {
+  await Promise.all([
+    self.runtime.loadLegacyModule('core/common/common-legacy.js'),
+    self.runtime.loadLegacyModule('core/sdk/sdk-legacy.js'),
+    self.runtime.loadLegacyModule('ui/legacy/legacy-legacy.js'),
+    self.runtime.loadLegacyModule('models/workspace/workspace-legacy.js'),
+  ]);
+})();
