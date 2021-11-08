@@ -97,7 +97,7 @@ function getIndentUnit(indent: string): CM.Extension {
 }
 
 export const autoDetectIndent = new DynamicSetting<boolean>('textEditorAutoDetectIndent', (on, state) => {
-  return on ? CM.Prec.override(getIndentUnit(guessIndent(state.doc))) : empty;
+  return on ? CM.Prec.highest(getIndentUnit(guessIndent(state.doc))) : empty;
 });
 
 function matcher(decorator: CM.MatchDecorator): CM.Extension {
@@ -184,10 +184,13 @@ function themeIsDark(): boolean {
 
 const dummyDarkTheme = CM.EditorView.theme({}, {dark: true});
 
+export function theme(): CM.Extension {
+  return [editorTheme, themeIsDark() ? dummyDarkTheme : []];
+}
+
 export function baseConfiguration(text: string): CM.Extension {
   return [
-    editorTheme,
-    themeIsDark() ? dummyDarkTheme : [],
+    theme(),
     CM.highlightSpecialChars(),
     CM.history(),
     CM.drawSelection(),
@@ -199,7 +202,7 @@ export function baseConfiguration(text: string): CM.Extension {
     tabMovesFocus,
     bracketMatching,
     indentUnit,
-    CM.Prec.fallback(CM.EditorView.contentAttributes.of({'aria-label': i18nString(UIStrings.codeEditor)})),
+    CM.Prec.lowest(CM.EditorView.contentAttributes.of({'aria-label': i18nString(UIStrings.codeEditor)})),
     detectLineSeparator(text),
     autocompletion,
     CM.tooltips({parent: getTooltipHost() as unknown as HTMLElement}),

@@ -17,6 +17,10 @@ interface RenderOptions {
   allowMultipleChildren?: boolean;
 }
 
+export function getTestContainer(): HTMLElement {
+  return document.getElementById(TEST_CONTAINER_ID) || document.body;
+}
+
 /**
  * Renders a given element into the DOM. By default it will error if it finds an element already rendered but this can be controlled via the options.
  **/
