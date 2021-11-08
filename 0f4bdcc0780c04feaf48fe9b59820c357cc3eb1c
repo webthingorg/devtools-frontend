@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8847eb3f_453c5520",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-08T12:47:11Z",
+      "side": 1,
+      "message": "I\u0027d be curious how to best test this:\n\nI can\u0027t write this as a unit test: in order to populate messages, I have to start recording, and the protocol monitor would connect itself with the backend.\n\nIf I write this as an e2e test I don\u0027t improve test coverage metrics.",
+      "revId": "0f4bdcc0780c04feaf48fe9b59820c357cc3eb1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
