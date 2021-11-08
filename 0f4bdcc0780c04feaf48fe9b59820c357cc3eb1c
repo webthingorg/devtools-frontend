@@ -16,6 +16,41 @@
       "message": "I\u0027d be curious how to best test this:\n\nI can\u0027t write this as a unit test: in order to populate messages, I have to start recording, and the protocol monitor would connect itself with the backend.\n\nIf I write this as an e2e test I don\u0027t improve test coverage metrics.",
       "revId": "0f4bdcc0780c04feaf48fe9b59820c357cc3eb1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc4f31a_d06cf55a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-08T14:19:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "0f4bdcc0780c04feaf48fe9b59820c357cc3eb1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d702a44_5101f8ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-08T14:19:49Z",
+      "side": 1,
+      "message": "Unfortunately I don\u0027t think there is a good way to test this without some changes. In my ideal world where everything is perfect and time is unlimited, I\u0027d want the ProtocolMonitor component to be given a set of messages from an external source (e.g. separate the UI from the \"business logic\" of fetching messages), and then you could do a test where you fired up the component, fed it fake data, and then clicked the clear button (because the protocol monitor UI wouldn\u0027t attempt to talk to any backend).\n\nIn this current world, I think this sort of change falls into the space of \"can\u0027t unit test, and feels too small to warrant an e2e test\", unfortunately.",
+      "parentUuid": "8847eb3f_453c5520",
+      "revId": "0f4bdcc0780c04feaf48fe9b59820c357cc3eb1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
