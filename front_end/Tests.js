@@ -1698,3 +1698,8 @@
 
   window.uiTests = new TestSuite(window.domAutomationController);
 })(window);
+
+await self.runtime.loadLegacyModule('core/common/common-legacy.js');
+await self.runtime.loadLegacyModule('core/sdk/sdk-legacy.js');
+await self.runtime.loadLegacyModule('ui/legacy/legacy-legacy.js');
+await self.runtime.loadLegacyModule('models/workspace/workspace-legacy.js');
