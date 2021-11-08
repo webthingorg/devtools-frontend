@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4de2debc_56210076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-08T08:25:02Z",
+      "side": 1,
+      "message": "FYI in case you haven\u0027t done this before: to update the test expectations, you\u0027ll need to create a separate Chromium CL which deactivates the failing tests in TestExpectations and merge it. Then merge this CL, and finally merge a 3rd one in which you enable the tests again and update their expectations files.",
+      "revId": "7c080c69e5d1558d7ff266a2bad438e4f4caa8a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
