@@ -16,6 +16,23 @@
       "message": "FYI https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3268295/1..2 contains the rule fixes (all simple renames).",
       "revId": "4f613bbdbaef477b77d6a841747d2ada88841e05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47171579_78893c97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-08T15:53:13Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "4f613bbdbaef477b77d6a841747d2ada88841e05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
