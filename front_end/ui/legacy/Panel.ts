@@ -45,9 +45,12 @@ export class Panel extends VBox {
     this.element.classList.add(name);
     this.panelName = name;
 
-    // @ts-ignore: Legacy global. Requires rewriting tests to get rid of.
-    // For testing.
-    UI.panels[name] = this;
+    // @ts-ignore
+    if (typeof UI !== 'undefined') {
+      // @ts-ignore: Legacy global. Requires rewriting tests to get rid of.
+      // For testing.
+      UI.panels[name] = this;
+    }
   }
 
   get name(): string {

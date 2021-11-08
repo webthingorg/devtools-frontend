@@ -74,6 +74,7 @@ export async function initializeGlobalVars({reset = true} = {}) {
         Common.Settings.SettingCategory.DEBUGGER, 'skipStackFramesPattern', '', Common.Settings.SettingType.REGEX),
     createSettingValue(Common.Settings.SettingCategory.ELEMENTS, 'showDetailedInspectTooltip', true),
     createSettingValue(Common.Settings.SettingCategory.NETWORK, 'cacheDisabled', false),
+    createSettingValue(Common.Settings.SettingCategory.PERSISTENCE, 'persistenceNetworkOverridesEnabled', false),
     createSettingValue(Common.Settings.SettingCategory.RENDERING, 'avifFormatDisabled', false),
     createSettingValue(
         Common.Settings.SettingCategory.RENDERING, 'emulatedCSSMedia', '', Common.Settings.SettingType.ENUM),
