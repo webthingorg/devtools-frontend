@@ -39,6 +39,30 @@
       },
       "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e97d51_d4a87bb2",
+        "filename": "front_end/panels/elements/components/QueryContainer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-09T10:30:39Z",
+      "side": 1,
+      "message": "I think it won\u0027t be reliable. We don\u0027t want the \u0027#\u0027 without the preventDefault, for example. In general, I think here we could have gone with a span(role\u003dlink) in this case but since there is no actual navigation happening, we can leave existing code as an exception.",
+      "parentUuid": "9b00df1f_6a46255e",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 63
+      },
+      "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
