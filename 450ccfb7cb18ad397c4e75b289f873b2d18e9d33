@@ -52,6 +52,24 @@
       "parentUuid": "08125d22_9ad6cff4",
       "revId": "450ccfb7cb18ad397c4e75b289f873b2d18e9d33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0868833_fd343a91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-09T09:38:21Z",
+      "side": 1,
+      "message": "This is still the case (e.g. for \u0027https://jakearchibald.com/2021/cors/playground/?prefillForm\u003d1\u0026requestMethod\u003dGET\u0026requestUseCORS\u003d1\u0026requestSendCredentials\u003d\u0026preflightStatus\u003d204\u0026preflightAllowOrigin\u003d\u0026preflightAllowCredentials\u003d\u0026preflightAllowMethods\u003d\u0026preflightAllowHeaders\u003d\u0026responseStatus\u003d500\u0026responseAllowOrigin\u003d\u0026responseAllowCredentials\u003d\u0026responseExposeHeaders\u003d\u0027)",
+      "parentUuid": "fa39086a_8b6075e3",
+      "revId": "450ccfb7cb18ad397c4e75b289f873b2d18e9d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
