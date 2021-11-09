@@ -286,6 +286,8 @@ export class ElementsBreadcrumbs extends HTMLElement {
                   crumb: true,
                   selected: crumb.selected,
                 };
+                // Using <a> tag is appropriate in this case, because the tag is only
+                // used for a11y and navigations are intercepted.
                 // eslint-disable-next-line rulesdir/ban_a_tags_in_lit_html
                 return LitHtml.html`
                   <li class=${LitHtml.Directives.classMap(crumbClasses)}
