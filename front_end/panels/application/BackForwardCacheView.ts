@@ -85,6 +85,15 @@ const UIStrings = {
    */
   runTest: 'Run Test',
   /**
+   * @description Explanation of the Back-Forward Cache Test when the users open the Back-Forward Cache page of the devtools first
+   */
+  bfCacheInitialExplanation:
+      'Checks if this site in its current state is being served from Back-Forward Cache. This can change at any time based on these Back-Forward Cache criteria.',
+  /**
+   * @description Link Text about explanation of Back-Forward Cache
+   */
+  learnMore: 'Learn more: Back-Forward Cache eligibility',
+  /**
    * @description Explanation for 'pending support' items which prevent the page from being eligible
    * for back-forward cache.
    */
@@ -94,6 +103,12 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/BackForwardCacheView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+// To be 4 types in next CLs
+const enum ScreenStatusType {
+  First = 'First',
+  Result = 'Result',
+}
+
 export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
   constructor() {
     super(true, 1000);
@@ -102,7 +117,10 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     this.getMainResourceTreeModel()?.addEventListener(
         SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
+    this.screenStatus = ScreenStatusType.First;
   }
+
+  private screenStatus: ScreenStatusType;
 
   wasShown(): void {
     super.wasShown();
@@ -149,6 +167,7 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       return;
     }
     resourceTreeModel.navigateToHistoryEntry(historyResults.entries[historyResults.currentIndex - 1]);
+    this.screenStatus = ScreenStatusType.Result;
   }
 
   private async navigateAwayAndBack(): Promise<void> {
@@ -182,25 +201,45 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       ${i18nString(UIStrings.unavailable)}
       </${ReportView.ReportView.ReportValue.litTagName}>`;
     }
-    return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${Buttons.Button.Button.litTagName}
-            .variant=${Buttons.Button.Variant.PRIMARY}
-            @click=${this.navigateAwayAndBack}>
-            ${i18nString(UIStrings.runTest)}
-      </${Buttons.Button.Button.litTagName}>
-      </${ReportView.ReportView.ReportSectionHeader.litTagName}>
+    switch (this.screenStatus) {
+      case ScreenStatusType.First:
+        return LitHtml.html`
+        <div class='report-explanation'>
+        <div>
+        <${ReportView.ReportView.ReportSection.litTagName}>
+          ${i18nString(UIStrings.bfCacheInitialExplanation)}
+        </${ReportView.ReportView.ReportSection.litTagName}>
+        <${ReportView.ReportView.ReportSection.litTagName}>
+        <x-link href="https://web.dev/bfcache/" class="link">${i18nString(UIStrings.learnMore)}</x-link>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+        <${ReportView.ReportView.ReportSection.litTagName}>
+          <${Buttons.Button.Button.litTagName}
+                class="runTest-button"
+                .variant=${Buttons.Button.Variant.PRIMARY}
+                @click=${this.navigateAwayAndBack}>
+                ${i18nString(UIStrings.runTest)}
+          </${Buttons.Button.Button.litTagName}>
+        </${ReportView.ReportView.ReportSection.litTagName}>
+        </div>
+        </div>
+        `;
+      case ScreenStatusType.Result:
+        return LitHtml.html`
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.url)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
+            ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${mainFrame.url}</${
-        ReportView.ReportView.ReportValue.litTagName}>
+            ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.bfcacheStatus)}</${
-        ReportView.ReportView.ReportKey.litTagName}>
+            ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>${
-        this.renderBackForwardCacheStatus(
-            mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
+            this.renderBackForwardCacheStatus(
+                mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
        ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
+       <${ReportView.ReportView.ReportSection.litTagName}>
+        <x-link href="https://web.dev/bfcache/" class="link">${i18nString(UIStrings.learnMore)}</x-link>
+      </${ReportView.ReportView.ReportSection.litTagName}>
     `;
+    }
   }
 
   private renderBackForwardCacheStatus(status: boolean|undefined): Platform.UIString.LocalizedString {
