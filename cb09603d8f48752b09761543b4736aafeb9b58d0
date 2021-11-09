@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9ca67de_4d3f5e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-11-09T00:51:31Z",
+      "side": 1,
+      "message": "thx for doing this. ",
+      "revId": "cb09603d8f48752b09761543b4736aafeb9b58d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42338d6a_cb73e2b1",
+        "filename": "front_end/panels/lighthouse/LighthouseReportRenderer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2021-11-09T00:51:31Z",
+      "side": 1,
+      "message": "instead you can just delete this method and delete L199.\n\nthe rest of the method will just fallthrough to the normal `window.document`\n\n(this is the change ive been making locally recently)",
+      "revId": "cb09603d8f48752b09761543b4736aafeb9b58d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
