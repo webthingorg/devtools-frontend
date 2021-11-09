@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b4b71cacf5492f9a0f6489807a590967c74c466e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75750f0_4ae45f44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-09T10:24:32Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand why this is required and why using the CSS :active isn\u0027t enough for this use case. Please could you explain why this is required? I think I\u0027m missing the use case :)",
+      "revId": "b4b71cacf5492f9a0f6489807a590967c74c466e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
