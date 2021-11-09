@@ -2690,6 +2690,9 @@
   "panels/application/BackForwardCacheView.ts | backForwardCacheTitle": {
     "message": "B̂áĉḱ-f̂ór̂ẃâŕd̂ Ćâćĥé"
   },
+  "panels/application/BackForwardCacheView.ts | bfCacheInitialExplanation": {
+    "message": "Ĉh́êćk̂ś îf́ t̂h́îś ŝít̂é îń ît́ŝ ćûŕr̂én̂t́ ŝt́ât́ê íŝ b́êín̂ǵ ŝér̂v́êd́ f̂ŕôḿ B̂áĉḱ-F̂ór̂ẃâŕd̂ Ćâćĥé. T̂h́îś ĉán̂ ćĥán̂ǵê át̂ án̂ý t̂ím̂é b̂áŝéd̂ ón̂ t́ĥéŝé B̂áĉḱ-F̂ór̂ẃâŕd̂ Ćâćĥé ĉŕît́êŕîá."
+  },
   "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
     "message": "B̂áĉḱ-f̂ór̂ẃâŕd̂ Ćâćĥé Ŝt́ât́ûś"
   },
@@ -2698,6 +2701,9 @@
   },
   "panels/application/BackForwardCacheView.ts | circumstantialExplanation": {
     "message": "T̂h́êśê ŕêáŝón̂ś âŕê ńôt́ âćt̂íôńâb́l̂é î.é. ĉáĉh́îńĝ ẃâś p̂ŕêv́êńt̂éd̂ b́ŷ śôḿêt́ĥín̂ǵ ôút̂śîd́ê óf̂ t́ĥé d̂ír̂éĉt́ ĉón̂t́r̂ól̂ óf̂ t́ĥé p̂áĝé."
+  },
+  "panels/application/BackForwardCacheView.ts | learnMore": {
+    "message": "L̂éâŕn̂ ḿôŕê: B́âćk̂-F́ôŕŵár̂d́ Ĉáĉh́ê él̂íĝíb̂íl̂ít̂ý"
   },
   "panels/application/BackForwardCacheView.ts | mainFrame": {
     "message": "M̂áîń F̂ŕâḿê"
