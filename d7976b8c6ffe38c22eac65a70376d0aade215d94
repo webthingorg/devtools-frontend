@@ -22,6 +22,30 @@
       },
       "revId": "d7976b8c6ffe38c22eac65a70376d0aade215d94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e399db6_0eaf29ff",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-09T11:24:14Z",
+      "side": 0,
+      "message": "I am not sure, that\u0027s technically is not inside a lit-html template and I am not sure if there could be other valid use cases to create an a element?",
+      "parentUuid": "8e31f3ef_ef08358e",
+      "range": {
+        "startLine": 83,
+        "startChar": 25,
+        "endLine": 83,
+        "endChar": 53
+      },
+      "revId": "d7976b8c6ffe38c22eac65a70376d0aade215d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
