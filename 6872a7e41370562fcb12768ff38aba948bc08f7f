@@ -16,6 +16,41 @@
       "message": "Build error is\n\nRuntimeError: Command \u0027/b/s/w/ir/cache/builder/src/out/Release/../../third_party/node/linux/node-linux-x64/bin/node /b/s/w/ir/cache/builder/src/out/Release/../../third_party/node/node_modules/typescript/bin/tsc --project gen/chrome/test/data/webui/signin/tsconfig.json\u0027 failed\ngen/chrome/test/data/webui/signin/preprocessed/profile_card_menu_test.ts:41:7 - error TS2322: Type \u0027{ profilePath: string; localProfileName: string; isSyncing: true; needsSignin: false; gaiaName: string; userName: string; isManaged: false; avatarIcon: string; isPrimaryLacrosProfile: boolean; }\u0027 is not assignable to type \u0027ProfileState\u0027.\n  Object literal may only specify known properties, and \u0027isPrimaryLacrosProfile\u0027 does not exist in type \u0027ProfileState\u0027.\n\n41       isPrimaryLacrosProfile: false,\n         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n         \nPretty sure this is not my fault?",
       "revId": "6872a7e41370562fcb12768ff38aba948bc08f7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d1b4ee_168aafe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-11-09T19:13:20Z",
+      "side": 1,
+      "message": "LGTM! Thanks for thinking carefully about the order in which to display these event names as well.\n\n+Benedikt as Debugger owner as FYI",
+      "revId": "6872a7e41370562fcb12768ff38aba948bc08f7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1543952_28c53e04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-11-09T19:13:20Z",
+      "side": 1,
+      "message": "I agree this seems unrelated to your change. Let’s see if this gets resolved upstream.",
+      "parentUuid": "d10fa646_fc1601f7",
+      "revId": "6872a7e41370562fcb12768ff38aba948bc08f7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
