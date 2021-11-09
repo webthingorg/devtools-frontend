@@ -63,6 +63,30 @@
       },
       "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6446091f_6d98eb53",
+        "filename": "front_end/panels/elements/components/QueryContainer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-09T10:31:46Z",
+      "side": 1,
+      "message": "To be honest if the appropriate solution here is to use \u003cspan role\u003dlink\u003e then I think we should do that, rather than leave these comments. I\u0027m very happy to do the changes or divide the work.\n\nWDYT?",
+      "parentUuid": "d5e97d51_d4a87bb2",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 63
+      },
+      "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
