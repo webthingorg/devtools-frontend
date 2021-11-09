@@ -50,6 +50,24 @@
       "message": "Why do we want to ensure that system colors are applied with `!important`? In my idea the styles in `ui/legacy/textButton.css` would serve as a basic, override-able layer of styles (i.e. project-default styles), and allow other specific components/modules to _layer_ on top of it, optionally overriding the colors of `.text-button`s.\n\nCould we instead fix individual call sites where the system-level high contrast is overriden?",
       "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3103f13_c66518a2",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-09T10:26:54Z",
+      "side": 1,
+      "message": "Given that this button is considered legacy and we are moving towards building new components, I\u0027m not too worried myself about the `!important` given that it\u0027s within a forced-color media query. I would be curious as to why we need the !important though as I\u0027d hope nothing else is overriding this - I presume it\u0027s some overly specific CSS selectors elsewhere that are overriding the color?",
+      "parentUuid": "0676f515_39706e10",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
