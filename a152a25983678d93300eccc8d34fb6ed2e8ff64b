@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b00df1f_6a46255e",
+        "filename": "front_end/panels/elements/components/QueryContainer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-09T10:22:42Z",
+      "side": 1,
+      "message": "could we make this rule detect when the use of the \u003ca\u003e is OK? I\u0027m not sure if it could be robust enough, but as a starter, what about if we find `href\u003d\"#\"` or a missing href? Or is that still not enough?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 63
+      },
+      "revId": "a152a25983678d93300eccc8d34fb6ed2e8ff64b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
