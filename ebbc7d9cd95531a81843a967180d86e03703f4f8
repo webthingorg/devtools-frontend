@@ -16,6 +16,24 @@
       "message": "In the `ScreenStatusType.Result` state, you don\u0027t show the button anymore. I believe this means that the user is only be able to run 1 test, even after navigating to a different URL (unless they reload DevTools).",
       "revId": "ebbc7d9cd95531a81843a967180d86e03703f4f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "479381e7_399063d6",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-09T10:03:54Z",
+      "side": 1,
+      "message": "Yes.\nMoreover the test results change when the user backs/forwards the page by himself now. It is not good.\nHowever, if I improve it in this CL, the CL will be large.\nIn the next CLs, I plan that the button will reappear after the test.\n\nNow I\u0027m splitting the CL.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3244992",
+      "parentUuid": "2518a087_9d0b319f",
+      "revId": "ebbc7d9cd95531a81843a967180d86e03703f4f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
