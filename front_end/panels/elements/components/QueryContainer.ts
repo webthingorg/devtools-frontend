@@ -81,6 +81,8 @@ export class QueryContainer extends HTMLElement {
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
+    // Using <a> tag is appropriate in this case, because the tag is only
+    // used for a11y and navigations are intercepted.
     // eslint-disable-next-line rulesdir/ban_a_tags_in_lit_html
     render(html`
       →
