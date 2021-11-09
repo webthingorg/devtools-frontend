@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e58678_7acebfdc",
+        "filename": "test/unittests/front_end/panels/sources/UISourceCodeFrame_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-09T16:14:26Z",
+      "side": 1,
+      "message": "For now, can we skip this test with `it.skip(\u0027[crbug.com/1215072] creates an editor\u0027)` to get CQ passing? We can work on enabling this test in a follow-up CL.",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 4
+      },
+      "revId": "a02caa63daa049c362b342fe7935c7f54a7c0bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
