@@ -39,6 +39,30 @@
       },
       "revId": "dd81cc24d429acf9ed3d83a727ab4513373dfbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d0f5ebd_9b926d8d",
+        "filename": "test/e2e/console/console-message-format_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2021-11-09T08:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb93872e_4ecad03d",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "dd81cc24d429acf9ed3d83a727ab4513373dfbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
