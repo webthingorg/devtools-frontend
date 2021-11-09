@@ -22,6 +22,30 @@
       },
       "revId": "a02caa63daa049c362b342fe7935c7f54a7c0bb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c793aa96_52fc01ec",
+        "filename": "test/unittests/front_end/panels/sources/UISourceCodeFrame_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-09T16:17:10Z",
+      "side": 1,
+      "message": "I think if we\u0027re not committing to this style of testing it\u0027s best to just take the test file out of the patch entirely. Agreed?",
+      "parentUuid": "31e58678_7acebfdc",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 4
+      },
+      "revId": "a02caa63daa049c362b342fe7935c7f54a7c0bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
