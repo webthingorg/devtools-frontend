@@ -34,6 +34,24 @@
       "parentUuid": "2518a087_9d0b319f",
       "revId": "ebbc7d9cd95531a81843a967180d86e03703f4f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03608a63_f35b1d7d",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-09T10:51:28Z",
+      "side": 1,
+      "message": "I added the button component to the screen of the test result.",
+      "parentUuid": "479381e7_399063d6",
+      "revId": "ebbc7d9cd95531a81843a967180d86e03703f4f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
