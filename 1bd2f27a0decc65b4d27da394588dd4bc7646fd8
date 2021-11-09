@@ -16,6 +16,40 @@
       "message": "Hi, PTAL at this change improving color contrast and keyboard navigation in high contrast mode. Thanks!",
       "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b99835_8a45b28c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-09T10:16:08Z",
+      "side": 1,
+      "message": "Adding Jack for his opinion about `!important`-ize text button colors when forced-colors is active. Personally I would feel more comfortable if the use case is strong.",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0676f515_39706e10",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-09T10:16:08Z",
+      "side": 1,
+      "message": "Why do we want to ensure that system colors are applied with `!important`? In my idea the styles in `ui/legacy/textButton.css` would serve as a basic, override-able layer of styles (i.e. project-default styles), and allow other specific components/modules to _layer_ on top of it, optionally overriding the colors of `.text-button`s.\n\nCould we instead fix individual call sites where the system-level high contrast is overriden?",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
