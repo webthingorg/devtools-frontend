@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fea1720_8280b6c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-11-09T15:47:21Z",
+      "side": 1,
+      "message": "Cherry pick for M97, is this the only thing I need to do for the land or do I need to manually roll the tracked rev in chromium? I know it auto-rolls for trunk, not sure how release branches work.",
+      "revId": "ff01198e85613d9154bd714ef1d37c876f936f3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
