@@ -2690,6 +2690,9 @@
   "panels/application/BackForwardCacheView.ts | backForwardCacheTitle": {
     "message": "Back-Forward Cache"
   },
+  "panels/application/BackForwardCacheView.ts | bfCacheInitialExplanation": {
+    "message": "Checks if this site in its current state is being served from Back-Forward Cache. This can change at any time based on these Back-Forward Cache criteria."
+  },
   "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
     "message": "Back-Forward Cache Status"
   },
@@ -2698,6 +2701,9 @@
   },
   "panels/application/BackForwardCacheView.ts | circumstantialExplanation": {
     "message": "These reasons are not actionable i.e. caching was prevented by something outside of the direct control of the page."
+  },
+  "panels/application/BackForwardCacheView.ts | learnMore": {
+    "message": "Learn more: Back-Forward Cache eligibility"
   },
   "panels/application/BackForwardCacheView.ts | mainFrame": {
     "message": "Main Frame"
