@@ -33,6 +33,23 @@
       "message": "Tim (as an owner)",
       "revId": "a4e51e052cede181d7abfafe82015531f18b7642",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e7c1890_1d164f4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-09T11:03:59Z",
+      "side": 1,
+      "message": "OWNERS LGTM!",
+      "revId": "a4e51e052cede181d7abfafe82015531f18b7642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

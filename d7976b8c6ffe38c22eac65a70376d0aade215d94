@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e31f3ef_ef08358e",
+        "filename": "front_end/panels/css_overview/components/CSSOverviewStartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-09T11:03:59Z",
+      "side": 0,
+      "message": "Drive-by observation: maybe we should also update `ban_a_tags_in_lit_html` to disallow this?",
+      "range": {
+        "startLine": 83,
+        "startChar": 25,
+        "endLine": 83,
+        "endChar": 53
+      },
+      "revId": "d7976b8c6ffe38c22eac65a70376d0aade215d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
