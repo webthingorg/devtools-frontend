@@ -4,9 +4,10 @@
 
 import {assert} from 'chai';
 
-import {goToResource} from '../../shared/helper.js';
+import {click, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {getMenuItemTitleAtPosition, openFileQuickOpen} from '../helpers/quick_open-helpers.js';
+import {getMenuItemAtPosition, getMenuItemTitleAtPosition, openFileQuickOpen} from '../helpers/quick_open-helpers.js';
+import {listenForSourceFilesLoaded, waitForSourceLoadedEvent} from '../helpers/sources-helpers.js';
 
 describe('Quick Open menu', () => {
   it('lists available files', async () => {
@@ -14,5 +15,20 @@ describe('Quick Open menu', () => {
     await openFileQuickOpen();
     const firstItemTitle = await getMenuItemTitleAtPosition(0);
     assert.strictEqual(firstItemTitle, 'hello-world.html');
+  });
+
+  it('opens the sources panel when a file is selected', async () => {
+    const {frontend} = getBrowserAndPages();
+    await listenForSourceFilesLoaded(frontend);
+    await step('open quick open menu and select the first option', async () => {
+      await goToResource('pages/hello-world.html');
+      await openFileQuickOpen();
+      const firstItem = await getMenuItemAtPosition(0);
+      await click(firstItem);
+    });
+    await step('check the sources panel is open with the selected file', async () => {
+      await waitFor('.navigator-file-tree-item');
+      await waitForSourceLoadedEvent(frontend, 'hello-world.html');
+    });
   });
 });
