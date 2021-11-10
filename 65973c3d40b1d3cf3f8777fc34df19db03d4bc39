@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "65973c3d40b1d3cf3f8777fc34df19db03d4bc39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f843300_27c800b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-10T06:45:26Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "65973c3d40b1d3cf3f8777fc34df19db03d4bc39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2acc7da_f65e7c4b",
+        "filename": "front_end/panels/issues/IssueKindView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-10T06:45:26Z",
+      "side": 1,
+      "message": "q: Do we need the word \"current\" in these phrases? Does that mean that if new Page Errors show up after hiding, that the new ones are shown?",
+      "range": {
+        "startLine": 19,
+        "startChar": 38,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "65973c3d40b1d3cf3f8777fc34df19db03d4bc39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
