@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6773e3d6_a20783c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-10T16:04:14Z",
+      "side": 1,
+      "message": "Alex, Changhao, PTAL. I will add some tests before landing, but would like your feedback on the design.\n\nI wasn\u0027t sure if allowing slotted content for the main link is worth it vs just asking for a URL and string, and handling rendering the \u003cx-link\u003e within the component. This is a bit more flexible but does mean a bit more effort for the person rendering it. WDYT?",
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
