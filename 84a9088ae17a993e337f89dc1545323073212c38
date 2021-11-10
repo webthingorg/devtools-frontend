@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34dba6c2_19da24ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-10T09:36:19Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3253252/10\nLet\u0027s continue to discuss above CL.\n\nIf the user navigates to Application-\u003eFrames-\u003eTop in DevTools, the user will see an ellipsis to URLs instead of line-breaking.\n\nI think there has been a bug before this CL. In the main branch, the user also sees the ellipsis to URLs. I think the problem is that the URL elements have class\u003d\"text-ellipsis\".",
+      "revId": "84a9088ae17a993e337f89dc1545323073212c38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
