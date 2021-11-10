@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6033a3cd_8e2c73d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:32:51Z",
+      "side": 1,
+      "message": "I\u0027d say if we don\u0027t need the flexibility right now let\u0027s not add the slot? Although I don\u0027t mind keeping the slot too. One reason for not having the slot would be avoiding the need for the called to import/depend on x-link.",
+      "parentUuid": "6773e3d6_a20783c1",
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a470ec6d_8edd606d",
