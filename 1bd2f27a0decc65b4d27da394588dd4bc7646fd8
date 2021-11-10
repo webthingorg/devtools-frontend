@@ -68,6 +68,24 @@
       "parentUuid": "0676f515_39706e10",
       "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27fa8322_e48b3177",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1494532
+      },
+      "writtenOn": "2021-11-10T17:42:02Z",
+      "side": 1,
+      "message": "Yes, the color styles in the forced-color query were being overridden by the style on lines 41-45:\n\n.text-button:not(:disabled):not(.running):focus,\n.text-button:not(:disabled):not(.running):hover,\n.text-button:not(:disabled):not(.running):active {\n  color: var(--legacy-accent-fg-color-hover);\n}",
+      "parentUuid": "a3103f13_c66518a2",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
