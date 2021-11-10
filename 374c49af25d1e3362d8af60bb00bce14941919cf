@@ -16,6 +16,144 @@
       "message": "Alex, Changhao, PTAL. I will add some tests before landing, but would like your feedback on the design.\n\nI wasn\u0027t sure if allowing slotted content for the main link is worth it vs just asking for a URL and string, and handling rendering the \u003cx-link\u003e within the component. This is a bit more flexible but does mean a bit more effort for the person rendering it. WDYT?",
       "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a470ec6d_8edd606d",
+        "filename": "front_end/ui/components/docs/panel_feedback/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e34fa58_ccfb78b8",
+        "filename": "front_end/ui/components/docs/panel_feedback/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d5aef17_e62d4f12",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "should it say \"feedback\" as an example? And say something like see \"previewText\" string?",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f122b59d_2344f8f5",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "I am actually curious if translators are able to interpret that properly (I don\u0027t know if they look at two strings from one file at the same time). Also, in other languages, it might be a phrase that might be awkward to translate with this separation.",
+      "range": {
+        "startLine": 18,
+        "startChar": 90,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dad53a7_8adae6ee",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "We should explain here that \"Preview\" is not a verb. Upd, it looks exactly the same as the next description.",
+      "range": {
+        "startLine": 24,
+        "startChar": 16,
+        "endLine": 24,
+        "endChar": 103
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b0fdd0e_80b4ddfe",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-10T16:28:54Z",
+      "side": 1,
+      "message": "Nit: I am thinking if we should put role\u003dpresentation here as it\u0027s not really important content.",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
