@@ -1,8 +1,2 @@
-{
-  "compilerOptions": {
-    "composite": true
-  },
-  "files": [
-    "ExtensionAPI.d.ts"
-  ]
+
 }
