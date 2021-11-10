@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eab26d99_96bd22c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-10T13:22:42Z",
+      "side": 1,
+      "message": "There hasn\u0027t been significant changes for a month. That\u0027s why the roll hasn\u0027t happened. This roll is also optional since it doesn\u0027t change any real frontend bindings.",
+      "revId": "39e93bc32643189455db861a382968ed7b45c82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
