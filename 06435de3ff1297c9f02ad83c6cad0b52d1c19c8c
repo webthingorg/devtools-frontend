@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d7d9b2_4f3de5c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-10T16:35:15Z",
+      "side": 1,
+      "message": "I left some debugging statements over. I will clean these up tomorrow, after the e2e-tests finished running on CQ.",
+      "revId": "06435de3ff1297c9f02ad83c6cad0b52d1c19c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ed2a46_7e70662a",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-10T16:35:15Z",
+      "side": 1,
+      "message": "Oops, need to delete these \u003e.\u003c",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 38
+      },
+      "revId": "06435de3ff1297c9f02ad83c6cad0b52d1c19c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "727fbdd8_b5fbfe66",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-10T16:35:15Z",
+      "side": 1,
+      "message": "And same here",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "06435de3ff1297c9f02ad83c6cad0b52d1c19c8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
