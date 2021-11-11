@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af511b6_17748588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T09:56:35Z",
+      "side": 1,
+      "message": "Thanks - I was on the edge and thinking about it I like moving the x-link just into the feedback component and not making the user do it. Will update.",
+      "parentUuid": "6033a3cd_8e2c73d3",
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a470ec6d_8edd606d",
