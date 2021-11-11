@@ -86,6 +86,24 @@
       "parentUuid": "a3103f13_c66518a2",
       "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f20c41_2d540122",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-11T09:19:12Z",
+      "side": 1,
+      "message": "I see. Could we then override the styles in L41-45 within the forced-colors query with:\n```\n.text-button:not(:disabled):focus,\n.text-button:not(:disabled):not(.running):focus {\n  ...\n  color: Highlight;\n}\n\n...\n\n.text-button:not(:disabled):hover,\n.text-button:not(:disabled):active,\n.text-button:not(:disabled):not(.running):hover,\n.text-button:not(:disabled):not(.running):active {\n  ...\n  color: HighlightText;\n}\n```?",
+      "parentUuid": "27fa8322_e48b3177",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
