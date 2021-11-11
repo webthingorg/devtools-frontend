@@ -168,7 +168,7 @@ describe('The Debugger Language Plugins', async () => {
         items.indexOf('(provided via debug info by global_variable.wasm)'), 0, 'Toolbar debug info hint not found');
 
     // Line 4 is non-breakable.
-    assert.include(await getNonBreakableLines(frontend), 4);
+    assert.include(await getNonBreakableLines(), 4);
 
     await addBreakpointForLine(frontend, 9);
 

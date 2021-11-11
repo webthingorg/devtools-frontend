@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$, click, getBrowserAndPages, goToResource, installEventListener, step, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$, click, debuggerStatement, getBrowserAndPages, goToResource, installEventListener, step, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {addBreakpointForLine, checkBreakpointDidNotActivate, clearSourceFilesAdded, DEBUGGER_PAUSED_EVENT, getBreakpointDecorators, getCallFrameLocations, getCallFrameNames, getNonBreakableLines, getValuesForScope, isBreakpointSet, listenForSourceFilesAdded, openSourceCodeEditorForFile, openSourcesPanel, reloadPageAndWaitForSourceFile, removeBreakpointForLine, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, SELECTED_THREAD_SELECTOR, sourceLineNumberSelector, stepThroughTheCode, switchToCallFrame, TURNED_OFF_PAUSE_BUTTON_SELECTOR, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
@@ -116,7 +116,7 @@ describe('Sources Tab', async function() {
 
     await step('hover over the $var0 in line No.0x023', async () => {
       const pausedPosition = await waitForFunction(async () => {
-        const element = await $('.cm-variable-2.cm-execution-line-tail');
+        const element = await $('.cm-executionLine .token-variable');
         if (element && await element.evaluate(e => e.isConnected)) {
           return element;
         }
@@ -136,15 +136,17 @@ describe('Sources Tab', async function() {
     const {frontend} = getBrowserAndPages();
 
     await openSourceCodeEditorForFile('add.wasm', 'wasm/call-to-add-wasm.html');
-    assert.deepEqual(await getNonBreakableLines(frontend), [
+    await debuggerStatement(frontend);
+    assert.deepEqual(await getNonBreakableLines(), [
       0x000,
       0x020,
       0x04b,
     ]);
-    assert.deepEqual(await getBreakpointDecorators(frontend), []);
+    await debuggerStatement(frontend);
+    assert.deepEqual(await getBreakpointDecorators(), []);
     // Line 3 is breakable.
     await addBreakpointForLine(frontend, '0x023');
-    assert.deepEqual(await getBreakpointDecorators(frontend), [0x023]);
+    assert.deepEqual(await getBreakpointDecorators(), [0x023]);
   });
 
   it('is able to step with state', async () => {
