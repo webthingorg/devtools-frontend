@@ -141,6 +141,16 @@
     this.domAutomationController_.send('[FAILED] ' + error);
   };
 
+  TestSuite.prototype.setupLegacyFilesForTest = async function() {
+    await Promise.all([
+      self.runtime.loadLegacyModule('core/common/common-legacy.js'),
+      self.runtime.loadLegacyModule('core/sdk/sdk-legacy.js'),
+      self.runtime.loadLegacyModule('ui/legacy/legacy-legacy.js'),
+      self.runtime.loadLegacyModule('models/workspace/workspace-legacy.js'),
+    ]);
+    this.reportOk_();
+  };
+
   /**
    * Run specified test on a fresh instance of the test suite.
    * @param {Array<string>} args method name followed by its parameters.
