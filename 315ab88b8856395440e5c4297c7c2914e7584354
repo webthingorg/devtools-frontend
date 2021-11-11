@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece2d1e0_fb15dbd0",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-11T11:37:53Z",
+      "side": 1,
+      "message": "TIL that collective nouns are plural in british but singluar in american english, is that true? :) If so, this should probably be \"Our team is\" and the en-GB translation will be handled by translators 😊",
+      "range": {
+        "startLine": 16,
+        "startChar": 25,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "315ab88b8856395440e5c4297c7c2914e7584354",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
