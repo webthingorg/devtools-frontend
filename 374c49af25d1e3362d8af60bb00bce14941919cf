@@ -283,6 +283,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "728c4d5e_659259cf",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T11:30:34Z",
+      "side": 1,
+      "message": "Updated as two sentences. Thanks Simon, this was super useful!",
+      "parentUuid": "5fc8d8d2_87b27392",
+      "range": {
+        "startLine": 18,
+        "startChar": 90,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9dad53a7_8adae6ee",
