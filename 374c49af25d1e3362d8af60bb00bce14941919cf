@@ -261,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fc8d8d2_87b27392",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-11T10:46:23Z",
+      "side": 1,
+      "message": "I recommend against such an approach for the simple reason that we currently can\u0027t link the translation of \"feedback\", to the translation of the rest of the phrase. This works in english but we have no idea if this will work in other languages. The grammar might sound horribly broken, or even worse, convey the wrong information.\n\nI know that we might have a few places already where we use this pattern, but if at all possible, I\u0027d advice against it. As an alternative, you could have it as two sentences: \"Our team are actively working on this feature and we are looking for your feedback. (Go to feedback form)\". Then both sentences can be translated separately without too many issues.\n\nIf you really insist on keeping it inline, I\u0027d say expand the @description of the long phrase. Say explicitly that PH1 will always be the translated term for \"feedback\" and that it will be rendered as a link to a feedback form. I\u0027d also recommend expanding the description slightly. It has enough context (due to being a full sentence), but it might be nice to mention where and when we show it to users. Currently the description is the equivalent of the following code comment xD:\n\n // Call foo.\n foo();\n\nThanks!\n\nP.S.: As a non-native speaker the phrase \"Our team are\" instead of \"Our team is\" sounds weird :D",
+      "parentUuid": "0885a200_90c80ead",
+      "range": {
+        "startLine": 18,
+        "startChar": 90,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9dad53a7_8adae6ee",
         "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
         "patchSetId": 2
