@@ -69,6 +69,24 @@
       "parentUuid": "918a30c8_4730b39b",
       "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88997796_2979dd25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-11T14:37:53Z",
+      "side": 1,
+      "message": "Okay thanks for confirming. In that case, let\u0027s update `test/webtests/http/tests/devtools/a11y-axe-core/sources/source-navigator-snippets-a11y-test.js` with the contents of the test expectation (e.g. with the warning baked in)",
+      "parentUuid": "d2b92133_b9d65bbc",
+      "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
