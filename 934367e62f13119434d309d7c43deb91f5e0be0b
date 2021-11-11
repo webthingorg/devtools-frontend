@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c466691_73493246",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-11T09:05:51Z",
+      "side": 1,
+      "message": "Thank you for the update with the conditional rendering.\n\nI\u0027ve been added to the email discussion where Peter just updated his design suggestions. Would you mind updating this CL to include the latest designs?\n\nSpecifically, currently the user is forced to push the test button to see any bfcache info. The results of just navigating back or forward are only shown once a test has already been run. I think pushing the test button should be optional.\n\nIt might make sense to not try to split the update into multiple CLs. The different stages/states are very similar in the latest designs, so I feel it would fit all into a single CL.",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937654e6_bb7b8153",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-11T09:05:51Z",
+      "side": 1,
+      "message": "Is this additional div needed?",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df9ee77_e07ec2d3",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-11T09:05:51Z",
+      "side": 1,
+      "message": "nit: please check the indentation for the LitHtml parts. The auto-formatter often does not work correctly for LitHtml, you might need to use \u0027// clang-format off\u0027 and do it manually.",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
