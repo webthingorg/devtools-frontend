@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b6a048_ff1f8ac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "@simon PTAL at Alex\u0027s comment about the i18n {PH1}. Thanks!",
+      "revId": "24a3b318cf7d13a120f3d212252c132935443f1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

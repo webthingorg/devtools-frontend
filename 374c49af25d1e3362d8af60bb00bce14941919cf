@@ -94,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e6e46fe_9acabf3c",
+        "filename": "front_end/ui/components/docs/panel_feedback/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a470ec6d_8edd606d",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e34fa58_ccfb78b8",
@@ -117,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10cbe3e0_5b857139",
+        "filename": "front_end/ui/components/docs/panel_feedback/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e34fa58_ccfb78b8",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d5aef17_e62d4f12",
@@ -130,6 +178,30 @@
       "writtenOn": "2021-11-10T16:28:54Z",
       "side": 1,
       "message": "should it say \"feedback\" as an example? And say something like see \"previewText\" string?",
+      "range": {
+        "startLine": 16,
+        "startChar": 13,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6517e4_c05b4995",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d5aef17_e62d4f12",
       "range": {
         "startLine": 16,
         "startChar": 13,
@@ -165,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0885a200_90c80ead",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "I think this is OK because the translator could move the PH1 around and pick where it makes most sense - but not 100%. Adding Simon for his opinion :)",
+      "parentUuid": "f122b59d_2344f8f5",
+      "range": {
+        "startLine": 18,
+        "startChar": 90,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9dad53a7_8adae6ee",
         "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
         "patchSetId": 2
@@ -176,6 +272,30 @@
       "writtenOn": "2021-11-10T16:28:54Z",
       "side": 1,
       "message": "We should explain here that \"Preview\" is not a verb. Upd, it looks exactly the same as the next description.",
+      "range": {
+        "startLine": 24,
+        "startChar": 16,
+        "endLine": 24,
+        "endChar": 103
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a50eb8_ebdc2407",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dad53a7_8adae6ee",
       "range": {
         "startLine": 24,
         "startChar": 16,
@@ -199,6 +319,30 @@
       "writtenOn": "2021-11-10T16:28:54Z",
       "side": 1,
       "message": "Nit: I am thinking if we should put role\u003dpresentation here as it\u0027s not really important content.",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "374c49af25d1e3362d8af60bb00bce14941919cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff8e745a_6c8c4bbf",
+        "filename": "front_end/ui/components/panel_feedback/PanelFeedback.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-11T10:19:15Z",
+      "side": 1,
+      "message": "Agree, nice idea!",
+      "parentUuid": "0b0fdd0e_80b4ddfe",
       "range": {
         "startLine": 86,
         "startChar": 17,
