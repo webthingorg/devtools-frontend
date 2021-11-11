@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b475724_59c502bc",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-11T15:04:42Z",
+      "side": 1,
+      "message": "I think this will timeout in case of exception/rejection, as we don\u0027t send any message here and we run message loop in the C++ counterpart waiting for a mesasge.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 66
+      },
+      "revId": "8b7aa371de38b8c3f6854b7810c5a141f6e3dd27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
