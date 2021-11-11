@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d20f3e7f_1a32ea9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-11T09:08:44Z",
+      "side": 1,
+      "message": "I just spoke to Peter and in his opinion the button with spinner is not a must since the transition happens very quickly. Maybe just set the button to inactive during the test.\n\nBut if you still want to add a spinner to the button, I\u0027m happy to help with that in a separate CL.",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "937654e6_bb7b8153",
