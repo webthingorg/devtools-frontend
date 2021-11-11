@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55ed2b5f_c8fe3856",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-11T15:50:37Z",
+      "side": 1,
+      "message": "Could `editor` be `undefined` here? The tests are failing after this patchset and I have a suspicion this line is the problematic call here, givne the cast that is done on line 1066? https://test-results.appspot.com/data/layout_results/devtools_frontend_linux_blink_light_rel/18897/blink_web_tests%20%28retry%20shards%20with%20patch%29/layout-test-results/results.html",
+      "range": {
+        "startLine": 1072,
+        "startChar": 18,
+        "endLine": 1072,
+        "endChar": 33
+      },
+      "revId": "ff87768e0a753f1350bee5261e808a55f992686e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
