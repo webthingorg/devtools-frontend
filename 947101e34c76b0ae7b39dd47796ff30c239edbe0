@@ -33,6 +33,42 @@
       "message": "To resolve https://ci.chromium.org/ui/artifact/text-diff/invocations/task-chromium-swarm.appspot.com-5727a38dd3866311/tests/ninja:%2F%2F:devtools_web_tests%2Fhttp%2Ftests%2Fdevtools%2Fa11y-axe-core%2Fsources%2Fjavascript-breakpoints-a11y-test.js/results/08d96131-00015/artifacts/text_diff we will need to delete `test/webtests/http/tests/devtools/a11y-axe-core/sources/javascript-breakpoints-a11y-test.js` and `test/webtests/http/tests/devtools/a11y-axe-core/sources/javascript-breakpoints-a11y-test-expected.tx` that reside in this repository. Can you update your CL to delete these two files?",
       "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b92133_b9d65bbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-11T14:35:07Z",
+      "side": 1,
+      "message": "If I remember correctly, I had to add that (in the CodeMirror lib itself) to make NVDA properly read out the completion options, even though it was added differently (to the completion list, maybe?) in the examples. So this may be a case of the actual software disagreeing with the spec (happens a lot in accessibility). Selectively suppressing this error seems reasonable here.",
+      "parentUuid": "98226ad6_2e98f14d",
+      "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f753c882_943a414e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-11T14:35:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918a30c8_4730b39b",
+      "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
