@@ -105,6 +105,24 @@
       "parentUuid": "88997796_2979dd25",
       "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfcf681_adf6ebe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-12T10:45:15Z",
+      "side": 1,
+      "message": "The contents of `sources-editor-pane-a11y-test-expected.txt` should be the following:\n\n```\nTests accessibility in the editor pane in sources panel using the axe-core linter.\nAll tabs:\nScript snippet #1\nScript snippet #2\n\n\naXe violations: [\n  {\n    \"ruleDescription\": \"Ensures ARIA attributes are allowed for an element\u0027s role\",\n    \"helpUrl\": \"https://dequeuniversity.com/rules/axe/3.3/aria-allowed-attr?application\u003daxeAPI\",\n    \"ruleId\": \"aria-allowed-attr\",\n    \"impact\": \"critical\",\n    \"failedNodes\": [\n      {\n        \"target\": [\n          [\n            \"devtools-text-editor\",\n            \".cm-content\"\n          ]\n        ],\n        \"html\": \"\u003cdiv spellcheck\u003d\\\"false\\\" autocorrect\u003d\\\"off\\\" autocapitalize\u003d\\\"off\\\" translate\u003d\\\"no\\\" contenteditable\u003d\\\"true\\\" class\u003d\\\"cm-content\\\" style\u003d\\\"tab-size: 4;\\\" role\u003d\\\"textbox\\\" aria-multiline\u003d\\\"true\\\" aria-autocomplete\u003d\\\"list\\\" aria-expanded\u003d\\\"false\\\" aria-label\u003d\\\"Code editor\\\"\u003e\u003cdiv class\u003d\\\"cm-line\\\"\u003e\u003cbr\u003e\u003c/div\u003e\u003c/div\u003e\",\n        \"failureSummary\": \"Fix any of the following:\\n  ARIA attribute is not allowed: aria-expanded\u003d\\\"false\\\"\"\n      }\n    ]\n  }\n]\n\n\n\n```",
+      "parentUuid": "b26b0fd3_ccd150f6",
+      "revId": "947101e34c76b0ae7b39dd47796ff30c239edbe0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
