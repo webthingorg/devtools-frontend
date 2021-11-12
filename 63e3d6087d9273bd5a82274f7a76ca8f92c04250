@@ -33,6 +33,24 @@
       "message": "Have you considered changing how we render icons instead, so that it does not produce any whitespace?",
       "revId": "63e3d6087d9273bd5a82274f7a76ca8f92c04250",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15fcd729_88d86a3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-12T14:21:42Z",
+      "side": 1,
+      "message": "Yes, I looked into that as well. The spaces are mostly caused by line breaks within LitHtml. Something like:\n\u003cdiv\u003e\n  \u003cspan\u003econtent\u003c/span\u003e\n\u003c/div\u003e\nwould result in multiple whitespaces. I don\u0027t love the solution, but I figured taking care of it in the TestRenderer would make the most sense.",
+      "parentUuid": "418feec4_723a3b14",
+      "revId": "63e3d6087d9273bd5a82274f7a76ca8f92c04250",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
