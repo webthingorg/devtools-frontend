@@ -109,7 +109,15 @@ module.exports = {
             'format': ['camelCase'],
             'leadingUnderscore': 'allow',
           }
-        ]
+        ],
+        'no-restricted-syntax': [
+          'warn', {
+            'selector': 'MemberExpression:has(Identifier[name="registerRequiredCSS"])',
+            'message': 'Styles should be imported using `import styles from \'[file name].css.js\';` and' +
+                // Intentional double periods.. since trailing period is stripped from output.
+                ' registerd using `.registerCSSFiles([styles]);` syntax..',
+          }
+        ],
       }
     },
     {

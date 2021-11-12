@@ -77,6 +77,7 @@ export class SplitWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typ
       defaultSidebarHeight?: number, constraintsInDip?: boolean) {
     super(true);
     this.element.classList.add('split-widget');
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/splitWidget.css');
 
     this.contentElement.classList.add('shadow-split-widget');

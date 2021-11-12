@@ -157,6 +157,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
       groupExpansionSetting?: Common.Settings.Setting<GroupExpansionState>) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/components/perf_ui/flameChart.css');
     this.contentElement.classList.add('flame-chart-main-pane');
     this.groupExpansionSetting = groupExpansionSetting;

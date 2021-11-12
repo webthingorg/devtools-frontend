@@ -51,6 +51,7 @@ export class ChartViewport extends UI.Widget.VBox {
 
   constructor(delegate: ChartViewportDelegate) {
     super();
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/components/perf_ui/chartViewport.css');
 
     this.delegate = delegate;

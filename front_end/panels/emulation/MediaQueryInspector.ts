@@ -32,6 +32,7 @@ export class MediaQueryInspector extends UI.Widget.Widget implements
 
   constructor(getWidthCallback: () => number, setWidthCallback: (arg0: number) => void) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('panels/emulation/mediaQueryInspector.css');
     this.contentElement.classList.add('media-inspector-view');
     this.contentElement.addEventListener('click', this.onMediaQueryClicked.bind(this), false);

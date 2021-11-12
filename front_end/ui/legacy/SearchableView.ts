@@ -123,6 +123,7 @@ export class SearchableView extends VBox {
 
   constructor(searchable: Searchable, replaceable: Replaceable|null, settingName?: string) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/searchableView.css');
     searchableViewsByElement.set(this.element, this);
 

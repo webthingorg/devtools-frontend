@@ -101,6 +101,7 @@ export class SoftContextMenu {
     this.glassPane = new GlassPane();
     this.glassPane.setPointerEventsBehavior(
         this.parentMenu ? PointerEventsBehavior.PierceGlassPane : PointerEventsBehavior.BlockedByGlassPane);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.glassPane.registerRequiredCSS('ui/legacy/softContextMenu.css');
     this.glassPane.setContentAnchorBox(anchorBox);
     this.glassPane.setSizeBehavior(SizeBehavior.MeasureContent);

@@ -22,6 +22,7 @@ export class TargetCrashedScreen extends VBox {
   private readonly hideCallback: () => void;
   constructor(hideCallback: () => void) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/targetCrashedScreen.css');
     this.contentElement.createChild('div', 'message').textContent =
         i18nString(UIStrings.devtoolsWasDisconnectedFromThe);

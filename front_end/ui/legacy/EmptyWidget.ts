@@ -47,6 +47,7 @@ export class EmptyWidget extends VBox {
 
   constructor(text: string) {
     super();
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/emptyWidget.css');
     this.element.classList.add('empty-view-scroller');
     this.contentElement = this.element.createChild('div', 'empty-view') as HTMLDivElement;

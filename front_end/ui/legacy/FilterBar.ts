@@ -79,6 +79,7 @@ export class FilterBar extends Common.ObjectWrapper.eventMixin<FilterBarEventTyp
 
   constructor(name: string, visibleByDefault?: boolean) {
     super();
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/filter.css');
     this.enabled = true;
     this.element.classList.add('filter-bar');
