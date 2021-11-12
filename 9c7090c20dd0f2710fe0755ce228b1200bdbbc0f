@@ -16,6 +16,24 @@
       "message": "LGTM. Are there any changes we need to make to any ESLint rules?\n\nFor example, the one that checks if you import `foo.css.js` that `foo.css` exists - could we update that to check `foo.css.legacy.js` too? (can do that in a follow-up) ",
       "revId": "9c7090c20dd0f2710fe0755ce228b1200bdbbc0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fdba778_512ac2d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-12T12:54:28Z",
+      "side": 1,
+      "message": "Ah good catch. That\u0027s a fairly easy fix, so I will put it in this CL.",
+      "parentUuid": "16096658_4199f8ef",
+      "revId": "9c7090c20dd0f2710fe0755ce228b1200bdbbc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
