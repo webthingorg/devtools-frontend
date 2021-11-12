@@ -33,6 +33,46 @@
       "message": "(Adding myself as Kriti was an intern whose internship has now finished)",
       "revId": "4614a27505ad780e124f56518333c6f986e67eb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1979b70_20534571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-12T10:50:01Z",
+      "side": 1,
+      "message": "LGTM after typo fix - thanks!",
+      "revId": "4614a27505ad780e124f56518333c6f986e67eb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51dc6021_12e3157d",
+        "filename": "front_end/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-12T10:50:01Z",
+      "side": 1,
+      "message": "typo: registered",
+      "range": {
+        "startLine": 118,
+        "startChar": 18,
+        "endLine": 118,
+        "endChar": 27
+      },
+      "revId": "4614a27505ad780e124f56518333c6f986e67eb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
