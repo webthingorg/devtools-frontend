@@ -18,7 +18,7 @@ const UIStrings = {
       * @description Description text for not restored reason RelatedActiveContentsExist.
       */
   relatedActiveContentsExist:
-      'The page was opened using `window.open()` and another tab has a reference to it, or the page opened a window.',
+      'The page was opened using \'window.open()\' and another tab has a reference to it, or the page opened a window.',
   /**
       * @description Description text for not restored reason HTTPStatusNotOK.
       */
@@ -84,7 +84,7 @@ const UIStrings = {
   /**
       * @description Description text for not restored reason ServiceWorkerPostMessage.
       */
-  serviceWorkerPostMessage: 'A service worker attempted to send the page in back/forward cache a `MessageEvent`.',
+  serviceWorkerPostMessage: 'A service worker attempted to send the page in back/forward cache a \'MessageEvent\'.',
   /**
       * @description Description text for not restored reason EnteredBackForwardCacheBeforeServiceWorkerHostAdded.
       */
