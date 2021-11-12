@@ -38,6 +38,7 @@ group("docs") {
     "./text_editor",
     "./text_prompt",
     "./theme_colors",
+    "./css_overview",
     "./tree_outline",
     "./trust_tokens_view",
     "./user_agent_client_hints",
