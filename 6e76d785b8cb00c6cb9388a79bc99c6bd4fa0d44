@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2abdcc9_3179fce0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-12T15:06:45Z",
+      "side": 1,
+      "message": "PTAL, I guess these strings should also use the canonical spelling.",
+      "revId": "6e76d785b8cb00c6cb9388a79bc99c6bd4fa0d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
