@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "63e3d6087d9273bd5a82274f7a76ca8f92c04250",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418feec4_723a3b14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-12T08:00:57Z",
+      "side": 1,
+      "message": "Have you considered changing how we render icons instead, so that it does not produce any whitespace?",
+      "revId": "63e3d6087d9273bd5a82274f7a76ca8f92c04250",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
