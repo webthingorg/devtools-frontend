@@ -3,3 +3,4 @@
 // found in the LICENSE file.
 
 export * as PanelFeedback from './PanelFeedback.js';
+export * as FeedbackButton from './FeedbackButton.js';
