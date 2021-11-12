@@ -2690,8 +2690,11 @@
   "panels/application/BackForwardCacheView.ts | backForwardCacheTitle": {
     "message": "Back-Forward Cache"
   },
+  "panels/application/BackForwardCacheView.ts | bfCacheInitialExplanation": {
+    "message": "Checks if this site in its current state is being served from Back-Forward Cache. This can change at any time based on these Back-Forward Cache criteria."
+  },
   "panels/application/BackForwardCacheView.ts | bfcacheStatus": {
-    "message": "Back-Forward Cache Status"
+    "message": "Back-Forward Cache Status: "
   },
   "panels/application/BackForwardCacheView.ts | circumstantial": {
     "message": "Not Actionable"
@@ -2699,11 +2702,14 @@
   "panels/application/BackForwardCacheView.ts | circumstantialExplanation": {
     "message": "These reasons are not actionable i.e. caching was prevented by something outside of the direct control of the page."
   },
+  "panels/application/BackForwardCacheView.ts | learnMore": {
+    "message": "Learn more: Back-Forward Cache eligibility"
+  },
   "panels/application/BackForwardCacheView.ts | mainFrame": {
     "message": "Main Frame"
   },
   "panels/application/BackForwardCacheView.ts | normalNavigation": {
-    "message": "Normal navigation (Not restored from Back-Forward Cache)"
+    "message": "Not served from from Back/forward cache. The last navigation was a normal navigation event. To trigger Back/forward cache, use Chrome's Back/forward button. "
   },
   "panels/application/BackForwardCacheView.ts | pageSupportNeeded": {
     "message": "Actionable"
@@ -2712,10 +2718,13 @@
     "message": "These reasons are actionable i.e. they can be cleaned up to make the page eligible for Back-Forward Cache."
   },
   "panels/application/BackForwardCacheView.ts | restoredFromBFCache": {
-    "message": "Restored from Back-Forward Cache"
+    "message": "Successfully served from Back/forward cache. "
+  },
+  "panels/application/BackForwardCacheView.ts | runningTest": {
+    "message": "Running Test..."
   },
   "panels/application/BackForwardCacheView.ts | runTest": {
-    "message": "Run Test"
+    "message": "Test Back/forward cache"
   },
   "panels/application/BackForwardCacheView.ts | supportPending": {
     "message": "Pending Support"
@@ -2730,7 +2739,7 @@
     "message": "unknown"
   },
   "panels/application/BackForwardCacheView.ts | url": {
-    "message": "URL"
+    "message": "URL:"
   },
   "panels/application/BackgroundServiceView.ts | backgroundFetch": {
     "message": "Background Fetch"
