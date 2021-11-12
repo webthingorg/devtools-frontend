@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "960d3477_f47ae701",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-12T09:18:24Z",
+      "side": 1,
+      "message": "I updated this CL to include the latest design.\nI didn\u0027t add some icons yet. May I add some icons by another CL?",
+      "parentUuid": "4c466691_73493246",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "937654e6_bb7b8153",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a0beca_cdd45b9b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-12T09:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937654e6_bb7b8153",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5df9ee77_e07ec2d3",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-11-11T09:05:51Z",
       "side": 1,
       "message": "nit: please check the indentation for the LitHtml parts. The auto-formatter often does not work correctly for LitHtml, you might need to use \u0027// clang-format off\u0027 and do it manually.",
+      "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d1e9352_683565a7",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-12T09:18:24Z",
+      "side": 1,
+      "message": "I added the indents manually.",
+      "parentUuid": "5df9ee77_e07ec2d3",
       "revId": "934367e62f13119434d309d7c43deb91f5e0be0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
