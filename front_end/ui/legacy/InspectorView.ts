@@ -167,6 +167,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
 
     this.tabbedPane = this.tabbedLocation.tabbedPane();
     this.tabbedPane.element.classList.add('main-tabbed-pane');
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.tabbedPane.registerRequiredCSS('ui/legacy/inspectorViewTabbedPane.css');
     this.tabbedPane.addEventListener(TabbedPaneEvents.TabSelected, this.tabSelected, this);
     this.tabbedPane.setAccessibleName(i18nString(UIStrings.panels));

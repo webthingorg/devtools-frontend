@@ -50,6 +50,7 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
 
   constructor() {
     super();
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/dialog.css');
     this.contentElement.tabIndex = 0;
     this.contentElement.addEventListener('focus', () => this.widget().focus(), false);
