@@ -418,6 +418,7 @@ export class _ExpandableContainerWidget extends VBox {
   constructor(view: View) {
     super(true);
     this.element.classList.add('flex-none');
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/viewContainers.css');
 
     this.titleElement = document.createElement('div');

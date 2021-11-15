@@ -36,6 +36,7 @@ export class GlassPane {
       this.element.shadowRoot.appendChild(this.arrowElement);
     }
 
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/glassPane.css');
     this.setPointerEventsBehavior(PointerEventsBehavior.PierceGlassPane);
 
@@ -55,6 +56,7 @@ export class GlassPane {
   }
 
   registerRequiredCSS(cssFile: string): void {
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.widgetInternal.registerRequiredCSS(cssFile);
   }
 

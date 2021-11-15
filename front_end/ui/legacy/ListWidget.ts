@@ -49,6 +49,7 @@ export class ListWidget<T> extends VBox {
   private emptyPlaceholder: Element|null;
   constructor(delegate: Delegate<T>, delegatesFocus: boolean|undefined = true) {
     super(true, delegatesFocus);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/listWidget.css');
     this.delegate = delegate;
 
