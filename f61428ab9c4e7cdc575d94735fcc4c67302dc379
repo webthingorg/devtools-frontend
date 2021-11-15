@@ -39,6 +39,30 @@
       },
       "revId": "f61428ab9c4e7cdc575d94735fcc4c67302dc379",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e86395ea_836cc526",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 2577,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-15T11:59:28Z",
+      "side": 1,
+      "message": "This is consistent with how other strings with locked substrings look like e.g.\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/components/FrameDetailsView.ts;l\u003d189\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/i18n/locales/en-US.json;l\u003d2940",
+      "parentUuid": "ab2f5ccc_5e8d4940",
+      "range": {
+        "startLine": 2577,
+        "startChar": 42,
+        "endLine": 2577,
+        "endChar": 57
+      },
+      "revId": "f61428ab9c4e7cdc575d94735fcc4c67302dc379",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
