@@ -86,8 +86,6 @@ let loadedProfilerModule: (typeof Profiler|undefined);
 
 async function loadTimelineModule(): Promise<typeof Timeline> {
   if (!loadedTimelineModule) {
-    // Side-effect import resources in module.json
-    await Root.Runtime.Runtime.instance().loadModulePromise('panels/timeline');
     loadedTimelineModule = await import('./timeline.js');
   }
   return loadedTimelineModule;
