@@ -20,6 +20,7 @@ export class ReportView extends VBox {
   private urlElement?: HTMLElement;
   constructor(title?: string) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/reportView.css');
 
     this.contentBox = this.contentElement.createChild('div', 'report-content-box');

@@ -189,6 +189,7 @@ export class PopoverHelper {
 
   private showPopover(document: Document): void {
     const popover = new GlassPane();
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     popover.registerRequiredCSS('ui/legacy/popover.css');
     popover.setSizeBehavior(SizeBehavior.MeasureContent);
     popover.setMarginBehavior(MarginBehavior.Arrow);

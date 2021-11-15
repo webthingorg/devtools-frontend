@@ -11,6 +11,7 @@ export class RootView extends VBox {
     super();
     this.markAsRoot();
     this.element.classList.add('root-view');
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/rootView.css');
     this.element.setAttribute('spellcheck', 'false');
   }
