@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "ef2f2f017a3ade7e823bf77dc68af54a767fe9ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4dd70b8_b0a22abb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2021-11-15T15:12:04Z",
+      "side": 1,
+      "message": "Sorry, I cannot parse the CL description.",
+      "revId": "ef2f2f017a3ade7e823bf77dc68af54a767fe9ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
