@@ -30,6 +30,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class RemoteDebuggingTerminatedScreen extends VBox {
   constructor(reason: string) {
     super(true);
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('ui/legacy/remoteDebuggingTerminatedScreen.css');
     const message = this.contentElement.createChild('div', 'message');
     const reasonElement = message.createChild('span', 'reason');

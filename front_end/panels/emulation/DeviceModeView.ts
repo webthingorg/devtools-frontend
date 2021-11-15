@@ -98,6 +98,7 @@ export class DeviceModeView extends UI.Widget.VBox {
 
     this.setMinimumSize(150, 150);
     this.element.classList.add('device-mode-view');
+    // eslint-disable-next-line no-restricted-syntax -- Should import styles https://crbug.com/1106746
     this.registerRequiredCSS('panels/emulation/deviceModeView.css');
 
     this.model = EmulationModel.DeviceModeModel.DeviceModeModel.instance();
