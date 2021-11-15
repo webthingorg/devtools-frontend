@@ -63,6 +63,30 @@
       },
       "revId": "7dab8316baabced9cd86f8bfdc4d93f6f461254a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea2f427_ddf355e9",
+        "filename": "front_end/panels/application/BackForwardCacheStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-15T10:01:48Z",
+      "side": 1,
+      "message": "Sounds like a good idea. Please make sure though that the phrase is rendered as intended. IIRC single quotes are also used for escaping in Intl.MessageFormat library: https://formatjs.io/docs/intl-messageformat/#features",
+      "parentUuid": "26036ce2_24da0f41",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "7dab8316baabced9cd86f8bfdc4d93f6f461254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
