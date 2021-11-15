@@ -27,24 +27,30 @@ export const enum Size {
 
 interface ButtonState {
   iconUrl?: string;
+  iconColor?: string;
   variant?: Variant;
   size?: Size;
   disabled: boolean;
   active: boolean;
+  spinner?: boolean;
 }
 
 export type ButtonData = {
   variant: Variant.TOOLBAR,
   iconUrl: string,
+  iconColor?: string,
   size?: Size,
   disabled?: boolean,
   active?: boolean,
+  spinner?: boolean,
 }|{
   variant: Variant.PRIMARY | Variant.SECONDARY,
   iconUrl?: string,
+  iconColor?: string,
   size?: Size,
   disabled?: boolean,
   active?: boolean,
+  spinner?: boolean,
 };
 
 export class Button extends HTMLElement {
@@ -56,6 +62,7 @@ export class Button extends HTMLElement {
     size: Size.MEDIUM,
     disabled: false,
     active: false,
+    spinner: false,
   };
   private isEmpty = true;
 
@@ -72,14 +79,21 @@ export class Button extends HTMLElement {
   set data(data: ButtonData) {
     this.props.variant = data.variant;
     this.props.iconUrl = data.iconUrl;
+    this.props.iconColor = data.iconColor;
     this.props.size = data.size || Size.MEDIUM;
     this.props.active = Boolean(data.active);
+    this.props.spinner = Boolean(data.spinner);
     this.setDisabledProperty(data.disabled || false);
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
   set iconUrl(iconUrl: string|undefined) {
     this.props.iconUrl = iconUrl;
+    ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
+  }
+
+  set iconColor(iconColor: string|undefined) {
+    this.props.iconColor = iconColor;
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
@@ -100,6 +114,11 @@ export class Button extends HTMLElement {
 
   set active(active: boolean) {
     this.props.active = active;
+    ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
+  }
+
+  set spinner(spinner: boolean) {
+    this.props.spinner = spinner;
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
@@ -143,6 +162,9 @@ export class Button extends HTMLElement {
         throw new Error('Tooblar button does not accept children');
       }
     }
+    if (!this.props.iconColor) {
+      this.props.iconColor = 'var(--color-background)';
+    }
     const classes = {
       primary: this.props.variant === Variant.PRIMARY,
       secondary: this.props.variant === Variant.SECONDARY,
@@ -152,21 +174,41 @@ export class Button extends HTMLElement {
       small: Boolean(this.props.size === Size.SMALL),
       active: this.props.active,
     };
-    // clang-format off
+
+    if (this.props.spinner) {
+      // clang-format off
     LitHtml.render(
       LitHtml.html`
         <button .disabled=${this.props.disabled} class=${LitHtml.Directives.classMap(classes)}>
           ${this.props.iconUrl ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+          class = "spinner"
             .data=${{
               iconPath: this.props.iconUrl,
-              color: 'var(--color-background)',
+              color: this.props.iconColor,
             } as IconButton.Icon.IconData}
           >
           </${IconButton.Icon.Icon.litTagName}>` : ''}
           <slot @slotchange=${this.onSlotChange}></slot>
         </button>
       `, this.shadow, {host: this});
-    // clang-format on
+      // clang-format on
+    } else {
+      // clang-format off
+    LitHtml.render(
+      LitHtml.html`
+        <button .disabled=${this.props.disabled} class=${LitHtml.Directives.classMap(classes)}>
+          ${this.props.iconUrl ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+            .data=${{
+              iconPath: this.props.iconUrl,
+              color: this.props.iconColor,
+            } as IconButton.Icon.IconData}
+          >
+          </${IconButton.Icon.Icon.litTagName}>` : ''}
+          <slot @slotchange=${this.onSlotChange}></slot>
+        </button>
+      `, this.shadow, {host: this});
+      // clang-format on
+    }
   }
 }
 

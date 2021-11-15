@@ -186,6 +186,10 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>
       <${Buttons.Button.Button.litTagName}
             .variant=${Buttons.Button.Variant.PRIMARY}
+            .disabled=${true}
+            .iconUrl= ${'devtools://devtools/bundled/Images/ic_spinner_16x16.svg'}
+            .iconColor=${'white'}
+            .spinner=${true}
             @click=${this.navigateAwayAndBack}>
             ${i18nString(UIStrings.runTest)}
       </${Buttons.Button.Button.litTagName}>
@@ -196,9 +200,9 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
         ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.bfcacheStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
-      <${ReportView.ReportView.ReportValue.litTagName}>${
-        this.renderBackForwardCacheStatus(
-            mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        ${this.renderBackForwardCacheStatus(mainFrame.backForwardCacheDetails.restoredFromCache)}</${
+        ReportView.ReportView.ReportValue.litTagName}>
        ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
     `;
   }
