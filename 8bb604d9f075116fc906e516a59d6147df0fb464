@@ -16,6 +16,23 @@
       "message": "Jack, PTAL",
       "revId": "8bb604d9f075116fc906e516a59d6147df0fb464",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "720e5f9b_eb924494",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-15T13:48:02Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "revId": "8bb604d9f075116fc906e516a59d6147df0fb464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
