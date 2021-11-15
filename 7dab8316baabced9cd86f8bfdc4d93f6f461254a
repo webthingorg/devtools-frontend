@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "7dab8316baabced9cd86f8bfdc4d93f6f461254a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f46196_208f7fad",
+        "filename": "front_end/panels/application/BackForwardCacheStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-15T06:18:52Z",
+      "side": 1,
+      "message": "Whats the intention behind this CL? We don\u0027t want \"window.open\" to be translated, thats why it was in back-ticks. Replacing the back-ticks with single quotes opens that part up to translations.\n\nI strongly prefer to keep it as-is and extend the description instead, to explicitly say that the resulting placeholder will always have the value of \"window.open()\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "7dab8316baabced9cd86f8bfdc4d93f6f461254a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
