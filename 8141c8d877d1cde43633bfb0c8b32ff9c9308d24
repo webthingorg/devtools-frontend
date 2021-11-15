@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805c7cb3_40cdb239",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-15T08:52:18Z",
+      "side": 1,
+      "message": "I added a spinner option and color option for buttons.\n\nThe previous CSS of the disabled primary button was like the secondary color, so it can\u0027t show like a UX slide. Could you please give me some advice?\n\nAfter merging this CL about the layout, I\u0027ll apply disabled to the button of the running test screen.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3253252",
+      "revId": "8141c8d877d1cde43633bfb0c8b32ff9c9308d24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
