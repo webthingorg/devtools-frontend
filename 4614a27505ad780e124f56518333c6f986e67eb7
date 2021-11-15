@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "534964ad_4da98b4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-11-15T19:50:58Z",
+      "side": 1,
+      "message": "Thank you Jack@! PTAL again since I needed to allow loading legacy CSS introduced in https://crrev.com/c/3275787.",
+      "parentUuid": "f1979b70_20534571",
+      "revId": "4614a27505ad780e124f56518333c6f986e67eb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51dc6021_12e3157d",
         "filename": "front_end/.eslintrc.js",
         "patchSetId": 1
@@ -65,6 +83,30 @@
       "writtenOn": "2021-11-12T10:50:01Z",
       "side": 1,
       "message": "typo: registered",
+      "range": {
+        "startLine": 118,
+        "startChar": 18,
+        "endLine": 118,
+        "endChar": 27
+      },
+      "revId": "4614a27505ad780e124f56518333c6f986e67eb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "982fa6d8_41bd1ba9",
+        "filename": "front_end/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2021-11-15T19:50:58Z",
+      "side": 1,
+      "message": "Fixed. Thanks for catching this!",
+      "parentUuid": "51dc6021_12e3157d",
       "range": {
         "startLine": 118,
         "startChar": 18,
