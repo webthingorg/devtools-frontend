@@ -18784,6 +18784,12 @@
                             "experimental": true,
                             "optional": true,
                             "$ref": "Browser.BrowserContextID"
+                        },
+                        {
+                            "name": "parentId",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "TargetID"
                         }
                     ]
                 },

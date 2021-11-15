@@ -12714,6 +12714,7 @@ declare namespace Protocol {
        */
       openerFrameId?: Page.FrameId;
       browserContextId?: Browser.BrowserContextID;
+      parentId?: TargetID;
     }
 
     export interface RemoteLocation {

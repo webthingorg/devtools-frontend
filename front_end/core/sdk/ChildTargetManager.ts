@@ -139,10 +139,17 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       type = Type.ServiceWorker;
     } else if (targetInfo.type === 'auction_worklet') {
       type = Type.AuctionWorklet;
+    } else if (targetInfo.type === 'prerender') {
+      type = Type.Frame;
+    }
+
+    let parentTarget: Target|null = this.#parentTarget;
+    if (targetInfo.parentId && this.#parentTarget.id() !== targetInfo.parentId) {
+      parentTarget = TargetManager.instance().targetById(targetInfo.parentId);
     }
 
     const target = this.#targetManager.createTarget(
-        targetInfo.targetId, targetName, type, this.#parentTarget, sessionId, undefined, undefined, targetInfo);
+        targetInfo.targetId, targetName, type, parentTarget, sessionId, undefined, undefined, targetInfo);
     this.#childTargetsBySessionId.set(sessionId, target);
     this.#childTargetsById.set(target.id(), target);
 
