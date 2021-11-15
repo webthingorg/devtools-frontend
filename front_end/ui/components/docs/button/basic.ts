@@ -42,6 +42,16 @@ forcedActive.innerText = 'Forced active';
 forcedActive.onclick = () => alert('clicked');
 appendButton(forcedActive);
 
+// Primary (forced spinner)
+const forcedSpinner = new Buttons.Button.Button();
+forcedSpinner.data = {
+  variant: Buttons.Button.Variant.PRIMARY,
+  spinner: true,
+};
+forcedSpinner.innerText = 'Forced spinner';
+forcedSpinner.onclick = () => alert('clicked');
+appendButton(forcedSpinner);
+
 // Secondary
 const secondaryButton = new Buttons.Button.Button();
 secondaryButton.innerText = 'Click me';

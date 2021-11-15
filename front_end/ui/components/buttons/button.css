@@ -89,8 +89,8 @@ button.primary:active {
 button.primary:disabled,
 button.primary:disabled:hover {
   border: 1px solid transparent;
-  background: var(--color-background-elevation-1);
-  color: var(--color-text-disabled);
+  background: Highlight;
+  /* color: var(--color-text-disabled); */
   cursor: not-allowed;
 }
 
@@ -200,4 +200,18 @@ button.primary:disabled devtools-icon {
 
 button.secondary:disabled devtools-icon {
   --icon-color: var(--color-text-disabled);
+}
+
+.spinner {
+  animation: spinner 0.5s infinite linear;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
 }
