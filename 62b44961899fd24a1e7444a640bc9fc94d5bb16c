@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9f410ce2_13e54875",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-16T08:33:33Z",
+      "side": 1,
+      "message": "Thanks! Fixed.",
+      "parentUuid": "a0d1fc56_b9611a73",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "62b44961899fd24a1e7444a640bc9fc94d5bb16c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "32987ec2_2f5e6d04",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -54,6 +78,24 @@
       "writtenOn": "2021-11-16T08:29:51Z",
       "side": 1,
       "message": "what?! was it it?",
+      "revId": "62b44961899fd24a1e7444a640bc9fc94d5bb16c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27b5240_ccb8db8c",
+        "filename": "front_end/panels/elements/components/StylePropertyEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-16T08:33:33Z",
+      "side": 1,
+      "message": "Yeah. Apparently the clever dev that implemented this stuff had the foresight to include all the bits for this already: \nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2498220",
+      "parentUuid": "7620d79f_804acc7d",
       "revId": "62b44961899fd24a1e7444a640bc9fc94d5bb16c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
