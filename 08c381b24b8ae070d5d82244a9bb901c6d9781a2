@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "355278b8_23dcbb84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-16T16:27:24Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a first step towards resolving the issue of linking to the wrong resource in case of conflicts. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "08c381b24b8ae070d5d82244a9bb901c6d9781a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
