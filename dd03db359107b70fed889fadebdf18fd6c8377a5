@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f102436f_5dc194cc",
+        "filename": "front_end/panels/lighthouse/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-16T13:24:26Z",
+      "side": 0,
+      "message": "This is great! I am looking into remove the last few resources in here as well. Are you planning on removing the other ones in the same fashion or are they here to stay? I don\u0027t mind if they stay, but then I will have to figure out a solution on how to make this all work (shouldn\u0027t be too hard I reckon).",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "dd03db359107b70fed889fadebdf18fd6c8377a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
