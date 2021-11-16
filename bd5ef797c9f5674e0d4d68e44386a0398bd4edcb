@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53b7e709_379308cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-16T15:55:28Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a little bit of cleanup to make it easier to reason about the raw locations produced from stack traces. Please take a look.\n\nthanks,\nBenedikt",
+      "revId": "bd5ef797c9f5674e0d4d68e44386a0398bd4edcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
