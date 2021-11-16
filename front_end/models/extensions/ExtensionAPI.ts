@@ -30,6 +30,10 @@
 
 import type * as PublicAPI from '../../../extension-api/ExtensionAPI'; // eslint-disable-line rulesdir/es_modules_import
 import type * as HAR from '../har/har.js';
+import {ProfileInfo} from '../../../../../../tools/typescript/definitions/developer_private'
+
+import {InspectorFrontendHostInstance} from '../../core/host/InspectorFrontendHost.js';
+import {EnumeratedHistogram} from '../../core/host/InspectorFrontendHostAPI.js';
 
 /* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-non-null-assertion */
 export namespace PrivateAPI {
@@ -460,12 +464,15 @@ self.injectedExtensionAPI = function(
   }
 
   function InspectorExtensionAPI(this: APIImpl.InspectorExtensionAPI): void {
+    console.log('InspectorExtensionAPI');
     this.inspectedWindow = new (Constructor(InspectedWindow))();
     this.panels = new (Constructor(Panels))();
     this.network = new (Constructor(Network))();
     this.timeline = new (Constructor(Timeline))();
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.InspectorExtensionAPICalled, ProfileInfo.inDeveloperMode, 1);
   }
 
   function Network(this: APIImpl.Network): void {
