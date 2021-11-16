@@ -16,6 +16,23 @@
       "message": "A question to us probably (but it\u0027s rare), how to prevent name collision moving forward?",
       "revId": "b62d0b43ce955943cc9432fbf2b38bafe17d70d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73c03f14_ac8ef7f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-11-16T08:07:40Z",
+      "side": 1,
+      "message": "lgtm. thanks!",
+      "revId": "b62d0b43ce955943cc9432fbf2b38bafe17d70d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
