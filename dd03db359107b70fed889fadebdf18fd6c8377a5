@@ -22,6 +22,30 @@
       },
       "revId": "dd03db359107b70fed889fadebdf18fd6c8377a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec327dac_dff21cb7",
+        "filename": "front_end/panels/lighthouse/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-11-16T18:25:04Z",
+      "side": 0,
+      "message": "It\u0027s not trivial to remove the others, so there are no plans to remove them soon.",
+      "parentUuid": "f102436f_5dc194cc",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "dd03db359107b70fed889fadebdf18fd6c8377a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
