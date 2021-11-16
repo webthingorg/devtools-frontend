@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32987ec2_2f5e6d04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-16T08:29:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "62b44961899fd24a1e7444a640bc9fc94d5bb16c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7620d79f_804acc7d",
+        "filename": "front_end/panels/elements/components/StylePropertyEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-16T08:29:51Z",
+      "side": 1,
+      "message": "what?! was it it?",
+      "revId": "62b44961899fd24a1e7444a640bc9fc94d5bb16c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
