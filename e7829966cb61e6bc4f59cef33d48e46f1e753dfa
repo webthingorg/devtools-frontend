@@ -16,6 +16,24 @@
       "message": "When used not at the beginning of a sentence, should the \u0027B\u0027 be capitalised or not?",
       "revId": "e7829966cb61e6bc4f59cef33d48e46f1e753dfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c45f4dd_2f129d1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-16T03:04:53Z",
+      "side": 1,
+      "message": "I\u0027m sorry that I didn\u0027t add you to Cc.\nI thought the same question as you and it was resolved in the thread.\nhttps://groups.google.com/a/google.com/g/chrome-bfcache/c/WmRKH29afrw/m/JiXi0p0sBAAJ?utm_medium\u003demail\u0026utm_source\u003dfooter\n\nI replaced uppercase letters with lowercase letters in the text.",
+      "parentUuid": "6fbaad78_a1fe6ddf",
+      "revId": "e7829966cb61e6bc4f59cef33d48e46f1e753dfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
