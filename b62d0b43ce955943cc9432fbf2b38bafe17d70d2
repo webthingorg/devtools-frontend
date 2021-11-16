@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2391668b_e352cf46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-11-16T00:38:28Z",
+      "side": 1,
+      "message": "A question to us probably (but it\u0027s rare), how to prevent name collision moving forward?",
+      "revId": "b62d0b43ce955943cc9432fbf2b38bafe17d70d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
