@@ -135,7 +135,7 @@ export function getQueryType(tree: CodeMirror.Tree, pos: number): {
 export async function javascriptCompletionSource(cx: CodeMirror.CompletionContext):
     Promise<CodeMirror.CompletionResult|null> {
   const query = getQueryType(CodeMirror.syntaxTree(cx.state), cx.pos);
-  if (!query || query.from === undefined && !cx.explicit) {
+  if (!query || query.from === undefined && !cx.explicit && query.type === QueryType.Expression) {
     return null;
   }
 
@@ -162,7 +162,8 @@ export async function javascriptCompletionSource(cx: CodeMirror.CompletionContex
     if (!objectExpr) {
       return null;
     }
-    result = await completeProperties(cx.state.sliceDoc(objectExpr.from, objectExpr.to), quote);
+    result = await completeProperties(
+        cx.state.sliceDoc(objectExpr.from, objectExpr.to), quote, cx.state.sliceDoc(cx.pos, cx.pos + 1) === ']');
   } else {
     return null;
   }
@@ -250,6 +251,7 @@ class PropertyCache {
 async function completeProperties(
     expression: string,
     quoted?: string,
+    hasBracket: boolean = false,
     ): Promise<CompletionSet> {
   const cache = PropertyCache.instance();
   if (!quoted) {
@@ -262,7 +264,7 @@ async function completeProperties(
   if (!context) {
     return new CompletionSet();
   }
-  const result = completePropertiesInner(expression, context, quoted);
+  const result = completePropertiesInner(expression, context, quoted, hasBracket);
   if (!quoted) {
     cache.set(expression, result);
   }
@@ -275,6 +277,7 @@ async function completePropertiesInner(
     expression: string,
     context: SDK.RuntimeModel.ExecutionContext,
     quoted?: string,
+    hasBracket: boolean = false,
     ): Promise<CompletionSet> {
   const result = new CompletionSet();
   if (!context) {
@@ -313,7 +316,7 @@ async function completePropertiesInner(
           label,
           type: prop.value?.type === 'function' ? functionType : otherType,
         };
-        if (quoted) {
+        if (quoted && !hasBracket) {
           completion.apply = label + ']';
         }
         if (!prop.isOwn) {
