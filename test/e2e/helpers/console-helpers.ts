@@ -145,7 +145,7 @@ export async function getStructuredConsoleMessages() {
 export async function focusConsolePrompt() {
   await waitFor(CONSOLE_PROMPT_SELECTOR);
   await click(CONSOLE_PROMPT_SELECTOR);
-  await waitFor('[aria-label="Console prompt"]');
+  await waitFor('[aria-label="Code editor"]');
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
 }
@@ -160,8 +160,8 @@ export async function typeIntoConsole(frontend: puppeteer.Page, message: string)
   const consoleElement = await waitFor(CONSOLE_PROMPT_SELECTOR, undefined, asyncScope);
   await consoleElement.type(message);
   // Wait for autocomplete text to catch up.
-  const line = await waitFor('.CodeMirror-activeline', consoleElement, asyncScope);
-  const autocomplete = await line.$('.auto-complete-text');
+  const line = await waitFor('[aria-label="Code editor"]', consoleElement, asyncScope);
+  const autocomplete = await $('.cm-tooltip');
   // The autocomplete element doesn't exist until the first autocomplete suggestion
   // is actually given.
 

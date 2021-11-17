@@ -33,15 +33,15 @@ describe('The Console Tab', async () => {
   async function objectAutocompleteTest(textAfterObject: string) {
     const {frontend} = getBrowserAndPages();
 
-    const appearPromise = waitFor('.suggest-box');
+    const appearPromise = waitFor('.cm-tooltip');
     await typeText('object');
     await appearPromise;
 
-    const disappearPromise = waitForNone('.suggest-box');
+    const disappearPromise = waitForNone('.cm-tooltip');
     await frontend.keyboard.press('Escape');
     await disappearPromise;
 
-    const appearPromise2 = waitFor('.suggest-box');
+    const appearPromise2 = waitFor('.cm-tooltip');
     await typeText(textAfterObject);
     await appearPromise2;
 
