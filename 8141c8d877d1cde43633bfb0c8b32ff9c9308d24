@@ -33,6 +33,24 @@
       "message": "Only took a quick look so far:\n\nA screenshot/screencast of the spinner would be very helpful. Where does the svg come from?\n\nHave you seen that we already have a spinner which was added in https://crrev.com/c/2273179? Could that be (partly) reused for your use case?",
       "revId": "8141c8d877d1cde43633bfb0c8b32ff9c9308d24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04c60336_a3dadaa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-17T10:24:02Z",
+      "side": 1,
+      "message": "I got svg from 12p of this slide.\n\nhttps://docs.google.com/presentation/d/1kQbFM1FxSZcMTBL9vmgF1fT4ntGKk3B9iY6rhU_0kSs/edit#slide\u003did.g9ab92de7cf_0_262\n\nI implemented the CSS-only spinner.",
+      "parentUuid": "67db823c_ce65353c",
+      "revId": "8141c8d877d1cde43633bfb0c8b32ff9c9308d24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
