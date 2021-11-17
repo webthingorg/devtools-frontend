@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b293a52e_f6a5a6ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-11-17T18:37:36Z",
+      "side": 1,
+      "message": "That\u0027s a wrong copy of the PDL! Here\u0027s the authoritative source: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+      "revId": "0475e71bfc85863e2fd5bf2c76d15b4cb4a7b73c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
