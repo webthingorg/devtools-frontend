@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60f7f0a_0035159c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T13:27:47Z",
+      "side": 1,
+      "message": "Ah, indeed, it wasn\u0027t automatically re-opening completions after a dot. Uploaded a fix.",
+      "parentUuid": "94298672_d166fb56",
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed138c78_4b96f300",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-11-17T12:45:10Z",
       "side": 1,
       "message": "The e2e-tests are failing, as they can\u0027t find an element that has this aria-label: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/helpers/console-helpers.ts;l\u003d148;drc\u003df7c7c9271940392ba3aeb5a095dced09026fb0fc I manually inspected the DOM of `\u003cdevtools-text-editor\u003e` and couldn\u0027t find it either. Are we missing this label or is it being overwritten? The editor div does have `aria-label\u003d\"Code editor\"` on it, so maybe that takes precedence? When I use that selector, the test does work as expected.",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "453836d6_379e2491",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T13:27:47Z",
+      "side": 1,
+      "message": "Yes, that was indeed a precedence issue, but via a bug in @codemirror/view. I\u0027ve upgraded it again to include a fix. This will probably change the aria-label of some of the other editors as well, because the the same issue occurred.",
+      "parentUuid": "ed138c78_4b96f300",
       "range": {
         "startLine": 86,
         "startChar": 8,
