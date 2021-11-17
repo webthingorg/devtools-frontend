@@ -5367,14 +5367,15 @@ class TopbarFeatures {
         break;
       }
       case 'save-html': {
-        const htmlStr = this._reportUIFeatures.getReportHtml();
-        try {
-          this._reportUIFeatures._saveFile(new Blob([htmlStr], {type: 'text/html'}));
-        } catch (e) {
-          this._dom.fireEventOn('lh-log', this._dom.document(), {
-            cmd: 'error', msg: 'Could not export as HTML. ' + e.message,
-          });
-        }
+        this._reportUIFeatures.getReportHtml().then(htmlStr => {
+          try {
+            this._reportUIFeatures._saveFile(new Blob([htmlStr], {type: 'text/html'}));
+          } catch (e) {
+            this._dom.fireEventOn('lh-log', this._dom.document(), {
+              cmd: 'error', msg: 'Could not export as HTML. ' + e.message,
+            });
+          }
+        })
         break;
       }
       case 'open-viewer': {

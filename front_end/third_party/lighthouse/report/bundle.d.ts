@@ -261,7 +261,7 @@ export class ReportUIFeatures {
      * Returns the html that recreates this report.
      * @return {string}
      */
-    getReportHtml(): string;
+    getReportHtml(): Promise<string>;
     /**
      * Save json as a gist. Unimplemented in base UI features.
      */

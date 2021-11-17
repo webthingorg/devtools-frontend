@@ -31,7 +31,10 @@ devtools_pre_built("lighthouse-javascript-sources-debug") {
 }
 
 copy_to_gen("lighthouse-javascript-sources-release") {
-  sources = [ "lighthouse-dt-bundle.js" ]
+  sources = [
+    "lighthouse-dt-bundle.js",
+    "report-assets/standalone-template.html",
+  ]
   deps = [ "./report:report" ]
 }
 

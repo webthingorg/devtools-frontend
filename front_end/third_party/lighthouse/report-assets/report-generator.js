@@ -29,7 +29,7 @@ module.exports = {
     return cachedResources.get('third_party/lighthouse/report-assets/report.js');
   },
   get REPORT_TEMPLATE() {
-    return cachedResources.get('third_party/lighthouse/report-assets/standalone-template.html');
+    return fetch(new URL('./standalone-template.html', import.meta.url).toString()).then(request => request.text());
   },
 };
 
@@ -82,13 +82,13 @@ class ReportGenerator {
    * @param {LHResult} lhr
    * @return {string}
    */
-  static generateReportHtml(lhr) {
+  static async generateReportHtml(lhr) {
     const sanitizedJson = ReportGenerator.sanitizeJson(lhr);
     // terser does its own sanitization, but keep this basic replace for when
     // we want to generate a report without minification.
     const sanitizedJavascript = htmlReportAssets.REPORT_JAVASCRIPT.replace(/<\//g, '\\u003c/');
 
-    return ReportGenerator.replaceStrings(htmlReportAssets.REPORT_TEMPLATE, [
+    return ReportGenerator.replaceStrings(await htmlReportAssets.REPORT_TEMPLATE, [
       {search: '%%LIGHTHOUSE_JSON%%', replacement: sanitizedJson},
       {search: '%%LIGHTHOUSE_JAVASCRIPT%%', replacement: sanitizedJavascript},
     ]);

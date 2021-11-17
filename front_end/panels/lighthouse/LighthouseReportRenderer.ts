@@ -169,7 +169,7 @@ export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeature
   /**
    * Returns the html that recreates this report.
    */
-  getReportHtml(): string {
+  getReportHtml(): Promise<string> {
     this.resetUIState();
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
     return Lighthouse.ReportGenerator.generateReportHtml(this.json);
