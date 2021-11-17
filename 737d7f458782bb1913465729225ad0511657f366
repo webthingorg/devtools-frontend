@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47c858e9_be79a069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T13:58:27Z",
+      "side": 1,
+      "message": "The dots appear to be fixed, nice! The `[` key indexing however doesn\u0027t appear to be work. CodeMirror appears to immediately add a `]` behind it, resulting in `object[]`. On stable, we get the string-quoted object property autocompletions and we don\u0027t get a `]` appended. I suppose the fix will be relatively similar?",
+      "parentUuid": "e60f7f0a_0035159c",
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed138c78_4b96f300",
         "filename": "front_end/panels/console/ConsolePrompt.ts",
         "patchSetId": 3
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Yes, that was indeed a precedence issue, but via a bug in @codemirror/view. I\u0027ve upgraded it again to include a fix. This will probably change the aria-label of some of the other editors as well, because the the same issue occurred.",
       "parentUuid": "ed138c78_4b96f300",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed55601f_bdc56f77",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T13:58:27Z",
+      "side": 1,
+      "message": "Can confirm this has been fixed! Do you mind pulling in the changes I made in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3289309 in `test/e2e` to get them into this CL? Then we make sure we can get the e2e-tests running on here as well.",
+      "parentUuid": "453836d6_379e2491",
       "range": {
         "startLine": 86,
         "startChar": 8,
