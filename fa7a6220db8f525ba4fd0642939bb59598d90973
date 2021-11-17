@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d767f54e_6645a8ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-17T15:08:19Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the fix for the ConsoleMessage comparison we looked at earlier. It\u0027s pretty much straight-forward.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "fa7a6220db8f525ba4fd0642939bb59598d90973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
