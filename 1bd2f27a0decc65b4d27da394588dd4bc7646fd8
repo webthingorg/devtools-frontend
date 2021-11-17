@@ -140,6 +140,24 @@
       "parentUuid": "67c79cd1_fae8e38a",
       "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902f85a4_79c5995c",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-17T14:51:40Z",
+      "side": 1,
+      "message": "I feel like this is a good trade-off as is, so it LGTM to me. I wonder if it\u0027s possible to add a one-line comment to reduce future questions from other developers.",
+      "parentUuid": "89ffa1e3_3e7d887f",
+      "revId": "1bd2f27a0decc65b4d27da394588dd4bc7646fd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
