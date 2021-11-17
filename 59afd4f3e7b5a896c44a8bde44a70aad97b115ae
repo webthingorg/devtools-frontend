@@ -46,6 +46,30 @@
       },
       "revId": "59afd4f3e7b5a896c44a8bde44a70aad97b115ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e85e9f_89f4468c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-17T13:49:58Z",
+      "side": 1,
+      "message": "This seems to still be required for some reason. I\u0027ll add it back to the commit message and resubmit.",
+      "parentUuid": "64b90e4b_4bd9d009",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 42
+      },
+      "revId": "59afd4f3e7b5a896c44a8bde44a70aad97b115ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
