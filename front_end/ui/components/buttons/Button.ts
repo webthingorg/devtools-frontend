@@ -31,6 +31,7 @@ interface ButtonState {
   size?: Size;
   disabled: boolean;
   active: boolean;
+  spinner?: boolean;
 }
 
 export type ButtonData = {
@@ -39,12 +40,14 @@ export type ButtonData = {
   size?: Size,
   disabled?: boolean,
   active?: boolean,
+  spinner?: boolean,
 }|{
   variant: Variant.PRIMARY | Variant.SECONDARY,
   iconUrl?: string,
   size?: Size,
   disabled?: boolean,
   active?: boolean,
+  spinner?: boolean,
 };
 
 export class Button extends HTMLElement {
@@ -56,6 +59,7 @@ export class Button extends HTMLElement {
     size: Size.MEDIUM,
     disabled: false,
     active: false,
+    spinner: false,
   };
   private isEmpty = true;
 
@@ -74,6 +78,7 @@ export class Button extends HTMLElement {
     this.props.iconUrl = data.iconUrl;
     this.props.size = data.size || Size.MEDIUM;
     this.props.active = Boolean(data.active);
+    this.props.spinner = Boolean(data.spinner);
     this.setDisabledProperty(data.disabled || false);
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
@@ -100,6 +105,11 @@ export class Button extends HTMLElement {
 
   set active(active: boolean) {
     this.props.active = active;
+    ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
+  }
+
+  set spinner(spinner: boolean) {
+    this.props.spinner = spinner;
     ComponentHelpers.ScheduledRender.scheduleRender(this, this.boundRender);
   }
 
@@ -159,10 +169,10 @@ export class Button extends HTMLElement {
           ${this.props.iconUrl ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
             .data=${{
               iconPath: this.props.iconUrl,
-              color: 'var(--color-background)',
             } as IconButton.Icon.IconData}
           >
           </${IconButton.Icon.Icon.litTagName}>` : ''}
+          ${this.props.spinner ? LitHtml.html`<span class='spinner'></span>` : ''}
           <slot @slotchange=${this.onSlotChange}></slot>
         </button>
       `, this.shadow, {host: this});
