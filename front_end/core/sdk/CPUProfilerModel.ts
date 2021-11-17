@@ -29,7 +29,6 @@
  */
 
 import * as i18n from '../i18n/i18n.js';
-import * as Root from '../root/root.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import type * as Protocol from '../../generated/protocol.js';
 
@@ -93,7 +92,8 @@ export class CPUProfilerModel extends SDKModel<EventTypes> implements ProtocolPr
       this.#anonymousConsoleProfileIdToTitle.delete(id);
     }
     // Make sure ProfilesPanel is initialized and CPUProfileType is created.
-    Root.Runtime.Runtime.instance().loadModulePromise('profiler').then(() => {
+    const profileModule = import('../../panels/profiler/profiler.js');
+    profileModule.then(() => {
       const eventData: ProfileFinishedData = {
         ...this.createEventDataFrom(id, location, title),
         cpuProfile: profile,
