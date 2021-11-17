@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "534ba990_cfa8a26c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-17T13:33:28Z",
+      "side": 1,
+      "message": "Hi Tim, hi Johan,\n\nI\u0027m rolling the procotol changes and updating the DEPS file to match. The autoroller moving the latest chromium into devtools failed since the protocol changes were not up to date (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3288434/). This CL combines both now, ptal!",
+      "revId": "26378d5d353c3fed42c5f59a00aa50fcfe866907",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
