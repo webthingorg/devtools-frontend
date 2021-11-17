@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01629f95_2a0181cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T14:52:06Z",
+      "side": 1,
+      "message": "Oh, indeed, made it also start completing on an opening bracket. Closing such brackets, just like other brackets, seems reasonable, if the autocompletion works, even if the old editor didn\u0027t. Agree?",
+      "parentUuid": "47c858e9_be79a069",
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed138c78_4b96f300",
@@ -115,6 +133,30 @@
       "side": 1,
       "message": "Can confirm this has been fixed! Do you mind pulling in the changes I made in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3289309 in `test/e2e` to get them into this CL? Then we make sure we can get the e2e-tests running on here as well.",
       "parentUuid": "453836d6_379e2491",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5768a76_f856f746",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T14:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed55601f_bdc56f77",
       "range": {
         "startLine": 86,
         "startChar": 8,
