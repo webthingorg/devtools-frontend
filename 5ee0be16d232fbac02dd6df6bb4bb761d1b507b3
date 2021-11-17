@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422cbd06_dbe20fe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T17:05:04Z",
+      "side": 1,
+      "message": "For the layout tests, we will need to update the test expectation files in this repository again. The two files that need updating are https://ci.chromium.org/ui/artifact/text-diff/invocations/task-chromium-swarm.appspot.com-574795d49b20c711/tests/ninja:%2F%2F:devtools_web_tests%2Fhttp%2Ftests%2Fdevtools%2Fa11y-axe-core%2Fsources%2Fsources-editor-pane-a11y-test.js/results/af111ed5-00006/artifacts/text_diff and https://ci.chromium.org/ui/artifact/text-diff/invocations/task-chromium-swarm.appspot.com-574795caa52ee311/tests/ninja:%2F%2F:devtools_web_tests%2Fhttp%2Ftests%2Fdevtools%2Fa11y-axe-core%2Fconsole-a11y-test.js/results/1d83a420-00009/artifacts/text_diff",
+      "revId": "5ee0be16d232fbac02dd6df6bb4bb761d1b507b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
