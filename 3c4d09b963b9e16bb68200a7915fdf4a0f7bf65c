@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b9af69d_444b4872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T13:41:16Z",
+      "side": 1,
+      "message": "Hey Connor,\n\nTo remove the resources from LightHouse, I think we can use a lightweight `fetch`-solution. Since we import the bundle as an ES module, we can use `import.meta.url` to correctly resolve to the relative file.\n\nTo do so, LightHouse would need to make some slight tweaks to make the HTML return a `Promise\u003cstring\u003e` instead (to allow for an asynchronous operation). Since the content isn\u0027t require synchronously, this appears to be working just fine.\n\nI think we would need to apply these changes on the LightHouse side, as well as for `report-assets/report.js`. What do you think?",
+      "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
