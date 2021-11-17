@@ -135,7 +135,7 @@ export function getQueryType(tree: CodeMirror.Tree, pos: number): {
 export async function javascriptCompletionSource(cx: CodeMirror.CompletionContext):
     Promise<CodeMirror.CompletionResult|null> {
   const query = getQueryType(CodeMirror.syntaxTree(cx.state), cx.pos);
-  if (!query || query.from === undefined && !cx.explicit) {
+  if (!query || query.from === undefined && !cx.explicit && query.type !== QueryType.PropertyName) {
     return null;
   }
 
