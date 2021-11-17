@@ -52,6 +52,24 @@
       "parentUuid": "4e8bfd24_5ab7b12c",
       "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f77f72_ad26c8a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T15:50:47Z",
+      "side": 1,
+      "message": "Could it be that the SDK stuff (ExecutionContext.evaluate and such) that the completion is querying hasn\u0027t initialized yet? Does, as an experiment, adding a bogus extra delay solve the failure?",
+      "parentUuid": "38a5da5b_4315aafb",
+      "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
