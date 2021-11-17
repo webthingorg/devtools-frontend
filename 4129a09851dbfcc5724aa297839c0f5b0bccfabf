@@ -16,6 +16,207 @@
       "message": "PTAL",
       "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2acbc8d_84ab45c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "All looks good but have a few nits, along with some questions to check my understanding :)",
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af274275_257ab852",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "could we set the values to be strings please? `Show \u003d \"Show\"`.\n\nAlso, I think a comment here explaining what the options do (specifically \"Flatten\") would be useful. Took me a minute to figure out the behaviour. A quick comment would probably be useful.\n\nAlso, do we tend to prefer all caps for enum members in new code? I can\u0027t remember if we ever landed on that. Please feel free to ignore this one.\n\n```\nconst enum FilterOption {\n  SHOW \u003d \"SHOW\"\n}\n```",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 14
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d126c864_e3526be1",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "is there a reason not to set this via the `.data` setter ?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 69
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba92fbe2_72987235",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "similarly, I would expect this to occur by someone setting .data and passing `null` for the `filter` key.",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 24
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6160073_b1f5cef9",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "I wonder if we should move this check into `this.render()` and get rid of the conditionals here. WDYT?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 35
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8bf6366_eaaad4ff",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "Might be worth a comment here to make it clear that we don\u0027t filter out the selected child regardless of its status.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 114
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7233af8_258d7bb1",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "so if I have the following nodes:\n\n- foo\n  - bar\n  - baz\n  \nAnd we filter for \"foo\", and our filter func returns `Flatten`, does that mean that `bar` and `baz` will be returned also, because they are the child of a node that did match the search?\n\nAm I following that correctly?",
+      "range": {
+        "startLine": 264,
+        "startChar": 7,
+        "endLine": 266,
+        "endChar": 48
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3c25d8_24ea3fcf",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "teeeeeeeeeeeeeny nit: I would probably ditch this `describe` block as I think `describe(\u0027TreeOutline filtering\u0027)` is enough.",
+      "range": {
+        "startLine": 1366,
+        "startChar": 0,
+        "endLine": 1366,
+        "endChar": 31
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e364b4eb_b3c7d91f",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-17T15:46:59Z",
+      "side": 1,
+      "message": "I wonder if for the sake of this test if it would be useful to assert on the `visibleTree` before doing the filtering, just so the test is much clearer in that it also asserts the pre-filtered state. wdyt?",
+      "range": {
+        "startLine": 1372,
+        "startChar": 0,
+        "endLine": 1372,
+        "endChar": 42
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
