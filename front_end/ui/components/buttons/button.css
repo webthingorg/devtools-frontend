@@ -36,6 +36,7 @@ button {
   height: 24px;
   line-height: 14px;
   padding: 5px 12px;
+  margin-left: 10px;
   justify-content: center;
   width: 100%;
 }
@@ -89,8 +90,8 @@ button.primary:active {
 button.primary:disabled,
 button.primary:disabled:hover {
   border: 1px solid transparent;
-  background: var(--color-background-elevation-1);
-  color: var(--color-text-disabled);
+  background: Highlight;
+  /* color: var(--color-text-disabled); */
   cursor: not-allowed;
 }
 
@@ -200,4 +201,26 @@ button.primary:disabled devtools-icon {
 
 button.secondary:disabled devtools-icon {
   --icon-color: var(--color-text-disabled);
+}
+
+.spinner {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  border: 2px solid var(--color-background);
+  animation: spinner-animation 1s linear infinite;
+  border-right-color: transparent;
+  margin-right: 6px;
+  box-sizing: border-box;
+}
+
+@keyframes spinner-animation {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
