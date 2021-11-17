@@ -16,6 +16,24 @@
       "message": "My main concern is that we still require the user to push the button before we show any info.\n\nWhat\u0027s your opinion on not showing the internal name of the reason why bfcache is not working? Are these strings helpful to the user or not? ",
       "revId": "ba3ec9a18d79cadb4401116e804d6ed8a5d318ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "912244cf_6075e197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-17T01:13:19Z",
+      "side": 1,
+      "message": "I think that it\u0027s not too much of a problem to remove the internal name because the description of the internal name is shown, but it may be possible to identify it like the error codes.",
+      "parentUuid": "ba6f00ba_289ec4ff",
+      "revId": "ba3ec9a18d79cadb4401116e804d6ed8a5d318ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
