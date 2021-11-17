@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94298672_d166fb56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T12:45:10Z",
+      "side": 1,
+      "message": "Autocompletion of object appears to be broken. See the following e2e-test: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/console/console-autocomplete_test.ts;l\u003d54-56;drc\u003d95ba946d80c1de97db9160c043a08b958b985d2a\n\nIt creates an object, it types `object` and we correctly get the tooltip. Then it hits Escape to remove the tooltip and it writes a dot (e.g. it becomes `object.`). In stable, we get autocompletion for the object properties, but with this patch, no autocompletion exists.\n\nI have done the first few tweaks to the e2e-tests which appears to resolve the vast majority of the e2e-test failures: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3289309/1..2",
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed138c78_4b96f300",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T12:45:10Z",
+      "side": 1,
+      "message": "The e2e-tests are failing, as they can\u0027t find an element that has this aria-label: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/helpers/console-helpers.ts;l\u003d148;drc\u003df7c7c9271940392ba3aeb5a095dced09026fb0fc I manually inspected the DOM of `\u003cdevtools-text-editor\u003e` and couldn\u0027t find it either. Are we missing this label or is it being overwritten? The editor div does have `aria-label\u003d\"Code editor\"` on it, so maybe that takes precedence? When I use that selector, the test does work as expected.",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "737d7f458782bb1913465729225ad0511657f366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
