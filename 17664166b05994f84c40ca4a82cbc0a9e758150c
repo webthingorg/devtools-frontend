@@ -70,6 +70,24 @@
       "parentUuid": "38a5da5b_4315aafb",
       "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d39c48_feddf136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T15:59:14Z",
+      "side": 1,
+      "message": "Good question! I tried with timeouts of 500ms and 1000ms and unfortunately, that doesn\u0027t fix it. Interestingly enough, when I start the test in debug mode, don\u0027t see any output and then I type myself, it works just fine.\n\nAnother theory: could it be the case that we are typing *too quickly*? I changed the test to the following and that *does* work:\n\n```\nawait typeText(\u0027l\u0027);\nawait timeout(50);\nawait typeText(\u0027e\u0027);\nawait timeout(50);\nawait typeText(\u0027t\u0027);\nawait timeout(50);\n```\n\nSo I wonder if the autocompletion of the first letter somehow overrides the autocompletion of the third letter, because there is a text mismatch and the autocompletion was discarded?",
+      "parentUuid": "49f77f72_ad26c8a3",
+      "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
