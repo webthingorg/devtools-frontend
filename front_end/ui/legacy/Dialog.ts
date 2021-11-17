@@ -140,6 +140,9 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
         if (tabIndex >= 0 && (!exclusionSet || !exclusionSet.has(element))) {
           this.tabIndexMap.set(element, tabIndex);
           element.tabIndex = -1;
+        } else if (element.hasAttribute('contenteditable')) {
+          element.tabIndex = -1;
+          this.tabIndexMap.set(element, element.hasAttribute('tabindex') ? tabIndex : 0);
         }
       }
     }
