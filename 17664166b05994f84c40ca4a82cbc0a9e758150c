@@ -88,6 +88,24 @@
       "parentUuid": "49f77f72_ad26c8a3",
       "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b317fec_64e67f3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-17T16:10:19Z",
+      "side": 1,
+      "message": "Ah, yes, I think you got it. When the full word `let` is present the first time completion opens, the syntax tree it acts on has a keyword instead of an identifier, and that throws off my implementation. I\u0027ll adjust it to also complete on alphabetic keywords.",
+      "parentUuid": "94d39c48_feddf136",
+      "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
