@@ -34,6 +34,24 @@
       "parentUuid": "226cbeee_c161915c",
       "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38a5da5b_4315aafb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T15:42:47Z",
+      "side": 1,
+      "message": "The test uses the `typeText` helper: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/console/console-repl-mode_test.ts;l\u003d36;drc\u003d467b0b16324b77b597e69237ae934f80118e55f6 The helper calls the Puppeteer keyboard API directly to instruct the browser to press these keys in order: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/shared/helper.ts;l\u003d129-132;drc\u003d227106dbf39ef4a1989379d17775f7d64d749e4f\n\nBefore that, the test waits for the console prompt to be active: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/console/console-repl-mode_test.ts;l\u003d18;drc\u003d467b0b16324b77b597e69237ae934f80118e55f6 which waits for the editor to appear and also wait 50 miliseconds (which is a workaround, but that should in theory help even more here): https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/helpers/console-helpers.ts;l\u003d145-151;drc\u003df7c7c9271940392ba3aeb5a095dced09026fb0fc",
+      "parentUuid": "4e8bfd24_5ab7b12c",
+      "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
