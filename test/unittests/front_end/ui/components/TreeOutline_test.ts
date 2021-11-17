@@ -1361,3 +1361,50 @@ describe('TreeOutlineUtils', () => {
     });
   });
 });
+
+describe('TreeOutlineFiltering', () => {
+  describe('setFilter', () => {
+    it('can flatten nodes', async () => {
+      const {component, shadowRoot} = await renderTreeOutline({
+        tree: [nodeAustralia],
+      });
+
+      await component.expandRecursively();
+      component.setFilter(
+          node => node === 'SA' || node === 'NSW' || node === 'Adelaide' ?
+              TreeOutline.TreeOutline.FilterOption.Flatten :
+              TreeOutline.TreeOutline.FilterOption.Show);
+      await coordinator.done();
+      await waitForRenderedTreeNodeCount(shadowRoot, 7);
+      const visibleTree = visibleNodesToTree(shadowRoot);
+
+      assert.deepEqual(visibleTree, [{
+                         renderedKey: 'Australia',
+                         children: [
+                           {renderedKey: 'Toorak Gardens'},
+                           {renderedKey: 'Woodville South'},
+                           {renderedKey: 'Gawler'},
+                           {renderedKey: 'Glebe'},
+                           {renderedKey: 'Newtown'},
+                           {renderedKey: 'Camperdown'},
+                         ],
+                       }]);
+    });
+
+    it('can hide subtrees', async () => {
+      const {component, shadowRoot} = await renderTreeOutline({
+        tree: [nodeAustralia],
+      });
+
+      await component.expandRecursively();
+      component.setFilter(
+          node => node === 'SA' || node === 'NSW' ? TreeOutline.TreeOutline.FilterOption.Hidden :
+                                                    TreeOutline.TreeOutline.FilterOption.Show);
+      await coordinator.done();
+      await waitForRenderedTreeNodeCount(shadowRoot, 1);
+      const visibleTree = visibleNodesToTree(shadowRoot);
+
+      assert.deepEqual(visibleTree, [{renderedKey: 'Australia', children: []}]);
+    });
+  });
+});

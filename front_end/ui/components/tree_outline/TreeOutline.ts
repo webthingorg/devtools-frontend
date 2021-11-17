@@ -66,6 +66,12 @@ export class ItemMouseOutEvent<TreeNodeDataType> extends Event {
   }
 }
 
+export const enum FilterOption {
+  Show = 0,
+  Hidden = 1,
+  Flatten = 2,
+}
+
 export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-tree-outline`;
   private readonly shadow = this.attachShadow({mode: 'open'});
@@ -91,6 +97,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
         }
         return LitHtml.html`${String(node.treeNodeData)}`;
       };
+  private nodeFilter: ((node: TreeNodeDataType) => FilterOption)|null = null;
 
   /**
    * scheduledRender = render() has been called and scheduled a render.
@@ -194,6 +201,20 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
     return this.render();
   }
 
+  setFilter(filter: (node: TreeNodeDataType) => FilterOption): void {
+    this.nodeFilter = filter;
+    if (this.treeData.length > 0) {
+      this.render();
+    }
+  }
+
+  removeFilter(): void {
+    this.nodeFilter = null;
+    if (this.treeData.length > 0) {
+      this.render();
+    }
+  }
+
   async collapseChildrenOfNode(domNode: HTMLLIElement): Promise<void> {
     const treeNode = this.domNodeToTreeNodeMap.get(domNode);
     if (!treeNode) {
@@ -231,7 +252,21 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   private async fetchNodeChildren(node: TreeNodeWithChildren<TreeNodeDataType>): Promise<TreeNode<TreeNodeDataType>[]> {
-    return getNodeChildren(node);
+    const children = await getNodeChildren(node);
+    if (!this.nodeFilter) {
+      return children;
+    }
+    const filteredChildren = [];
+    for (const child of children) {
+      const filtering = this.nodeFilter(child.treeNodeData);
+      if (filtering === FilterOption.Show || this.isSelectedNode(child) || child.id === this.nodeIdPendingFocus) {
+        filteredChildren.push(child);
+      } else if (filtering === FilterOption.Flatten && isExpandableNode(child)) {
+        const grandChildren = await this.fetchNodeChildren(child);
+        filteredChildren.push(...grandChildren);
+      }
+    }
+    return filteredChildren;
   }
 
   private setNodeExpandedState(node: TreeNode<TreeNodeDataType>, newExpandedState: boolean): void {
