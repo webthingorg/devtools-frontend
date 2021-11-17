@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226cbeee_c161915c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-17T15:33:14Z",
+      "side": 1,
+      "message": "So the last e2e-test failure is because when typing `let` in the console, in the test I think that is too quick and the autocompletion doesn\u0027t show up. When I do it myself, it works just fine.\n\nCould it be the case that when we instantiate the text editor, the autocompletion isn\u0027t fully hooked up yet? In this case, typing before the autocompletion logic is hooked up could mean the user doesn\u0027t see any autocompletions. When we attach the autocompletion logic, can we check whether the editor has any text edited since instantiation by the user and then show it? E.g. don\u0027t show it when we set the full text, but only when the user has actually typed something.",
+      "revId": "17664166b05994f84c40ca4a82cbc0a9e758150c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
