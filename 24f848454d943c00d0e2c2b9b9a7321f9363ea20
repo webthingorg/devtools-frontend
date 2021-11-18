@@ -34,6 +34,24 @@
       "parentUuid": "49af0b63_cc490c73",
       "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5af3aee_daaf26b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T10:53:07Z",
+      "side": 1,
+      "message": "It is a bit weird. We need it to prune uninteresting nodes from the tree.\nSay we have a tree\n```\n- Root\n  + generic\n    * \"meaningful node1\"\n  + \"meaningful node2\"\n```\nthen we would like to flatten away `generic` and instead show\n```\n- Root\n  + \"meaningful node1\"\n  + \"meaningful node2\"\n```\nNow, we could just remove such nodes when constructing the tree data, but if the user selects the DOM node corresponding to `generic` and then switches to the a11y tree, we\u0027d like to show the node. This is much easier if we have kept the original tree structure in the tree data.\nKeeping the full structure also makes updating nodes a bit easier since we don\u0027t have to recompute the relationships.\n\nRegarding removing the HIDDEN filtering option: Should I then remove the FilterOption enum entirely and just have the filter return a boolean where `true` means \"flatten away this node\"?",
+      "parentUuid": "16b910f8_17c11c43",
+      "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
