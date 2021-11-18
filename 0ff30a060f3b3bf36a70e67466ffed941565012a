@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1be57f_fecf2bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T11:34:26Z",
+      "side": 1,
+      "message": "+wolfi@ for owners review of front_end/core/protocol_client/InspectorBackend.ts",
+      "revId": "0ff30a060f3b3bf36a70e67466ffed941565012a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

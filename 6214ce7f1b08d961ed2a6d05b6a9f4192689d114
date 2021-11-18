@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41447e4_31e43695",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T11:34:26Z",
+      "side": 1,
+      "message": "Yep. Thanks!",
+      "parentUuid": "e8e33f28_389870da",
+      "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ea8542e_c51c433d",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-11-18T11:23:54Z",
       "side": 1,
       "message": "What are we ignoring here?",
+      "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b23dbe0_b46f6c58",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T11:34:26Z",
+      "side": 1,
+      "message": "Good catch, thanks! I added this before we rolled the protocol resources.",
+      "parentUuid": "9ea8542e_c51c433d",
       "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
