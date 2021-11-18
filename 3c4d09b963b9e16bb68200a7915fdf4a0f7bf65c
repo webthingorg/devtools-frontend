@@ -33,6 +33,24 @@
       "message": "Could we instead populate EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE (or some other global) with this fetch result somewhere in the LighthousePanel, so that all this can remain synchronous?\n\nIs this a network request or is the file retrieved on disk?",
       "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c53bfbf7_5c9ac82e",
+        "filename": "front_end/third_party/lighthouse/report-assets/report-generator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-18T12:28:44Z",
+      "side": 1,
+      "message": "We can do that, but then LightHouse has to somehow wait for that. Is there a way we can say \"wait for these network requests to complete prior to continuing execution\"?\n\nThese files are coming from the network and we are removing the synchronous inclusion of the files from the build system. I would strongly prefer us to move to an asynchronous model here, but if this is required to stay synchronous we might be able to patch around in the build system. Is it possible to make it asynchronous or is that infeasible for a different reason?",
+      "parentUuid": "cbe46e3f_b71cd53e",
+      "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
