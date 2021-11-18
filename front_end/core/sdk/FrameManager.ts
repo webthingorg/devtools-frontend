@@ -30,6 +30,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
   #topFrame: ResourceTreeFrame|null;
   #creationStackTraceDataForTransferringFrame:
       Map<string, {creationStackTrace: Protocol.Runtime.StackTrace | null, creationStackTraceTarget: Target}>;
+  #adScriptDataForTransferringFrame: Map<string, Protocol.Page.AdScriptIdentifier>;
   #awaitedFrames: Map<string, {notInTarget?: Target, resolve: (frame: ResourceTreeFrame) => void}[]> = new Map();
 
   constructor() {
@@ -47,6 +48,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
 
     this.#topFrame = null;
     this.#creationStackTraceDataForTransferringFrame = new Map();
+    this.#adScriptDataForTransferringFrame = new Map();
   }
 
   static instance({forceNew}: {
@@ -97,6 +99,7 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
       // In order to not lose frame creation stack trace information during
       // an OOPIF transfer we need to copy it to the new frame
       frame.setCreationStackTrace(frameData.frame.getCreationStackTraceData());
+      frame.adScript = frameData.frame.adScript;
       this.#frames.set(frame.id, {frame, count: frameData.count + 1});
     } else {
       // If the transferring frame's detached event is received before its frame added
@@ -105,8 +108,13 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
       if (traceData && traceData.creationStackTrace) {
         frame.setCreationStackTrace(traceData);
       }
+      const adScript = this.#adScriptDataForTransferringFrame.get(frame.id);
+      if (adScript) {
+        frame.adScript = adScript;
+      }
       this.#frames.set(frame.id, {frame, count: 1});
       this.#creationStackTraceDataForTransferringFrame.delete(frame.id);
+      this.#adScriptDataForTransferringFrame.delete(frame.id);
     }
     this.resetTopFrame();
 
@@ -132,6 +140,9 @@ export class FrameManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
       const traceData = frame.getCreationStackTraceData();
       if (traceData.creationStackTrace) {
         this.#creationStackTraceDataForTransferringFrame.set(frame.id, traceData);
+      }
+      if (frame.adScript) {
+        this.#adScriptDataForTransferringFrame.set(frame.id, frame.adScript);
       }
     }
 

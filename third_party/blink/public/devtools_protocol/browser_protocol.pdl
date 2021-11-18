@@ -7732,6 +7732,11 @@ domain Page
         selectSingle
         selectMultiple
 
+  experimental type AdScriptIdentifier extends object
+    properties
+      string name
+      number id
+
   # Fired when frame has been attached to its parent.
   event frameAttached
     parameters
@@ -7741,6 +7746,7 @@ domain Page
       FrameId parentFrameId
       # JavaScript stack trace of when frame was attached, only set if frame initiated from script.
       optional Runtime.StackTrace stack
+      optional AdScriptIdentifier adScript
 
   # Fired when frame no longer has a scheduled navigation.
   deprecated event frameClearedScheduledNavigation
