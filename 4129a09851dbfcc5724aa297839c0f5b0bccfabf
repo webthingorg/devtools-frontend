@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4fe493c_e3a59438",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Sure! I\u0027ve changed to all caps for both symbol an value. There seems to be some precedence for this. I\u0027ve also added a comment to explain each option.",
+      "parentUuid": "af274275_257ab852",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 14
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d126c864_e3526be1",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-11-17T15:46:59Z",
       "side": 1,
       "message": "is there a reason not to set this via the `.data` setter ?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 69
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c2bda4_b2e89f5d",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "No. That means preferable. Thanks!",
+      "parentUuid": "d126c864_e3526be1",
       "range": {
         "startLine": 204,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7926fb9_24ff5229",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Ah yes, good point. I\u0027ll move this to the data.",
+      "parentUuid": "ba92fbe2_72987235",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 24
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6160073_b1f5cef9",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-11-17T15:46:59Z",
       "side": 1,
       "message": "I wonder if we should move this check into `this.render()` and get rid of the conditionals here. WDYT?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 35
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7eac3f4_ded4ea6e",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6160073_b1f5cef9",
       "range": {
         "startLine": 213,
         "startChar": 0,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a8367d0_e0baf7cb",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8bf6366_eaaad4ff",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 114
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7233af8_258d7bb1",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-11-17T15:46:59Z",
       "side": 1,
       "message": "so if I have the following nodes:\n\n- foo\n  - bar\n  - baz\n  \nAnd we filter for \"foo\", and our filter func returns `Flatten`, does that mean that `bar` and `baz` will be returned also, because they are the child of a node that did match the search?\n\nAm I following that correctly?",
+      "range": {
+        "startLine": 264,
+        "startChar": 7,
+        "endLine": 266,
+        "endChar": 48
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee1092d_f411cbe9",
+        "filename": "front_end/ui/components/tree_outline/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Yes. `FLATTEN` removes the node from the tree by flattening, so its children are instead hoisted up in its place.",
+      "parentUuid": "b7233af8_258d7bb1",
       "range": {
         "startLine": 264,
         "startChar": 7,
@@ -196,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25250250_79060543",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed3c25d8_24ea3fcf",
+      "range": {
+        "startLine": 1366,
+        "startChar": 0,
+        "endLine": 1366,
+        "endChar": 31
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e364b4eb_b3c7d91f",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-11-17T15:46:59Z",
       "side": 1,
       "message": "I wonder if for the sake of this test if it would be useful to assert on the `visibleTree` before doing the filtering, just so the test is much clearer in that it also asserts the pre-filtered state. wdyt?",
+      "range": {
+        "startLine": 1372,
+        "startChar": 0,
+        "endLine": 1372,
+        "endChar": 42
+      },
+      "revId": "4129a09851dbfcc5724aa297839c0f5b0bccfabf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb6a48d_accbfcb7",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Now that the filter has been added to the data, does it still make sense?\nIt would then look something like:\n```\ncomponent.data \u003d { tree };\nassertFullTree;\ncomponent.data \u003d { tree, filter };\nassertFilteredTree;\n```",
+      "parentUuid": "e364b4eb_b3c7d91f",
       "range": {
         "startLine": 1372,
         "startChar": 0,

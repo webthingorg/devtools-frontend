@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49af0b63_cc490c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-18T09:11:09Z",
+      "side": 1,
+      "message": "Thank you, Jack! PTAL.\nRegarding filtering: I haven\u0027t actually found a use for the \"hidden\" option for hiding a full subtree. I\u0027ve only used \"flatten\" for the a11y tree.\nWould you prefer that we slim this down and just provide a boolean predicate for leaving out nodes?",
+      "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
