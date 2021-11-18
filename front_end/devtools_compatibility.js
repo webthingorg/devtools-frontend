@@ -401,6 +401,7 @@
     RecordingReplayFinished: 'DevTools.RecordingReplayFinished',
     RecordingReplayStarted: 'DevTools.RecordingReplayStarted',
     RecordingToggled: 'DevTools.RecordingToggled',
+    InspectorExtensionAPICalled = 'DevTools.InspectorExtensionAPICalled',
   };
 
   /**
