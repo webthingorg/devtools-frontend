@@ -33,6 +33,23 @@
       "message": "Hey Kim,\n\nHere\u0027s the promised fix for the watch expressions.\nPlease take a look.\n\nthanks,\nBenedikt\n",
       "revId": "cae4dfebb3b65c63f16c0db27ee2437c4b19b888",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9175996_efe98ab7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-18T14:01:19Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "cae4dfebb3b65c63f16c0db27ee2437c4b19b888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
