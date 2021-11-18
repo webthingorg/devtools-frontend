@@ -16,6 +16,23 @@
       "message": "PTAL. I\u0027m open to bikeshedding a bit on the name :)",
       "revId": "f2ec09ee3578a4c4bd90459b11e17a42d4af5077",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58743428_c5dced9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-18T15:18:02Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f2ec09ee3578a4c4bd90459b11e17a42d4af5077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
