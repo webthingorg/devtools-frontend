@@ -584,7 +584,6 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     if (this.filterRegexInternal) {
       this.updateFilter();
     }
-    this.swatchPopoverHelper().reposition();
     this.nodeStylesUpdatedForTest(node, false);
   }
 
