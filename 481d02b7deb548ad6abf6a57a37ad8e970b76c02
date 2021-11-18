@@ -16,6 +16,24 @@
       "message": "This now displays an entirely different panel while the test is running. \n\nIs this to fix the bug where repeatedly pressing the button allows you to end up on a different page (https://crbug.com/1271348)?\n\nHow does this change fit in with having a disabled button with a spinner?",
       "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd9b2f41_993f410c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-18T14:12:50Z",
+      "side": 1,
+      "message": "Yes. \nAt first I was trying to make the screen of slide p.12,  I planned to display only the title and spinner button.\nWe can choose to display only the spinner button or maintain the information panel.\nIt takes some time that the page(a.com) navigates to another page(chrome://version/) and back, so I guess the users can see the information panel switching and may confuse the target result(a.com) with another result(chrome://version/).\nHowever, it can avoid the confusion by showing the disabled spinner button.",
+      "parentUuid": "2b89c682_76d20afc",
+      "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
