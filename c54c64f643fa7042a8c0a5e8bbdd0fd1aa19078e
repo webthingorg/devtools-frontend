@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "c54c64f643fa7042a8c0a5e8bbdd0fd1aa19078e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca1aa05_8023879b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-18T08:34:48Z",
+      "side": 1,
+      "message": "When testing this locally according to the bug description, after closing the settings, tabbing skips the network-filter-input.",
+      "revId": "c54c64f643fa7042a8c0a5e8bbdd0fd1aa19078e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
