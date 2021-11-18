@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e692df67_ccfd22b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-18T09:24:06Z",
+      "side": 1,
+      "message": "I\u0027ll submit and Adam could directly check it in Canary now that we have two builds each day (that is the internal roll happens sufficiently).",
+      "revId": "45fa8395a079004dd769895728748866fc1664be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
