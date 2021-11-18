@@ -572,7 +572,6 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     if (this.filterRegexInternal) {
       this.updateFilter();
     }
-    this.swatchPopoverHelper().reposition();
     this.nodeStylesUpdatedForTest(node, false);
   }
 
@@ -1947,7 +1946,6 @@ export class StylePropertiesSection {
     } else {
       this.showAllButton.classList.add('hidden');
     }
-    this.parentPane.swatchPopoverHelper().reposition();
   }
 
   isPropertyOverloaded(property: SDK.CSSProperty.CSSProperty): boolean {
