@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b174485_532b529f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372231
+      },
+      "writtenOn": "2021-11-18T20:05:32Z",
+      "side": 1,
+      "message": "fixed inline flex style align panel closing after a button in the panel was closed",
+      "revId": "c44904a5aa6efdc05a3cf7705b84332fdc7f9290",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
