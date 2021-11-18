@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e35c74_9dc937a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-18T12:52:55Z",
+      "side": 1,
+      "message": "Nice work! All tests are happy, so let\u0027s submit it 😊",
+      "revId": "770d09bf66469a005d126454c2322bc32d056a3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
