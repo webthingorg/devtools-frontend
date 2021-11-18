@@ -269,6 +269,7 @@ export class FrameDetailsReportView extends HTMLElement {
   private permissionsPolicies: Promise<Protocol.Page.PermissionsPolicyFeatureState[]|null>|null = null;
   private permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
   private originTrialTreeView: OriginTrialTreeView = new OriginTrialTreeView();
+  #linkifier = new Components.Linkifier.Linkifier();
 
   connectedCallback(): void {
     this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -545,10 +546,28 @@ export class FrameDetailsReportView extends HTMLElement {
     }
   }
 
+  private createLink(): HTMLElement|null {
+    if (!this.frame?.adScript) {
+      return null;
+    }
+    const element = Components.Linkifier.Linkifier.linkifyURL(this.frame.adScript.name);
+    return element;
+  }
+
+  private createLinkforTarget(target: SDK.Target.Target): HTMLElement|null {
+    if (!this.frame?.adScript) {
+      return null;
+    }
+    const element = this.#linkifier.maybeLinkifyScriptLocation(
+        target, this.frame.adScript.id as unknown as Protocol.Runtime.ScriptId, this.frame.adScript.name, undefined);
+    return element;
+  }
+
   private maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
     if (!this.frame) {
       return LitHtml.nothing;
     }
+    // console.log('maybeRenderAdStatus', this.frame);
     const adFrameType = this.frame.adFrameType();
     if (adFrameType === Protocol.Page.AdFrameType.None) {
       return LitHtml.nothing;
@@ -563,8 +582,28 @@ export class FrameDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
          <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
-        {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
-        ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
+        {rows} as
+        ExpandableList.ExpandableList.ExpandableListData}></${ExpandableList.ExpandableList.ExpandableList.litTagName}>
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>adScript</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        id: ${this.frame.adScript?.id}, name: ${this.frame.adScript?.name}
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>link via URL</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        ${this.createLink() || 'no link'}
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>link via script id</${ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        ${
+        SDK.TargetManager.TargetManager.instance().targets().map(
+            target => LitHtml.html`${this.createLinkforTarget(target)}`)}
+      </${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportKey.litTagName}>link via current target</${
+        ReportView.ReportView.ReportKey.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+        ${this.createLinkforTarget(this.frame?.resourceTreeModel().target())}
+      </${ReportView.ReportView.ReportValue.litTagName}>
       `;
   }
 

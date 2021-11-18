@@ -15438,6 +15438,21 @@
                     ]
                 },
                 {
+                    "id": "AdScriptIdentifier",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "id",
+                            "type": "number"
+                        }
+                    ]
+                },
+                {
                     "id": "NavigationType",
                     "description": "The type of a frameNavigated event.",
                     "experimental": true,
@@ -16824,6 +16839,11 @@
                             "description": "JavaScript stack trace of when frame was attached, only set if frame initiated from script.",
                             "optional": true,
                             "$ref": "Runtime.StackTrace"
+                        },
+                        {
+                            "name": "adScript",
+                            "optional": true,
+                            "$ref": "AdScriptIdentifier"
                         }
                     ]
                 },

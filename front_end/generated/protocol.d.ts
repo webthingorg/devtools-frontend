@@ -10494,6 +10494,11 @@ declare namespace Protocol {
       eager?: boolean;
     }
 
+    export interface AdScriptIdentifier {
+      name: string;
+      id: number;
+    }
+
     /**
      * The type of a frameNavigated event.
      */
@@ -11394,6 +11399,7 @@ declare namespace Protocol {
        * JavaScript stack trace of when frame was attached, only set if frame initiated from script.
        */
       stack?: Runtime.StackTrace;
+      adScript?: AdScriptIdentifier;
     }
 
     /**
