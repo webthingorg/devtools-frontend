@@ -16,6 +16,40 @@
       "message": "Hey Kim,\n\nHere\u0027s the fix for the ConsoleMessage comparison we looked at earlier. It\u0027s pretty much straight-forward.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "fa7a6220db8f525ba4fd0642939bb59598d90973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e05547_c720bb9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-18T06:17:00Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "fa7a6220db8f525ba4fd0642939bb59598d90973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d0cca0_9967eaac",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-11-18T06:17:00Z",
+      "side": 1,
+      "message": "If the url part should for now only be used for watch expressions, shall we move that check there (i.e. (`bothAreWatchExpressions \u0026\u0026 (this.url \u003d\u003d\u003d msg.url) || ..`)?",
+      "revId": "fa7a6220db8f525ba4fd0642939bb59598d90973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
