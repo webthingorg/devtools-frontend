@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e33f28_389870da",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-18T11:23:54Z",
+      "side": 1,
+      "message": "nit: could we use `this.#childIds.some(id \u003d\u003e ...axNodeForId(id) \u003d\u003d\u003d null)` to remove the double negations here?",
+      "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ea8542e_c51c433d",
+        "filename": "front_end/core/sdk/AccessibilityModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-18T11:23:54Z",
+      "side": 1,
+      "message": "What are we ignoring here?",
+      "revId": "6214ce7f1b08d961ed2a6d05b6a9f4192689d114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
