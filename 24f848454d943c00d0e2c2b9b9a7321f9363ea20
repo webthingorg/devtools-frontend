@@ -16,6 +16,24 @@
       "message": "Thank you, Jack! PTAL.\nRegarding filtering: I haven\u0027t actually found a use for the \"hidden\" option for hiding a full subtree. I\u0027ve only used \"flatten\" for the a11y tree.\nWould you prefer that we slim this down and just provide a boolean predicate for leaving out nodes?",
       "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b910f8_17c11c43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-18T10:41:50Z",
+      "side": 1,
+      "message": "I think if we don\u0027t have a need for that behaviour yet, let\u0027s not pre-emptively build it especially given your implementation is easy expanded.\n\nMy 2c on the flatten is that in my head it seems like an odd behaviour to search for something, but have that result then hidden but all its children revealed, but as the person who has built it and worked on it I\u0027ll defer to you. It may well be that I am getting confused over nothing :D",
+      "parentUuid": "49af0b63_cc490c73",
+      "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
