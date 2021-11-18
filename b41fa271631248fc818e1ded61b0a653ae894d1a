@@ -16,6 +16,24 @@
       "message": "I am creating the reland for now, but I still need to figure out why these tests suddenly started to fail.",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d27b84_fe969550",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-18T16:06:36Z",
+      "side": 1,
+      "message": "I am wondering if we are suffering from the same issue as the `let` issue before. The output contains a screenshot of the frontend: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8830221776139920561/+/u/E2E_tests/stdout (The line after \"Frontend screenshot (copy the next line and open in the browser)\").\n\nWhen I open that link, it shows that the console has `object?.` written, but it doesn\u0027t show the autocompletion itself. This was the same for when I was debugging the `let` problem. Does that ring any bell?",
+      "parentUuid": "986d9073_992fc385",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
