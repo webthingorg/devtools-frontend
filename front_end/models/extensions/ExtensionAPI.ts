@@ -31,6 +31,9 @@
 import type * as PublicAPI from '../../../extension-api/ExtensionAPI'; // eslint-disable-line rulesdir/es_modules_import
 import type * as HAR from '../har/har.js';
 
+import {InspectorFrontendHostInstance} from '../../core/host/InspectorFrontendHost.js';
+import {EnumeratedHistogram} from '../../core/host/InspectorFrontendHostAPI.js';
+
 /* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-non-null-assertion */
 export namespace PrivateAPI {
   export namespace Panels {
@@ -271,6 +274,7 @@ export type ExtensionDescriptor = {
   startPage: string,
   name: string,
   exposeExperimentalAPIs: boolean,
+  exposeUserIsInDeveloperMode: boolean,
   exposeWebInspectorNamespace?: boolean,
 };
 
@@ -1229,6 +1233,14 @@ self.injectedExtensionAPI = function(
   if (extensionInfo.exposeWebInspectorNamespace) {
     window.webInspector = coreAPI;
   }
+
+  var userIsInDeveloperMode = 0;
+  if (extensionInfo.exposeUserIsInDeveloperMode) {
+    userIsInDeveloperMode = 1;
+  }
+  InspectorFrontendHostInstance.recordEnumeratedHistogram(
+      EnumeratedHistogram.UserIsInDeveloperMode, userIsInDeveloperMode, 1);
+  console.log('recordEnumeratedHistogram');
   testHook(extensionServer, coreAPI);
 };
 
@@ -1237,6 +1249,7 @@ self.buildExtensionAPIInjectedScript = function(
       startPage: string,
       name: string,
       exposeExperimentalAPIs: boolean,
+      exposeUserIsInDeveloperMode: boolean,
     },
     inspectedTabId: string, themeName: string, keysToForward: number[],
     testHook:

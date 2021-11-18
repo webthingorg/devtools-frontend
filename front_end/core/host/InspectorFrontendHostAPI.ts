@@ -319,6 +319,7 @@ export interface ExtensionDescriptor {
   startPage: string;
   name: string;
   exposeExperimentalAPIs: boolean;
+  exposeUserIsInDeveloperMode: boolean;
 }
 export interface ShowSurveyResult {
   surveyShown: boolean;
@@ -374,4 +375,5 @@ export enum EnumeratedHistogram {
   RecordingReplayFinished = 'DevTools.RecordingReplayFinished',
   RecordingReplayStarted = 'DevTools.RecordingReplayStarted',
   RecordingToggled = 'DevTools.RecordingToggled',
+  UserIsInDeveloperMode = 'DevTools.UserIsInDeveloperMode',
 }
