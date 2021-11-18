@@ -165,7 +165,8 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
 
   frameAttached(
       frameId: Protocol.Page.FrameId, parentFrameId: Protocol.Page.FrameId|null,
-      stackTrace?: Protocol.Runtime.StackTrace): ResourceTreeFrame|null {
+      stackTrace?: Protocol.Runtime.StackTrace, adScript?: Protocol.Page.AdScriptIdentifier|null): ResourceTreeFrame
+      |null {
     const sameTargetParentFrame = parentFrameId ? (this.framesInternal.get(parentFrameId) || null) : null;
     // Do nothing unless cached resource tree is processed - it will overwrite everything.
     if (!this.#cachedResourcesProcessed && sameTargetParentFrame) {
@@ -178,6 +179,9 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     const frame = new ResourceTreeFrame(this, sameTargetParentFrame, frameId, null, stackTrace || null);
     if (parentFrameId && !sameTargetParentFrame) {
       frame.crossTargetParentFrameId = parentFrameId;
+    }
+    if (adScript) {
+      frame.adScript = adScript;
     }
     if (frame.isMainFrame() && this.mainFrame) {
       // Navigation to the new backend process.
@@ -618,6 +622,7 @@ export class ResourceTreeFrame {
     restoredFromCache: boolean|undefined,
     explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[],
   } = {restoredFromCache: undefined, explanations: []};
+  adScript: Protocol.Page.AdScriptIdentifier|null;
 
   constructor(
       model: ResourceTreeModel, parentFrame: ResourceTreeFrame|null, frameId: Protocol.Page.FrameId,
@@ -649,6 +654,7 @@ export class ResourceTreeFrame {
     if (this.#sameTargetParentFrameInternal) {
       this.#sameTargetParentFrameInternal.#childFramesInternal.add(this);
     }
+    this.adScript = null;
   }
 
   isSecureContext(): boolean {
@@ -995,8 +1001,10 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
     this.#resourceTreeModel.dispatchEventToListeners(Events.LifecycleEvent, {frameId, name});
   }
 
-  frameAttached({frameId, parentFrameId, stack}: Protocol.Page.FrameAttachedEvent): void {
-    this.#resourceTreeModel.frameAttached(frameId, parentFrameId, stack);
+  frameAttached(event: Protocol.Page.FrameAttachedEvent): void {
+    const {frameId, parentFrameId, stack, adScript} = event;
+    console.log('Page.frameAttached', event);
+    this.#resourceTreeModel.frameAttached(frameId, parentFrameId, stack, adScript);
   }
 
   frameNavigated({frame, type}: Protocol.Page.FrameNavigatedEvent): void {
