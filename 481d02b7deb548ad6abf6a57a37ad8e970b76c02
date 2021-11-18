@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b89c682_76d20afc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-18T09:53:33Z",
+      "side": 1,
+      "message": "This now displays an entirely different panel while the test is running. \n\nIs this to fix the bug where repeatedly pressing the button allows you to end up on a different page (https://crbug.com/1271348)?\n\nHow does this change fit in with having a disabled button with a spinner?",
+      "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
