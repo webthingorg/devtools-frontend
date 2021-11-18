@@ -93,6 +93,30 @@
       },
       "revId": "da38dfc801b9e4a0d0e3bd2ee36159f2dbd2f0c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ad3f9c_f9fe9675",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-18T10:12:41Z",
+      "side": 1,
+      "message": "My pleasure!",
+      "parentUuid": "5e7f5d98_58e4aeea",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 1
+      },
+      "revId": "da38dfc801b9e4a0d0e3bd2ee36159f2dbd2f0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
