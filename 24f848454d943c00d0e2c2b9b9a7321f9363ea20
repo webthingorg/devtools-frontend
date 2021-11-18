@@ -52,6 +52,24 @@
       "parentUuid": "16b910f8_17c11c43",
       "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1278a4ce_c4b6a6cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-18T10:55:47Z",
+      "side": 1,
+      "message": "Thanks for the explanation 👍\n\nI\u0027d personally keep the enum so that if we do bring back HIDDEN (or any other variant) the code can be easily updated.",
+      "parentUuid": "e5af3aee_daaf26b0",
+      "revId": "24f848454d943c00d0e2c2b9b9a7321f9363ea20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
