@@ -52,6 +52,24 @@
       "parentUuid": "20d27b84_fe969550",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a800c3d_067e76cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-18T16:30:53Z",
+      "side": 1,
+      "message": "Yes they indeed didn\u0027t trigger autocompletion. But it isn\u0027t clear to me why that is the case. The bots that it failed on have less powerful machines, so that\u0027s why I am thinking we might be running into a timing issue again.",
+      "parentUuid": "3324aa47_048a3a95",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
