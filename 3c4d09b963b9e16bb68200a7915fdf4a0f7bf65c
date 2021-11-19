@@ -51,6 +51,24 @@
       "parentUuid": "cbe46e3f_b71cd53e",
       "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5d766a_c29f67f8",
+        "filename": "front_end/third_party/lighthouse/report-assets/report-generator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-11-19T02:16:20Z",
+      "side": 1,
+      "message": "Making this code in the generator async for this purpose is something we wish to avoid simple because it is rather awkward. From the Lighthouse core perspective there\u0027s no reason generateReportHtml would be async, and it would be a breaking change to make it so.\n\nMy original idea was to fetch the resource in the Lighthouse Panel and assign to a globally accessible value which REPORT_TEMPLATE would access. Given the resource would fetched over the network, we shouldn\u0027t block the report from finishing so we don\u0027t break offline usage. We could fetch and assign without awaiting while the report is being generated, and optionally add some error handling in the report code to check if the data is missing and disable the option to save as HTML.\n\nOr, we could just inline this file in our generation of report-generator.js. I suppose report.js too?\n\nAside: the standalone-template is only used for the report generator (this is what saves a copy of the html, not what renders the report as seen in the panel. This option is in the three dot menu in the report). The report.js is also needed to generate this saved report, and that file is also used by the LH panel for rendering the report. I think even with today\u0027s setup report.js bytes are included twice in the CDT frontend. Inlining wouldn\u0027t change that.",
+      "parentUuid": "c53bfbf7_5c9ac82e",
+      "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
