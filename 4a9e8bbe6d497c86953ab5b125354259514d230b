@@ -16,6 +16,23 @@
       "message": "PTAL 😊",
       "revId": "4a9e8bbe6d497c86953ab5b125354259514d230b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9556d8b_21184378",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-19T09:16:40Z",
+      "side": 1,
+      "message": "Hm, I\u0027m not familiar with enabling experiments transiently. What does that achieve?\n\nUsually we just remove all mentions of the experiment (e.g. https://crrev.com/c/3240943).",
+      "revId": "4a9e8bbe6d497c86953ab5b125354259514d230b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
