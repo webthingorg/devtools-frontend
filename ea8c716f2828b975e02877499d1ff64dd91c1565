@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2abd4d8_977c331d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-19T11:21:02Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "ea8c716f2828b975e02877499d1ff64dd91c1565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47e4535_d76e2326",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-19T11:21:02Z",
+      "side": 1,
+      "message": "tiny nit, but maybe we could do `if (!section....) { continue; }` to limit nesting?",
+      "range": {
+        "startLine": 43,
+        "startChar": 10,
+        "endLine": 43,
+        "endChar": 57
+      },
+      "revId": "ea8c716f2828b975e02877499d1ff64dd91c1565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ae59ac_b956a027",
+        "filename": "test/e2e/resources/elements/css-variables-many.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-19T11:21:02Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "ea8c716f2828b975e02877499d1ff64dd91c1565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
