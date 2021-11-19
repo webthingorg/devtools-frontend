@@ -39,6 +39,30 @@
       },
       "revId": "df45d56213b2488b90a2523d85a914451e95a18c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2389619_f7347580",
+        "filename": "front_end/ui/legacy/Dialog.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2021-11-19T21:19:07Z",
+      "side": 1,
+      "message": "Done, thanks",
+      "parentUuid": "7bec6fb5_ff23b64b",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 32
+      },
+      "revId": "df45d56213b2488b90a2523d85a914451e95a18c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
