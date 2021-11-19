@@ -137,8 +137,12 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
       if (node instanceof HTMLElement) {
         const element = (node as HTMLElement);
         const tabIndex = element.tabIndex;
-        if (tabIndex >= 0 && (!exclusionSet || !exclusionSet.has(element))) {
+        const includeElement = !exclusionSet || !exclusionSet.has(element);
+        if (tabIndex >= 0 && includeElement) {
           this.tabIndexMap.set(element, tabIndex);
+          element.tabIndex = -1;
+        } else if (element.hasAttribute('contenteditable') && includeElement) {
+          this.tabIndexMap.set(element, element.hasAttribute('tabindex') ? tabIndex : 0);
           element.tabIndex = -1;
         }
       }
