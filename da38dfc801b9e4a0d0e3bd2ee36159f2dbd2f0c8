@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "071e42f2_782d5aca",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-11-19T13:44:17Z",
+      "side": 1,
+      "message": "Yes please use the already defined grey disabled state. Thanks!",
+      "parentUuid": "70bed138_eb85b59b",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 42
+      },
+      "revId": "da38dfc801b9e4a0d0e3bd2ee36159f2dbd2f0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98ed27d7_8dddcee4",
         "filename": "front_end/ui/components/buttons/button.css",
         "patchSetId": 6
