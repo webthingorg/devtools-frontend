@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de32bc4_0625a51d",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-19T09:22:57Z",
+      "side": 1,
+      "message": "This is some neat trick to localize long names into _much_ shorter ones.",
+      "revId": "a6870e1590eb6f647915756ee26e760737827080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
