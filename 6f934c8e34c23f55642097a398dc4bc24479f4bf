@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80153288_43f7a260",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-19T23:03:32Z",
+      "side": 1,
+      "message": "nit: if `frame?.resourceTreeModel().target().model(SDK.AccessibilityModel.AccessibilityModel)` can result in a falsy value, do we still need `|| null` in the end?",
+      "revId": "6f934c8e34c23f55642097a398dc4bc24479f4bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1bf2cc4_6ab0fa8c",
+        "filename": "front_end/panels/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-19T23:03:32Z",
+      "side": 1,
+      "message": "I feel like this function could live in a more common util file, but this can happen later.",
+      "revId": "6f934c8e34c23f55642097a398dc4bc24479f4bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ef3b93_56045003",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-19T23:03:32Z",
+      "side": 1,
+      "message": "nit: I find that we\u0027re doing local string concatenations a lot (frameId + \u0027#\u0027 + axNodeId). Is this format determined by us? Are there benefits creating a dedicated function to _encode_ this id from frameId and axNodeId, in case the encoding format would change in the future?",
+      "revId": "6f934c8e34c23f55642097a398dc4bc24479f4bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
