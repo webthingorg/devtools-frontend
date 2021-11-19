@@ -124,6 +124,24 @@
       "parentUuid": "e570fa90_876d96e8",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b6b0073_1857d205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-19T14:58:46Z",
+      "side": 1,
+      "message": "The test failures are available here: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Mac/6200/test-results\n\nAnd yes, you can do a standalone run without having to do a full Chrome build. To do that, edit `e2e/console/console-autocomplete_test.ts:` and change `describe` to `describe.only`.\n\nThen run `gclient sync` (to pull in the Chrome binaries) and run `npm run auto-e2etest`. The test might pass on your local machine, depending on performance. If you want to see what the test is doing, you can run `npm run auto-debug-e2etest` to see the live running Chrome instance.",
+      "parentUuid": "78fb4c37_debdeb73",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
