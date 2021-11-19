@@ -88,6 +88,24 @@
       "parentUuid": "2a800c3d_067e76cf",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e570fa90_876d96e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-19T11:37:20Z",
+      "side": 1,
+      "message": "The editor sees the difference between content typed and pasted into the field, and only starts completion on typing. That\u0027s why you don\u0027t get completions when you paste, but it won\u0027t be what\u0027s making the test fail.",
+      "parentUuid": "3ceb835d_372962c2",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
