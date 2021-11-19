@@ -50,6 +50,24 @@
       "message": "Would it be possible to get a stack trace for these failures? \"PROMISE FAILURE: undefined\" seems like a promise is crashing? ",
       "revId": "f5892be58552dd6a7b5da0bcb966d62b18f6eba6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e247df1_ca843fc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-19T13:03:31Z",
+      "side": 1,
+      "message": "I went ahead and deleted these tests: https://chromium-review.googlesource.com/c/chromium/src/+/3290418 as I understand it, these layout tests verify use cases that the e2e-tests are already testing (and they are passing).",
+      "parentUuid": "7059beb5_0632932d",
+      "revId": "f5892be58552dd6a7b5da0bcb966d62b18f6eba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
