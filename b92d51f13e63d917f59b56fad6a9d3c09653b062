@@ -16,6 +16,23 @@
       "message": "We got a crash report for our RunTest button, because of chrome://version. This CL intends to fix the crash by using different URL which does not have Allow/DisallowJavaScript issues. PTAL :)",
       "revId": "b92d51f13e63d917f59b56fad6a9d3c09653b062",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c90f508_5cfd2b9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-19T07:47:56Z",
+      "side": 1,
+      "message": "LGTM. Thank you!",
+      "revId": "b92d51f13e63d917f59b56fad6a9d3c09653b062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
