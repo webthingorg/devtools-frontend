@@ -33,6 +33,23 @@
       "message": "I followed the instructions in the bug and can confirm it is now working as expected. Thanks Marijn for the deep-dive and the fix! Removing complexity *and* fixing a bug is always great in my books 🎉",
       "revId": "f5892be58552dd6a7b5da0bcb966d62b18f6eba6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7059beb5_0632932d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-19T12:54:33Z",
+      "side": 1,
+      "message": "Would it be possible to get a stack trace for these failures? \"PROMISE FAILURE: undefined\" seems like a promise is crashing? ",
+      "revId": "f5892be58552dd6a7b5da0bcb966d62b18f6eba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
