@@ -106,6 +106,24 @@
       "parentUuid": "3ceb835d_372962c2",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78fb4c37_debdeb73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-19T14:56:03Z",
+      "side": 1,
+      "message": "So I don\u0027t see the notification about the failed tests anymore (possibly because I don\u0027t know where to look). Which were they again and ss there a way to run these locally without a Chrome build?",
+      "parentUuid": "e570fa90_876d96e8",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
