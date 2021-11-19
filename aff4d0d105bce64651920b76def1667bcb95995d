@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cb7d873_feeeeaf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-19T12:32:41Z",
+      "side": 1,
+      "message": "PTAL.\n\nThe e2e tests are currently still failing because they are not being run against the latest chromium version, which means the chromium BE is not yet sending the reporting endpoint events.",
+      "revId": "aff4d0d105bce64651920b76def1667bcb95995d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
