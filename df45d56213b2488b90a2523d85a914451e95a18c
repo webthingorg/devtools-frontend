@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9e52ee_d933bbac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-19T07:56:42Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "df45d56213b2488b90a2523d85a914451e95a18c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bec6fb5_ff23b64b",
+        "filename": "front_end/ui/legacy/Dialog.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-19T07:56:42Z",
+      "side": 1,
+      "message": "nit: I feel formulating it like this might be cleaner.\n```\nif (!exclusionSet?.has(element)) {\n  if (tabIndex \u003e\u003d 0) {\n    this.tabIndexMap.set(element, tabIndex);\n    element.tabIndex \u003d -1;\n  } else if (element.hasAttribute(\u0027contenteditable\u0027)) {\n    this.tabIndexMap.set(element, element.hasAttribute(\u0027tabindex\u0027) ? tabIndex : 0);\n    element.tabIndex \u003d -1;\n  }\n}\n```",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 32
+      },
+      "revId": "df45d56213b2488b90a2523d85a914451e95a18c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
