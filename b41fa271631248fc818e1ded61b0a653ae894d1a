@@ -70,6 +70,24 @@
       "parentUuid": "3324aa47_048a3a95",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ceb835d_372962c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-19T11:34:11Z",
+      "side": 1,
+      "message": "So I think the reason this doesn\u0027t work is that the test is too quick and to the editor, it is as if we pasted the string \"object?.\". In stable, we don\u0027t show any autocompletion when you paste that string, but we do show autocompletion when typing manually.\n\nIn theory, someone can type so quickly that they would reproduce this issue. That said, that seems unlikely.\n\nI am not sure what the best path forward is. Ideally we can always detect key strokes from the user and show autocompletion, but I am not sure if we can make that distinction in CodeMirror?",
+      "parentUuid": "2a800c3d_067e76cf",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
