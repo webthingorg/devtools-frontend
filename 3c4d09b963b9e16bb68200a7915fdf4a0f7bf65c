@@ -87,6 +87,24 @@
       "parentUuid": "5d5d766a_c29f67f8",
       "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "330b0346_3b342cf5",
+        "filename": "front_end/third_party/lighthouse/report-assets/report-generator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-19T11:28:36Z",
+      "side": 1,
+      "message": "Given the options, I think \"Or, we could just inline this file in our generation of report-generator.js. I suppose report.js too?\" sounds the best way forward to me. I suppose we have to make these changes on the LightHouse bundling side?",
+      "parentUuid": "a78f5552_db96a0a1",
+      "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
