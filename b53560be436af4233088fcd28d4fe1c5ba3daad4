@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71e5333f_c309d7f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-19T07:46:02Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nTurns out fixing the negative line numbers issue is merely removing a hack from the front-end, which is no longer necessary, since V8 does the right thing these days. 😄\n\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "b53560be436af4233088fcd28d4fe1c5ba3daad4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
