@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e918ad_f73e7704",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-11-21T20:15:33Z",
+      "side": 1,
+      "message": "I already ran e2e tests locally but not on all platforms so you might want to CQ dry run it first as I don\u0027t have the necessary permission for that.\n\nFor a screencast of the fix please see https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1222382#c8",
+      "revId": "0f690af72457a3b38cabb85cb6fafde4d2b443a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
