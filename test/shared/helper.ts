@@ -82,13 +82,17 @@ export const getElementPosition =
   };
 };
 
-interface ClickOptions extends puppeteer.ClickOptions {
+export interface ClickOptions {
+  root?: puppeteer.JSHandle;
+  clickOptions?: PuppeteerClickOptions;
+  maxPixelsFromLeft?: number;
+}
+
+interface PuppeteerClickOptions extends puppeteer.ClickOptions {
   modifier?: 'ControlOrMeta';
 }
 
-export const click = async (
-    selector: string|puppeteer.ElementHandle,
-    options?: {root?: puppeteer.JSHandle, clickOptions?: ClickOptions, maxPixelsFromLeft?: number}) => {
+export const click = async (selector: string|puppeteer.ElementHandle, options?: ClickOptions) => {
   const {frontend} = getBrowserAndPages();
   const clickableElement =
       await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);

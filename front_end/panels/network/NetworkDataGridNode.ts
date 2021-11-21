@@ -1007,7 +1007,8 @@ export class NetworkRequestNode extends NetworkNode {
       cell.style.setProperty('padding-left', leftPadding);
       this.nameCell = cell;
       cell.addEventListener('dblclick', this.openInNewTab.bind(this), false);
-      cell.addEventListener('click', () => {
+      cell.addEventListener('mousedown', () => {
+        this.select();
         this.parentView().dispatchEventToListeners(Events.RequestActivated, {showPanel: true});
       });
       let iconElement;
