@@ -50,6 +50,23 @@
       "message": "For some reason, even though I have INFRA_OWNERS, Gerrit is still upset that my +1 doesn\u0027t count. Jack, can you stamp with approval as INFRA_OWNER?",
       "revId": "56cb26bc95790f4c62386eda09702d2b1562eaad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd74fbd_e44ee663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-22T16:07:17Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "56cb26bc95790f4c62386eda09702d2b1562eaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
