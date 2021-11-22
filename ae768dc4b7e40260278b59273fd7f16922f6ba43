@@ -121,6 +121,24 @@
       "parentUuid": "e79d2384_9b3a9991",
       "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b528adc4_292a505e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-11-22T21:09:37Z",
+      "side": 1,
+      "message": "A few python installs later and I\u0027ve got e2e tests working on windows. I couldn\u0027t reproduce it at first, but after setting the websocket message interval to 10ms I could. And it turns out this reproduces on mac as well.\n\nFor some reason the rect in getElementPosition [1] returns all zeros. I\u0027m trying to figure out whether this is because the element is already detached from the dom, or not attached yet.\n\nEither way, I think fixing this might inadvertently de-flake some other tests as well.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/shared/helper.ts;l\u003d52",
+      "parentUuid": "c849a856_62905317",
+      "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
