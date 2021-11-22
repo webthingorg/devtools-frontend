@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "846e9ff6_22c9307a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-22T14:24:39Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s another cleanup for the ConsoleMessage to make the scriptId, stackTrace, and url usages more obvious and easier to reason about. No functional changes.\n\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "adb8755ea1265ae1246f904f4b9779c3f07db2eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
