@@ -41,9 +41,12 @@ export class LogManager implements SDK.TargetManager.SDKModelObserver<SDK.LogMod
   private logEntryAdded(event: Common.EventTarget.EventTargetEvent<SDK.LogModel.EntryAddedEvent>): void {
     const {logModel, entry} = event.data;
     const target = logModel.target();
+    const callFrame =
+        entry.stackTrace && entry.stackTrace.callFrames.length > 0 ? entry.stackTrace.callFrames[0] : null;
     const details = {
-      url: entry.url,
-      line: entry.lineNumber,
+      url: entry.url ?? callFrame?.url,
+      scriptId: callFrame?.scriptId,
+      line: entry.lineNumber ?? callFrame?.lineNumber,
       parameters: [entry.text, ...(entry.args ?? [])],
       stackTrace: entry.stackTrace,
       timestamp: entry.timestamp,
