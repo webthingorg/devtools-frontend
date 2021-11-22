@@ -142,6 +142,41 @@
       "parentUuid": "78fb4c37_debdeb73",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "384c9579_f9b8a9a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-22T12:48:14Z",
+      "side": 1,
+      "message": "I *think* I solved this (but given it\u0027s nondeterministic nature I can only say that I can\u0027t get it to happen anymore, which might just be bad luck). It wasn\u0027t actually about completion (though the screenshots mysteriously didn\u0027t show completions), but about the wait for the preview that was apparently in there as a kludge to avoid another issue, but which surfaced a problem in the type-ahead completion handling that only showed up sometimes due to a race condition.",
+      "parentUuid": "1b6b0073_1857d205",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c275f138_1195939d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-22T12:48:14Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded a new version which solves a few issues in the preview and the typeahead completion, and turns off bracket closing in the console to align with the existing console prompt behavior.\n\nIt also entirely removes the CodeMirror upgrade, meaning this will not pass until 3293282 has landed. I\u0027ll see if I can mark it as WIP again.",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
