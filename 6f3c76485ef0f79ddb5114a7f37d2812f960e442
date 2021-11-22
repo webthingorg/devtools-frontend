@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b881425_7e06a65e",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-22T11:57:38Z",
+      "side": 1,
+      "message": "I\u0027ll walk through this refactoring step-by-step. Kindly double-check that my reasoning is solid 😊\n\nIf we check `showNativeName`, removing the experiment would cause that function to always return false (as removed experiment \u003d\u003d\u003d experiment set to false). So we get:\n\n if (isNativeRuntimeFrame) {\n   continue;\n }\n const nativeFrameName \u003d\n     isNativeRuntimeFrame ? \n         TimelineJSProfileProcessor.nativeGroup(frame.functionName) : null;\n if (previousNativeFrameName \u0026\u0026 previousNativeFrameName \u003d\u003d\u003d nativeFrameName) {\n   continue;\n }\n previousNativeFrameName \u003d nativeFrameName;\n stack[j++] \u003d frame;\n\nGiven that `isNativeFrame` will always be false, we can collapse the ternary:\n\n if (isNativeRuntimeFrame) {\n   continue;\n }\n const nativeFrameName \u003d null;\n if (previousNativeFrameName \u0026\u0026 previousNativeFrameName \u003d\u003d\u003d nativeFrameName) {\n   continue;\n }\n previousNativeFrameName \u003d nativeFrameName;\n stack[j++] \u003d frame;\n\nThe next `if` can now never be reached. As the second clause can only be true if `previousNativeFrameName` is null, which would fail the first clause and vice versa. Together with inlining the assignment:\n\n if (isNativeRuntimeFrame) {\n   continue;\n }\n previousNativeFrameName \u003d null;\n stack[j++] \u003d frame;\n\nNow `previousNativeFrameName` is unused, so we remove it, and then we invert the condition to arrive at the CL.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 9
+      },
+      "revId": "6f3c76485ef0f79ddb5114a7f37d2812f960e442",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
