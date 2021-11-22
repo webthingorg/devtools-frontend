@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d802366_242fa741",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-11-22T13:18:21Z",
+      "side": 1,
+      "message": "Better to have it extracted in another file.",
+      "parentUuid": "aef58ec4_f36de0f2",
+      "revId": "48b2ea127b434bb3f94905ef7d118011282c6db2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d765bede_d2d48ea9",
@@ -65,6 +83,30 @@
       "writtenOn": "2021-11-22T12:46:33Z",
       "side": 1,
       "message": "Could you add a console for this? Otherwise we won\u0027t have a milo representation of this builder...",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "48b2ea127b434bb3f94905ef7d118011282c6db2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "261a2d6f_3b0a63f7",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-11-22T13:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d765bede_d2d48ea9",
       "range": {
         "startLine": 206,
         "startChar": 0,
