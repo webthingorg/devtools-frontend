@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b76c190_3033d1cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-22T15:02:33Z",
+      "side": 1,
+      "message": "I started the stressor tests (which you can see in the CQ checks that are running). For example, the Mac stressor test build is running at https://ci.chromium.org/ui/p/devtools-frontend/builders/try/e2e_stressor_mac/b8829852670601363473/overview",
+      "revId": "56cb26bc95790f4c62386eda09702d2b1562eaad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
