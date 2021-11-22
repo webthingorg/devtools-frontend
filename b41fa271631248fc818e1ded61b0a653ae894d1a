@@ -177,6 +177,24 @@
       "message": "I\u0027ve uploaded a new version which solves a few issues in the preview and the typeahead completion, and turns off bracket closing in the console to align with the existing console prompt behavior.\n\nIt also entirely removes the CodeMirror upgrade, meaning this will not pass until 3293282 has landed. I\u0027ll see if I can mark it as WIP again.",
       "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4473cdc6_c8c6a6b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-22T14:12:51Z",
+      "side": 1,
+      "message": "3293282 is landing now and should be good-to-go, thanks!\n\nGerrit doesn\u0027t show a second patchset on this CL though. Were you able to upload a version? If you are having trouble, you can `git cl issue 0 \u0026\u0026 git cl upload` to upload your CL.\n\nI can also run our e2e stressor bots (that runs our e2e-tests 100 times) to figure out if we are still running into race conditions. Thanks for diving into that!",
+      "parentUuid": "c275f138_1195939d",
+      "revId": "b41fa271631248fc818e1ded61b0a653ae894d1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
