@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dfbd58b_51f18a59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-22T10:48:45Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the cleanup CL to make it clear that fallbackAnchor is only used when the target is disposed (in case of linkifyStackTraceTopFrame).\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "3c5f5a7ad62e9f481690b1ce2e90088df6640941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
