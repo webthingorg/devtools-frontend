@@ -86,6 +86,23 @@
       "parentUuid": "217a33d1_f6256050",
       "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e79d2384_9b3a9991",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-22T11:16:12Z",
+      "side": 1,
+      "message": "It seems the test added by this CL is flaky on Windows. Looking at the screenshot at the time of failure, it seems that the request info pane was not opened. (Screenshot can be found in the test output as a data: url)\n\nDo you have a windows box to try and re-pro and maybe de-flake? Otherwise we could disable the test on windows via `it.skipOnPlatforms([\u0027win\u0027], \u0027....`",
+      "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
