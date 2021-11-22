@@ -16,6 +16,23 @@
       "message": "LGTM:)",
       "revId": "ab3957ea01c04021d2ac35bd9bbbc6c10832a384",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de275b8_222102d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-22T14:06:48Z",
+      "side": 1,
+      "message": "INFRA LGTM. Please make sure to run the e2e-tests on the stressor bots to ensure they aren\u0027t flaky.",
+      "revId": "ab3957ea01c04021d2ac35bd9bbbc6c10832a384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
