@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbddbc71_97006899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-11-22T11:18:19Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the CSS/DOM fix to get the fallbackAnchor working properly.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "3751974b75b461820d8163881cbf88c4c0e28601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
