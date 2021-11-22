@@ -103,6 +103,24 @@
       "message": "It seems the test added by this CL is flaky on Windows. Looking at the screenshot at the time of failure, it seems that the request info pane was not opened. (Screenshot can be found in the test output as a data: url)\n\nDo you have a windows box to try and re-pro and maybe de-flake? Otherwise we could disable the test on windows via `it.skipOnPlatforms([\u0027win\u0027], \u0027....`",
       "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c849a856_62905317",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-11-22T12:22:42Z",
+      "side": 1,
+      "message": "Yeah I\u0027ve got a windows box. I\u0027ll try to repro it later today.\nI haven\u0027t set up the repository on my Windows computer yet so it might take some time, I\u0027ll keep you posted.",
+      "parentUuid": "e79d2384_9b3a9991",
+      "revId": "ae768dc4b7e40260278b59273fd7f16922f6ba43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
