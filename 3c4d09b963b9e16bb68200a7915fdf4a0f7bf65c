@@ -141,6 +141,24 @@
       "parentUuid": "1af7f056_79dd5e18",
       "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1d2b169_e0187b59",
+        "filename": "front_end/third_party/lighthouse/report-assets/report-generator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-11-22T21:05:47Z",
+      "side": 1,
+      "message": "https://github.com/GoogleChrome/lighthouse/pull/13406",
+      "parentUuid": "db9d7894_25c29d9b",
+      "revId": "3c4d09b963b9e16bb68200a7915fdf4a0f7bf65c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
