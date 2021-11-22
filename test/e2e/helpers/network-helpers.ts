@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import {$$, click, goToResource, setCheckBox, waitFor, waitForFunction} from '../../shared/helper.js';
-
+import type {ClickOptions} from '../../shared/helper.js';
 const REQUEST_LIST_SELECTOR = '.network-log-grid .data';
 
 /**
@@ -40,12 +40,12 @@ export async function getSelectedRequestName() {
   });
 }
 
-export async function selectRequestByName(name: string) {
+export async function selectRequestByName(name: string, clickOptions?: ClickOptions) {
   const requests = await $$(REQUEST_LIST_SELECTOR + ' .name-column');
   for (const request of requests) {
     const hasSoughtName = await request.evaluate((node, name) => node.childNodes[1].textContent === name, name);
     if (hasSoughtName) {
-      await click(request);
+      await click(request, clickOptions);
       return;
     }
   }
