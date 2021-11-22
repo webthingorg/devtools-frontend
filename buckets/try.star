@@ -202,3 +202,27 @@ luci.cq_group(
         luci.cq_tryjob_verifier(builder = "dtf_presubmit_linux", disable_reuse = True),
     ],
 )
+
+try_builder(
+    name = "serving_app_presubmit",
+    recipe_name = "run_presubmit",
+    dimensions = dimensions.default_ubuntu,
+    properties = {
+        "runhooks": True,
+    },
+    priority = 25,
+    execution_timeout = 5 * time.minute,
+)
+
+luci.cq_group(
+    name = "serving_app",
+    watch = cq.refset(
+        repo = "https://chromium.googlesource.com/chromium/tools/chrome-devtools-frontend",
+        refs = ["refs/heads/main"],
+    ),
+    acls = cq_acls,
+    retry_config = cq_retry_config,
+    verifiers = [
+        luci.cq_tryjob_verifier(builder = "serving_app_presubmit", disable_reuse = True),
+    ],
+)
