@@ -534,12 +534,6 @@ export const experiments = new ExperimentsSupport();
 
 export const cachedResources = new Map<string, string>();
 
-// Only exported for LightHouse, which uses it in `report-generator.js`.
-// Do not use this global in DevTools' implementation.
-// TODO(crbug.com/1127292): remove this global
-// @ts-ignore
-globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE = cachedResources;
-
 export let appStartedPromiseCallback: () => void;
 export const appStarted = new Promise<void>(fulfill => {
   appStartedPromiseCallback = fulfill;

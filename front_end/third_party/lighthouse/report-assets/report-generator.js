@@ -14,9 +14,6 @@
 
 /* global globalThis */
 
-// @ts-expect-error: globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE exists in Devtools. https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/root/Runtime.js;l=1247-1250;drc=c4e2fefe3327aa9fe5f4398a1baddb8726c230d5
-const cachedResources = globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE;
-
 // Getters are necessary because the DevTools bundling processes
 // resources after this module is resolved. These properties are not
 // read from immediately, so we can defer reading with getters and everything
@@ -26,10 +23,12 @@ module.exports = {
     return '';
   },
   get REPORT_JAVASCRIPT() {
-    return cachedResources.get('third_party/lighthouse/report-assets/report.js');
+    // @ts-expect-error: globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE exists in Devtools. https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/root/Runtime.js;l=1247-1250;drc=c4e2fefe3327aa9fe5f4398a1baddb8726c230d5
+    return globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE.get('third_party/lighthouse/report-assets/report.js');
   },
   get REPORT_TEMPLATE() {
-    return cachedResources.get('third_party/lighthouse/report-assets/standalone-template.html');
+    // @ts-expect-error: globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE exists in Devtools. https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/root/Runtime.js;l=1247-1250;drc=c4e2fefe3327aa9fe5f4398a1baddb8726c230d5
+    return globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE.get('third_party/lighthouse/report-assets/standalone-template.html');
   },
 };
 

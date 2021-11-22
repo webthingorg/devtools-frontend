@@ -359,8 +359,17 @@ export class LighthousePanel extends UI.Panel.Panel {
       }
 
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.LighthouseFinished);
-
       await this.resetEmulationAndProtocolConnection();
+      const standaloneTemplateContent = await fetch(
+          new URL('../../third_party/lighthouse/report-assets/standalone-template.html', import.meta.url).toString());
+      const reportContent =
+          await fetch(new URL('../../third_party/lighthouse/report-assets/report.js', import.meta.url).toString());
+      const lighthouseResourcesMap = new Map();
+      lighthouseResourcesMap.set(
+          'third_party/lighthouse/report-assets/standalone-template.html', await standaloneTemplateContent.text());
+      lighthouseResourcesMap.set('third_party/lighthouse/report-assets/report.js', await reportContent.text());
+      // @ts-ignore TODO(crbug.com/1127292): remove this global
+      globalThis.EXPORTED_CACHED_RESOURCES_ONLY_FOR_LIGHTHOUSE = lighthouseResourcesMap;
       this.buildReportUI(lighthouseResponse.lhr, lighthouseResponse.artifacts);
       // Give focus to the new audit button when completed
       this.newButton.element.focus();

@@ -22,7 +22,6 @@ all_devtools_files = [
   "front_end/legacy_test_runner/application_test_runner/ServiceWorkersTestRunner.js",
   "front_end/legacy_test_runner/application_test_runner/StorageTestRunner.js",
   "front_end/legacy_test_runner/lighthouse_test_runner/lighthouse_test_runner.js",
-  "front_end/panels/lighthouse/module.json",
   "front_end/legacy_test_runner/axe_core_test_runner/axe_core_test_runner.js",
   "front_end/third_party/axe-core/axe.js",
   "front_end/legacy_test_runner/bindings_test_runner/AutomappingTestRunner.js",
@@ -125,8 +124,6 @@ all_devtools_files = [
   "front_end/ui/legacy/components/text_editor/autocompleteTooltip.css",
   "front_end/ui/legacy/components/text_editor/cmdevtools.css",
   "front_end/ui/legacy/components/text_editor/module.json",
-  "front_end/third_party/lighthouse/report-assets/report.js",
-  "front_end/third_party/lighthouse/report-assets/standalone-template.html",
 ]
 
 lighthouse_locale_files = [
