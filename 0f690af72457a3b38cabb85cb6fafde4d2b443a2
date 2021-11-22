@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ecd97ebb_1d2cdd00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-11-22T08:49:42Z",
+      "side": 1,
+      "message": "Ah haha this was seriously the very first thing I thought about when woke up this morning.",
+      "parentUuid": "12ed9ea5_fb415f60",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 3
+      },
+      "revId": "0f690af72457a3b38cabb85cb6fafde4d2b443a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f8e918ad_f73e7704",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2021-11-22T06:32:33Z",
       "side": 1,
       "message": "Why is the select now necessary and wasn\u0027t before?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 8,
+        "endLine": 1011,
+        "endChar": 22
+      },
+      "revId": "0f690af72457a3b38cabb85cb6fafde4d2b443a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a08fe17f_2134eaa5",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2021-11-22T08:49:42Z",
+      "side": 1,
+      "message": "The RequestActivated fires onRequestActivated in NetworkPanel.ts, which calls showRequestPanel [1]. But showRequestPanel doesn\u0027t do anything if this.currentRequest isn\u0027t set. When it was still using the \u0027click\u0027 event this wasn\u0027t a problem, since `onRequestActivated` would always fire after `onRequestSelected`. But now that it uses \u0027mousedown\u0027, the activate event fires before the select event, causing the request panel not to get opened the first time you click it.\n\nThere\u0027s a couple of things I thought of to work around this.\n- Firing the `Events.RequestActivated` inside a `setTimeout` with 1ms seemed to work, but felt really wrong.\n- Another thing I thought of was to await for a promise that resolves once the select event has fired, but that felt equally wrong.\n- Refactoring DataGrid to ensure the mousedown gets attached after the mousedown of NetworkDataGridNodes. But it would have to reattach every time a node is created.\n- Separating the logic for the requestPanel visibility, allowing it to be visible even when this.currentRequest is null. But I figured this would probably break a whole lot more tests.\n\nSo in the end an extra this.select() seemed like the best solution, the only downside is that the Select event now fires twice. Let me know if you think this is a dealbreaker.\n\nI thought about adding a comment with an explanation for this but didn\u0027t see many comments in the file so I thought it wasn\u0027t customary. I can still add it if you like?\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/network/NetworkPanel.ts;l\u003d657",
+      "parentUuid": "2b5dcc32_abb4e9d5",
       "range": {
         "startLine": 1011,
         "startChar": 8,
