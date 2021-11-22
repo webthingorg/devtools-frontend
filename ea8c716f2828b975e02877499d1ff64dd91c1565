@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d75df7c6_4d6748a2",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-22T08:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d47e4535_d76e2326",
+      "range": {
+        "startLine": 43,
+        "startChar": 10,
+        "endLine": 43,
+        "endChar": 57
+      },
+      "revId": "ea8c716f2828b975e02877499d1ff64dd91c1565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3ae59ac_b956a027",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-19T11:21:02Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "ea8c716f2828b975e02877499d1ff64dd91c1565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bcf1e03_3a6cab2d",
+        "filename": "test/e2e/resources/elements/css-variables-many.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-22T08:57:02Z",
+      "side": 1,
+      "message": "This has happened many times in many CLs from different people. Let\u0027s see if there\u0027s an automatic way for correcting this.",
+      "parentUuid": "e3ae59ac_b956a027",
       "range": {
         "startLine": 2,
         "startChar": 12,
