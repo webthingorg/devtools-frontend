@@ -1251,7 +1251,7 @@ export class ConsoleView extends UI.Widget.VBox implements UI.SearchableView.Sea
           {type: SDK.ConsoleModel.FrontendMessageType.Result, parameters: [result]});
     } else {
       message = SDK.ConsoleModel.ConsoleMessage.fromException(
-          result.runtimeModel(), exceptionDetails, SDK.ConsoleModel.FrontendMessageType.Result, undefined, undefined);
+          result.runtimeModel(), exceptionDetails, SDK.ConsoleModel.FrontendMessageType.Result);
     }
     message.setOriginatingMessage(originatingConsoleMessage);
     SDK.ConsoleModel.ConsoleModel.instance().addMessage(message);

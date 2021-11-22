@@ -447,11 +447,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
   protected buildMessageAnchor(): HTMLElement|null {
     const linkify = (message: SDK.ConsoleModel.ConsoleMessage): HTMLElement|null => {
+      if (message.stackTrace && message.stackTrace.callFrames.length > 0) {
+        return this.linkifyStackTraceTopFrame(message.stackTrace);
+      }
       if (message.scriptId) {
         return this.linkifyScriptId(message.scriptId, message.url || '', message.line, message.column);
-      }
-      if (message.stackTrace && message.stackTrace.callFrames.length) {
-        return this.linkifyStackTraceTopFrame(message.stackTrace);
       }
       if (message.url && message.url !== 'undefined') {
         return this.linkifyLocation(message.url, message.line, message.column);
