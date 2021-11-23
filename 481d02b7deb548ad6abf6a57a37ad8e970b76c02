@@ -34,6 +34,24 @@
       "parentUuid": "2b89c682_76d20afc",
       "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a59c059_aa070acc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:30:38Z",
+      "side": 1,
+      "message": "Now that the spinner button CL (https://crrev.com/c/3281073) is ready, it would be great if you could use it in this CL already!\nI believe that showing the changing URL while the button is inactive and spinning is totally fine.",
+      "parentUuid": "dd9b2f41_993f410c",
+      "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
