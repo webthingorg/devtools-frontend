@@ -16,6 +16,23 @@
       "message": "PTAL. I\u0027d like to also update this code so it returns a Map\u003cLayoutShift, ClusterDetails\u003e so we don\u0027t have to mutate the events with some extra data, but I\u0027m leaving that for now as this CL fixes the bug.",
       "revId": "ee26ba1f91ab9a34c69c459ee708597be93e2875",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35718fa2_796c7d4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2021-11-23T15:39:36Z",
+      "side": 1,
+      "message": "☑ Fixes Bug\n☑ Refactors Code\n☑ Adds Tests\n\nLGTM!",
+      "revId": "ee26ba1f91ab9a34c69c459ee708597be93e2875",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
