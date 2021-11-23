@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50463658_2e7c1a3d",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:13:02Z",
+      "side": 1,
+      "message": "Thanks, the color looks good now.",
+      "parentUuid": "ebcf1a5b_af5a594e",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 42
+      },
+      "revId": "da38dfc801b9e4a0d0e3bd2ee36159f2dbd2f0c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98ed27d7_8dddcee4",

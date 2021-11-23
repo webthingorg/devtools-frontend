@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "802a0561_ced28cb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:13:02Z",
+      "side": 1,
+      "message": "LGTM once the comments are addressed.",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b5b46cb_2e0fcb6f",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:13:02Z",
+      "side": 1,
+      "message": "remove?",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0852c9d7_43353d39",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:13:02Z",
+      "side": 1,
+      "message": "I believe this line can be skipped because the `box-sizing: border-box` attribute is already being inherited anyway.",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf9875aa_40b4faf8",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-23T10:13:02Z",
+      "side": 1,
+      "message": "Please uncomment and also add a disabled spinner button to the component docs.",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
