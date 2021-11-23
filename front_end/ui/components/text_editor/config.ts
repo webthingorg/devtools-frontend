@@ -31,24 +31,35 @@ export const dynamicSetting = CM.Facet.define<DynamicSetting<unknown>>();
 
 export class DynamicSetting<T> {
   compartment = new CM.Compartment();
-  extension: CM.Extension;
 
   constructor(
       readonly settingName: string,
-      private readonly getExtension: (value: T, state: CM.EditorState) => CM.Extension,
+      private readonly getExtension: (value: T) => CM.Extension,
   ) {
-    this.extension = [this.compartment.of(empty), dynamicSetting.of(this as DynamicSetting<unknown>)];
+  }
+
+  settingValue(): T {
+    return Common.Settings.Settings.instance().moduleSetting(this.settingName).get() as T;
+  }
+
+  instance(): CM.Extension {
+    return [
+      this.compartment.of(this.getExtension(this.settingValue())),
+      dynamicSetting.of(this as DynamicSetting<unknown>),
+    ];
   }
 
   sync(state: CM.EditorState, value: T): CM.StateEffect<unknown>|null {
     const cur = this.compartment.get(state);
-    const needed = this.getExtension(value, state);
+    const needed = this.getExtension(value);
     return cur === needed ? null : this.compartment.reconfigure(needed);
   }
 
   static bool(name: string, enabled: CM.Extension, disabled: CM.Extension = empty): DynamicSetting<boolean> {
     return new DynamicSetting<boolean>(name, val => val ? enabled : disabled);
   }
+
+  static none: readonly DynamicSetting<unknown>[] = [];
 }
 
 export const tabMovesFocus = DynamicSetting.bool('textEditorTabMovesFocus', CM.keymap.of([{
@@ -57,7 +68,16 @@ export const tabMovesFocus = DynamicSetting.bool('textEditorTabMovesFocus', CM.k
   shift: (view: CM.EditorView): boolean => view.state.doc.length ? CM.indentLess(view) : false,
 }]));
 
+export const autocompletion = CM.autocompletion({
+  icons: false,
+  optionClass: (option: CM.Completion): string => option.type === 'secondary' ? 'cm-secondaryCompletion' : '',
+});
+
+export const sourcesAutocompletion = DynamicSetting.bool('textEditorAutocompletion', autocompletion);
+
 export const bracketMatching = DynamicSetting.bool('textEditorBracketMatching', CM.bracketMatching());
+
+export const codeFolding = DynamicSetting.bool('textEditorCodeFolding', [CM.foldGutter(), CM.keymap.of(CM.foldKeymap)]);
 
 export function guessIndent(doc: CM.Text): string {
   const values: {[indent: string]: number} = Object.create(null);
@@ -76,23 +96,15 @@ export function guessIndent(doc: CM.Text): string {
     values[space] = (values[space] || 0) + 1;
   }
   const minOccurrence = scanned * 0.05;
-  const sorted = Object.entries(values).filter(e => e[1] > minOccurrence).sort((a, b) => a[1] - b[1]);
-  return sorted.length ? sorted[0][0] : Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
+  const shortest = Object.entries(values).reduce((shortest, [string, count]): string|null => {
+    return count < minOccurrence || shortest && shortest.length < string.length ? shortest : string;
+  }, null as string | null);
+  return shortest ?? Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
 }
 
-const cachedIndentUnit: {[indent: string]: CM.Extension} = Object.create(null);
+const deriveIndentUnit = CM.Prec.highest(CM.indentUnit.compute([], (state: CM.EditorState) => guessIndent(state.doc)));
 
-function getIndentUnit(indent: string): CM.Extension {
-  let value = cachedIndentUnit[indent];
-  if (!value) {
-    value = cachedIndentUnit[indent] = CM.indentUnit.of(indent);
-  }
-  return value;
-}
-
-export const autoDetectIndent = new DynamicSetting<boolean>('textEditorAutoDetectIndent', (on, state) => {
-  return on ? CM.Prec.override(getIndentUnit(guessIndent(state.doc))) : empty;
-});
+export const autoDetectIndent = DynamicSetting.bool('textEditorAutoDetectIndent', deriveIndentUnit);
 
 function matcher(decorator: CM.MatchDecorator): CM.Extension {
   return CM.ViewPlugin.define(
@@ -148,6 +160,16 @@ export const showWhitespace = new DynamicSetting<string>('showWhitespacesInEdito
 
 export const allowScrollPastEof = DynamicSetting.bool('allowScrollPastEof', CM.scrollPastEnd());
 
+const cachedIndentUnit: {[indent: string]: CM.Extension} = Object.create(null);
+
+function getIndentUnit(indent: string): CM.Extension {
+  let value = cachedIndentUnit[indent];
+  if (!value) {
+    value = cachedIndentUnit[indent] = CM.indentUnit.of(indent);
+  }
+  return value;
+}
+
 export const indentUnit = new DynamicSetting<string>('textEditorIndent', getIndentUnit);
 
 export const domWordWrap = DynamicSetting.bool('domWordWrap', CM.EditorView.lineWrapping);
@@ -160,12 +182,12 @@ function detectLineSeparator(text: string): CM.Extension {
 }
 
 const baseKeymap = CM.keymap.of([
+  {key: 'Tab', run: CM.acceptCompletion},
   {key: 'Ctrl-m', run: CM.cursorMatchingBracket, shift: CM.selectMatchingBracket},
   {key: 'Mod-/', run: CM.toggleComment},
   {key: 'Mod-d', run: CM.selectNextOccurrence},
   {key: 'Alt-ArrowLeft', mac: 'Ctrl-ArrowLeft', run: CM.cursorSubwordBackward, shift: CM.selectSubwordBackward},
   {key: 'Alt-ArrowRight', mac: 'Ctrl-ArrowRight', run: CM.cursorSubwordForward, shift: CM.selectSubwordForward},
-  ...CM.closeBracketsKeymap,
   ...CM.standardKeymap,
   ...CM.historyKeymap,
 ]);
@@ -177,25 +199,78 @@ function themeIsDark(): boolean {
 
 const dummyDarkTheme = CM.EditorView.theme({}, {dark: true});
 
+export function theme(): CM.Extension {
+  return [editorTheme, themeIsDark() ? dummyDarkTheme : []];
+}
+
+let sideBarElement: HTMLElement|null = null;
+
+function getTooltipSpace(): DOMRect {
+  if (!sideBarElement) {
+    sideBarElement = document.querySelector('[slot="insertion-point-sidebar"]');
+  }
+  return (sideBarElement || document.body).getBoundingClientRect();
+}
+
 export function baseConfiguration(text: string): CM.Extension {
   return [
-    editorTheme,
-    themeIsDark() ? dummyDarkTheme : [],
+    theme(),
     CM.highlightSpecialChars(),
     CM.history(),
     CM.drawSelection(),
     CM.EditorState.allowMultipleSelections.of(true),
     CM.indentOnInput(),
-    CodeHighlighter.CodeHighlighter.getHighlightStyle(CM),
-    CM.closeBrackets(),
+    CodeHighlighter.CodeHighlighter.highlightStyle,
     baseKeymap,
-    tabMovesFocus,
-    bracketMatching,
-    indentUnit,
-    CM.Prec.fallback(CM.EditorView.contentAttributes.of({'aria-label': i18nString(UIStrings.codeEditor)})),
+    tabMovesFocus.instance(),
+    bracketMatching.instance(),
+    indentUnit.instance(),
+    CM.Prec.lowest(CM.EditorView.contentAttributes.of({'aria-label': i18nString(UIStrings.codeEditor)})),
     detectLineSeparator(text),
-    CM.tooltips({position: 'absolute'}),
+    autocompletion,
+    CM.tooltips({
+      parent: getTooltipHost() as unknown as HTMLElement,
+      tooltipSpace: getTooltipSpace,
+    }),
   ];
+}
+
+export const closeBrackets: CM.Extension = [
+  CM.closeBrackets(),
+  CM.keymap.of(CM.closeBracketsKeymap),
+];
+
+// Root editor tooltips at the top of the document, creating a special
+// element with the editor styles mounted in it for them. This is
+// annoying, but necessary because a scrollable parent node clips them
+// otherwise, `position: fixed` doesn't work due to `contain` styles,
+// and appending them diretly to `document.body` doesn't work because
+// the necessary style sheets aren't available there.
+let tooltipHost: ShadowRoot|null = null;
+
+function getTooltipHost(): ShadowRoot {
+  if (!tooltipHost) {
+    const styleModules = CM.EditorState
+                             .create({
+                               extensions: [
+                                 editorTheme,
+                                 themeIsDark() ? dummyDarkTheme : [],
+                                 CodeHighlighter.CodeHighlighter.highlightStyle,
+                                 CM.showTooltip.of({
+                                   pos: 0,
+                                   create() {
+                                     return {dom: document.createElement('div')};
+                                   },
+                                 }),
+                               ],
+                             })
+                             .facet(CM.EditorView.styleModule);
+    const host = document.body.appendChild(document.createElement('div'));
+    host.className = 'editor-tooltip-host';
+    tooltipHost = host.attachShadow({mode: 'open'});
+    CM.StyleModule.mount(tooltipHost, styleModules);
+  }
+  return tooltipHost;
 }
 
 class CompletionHint extends CM.WidgetType {
@@ -230,12 +305,16 @@ export const showCompletionHint = CM.ViewPlugin.fromClass(class {
   }
 
   topCompletion(state: CM.EditorState): string|null {
-    const completions = CM.currentCompletions(state);
-    if (!completions.length) {
+    const completion = CM.selectedCompletion(state);
+    if (!completion) {
       return null;
     }
-    const {label} = completions[0];
-    if (label.length > 100 || label.indexOf('\n') > -1) {
+    let {label, apply} = completion;
+    if (typeof apply === 'string') {
+      label = apply;
+      apply = undefined;
+    }
+    if (apply || label.length > 100 || label.indexOf('\n') > -1 || completion.type === 'secondary') {
       return null;
     }
     const pos = state.selection.main.head;
@@ -243,13 +322,11 @@ export const showCompletionHint = CM.ViewPlugin.fromClass(class {
     if (pos !== lineBefore.to) {
       return null;
     }
-    const textBefore = lineBefore.text.slice(0, pos - lineBefore.from);
-    for (let i = label.length - 1; i > 0; i--) {
-      if (textBefore.endsWith(label.slice(0, i)) && !/\w/.test(textBefore.charAt(textBefore.length - i - 1))) {
-        return label.slice(i);
-      }
+    const wordBefore = /[\w$]+$/.exec(lineBefore.text);
+    if (wordBefore && !label.startsWith(wordBefore[0])) {
+      return null;
     }
-    return null;
+    return label.slice(wordBefore ? wordBefore[0].length : 0);
   }
 }, {decorations: p => p.decorations});
 

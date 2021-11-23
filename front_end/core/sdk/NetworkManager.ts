@@ -305,6 +305,7 @@ export enum Events {
   LoadingFinished = 'LoadingFinished',
   ReportingApiReportAdded = 'ReportingApiReportAdded',
   ReportingApiReportUpdated = 'ReportingApiReportUpdated',
+  ReportingApiEndpointsChangedForOrigin = 'ReportingApiEndpointsChangedForOrigin',
 }
 
 export interface RequestStartedEvent {
@@ -334,6 +335,7 @@ export type EventTypes = {
   [Events.LoadingFinished]: NetworkRequest,
   [Events.ReportingApiReportAdded]: Protocol.Network.ReportingApiReport,
   [Events.ReportingApiReportUpdated]: Protocol.Network.ReportingApiReport,
+  [Events.ReportingApiEndpointsChangedForOrigin]: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent,
 };
 
 export const NoThrottlingConditions: Conditions = {
@@ -418,8 +420,12 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       networkRequest.setUrl(response.url);
     }
     networkRequest.mimeType = (response.mimeType as MIME_TYPE);
-    networkRequest.statusCode = response.status;
-    networkRequest.statusText = response.statusText;
+    if (!networkRequest.statusCode) {
+      networkRequest.statusCode = response.status;
+    }
+    if (!networkRequest.statusText) {
+      networkRequest.statusText = response.statusText;
+    }
     if (!networkRequest.hasExtraResponseInfo()) {
       networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
     }
@@ -548,6 +554,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
           timestamp,
           type: type || Protocol.Network.ResourceType.Other,
           response: redirectResponse,
+          hasExtraInfo: false,
           frameId,
         });
       }
@@ -1037,6 +1044,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   reportingApiReportUpdated(data: Protocol.Network.ReportingApiReportUpdatedEvent): void {
     this.#manager.dispatchEventToListeners(Events.ReportingApiReportUpdated, data.report);
+  }
+
+  reportingApiEndpointsChangedForOrigin(data: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent): void {
+    this.#manager.dispatchEventToListeners(Events.ReportingApiEndpointsChangedForOrigin, data);
   }
 
   /**

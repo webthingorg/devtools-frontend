@@ -47,6 +47,7 @@ import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as Snippets from '../../panels/snippets/snippets.js';
 import * as Timeline from '../../panels/timeline/timeline.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -145,19 +146,45 @@ export class MainImpl {
     });
 
     console.timeStamp('Main._gotPreferences');
+    this.initializeGlobalsForLayoutTests();
     this.createSettings(prefs);
     await this.requestAndRegisterLocaleData();
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SYNC_SETTINGS)) {
+      Host.userMetrics.syncSetting(
+          Common.Settings.Settings.instance().moduleSetting<boolean>('sync_preferences').get());
+    }
+
     this.createAppUI();
   }
 
-  async requestAndRegisterLocaleData(): Promise<void> {
-    // The language setting is only available when the experiment is enabled.
-    // TODO(crbug.com/1163928): Remove the check when the experiment is gone.
-    let settingLanguage = 'en-US';
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS)) {
-      settingLanguage = Common.Settings.Settings.instance().moduleSetting<string>('language').get();
-    }
+  private initializeGlobalsForLayoutTests(): void {
+    // @ts-ignore layout test global
+    self.Common = self.Common || {};
+    // @ts-ignore layout test global
+    self.UI = self.UI || {};
+    // @ts-ignore layout test global
+    self.UI.panels = self.UI.panels || {};
+    // @ts-ignore layout test global
+    self.SDK = self.SDK || {};
+    // @ts-ignore layout test global
+    self.Bindings = self.Bindings || {};
+    // @ts-ignore layout test global
+    self.Persistence = self.Persistence || {};
+    // @ts-ignore layout test global
+    self.Workspace = self.Workspace || {};
+    // @ts-ignore layout test global
+    self.Extensions = self.Extensions || {};
+    // @ts-ignore e2e test global
+    self.Host = self.Host || {};
+    // @ts-ignore e2e test global
+    self.Host.userMetrics = self.Host.userMetrics || Host.userMetrics;
+    // @ts-ignore e2e test global
+    self.Host.UserMetrics = self.Host.UserMetrics || Host.UserMetrics;
+  }
 
+  async requestAndRegisterLocaleData(): Promise<void> {
+    const settingLanguage = Common.Settings.Settings.instance().moduleSetting<string>('language').get();
     const devToolsLocale = i18n.DevToolsLocale.DevToolsLocale.instance({
       create: true,
       data: {
@@ -247,13 +274,8 @@ export class MainImpl {
         'backgroundServicesPaymentHandler', 'Background services section for Payment Handler');
     Root.Runtime.experiments.register(
         'backgroundServicesPushMessaging', 'Background services section for Push Messaging');
-    // TODO(crbug.com/1161439): remove 'blackboxJSFramesOnTimeline', keep 'ignoreListJSFramesOnTimeline'
-    Root.Runtime.experiments.register(
-        'blackboxJSFramesOnTimeline', 'Ignore List for JavaScript frames on Timeline', true);
     Root.Runtime.experiments.register(
         'ignoreListJSFramesOnTimeline', 'Ignore List for JavaScript frames on Timeline', true);
-    Root.Runtime.experiments.register(
-        'cssOverview', 'CSS Overview', undefined, 'https://developer.chrome.com/blog/new-in-devtools-87/#css-overview');
     Root.Runtime.experiments.register('inputEventsOnTimelineOverview', 'Input events on Timeline overview', true);
     Root.Runtime.experiments.register('liveHeapProfile', 'Live heap profile', true);
     Root.Runtime.experiments.register(
@@ -277,15 +299,13 @@ export class MainImpl {
         'keyboardShortcutEditor', 'Enable keyboard shortcut editor', true,
         'https://developer.chrome.com/blog/new-in-devtools-88/#keyboard-shortcuts');
 
-    // Back-forward cache
-    Root.Runtime.experiments.register('bfcacheDebugging', 'Enable back-forward cache debugging support');
+    // Back/forward cache
+    Root.Runtime.experiments.register('bfcacheDebugging', 'Enable back/forward cache debugging support');
 
     // Timeline
     Root.Runtime.experiments.register('timelineEventInitiators', 'Timeline: event initiators');
     Root.Runtime.experiments.register('timelineInvalidationTracking', 'Timeline: invalidation tracking', true);
     Root.Runtime.experiments.register('timelineShowAllEvents', 'Timeline: show all events', true);
-    Root.Runtime.experiments.register(
-        'timelineV8RuntimeCallStats', 'Timeline: V8 Runtime Call Stats on Timeline', true);
     Root.Runtime.experiments.register('timelineWebGL', 'Timeline: WebGL-based flamechart');
     Root.Runtime.experiments.register('timelineReplayEvent', 'Timeline: Replay input events', true);
     Root.Runtime.experiments.register(
@@ -330,22 +350,26 @@ export class MainImpl {
     // Hide Issues Feature.
     Root.Runtime.experiments.register('groupAndHideIssuesByKind', 'Allow grouping and hiding of issues by IssueKind');
 
-    // Localized DevTools, hide "locale selector" setting behind an experiment.
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS, 'Enable localized DevTools');
-
     // Checkbox in the Settings UI to enable Chrome Sync is behind this experiment.
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.SYNC_SETTINGS, 'Sync DevTools settings with Chrome Sync');
 
+    // Debugging of Reporting API
+    Root.Runtime.experiments.register('reportingApiDebugging', 'Enable Reporting API panel in the Application panel');
+
+    // CSS <length> authoring tool.
+    Root.Runtime.experiments.register(
+        'cssTypeComponentLength',
+        'Enable CSS <length> authoring tool in the Styles pane (https://goo.gle/length-feedback)', undefined,
+        'https://developer.chrome.com/blog/new-in-devtools-96/#length');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
-      Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS,
       'sourceOrderViewer',
       'hideIssuesFeature',
       'bfcacheDebugging',
+      'cssTypeComponentLength',
+      Root.Runtime.ExperimentName.SYNC_SETTINGS,
     ]);
-
-    // Debugging of Reporting API
-    Root.Runtime.experiments.register('reportingApiDebugging', 'Enable Reporting API panel in the Application panel');
 
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.Runtime.queryParam('enabledExperiments');
@@ -367,10 +391,6 @@ export class MainImpl {
         Root.Runtime.experiments.enableForTest('liveHeapProfile');
       }
     }
-
-    // TODO(crbug.com/1161439): remove experiment duplication
-    const isBlackboxJSFramesOnTimelineEnabled = Root.Runtime.experiments.isEnabled('blackboxJSFramesOnTimeline');
-    Root.Runtime.experiments.setEnabled('ignoreListJSFramesOnTimeline', isBlackboxJSFramesOnTimelineEnabled);
 
     for (const experiment of Root.Runtime.experiments.enabledExperiments()) {
       Host.userMetrics.experimentEnabledAtLaunch(experiment.name);
@@ -884,6 +904,16 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       if (location !== 'drawer-view' && location !== 'panel') {
         continue;
       }
+
+      if (viewExtension.isPreviewFeature()) {
+        const previewIcon = new IconButton.Icon.Icon();
+        previewIcon.data = {iconName: 'ic_preview_feature', color: 'var(--icon-color)', width: '14px', height: '14px'};
+        moreTools.defaultSection().appendItem(title, () => {
+          UI.ViewManager.ViewManager.instance().showView(id, true, false);
+        }, /* disabled=*/ false, previewIcon);
+        continue;
+      }
+
       moreTools.defaultSection().appendItem(title, () => {
         UI.ViewManager.ViewManager.instance().showView(id, true, false);
       });

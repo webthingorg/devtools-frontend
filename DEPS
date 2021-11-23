@@ -11,35 +11,35 @@ vars = {
   'checkout_reclient': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': 'c40c33e32f4f508e8ab4dce281f21eb96722b416',
+  'build_revision': '368880db83c9882f26c686cc1d63bb9b3cad8741',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
-  'buildtools_revision': 'a9bc3e283182a586998338a665c7eae17406ec54',
+  'buildtools_revision': '075dd7e22837a69189003e4fa84499acf63188cf',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '281edf7577c0e85f6abed10c2c36f029e864f319',
+  'depot_tools_revision': 'a29f589a15b7f80edd3d0bbe4f3a2dbb1120316c',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': '79d309325cafed50853b7111b54ab294b9e36d59',
+  'inspector_protocol_revision': '9ed5b2874d8ff216e6eee8d8b0661ea78460d426',
 
   'clang_format_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git',
-  'clang_format_revision': '99803d74e35962f63a775f29477882afd4d57d94',
+  'clang_format_revision': '99876cacf78329e5f99c244dbe42ccd1654517a0',
 
   'emscripten_tag': '6ab7fc5622a67e6111d07c4ba61c8d3c8fc33ed2',
 
   # GN CIPD package version.
-  'gn_version': 'git_revision:0153d369bbccc908f4da4993b1ba82728055926a',
+  'gn_version': 'git_revision:4aa9bdfa05b688c58d3d7d3e496f3f18cbb3d89e',
 
   # reclient CIPD package version
   'reclient_version': 're_client_version:0.19.2.319f839',
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
-  'chromium_linux': '928541',
+  'chromium_linux': '944389',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-  'chromium_win': '928531',
+  'chromium_win': '944388',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '928537',
+  'chromium_mac': '944387',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
@@ -112,7 +112,7 @@ hooks = [
                 '--no_resume',
                 '--extract',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/14.15.4',
+                '--bucket', 'chromium-nodejs/16.13.0',
                 '-s', 'third_party/node/linux/node-linux-x64.tar.gz.sha1',
     ],
   },
@@ -125,7 +125,7 @@ hooks = [
                 '--no_resume',
                 '--extract',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/14.15.4',
+                '--bucket', 'chromium-nodejs/16.13.0',
                 '-s', 'third_party/node/mac/node-darwin-x64.tar.gz.sha1',
     ],
   },
@@ -137,7 +137,7 @@ hooks = [
                 'third_party/depot_tools/download_from_google_storage.py',
                 '--no_resume',
                 '--no_auth',
-                '--bucket', 'chromium-nodejs/14.15.4',
+                '--bucket', 'chromium-nodejs/16.13.0',
                 '-s', 'third_party/node/win/node.exe.sha1',
     ],
   },

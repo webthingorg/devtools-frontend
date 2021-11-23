@@ -670,19 +670,22 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       const propertyValue = this.property.trimmedValueWithoutImportant();
       if (propertyValue === 'flex' || propertyValue === 'inline-flex') {
         const button = StyleEditorWidget.createTriggerButton(
-            this.parentPaneInternal, section, FlexboxEditor, i18nString(UIStrings.flexboxEditorButton));
+            this.parentPaneInternal, section, FlexboxEditor, i18nString(UIStrings.flexboxEditorButton),
+            this.property.index);
         this.listItemElement.appendChild(button);
         const helper = this.parentPaneInternal.swatchPopoverHelper();
-        if (helper.isShowing(StyleEditorWidget.instance())) {
+        if (helper.isShowing(StyleEditorWidget.instance()) &&
+            this.property.index === StyleEditorWidget.instance().getPropertyIndex()) {
           helper.setAnchorElement(button);
         }
       }
       if (propertyValue === 'grid' || propertyValue === 'inline-grid') {
         const button = StyleEditorWidget.createTriggerButton(
-            this.parentPaneInternal, section, GridEditor, i18nString(UIStrings.gridEditorButton));
+            this.parentPaneInternal, section, GridEditor, i18nString(UIStrings.gridEditorButton), this.property.index);
         this.listItemElement.appendChild(button);
         const helper = this.parentPaneInternal.swatchPopoverHelper();
-        if (helper.isShowing(StyleEditorWidget.instance())) {
+        if (helper.isShowing(StyleEditorWidget.instance()) &&
+            this.property.index === StyleEditorWidget.instance().getPropertyIndex()) {
           helper.setAnchorElement(button);
         }
       }
@@ -1440,11 +1443,14 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     const currentNode = this.parentPaneInternal.node();
     this.parentPaneInternal.setUserOperation(true);
 
+    styleText += Platform.StringUtilities.findUnclosedCssQuote(styleText);
+
     // Append a ";" if the new text does not end in ";".
     // FIXME: this does not handle trailing comments.
     if (styleText.length && !/;\s*$/.test(styleText)) {
       styleText += ';';
     }
+
     const overwriteProperty = !this.newProperty || hasBeenEditedIncrementally;
     let success: boolean = await this.property.setText(styleText, majorChange, overwriteProperty);
     // Revert to the original text if applying the new text failed

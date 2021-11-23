@@ -232,6 +232,10 @@ export class Runtime {
   getModulesMap(): {[x: string]: Module} {
     return this.modulesMap;
   }
+
+  loadLegacyModule(modulePath: string): Promise<void> {
+    return import(`../../${modulePath}`);
+  }
 }
 
 export class ModuleDescriptor {
@@ -554,7 +558,6 @@ export enum ExperimentName {
   ALL = '*',
   PROTOCOL_MONITOR = 'protocolMonitor',
   WEBAUTHN_PANE = 'webauthnPane',
-  LOCALIZED_DEVTOOLS = 'localizedDevTools',
   SYNC_SETTINGS = 'syncSettings',
 }
 

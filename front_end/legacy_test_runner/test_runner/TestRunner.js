@@ -10,7 +10,7 @@ import * as ProtocolClientModule from '../../core/protocol_client/protocol_clien
 import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Workspace from '../../models/workspace/workspace.js';
-import * as TextEditor from '../../ui/legacy/components/text_editor/text_editor.js';
+import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 /**
@@ -391,6 +391,16 @@ export function textContentWithLineBreaks(node) {
     }
   }
   return buffer;
+}
+
+/**
+ * @param {!Node} node
+ * @return {string}
+ */
+export function textContentWithLineBreaksTrimmed(node) {
+  // We want to allow single empty lines (2 white space characters), but
+  // compress occurences of 3 or more whitespaces.
+  return textContentWithLineBreaks(node).replace(/\s{3,}/g, ' ');
 }
 
 /**
@@ -1369,8 +1379,7 @@ export function url(url = '') {
 export function dumpSyntaxHighlight(str, mimeType) {
   const node = document.createElement('span');
   node.textContent = str;
-  const javascriptSyntaxHighlighter = new TextEditor.SyntaxHighlighter.SyntaxHighlighter(mimeType, false);
-  return javascriptSyntaxHighlighter.syntaxHighlightNode(node).then(dumpSyntax);
+  return CodeHighlighter.CodeHighlighter.highlightNode(node, mimeType).then(dumpSyntax);
 
   function dumpSyntax() {
     const node_parts = [];
@@ -1460,6 +1469,7 @@ TestRunner.showPanel = showPanel;
 TestRunner.createKeyEvent = createKeyEvent;
 TestRunner.safeWrap = safeWrap;
 TestRunner.textContentWithLineBreaks = textContentWithLineBreaks;
+TestRunner.textContentWithLineBreaksTrimmed = textContentWithLineBreaksTrimmed;
 TestRunner.textContentWithoutStyles = textContentWithoutStyles;
 TestRunner.evaluateInPagePromise = evaluateInPagePromise;
 TestRunner.callFunctionInPageAsync = callFunctionInPageAsync;

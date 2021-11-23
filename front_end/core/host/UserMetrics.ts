@@ -32,13 +32,13 @@ import {InspectorFrontendHostInstance} from './InspectorFrontendHost.js';
 import {EnumeratedHistogram} from './InspectorFrontendHostAPI.js';
 
 export class UserMetrics {
-  private panelChangedSinceLaunch: boolean;
-  private firedLaunchHistogram: boolean;
-  private launchPanelName: string;
+  #panelChangedSinceLaunch: boolean;
+  #firedLaunchHistogram: boolean;
+  #launchPanelName: string;
   constructor() {
-    this.panelChangedSinceLaunch = false;
-    this.firedLaunchHistogram = false;
-    this.launchPanelName = '';
+    this.#panelChangedSinceLaunch = false;
+    this.#firedLaunchHistogram = false;
+    this.#launchPanelName = '';
   }
 
   panelShown(panelName: string): void {
@@ -46,7 +46,7 @@ export class UserMetrics {
     const size = Object.keys(PanelCodes).length + 1;
     InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.PanelShown, code, size);
     // Store that the user has changed the panel so we know launch histograms should not be fired.
-    this.panelChangedSinceLaunch = true;
+    this.#panelChangedSinceLaunch = true;
   }
 
   /**
@@ -57,7 +57,7 @@ export class UserMetrics {
     const size = Object.keys(PanelCodes).length + 1;
     InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.PanelClosed, code, size);
     // Store that the user has changed the panel so we know launch histograms should not be fired.
-    this.panelChangedSinceLaunch = true;
+    this.#panelChangedSinceLaunch = true;
   }
 
   sidebarPaneShown(sidebarPaneName: string): void {
@@ -76,11 +76,11 @@ export class UserMetrics {
   }
 
   panelLoaded(panelName: string, histogramName: string): void {
-    if (this.firedLaunchHistogram || panelName !== this.launchPanelName) {
+    if (this.#firedLaunchHistogram || panelName !== this.#launchPanelName) {
       return;
     }
 
-    this.firedLaunchHistogram = true;
+    this.#firedLaunchHistogram = true;
     // Use rAF and setTimeout to ensure the marker is fired after layout and rendering.
     // This will give the most accurate representation of the tool being ready for a user.
     requestAnimationFrame(() => {
@@ -89,7 +89,7 @@ export class UserMetrics {
         performance.mark(histogramName);
         // If the user has switched panel before we finished loading, ignore the histogram,
         // since the launch timings will have been affected and are no longer valid.
-        if (this.panelChangedSinceLaunch) {
+        if (this.#panelChangedSinceLaunch) {
           return;
         }
         // This fires the event for the appropriate launch histogram.
@@ -100,7 +100,7 @@ export class UserMetrics {
   }
 
   setLaunchPanel(panelName: string|null): void {
-    this.launchPanelName = (panelName as string);
+    this.#launchPanelName = (panelName as string);
   }
 
   keybindSetSettingChanged(keybindSet: string): void {
@@ -245,6 +245,47 @@ export class UserMetrics {
     InspectorFrontendHostInstance.recordEnumeratedHistogram(
         EnumeratedHistogram.ConsoleShowsCorsErrors, Number(show), 2);
   }
+
+  syncSetting(devtoolsSyncSettingEnabled: boolean): void {
+    const size = Object.keys(SyncSetting).length + 1;
+
+    InspectorFrontendHostInstance.getSyncInformation(syncInfo => {
+      let settingValue = SyncSetting.ChromeSyncDisabled;
+      if (syncInfo.isSyncActive && !syncInfo.arePreferencesSynced) {
+        settingValue = SyncSetting.ChromeSyncSettingsDisabled;
+      } else if (syncInfo.isSyncActive && syncInfo.arePreferencesSynced) {
+        settingValue = devtoolsSyncSettingEnabled ? SyncSetting.DevToolsSyncSettingEnabled :
+                                                    SyncSetting.DevToolsSyncSettingDisabled;
+      }
+
+      InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.SyncSetting, settingValue, size);
+    });
+  }
+
+  recordingToggled(value: RecordingToggled): void {
+    const size = Object.keys(RecordingToggled).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.RecordingToggled, value, size);
+  }
+
+  recordingReplayFinished(value: RecordingReplayFinished): void {
+    const size = Object.keys(RecordingReplayFinished).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.RecordingReplayFinished, value, size);
+  }
+
+  recordingReplayStarted(value: RecordingReplayStarted): void {
+    const size = Object.keys(RecordingReplayStarted).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.RecordingReplayStarted, value, size);
+  }
+
+  recordingEdited(value: RecordingEdited): void {
+    const size = Object.keys(RecordingEdited).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.RecordingEdited, value, size);
+  }
+
+  recordingExported(value: RecordingExported): void {
+    const size = Object.keys(RecordingExported).length + 1;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.RecordingExported, value, size);
+  }
 }
 
 // Codes below are used to collect UMA histograms in the Chromium port.
@@ -362,6 +403,7 @@ export const PanelCodes: {
   'issues-pane': 37,
   'settings-keybinds': 38,
   'cssoverview': 39,
+  'chrome_recorder': 40,
 };
 
 export const SidebarPaneCodes: {
@@ -544,8 +586,6 @@ export const DevtoolsExperiments: {
   'backgroundServicesNotifications': 4,
   'backgroundServicesPaymentHandler': 5,
   'backgroundServicesPushMessaging': 6,
-  'blackboxJSFramesOnTimeline': 7,
-  'cssOverview': 8,
   'inputEventsOnTimelineOverview': 10,
   'liveHeapProfile': 11,
   'protocolMonitor': 13,
@@ -558,7 +598,6 @@ export const DevtoolsExperiments: {
   'timelineEventInitiators': 24,
   'timelineInvalidationTracking': 26,
   'timelineShowAllEvents': 27,
-  'timelineV8RuntimeCallStats': 28,
   'timelineWebGL': 29,
   'timelineReplayEvent': 30,
   'wasmDWARFDebugging': 31,
@@ -571,13 +610,13 @@ export const DevtoolsExperiments: {
   'ignoreListJSFramesOnTimeline': 43,
   'contrastIssues': 44,
   'experimentalCookieFeatures': 45,
-  'localizedDevTools': 46,
   'bfcacheDebugging': 47,
   'hideIssuesFeature': 48,
   'reportingApiDebugging': 49,
   'syncSettings': 50,
   'groupAndHideIssuesByKind': 51,
-  '__lastValidEnumPosition': 51,
+  'cssTypeComponentLength': 52,
+  '__lastValidEnumPosition': 52,
 };
 
 export const IssueExpanded: {
@@ -672,6 +711,7 @@ export const IssueCreated: {
   'CorsIssue::NoCorsRedirectModeNotFollow': 57,
   'QuirksModeIssue::QuirksMode': 58,
   'QuirksModeIssue::LimitedQuirksMode': 59,
+  DeprecationIssue: 60,
 };
 
 // TODO(crbug.com/1167717): Make this a const enum again
@@ -802,3 +842,57 @@ export const Language: Record<string, number> = {
   'zh-TW': 81,
   'zu': 82,
 };
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum SyncSetting {
+  ChromeSyncDisabled = 1,
+  ChromeSyncSettingsDisabled = 2,
+  DevToolsSyncSettingDisabled = 3,
+  DevToolsSyncSettingEnabled = 4,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingToggled {
+  RecordingStarted = 1,
+  RecordingFinished = 2,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingReplayFinished {
+  Success = 1,
+  TimeoutErrorSelectors = 2,
+  TimeoutErrorTarget = 3,
+  OtherError = 4,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingReplayStarted {
+  ReplayOnly = 1,
+  ReplayWithPerformanceTracing = 2,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingEdited {
+  SelectorPickerUsed = 1,
+  StepAdded = 2,
+  StepRemoved = 3,
+  SelectorAdded = 4,
+  SelectorRemoved = 5,
+  SelectorPartAdded = 6,
+  SelectorPartEdited = 7,
+  SelectorPartRemoved = 8,
+  TypeChanged = 9,
+  OtherEditing = 10,
+}
+
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum RecordingExported {
+  ToPuppeteer = 1,
+  ToJSON = 2,
+}

@@ -240,7 +240,7 @@ def _CheckDevToolsStyleJS(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('JS style check:')]
     lint_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
                                        'scripts', 'test',
-                                       'run_lint_check_js.js')
+                                       'run_lint_check_js.mjs')
 
     front_end_directory = input_api.os_path.join(
         input_api.PresubmitLocalPath(), 'front_end')
@@ -273,7 +273,7 @@ def _CheckDevToolsStyleJS(input_api, output_api):
         input_api.os_path.join(scripts_directory, 'test',
                                'run_lint_check_js.py'),
         input_api.os_path.join(scripts_directory, 'test',
-                               'run_lint_check_js.js'),
+                               'run_lint_check_js.mjs'),
         input_api.os_path.join(scripts_directory, '.eslintrc.js'),
         input_api.os_path.join(scripts_directory, 'eslint_rules'),
     ]
@@ -332,10 +332,6 @@ def _CheckDevToolsStyleCSS(input_api, output_api):
         input_api, output_api, lint_config_files, default_linted_directories,
         ['.css'], results)
 
-    ts_should_bail_out, ts_files_to_lint = _getFilesToLint(
-        input_api, output_api, lint_config_files, default_linted_directories,
-        ['.ts'], results)
-
     # If there are more than 50 files to check, don't bother and check
     # everything, so as to not run into command line length limits on Windows.
     if not css_should_bail_out:
@@ -343,16 +339,6 @@ def _CheckDevToolsStyleCSS(input_api, output_api):
             script_args = ["--files"] + css_files_to_lint
         else:
             script_args = []  # The defaults check all CSS files.
-        results.extend(
-            _checkWithNodeScript(input_api, output_api, lint_path,
-                                 script_args))
-
-    if not ts_should_bail_out:
-        script_args = ["--syntax", "html"]
-        if len(ts_files_to_lint) < 50:
-            script_args += ["--files"] + ts_files_to_lint
-        else:
-            script_args += ["--glob", "front_end/**/*.ts"]
         results.extend(
             _checkWithNodeScript(input_api, output_api, lint_path,
                                  script_args))

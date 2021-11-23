@@ -113,7 +113,7 @@
 
 .cm-css-property,
 .webkit-css-property {
-  color: rgb(200 0 0); /* stylelint-disable-line plugin/use_theme_colors */ /* See: crbug.com/1152736 for color variable migration. */
+  color: var(--webkit-css-property-color, rgb(200 0 0)); /* stylelint-disable-line plugin/use_theme_colors */ /* See: crbug.com/1152736 for color variable migration. */
 }
 
 .cm-xml-meta {
@@ -209,15 +209,15 @@
   color: var(--color-link);
 }
 
-.devtools-link [is=ui-icon] {
+.devtools-link [is="ui-icon"] {
   vertical-align: middle;
 }
 
-.devtools-link [is=ui-icon].icon-mask {
+.devtools-link [is="ui-icon"].icon-mask {
   background-color: var(--color-link);
 }
 
-:focus .selected .devtools-link [is=ui-icon].icon-mask {
+:focus .selected .devtools-link [is="ui-icon"].icon-mask {
   background-color: var(--legacy-item-selection-bg-color);
 }
 

@@ -280,7 +280,7 @@ A text iterator iterates over a sequence of strings. When
 iterating over a [`Text`](https://codemirror.net/6/docs/ref/#text.Text) document, result values will
 either be lines or line breaks.
 */
-interface TextIterator extends Iterator<string> {
+interface TextIterator extends Iterator<string>, Iterable<string> {
     /**
     Retrieve the next string. Optionally skip a given number of
     positions after the current position. Always returns the object
@@ -361,7 +361,7 @@ declare abstract class Text implements Iterable<string> {
 
     When `from` and `to` are given, they should be 1-based line numbers.
     */
-    iterLines(from?: number, to?: number): LineCursor;
+    iterLines(from?: number, to?: number): TextIterator;
     /**
     Convert the document to an array of lines (which can be
     deserialized again via [`Text.of`](https://codemirror.net/6/docs/ref/#text.Text^of)).
@@ -381,15 +381,6 @@ declare abstract class Text implements Iterable<string> {
     The empty document.
     */
     static empty: Text;
-}
-declare class LineCursor implements TextIterator {
-    readonly inner: TextIterator;
-    afterBreak: boolean;
-    value: string;
-    done: boolean;
-    constructor(inner: TextIterator);
-    next(skip?: number): this;
-    get lineBreak(): boolean;
 }
 /**
 This type describes a line in the document. It is created
@@ -927,21 +918,39 @@ precedence and then by order within each precedence.
 */
 declare const Prec: {
     /**
-    A precedence below the default precedence, which will cause
-    default-precedence extensions to override it even if they are
-    specified later in the extension ordering.
+    The lowest precedence level. Meant for things that should end up
+    near the end of the extension order.
     */
-    fallback: (ext: Extension) => Extension;
+    lowest: (ext: Extension) => Extension;
     /**
-    The regular default precedence.
+    A lower-than-default precedence, for extensions.
+    */
+    low: (ext: Extension) => Extension;
+    /**
+    The default precedence, which is also used for extensions
+    without an explicit precedence.
     */
     default: (ext: Extension) => Extension;
     /**
-    A higher-than-default precedence.
+    A higher-than-default precedence, for extensions that should
+    come before those with default precedence.
+    */
+    high: (ext: Extension) => Extension;
+    /**
+    The highest precedence level, for extensions that should end up
+    near the start of the precedence ordering.
+    */
+    highest: (ext: Extension) => Extension;
+    /**
+    Backwards-compatible synonym for `Prec.lowest`.
+    */
+    fallback: (ext: Extension) => Extension;
+    /**
+    Backwards-compatible synonym for `Prec.high`.
     */
     extend: (ext: Extension) => Extension;
     /**
-    Precedence above the `default` and `extend` precedences.
+    Backwards-compatible synonym for `Prec.highest`.
     */
     override: (ext: Extension) => Extension;
 };
@@ -1201,7 +1210,7 @@ declare class Transaction {
     has `"select.pointer"` as user event, `"select"` and
     `"select.pointer"` will match it.
     */
-    isUserEvent(event: string): boolean | "" | undefined;
+    isUserEvent(event: string): boolean;
     /**
     Annotation used to store transaction timestamps.
     */
@@ -1679,6 +1688,12 @@ incomplete) parse tree of active [language](https://codemirror.net/6/docs/ref/#l
 or the empty tree if there is no language available.
 */
 declare function syntaxTree(state: EditorState): Tree;
+/**
+Try to get a parse tree that spans at least up to `upto`. The
+method will do at most `timeout` milliseconds of work to parse
+up to that point if the tree isn't already available.
+*/
+declare function ensureSyntaxTree(state: EditorState, upto: number, timeout?: number): Tree | null;
 /**
 This class bundles a [language object](https://codemirror.net/6/docs/ref/#language.Language) with an
 optional set of supporting extensions. Language packages are
@@ -2273,7 +2288,8 @@ interface ReplaceDecorationSpec {
     /**
     Whether this range covers the positions on its sides. This
     influences whether new content becomes part of the range and
-    whether the cursor can be drawn on its sides. Defaults to false.
+    whether the cursor can be drawn on its sides. Defaults to false
+    for inline replacements, and true for block replacements.
     */
     inclusive?: boolean;
     /**
@@ -2300,6 +2316,10 @@ interface LineDecorationSpec {
     attributes?: {
         [key: string]: string;
     };
+    /**
+    Shorthand for `{attributes: {class: value}}`.
+    */
+    class?: string;
     /**
     Other properties are allowed.
     */
@@ -2768,7 +2788,9 @@ interface EditorConfig {
     /**
     If the view is going to be mounted in a shadow root or document
     other than the one held by the global variable `document` (the
-    default), you should pass it here.
+    default), you should pass it here. If you provide `parent`, but
+    not this option, the editor will automatically look up a root
+    from the parent.
     */
     root?: Document | ShadowRoot;
     /**
@@ -3019,9 +3041,6 @@ declare class EditorView {
     used.
     */
     moveVertically(start: SelectionRange, forward: boolean, distance?: number): SelectionRange;
-    /**
-    Scroll the given document position into view.
-    */
     scrollPosIntoView(pos: number): void;
     /**
     Find the DOM parent node and offset (child offset if `node` is
@@ -3111,6 +3130,11 @@ declare class EditorView {
     transaction to make it scroll the given range into view.
     */
     static scrollTo: StateEffectType<SelectionRange>;
+    /**
+    Effect that makes the editor scroll the given range to the
+    center of the visible view.
+    */
+    static centerOn: StateEffectType<SelectionRange>;
     /**
     Facet to add a [style
     module](https://github.com/marijnh/style-mod#documentation) to
@@ -3496,7 +3520,8 @@ interface CompletionConfig {
     Override the completion sources used. By default, they will be
     taken from the `"autocomplete"` [language
     data](https://codemirror.net/6/docs/ref/#state.EditorState.languageDataAt) (which should hold
-    [completion sources](https://codemirror.net/6/docs/ref/#autocomplete.CompletionSource)).
+    [completion sources](https://codemirror.net/6/docs/ref/#autocomplete.CompletionSource) or arrays
+    of [completions](https://codemirror.net/6/docs/ref/#autocomplete.Completion)).
     */
     override?: readonly CompletionSource[] | null;
     /**
@@ -3511,6 +3536,12 @@ interface CompletionConfig {
     same keys.)
     */
     defaultKeymap?: boolean;
+    /**
+    By default, completions are shown below the cursor when there is
+    space. Setting this to true will make the extension put the
+    completions above the cursor when possible.
+    */
+    aboveCursor?: boolean;
     /**
     This can be used to add additional CSS classes to completion
     options.
@@ -3563,7 +3594,9 @@ interface Completion {
     its [label](https://codemirror.net/6/docs/ref/#autocomplete.Completion.label). When this holds a
     string, the completion range is replaced by that string. When it
     is a function, that function is called to perform the
-    completion.
+    completion. If it fires a transaction, it is responsible for
+    adding the [`pickedCompletion`](https://codemirror.net/6/docs/ref/#autocomplete.pickedCompletion)
+    annotation to it.
     */
     apply?: string | ((view: EditorView, completion: Completion, from: number, to: number) => void);
     /**
@@ -3712,6 +3745,14 @@ interface CompletionResult {
 Accept the current completion.
 */
 declare const acceptCompletion: Command;
+/**
+Explicitly start autocompletion.
+*/
+declare const startCompletion: Command;
+/**
+Close the currently active completion.
+*/
+declare const closeCompletion: Command;
 
 /**
 A completion source that will scan the document for words (using a
@@ -3728,6 +3769,10 @@ declare function autocompletion(config?: CompletionConfig): Extension;
 Returns the available completions as an array.
 */
 declare function currentCompletions(state: EditorState): readonly Completion[];
+/**
+Return the currently selected completion, if any.
+*/
+declare function selectedCompletion(state: EditorState): Completion | null;
 
 /**
 Describes an element in your XML document schema.
@@ -4170,73 +4215,6 @@ declare namespace _codemirror_lang_json {
 }
 
 /**
-A language provider based on the [Lezer JavaScript
-parser](https://github.com/lezer-parser/javascript), extended with
-highlighting and indentation information.
-*/
-declare const javascriptLanguage: LRLanguage;
-/**
-A language provider for TypeScript.
-*/
-declare const typescriptLanguage: LRLanguage;
-/**
-Language provider for JSX.
-*/
-declare const jsxLanguage: LRLanguage;
-/**
-Language provider for JSX + TypeScript.
-*/
-declare const tsxLanguage: LRLanguage;
-/**
-JavaScript support. Includes [snippet](https://codemirror.net/6/docs/ref/#lang-javascript.snippets)
-completion.
-*/
-declare function javascript$1(config?: {
-    jsx?: boolean;
-    typescript?: boolean;
-}): LanguageSupport;
-
-/**
-A collection of JavaScript-related
-[snippets](https://codemirror.net/6/docs/ref/#autocomplete.snippet).
-*/
-declare const snippets: readonly Completion[];
-
-/**
-Connects an [ESLint](https://eslint.org/) linter to CodeMirror's
-[lint](https://codemirror.net/6/docs/ref/#lint) integration. `eslint` should be an instance of the
-[`Linter`](https://eslint.org/docs/developer-guide/nodejs-api#linter)
-class, and `config` an optional ESLint configuration. The return
-value of this function can be passed to [`linter`](https://codemirror.net/6/docs/ref/#lint.linter)
-to create a JavaScript linting extension.
-
-Note that ESLint targets node, and is tricky to run in the
-browser. The [eslint4b](https://github.com/mysticatea/eslint4b)
-and
-[eslint4b-prebuilt](https://github.com/marijnh/eslint4b-prebuilt/)
-packages may help with that.
-*/
-declare function esLint(eslint: any, config?: any): (view: EditorView) => Diagnostic[];
-
-declare const _codemirror_lang_javascript_esLint: typeof esLint;
-declare const _codemirror_lang_javascript_javascriptLanguage: typeof javascriptLanguage;
-declare const _codemirror_lang_javascript_jsxLanguage: typeof jsxLanguage;
-declare const _codemirror_lang_javascript_snippets: typeof snippets;
-declare const _codemirror_lang_javascript_tsxLanguage: typeof tsxLanguage;
-declare const _codemirror_lang_javascript_typescriptLanguage: typeof typescriptLanguage;
-declare namespace _codemirror_lang_javascript {
-  export {
-    _codemirror_lang_javascript_esLint as esLint,
-    javascript$1 as javascript,
-    _codemirror_lang_javascript_javascriptLanguage as javascriptLanguage,
-    _codemirror_lang_javascript_jsxLanguage as jsxLanguage,
-    _codemirror_lang_javascript_snippets as snippets,
-    _codemirror_lang_javascript_tsxLanguage as tsxLanguage,
-    _codemirror_lang_javascript_typescriptLanguage as typescriptLanguage,
-  };
-}
-
-/**
 A language provider based on the [Lezer Java
 parser](https://github.com/lezer-parser/java), extended with
 highlighting and indentation information.
@@ -4252,88 +4230,6 @@ declare namespace _codemirror_lang_java {
   export {
     java$1 as java,
     _codemirror_lang_java_javaLanguage as javaLanguage,
-  };
-}
-
-/**
-HTML tag completion. Opens and closes tags and attributes in a
-context-aware way.
-*/
-declare function htmlCompletionSource(context: CompletionContext): CompletionResult | null;
-
-/**
-A language provider based on the [Lezer HTML
-parser](https://github.com/lezer-parser/html), extended with the
-JavaScript and CSS parsers to parse the content of `<script>` and
-`<style>` tags.
-*/
-declare const htmlLanguage: LRLanguage;
-declare const htmlCompletion: Extension;
-/**
-Language support for HTML, including
-[`htmlCompletion`](https://codemirror.net/6/docs/ref/#lang-html.htmlCompletion) and JavaScript and
-CSS support extensions.
-*/
-declare function html$1(config?: {
-    /**
-    By default, the syntax tree will highlight mismatched closing
-    tags. Set this to `false` to turn that off (for example when you
-    expect to only be parsing a fragment of HTML text, not a full
-    document).
-    */
-    matchClosingTags?: boolean;
-    /**
-    Determines whether [`autoCloseTags`](https://codemirror.net/6/docs/ref/#lang-html.autoCloseTags)
-    is included in the support extensions. Defaults to true.
-    */
-    autoCloseTags?: boolean;
-}): LanguageSupport;
-/**
-Extension that will automatically insert close tags when a `>` or
-`/` is typed.
-*/
-declare const autoCloseTags: Extension;
-
-declare const _codemirror_lang_html_autoCloseTags: typeof autoCloseTags;
-declare const _codemirror_lang_html_htmlCompletion: typeof htmlCompletion;
-declare const _codemirror_lang_html_htmlCompletionSource: typeof htmlCompletionSource;
-declare const _codemirror_lang_html_htmlLanguage: typeof htmlLanguage;
-declare namespace _codemirror_lang_html {
-  export {
-    _codemirror_lang_html_autoCloseTags as autoCloseTags,
-    html$1 as html,
-    _codemirror_lang_html_htmlCompletion as htmlCompletion,
-    _codemirror_lang_html_htmlCompletionSource as htmlCompletionSource,
-    _codemirror_lang_html_htmlLanguage as htmlLanguage,
-  };
-}
-
-/**
-CSS property and value keyword completion source.
-*/
-declare const cssCompletionSource: CompletionSource;
-
-/**
-A language provider based on the [Lezer CSS
-parser](https://github.com/lezer-parser/css), extended with
-highlighting and indentation information.
-*/
-declare const cssLanguage: LRLanguage;
-declare const cssCompletion: Extension;
-/**
-Language support for CSS.
-*/
-declare function css$1(): LanguageSupport;
-
-declare const _codemirror_lang_css_cssCompletion: typeof cssCompletion;
-declare const _codemirror_lang_css_cssCompletionSource: typeof cssCompletionSource;
-declare const _codemirror_lang_css_cssLanguage: typeof cssLanguage;
-declare namespace _codemirror_lang_css {
-  export {
-    css$1 as css,
-    _codemirror_lang_css_cssCompletion as cssCompletion,
-    _codemirror_lang_css_cssCompletionSource as cssCompletionSource,
-    _codemirror_lang_css_cssLanguage as cssLanguage,
   };
 }
 
@@ -4551,6 +4447,14 @@ Move the selection head one group or subword backward.
 */
 declare const selectSubwordBackward: Command;
 /**
+Replace the selection with a newline and indent the newly created
+line(s). If the current line consists only of whitespace, this
+will also delete that whitespace. When the cursor is between
+matching brackets, an additional newline will be inserted after
+the cursor.
+*/
+declare const insertNewlineAndIndent: StateCommand;
+/**
 Add a [unit](https://codemirror.net/6/docs/ref/#language.indentUnit) of indentation to all selected
 lines.
 */
@@ -4613,10 +4517,15 @@ declare const foldKeymap: readonly KeyBinding[];
 interface FoldConfig {
     /**
     A function that creates the DOM element used to indicate the
-    position of folded code. When not given, the `placeholderText`
-    option will be used instead.
+    position of folded code. The `onclick` argument is the default
+    click event handler, which toggles folding on the line that
+    holds the element, and should probably be added as an event
+    handler to the returned element.
+
+    When this option isn't given, the `placeholderText` option will
+    be used to create the placeholder element.
     */
-    placeholderDOM?: (() => HTMLElement) | null;
+    placeholderDOM?: ((view: EditorView, onclick: (event: Event) => void) => HTMLElement) | null;
     /**
     Text to use as placeholder for folded text. Defaults to `"…"`.
     Will be styled with the `"cm-foldPlaceholder"` class.
@@ -4737,6 +4646,10 @@ interface LineNumberConfig {
     */
     domEventHandlers?: Handlers;
 }
+/**
+Facet used to provide markers to the line number gutter.
+*/
+declare const lineNumberMarkers: Facet<RangeSet<GutterMarker>, readonly RangeSet<GutterMarker>[]>;
 /**
 Create a line number gutter extension.
 */
@@ -5335,6 +5248,158 @@ Default key bindings for the undo history.
 */
 declare const historyKeymap: readonly KeyBinding[];
 
+/**
+CSS property and value keyword completion source.
+*/
+declare const cssCompletionSource: CompletionSource;
+
+/**
+A language provider based on the [Lezer CSS
+parser](https://github.com/lezer-parser/css), extended with
+highlighting and indentation information.
+*/
+declare const cssLanguage: LRLanguage;
+declare const cssCompletion: Extension;
+/**
+Language support for CSS.
+*/
+declare function css(): LanguageSupport;
+
+declare const index_d$2_css: typeof css;
+declare const index_d$2_cssCompletion: typeof cssCompletion;
+declare const index_d$2_cssCompletionSource: typeof cssCompletionSource;
+declare const index_d$2_cssLanguage: typeof cssLanguage;
+declare namespace index_d$2 {
+  export {
+    index_d$2_css as css,
+    index_d$2_cssCompletion as cssCompletion,
+    index_d$2_cssCompletionSource as cssCompletionSource,
+    index_d$2_cssLanguage as cssLanguage,
+  };
+}
+
+/**
+HTML tag completion. Opens and closes tags and attributes in a
+context-aware way.
+*/
+declare function htmlCompletionSource(context: CompletionContext): CompletionResult | null;
+
+/**
+A language provider based on the [Lezer HTML
+parser](https://github.com/lezer-parser/html), extended with the
+JavaScript and CSS parsers to parse the content of `<script>` and
+`<style>` tags.
+*/
+declare const htmlLanguage: LRLanguage;
+declare const htmlCompletion: Extension;
+/**
+Language support for HTML, including
+[`htmlCompletion`](https://codemirror.net/6/docs/ref/#lang-html.htmlCompletion) and JavaScript and
+CSS support extensions.
+*/
+declare function html(config?: {
+    /**
+    By default, the syntax tree will highlight mismatched closing
+    tags. Set this to `false` to turn that off (for example when you
+    expect to only be parsing a fragment of HTML text, not a full
+    document).
+    */
+    matchClosingTags?: boolean;
+    /**
+    Determines whether [`autoCloseTags`](https://codemirror.net/6/docs/ref/#lang-html.autoCloseTags)
+    is included in the support extensions. Defaults to true.
+    */
+    autoCloseTags?: boolean;
+}): LanguageSupport;
+/**
+Extension that will automatically insert close tags when a `>` or
+`/` is typed.
+*/
+declare const autoCloseTags: Extension;
+
+declare const index_d$1_autoCloseTags: typeof autoCloseTags;
+declare const index_d$1_html: typeof html;
+declare const index_d$1_htmlCompletion: typeof htmlCompletion;
+declare const index_d$1_htmlCompletionSource: typeof htmlCompletionSource;
+declare const index_d$1_htmlLanguage: typeof htmlLanguage;
+declare namespace index_d$1 {
+  export {
+    index_d$1_autoCloseTags as autoCloseTags,
+    index_d$1_html as html,
+    index_d$1_htmlCompletion as htmlCompletion,
+    index_d$1_htmlCompletionSource as htmlCompletionSource,
+    index_d$1_htmlLanguage as htmlLanguage,
+  };
+}
+
+/**
+A language provider based on the [Lezer JavaScript
+parser](https://github.com/lezer-parser/javascript), extended with
+highlighting and indentation information.
+*/
+declare const javascriptLanguage: LRLanguage;
+/**
+A language provider for TypeScript.
+*/
+declare const typescriptLanguage: LRLanguage;
+/**
+Language provider for JSX.
+*/
+declare const jsxLanguage: LRLanguage;
+/**
+Language provider for JSX + TypeScript.
+*/
+declare const tsxLanguage: LRLanguage;
+/**
+JavaScript support. Includes [snippet](https://codemirror.net/6/docs/ref/#lang-javascript.snippets)
+completion.
+*/
+declare function javascript(config?: {
+    jsx?: boolean;
+    typescript?: boolean;
+}): LanguageSupport;
+
+/**
+A collection of JavaScript-related
+[snippets](https://codemirror.net/6/docs/ref/#autocomplete.snippet).
+*/
+declare const snippets: readonly Completion[];
+
+/**
+Connects an [ESLint](https://eslint.org/) linter to CodeMirror's
+[lint](https://codemirror.net/6/docs/ref/#lint) integration. `eslint` should be an instance of the
+[`Linter`](https://eslint.org/docs/developer-guide/nodejs-api#linter)
+class, and `config` an optional ESLint configuration. The return
+value of this function can be passed to [`linter`](https://codemirror.net/6/docs/ref/#lint.linter)
+to create a JavaScript linting extension.
+
+Note that ESLint targets node, and is tricky to run in the
+browser. The [eslint4b](https://github.com/mysticatea/eslint4b)
+and
+[eslint4b-prebuilt](https://github.com/marijnh/eslint4b-prebuilt/)
+packages may help with that.
+*/
+declare function esLint(eslint: any, config?: any): (view: EditorView) => Diagnostic[];
+
+declare const index_d_esLint: typeof esLint;
+declare const index_d_javascript: typeof javascript;
+declare const index_d_javascriptLanguage: typeof javascriptLanguage;
+declare const index_d_jsxLanguage: typeof jsxLanguage;
+declare const index_d_snippets: typeof snippets;
+declare const index_d_tsxLanguage: typeof tsxLanguage;
+declare const index_d_typescriptLanguage: typeof typescriptLanguage;
+declare namespace index_d {
+  export {
+    index_d_esLint as esLint,
+    index_d_javascript as javascript,
+    index_d_javascriptLanguage as javascriptLanguage,
+    index_d_jsxLanguage as jsxLanguage,
+    index_d_snippets as snippets,
+    index_d_tsxLanguage as tsxLanguage,
+    index_d_typescriptLanguage as typescriptLanguage,
+  };
+}
+
 interface Config {
     /**
     Whether the bracket matching should look at the character after
@@ -5366,6 +5431,47 @@ highlighting style is used to indicate this.
 declare function bracketMatching(config?: Config): Extension;
 
 /**
+Object that describes an active panel.
+*/
+interface Panel {
+    /**
+    The element representing this panel. The library will add the
+    `"cm-panel"` DOM class to this.
+    */
+    dom: HTMLElement;
+    /**
+    Optionally called after the panel has been added to the editor.
+    */
+    mount?(): void;
+    /**
+    Update the DOM for a given view update.
+    */
+    update?(update: ViewUpdate): void;
+    /**
+    Whether the panel should be at the top or bottom of the editor.
+    Defaults to false.
+    */
+    top?: boolean;
+    /**
+    An optional number that is used to determine the ordering when
+    there are multiple panels. Those with a lower `pos` value will
+    come first. Defaults to 0.
+    */
+    pos?: number;
+}
+/**
+A function that initializes a panel. Used in
+[`showPanel`](https://codemirror.net/6/docs/ref/#panel.showPanel).
+*/
+declare type PanelConstructor = (view: EditorView) => Panel;
+/**
+Opening a panel is done by providing a constructor function for
+the panel through this facet. (The panel is closed again when its
+constructor is no longer provided.) Values of `null` are ignored.
+*/
+declare const showPanel: Facet<PanelConstructor | null, readonly (PanelConstructor | null)[]>;
+
+/**
 Select next occurrence of the current selection.
 Expand selection to the word when selection range is empty.
 */
@@ -5388,6 +5494,27 @@ declare function tooltips(config?: {
     positioning.
     */
     position?: "fixed" | "absolute";
+    /**
+    The element to put the tooltips into. By default, they are put
+    in the editor (`cm-editor`) element, and that is usually what
+    you want. But in some layouts that can lead to positioning
+    issues, and you need to use a different parent to work around
+    those.
+    */
+    parent?: HTMLElement;
+    /**
+    By default, when figuring out whether there is room for a
+    tooltip at a given position, the extension considers the entire
+    space between 0,0 and `innerWidth`,`innerHeight` to be available
+    for showing tooltips. You can provide a function here that
+    returns an alternative rectangle.
+    */
+    tooltipSpace?: (view: EditorView) => {
+        top: number;
+        left: number;
+        bottom: number;
+        right: number;
+    };
 }): Extension;
 /**
 Describes a tooltip. Values of this type, when provided through
@@ -5422,6 +5549,11 @@ interface Tooltip {
     viewport. Not guaranteed for hover tooltips. Defaults to false.
     */
     strictSide?: boolean;
+    /**
+    When set to true, show a triangle connecting the tooltip element
+    to position `pos`.
+    */
+    arrow?: boolean;
 }
 /**
 Describes the way a tooltip is displayed.
@@ -5431,6 +5563,18 @@ interface TooltipView {
     The DOM element to position over the editor.
     */
     dom: HTMLElement;
+    /**
+    Adjust the position of the tooltip relative to its anchor
+    position. A positive `x` value will move the tooltip
+    horizontally along with the text direction (so right in
+    left-to-right context, left in right-to-left). A positive `y`
+    will move the tooltip up when it is above its anchor, and down
+    otherwise.
+    */
+    offset?: {
+        x: number;
+        y: number;
+    };
     /**
     Called after the tooltip is added to the DOM for the first time.
     */
@@ -5452,10 +5596,7 @@ declare const showTooltip: Facet<Tooltip | null, readonly (Tooltip | null)[]>;
 declare function clojure(): Promise<StreamLanguage<unknown>>;
 declare function coffeescript(): Promise<StreamLanguage<unknown>>;
 declare function cpp(): Promise<typeof _codemirror_lang_cpp>;
-declare function css(): Promise<typeof _codemirror_lang_css>;
-declare function html(): Promise<typeof _codemirror_lang_html>;
 declare function java(): Promise<typeof _codemirror_lang_java>;
-declare function javascript(): Promise<typeof _codemirror_lang_javascript>;
 declare function json(): Promise<typeof _codemirror_lang_json>;
 declare function markdown(): Promise<typeof _codemirror_lang_markdown>;
 declare function php(): Promise<typeof _codemirror_lang_php>;
@@ -5464,4 +5605,4 @@ declare function shell(): Promise<StreamLanguage<unknown>>;
 declare function wast(): Promise<typeof _codemirror_lang_wast>;
 declare function xml(): Promise<typeof _codemirror_lang_xml>;
 
-export { Annotation, AnnotationType, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MatchDecorator, NodeProp, NodeSet, NodeType, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, codeFolding, coffeescript, completeAnyWord, cpp, css, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, drawSelection, foldGutter, foldKeymap, gutter, gutters, highlightSpecialChars, highlightTree, history, historyKeymap, html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, java, javascript, json, keymap, lineNumbers, markdown, php, placeholder, python, redo, redoSelection, scrollPastEnd, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, shell, showTooltip, standardKeymap, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, wast, xml };
+export { Annotation, AnnotationType, ChangeDesc, ChangeSet, ChangeSpec, Command, Compartment, Completion, CompletionContext, CompletionResult, CompletionSource, Decoration, DecorationSet, EditorSelection, EditorState, EditorStateConfig, EditorView, Extension, Facet, GutterMarker, HighlightStyle, KeyBinding, LRParser, Language, LanguageSupport, Line$1 as Line, MatchDecorator, NodeProp, NodeSet, NodeType, Panel, Parser, Prec, Range, RangeSet, RangeSetBuilder, SelectionRange, StateEffect, StateEffectType, StateField, StreamLanguage, StreamParser, StringStream, StyleModule, SyntaxNode, Tag, TagStyle, Text, TextIterator, Tooltip, TooltipView, Transaction, TransactionSpec, Tree, TreeCursor, ViewPlugin, ViewUpdate, WidgetType, acceptCompletion, autocompletion, bracketMatching, clojure, closeBrackets, closeBracketsKeymap, closeCompletion, codeFolding, coffeescript, completeAnyWord, cpp, index_d$2 as css, currentCompletions, cursorMatchingBracket, cursorSubwordBackward, cursorSubwordForward, drawSelection, ensureSyntaxTree, foldGutter, foldKeymap, gutter, gutters, highlightSpecialChars, highlightTree, history, historyKeymap, index_d$1 as html, ifNotIn, indentLess, indentMore, indentOnInput, indentUnit, insertNewlineAndIndent, java, index_d as javascript, json, keymap, lineNumberMarkers, lineNumbers, markdown, php, placeholder, python, redo, redoSelection, scrollPastEnd, selectMatchingBracket, selectNextOccurrence, selectSubwordBackward, selectSubwordForward, selectedCompletion, shell, showPanel, showTooltip, standardKeymap, startCompletion, syntaxTree, tags, toggleComment, tooltips, undo, undoSelection, wast, xml };

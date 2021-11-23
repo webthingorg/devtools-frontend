@@ -4,11 +4,13 @@
 
 import * as Platform from '../../../core/platform/platform.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
+import * as CodeHighlighter from '../code_highlighter/code_highlighter.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
+
 import treeOutlineStyles from './treeOutline.css.js';
 
-import type {TreeNode, TreeNodeWithChildren} from './TreeOutlineUtils.js';
+import type {TreeNodeId, TreeNode, TreeNodeWithChildren} from './TreeOutlineUtils.js';
 import {findNextNodeForTreeOutlineKeyboardNavigation, getNodeChildren, getPathToTreeNode, isExpandableNode, trackDOMNodeToTreeNode} from './TreeOutlineUtils.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
@@ -22,6 +24,7 @@ export interface TreeOutlineData<TreeNodeDataType> {
    * cause issues in the TreeOutline.
    */
   tree: readonly TreeNode<TreeNodeDataType>[];
+  filter?: (node: TreeNodeDataType) => FilterOption;
 }
 
 export function defaultRenderer(node: TreeNode<string>): LitHtml.TemplateResult {
@@ -64,6 +67,19 @@ export class ItemMouseOutEvent<TreeNodeDataType> extends Event {
   }
 }
 
+/**
+ *
+ * The tree can be filtered by providing a custom filter function.
+ * The filter is applied on every node when constructing the tree
+ * and proceeds as follows:
+ * - If the filter return SHOW for a node, the node is included in the tree.
+ * - If the filter returns FLATTEN, the node is ignored but its subtree is included.
+ */
+export const enum FilterOption {
+  SHOW = 'SHOW',
+  FLATTEN = 'FLATTEN',
+}
+
 export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-tree-outline`;
   private readonly shadow = this.attachShadow({mode: 'open'});
@@ -77,7 +93,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
    * know for sure when that node will be rendered. This variable tracks the
    * node that we want focused but may not yet have been rendered.
    */
-  private nodePendingFocus: TreeNode<TreeNodeDataType>|null = null;
+  private nodeIdPendingFocus: TreeNodeId|null = null;
   private selectedTreeNode: TreeNode<TreeNodeDataType>|null = null;
   private defaultRenderer =
       (node: TreeNode<TreeNodeDataType>, _state: {isExpanded: boolean}): LitHtml.TemplateResult => {
@@ -89,6 +105,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
         }
         return LitHtml.html`${String(node.treeNodeData)}`;
       };
+  private nodeFilter?: ((node: TreeNodeDataType) => FilterOption);
 
   /**
    * scheduledRender = render() has been called and scheduled a render.
@@ -119,7 +136,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   connectedCallback(): void {
     this.setTopLevelNodeBorderColorCSSVariable(this.getAttribute('toplevelbordercolor'));
     this.setNodeKeyNoWrapCSSVariable(this.getAttribute('nowrap'));
-    this.shadow.adoptedStyleSheets = [treeOutlineStyles];
+    this.shadow.adoptedStyleSheets = [treeOutlineStyles, CodeHighlighter.Style.default];
   }
 
   get data(): TreeOutlineData<TreeNodeDataType> {
@@ -132,6 +149,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   set data(data: TreeOutlineData<TreeNodeDataType>) {
     this.defaultRenderer = data.defaultRenderer;
     this.treeData = data.tree;
+    this.nodeFilter = data.filter;
     if (!this.hasRenderedAtLeastOnce) {
       this.selectedTreeNode = this.treeData[0];
     }
@@ -149,13 +167,28 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   /**
+   * Collapses all nodes in the tree.
+   */
+  async collapseAllNodes(): Promise<void> {
+    this.nodeExpandedMap.clear();
+    await this.render();
+  }
+
+  /**
    * Takes a TreeNode, expands the outline to reveal it, and focuses it.
    */
   async expandToAndSelectTreeNode(targetTreeNode: TreeNode<TreeNodeDataType>): Promise<void> {
-    const pathToTreeNode = await getPathToTreeNode(this.treeData, targetTreeNode);
+    return this.expandToAndSelectTreeNodeId(targetTreeNode.id);
+  }
+
+  /**
+   * Takes a TreeNode ID, expands the outline to reveal it, and focuses it.
+   */
+  async expandToAndSelectTreeNodeId(targetTreeNodeId: TreeNodeId): Promise<void> {
+    const pathToTreeNode = await getPathToTreeNode(this.treeData, targetTreeNodeId);
 
     if (pathToTreeNode === null) {
-      throw new Error(`Could not find node with id ${targetTreeNode.id} in the tree.`);
+      throw new Error(`Could not find node with id ${targetTreeNodeId} in the tree.`);
     }
     pathToTreeNode.forEach((node, index) => {
       // We don't expand the very last node, which was the target node.
@@ -165,8 +198,24 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
     });
 
     // Mark the node as pending focus so when it is rendered into the DOM we can focus it
-    this.nodePendingFocus = targetTreeNode;
+    this.nodeIdPendingFocus = targetTreeNodeId;
     await this.render();
+  }
+
+  /**
+   * Takes a list of TreeNode IDs and expands the corresponding nodes.
+   */
+  expandNodeIds(nodeIds: TreeNodeId[]): Promise<void> {
+    nodeIds.forEach(id => this.nodeExpandedMap.set(id, true));
+    return this.render();
+  }
+
+  /**
+   * Takes a TreeNode ID and focuses the corresponding node.
+   */
+  focusNodeId(nodeId: TreeNodeId): Promise<void> {
+    this.nodeIdPendingFocus = nodeId;
+    return this.render();
   }
 
   async collapseChildrenOfNode(domNode: HTMLLIElement): Promise<void> {
@@ -206,7 +255,22 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   private async fetchNodeChildren(node: TreeNodeWithChildren<TreeNodeDataType>): Promise<TreeNode<TreeNodeDataType>[]> {
-    return getNodeChildren(node);
+    const children = await getNodeChildren(node);
+    if (!this.nodeFilter) {
+      return children;
+    }
+    const filteredChildren = [];
+    for (const child of children) {
+      const filtering = this.nodeFilter(child.treeNodeData);
+      // We always include the selected node in the tree, regardless of its filtering status.
+      if (filtering === FilterOption.SHOW || this.isSelectedNode(child) || child.id === this.nodeIdPendingFocus) {
+        filteredChildren.push(child);
+      } else if (filtering === FilterOption.FLATTEN && isExpandableNode(child)) {
+        const grandChildren = await this.fetchNodeChildren(child);
+        filteredChildren.push(...grandChildren);
+      }
+    }
+    return filteredChildren;
   }
 
   private setNodeExpandedState(node: TreeNode<TreeNodeDataType>, newExpandedState: boolean): void {
@@ -335,7 +399,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
   }
 
   private focusPendingNode(domNode: HTMLLIElement): void {
-    this.nodePendingFocus = null;
+    this.nodeIdPendingFocus = null;
     this.focusTreeNode(domNode);
   }
 
@@ -409,7 +473,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
             return;
           }
 
-          if (this.nodePendingFocus && node.id === this.nodePendingFocus.id) {
+          if (this.nodeIdPendingFocus && node.id === this.nodeIdPendingFocus) {
             this.focusPendingNode(domNode);
           }
         })}
@@ -431,6 +495,7 @@ export class TreeOutline<TreeNodeDataType> extends HTMLElement {
     `;
     // clang-format on
   }
+
   private async render(): Promise<void> {
     if (this.scheduledRender) {
       // If we are already rendering, don't render again immediately, but

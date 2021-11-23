@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-
 import * as i18n from '../i18n/i18n.js';
+
 const UIStrings = {
   /**
   *@description Title of a setting under the Console category that can be invoked through the Command Menu
@@ -43,9 +43,13 @@ const UIStrings = {
   */
   captureAsyncStackTraces: 'Capture async stack traces',
   /**
-  *@description Text to show the measuring rulers on the target
+  *@description Text of a setting that  turn on the measuring rulers when hover over a target
   */
-  showRulers: 'Show rulers',
+  showRulersOnHover: 'Show rulers on hover',
+  /**
+  *@description Text of a setting that do turn off the measuring rulers when hover over a target
+  */
+  doNotShowRulersOnHover: 'Do not show rulers on hover',
   /**
   *@description Title of a setting that turns on grid area name labels
   */
@@ -150,14 +154,6 @@ const UIStrings = {
   *@description Title of a setting under the Rendering category that can be invoked through the Command Menu
   */
   hideScrollPerformanceBottlenecks: 'Hide scroll performance bottlenecks',
-  /**
-  *@description Title of a setting under the Rendering category that can be invoked through the Command Menu
-  */
-  showHittestBorders: 'Show hit-test borders',
-  /**
-  *@description Title of a setting under the Rendering category that can be invoked through the Command Menu
-  */
-  hideHittestBorders: 'Hide hit-test borders',
   /**
   *@description Title of a Rendering setting that can be invoked through the Command Menu
   */
@@ -331,12 +327,14 @@ const str_ = i18n.i18n.registerUIStrings('core/sdk/sdk-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 Common.Settings.registerSettingExtension({
+  storageType: Common.Settings.SettingStorageType.Synced,
   settingName: 'skipStackFramesPattern',
   settingType: Common.Settings.SettingType.REGEX,
   defaultValue: '',
 });
 
 Common.Settings.registerSettingExtension({
+  storageType: Common.Settings.SettingStorageType.Synced,
   settingName: 'skipContentScripts',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: false,
@@ -344,6 +342,7 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.CONSOLE,
+  storageType: Common.Settings.SettingStorageType.Synced,
   title: i18nLazyString(UIStrings.preserveLogUponNavigation),
   settingName: 'preserveConsoleLog',
   settingType: Common.Settings.SettingType.BOOLEAN,
@@ -432,9 +431,20 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.showRulers),
+  storageType: Common.Settings.SettingStorageType.Synced,
+  title: i18nLazyString(UIStrings.showRulersOnHover),
   settingName: 'showMetricsRulers',
   settingType: Common.Settings.SettingType.BOOLEAN,
+  options: [
+    {
+      value: true,
+      title: i18nLazyString(UIStrings.showRulersOnHover),
+    },
+    {
+      value: false,
+      title: i18nLazyString(UIStrings.doNotShowRulersOnHover),
+    },
+  ],
   defaultValue: false,
 });
 
@@ -649,24 +659,6 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.RENDERING,
-  settingName: 'showHitTestBorders',
-  settingType: Common.Settings.SettingType.BOOLEAN,
-  storageType: Common.Settings.SettingStorageType.Session,
-  options: [
-    {
-      value: true,
-      title: i18nLazyString(UIStrings.showHittestBorders),
-    },
-    {
-      value: false,
-      title: i18nLazyString(UIStrings.hideHittestBorders),
-    },
-  ],
-  defaultValue: false,
-});
-
-Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.RENDERING,
   title: i18nLazyString(UIStrings.emulateAFocusedPage),
   settingName: 'emulatePageFocus',
   settingType: Common.Settings.SettingType.BOOLEAN,
@@ -740,6 +732,35 @@ Common.Settings.registerSettingExtension({
     i18nLazyString(UIStrings.query),
   ],
   title: i18nLazyString(UIStrings.emulateCssMediaFeature, {PH1: 'prefers-color-scheme'}),
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.RENDERING,
+  settingName: 'emulatedCSSMediaFeatureForcedColors',
+  settingType: Common.Settings.SettingType.ENUM,
+  storageType: Common.Settings.SettingStorageType.Session,
+  defaultValue: '',
+  options: [
+    {
+      title: i18nLazyString(UIStrings.doNotEmulateCss, {PH1: 'forced-colors'}),
+      text: i18nLazyString(UIStrings.noEmulation),
+      value: '',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'forced-colors: active'}),
+      text: i18n.i18n.lockedLazyString('forced-colors: active'),
+      value: 'active',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'forced-colors: none'}),
+      text: i18n.i18n.lockedLazyString('forced-colors: none'),
+      value: 'none',
+    },
+  ],
+  tags: [
+    i18nLazyString(UIStrings.query),
+  ],
+  title: i18nLazyString(UIStrings.emulateCssMediaFeature, {PH1: 'forced-colors'}),
 });
 
 Common.Settings.registerSettingExtension({

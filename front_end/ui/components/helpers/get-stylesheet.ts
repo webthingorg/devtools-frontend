@@ -41,16 +41,5 @@ export function legacyGetStyleSheets(path: string): CSSStyleSheet[] {
  * them through to the right place, respecting Karma's ROOT_DIRECTORY setting.
  */
 export const CSS_RESOURCES_TO_LOAD_INTO_RUNTIME = [
-  'ui/legacy/inspectorCommon.css',
-  'ui/legacy/textButton.css',
-  'ui/legacy/themeColors.css',
-  'ui/legacy/inspectorSyntaxHighlight.css',
-  'ui/legacy/progressIndicator.css',
   'panels/application/serviceWorkerUpdateCycleView.css',
-  'ui/legacy/tabbedPane.css',
-  'ui/legacy/components/inline_editor/colorSwatch.css',
-  'ui/legacy/glassPane.css',
-  'ui/legacy/suggestBox.css',
-  'ui/legacy/treeoutline.css',
-  'ui/legacy/softContextMenu.css',
 ];

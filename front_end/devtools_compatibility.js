@@ -396,6 +396,11 @@
     LinearMemoryInspectorTarget: 'DevTools.LinearMemoryInspector.Target',
     Language: 'DevTools.Language',
     ConsoleShowsCorsErrors: 'DevTools.ConsoleShowsCorsErrors',
+    RecordingEdited: 'DevTools.RecordingEdited',
+    RecordingExported: 'DevTools.RecordingExported',
+    RecordingReplayFinished: 'DevTools.RecordingReplayFinished',
+    RecordingReplayStarted: 'DevTools.RecordingReplayStarted',
+    RecordingToggled: 'DevTools.RecordingToggled',
   };
 
   /**
@@ -560,6 +565,14 @@
      */
     clearPreferences() {
       DevToolsAPI.sendMessageToEmbedder('clearPreferences', [], null);
+    }
+
+    /**
+     * @override
+     * @param {!function(!InspectorFrontendHostAPI.SyncInformation):void} callback
+     */
+    getSyncInformation(callback) {
+      DevToolsAPI.sendMessageToEmbedder('getSyncInformation', [], callback);
     }
 
     /**

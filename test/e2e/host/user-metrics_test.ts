@@ -8,7 +8,7 @@ import type * as puppeteer from 'puppeteer';
 import {$, click, enableExperiment, getBrowserAndPages, goToResource, platform, pressKey, reloadDevTools, scrollElementIntoView, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {toggleShowCorsErrors} from '../helpers/console-helpers.js';
-import {navigateToCssOverviewTab} from '../helpers/css-overview-helpers.js';
+import {navigateToCssOverviewTab, startCaptureCSSOverview} from '../helpers/css-overview-helpers.js';
 import {editCSSProperty, focusElementsTree, navigateToSidePane, waitForContentOfSelectedElementsNode, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
 import {clickToggleButton, selectDualScreen, startEmulationWithDualScreenFlag} from '../helpers/emulation-helpers.js';
 import {openCommandMenu} from '../helpers/quick_open-helpers.js';
@@ -366,6 +366,13 @@ describe('User Metrics', () => {
       },
     ]);
   });
+
+  it('records the sync setting', async () => {
+    await assertHistogramEventsInclude([{
+      actionName: 'DevTools.SyncSetting',
+      actionCode: 1,  // Chrome Sync is disabled
+    }]);
+  });
 });
 
 describe('User Metrics for dual screen emulation', () => {
@@ -399,14 +406,11 @@ describe('User Metrics for dual screen emulation', () => {
 });
 
 describe('User Metrics for CSS Overview', () => {
-  beforeEach(async () => {
-    await enableExperiment('cssOverview');
-  });
-
   it('dispatch events when capture overview button hit', async () => {
-    await navigateToCssOverviewTab('default');
+    await goToResource('css_overview/default.html');
+    await navigateToCssOverviewTab();
 
-    await click('.primary-button');  // Capture overview
+    await startCaptureCSSOverview();
 
     await assertHistogramEventsInclude([
       {
@@ -585,6 +589,10 @@ describe('User Metrics for Issue Panel', () => {
       {
         actionName: 'DevTools.IssueCreated',
         actionCode: 37,  // SharedArrayBufferIssue::CreationIssue
+      },
+      {
+        actionName: 'DevTools.IssueCreated',
+        actionCode: 60,  // DeprecationIssue
       },
       {
         actionName: 'DevTools.IssueCreated',

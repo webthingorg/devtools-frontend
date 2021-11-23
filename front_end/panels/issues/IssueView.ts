@@ -72,9 +72,17 @@ const UIStrings = {
   */
   learnMoreS: 'Learn more: {PH1}',
   /**
- *@description The kind of resolution for a mixed content issue
- */
+  *@description The kind of resolution for a mixed content issue
+  */
   automaticallyUpgraded: 'automatically upgraded',
+  /**
+  *@description Menu entry for hiding a particular issue, in the Hide Issues context menu.
+  */
+  hideIssuesLikeThis: 'Hide issues like this',
+  /**
+  *@description Menu entry for unhiding a particular issue, in the Hide Issues context menu.
+  */
+  unhideIssuesLikeThis: 'Unhide issues like this',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/issues/IssueView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -214,7 +222,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   private hasBeenExpandedBefore: boolean;
   private throttle: Common.Throttler.Throttler;
   private needsUpdateOnExpand = true;
-  private hiddenIssuesMenu: Components.HideIssuesMenu.HideIssuesMenu;
+  private hiddenIssuesMenu?: Components.HideIssuesMenu.HideIssuesMenu;
   private contentCreated: boolean = false;
 
   constructor(issue: AggregatedIssue, description: IssuesManager.MarkdownIssueDescription.IssueDescription) {
@@ -248,8 +256,9 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new WasmCrossOriginModuleSharingAffectedResourcesView(this, this.issue),
       new AffectedRawCookieLinesView(this, this.issue),
     ];
-
-    this.hiddenIssuesMenu = new Components.HideIssuesMenu.HideIssuesMenu();
+    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+      this.hiddenIssuesMenu = new Components.HideIssuesMenu.HideIssuesMenu();
+    }
     this.aggregatedIssuesCount = null;
     this.hasBeenExpandedBefore = false;
   }
@@ -310,10 +319,6 @@ export class IssueView extends UI.TreeOutline.TreeElement {
 
   private appendHeader(): void {
     const header = document.createElement('div');
-    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
-      header.addEventListener('mouseenter', this.showHiddenIssuesMenu.bind(this));
-      header.addEventListener('mouseleave', this.hideHiddenIssuesMenu.bind(this));
-    }
     header.classList.add('header');
     this.issueKindIcon = new IconButton.Icon.Icon();
     this.issueKindIcon.classList.add('leading-issue-icon');
@@ -331,18 +336,11 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     title.classList.add('title');
     title.textContent = this.description.title;
     header.appendChild(title);
-    if (Root.Runtime.experiments.isEnabled('hideIssuesFeature')) {
+    if (this.hiddenIssuesMenu) {
       header.appendChild(this.hiddenIssuesMenu);
     }
     this.updateFromIssue();
     this.listItemElement.appendChild(header);
-  }
-  private showHiddenIssuesMenu(): void {
-    this.hiddenIssuesMenu?.setVisible(true);
-  }
-
-  private hideHiddenIssuesMenu(): void {
-    this.hiddenIssuesMenu?.setVisible(false);
   }
 
   onexpand(): void {
@@ -370,11 +368,20 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       this.aggregatedIssuesCount.textContent = `${this.issue.getAggregatedIssuesCount()}`;
     }
     this.listItemElement.classList.toggle('hidden-issue', this.issue.isHidden());
-    const data: HiddenIssuesMenuData = {
-      issueCode: this.issue.code(),
-      forHiddenIssue: this.issue.isHidden(),
-    };
-    this.hiddenIssuesMenu.data = data;
+    if (this.hiddenIssuesMenu) {
+      const data: HiddenIssuesMenuData = {
+        menuItemLabel: this.issue.isHidden() ? i18nString(UIStrings.unhideIssuesLikeThis) :
+                                               i18nString(UIStrings.hideIssuesLikeThis),
+        menuItemAction: () => {
+          const setting = IssuesManager.IssuesManager.getHideIssueByCodeSetting();
+          const values = setting.get();
+          values[this.issue.code()] = this.issue.isHidden() ? IssuesManager.IssuesManager.IssueStatus.Unhidden :
+                                                              IssuesManager.IssuesManager.IssueStatus.Hidden;
+          setting.set(values);
+        },
+      };
+      this.hiddenIssuesMenu.data = data;
+    }
   }
 
   updateAffectedResourceVisibility(): void {
