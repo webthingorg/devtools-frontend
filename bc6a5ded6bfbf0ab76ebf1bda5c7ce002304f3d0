@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ad185c_9989b895",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-23T15:55:24Z",
+      "side": 1,
+      "message": "Clang was crashing on `lit-html`, but it is third_party code anyways. So let\u0027s disable formatting of our `third_party` folders.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 90
+      },
+      "revId": "bc6a5ded6bfbf0ab76ebf1bda5c7ce002304f3d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
