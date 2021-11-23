@@ -39,7 +39,7 @@ vars = {
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
   'chromium_win': '944388',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '944387',
+  'chromium_mac': '943334',
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
