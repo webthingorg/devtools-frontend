@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a83029ee_cf26fa09",
+        "filename": "front_end/third_party/marked/marked.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-23T16:32:06Z",
+      "side": 1,
+      "message": "Marked 4 is ESM, so we have to update our import structure here. That\u0027s why we also needed to update `@types/marked` in this CL.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "af43ef690c969366cf4afb85becc03f6bc0615a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
