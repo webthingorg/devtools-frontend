@@ -16,6 +16,24 @@
       "message": "Deletions look good to me, so satisfying to delete all of that code 😊 Let\u0027s submit this on Monday, to give the console panel update a bit more time in Canary.",
       "revId": "49c60df990eea6f07a80491412fe2709ef246710",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7370c9_9f05688b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-11-23T13:30:40Z",
+      "side": 1,
+      "message": "Do those test failures all look like stuff that\u0027s accessing the old interfaces?",
+      "parentUuid": "2f13beff_68b0fc58",
+      "revId": "49c60df990eea6f07a80491412fe2709ef246710",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
