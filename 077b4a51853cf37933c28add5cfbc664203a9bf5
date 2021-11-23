@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6446389d_a600ed55",
+        "filename": "front_end/core/i18n/i18nImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-23T15:42:38Z",
+      "side": 1,
+      "message": "We can remove these in a follow-up CL after TS 4.5 landed.",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 62
+      },
+      "revId": "077b4a51853cf37933c28add5cfbc664203a9bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
