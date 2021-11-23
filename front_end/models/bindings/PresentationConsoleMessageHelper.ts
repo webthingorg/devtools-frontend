@@ -123,11 +123,6 @@ export class PresentationConsoleMessageHelper {
     if (message.scriptId) {
       return this.#debuggerModel.createRawLocationByScriptId(message.scriptId, message.line, message.column);
     }
-    const callFrame = message.stackTrace && message.stackTrace.callFrames ? message.stackTrace.callFrames[0] : null;
-    if (callFrame) {
-      return this.#debuggerModel.createRawLocationByScriptId(
-          callFrame.scriptId, callFrame.lineNumber, callFrame.columnNumber);
-    }
     if (message.url) {
       return this.#debuggerModel.createRawLocationByURL(message.url, message.line, message.column);
     }

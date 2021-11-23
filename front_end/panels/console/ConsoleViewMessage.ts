@@ -450,9 +450,6 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       if (message.scriptId) {
         return this.linkifyScriptId(message.scriptId, message.url || '', message.line, message.column);
       }
-      if (message.stackTrace && message.stackTrace.callFrames.length) {
-        return this.linkifyStackTraceTopFrame(message.stackTrace);
-      }
       if (message.url && message.url !== 'undefined') {
         return this.linkifyLocation(message.url, message.line, message.column);
       }
@@ -542,14 +539,6 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     return this.linkifier.linkifyScriptLocation(
         runtimeModel.target(), /* scriptId */ null, url, lineNumber,
         {columnNumber, className: undefined, tabStop: undefined, inlineFrameIndex: 0});
-  }
-
-  private linkifyStackTraceTopFrame(stackTrace: Protocol.Runtime.StackTrace): HTMLElement|null {
-    const runtimeModel = this.message.runtimeModel();
-    if (!runtimeModel) {
-      return null;
-    }
-    return this.linkifier.linkifyStackTraceTopFrame(runtimeModel.target(), stackTrace);
   }
 
   private linkifyScriptId(scriptId: Protocol.Runtime.ScriptId, url: string, lineNumber: number, columnNumber: number):

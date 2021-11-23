@@ -404,17 +404,6 @@ export class RuntimeModel extends SDKModel<EventTypes> {
     return script ? script.executionContextId : 0;
   }
 
-  executionContextForStackTrace(stackTrace: Protocol.Runtime.StackTrace): number {
-    let currentStackTrace: (Protocol.Runtime.StackTrace|null)|Protocol.Runtime.StackTrace = stackTrace;
-    while (currentStackTrace && !currentStackTrace.callFrames.length) {
-      currentStackTrace = currentStackTrace.parent || null;
-    }
-    if (!currentStackTrace || !currentStackTrace.callFrames.length) {
-      return 0;
-    }
-    return this.executionContextIdForScriptId(currentStackTrace.callFrames[0].scriptId);
-  }
-
   hasSideEffectSupport(): boolean|null {
     return this.#hasSideEffectSupportInternal;
   }
