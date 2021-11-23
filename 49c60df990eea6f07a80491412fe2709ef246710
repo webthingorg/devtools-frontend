@@ -34,6 +34,24 @@
       "parentUuid": "2f13beff_68b0fc58",
       "revId": "49c60df990eea6f07a80491412fe2709ef246710",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08558d03_38109086",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-23T13:33:00Z",
+      "side": 1,
+      "message": "Yes I looked at them and I propose to delete them: https://chromium-review.googlesource.com/c/chromium/src/+/3297969",
+      "parentUuid": "0c7370c9_9f05688b",
+      "revId": "49c60df990eea6f07a80491412fe2709ef246710",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
