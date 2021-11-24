@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as Diff from '../../third_party/diff/diff.js';
+import * as FormatterModule from '../formatter/formatter.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -29,8 +30,9 @@ export class WorkspaceDiffImpl extends Common.ObjectWrapper.ObjectWrapper<EventT
     workspace.uiSourceCodes().forEach(this.updateModifiedState.bind(this));
   }
 
-  requestDiff(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<Diff.Diff.DiffArray|null> {
-    return this.uiSourceCodeDiff(uiSourceCode).requestDiff();
+  requestDiff(uiSourceCode: Workspace.UISourceCode.UISourceCode, shouldFormatDiff = false):
+      Promise<Diff.Diff.DiffArray|null> {
+    return this.uiSourceCodeDiff(uiSourceCode).requestDiff(shouldFormatDiff);
   }
 
   subscribeToDiffChange(uiSourceCode: Workspace.UISourceCode.UISourceCode, callback: () => void, thisObj?: Object):
@@ -212,9 +214,9 @@ export class UISourceCodeDiff extends Common.ObjectWrapper.ObjectWrapper<UISourc
     }
   }
 
-  requestDiff(): Promise<Diff.Diff.DiffArray|null> {
+  requestDiff(shouldFormatDiff = false): Promise<Diff.Diff.DiffArray|null> {
     if (!this.requestDiffPromise) {
-      this.requestDiffPromise = this.innerRequestDiff();
+      this.requestDiffPromise = this.innerRequestDiff(shouldFormatDiff);
     }
     return this.requestDiffPromise;
   }
@@ -231,12 +233,12 @@ export class UISourceCodeDiff extends Common.ObjectWrapper.ObjectWrapper<UISourc
     return content.content || ('error' in content && content.error) || '';
   }
 
-  private async innerRequestDiff(): Promise<Diff.Diff.DiffArray|null> {
+  private async innerRequestDiff(shouldFormatDiff = false): Promise<Diff.Diff.DiffArray|null> {
     if (this.dispose) {
       return null;
     }
 
-    const baseline = await this.originalContent();
+    let baseline = await this.originalContent();
     if (baseline === null) {
       return null;
     }
@@ -263,6 +265,14 @@ export class UISourceCodeDiff extends Common.ObjectWrapper.ObjectWrapper<UISourc
 
     if (current === null || baseline === null) {
       return null;
+    }
+    if (shouldFormatDiff) {
+      baseline = (await FormatterModule.ScriptFormatter.format(
+                      this.uiSourceCode.contentType(), this.uiSourceCode.mimeType(), baseline))
+                     .formattedContent;
+      current = (await FormatterModule.ScriptFormatter.format(
+                     this.uiSourceCode.contentType(), this.uiSourceCode.mimeType(), current))
+                    .formattedContent;
     }
     return Diff.Diff.DiffWrapper.lineDiff(baseline.split(/\r\n|\n|\r/), current.split(/\r\n|\n|\r/));
   }
