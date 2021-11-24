@@ -16,6 +16,64 @@
       "message": "@jobay Hi Johan, are you familiar with Infobar? I\u0027ve not used it before.",
       "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a1f5fe_727a5183",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-24T11:21:05Z",
+      "side": 1,
+      "message": "I am not, but the fix here seems reasonable to me.",
+      "parentUuid": "75f6d14f_6be64e57",
+      "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eecc8027_511d6a7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-24T11:21:05Z",
+      "side": 1,
+      "message": "LGTM % nit but please wait for @changhaohan too.",
+      "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ff9730_95e041c4",
+        "filename": "front_end/ui/legacy/Infobar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-11-24T11:21:05Z",
+      "side": 1,
+      "message": "Is there any reason to explicitly construct a boolean here?",
+      "range": {
+        "startLine": 92,
+        "startChar": 32,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
