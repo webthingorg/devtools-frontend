@@ -52,6 +52,24 @@
       "parentUuid": "dd9b2f41_993f410c",
       "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f322dd91_1f874d8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T07:53:52Z",
+      "side": 1,
+      "message": "I updated the CL. After merging the CL of the spinner button, devtools show disabled spinner buttons during the test.",
+      "parentUuid": "8a59c059_aa070acc",
+      "revId": "481d02b7deb548ad6abf6a57a37ad8e970b76c02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
