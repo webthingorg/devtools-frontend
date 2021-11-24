@@ -47,6 +47,14 @@ export type ButtonData = {
   active?: boolean,
 };
 
+class ButtonPressEvent extends Event {
+  static readonly eventName = 'buttonpress';
+
+  constructor() {
+    super(ButtonPressEvent.eventName);
+  }
+}
+
 export class Button extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-button`;
   private readonly shadow = this.attachShadow({mode: 'open', delegatesFocus: true});
@@ -63,6 +71,7 @@ export class Button extends HTMLElement {
     super();
     this.setAttribute('role', 'presentation');
     this.addEventListener('click', this.boundOnClick, true);
+    this.addEventListener('keydown', this.onKeyDown.bind(this), true);
   }
 
   /**
@@ -121,6 +130,15 @@ export class Button extends HTMLElement {
     if (this.props.disabled) {
       event.stopPropagation();
       event.preventDefault();
+      return;
+    }
+    this.dispatchEvent(new ButtonPressEvent());
+  }
+
+  private onKeyDown(event: KeyboardEvent): void {
+    if (!this.props.disabled && (event.code === 'Enter' || event.code === 'Space')) {
+      event.preventDefault();
+      this.dispatchEvent(new ButtonPressEvent());
     }
   }
 

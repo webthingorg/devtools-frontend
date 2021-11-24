@@ -6374,6 +6374,9 @@
   "panels/network/NetworkConfigView.ts | caching": {
     "message": "Caching"
   },
+  "panels/network/NetworkConfigView.ts | clientHintsStatusText": {
+    "message": "User agent updated, reload page to apply changes."
+  },
   "panels/network/NetworkConfigView.ts | custom": {
     "message": "Custom..."
   },
@@ -6388,6 +6391,9 @@
   },
   "panels/network/NetworkConfigView.ts | networkThrottling": {
     "message": "Network throttling"
+  },
+  "panels/network/NetworkConfigView.ts | saveChangesButton": {
+    "message": "Save changes"
   },
   "panels/network/NetworkConfigView.ts | selectAutomatically": {
     "message": "Use browser default"
