@@ -1,6 +1,6 @@
 {
   "extends": "./config/typescript/tsconfig.base.json",
-  "compilerOptions": {
+---  "compilerOptions": {
     "lib": [
       "esnext",
       "dom",

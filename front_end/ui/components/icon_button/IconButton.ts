@@ -17,7 +17,6 @@ export interface IconWithTextData {
   iconHeight?: string;
   text?: string;
 }
-
 export interface IconButtonData {
   clickHandler?: () => void;
   groups: IconWithTextData[];
@@ -65,6 +64,8 @@ export class IconButton extends HTMLElement {
   private onClickHandler(event: Event): void {
     if (this.clickHandler) {
       event.preventDefault();
+      ...........
+      zzzzzzzzzzz
       this.clickHandler();
     }
   }
