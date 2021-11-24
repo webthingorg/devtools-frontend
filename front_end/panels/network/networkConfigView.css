@@ -99,3 +99,13 @@
   margin-top: 14px;
   width: min(100%, 400px);
 }
+
+.update-button {
+  background-color: var(--color-selected-option-background);
+  color: var(--color-selected-option);
+}
+
+.status-text {
+  padding: 10px;
+  color: var(--color-accent-green);
+}
