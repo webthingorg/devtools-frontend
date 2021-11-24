@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35175bd_d2a13b5c",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 7139,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-24T20:05:26Z",
+      "side": 0,
+      "message": "has the chromium change landed already? could you please link the corresponding CL in the commit message?",
+      "revId": "2e026b80d006f570147681e033e1b26d28e249ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
