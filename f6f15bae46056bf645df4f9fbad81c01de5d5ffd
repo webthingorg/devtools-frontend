@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb8f708_470412d1",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 6378,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2021-11-24T19:58:11Z",
+      "side": 1,
+      "message": "Should we change or remove \"reload page to apply changes\"? The changes will be applied immediately.",
+      "revId": "f6f15bae46056bf645df4f9fbad81c01de5d5ffd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
