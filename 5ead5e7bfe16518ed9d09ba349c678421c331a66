@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75f6d14f_6be64e57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-24T10:58:19Z",
+      "side": 1,
+      "message": "@jobay Hi Johan, are you familiar with Infobar? I\u0027ve not used it before.",
+      "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
