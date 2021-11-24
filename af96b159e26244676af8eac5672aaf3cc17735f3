@@ -46,6 +46,30 @@
       },
       "revId": "af96b159e26244676af8eac5672aaf3cc17735f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d642bdf7_2baffb05",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-24T19:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af35be99_75ce22a2",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 104
+      },
+      "revId": "af96b159e26244676af8eac5672aaf3cc17735f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
