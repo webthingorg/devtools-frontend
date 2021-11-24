@@ -435,15 +435,17 @@ export class SearchView extends UI.Widget.VBox {
   private onKeyDownOnPanel(event: KeyboardEvent): void {
     const isMac = Host.Platform.isMac();
     // "Command + Alt + ]" for Mac
-    const shouldShowAllForMac = isMac && event.metaKey && !event.ctrlKey && event.altKey && event.key === ']';
+    const shouldShowAllForMac =
+        isMac && event.metaKey && !event.ctrlKey && event.altKey && event.code === 'BracketRight';
     // "Ctrl + Shift + }" for other platforms
     const shouldShowAllForOtherPlatforms =
-        !isMac && event.ctrlKey && !event.metaKey && event.shiftKey && event.key === '}';
+        !isMac && event.ctrlKey && !event.metaKey && event.shiftKey && event.code === 'BracketRight';
     // "Command + Alt + [" for Mac
-    const shouldCollapseAllForMac = isMac && event.metaKey && !event.ctrlKey && event.altKey && event.key === '[';
+    const shouldCollapseAllForMac =
+        isMac && event.metaKey && !event.ctrlKey && event.altKey && event.code === 'BracketLeft';
     // "Command + Alt + {" for other platforms
     const shouldCollapseAllForOtherPlatforms =
-        !isMac && event.ctrlKey && !event.metaKey && event.shiftKey && event.key === '{';
+        !isMac && event.ctrlKey && !event.metaKey && event.shiftKey && event.code === 'BracketLeft';
 
     if (shouldShowAllForMac || shouldShowAllForOtherPlatforms) {
       this.searchResultsPane?.showAllMatches();
