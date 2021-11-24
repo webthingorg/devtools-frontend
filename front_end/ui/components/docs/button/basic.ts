@@ -42,6 +42,16 @@ forcedActive.innerText = 'Forced active';
 forcedActive.onclick = () => alert('clicked');
 appendButton(forcedActive);
 
+// Primary (forced spinner)
+const forcedSpinner = new Buttons.Button.Button();
+forcedSpinner.data = {
+  variant: Buttons.Button.Variant.PRIMARY,
+  spinner: true,
+};
+forcedSpinner.innerText = 'Forced spinner';
+forcedSpinner.onclick = () => alert('clicked');
+appendButton(forcedSpinner);
+
 // Secondary
 const secondaryButton = new Buttons.Button.Button();
 secondaryButton.innerText = 'Click me';
@@ -50,6 +60,16 @@ secondaryButton.data = {
   variant: Buttons.Button.Variant.SECONDARY,
 };
 appendButton(secondaryButton);
+
+// Secondary spinner
+const secondarySpinnerButton = new Buttons.Button.Button();
+secondaryButton.innerText = 'Click me';
+secondaryButton.onclick = () => alert('clicked');
+secondaryButton.data = {
+  variant: Buttons.Button.Variant.SECONDARY,
+  spinner: true,
+};
+appendButton(secondarySpinnerButton);
 
 // Primary
 const disabledPrimaryButtons = new Buttons.Button.Button();
@@ -61,6 +81,17 @@ disabledPrimaryButtons.innerText = 'Cannot click me';
 disabledPrimaryButtons.onclick = () => alert('clicked');
 appendButton(disabledPrimaryButtons);
 
+// Primary spinner
+const disabledSpinnerPrimaryButtons = new Buttons.Button.Button();
+disabledPrimaryButtons.data = {
+  variant: Buttons.Button.Variant.PRIMARY,
+  disabled: true,
+  spinner: true,
+};
+disabledPrimaryButtons.innerText = 'Cannot click me';
+disabledPrimaryButtons.onclick = () => alert('clicked');
+appendButton(disabledSpinnerPrimaryButtons);
+
 // Secondary
 const disabledSecondaryButton = new Buttons.Button.Button();
 disabledSecondaryButton.innerText = 'Cannot click me';
@@ -70,6 +101,17 @@ disabledSecondaryButton.data = {
   disabled: true,
 };
 appendButton(disabledSecondaryButton);
+
+// Secondary spinner
+const disabledSpinnerSecondaryButton = new Buttons.Button.Button();
+disabledSecondaryButton.innerText = 'Cannot click me';
+disabledSecondaryButton.onclick = () => alert('clicked');
+disabledSecondaryButton.data = {
+  variant: Buttons.Button.Variant.SECONDARY,
+  disabled: true,
+  spinner: true,
+};
+appendButton(disabledSpinnerSecondaryButton);
 
 // Primary Icon
 const primaryIconButton = new Buttons.Button.Button();
