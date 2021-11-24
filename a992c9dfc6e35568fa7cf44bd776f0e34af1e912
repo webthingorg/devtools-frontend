@@ -16,6 +16,24 @@
       "message": "Does this even affect the spinner buttons? Removing the line affects IconButtons.",
       "revId": "a992c9dfc6e35568fa7cf44bd776f0e34af1e912",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885e3a19_491048f7",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "37aef19f_d8f34a45",
+      "revId": "a992c9dfc6e35568fa7cf44bd776f0e34af1e912",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

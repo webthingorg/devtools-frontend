@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92ffd001_3f2c7d8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 1,
+      "message": "PTAL.\n\nBy the way, how can I check basic.ts? I couldn\u0027t check it just by opening basic.html by JS error.",
+      "revId": "842e067fb38906fe00c124e55246978556281190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

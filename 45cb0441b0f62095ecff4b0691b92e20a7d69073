@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b455a238_0090d738",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de9088d_a8e4d1e4",
+      "revId": "45cb0441b0f62095ecff4b0691b92e20a7d69073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30b26159_5c5fc5a3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-11-24T09:07:57Z",
       "side": 1,
       "message": "secondarySpinnerButton",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 24
+      },
+      "revId": "45cb0441b0f62095ecff4b0691b92e20a7d69073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba7a733_6a1a181b",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b26159_5c5fc5a3",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24af94ac_c488c523",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c71eaa9_9840d3fc",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 56
+      },
+      "revId": "45cb0441b0f62095ecff4b0691b92e20a7d69073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "defeab73_67dceaaa",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-11-24T09:07:57Z",
       "side": 1,
       "message": "disabledSpinnerSecondaryButton",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 32
+      },
+      "revId": "45cb0441b0f62095ecff4b0691b92e20a7d69073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45e02efd_a983c65e",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T11:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "defeab73_67dceaaa",
       "range": {
         "startLine": 107,
         "startChar": 0,
