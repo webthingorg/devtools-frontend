@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5c4453_c76b763b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T03:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b5b46cb_2e0fcb6f",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0852c9d7_43353d39",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "371b9653_6268c59c",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T03:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0852c9d7_43353d39",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf9875aa_40b4faf8",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-11-23T10:13:02Z",
       "side": 1,
       "message": "Please uncomment and also add a disabled spinner button to the component docs.",
+      "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b3ded5e_45e09e36",
+        "filename": "front_end/ui/components/docs/button/basic.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-24T03:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf9875aa_40b4faf8",
       "revId": "5c1dc6d761ad2cbd28b3f598464f849292b4189d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
