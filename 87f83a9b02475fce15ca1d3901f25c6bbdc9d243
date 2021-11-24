@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "87f83a9b02475fce15ca1d3901f25c6bbdc9d243",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338d941a_c51eef48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-24T13:11:01Z",
+      "side": 1,
+      "message": "Please also try it out locally to make sure I have not missed any cases.",
+      "revId": "87f83a9b02475fce15ca1d3901f25c6bbdc9d243",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
