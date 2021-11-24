@@ -16,6 +16,24 @@
       "message": "Interesting! So the inspector agent will send \"drawingFinished\" when it doesn\u0027t intend to send more drawing related commands?",
       "revId": "996d802a9abd202ff8e5638b4d5c9a739f0100ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b78ddb5_dc999d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-24T15:20:12Z",
+      "side": 1,
+      "message": "yes, \"for the current frame\", e.g., \"reset\" -\u003e \"drawHighlightFlex\" -\u003e \"drawHighlightGrid\" -\u003e \"drawingFinished\". I guess it would have been easier to send all commands at once but that ship has sailed.",
+      "parentUuid": "2ff36c06_7db2944e",
+      "revId": "996d802a9abd202ff8e5638b4d5c9a739f0100ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
