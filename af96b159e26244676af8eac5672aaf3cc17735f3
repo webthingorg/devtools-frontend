@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252fec3d_75488834",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-24T09:33:23Z",
+      "side": 1,
+      "message": "could we use the generic Button component in ui/components/buttons/buttons.ts here? That would do some of the work for you (I think it will deal with keydowns, but if not, it should) and ensure we\u0027re using a consistent button style.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 104
+      },
+      "revId": "af96b159e26244676af8eac5672aaf3cc17735f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
