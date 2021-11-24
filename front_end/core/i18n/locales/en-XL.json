@@ -6374,6 +6374,9 @@
   "panels/network/NetworkConfigView.ts | caching": {
     "message": "Ĉáĉh́îńĝ"
   },
+  "panels/network/NetworkConfigView.ts | clientHintsStatusText": {
+    "message": "Ûśêŕ âǵêńt̂ úp̂d́ât́êd́."
+  },
   "panels/network/NetworkConfigView.ts | custom": {
     "message": "Ĉúŝt́ôḿ..."
   },
@@ -6388,6 +6391,9 @@
   },
   "panels/network/NetworkConfigView.ts | networkThrottling": {
     "message": "N̂ét̂ẃôŕk̂ t́ĥŕôt́t̂ĺîńĝ"
+  },
+  "panels/network/NetworkConfigView.ts | saveChangesButton": {
+    "message": "Ŝáv̂é ĉh́âńĝéŝ"
   },
   "panels/network/NetworkConfigView.ts | selectAutomatically": {
     "message": "Ûśê b́r̂óŵśêŕ d̂éf̂áûĺt̂"
