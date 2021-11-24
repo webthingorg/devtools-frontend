@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "63357ce1_50fb4503",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-24T20:48:48Z",
+      "side": 1,
+      "message": "Should the button apply only to the client hints form? if yes, then why can\u0027t we implement it inside the UserAgentClientHintsForm component and it should be only visible when the client hints form is expanded? if no (i.e., it applies for the entire user agent section), then should we prevent any immediate changes done by using custom UA drop down and custom UA input? \n\nAlso, should not we show an error if the update failed. I have noticed that the form just fails silently if the user agent string is not valid.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e196557_423a26fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-24T20:48:48Z",
+      "side": 1,
+      "message": "wrong bug number?",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "024ecb2a_a5fd8058",
