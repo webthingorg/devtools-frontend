@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "738081bd_26cb35cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-24T13:57:28Z",
+      "side": 1,
+      "message": "Kateryna, do we still want to land this CL or should we abandon it for now?",
+      "revId": "e32ebc666d32eacdf643e35a5636da96b74491a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "958e923b_ea43b379",
