@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a193e7_909bf164",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 6378,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-24T20:19:25Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "1cb8f708_470412d1",
+      "revId": "f6f15bae46056bf645df4f9fbad81c01de5d5ffd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29de5ef7_fb66a1e9",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-11-24T20:02:27Z",
       "side": 1,
       "message": "is this needed? the click event is emmited on Enter and Space because the built-in HTML button is used internally so it\u0027s possible to use @click handler for both events.",
+      "revId": "f6f15bae46056bf645df4f9fbad81c01de5d5ffd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8714a907_33fd47d0",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-24T20:19:25Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "29de5ef7_fb66a1e9",
       "revId": "f6f15bae46056bf645df4f9fbad81c01de5d5ffd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
