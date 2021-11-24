@@ -16,6 +16,41 @@
       "message": "PTAL.\n\nBy the way, how can I check basic.ts? I couldn\u0027t check it just by opening basic.html by JS error.",
       "revId": "842e067fb38906fe00c124e55246978556281190",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc19c7f1_4417164f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-24T11:26:02Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "842e067fb38906fe00c124e55246978556281190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76109db7_754714ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-24T11:26:02Z",
+      "side": 1,
+      "message": "It\u0027s documented at https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/component_server/README.md",
+      "parentUuid": "92ffd001_3f2c7d8f",
+      "revId": "842e067fb38906fe00c124e55246978556281190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
