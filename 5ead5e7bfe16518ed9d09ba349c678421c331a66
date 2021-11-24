@@ -55,6 +55,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5b839a8_bb9d037a",
+        "filename": "front_end/ui/legacy/Infobar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-24T11:33:24Z",
+      "side": 1,
+      "message": "I suggest we use the native `#firstFocusableElement` instead of TS\u0027s `private` for new fields.",
+      "revId": "5ead5e7bfe16518ed9d09ba349c678421c331a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1ff9730_95e041c4",
         "filename": "front_end/ui/legacy/Infobar.ts",
         "patchSetId": 3
