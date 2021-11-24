@@ -50,6 +50,14 @@ const UIStrings = {
    * a set of checkboxes to override the content encodings supported by the browser.
    */
   acceptedEncoding: 'Accepted `Content-Encoding`s',
+  /**
+  * @description Label for button to submit client hints form in DevTools.
+  */
+  saveChangesButton: 'Save changes',
+  /**
+  * @description Status text for successful update of client hints.
+  */
+  clientHintsStatusText: 'User agent updated, reload page to apply changes.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkConfigView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -233,7 +241,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const initialUserAgentMetaData = getUserAgentMetadata(customSelectAndInput.select.value);
     clientHints.value = {
       showMobileCheckbox: true,
-      showSubmitButton: true,
+      showSubmitButton: false,
       metaData: userAgentMetaDataSetting || initialUserAgentMetaData || undefined,
     };
     clientHintsContainer.appendChild(clientHints);
@@ -244,20 +252,32 @@ export class NetworkConfigView extends UI.Widget.VBox {
       clientHints.value = {
         metaData: userAgentMetadata || undefined,
         showMobileCheckbox: true,
-        showSubmitButton: true,
+        showSubmitButton: false,
       };
+      userAgentUpdateButtonStatusText.textContent = '';
     });
 
     clientHints.addEventListener('clienthintschange', () => {
       customSelectAndInput.select.value = 'custom';
+      userAgentUpdateButtonStatusText.textContent = '';
     });
 
-    clientHints.addEventListener('clienthintssubmit', (event: Event) => {
-      const metaData: Protocol.Emulation.UserAgentMetadata = (event as CustomEvent).detail.value;
-      const customUA = customUserAgentSetting.get();
-      userAgentMetadataSetting.set(metaData);
-      SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUA, metaData);
+    const userAgentClientHintsUpdateButton = section.createChild('button', 'update-button text-button');
+    userAgentClientHintsUpdateButton.setAttribute('type', 'submit');
+    userAgentClientHintsUpdateButton.textContent = i18nString(UIStrings.saveChangesButton);
+    userAgentClientHintsUpdateButton.addEventListener('click', (event: Event) => {
+      event.preventDefault();
+      metaDataUpdateHandler();
     });
+    userAgentClientHintsUpdateButton.addEventListener('keydown', event => {
+      if ((event as KeyboardEvent).code === 'Enter' || (event as KeyboardEvent).code === 'Space') {
+        event.preventDefault();
+        metaDataUpdateHandler();
+      }
+    });
+
+    const userAgentUpdateButtonStatusText = section.createChild('span', 'status-text');
+    userAgentUpdateButtonStatusText.textContent = '';
 
     userAgentSelectBoxChanged();
 
@@ -268,9 +288,21 @@ export class NetworkConfigView extends UI.Widget.VBox {
       customSelectAndInput.input.disabled = !useCustomUA;
       customSelectAndInput.error.hidden = !useCustomUA;
       clientHints.disabled = !useCustomUA;
+      userAgentUpdateButtonStatusText.textContent = '';
+      (userAgentClientHintsUpdateButton as HTMLInputElement).disabled = !useCustomUA;
       const customUA = useCustomUA ? customUserAgentSetting.get() : '';
       const userAgentMetadata = useCustomUA ? getUserAgentMetadata(customUA) : null;
       SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUA, userAgentMetadata);
+    }
+
+    function metaDataUpdateHandler(): void {
+      const metaData: Protocol.Emulation.UserAgentMetadata|undefined = clientHints.value.metaData;
+      if (metaData) {
+        const customUA = customUserAgentSetting.get();
+        userAgentMetadataSetting.set(metaData);
+        SDK.NetworkManager.MultitargetNetworkManager.instance().setCustomUserAgentOverride(customUA, metaData);
+        userAgentUpdateButtonStatusText.textContent = i18nString(UIStrings.clientHintsStatusText);
+      }
     }
   }
 
