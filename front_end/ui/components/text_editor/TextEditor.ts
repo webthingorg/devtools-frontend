@@ -28,7 +28,7 @@ export class TextEditor extends HTMLElement {
   private pendingState: CodeMirror.EditorState|undefined;
   private lastScrollPos = {left: 0, top: 0};
   private resizeTimeout = -1;
-  private devtoolsResizeObserver = new ResizeObserver(() => {
+  private resizeListener = (): void => {
     if (this.resizeTimeout < 0) {
       this.resizeTimeout = window.setTimeout(() => {
         this.resizeTimeout = -1;
@@ -37,7 +37,8 @@ export class TextEditor extends HTMLElement {
         }
       }, 50);
     }
-  });
+  };
+  private devtoolsResizeObserver = new ResizeObserver(this.resizeListener);
 
   constructor(pendingState?: CodeMirror.EditorState) {
     super();
@@ -104,6 +105,7 @@ export class TextEditor extends HTMLElement {
     if (this.activeEditor) {
       this.pendingState = this.activeEditor.state;
       this.devtoolsResizeObserver.disconnect();
+      window.removeEventListener('resize', this.resizeListener);
       this.activeEditor.destroy();
       this.activeEditor = undefined;
       this.ensureSettingListeners();
@@ -148,6 +150,7 @@ export class TextEditor extends HTMLElement {
     if (devtoolsElement) {
       this.devtoolsResizeObserver.observe(devtoolsElement);
     }
+    window.addEventListener('resize', this.resizeListener);
   }
 
   revealPosition(selection: CodeMirror.EditorSelection, highlight: boolean = true): void {
