@@ -16,6 +16,24 @@
       "message": "has the chromium change landed already? could you please link the corresponding CL in the commit message?",
       "revId": "2e026b80d006f570147681e033e1b26d28e249ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "095b448c_ad460f86",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 7139,
+      "author": {
+        "id": 1519660
+      },
+      "writtenOn": "2021-11-25T14:58:12Z",
+      "side": 0,
+      "message": "Alex, thanks I added it",
+      "parentUuid": "b35175bd_d2a13b5c",
+      "revId": "2e026b80d006f570147681e033e1b26d28e249ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
