@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb6e2491_7154ca00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-25T09:21:11Z",
+      "side": 1,
+      "message": "To be honest, I am not sure that the API implementation from the web.dev all make sense for our component but at least the major use cases seem to work. I suspect that the consumers of the button might still be able to distinguish that the button is not exactly the same as the native one.",
+      "parentUuid": "e92d3188_e6bbfa55",
+      "revId": "89cced39918909dbc7501536ba80812ed6a9f669",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cb6df65_6bf98084",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-11-25T08:55:46Z",
       "side": 1,
       "message": "nit: I think this should be a singular name - how about `ButtonType` ?",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "89cced39918909dbc7501536ba80812ed6a9f669",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0ddd3e9_56ea90f1",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-25T09:21:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cb6df65_6bf98084",
       "range": {
         "startLine": 28,
         "startChar": 5,
