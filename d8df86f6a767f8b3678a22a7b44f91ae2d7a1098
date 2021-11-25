@@ -22,6 +22,30 @@
       },
       "revId": "d8df86f6a767f8b3678a22a7b44f91ae2d7a1098",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8d6a244_2419eb00",
+        "filename": "front_end/models/workspace_diff/WorkspaceDiff.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-11-25T07:54:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04e52d13_3b968c34",
+      "range": {
+        "startLine": 33,
+        "startChar": 65,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "d8df86f6a767f8b3678a22a7b44f91ae2d7a1098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
