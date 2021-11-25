@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b66c09e_2db2f249",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-25T11:00:17Z",
+      "side": 1,
+      "message": "so with the other CL landing (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3301381) let\u0027s change to the following and rebase:\n\n1) remove @click as the form submit should now be working automaticaly\n2) add .type\u003d${\u0027submit\u0027}\n3) remove type\u003d\"submit\"\n\nPlease try it out if it works after that (should submit the form on click but also when Enter is pressed on the input). Also, should not this require changes/additional tests in test/e2e/network/network-conditions_test.ts?",
+      "revId": "311d5b8d7398d99d8e9a4bb3507a4fb58e155239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9dfaa314_9b8917f2",
         "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
         "patchSetId": 10
