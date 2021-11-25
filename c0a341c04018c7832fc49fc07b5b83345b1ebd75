@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "561c903f_f4f870b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Reverted to show the submit button inside user agent client hints form as before. \nUpdated submit button inside user agent client hints form to use ui/components/button.\nUpon successful submit, status text gets updated.",
+      "parentUuid": "63357ce1_50fb4503",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e196557_423a26fb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-24T20:48:48Z",
       "side": 1,
       "message": "wrong bug number?",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f05e13c_be1abd50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "4e196557_423a26fb",
       "range": {
         "startLine": 14,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cd825d9_3ef1954e",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf7edecb_bd446154",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e86c4ec6_9fdec74e",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-11-24T20:41:45Z",
       "side": 1,
       "message": "should we remove (here and in UserAgentClientHintsForm) this parameter if it\u0027s always false (apparently)?",
+      "range": {
+        "startLine": 256,
+        "startChar": 8,
+        "endLine": 256,
+        "endChar": 24
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d31ed3_96876649",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e86c4ec6_9fdec74e",
       "range": {
         "startLine": 256,
         "startChar": 8,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee9604b_ed593686",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Reverted",
+      "parentUuid": "43a0bcd7_c45a6e6f",
+      "range": {
+        "startLine": 272,
+        "startChar": 6,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7eb6391b_c7ab8493",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-11-24T20:41:45Z",
       "side": 1,
       "message": "should we have this as a side effect of the change event for userAgentMetadataSetting (i.e., invoked in the addChangeListener)?",
+      "range": {
+        "startLine": 301,
+        "startChar": 64,
+        "endLine": 301,
+        "endChar": 90
+      },
+      "revId": "c0a341c04018c7832fc49fc07b5b83345b1ebd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ef4aaa_1ed644a3",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-25T00:47:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eb6391b_c7ab8493",
       "range": {
         "startLine": 301,
         "startChar": 64,
