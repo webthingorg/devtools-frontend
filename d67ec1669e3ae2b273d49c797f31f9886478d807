@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e654a1c6_13674076",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-25T06:46:42Z",
+      "side": 0,
+      "message": "pls remove corresponding CSS if still unused (e.g., .submit-button).",
+      "revId": "d67ec1669e3ae2b273d49c797f31f9886478d807",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

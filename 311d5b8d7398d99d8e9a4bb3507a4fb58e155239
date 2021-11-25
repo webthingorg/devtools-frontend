@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfaa314_9b8917f2",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-25T06:46:42Z",
+      "side": 1,
+      "message": "I think type\u003d\"submit\" would not do anything here. We need to either remove it or implement the support for it in the button component. Also, I think we break the implicit form submission by this since the form would not really submit on Enter: we need to add a listener for the Enter key down to the form inputs and invoke handleSubmit if that happens.",
+      "revId": "311d5b8d7398d99d8e9a4bb3507a4fb58e155239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
