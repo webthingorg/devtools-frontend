@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a85deeea_b21297dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-26T08:40:24Z",
+      "side": 1,
+      "message": "Change looks mostly good. Its unfortunate that `get` and `forceGet` differ just enough to not be able to share code.",
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e08a2e62_cca23fe6",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-26T08:40:24Z",
+      "side": 1,
+      "message": "Can we add some unit tests for this in `Settings_test.ts`? It should be straight-forward to fake a `SettingsBackingStore` where we can simulate a second DevTools session changing a setting. In particular I\u0027d be interested in tests for these behaviors:\n  1) `forceGet` returns the value of the backing store, not the cached one\n  2) `forceGet` updates the cached value of a SettingsStorage\n  3) `forceGet` leaves the cached value alone if the backing store has the same value (as a regression test for the bug below)\n  4) `forceGet` triggers a setting changed event in case the value in the backing store got updated and we update the cached value",
+      "range": {
+        "startLine": 241,
+        "startChar": 8,
+        "endLine": 241,
+        "endChar": 16
+      },
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f60fed9_562120a7",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-26T08:40:24Z",
+      "side": 1,
+      "message": "In case we call `forceGet` on an unchanged setting, we would remove the setting from the cache and sub-sequent `get` calls would return undefined.",
+      "range": {
+        "startLine": 247,
+        "startChar": 6,
+        "endLine": 247,
+        "endChar": 32
+      },
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
