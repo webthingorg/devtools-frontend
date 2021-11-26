@@ -22,6 +22,30 @@
       },
       "revId": "1afa110fd3032ef9a7dffeca8afbda4c0178d349",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03a6a8ee_f6137c30",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-26T12:41:21Z",
+      "side": 0,
+      "message": "TIL! Will undo :D",
+      "parentUuid": "8e30280f_eea7a3e3",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 11
+      },
+      "revId": "1afa110fd3032ef9a7dffeca8afbda4c0178d349",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
