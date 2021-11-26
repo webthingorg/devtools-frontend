@@ -33,6 +33,23 @@
       "message": "PTAL",
       "revId": "277f127ee8103c3c1ffeb571b879f9213761e589",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea570684_f99cb29e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-26T08:50:05Z",
+      "side": 1,
+      "message": "I think I changed my mind and prefer to wait till the branch point next week. Thanks for the review!",
+      "revId": "277f127ee8103c3c1ffeb571b879f9213761e589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
