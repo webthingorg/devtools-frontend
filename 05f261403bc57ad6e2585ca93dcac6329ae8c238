@@ -51,6 +51,24 @@
       "parentUuid": "88693580_0f3ec67a",
       "revId": "05f261403bc57ad6e2585ca93dcac6329ae8c238",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b780da8_8b0a50be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-11-26T11:55:34Z",
+      "side": 1,
+      "message": "Hey, thanks for the clarification, that\u0027s really useful and totally understand now.\n\nI wonder if we could add some form of your comment above into the code as a comment? Else I can see other devs in the future wondering the same thing I was. Then, LGTM! Thanks!",
+      "parentUuid": "30e6a660_56737c31",
+      "revId": "05f261403bc57ad6e2585ca93dcac6329ae8c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
