@@ -69,6 +69,24 @@
       "parentUuid": "30e6a660_56737c31",
       "revId": "05f261403bc57ad6e2585ca93dcac6329ae8c238",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c43e09_7dd7501c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2021-11-26T13:46:04Z",
+      "side": 1,
+      "message": "Added a comment on why we use `event.code` instead of `event.key`, can you review it again and reapprove if it makes sense? :)\n\nThank you!",
+      "parentUuid": "2b780da8_8b0a50be",
+      "revId": "05f261403bc57ad6e2585ca93dcac6329ae8c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
