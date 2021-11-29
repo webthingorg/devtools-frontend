@@ -52,6 +52,23 @@
       "parentUuid": "0c7370c9_9f05688b",
       "revId": "49c60df990eea6f07a80491412fe2709ef246710",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5c9269_f4f14ade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-29T14:28:25Z",
+      "side": 1,
+      "message": "Marijn, do you mind rebasing this one? Then I can submit it 😊",
+      "revId": "49c60df990eea6f07a80491412fe2709ef246710",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
