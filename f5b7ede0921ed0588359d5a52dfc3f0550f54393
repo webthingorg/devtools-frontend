@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bc1290_044ca658",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-29T23:55:21Z",
+      "side": 1,
+      "message": "i18n?",
+      "range": {
+        "startLine": 332,
+        "startChar": 20,
+        "endLine": 332,
+        "endChar": 35
+      },
+      "revId": "f5b7ede0921ed0588359d5a52dfc3f0550f54393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
