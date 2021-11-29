@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "a56714da0efaade7c2ad88b24664cd218c847c81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ecfcd6_9d8e4661",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-29T15:41:04Z",
+      "side": 1,
+      "message": "INFRA LGTM",
+      "revId": "a56714da0efaade7c2ad88b24664cd218c847c81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
