@@ -52,6 +52,24 @@
       "parentUuid": "9b9fdfeb_2bf279c3",
       "revId": "d67ec1669e3ae2b273d49c797f31f9886478d807",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60cd24d2_95e1b9be",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-29T23:29:38Z",
+      "side": 0,
+      "message": "Removed",
+      "parentUuid": "c3172274_caad31b8",
+      "revId": "d67ec1669e3ae2b273d49c797f31f9886478d807",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
