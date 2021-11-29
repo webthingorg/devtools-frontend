@@ -312,6 +312,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
       this.focusRestorer = null;
     }
     this.emitDrawerChangeEvent(true);
+    ARIAUtils.alert('Drawer shown');
   }
 
   drawerVisible(): boolean {
@@ -328,6 +329,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     this.drawerSplitWidget.hideSidebar(true);
 
     this.emitDrawerChangeEvent(false);
+    ARIAUtils.alert('Drawer hidden');
   }
 
   setDrawerMinimized(minimized: boolean): void {
