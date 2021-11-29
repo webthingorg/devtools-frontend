@@ -79,6 +79,24 @@
       "message": "How do I know when to use this one? Why we should do it for some settings and not for others?",
       "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda29be6_da7846ca",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-29T23:07:15Z",
+      "side": 1,
+      "message": "This one can be used when the latest value needs to be retrieved from the backend. The other method always takes the value from the local cache populated on the tab startup. Unfortunately, the recorder panel is using the preferences service to store the recordings (inspired by the snippets in the sources panel). But the mechanism has a major drawback that it may lead to a data loss when the recorder panel (or the snippets for that matter) is used concurrently from multiple tabs. See go/recorder-storage for some more thoughts on this.",
+      "parentUuid": "a62b8503_05977c0b",
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
