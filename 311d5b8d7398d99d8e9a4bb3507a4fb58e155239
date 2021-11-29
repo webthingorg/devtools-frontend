@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abfcb376_bd169233",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-29T21:54:46Z",
+      "side": 1,
+      "message": "Done, with this change, it shouldnt require any changes to the test.",
+      "parentUuid": "1b66c09e_2db2f249",
+      "revId": "311d5b8d7398d99d8e9a4bb3507a4fb58e155239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9dfaa314_9b8917f2",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3301381",
       "parentUuid": "f6c350f9_6e97a30c",
+      "revId": "311d5b8d7398d99d8e9a4bb3507a4fb58e155239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc282de2_349970c6",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-11-29T21:54:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f57913bb_1f2fb769",
       "revId": "311d5b8d7398d99d8e9a4bb3507a4fb58e155239",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
