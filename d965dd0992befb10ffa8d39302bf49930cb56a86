@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ffe3aa9_7e2cbde7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-11-29T08:35:42Z",
+      "side": 1,
+      "message": "The CL of the spinner button was merged and I updated the CL.\nPTAL",
+      "revId": "d965dd0992befb10ffa8d39302bf49930cb56a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
