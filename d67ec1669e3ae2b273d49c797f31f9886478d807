@@ -34,6 +34,24 @@
       "parentUuid": "e654a1c6_13674076",
       "revId": "d67ec1669e3ae2b273d49c797f31f9886478d807",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3172274_caad31b8",
+        "filename": "front_end/panels/settings/emulation/components/UserAgentClientHintsForm.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-11-29T23:10:23Z",
+      "side": 0,
+      "message": "I think the .submit-button rule is still listed in the CSS file for the component?",
+      "parentUuid": "9b9fdfeb_2bf279c3",
+      "revId": "d67ec1669e3ae2b273d49c797f31f9886478d807",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
