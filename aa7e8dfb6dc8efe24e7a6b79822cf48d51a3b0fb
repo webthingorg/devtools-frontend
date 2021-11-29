@@ -50,6 +50,23 @@
       "message": "PTAL Simon as owner",
       "revId": "aa7e8dfb6dc8efe24e7a6b79822cf48d51a3b0fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ea5f11_20216b46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-11-29T10:29:08Z",
+      "side": 1,
+      "message": "Keep in mind that this is not strictly necessary, given that web tests aren\u0027t authored in TypeScript, and JS only recognizes private class functions (which are different from the TypeScript \"private\" keyword).",
+      "revId": "aa7e8dfb6dc8efe24e7a6b79822cf48d51a3b0fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
