@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "341f1617_820d6af3",
+        "filename": "front_end/third_party/lighthouse/locales/ar.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-30T12:04:22Z",
+      "side": 0,
+      "message": "Nit: please revert all changes to the locales except `en-US.json` and `en-XL.json`. We sync the other locales once per release and I would prefer not to run into any merge conflicts when we do so.",
+      "range": {
+        "startLine": 1295,
+        "startChar": 2,
+        "endLine": 1295,
+        "endChar": 75
+      },
+      "revId": "c7c4938178885cd37b679662f8396fb5439c28df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

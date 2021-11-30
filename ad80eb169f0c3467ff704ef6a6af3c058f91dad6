@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9caac6ee_eb8a6f81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-11-30T12:04:22Z",
+      "side": 1,
+      "message": "To fix the layout test failures, you will also need to remove the `loadModulePromise` call from `lighthouse-meta.ts`: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/lighthouse/lighthouse-meta.ts;l\u003d26;drc\u003d379c2883841a9a7c31617e686f10d9ef1be345fb\n\nLove it, great to clean these up, thanks Connor for all the work!",
+      "revId": "ad80eb169f0c3467ff704ef6a6af3c058f91dad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
