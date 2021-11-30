@@ -22,6 +22,30 @@
       },
       "revId": "c7c4938178885cd37b679662f8396fb5439c28df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864ca45b_3f3163fc",
+        "filename": "front_end/third_party/lighthouse/locales/ar.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-11-30T18:32:14Z",
+      "side": 0,
+      "message": "These locale files are not the same as CDT locale files. They are a different pipeline.\n\nLH locale files here are not updated or synced by your process. see https://chromium.googlesource.com/devtools/devtools-frontend/+log/main/front_end/third_party/lighthouse/locales/ar.json",
+      "parentUuid": "341f1617_820d6af3",
+      "range": {
+        "startLine": 1295,
+        "startChar": 2,
+        "endLine": 1295,
+        "endChar": 75
+      },
+      "revId": "c7c4938178885cd37b679662f8396fb5439c28df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
