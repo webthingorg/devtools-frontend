@@ -131,6 +131,8 @@ export class CorsIssue extends Issue<IssueCode> {
           }],
         };
       case IssueCode.InsecurePrivateNetworkPreflight:
+      case IssueCode.PreflightMissingAllowPrivateNetwork:
+      case IssueCode.PreflightInvalidAllowPrivateNetwork:
         return {
           file: 'corsInsecurePrivateNetworkPreflight.md',
           links: [{
@@ -231,8 +233,6 @@ export class CorsIssue extends Issue<IssueCode> {
       case IssueCode.InvalidResponse:
       case IssueCode.InvalidPrivateNetworkAccess:
       case IssueCode.UnexpectedPrivateNetworkAccess:
-      case IssueCode.PreflightMissingAllowPrivateNetwork:
-      case IssueCode.PreflightInvalidAllowPrivateNetwork:
         return null;
     }
   }
@@ -243,7 +243,11 @@ export class CorsIssue extends Issue<IssueCode> {
 
   getKind(): IssueKind {
     if (this.issueDetails.isWarning &&
-        this.issueDetails.corsErrorStatus.corsError === Protocol.Network.CorsError.InsecurePrivateNetwork) {
+        (this.issueDetails.corsErrorStatus.corsError === Protocol.Network.CorsError.InsecurePrivateNetwork ||
+         this.issueDetails.corsErrorStatus.corsError ===
+             Protocol.Network.CorsError.PreflightMissingAllowPrivateNetwork ||
+         this.issueDetails.corsErrorStatus.corsError ===
+             Protocol.Network.CorsError.PreflightInvalidAllowPrivateNetwork)) {
       return IssueKind.BreakingChange;
     }
     return IssueKind.PageError;
