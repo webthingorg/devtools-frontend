@@ -14,8 +14,8 @@ import '../../panels/application/application-meta.js';
 import '../../panels/timeline/timeline-meta.js';
 import './WorkerMain.js';
 
+import * as Root from '../../core/root/root.js';
 import * as Main from '../main/main.js';
-import * as Startup from '../startup/startup.js';
 
 new Main.MainImpl.MainImpl();
-Startup.RuntimeInstantiator.startApplication('worker_app');
+Root.Runtime.appStartedPromiseCallback();
