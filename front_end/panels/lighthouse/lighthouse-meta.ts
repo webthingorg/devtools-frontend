@@ -22,8 +22,6 @@ let loadedLighthouseModule: (typeof Lighthouse|undefined);
 
 async function loadLighthouseModule(): Promise<typeof Lighthouse> {
   if (!loadedLighthouseModule) {
-    // Side-effect import resources in module.json
-    await Root.Runtime.Runtime.instance().loadModulePromise('panels/lighthouse');
     loadedLighthouseModule = await import('./lighthouse.js');
   }
   return loadedLighthouseModule;
