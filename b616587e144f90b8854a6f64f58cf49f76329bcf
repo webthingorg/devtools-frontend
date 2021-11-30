@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36c458a_d13d5aec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "The inactive spinning button works great! I added some remarks regarding styling.",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d827d68_d64b2fa3",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "You could pass UIStrings.bfcacheStatus here for it to be rendered as a header for the whole report instead of rendering it as a section header.",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2076bb2_3b89613a",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "The indentation of \"URL:\" seems off.",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff9036a_b540ea56",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "Instead of duplicating the code for the whole button, you could use conditionals within the button such as \n```\nconst isDisabled \u003d this.screenStatus \u003d\u003d\u003d ScreenStatusType.Running\n...\n.disabled\u003d${isDisabled}\n.spinner\u003d${isDisabled}\n...\n```",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 24
+      },
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae99a567_89525992",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "Could you add some whitespace between \"Actionable\" and \"(?)\"?",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f197a54_df5740ef",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-11-30T13:39:51Z",
+      "side": 1,
+      "message": "If you decide that you want to show the reason, then there should not be much whitespace between the explanation sentence and the reason",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
