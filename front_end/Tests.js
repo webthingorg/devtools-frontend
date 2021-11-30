@@ -149,6 +149,7 @@
         self.runtime.loadLegacyModule('core/host/host-legacy.js'),
         self.runtime.loadLegacyModule('ui/legacy/legacy-legacy.js'),
         self.runtime.loadLegacyModule('models/workspace/workspace-legacy.js'),
+        self.runtime.loadLegacyModule('models/bindings/bindings-legacy.js'),
       ]);
       this.reportOk_();
     } catch (e) {
@@ -1560,6 +1561,16 @@
       names.push('"' + uiSourceCodes[i].url() + '"');
     }
     return names.join(',');
+  };
+
+  TestSuite.prototype.testSourceMapsFromExtension = function(extensionId) {
+    this.takeControl();
+    const debuggerModel = self.SDK.targetManager.mainTarget().model(SDK.DebuggerModel);
+    debuggerModel.sourceMapManager().addEventListener(
+        SDK.SourceMapManager.Events.SourceMapAttached, this.releaseControl.bind(this));
+
+    this.evaluateInConsole_(
+        `console.log('shibboleth') //# sourceMappingURL=chrome-extension://${extensionId}/source.map`, () => {});
   };
 
   /**
