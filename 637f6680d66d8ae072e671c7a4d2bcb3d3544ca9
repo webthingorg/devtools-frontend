@@ -46,6 +46,30 @@
       },
       "revId": "637f6680d66d8ae072e671c7a4d2bcb3d3544ca9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae636a9_b603f4f2",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-01T15:37:14Z",
+      "side": 1,
+      "message": "Oh interesting, then my assumption was wrong. Let\u0027s submit as-is and I will try to figure out a testing scenario for this locally in a follow-up CL.",
+      "parentUuid": "cba9fb47_ea199596",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 115
+      },
+      "revId": "637f6680d66d8ae072e671c7a4d2bcb3d3544ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
