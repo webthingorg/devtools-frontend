@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "0112286b3dec1f82a5be9446f55a2ffe0608e7a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502b251a_6d13dd04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-01T15:03:16Z",
+      "side": 1,
+      "message": "TIL you can do this with ESLint, nice!",
+      "revId": "0112286b3dec1f82a5be9446f55a2ffe0608e7a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
