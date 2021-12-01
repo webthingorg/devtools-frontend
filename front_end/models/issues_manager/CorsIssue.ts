@@ -43,6 +43,7 @@ export enum IssueCode {
   NoCorsRedirectModeNotFollow = 'CorsIssue::NoCorsRedirectModeNotFollow',
   InvalidPrivateNetworkAccess = 'CorsIssue::InvalidPrivateNetworkAccess',
   UnexpectedPrivateNetworkAccess = 'CorsIssue::UnexpectedPrivateNetworkAccess',
+  PreflightAllowPrivateNetworkError = 'CorsIssue::PreflightAllowPrivateNetworkError',
 }
 
 function getIssueCode(details: Protocol.Audits.CorsIssueDetails): IssueCode {
@@ -93,6 +94,9 @@ function getIssueCode(details: Protocol.Audits.CorsIssueDetails): IssueCode {
       return IssueCode.InvalidPrivateNetworkAccess;
     case Protocol.Network.CorsError.UnexpectedPrivateNetworkAccess:
       return IssueCode.UnexpectedPrivateNetworkAccess;
+    case Protocol.Network.CorsError.PreflightMissingAllowPrivateNetwork:
+    case Protocol.Network.CorsError.PreflightInvalidAllowPrivateNetwork:
+      return IssueCode.PreflightAllowPrivateNetworkError;
   }
 }
 
@@ -125,6 +129,7 @@ export class CorsIssue extends Issue<IssueCode> {
           }],
         };
       case IssueCode.InsecurePrivateNetworkPreflight:
+      case IssueCode.PreflightAllowPrivateNetworkError:
         return {
           file: 'corsInsecurePrivateNetworkPreflight.md',
           links: [{
@@ -235,7 +240,11 @@ export class CorsIssue extends Issue<IssueCode> {
 
   getKind(): IssueKind {
     if (this.issueDetails.isWarning &&
-        this.issueDetails.corsErrorStatus.corsError === Protocol.Network.CorsError.InsecurePrivateNetwork) {
+        (this.issueDetails.corsErrorStatus.corsError === Protocol.Network.CorsError.InsecurePrivateNetwork ||
+         this.issueDetails.corsErrorStatus.corsError ===
+             Protocol.Network.CorsError.PreflightMissingAllowPrivateNetwork ||
+         this.issueDetails.corsErrorStatus.corsError ===
+             Protocol.Network.CorsError.PreflightInvalidAllowPrivateNetwork)) {
       return IssueKind.BreakingChange;
     }
     return IssueKind.PageError;
