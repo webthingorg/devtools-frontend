@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae5d6aad_c35bcdf6",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-01T14:36:14Z",
+      "side": 1,
+      "message": "Given that there a fair few branches here, could you please add some unit tests to `TextEditor_test.ts` to handle all cases? As I understand it, we already have the pieces in place to test this quite easily, so it should be some `testQueryType` invocations that we can add for this?",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 115
+      },
+      "revId": "637f6680d66d8ae072e671c7a4d2bcb3d3544ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
