@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "206f24af_7b60f8af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "Great! Two comments here:\n\n1. \"a future version of Chrome\" should be changed to \"Chrome 98\".\n2. The final \"learn more\" link should use the new Private Network Access name instead of CORS-RFC1918.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cca16eac_bc826b26",
@@ -14,6 +37,115 @@
       "writtenOn": "2021-12-01T15:09:21Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4303c4c_757d209f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "Looking good! A couple comments below.",
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a5de77_b018979f",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "I think this can be removed, as I was saying in my email.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 81
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13751bf5_a8e34fa6",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "These can also be removed as part of crbug.com/1263483, which can be extended to cover more than the network service code, now that crbug.com/1252295 is fixed. Let\u0027s maybe add a TODO?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9defef4a_be6cc9ae",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "Ditto, I think this can be removed.",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 53
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc15aab_66b47d31",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-01T15:48:41Z",
+      "side": 1,
+      "message": "Can we add a column for the header value, as in the `InvalidHeaderValues` case?",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 186,
+        "endChar": 14
+      },
       "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
