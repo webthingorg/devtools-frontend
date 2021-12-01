@@ -22,6 +22,30 @@
       },
       "revId": "637f6680d66d8ae072e671c7a4d2bcb3d3544ca9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba9fb47_ea199596",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-12-01T15:35:34Z",
+      "side": 1,
+      "message": "I couldn\u0027t see a quick way to create an object like this (with properties containing non-identifier chars) in the unittests. I guess I could copy the calls needed to evaluate something via the SDK module into the test. Or is there a better way?",
+      "parentUuid": "ae5d6aad_c35bcdf6",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 115
+      },
+      "revId": "637f6680d66d8ae072e671c7a4d2bcb3d3544ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
