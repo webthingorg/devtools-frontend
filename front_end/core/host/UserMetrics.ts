@@ -692,6 +692,7 @@ export const IssueCreated: {
   'QuirksModeIssue::QuirksMode': 58,
   'QuirksModeIssue::LimitedQuirksMode': 59,
   DeprecationIssue: 60,
+  'CorsIssue::PreflightAllowPrivateNetworkError': 61,
 };
 
 // TODO(crbug.com/1167717): Make this a const enum again
