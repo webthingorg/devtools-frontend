@@ -396,6 +396,15 @@
     LinearMemoryInspectorTarget: 'DevTools.LinearMemoryInspector.Target',
     Language: 'DevTools.Language',
     ConsoleShowsCorsErrors: 'DevTools.ConsoleShowsCorsErrors',
+<<<<<<< HEAD   (fcffa7 Revert "[sync] Enable syncing of standard and custom emulate)
+=======
+    RecordingEdited: 'DevTools.RecordingEdited',
+    RecordingExported: 'DevTools.RecordingExported',
+    RecordingReplayFinished: 'DevTools.RecordingReplayFinished',
+    RecordingReplayStarted: 'DevTools.RecordingReplayStarted',
+    RecordingToggled: 'DevTools.RecordingToggled',
+    SyncSetting: 'DevTools.SyncSetting',
+>>>>>>> CHANGE (da9ff3 [sync] Fix settings sync UMA by adding it to devtools_compat)
   };
 
   /**
