@@ -16,6 +16,138 @@
       "message": "PTAL. I have put this under the feedback_panel component as it seems to fit best there? See dependent CL for example of usage:\nhttps://imgur.com/a/MJ92k7J",
       "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9531a707_c82f551c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "LGTM with a few nits - nice!",
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c74bbd_8d007e0e",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "please could we use private variables here? readonly #shadow \u003d ...\n\nand for all the other private members too",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e3b1a1_ea9c89b1",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "you need an extra `f` here, and then probably worth manually sorting the formatting as clang has worked its magic !",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b3f4bfe_8ac80546",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "you can remove the \" around any interpolated values:\n\n@change\u003d${...} aria-label\u003d${this.name}",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 112
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "432bd564_847dfdd6",
+        "filename": "test/unittests/front_end/ui/components/panel_feedback/preview_toggle_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "I was about to say you don\u0027t need to do this because we clear sinon automatically between test runs but I think I\u0027m wrong on that! We should do that so I\u0027ve assigned myself https://crbug.com/1275936",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd27d974_3fe5b002",
+        "filename": "test/unittests/front_end/ui/components/panel_feedback/preview_toggle_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T11:20:17Z",
+      "side": 1,
+      "message": "nice tests!",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 3
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
