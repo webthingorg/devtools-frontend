@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bca643a4_b1fa5227",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "206f24af_7b60f8af",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cca16eac_bc826b26",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71ab1ccf_ac1ee5f5",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7a5de77_b018979f",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 81
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13751bf5_a8e34fa6",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-12-01T15:48:41Z",
       "side": 1,
       "message": "These can also be removed as part of crbug.com/1263483, which can be extended to cover more than the network service code, now that crbug.com/1252295 is fixed. Let\u0027s maybe add a TODO?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e71cecaf_db32f028",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13751bf5_a8e34fa6",
       "range": {
         "startLine": 40,
         "startChar": 2,
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd3bdcb8_afb37f6a",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9defef4a_be6cc9ae",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 53
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bc15aab_66b47d31",
@@ -140,6 +236,54 @@
       "writtenOn": "2021-12-01T15:48:41Z",
       "side": 1,
       "message": "Can we add a column for the header value, as in the `InvalidHeaderValues` case?",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 186,
+        "endChar": 14
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ad4147_d7c214da",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bc15aab_66b47d31",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 186,
+        "endChar": 14
+      },
+      "revId": "b347f48fd0034257bf9b08661ea3262a04e1dfb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c40b28_9df1e6ab",
+        "filename": "front_end/panels/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T09:56:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bc15aab_66b47d31",
       "range": {
         "startLine": 186,
         "startChar": 8,
