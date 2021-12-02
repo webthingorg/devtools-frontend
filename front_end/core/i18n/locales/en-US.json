@@ -4661,6 +4661,18 @@
   "panels/elements/PlatformFontsWidget.ts | renderedFonts": {
     "message": "Rendered Fonts"
   },
+  "panels/elements/PropertiesWidget.ts | filter": {
+    "message": "Filter"
+  },
+  "panels/elements/PropertiesWidget.ts | filterProperties": {
+    "message": "Filter Properties"
+  },
+  "panels/elements/PropertiesWidget.ts | noMatchingProperty": {
+    "message": "No matching property"
+  },
+  "panels/elements/PropertiesWidget.ts | showAll": {
+    "message": "Show all"
+  },
   "panels/elements/StylePropertyTreeElement.ts | copyAllCssDeclarationsAsJs": {
     "message": "Copy all declarations as JS"
   },
