@@ -16,6 +16,24 @@
       "message": "Do you know why it was clearing before? I\u0027d hope that we don\u0027t accidentally break anything :P",
       "revId": "143deb3222c8f49ee90fec3bb4cdb3374898a9ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11729b6_f9123c17",
+        "filename": "front_end/panels/accessibility/AccessibilitySidebarView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T09:31:28Z",
+      "side": 0,
+      "message": "I think the clearing was to ensure that nodes did not go stale. Now that we send updates they shouldn\u0027t.\nSince we are a bit close to branch point, maybe we should just guard this with the experiment flag instead.",
+      "parentUuid": "b1b776d1_795c0f56",
+      "revId": "143deb3222c8f49ee90fec3bb4cdb3374898a9ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
