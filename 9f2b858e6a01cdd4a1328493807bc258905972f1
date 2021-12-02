@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66aa734d_bc152130",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T15:17:32Z",
+      "side": 1,
+      "message": "Ah yes, thanks!",
+      "parentUuid": "b8c74bbd_8d007e0e",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e3b1a1_ea9c89b1",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-12-02T11:20:17Z",
       "side": 1,
       "message": "you need an extra `f` here, and then probably worth manually sorting the formatting as clang has worked its magic !",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f009fc2e_d7175033",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T15:17:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e3b1a1_ea9c89b1",
       "range": {
         "startLine": 59,
         "startChar": 20,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46ea87e_fa50d5c9",
+        "filename": "front_end/ui/components/panel_feedback/PreviewToggle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T15:17:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b3f4bfe_8ac80546",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 112
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "432bd564_847dfdd6",
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "176f3085_cd48676d",
+        "filename": "test/unittests/front_end/ui/components/panel_feedback/preview_toggle_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T15:17:32Z",
+      "side": 1,
+      "message": "Ah yes that would be nicer. I did not know one could do sinon.restore() to take care of all stubs either.",
+      "parentUuid": "432bd564_847dfdd6",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd27d974_3fe5b002",
@@ -140,6 +236,30 @@
       "writtenOn": "2021-12-02T11:20:17Z",
       "side": 1,
       "message": "nice tests!",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 3
+      },
+      "revId": "9f2b858e6a01cdd4a1328493807bc258905972f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80715c7_6d2c2e0e",
+        "filename": "test/unittests/front_end/ui/components/panel_feedback/preview_toggle_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-02T15:17:32Z",
+      "side": 1,
+      "message": "Thanks! First time I played around with sinon. It is very neat and super ergonomic to use!",
+      "parentUuid": "fd27d974_3fe5b002",
       "range": {
         "startLine": 77,
         "startChar": 4,
