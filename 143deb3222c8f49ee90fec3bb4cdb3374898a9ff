@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b776d1_795c0f56",
+        "filename": "front_end/panels/accessibility/AccessibilitySidebarView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-12-02T09:16:13Z",
+      "side": 0,
+      "message": "Do you know why it was clearing before? I\u0027d hope that we don\u0027t accidentally break anything :P",
+      "revId": "143deb3222c8f49ee90fec3bb4cdb3374898a9ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
