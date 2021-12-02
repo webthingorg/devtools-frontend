@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e194302_c8acc4d0",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d827d68_d64b2fa3",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2076bb2_3b89613a",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-11-30T13:39:51Z",
       "side": 1,
       "message": "The indentation of \"URL:\" seems off.",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec3b14e9_7a859af0",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2076bb2_3b89613a",
       "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -75,6 +111,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38fab54_1c3f7760",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eff9036a_b540ea56",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 24
+      },
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bcd134_8eed7adb",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eff9036a_b540ea56",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 24
+      },
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae99a567_89525992",
@@ -92,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b841d3_769c96bc",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae99a567_89525992",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f197a54_df5740ef",
@@ -105,6 +207,24 @@
       "writtenOn": "2021-11-30T13:39:51Z",
       "side": 1,
       "message": "If you decide that you want to show the reason, then there should not be much whitespace between the explanation sentence and the reason",
+      "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e50e5b_9428a491",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 44
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-02T04:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f197a54_df5740ef",
       "revId": "b616587e144f90b8854a6f64f58cf49f76329bcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
