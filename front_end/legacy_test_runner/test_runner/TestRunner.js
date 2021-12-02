@@ -23,6 +23,10 @@ self.Platform = self.Platform || {};
 self.Platform.StringUtilities = Platform.StringUtilities;
 self.Platform.MapUtilities = Platform.MapUtilities;
 self.Platform.ArrayUtilities = Platform.ArrayUtilities;
+self.createPlainTextSearchRegex = Platform.StringUtilities.createPlainTextSearchRegex;
+String.sprintf = sprintf;
+String.regexSpecialCharacters = regexSpecialCharacters;
+String.caseInsensetiveComparator = caseInsensetiveComparator;
 
 /**
  * @return {boolean}
