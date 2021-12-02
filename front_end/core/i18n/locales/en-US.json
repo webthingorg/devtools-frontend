@@ -2499,7 +2499,7 @@
     "message": "Navigation happened in a frame other than the main frame."
   },
   "panels/application/BackForwardCacheStrings.ts | optInUnloadHeaderNotPresent": {
-    "message": "The page has unload handler without the back/forward cache opt-in header."
+    "message": "Pages with unload handler cannot enter back/forward cache."
   },
   "panels/application/BackForwardCacheStrings.ts | outstandingIndexedDBTransaction": {
     "message": "Page with ongoing indexed DB transactions are not currently eligible for back/forward cache."

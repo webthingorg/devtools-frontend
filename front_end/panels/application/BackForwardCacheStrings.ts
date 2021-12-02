@@ -157,7 +157,7 @@ const UIStrings = {
   /**
       * @description Description text for not restored reason OptInUnloadHeaderNotPresent.
       */
-  optInUnloadHeaderNotPresent: 'The page has unload handler without the back/forward cache opt-in header.',
+  optInUnloadHeaderNotPresent: 'Pages with unload handler cannot enter back/forward cache.',
   /**
       * @description Description text for not restored reason UnloadHandlerExistsInMainFrame.
       */
