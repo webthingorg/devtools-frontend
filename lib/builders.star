@@ -169,12 +169,18 @@ def generate_ci_configs(configurations, builders):
             category = kwargs.pop("console_category")
             properties = kwargs.pop("properties")
             properties.update(goma_rbe_prod_default)
+            experiments = None
+            if kwargs.get("recipe_name") == "chromium_integration":
+                experiments = {
+                    "chromium.chromium_tests.use_rdb_results": 100,
+                }
             builder(
                 bucket = "ci",
                 builder_group = c.builder_group,
                 service_account = SERVICE_ACCOUNT,
                 schedule = "triggered",
                 properties = properties,
+                experiments = experiments,
                 **kwargs
             )
             builders_refs.append((kwargs["name"], category))
