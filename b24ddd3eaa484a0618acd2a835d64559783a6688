@@ -58,6 +58,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c95707_329e0898",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T17:53:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5566395_c0561d19",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 58
+      },
+      "revId": "b24ddd3eaa484a0618acd2a835d64559783a6688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d14c7b8_be6333b0",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T17:53:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5566395_c0561d19",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 58
+      },
+      "revId": "b24ddd3eaa484a0618acd2a835d64559783a6688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f9f2acc_23ef74df",
@@ -71,6 +119,30 @@
       "writtenOn": "2021-12-02T10:34:31Z",
       "side": 1,
       "message": "I\u0027m sorry, I did not think this through in my earlier comment. We will start sending preflights in 98 (along with showing these warnings), but we will only block things in Chrome 101 (April 2022). I think we should just mention the latter.",
+      "range": {
+        "startLine": 6,
+        "startChar": 160,
+        "endLine": 6,
+        "endChar": 162
+      },
+      "revId": "b24ddd3eaa484a0618acd2a835d64559783a6688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23600cdd_bef08281",
+        "filename": "front_end/models/issues_manager/descriptions/corsPreflightAllowPrivateNetworkError.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-02T17:53:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f9f2acc_23ef74df",
       "range": {
         "startLine": 6,
         "startChar": 160,
