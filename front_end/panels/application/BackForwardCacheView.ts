@@ -196,9 +196,15 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
         ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.bfcacheStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
-      <${ReportView.ReportView.ReportValue.litTagName}>${
-        this.renderBackForwardCacheStatus(
-            mainFrame.backForwardCacheDetails.restoredFromCache)}</${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}>
+      <${IconButton.Icon.Icon.litTagName} class="inline-icon" .data=${{
+      iconName: 'circled_backslash_icon',
+      color: 'var(--color-text-secondary)',
+      width: '16px',
+      height: '16px',
+    } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}>
+      ${this.renderBackForwardCacheStatus(mainFrame.backForwardCacheDetails.restoredFromCache)}</${
+        ReportView.ReportView.ReportValue.litTagName}>
        ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
     `;
   }
