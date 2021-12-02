@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d69bb70_dbeb82d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-02T16:50:26Z",
+      "side": 1,
+      "message": "LGTM but please wait for Changhao\u0027s +1 also :)",
+      "revId": "3f44d316cefaa8b4bba3c7cd87db12f1b99d0fbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
