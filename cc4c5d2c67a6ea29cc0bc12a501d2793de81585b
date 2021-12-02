@@ -50,6 +50,24 @@
       "message": "OptInUnloadHeaderNotPresent and UnloadHandlerExistsInMainFrame happens in the same conditino [1]. So I think you can use the same description as UnloadHandlerExistsInMainFrame if you want.\n\n\"The page has an unload handler in the main frame.\"\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:content/browser/renderer_host/back_forward_cache_impl.cc;l\u003d854?q\u003dOptInUnloadHeaderNotPresent%20-f:out%2F\u0026ss\u003dchromium%2Fchromium%2Fsrc",
       "revId": "cc4c5d2c67a6ea29cc0bc12a501d2793de81585b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe56372_8e689556",
+        "filename": "front_end/panels/application/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-12-02T03:19:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf56fc7b_76fa74f1",
+      "revId": "cc4c5d2c67a6ea29cc0bc12a501d2793de81585b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
