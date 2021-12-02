@@ -29,14 +29,20 @@ luci.bucket(
 
 try_builders = []
 
-def try_builder(**kvargs):
+def try_builder(**kwargs):
+    experiments = None
+    if kwargs.get("recipe_name") == "chromium_integration":
+        experiments = {
+            "chromium.chromium_tests.use_rdb_results": 100,
+        }
     builder(
         bucket = BUCKET_NAME,
         builder_group = "tryserver.devtools-frontend",
         service_account = SERVICE_ACCOUNT,
-        **kvargs
+        experiments = experiments,
+        **kwargs
     )
-    try_builders.append(kvargs["name"])
+    try_builders.append(kwargs["name"])
 
 def presubmit_builder(name, dimensions, **kvargs):
     try_builder(
