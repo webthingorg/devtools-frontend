@@ -19,6 +19,8 @@ export const enum IssueCode {
   AttributionUntrustworthyOrigin = 'AttributionReportingIssue::AttributionUntrustworthyOrigin',
   AttributionTriggerDataTooLarge = 'AttrubtionReportingIssue::AttributionTriggerDataTooLarge',
   AttributionEventSourceTriggerDataTooLarge = 'AttrubtionReportingIssue::AttributionEventSourceTriggerDataTooLarge',
+  InvalidAttributionSourceExpiry = 'AttrubtionReportingIssue::InvalidAttributionSourceExpiry',
+  InvalidAttributionSourcePriority = 'AttrubtionReportingIssue::InvalidAttributionSourcePriority',
 }
 
 function getIssueCode(details: Protocol.Audits.AttributionReportingIssueDetails): IssueCode {
@@ -40,6 +42,10 @@ function getIssueCode(details: Protocol.Audits.AttributionReportingIssueDetails)
       return IssueCode.AttributionTriggerDataTooLarge;
     case Protocol.Audits.AttributionReportingIssueType.AttributionEventSourceTriggerDataTooLarge:
       return IssueCode.AttributionEventSourceTriggerDataTooLarge;
+    case Protocol.Audits.AttributionReportingIssueType.InvalidAttributionSourceExpiry:
+      return IssueCode.InvalidAttributionSourceExpiry;
+    case Protocol.Audits.AttributionReportingIssueType.InvalidAttributionSourcePriority:
+      return IssueCode.InvalidAttributionSourcePriority;
   }
 }
 
@@ -108,6 +114,10 @@ export class AttributionReportingIssue extends Issue<IssueCode> {
           file: 'arAttributionEventSourceTriggerDataTooLarge.md',
           links: [],
         };
+      case IssueCode.InvalidAttributionSourceExpiry:
+        return null;
+      case IssueCode.InvalidAttributionSourcePriority:
+        return null;
     }
   }
 
