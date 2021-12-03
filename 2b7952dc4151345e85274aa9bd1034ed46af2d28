@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b94b819_6f594653",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-03T11:02:28Z",
+      "side": 1,
+      "message": "As the back/forward cache is a new word, I think it is worth considering. I will consult with Yuzu later.",
+      "parentUuid": "b6ec8d15_5de7833b",
+      "revId": "2b7952dc4151345e85274aa9bd1034ed46af2d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "745f61e2_d9844fff",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-03T10:13:12Z",
       "side": 1,
       "message": "nit: @description Label for button to test whether BFCache is available for the page.",
+      "revId": "2b7952dc4151345e85274aa9bd1034ed46af2d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d472974_99141b7d",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-03T11:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "745f61e2_d9844fff",
       "revId": "2b7952dc4151345e85274aa9bd1034ed46af2d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
