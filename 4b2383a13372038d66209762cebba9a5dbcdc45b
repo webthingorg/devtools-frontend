@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155bc43c_66693ab7",
+        "filename": "scripts/eslint_rules/lib/lit_html_no_attribute_quotes.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-03T12:01:21Z",
+      "side": 1,
+      "message": "Strongly agree :D",
+      "parentUuid": "02eeab40_848117d8",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "4b2383a13372038d66209762cebba9a5dbcdc45b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79702559_6b36ccc9",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-12-03T11:32:57Z",
       "side": 1,
       "message": "Nit: I think the last two test cases cover this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "4b2383a13372038d66209762cebba9a5dbcdc45b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe3cea8_2f9f3fd0",
+        "filename": "scripts/eslint_rules/tests/lit_html_no_attribute_quotes_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-03T12:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79702559_6b36ccc9",
       "range": {
         "startLine": 13,
         "startChar": 3,
