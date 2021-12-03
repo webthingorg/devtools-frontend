@@ -167,7 +167,7 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
           this.goBackOneHistoryEntry, this);
 
       // We can know whether the current page can use BFCache
-      // as the browser navigates to another unrelated page and goes back to the current page.
+      // as the browser navigates to another unrelated page and goes back to the current page
       // We chose "chrome://terms" because it must be cross-site.
       // Ideally, We want to have our own testing page like "chrome: //bfcache-test".
       resourceTreeModel.navigate('chrome://terms');
