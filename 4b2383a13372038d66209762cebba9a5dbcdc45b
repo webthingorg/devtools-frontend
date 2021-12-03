@@ -16,6 +16,52 @@
       "message": "ptal!",
       "revId": "4b2383a13372038d66209762cebba9a5dbcdc45b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02eeab40_848117d8",
+        "filename": "scripts/eslint_rules/lib/lit_html_no_attribute_quotes.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-03T11:32:57Z",
+      "side": 1,
+      "message": "We now have 7 definitions of this function. I think it is time we extract this into a utils and that we require that in all ESLint rule implementations. Do you mind fixing that in a follow-up CL?",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "4b2383a13372038d66209762cebba9a5dbcdc45b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79702559_6b36ccc9",
+        "filename": "scripts/eslint_rules/tests/lit_html_no_attribute_quotes_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-03T11:32:57Z",
+      "side": 1,
+      "message": "Nit: I think the last two test cases cover this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "4b2383a13372038d66209762cebba9a5dbcdc45b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
