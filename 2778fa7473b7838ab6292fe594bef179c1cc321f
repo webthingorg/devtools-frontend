@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3947eb0c_ec410848",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 49
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "Almost LGTM, only minor remarks.",
+      "revId": "2778fa7473b7838ab6292fe594bef179c1cc321f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d9d8c4e_ccfba1d4",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "nit: @description Label for inactive button while test is running.",
+      "revId": "2778fa7473b7838ab6292fe594bef179c1cc321f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ff5f58_190a4c38",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "This case visually looks a bit different than the other 2. How about adding a (?) icon in front of the text? Text could be changed to \u0027Unknown Status\u0027.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 56
+      },
+      "revId": "2778fa7473b7838ab6292fe594bef179c1cc321f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f883b791_ee20d65a",
+        "filename": "front_end/panels/application/backForwardCacheView.css",
+        "patchSetId": 49
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "The whitespace between icon and text is different depending on status. I believe this can be fixed by adding `flex-shrink: 0` here.",
+      "revId": "2778fa7473b7838ab6292fe594bef179c1cc321f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c41cf76_28f6e8f0",
+        "filename": "front_end/panels/application/backForwardCacheView.css",
+        "patchSetId": 49
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "There is a slight vertical misalignment which can be fixed by moving line-height to the `url` class.\nMaybe also make the classnames more descriptive. How about something like `url-line`, `url-label` and `url-value`.",
+      "revId": "2778fa7473b7838ab6292fe594bef179c1cc321f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

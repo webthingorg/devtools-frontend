@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6ec8d15_5de7833b",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "General question: Would it make sense to think about whether the term \"back/forward cache\" should maybe not be translated at all?",
+      "revId": "2b7952dc4151345e85274aa9bd1034ed46af2d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "745f61e2_d9844fff",
+        "filename": "front_end/panels/application/BackForwardCacheView.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-03T10:13:12Z",
+      "side": 1,
+      "message": "nit: @description Label for button to test whether BFCache is available for the page.",
+      "revId": "2b7952dc4151345e85274aa9bd1034ed46af2d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
