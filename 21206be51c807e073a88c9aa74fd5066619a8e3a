@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "21206be51c807e073a88c9aa74fd5066619a8e3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2378c948_edcd3f39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-03T12:03:52Z",
+      "side": 1,
+      "message": "Glad to know it is working as expected 😂",
+      "revId": "21206be51c807e073a88c9aa74fd5066619a8e3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
