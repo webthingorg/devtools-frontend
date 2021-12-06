@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ae6bc8_4fae7b1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-06T12:08:01Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e26fdfe6931330e824403e1f896dc9d98f489574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48a3c88_ec2a87ee",
+        "filename": "test/e2e/resources/elements/css-container-queries.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-06T12:08:01Z",
+      "side": 1,
+      "message": "asking for my own interest, is this a change in the container queries spec/implementation?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "e26fdfe6931330e824403e1f896dc9d98f489574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
