@@ -39,6 +39,30 @@
       },
       "revId": "e26fdfe6931330e824403e1f896dc9d98f489574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24817f10_99c85dab",
+        "filename": "test/e2e/resources/elements/css-container-queries.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-06T12:27:26Z",
+      "side": 1,
+      "message": "We believe so. As far as I understand, leaving out `size` or replacing it with `style` would instead query containers that have the CSS property `min-width: 100px`, whereas the `size(min-width: 100px)` is equivalent to `size(width \u003e\u003d 100px)` which queries containers that have width larger than 100px.\n@changhaohan, did I get this right?",
+      "parentUuid": "e48a3c88_ec2a87ee",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "e26fdfe6931330e824403e1f896dc9d98f489574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
