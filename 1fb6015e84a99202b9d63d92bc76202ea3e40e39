@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d35963ad_28a8301c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2021-12-06T12:22:50Z",
+      "side": 1,
+      "message": "Maybe modify those tests to use a crude regexp to get the attributes they are interested in out of the HTML? This is going to be an endless annoyance otherwise.",
+      "revId": "1fb6015e84a99202b9d63d92bc76202ea3e40e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
