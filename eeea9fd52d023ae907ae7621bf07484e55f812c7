@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "eeea9fd52d023ae907ae7621bf07484e55f812c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe4e1f7_b12210f6",
+        "filename": "scripts/eslint_rules/lib/utils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-06T15:37:06Z",
+      "side": 1,
+      "message": "one day I\u0027d love to use TS for these rules, but it is not this day!",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "eeea9fd52d023ae907ae7621bf07484e55f812c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
