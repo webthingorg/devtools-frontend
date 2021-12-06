@@ -66,9 +66,7 @@ function sourceFramePlugins(): (typeof Plugin)[] {
   ];
 }
 
-export class UISourceCodeFrame extends
-    Common.ObjectWrapper.eventMixin<EventTypes, typeof SourceFrame.SourceFrame.SourceFrameImpl>(
-        SourceFrame.SourceFrame.SourceFrameImpl) {
+export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
   private uiSourceCodeInternal: Workspace.UISourceCode.UISourceCode;
   private muteSourceCodeEvents: boolean;
   private persistenceBinding: Persistence.Persistence.PersistenceBinding|null;
@@ -79,6 +77,7 @@ export class UISourceCodeFrame extends
   // recreated when the binding changes
   private plugins: Plugin[] = [];
   private readonly errorPopoverHelper: UI.PopoverHelper.PopoverHelper;
+  readonly toolbarEvents = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
 
   constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode) {
     super(workingCopy);
@@ -346,7 +345,7 @@ export class UISourceCodeFrame extends
       }
     }
 
-    this.dispatchEventToListeners(Events.ToolbarItemsChanged);
+    this.toolbarEvents.dispatchEventToListeners(Events.ToolbarItemsChanged);
   }
 
   private disposePlugins(): void {

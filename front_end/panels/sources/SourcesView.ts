@@ -468,7 +468,7 @@ export class SourcesView extends UI.Widget.VBox implements TabbedEditorContainer
     if (!sourceFrame) {
       return;
     }
-    this.toolbarChangedListener = sourceFrame.addEventListener(
+    this.toolbarChangedListener = sourceFrame.toolbarEvents.addEventListener(
         UISourceCodeFrameEvents.ToolbarItemsChanged, this.updateScriptViewToolbarItems, this);
   }
 
