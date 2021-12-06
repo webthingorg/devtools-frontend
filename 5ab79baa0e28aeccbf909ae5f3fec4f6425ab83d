@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5daa17bb_c7aa92ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-06T15:22:17Z",
+      "side": 1,
+      "message": "We don\u0027t need to disable this check for NPM updates. They are already handled accordingly.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "5ab79baa0e28aeccbf909ae5f3fec4f6425ab83d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf06358_6e4583dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-06T15:22:17Z",
+      "side": 1,
+      "message": "While you are at it, it might also be a good idea to update Puppeteer in `front_end/third_party/puppeteer`.",
+      "revId": "5ab79baa0e28aeccbf909ae5f3fec4f6425ab83d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
