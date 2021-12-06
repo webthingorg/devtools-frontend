@@ -88,10 +88,10 @@ export class ScriptFormatterEditorAction implements EditorAction {
     }
 
     this.sourcesView = sourcesView;
-    this.sourcesView.addEventListener(Events.EditorSelected, event => {
+    this.sourcesView.events.addEventListener(Events.EditorSelected, event => {
       this.editorSelected(event);
     });
-    this.sourcesView.addEventListener(Events.EditorClosed, event => {
+    this.sourcesView.events.addEventListener(Events.EditorClosed, event => {
       this.editorClosed(event);
     });
 

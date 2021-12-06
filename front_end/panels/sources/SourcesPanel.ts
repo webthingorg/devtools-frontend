@@ -249,7 +249,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     }
 
     this.sourcesViewInternal = new SourcesView();
-    this.sourcesViewInternal.addEventListener(Events.EditorSelected, this.editorSelected.bind(this));
+    this.sourcesViewInternal.events.addEventListener(Events.EditorSelected, this.editorSelected.bind(this));
 
     this.toggleNavigatorSidebarButton = this.editorView.createShowHideSidebarButton(
         i18nString(UIStrings.showNavigator), i18nString(UIStrings.hideNavigator));
