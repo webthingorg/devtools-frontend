@@ -46,7 +46,7 @@ export class EditingLocationHistoryManager {
   }
 
   trackSourceFrameCursorJumps(sourceFrame: UISourceCodeFrame): void {
-    sourceFrame.addEventListener(
+    sourceFrame.events.addEventListener(
         SourceFrame.SourceFrame.Events.EditorUpdate, event => this.onEditorUpdate(event.data, sourceFrame));
   }
 

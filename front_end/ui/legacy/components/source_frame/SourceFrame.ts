@@ -101,8 +101,8 @@ export type EventTypes = {
   [Events.EditorScroll]: void,
 };
 
-export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.View.SimpleView>(
-    UI.View.SimpleView) implements UI.SearchableView.Searchable, UI.SearchableView.Replaceable, Transformer {
+export class SourceFrameImpl extends UI.View.SimpleView implements UI.SearchableView.Searchable,
+                                                                   UI.SearchableView.Replaceable, Transformer {
   private readonly lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>;
   private prettyInternal: boolean;
   private rawContent: string|null;
@@ -137,6 +137,8 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private contentRequested: boolean;
   private wasmDisassemblyInternal: Common.WasmDisassembly.WasmDisassembly|null;
   contentSet: boolean;
+  readonly events = new Common.ObjectWrapper.ObjectWrapper<EventTypes>();
+
   constructor(
       lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>,
       private readonly options: SourceFrameOptions = {}) {
@@ -205,7 +207,8 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
 
   protected editorConfiguration(doc: string): CodeMirror.Extension {
     return [
-      CodeMirror.EditorView.updateListener.of(update => this.dispatchEventToListeners(Events.EditorUpdate, update)),
+      CodeMirror.EditorView.updateListener.of(
+          update => this.events.dispatchEventToListeners(Events.EditorUpdate, update)),
       TextEditor.Config.baseConfiguration(doc),
       TextEditor.Config.closeBrackets,
       TextEditor.Config.sourcesAutocompletion.instance(),
@@ -217,7 +220,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
       CodeMirror.EditorView.domEventHandlers({
         focus: () => this.onFocus(),
         blur: () => this.onBlur(),
-        scroll: () => this.dispatchEventToListeners(Events.EditorScroll),
+        scroll: () => this.events.dispatchEventToListeners(Events.EditorScroll),
         contextmenu: event => this.onContextMenu(event),
       }),
       CodeMirror.lineNumbers({
