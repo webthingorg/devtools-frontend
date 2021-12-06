@@ -39,6 +39,30 @@
       },
       "revId": "eeea9fd52d023ae907ae7621bf07484e55f812c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7ab8fa_6ad5bb78",
+        "filename": "scripts/eslint_rules/lib/utils.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-06T15:38:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cfe4e1f7_b12210f6",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "eeea9fd52d023ae907ae7621bf07484e55f812c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
