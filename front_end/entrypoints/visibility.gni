@@ -3,5 +3,5 @@
 # found in the LICENSE file.
 
 declare_args() {
-  devtools_entrypoints_visibility = []
+  devtools_entrypoints_visibility = devtools_visibility
 }
