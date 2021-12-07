@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14f3edff_e1926784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-07T14:08:11Z",
+      "side": 1,
+      "message": "We have to ignore the (expected) Axe violation, to avoid CodeMirror HTML changes to affect this change. As it turns out, we can disable particular Axe rules with a rule config providing a specific selector. This effectively does the same as hardcoding the expected violation.",
+      "revId": "98fa456b50ad8146bf813df3a2207b5463955cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
