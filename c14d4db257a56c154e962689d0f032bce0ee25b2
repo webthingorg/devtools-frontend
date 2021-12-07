@@ -39,6 +39,30 @@
       },
       "revId": "c14d4db257a56c154e962689d0f032bce0ee25b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40479278_adcaac02",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2021-12-07T09:18:57Z",
+      "side": 1,
+      "message": "Yes! Let\u0027s unify things by using a shared helper in number-utilities.ts as a follow-up, will file a bug.",
+      "parentUuid": "c9df1600_bb9a7f8c",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 33
+      },
+      "revId": "c14d4db257a56c154e962689d0f032bce0ee25b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
