@@ -1,3 +1,4 @@
+/// <reference types="node" />
 /**
  * These global declarations exist so puppeteer can work without the need to use `"dom"`
  * types.
@@ -15,7 +16,6 @@ declare global {
 }
 export {};
 //# sourceMappingURL=global.d.ts.map
-/// <reference types="node" />
 
 import { ChildProcess } from 'child_process';
 import { Protocol } from 'devtools-protocol';
