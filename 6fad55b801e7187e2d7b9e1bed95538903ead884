@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e79fbfd_28bacdc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-12-07T14:02:38Z",
+      "side": 1,
+      "message": "LGTM % small edits and links!\nThe structure of the issues is great and easy to understand for developers.",
+      "revId": "6fad55b801e7187e2d7b9e1bed95538903ead884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffdd562_54d0ad6e",
+        "filename": "front_end/models/issues_manager/AttributionReportingIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-12-07T14:02:38Z",
+      "side": 1,
+      "message": "Is there a reason why we don\u0027t have links here?\nIf we can. let\u0027s add relevant links from the API guide.\n\nSuggestion:\n\nInvalidAttributionSourcePriority: link to https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#html-attribute-attributionsourcepriority\n\nInvalidAttributionSourceExpiry: link to https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#html-attribute-attributionexpiry\n\nInvalidEventSourceTriggerData: (no link for now since this is for views)\n\nInvalidTriggerPriority: link to https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#prioritize-specific-conversions\n\nInvalidTriggerDedupKey: link to https://developer.chrome.com/docs/privacy-sandbox/attribution-reporting-event-guide/#deduplicate-reports\n\nWDYT? Also please make sure to double-check the links I suggested, thanks!",
+      "revId": "6fad55b801e7187e2d7b9e1bed95538903ead884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d676a6_9165acb8",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourceExpiry.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-12-07T14:02:38Z",
+      "side": 1,
+      "message": "Maybe: 30 days (in milliseconds)\n?",
+      "revId": "6fad55b801e7187e2d7b9e1bed95538903ead884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2527bbb0_e50e1a1d",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidAttributionSourcePriority.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-12-07T14:02:38Z",
+      "side": 1,
+      "message": "Very clear, +1 to this phrasing/structure!",
+      "revId": "6fad55b801e7187e2d7b9e1bed95538903ead884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17203030_d336a6e2",
+        "filename": "front_end/models/issues_manager/descriptions/arInvalidTriggerDedupKey.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1502792
+      },
+      "writtenOn": "2021-12-07T14:02:38Z",
+      "side": 1,
+      "message": "Maybe `null` instead?",
+      "revId": "6fad55b801e7187e2d7b9e1bed95538903ead884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
