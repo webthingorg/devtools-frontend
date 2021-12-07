@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "493753a8_389e199a",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-07T12:02:56Z",
+      "side": 1,
+      "message": "Drive-by change to make this logic more readable",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "107789ff8abc9ae8bbf06a0793312c9be7eda557",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
