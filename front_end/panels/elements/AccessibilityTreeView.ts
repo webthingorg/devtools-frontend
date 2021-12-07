@@ -123,10 +123,11 @@ export class AccessibilityTreeView extends UI.Widget.VBox implements
     if (this.isShowing()) {
       return;
     }
+    if (inspectedNode === this.inspectedDOMNode) {
+      return;
+    }
     if (inspectedNode.ownerDocument && (inspectedNode.nodeName() === 'HTML' || inspectedNode.nodeName() === 'BODY')) {
       inspectedNode = inspectedNode.ownerDocument;
-    }
-    if (inspectedNode === this.inspectedDOMNode) {
       return;
     }
     this.inspectedDOMNode = inspectedNode;
