@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc614d1_fc72f868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-07T08:51:16Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "c14d4db257a56c154e962689d0f032bce0ee25b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9df1600_bb9a7f8c",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-07T08:51:16Z",
+      "side": 1,
+      "message": "nit: could we merge these two helpers and provide the value that needs to be prettified as a parameter? also I wonder if there is smth in third_party/devtools-frontend/src/front_end/core/platform/number-utilities.ts that we can re-use.",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 33
+      },
+      "revId": "c14d4db257a56c154e962689d0f032bce0ee25b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
