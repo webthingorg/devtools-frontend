@@ -39,6 +39,30 @@
       },
       "revId": "3e71d270768e4221ae8758489496777d3a5ced30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd9aa435_dae31b49",
+        "filename": "test/e2e/console/console-autocomplete_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-08T16:08:40Z",
+      "side": 1,
+      "message": "Yeah, would love to. That said, there appears to be a timing race as to when the autocompletion suggestion pops up and when the machinery behind-the-scenes can handle further keyboard invocations. It seems like the autocompletion (which is the only signal that we have) is finished before the console prompt is ready to receive more key bindings. If you don\u0027t wait here, it still thinks the state is prior to typing any test at all and then the keyboard invocation is at the wrong point.\n\nI basically copied this from https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/helpers/console-helpers.ts;l\u003d102-103;drc\u003df034f0b144e6ead8aee5ad5b99cbb381ce4c48c4",
+      "parentUuid": "6badb94e_f4752140",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 25
+      },
+      "revId": "3e71d270768e4221ae8758489496777d3a5ced30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
