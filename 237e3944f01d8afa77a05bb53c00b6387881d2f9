@@ -33,6 +33,46 @@
       "message": "LGTM, thanks for working on this on short notice Wolfgang!",
       "revId": "237e3944f01d8afa77a05bb53c00b6387881d2f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f9787ec_ada149ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-08T15:55:30Z",
+      "side": 1,
+      "message": "Ah, one nit below.",
+      "revId": "237e3944f01d8afa77a05bb53c00b6387881d2f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58bee7c2_6a6c84db",
+        "filename": "front_end/models/issues_manager/descriptions/corsPreflightResponseInvalid.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2021-12-08T15:55:30Z",
+      "side": 1,
+      "message": "This should be pluralized: `OPTIONS`.",
+      "range": {
+        "startLine": 5,
+        "startChar": 46,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "237e3944f01d8afa77a05bb53c00b6387881d2f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
