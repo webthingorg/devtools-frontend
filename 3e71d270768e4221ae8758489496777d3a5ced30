@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0117ab0c_4a156969",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-08T16:02:44Z",
+      "side": 1,
+      "message": "LGTM with question about the timeout.",
+      "revId": "3e71d270768e4221ae8758489496777d3a5ced30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6badb94e_f4752140",
+        "filename": "test/e2e/console/console-autocomplete_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-08T16:02:44Z",
+      "side": 1,
+      "message": "I can\u0027t not ask this: can we do this better ? :)",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 25
+      },
+      "revId": "3e71d270768e4221ae8758489496777d3a5ced30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
