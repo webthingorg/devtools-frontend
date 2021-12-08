@@ -73,6 +73,30 @@
       },
       "revId": "237e3944f01d8afa77a05bb53c00b6387881d2f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80631a83_de5ccbf9",
+        "filename": "front_end/models/issues_manager/descriptions/corsPreflightResponseInvalid.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-08T16:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58bee7c2_6a6c84db",
+      "range": {
+        "startLine": 5,
+        "startChar": 46,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "237e3944f01d8afa77a05bb53c00b6387881d2f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
