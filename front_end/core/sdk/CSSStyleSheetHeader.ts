@@ -5,6 +5,8 @@
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
+import * as Root from '../root/root.js';
+
 import type * as Protocol from '../../generated/protocol.js';
 
 import type {CSSModel} from './CSSModel.js';
@@ -103,10 +105,16 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
   }
 
   resourceURL(): string {
-    return this.isViaInspector() ? this.viaInspectorResourceURL() : this.sourceURL;
+    if (this.isViaInspector()) {
+      return this.viaInspectorResourceURL();
+    }
+    if (Root.Runtime.experiments.isEnabled('preciseChanges') && this.isConstructedByNew()) {
+      return this.constructedByNewURL();
+    }
+    return this.sourceURL;
   }
 
-  private viaInspectorResourceURL(): string {
+  private getFrameURLPath(): string {
     const model = this.#cssModelInternal.target().model(ResourceTreeModel);
     console.assert(Boolean(model));
     if (!model) {
@@ -118,12 +126,19 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
     }
     console.assert(Boolean(frame));
     const parsedURL = new Common.ParsedURL.ParsedURL(frame.url);
-    let fakeURL = 'inspector://' + parsedURL.host + parsedURL.folderPathComponents;
-    if (!fakeURL.endsWith('/')) {
-      fakeURL += '/';
+    let urlPath = parsedURL.host + parsedURL.folderPathComponents;
+    if (!urlPath.endsWith('/')) {
+      urlPath += '/';
     }
-    fakeURL += 'inspector-stylesheet';
-    return fakeURL;
+    return urlPath;
+  }
+
+  private viaInspectorResourceURL(): string {
+    return `inspector://${this.getFrameURLPath()}inspector-stylesheet`;
+  }
+
+  private constructedByNewURL(): string {
+    return `stylesheet://${this.getFrameURLPath()}${this.id}`;
   }
 
   lineNumberInSource(lineNumberInStyleSheet: number): number {

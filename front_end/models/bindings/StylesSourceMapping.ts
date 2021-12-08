@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -104,7 +105,7 @@ export class StylesSourceMapping implements SourceMapping {
   }
 
   private acceptsHeader(header: SDK.CSSStyleSheetHeader.CSSStyleSheetHeader): boolean {
-    if (header.isConstructedByNew()) {
+    if (!Root.Runtime.experiments.isEnabled('preciseChanges') && header.isConstructedByNew()) {
       return false;
     }
     if (header.isInline && !header.hasSourceURL && header.origin !== 'inspector') {
