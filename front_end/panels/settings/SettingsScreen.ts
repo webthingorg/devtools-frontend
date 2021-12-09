@@ -338,12 +338,14 @@ export class GenericSettingsTab extends SettingsTab {
   }
 
   private updateSyncSection(): void {
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSyncInformation(syncInfo => {
-      this.syncSection.data = {
-        syncInfo,
-        syncSetting: Common.Settings.moduleSetting('sync_preferences') as Common.Settings.Setting<boolean>,
-      };
-    });
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SYNC_SETTINGS)) {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSyncInformation(syncInfo => {
+        this.syncSection.data = {
+          syncInfo,
+          syncSetting: Common.Settings.moduleSetting('sync_preferences') as Common.Settings.Setting<boolean>,
+        };
+      });
+    }
   }
 
   private createExtensionSection(settings: Common.Settings.SettingRegistration[]): void {
