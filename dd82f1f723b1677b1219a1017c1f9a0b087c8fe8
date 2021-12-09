@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65cffd5e_eb725437",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-09T10:07:03Z",
+      "side": 1,
+      "message": "Thanks for looping me in early!\n\nDo you think that adding the tree will add enough complexity so that it should be in a separate file and component?",
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2e9fb3_9fcdd93d",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-09T10:07:03Z",
+      "side": 1,
+      "message": "Theses are only populated for the main frame, right? Maybe it makes sense then to set them to null per default and only populate for the main frame?",
+      "range": {
+        "startLine": 616,
+        "startChar": 2,
+        "endLine": 616,
+        "endChar": 25
+      },
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
