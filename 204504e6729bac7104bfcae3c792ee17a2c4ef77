@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "204504e6729bac7104bfcae3c792ee17a2c4ef77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02dbdf18_a3137e51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-09T06:37:08Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "204504e6729bac7104bfcae3c792ee17a2c4ef77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e93f5e_61f23788",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-09T06:37:08Z",
+      "side": 1,
+      "message": "Lets leave a comment here, explaining why these links are allow listed.",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 67
+      },
+      "revId": "204504e6729bac7104bfcae3c792ee17a2c4ef77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -16,6 +16,24 @@
       "message": "I hope this is ok and we don\u0027t need to whitelist every such link individually.",
       "revId": "f18fc226549f3480452d6c037ea937bcc4ba0ab4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ee1966_ec53f2f2",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-09T06:37:08Z",
+      "side": 1,
+      "message": "lgtm",
+      "parentUuid": "2800d882_8ba3c051",
+      "revId": "f18fc226549f3480452d6c037ea937bcc4ba0ab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
