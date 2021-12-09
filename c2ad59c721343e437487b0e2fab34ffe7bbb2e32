@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c13dda0_1a82dd0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-09T13:26:09Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthis is the fix to unflake the two tests. PTAL!",
+      "revId": "c2ad59c721343e437487b0e2fab34ffe7bbb2e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
