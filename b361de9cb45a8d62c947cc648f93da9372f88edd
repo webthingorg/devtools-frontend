@@ -16,6 +16,23 @@
       "message": "Nice catch!",
       "revId": "b361de9cb45a8d62c947cc648f93da9372f88edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c5028a_de870cc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-09T17:04:52Z",
+      "side": 1,
+      "message": "Thanks for the review, submitting!",
+      "revId": "b361de9cb45a8d62c947cc648f93da9372f88edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
