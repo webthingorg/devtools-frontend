@@ -615,8 +615,9 @@ export class ResourceTreeFrame {
   resourcesMap: Map<string, Resource>;
   backForwardCacheDetails: {
     restoredFromCache: boolean|undefined,
-    explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[],
-  } = {restoredFromCache: undefined, explanations: []};
+    explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]|[],
+    explanationsTree: Protocol.Page.BackForwardCacheNotRestoredExplanationTree,
+  } = {restoredFromCache: undefined, explanations: [], explanationsTree: {url: '', explanations: [], children: []}};
 
   constructor(
       model: ResourceTreeModel, parentFrame: ResourceTreeFrame|null, frameId: Protocol.Page.FrameId,
@@ -688,7 +689,11 @@ export class ResourceTreeFrame {
     this.#secureContextType = framePayload.secureContextType;
     this.#crossOriginIsolatedContextType = framePayload.crossOriginIsolatedContextType;
     this.#gatedAPIFeatures = framePayload.gatedAPIFeatures;
-    this.backForwardCacheDetails = {restoredFromCache: undefined, explanations: []};
+    this.backForwardCacheDetails = {
+      restoredFromCache: undefined,
+      explanations: [],
+      explanationsTree: {url: '', explanations: [], children: []},
+    };
 
     const mainResource = this.resourcesMap.get(this.#urlInternal);
     this.resourcesMap.clear();
@@ -963,6 +968,7 @@ export class ResourceTreeFrame {
   setBackForwardCacheDetails(event: Protocol.Page.BackForwardCacheNotUsedEvent): void {
     this.backForwardCacheDetails.restoredFromCache = false;
     this.backForwardCacheDetails.explanations = event.notRestoredExplanations;
+    this.backForwardCacheDetails.explanationsTree = event.notRestoredExplanationsTree;
   }
 
   getResourcesMap(): Map<string, Resource> {
