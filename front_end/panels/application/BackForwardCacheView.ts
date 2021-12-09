@@ -216,6 +216,7 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     const isDisabled = this.screenStatus === ScreenStatusType.Running;
     // clang-format off
     return LitHtml.html`
+    <div>${mainFrame.backForwardCacheDetails.explanationsTree.url}</div>
       ${this.renderBackForwardCacheStatus(mainFrame.backForwardCacheDetails.restoredFromCache)}
       <div class='url'>
         <div class='url-key'>
