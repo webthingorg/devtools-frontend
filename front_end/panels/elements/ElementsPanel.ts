@@ -1269,7 +1269,11 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
     const panel = ElementsPanel.instance();
     panel.pendingNodeReveal = true;
 
-    return new Promise(revealPromise);
+    return (new Promise<void>(revealPromise)).catch((reason: Error) => {
+      // All instances of `new Error()` in this block use localized strings as
+      // the primary constructor parameter for the message.
+      Common.Console.Console.instance().warn(reason.message);
+    });
 
     function revealPromise(resolve: () => void, reject: (arg0: Error) => void): void {
       if (node instanceof SDK.DOMModel.DOMNode) {
@@ -1281,10 +1285,12 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
         if (domModel) {
           void domModel.pushObjectAsNodeToFrontend(node).then(checkRemoteObjectThenReveal);
         } else {
-          reject(new Error('Could not resolve a node to reveal.'));
+          const msg = i18nString(UIStrings.nodeCannotBeFoundInTheCurrent);
+          reject(new Error(msg));
         }
       } else {
-        reject(new Error('Can\'t reveal a non-node.'));
+        const msg = i18nString(UIStrings.theRemoteObjectCouldNotBe);
+        reject(new Error(msg));
         panel.pendingNodeReveal = false;
       }
 
@@ -1304,7 +1310,6 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
         const isDocument = node instanceof SDK.DOMModel.DOMDocument;
         if (!isDocument && isDetached) {
           const msg = i18nString(UIStrings.nodeCannotBeFoundInTheCurrent);
-          Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
         }
@@ -1313,13 +1318,13 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
           void panel.revealAndSelectNode(resolvedNode, !omitFocus).then(resolve);
           return;
         }
-        reject(new Error('Could not resolve node to reveal.'));
+        const msg = i18nString(UIStrings.nodeCannotBeFoundInTheCurrent);
+        reject(new Error(msg));
       }
 
       function checkRemoteObjectThenReveal(resolvedNode: SDK.DOMModel.DOMNode|null): void {
         if (!resolvedNode) {
           const msg = i18nString(UIStrings.theRemoteObjectCouldNotBe);
-          Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
         }
@@ -1329,7 +1334,6 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
       function checkDeferredDOMNodeThenReveal(resolvedNode: SDK.DOMModel.DOMNode|null): void {
         if (!resolvedNode) {
           const msg = i18nString(UIStrings.theDeferredDomNodeCouldNotBe);
-          Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
         }
