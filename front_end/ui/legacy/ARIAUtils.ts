@@ -18,6 +18,13 @@ export function bindLabelToControl(label: Element, control: Element): void {
   label.setAttribute('for', controlId);
 }
 
+export function setLabelledBy(label: Element, control: Element): void {
+  if (!label.id) {
+    label.id = nextId('labelElement');
+  }
+  control.setAttribute('aria-describedby', label.id);
+}
+
 export function markAsAlert(element: Element): void {
   element.setAttribute('role', 'alert');
   element.setAttribute('aria-live', 'polite');

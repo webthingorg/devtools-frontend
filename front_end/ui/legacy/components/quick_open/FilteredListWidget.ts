@@ -74,6 +74,7 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     this.contentElement.appendChild(this.inputBoxElement);
 
     this.hintElement = this.contentElement.createChild('div', 'filtered-list-widget-hint');
+    UI.ARIAUtils.setLabelledBy(this.hintElement, this.inputBoxElement);
 
     this.bottomElementsContainer = this.contentElement.createChild('div', 'vbox');
     this.progressElement = this.bottomElementsContainer.createChild('div', 'filtered-list-widget-progress');
