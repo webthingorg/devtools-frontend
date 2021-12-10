@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9213cab9_9884c956",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-10T13:20:52Z",
+      "side": 1,
+      "message": "It would have been intentional if it were part of the test expectation, but I think this was mostly a copy-paste error.",
+      "revId": "5aec5aecf9856e25c8607243812c0f585db4199b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
