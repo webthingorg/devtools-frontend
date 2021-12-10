@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606a95ce_5dcc2d12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-10T10:34:56Z",
+      "side": 1,
+      "message": "While the change here is a quick fix and good on its own, it does worry me that esbuild\u0027s behavior is already different for one of our leaf modules compared to TypeScript. The risk we are running here is that the DevTools build completes, but then once we get to Chromium, it suddenly fails. The discrepancy in behavior between the tools will create headaches for us, which I would like to avoid.\n\nThat said, if it is possible to align the tools to come to an agreement what the behavior should be and we can make that consistent, we would be able to maintain the invariant that a Chromium build succeeds when a DevTools build succeeds.\n\nSo given this is a tiny fix, I don\u0027t see any reason not to apply it. But if we end up with larger fixes where esbuild wants one thing and TypeScript does another, I am less comfortable with that.",
+      "revId": "c299b3da7e9177f487c7629f8fad645ff63a8ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea75ce5_10756a27",
+        "filename": "front_end/core/dom_extension/DOMExtension.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-10T10:34:56Z",
+      "side": 1,
+      "message": "This file is not supposed to be checked by TypeScript. E.g. we run TypeScript without checking and only-emit mode. Does esbuild honor the `@ts-nocheck` directives?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 94
+      },
+      "revId": "c299b3da7e9177f487c7629f8fad645ff63a8ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
