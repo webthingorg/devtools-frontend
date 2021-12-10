@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a3f5bfb_61e60dad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-10T10:26:14Z",
+      "side": 1,
+      "message": "I am not thrilled about formatting the build output, since it is not for human consumption. Normally, when I inspect these files I auto-format them in my editor and that is usually good enough.\n\nThat said, I don\u0027t feel strong enough about it, so if you prefer the output I am okay with landing it.",
+      "revId": "4af7ffca50907adb2144991700edfe9e3bb09fd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
