@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea54fbe5_9277676e",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-10T10:34:59Z",
+      "side": 1,
+      "message": "let\u0027s add some comment instructions about how to add a new value/delete a value and that ids should not be reused?",
+      "revId": "4b4d61a5d332d78a437f3a96992346a7756d5e05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
