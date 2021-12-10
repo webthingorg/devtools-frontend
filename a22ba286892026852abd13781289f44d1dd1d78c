@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4888bcee_e8a97615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-10T10:28:58Z",
+      "side": 1,
+      "message": "PTAL, what do you think of this approach?\n\nconst enum wouldn\u0027t work IIUC because their members can\u0027t be accessed via indexing by string variable (https://www.typescriptlang.org/docs/handbook/enums.html#:~:text\u003dConst%20enums%20can%20only%20use%20constant%20enum%20expressions%20and%20unlike%20regular%20enums%20they%20are%20completely%20removed%20during%20compilation.)\n\nSimon, did you want to enforce something via ESLint rule here as well?",
+      "revId": "a22ba286892026852abd13781289f44d1dd1d78c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
