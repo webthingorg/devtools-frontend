@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5191ade_b161e50d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2021-12-10T11:01:31Z",
+      "side": 1,
+      "message": "Yeah, I expected both esbuild and swc are less strict than tsc. But it seems not true and this is a caveat not known until now.\n\nLuckily, I only see this build error when replacing tsc with esbuild or swc so far.\nAnd if we concern difference of build success, I think we can mitigate that by having another builder using esbuild or swc in this repository (or use esbuild/swc in devtools_frontend_linux_blink_light_rel?)",
+      "parentUuid": "606a95ce_5dcc2d12",
+      "revId": "c299b3da7e9177f487c7629f8fad645ff63a8ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cea75ce5_10756a27",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-10T10:34:56Z",
       "side": 1,
       "message": "This file is not supposed to be checked by TypeScript. E.g. we run TypeScript without checking and only-emit mode. Does esbuild honor the `@ts-nocheck` directives?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 94
+      },
+      "revId": "c299b3da7e9177f487c7629f8fad645ff63a8ade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e1c1420_902d1894",
+        "filename": "front_end/core/dom_extension/DOMExtension.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2021-12-10T11:01:31Z",
+      "side": 1,
+      "message": "Actually I\u0027m trying both esbuild and swc to compare build performance.\nAnd the error is come only from swc, so swc may not take care `@ts-nocheck`.\n\nFor esbuild, I think it just accepts current notation there.",
+      "parentUuid": "cea75ce5_10756a27",
       "range": {
         "startLine": 37,
         "startChar": 0,
