@@ -20,6 +20,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbe09c96_4f6db32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-10T09:44:22Z",
+      "side": 1,
+      "message": "I cannot show the information, for example URL from tree structure on the Devtools now.\nIs there any other files on the devtools repository that I should change?",
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ca0aa9_fe0872f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-10T09:44:22Z",
+      "side": 1,
+      "message": "I want to show the tree structure like Peter\u0027s design.\nhttps://groups.google.com/a/google.com/g/chrome-bfcache/c/MwbyA4bHY34/m/fHPurFy1CQAJ\n\nI think it is not problem that I implement it in only BackForwardCacheView.ts but I may need a component for the tree-structure panel.",
+      "parentUuid": "65cffd5e_eb725437",
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf2e9fb3_9fcdd93d",
         "filename": "front_end/core/sdk/ResourceTreeModel.ts",
         "patchSetId": 4
@@ -31,6 +66,30 @@
       "writtenOn": "2021-12-09T10:07:03Z",
       "side": 1,
       "message": "Theses are only populated for the main frame, right? Maybe it makes sense then to set them to null per default and only populate for the main frame?",
+      "range": {
+        "startLine": 616,
+        "startChar": 2,
+        "endLine": 616,
+        "endChar": 25
+      },
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dff9bda7_3a8a6fe2",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-10T09:44:22Z",
+      "side": 1,
+      "message": "Theses are only populated for the main frame.\n\nI tried null and undefined but the compiler only allowed that. I think the empty list can be treated as null practically. The existing backForwardCacheDetails.explanations is [] as default.",
+      "parentUuid": "cf2e9fb3_9fcdd93d",
       "range": {
         "startLine": 616,
         "startChar": 2,
