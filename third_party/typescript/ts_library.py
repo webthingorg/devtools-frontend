@@ -202,6 +202,25 @@ def remove_generated_tsbuildinfo_file(tsbuildinfo_output_location):
         os.remove(tsbuildinfo_output_location)
 
 
+def runEsbuild(opts):
+    cmd = [
+        'esbuild',
+        '--outdir=' + path.dirname(opts.tsconfig_output_location),
+        '--log-level=warning',
+        '--sourcemap',
+    ]
+
+    if opts.module == 'commonjs':
+        cmd += ['--platform=node']
+
+    cmd += opts.sources
+
+    # cmd = ['swc', '--out-dir='+path.dirname(opts.tsconfig_output_location)] + opts.sources
+    logging.info('runEsbuild: %s', ' '.join(cmd))
+    subprocess.run(cmd, check=True)
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--sources', nargs='*', help='List of TypeScript source files')
@@ -218,13 +237,14 @@ def main():
     parser.add_argument('--rewrapper-binary', required=False)
     parser.add_argument('--rewrapper-cfg', required=False)
     parser.add_argument('--rewrapper-exec-root', required=False)
+    parser.add_argument('--use-esbuild', action='store_true')
     parser.set_defaults(test_only=False,
                         no_emit=False,
                         verify_lib_check=False,
                         reset_timestamps=False,
                         module='esnext')
-
     opts = parser.parse_args()
+
     with open(BASE_TS_CONFIG_LOCATION) as root_tsconfig:
         try:
             tsconfig = json.loads(root_tsconfig.read())
@@ -280,6 +300,9 @@ def main():
     # the tsconfig.json
     if len(sources) == 0 and not opts.verify_lib_check:
         return 0
+
+    if opts.use_esbuild:
+        return runEsbuild(opts)
 
     previously_generated_file_metadata = compute_previous_generated_file_metadata(
         sources, tsconfig_output_directory)
