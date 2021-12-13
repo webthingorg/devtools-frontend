@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39ded0c1_f97a2322",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-13T11:43:54Z",
+      "side": 1,
+      "message": "any reason not to just use `--color-background-inverted` here?",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "16cf4921ee79e110d3a01aa988731f29ab643c31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
