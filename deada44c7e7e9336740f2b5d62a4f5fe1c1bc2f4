@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03bf168e_db4368f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-12-13T09:45:15Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "deada44c7e7e9336740f2b5d62a4f5fe1c1bc2f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8807b1e_bd5dcc11",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-12-13T09:40:24Z",
       "side": 1,
       "message": "maybe add \u0027devtools notifier\u0027 as an argument too, since we can more there",
+      "revId": "deada44c7e7e9336740f2b5d62a4f5fe1c1bc2f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ff3ed2_9e0ee790",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-12-13T09:45:15Z",
+      "side": 1,
+      "message": "I will as soon as I need to pass another notifier. For now these branches seem to need only this uniform config.",
+      "parentUuid": "d8807b1e_bd5dcc11",
       "revId": "deada44c7e7e9336740f2b5d62a4f5fe1c1bc2f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
