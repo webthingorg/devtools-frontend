@@ -10703,6 +10703,25 @@ declare namespace Protocol {
       reason: BackForwardCacheNotRestoredReason;
     }
 
+    export interface BackForwardCacheNotRestoredExplanationTree {
+      /**
+       * URL of each frame
+       */
+      url: string;
+      /**
+       * Origin of each frame
+       */
+      origin: string;
+      /**
+       * Not restored reasons of each frame
+       */
+      explanation: BackForwardCacheNotRestoredExplanation[];
+      /**
+       * Array of children frame
+       */
+      children: BackForwardCacheNotRestoredExplanationTree[];
+    }
+
     export interface AddScriptToEvaluateOnLoadRequest {
       scriptSource: string;
     }
@@ -11692,6 +11711,10 @@ declare namespace Protocol {
        * Array of reasons why the page could not be cached. This must not be empty.
        */
       notRestoredExplanations: BackForwardCacheNotRestoredExplanation[];
+      /**
+       * Tree structure of reasons why the page could not be cached for frames.
+       */
+      notRestoredExplanationsTree: BackForwardCacheNotRestoredExplanationTree;
     }
 
     export interface LoadEventFiredEvent {
