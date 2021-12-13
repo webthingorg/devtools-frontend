@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5e2b5a_144f7311",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-13T06:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbe09c96_4f6db32d",
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf2e9fb3_9fcdd93d",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Theses are only populated for the main frame.\n\nI tried null and undefined but the compiler only allowed that. I think the empty list can be treated as null practically. The existing backForwardCacheDetails.explanations is [] as default.",
       "parentUuid": "cf2e9fb3_9fcdd93d",
+      "range": {
+        "startLine": 616,
+        "startChar": 2,
+        "endLine": 616,
+        "endChar": 25
+      },
+      "revId": "dd82f1f723b1677b1219a1017c1f9a0b087c8fe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc0d403_2e301c71",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-13T06:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dff9bda7_3a8a6fe2",
       "range": {
         "startLine": 616,
         "startChar": 2,

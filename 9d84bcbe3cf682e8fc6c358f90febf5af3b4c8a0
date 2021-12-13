@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "160aeb47_bbf2d0ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-13T06:38:45Z",
+      "side": 1,
+      "message": "I can get the tree structure of the not-restored reasons from chromium now.\nI uploaded the CL of the layout and I\u0027m going to improve it.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3330079/1\n\nI\u0027m going to merge the change of the protocol by this CL.",
+      "revId": "9d84bcbe3cf682e8fc6c358f90febf5af3b4c8a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
