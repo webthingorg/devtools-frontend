@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d9af6361_b5c30c63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-13T09:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b718f6c9_583d1ea9",
+      "revId": "f30b8f4d25729704930fe4d61627cbe3a210f354",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ed7b2b52_49d9250c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -48,6 +66,24 @@
       "writtenOn": "2021-12-13T09:32:43Z",
       "side": 1,
       "message": "Why do you need the `...|[]`?",
+      "revId": "f30b8f4d25729704930fe4d61627cbe3a210f354",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c52fb7df_d49f10c9",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-13T09:43:44Z",
+      "side": 1,
+      "message": "I deleted it.",
+      "parentUuid": "b5273c28_853f158e",
       "revId": "f30b8f4d25729704930fe4d61627cbe3a210f354",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
