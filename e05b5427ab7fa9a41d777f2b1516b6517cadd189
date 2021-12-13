@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8abc27_8420039d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-13T09:40:13Z",
+      "side": 1,
+      "message": "LGTM. Is there any linting we can do here? Not sure there is but asking the question.",
+      "revId": "e05b5427ab7fa9a41d777f2b1516b6517cadd189",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
