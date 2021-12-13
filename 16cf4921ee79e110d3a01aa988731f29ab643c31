@@ -22,6 +22,30 @@
       },
       "revId": "16cf4921ee79e110d3a01aa988731f29ab643c31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd88382_ed0c8ee2",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-12-13T11:49:20Z",
+      "side": 1,
+      "message": "No, other than internal consistency. There are other colors that could have been used directly, but we seem to pick them up and rewire them as explicit overrides. Happy to change it to direct usage if you prefer.",
+      "parentUuid": "39ded0c1_f97a2322",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "16cf4921ee79e110d3a01aa988731f29ab643c31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
