@@ -113,9 +113,16 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
         SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, this.onBackForwardCacheUpdate, this);
     this.update();
     this.screenStatus = ScreenStatusType.Result;
+    const mainFrame = this.getMainFrame();
+    if (mainFrame === null) {
+      this.frameExplanations = [];
+    } else {
+      this.frameExplanations = mainFrame.backForwardCacheDetails.explanationsTree.explanations;
+    }
   }
 
   private screenStatus: ScreenStatusType;
+  private frameExplanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[];
 
   wasShown(): void {
     super.wasShown();
@@ -239,7 +246,8 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       </${ReportView.ReportView.ReportSection.litTagName}>
       <${ReportView.ReportView.ReportSectionDivider.litTagName}>
       </${ReportView.ReportView.ReportSectionDivider.litTagName}>
-        ${this.maybeRenderExplanations(mainFrame.backForwardCacheDetails.explanations)}
+        ${this.renderExplanationsForCategory(mainFrame.backForwardCacheDetails.explanations)}
+        ${this.renderFramesAndExplanations(mainFrame.backForwardCacheDetails.explanationsTree)}
       <${ReportView.ReportView.ReportSection.litTagName}>
         <x-link href="https://web.dev/bfcache/" class="link">
           ${i18nString(UIStrings.learnMore)}
@@ -247,6 +255,7 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
       </${ReportView.ReportView.ReportSection.litTagName}>
     `;
     // clang-format on
+    // ${this.renderFramesAndExplanations(mainFrame.backForwardCacheDetails.explanationsTree)}
   }
 
   private renderBackForwardCacheStatus(status: boolean|undefined): LitHtml.TemplateResult {
@@ -295,7 +304,62 @@ export class BackForwardCacheView extends UI.ThrottledWidget.ThrottledWidget {
     // clang-format on
   }
 
-  private maybeRenderExplanations(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
+  private renderFramesAndExplanations(explanationsTree: Protocol.Page.BackForwardCacheNotRestoredExplanationTree):
+      LitHtml.TemplateResult|{} {
+    if (explanationsTree.children.length) {
+      // clang-format off
+        return LitHtml.html`
+          <nav><ul>
+            ${this.renderTitleRecursively(explanationsTree, LitHtml.html``, '')}
+          </ul></nav>
+          <div>${this.renderExplanationsForCategory(this.frameExplanations)}</div>
+        `;
+      // clang-format on
+    }
+    return this.renderExplanationsForCategory(explanationsTree.explanations);
+  }
+
+  private explanationsForFrameNumber(
+      explanationsTree: Protocol.Page.BackForwardCacheNotRestoredExplanationTree, id: string, targetId: string): void {
+    if (id === targetId) {
+      this.frameExplanations = explanationsTree.explanations;
+      return;
+    }
+    let num = 0;
+    for (const child of explanationsTree.children) {
+      this.explanationsForFrameNumber(child, id + '-' + String(num), targetId);
+      num++;
+    }
+  }
+
+  private clickForFrame(id: string): void {
+    const mainFrame = this.getMainFrame();
+    if (mainFrame === null) {
+      this.frameExplanations = [];
+    } else {
+      this.explanationsForFrameNumber(mainFrame.backForwardCacheDetails.explanationsTree, '', /* targetId */ id);
+    }
+    this.update();
+  }
+
+  private renderTitleRecursively(
+      explanationsTree: Protocol.Page.BackForwardCacheNotRestoredExplanationTree, result: LitHtml.TemplateResult,
+      frameId: string): LitHtml.TemplateResult|{} {
+    let num = 0;
+    for (const child of explanationsTree.children) {
+      const str = frameId + '-' + String(num);
+      // clang-format off
+      result = LitHtml.html`
+        ${result}
+        <li id='${str}'  onclick='${this.clickForFrame(str)}'>${explanationsTree.url}</li>
+        ${this.renderTitleRecursively(child, result, str)}`;
+      // clang-format on
+      num++;
+    }
+    return result;
+  }
+
+  private renderExplanationsForCategory(explanations: Protocol.Page.BackForwardCacheNotRestoredExplanation[]):
       LitHtml.TemplateResult|{} {
     if (explanations.length === 0) {
       return LitHtml.nothing;
