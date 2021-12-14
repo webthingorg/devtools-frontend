@@ -33,7 +33,7 @@
   ];
 
   TestRunner.addResult('Tests that audits panel works.\n');
-  await TestRunner.navigatePromise('resources/lighthouse-basic.html');
+  await TestRunner.navigatePromise('resources/lighthouse-sw.html');
 
   await TestRunner.loadTestModule('lighthouse_test_runner');
   await TestRunner.showPanel('lighthouse');
@@ -84,7 +84,7 @@
   // See https://github.com/GoogleChrome/lighthouse/issues/11415
   const devtoolsLog = artifacts.devtoolsLogs.defaultPass;
   const networkResponseRecievedEvents = devtoolsLog.filter(
-      log => log.method === 'Network.responseReceived' && log.params.response.url.endsWith('lighthouse-basic.html'));
+      log => log.method === 'Network.responseReceived' && log.params.response.url.endsWith('lighthouse-sw.html'));
   if (networkResponseRecievedEvents.length !== 1) {
     TestRunner.addResult(`ERROR: Network.responseReceived events for main resource; expected 1, got ${
         networkResponseRecievedEvents.length}`);
