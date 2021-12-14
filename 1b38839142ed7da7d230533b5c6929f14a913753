@@ -16,6 +16,24 @@
       "message": "Please make sure to run the presubmit during uploads. The changes themselves look find to me, but I am mostly stamping.",
       "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bca025_7c39325a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-12-14T00:25:13Z",
+      "side": 1,
+      "message": "the presubmits delete\nfront_end/core/i18n/locales/en-XL.json\nand\nfront_end/core/i18n/locales/en-US.json.\n\nso it\u0027s not possible to have them run, since they block the upload 100% of the time.\nI\u0027ve resolved the comments I think i can get it to generate, but we\u0027ll see.",
+      "parentUuid": "68ac1e1b_c859f83d",
+      "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
