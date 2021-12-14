@@ -34,6 +34,24 @@
       "parentUuid": "68ac1e1b_c859f83d",
       "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904f714e_fa63e389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-14T09:37:45Z",
+      "side": 1,
+      "message": "Hm. That sounds like a bug to me. Do you have Node synced (`gclient sync`)? If you do, do you mind opening a bug for me so that I can investigate and fix the issue? Thanks!",
+      "parentUuid": "85bca025_7c39325a",
+      "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
