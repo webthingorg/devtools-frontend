@@ -52,6 +52,24 @@
       "parentUuid": "85bca025_7c39325a",
       "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15b0dd13_9afb420d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2021-12-15T03:02:17Z",
+      "side": 1,
+      "message": "I\u0027ll open one soon, but I first need to fix the fact that tests can\u0027t even be run if devtools is inside third_party (where it is in a chromium checkout). I\u0027ve made a CL here:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3340471\n\nbut i\u0027m having trouble fighting the bots there too.",
+      "parentUuid": "904f714e_fa63e389",
+      "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
