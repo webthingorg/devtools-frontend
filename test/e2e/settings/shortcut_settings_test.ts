@@ -187,8 +187,7 @@ describe('Shortcuts Settings tab', async () => {
     assert.deepStrictEqual(shortcutInputsText, CONTROL_ALT_C_SHORTCUT_INPUT_TEXT);
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1149346]: should allow users to set a new shortcut after the chord timeout', async () => {
+  it('should allow users to set a new shortcut after the chord timeout', async () => {
     const {frontend} = getBrowserAndPages();
     await enableExperiment('keyboardShortcutEditor');
 

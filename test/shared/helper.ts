@@ -43,6 +43,12 @@ switch (os.platform()) {
 const globalThis: any = global;
 
 /**
+ * Undocumented prefix to selectors to search across shadow doms.
+ * @see {@link https://github.com/puppeteer/puppeteer/pull/6509}
+ **/
+const pierceHandler = 'pierce';
+
+/**
  * Returns an {x, y} position within the element identified by the selector within the root.
  * By default the position is the center of the bounding box. If the element's bounding box
  * extends beyond that of a containing element, this position may not correspond to the element.
@@ -99,12 +105,6 @@ interface PuppeteerClickOptions extends puppeteer.ClickOptions {
 
 export const click = async (selector: string|puppeteer.ElementHandle, options?: ClickOptions) => {
   const {frontend} = getBrowserAndPages();
-  const clickableElement =
-      await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
-
-  if (!clickableElement) {
-    throw new Error(`Unable to locate clickable element "${selector}".`);
-  }
 
   const modifier = platform === 'mac' ? 'Meta' : 'Control';
   if (options?.clickOptions?.modifier) {
@@ -116,7 +116,20 @@ export const click = async (selector: string|puppeteer.ElementHandle, options?: 
   // a 'mousedown' event (not the 'click' event). To avoid attaching the test behavior
   // to a specific event we instead locate the button in question and ask Puppeteer to
   // click on it instead.
-  await frontend.mouse.click(clickableElement.x, clickableElement.y, options && options.clickOptions);
+  if (typeof selector === 'string') {
+    const piercedSelector = selector.startsWith(`${pierceHandler}/`) ? selector : `${pierceHandler}/${selector}`;
+    await frontend.click(piercedSelector, options && options.clickOptions);
+  } else {
+    const clickableElement =
+        await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
+
+    if (!clickableElement) {
+      throw new Error(`Unable to locate clickable element "${selector}".`);
+    }
+
+    await frontend.mouse.click(clickableElement.x, clickableElement.y, options && options.clickOptions);
+  }
+
   if (options?.clickOptions?.modifier) {
     await frontend.keyboard.up(modifier);
   }

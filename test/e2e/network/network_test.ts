@@ -39,8 +39,7 @@ describe('The Network Tab', async function() {
     await setPersistLog(false);
   });
 
-  // Flakey test
-  it.skip('[crbug.com/1093287] displays requests', async () => {
+  it('displays requests', async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
 
     // Wait for all the requests to be displayed + 1 to account for the page itself.
@@ -55,8 +54,7 @@ describe('The Network Tab', async function() {
     assert.deepStrictEqual(names, expectedNames, 'The right request names should appear in the list');
   });
 
-  // Flakey test
-  it.skip('[crbug.com/1093287] can select requests', async () => {
+  it('can select requests', async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
 
     let selected = await getSelectedRequestName();
@@ -76,8 +74,7 @@ describe('The Network Tab', async function() {
     assert.strictEqual(selected, lastRequestName, 'Selecting the last request should work');
   });
 
-  // Flakey test
-  it.skip('[crbug.com/1093287] can persist requests', async () => {
+  it('can persist requests', async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
 
     // Wait for all the requests to be displayed + 1 to account for the page itself, and get their names.
