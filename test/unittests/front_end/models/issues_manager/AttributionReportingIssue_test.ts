@@ -6,7 +6,7 @@ const {assert} = chai;
 
 import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 
 import {MockIssuesModel} from './MockIssuesModel.js';
 

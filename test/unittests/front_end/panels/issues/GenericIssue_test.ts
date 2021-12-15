@@ -7,7 +7,7 @@ const {assert} = chai;
 import * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
 import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 
 describe('GenericIssue', async () => {
   const mockModel = new MockIssuesModel([]) as unknown as SDK.IssuesModel.IssuesModel;
