@@ -79,7 +79,7 @@ export class Settings {
       }
       setting.setRegistration(registration);
 
-      this.registerModuleSetting(setting);
+      this.#registerModuleSetting(setting);
     }
   }
 
@@ -109,7 +109,7 @@ export class Settings {
     settingsInstance = undefined;
   }
 
-  private registerModuleSetting(setting: Setting<unknown>): void {
+  #registerModuleSetting(setting: Setting<unknown>): void {
     const settingName = setting.name;
     const category = setting.category();
     const order = setting.order();
@@ -147,7 +147,7 @@ export class Settings {
   }
 
   createSetting<T>(key: string, defaultValue: T, storageType?: SettingStorageType): Setting<T> {
-    const storage = this.storageFromType(storageType);
+    const storage = this.#storageFromType(storageType);
     let setting = (this.#registry.get(key) as Setting<T>);
     if (!setting) {
       setting = new Setting(key, defaultValue, this.#eventSupport, storage);
@@ -164,7 +164,8 @@ export class Settings {
       RegExpSetting {
     if (!this.#registry.get(key)) {
       this.#registry.set(
-          key, new RegExpSetting(key, defaultValue, this.#eventSupport, this.storageFromType(storageType), regexFlags));
+          key,
+          new RegExpSetting(key, defaultValue, this.#eventSupport, this.#storageFromType(storageType), regexFlags));
     }
     return this.#registry.get(key) as RegExpSetting;
   }
@@ -176,7 +177,7 @@ export class Settings {
     versionSetting.set(VersionController.currentVersion);
   }
 
-  private storageFromType(storageType?: SettingStorageType): SettingsStorage {
+  #storageFromType(storageType?: SettingStorageType): SettingsStorage {
     switch (storageType) {
       case SettingStorageType.Local:
         return this.localStorage;
@@ -361,7 +362,7 @@ export class Setting<V> {
       try {
         this.storage.set(this.name, settingString);
       } catch (e) {
-        this.printSettingsSavingError(e.message, this.name, settingString);
+        this.#printSettingsSavingError(e.message, this.name, settingString);
       }
     } catch (e) {
       Console.instance().error('Cannot stringify setting with name: ' + this.name + ', error: ' + e.message);
@@ -424,7 +425,7 @@ export class Setting<V> {
     return null;
   }
 
-  private printSettingsSavingError(message: string, name: string, value: string): void {
+  #printSettingsSavingError(message: string, name: string, value: string): void {
     const errorMessage =
         'Error saving setting with name: ' + this.name + ', value length: ' + value.length + '. Error: ' + message;
     console.error(errorMessage);
@@ -506,7 +507,7 @@ export class VersionController {
       versionSetting.set(currentVersion);
       return;
     }
-    const methodsToRun = this.methodsToRunToUpdateVersion(oldVersion, currentVersion);
+    const methodsToRun = this.#methodsToRunToUpdateVersion(oldVersion, currentVersion);
     for (const method of methodsToRun) {
       // @ts-ignore Special version method matching
       this[method].call(this);
@@ -514,7 +515,7 @@ export class VersionController {
     versionSetting.set(currentVersion);
   }
 
-  private methodsToRunToUpdateVersion(oldVersion: number, currentVersion: number): string[] {
+  #methodsToRunToUpdateVersion(oldVersion: number, currentVersion: number): string[] {
     const result = [];
     for (let i = oldVersion; i < currentVersion; ++i) {
       result.push('updateVersionFrom' + i + 'To' + (i + 1));
@@ -522,26 +523,26 @@ export class VersionController {
     return result;
   }
 
-  private updateVersionFrom0To1(): void {
-    this.clearBreakpointsWhenTooMany(Settings.instance().createLocalSetting('breakpoints', []), 500000);
+  updateVersionFrom0To1(): void {
+    this.#clearBreakpointsWhenTooMany(Settings.instance().createLocalSetting('breakpoints', []), 500000);
   }
 
-  private updateVersionFrom1To2(): void {
+  updateVersionFrom1To2(): void {
     Settings.instance().createSetting('previouslyViewedFiles', []).set([]);
   }
 
-  private updateVersionFrom2To3(): void {
+  updateVersionFrom2To3(): void {
     Settings.instance().createSetting('fileSystemMapping', {}).set({});
     removeSetting(Settings.instance().createSetting('fileMappingEntries', []));
   }
 
-  private updateVersionFrom3To4(): void {
+  updateVersionFrom3To4(): void {
     const advancedMode = Settings.instance().createSetting('showHeaSnapshotObjectsHiddenProperties', false);
     moduleSetting('showAdvancedHeapSnapshotProperties').set(advancedMode.get());
     removeSetting(advancedMode);
   }
 
-  private updateVersionFrom4To5(): void {
+  updateVersionFrom4To5(): void {
     const settingNames: {
       [x: string]: string,
     } = {
@@ -595,7 +596,7 @@ export class VersionController {
     }
   }
 
-  private updateVersionFrom5To6(): void {
+  updateVersionFrom5To6(): void {
     const settingNames: {
       [x: string]: string,
     } = {
@@ -635,7 +636,7 @@ export class VersionController {
     }
   }
 
-  private updateVersionFrom6To7(): void {
+  updateVersionFrom6To7(): void {
     const settingNames = {
       'sourcesPanelNavigatorSplitViewState': 'sourcesPanelNavigatorSplitViewState',
       'elementsPanelSplitViewState': 'elementsPanelSplitViewState',
@@ -662,10 +663,10 @@ export class VersionController {
     }
   }
 
-  private updateVersionFrom7To8(): void {
+  updateVersionFrom7To8(): void {
   }
 
-  private updateVersionFrom8To9(): void {
+  updateVersionFrom8To9(): void {
     const settingNames = ['skipStackFramesPattern', 'workspaceFolderExcludePattern'];
 
     for (let i = 0; i < settingNames.length; ++i) {
@@ -686,7 +687,7 @@ export class VersionController {
     }
   }
 
-  private updateVersionFrom9To10(): void {
+  updateVersionFrom9To10(): void {
     // This one is localStorage specific, which is fine.
     if (!window.localStorage) {
       return;
@@ -698,7 +699,7 @@ export class VersionController {
     }
   }
 
-  private updateVersionFrom10To11(): void {
+  updateVersionFrom10To11(): void {
     const oldSettingName = 'customDevicePresets';
     const newSettingName = 'customEmulatedDeviceList';
     const oldSetting = Settings.instance().createSetting<unknown>(oldSettingName, undefined);
@@ -739,21 +740,21 @@ export class VersionController {
     removeSetting(oldSetting);
   }
 
-  private updateVersionFrom11To12(): void {
-    this.migrateSettingsFromLocalStorage();
+  updateVersionFrom11To12(): void {
+    this.#migrateSettingsFromLocalStorage();
   }
 
-  private updateVersionFrom12To13(): void {
-    this.migrateSettingsFromLocalStorage();
+  updateVersionFrom12To13(): void {
+    this.#migrateSettingsFromLocalStorage();
     removeSetting(Settings.instance().createSetting('timelineOverviewMode', ''));
   }
 
-  private updateVersionFrom13To14(): void {
+  updateVersionFrom13To14(): void {
     const defaultValue = {'throughput': -1, 'latency': 0};
     Settings.instance().createSetting('networkConditions', defaultValue).set(defaultValue);
   }
 
-  private updateVersionFrom14To15(): void {
+  updateVersionFrom14To15(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders', {});
@@ -770,7 +771,7 @@ export class VersionController {
     setting.set(newValue);
   }
 
-  private updateVersionFrom15To16(): void {
+  updateVersionFrom15To16(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const setting = Settings.instance().createSetting<any>('InspectorView.panelOrder', {});
@@ -781,7 +782,7 @@ export class VersionController {
     setting.set(tabOrders);
   }
 
-  private updateVersionFrom16To17(): void {
+  updateVersionFrom16To17(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const setting = Settings.instance().createSetting<any>('networkConditionsCustomProfiles', []);
@@ -801,7 +802,7 @@ export class VersionController {
     setting.set(newValue);
   }
 
-  private updateVersionFrom17To18(): void {
+  updateVersionFrom17To18(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders', {});
@@ -823,7 +824,7 @@ export class VersionController {
     setting.set(newValue);
   }
 
-  private updateVersionFrom18To19(): void {
+  updateVersionFrom18To19(): void {
     const defaultColumns = {status: true, type: true, initiator: true, size: true, time: true};
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -848,14 +849,14 @@ export class VersionController {
     removeSetting(visibleColumnSettings);
   }
 
-  private updateVersionFrom19To20(): void {
+  updateVersionFrom19To20(): void {
     const oldSetting = Settings.instance().createSetting('InspectorView.panelOrder', {});
     const newSetting = Settings.instance().createSetting('panel-tabOrder', {});
     newSetting.set(oldSetting.get());
     removeSetting(oldSetting);
   }
 
-  private updateVersionFrom20To21(): void {
+  updateVersionFrom20To21(): void {
     const networkColumns = Settings.instance().createSetting('networkLogColumns', {});
     const columns = (networkColumns.get() as {
       [x: string]: string,
@@ -865,7 +866,7 @@ export class VersionController {
     networkColumns.set(columns);
   }
 
-  private updateVersionFrom21To22(): void {
+  updateVersionFrom21To22(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const breakpointsSetting = Settings.instance().createLocalSetting<any>('breakpoints', []);
@@ -877,18 +878,18 @@ export class VersionController {
     breakpointsSetting.set(breakpoints);
   }
 
-  private updateVersionFrom22To23(): void {
+  updateVersionFrom22To23(): void {
     // This update is no-op.
   }
 
-  private updateVersionFrom23To24(): void {
+  updateVersionFrom23To24(): void {
     const oldSetting = Settings.instance().createSetting('searchInContentScripts', false);
     const newSetting = Settings.instance().createSetting('searchInAnonymousAndContentScripts', false);
     newSetting.set(oldSetting.get());
     removeSetting(oldSetting);
   }
 
-  private updateVersionFrom24To25(): void {
+  updateVersionFrom24To25(): void {
     const defaultColumns = {status: true, type: true, initiator: true, size: true, time: true};
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -898,7 +899,7 @@ export class VersionController {
     networkLogColumnsSetting.set(columns);
   }
 
-  private updateVersionFrom25To26(): void {
+  updateVersionFrom25To26(): void {
     const oldSetting = Settings.instance().createSetting('messageURLFilters', {});
     const urls = Object.keys(oldSetting.get());
     const textFilter = urls.map(url => `-url:${url}`).join(' ');
@@ -912,7 +913,7 @@ export class VersionController {
     removeSetting(oldSetting);
   }
 
-  private updateVersionFrom26To27(): void {
+  updateVersionFrom26To27(): void {
     function renameKeyInObjectSetting(settingName: string, from: string, to: string): void {
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -938,14 +939,14 @@ export class VersionController {
     renameInStringSetting('panel-selectedTab', 'audits2', 'audits');
   }
 
-  private updateVersionFrom27To28(): void {
+  updateVersionFrom27To28(): void {
     const setting = Settings.instance().createSetting('uiTheme', 'systemPreferred');
     if (setting.get() === 'default') {
       setting.set('systemPreferred');
     }
   }
 
-  private updateVersionFrom28To29(): void {
+  updateVersionFrom28To29(): void {
     function renameKeyInObjectSetting(settingName: string, from: string, to: string): void {
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -971,7 +972,7 @@ export class VersionController {
     renameInStringSetting('panel-selectedTab', 'audits', 'lighthouse');
   }
 
-  private updateVersionFrom29To30(): void {
+  updateVersionFrom29To30(): void {
     // Create new location agnostic setting
     const closeableTabSetting = Settings.instance().createSetting('closeableTabs', {});
 
@@ -990,14 +991,14 @@ export class VersionController {
     removeSetting(drawerCloseableTabSetting);
   }
 
-  private updateVersionFrom30To31(): void {
+  updateVersionFrom30To31(): void {
     // Remove recorder_recordings setting that was used for storing recordings
     // by an old recorder experiment.
     const recordingsSetting = Settings.instance().createSetting('recorder_recordings', []);
     removeSetting(recordingsSetting);
   }
 
-  private migrateSettingsFromLocalStorage(): void {
+  #migrateSettingsFromLocalStorage(): void {
     // This step migrates all the settings except for the ones below into the browser profile.
     const localSettings = new Set<string>([
       'advancedSearchConfig',
@@ -1027,7 +1028,7 @@ export class VersionController {
     }
   }
 
-  private clearBreakpointsWhenTooMany(breakpointsSetting: Setting<unknown[]>, maxBreakpointsCount: number): void {
+  #clearBreakpointsWhenTooMany(breakpointsSetting: Setting<unknown[]>, maxBreakpointsCount: number): void {
     // If there are too many breakpoints in a storage, it is likely due to a recent bug that caused
     // periodical breakpoints duplication leading to inspector slowness.
     if (breakpointsSetting.get().length > maxBreakpointsCount) {

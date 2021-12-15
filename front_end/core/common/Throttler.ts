@@ -26,16 +26,16 @@ export class Throttler {
     });
   }
 
-  private processCompleted(): void {
-    this.#lastCompleteTime = this.getTime();
+  #processCompleted(): void {
+    this.#lastCompleteTime = this.#getTime();
     this.#isRunningProcess = false;
     if (this.#process) {
-      this.innerSchedule(false);
+      this.#innerSchedule(false);
     }
-    this.processCompletedForTests();
+    this.#processCompletedForTests();
   }
 
-  private processCompletedForTests(): void {
+  #processCompletedForTests(): void {
     // For sniffing in tests.
   }
 
@@ -43,7 +43,7 @@ export class Throttler {
     return this.#process;
   }
 
-  private onTimeout(): void {
+  #onTimeout(): void {
     this.#processTimeout = undefined;
     this.#asSoonAsPossible = false;
     this.#isRunningProcess = true;
@@ -51,7 +51,7 @@ export class Throttler {
     Promise.resolve()
         .then(this.#process)
         .catch(console.error.bind(console))
-        .then(this.processCompleted.bind(this))
+        .then(this.#processCompleted.bind(this))
         .then(this.#scheduleResolve);
     this.#schedulePromise = new Promise(fulfill => {
       this.#scheduleResolve = fulfill;
@@ -65,18 +65,18 @@ export class Throttler {
 
     // Run the first scheduled task instantly.
     const hasScheduledTasks = Boolean(this.#processTimeout) || this.#isRunningProcess;
-    const okToFire = this.getTime() - this.#lastCompleteTime > this.#timeout;
+    const okToFire = this.#getTime() - this.#lastCompleteTime > this.#timeout;
     asSoonAsPossible = Boolean(asSoonAsPossible) || (!hasScheduledTasks && okToFire);
 
     const forceTimerUpdate = asSoonAsPossible && !this.#asSoonAsPossible;
     this.#asSoonAsPossible = this.#asSoonAsPossible || asSoonAsPossible;
 
-    this.innerSchedule(forceTimerUpdate);
+    this.#innerSchedule(forceTimerUpdate);
 
     return this.#schedulePromise as Promise<void>;
   }
 
-  private innerSchedule(forceTimerUpdate: boolean): void {
+  #innerSchedule(forceTimerUpdate: boolean): void {
     if (this.#isRunningProcess) {
       return;
     }
@@ -84,22 +84,22 @@ export class Throttler {
       return;
     }
     if (this.#processTimeout) {
-      this.clearTimeout(this.#processTimeout);
+      this.#clearTimeout(this.#processTimeout);
     }
 
     const timeout = this.#asSoonAsPossible ? 0 : this.#timeout;
-    this.#processTimeout = this.setTimeout(this.onTimeout.bind(this), timeout);
+    this.#processTimeout = this.#setTimeout(this.#onTimeout.bind(this), timeout);
   }
 
-  private clearTimeout(timeoutId: number): void {
+  #clearTimeout(timeoutId: number): void {
     clearTimeout(timeoutId);
   }
 
-  private setTimeout(operation: () => void, timeout: number): number {
+  #setTimeout(operation: () => void, timeout: number): number {
     return window.setTimeout(operation, timeout);
   }
 
-  private getTime(): number {
+  #getTime(): number {
     return window.performance.now();
   }
 }

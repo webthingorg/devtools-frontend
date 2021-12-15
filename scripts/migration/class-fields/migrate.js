@@ -35,6 +35,10 @@ for (const file of files) {
   for (const classNode of classNodes) {
     for (const property of classNode.getInstanceMembers()) {
       const name = property.getStructure().name;
+      // Abstract method definitions
+      if (name === undefined) {
+        continue;
+      }
       console.log(name);
       if (name.startsWith('#') || !property.hasModifier(SyntaxKind.PrivateKeyword)) {
         continue;

@@ -80,17 +80,17 @@ export class Trie {
       }
     }
     const results: string[] = [];
-    this.dfs(node, prefix, results);
+    this.#dfs(node, prefix, results);
     return results;
   }
 
-  private dfs(node: number, prefix: string, results: string[]): void {
+  #dfs(node: number, prefix: string, results: string[]): void {
     if (this.#isWord[node]) {
       results.push(prefix);
     }
     const edges = this.#edges[node];
     for (const edge in edges) {
-      this.dfs(edges[edge], prefix + edge, results);
+      this.#dfs(edges[edge], prefix + edge, results);
     }
   }
 
