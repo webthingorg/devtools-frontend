@@ -99,12 +99,6 @@ interface PuppeteerClickOptions extends puppeteer.ClickOptions {
 
 export const click = async (selector: string|puppeteer.ElementHandle, options?: ClickOptions) => {
   const {frontend} = getBrowserAndPages();
-  const clickableElement =
-      await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
-
-  if (!clickableElement) {
-    throw new Error(`Unable to locate clickable element "${selector}".`);
-  }
 
   const modifier = platform === 'mac' ? 'Meta' : 'Control';
   if (options?.clickOptions?.modifier) {
@@ -116,7 +110,21 @@ export const click = async (selector: string|puppeteer.ElementHandle, options?: 
   // a 'mousedown' event (not the 'click' event). To avoid attaching the test behavior
   // to a specific event we instead locate the button in question and ask Puppeteer to
   // click on it instead.
-  await frontend.mouse.click(clickableElement.x, clickableElement.y, options && options.clickOptions);
+  if (typeof selector === 'string') {
+    // pierced/ prefix will tell Puppeteer to search across shadow doms.
+    const piercedSelector = selector.startsWith('pierced/') ? selector : `pierced/${selector}`;
+    await frontend.click(piercedSelector, options && options.clickOptions);
+  } else {
+    const clickableElement =
+        await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
+
+    if (!clickableElement) {
+      throw new Error(`Unable to locate clickable element "${selector}".`);
+    }
+
+    await frontend.mouse.click(clickableElement.x, clickableElement.y, options && options.clickOptions);
+  }
+
   if (options?.clickOptions?.modifier) {
     await frontend.keyboard.up(modifier);
   }
