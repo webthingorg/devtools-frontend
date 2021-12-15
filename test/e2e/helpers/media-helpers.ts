@@ -27,7 +27,7 @@ export async function playMediaFile(media: string) {
 }
 
 export async function getPlayerButton() {
-  return await waitFor('.player-entry-tree-element');
+  return await waitFor('.player-entry-player-title');
 }
 
 export async function getPlayerButtonText() {

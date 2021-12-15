@@ -14,8 +14,6 @@ describe('Media Tab', () => {
     await openPanelViaMoreTools('Media');
     await playMediaFile('fisch.webm');
     const entryName = await getPlayerButtonText();
-
-    // Names are glitched right now, and display 32-character unguessable tokens.
     assert.strictEqual(entryName.length, 32);
   });
 
