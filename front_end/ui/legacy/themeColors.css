@@ -185,6 +185,10 @@
   --color-evaluated-expression-border: rgb(163 41 34);
   --color-variable-values: #ffe3c7;
   --color-non-breakable-line: rgb(128 128 128 / 40%);
+
+  /* Colors for the Network Panel */
+  --color-network-dom-content-loaded-event: rgb(8 103 203);
+  --color-network-load-event: rgb(179 20 18);
 }
 
 .-theme-with-dark-background {
@@ -326,4 +330,8 @@
   --color-evaluated-expression-border: rgb(221 99 92);
   --color-variable-values: rgb(56 28 0);
   --color-non-breakable-line: rgb(127 127 127 / 40%);
+
+  /* Colors for the Network Panel */
+  --color-network-dom-content-loaded-event: rgb(3 169 244);
+  --color-network-load-event: rgb(237 78 76);
 }
