@@ -688,6 +688,7 @@ export class DataGrid extends HTMLElement {
     const renderableRows = nonHiddenRows.filter((_, idx) => idx >= topVisibleRow && idx <= bottomVisibleRow);
     const indexOfFirstVisibleColumn = this.#columns.findIndex(col => col.visible);
     const anyColumnsSortable = this.#columns.some(col => col.sortable === true);
+    const titleFromValue = (text: string): string => text.length < 25 ? text : text.substr(0, 20) + '\u2026';
 
     await coordinator.write(() => {
       // Disabled until https://crbug.com/1079231 is fixed.
@@ -794,7 +795,7 @@ export class DataGrid extends HTMLElement {
                     style=${LitHtml.Directives.ifDefined(col.styles ? LitHtml.Directives.styleMap(col.styles) : undefined)}
                     tabindex=${cellIsFocusableCell ? '0' : '-1'}
                     aria-colindex=${columnIndex + 1}
-                    title=${cell.title || String(cell.value).substr(0, 20)}
+                    title=${cell.title || titleFromValue(String(cell.value))}
                     data-row-index=${tableRowIndex}
                     data-col-index=${columnIndex}
                     data-grid-value-cell-for-column=${col.id}
