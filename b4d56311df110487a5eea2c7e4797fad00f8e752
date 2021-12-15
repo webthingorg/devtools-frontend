@@ -16,6 +16,40 @@
       "message": "Adding Kim as domain reviewer as well per the CRBug discussion.",
       "revId": "b4d56311df110487a5eea2c7e4797fad00f8e752",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb43145_1595bd6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-15T10:50:04Z",
+      "side": 1,
+      "message": "LGTM % comment. Thanks a lot for fixing this!",
+      "revId": "b4d56311df110487a5eea2c7e4797fad00f8e752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45391316_cc39f2e8",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-15T10:50:04Z",
+      "side": 1,
+      "message": "can we maybe add this to a finally block?",
+      "revId": "b4d56311df110487a5eea2c7e4797fad00f8e752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
