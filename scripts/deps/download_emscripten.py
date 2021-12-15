@@ -1,4 +1,4 @@
-#!/usr/bin/env vpython
+#!/usr/bin/env python3
 #
 # Copyright 2020 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
@@ -9,18 +9,13 @@ testing DevTools with emscripten generated Wasm binaries.
 """
 
 import argparse
-import platform
 import os
+import platform
 import subprocess
 import sys
 import tarfile
-import tempfile
+import urllib.request
 import zipfile
-
-if sys.version_info >= (3, ):
-    from urllib.request import urlretrieve
-else:
-    from urllib import urlretrieve
 
 BS = 8192
 STAMP_FILE = 'build-revision'
@@ -68,9 +63,11 @@ def script_main(args):
                           'zip' if os_name == 'win' else 'tbz2')
 
     try:
-        filename, _ = urlretrieve(url)
+        filename, _ = urllib.request.urlretrieve(url)
 
         unzip(os_name, filename, options.dest)
+
+        urllib.request.urlcleanup()
 
         write_stamp_file(options)
     except Exception as e:
