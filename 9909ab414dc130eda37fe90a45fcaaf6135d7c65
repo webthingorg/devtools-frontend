@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d518b93c_89c0c08e",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-15T11:10:27Z",
+      "side": 1,
+      "message": "playing devil\u0027s advocate, can we use a standard color here? do any of the generic color-syntax-X fit?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 1
+      },
+      "revId": "9909ab414dc130eda37fe90a45fcaaf6135d7c65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
