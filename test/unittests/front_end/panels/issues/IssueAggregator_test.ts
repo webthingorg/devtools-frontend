@@ -12,7 +12,7 @@ import * as Root from '../../../../../front_end/core/root/root.js';
 import {StubIssue} from '../../models/issues_manager/StubIssue.js';
 import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
 import {MockIssuesManager} from '../../models/issues_manager/MockIssuesManager.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {createFakeSetting, enableFeatureForTest} from '../../helpers/EnvironmentHelpers.js';
 
 describe('AggregatedIssue', async () => {
