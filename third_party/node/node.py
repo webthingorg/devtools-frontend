@@ -10,9 +10,18 @@ import sys
 import os
 
 
+def Exec(cmd, output=subprocess.PIPE):
+    return subprocess.Popen(cmd,
+                            cwd=os.getcwd(),
+                            stdout=output,
+                            stderr=output,
+                            universal_newlines=True).communicate()
+
+
 def GetBinaryPath():
+    gclient_root, _ = Exec(['gclient', 'root'])
     return os_path.join(
-        os_path.dirname(__file__), *{
+        gclient_root.strip(), 'src', 'third_party', 'node', *{
             'Darwin': ('mac', 'node-darwin-x64', 'bin', 'node'),
             'Linux': ('linux', 'node-linux-x64', 'bin', 'node'),
             'Windows': ('win', 'node.exe'),
@@ -21,6 +30,8 @@ def GetBinaryPath():
 
 def RunNode(cmd_parts, output=subprocess.PIPE):
     cmd = [GetBinaryPath()] + cmd_parts
+    gclient_root, _ = Exec(['gclient', 'root'])
+    cmd.append('--gclient-root=' + gclient_root.strip())
     process = subprocess.Popen(cmd,
                                cwd=os.getcwd(),
                                stdout=output,
