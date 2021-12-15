@@ -219,7 +219,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper<Event
       return this.#loadOverride(url);
     }
     const parsedURL = new Common.ParsedURL.ParsedURL(url);
-    const eligibleForLoadFromTarget = getLoadThroughTargetSetting().get() && parsedURL && parsedURL.isHttpOrHttps();
+    const eligibleForLoadFromTarget = getLoadThroughTargetSetting().get() && parsedURL && parsedURL.scheme !== 'file';
     Host.userMetrics.developerResourceScheme(this.getDeveloperResourceScheme(parsedURL));
     if (eligibleForLoadFromTarget) {
       try {
