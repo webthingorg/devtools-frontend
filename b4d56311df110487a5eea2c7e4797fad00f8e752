@@ -50,6 +50,24 @@
       "message": "can we maybe add this to a finally block?",
       "revId": "b4d56311df110487a5eea2c7e4797fad00f8e752",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc5cdd9_96d62aa1",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2021-12-15T11:20:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45391316_cc39f2e8",
+      "revId": "b4d56311df110487a5eea2c7e4797fad00f8e752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
