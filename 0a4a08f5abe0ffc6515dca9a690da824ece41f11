@@ -16,6 +16,24 @@
       "message": "change looks good, but there seem to be a web test and a e2e test failure (same e2e test failing on linux + win)",
       "revId": "0a4a08f5abe0ffc6515dca9a690da824ece41f11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "782dbc00_53a6b41e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-15T11:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27c2645e_a483ced2",
+      "revId": "0a4a08f5abe0ffc6515dca9a690da824ece41f11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
