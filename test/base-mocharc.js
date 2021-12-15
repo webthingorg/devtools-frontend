@@ -55,7 +55,8 @@ function createMochaConfig({suiteName, extraMochaConfig = {}}) {
      */
     const rootDirectoryWithPosixSeps = ROOT_DIRECTORY.split(path.sep).join('/');
     const renamedFile = fileName.replace(/\.ts$/, '.js').replace(rootDirectoryWithPosixSeps, '');
-    const generatedFile = path.join('out', target, testSuitePath, renamedFile);
+    const gclientRoot = getTestRunnerConfigSetting('gclient-root');
+    const generatedFile = path.join(gclientRoot, 'src', 'out', target, testSuitePath, renamedFile);
 
     if (!fs.existsSync(generatedFile)) {
       throw new Error(`\n\nERROR RUNNING TESTS:\nTest file missing in "ts_library": ${generatedFile}.
