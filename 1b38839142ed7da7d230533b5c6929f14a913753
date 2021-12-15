@@ -70,6 +70,24 @@
       "parentUuid": "904f714e_fa63e389",
       "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0f34fd_3d16c1e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-12-15T10:13:47Z",
+      "side": 1,
+      "message": "Sorry to hear you are running into issues. While it is technically possible to make patches in a Chromium checkout, we discourage its usage for feature development. For your setup, I recommend the \"Integrated checkout\" to maintain a standalone DevTools project, but managed with gclient: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#integrated-checkout\n\nLet me know if the integrated checkout works for you and whether the presubmit is working as intended.",
+      "parentUuid": "15b0dd13_9afb420d",
+      "revId": "1b38839142ed7da7d230533b5c6929f14a913753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
