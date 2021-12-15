@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import type * as SDK from '../../core/sdk/sdk.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 
 import {Issue, IssueCategory, IssueKind} from './Issue.js';
 import type {MarkdownIssueDescription} from './MarkdownIssueDescription.js';
@@ -12,11 +12,15 @@ export const enum IssueCode {
   DeprecationIssue = 'DeprecationIssue',
 }
 
-export class DeprecationIssue extends Issue<IssueCode> {
+export class DeprecationIssue extends Issue {
   private issueDetails: Protocol.Audits.DeprecationIssueDetails;
 
   constructor(issueDetails: Protocol.Audits.DeprecationIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
-    super(IssueCode.DeprecationIssue, issuesModel);
+    const issueCode = [
+      Protocol.Audits.InspectorIssueCode.DeprecationIssue,
+      issueDetails.deprecationType,
+    ].join('::');
+    super(issueCode, issuesModel);
     this.issueDetails = issueDetails;
   }
 
