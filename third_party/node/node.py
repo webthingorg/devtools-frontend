@@ -3,20 +3,37 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-from os import path as os_path
 import platform
 import subprocess
 import sys
 import os
 
 
+def Exec(cmd, output=subprocess.PIPE):
+    return subprocess.Popen(cmd,
+                            cwd=os.getcwd(),
+                            stdout=output,
+                            stderr=output,
+                            universal_newlines=True).communicate()
+
+
+def GetGclientRoot():
+    # use gclient.py for windows bots!
+    return Exec(['gclient.py', 'root'])[0].strip()
+
+
 def GetBinaryPath():
-    return os_path.join(
-        os_path.dirname(__file__), *{
-            'Darwin': ('mac', 'node-darwin-x64', 'bin', 'node'),
-            'Linux': ('linux', 'node-linux-x64', 'bin', 'node'),
-            'Windows': ('win', 'node.exe'),
-        }[platform.system()])
+    os_postfix = {
+        'Darwin': ('mac', 'node-darwin-x64', 'bin', 'node'),
+        'Linux': ('linux', 'node-linux-x64', 'bin', 'node'),
+        'Windows': ('win', 'node.exe'),
+    }[platform.system()]
+
+    if 'LUCI_CONTEXT' in os.environ:
+        node_prefix = (os.path.dirname(__file__), )
+    else:
+        node_prefix = (GetGclientRoot(), 'src', 'third_party', 'node')
+    return os.path.join(*(node_prefix + os_postfix))
 
 
 def RunNode(cmd_parts, output=subprocess.PIPE):
