@@ -27,7 +27,7 @@ export async function playMediaFile(media: string) {
 }
 
 export async function getPlayerButton() {
-  return await waitFor('.player-entry-tree-element');
+  return await waitFor('.player-entry-player-title');
 }
 
 export async function getPlayerButtonText() {
@@ -37,7 +37,7 @@ export async function getPlayerButtonText() {
 
 export async function waitForPlayerButtonTexts(expectedTexts: (string|RegExp)[]) {
   return waitForFunction(async () => {
-    const playerEntries = await waitForMany('.player-entry-tree-element', 4);
+    const playerEntries = await waitForMany('.player-entry-player-title', 4);
     const texts = await Promise.all(
         playerEntries.map(playerEntry => playerEntry.evaluate(element => element.textContent as string)));
     texts.sort();
