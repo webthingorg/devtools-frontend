@@ -108,6 +108,11 @@ const yargsObject =
           desc: 'Whether to collect code coverage for this test suite',
           default: false,
         })
+        .option('gclient-root', {
+          type: 'string',
+          desc: 'The root directory of the gclient project, containing the src/out/TARGET directory.',
+          default: devtoolsRootPath()
+        })
         .parserConfiguration({
           // So that if we pass --foo-bar, Yargs only populates
           // argv with '--foo-bar', not '--foo-bar' and 'fooBar'.
@@ -128,13 +133,30 @@ function validatePathExistsOrError(nameOfPath, filePath) {
   }
 }
 
-function getAbsoluteTestSuitePath(target) {
+function getGclientAwareTestSuitePath() {
   const pathInput = yargsObject['test-suite-path'];
-  // We take the input with Linux path separators, but need to split and join to make sure this works on Windows.
-  const testSuitePathParts = pathInput.split('/');
-  log(`Using test suite ${path.join(pathInput, path.sep)}`);
+  const rootWithSrc = path.join(yargsObject['gclient-root'], 'src');
+  var testSuitePathParts = pathInput.split('/');
+  if (testSuitePathParts[0] != 'gen') {
+    err('Failed: Test suite path must start with gen/');
+    process.exit(1);
+  }
 
-  const fullPath = path.join(yargsObject['cwd'], 'out', target, ...testSuitePathParts);
+  if (rootWithSrc !== yargsObject['cwd']) {
+    // devtools isn't the gclient root, its a dependency of another project (probably chromium)
+    const testSuiteGenFilesPrefix = yargsObject['cwd'].substring(rootWithSrc.length + 1);
+    // |testSuiteGenFilesPrefix| is already goind to have the right separators, since it comes from
+    // other path specifiers, and not from test-suite-path (which is always using /)
+    testSuitePathParts = [testSuitePathParts[0], testSuiteGenFilesPrefix, ...testSuitePathParts.slice(1)];
+  }
+  return testSuitePathParts.join('/');
+}
+
+function getAbsoluteTestSuitePath(target) {
+  // We take the input with Linux path separators, but need to split and join to make sure this works on Windows.
+  const testSuitePathParts = getGclientAwareTestSuitePath().split('/');
+  const fullPath = path.join(yargsObject['gclient-root'], 'src', 'out', target, ...testSuitePathParts);
+  log(`Using test suite ${path.join(...testSuitePathParts, path.sep)}`);
   return fullPath;
 }
 
@@ -161,7 +183,7 @@ function setNodeModulesPath(nodeModulesPathsInput) {
       }
 
       // Node requires the path to be absolute
-      const absolutePath = path.resolve(path.join(yargsObject['cwd'], nodePath));
+      const absolutePath = path.resolve(path.join(yargsObject['gclient-root'], nodePath));
       validatePathExistsOrError('node-modules-path', nodePath);
       outputPaths.push(absolutePath);
     });
@@ -244,7 +266,7 @@ function main() {
   }
 
   const target = yargsObject['target'];
-  const targetPath = path.join(yargsObject['cwd'], 'out', target);
+  const targetPath = path.join(yargsObject['gclient-root'], 'src', 'out', target);
   validatePathExistsOrError(`Target out/${target}`, targetPath);
 
   /*
@@ -264,6 +286,8 @@ function main() {
       process.exit(1);
     }
   }
+
+  configurationFlags['test-suite-path'] = getGclientAwareTestSuitePath();
 
   /**
    * Expose the configuration to any downstream test runners (Mocha, Conductor,
