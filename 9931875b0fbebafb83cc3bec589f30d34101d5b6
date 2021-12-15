@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe469f63_a063a679",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-15T14:41:30Z",
+      "side": 1,
+      "message": "LGTM. Presumably over time as we migrate we can apply the rule in more places?",
+      "revId": "9931875b0fbebafb83cc3bec589f30d34101d5b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
