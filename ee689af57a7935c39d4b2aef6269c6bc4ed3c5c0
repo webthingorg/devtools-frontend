@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2f8eb61_49eb9917",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-16T06:13:43Z",
+      "side": 1,
+      "message": "nit: I think the sentence is incomplete? \"so that sourceUrl and sourceMappingURL..\"",
+      "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "653264a2_fa347a76",
@@ -31,6 +48,23 @@
       "writtenOn": "2021-12-16T05:23:10Z",
       "side": 1,
       "message": "LGTM with question.",
+      "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e95ca6_9780eece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-16T06:13:43Z",
+      "side": 1,
+      "message": "LGTM",
       "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
