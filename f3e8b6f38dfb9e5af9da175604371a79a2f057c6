@@ -39,6 +39,30 @@
       },
       "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2da2fe8_b847815d",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-16T09:38:40Z",
+      "side": 1,
+      "message": "SGTM, and a good opportunity for me to add my first lint rule.",
+      "parentUuid": "38828ddc_f733a2d5",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
