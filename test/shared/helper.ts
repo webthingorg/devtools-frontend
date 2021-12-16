@@ -84,6 +84,7 @@ export const getElementPosition =
   return {
     x: rectData.left + pixelsFromLeft,
     y: rectData.top + rectData.height * 0.5,
+    element,
   };
 };
 
@@ -105,6 +106,11 @@ export const click = async (selector: string|puppeteer.ElementHandle, options?: 
   if (!clickableElement) {
     throw new Error(`Unable to locate clickable element "${selector}".`);
   }
+
+  // ensure element is scrolled into view
+  await clickableElement.element.evaluate(el => {
+    el.scrollIntoView();
+  });
 
   const modifier = platform === 'mac' ? 'Meta' : 'Control';
   if (options?.clickOptions?.modifier) {

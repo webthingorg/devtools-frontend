@@ -68,8 +68,7 @@ describe('The Elements tab', async () => {
     assert.strictEqual(displayComputedStyle, 'inline');
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1134593] can force :focus state for selected DOM node', async () => {
+  it('can force :focus state for selected DOM node', async () => {
     const {frontend} = getBrowserAndPages();
 
     await goToResource('elements/focus.html');

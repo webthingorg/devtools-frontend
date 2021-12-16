@@ -7,8 +7,7 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {expandSelectedNodeRecursively, getContentOfSelectedNode, waitForContentOfSelectedElementsNode, waitForElementsStyleSection, waitForSelectedNodeChange} from '../helpers/elements-helpers.js';
 
 describe('The Elements tab', async () => {
-  // Flaky test
-  it.skip('[crbug.com/1071851]: can delete elements in the tree', async () => {
+  it('can delete elements in the tree', async () => {
     const {frontend} = getBrowserAndPages();
 
     await goToResource('elements/selection-after-delete.html');
