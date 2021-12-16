@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "983eacf2_4b3588d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T09:35:19Z",
+      "side": 1,
+      "message": "We pull the chromium binary used for test runs in via DEPS. Example CL: https://crrev.com/c/3344586. This happens once per day.",
+      "parentUuid": "f97a3ee3_6b7ea4b2",
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f58ecf7_af8dc73f",
