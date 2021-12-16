@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359fc8da_6640b350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-16T09:05:31Z",
+      "side": 1,
+      "message": "PTAL.\nIf you agree that this is the way to proceed, I\u0027ll update the rest of the file accordingly. Currently there are still a few instances of `const size \u003d Object.keys(Something).length + 1`",
+      "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

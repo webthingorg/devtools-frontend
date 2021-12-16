@@ -16,6 +16,24 @@
       "message": "let\u0027s add some comment instructions about how to add a new value/delete a value and that ids should not be reused?",
       "revId": "4b4d61a5d332d78a437f3a96992346a7756d5e05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ccf139_ee094af3",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-16T09:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea54fbe5_9277676e",
+      "revId": "4b4d61a5d332d78a437f3a96992346a7756d5e05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
