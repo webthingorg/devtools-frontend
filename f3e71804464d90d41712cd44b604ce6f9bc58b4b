@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ec13f8_c6a19998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T06:27:39Z",
+      "side": 1,
+      "message": "code lgtm, but it seems the e2e tests are flaky? Please wait with landing until someone from DevRel has reviewed the issue descriptions!",
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f58ecf7_af8dc73f",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T06:27:39Z",
+      "side": 1,
+      "message": "Please note that these also need to be mirrored in the histograms enum.xml on the chromium side to show up in UMA.\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:tools/metrics/histograms/enums.xml;l\u003d1?q\u003denums.xml\u0026sq\u003d\u0026ss\u003dchromium",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 681,
+        "endChar": 45
+      },
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "487100f0_a31dccc8",
+        "filename": "front_end/models/issues_manager/descriptions/clientHintMetaTagAllowListInvalidOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T06:27:39Z",
+      "side": 1,
+      "message": "Who is the contact on the DevRel side for client hints? We usually like to let DevRel review the issue messages.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 47
+      },
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
