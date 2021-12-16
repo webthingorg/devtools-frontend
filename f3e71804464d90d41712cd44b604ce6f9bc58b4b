@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c2a2ea_2e25cf8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-12-16T09:22:04Z",
+      "side": 1,
+      "message": "I believe that\u0027s because the feature is behind a flag in canary, is there a way to enable the experimental-web-platform-features flag in devtools tests? If not, I can just wait to push until it\u0027s on by default. The exact same code does trigger an issue when tested browser side. https://chromium-review.googlesource.com/c/chromium/src/+/3330709",
+      "parentUuid": "c5ec13f8_c6a19998",
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f58ecf7_af8dc73f",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a29b4ba2_d22550f0",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-12-16T09:22:04Z",
+      "side": 1,
+      "message": "Already in, that\u0027s why I claimed #61 back https://source.chromium.org/chromium/chromium/src/+/main:tools/metrics/histograms/enums.xml;l\u003d21001?q\u003denums.xml\u0026ss\u003dchromium",
+      "parentUuid": "6f58ecf7_af8dc73f",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 681,
+        "endChar": 45
+      },
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "487100f0_a31dccc8",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-12-16T06:27:39Z",
       "side": 1,
       "message": "Who is the contact on the DevRel side for client hints? We usually like to let DevRel review the issue messages.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 47
+      },
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e99c55_c83eb5fb",
+        "filename": "front_end/models/issues_manager/descriptions/clientHintMetaTagAllowListInvalidOrigin.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-12-16T09:22:04Z",
+      "side": 1,
+      "message": "That\u0027s @merewood, will add",
+      "parentUuid": "487100f0_a31dccc8",
       "range": {
         "startLine": 1,
         "startChar": 0,
