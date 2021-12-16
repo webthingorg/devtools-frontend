@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2e7eaa_587989b6",
+        "filename": "front_end/third_party/lighthouse/report-assets/report.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2021-12-16T20:33:04Z",
+      "side": 1,
+      "message": "This one should be removed right?",
+      "revId": "4cd10efe177ebad2c66fe62e5373a2e6d6bb5f0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
