@@ -150,8 +150,8 @@ export class UserMetrics {
   }
 
   issueCreated(code: string): void {
-    const size = Object.keys(IssueCreated).length + 1;
-    const issueCreated = IssueCreated[code];
+    const size = IssueCreated.LastValidEnumPosition + 1;
+    const issueCreated = IssueCreated[code as keyof typeof IssueCreated];
     if (issueCreated === undefined) {
       return;
     }
@@ -534,8 +534,8 @@ export enum IssueOpener {
 /**
  * This list should contain the currently active Devtools Experiments.
  * Therefore, it is possible that the id's will no longer be continuous
- * as experiemnts are removed.
- * When adding a new experiemnt:
+ * as experiments are removed.
+ * When adding a new experiment:
  * 1. Add an entry to the bottom of the list before '__lastValidEnumPosition'
  * 2. Set the value of the new entry and '__lastValidEnumPosition' to
  *    __lastValidEnumPosition + 1
@@ -614,71 +614,80 @@ export const IssueResourceOpened: {
   ContentSecurityPolicyLearnMore: 12,
 };
 
-export const IssueCreated: {
-  [x: string]: number,
-} = {
-  MixedContentIssue: 0,
-  'ContentSecurityPolicyIssue::kInlineViolation': 1,
-  'ContentSecurityPolicyIssue::kEvalViolation': 2,
-  'ContentSecurityPolicyIssue::kURLViolation': 3,
-  'ContentSecurityPolicyIssue::kTrustedTypesSinkViolation': 4,
-  'ContentSecurityPolicyIssue::kTrustedTypesPolicyViolation': 5,
-  'HeavyAdIssue::NetworkTotalLimit': 6,
-  'HeavyAdIssue::CpuTotalLimit': 7,
-  'HeavyAdIssue::CpuPeakLimit': 8,
-  'CrossOriginEmbedderPolicyIssue::CoepFrameResourceNeedsCoepHeader': 9,
-  'CrossOriginEmbedderPolicyIssue::CoopSandboxedIFrameCannotNavigateToCoopPage': 10,
-  'CrossOriginEmbedderPolicyIssue::CorpNotSameOrigin': 11,
-  'CrossOriginEmbedderPolicyIssue::CorpNotSameOriginAfterDefaultedToSameOriginByCoep': 12,
-  'CrossOriginEmbedderPolicyIssue::CorpNotSameSite': 13,
-  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::ReadCookie': 14,
-  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::SetCookie': 15,
-  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::ReadCookie': 16,
-  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::SetCookie': 17,
-  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Secure': 18,
-  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Insecure': 19,
-  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Secure': 20,
-  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Insecure': 21,
-  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Secure': 22,
-  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Insecure': 23,
-  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Secure': 24,
-  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Insecure': 25,
-  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Secure': 26,
-  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Insecure': 27,
-  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Secure': 28,
-  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Insecure': 29,
-  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::ReadCookie': 30,
-  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::SetCookie': 31,
-  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie': 32,
-  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::SetCookie': 33,
-  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::ReadCookie': 34,
-  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::SetCookie': 35,
-  'SharedArrayBufferIssue::TransferIssue': 36,
-  'SharedArrayBufferIssue::CreationIssue': 37,
-  'TrustedWebActivityIssue::kHttpError': 38,
-  'TrustedWebActivityIssue::kUnavailableOffline': 39,
-  'TrustedWebActivityIssue::kDigitalAssetLinks': 40,
-  LowTextContrastIssue: 41,
-  'CorsIssue::InsecurePrivateNetwork': 42,
-  'CorsIssue::InvalidHeaders': 44,
-  'CorsIssue::WildcardOriginWithCredentials': 45,
-  'CorsIssue::PreflightResponseInvalid': 46,
-  'CorsIssue::OriginMismatch': 47,
-  'CorsIssue::AllowCredentialsRequired': 48,
-  'CorsIssue::MethodDisallowedByPreflightResponse': 49,
-  'CorsIssue::HeaderDisallowedByPreflightResponse': 50,
-  'CorsIssue::RedirectContainsCredentials': 51,
-  'CorsIssue::DisallowedByMode': 52,
-  'CorsIssue::CorsDisabledScheme': 53,
-  'CorsIssue::PreflightMissingAllowExternal': 54,
-  'CorsIssue::PreflightInvalidAllowExternal': 55,
-  'CorsIssue::InvalidResponse': 56,
-  'CorsIssue::NoCorsRedirectModeNotFollow': 57,
-  'QuirksModeIssue::QuirksMode': 58,
-  'QuirksModeIssue::LimitedQuirksMode': 59,
-  DeprecationIssue: 60,
-  'CorsIssue::PreflightAllowPrivateNetworkError': 61,
-};
+/**
+ * This list should contain the currently active issue types. It is possible
+ * that the numbers will no longer be continuous as issue types are removed.
+ * When adding a new issue type:
+ * 1. Add an entry to the bottom of the list before 'LastValidEnumPosition'
+ * 2. Increment the value of 'LastValidEnumPosition' by 1 and set the value of
+ *    the new entry to the value of the incremented 'LastValidEnumPosition'.
+ * When removing an issue type, simply delete the line from the enum.
+ */
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum IssueCreated {
+  MixedContentIssue = 0,
+  'ContentSecurityPolicyIssue::kInlineViolation' = 1,
+  'ContentSecurityPolicyIssue::kEvalViolation' = 2,
+  'ContentSecurityPolicyIssue::kURLViolation' = 3,
+  'ContentSecurityPolicyIssue::kTrustedTypesSinkViolation' = 4,
+  'ContentSecurityPolicyIssue::kTrustedTypesPolicyViolation' = 5,
+  'HeavyAdIssue::NetworkTotalLimit' = 6,
+  'HeavyAdIssue::CpuTotalLimit' = 7,
+  'HeavyAdIssue::CpuPeakLimit' = 8,
+  'CrossOriginEmbedderPolicyIssue::CoepFrameResourceNeedsCoepHeader' = 9,
+  'CrossOriginEmbedderPolicyIssue::CoopSandboxedIFrameCannotNavigateToCoopPage' = 10,
+  'CrossOriginEmbedderPolicyIssue::CorpNotSameOrigin' = 11,
+  'CrossOriginEmbedderPolicyIssue::CorpNotSameOriginAfterDefaultedToSameOriginByCoep' = 12,
+  'CrossOriginEmbedderPolicyIssue::CorpNotSameSite' = 13,
+  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::ReadCookie' = 14,
+  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::SetCookie' = 15,
+  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::ReadCookie' = 16,
+  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::SetCookie' = 17,
+  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Secure' = 18,
+  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Insecure' = 19,
+  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Secure' = 20,
+  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Insecure' = 21,
+  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Secure' = 22,
+  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Insecure' = 23,
+  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Secure' = 24,
+  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Insecure' = 25,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Secure' = 26,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Insecure' = 27,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Secure' = 28,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Insecure' = 29,
+  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::ReadCookie' = 30,
+  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::SetCookie' = 31,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie' = 32,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::SetCookie' = 33,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::ReadCookie' = 34,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::SetCookie' = 35,
+  'SharedArrayBufferIssue::TransferIssue' = 36,
+  'SharedArrayBufferIssue::CreationIssue' = 37,
+  'TrustedWebActivityIssue::kHttpError' = 38,
+  'TrustedWebActivityIssue::kUnavailableOffline' = 39,
+  'TrustedWebActivityIssue::kDigitalAssetLinks' = 40,
+  LowTextContrastIssue = 41,
+  'CorsIssue::InsecurePrivateNetwork' = 42,
+  'CorsIssue::InvalidHeaders' = 44,
+  'CorsIssue::WildcardOriginWithCredentials' = 45,
+  'CorsIssue::PreflightResponseInvalid' = 46,
+  'CorsIssue::OriginMismatch' = 47,
+  'CorsIssue::AllowCredentialsRequired' = 48,
+  'CorsIssue::MethodDisallowedByPreflightResponse' = 49,
+  'CorsIssue::HeaderDisallowedByPreflightResponse' = 50,
+  'CorsIssue::RedirectContainsCredentials' = 51,
+  'CorsIssue::DisallowedByMode' = 52,
+  'CorsIssue::CorsDisabledScheme' = 53,
+  'CorsIssue::PreflightMissingAllowExternal' = 54,
+  'CorsIssue::PreflightInvalidAllowExternal' = 55,
+  'CorsIssue::NoCorsRedirectModeNotFollow' = 57,
+  'QuirksModeIssue::QuirksMode' = 58,
+  'QuirksModeIssue::LimitedQuirksMode' = 59,
+  DeprecationIssue = 60,
+  'CorsIssue::PreflightAllowPrivateNetworkError' = 61,
+  LastValidEnumPosition = 61,
+}
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
