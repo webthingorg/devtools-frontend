@@ -182,7 +182,8 @@ export class ProjectStore {
 
   renameUISourceCode(uiSourceCode: UISourceCode, newName: string): void {
     const oldPath = uiSourceCode.url();
-    const newPath = uiSourceCode.parentURL() ? uiSourceCode.parentURL() + '/' + newName : newName;
+    const newPath = uiSourceCode.parentURL() ? uiSourceCode.parentURL() + '/' + encodeURIComponent(newName) :
+                                               encodeURIComponent(newName);
     const value = this.uiSourceCodesMap.get(oldPath) as {
       uiSourceCode: UISourceCode,
       index: number,
