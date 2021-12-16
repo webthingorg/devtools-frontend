@@ -16,6 +16,40 @@
       "message": "Could you take a look, please?",
       "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3993ee8e_7990d6b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-16T05:23:10Z",
+      "side": 1,
+      "message": "LGTM with question.",
+      "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9efe941_9afda3fe",
+        "filename": "test/e2e/sources/worker-relative-sourcemap_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-16T05:23:10Z",
+      "side": 1,
+      "message": "Nit: Do we need this? Or is this copy\u0026paste leftover?",
+      "revId": "ee689af57a7935c39d4b2aef6269c6bc4ed3c5c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
