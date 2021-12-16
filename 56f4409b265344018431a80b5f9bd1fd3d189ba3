@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48e82058_5606ebe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-16T11:17:23Z",
+      "side": 1,
+      "message": "lgtm with Q about the bang ",
+      "revId": "56f4409b265344018431a80b5f9bd1fd3d189ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648f1aa0_d7867f33",
+        "filename": "front_end/panels/performance_monitor/PerformanceMonitor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-16T11:17:23Z",
+      "side": 1,
+      "message": "why the need for the change to add the ! here?\n\nCan we not do #indicators: Map\u003cblah\u003e \u003d new Map() to keep it happy and avoid the bang?",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 52
+      },
+      "revId": "56f4409b265344018431a80b5f9bd1fd3d189ba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
