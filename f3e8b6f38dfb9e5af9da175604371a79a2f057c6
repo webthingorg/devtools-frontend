@@ -16,6 +16,29 @@
       "message": "PTAL.\nIf you agree that this is the way to proceed, I\u0027ll update the rest of the file accordingly. Currently there are still a few instances of `const size \u003d Object.keys(Something).length + 1`",
       "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38828ddc_f733a2d5",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T09:15:45Z",
+      "side": 1,
+      "message": "Alex, Wolfgang: Wdyt to instead set \"LastValidEnumPosition\" always one higher as the current max:\n\n enum SomeMetric {\n   Foo \u003d 1,\n   Bar \u003d 2,\n   MaxValue \u003d 3,\n }\n \nThen we could have a lint rule that checks for:\n \n InspectorFrontendHostInstance.recordEnumeratedHistogram(\n   EnumeratedHistogram.Metric, value, SomeMetric::MaxValue);\n \nWith typescript-eslint we could check that: a) The types of \"value\" is a variant of \"SomeMetric\", and b) that the third argument to `recordEnumeratedHistogram` is always of the form \"\u003cenum\u003e::MaxValue\".",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
