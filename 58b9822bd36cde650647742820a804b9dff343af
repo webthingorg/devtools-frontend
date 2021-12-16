@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9b6db1d_599efcf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2021-12-16T11:31:22Z",
+      "side": 1,
+      "message": "Talked to Rowan offline, we\u0027re good to go but should add a link to https://web.dev/migrate-to-ua-ch/#strategy:-delegating-hints-to-cross-origin-requests once it\u0027s updated",
+      "revId": "58b9822bd36cde650647742820a804b9dff343af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
