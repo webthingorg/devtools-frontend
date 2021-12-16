@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30209dff_567aacc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-16T09:29:08Z",
+      "side": 1,
+      "message": "We have that enabled for e2e tests: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/conductor/hooks.ts;l\u003d92-95;drc\u003d1f80fc8cb715666e8fc6b0f5e0d41f1b1ac8ea4c\n\nMaybe there is some additional feature flag missing? Feel free to add it to hooks.ts as part of this CL.",
+      "parentUuid": "55c2a2ea_2e25cf8a",
+      "revId": "f3e71804464d90d41712cd44b604ce6f9bc58b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f58ecf7_af8dc73f",
