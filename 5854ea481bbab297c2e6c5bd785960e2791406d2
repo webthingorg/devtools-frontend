@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e42ba49_734920d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:19:27Z",
+      "side": 1,
+      "message": "Looks good once test failure is addressed.",
+      "revId": "5854ea481bbab297c2e6c5bd785960e2791406d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac7d531_c5a0cc1d",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:19:27Z",
+      "side": 1,
+      "message": "UrlString?",
+      "range": {
+        "startLine": 851,
+        "startChar": 42,
+        "endLine": 851,
+        "endChar": 55
+      },
+      "revId": "5854ea481bbab297c2e6c5bd785960e2791406d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
