@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13e82cb_69ae5568",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:08:04Z",
+      "side": 1,
+      "message": "A few general comments:\n\n - If the behavior is changing, can you add some tests?\n - Please start applying the branded types to fields and function arguments so that we clearly indicate expected formats.",
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6900be98_a78800bc",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:08:04Z",
+      "side": 1,
+      "message": "I think we actually only want to encode as much as the new ParsedURL helper does. You may want to add a helper for combining paths here, and ideally also apply branded types to newName and filePath to make the required encoding explicit.",
+      "range": {
+        "startLine": 278,
+        "startChar": 36,
+        "endLine": 278,
+        "endChar": 63
+      },
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16de89ad_7379681c",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:08:04Z",
+      "side": 1,
+      "message": "Might make more sense to have these stored as encoded paths rather than raw paths? Also, can the return type of these functions be changed?",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 105
+      },
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87385f97_913eb07b",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T16:08:04Z",
+      "side": 1,
+      "message": "Do this cast when you set url instead.",
+      "range": {
+        "startLine": 353,
+        "startChar": 65,
+        "endLine": 353,
+        "endChar": 100
+      },
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
