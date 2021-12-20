@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adcc66c2_22a2cd9c",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T15:44:24Z",
+      "side": 1,
+      "message": "Can this be made private?",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 41
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e16cee_a453f69e",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T15:44:24Z",
+      "side": 1,
+      "message": "Should this be typed to convert an EncodedPathString to a RawPathString?",
+      "range": {
+        "startLine": 132,
+        "startChar": 48,
+        "endLine": 132,
+        "endChar": 63
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35c10d5_bac62f04",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-20T15:44:24Z",
+      "side": 1,
+      "message": "A round-trip test where the original path has a space would also be nice.",
+      "range": {
+        "startLine": 529,
+        "startChar": 22,
+        "endLine": 529,
+        "endChar": 47
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
