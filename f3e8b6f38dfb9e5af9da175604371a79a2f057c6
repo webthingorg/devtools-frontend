@@ -63,6 +63,30 @@
       },
       "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9753d2_c3d881fa",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-20T16:13:37Z",
+      "side": 1,
+      "message": "I implemented a ESLint check for b) but not for a). I do not think a) is absolutely necessary. Do you have an idea how it could be implemented somewhat easily or do you think it\u0027s fine as it is?",
+      "parentUuid": "e2da2fe8_b847815d",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
