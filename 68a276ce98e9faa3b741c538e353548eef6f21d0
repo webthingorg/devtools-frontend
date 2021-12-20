@@ -16,6 +16,24 @@
       "message": "We no longer need origin I think?",
       "revId": "68a276ce98e9faa3b741c538e353548eef6f21d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a569a0_10bb5180",
+        "filename": "front_end/generated/protocol.d.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10714,
+      "author": {
+        "id": 1525122
+      },
+      "writtenOn": "2021-12-20T09:12:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9135d0cd_00d57c23",
+      "revId": "68a276ce98e9faa3b741c538e353548eef6f21d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
