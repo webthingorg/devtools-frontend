@@ -87,6 +87,30 @@
       },
       "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921e23fb_339c3520",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-12-21T05:29:54Z",
+      "side": 1,
+      "message": "For both checks you need type information. We don\u0027t have those types of lint rules in the code base at the moment but there should be examples around existing ESLint rules (https://www.npmjs.com/package/@typescript-eslint/eslint-plugin see the ones in the table with \"requires type information).\n\nThe current rule would also allow \"someObject.MaxValue\" as the third parameter.\n\nI\u0027m fine with landing the rule as-is but ideally we at least try to get a typed rule working as a follow-up.",
+      "parentUuid": "3e9753d2_c3d881fa",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "f3e8b6f38dfb9e5af9da175604371a79a2f057c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
