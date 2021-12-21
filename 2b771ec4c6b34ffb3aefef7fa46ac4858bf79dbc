@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a58e797_a3ff9474",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-12-21T10:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcc66c2_22a2cd9c",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 41
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67e16cee_a453f69e",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d45ffea2_b270200b",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-12-21T10:54:59Z",
+      "side": 1,
+      "message": "I guess not: here for instance an encoded UrlString is just decoded (still remains a Url afterwards) https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3344913/5/front_end/core/common/ParsedURL.ts#160\n\nAnd in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3344916 a path is fed into decodeSpecialCharactersInPath",
+      "parentUuid": "67e16cee_a453f69e",
+      "range": {
+        "startLine": 132,
+        "startChar": 48,
+        "endLine": 132,
+        "endChar": 63
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d35c10d5_bac62f04",
         "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
         "patchSetId": 8
@@ -60,6 +108,30 @@
       "writtenOn": "2021-12-20T15:44:24Z",
       "side": 1,
       "message": "A round-trip test where the original path has a space would also be nice.",
+      "range": {
+        "startLine": 529,
+        "startChar": 22,
+        "endLine": 529,
+        "endChar": 47
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68d1c4d_1c770c3e",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-12-21T10:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d35c10d5_bac62f04",
       "range": {
         "startLine": 529,
         "startChar": 22,
