@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d53e517c_fcca1355",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-12-21T11:12:15Z",
+      "side": 1,
+      "message": "I guess I don\u0027t see the point in having a wrapper around decodeURIComponent that is untyped. I do think you should have an encodedPathToRawPathString helper that deals with branded types for the situations where you are converting paths. For the case where you are normalizing file:// URLStrings you could just call decodeURIComponent directly.",
+      "parentUuid": "d45ffea2_b270200b",
+      "range": {
+        "startLine": 132,
+        "startChar": 48,
+        "endLine": 132,
+        "endChar": 63
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d35c10d5_bac62f04",
         "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
         "patchSetId": 8
