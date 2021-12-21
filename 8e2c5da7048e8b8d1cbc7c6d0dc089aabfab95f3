@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6bc1050_da313dd4",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-21T16:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dace351c_42c076ef",
+      "revId": "8e2c5da7048e8b8d1cbc7c6d0dc089aabfab95f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0830d1e_72f2de25",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-16T10:09:17Z",
       "side": 1,
       "message": "You\u0027ll need to send the UMA code independently (e.g., https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/issues_manager/QuirksModeIssue.ts;l\u003d27) if you do this right? It should stay just `DeprecationIssue` so that new issues don\u0027t need to propagate code changes to the frontend.",
+      "revId": "8e2c5da7048e8b8d1cbc7c6d0dc089aabfab95f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5503dd89_f230d1f3",
+        "filename": "front_end/models/issues_manager/DeprecationIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-21T16:17:08Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "e0830d1e_72f2de25",
       "revId": "8e2c5da7048e8b8d1cbc7c6d0dc089aabfab95f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
