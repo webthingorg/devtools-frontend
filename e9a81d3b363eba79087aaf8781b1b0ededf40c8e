@@ -33,6 +33,24 @@
       "message": "Do we need a separate icon for this, or can we use CSS to fill it in when required?\n\nIf we need separate icon, this LGTM :)",
       "revId": "e9a81d3b363eba79087aaf8781b1b0ededf40c8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "716908e2_8d9e561f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-12-21T14:54:53Z",
+      "side": 1,
+      "message": "The problem with removing the background of the old SVG is the surrounding circle would be lost (this circle is another difference between the two icons).",
+      "parentUuid": "9c849e6c_14d200e4",
+      "revId": "e9a81d3b363eba79087aaf8781b1b0ededf40c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
