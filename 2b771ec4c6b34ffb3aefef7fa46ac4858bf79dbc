@@ -119,6 +119,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f438477c_45b89bb2",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2021-12-21T12:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d53e517c_fcca1355",
+      "range": {
+        "startLine": 132,
+        "startChar": 48,
+        "endLine": 132,
+        "endChar": 63
+      },
+      "revId": "2b771ec4c6b34ffb3aefef7fa46ac4858bf79dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d35c10d5_bac62f04",
