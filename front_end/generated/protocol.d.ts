@@ -1029,6 +1029,71 @@ declare namespace Protocol {
       frameId?: Page.FrameId;
     }
 
+    export const enum DeprecationIssueType {
+      AuthorizationCoveredByWildcard = 'AuthorizationCoveredByWildcard',
+      CanRequestURLHTTPContainingNewline = 'CanRequestURLHTTPContainingNewline',
+      ChromeLoadTimesConnectionInfo = 'ChromeLoadTimesConnectionInfo',
+      ChromeLoadTimesFirstPaintAfterLoadTime = 'ChromeLoadTimesFirstPaintAfterLoadTime',
+      ChromeLoadTimesWasAlternateProtocolAvailable = 'ChromeLoadTimesWasAlternateProtocolAvailable',
+      CrossOriginWindowAlert = 'CrossOriginWindowAlert',
+      CrossOriginWindowConfirm = 'CrossOriginWindowConfirm',
+      CrossOriginWindowPrompt = 'CrossOriginWindowPrompt',
+      CSSSelectorInternalMediaControlsOverlayCastButton = 'CSSSelectorInternalMediaControlsOverlayCastButton',
+      CssStyleSheetReplaceWithImport = 'CssStyleSheetReplaceWithImport',
+      CustomCursorIntersectsViewport = 'CustomCursorIntersectsViewport',
+      DocumentDomainSettingWithoutOriginAgentClusterHeader = 'DocumentDomainSettingWithoutOriginAgentClusterHeader',
+      GeolocationInsecureOrigin = 'GeolocationInsecureOrigin',
+      GeolocationInsecureOriginDeprecatedNotRemoved = 'GeolocationInsecureOriginDeprecatedNotRemoved',
+      GetUserMediaInsecureOrigin = 'GetUserMediaInsecureOrigin',
+      HostCandidateAttributeGetter = 'HostCandidateAttributeGetter',
+      InsecurePrivateNetworkSubresourceRequest = 'InsecurePrivateNetworkSubresourceRequest',
+      LocalCSSFileExtensionRejected = 'LocalCSSFileExtensionRejected',
+      MediaElementAudioSourceNode = 'MediaElementAudioSourceNode',
+      MediaSourceAbortRemove = 'MediaSourceAbortRemove',
+      MediaSourceDurationTruncatingBuffered = 'MediaSourceDurationTruncatingBuffered',
+      MediaStreamAudioDestinationNode = 'MediaStreamAudioDestinationNode',
+      MediaStreamAudioSourceNode = 'MediaStreamAudioSourceNode',
+      NoSysexWebMIDIWithoutPermission = 'NoSysexWebMIDIWithoutPermission',
+      NotDeprecated = 'NotDeprecated',
+      NotificationInsecureOrigin = 'NotificationInsecureOrigin',
+      NotificationPermissionRequestedIframe = 'NotificationPermissionRequestedIframe',
+      ObsoleteWebRtcCipherSuite = 'ObsoleteWebRtcCipherSuite',
+      OpenWebDatabaseThirdPartyContext = 'OpenWebDatabaseThirdPartyContext',
+      PaymentRequestBasicCard = 'PaymentRequestBasicCard',
+      PaymentRequestShowWithoutGesture = 'PaymentRequestShowWithoutGesture',
+      PictureSourceSrc = 'PictureSourceSrc',
+      PrefixedCancelAnimationFrame = 'PrefixedCancelAnimationFrame',
+      PrefixedRequestAnimationFrame = 'PrefixedRequestAnimationFrame',
+      PrefixedStorageInfo = 'PrefixedStorageInfo',
+      PrefixedVideoDisplayingFullscreen = 'PrefixedVideoDisplayingFullscreen',
+      PrefixedVideoEnterFullscreen = 'PrefixedVideoEnterFullscreen',
+      PrefixedVideoEnterFullScreen = 'PrefixedVideoEnterFullScreen',
+      PrefixedVideoExitFullscreen = 'PrefixedVideoExitFullscreen',
+      PrefixedVideoSupportsFullscreen = 'PrefixedVideoSupportsFullscreen',
+      PrefixedWindowURL = 'PrefixedWindowURL',
+      RangeExpand = 'RangeExpand',
+      RequestedSubresourceWithEmbeddedCredentials = 'RequestedSubresourceWithEmbeddedCredentials',
+      RTCConstraintEnableDtlsSrtpFalse = 'RTCConstraintEnableDtlsSrtpFalse',
+      RTCConstraintEnableDtlsSrtpTrue = 'RTCConstraintEnableDtlsSrtpTrue',
+      RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics =
+          'RTCPeerConnectionComplexPlanBSdpUsingDefaultSdpSemantics',
+      RTCPeerConnectionSdpSemanticsPlanB = 'RTCPeerConnectionSdpSemanticsPlanB',
+      RTCPeerConnectionSdpSemanticsPlanBWithReverseOriginTrial =
+          'RTCPeerConnectionSdpSemanticsPlanBWithReverseOriginTrial',
+      RtcpMuxPolicyNegotiate = 'RtcpMuxPolicyNegotiate',
+      RtpDataChannel = 'RtpDataChannel',
+      SelectionAddRangeIntersect = 'SelectionAddRangeIntersect',
+      SharedArrayBufferConstructedWithoutIsolation = 'SharedArrayBufferConstructedWithoutIsolation',
+      TextToSpeech_DisallowedByAutoplay = 'TextToSpeech_DisallowedByAutoplay',
+      V8SharedArrayBufferConstructedInExtensionWithoutIsolation =
+          'V8SharedArrayBufferConstructedInExtensionWithoutIsolation',
+      WebCodecsVideoFrameDefaultTimestamp = 'WebCodecsVideoFrameDefaultTimestamp',
+      XHRJSONEncodingDetection = 'XHRJSONEncodingDetection',
+      XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload =
+          'XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload',
+      XRSupportsSession = 'XRSupportsSession',
+    }
+
     /**
      * This issue tracks information needed to print a deprecation message.
      * The formatting is inherited from the old console.log version, see more at:
@@ -1047,6 +1112,7 @@ declare namespace Protocol {
        * https://www.chromestatus.com/feature/5684870116278272 for more details."
        */
       message?: string;
+      deprecationType: string;
     }
 
     export const enum ClientHintIssueReason {
@@ -2884,6 +2950,10 @@ declare namespace Protocol {
       ScrollbarCorner = 'scrollbar-corner',
       Resizer = 'resizer',
       InputListButton = 'input-list-button',
+      Transition = 'transition',
+      TransitionContainer = 'transition-container',
+      TransitionOldContent = 'transition-old-content',
+      TransitionNewContent = 'transition-new-content',
     }
 
     /**
