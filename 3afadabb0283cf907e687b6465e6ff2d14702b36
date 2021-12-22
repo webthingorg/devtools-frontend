@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ec102f5_38f8fc48",
+        "filename": "front_end/ui/components/input/checkbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-22T12:23:25Z",
+      "side": 1,
+      "message": "I\u0027d lean towards not but don\u0027t feel strongly here.",
+      "parentUuid": "9a1eb7cd_121cb21f",
+      "revId": "3afadabb0283cf907e687b6465e6ff2d14702b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c766f8d4_3b7d089e",
         "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2021-12-22T12:19:35Z",
       "side": 1,
       "message": "should we import via the entrypoint?\n\nAlso, probably, the BUILD.gn in this module needs to be updated?",
+      "revId": "3afadabb0283cf907e687b6465e6ff2d14702b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53e322b_39146f3f",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-12-22T12:23:25Z",
+      "side": 1,
+      "message": "Ah sorry I missed that we already had input/input.ts. We should stick with that convention.",
+      "parentUuid": "c766f8d4_3b7d089e",
       "revId": "3afadabb0283cf907e687b6465e6ff2d14702b36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
