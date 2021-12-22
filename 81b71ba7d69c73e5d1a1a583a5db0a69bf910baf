@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d370d0_8026572c",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-12-22T03:21:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "876558f1_74993b65",
+      "revId": "81b71ba7d69c73e5d1a1a583a5db0a69bf910baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e210190_2f81bb3a",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19fcc741_de37a96b",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-12-22T03:21:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e210190_2f81bb3a",
+      "revId": "81b71ba7d69c73e5d1a1a583a5db0a69bf910baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0482f11c_afad65e7",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-12-21T15:47:15Z",
       "side": 1,
       "message": "Out-Of-Memory? Maybe this should not be abbreviated here for web devs.",
+      "revId": "81b71ba7d69c73e5d1a1a583a5db0a69bf910baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca66e5ce_cc2cb9de",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2021-12-22T03:21:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0482f11c_afad65e7",
       "revId": "81b71ba7d69c73e5d1a1a583a5db0a69bf910baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
