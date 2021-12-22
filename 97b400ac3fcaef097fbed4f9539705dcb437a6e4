@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a620f5_6bf41ca2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-12-22T10:33:39Z",
+      "side": 1,
+      "message": "Please take a look. The motivation is explained here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1253867#c6",
+      "revId": "97b400ac3fcaef097fbed4f9539705dcb437a6e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
