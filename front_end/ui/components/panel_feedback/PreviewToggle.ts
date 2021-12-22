@@ -8,6 +8,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as IconButton from '../icon_button/icon_button.js';
 
+import checkboxStyles from '../input/checkbox.css.js';
 import previewToggleStyles from './previewToggle.css.js';
 
 const {render, html, nothing} = LitHtml;
@@ -41,7 +42,7 @@ export class PreviewToggle extends HTMLElement {
   #onChangeCallback?: (checked: boolean) => void;
 
   connectedCallback(): void {
-    this.#shadow.adoptedStyleSheets = [previewToggleStyles];
+    this.#shadow.adoptedStyleSheets = [checkboxStyles, previewToggleStyles];
   }
 
   set data(data: PreviewToggleData) {
