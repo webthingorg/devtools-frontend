@@ -22,3 +22,9 @@ x-link { /* stylelint-disable-line selector-type-no-unknown */
   color: var(--color-primary);
   text-decoration-line: underline;
 }
+
+input [type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  accent-color: var(--color-checkbox-accent-color);
+}
