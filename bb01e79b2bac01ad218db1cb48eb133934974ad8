@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a8067e_eba96a70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-23T14:43:28Z",
+      "side": 1,
+      "message": "As per chat discussion: `String.replaceAll()` is the best fit here.",
+      "revId": "bb01e79b2bac01ad218db1cb48eb133934974ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
