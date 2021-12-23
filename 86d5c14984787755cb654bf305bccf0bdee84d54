@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a15ca98a_d79ba115",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-23T10:08:57Z",
+      "side": 1,
+      "message": "PTAL. I think we might need some extra tests around the change listener.",
+      "parentUuid": "e08a2e62_cca23fe6",
+      "range": {
+        "startLine": 241,
+        "startChar": 8,
+        "endLine": 241,
+        "endChar": 16
+      },
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f60fed9_562120a7",
         "filename": "front_end/core/common/Settings.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-26T08:40:24Z",
       "side": 1,
       "message": "In case we call `forceGet` on an unchanged setting, we would remove the setting from the cache and sub-sequent `get` calls would return undefined.",
+      "range": {
+        "startLine": 247,
+        "startChar": 6,
+        "endLine": 247,
+        "endChar": 32
+      },
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3415cd18_14f64018",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-23T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f60fed9_562120a7",
       "range": {
         "startLine": 247,
         "startChar": 6,
@@ -95,6 +143,24 @@
       "side": 1,
       "message": "This one can be used when the latest value needs to be retrieved from the backend. The other method always takes the value from the local cache populated on the tab startup. Unfortunately, the recorder panel is using the preferences service to store the recordings (inspired by the snippets in the sources panel). But the mechanism has a major drawback that it may lead to a data loss when the recorder panel (or the snippets for that matter) is used concurrently from multiple tabs. See go/recorder-storage for some more thoughts on this.",
       "parentUuid": "a62b8503_05977c0b",
+      "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4bef21f_fd26df5c",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-12-23T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fda29be6_da7846ca",
       "revId": "86d5c14984787755cb654bf305bccf0bdee84d54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
