@@ -9,6 +9,10 @@ group("bundle") {
     ":codemirror.next-compilation",
     ":codemirror.next-sources",
   ]
+
+  metadata = {
+    devtools_licenses = [rebase_path(target_gen_dir, root_gen_dir)]
+  }
 }
 
 devtools_pre_built("codemirror.next-sources") {

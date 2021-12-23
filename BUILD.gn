@@ -157,3 +157,10 @@ action("generate_devtools_grd") {
     args += [ "--compress" ]
   }
 }
+
+generated_file("licenses") {
+  outputs = [ "$target_gen_dir/licenses.json" ]
+  data_keys = [ "devtools_licenses" ]
+  output_conversion = "json"
+  deps = [ ":generate_devtools_grd" ]
+}
