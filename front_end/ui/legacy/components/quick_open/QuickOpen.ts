@@ -12,7 +12,7 @@ const UIStrings = {
   /**
   * @description Text of the hint shows under Quick Open input box
   */
-  useTabToSwitchCommandsTypeToSeeAvailableCommands: 'Use Tab to switch commands. Type \'?\' to see available commands',
+  useTabToSwitchCommandsTypeToSeeAvailableCommands: 'Type \'?\' to see available commands',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/QuickOpen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
