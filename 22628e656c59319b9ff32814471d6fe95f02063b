@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41eb10c5_1644d8ed",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T14:40:37Z",
+      "side": 1,
+      "message": "With this rewrite (nice!), we might as well use String#matchAll :)",
+      "revId": "22628e656c59319b9ff32814471d6fe95f02063b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
