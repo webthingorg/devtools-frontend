@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d946e60a_08b78d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-27T10:11:23Z",
+      "side": 1,
+      "message": "PTAL.\n\nThis does not fix the root cause of the crasher, it only prevents users from encountering it by chance (they could still force triggering it if they wanted to).\nDo you think this needs a more proper fix or is this acceptable?",
+      "revId": "fc1b73acf472909e36ba7bb205e8fd2c0e3e12ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "174fcddf_9e68d2dd",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-27T10:11:23Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether this is the best way to check that we\u0027re in DevTools on DevTools. Another option would be to check whether `this.#frame.url` starts with `devtools://`.",
+      "revId": "fc1b73acf472909e36ba7bb205e8fd2c0e3e12ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
