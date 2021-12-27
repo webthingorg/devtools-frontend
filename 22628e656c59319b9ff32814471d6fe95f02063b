@@ -16,6 +16,24 @@
       "message": "With this rewrite (nice!), we might as well use String#matchAll :)",
       "revId": "22628e656c59319b9ff32814471d6fe95f02063b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae0959da_7e0a30b2",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T15:43:04Z",
+      "side": 1,
+      "message": "`matchAll` would only work if the input wouldn\u0027t change, but since %s substitutions can themselves contain more formatting specifiers, we need to do this dance. 😎",
+      "parentUuid": "41eb10c5_1644d8ed",
+      "revId": "22628e656c59319b9ff32814471d6fe95f02063b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
