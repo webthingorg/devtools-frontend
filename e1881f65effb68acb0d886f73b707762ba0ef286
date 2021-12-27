@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3afad00a_2bee7987",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f682a85_201940eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "nit: remove space",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d588899d_e0af7aae",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "non-blocking code size nits (since I understand this code might still change as part of crbug/1282837):\n\n1. We could remove the spaces after the `:` in each value. (no-brainer)\n2. We could also use the `background` shorthand property instead of `background-color` since we’re sure the wrapper elements won’t get any other `background-*` properties anyway.\n3. To remove the repetition of `color`/`background-color` altogether, we could also maintain two maps, one for `color` and one for `background-color`, so we’d only have to store the CSS property values in each of them.",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13015b9a_03caa984",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "nit: \\x1B",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b4234d_472b8323",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "nit: unnecessary parens. (They don\u0027t really help readability IMHO since it’s just a single condition in this case)",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd420838_65958ebb",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "Instead of hardcoding these three style declarations (which are otherwise unrelated to this logic) here, let’s apply a CSS class and define the styles in CSS. Makes for a nicer separation between logic and styling IMHO. WDYT?",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2dff6b0_3e5447a6",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "nit: I think we can omit `.entries` here since it’s the default for `Map`s",
+      "range": {
+        "startLine": 897,
+        "startChar": 70,
+        "endLine": 897,
+        "endChar": 80
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56ac1284_e0824fd1",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "simpler:\n\n    buffer.style \u003d token.value;",
+      "range": {
+        "startLine": 911,
+        "startChar": 16,
+        "endLine": 911,
+        "endChar": 52
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a60a326_43d440fe",
+        "filename": "test/unittests/front_end/panels/console/ConsoleFormat_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-27T10:49:14Z",
+      "side": 1,
+      "message": "nit: \\u001b → \\x1B (here and below, similar for other `\\u00XX` escapes)",
+      "range": {
+        "startLine": 180,
+        "startChar": 65,
+        "endLine": 180,
+        "endChar": 71
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
