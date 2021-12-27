@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23c5254_4236073e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3afad00a_2bee7987",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f682a85_201940eb",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-27T10:49:14Z",
       "side": 1,
       "message": "nit: remove space",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900d91a7_0304bce6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f682a85_201940eb",
       "range": {
         "startLine": 19,
         "startChar": 14,
@@ -81,6 +129,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a1a1a89_ca45500c",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Went for 1. and 2. for now.",
+      "parentUuid": "d588899d_e0af7aae",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13015b9a_03caa984",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-12-27T10:49:14Z",
       "side": 1,
       "message": "nit: \\x1B",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd29a019_be326820",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13015b9a_03caa984",
       "range": {
         "startLine": 86,
         "startChar": 18,
@@ -121,6 +211,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ae2379_b169b9d5",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59b4234d_472b8323",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd420838_65958ebb",
@@ -138,6 +246,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0eaf4a_46400169",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "I\u0027m sticking to this for now to minimize the (observable) delta to the previous state (that is to say, to focus on the refactoring of the algorithm here).",
+      "parentUuid": "dd420838_65958ebb",
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2dff6b0_3e5447a6",
@@ -151,6 +277,30 @@
       "writtenOn": "2021-12-27T10:49:14Z",
       "side": 1,
       "message": "nit: I think we can omit `.entries` here since it’s the default for `Map`s",
+      "range": {
+        "startLine": 897,
+        "startChar": 70,
+        "endLine": 897,
+        "endChar": 80
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9b4b4a_f7c3ce98",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2dff6b0_3e5447a6",
       "range": {
         "startLine": 897,
         "startChar": 70,
@@ -184,6 +334,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8b1b78_988aaecb",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "TypeScript doesn\u0027t like that, complaining that `style` is a read-only property. 😕",
+      "parentUuid": "56ac1284_e0824fd1",
+      "range": {
+        "startLine": 911,
+        "startChar": 16,
+        "endLine": 911,
+        "endChar": 52
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a60a326_43d440fe",
@@ -197,6 +371,30 @@
       "writtenOn": "2021-12-27T10:49:14Z",
       "side": 1,
       "message": "nit: \\u001b → \\x1B (here and below, similar for other `\\u00XX` escapes)",
+      "range": {
+        "startLine": 180,
+        "startChar": 65,
+        "endLine": 180,
+        "endChar": 71
+      },
+      "revId": "e1881f65effb68acb0d886f73b707762ba0ef286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "511954db_476fbc43",
+        "filename": "test/unittests/front_end/panels/console/ConsoleFormat_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-27T14:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a60a326_43d440fe",
       "range": {
         "startLine": 180,
         "startChar": 65,
