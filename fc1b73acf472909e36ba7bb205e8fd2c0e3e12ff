@@ -33,6 +33,24 @@
       "message": "I\u0027m not sure whether this is the best way to check that we\u0027re in DevTools on DevTools. Another option would be to check whether `this.#frame.url` starts with `devtools://`.",
       "revId": "fc1b73acf472909e36ba7bb205e8fd2c0e3e12ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691c67a9_24a8c66b",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-12-27T11:26:48Z",
+      "side": 1,
+      "message": "I think checking that the url starts with devtools:// might be safer.",
+      "parentUuid": "174fcddf_9e68d2dd",
+      "revId": "fc1b73acf472909e36ba7bb205e8fd2c0e3e12ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
