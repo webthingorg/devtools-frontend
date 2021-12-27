@@ -33,6 +33,24 @@
       "message": "nit: would there be a reason for this `enabled` param to be optional? At the call sites we can say `emulateAutoDarkMode()`, `emulateAutoDarkMode(false)`, and `emulateAutoDarkMode(true)`, and I find it a little bit confusing.",
       "revId": "d6bf5c11e0862dde3b651d57b4b21a3930128dbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92aceb6c_669b3c2c",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-27T14:19:44Z",
+      "side": 1,
+      "message": "yeah that is a bit confusing. It was chosen to mirror the CDP API where undefined means \"clear existing override\". Since we don\u0027t need to ever explicitly disable autodark mode I have refactored this and added a comment to explain.",
+      "parentUuid": "a634f957_989243f7",
+      "revId": "d6bf5c11e0862dde3b651d57b4b21a3930128dbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
