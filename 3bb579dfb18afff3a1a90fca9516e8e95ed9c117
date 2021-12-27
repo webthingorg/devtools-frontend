@@ -16,6 +16,23 @@
       "message": "PTAL, sorry I missed this one in the last CL! Now with this one, we have all the reasons covered.",
       "revId": "3bb579dfb18afff3a1a90fca9516e8e95ed9c117",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feb076d1_4df55d04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-27T07:56:55Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3bb579dfb18afff3a1a90fca9516e8e95ed9c117",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
