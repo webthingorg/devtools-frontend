@@ -1398,7 +1398,7 @@ function createTopbarComponent(dom) {
   el40.setAttribute('href', '#');
   el40.setAttribute('data-i18n', 'dropdownCopyJSON');
   el40.setAttribute('data-action', 'copy');
-  const el41 = dom.createElement('a', 'lh-report-icon lh-report-icon--download');
+  const el41 = dom.createElement('a', 'lh-report-icon lh-report-icon--download lh-hidden');
   el41.setAttribute('role', 'menuitem');
   el41.setAttribute('tabindex', '-1');
   el41.setAttribute('href', '#');
@@ -1428,7 +1428,7 @@ function createTopbarComponent(dom) {
   el45.setAttribute('href', '#');
   el45.setAttribute('data-i18n', 'dropdownDarkTheme');
   el45.setAttribute('data-action', 'toggle-dark');
-  el37.append(' ', el38, ' ', el39, ' ', el40, ' ', el41, ' ', el42, ' ', el43, ' ', el44, ' ', el45, ' ');
+  el37.append(' ', el38, ' ', el39, ' ', el40, ' ', ' ', el41, ' ', el42, ' ', el43, ' ', el44, ' ', el45, ' ');
   el26.append(' ', el27, ' ', el33, ' ', el37, ' ');
   el2.append(' ', ' ', el3, ' ', el25, ' ', el26, ' ');
   el0.append(el2);
@@ -1772,10 +1772,8 @@ class DOM {
    * @param {string} filename
    */
   saveFile(blob, filename) {
-    const ext = blob.type.match('json') ? '.json' : '.html';
-
     const a = this.createElement('a');
-    a.download = `${filename}${ext}`;
+    a.download = filename;
     this.safelySetBlobHref(a, blob);
     this._document.body.appendChild(a); // Firefox requires anchor to be in the DOM.
     a.click();
@@ -2260,7 +2258,7 @@ class CategoryRenderer {
    * @return {boolean}
    */
   _auditHasWarning(audit) {
-    return Boolean(audit.result.warnings && audit.result.warnings.length);
+    return Boolean(audit.result.warnings?.length);
   }
 
   /**
@@ -4176,8 +4174,8 @@ class PerformanceCategoryRenderer extends CategoryRenderer {
     // Filmstrip
     const timelineEl = this.dom.createChildOf(element, 'div', 'lh-filmstrip-container');
     const thumbnailAudit = category.auditRefs.find(audit => audit.id === 'screenshot-thumbnails');
-    const thumbnailResult = thumbnailAudit && thumbnailAudit.result;
-    if (thumbnailResult && thumbnailResult.details) {
+    const thumbnailResult = thumbnailAudit?.result;
+    if (thumbnailResult?.details) {
       timelineEl.id = thumbnailResult.id;
       const filmstripEl = this.detailsRenderer.render(thumbnailResult.details);
       filmstripEl && timelineEl.appendChild(filmstripEl);
@@ -4252,7 +4250,7 @@ class PerformanceCategoryRenderer extends CategoryRenderer {
     const budgetTableEls = [];
     ['performance-budget', 'timing-budget'].forEach((id) => {
       const audit = category.auditRefs.find(audit => audit.id === id);
-      if (audit && audit.result.details) {
+      if (audit?.result.details) {
         const table = this.detailsRenderer.render(audit.result.details);
         if (table) {
           table.id = id;
@@ -4298,7 +4296,7 @@ class PerformanceCategoryRenderer extends CategoryRenderer {
 
       const labelEl = this.dom.createChildOf(metricFilterEl, 'label', 'lh-metricfilter__label');
       labelEl.htmlFor = elemId;
-      labelEl.title = metric.result && metric.result.title;
+      labelEl.title = metric.result?.title;
       labelEl.textContent = metric.acronym || metric.id;
 
       if (metric.acronym === 'All') {
@@ -4773,7 +4771,7 @@ class ReportRenderer {
     Util.reportJson = report;
 
     const fullPageScreenshot =
-      report.audits['full-page-screenshot'] && report.audits['full-page-screenshot'].details &&
+      report.audits['full-page-screenshot']?.details &&
       report.audits['full-page-screenshot'].details.type === 'full-page-screenshot' ?
       report.audits['full-page-screenshot'].details : undefined;
     const detailsRenderer = new DetailsRenderer(this._dom, {
@@ -5497,7 +5495,11 @@ class TopbarFeatures {
   }
 
   _print() {
-    self.print();
+    if (this._reportUIFeatures._opts.onPrintOverride) {
+      this._reportUIFeatures._opts.onPrintOverride(this._dom.rootEl);
+    } else {
+      self.print();
+    }
   }
 
   /**
@@ -5767,6 +5769,10 @@ class ReportUIFeatures {
       });
     }
 
+    if (this._opts.getStandaloneReportHTML) {
+      this._dom.find('a[data-action="save-html"]', this._dom.rootEl).classList.remove('lh-hidden');
+    }
+
     // Fill in all i18n data.
     for (const node of this._dom.findAll('[data-i18n]', this._dom.rootEl)) {
       // These strings are guaranteed to (at least) have a default English string in Util.UIStrings,
@@ -5801,15 +5807,23 @@ class ReportUIFeatures {
     return buttonEl;
   }
 
+  resetUIState() {
+    if (this._topbar) {
+      this._topbar.resetUIState();
+    }
+  }
+
   /**
    * Returns the html that recreates this report.
    * @return {string}
    */
   getReportHtml() {
-    if (this._topbar) {
-      this._topbar.resetUIState();
+    if (!this._opts.getStandaloneReportHTML) {
+      throw new Error('`getStandaloneReportHTML` is not set');
     }
-    return `<!doctype html><body style="margin: 0">${this._dom.rootEl.outerHTML}`;
+
+    this.resetUIState();
+    return this._opts.getStandaloneReportHTML();
   }
 
   /**
@@ -5982,14 +5996,16 @@ class ReportUIFeatures {
   }
 
   /**
-   * DevTools uses its own file manager to download files, so it redefines this function.
-   * Wrapper is necessary so DevTools can still override this function.
-   *
    * @param {Blob|File} blob
    */
   _saveFile(blob) {
-    const filename = fileNamer.getLhrFilenamePrefix(this.json);
-    this._dom.saveFile(blob, filename);
+    const ext = blob.type.match('json') ? '.json' : '.html';
+    const filename = fileNamer.getLhrFilenamePrefix(this.json) + ext;
+    if (this._opts.onSaveFileOverride) {
+      this._opts.onSaveFileOverride(blob, filename);
+    } else {
+      this._dom.saveFile(blob, filename);
+    }
   }
 }
 
@@ -5998,6 +6014,9 @@ class ReportUIFeatures {
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
+
+/** @type {WeakMap<HTMLElement, ReportUIFeatures>} */
+const rootElToReportUIFeatures = new WeakMap();
 
 /**
  * @param {LH.Result} lhr
@@ -6017,7 +6036,19 @@ function renderReport(lhr, opts = {}) {
   // is in the document.
   const features = new ReportUIFeatures(dom, opts);
   features.initFeatures(lhr);
+  rootElToReportUIFeatures.set(rootEl, features);
   return rootEl;
 }
 
-export { DOM, ReportRenderer, ReportUIFeatures, renderReport };
+/**
+ * @param {HTMLElement} rootEl
+ * @param {Parameters<ReportUIFeatures['addButton']>[0]} opts
+ */
+function addButton(rootEl, opts) {
+  const features = rootElToReportUIFeatures.get(rootEl);
+  if (!features) throw new Error('rootEl is not a Lighthouse report');
+
+  return features.addButton(opts);
+}
+
+export { DOM, ReportRenderer, ReportUIFeatures, addButton, renderReport };
