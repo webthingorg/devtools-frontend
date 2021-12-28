@@ -16,8 +16,7 @@ import lighthousePanelStyles from './lighthousePanel.css.js';
 import {ProtocolService} from './LighthouseProtocolService.js';
 
 import type {ReportJSON, RunnerResultArtifacts} from './LighthouseReporterTypes.js';
-import * as LighthouseReport from '../../third_party/lighthouse/report/report.js';
-import {LighthouseReportRenderer, LighthouseReportUIFeatures} from './LighthouseReportRenderer.js';
+import {LighthouseReportRenderer} from './LighthouseReportRenderer.js';
 import {Item, ReportSelector} from './LighthouseReportSelector.js';
 import {StartView} from './LighthouseStartView.js';
 import {StatusView} from './LighthouseStatusView.js';
@@ -67,7 +66,7 @@ export class LighthousePanel extends UI.Panel.Panel {
   private unauditableExplanation: Nullable<string>;
   private readonly cachedRenderedReports: Map<ReportJSON, HTMLElement>;
   private readonly dropTarget: UI.DropTarget.DropTarget;
-  private readonly auditResultsElement: HTMLElement;
+  private readonly lighthouseReportElement: HTMLElement;
   private clearButton!: UI.Toolbar.ToolbarButton;
   private newButton!: UI.Toolbar.ToolbarButton;
   private reportSelector!: ReportSelector;
@@ -107,7 +106,7 @@ export class LighthousePanel extends UI.Panel.Panel {
     });
 
     this.renderToolbar();
-    this.auditResultsElement = this.contentElement.createChild('div', 'lighthouse-results-container');
+    this.lighthouseReportElement = this.contentElement.createChild('div', 'lighthouse-results-container');
     this.renderStartView();
 
     this.controller.recomputePageAuditability();
@@ -207,7 +206,7 @@ export class LighthousePanel extends UI.Panel.Panel {
   }
 
   private renderStartView(): void {
-    this.auditResultsElement.removeChildren();
+    this.lighthouseReportElement.removeChildren();
     this.statusView.hide();
 
     this.reportSelector.selectNewReport();
@@ -249,51 +248,25 @@ export class LighthousePanel extends UI.Panel.Panel {
     this.contentElement.classList.toggle('in-progress', false);
     this.startView.hideWidget();
     this.statusView.hide();
-    this.auditResultsElement.removeChildren();
+    this.lighthouseReportElement.removeChildren();
     this.newButton.setEnabled(true);
     this.refreshToolbarUI();
 
     const cachedRenderedReport = this.cachedRenderedReports.get(lighthouseResult);
     if (cachedRenderedReport) {
-      this.auditResultsElement.appendChild(cachedRenderedReport);
+      this.lighthouseReportElement.appendChild(cachedRenderedReport);
       return;
     }
 
-    const reportContainer = this.auditResultsElement.createChild('div', 'lh-vars lh-root lh-devtools');
-
-    const dom = new LighthouseReport.DOM(this.auditResultsElement.ownerDocument as Document, reportContainer);
-    const renderer = new LighthouseReportRenderer(dom) as LighthouseReport.ReportRenderer;
-
-    const el = renderer.renderReport(lighthouseResult, reportContainer);
-    // Linkifying requires the target be loaded. Do not block the report
-    // from rendering, as this is just an embellishment and the main target
-    // could take awhile to load.
-    this.waitForMainTargetLoad().then(() => {
-      LighthouseReportRenderer.linkifyNodeDetails(el);
-      LighthouseReportRenderer.linkifySourceLocationDetails(el);
-    });
-    LighthouseReportRenderer.handleDarkMode(el);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const features = new LighthouseReportUIFeatures(dom) as any;
-    features.setBeforePrint(this.beforePrint.bind(this));
-    features.setAfterPrint(this.afterPrint.bind(this));
-    LighthouseReportRenderer.addViewTraceButton(el, features, artifacts);
-    features.initFeatures(lighthouseResult);
-
-    this.cachedRenderedReports.set(lighthouseResult, reportContainer);
-  }
-
-  private async waitForMainTargetLoad(): Promise<void> {
-    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
-    if (!mainTarget) {
-      return;
-    }
-    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    if (!resourceTreeModel) {
-      return;
-    }
-    await resourceTreeModel.once(SDK.ResourceTreeModel.Events.Load);
+    const renderer = new LighthouseReportRenderer(
+      lighthouseResult,
+      artifacts,
+      this.beforePrint.bind(this),
+      this.afterPrint.bind(this),
+    );
+    const el = renderer.render();
+    this.lighthouseReportElement.append(el);
+    this.cachedRenderedReports.set(lighthouseResult, el);
   }
 
   private buildReportUI(lighthouseResult: ReportJSON, artifacts?: RunnerResultArtifacts): void {

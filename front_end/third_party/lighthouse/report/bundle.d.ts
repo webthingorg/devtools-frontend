@@ -257,6 +257,7 @@ export class ReportUIFeatures {
         icon?: string;
         onClick: () => void;
     }): HTMLElementByTagName;
+    resetUIState(): void;
     /**
      * Returns the html that recreates this report.
      * @return {string}
@@ -288,18 +289,15 @@ export class ReportUIFeatures {
      */
     _getThirdPartyRows(rowEls: HTMLElement[], finalUrl: string): Array<HTMLElement>;
     /**
-     * DevTools uses its own file manager to download files, so it redefines this function.
-     * Wrapper is necessary so DevTools can still override this function.
-     *
      * @param {Blob|File} blob
      */
     _saveFile(blob: Blob | File): void;
 }
 /**
- * @license Copyright 2021 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @param {HTMLElement} rootEl
+ * @param {Parameters<ReportUIFeatures['addButton']>[0]} opts
  */
+export function addButton(rootEl: HTMLElement, opts: Parameters<ReportUIFeatures['addButton']>[0]): HTMLElementByTagName;
 /**
  * @param {LH.Result} lhr
  * @param {LH.Renderer.Options} opts
