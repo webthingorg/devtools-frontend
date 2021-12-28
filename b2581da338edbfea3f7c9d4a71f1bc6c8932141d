@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6ef022_d976214b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-28T14:28:27Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nThis CL adds support for additional ANSI color codes and fixes the (half broken) support for colors that was there before.\n\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "b2581da338edbfea3f7c9d4a71f1bc6c8932141d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
