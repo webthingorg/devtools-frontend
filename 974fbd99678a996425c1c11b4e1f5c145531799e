@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85f7e75_a8480aaf",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-12-29T15:38:08Z",
+      "side": 1,
+      "message": "We actually rely on `display: inline-block` when the object-value-node is shown in the console so that it does not overlap with the source location that is aligned to the right.",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 24
+      },
+      "revId": "974fbd99678a996425c1c11b4e1f5c145531799e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
