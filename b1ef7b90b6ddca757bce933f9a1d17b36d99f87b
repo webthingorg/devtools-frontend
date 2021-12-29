@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83ed3e3_9bd5ab22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-12-29T11:08:48Z",
+      "side": 1,
+      "message": "ArrayUtilities.upperBound returns an exclusive index. This never worked correctly.",
+      "revId": "b1ef7b90b6ddca757bce933f9a1d17b36d99f87b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
