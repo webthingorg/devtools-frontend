@@ -16,6 +16,23 @@
       "message": "Please add a regression test.\n\nOtherwise LGTM",
       "revId": "a95b33ab69ec51393b07c49bb30936d5a14827b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5aec26_9ee11f73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-12-29T13:48:18Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a95b33ab69ec51393b07c49bb30936d5a14827b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
