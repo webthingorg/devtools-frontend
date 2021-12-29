@@ -33,6 +33,24 @@
       "message": "Let\u0027s rename the variable too",
       "revId": "11edefabfd8296a7addc38172b58ddf74c5ed3a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce38f432_703223af",
+        "filename": "front_end/ui/legacy/components/quick_open/QuickOpen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2021-12-29T15:10:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4de1ba4b_e30df009",
+      "revId": "11edefabfd8296a7addc38172b58ddf74c5ed3a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
