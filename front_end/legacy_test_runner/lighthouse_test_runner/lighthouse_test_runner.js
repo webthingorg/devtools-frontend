@@ -28,7 +28,7 @@ LighthouseTestRunner.getContainerElement = function() {
  * @return {?Element}
  */
 LighthouseTestRunner.getResultsElement = function() {
-  return LighthouseTestRunner._panel().auditResultsElement;
+  return LighthouseTestRunner._panel().lighthouseReportElement;
 };
 
 /**

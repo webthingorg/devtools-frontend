@@ -5,7 +5,6 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as LighthouseReport from '../../third_party/lighthouse/report/report.js';
@@ -13,7 +12,7 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as Timeline from '../timeline/timeline.js';
-import type {RunnerResultArtifacts, NodeDetailsJSON, SourceLocationDetailsJSON} from './LighthouseReporterTypes.js';
+import type {RunnerResultArtifacts, NodeDetailsJSON, SourceLocationDetailsJSON, ReportJSON} from './LighthouseReporterTypes.js';
 
 const UIStrings = {
   /**
@@ -34,26 +33,61 @@ const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthouseReportRend
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const MaxLengthForLinks = 40;
 
-export class LighthouseReportRenderer extends LighthouseReport.ReportRenderer {
-  constructor(dom: LighthouseReport.DOM) {
-    super(dom);
+async function waitForMainTargetLoad(): Promise<void> {
+  const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+  if (!mainTarget) {
+    return;
+  }
+  const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+  if (!resourceTreeModel) {
+    return;
+  }
+  await resourceTreeModel.once(SDK.ResourceTreeModel.Events.Load);
+}
+
+export class LighthouseReportRenderer {
+  constructor(private lhr: ReportJSON, private artifacts: RunnerResultArtifacts|undefined,
+    private beforePrint: () => void, private afterPrint: () => void) {
   }
 
-  static addViewTraceButton(
-      el: Element, reportUIFeatures: LighthouseReport.ReportUIFeatures, artifacts?: RunnerResultArtifacts): void {
-    if (!artifacts || !artifacts.traces || !artifacts.traces.defaultPass) {
+  render(): HTMLElement {
+    const el = LighthouseReport.renderReport(this.lhr, {
+      getStandaloneReportHTML: () => {
+        // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
+        return Lighthouse.ReportGenerator.generateReportHtml(this.lhr);
+      },
+      onSaveFileOverride: this.saveFile.bind(this),
+      onPrintOverride: this.print.bind(this),
+    });
+    el.classList.add('lh-devtools');
+
+    // Linkifying requires the target be loaded. Do not block the report
+    // from rendering, as this is just an embellishment and the main target
+    // could take awhile to load.
+    waitForMainTargetLoad().then(() => {
+      this.linkifyNodeDetails(el);
+      this.linkifySourceLocationDetails(el);
+    });
+    this.handleDarkMode(el);
+    this.addViewTraceButton(el);
+
+    return el;
+  }
+
+  private addViewTraceButton(el: HTMLElement): void {
+    if (!this.artifacts || !this.artifacts.traces || !this.artifacts.traces.defaultPass) {
       return;
     }
 
-    const simulated = artifacts.settings.throttlingMethod === 'simulate';
+    const simulated = this.artifacts.settings.throttlingMethod === 'simulate';
     const container = el.querySelector('.lh-audit-group');
     if (!container) {
       return;
     }
 
-    const defaultPassTrace = artifacts.traces.defaultPass;
+    const defaultPassTrace = this.artifacts.traces.defaultPass;
     const text = simulated ? i18nString(UIStrings.viewOriginalTrace) : i18nString(UIStrings.viewTrace);
-    const timelineButton = reportUIFeatures.addButton({
+    const timelineButton = LighthouseReport.addButton(el, {
       text,
       onClick: onViewTraceClick,
     });
@@ -71,7 +105,7 @@ export class LighthouseReportRenderer extends LighthouseReport.ReportRenderer {
     }
   }
 
-  static async linkifyNodeDetails(el: Element): Promise<void> {
+  private async linkifyNodeDetails(el: HTMLElement): Promise<void> {
     const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
     if (!mainTarget) {
       return;
@@ -111,7 +145,7 @@ export class LighthouseReportRenderer extends LighthouseReport.ReportRenderer {
     }
   }
 
-  static async linkifySourceLocationDetails(el: Element): Promise<void> {
+  private async linkifySourceLocationDetails(el: HTMLElement): Promise<void> {
     for (const origElement of el.getElementsByClassName('lh-source-location')) {
       const origHTMLElement = origElement as HTMLElement;
       const detailsItem = origHTMLElement.dataset as SourceLocationDetailsJSON;
@@ -139,64 +173,19 @@ export class LighthouseReportRenderer extends LighthouseReport.ReportRenderer {
     }
   }
 
-  static handleDarkMode(el: Element): void {
+  private handleDarkMode(el: HTMLElement): void {
     if (ThemeSupport.ThemeSupport.instance().themeName() === 'dark') {
       el.classList.add('lh-dark');
     }
   }
-}
 
-// @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
-export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeatures {
-  private beforePrint: (() => void)|null;
-  private afterPrint: (() => void)|null;
-
-  constructor(dom: LighthouseReport.DOM) {
-    super(dom);
-    this.beforePrint = null;
-    this.afterPrint = null;
-    this._topbar._print = this._print.bind(this);
-  }
-
-  setBeforePrint(beforePrint: (() => void)|null): void {
-    this.beforePrint = beforePrint;
-  }
-
-  setAfterPrint(afterPrint: (() => void)|null): void {
-    this.afterPrint = afterPrint;
-  }
-
-  /**
-   * Returns the html that recreates this report.
-   */
-  getReportHtml(): string {
-    this.resetUIState();
-    // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    return Lighthouse.ReportGenerator.generateReportHtml(this.json);
-  }
-
-  /**
-   * Downloads a file (blob) using the system dialog prompt.
-   */
-  // This implements the interface ReportUIFeatures from lighthouse
-  // which follows a different naming convention.
-  // eslint-disable-next-line rulesdir/no_underscored_properties, @typescript-eslint/naming-convention
-  async _saveFile(blob: Blob|File): Promise<void> {
-    const domain = new Common.ParsedURL.ParsedURL(this.json.finalUrl).domain();
-    const sanitizedDomain = domain.replace(/[^a-z0-9.-]+/gi, '_');
-    const timestamp = Platform.DateUtilities.toISO8601Compact(new Date(this.json.fetchTime));
-    const ext = blob.type.match('json') ? '.json' : '.html';
-    const basename = `${sanitizedDomain}-${timestamp}${ext}`;
+  private async saveFile(blob: Blob|File, filename: string): Promise<void> {
     const text = await blob.text();
-    Workspace.FileManager.FileManager.instance().save(basename, text, true /* forceSaveAs */);
+    Workspace.FileManager.FileManager.instance().save(filename, text, true /* forceSaveAs */);
   }
 
-  // This implements the interface ReportUIFeatures from lighthouse
-  // which follows a different naming convention.
-  // eslint-disable-next-line rulesdir/no_underscored_properties, @typescript-eslint/naming-convention
-  async _print(): Promise<void> {
-    const document = this.getDocument();
-    const clonedReport = (document.querySelector('.lh-root') as HTMLElement).cloneNode(true);
+  private async print(rootEl: HTMLElement): Promise<void> {
+    const clonedReport = rootEl.cloneNode(true);
     const printWindow = window.open('', '_blank', 'channelmode=1,status=1,resizable=1');
     if (!printWindow) {
       return;
@@ -204,24 +193,12 @@ export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeature
 
     printWindow.document.body.replaceWith(clonedReport);
     // Linkified nodes are shadow elements, which aren't exposed via `cloneNode`.
-    await LighthouseReportRenderer.linkifyNodeDetails(clonedReport as HTMLElement);
+    await this.linkifyNodeDetails(clonedReport as HTMLElement);
 
-    if (this.beforePrint) {
-      this.beforePrint();
-    }
+    this.beforePrint();
     printWindow.focus();
     printWindow.print();
     printWindow.close();
-    if (this.afterPrint) {
-      this.afterPrint();
-    }
-  }
-
-  getDocument(): Document {
-    return this._dom.document();
-  }
-
-  resetUIState(): void {
-    this._resetUIState();
+    this.afterPrint();
   }
 }
