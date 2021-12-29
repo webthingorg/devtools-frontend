@@ -540,7 +540,7 @@ export class ModelBreakpoint {
   readonly #liveLocations: LiveLocationPool;
   readonly #uiLocations: Map<LiveLocation, Workspace.UISourceCode.UILocation>;
   #hasPendingUpdate: boolean;
-  #isUpdating: boolean;
+  #updatePromise: Promise<void>|null;
   #cancelCallback: boolean;
   #currentState: Breakpoint.State|null;
   #breakpointIds: Protocol.Debugger.BreakpointId[];
@@ -560,7 +560,7 @@ export class ModelBreakpoint {
     this.#debuggerModel.addEventListener(
         SDK.DebuggerModel.Events.DebuggerWasEnabled, this.scheduleUpdateInDebugger, this);
     this.#hasPendingUpdate = false;
-    this.#isUpdating = false;
+    this.#updatePromise = null;
     this.#cancelCallback = false;
     this.#currentState = null;
     this.#breakpointIds = [];
@@ -578,20 +578,21 @@ export class ModelBreakpoint {
     this.#liveLocations.disposeAll();
   }
 
-  scheduleUpdateInDebugger(): void {
-    if (this.#isUpdating) {
-      this.#hasPendingUpdate = true;
-      return;
+  async scheduleUpdateInDebugger(): Promise<void> {
+    this.#hasPendingUpdate = true;
+    if (this.#updatePromise) {
+      return this.#updatePromise;
     }
 
-    this.#isUpdating = true;
-    this.updateInDebugger().then(() => {
-      this.#isUpdating = false;
-      if (this.#hasPendingUpdate) {
+    const awaitUpdate = async(): Promise<void> => {
+      while (this.#hasPendingUpdate) {
         this.#hasPendingUpdate = false;
-        this.scheduleUpdateInDebugger();
+        await this.updateInDebugger();
       }
-    });
+    };
+    this.#updatePromise = awaitUpdate();
+    await this.#updatePromise;
+    this.#updatePromise = null;
   }
 
   private scriptDiverged(): boolean {
@@ -721,7 +722,11 @@ export class ModelBreakpoint {
     await Promise.all(this.#breakpointIds.map(id => this.#debuggerModel.removeBreakpoint(id)));
     this.didRemoveFromDebugger();
     this.#currentState = null;
-    this.scheduleUpdateInDebugger();
+    if (this.#updatePromise) {
+      this.#hasPendingUpdate = true;
+    } else {
+      this.scheduleUpdateInDebugger();
+    }
   }
 
   private didRemoveFromDebugger(): void {
@@ -773,10 +778,10 @@ export class ModelBreakpoint {
   }
 
   cleanUpAfterDebuggerIsGone(): void {
-    if (this.#isUpdating) {
+    if (this.#updatePromise) {
       this.#cancelCallback = true;
     }
-
+    this.#hasPendingUpdate = false;
     this.resetLocations();
     this.#currentState = null;
     if (this.#breakpointIds.length) {
