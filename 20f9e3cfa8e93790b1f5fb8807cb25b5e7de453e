@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8a9950_4fa2af5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-29T15:00:50Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770de35a_f39f6f40",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2021-12-29T15:00:50Z",
+      "side": 1,
+      "message": "Is this the proper way to override the color of the icon inside a Button?\nAdding an option for it in #props does not seem to work, as the Icon component prefers the `--icon-color` variable over a color set through `.data`.",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
