@@ -845,6 +845,10 @@ export class TreeElement {
     }
   }
 
+  isCollapsible(): boolean {
+    return this.collapsible;
+  }
+
   setCollapsible(collapsible: boolean): void {
     if (this.collapsible === collapsible) {
       return;
@@ -852,7 +856,7 @@ export class TreeElement {
 
     this.collapsible = collapsible;
 
-    this.listItemNode.classList.toggle('always-parent', !collapsible);
+    this.listItemNode.classList.toggle('always-expanded', !collapsible);
     if (!collapsible) {
       this.expand();
     }
