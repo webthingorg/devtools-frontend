@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0cb564_60126c42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-30T18:43:26Z",
+      "side": 1,
+      "message": "LGTM with some minor suggestions",
+      "revId": "8b510d9f3cc27daec35d9a4c42a8d935be20717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2d7fec_dfa0bba9",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-30T18:43:26Z",
+      "side": 1,
+      "message": "Isn’t this just\n\n    contentElement.prepend(this.selectionElement);\n    \n?",
+      "revId": "8b510d9f3cc27daec35d9a4c42a8d935be20717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd926894_9fabd953",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-30T18:43:26Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "8b510d9f3cc27daec35d9a4c42a8d935be20717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67fc468e_d95ddb81",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-30T18:43:26Z",
+      "side": 1,
+      "message": "Could be just .append()",
+      "revId": "8b510d9f3cc27daec35d9a4c42a8d935be20717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
