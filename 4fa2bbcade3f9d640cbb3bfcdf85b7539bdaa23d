@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc50d2d4_e280eae6",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-12-30T06:40:55Z",
+      "side": 1,
+      "message": "Why can\u0027t we use `color:var(something)` and `background:var(something)` directly?",
+      "revId": "4fa2bbcade3f9d640cbb3bfcdf85b7539bdaa23d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
