@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2bd72c9_ebc63ecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-12-30T09:53:08Z",
+      "side": 1,
+      "message": "Tim, I don\u0027t have any context here on whether it\u0027s ok to simply not throw an error when the stateField does not exist.\n\nI don\u0027t have a minimal repro for the error I see in DevTools on DevTools. It\u0027s happening for me when I have local overrides set up for a page and then refresh the page. Does simply not throwing make sense?",
+      "revId": "13fcbfb2bc5956130cf9c9a7b46d9c438c4651a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
