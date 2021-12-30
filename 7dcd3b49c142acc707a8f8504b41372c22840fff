@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34708453_aeb64a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-12-30T09:40:24Z",
+      "side": 1,
+      "message": "Before/after screenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1283369#c1",
+      "revId": "7dcd3b49c142acc707a8f8504b41372c22840fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
