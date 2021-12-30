@@ -511,3 +511,48 @@
     --override-error-text-color: HighlightText;
   }
 }
+
+.console-message-token {
+  /* Console ANSI color */
+  --console-color-black: #000;
+  --console-color-red: #a00;
+  --console-color-green: #0a0;
+  --console-color-yellow: #a50;
+  --console-color-blue: #00a;
+  --console-color-magenta: #a0a;
+  --console-color-cyan: #0aa;
+  --console-color-lightgray: #aaa;
+  --console-color-darkgray: #555;
+  --console-color-lightred: #f55;
+  --console-color-lightgreen: #5f5;
+  --console-color-lightyellow: #ff5;
+  --console-color-lightblue: #55f;
+  --console-color-ightmagenta: #f5f;
+  --console-color-lightcyan: #5ff;
+  --console-color-white: #fff;
+  --color-foreground: unset;
+  --color-background: unset;
+
+  color: var(--color-foreground); /* stylelint-disable-line plugin/use_theme_colors */
+  background: var(--color-background); /* stylelint-disable-line plugin/use_theme_colors */
+}
+
+.-theme-with-dark-background .console-message-token {
+  /* TODO: Change to dark theme friendly console ANSI color */
+  --console-color-black: #000;
+  --console-color-red: #aa0040;
+  --console-color-green: #0a0;
+  --console-color-yellow: #a50;
+  --console-color-blue: #00a;
+  --console-color-magenta: #a0a;
+  --console-color-cyan: #0aa;
+  --console-color-lightgray: #aaa;
+  --console-color-darkgray: #555;
+  --console-color-lightred: #f55;
+  --console-color-lightgreen: #5f5;
+  --console-color-lightyellow: #ff5;
+  --console-color-lightblue: #55f;
+  --console-color-ightmagenta: #f5f;
+  --console-color-lightcyan: #5ff;
+  --console-color-white: #fff;
+}
