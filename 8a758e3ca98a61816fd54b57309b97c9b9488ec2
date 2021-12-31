@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7570d5f9_dd42bb38",
+        "filename": "front_end/panels/elements/elementsTreeOutline.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-12-31T07:34:50Z",
+      "side": 1,
+      "message": "non-blocking, but just a thought — google3 supports code comments like this:\n\n    // IfChange\n    …\n    // ThenChange(path/to/file)\n\n…which are then checked and enforced at lint/presubmit time. Seems like it’d be useful here as well.",
+      "revId": "8a758e3ca98a61816fd54b57309b97c9b9488ec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
