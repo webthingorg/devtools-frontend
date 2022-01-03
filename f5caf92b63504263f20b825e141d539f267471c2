@@ -16,6 +16,23 @@
       "message": "Small fix for new year bug PTAL Jack@",
       "revId": "f5caf92b63504263f20b825e141d539f267471c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea970f73_7a8b7f63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511632
+      },
+      "writtenOn": "2022-01-03T22:03:39Z",
+      "side": 1,
+      "message": "+1 LGTM. Thanks!",
+      "revId": "f5caf92b63504263f20b825e141d539f267471c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
