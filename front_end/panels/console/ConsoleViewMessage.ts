@@ -890,6 +890,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
                 formattedResult.append(document.createElement('br'));
               }
               const wrapper = document.createElement('span');
+              wrapper.classList.add('console-message-token');
               wrapper.style.setProperty('contain', 'paint');
               wrapper.style.setProperty('display', 'inline-block');
               wrapper.style.setProperty('max-width', '100%');
@@ -905,7 +906,8 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
         case 'style': {
           // Make sure that allowed properties do not interfere with link visibility.
           const ALLOWED_PROPERTY_PREFIXES =
-              ['background', 'border', 'color', 'font', 'line', 'margin', 'padding', 'text'];
+              ['background', 'background-color', 'border', 'color', 'font', 'line', 'margin', 'padding', 'text'];
+
           currentStyle.clear();
           const buffer = document.createElement('span');
           buffer.setAttribute('style', token.value);
