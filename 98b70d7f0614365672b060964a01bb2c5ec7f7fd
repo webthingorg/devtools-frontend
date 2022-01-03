@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb45490a_4aff5a2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-03T18:26:18Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nI am wondering how to test this change. E2E test would be very fiddly and\nwe do not really have unit tests for the UI components (such as SourcePanel).",
+      "revId": "98b70d7f0614365672b060964a01bb2c5ec7f7fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
