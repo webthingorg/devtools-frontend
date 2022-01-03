@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcce6538_1e70b824",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-03T05:47:33Z",
+      "side": 1,
+      "message": "You\u0027ll also need to update the test expectations in ConsoleFormat_test.ts",
+      "revId": "3fe6db869a55f6a43a3e0f76265d5c46ed9e4ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "132a3c64_739d1a0c",
+        "filename": "front_end/panels/console/ConsoleFormat.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-03T05:47:33Z",
+      "side": 1,
+      "message": "Mathias suggested to stick to just `background`. So let\u0027s keep it like that.",
+      "revId": "3fe6db869a55f6a43a3e0f76265d5c46ed9e4ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720f6317_7cb69387",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-03T05:47:33Z",
+      "side": 1,
+      "message": "You can use `.console-message-wrapper` as selector in the CSS, then you don\u0027t need to add this one here.",
+      "revId": "3fe6db869a55f6a43a3e0f76265d5c46ed9e4ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d5550f_5a238fd2",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-03T05:47:33Z",
+      "side": 1,
+      "message": "Let\u0027s stick to `background`.",
+      "revId": "3fe6db869a55f6a43a3e0f76265d5c46ed9e4ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
