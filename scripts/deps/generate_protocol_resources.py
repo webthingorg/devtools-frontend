@@ -53,11 +53,13 @@ try:
 finally:
     sys.path = old_sys_path
 
-ROOT_DIRECTORY = path.join(path.dirname(path.abspath(__file__)), '..', '..')
+ROOT_DIRECTORY = path.join(path.dirname(path.abspath(__file__)), '..', '..',
+                           '..', '..', '..')
 
 V8_DIRECTORY_PATH = path.join(ROOT_DIRECTORY, 'v8')
 PROTOCOL_LOCATION = path.join(ROOT_DIRECTORY, 'third_party', 'blink', 'public', 'devtools_protocol')
-SCRIPTS_BUILD_PATH = path.join(ROOT_DIRECTORY, 'scripts', 'build')
+SCRIPTS_BUILD_PATH = path.join(ROOT_DIRECTORY, 'third_party',
+                               'devtools-frontend', 'src', 'scripts', 'build')
 
 GENERATE_ARIA_SCRIPT = path.join(SCRIPTS_BUILD_PATH, 'generate_aria.py')
 GENERATE_SUPPORTED_CSS_SCRIPT = path.join(SCRIPTS_BUILD_PATH, 'generate_supported_css.py')
@@ -91,7 +93,10 @@ def runNode(file_to_execute):
 
 
 def generate_protocol_typescript_definitions():
-    generator_script_to_compile = path.join(ROOT_DIRECTORY, 'scripts', 'protocol_typescript', 'protocol_dts_generator.ts')
+    generator_script_to_compile = path.join(ROOT_DIRECTORY, 'third_party',
+                                            'devtools-frontend', 'src',
+                                            'scripts', 'protocol_typescript',
+                                            'protocol_dts_generator.ts')
 
     # first run TSC to convert the script from TS to JS
     typescript_found_errors, typescript_stderr = runTsc(generator_script_to_compile)

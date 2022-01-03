@@ -410,6 +410,9 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
 
   cacheStorageContentUpdated(_event: Protocol.Storage.CacheStorageContentUpdatedEvent): void {
   }
+
+  interestGroupAccess(_event: Protocol.Storage.InterestGroupAccessEvent): void {
+  }
 }
 
 SDK.SDKModel.SDKModel.register(IndexedDBModel, {capabilities: SDK.Target.Capability.Storage, autostart: false});

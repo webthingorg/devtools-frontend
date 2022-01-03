@@ -3035,6 +3035,22 @@ declare namespace ProtocolProxyApi {
      */
     invoke_clearTrustTokens(params: Protocol.Storage.ClearTrustTokensRequest):
         Promise<Protocol.Storage.ClearTrustTokensResponse>;
+
+    /**
+     * Gets details for a named interest group
+     */
+    invoke_getInterestGroupDetails(params: Protocol.Storage.GetInterestGroupDetailsRequest):
+        Promise<Protocol.Storage.GetInterestGroupDetailsResponse>;
+
+    /**
+     * Enables issuing of interestGroupAccess events.
+     */
+    invoke_trackInterestGroupStorage(): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
+     * Disables issuing of interestGroupAccess events.
+     */
+    invoke_untrackInterestGroupStorage(): Promise<Protocol.ProtocolResponseWithError>;
   }
   export interface StorageDispatcher {
     /**
@@ -3056,6 +3072,11 @@ declare namespace ProtocolProxyApi {
      * The origin's IndexedDB database list has been modified.
      */
     indexedDBListUpdated(params: Protocol.Storage.IndexedDBListUpdatedEvent): void;
+
+    /**
+     * One of the interest groups was accessed by the associated page.
+     */
+    interestGroupAccess(params: Protocol.Storage.InterestGroupAccessEvent): void;
   }
 
   export interface SystemInfoApi {

@@ -250,6 +250,9 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
   indexedDBContentUpdated(_event: Protocol.Storage.IndexedDBContentUpdatedEvent): void {
   }
 
+  interestGroupAccess(_event: Protocol.Storage.InterestGroupAccessEvent): void {
+  }
+
   setThrottlerSchedulesAsSoonAsPossibleForTest(): void {
     this.#scheduleAsSoonAsPossible = true;
   }

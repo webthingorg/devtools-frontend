@@ -12415,6 +12415,7 @@ declare namespace Protocol {
       Websql = 'websql',
       Service_workers = 'service_workers',
       Cache_storage = 'cache_storage',
+      Interest_groups = 'interest_groups',
       All = 'all',
       Other = 'other',
     }
@@ -12440,6 +12441,17 @@ declare namespace Protocol {
     export interface TrustTokens {
       issuerOrigin: string;
       count: number;
+    }
+
+    /**
+     * Enum of interest group access types.
+     */
+    export const enum InterestGroupAccessType {
+      Join = 'join',
+      Leave = 'leave',
+      Update = 'update',
+      Bid = 'bid',
+      Win = 'win',
     }
 
     export interface ClearDataForOriginRequest {
@@ -12571,6 +12583,15 @@ declare namespace Protocol {
       didDeleteTokens: boolean;
     }
 
+    export interface GetInterestGroupDetailsRequest {
+      ownerOrigin: string;
+      name: string;
+    }
+
+    export interface GetInterestGroupDetailsResponse extends ProtocolResponseWithError {
+      details_json: string;
+    }
+
     /**
      * A cache's contents have been modified.
      */
@@ -12621,6 +12642,15 @@ declare namespace Protocol {
        * Origin to update.
        */
       origin: string;
+    }
+
+    /**
+     * One of the interest groups was accessed by the associated page.
+     */
+    export interface InterestGroupAccessEvent {
+      type: InterestGroupAccessType;
+      ownerOrigin: string;
+      name: string;
     }
   }
 
