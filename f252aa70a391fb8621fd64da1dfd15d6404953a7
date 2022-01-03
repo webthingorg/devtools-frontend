@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5762132a_8e1ebd2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-03T13:12:01Z",
+      "side": 1,
+      "message": "Some review guidance:\n\nWhen we get new console messages, we store them in ConsoleView.consoleMessages (an array of ConsoleViewMessage objects). We then determine through ConsoleView.appendConsoleMessage whether they are added to ConsoleView.visibleViewMessages to be shown. When we set a different filter, we feed messages through ConsoleView.appendConsoleMessages again.\n\nIn ConsoleView.appendConsoleMessages, we use a tree of ConsoleGroup to track nesting level. Changing the filter would discard the ConsoleGroup tree and recreate it. The ConsoleGroup data structure does not give us enough information on which group a console message belongs to.\n\nWith this change, we keep track of grouping directly through ConsoleViewMessage objects. Each ConsoleViewMessage references its group, a ConsoleGroupViewMessage (subclass of ConsoleViewMessage). With this data structure in place, we can apply the filtering rules on the console message itself by also checking its group and parent groups. If we end up showing a console message, we also make sure we show its group and parent groups.",
+      "revId": "f252aa70a391fb8621fd64da1dfd15d6404953a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
