@@ -39,6 +39,30 @@
       },
       "revId": "b9f95f9ac6bc21b9e749f18445db18366c86a897",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c24033_f287d7ca",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-03T20:34:17Z",
+      "side": 1,
+      "message": "Thanks for catching this; yes you\u0027re right, it\u0027s not needed. It was a left over when breaking out this CL that I overlooked (in an older version the scheduleUpdateInDebugger was awaited here, and the if case prevented it from deadlocking). Removed it now.",
+      "parentUuid": "33b0ade6_f75a2995",
+      "range": {
+        "startLine": 722,
+        "startChar": 0,
+        "endLine": 726,
+        "endChar": 5
+      },
+      "revId": "b9f95f9ac6bc21b9e749f18445db18366c86a897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
