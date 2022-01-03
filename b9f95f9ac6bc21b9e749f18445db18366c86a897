@@ -16,6 +16,29 @@
       "message": "Thanks for the suggestion!",
       "revId": "b9f95f9ac6bc21b9e749f18445db18366c86a897",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b0ade6_f75a2995",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-03T17:16:21Z",
+      "side": 1,
+      "message": "Is it necessary to introduce the if-then-else here?\n\nWould not `this.scheduleUpdateInDebugger();` have the same effect?",
+      "range": {
+        "startLine": 722,
+        "startChar": 0,
+        "endLine": 726,
+        "endChar": 5
+      },
+      "revId": "b9f95f9ac6bc21b9e749f18445db18366c86a897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
