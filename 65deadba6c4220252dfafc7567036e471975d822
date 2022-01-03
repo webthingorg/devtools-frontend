@@ -33,6 +33,23 @@
       "message": "Hi Benedikt,\n\na preparatory CL to make sure that we can await updates to the debugger. This is required for the main follow up change to synchronize the debugger. PTAL!",
       "revId": "65deadba6c4220252dfafc7567036e471975d822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a875c488_541aaf61",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-03T14:30:57Z",
+      "side": 1,
+      "message": "Suggestion from VC:\n\n```\n  scheduleUpdateInDebugger(): Promise\u003cvoid\u003e {\n    this.#hasPendingUpdate \u003d true;\n    if (!this.#updatePromise) {\n      this.#updatePromise \u003d (async() \u003d\u003e {\n        while (this.#hasPendingUpdate) {\n          this.#hasPendingUpdate \u003d false;\n          await this.updateInDebugger();\n        }\n        this.#updatePromise \u003d null;\n      })();\n    }\n    return this.#updatePromise;\n  }\n\n```",
+      "revId": "65deadba6c4220252dfafc7567036e471975d822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
