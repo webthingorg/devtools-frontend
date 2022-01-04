@@ -51,6 +51,24 @@
       "parentUuid": "770de35a_f39f6f40",
       "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b366001b_6d191200",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-04T08:47:43Z",
+      "side": 1,
+      "message": "The Button component CSS overrides --icon-color and sets it to --color-text-primary, so this hack instead redefines that variable :/ \nI suppose the way forward is to either\n- create a new Button component variant\n- accept the styling as is, and appreciate that it is consistent with the rest of the UI",
+      "parentUuid": "44756e76_423503d5",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
