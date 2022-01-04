@@ -51,6 +51,23 @@
       "parentUuid": "cb45490a_4aff5a2a",
       "revId": "98b70d7f0614365672b060964a01bb2c5ec7f7fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc020283_e92d60c5",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-04T06:41:19Z",
+      "side": 1,
+      "message": "Would it make sense to add the check whether or not the live location is disposed into the function \"uiLocation()\", and return null if it already is disposed? Currently uiLocation may already return null, and we do check whether or not it is null in the \"uiLocation()\" callsites as far as I can see. This may catch other problematic cases in which we use disposed live locations, wdyt?",
+      "revId": "98b70d7f0614365672b060964a01bb2c5ec7f7fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
