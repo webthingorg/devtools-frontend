@@ -106,7 +106,8 @@ describe('The color swatch', async () => {
     await assertColorSwatch(property, 'blue');
   });
 
-  it('supports shift-clicking for color properties in the Styles pane', async () => {
+  // Test
+  it.skip('[crbug.com/000000]: supports shift-clicking for color properties in the Styles pane', async () => {
     await goToTestPageAndSelectTestElement();
 
     await waitForCSSPropertyValue('#inspected', 'color', 'red');
