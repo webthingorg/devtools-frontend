@@ -86,6 +86,24 @@
       "parentUuid": "bc020283_e92d60c5",
       "revId": "98b70d7f0614365672b060964a01bb2c5ec7f7fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2fd346_3efe090b",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-04T07:19:59Z",
+      "side": 1,
+      "message": "Ahh, right, thanks for the explanation!",
+      "parentUuid": "24bb23ec_77236f48",
+      "revId": "98b70d7f0614365672b060964a01bb2c5ec7f7fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
