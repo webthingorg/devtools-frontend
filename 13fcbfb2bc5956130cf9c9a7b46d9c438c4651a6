@@ -33,6 +33,24 @@
       "message": "This looks fine to me. Marijn, can you quickly double-check this looks good from your side as well?",
       "revId": "13fcbfb2bc5956130cf9c9a7b46d9c438c4651a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ebb142d_6e1d1b42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2022-01-04T11:56:30Z",
+      "side": 1,
+      "message": "I guess this crash could happen if the editor is reconfigured in a way that disables the debugger plugin while `refreshBreakpoints` is waiting for an async call. The patch looks entirely reasonable.",
+      "parentUuid": "bff91829_abbe4e35",
+      "revId": "13fcbfb2bc5956130cf9c9a7b46d9c438c4651a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
