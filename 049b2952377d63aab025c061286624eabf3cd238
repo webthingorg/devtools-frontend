@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52be9dc8_8a2a98a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-01-04T13:59:58Z",
+      "side": 1,
+      "message": "Did I understand correctly that this fix moves the a11y button to the right by 18 px? Would there be a more proper fix?",
+      "revId": "049b2952377d63aab025c061286624eabf3cd238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
