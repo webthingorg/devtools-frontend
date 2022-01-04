@@ -69,6 +69,24 @@
       "parentUuid": "44756e76_423503d5",
       "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8de961_a6017ef6",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-04T08:58:46Z",
+      "side": 1,
+      "message": "Do we not need to fix this in such a way that it\u0027ll fix all buttons? Why do we need it to look different here compared to other similar buttons in dark mode?\n\nI think we should aim for a consistent UI here, so out the box the Button component should work as is, and if any old places need styling updated, we can do that or migrate them to the new button component. \n\nI\u0027d also defer to Peter for UX and Alex R for his thoughts as he built the Button and has used it the most.",
+      "parentUuid": "b366001b_6d191200",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
