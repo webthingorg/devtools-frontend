@@ -33,6 +33,24 @@
       "message": "Is this the proper way to override the color of the icon inside a Button?\nAdding an option for it in #props does not seem to work, as the Icon component prefers the `--icon-color` variable over a color set through `.data`.",
       "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44756e76_423503d5",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-04T08:27:56Z",
+      "side": 1,
+      "message": "We definitely shouldn\u0027t be doing this as is - the idea of these common buttons is that they just work across all themes and without the need to do this.\n\nI don\u0027t quite follow why we can\u0027t use --icon-color?",
+      "parentUuid": "770de35a_f39f6f40",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
