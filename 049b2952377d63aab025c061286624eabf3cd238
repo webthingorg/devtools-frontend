@@ -16,6 +16,24 @@
       "message": "Did I understand correctly that this fix moves the a11y button to the right by 18 px? Would there be a more proper fix?",
       "revId": "049b2952377d63aab025c061286624eabf3cd238",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ce5387_d44c6359",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-04T14:04:51Z",
+      "side": 1,
+      "message": "Ah no. This is changing the logic for opening the context menu. Currently, we decide which element to open by finding the `document.elementAtPoint(x,y)`, where x is the pane `width - 36`. This clashes with the a11y tree icon. Since the a11y tree icon starts at 20 px from the right, we can change this heurestic to `width - 18`. \nI\u0027m not sure how we decided to subtract 36 initially either, or why we don\u0027t just use the x directly from the mouseevent.",
+      "parentUuid": "52be9dc8_8a2a98a3",
+      "revId": "049b2952377d63aab025c061286624eabf3cd238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
