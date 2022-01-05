@@ -275,7 +275,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore implements Work
       console.assert(Boolean(newName));
       const slash = filePath.lastIndexOf('/');
       const parentPath = filePath.substring(0, slash);
-      filePath = parentPath + '/' + newName;
+      filePath = parentPath + '/' + encodeURIComponent(newName);
       filePath = filePath.substr(1);
       const newURL = this.fileSystemBaseURL + filePath;
       const newContentType = this.fileSystemInternal.contentType(newName);

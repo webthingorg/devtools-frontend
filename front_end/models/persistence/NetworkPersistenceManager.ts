@@ -246,6 +246,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  private fileUrlFromNetworkUrl(url: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.UrlString {
+    return Common.ParsedURL.ParsedURL.relativePathToUrlString(
+        this.encodedPathFromUrl(url),
+        (this.projectInternal as FileSystem).fileSystemPath() + '/' as Platform.DevToolsPath.UrlString);
+  }
+
   private decodeLocalPathToUrlPath(path: string): string {
     try {
       return unescape(path);
@@ -344,7 +350,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
 
     const project = this.projectInternal as FileSystem;
     const fileSystemUISourceCode =
-        project.uiSourceCodeForURL(project.fileSystemPath() + '/' + this.encodedPathFromUrl(url));
+        project.uiSourceCodeForURL(this.fileUrlFromNetworkUrl(url as Platform.DevToolsPath.UrlString));
     if (fileSystemUISourceCode) {
       await this.bind(uiSourceCode, fileSystemUISourceCode);
     }
@@ -459,7 +465,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       return;
     }
     const proj = this.projectInternal as FileSystem;
-    const path = proj.fileSystemPath() + '/' + this.encodedPathFromUrl(interceptedRequest.request.url);
+    const path = this.fileUrlFromNetworkUrl(interceptedRequest.request.url as Platform.DevToolsPath.UrlString);
     const fileSystemUISourceCode = proj.uiSourceCodeForURL(path);
     if (!fileSystemUISourceCode) {
       return;
