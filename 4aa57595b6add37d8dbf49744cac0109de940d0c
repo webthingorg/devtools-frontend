@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d10f07_4cabe155",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-05T10:12:32Z",
+      "side": 0,
+      "message": "Changes to Treeoutline.ts is essentially a partial revert of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3361046/9/front_end/ui/legacy/Treeoutline.ts",
+      "range": {
+        "startLine": 435,
+        "startChar": 2,
+        "endLine": 435,
+        "endChar": 36
+      },
+      "revId": "4aa57595b6add37d8dbf49744cac0109de940d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
