@@ -217,11 +217,49 @@ describe('Parsed URL', () => {
     assert.strictEqual(completeUrl, hrefTest, 'complete URL is not returned correctly');
   });
 
-  it('uses the completeURL function to return absolute URLs as-is', () => {
+  it('uses the completeURL function to return normalized absolute URLs', () => {
     const hrefTest = 'http://www.example.com';
     const baseUrlTest = 'www.example.com';
     const completeUrl = ParsedURL.completeURL(baseUrlTest, hrefTest);
-    assert.strictEqual(completeUrl, hrefTest, 'complete URL is not returned correctly');
+    assert.strictEqual(completeUrl, 'http://www.example.com/', 'complete URL is not returned correctly');
+
+    // Normalization test cases.
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g'), 'http://a/b/c/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/./g'), 'http://a/b/c/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g/'), 'http://a/b/c/g/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/d;p?y'), 'http://a/b/c/d;p?y');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g?y'), 'http://a/b/c/g?y');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/d;p?q#s'), 'http://a/b/c/d;p?q#s');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g#s'), 'http://a/b/c/g#s');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g?y#s'), 'http://a/b/c/g?y#s');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/;x'), 'http://a/b/c/;x');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g;x'), 'http://a/b/c/g;x');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g;x?y#s'), 'http://a/b/c/g;x?y#s');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/d;p?q'), 'http://a/b/c/d;p?q');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/.'), 'http://a/b/c/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/./'), 'http://a/b/c/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/..'), 'http://a/b/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../'), 'http://a/b/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../g'), 'http://a/b/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../..'), 'http://a/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../../'), 'http://a/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../../g'), 'http://a/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../../../g'), 'http://a/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/../../../../g'), 'http://a/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g.'), 'http://a/b/c/g.');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/.g'), 'http://a/b/c/.g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g..'), 'http://a/b/c/g..');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/..g'), 'http://a/b/c/..g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/./../g'), 'http://a/b/g');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/./g/.'), 'http://a/b/c/g/');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g/./h'), 'http://a/b/c/g/h');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g/../h'), 'http://a/b/c/h');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g;x=1/./y'), 'http://a/b/c/g;x=1/y');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g;x=1/../y'), 'http://a/b/c/y');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g?y/./x'), 'http://a/b/c/g?y/./x');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g?y/../x'), 'http://a/b/c/g?y/../x');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g#s/./x'), 'http://a/b/c/g#s/./x');
+    assert.strictEqual(ParsedURL.completeURL(baseUrlTest, 'http://a/b/c/g#s/../x'), 'http://a/b/c/g#s/../x');
   });
 
   it('uses the completeURL function to return null for invalid href and invalid base URL', () => {
@@ -455,7 +493,7 @@ describe('Parsed URL', () => {
 
     const baseURL = 'http://a/b/c/d;p?q';
 
-    assert.strictEqual(ParsedURL.completeURL(baseURL, 'http://h'), 'http://h');  // modified from RFC3986
+    assert.strictEqual(ParsedURL.completeURL(baseURL, 'http://h'), 'http://h/');  // modified from RFC3986
     assert.strictEqual(ParsedURL.completeURL(baseURL, 'g'), 'http://a/b/c/g');
     assert.strictEqual(ParsedURL.completeURL(baseURL, './g'), 'http://a/b/c/g');
     assert.strictEqual(ParsedURL.completeURL(baseURL, 'g/'), 'http://a/b/c/g/');
