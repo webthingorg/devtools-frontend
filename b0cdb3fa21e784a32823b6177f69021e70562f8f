@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04372488_8824b5f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341668
+      },
+      "writtenOn": "2022-01-05T05:59:41Z",
+      "side": 1,
+      "message": "Tim@ PTAL at this straightforward cleanup CR. Thank you!",
+      "revId": "b0cdb3fa21e784a32823b6177f69021e70562f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
