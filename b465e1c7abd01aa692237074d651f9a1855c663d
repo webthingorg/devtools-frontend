@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f68f3ed1_b97fb490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-05T11:28:51Z",
+      "side": 1,
+      "message": "Hey Mathias,\n\nAligning behavior of \"Pause on exception\" tooltip with the rest again.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "b465e1c7abd01aa692237074d651f9a1855c663d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
