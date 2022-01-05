@@ -16,6 +16,24 @@
       "message": "Could you include some screenshots with the comparison of the folder structure in Sources panel?",
       "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "834978e5_dab7fee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-01-05T23:20:54Z",
+      "side": 1,
+      "message": "There\u0027s some screenshots and more background in the linked CRBug.",
+      "parentUuid": "352b5654_afca481f",
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
