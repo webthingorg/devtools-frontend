@@ -34,6 +34,23 @@
       "parentUuid": "505b6d22_4e634086",
       "revId": "00e0824c0943220a8293663700fc497108cd786f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "099747cd_676e7a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-05T11:09:20Z",
+      "side": 1,
+      "message": "This requires a rebase after the mechanical changes, but that should hopefully be trivial. Then I can merge it, thanks 😊",
+      "revId": "00e0824c0943220a8293663700fc497108cd786f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
