@@ -51,6 +51,23 @@
       "message": "I could see the hesitancy as setting the variable to higher values caused significant lag will searching the minified line. At times the search came to a complete frozen stop. I appreciate the feedback.",
       "revId": "53973e958935cb1ba64473b90ea8da3643a81395",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7e04c7c_fa6c4312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-05T09:16:24Z",
+      "side": 1,
+      "message": "Tim, I think this CL is now obsolete given our CodeMirror update work?",
+      "revId": "53973e958935cb1ba64473b90ea8da3643a81395",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
