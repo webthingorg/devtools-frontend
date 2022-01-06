@@ -34,6 +34,69 @@
       "parentUuid": "352b5654_afca481f",
       "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00202589_9ae47569",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T10:34:34Z",
+      "side": 1,
+      "message": "LGTM from a testing perspective with a nit to improve test reporting. Benedikt, do you mind doing the domain review for this feature?\n\nAlso, it seems like there are some linter errors. Did you upload with `--bypass-hooks`?",
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf31eb5_12ab6b32",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T10:34:34Z",
+      "side": 1,
+      "message": "Nit: extract the test input and expectation cases in an array similar to what you did below. Then separate it out in a `describe` blog and in a `for`-loop on the array, define a separate test case for each input. That way, Karma will report all test results, rather than the first failing assertion.",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 32
+      },
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a251241_0d3f451a",
+        "filename": "test/unittests/front_end/core/sdk/SourceMap_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T10:34:34Z",
+      "side": 1,
+      "message": "Same here: define an `it` definition inside the for-loop to always show all test results, regardless of the first assertion that finishes.",
+      "range": {
+        "startLine": 609,
+        "startChar": 4,
+        "endLine": 609,
+        "endChar": 7
+      },
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
