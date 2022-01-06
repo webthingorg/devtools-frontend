@@ -8,7 +8,9 @@ import * as ExpandableList from '../../../ui/components/expandable_list/expandab
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import type * as Protocol from '../../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../generated/protocol.js';
 
 import stackTraceRowStyles from './stackTraceRow.css.js';
 import stackTraceLinkButtonStyles from './stackTraceLinkButton.css.js';

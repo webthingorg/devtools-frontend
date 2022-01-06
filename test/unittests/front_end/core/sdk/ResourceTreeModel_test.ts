@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection, dispatchEvent} from '../../helpers/MockConnection.js';
 

@@ -10,7 +10,9 @@ import * as RequestLinkIcon from '../../../../../../front_end/ui/components/requ
 import * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
 import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
-import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../../../../front_end/generated/protocol.js';
 
 const {assert} = chai;
 

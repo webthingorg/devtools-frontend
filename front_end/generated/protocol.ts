@@ -7,7 +7,8 @@
  * Re-generate with: npm run generate-protocol-resources.
  */
 
-declare namespace Protocol {
+export namespace Protocol {
+
   export type integer = number;
   export type binary = string;
   export type EnumerableEnum<T> = {[K in keyof T]: T[K]};
@@ -16688,5 +16689,3 @@ declare namespace Protocol {
     }
   }
 }
-
-export = Protocol;

@@ -3,10 +3,12 @@
 // found in the LICENSE file.
 
 import * as SDK from '../../core/sdk/sdk.js';
-import * as UI from '../../ui/legacy/legacy.js';
-import * as ApplicationComponents from './components/components.js';
-import type * as Protocol from '../../generated/protocol.js';
 
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
+import * as UI from '../../ui/legacy/legacy.js';
+
+import * as ApplicationComponents from './components/components.js';
 import {ReportingApiReportsView} from './ReportingApiReportsView.js';
 
 export class ReportingApiView extends UI.SplitWidget.SplitWidget {

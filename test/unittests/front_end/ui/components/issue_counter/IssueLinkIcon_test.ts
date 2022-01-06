@@ -4,13 +4,14 @@
 
 import * as Common from '../../../../../../front_end/core/common/common.js';
 import {assertNotNullOrUndefined} from '../../../../../../front_end/core/platform/platform.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../../../../front_end/generated/protocol.js';
+import * as IssuesManager from '../../../../../../front_end/models/issues_manager/issues_manager.js';
 import * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../../../../../front_end/ui/components/issue_counter/issue_counter.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
-
-import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
-import * as IssuesManager from '../../../../../../front_end/models/issues_manager/issues_manager.js';
 
 const {assert} = chai;
 
