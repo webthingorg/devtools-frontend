@@ -16,6 +16,23 @@
       "message": "I wasted a day making VSCode more productive. Is this something that would be worth checking in?\n\nThere is more work to do, none necessarily blocking checkin:\n - The timeout on unit tests is too short\n - The e2e tests won\u0027t shut down when debugging. This is due to a conflict between the debugger and the hosted mode server and could be complicated or impossible to fix, but it doesn\u0027t stop you from stepping through tests.\n - The build error matcher doesn\u0027t seem to do anything.\n ",
       "revId": "74db9b2cdbe0deacfe554099981de5edda5e557c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7896795_9a0eefb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T10:36:09Z",
+      "side": 1,
+      "message": "Can you please add some documentation in `docs/` on how we would be able to use this new functionality? It isn\u0027t completely clear to me how I can use this and what additional benefits they provide over the normal workflow of running tests.",
+      "revId": "74db9b2cdbe0deacfe554099981de5edda5e557c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
