@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0da545f_8722fb68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:01:18Z",
+      "side": 1,
+      "message": "I have done, and it finds a few that we have that I\u0027ll tidy up in a follow-up.",
+      "parentUuid": "760ef512_4487e582",
+      "revId": "bfc28e1daef6223441066ee102d246ed9b819032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7480385_b4a2e153",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-01-06T12:43:34Z",
       "side": 1,
       "message": "Ultra-nit: to avoid running this for-loop for every single property, can we move this into the `CallExpression` match down below? Then we can ensure we only do this work once for every event listener, rather than once per event listener per property.",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "bfc28e1daef6223441066ee102d246ed9b819032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2801349b_68857bc2",
+        "filename": "scripts/eslint_rules/lib/no_bound_component_methods.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:01:18Z",
+      "side": 1,
+      "message": "I\u0027ve sort of done this. I think we still need to do the work in the Progam:exit step (to ensure we\u0027ve found any nodes of note in the AST), but now we do the parsing work to pull out the method name once, and store that in a set, so we now just have a constant lookup to check if the set contains the relevant method name.",
+      "parentUuid": "e7480385_b4a2e153",
       "range": {
         "startLine": 57,
         "startChar": 6,
