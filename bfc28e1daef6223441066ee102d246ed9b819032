@@ -16,6 +16,46 @@
       "message": "Tim, PTAL again!",
       "revId": "bfc28e1daef6223441066ee102d246ed9b819032",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760ef512_4487e582",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T12:43:34Z",
+      "side": 1,
+      "message": "Can you also double-check that in a follow-up CL where this rule is enabled, it doesn\u0027t find any pre-existing issues? Or if it does, the errors are correct and require further cleanup.",
+      "revId": "bfc28e1daef6223441066ee102d246ed9b819032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7480385_b4a2e153",
+        "filename": "scripts/eslint_rules/lib/no_bound_component_methods.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T12:43:34Z",
+      "side": 1,
+      "message": "Ultra-nit: to avoid running this for-loop for every single property, can we move this into the `CallExpression` match down below? Then we can ensure we only do this work once for every event listener, rather than once per event listener per property.",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "bfc28e1daef6223441066ee102d246ed9b819032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
