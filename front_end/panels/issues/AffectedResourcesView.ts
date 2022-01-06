@@ -12,7 +12,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as NetworkForward from '../../panels/network/forward/forward.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 import * as RequestLinkIcon from '../../ui/components/request_link_icon/request_link_icon.js';
 
 import type {IssueView} from './IssueView.js';

@@ -8,7 +8,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import playerPropertiesViewStyles from './playerPropertiesView.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

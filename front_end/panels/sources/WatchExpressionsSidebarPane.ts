@@ -45,7 +45,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import watchExpressionsSidebarPaneStyles from './watchExpressionsSidebarPane.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';
 

@@ -11,7 +11,7 @@ import signedExchangeInfoViewStyles from './signedExchangeInfoView.css.js';
 import type * as SDK from '../../core/sdk/sdk.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

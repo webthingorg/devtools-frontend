@@ -12,7 +12,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import axBreadcrumbsStyles from './axBreadcrumbs.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {AccessibilitySidebarView} from './AccessibilitySidebarView.js';
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';

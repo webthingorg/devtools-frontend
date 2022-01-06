@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as TextUtils from '../../models/text_utils/text_utils.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {cssMetadata} from './CSSMetadata.js';
 import type {CSSModel, Edit} from './CSSModel.js';

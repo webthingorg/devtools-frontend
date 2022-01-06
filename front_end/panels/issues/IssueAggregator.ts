@@ -4,7 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 type AggregationKeyTag = {
   aggregationKeyTag: undefined,

@@ -9,7 +9,7 @@ import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import userAgentClientHintsFormStyles from './userAgentClientHintsForm.css.js';
 
-import type * as Protocol from '../../../../generated/protocol.js';
+import {Protocol} from '../../../../generated/protocol.js';
 import * as Input from '../../../../ui/components/input/input.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import type * as UI from '../../../../ui/legacy/legacy.js';

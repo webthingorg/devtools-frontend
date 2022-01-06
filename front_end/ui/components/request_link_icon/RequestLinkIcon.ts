@@ -10,7 +10,7 @@ import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import type * as Logs from '../../../models/logs/logs.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
-import type * as Protocol from '../../../generated/protocol.js';
+import {Protocol} from '../../../generated/protocol.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import requestLinkIconStyles from './requestLinkIcon.css.js';

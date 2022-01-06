@@ -5,7 +5,7 @@
 const {assert} = chai;
 
 import type * as SDKModule from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 
 describe('ConsoleMessage', () => {
   let SDK: typeof SDKModule;

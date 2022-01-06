@@ -13,7 +13,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import serviceWorkersViewStyles from './serviceWorkersView.css.js';
 import serviceWorkerUpdateCycleViewStyles from './serviceWorkerUpdateCycleView.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 

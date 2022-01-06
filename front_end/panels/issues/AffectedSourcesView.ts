@@ -4,7 +4,7 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import {AffectedResourcesView} from './AffectedResourcesView.js';
 

@@ -34,7 +34,7 @@ import platformFontsWidgetStyles from './platformFontsWidget.css.js';
 
 import type * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {ComputedStyleModel} from './ComputedStyleModel.js';
 import {Events} from './ComputedStyleModel.js';

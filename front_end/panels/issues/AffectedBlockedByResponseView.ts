@@ -5,7 +5,7 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 import * as Host from '../../core/host/host.js';
 
 import {AffectedResourcesView, AffectedItem} from './AffectedResourcesView.js';

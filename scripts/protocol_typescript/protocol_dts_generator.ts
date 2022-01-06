@@ -65,12 +65,10 @@ const emitHeaderComments = () => {
 const emitModule = (moduleName: string, domains: Protocol.Domain[]) => {
   moduleName = toTitleCase(moduleName);
   emitHeaderComments();
-  emitOpenBlock(`declare namespace ${moduleName}`);
+  emitOpenBlock(`export namespace ${moduleName}`);
   emitGlobalTypeDefs();
   domains.forEach(emitDomain);
   emitCloseBlock();
-  emitLine();
-  emitLine('export = Protocol;');
 };
 
 const emitGlobalTypeDefs = () => {
@@ -401,7 +399,7 @@ const emitApi = (moduleName: string, protocolModuleName: string, domains: Protoc
   moduleName = toTitleCase(moduleName);
   emitHeaderComments();
   emitLine();
-  emitLine('import type * as Protocol from \'./protocol.js\'');
+  emitLine('import {Protocol} from \'./protocol.js\'');
   emitLine();
   emitDescription('API generated from Protocol commands and events.');
   emitOpenBlock(`declare namespace ${moduleName}`);
@@ -443,8 +441,8 @@ const flushEmitToFile = (path: string) => {
 const main = () => {
   const FRONTEND_GENERATED_DIR = path.resolve(__dirname, path.join('../../front_end/generated'));
 
-  const destProtocolFilePath = path.join(FRONTEND_GENERATED_DIR, 'protocol.d.ts');
-  const protocolModuleName = path.basename(destProtocolFilePath, '.d.ts');
+  const destProtocolFilePath = path.join(FRONTEND_GENERATED_DIR, 'protocol.ts');
+  const protocolModuleName = path.basename(destProtocolFilePath, '.ts');
   emitModule(protocolModuleName, protocolDomains);
   flushEmitToFile(destProtocolFilePath);
 

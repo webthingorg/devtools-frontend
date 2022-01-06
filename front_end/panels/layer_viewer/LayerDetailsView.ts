@@ -36,7 +36,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import layerDetailsViewStyles from './layerDetailsView.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {LayerView, LayerViewHost, Selection, SnapshotSelection} from './LayerViewHost.js';
 import {ScrollRectSelection, Type} from './LayerViewHost.js';
