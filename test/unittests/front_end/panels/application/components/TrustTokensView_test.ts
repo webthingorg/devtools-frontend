@@ -2,10 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../../../../front_end/generated/protocol.js';
 import * as ApplicationComponents from '../../../../../../front_end/panels/application/components/components.js';
 import * as DataGrid from '../../../../../../front_end/ui/components/data_grid/data_grid.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
-import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
 import {assertElement, assertShadowRoot, dispatchClickEvent, getElementWithinComponent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 import {getCellByIndexes, getValuesOfAllBodyRows} from '../../../ui/components/DataGridHelpers.js';
 

@@ -6,7 +6,9 @@ const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Resources from '../../../../../front_end/panels/application/application.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 import * as DataGrid from '../../../../../front_end/ui/components/data_grid/data_grid.js';

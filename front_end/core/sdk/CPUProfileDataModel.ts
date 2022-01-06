@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 import {ProfileNode, ProfileTreeModel} from './ProfileTreeModel.js';
+
 import type {Target} from './Target.js';
 
 const UIStrings = {
