@@ -3,8 +3,10 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 type AggregationKeyTag = {
   aggregationKeyTag: undefined,

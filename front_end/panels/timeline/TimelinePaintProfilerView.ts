@@ -7,7 +7,9 @@ import type * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as LayerViewer from '../layer_viewer/layer_viewer.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 
 export class TimelinePaintProfilerView extends UI.SplitWidget.SplitWidget {
   private frameModel: TimelineModel.TimelineFrameModel.TimelineFrameModel;

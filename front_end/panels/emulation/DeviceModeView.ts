@@ -6,13 +6,15 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
-import * as UI from '../../ui/legacy/legacy.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 import * as EmulationModel from '../../models/emulation/emulation.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 import {DeviceModeToolbar} from './DeviceModeToolbar.js';
-import {MediaQueryInspector} from './MediaQueryInspector.js';
 import deviceModeViewStyles from './deviceModeView.css.legacy.js';
+import {MediaQueryInspector} from './MediaQueryInspector.js';
 
 const UIStrings = {
   /**

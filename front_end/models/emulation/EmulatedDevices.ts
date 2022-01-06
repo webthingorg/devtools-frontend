@@ -8,9 +8,11 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import type * as Protocol from '../../generated/protocol.js';
 
-import {MaxDeviceSize, MinDeviceSize, Insets} from './DeviceModeModel.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
+
+import {Insets, MaxDeviceSize, MinDeviceSize} from './DeviceModeModel.js';
 
 const UIStrings = {
   /**

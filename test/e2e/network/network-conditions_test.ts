@@ -7,7 +7,9 @@ import type {ElementHandle, Page} from 'puppeteer';
 import {getBrowserAndPages, pressKey, typeText, waitFor, waitForAria, tabForward} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
-import type * as Protocol from '../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../front_end/generated/protocol.js';
 
 interface MetaData extends Protocol.Emulation.UserAgentMetadata {
   getHighEntropyValues: (metaDataKeys: string[]) => Promise<string[]>;
