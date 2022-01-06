@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5716584_8b728a20",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T13:13:55Z",
+      "side": 1,
+      "message": "This was landed in a previous CL set to a test variable I made rather than the correct variable.",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66250200_c65a5f02",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlightDark.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T13:13:55Z",
+      "side": 1,
+      "message": "Please can you double check I\u0027ve a) matched all the selectors correctly, i.e. both entries point to – say – .cm-js-atom or whatever, and b) I\u0027ve included the .-theme-with-dark-background and the :host-context equivalent? I\u0027ve been over the file myself, I\u0027d just appreciate a second look.",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c28b824_538fe577",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T13:13:55Z",
+      "side": 1,
+      "message": "Since the CSS now has logic in to only show the styles when it\u0027s dark themed we can inject this in all cases. In fact we need to so that we can switch dynamically.",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
