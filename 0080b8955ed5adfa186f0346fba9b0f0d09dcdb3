@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "337764b4_0f0cf64a",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T14:19:33Z",
+      "side": 1,
+      "message": "Do we need this comment?",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 177
+      },
+      "revId": "0080b8955ed5adfa186f0346fba9b0f0d09dcdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
