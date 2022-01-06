@@ -229,20 +229,21 @@ describe('RemoteObject', () => {
     });
 
     it('can handle a function', () => {
-      const remoteObject = SDK.RemoteObject.RemoteObject.fromLocalObject(function func() {});
+      const remoteObject = SDK.RemoteObject.RemoteObject.fromLocalObject(function func() {
+      });
 
       assert.deepEqual(remoteObject.type, 'function');
       assert.deepEqual(remoteObject.subtype, undefined);
       // We can't represent an `Function` object, but we can compare its structure
       assert.deepEqual(typeof remoteObject.value, 'function');
-      assert.deepEqual(String(remoteObject.value), 'function func() { }');
-      assert.deepEqual(remoteObject.description, 'function func() { }');
+      assert.deepEqual(String(remoteObject.value), 'function func() {\n      }');
+      assert.deepEqual(remoteObject.description, 'function func() {\n      }');
       assert.deepEqual(remoteObject.unserializableValue(), undefined);
       assert.deepEqual(remoteObject.hasChildren, false);
 
       const callArguments = SDK.RemoteObject.RemoteObject.toCallArgument(remoteObject);
 
-      assert.deepEqual(String(callArguments.value), 'function func() { }');
+      assert.deepEqual(String(callArguments.value), 'function func() {\n      }');
       assert.deepEqual(callArguments.unserializableValue, undefined);
     });
 
