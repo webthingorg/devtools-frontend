@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4992d44b_339be215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:06:10Z",
+      "side": 1,
+      "message": "LGTM with some thoughts/nits. Nice!",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b5716584_8b728a20",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 2
@@ -48,6 +65,70 @@
       "writtenOn": "2022-01-06T13:13:55Z",
       "side": 1,
       "message": "Since the CSS now has logic in to only show the styles when it\u0027s dark themed we can inject this in all cases. In fact we need to so that we can switch dynamically.",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718c83cc_e5c3625c",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:06:10Z",
+      "side": 1,
+      "message": "could we (in follow-up) update this to adopt the stylesheets onto the root?",
+      "parentUuid": "3c28b824_538fe577",
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab00c05_1e7a2bd6",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:06:10Z",
+      "side": 1,
+      "message": "*thinks aloud* wonder if this CL unlocks us tidying this up at all",
+      "range": {
+        "startLine": 121,
+        "startChar": 5,
+        "endLine": 124,
+        "endChar": 5
+      },
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4446233b_bf6068b5",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:06:10Z",
+      "side": 1,
+      "message": "ultra nit: for future proofing in the event we add themes, should we emit this event with the name of the theme?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 45
+      },
       "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
