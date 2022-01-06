@@ -4,7 +4,9 @@
 
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 
 export class WebAudioModel extends SDK.SDKModel.SDKModel<EventTypes> implements ProtocolProxyApi.WebAudioDispatcher {
   private enabled: boolean;

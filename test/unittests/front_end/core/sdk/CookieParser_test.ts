@@ -5,7 +5,9 @@
 const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 
 function ensureCookiesExistOrFailTest(cookies: SDK.Cookie.Cookie[]|null): cookies is SDK.Cookie.Cookie[] {
   if (!cookies) {

@@ -6,7 +6,9 @@ import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Root from '../root/root.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 
 import {DebuggerModel, Events as DebuggerModelEvents} from './DebuggerModel.js';
 import type {DOMNode} from './DOMModel.js';

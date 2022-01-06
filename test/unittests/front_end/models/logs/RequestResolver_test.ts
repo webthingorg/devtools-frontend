@@ -5,7 +5,9 @@
 const {assert} = chai;
 
 import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../../../front_end/generated/protocol.js';
 import * as Logs from '../../../../../front_end/models/logs/logs.js';
 import {MockNetworkLog, createNetworkRequest} from './MockNetworkLog.js';
 

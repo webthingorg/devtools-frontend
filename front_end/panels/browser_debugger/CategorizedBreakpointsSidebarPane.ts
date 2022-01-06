@@ -4,11 +4,12 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import categorizedBreakpointsSidebarPaneStyles from './categorizedBreakpointsSidebarPane.css.js';
-
-import type * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

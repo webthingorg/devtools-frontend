@@ -7,7 +7,9 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Common from '../../../core/common/common.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
-import type * as Protocol from '../../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import type {Protocol} from '../../../generated/protocol.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
