@@ -8,7 +8,7 @@ import {RemoteObject} from './RemoteObject.js';
 import type {Target} from './Target.js';
 import {Capability} from './Target.js';
 import {SDKModel} from './SDKModel.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 export class IOModel extends SDKModel<void> {
   constructor(target: Target) {

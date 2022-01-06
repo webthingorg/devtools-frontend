@@ -11,7 +11,7 @@ import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import {StubIssue} from '../../models/issues_manager/StubIssue.js';
 import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
 import {MockIssuesManager} from '../../models/issues_manager/MockIssuesManager.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import {createFakeSetting, describeWithEnvironment, enableFeatureForTest} from '../../helpers/EnvironmentHelpers.js';
 
 describeWithEnvironment('AggregatedIssue', async () => {

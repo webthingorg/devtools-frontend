@@ -6,7 +6,7 @@ const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Common from '../../../../../front_end/core/common/common.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 
 describe('MultitargetNetworkManager', () => {

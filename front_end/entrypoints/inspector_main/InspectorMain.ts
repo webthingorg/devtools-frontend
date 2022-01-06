@@ -13,7 +13,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import nodeIconStyles from './nodeIcon.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

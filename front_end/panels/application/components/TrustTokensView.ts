@@ -11,7 +11,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import trustTokensViewStyles from './trustTokensView.css.js';
 import trustTokensViewDeleteButtonStyles from './trustTokensViewDeleteButton.css.js';
 
-import type * as Protocol from '../../../generated/protocol.js';
+import {Protocol} from '../../../generated/protocol.js';
 
 const UIStrings = {
   /**

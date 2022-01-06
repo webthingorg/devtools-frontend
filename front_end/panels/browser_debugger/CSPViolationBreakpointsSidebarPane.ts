@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as SDK from '../../core/sdk/sdk.js';
-import * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {CategorizedBreakpointsSidebarPane} from './CategorizedBreakpointsSidebarPane.js';
 

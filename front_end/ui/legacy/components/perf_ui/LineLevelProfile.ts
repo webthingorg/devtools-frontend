@@ -6,7 +6,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
-import type * as Protocol from '../../../../generated/protocol.js';
+import {Protocol} from '../../../../generated/protocol.js';
 
 let performanceInstance: Performance;
 

@@ -29,7 +29,7 @@
  */
 
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {Target} from './Target.js';
 import {Capability} from './Target.js';

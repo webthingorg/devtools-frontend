@@ -5,7 +5,7 @@
 const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import * as HAR from '../../../../../front_end/models/har/har.js';
 
 describe('HAR.Log', () => {

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import type * as SDK from '../../core/sdk/sdk.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
 import {RecordType, TimelineData, TimelineModelImpl} from './TimelineModel.js';

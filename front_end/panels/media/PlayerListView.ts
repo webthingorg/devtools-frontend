@@ -7,7 +7,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import playerListViewStyles from './playerListView.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {MainView, TriggerDispatcher} from './MainView.js';
 import type {PlayerEvent} from './MediaModel.js';

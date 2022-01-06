@@ -39,7 +39,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import callStackSidebarPaneStyles from './callStackSidebarPane.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

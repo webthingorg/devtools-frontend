@@ -4,7 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {ContrastIssue} from './CSSOverviewCompletedView.js';
 import type {UnusedDeclaration} from './CSSOverviewUnusedDeclarations.js';
