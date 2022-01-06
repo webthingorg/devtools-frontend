@@ -22,6 +22,30 @@
       },
       "revId": "0080b8955ed5adfa186f0346fba9b0f0d09dcdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89deb20a_11a94c0c",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T14:20:16Z",
+      "side": 1,
+      "message": "Yes: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1284956",
+      "parentUuid": "337764b4_0f0cf64a",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 177
+      },
+      "revId": "0080b8955ed5adfa186f0346fba9b0f0d09dcdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
