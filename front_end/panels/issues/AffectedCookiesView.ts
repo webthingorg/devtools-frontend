@@ -8,7 +8,9 @@ import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 import {AffectedItem, AffectedResourcesView} from './AffectedResourcesView.js';
 
 const UIStrings = {

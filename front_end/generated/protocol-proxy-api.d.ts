@@ -8,7 +8,7 @@
  */
 
 
-import type * as Protocol from './protocol.js'
+import {Protocol} from './protocol.js'
 
 /**
  * API generated from Protocol commands and events.

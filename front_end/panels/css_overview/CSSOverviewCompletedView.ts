@@ -7,13 +7,16 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 import cssOverviewCompletedViewStyles from './cssOverviewCompletedView.css.js';
+
 import type {OverviewController, PopulateNodesEvent, PopulateNodesEventNodes, PopulateNodesEventNodeTypes} from './CSSOverviewController.js';
 import {Events as CSSOverViewControllerEvents} from './CSSOverviewController.js';
 import {CSSOverviewSidebarPanel, SidebarEvents} from './CSSOverviewSidebarPanel.js';

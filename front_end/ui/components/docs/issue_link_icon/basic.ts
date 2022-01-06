@@ -6,7 +6,7 @@ import * as FrontendHelpers from '../../../../../test/unittests/front_end/helper
 import * as ComponentHelpers from '../../helpers/helpers.js';
 import type * as IssuesManager from '../../../../models/issues_manager/issues_manager.js';
 import type * as IssueCounterModule from '../../../../ui/components/issue_counter/issue_counter.js';
-import type * as Protocol from '../../../../generated/protocol.js';
+import {Protocol} from '../../../../generated/protocol.js';
 
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
