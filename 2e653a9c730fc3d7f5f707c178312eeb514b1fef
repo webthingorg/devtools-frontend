@@ -179,6 +179,30 @@
       },
       "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2ed90ab_4b563b9d",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-06T14:14:01Z",
+      "side": 1,
+      "message": "Yeah, fair point well made! Let\u0027s leave it and if we need it we\u0027ll find out.",
+      "parentUuid": "a3085279_fe9424d2",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 45
+      },
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
