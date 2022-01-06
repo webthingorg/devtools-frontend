@@ -46,6 +46,30 @@
       },
       "revId": "0080b8955ed5adfa186f0346fba9b0f0d09dcdb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8265f7cc_d674fa1c",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T14:24:00Z",
+      "side": 1,
+      "message": "Cool",
+      "parentUuid": "89deb20a_11a94c0c",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 177
+      },
+      "revId": "0080b8955ed5adfa186f0346fba9b0f0d09dcdb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
