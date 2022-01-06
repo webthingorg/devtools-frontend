@@ -33,6 +33,24 @@
       "message": "Thanks for the CL! A couple of thoughts:\n\n1. The protocol definitions are generated with `scripts/protocol_typescript/protocol_dts_generator.ts` based on the CDP definition. Therefore, we would have to update the script if we want to make changes to this file\n2. The file is not supposed to be shipping in DevTools. Since it contains types only, we want to make sure it is opaque in the build system and removed during TypeScript compilation. This is also the reason we need to use `const enum`s, as they are removed during compilation. We historically had runtime enums, which was brittle and we ran into numerous problems there.\n3. The ESLint import rule ensures consistent bundling with Rollup. Therefore, if the rule flags an import (which it would now), it most likely is an actual problem that requires resolving (rather than disabling). In this case, I think that\u0027s mostly due to the way the `protocol.ts` file is written. Afaik, if you remove the `export namespace Protocol` altogether (such that all `export` statements become toplevel), it should work as expected with the current imports.\n\nOverall, I am not thrilled to change this file to a `.ts` file, given that it should be opaque and is intended to be only relevant for compilation. That\u0027s typically what `.d.ts` files are for, to denote and ensure they remain opaque. That said, if this ultimately unblocks ESBuild, I suppose we could make an exemption for this particular file.",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6006bbed_6296a283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-06T11:29:17Z",
+      "side": 1,
+      "message": "If you are okay with keeping this change in a separate CL (for easier reviewing), then let\u0027s go for that. I am less keen on landing this if we don\u0027t yet know if ESBuild will work for us, but I also want to keep things easy while we try to figure that out. Hopefully, with the pointers in the previous comment, we can reduce this CL size by avoiding having to change all imports and only change `protocol.ts`.",
+      "parentUuid": "16e52b48_62c369f9",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
