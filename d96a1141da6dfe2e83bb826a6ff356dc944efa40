@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e52b48_62c369f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-06T07:58:07Z",
+      "side": 1,
+      "message": "Do you allow me to introduce this kind of change to have smaller diff between local and HEAD before getting formal approval to support esbuild?",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
