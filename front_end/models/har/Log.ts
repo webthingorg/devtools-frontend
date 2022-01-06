@@ -36,7 +36,9 @@
 
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 
 export class Log {
   static pseudoWallTime(request: SDK.NetworkRequest.NetworkRequest, monotonicTime: number): Date {

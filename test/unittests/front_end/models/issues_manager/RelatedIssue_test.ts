@@ -5,7 +5,9 @@
 const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
 import {StubIssue} from './StubIssue.js';
 

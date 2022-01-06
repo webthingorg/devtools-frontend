@@ -6,7 +6,9 @@ import type * as ComponentsModule from '../../../../../../../front_end/ui/legacy
 import type * as BindingsModule from '../../../../../../../front_end/models/bindings/bindings.js';
 import type * as SDKModule from '../../../../../../../front_end/core/sdk/sdk.js';
 import type * as WorkspaceModule from '../../../../../../../front_end/models/workspace/workspace.js';
-import type * as Protocol from '../../../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../../../front_end/generated/protocol.js';
 
 import {createTarget} from '../../../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection, dispatchEvent} from '../../../../helpers/MockConnection.js';

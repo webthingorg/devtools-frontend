@@ -3,15 +3,17 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../generated/protocol.js';
 import * as Buttons from '../../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
+import * as Input from '../../../../ui/components/input/input.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import userAgentClientHintsFormStyles from './userAgentClientHintsForm.css.js';
 
-import type * as Protocol from '../../../../generated/protocol.js';
-import * as Input from '../../../../ui/components/input/input.js';
-import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import type * as UI from '../../../../ui/legacy/legacy.js';
 import * as EmulationUtils from '../utils/utils.js';
 

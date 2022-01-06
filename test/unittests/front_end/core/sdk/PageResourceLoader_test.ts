@@ -6,7 +6,9 @@ const {assert} = chai;
 
 import type * as Host from '../../../../../front_end/core/host/host.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 
 interface LoadResult {
   success: boolean;
