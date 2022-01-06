@@ -7,7 +7,7 @@ const {assert} = chai;
 import * as Issues from '../../../../../front_end/panels/issues/issues.js';
 import * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
 import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 import {MockIssuesModel} from '../../models/issues_manager/MockIssuesModel.js';
 import {MockIssuesManager} from '../../models/issues_manager/MockIssuesManager.js';
 

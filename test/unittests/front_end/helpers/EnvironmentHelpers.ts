@@ -7,7 +7,7 @@ import * as Host from '../../../../front_end/core/host/host.js';
 import * as i18n from '../../../../front_end/core/i18n/i18n.js';
 import * as Root from '../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../front_end/core/sdk/sdk.js';
-import type * as Protocol from '../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../front_end/models/bindings/bindings.js';
 import * as Workspace from '../../../../front_end/models/workspace/workspace.js';
 

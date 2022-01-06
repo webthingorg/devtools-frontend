@@ -5,7 +5,7 @@
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ApplicationComponents from './components/components.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {ReportingApiReportsView} from './ReportingApiReportsView.js';
 

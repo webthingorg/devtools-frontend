@@ -9,7 +9,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import audioContextSelectorStyles from './audioContextSelector.css.js';
 
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 const UIStrings = {
   /**

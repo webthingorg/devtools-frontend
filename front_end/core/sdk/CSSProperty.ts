@@ -7,7 +7,7 @@ import * as Common from '../common/common.js';
 import * as HostModule from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
-import type * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import {cssMetadata, GridAreaRowRegex} from './CSSMetadata.js';
 import type {Edit} from './CSSModel.js';

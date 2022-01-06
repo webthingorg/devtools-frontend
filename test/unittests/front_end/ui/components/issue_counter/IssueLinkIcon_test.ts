@@ -9,7 +9,7 @@ import * as IssueCounter from '../../../../../../front_end/ui/components/issue_c
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 
-import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
+import {Protocol} from '../../../../../../front_end/generated/protocol.js';
 import * as IssuesManager from '../../../../../../front_end/models/issues_manager/issues_manager.js';
 
 const {assert} = chai;

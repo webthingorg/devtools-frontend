@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Protocol from '../../generated/protocol.js';
+import {Protocol} from '../../generated/protocol.js';
 
 import type {MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 import {Issue, IssueKind, IssueCategory} from './Issue.js';
