@@ -110,6 +110,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5101740a_7d01a0d4",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T14:09:16Z",
+      "side": 1,
+      "message": "I\u0027ll take a look after this lands.",
+      "parentUuid": "8ab00c05_1e7a2bd6",
+      "range": {
+        "startLine": 121,
+        "startChar": 5,
+        "endLine": 124,
+        "endChar": 5
+      },
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4446233b_bf6068b5",
@@ -123,6 +147,30 @@
       "writtenOn": "2022-01-06T14:06:10Z",
       "side": 1,
       "message": "ultra nit: for future proofing in the event we add themes, should we emit this event with the name of the theme?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 45
+      },
+      "revId": "2e653a9c730fc3d7f5f707c178312eeb514b1fef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3085279_fe9424d2",
+        "filename": "front_end/ui/legacy/theme_support/theme_support_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2022-01-06T14:09:16Z",
+      "side": 1,
+      "message": "We can, though in general I don\u0027t know what it would unlock. If the theme changes, chances are all bets are off in terms of what colours are still correct, and since the code always comes back to the ThemeSupport class I doubt it would need or want to know what the name of the current theme is?",
+      "parentUuid": "4446233b_bf6068b5",
       "range": {
         "startLine": 166,
         "startChar": 0,
