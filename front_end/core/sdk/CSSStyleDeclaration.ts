@@ -2,10 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 import {cssMetadata} from './CSSMetadata.js';
+
 import type {CSSModel, Edit} from './CSSModel.js';
 import {CSSProperty} from './CSSProperty.js';
 import type {CSSRule} from './CSSRule.js';

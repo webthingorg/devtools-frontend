@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import * as FrontendHelpers from '../../../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../generated/protocol.js';
 import * as ApplicationComponents from '../../../../panels/application/components/components.js';
 import * as ComponentHelpers from '../../helpers/helpers.js';
-
-import type * as Protocol from '../../../../generated/protocol.js';
 
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();

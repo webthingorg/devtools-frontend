@@ -6,7 +6,9 @@ const {assert} = chai;
 
 import * as HAR from '../../../../../front_end/models/har/har.js';
 import type * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../../../../front_end/generated/protocol.js';
 
 const exampleLog = new HAR.HARFormat.HARLog({
   version: '1.2',

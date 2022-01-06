@@ -5,7 +5,9 @@
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 import type * as ProtocolClient from '../protocol_client/protocol_client.js';
-import type * as Protocol from '../../generated/protocol.js';
+
+// eslint-disable-next-line rulesdir/es_modules_import
+import {Protocol} from '../../generated/protocol.js';
 import {Type as TargetType} from './Target.js';
 import {Target} from './Target.js';
 import type {SDKModel} from './SDKModel.js';
