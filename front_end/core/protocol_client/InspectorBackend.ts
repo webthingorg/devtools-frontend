@@ -30,7 +30,7 @@
 
 import {NodeURL} from './NodeURL.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import * as Protocol from '../../generated/protocol.js';
+import type * as Protocol_ from '../../generated/protocol.js';
 
 export const DevToolsStubErrorCode = -32015;
 // TODO(dgozman): we are not reporting generic errors in tests, but we should
@@ -906,7 +906,7 @@ class _AgentPrototype {
     this[methodName] = sendMessagePromise;
 
     function invoke(
-        this: _AgentPrototype, request: Object|undefined = {}): Promise<Protocol.ProtocolResponseWithError> {
+        this: _AgentPrototype, request: Object|undefined = {}): Promise<Protocol_.ProtocolResponseWithError> {
       return this.invoke(domainAndMethod, request);
     }
 
@@ -997,7 +997,7 @@ class _AgentPrototype {
     });
   }
 
-  private invoke(method: QualifiedName, request: Object|null): Promise<Protocol.ProtocolResponseWithError> {
+  private invoke(method: QualifiedName, request: Object|null): Promise<Protocol_.ProtocolResponseWithError> {
     return new Promise(fulfill => {
       const callback: Callback = (error: MessageError|undefined|null, result: Object|null): void => {
         if (error && !test.suppressRequestErrors && error.code !== DevToolsStubErrorCode &&
