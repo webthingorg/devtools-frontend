@@ -69,6 +69,24 @@
       "parentUuid": "0b13a286_9186a1d2",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83721fb7_af4efe88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-07T12:46:55Z",
+      "side": 1,
+      "message": "\u003e Even if we changed to use protocol.ts, imports for protocol.js are removed in typescript build. And you don\u0027t need to ship protocol.js assuming that esbuild won\u0027t be used for official build.\n\nIf I understand correctly, this means that in the ESBuild version of our build matrix, the file will remain and it will contain all enums, yet they are made non-const? Or said differently: how is ESBuild using the enums, given that they are not available on runtime? As far as I know, any reference such as `Protocol.Accessibility.AXValueType.Boolean` will throw as the object doesn\u0027t exist in the global scope. But if ESBuild leaves behind the `protocol.js` with enum definitions, then that might work.\n\nSo with the introduction of ESBuild, our build matrix would look as follows:\n1. DevTools standalone debug build\n2. DevTools standalone release build\n3. Chromium release build\n4. Chromium release build + ESBuild\n\nIn this case, `is_official_build` bots should use 3 and devs should use 4, right? Given that there is a runtime difference between 3 and 4 (with the way we handle const enums), we probably want a new CQ bot to cover 4 as well.\n\nI don\u0027t think we want to support ESBuild + `is_debug`, as that will break bundling with these enums, so maybe we should make these mutually exclusive, WDYT?",
+      "parentUuid": "a5dd0299_ef7e557c",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
