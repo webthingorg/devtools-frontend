@@ -51,6 +51,24 @@
       "parentUuid": "16e52b48_62c369f9",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5dd0299_ef7e557c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-07T04:33:35Z",
+      "side": 1,
+      "message": "Thank you for the comments.\n\n\n\u003e 2. The file is not supposed to be shipping in DevTools. Since it contains types only, we want to make sure it is opaque in the build system and removed during TypeScript compilation. This is also the reason we need to use `const enum`s, as they are removed during compilation. We historically had runtime enums, which was brittle and we ran into numerous problems there.\n\nEven if we changed to use protocol.ts, imports for protocol.js are removed in typescript build. And you don\u0027t need to ship protocol.js assuming that esbuild won\u0027t be used for official build.\n\n\n\u003e 3. The ESLint import rule ensures consistent bundling with Rollup. Therefore, if the rule flags an import (which it would now), it most likely is an actual problem that requires resolving (rather than disabling). In this case, I think that\u0027s mostly due to the way the `protocol.ts` file is written. Afaik, if you remove the `export namespace Protocol` altogether (such that all `export` statements become toplevel), it should work as expected with the current imports.\n\nWhen I trid that, I got error like\n```\n  Uncaught TypeError: Cannot add property Accessibility, object is not extensible\n  at front_end/core/protocol_client/InspectorBackend.ts:153:23 \u003c- out/Default/gen/front_end/core/protocol_client/InspectorBackend.js:89:30\n```\nin unittest.\n\nBut I found it can be fixed by changing alias in InspectorBackend.ts. Thanks.\n\n\n\u003e \n\u003e Overall, I am not thrilled to change this file to a `.ts` file, given that it should be opaque and is intended to be only relevant for compilation. That\u0027s typically what `.d.ts` files are for, to denote and ensure they remain opaque. That said, if this ultimately unblocks ESBuild, I suppose we could make an exemption for this particular file.\n\nCurrently, ESBuild doesn\u0027t replace const enum, so I think changing protocol.d.ts is inevitable. If we want to keep current protocol.d.ts, another idea is to extract const enums to separate ts file like protocolEnums.ts and replace current enum usage with that.",
+      "parentUuid": "0b13a286_9186a1d2",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
