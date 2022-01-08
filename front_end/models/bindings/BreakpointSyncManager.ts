@@ -1,0 +1,246 @@
+// Copyright 2022 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import * as Common from '../../core/common/common.js';
+import * as SDK from '../../core/sdk/sdk.js';
+import * as Workspace from '../workspace/workspace.js';
+
+import type {BreakpointManager} from './BreakpointManager.js';
+import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+
+let debuggerStateManagerInstance: BreakpointSyncManager;
+
+// The BreakpointSyncManager is responsible for making sure to synchronize the breakpoint setting with the
+// debugger. Synchronization is required on debugger start up and on instrumentation breakpoints.
+export class BreakpointSyncManager implements SDK.TargetManager.SDKModelObserver<SDK.DebuggerModel.DebuggerModel> {
+  #debuggerModelToAwaitedSourceUrls: Map<SDK.DebuggerModel.DebuggerModel, Set<string>>;
+  #debuggerModelToCallback: Map<SDK.DebuggerModel.DebuggerModel, () => void>;
+  #breakpointManager: BreakpointManager;
+
+  private constructor(targetManager: SDK.TargetManager.TargetManager, breakpointManager: BreakpointManager) {
+    this.#breakpointManager = breakpointManager;
+    this.#debuggerModelToAwaitedSourceUrls = new Map();
+    this.#debuggerModelToCallback = new Map();
+    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
+    Workspace.Workspace.WorkspaceImpl.instance().addEventListener(
+        Workspace.Workspace.Events.UISourceCodeAdded, this.#onUISourceCodeAdded, this);
+  }
+
+  static instance(opts: {
+    forceNew: boolean|null,
+    breakpointManager: BreakpointManager|null,
+    targetManager: SDK.TargetManager.TargetManager|null,
+  } = {forceNew: null, targetManager: null, breakpointManager: null}): BreakpointSyncManager {
+    if (!debuggerStateManagerInstance || opts.forceNew) {
+      if (!opts.targetManager || !opts.breakpointManager) {
+        throw new Error('Undefined target and breakpoint manager!');
+      }
+      debuggerStateManagerInstance = new BreakpointSyncManager(opts.targetManager, opts.breakpointManager);
+    }
+    return debuggerStateManagerInstance;
+  }
+
+  modelAdded(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.addEventListener(SDK.DebuggerModel.Events.DebuggerWasEnabled, this.#onDebuggerEnabled, this);
+    debuggerModel.addEventListener(
+        SDK.DebuggerModel.Events.DebuggerWasDisabled, this.#onDebuggerDisabled.bind(this, debuggerModel));
+    debuggerModel.addEventListener(
+        SDK.DebuggerModel.Events.DebuggerPausedOnInstrumentation, this.#onInstrumentationBreakpoint, this);
+  }
+
+  modelRemoved(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.removeEventListener(SDK.DebuggerModel.Events.DebuggerWasEnabled, this.#onDebuggerEnabled, this);
+    this.#cleanUpAfterSyncFinished(debuggerModel);
+  }
+
+  async #onUISourceCodeAdded(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>):
+      Promise<void> {
+    const uiSourceCode = event.data;
+    await this.#breakpointManager.restoreBreakpointsForUrl(uiSourceCode);
+    const scripts = DebuggerWorkspaceBinding.instance().scriptsForUISourceCode(uiSourceCode);
+    for (const script of scripts) {
+      const debuggerModel = script.debuggerModel;
+      const awaitedScripts = this.#debuggerModelToAwaitedSourceUrls.get(debuggerModel);
+      if (awaitedScripts) {
+        awaitedScripts.delete(uiSourceCode.url());
+        if (awaitedScripts.size === 0) {
+          const callback = this.#debuggerModelToCallback.get(debuggerModel);
+          this.#cleanUpAfterSyncFinished(debuggerModel);
+          if (callback) {
+            callback();
+          }
+        }
+      }
+    }
+  }
+
+  async #onDebuggerEnabled(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): Promise<void> {
+    const debuggerModel = event.data;
+    await this.#populateSourceFilesToWaitFor(debuggerModel);
+    const missingFiles = this.#debuggerModelToAwaitedSourceUrls.get(debuggerModel);
+    if (missingFiles && missingFiles.size > 0) {
+      this.#debuggerModelToCallback.set(debuggerModel, () => {
+        debuggerModel.breakpointsInitializedOnStartup();
+      });
+      debuggerModel.sourceMapManager().addEventListener(
+          SDK.SourceMapManager.Events.SourceMapAttached, this.#onSourceMapAttached, this);
+      debuggerModel.sourceMapManager().addEventListener(
+          SDK.SourceMapManager.Events.SourceMapFailedToAttach, this.#onSourceMapFailedToAttach, this);
+    } else {
+      debuggerModel.breakpointsInitializedOnStartup();
+    }
+  }
+
+  #onDebuggerDisabled(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    const callback = this.#debuggerModelToCallback.get(debuggerModel);
+    this.#cleanUpAfterSyncFinished(debuggerModel);
+    if (callback) {
+      callback();
+    }
+  }
+
+  async #populateSourceFilesToWaitFor(debuggerModel: SDK.DebuggerModel.DebuggerModel): Promise<void> {
+    const scripts = debuggerModel.scripts();
+    for (const script of scripts) {
+      if (script.contentType().isScript() || script.contentType().isDocument()) {
+        await this.#populateSourceFilesForScript(script, debuggerModel);
+      }
+    }
+  }
+
+  async #populateSourceFilesForScript(script: SDK.Script.Script, debuggerModel: SDK.DebuggerModel.DebuggerModel):
+      Promise<void> {
+    if (script.isInlineScript() && !script.hasSourceURL) {
+      const name = Common.ParsedURL.ParsedURL.extractName(script.sourceURL);
+      const alternativeUrl = 'debugger:///VM' + script.scriptId + (name ? ' ' + name : '');
+      if (this.#breakpointManager.hasBreakpointsForUrl(script.sourceURL)) {
+        await this.#addMissingOrSetBreakpoint('', alternativeUrl, debuggerModel);
+      }
+      return;
+    }
+    const inspectedURL = debuggerModel.target().inspectedURL();
+    if (this.#breakpointManager.hasBreakpointsForUrl(script.sourceURL)) {
+      await this.#addMissingOrSetBreakpoint(inspectedURL, script.sourceURL, debuggerModel);
+    }
+    if (script.sourceMapURL) {
+      const resolvedSourceUrl = Common.ParsedURL.ParsedURL.completeURL(inspectedURL, script.sourceURL);
+      const sourceMap = debuggerModel.sourceMapManager().sourceMapForClient(script);
+      if (!sourceMap && resolvedSourceUrl &&
+          !debuggerModel.sourceMapManager().sourceMapForClientFailedToAttach(script)) {
+        const sourceUrl = Common.ParsedURL.ParsedURL.completeURL(resolvedSourceUrl, script.sourceMapURL);
+        if (sourceUrl) {
+          this.#addMissingFile(debuggerModel, sourceUrl);
+        }
+      } else if (sourceMap) {
+        for (const sourceUrl of sourceMap.sourceURLs()) {
+          if (this.#breakpointManager.hasBreakpointsForUrl(sourceUrl)) {
+            await this.#addMissingOrSetBreakpoint(inspectedURL, sourceUrl, debuggerModel);
+          }
+        }
+      }
+    }
+  }
+
+  async #addMissingOrSetBreakpoint(urlPrefix: string, url: string, debuggerModel: SDK.DebuggerModel.DebuggerModel):
+      Promise<void> {
+    const sourceUrl = Common.ParsedURL.ParsedURL.completeURL(urlPrefix, url);
+    const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(sourceUrl ?? url);
+    if (!uiSourceCode) {
+      const sourceUrl = Common.ParsedURL.ParsedURL.completeURL(urlPrefix, url);
+      if (sourceUrl) {
+        this.#addMissingFile(debuggerModel, sourceUrl);
+      }
+    } else {
+      await this.#breakpointManager.restoreBreakpointsForUrl(uiSourceCode);
+    }
+  }
+
+  #addMissingFile(debuggerModel: SDK.DebuggerModel.DebuggerModel, sourceUrl: string): void {
+    let missingFiles = this.#debuggerModelToAwaitedSourceUrls.get(debuggerModel);
+    if (!missingFiles) {
+      missingFiles = new Set();
+      this.#debuggerModelToAwaitedSourceUrls.set(debuggerModel, missingFiles);
+    }
+    missingFiles.add(sourceUrl);
+  }
+
+  #onSourceMapFailedToAttach(event: Common.EventTarget.EventTargetEvent<{client: SDK.Script.Script}>): void {
+    const script = event.data.client;
+    if (script.sourceURL && script.sourceMapURL) {
+      const resolvedUrls =
+          script.debuggerModel.sourceMapManager().resolveRelativeURLs(script.sourceURL, script.sourceMapURL);
+      const missingFiles = this.#debuggerModelToAwaitedSourceUrls.get(script.debuggerModel);
+      if (resolvedUrls && missingFiles && missingFiles.has(resolvedUrls.sourceMapURL)) {
+        this.#handleSourceMapEvent(resolvedUrls.sourceMapURL, script.debuggerModel);
+      }
+    }
+  }
+
+  async #onSourceMapAttached(
+      event: Common.EventTarget.EventTargetEvent<{client: SDK.Script.Script, sourceMap: SDK.SourceMap.SourceMap}>):
+      Promise<void> {
+    const {client, sourceMap} = event.data;
+    const missingFiles = this.#debuggerModelToAwaitedSourceUrls.get(client.debuggerModel);
+    if (missingFiles && missingFiles.has(sourceMap.url())) {
+      for (const sourceUrl of sourceMap.sourceURLs()) {
+        if (this.#breakpointManager.hasBreakpointsForUrl(sourceUrl)) {
+          await this.#addMissingOrSetBreakpoint('', sourceUrl, client.debuggerModel);
+        }
+      }
+      this.#handleSourceMapEvent(sourceMap.url(), client.debuggerModel);
+    }
+  }
+
+  #handleSourceMapEvent(sourceUrl: string, debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    const sourceUrls = this.#debuggerModelToAwaitedSourceUrls.get(debuggerModel);
+    if (sourceUrls) {
+      sourceUrls.delete(sourceUrl);
+      if (sourceUrls.size === 0) {
+        const callback = this.#debuggerModelToCallback.get(debuggerModel);
+        this.#cleanUpAfterSyncFinished(debuggerModel);
+        if (callback) {
+          callback();
+        }
+      }
+    }
+  }
+
+  async #onInstrumentationBreakpoint(
+      event: Common.EventTarget
+          .EventTargetEvent<{callFrame: SDK.DebuggerModel.CallFrame, callback: (isSetBreakpoint: boolean) => void}>):
+      Promise<void> {
+    const {callFrame, callback} = event.data;
+    const script = callFrame.script;
+    const debuggerModel = script.debuggerModel;
+    await this.#populateSourceFilesForScript(script, debuggerModel);
+    const missingFiles = this.#debuggerModelToAwaitedSourceUrls.get(debuggerModel);
+    const uiLocation = await DebuggerWorkspaceBinding.instance().rawLocationToUILocation(callFrame.location());
+    const bp = uiLocation ? this.#breakpointManager.findBreakpoint(uiLocation) : null;
+    if (missingFiles && missingFiles.size > 0) {
+      this.#debuggerModelToCallback.set(debuggerModel, () => callback(Boolean(bp)));
+      if (script.sourceMapURL) {
+        debuggerModel.sourceMapManager().addEventListener(
+            SDK.SourceMapManager.Events.SourceMapAttached, this.#onSourceMapAttached, this);
+        debuggerModel.sourceMapManager().addEventListener(
+            SDK.SourceMapManager.Events.SourceMapFailedToAttach, this.#onSourceMapFailedToAttach, this);
+      }
+    } else {
+      callback(Boolean(bp));
+    }
+  }
+
+  #cleanUpAfterSyncFinished(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.sourceMapManager().removeEventListener(
+        SDK.SourceMapManager.Events.SourceMapAttached, this.#onSourceMapAttached, this);
+    debuggerModel.sourceMapManager().removeEventListener(
+        SDK.SourceMapManager.Events.SourceMapFailedToAttach, this.#onSourceMapFailedToAttach, this);
+
+    if (this.#debuggerModelToAwaitedSourceUrls.has(debuggerModel)) {
+      this.#debuggerModelToAwaitedSourceUrls.delete(debuggerModel);
+    }
+    if (this.#debuggerModelToCallback.has(debuggerModel)) {
+      this.#debuggerModelToCallback.delete(debuggerModel);
+    }
+  }
+}

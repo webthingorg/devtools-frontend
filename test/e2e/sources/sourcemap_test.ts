@@ -4,10 +4,10 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, goToResource, step, waitFor, waitForElementWithTextContent, waitForFunctionWithTries} from '../../shared/helper.js';
+import {click, getBrowserAndPages, getPendingEvents, goToResource, reloadDevTools, step, waitFor, waitForElementWithTextContent, waitForFunction, waitForFunctionWithTries} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {clickNthChildOfSelectedElementNode, focusElementsTree, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
-import {addBreakpointForLine, getBreakpointDecorators, openSourceCodeEditorForFile, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_OUT_BUTTON, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, DEBUGGER_PAUSED_EVENT, getBreakpointDecorators, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_OUT_BUTTON, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   // Flaky test.
@@ -138,6 +138,36 @@ describe('The Sources Tab', async () => {
     await step('Resume', async () => {
       await click(RESUME_BUTTON);
       await scriptEvaluation;
+    });
+  });
+
+  it('reliably hits breakpoints on worker with source map', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-breakpoint.html');
+
+    await step('Run to breakpoint', async () => {
+      await addBreakpointForLine(frontend, 4);
+    });
+
+    await step('Navigate to a blank page', async () => {
+      await target.goto('about:blank');
+      await reloadDevTools({selectedPanel: {name: 'sources'}});
+    });
+
+    await step('Navigate to a blank page', () => {
+      void goToResource('sources/sourcemap-breakpoint.html');
+    });
+
+    await step('wait for pause and check if we stopped at line 1', async () => {
+      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'sourcemap-stepping-source.js:4');
+    });
+
+    await step('Resume', async () => {
+      await click(RESUME_BUTTON);
     });
   });
 
