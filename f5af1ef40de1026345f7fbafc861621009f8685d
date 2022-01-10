@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "45c83c84_10b4f54e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-10T15:14:51Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "f5af1ef40de1026345f7fbafc861621009f8685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "65adde2c_e053c03c",
         "filename": "front_end/Images/generate-css-vars.js",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2022-01-10T15:10:42Z",
       "side": 1,
       "message": "I had to wrap this all in a function to be able to write a return-statement here 😞",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "f5af1ef40de1026345f7fbafc861621009f8685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4574f32_a5e97250",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-10T15:14:51Z",
+      "side": 1,
+      "message": "could this be process.exit(0) ? I don\u0027t feel strongly though and this is fine to leave as is.",
+      "parentUuid": "65adde2c_e053c03c",
       "range": {
         "startLine": 40,
         "startChar": 6,
