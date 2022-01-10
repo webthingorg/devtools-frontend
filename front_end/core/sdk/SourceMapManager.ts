@@ -31,6 +31,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
   readonly #sourceMapById: Map<string, SourceMap>;
   #sourceMapIdToLoadingClients: Platform.MapUtilities.Multimap<string, T>;
   #sourceMapIdToClients: Platform.MapUtilities.Multimap<string, T>;
+  readonly #failedSourceMapId: Set<string>;
 
   constructor(target: Target) {
     super();
@@ -45,6 +46,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     this.#sourceMapById = new Map();
     this.#sourceMapIdToLoadingClients = new Platform.MapUtilities.Multimap();
     this.#sourceMapIdToClients = new Platform.MapUtilities.Multimap();
+
+    this.#failedSourceMapId = new Set();
 
     TargetManager.instance().addEventListener(TargetManagerEvents.InspectedURLChanged, this.inspectedURLChanged, this);
   }
@@ -97,6 +100,14 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     return this.#sourceMapById.get(sourceMapId) || null;
   }
 
+  sourceMapForClientFailedToAttach(client: T): boolean {
+    const sourceMapId = this.#resolvedSourceMapId.get(client);
+    if (!sourceMapId) {
+      return false;
+    }
+    return this.#failedSourceMapId.has(sourceMapId);
+  }
+
   clientsForSourceMap(sourceMap: SourceMap): T[] {
     const sourceMapId = this.getSourceMapId(sourceMap.compiledURL(), sourceMap.url());
     if (this.#sourceMapIdToClients.has(sourceMapId)) {
@@ -109,7 +120,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     return `${sourceURL}:${sourceMapURL}`;
   }
 
-  private resolveRelativeURLs(sourceURL: string, sourceMapURL: string): {
+  resolveRelativeURLs(sourceURL: string, sourceMapURL: string): {
     sourceURL: string,
     sourceMapURL: string,
     sourceMapId: string,
@@ -176,6 +187,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
         return;
       }
       if (!sourceMap) {
+        this.#failedSourceMapId.add(sourceMapId);
         for (const client of clients) {
           this.dispatchEventToListeners(Events.SourceMapFailedToAttach, {client});
         }
@@ -202,6 +214,9 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 
     if (!sourceMapId) {
       return;
+    }
+    if (this.#failedSourceMapId.has(sourceMapId)) {
+      this.#failedSourceMapId.delete(sourceMapId);
     }
     if (!this.#sourceMapIdToClients.hasValue(sourceMapId, client)) {
       if (this.#sourceMapIdToLoadingClients.delete(sourceMapId, client)) {
