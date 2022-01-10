@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "c82a1a31ce34aaf786de0e2785781e850d528dd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ddb703f_a4b3b37a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-10T14:22:38Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like the right place to do it, as I would not expect variables named \"name\" or \"title\" to be URL encoded in the first place. Can this be moved up the call stack? If not, can they be typed as URLStrings?",
+      "revId": "c82a1a31ce34aaf786de0e2785781e850d528dd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
