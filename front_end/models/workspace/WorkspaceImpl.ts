@@ -138,6 +138,7 @@ export class ProjectStore {
     if (this.uiSourceCodeForURL(url)) {
       return false;
     }
+    // console.error('Add ui source code:'  + url);
     this.uiSourceCodesMap.set(url, {uiSourceCode: uiSourceCode, index: this.uiSourceCodesList.length});
     this.uiSourceCodesList.push(uiSourceCode);
     this.workspaceInternal.dispatchEventToListeners(Events.UISourceCodeAdded, uiSourceCode);

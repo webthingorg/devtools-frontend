@@ -13,6 +13,7 @@ import type {Target} from './Target.js';
 import {Capability, Type} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {Events as TargetManagerEvents, TargetManager} from './TargetManager.js';
+import {DebuggerModel, Events as DebuggerModelEvents} from './DebuggerModel.js';
 
 export class ChildTargetManager extends SDKModel<EventTypes> implements ProtocolProxyApi.TargetDispatcher {
   readonly #targetManager: TargetManager;
@@ -146,6 +147,13 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     target.setInspectedURL(this.#parentTarget.inspectedURL());
     this.#childTargetsBySessionId.set(sessionId, target);
     this.#childTargetsById.set(target.id(), target);
+
+    const debuggerModel = target.model(DebuggerModel);
+    if (debuggerModel) {
+      if (!debuggerModel.isReadyToPause()) {
+        await debuggerModel.once(DebuggerModelEvents.DebuggerIsReadyToPause);
+      }
+    }
 
     if (ChildTargetManager.attachCallback) {
       await ChildTargetManager.attachCallback({target, waitingForDebugger});
