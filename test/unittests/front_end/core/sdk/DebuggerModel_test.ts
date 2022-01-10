@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+
 import type * as SDKModule from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 
@@ -86,6 +88,7 @@ describeWithMockConnection('DebuggerModel', () => {
       const target = createTarget();
       target.markAsNodeJSForTest();
       const model = new SDK.DebuggerModel.DebuggerModel(target);
+      sinon.stub(model, 'isReadyToSetBreakpoints').callsFake(() => true);
       const {breakpointId} = await model.setBreakpointByURL('fs.js', 1);
       assert.strictEqual(breakpointId, breakpointId1);
     });
@@ -269,5 +272,75 @@ describeWithEnvironment('LocationRanges', () => {
     const reduced = sortAndMerge(locationRangesToBeReduced);
     assert.deepEqual(reduced, locationRangesExpected);
     checkIsMaximallyMerged(reduced);
+  });
+});
+
+describe('DebuggerStateMachine', () => {
+  const transitionCycle = [
+    SDK.DebuggerModel.DebuggerState.StartingUp,
+    SDK.DebuggerModel.DebuggerState.Enabled,
+    SDK.DebuggerModel.DebuggerState.ReadyToPause,
+    SDK.DebuggerModel.DebuggerState.ShuttingDown,
+    SDK.DebuggerModel.DebuggerState.Disabled,
+  ];
+
+  it('transitions states as expected if transition is valid', () => {
+    const debuggerStateMachine = new SDK.DebuggerModel.DebuggerStateMachine();
+    assert.deepEqual(debuggerStateMachine.state, SDK.DebuggerModel.DebuggerState.Disabled);
+    for (const newState of transitionCycle) {
+      assert.isTrue(debuggerStateMachine.transition(newState));
+      assert.deepEqual(debuggerStateMachine.state, newState);
+    }
+  });
+
+  it('disallows invalid transtions', () => {
+    const allStates = [
+      SDK.DebuggerModel.DebuggerState.Enabled,
+      SDK.DebuggerModel.DebuggerState.Disabled,
+      SDK.DebuggerModel.DebuggerState.ShuttingDown,
+      SDK.DebuggerModel.DebuggerState.ReadyToPause,
+      SDK.DebuggerModel.DebuggerState.StartingUp,
+      SDK.DebuggerModel.DebuggerState.Length,
+    ];
+    const debuggerStateMachine = new SDK.DebuggerModel.DebuggerStateMachine();
+    const validTransitions = new Map<SDK.DebuggerModel.DebuggerState, SDK.DebuggerModel.DebuggerState[]>([
+      [
+        SDK.DebuggerModel.DebuggerState.Disabled,
+        [SDK.DebuggerModel.DebuggerState.Disabled, SDK.DebuggerModel.DebuggerState.StartingUp],
+      ],
+      [
+        SDK.DebuggerModel.DebuggerState.StartingUp,
+        [SDK.DebuggerModel.DebuggerState.StartingUp, SDK.DebuggerModel.DebuggerState.Enabled],
+      ],
+      [
+        SDK.DebuggerModel.DebuggerState.Enabled,
+        [
+          SDK.DebuggerModel.DebuggerState.Enabled,
+          SDK.DebuggerModel.DebuggerState.ReadyToPause,
+          SDK.DebuggerModel.DebuggerState.ShuttingDown,
+        ],
+      ],
+      [
+        SDK.DebuggerModel.DebuggerState.ReadyToPause,
+        [SDK.DebuggerModel.DebuggerState.ReadyToPause, SDK.DebuggerModel.DebuggerState.ShuttingDown],
+      ],
+      [
+        SDK.DebuggerModel.DebuggerState.ShuttingDown,
+        [SDK.DebuggerModel.DebuggerState.ShuttingDown, SDK.DebuggerModel.DebuggerState.Disabled],
+      ],
+    ]);
+    for (const validNextState of transitionCycle) {
+      const currentState = debuggerStateMachine.state;
+      for (const toState of allStates) {
+        const transitions = validTransitions.get(debuggerStateMachine.state);
+        if (!transitions || transitions.indexOf(toState) === -1) {
+          // Invalid transition.
+          assert.isFalse(debuggerStateMachine.transition(toState));
+          assert.deepEqual(debuggerStateMachine.state, currentState);
+        }
+      }
+      assert.isTrue(debuggerStateMachine.transition(validNextState));
+      assert.deepEqual(debuggerStateMachine.state, validNextState);
+    }
   });
 });
