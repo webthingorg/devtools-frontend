@@ -63,6 +63,30 @@
       },
       "revId": "f5af1ef40de1026345f7fbafc861621009f8685d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02a7fad_0e5e1775",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-10T15:26:01Z",
+      "side": 1,
+      "message": "Yeah I thought about that. I went for this one for no particular reason though, but they both seem similar yeah",
+      "parentUuid": "c4574f32_a5e97250",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "f5af1ef40de1026345f7fbafc861621009f8685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
