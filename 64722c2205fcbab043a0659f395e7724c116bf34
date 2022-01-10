@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de83c3b4_2fd73a01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-10T11:53:11Z",
+      "side": 1,
+      "message": "Could add a link to the CL that fixes the crash? (Either to the bug(s) or to this CL.)",
+      "revId": "64722c2205fcbab043a0659f395e7724c116bf34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
