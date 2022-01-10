@@ -38,8 +38,11 @@ try:
 except ImportError:
     import simplejson as json
 
-ROOT_DIRECTORY = path.join(path.dirname(__file__), '..', '..')
-GENERATED_LOCATION = path.join(ROOT_DIRECTORY, 'front_end', 'generated', 'InspectorBackendCommands.js')
+ROOT_DIRECTORY = path.join(path.dirname(path.abspath(__file__)), '..', '..',
+                           '..', '..', '..')
+GENERATED_LOCATION = path.join(ROOT_DIRECTORY, 'third_party',
+                               'devtools-frontend', 'src', 'front_end',
+                               'generated', 'InspectorBackendCommands.js')
 READ_LOCATION = path.join(ROOT_DIRECTORY, 'third_party', 'blink', 'public', 'devtools_protocol', 'browser_protocol.json')
 
 
