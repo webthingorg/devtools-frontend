@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65adde2c_e053c03c",
+        "filename": "front_end/Images/generate-css-vars.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-10T15:10:42Z",
+      "side": 1,
+      "message": "I had to wrap this all in a function to be able to write a return-statement here 😞",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "f5af1ef40de1026345f7fbafc861621009f8685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
