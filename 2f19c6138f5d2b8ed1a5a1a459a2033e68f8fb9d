@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e4cdf9_67f1e2a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-10T10:14:27Z",
+      "side": 1,
+      "message": "lgtm % one comment about one test",
+      "revId": "2f19c6138f5d2b8ed1a5a1a459a2033e68f8fb9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3578aab_1adb540f",
+        "filename": "test/unittests/front_end/core/common/Settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-10T10:14:27Z",
+      "side": 1,
+      "message": "I think the test would still pass even if `forceGet` doesn\u0027t update the settings storage. Maybe instead we should do:\n\n const mockStore \u003d new MockStore();\n const settingsStorage \u003d new SettingsStorage({}, mockStore);\n settingsStorage.set(\u0027test\u0027, \u0027value\u0027);\n mockStore.set(\u0027test\u0027, \u0027changed\u0027);\n assert.strictEqual(settingsStorage.get(\u0027test\u0027), \u0027value\u0027);\n \n await settingsStorage.forceGet(\u0027test\u0027);\n \n assert.strictEqual(settingsStorage.get(\u0027test\u0027), \u0027changed\u0027);\n \nwith a clear \"given, when, then\" structure.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 74
+      },
+      "revId": "2f19c6138f5d2b8ed1a5a1a459a2033e68f8fb9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
