@@ -570,7 +570,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     }
     const name = path[path.length - 1];
 
-    folderNode = new NavigatorFolderTreeNode(this, project, folderId, type, folderPath, name);
+    folderNode = new NavigatorFolderTreeNode(this, project, folderId, type, folderPath, decodeURIComponent(name));
     this.subfolderNodes.set(folderId, folderNode);
     parentNode.appendChild(folderNode);
     return folderNode;
@@ -1653,7 +1653,7 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
   }
 
   setTitle(title: string): void {
-    this.title = title;
+    this.title = decodeURIComponent(title);
     if (this.treeElement) {
       this.treeElement.title = this.title;
     }
