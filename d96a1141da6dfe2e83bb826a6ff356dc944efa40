@@ -105,6 +105,24 @@
       "parentUuid": "83721fb7_af4efe88",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2551d7_a3b9ef61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-11T13:47:15Z",
+      "side": 1,
+      "message": "\u003e Yeah, I\u0027d like to do that with enabling esbuild for most of chromium CQ/CI builders too.\n\u003e But I\u0027m wondering whethier it is sufficient to have a new CQ for \"DevTools standalone release build + ESBuild\" in devtools.\n\u003e Do you think we need to have a CQ in devtools to verify integration build of Chromium + devtools with ESBuild?\n\nAha I see. So we only enable this on non-official builds, meaning we don\u0027t ship with ESBuild. In that case, we need all DevTools CQ to *not* use ESBuild, but we need an additional bot to test Chromium + ESBuild for build only. I will comment that on the doc.\n\n\u003e I want to make ESBuild + `is_debug` in chromium works too. But do you think that won\u0027t work too?\n\nI now understand better how it fits in the build matrix, so this does not have to be mutually exclusive with `is_debug`. So scratch my previous comment 😊",
+      "parentUuid": "fc8b4b5c_d3f53cd3",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

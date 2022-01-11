@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36e4b8a_e8843fc0",
+        "filename": ".eslintignore",
+        "patchSetId": 17
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-11T13:47:15Z",
+      "side": 1,
+      "message": "Nit: we no longer have this file (we removed it after we removed Closure Compiler, the predecessor of TypeScript), so we can omit this line.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "802b811d_7bf4fee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-11T13:47:15Z",
+      "side": 1,
+      "message": "Almost there, a couple of minor things but then this is looking good. I would still like to hold off landing until we have a final decision on ESBuild, but then we can submit this CL.",
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a060ae8a_0a24ce7a",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 17
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-11T13:47:15Z",
+      "side": 1,
+      "message": "It\u0027s a bit awkward, but in the case that we don\u0027t use ESBuild, this file shouldn\u0027t be included in the GRD. Therefore, we probably need to conditionally add this file when we use ESBuild, but omit it in all other situations.",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 663,
+        "endChar": 36
+      },
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b74e8cd6_e4f0a0c2",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-11T13:47:15Z",
+      "side": 1,
+      "message": "Rather than renaming this import here (which is fairly easy to forget to use later), canwe maybe annotate all global Protocol usages with `globalThis`?\n\nE.g. where-ever we use `Protocol` as the global, we instead use `globalThis.Protocol`. Then we can safely name this import `Protocol` here.\n\nThat also cleanly denotes what we consider global and what not in this file, which is a nice side-win.\n\nFor example, we update `registerEnum` to do the following:\n\n```\n  registerEnum(type: QualifiedName, values: Object): void {\n    const [domain, name] \u003d splitQualifiedName(type);\n    // @ts-ignore Protocol global namespace pollution\n    if (!globalThis.Protocol[domain]) {\n      // @ts-ignore globalThis.Protocol global namespace pollution\n      globalThis.Protocol[domain] \u003d {};\n    }\n\n    // @ts-ignore globalThis.Protocol global namespace pollution\n    globalThis.Protocol[domain][name] \u003d values;\n    this.#initialized \u003d true;\n  }\n```",
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
