@@ -87,6 +87,24 @@
       "parentUuid": "a5dd0299_ef7e557c",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc8b4b5c_d3f53cd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-11T02:15:50Z",
+      "side": 1,
+      "message": "\u003e \u003e Even if we changed to use protocol.ts, imports for protocol.js are removed in typescript build. And you don\u0027t need to ship protocol.js assuming that esbuild won\u0027t be used for official build.\n\u003e \n\u003e If I understand correctly, this means that in the ESBuild version of our build matrix, the file will remain and it will contain all enums, yet they are made non-const? \n\nYes, that is correct.\n\n\n\u003e \n\u003e So with the introduction of ESBuild, our build matrix would look as follows:\n\u003e 1. DevTools standalone debug build\n\u003e 2. DevTools standalone release build\n\u003e 3. Chromium release build\n\u003e 4. Chromium release build + ESBuild\n\u003e \n\u003e In this case, `is_official_build` bots should use 3 and devs should use 4, right? Given that there is a runtime difference between 3 and 4 (with the way we handle const enums), we probably want a new CQ bot to cover 4 as well.\n\u003e \n\nYeah, I\u0027d like to do that with enabling esbuild for most of chromium CQ/CI builders too.\nBut I\u0027m wondering whethier it is sufficient to have a new CQ for \"DevTools standalone release build + ESBuild\" in devtools.\nDo you think we need to have a CQ in devtools to verify integration build of Chromium + devtools with ESBuild?\n\n\u003e I don\u0027t think we want to support ESBuild + `is_debug`, as that will break bundling with these enums, so maybe we should make these mutually exclusive, WDYT?\n\nI want to make ESBuild + `is_debug` in chromium works too. But do you think that won\u0027t work too?",
+      "parentUuid": "83721fb7_af4efe88",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
