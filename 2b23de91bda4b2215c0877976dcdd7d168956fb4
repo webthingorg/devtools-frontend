@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a40ecf1_ed1599cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-11T08:03:03Z",
+      "side": 1,
+      "message": "PTAL, I think this component is mostly used by Recorder?",
+      "revId": "2b23de91bda4b2215c0877976dcdd7d168956fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
