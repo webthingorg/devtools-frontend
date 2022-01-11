@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5bfc43_360849c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-01-11T17:50:55Z",
+      "side": 1,
+      "message": "Tim, PTAL.\nIs this approach ok? I\u0027ve looked into using `condition` instead, but IIUC conditions come from the queryParamsObject defined in Runtime which doesn\u0027t really help me here.",
+      "revId": "296570f61aee1738e97741b4bfa2759d651a89dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
