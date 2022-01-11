@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646d2b04_06fae437",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-11T12:20:27Z",
+      "side": 1,
+      "message": "Screenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1286257#c2",
+      "revId": "1ba4e813705374b2dec1d1779ab37ffb2ad6edb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
