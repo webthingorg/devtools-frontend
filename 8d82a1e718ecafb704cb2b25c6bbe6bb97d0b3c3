@@ -16,6 +16,23 @@
       "message": "Hi Jack,\nNow that the color issue is fixed, could you please take another look?",
       "revId": "8d82a1e718ecafb704cb2b25c6bbe6bb97d0b3c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8be2d678_3a2ab580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-12T10:50:25Z",
+      "side": 1,
+      "message": "lgtm!",
+      "revId": "8d82a1e718ecafb704cb2b25c6bbe6bb97d0b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
