@@ -154,6 +154,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "653950e6_251c0f47",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 17
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-12T11:23:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f61f4437_2e89e6e2",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 663,
+        "endChar": 36
+      },
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b74e8cd6_e4f0a0c2",
