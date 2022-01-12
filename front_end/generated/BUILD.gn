@@ -12,10 +12,14 @@ devtools_module("generated") {
     "SupportedCSSProperties.js",
   ]
 
-  includes = [
-    # This shouldn't be compiled in tsc.
-    "protocol.ts",
-  ]
+  if (devtools_use_esbuild) {
+    sources += [ "protocol.ts" ]
+  } else {
+    includes = [
+      # This shouldn't be compiled in tsc.
+      "protocol.ts",
+    ]
+  }
 
   deps = []
 
