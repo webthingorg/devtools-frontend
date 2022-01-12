@@ -244,10 +244,13 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
     }
     const mainTarget = this.manager.target();
     const usageData = await mainTarget.storageAgent().invoke_getUsageAndQuota({origin: mainTarget.inspectedURL()});
-    const locations = usageData.usageBreakdown.filter(usage => usage.usage)
+    const locations = usageData.usageBreakdown?.filter(usage => usage.usage)
                           .map(usage => STORAGE_TYPE_NAMES.get(usage.storageType))
                           .map(i18nStringFn => i18nStringFn ? i18nStringFn() : undefined)
                           .filter(Boolean);
+    if (!locations) {
+      return '';
+    }
     if (locations.length === 1) {
       return i18nString(UIStrings.thereMayBeStoredDataAffectingSingular, {PH1: String(locations[0])});
     }

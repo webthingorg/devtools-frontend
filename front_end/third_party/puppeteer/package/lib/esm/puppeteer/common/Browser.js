@@ -115,7 +115,9 @@ export class Browser extends EventEmitter {
      */
     static async create(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback, targetFilterCallback) {
         const browser = new Browser(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback, targetFilterCallback);
+        console.log('###');
         await connection.send('Target.setDiscoverTargets', { discover: true });
+        console.log('$$$');
         return browser;
     }
     /**
