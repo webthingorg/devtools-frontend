@@ -33,6 +33,23 @@
       "message": "Peter, PTAL",
       "revId": "2b23de91bda4b2215c0877976dcdd7d168956fb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f7ba1c4_b1db1f06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-12T08:41:30Z",
+      "side": 1,
+      "message": "LGTM as per offline discussion. It looks okay in the Recorder",
+      "revId": "2b23de91bda4b2215c0877976dcdd7d168956fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
