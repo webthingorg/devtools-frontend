@@ -144,9 +144,10 @@ export class AllocationProfile {
           nodeId, info, info.totalCount, info.totalSize, info.totalLiveCount, info.totalLiveSize, !isRoot));
       this.#collapsedTopNodeIdToFunctionInfo[nodeId] = info;
     }
-    result.sort(function(a, b) {
-      return b.size - a.size;
-    });
+    // This causes panic in swc. https://github.com/swc-project/swc/issues/3229
+    // result.sort(function(a, b) {
+    //   return b.size - a.size;
+    // });
     return result;
   }
 

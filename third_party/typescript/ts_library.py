@@ -214,6 +214,7 @@ def runEsbuild(opts):
 
     cmd += opts.sources
 
+    cmd = ['swc', '-C', 'jsc.target=es2017', '--out-dir='+'gen'] + opts.sources
     logging.info('runEsbuild: %s', ' '.join(cmd))
     subprocess.run(cmd, check=True)
     return 0
