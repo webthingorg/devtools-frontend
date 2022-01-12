@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5bfee6f_8821db4e",
+        "filename": ".eslintignore",
+        "patchSetId": 17
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-12T07:17:17Z",
+      "side": 1,
+      "message": "I see, let me remove this in a separate CL.\nhttps://crrev.com/c/3380118",
+      "parentUuid": "c36e4b8a_e8843fc0",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "802b811d_7bf4fee5",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-01-11T13:47:15Z",
       "side": 1,
       "message": "Almost there, a couple of minor things but then this is looking good. I would still like to hold off landing until we have a final decision on ESBuild, but then we can submit this CL.",
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c927762f_8cb4b351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-12T07:17:17Z",
+      "side": 1,
+      "message": "OK, I\u0027ll wait conclusion in my proposal doc. Thank you for your feedbacks!",
+      "parentUuid": "802b811d_7bf4fee5",
       "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f61f4437_2e89e6e2",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 17
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-12T07:17:17Z",
+      "side": 1,
+      "message": "Hmm, removing this from here is not straightforward as it is tighed to generated_files in GN.\n\nI introduced includes field in typescript build for this. And I\u0027ll add such conditional in child CL.",
+      "parentUuid": "a060ae8a_0a24ce7a",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 663,
+        "endChar": 36
+      },
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b74e8cd6_e4f0a0c2",
         "filename": "front_end/core/protocol_client/InspectorBackend.ts",
         "patchSetId": 17
@@ -77,6 +143,24 @@
       "writtenOn": "2022-01-11T13:47:15Z",
       "side": 1,
       "message": "Rather than renaming this import here (which is fairly easy to forget to use later), canwe maybe annotate all global Protocol usages with `globalThis`?\n\nE.g. where-ever we use `Protocol` as the global, we instead use `globalThis.Protocol`. Then we can safely name this import `Protocol` here.\n\nThat also cleanly denotes what we consider global and what not in this file, which is a nice side-win.\n\nFor example, we update `registerEnum` to do the following:\n\n```\n  registerEnum(type: QualifiedName, values: Object): void {\n    const [domain, name] \u003d splitQualifiedName(type);\n    // @ts-ignore Protocol global namespace pollution\n    if (!globalThis.Protocol[domain]) {\n      // @ts-ignore globalThis.Protocol global namespace pollution\n      globalThis.Protocol[domain] \u003d {};\n    }\n\n    // @ts-ignore globalThis.Protocol global namespace pollution\n    globalThis.Protocol[domain][name] \u003d values;\n    this.#initialized \u003d true;\n  }\n```",
+      "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70ba1405_c3ccdf87",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-12T07:17:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74e8cd6_e4f0a0c2",
       "revId": "12bdba816e50626ebbc8f7055cbd6367c4fafcd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
