@@ -204,6 +204,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--sources', nargs='*', help='List of TypeScript source files')
     parser.add_argument('-deps', '--deps', nargs='*', help='List of Ninja build dependencies')
+    parser.add_argument('--includes',
+                        nargs='*',
+                        help='List of TypeScript files only for include')
     parser.add_argument('-dir', '--front_end_directory', required=True, help='Folder that contains source files')
     parser.add_argument('-b', '--tsconfig_output_location', required=True)
     parser.add_argument('--test-only', action='store_true')
@@ -245,6 +248,10 @@ def main():
 
     if (opts.deps is not None):
         tsconfig['references'] = [{'path': src} for src in opts.deps]
+    if opts.includes:
+        tsconfig['include'] = [
+            get_relative_path_from_output_directory(x) for x in opts.includes
+        ]
     tsconfig['compilerOptions']['module'] = opts.module
     if (not opts.verify_lib_check):
         tsconfig['compilerOptions']['skipLibCheck'] = True

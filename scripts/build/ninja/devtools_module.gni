@@ -13,8 +13,9 @@ template("devtools_module") {
   ts_library(_typescript_target_name) {
     forward_variables_from(invoker,
                            [
-                             "sources",
                              "deps",
+                             "includes",
+                             "sources",
                            ])
 
     # To make sure that this target can be depended upon by other TypeScript targets,

@@ -12,9 +12,15 @@ devtools_module("generated") {
     "SupportedCSSProperties.js",
   ]
 
+  includes = [
+    # This shouldn't be compiled in tsc.
+    "protocol.ts",
+  ]
+
   deps = []
 
   visibility = [
+    "../../test/e2e/network:*",
     "../core/protocol_client:*",
     "../core/sdk:*",
     "../panels/accessibility:*",
@@ -29,6 +35,5 @@ devtools_pre_built("protocol") {
     "protocol-mapping.d.ts",
     "protocol-proxy-api.d.ts",
     "protocol-tsconfig.json",
-    "protocol.d.ts",
   ]
 }
