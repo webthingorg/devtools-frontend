@@ -16,6 +16,24 @@
       "message": "Tim, PTAL.\nIs this approach ok? I\u0027ve looked into using `condition` instead, but IIUC conditions come from the queryParamsObject defined in Runtime which doesn\u0027t really help me here.",
       "revId": "296570f61aee1738e97741b4bfa2759d651a89dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf55f511_cc89bbe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-12T11:47:31Z",
+      "side": 1,
+      "message": "Yes this seems like a nice solution!\n\nI also verified that building this with Chrome will correctly work. I initially was worried that the Host information wasn\u0027t available yet at the time we call it in a `-meta` file, but it seems that all works as expected.",
+      "parentUuid": "df5bfc43_360849c8",
+      "revId": "296570f61aee1738e97741b4bfa2759d651a89dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
