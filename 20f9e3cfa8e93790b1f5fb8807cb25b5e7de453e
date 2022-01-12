@@ -87,6 +87,24 @@
       "parentUuid": "b366001b_6d191200",
       "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e1ae732_58d68aef",
+        "filename": "front_end/panels/elements/elementsPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-12T10:29:59Z",
+      "side": 1,
+      "message": "Fixed in upstream CL",
+      "parentUuid": "0e8de961_a6017ef6",
+      "revId": "20f9e3cfa8e93790b1f5fb8807cb25b5e7de453e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
