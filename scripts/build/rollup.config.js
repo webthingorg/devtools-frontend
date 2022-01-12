@@ -8,6 +8,7 @@ import {defaultStrategy} from 'minify-html-literals/src/strategy';  // eslint-di
 import * as path from 'path';
 import minifyHTML from 'rollup-plugin-minify-html-template-literals';
 import {terser} from 'rollup-plugin-terser';
+import esbuild from 'rollup-plugin-esbuild';
 
 /**
  * `path.dirname` does not include trailing slashes. If we would always
@@ -71,22 +72,25 @@ export default commandLineArgs => ({
     format: 'esm',
   }],
   plugins: [
-    minifyHTML({
-      options: {
-        strategy: minifyHTMLStrategy,
-        minifyOptions: {
-          collapseInlineTagWhitespace: false,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          minifyCSS: false,
-          removeOptionalTags: true,
-        },
-      },
-    }),
-    terser({
-      compress: {
-        pure_funcs: commandLineArgs.configDCHECK ? ['Platform.DCHECK'] : [],
-      },
+    // minifyHTML({
+    //   options: {
+    //     strategy: minifyHTMLStrategy,
+    //     minifyOptions: {
+    //       collapseInlineTagWhitespace: false,
+    //       collapseWhitespace: true,
+    //       conservativeCollapse: true,
+    //       minifyCSS: false,
+    //       removeOptionalTags: true,
+    //     },
+    //   },
+    // }),
+    // terser({
+    //   compress: {
+    //     pure_funcs: commandLineArgs.configDCHECK ? ['Platform.DCHECK'] : [],
+    //   },
+    // }),
+    esbuild({
+      target: 'esnext',
     }),
     {
       name: 'devtools-plugin',
