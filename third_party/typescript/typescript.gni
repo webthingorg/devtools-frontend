@@ -26,6 +26,8 @@ declare_args() {
 #     List of TypeScript files to typecheck and generate
 #   deps (optional):
 #     List of dependencies that are ts_libraries or export a tsconfig.json
+#   includes (optional):
+#     List of TypeScript files to typecheck, but not for generate
 # Example:
 #   ts_library("main") {
 #     sources = ["bar.js", "foo.ts"]
@@ -102,6 +104,10 @@ template("ts_library") {
       # to eventually roll up all files. If these are not public, Ninja complains that
       # the files are not reachable.
       public_deps += deps
+    }
+
+    if (defined(invoker.includes)) {
+      args += [ "--includes" ] + rebase_path(invoker.includes, root_build_dir)
     }
 
     # Here we assume that all sources are in this folder listed,
