@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a99ac7f_bfc15b40",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-12T11:16:37Z",
+      "side": 1,
+      "message": "Based on https://www.typescriptlang.org/tsconfig#include I think this is not the configuration option we are looking for. `include` is used to define a subset of sources. However, since we specify `files` in our TSConfig, we already instruct TypeScript to only build that subset.\n\nInstead, I would prefer to not change `ts_library` for this at all. Thinking about it again, my previous comment about not including `protocol.js` in our GRD file doesn\u0027t really make sense. In all configurations, we are now treating the file as an input file. I would have liked to have an option to mark the file as type-checking-only (e.g. what `.d.ts` does), but I don\u0027t think we can do so.\n\nTherefore, I would propose to revert these changes to the previous solution and include `protocol.js` in the GRD variable. I think that is better than updating `ts_library` here.",
+      "range": {
+        "startLine": 252,
+        "startChar": 8,
+        "endLine": 252,
+        "endChar": 31
+      },
+      "revId": "dcf0ce3c4e99ec1fff9cc7a10f115e234edc05c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
