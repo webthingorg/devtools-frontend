@@ -39,6 +39,30 @@
       },
       "revId": "168e855808eba73c0bdebc2287311d74a3bea542",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69dfcdb9_e165ed8e",
+        "filename": "scripts/build/ninja/write-if-changed.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-13T14:42:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f81a12a_e7aae612",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 73
+      },
+      "revId": "168e855808eba73c0bdebc2287311d74a3bea542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
