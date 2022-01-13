@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e8bd33f_e741cf7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-13T11:16:18Z",
+      "side": 1,
+      "message": "Added tests, will apply branded types in a separate CL",
+      "parentUuid": "f13e82cb_69ae5568",
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6900be98_a78800bc",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-12-20T16:08:04Z",
       "side": 1,
       "message": "I think we actually only want to encode as much as the new ParsedURL helper does. You may want to add a helper for combining paths here, and ideally also apply branded types to newName and filePath to make the required encoding explicit.",
+      "range": {
+        "startLine": 278,
+        "startChar": 36,
+        "endLine": 278,
+        "endChar": 63
+      },
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "add54a9e_78159948",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-13T11:16:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6900be98_a78800bc",
       "range": {
         "startLine": 278,
         "startChar": 36,
@@ -94,6 +136,30 @@
       "writtenOn": "2021-12-20T16:08:04Z",
       "side": 1,
       "message": "Do this cast when you set url instead.",
+      "range": {
+        "startLine": 353,
+        "startChar": 65,
+        "endLine": 353,
+        "endChar": 100
+      },
+      "revId": "f116dc6c795aa9a0061d3ce18073b3607b47153b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "548a5bf4_e398595f",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-13T11:16:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87385f97_913eb07b",
       "range": {
         "startLine": 353,
         "startChar": 65,
