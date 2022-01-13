@@ -201,7 +201,8 @@ export function sourceLineNumberSelector(lineNumber: number) {
 }
 
 export async function isBreakpointSet(lineNumber: number|string) {
-  const breakpointLineParentClasses = await (await getLineNumberElement(lineNumber))?.evaluate(n => n.className);
+  const lineNumberElement = await getLineNumberElement(lineNumber);
+  const breakpointLineParentClasses = await lineNumberElement?.evaluate(n => n.className);
   return breakpointLineParentClasses?.includes('cm-breakpoint');
 }
 
