@@ -4,7 +4,7 @@
 
 /* eslint-disable no-console */
 
-import * as puppeteer from 'puppeteer';
+import puppeteer = require('puppeteer');
 import type {CoverageMapData} from 'istanbul-lib-coverage';
 
 import {clearPuppeteerState, getBrowserAndPages, registerHandlers, setBrowserAndPages, setTestServerPort} from './puppeteer-state.js';
