@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7936c4ea_d1d3c827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-13T13:53:39Z",
+      "side": 1,
+      "message": "Checked again after the changes were reverted in the latest patchset. This now all looks good to me with a tiny nit. So this is ready to go, pending the doc approval (which we are getting close to I think as well).",
+      "revId": "8a2e89ef7d7cfd868a1830f0a5f728ab6ad7970d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1434e3_89037030",
+        "filename": "scripts/build/ninja/devtools_module.gni",
+        "patchSetId": 22
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-13T13:53:39Z",
+      "side": 1,
+      "message": "Nit: we can remove this one again 😜",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "8a2e89ef7d7cfd868a1830f0a5f728ab6ad7970d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
