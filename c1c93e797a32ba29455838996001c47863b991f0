@@ -16,6 +16,23 @@
       "message": "screenshots of the changes can be found here:\n\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1287064#c2\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1287012#c5",
       "revId": "c1c93e797a32ba29455838996001c47863b991f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eada5f83_96cf6c35",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-13T12:29:46Z",
+      "side": 1,
+      "message": "out of curiosity: Why was this moved?",
+      "revId": "c1c93e797a32ba29455838996001c47863b991f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
