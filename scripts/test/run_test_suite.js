@@ -201,6 +201,7 @@ function executeTestSuite({
   setNodeModulesPath(nodeModulesPath);
 
   const argumentsForNode = [
+    '--trace-warnings',
     mochaExecutablePath(),
   ];
   if (process.env.DEBUG_TEST) {
