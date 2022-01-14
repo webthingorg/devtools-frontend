@@ -38,7 +38,7 @@ template("devtools_module") {
 
     data = _javascript_implementation_files +
            filter_include(invoker.data + _target_outputs, [ "*.map" ])
-    if (is_debug) {
+    if (is_debug || devtools_use_esbuild) {
       metadata = {
         grd_files = _javascript_implementation_files
       }

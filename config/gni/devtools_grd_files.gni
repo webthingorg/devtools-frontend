@@ -3,8 +3,9 @@
 # found in the LICENSE file.
 
 # This represents all the files expected to be be in the GRD. The file
-# has two lists, one for files expected for the Release build
-# (is_debug=false), and another for the Debug build (is_debug=true).
+# has two lists, one for files expected for the Release build not using esbuild
+# (is_debug=false && devtools_use_esbuild=false), and another for the Debug
+# or esbuild build (is_debug=true || devtools_use_esbuild=false).
 # The two lists are checked for overlap, and an error thrown if there is
 # any. In the root BUILD.gn these lists are used to ensure that no files
 # are missed from the GRD.

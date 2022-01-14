@@ -20,7 +20,7 @@ node_action("generate_dcheck") {
   outputs = [ "$target_gen_dir/dcheck.js" ]
   data = outputs
 
-  if (is_debug) {
+  if (is_debug || devtools_use_esbuild) {
     metadata = {
       grd_files = outputs
     }
