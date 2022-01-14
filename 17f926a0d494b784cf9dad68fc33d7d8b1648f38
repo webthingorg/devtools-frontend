@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ae1aec_f5407d2f",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-14T15:32:04Z",
+      "side": 1,
+      "message": "Let\u0027s leave `ChildTargetManager.ts` alone and put this logic into InspectorMain (and adjust WorkerMain).",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
