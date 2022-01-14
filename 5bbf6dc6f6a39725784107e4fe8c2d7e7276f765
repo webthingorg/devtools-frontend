@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44bf0e5_30375feb",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "Nit: for the test files we prefer not to use css classes, though we use them in test helper functions if they are the best option. Would something like assert.deepEqual(await getExecutionLine(), 2) work?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "5bbf6dc6f6a39725784107e4fe8c2d7e7276f765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279e75e1_f98f80a2",
+        "filename": "test/e2e/sources/can-handle-special-characters_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "As in other test, it would be better to use getExecutionLine() or create a new helper.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "5bbf6dc6f6a39725784107e4fe8c2d7e7276f765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

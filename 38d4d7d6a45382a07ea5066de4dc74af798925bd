@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ad3ce9_1b2453ea",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "This only works if parentPath is an EncodedPathString, so type accordingly.\n\nHave a unit test for this.\n\nYou might be able to make this work for URLStrings too using generics. Something like:\nencodedFromParentAndName\u003cEncodedStringType extends EncodedPathString|UrlString\u003e(parent: EncodedStringType, name: string): EncodedStringType",
+      "range": {
+        "startLine": 165,
+        "startChar": 72,
+        "endLine": 165,
+        "endChar": 85
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aefe16f_801d83e2",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "Should be EncodedPathString, and the cast should be in filePathForUISourceCode.",
+      "range": {
+        "startLine": 278,
+        "startChar": 79,
+        "endLine": 278,
+        "endChar": 92
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "404fda08_2b428a58",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "Annoying that the new helper works for EncodedPathString but not UrlString.",
+      "range": {
+        "startLine": 185,
+        "startChar": 47,
+        "endLine": 185,
+        "endChar": 107
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1823ea3_17e29f53",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-14T15:18:39Z",
+      "side": 1,
+      "message": "I\u0027m somewhat surprised that a method named \"name\" would return something url-encoded; can it be fixed there?",
+      "range": {
+        "startLine": 75,
+        "startChar": 31,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
