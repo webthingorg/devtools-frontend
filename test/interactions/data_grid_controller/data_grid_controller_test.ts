@@ -50,7 +50,9 @@ async function waitForFirstBodyCellText(cellText: string) {
 }
 
 describe('data grid controller', () => {
+  console.log('before');
   preloadForCodeCoverage('data_grid_controller/basic.html');
+  console.log('after');
 
   // Fails on Mac after theming change
   it('lets the user right click on a header to show the context menu', async () => {

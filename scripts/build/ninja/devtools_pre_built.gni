@@ -2,6 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("../../../third_party/typescript/typescript.gni")
 import("./copy.gni")
 
 template("devtools_pre_built") {
@@ -27,7 +28,7 @@ template("devtools_pre_built") {
 
     data = _javascript_implementation_files +
            filter_include(_target_outputs, [ "*.map" ])
-    if (invoker.sources_are_release || is_debug) {
+    if (invoker.sources_are_release || is_debug || devtools_use_esbuild) {
       metadata = {
         grd_files = _javascript_implementation_files
       }
