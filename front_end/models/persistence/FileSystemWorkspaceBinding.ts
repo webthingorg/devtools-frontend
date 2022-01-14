@@ -193,8 +193,9 @@ export class FileSystem extends Workspace.Workspace.ProjectStore implements Work
     return this.fileSystemInternal.mimeFromPath(uiSourceCode.url());
   }
 
-  initialGitFolders(): string[] {
-    return this.fileSystemInternal.initialGitFolders().map(folder => this.fileSystemPathInternal + '/' + folder);
+  initialGitFolders(): Platform.DevToolsPath.EncodedPathString[] {
+    return this.fileSystemInternal.initialGitFolders().map(folder => this.fileSystemPathInternal + '/' + folder) as
+        Platform.DevToolsPath.EncodedPathString[];
   }
 
   private filePathForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
@@ -274,8 +275,8 @@ export class FileSystem extends Workspace.Workspace.ProjectStore implements Work
       }
       console.assert(Boolean(newName));
       const slash = filePath.lastIndexOf('/');
-      const parentPath = filePath.substring(0, slash);
-      filePath = parentPath + '/' + newName;
+      const parentPath = filePath.substring(0, slash) as Platform.DevToolsPath.RawPathString;
+      filePath = Common.ParsedURL.ParsedURL.encodedFromParentPathAndName(parentPath, newName);
       filePath = filePath.substr(1);
       const newURL = this.fileSystemBaseURL + filePath;
       const newContentType = this.fileSystemInternal.contentType(newName);

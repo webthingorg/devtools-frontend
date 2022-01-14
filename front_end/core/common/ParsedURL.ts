@@ -162,6 +162,11 @@ export class ParsedURL {
     return new URL('/' + partiallyEncoded, 'file:///').pathname.substr(1) as Platform.DevToolsPath.EncodedPathString;
   }
 
+  static encodedFromParentPathAndName(parentPath: Platform.DevToolsPath.RawPathString, name: string):
+      Platform.DevToolsPath.EncodedPathString {
+    return parentPath + '/' + encodeURIComponent(name) as Platform.DevToolsPath.EncodedPathString;
+  }
+
   static encodedPathToRawPathString(encPath: Platform.DevToolsPath.EncodedPathString):
       Platform.DevToolsPath.RawPathString {
     return decodeURIComponent(encPath) as Platform.DevToolsPath.RawPathString;
