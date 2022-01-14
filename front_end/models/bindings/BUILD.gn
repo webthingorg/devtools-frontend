@@ -9,6 +9,7 @@ import("../visibility.gni")
 devtools_module("bindings") {
   sources = [
     "BreakpointManager.ts",
+    "BreakpointSyncManager.ts",
     "CSSWorkspaceBinding.ts",
     "CompilerScriptMapping.ts",
     "ContentProviderBasedProject.ts",
