@@ -426,9 +426,9 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     if (!networkRequest.statusText) {
       networkRequest.statusText = response.statusText;
     }
-    if (!networkRequest.hasExtraResponseInfo()) {
-      networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
-    }
+    // if (!networkRequest.hasExtraResponseInfo()) {
+    networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
+    // }
 
     if (response.encodedDataLength >= 0) {
       networkRequest.setTransferSize(response.encodedDataLength);
