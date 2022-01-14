@@ -16,6 +16,23 @@
       "message": "Mostly to make the point clear.",
       "revId": "2886352ea388f9b668392098aa5512c3743dabe8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c466d5a6_1b2250bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-14T11:53:14Z",
+      "side": 1,
+      "message": "Thanks for everything as well, Paul!",
+      "revId": "2886352ea388f9b668392098aa5512c3743dabe8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
