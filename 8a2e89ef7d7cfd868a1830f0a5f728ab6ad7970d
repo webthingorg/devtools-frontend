@@ -39,6 +39,30 @@
       },
       "revId": "8a2e89ef7d7cfd868a1830f0a5f728ab6ad7970d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca129c21_d274a7e0",
+        "filename": "scripts/build/ninja/devtools_module.gni",
+        "patchSetId": 22
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-14T00:03:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c1434e3_89037030",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "8a2e89ef7d7cfd868a1830f0a5f728ab6ad7970d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
