@@ -1,4 +1,4 @@
-Name: An error-tolerant JavaScript parser written in JavaScript.
+Name: Acorn-loose
 Short Name: acorn-loose
 URL: https://github.com/acornjs/acorn
 Version: 8.2.1
