@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1d748e5_77988adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-14T11:49:15Z",
+      "side": 1,
+      "message": "Hi Jaro, hi Benedikt,\n\nI\u0027ve uploaded a cleanup and a bit more for adapting the tests (\u0026layout tests). PTAL! (Layout tests adapting is not done yet)",
+      "revId": "0fb6ef8e53f06fadd0b2878874cfb83b68f43530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

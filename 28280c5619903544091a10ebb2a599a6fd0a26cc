@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86e77997_680c8334",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-14T11:49:15Z",
+      "side": 1,
+      "message": "Adding a comment on why we navigate to a different site and reload (no backend state); such that we do not run into the same isolate",
+      "revId": "28280c5619903544091a10ebb2a599a6fd0a26cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
