@@ -1,0 +1,12 @@
+[
+  "acorn",
+  "acorn-loose",
+  "codemirror",
+  "codemirror.next",
+  "diff",
+  "lighthouse",
+  "lit-html",
+  "marked",
+  "puppeteer",
+  "wasmparser"
+]
