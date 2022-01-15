@@ -824,14 +824,18 @@ export class SplitWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     this.updateShowHideSidebarButton();
 
     function buttonClicked(this: SplitWidget): void {
-      if (this.showModeInternal !== ShowMode.Both) {
-        this.showBoth(true);
-      } else {
-        this.hideSidebar(true);
-      }
+      this.toggleSidebar();
     }
 
     return this.showHideSidebarButton;
+  }
+
+  toggleSidebar(): void {
+    if (this.showModeInternal !== ShowMode.Both) {
+      this.showBoth(true);
+    } else {
+      this.hideSidebar(true);
+    }
   }
 
   private updateShowHideSidebarButton(): void {
