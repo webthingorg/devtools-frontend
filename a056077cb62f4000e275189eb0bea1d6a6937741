@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f04e66e_91d229b3",
+        "filename": "front_end/panels/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-01-15T11:58:55Z",
+      "side": 1,
+      "message": "Hi jec@,\n\nFrom the bug, my suggestion of using \"Ctrl + Shift + U\" doesn\u0027t work when the user is focused on editor when a source file is open because in some of the platforms (i.e. ChromeOS) \"Ctrl + Shift + U\" is mapped to entering a unicode character.\n\nI have chosen \"Ctrl + Shift + K\" a bit randomly to move forward with the implementation. Though it might still be a good candidate from the same perspective (it\u0027s close to Y and on the right of Y 😅) but I\u0027m not sure.\n\nWDYT, can you suggest a new shortcut?",
+      "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
