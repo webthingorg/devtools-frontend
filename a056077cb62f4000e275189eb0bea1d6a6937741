@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "873c84bd_9c5de602",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T10:53:10Z",
+      "side": 1,
+      "message": "Hint: You can put `Fixed: 1226363` here instead of `Bug: ...` to automatically close the crbug once the CL lands.",
+      "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff43a0a1_aeedc39f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T10:53:10Z",
+      "side": 1,
+      "message": "LGTM from my side.\n\nLeaving the question regarding the shortcut to jec@.",
+      "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f04e66e_91d229b3",
         "filename": "front_end/panels/sources/sources-meta.ts",
         "patchSetId": 2
