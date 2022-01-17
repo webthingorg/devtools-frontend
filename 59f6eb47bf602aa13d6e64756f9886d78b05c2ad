@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b3bc7d_10f0edd9",
+        "filename": "front_end/legacy_test_runner/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T05:38:48Z",
+      "side": 0,
+      "message": "Why do we need this change?",
+      "revId": "59f6eb47bf602aa13d6e64756f9886d78b05c2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

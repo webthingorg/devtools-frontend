@@ -16,6 +16,40 @@
       "message": "Let\u0027s leave `ChildTargetManager.ts` alone and put this logic into InspectorMain (and adjust WorkerMain).",
       "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18bb9304_d3957691",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T05:38:48Z",
+      "side": 1,
+      "message": "Typo, two i\u0027s",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9dcb4e8_e996898a",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T05:38:48Z",
+      "side": 1,
+      "message": "This seems unnecessary, since `debuggerEnabled()` also yields `true` when state is `ReadyToPause`.",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
