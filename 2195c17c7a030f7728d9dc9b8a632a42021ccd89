@@ -16,6 +16,46 @@
       "message": "Hi Tim, here\u0027s the code. I have added a comment regarding the part of the code that we talked about.",
       "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "401238e3_17446b32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-17T14:52:10Z",
+      "side": 1,
+      "message": "This CL is fairly large, which makes it difficult for me to reason about the control flow and potential race conditions it might introduce. For example, the `no-floating-promises` already caught some new race conditions that are introduced.\n\nTo ease reviewing, can we split up this CL into smaller chunks? If I understand correctly, I think we can create the following chunks:\n1. Check in BreakpointSyncManager and corresponding unit tests (I think these are missing?)\n2. Introduce the DebuggerStateMachine (in a separate file) with corresponding unit tests\n3. Integration of both SyncManager and state machine in DebuggerModel with corresponding e2e-tests. Here I am assuming that the e2e-tests have to be updated because of the new integration, but I am not sure if that\u0027s true?\n\nLastly, I see a fair few calls to `isReadyToPause` introduced in methods. I am assuming that we have to add these in various asynchronous methods, because it could be that between the scheduled call and its invocation, the debugger was already paused and we should suspend execution of any callbacks? Given that we don\u0027t enforce calling this method, I wonder if we can reuse the statemachine in combination with the state pattern (https://en.wikipedia.org/wiki/State_pattern) to execute code? E.g. something along the lines of\n\n```\nthis.#stateManager.executeWhenPossibleToPause(\u003ccallback here\u003e)\n```\n\nwhere the states of each state manager can handle the callback. Reading the implementation of `isReadyToPause`, that means that only `ReadyToPause` would invoke the callback, but all states would simply ignore it.",
+      "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4de9c39_1f97749c",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-17T14:52:10Z",
+      "side": 1,
+      "message": "I am not sure if we can, but would it be possible to avoid suppressing these errors? I fear that suppressing these will silently introduce more promise races.",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 11
+      },
+      "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

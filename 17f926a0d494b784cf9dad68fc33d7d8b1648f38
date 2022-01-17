@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9a8fc94_75ef5e55",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-17T14:52:10Z",
+      "side": 1,
+      "message": "I think we can use `Platform.DCHECK` here, which will crash during our tests (but is compiled out in release builds).",
+      "parentUuid": "a3ad69fb_ff06a56b",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 41
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76c5cffd_3ca93d3e",
         "filename": "front_end/core/sdk/DebuggerModel.ts",
         "patchSetId": 11
