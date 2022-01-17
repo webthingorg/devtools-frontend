@@ -9,13 +9,12 @@ self.SourcesTestRunner = self.SourcesTestRunner || {};
 
 SourcesTestRunner.startDebuggerTest = function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
-
   if (quiet !== undefined) {
     SourcesTestRunner.quiet = quiet;
   }
 
   self.UI.viewManager.showView('sources');
-  TestRunner.addSniffer(SDK.DebuggerModel.prototype, 'pausedScript', SourcesTestRunner.pausedScript, true);
+  TestRunner.addSniffer(SDK.DebuggerModel.prototype, 'innerPaused', SourcesTestRunner.innerPaused, true);
   TestRunner.addSniffer(SDK.DebuggerModel.prototype, 'resumedScript', SourcesTestRunner.resumedScript, true);
   TestRunner.safeWrap(callback)();
 };
@@ -364,15 +363,18 @@ SourcesTestRunner.dumpSourceFrameContents = function(sourceFrame) {
   TestRunner.addResult('==Source frame contents end==');
 };
 
-SourcesTestRunner.pausedScript = function(callFrames, reason, auxData, breakpointIds, asyncStackTrace) {
+SourcesTestRunner.innerPaused = function(debuggerPausedDetails) {
+  if (!debuggerPausedDetails) {
+    // We only paused on instrumentation, do not report.
+    return;
+  }
   if (!SourcesTestRunner.quiet) {
     TestRunner.addResult('Script execution paused.');
   }
 
-  const debuggerModel = this.target().model(SDK.DebuggerModel);
   SourcesTestRunner.pausedScriptArguments = [
-    SDK.DebuggerModel.CallFrame.fromPayloadArray(debuggerModel, callFrames), reason, breakpointIds, asyncStackTrace,
-    auxData
+    debuggerPausedDetails.callFrames, debuggerPausedDetails.reason, debuggerPausedDetails.breakpointIds,
+    debuggerPausedDetails.asyncStackTrace, debuggerPausedDetails.auxData
   ];
 
   if (SourcesTestRunner.waitUntilPausedCallback) {
@@ -383,6 +385,10 @@ SourcesTestRunner.pausedScript = function(callFrames, reason, auxData, breakpoin
 };
 
 SourcesTestRunner.resumedScript = function() {
+  if (!SourcesTestRunner.pausedScriptArguments) {
+    // We only paused on instrumentation, do not report.
+    return;
+  }
   if (!SourcesTestRunner.quiet) {
     TestRunner.addResult('Script execution resumed.');
   }
