@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "073b664d_5f05ef00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-17T15:40:20Z",
+      "side": 1,
+      "message": "Hey Changhao, here is an initial attempt at removing CodeMirror 5 from our SDK bundle. Looking at the implementation of the `formatStyle` function (which was the only place we used CodeMirror 5), it seems to handle duplicate semicolons, but not really anything else.\n\nI locally tested this patch with both unminified and minified source code and enabling/disabling properties as well as adding/removing some. In all cases, the behavior appears to be just fine with these regex replacements.\n\nDo you know any other scenarios that could potentially break with this patch or are we reasonably certain at this point that we can remove the whole tokenizer machinery and get away with 2 small regexes to cleanup the semicolons?",
+      "revId": "c305a7f8f7f34eca4154ffd057b2bb67c5be92f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
