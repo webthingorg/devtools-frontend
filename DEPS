@@ -11,13 +11,13 @@ vars = {
   'checkout_reclient': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '3610d18c1e062c1e40abd4995765ad127b5d136b',
+  'build_revision': '1af42f8fc19c9651569571a64c940e7e34d8b392',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
   'buildtools_revision': 'f78b4b9f33bd8ef9944d5ce643daff1c31880189',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '1c658b53debdb6a49875a6766a778911cb31b75e',
+  'depot_tools_revision': 'fd7427ccf691cd784330a825ce2433e58da7f318',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': '9a50beee69a31869d1f95c2c63bc3a3ffe725b97',
@@ -98,7 +98,7 @@ deps = {
     'packages': [
       {
         'package': 'infra/3pp/tools/esbuild/${{platform}}',
-        'version': 'version:2@0.14.10',
+        'version': 'g90i3XlISI4_tzL-GB_4agJ1jvQ8QQk4fRy3W1JSKl0C',
       }
     ],
     'dep_type': 'cipd',
