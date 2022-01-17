@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc40939_4a8c14a2",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-17T13:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43d2d7d3_8967cdb2",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 54
+      },
+      "revId": "d204e126e239011755540d3685a3b33cdd38d670",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0b5fc27_605b90e5",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-01-17T12:38:05Z",
       "side": 1,
       "message": "You could use \n\n urls.forEach((url, i) \u003d\u003e {\n    ...\n    assert.strictEquals(object.url, validPatchedUrls[i]);\n\nTo make the test more strict.",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "d204e126e239011755540d3685a3b33cdd38d670",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0068cb_025d4d0e",
+        "filename": "test/unittests/front_end/core/protocol_client/NodeURL_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-17T13:57:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b5fc27_605b90e5",
       "range": {
         "startLine": 31,
         "startChar": 3,
