@@ -23,52 +23,56 @@ describe('NodeURL', () => {
   });
 
   describe('patch', () => {
-    const url = Host.Platform.isWin() ? 'c:\\prog\\foobar.js' : '/usr/local/home/prog/foobar.js';
-    const patchedUrl = Host.Platform.isWin() ? 'file:///c:/prog/foobar.js' : 'file:///usr/local/home/prog/foobar.js';
+    const urls =
+        Host.Platform.isWin() ? ['C:\\prog\\foobar.js', 'c:\\prog\\foobar.js'] : ['/usr/local/home/prog/foobar.js'];
+    const validPatchedUrl = Host.Platform.isWin() ? ['file:///C:/prog/foobar.js', 'file:///c:/prog/foobar.js'] :
+                                                    ['file:///usr/local/home/prog/foobar.js'];
 
-    it('does patch url fields', () => {
-      const object = {url, result: null};
+    urls.forEach((url, i) => {
+      it('does patch url fields', () => {
+        const object = {url, result: null};
 
-      ProtocolClient.NodeURL.NodeURL.patch(object);
+        ProtocolClient.NodeURL.NodeURL.patch(object);
 
-      assert.strictEqual(object.url, patchedUrl);
-    });
+        assert.strictEqual(object.url, validPatchedUrl[i]);
+      });
 
-    it('does not patch the url of the result', () => {
-      const object = {
-        url: '',
-        result: {
+      it('does not patch the url of the result', () => {
+        const object = {
+          url: '',
           result: {
-            value: {url},
+            result: {
+              value: {url},
+            },
           },
-        },
-      };
+        };
 
-      ProtocolClient.NodeURL.NodeURL.patch(object);
+        ProtocolClient.NodeURL.NodeURL.patch(object);
 
-      assert.strictEqual(object.result.result.value.url, url);
-    });
+        assert.strictEqual(object.result.result.value.url, url);
+      });
 
-    it('does patch all urls in an example protocol message', () => {
-      const object = {
-        exceptionDetails: {
-          url,
-          stackTrace: {
-            callFrames: [{
-              columnNumber: 0,
-              functionName: '',
-              lineNumber: 0,
-              scriptId: '0',
-              url,
-            }],
+      it('does patch all urls in an example protocol message', () => {
+        const object = {
+          exceptionDetails: {
+            url,
+            stackTrace: {
+              callFrames: [{
+                columnNumber: 0,
+                functionName: '',
+                lineNumber: 0,
+                scriptId: '0',
+                url,
+              }],
+            },
           },
-        },
-      };
+        };
 
-      ProtocolClient.NodeURL.NodeURL.patch(object as unknown as {url: string});
+        ProtocolClient.NodeURL.NodeURL.patch(object as unknown as {url: string});
 
-      assert.strictEqual(object.exceptionDetails.url, patchedUrl);
-      assert.strictEqual(object.exceptionDetails.stackTrace.callFrames[0].url, patchedUrl);
+        assert.oneOf(object.exceptionDetails.url, validPatchedUrl);
+        assert.oneOf(object.exceptionDetails.stackTrace.callFrames[0].url, validPatchedUrl);
+      });
     });
   });
 });
