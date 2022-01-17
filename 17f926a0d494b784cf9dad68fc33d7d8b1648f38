@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "522af952_6ca1f7eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "I agree! I initially would have liked the debugger to have a direct link to the sync manager, but with DebuggerModel being in SDK I did not find a good way to make it more explicit.",
+      "parentUuid": "89350c20_1d3e9acd",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91ae1aec_f5407d2f",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3a67cc_2e12d924",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91ae1aec_f5407d2f",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29a718c8_178dc882",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-01-17T08:18:27Z",
       "side": 1,
       "message": "This should never happen, no? Don\u0027t we have a way to assert that?\n\nNit: Maybe we should have \n\n```\nexport const enum DebuggerState {\n  ShuttingDown \u003d 0,\n  Disabled \u003d 1,\n  StartingUp \u003d 2,\n  Enabled \u003d 3,\n  ReadyToPause \u003d 4,\n  LastState \u003d ReadyToPause,\n}\n```\n\n... and then assert that newState \u003c\u003d DebuggerState.LastState (and perhaps also that newState \u003e\u003d 0).",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 41
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ad69fb_ff06a56b",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Yes, that should never happen. Do you mean `console.assert`? As far as I understand this will log an error and then continue, and I\u0027m not sure which way is better. If you prefer to have `console.assert` here I\u0027ll change it.",
+      "parentUuid": "29a718c8_178dc882",
       "range": {
         "startLine": 150,
         "startChar": 8,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6bc05cb_eab0d277",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "You\u0027re right, the if case in 274 will already take care of it.",
+      "parentUuid": "76c5cffd_3ca93d3e",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 5
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18bb9304_d3957691",
@@ -94,6 +178,24 @@
       "writtenOn": "2022-01-17T05:38:48Z",
       "side": 1,
       "message": "Typo, two i\u0027s",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41d6a9a_01dd5dc3",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18bb9304_d3957691",
       "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +223,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ce3c1ce_13a54655",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f551d47f_7e3e57c4",
+      "range": {
+        "startLine": 320,
+        "startChar": 10,
+        "endLine": 320,
+        "endChar": 23
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9dcb4e8_e996898a",
@@ -134,6 +260,24 @@
       "writtenOn": "2022-01-17T05:38:48Z",
       "side": 1,
       "message": "This seems unnecessary, since `debuggerEnabled()` also yields `true` when state is `ReadyToPause`.",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ed5122_f2031932",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9dcb4e8_e996898a",
       "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

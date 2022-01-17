@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73d173f_e3c7bac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 1,
+      "message": "Thanks for the thorough review so far! Happy to have another set of eyes on this code, especially regarding the design!",
+      "revId": "beee7953fbe75b755739e0815c20537849de1b07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

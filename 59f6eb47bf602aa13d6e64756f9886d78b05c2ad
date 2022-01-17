@@ -16,6 +16,24 @@
       "message": "Why do we need this change?",
       "revId": "59f6eb47bf602aa13d6e64756f9886d78b05c2ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88817f1e_ae1c5a76",
+        "filename": "front_end/legacy_test_runner/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T08:37:45Z",
+      "side": 0,
+      "message": "The previous pausedScript would pause whenever we have an instrumentation breakpoint. Layout tests don\u0027t seem to cover instrumentation breaks (at least not this type), but would log whenever we handle the pause (in all other devtools\u0027 tests). \n\nI could check if this is a only an instrumentation break and only handle that part, but this is also not completely true, either. In some cases we hit both a breakpoint and an instrumentation break. But the breakpoint was just set after hitting the instrumentation breakpoint, meaning that we didn\u0027t get the proper break reason. At the moment I check if we actually hit a breakpoint and then call `innerPaused`, i.e. if we actually pause.",
+      "parentUuid": "57b3bc7d_10f0edd9",
+      "revId": "59f6eb47bf602aa13d6e64756f9886d78b05c2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
