@@ -11,7 +11,12 @@ declare_args() {
   # At that point, this flag will be folded together with "use_rbe".
   # TODO(crbug.com/1139220): Remove the flag once we are confident.
   devtools_use_rbe = false
+
+  devtools_use_esbuild = false
 }
+
+assert(!devtools_use_esbuild || !is_official_build,
+       "Official build should not use esbuild")
 
 # Defines a target that compiles .ts files using TypeScript.
 # A temporary tsconfig.json is generated which uses the
@@ -156,6 +161,10 @@ template("ts_library") {
       }
     }
 
+    if (devtools_use_esbuild) {
+      args += [ "--use-esbuild" ]
+    }
+
     output_files = [ "$target_gen_dir/$_typescript_config_name-tsconfig.json" ]
 
     if (defined(sources)) {
@@ -187,7 +196,9 @@ template("ts_library") {
                  "Incorrect extension on '$src' with extension '$_extension'")
         }
 
-        output_files += [ "$target_gen_dir/$_fileName.d.ts" ]
+        if (!devtools_use_esbuild) {
+          output_files += [ "$target_gen_dir/$_fileName.d.ts" ]
+        }
       }
     }
 
