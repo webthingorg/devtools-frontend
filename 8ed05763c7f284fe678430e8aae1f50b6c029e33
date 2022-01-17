@@ -33,6 +33,24 @@
       "message": "As discussed in the meeting earlier, I think we shouldn\u0027t use event listeners. We already have the expandCallFramesCallback and other callbacks installed from the outside (DebuggerWorkspaceBindings), and that seems like a better approach.",
       "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0feba38c_5e10d950",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T13:22:05Z",
+      "side": 1,
+      "message": "CC: Tim, here\u0027s the part of the code",
+      "parentUuid": "a6fc1966_9c6ddd44",
+      "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
