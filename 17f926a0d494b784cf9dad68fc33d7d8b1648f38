@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89350c20_1d3e9acd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-17T08:18:27Z",
+      "side": 1,
+      "message": "Still thinking about the breakpoint-sync-manager. This wiring up with events and callbacks is pretty hard to follow...",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91ae1aec_f5407d2f",
@@ -20,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29a718c8_178dc882",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-17T08:18:27Z",
+      "side": 1,
+      "message": "This should never happen, no? Don\u0027t we have a way to assert that?\n\nNit: Maybe we should have \n\n```\nexport const enum DebuggerState {\n  ShuttingDown \u003d 0,\n  Disabled \u003d 1,\n  StartingUp \u003d 2,\n  Enabled \u003d 3,\n  ReadyToPause \u003d 4,\n  LastState \u003d ReadyToPause,\n}\n```\n\n... and then assert that newState \u003c\u003d DebuggerState.LastState (and perhaps also that newState \u003e\u003d 0).",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 41
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76c5cffd_3ca93d3e",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-17T08:18:27Z",
+      "side": 1,
+      "message": "Is this check necessary? As far as I can tell, the state machine can only transition to ReadyToPause if it was enabled.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 5
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18bb9304_d3957691",
         "filename": "front_end/core/sdk/DebuggerModel.ts",
         "patchSetId": 11
@@ -31,6 +94,29 @@
       "writtenOn": "2022-01-17T05:38:48Z",
       "side": 1,
       "message": "Typo, two i\u0027s",
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f551d47f_7e3e57c4",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-17T08:18:27Z",
+      "side": 1,
+      "message": "This is not a promise anymore, no?\n\nPerhaps rename enablePromise -\u003e enableResponse?",
+      "range": {
+        "startLine": 320,
+        "startChar": 10,
+        "endLine": 320,
+        "endChar": 23
+      },
       "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
