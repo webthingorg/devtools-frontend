@@ -51,6 +51,24 @@
       "parentUuid": "a6fc1966_9c6ddd44",
       "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8112848e_198aadc3",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-17T14:14:21Z",
+      "side": 1,
+      "message": "SG, thanks for the suggestion, Benedikt! I\u0027ll keep this open until our meeting tomorrow, just in case we change direction.",
+      "parentUuid": "0feba38c_5e10d950",
+      "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
