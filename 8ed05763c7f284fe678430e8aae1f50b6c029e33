@@ -16,6 +16,23 @@
       "message": "On another note: I\u0027ve started to track the layout tests changes since I lost an overview which one I already took care of. This is a list so that you can see the progress on the ones that I looked at since I started the doc/which ones are left:\n\nhttps://docs.google.com/spreadsheets/d/1ExRmlxKMYFUQmFcwwyfnmfB7El8jCVBP2kMgIEu59rE/edit?usp\u003dsharing",
       "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6fc1966_9c6ddd44",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-17T13:19:59Z",
+      "side": 1,
+      "message": "As discussed in the meeting earlier, I think we shouldn\u0027t use event listeners. We already have the expandCallFramesCallback and other callbacks installed from the outside (DebuggerWorkspaceBindings), and that seems like a better approach.",
+      "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
