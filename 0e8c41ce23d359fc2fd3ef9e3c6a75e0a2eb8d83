@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44f892c_060650b0",
+        "filename": "test/unittests/front_end/core/protocol_client/NodeURL_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-17T16:22:53Z",
+      "side": 1,
+      "message": "You don\u0027t need to test both capitalizations. I believe the drive letter gets canonicalized on Windows but we don\u0027t have any reason to ensure our code does this, so just stick with the case that makes the test pass on Windows (I think upper case C:?).",
+      "range": {
+        "startLine": 27,
+        "startChar": 33,
+        "endLine": 27,
+        "endChar": 77
+      },
+      "revId": "0e8c41ce23d359fc2fd3ef9e3c6a75e0a2eb8d83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
