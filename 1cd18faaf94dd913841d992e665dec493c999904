@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea13b834_996a38c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-17T08:40:23Z",
+      "side": 1,
+      "message": "lgtm with nit",
+      "revId": "1cd18faaf94dd913841d992e665dec493c999904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7539fb_b41623fb",
+        "filename": "front_end/third_party/puppeteer/LICENSE",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-17T08:40:23Z",
+      "side": 1,
+      "message": "I think it would suffice if puppeteer/README.chromium points to the right LICENSE file (package/LICENSE). That would avoid having to duplicate the license file.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 47
+      },
+      "revId": "1cd18faaf94dd913841d992e665dec493c999904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
