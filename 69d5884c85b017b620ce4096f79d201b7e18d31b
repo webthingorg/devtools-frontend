@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure it makes a difference really, but the old condition would have accepted something like AggregateErrorFoo, the new one does not.",
       "revId": "69d5884c85b017b620ce4096f79d201b7e18d31b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cdf5dfd_0c52d84d",
+        "filename": "front_end/panels/console/ErrorStackParser.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-18T16:58:53Z",
+      "side": 1,
+      "message": "Nice catch! I think we should be good. As far as I am aware of, there are no web platform errors that would now no longer work. I opt for landing the CL as is and patch the prefixes back in if needed.",
+      "parentUuid": "cd2a932d_8e1b48bb",
+      "revId": "69d5884c85b017b620ce4096f79d201b7e18d31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
