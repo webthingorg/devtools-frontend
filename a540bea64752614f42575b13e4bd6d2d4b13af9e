@@ -22,6 +22,30 @@
       },
       "revId": "a540bea64752614f42575b13e4bd6d2d4b13af9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7954f0d_a6e480ab",
+        "filename": "front_end/panels/console/ErrorStackParser.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-01-18T12:01:03Z",
+      "side": 1,
+      "message": "Is that because of the question mark?",
+      "parentUuid": "c0b1168d_6e5e663c",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 98
+      },
+      "revId": "a540bea64752614f42575b13e4bd6d2d4b13af9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
