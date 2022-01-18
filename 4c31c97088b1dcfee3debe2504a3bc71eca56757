@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb22999f_bc30d715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T10:36:33Z",
+      "side": 1,
+      "message": "Yes once our CQ is green, I am happy to submit this as a disabled-by-default flag for now.\n\nInforming the DevTools folks sounds good to me. Do you mind sharing a email draft doc with me so we can tweak the wording, so that we can share it publicly on devtools-dev@chromium.org? Thanks!",
+      "parentUuid": "0bfff13e_6adbdab4",
+      "revId": "4c31c97088b1dcfee3debe2504a3bc71eca56757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cb06435_8cd54e2b",
