@@ -34,6 +34,24 @@
       "parentUuid": "ff195a0e_7e0f1843",
       "revId": "66b6bfcac8423906e725c2a5958cb0a0e0b7ad09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39002fe8_68465dc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-18T10:17:20Z",
+      "side": 1,
+      "message": "Thanks, then I\u0027ll reland this with https://crrev.com/c/3330076.\n\nI think recursedeps https://crrev.com/c/3393303 is sufficient to pass devtools CQ.",
+      "parentUuid": "5c805bfe_bcac3239",
+      "revId": "66b6bfcac8423906e725c2a5958cb0a0e0b7ad09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
