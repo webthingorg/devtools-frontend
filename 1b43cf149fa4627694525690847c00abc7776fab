@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca32ba8_5a3f8f30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-18T13:42:11Z",
+      "side": 1,
+      "message": "I\u0027ve cleaned this up by moving the settings files and I also figured out how to make the karma timeouts long enough that debugging unit tests is usable.",
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
