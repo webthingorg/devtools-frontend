@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46fd983a_7922ff11",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-18T17:05:26Z",
+      "side": 1,
+      "message": "I updated the script.",
+      "parentUuid": "13a6ce33_77fae9e6",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18c2a434_0ea30443",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-18T15:44:49Z",
       "side": 1,
       "message": "Nit: should we specify this further with `in VS Code debugger`? That would make it clear we are only running this in the VS Code context, which can differ from the browser environment engineers usually use.",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f45d9d_b715e149",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-18T17:05:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18c2a434_0ea30443",
       "range": {
         "startLine": 7,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ac479e_4e2fd847",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-18T17:05:26Z",
+      "side": 1,
+      "message": "The node debugger connects using a pipe, I believe? This is specifying a command line argument that karma happens to be passing to Chrome that opens this particular port for debugging, whereas attaching to node just works and doesn\u0027t involve a port.",
+      "parentUuid": "e6842f69_96591af3",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6439a26a_4d7fec47",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-18T15:44:49Z",
       "side": 1,
       "message": "Ultra-nit: we usually use `end-to-end` in our documentation (e.g. test/e2e/README.md)",
+      "range": {
+        "startLine": 23,
+        "startChar": 19,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a29f4b9f_9bacafd6",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-18T17:05:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6439a26a_4d7fec47",
       "range": {
         "startLine": 23,
         "startChar": 19,
