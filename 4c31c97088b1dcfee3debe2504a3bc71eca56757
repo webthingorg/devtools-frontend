@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bfff13e_6adbdab4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-18T02:14:17Z",
+      "side": 1,
+      "message": "Thank you for your review.\n\nSo can I submit this and parent CL once I can pass all CQ with https://crrev.com/c/3394572 ?\n\nWhile we are fixing CQ/CI coverage plan, I\u0027d like to land this and send PSA to devtools folks to ask trying this config. I think we can get some early feedbacks from them if there are some problems.",
+      "parentUuid": "116ea50a_57cb87c2",
+      "revId": "4c31c97088b1dcfee3debe2504a3bc71eca56757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0cb06435_8cd54e2b",
         "filename": "third_party/typescript/ts_library.py",
         "patchSetId": 42
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-17T14:09:15Z",
       "side": 1,
       "message": "When I don\u0027t have `third_party/esbuild/` (because I forgot `gclient sync`), then my build completes succesfully. Instead, I think we should error here. Should we reuse the `subprocess.Popen` and `process.communicate()` as we have in `runTsc` and `runTscRemote` to ensure the process code propagates correctly?",
+      "range": {
+        "startLine": 219,
+        "startChar": 4,
+        "endLine": 219,
+        "endChar": 12
+      },
+      "revId": "4c31c97088b1dcfee3debe2504a3bc71eca56757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ee9cb3_4597db45",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 42
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-18T02:14:17Z",
+      "side": 1,
+      "message": "subprocess.run raises exception in such as it has `check\u003dTrue`. But I changed to return exit code as it may be more clear.",
+      "parentUuid": "0cb06435_8cd54e2b",
       "range": {
         "startLine": 219,
         "startChar": 4,
@@ -54,6 +96,30 @@
       "writtenOn": "2022-01-17T14:09:15Z",
       "side": 1,
       "message": "We should add `third_party/esbuild/esbuild` as inputs to this action to ensure it reruns when we update ESBuild.",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 31
+      },
+      "revId": "4c31c97088b1dcfee3debe2504a3bc71eca56757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b40078_afcbdfd7",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 42
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-18T02:14:17Z",
+      "side": 1,
+      "message": "good catch.",
+      "parentUuid": "aea2a9ba_d01fbd69",
       "range": {
         "startLine": 164,
         "startChar": 4,
