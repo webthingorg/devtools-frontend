@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9bd138f_d20ca6fa",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-18T12:58:38Z",
+      "side": 1,
+      "message": "Ah, thanks Tim; I wasn\u0027t aware of the Platform.DCHECK! Is there a good way to test against it? I can see the tests pass locally, but on the bots they are failing: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3396478",
+      "parentUuid": "e9a8fc94_75ef5e55",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 41
+      },
+      "revId": "17f926a0d494b784cf9dad68fc33d7d8b1648f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76c5cffd_3ca93d3e",
         "filename": "front_end/core/sdk/DebuggerModel.ts",
         "patchSetId": 11

@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14bed3fc_b6565205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-18T12:58:38Z",
+      "side": 1,
+      "message": "I have split them up now (see ancestry): DebuggerStateMachine, BreakpointManager, and then BreakpointSyncManager with everything involved. The two previous CLs are just adding code, without being used though (since we need the third CL for that. I hope this helps.\n\nRegarding testing the BreakpointManager: I think we could try to test the `hasBreakpointsForURL`, but it\u0027s difficult to unit test it, since it involves setting breakpoints on UISourceCodes. It would require a lot of set up and mocks to test this part, it would rather fit in as an e2e (what we currently have). WDYT?\n\nRegarding the state pattern: let\u0027s discuss this on the VC!",
+      "parentUuid": "401238e3_17446b32",
+      "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4de9c39_1f97749c",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 15
@@ -48,6 +66,30 @@
       "writtenOn": "2022-01-17T14:52:10Z",
       "side": 1,
       "message": "I am not sure if we can, but would it be possible to avoid suppressing these errors? I fear that suppressing these will silently introduce more promise races.",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 11
+      },
+      "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4090a358_707cc67a",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-18T12:58:38Z",
+      "side": 1,
+      "message": "The ESLint rule requires some update to the line since I edit the BreakpointManager, I assume. I added void as this is what we do at the moment. If I leave this untouched, won\u0027t it fail on the bots?",
+      "parentUuid": "d4de9c39_1f97749c",
       "range": {
         "startLine": 177,
         "startChar": 6,
