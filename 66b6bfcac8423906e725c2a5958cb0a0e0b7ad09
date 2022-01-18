@@ -52,6 +52,24 @@
       "parentUuid": "5c805bfe_bcac3239",
       "revId": "66b6bfcac8423906e725c2a5958cb0a0e0b7ad09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22ab6f5_a22bec26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T10:26:18Z",
+      "side": 1,
+      "message": "I would prefer a separate reland, so that we know infra is green before we land the GN flag switch. Do you mind creating the reland and I can stamp it?",
+      "parentUuid": "39002fe8_68465dc5",
+      "revId": "66b6bfcac8423906e725c2a5958cb0a0e0b7ad09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
