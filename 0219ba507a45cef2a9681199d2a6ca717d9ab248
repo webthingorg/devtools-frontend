@@ -134,6 +134,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7919314_bcd2a766",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-01-18T19:17:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c98a2604_bea083ef",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 32
+      },
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a251241_0d3f451a",
@@ -147,6 +171,30 @@
       "writtenOn": "2022-01-06T10:34:34Z",
       "side": 1,
       "message": "Same here: define an `it` definition inside the for-loop to always show all test results, regardless of the first assertion that finishes.",
+      "range": {
+        "startLine": 609,
+        "startChar": 4,
+        "endLine": 609,
+        "endChar": 7
+      },
+      "revId": "0219ba507a45cef2a9681199d2a6ca717d9ab248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30a0e05_d0081232",
+        "filename": "test/unittests/front_end/core/sdk/SourceMap_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1359024
+      },
+      "writtenOn": "2022-01-18T19:17:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a251241_0d3f451a",
       "range": {
         "startLine": 609,
         "startChar": 4,
