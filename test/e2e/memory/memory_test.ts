@@ -148,7 +148,7 @@ describe('The Memory Panel', async function() {
     await takeHeapSnapshot();
     await waitForNonEmptyHeapSnapshotData();
     await setSearchFilter('Retainer');
-    await waitForSearchResultNumber(8);
+    await waitForSearchResultNumber(9);
     await findSearchResult(async p => {
       const el = await p.$(':scope > td > div > .object-value-object');
       return el !== null && await el.evaluate(el => el.textContent === 'Retainer');
@@ -172,7 +172,7 @@ describe('The Memory Panel', async function() {
     await waitForFunction(async () => {
       // Wait for all the rows of the data-grid to load.
       const retainerGridElements = await getDataGridRows('.retaining-paths-view table.data');
-      return retainerGridElements.length === 9;
+      return retainerGridElements.length === 10;
     });
 
     const sharedInLeakingElementRow = await waitForFunction(async () => {
@@ -196,6 +196,7 @@ describe('The Memory Panel', async function() {
 
     // Have to click it not in the middle as the middle can hold the link to the
     // file in the sources pane and we want to avoid clicking that.
+    await sharedInLeakingElementRow.evaluate(el => el.scrollIntoView());
     await click(sharedInLeakingElementRow, {maxPixelsFromLeft: 10});
     const {frontend} = getBrowserAndPages();
     // Expand the data-grid for the shared list
