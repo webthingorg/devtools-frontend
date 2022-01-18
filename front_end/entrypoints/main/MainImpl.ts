@@ -532,6 +532,12 @@ export class MainImpl {
 
     new PauseListener();
 
+    Bindings.BreakpointSyncManager.BreakpointSyncManager.instance({
+      forceNew: true,
+      breakpointManager: Bindings.BreakpointManager.BreakpointManager.instance(),
+      targetManager: SDK.TargetManager.TargetManager.instance(),
+    });
+
     const actionRegistryInstance = UI.ActionRegistry.ActionRegistry.instance({forceNew: true});
     // Required for legacy a11y layout tests
     // @ts-ignore layout test global
