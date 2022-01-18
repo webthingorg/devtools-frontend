@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf9fdc3_216187e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "073b664d_5f05ef00",
+      "revId": "c305a7f8f7f34eca4154ffd057b2bb67c5be92f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79788a0c_b80071d6",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-01-18T11:55:18Z",
       "side": 1,
       "message": "super nit: could we maybe rename this variable to be something like `text{Without|WithRemoved}DoubleSemicolons`, or just in general `formattedStyleText`?",
+      "revId": "c305a7f8f7f34eca4154ffd057b2bb67c5be92f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e6b77f_c0e92d6b",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:19:18Z",
+      "side": 1,
+      "message": "Refactored the code so we no longer have to do this.",
+      "parentUuid": "79788a0c_b80071d6",
       "revId": "c305a7f8f7f34eca4154ffd057b2bb67c5be92f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
