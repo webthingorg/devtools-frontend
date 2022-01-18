@@ -1,6 +1,98 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "13a6ce33_77fae9e6",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:44:49Z",
+      "side": 1,
+      "message": "Currently, `scripts/deps/sync-vscode-settings.js` only creates `.vscode/settings.json`. Should we add scripts to generate these files as well or do you prefer to have engineers manually copy paste the scripts?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18c2a434_0ea30443",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:44:49Z",
+      "side": 1,
+      "message": "Nit: should we specify this further with `in VS Code debugger`? That would make it clear we are only running this in the VS Code context, which can differ from the browser environment engineers usually use.",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6842f69_96591af3",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:44:49Z",
+      "side": 1,
+      "message": "For my information: why is this only required here, but not in the `pwa-node` task below?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6439a26a_4d7fec47",
+        "filename": ".vscode/devtools-workspace-launch.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-18T15:44:49Z",
+      "side": 1,
+      "message": "Ultra-nit: we usually use `end-to-end` in our documentation (e.g. test/e2e/README.md)",
+      "range": {
+        "startLine": 23,
+        "startChar": 19,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "1b43cf149fa4627694525690847c00abc7776fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ca32ba8_5a3f8f30",
