@@ -2096,7 +2096,7 @@ export namespace ProtocolMapping {
     'Overlay.setShowScrollBottleneckRects':
         {paramsType: [Protocol.Overlay.SetShowScrollBottleneckRectsRequest]; returnType: void;};
     /**
-     * Requests that backend shows hit-test borders on layers
+     * Deprecated, no longer has any effect.
      */
     'Overlay.setShowHitTestBorders': {paramsType: [Protocol.Overlay.SetShowHitTestBordersRequest]; returnType: void;};
     /**

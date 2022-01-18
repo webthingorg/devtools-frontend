@@ -2318,7 +2318,7 @@ declare namespace ProtocolProxyApi {
         Promise<Protocol.ProtocolResponseWithError>;
 
     /**
-     * Requests that backend shows hit-test borders on layers
+     * Deprecated, no longer has any effect.
      */
     invoke_setShowHitTestBorders(params: Protocol.Overlay.SetShowHitTestBordersRequest):
         Promise<Protocol.ProtocolResponseWithError>;
