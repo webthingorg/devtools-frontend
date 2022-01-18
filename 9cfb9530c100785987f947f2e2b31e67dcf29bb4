@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c4b6f7_d6de445f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-01-18T11:59:37Z",
+      "side": 1,
+      "message": "Also, do you think it might be better to land this after branch cut? I understand that we probably don\u0027t need to fully format the modified StyleText via CodeMirror 5 (the old behavior), and just handle the semicolons and let Blink\u0027s style engine handle the rest, but I\u0027m afraid there might be very corner cases that we\u0027d like to test out and fix. WDYT?",
+      "revId": "9cfb9530c100785987f947f2e2b31e67dcf29bb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
