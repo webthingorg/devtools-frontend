@@ -35,6 +35,7 @@ devtools_module("sdk") {
     "DOMDebuggerModel.ts",
     "DOMModel.ts",
     "DebuggerModel.ts",
+    "DebuggerStateMachine.ts",
     "EmulationModel.ts",
     "EventBreakpointsModel.ts",
     "FilmStripModel.ts",
