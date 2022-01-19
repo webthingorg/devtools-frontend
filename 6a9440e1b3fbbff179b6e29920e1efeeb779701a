@@ -16,6 +16,23 @@
       "message": "Paul, could you PTAL? This still needs approval for timeline/ and console/",
       "revId": "6a9440e1b3fbbff179b6e29920e1efeeb779701a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9512d9c_97017545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T06:48:39Z",
+      "side": 1,
+      "message": "Mathias, could you PTAL as Paul won\u0027t be available for a review I guess (context: https://twitter.com/aerotwist/status/1478767497683685377)? ",
+      "revId": "6a9440e1b3fbbff179b6e29920e1efeeb779701a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
