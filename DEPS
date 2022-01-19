@@ -97,6 +97,16 @@ deps = {
     'dep_type': 'cipd',
     'condition': '(host_os == "linux" or host_os == "win") and checkout_reclient',
   },
+  'third_party/esbuild': {
+    'packages': [
+      {
+        'package': 'infra/3pp/tools/esbuild/${{platform}}',
+        'version': 'version:2@0.14.10',
+      }
+    ],
+    'dep_type': 'cipd',
+  },
+
   'build': {
     'url': Var('build_url') + '@' + Var('build_revision'),
     'condition': 'build_with_chromium == False',
