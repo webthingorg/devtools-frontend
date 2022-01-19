@@ -3176,6 +3176,27 @@
   "panels/application/IndexedDBViews.ts | version": {
     "message": "Version"
   },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorage": {
+    "message": "Interest Group Storage"
+  },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorageItems": {
+    "message": "InterestGroup Storage Items"
+  },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorageNumberEntries": {
+    "message": "Number of entries shown in table: {PH1}"
+  },
+  "panels/application/InterestGroupStorageView.ts | name": {
+    "message": "name"
+  },
+  "panels/application/InterestGroupStorageView.ts | owner": {
+    "message": "Owner"
+  },
+  "panels/application/InterestGroupStorageView.ts | selectAValueToPreview": {
+    "message": "Select a value to preview"
+  },
+  "panels/application/InterestGroupStorageView.ts | type": {
+    "message": "Access Type"
+  },
   "panels/application/OpenedWindowDetailsView.ts | accessToOpener": {
     "message": "Access to opener"
   },

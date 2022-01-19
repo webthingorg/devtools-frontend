@@ -40,6 +40,8 @@ devtools_module("application") {
     "DatabaseTableView.ts",
     "IndexedDBModel.ts",
     "IndexedDBViews.ts",
+    "InterestGroupStorageModel.ts",
+    "InterestGroupStorageView.ts",
     "OpenedWindowDetailsView.ts",
     "ReportingApiReportsView.ts",
     "ReportingApiTreeElement.ts",
