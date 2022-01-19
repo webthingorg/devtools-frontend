@@ -212,7 +212,7 @@ export class Button extends HTMLElement {
     // clang-format off
     LitHtml.render(
       LitHtml.html`
-        <button .title=${this.#props.title} .disabled=${this.#props.disabled} class=${LitHtml.Directives.classMap(classes)}>
+        <button .title=${this.#props.title ?? ''} .disabled=${this.#props.disabled} class=${LitHtml.Directives.classMap(classes)}>
           ${this.#props.iconUrl ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
             .data=${{
               iconPath: this.#props.iconUrl,
