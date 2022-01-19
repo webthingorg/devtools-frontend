@@ -47,16 +47,17 @@ export class WorkerMainImpl implements Common.Runnable.Runnable {
 Common.Runnable.registerEarlyInitializationRunnable(WorkerMainImpl.instance);
 
 SDK.ChildTargetManager.ChildTargetManager.install(async ({target, waitingForDebugger}) => {
-  // Only pause the new worker if debugging SW - we are going through the pause on start checkbox.
-  if (target.parentTarget() || target.type() !== SDK.Target.Type.ServiceWorker || !waitingForDebugger) {
-    return;
-  }
   const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
   if (!debuggerModel) {
     return;
   }
   if (!debuggerModel.isReadyToPause()) {
     await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+  }
+
+  // Only pause the new worker if debugging SW - we are going through the pause on start checkbox.
+  if (target.parentTarget() || target.type() !== SDK.Target.Type.ServiceWorker || !waitingForDebugger) {
+    return;
   }
   debuggerModel.pause();
 });
