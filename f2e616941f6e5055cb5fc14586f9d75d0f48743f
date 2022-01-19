@@ -33,6 +33,23 @@
       "message": "nice!",
       "revId": "f2e616941f6e5055cb5fc14586f9d75d0f48743f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae351634_12e1ce93",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T11:09:35Z",
+      "side": 1,
+      "message": "actually, I am having second thoughts. Maybe we should not-specify the attribute at all so that the title can be deduced from the slot content? @jobay, wdyt?",
+      "revId": "f2e616941f6e5055cb5fc14586f9d75d0f48743f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
