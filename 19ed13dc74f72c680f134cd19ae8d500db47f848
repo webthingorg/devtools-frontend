@@ -33,6 +33,23 @@
       "message": "Awesome thanks! I am executing our dryrun, but I think our presubmits will complain about needing to update our AUTHORS. If that\u0027s indeed the case, the error message should provide instructions on how to fix it. Thanks again!",
       "revId": "19ed13dc74f72c680f134cd19ae8d500db47f848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e0cfad0_ee25ac82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-19T11:50:57Z",
+      "side": 1,
+      "message": "FYI the URL that works is https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/contributing.md#Legal-stuff",
+      "revId": "19ed13dc74f72c680f134cd19ae8d500db47f848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
