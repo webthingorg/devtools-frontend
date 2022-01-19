@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108de52c_d18c6671",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T14:23:47Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cdab0fc_6910c327",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T14:23:47Z",
+      "side": 1,
+      "message": "should it have \"\" around `` similar to other strings?",
+      "range": {
+        "startLine": 58,
+        "startChar": 44,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9239ab54_1fbdabe0",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T14:23:47Z",
+      "side": 1,
+      "message": "would it make sense to extra the map blockReason -\u003e string and avoid multiple ternary operators?",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
