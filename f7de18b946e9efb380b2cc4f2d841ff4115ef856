@@ -56,6 +56,30 @@
       },
       "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47246219_c7840330",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-19T09:26:05Z",
+      "side": 1,
+      "message": "I think we should deprecate IconButton in favor of the Button and make sure that IconButtons are in the Designs. Otherwise, making var(--color-text-primary) a default seems fine to me.",
+      "parentUuid": "1cf13839_1762b60b",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 51
+      },
+      "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
