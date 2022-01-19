@@ -50,6 +50,23 @@
       "message": "+jobay@ as FYI",
       "revId": "6a9440e1b3fbbff179b6e29920e1efeeb779701a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bff1f60_bb5678e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2022-01-19T19:00:35Z",
+      "side": 1,
+      "message": "Thanks Alex and Mathias!",
+      "revId": "6a9440e1b3fbbff179b6e29920e1efeeb779701a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
