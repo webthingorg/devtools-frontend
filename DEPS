@@ -243,6 +243,7 @@ hooks = [
   {
     # Update LASTCHANGE for build script timestamps
     'name': 'lastchange',
+    'condition': 'build_with_chromium == False',
     'pattern': '.',
     'action': ['python3', 'build/util/lastchange.py',
                '-o', 'build/util/LASTCHANGE'],
