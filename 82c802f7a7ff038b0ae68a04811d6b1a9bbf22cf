@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a4264a1_9151c275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532393
+      },
+      "writtenOn": "2022-01-19T22:46:44Z",
+      "side": 1,
+      "message": "OK, round 2. I am hoping that setting my preferred email address in Gerrit means that the presubmit will pick it up properly in the AUTHORS file.\n\n(You may also be amused to know that I did the GitHub process while actively out at a social event having Some Beverages. Apparently the person who I am then is very concerned about timezone pedantry.)",
+      "revId": "82c802f7a7ff038b0ae68a04811d6b1a9bbf22cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
