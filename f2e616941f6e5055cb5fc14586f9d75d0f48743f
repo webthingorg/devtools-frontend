@@ -68,6 +68,24 @@
       "parentUuid": "ae351634_12e1ce93",
       "revId": "f2e616941f6e5055cb5fc14586f9d75d0f48743f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f99df6b_eea2d967",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-19T11:40:39Z",
+      "side": 1,
+      "message": "You could use `ifDefined` to do this:\n\nhttps://lit.dev/docs/templates/directives/#ifdefined\n\nAlso on second glance, I don\u0027t think we want `.title\u003d`, but just `title\u003d` unless we want to set the property rather than the attribute?\n\n```\ntitle\u003d${ifDefined(this.#props.title)}\n```",
+      "parentUuid": "1dcf4cbb_215deefc",
+      "revId": "f2e616941f6e5055cb5fc14586f9d75d0f48743f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
