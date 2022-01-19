@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa42d26_a8c73fae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-19T09:22:33Z",
+      "side": 1,
+      "message": "lgtm - adding Alex for his thoughts on changing the icon button default color to avoid this",
+      "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf13839_1762b60b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-01-19T09:22:33Z",
+      "side": 1,
+      "message": "I wonder (can be done in a follow-up) if we should make this the default color. I can\u0027t think why we wouldn\u0027t - and allow it to be overridden if required.\n\nAdding Alex R for a second opinion - wdyt?",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 51
+      },
+      "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
