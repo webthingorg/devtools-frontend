@@ -73,6 +73,23 @@
       "message": "would it make sense to extra the map blockReason -\u003e string and avoid multiple ternary operators?",
       "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c94d45e8_b5a74ce6",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1137849
+      },
+      "writtenOn": "2022-01-19T14:27:18Z",
+      "side": 1,
+      "message": "Is this better written as a switch, or a line of if / else if statements? (At some point, I think that the switch becomes more readable than nested ?: operations, and it\u0027s probably reaching that point somewhere close to here)",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
