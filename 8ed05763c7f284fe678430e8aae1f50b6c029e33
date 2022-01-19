@@ -69,6 +69,24 @@
       "parentUuid": "0feba38c_5e10d950",
       "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdea37c_34b4f9e7",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-19T11:01:09Z",
+      "side": 1,
+      "message": "Updated code to set a callback on the DebuggerModel.",
+      "parentUuid": "8112848e_198aadc3",
+      "revId": "8ed05763c7f284fe678430e8aae1f50b6c029e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
