@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "856fff92_ccf71811",
+        "filename": "scripts/deps/sync-vscode-settings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-19T11:43:29Z",
+      "side": 1,
+      "message": "I am surprised this works, as I thought `return`-statements are only valid in function definitions. If CQ is unhappy, we probably need to change this to `process.exit(0)` instead, or we wrap the whole file in a `function main()` so that we enable `return`",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 9
+      },
+      "revId": "3c4219e448d159c868f70686a6b7af53003925ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ccfd19_c7d27948",
+        "filename": "scripts/deps/sync-vscode-settings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-19T11:43:29Z",
+      "side": 1,
+      "message": "Nit: this can be removed as we early-return on line 15.",
+      "range": {
+        "startLine": 24,
+        "startChar": 47,
+        "endLine": 24,
+        "endChar": 99
+      },
+      "revId": "3c4219e448d159c868f70686a6b7af53003925ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
