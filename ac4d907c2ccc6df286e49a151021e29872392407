@@ -16,6 +16,23 @@
       "message": "Kim, PTAL\nJaro and Benedikt, FYI",
       "revId": "ac4d907c2ccc6df286e49a151021e29872392407",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e94b06_33e78ee0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-19T10:51:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ac4d907c2ccc6df286e49a151021e29872392407",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
