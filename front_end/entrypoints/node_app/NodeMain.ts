@@ -101,14 +101,20 @@ export class NodeChildTargetManager extends SDK.SDKModel.SDKModel<void> implemen
   targetDestroyed(_event: Protocol.Target.TargetDestroyedEvent): void {
   }
 
-  attachedToTarget({sessionId, targetInfo}: Protocol.Target.AttachedToTargetEvent): void {
+  async attachedToTarget({sessionId, targetInfo}: Protocol.Target.AttachedToTargetEvent): Promise<void> {
     const name = i18nString(UIStrings.nodejsS, {PH1: targetInfo.url});
     const connection = new NodeConnection(this.#targetAgent, sessionId);
     this.#childConnections.set(sessionId, connection);
     const target = this.#targetManager.createTarget(
         targetInfo.targetId, name, SDK.Target.Type.Node, this.#parentTarget, undefined, undefined, connection);
     this.#childTargets.set(sessionId, target);
-    void target.runtimeAgent().invoke_runIfWaitingForDebugger();
+    const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+    if (debuggerModel) {
+      if (!debuggerModel.isReadyToPause()) {
+        await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+      }
+    }
+    await target.runtimeAgent().invoke_runIfWaitingForDebugger();
   }
 
   detachedFromTarget({sessionId}: Protocol.Target.DetachedFromTargetEvent): void {
