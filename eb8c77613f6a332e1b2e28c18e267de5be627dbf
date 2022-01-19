@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be2756cf_5d93e4fc",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2022-01-19T19:36:09Z",
+      "side": 1,
+      "message": "The others refer to attributes or headers, this refers to the element itself - maybe the backticks are unnecessary here altogether (we didn\u0027t use them for iframe above), I wasn\u0027t sure.",
+      "parentUuid": "7cdab0fc_6910c327",
+      "range": {
+        "startLine": 58,
+        "startChar": 44,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9239ab54_1fbdabe0",
         "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
         "patchSetId": 3
@@ -123,6 +147,42 @@
       "side": 1,
       "message": "Lets have a small helper with a switch that returns a localized string for each blocked reason.",
       "parentUuid": "c94d45e8_b5a74ce6",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ecee12_ed32f7ce",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2022-01-19T19:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9239ab54_1fbdabe0",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e7eecd7_8bf30f62",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2022-01-19T19:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9659d5cd_fa39f80e",
       "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
