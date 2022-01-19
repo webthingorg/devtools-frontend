@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c1950e1_de5dfe33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-19T14:35:16Z",
+      "side": 1,
+      "message": "lgtm % small comment",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cdab0fc_6910c327",
@@ -88,6 +105,24 @@
       "writtenOn": "2022-01-19T14:27:18Z",
       "side": 1,
       "message": "Is this better written as a switch, or a line of if / else if statements? (At some point, I think that the switch becomes more readable than nested ?: operations, and it\u0027s probably reaching that point somewhere close to here)",
+      "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9659d5cd_fa39f80e",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-19T14:35:16Z",
+      "side": 1,
+      "message": "Lets have a small helper with a switch that returns a localized string for each blocked reason.",
+      "parentUuid": "c94d45e8_b5a74ce6",
       "revId": "eb8c77613f6a332e1b2e28c18e267de5be627dbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
