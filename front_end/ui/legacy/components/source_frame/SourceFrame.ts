@@ -37,6 +37,7 @@ import * as CodeMirror from '../../../../third_party/codemirror.next/codemirror.
 import * as CodeHighlighter from '../../../components/code_highlighter/code_highlighter.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
 import * as UI from '../../legacy.js';
+import * as ThemeSupport from '../../theme_support/theme_support.js';
 
 const UIStrings = {
   /**
@@ -694,17 +695,23 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     this.loadedInternal = true;
 
     const languageSupport = await this.getLanguageSupport(content);
+    const createExtensions = (): CodeMirror.Extension[] =>
+        [this.editorConfiguration(content),
+         languageSupport,
+         config.lineNumbers.of(this.getLineNumberFormatter()),
+         config.editable.of(this.editable ? [] : CodeMirror.EditorState.readOnly.of(true)),
+    ];
     const editorState = CodeMirror.EditorState.create({
       doc: content,
-      extensions: [
-        this.editorConfiguration(content),
-        languageSupport,
-        config.lineNumbers.of(this.getLineNumberFormatter()),
-        config.editable.of(this.editable ? [] : CodeMirror.EditorState.readOnly.of(true)),
-      ],
+      extensions: createExtensions(),
     });
     this.baseDoc = editorState.doc;
     textEditor.editor.setState(editorState);
+    ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
+      textEditor.editor.dispatch({
+        effects: CodeMirror.StateEffect.reconfigure.of(createExtensions()),
+      });
+    });
     if (wasLoaded) {
       textEditor.editor.scrollDOM.scrollTop = scrollTop;
     }
