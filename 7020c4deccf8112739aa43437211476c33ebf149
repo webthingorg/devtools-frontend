@@ -16,6 +16,46 @@
       "message": "Hi Jaro,\n\nthis is the second split up CL that Tim requested. It only contains the changes to the BreakpointManager. PTAL!",
       "revId": "7020c4deccf8112739aa43437211476c33ebf149",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8fb0b71_dbbf67e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-20T08:26:07Z",
+      "side": 1,
+      "message": "Looks good modulo the typo. Thanks!",
+      "revId": "7020c4deccf8112739aa43437211476c33ebf149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a70454_a6bf7e74",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-20T08:26:07Z",
+      "side": 1,
+      "message": "Nit: affectedBreakoints -\u003e affectedBreakpoints",
+      "range": {
+        "startLine": 112,
+        "startChar": 10,
+        "endLine": 112,
+        "endChar": 28
+      },
+      "revId": "7020c4deccf8112739aa43437211476c33ebf149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
