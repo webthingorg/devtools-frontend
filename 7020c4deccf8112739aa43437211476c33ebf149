@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d521a941_861ab096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-20T07:08:18Z",
+      "side": 1,
+      "message": "Hi Jaro,\n\nthis is the second split up CL that Tim requested. It only contains the changes to the BreakpointManager. PTAL!",
+      "revId": "7020c4deccf8112739aa43437211476c33ebf149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
