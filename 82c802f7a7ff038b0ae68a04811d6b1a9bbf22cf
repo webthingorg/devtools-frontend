@@ -16,6 +16,29 @@
       "message": "OK, round 2. I am hoping that setting my preferred email address in Gerrit means that the presubmit will pick it up properly in the AUTHORS file.\n\n(You may also be amused to know that I did the GitHub process while actively out at a social event having Some Beverages. Apparently the person who I am then is very concerned about timezone pedantry.)",
       "revId": "82c802f7a7ff038b0ae68a04811d6b1a9bbf22cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a620349d_574a268d",
+        "filename": "AUTHORS",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-20T12:04:32Z",
+      "side": 1,
+      "message": "Unfortunately, we can only accept the email address that is registered by Gerrit on the commit. If you would like to use this email address instead, please commit using the email and update your Gerrit information to reflect that.\n\nIf you would rather not that, I think we need to add \"thetorpedodog@gmail.com\" instead",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "82c802f7a7ff038b0ae68a04811d6b1a9bbf22cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
