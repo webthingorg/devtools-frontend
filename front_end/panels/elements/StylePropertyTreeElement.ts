@@ -477,6 +477,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     } else {
       this.listItemElement.classList.remove('disabled');
     }
+
+    this.listItemElement.classList.toggle('changed', this.parentPane().isPropertyChanged(this.property));
   }
 
   node(): SDK.DOMModel.DOMNode|null {
@@ -1469,6 +1471,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       }
       this.styleTextAppliedForTest();
       return;
+    }
+    if (updatedProperty) {
+      this.listItemElement.classList.toggle('changed', this.parentPane().isPropertyChanged(updatedProperty));
     }
 
     this.matchedStylesInternal.resetActiveProperties();
