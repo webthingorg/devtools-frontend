@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a698ce22_90867dc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-20T07:12:06Z",
+      "side": 1,
+      "message": "For visibility: Tim has prototyped how it would look like with the state pattern here: https://www.typescriptlang.org/play/?#code/JYOwLgpgTgZghgYwgAgMpjpAkua8nIDeAUMsgPYgA2AngKIAeECArtjAEoRwAmNAKuQAKcFgGcIACgRwqVAEaIA1gC5kkgJTIAvAD5kAN3LAeGtUZMBuUsjhiaIBMggg48qhAAiEeSwDmftDSsgrKapo6+ham5sY81gC+xMQIlGJgyDwQ8CxUYOiYEGoF2LiwiCjaRDYubh7evgFBWoQJADQ2lLSMzGwQWJzcfIIi4lIt7cQJ1ilpGSUQYmqEANpKEDRq6VCgfgC6xRilkOVICTrVZHQAcgCCAEIAMnSeyzZkAHRfWTl5Cx1kSZkVD8W4cfhYa4AcQA+gBVIRvMifb7ZUR-I4QAHIuwOJy1dxeHz+QJQYJyRQIJQtd44gDucGAGTAAAtgGIPpQkJI6AYXGAOQ0SdAAOp2OiuQmmazI5EyCnKTQy5FA5Cqjh0W6eACaMP4AHkYUJbnDUHQkcivh8fuj8pjsWQuvQmKx2FxeAJhKIJOTQlSabKyPK-UolbTVarUAAJOH8CHQmGefUi64WlHWtG5O2FB22eyOZyS+rEppk4OU6mXQNwBlM5Cs9mcxxSXn8wUl0lisSedl1CDS2lBkIVsOyiPYzxYVAPZ6vKvpm1Z-60gnFxqk30VgOB8uKjTKwHY1WQmG3GEAWTodHjULTyCti4xOZsSSSxDANAADigAGqyEwLBc6w0OQMD1l+ECgWgmJiDMCBUHYYjIEKpbnuQWRUFW7LusMXpjJoajyOQ5AeHAIDzsgUAQGALBQORDYcukhTnogbIgBAHxMZAOjaFUABEGparqBpGiaZp8cqSRkDw5CoOQAC21FsX4EQkLKwBgZIACEDEfNhQyeqMPoaNuspUTRdEHmqL42DJcmKQ2IB+AATKptIaeoOlshy+keiM3rjKZyLmbRIBWVJcppCRHFUOQKkAORiApSm7PF+42dJsnJY5fgAMxubKulcRALEIGxHHFU23Qun0Aw4YZAWSBEegUUGUUeB8sUJUlDnKWl4XpYCNRFkS67NBRRWYqV5WcZiHyrqNwpks1+hqTuczIMV-BQGRYhMsAlCoCwCBIP2-YXLpADExXTaAHFgDtIB7WAB0gJIKGkgsHwFFAL1OXCn6DetT3RR8iHQGAkhbY9z2vUdJ0QGdA6DsgAD0qNoNRtjIFQwDyXWMDkFA9YsigYDkBgmF7QAXigUGpHIzCQDwm0IDsn4ZEltFIEh5mMuxLPyDQmQdtAHwo+jyAAIwAAznvcyCE8TVHyRTKAwFAlCQCAPBiG00sy3LCtKxQrLQByKOpE9GT6arkAAGKa7gOsXBwxFgB8HAsOAeMcV7PuKR8ACOLDQDQIg7fJkjxSrauO1rLg8GlyAAD4p8gbsU573svYH-u5xxIdhxHcBR-FdJiP1lsbfJcAMKgbPABzYgAMKsRAqDALTFy23HTvayzAD8BsQAAbMgaiyzLY9WW11uFn2XBiJ+aSVLYtbMt5YOBOAekgEY6wwgtkiELX9eN83bdlR3XcQAkQOFVvVF+OyJwfUEC1LyvT0QEDEWAhoGySQgA\n\nI\u0027m still in favor of not using the state pattern for this particular case, since I think that it wilil be come very verbose. Let me know if you think otherwise, Jaro, Benedikt!",
+      "parentUuid": "14bed3fc_b6565205",
+      "revId": "2195c17c7a030f7728d9dc9b8a632a42021ccd89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4de9c39_1f97749c",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 15
