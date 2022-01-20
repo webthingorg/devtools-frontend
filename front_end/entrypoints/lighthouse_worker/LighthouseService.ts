@@ -3,6 +3,12 @@
 // found in the LICENSE file.
 
 import * as Root from '../../core/root/root.js';
+import * as puppeteer from '../../third_party/puppeteer/puppeteer.js';
+import type * as Protocol from '../../generated/protocol.js';
+
+let mainTargetId: string|undefined;
+let mainFrameId: string|undefined;
+let mainSessionId: string|undefined;
 
 function disableLoggingForTest(): void {
   console.log = (): void => undefined;  // eslint-disable-line no-console
@@ -33,7 +39,51 @@ class LighthousePort {
   }
 }
 
+class Transport implements puppeteer.ConnectionTransport {
+  onMessageInternal?: (message: string) => void;
+
+  onclose?: () => void;
+
+  knownIds = new Set<number>();
+
+  // Puppeteer doesn't know about the session we establish in LighthouseProtocolService.
+  // If we encounter that session id, replace it with undefined so puppeteer can respond.
+  set onmessage(cb: ((message: string) => void) | undefined) {
+    if (!cb) {
+      this.onMessageInternal = undefined;
+    } else {
+      this.onMessageInternal = (message: string): void => {
+        const data = JSON.parse(message) as {id: number, method: string, params: unknown, sessionId?: string};
+        if (data.id && !this.knownIds.has(data.id)) {
+          return;
+        }
+        this.knownIds.delete(data.id);
+        if (!data.sessionId) {
+          return;
+        }
+        data.sessionId = data.sessionId === mainSessionId ? undefined : data.sessionId;
+        message = JSON.stringify(data);
+        cb(message);
+      };
+    }
+  }
+  get onmessage(): ((message: string) => void) | undefined {
+    return this.onMessageInternal;
+  }
+
+  send(message: string): void {
+    const data = JSON.parse(message);
+    this.knownIds.add(data.id);
+    data.sessionId = data.sessionId === undefined ? mainSessionId : data.sessionId;
+    message = JSON.stringify(data);
+    notifyFrontendViaWorkerMessage('sendProtocolMessage', {message});
+  }
+  close(): void {
+  }
+}
+
 const port = new LighthousePort();
+const transport = new Transport();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function start(params: any): Promise<unknown> {
@@ -54,15 +104,22 @@ async function start(params: any): Promise<unknown> {
     flags.channel = 'devtools';
     flags.locale = locale;
 
-    // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    const connection = self.setUpWorkerConnection(port);
+    // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
+    // const connection = self.setUpWorkerConnection(port);
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
     const config = self.createConfig(params.categoryIDs, flags.emulatedFormFactor);
     const url = params.url;
+    const page = await getPuppeteerConnection();
 
-    // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    return await self.runLighthouse(url, flags, config, connection);
+    // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
+    // return await self.runLighthouse(url, flags, config, connection);
+    return await self.lhNavigation({
+      url,
+      config,
+      page,
+    });
   } catch (err) {
+    console.error(err);
     return ({
       fatal: true,
       message: err.message,
@@ -119,16 +176,52 @@ self.onmessage = async(event: MessageEvent): Promise<void> => {
     const result = await start(messageFromFrontend.params);
     self.postMessage(JSON.stringify({id: messageFromFrontend.id, result}));
   } else if (messageFromFrontend.method === 'dispatchProtocolMessage') {
-    if (port.onMessage) {
-      port.onMessage(messageFromFrontend.params.message);
-    }
+    transport.onmessage?.(messageFromFrontend.params.message);
+    port.onMessage?.(messageFromFrontend.params.message);
+  } else if (messageFromFrontend.method === 'info') {
+    mainTargetId = messageFromFrontend.params.mainTargetId;
+    mainFrameId = messageFromFrontend.params.mainFrameId;
+    mainSessionId = messageFromFrontend.params.mainSessionId;
   } else {
     throw new Error(`Unknown event: ${event.data}`);
   }
 };
 
+export class PuppeteerConnection extends puppeteer.Connection {
+  // Overriding Puppeteer's API here.
+  // eslint-disable-next-line rulesdir/no_underscored_properties
+  async _onMessage(message: string): Promise<void> {
+    const msgObj = JSON.parse(message) as {id: number, method: string, params: unknown, sessionId?: string};
+    if (msgObj.sessionId && !this._sessions.has(msgObj.sessionId)) {
+      return;
+    }
+    void super._onMessage(message);
+  }
+}
+
+async function getPuppeteerConnection(): Promise<puppeteer.Page|null> {
+  if (!mainFrameId || !mainTargetId) {
+    throw new Error('Could not identify target for Lighthouse');
+  }
+  // url is an empty string in this case parallel to:
+  // https://github.com/puppeteer/puppeteer/blob/f63a123ecef86693e6457b07437a96f108f3e3c5/src/common/BrowserConnector.ts#L72
+  const connection = new PuppeteerConnection('', transport);
+  const browser = await puppeteer.Browser.create(
+    connection, [], false, undefined, undefined, undefined,
+    (targetInfo: Protocol.Target.TargetInfo) => {
+      if (targetInfo.type !== 'page' && targetInfo.type !== 'iframe') {
+        return false;
+      }
+      return targetInfo.targetId === mainTargetId ||
+        targetInfo.openerId === mainTargetId ||
+        targetInfo.type === 'iframe';
+    },
+  );
+  return await browser.pages().then(pages => pages.find(p => p.mainFrame()._id === mainFrameId) || null);
+}
+
 // Make lighthouse and traceviewer happy.
-// @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
+// @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
 globalThis.global = self;
 // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
 globalThis.global.isVinn = true;
