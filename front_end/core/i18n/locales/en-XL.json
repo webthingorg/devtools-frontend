@@ -3176,6 +3176,27 @@
   "panels/application/IndexedDBViews.ts | version": {
     "message": "V̂ér̂śîón̂"
   },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorage": {
+    "message": "Îńt̂ér̂éŝt́ Ĝŕôúp̂ Śt̂ór̂áĝé"
+  },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorageItems": {
+    "message": "Îńt̂ér̂éŝt́Ĝŕôúp̂ Śt̂ór̂áĝé Ît́êḿŝ"
+  },
+  "panels/application/InterestGroupStorageView.ts | interestGroupStorageNumberEntries": {
+    "message": "N̂úm̂b́êŕ ôf́ êńt̂ŕîéŝ śĥóŵń îń t̂áb̂ĺê: {PH1}"
+  },
+  "panels/application/InterestGroupStorageView.ts | name": {
+    "message": "N̂ám̂é"
+  },
+  "panels/application/InterestGroupStorageView.ts | owner": {
+    "message": "Ôẃn̂ér̂"
+  },
+  "panels/application/InterestGroupStorageView.ts | selectAValueToPreview": {
+    "message": "Ŝél̂éĉt́ â v́âĺûé t̂ó p̂ŕêv́îéŵ"
+  },
+  "panels/application/InterestGroupStorageView.ts | type": {
+    "message": "Âćĉéŝś T̂ýp̂é"
+  },
   "panels/application/OpenedWindowDetailsView.ts | accessToOpener": {
     "message": "Âćĉéŝś t̂ó ôṕêńêŕ"
   },
