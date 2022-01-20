@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf65e7a_ff9a462e",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-20T16:18:08Z",
+      "side": 1,
+      "message": "Ideally, I wanted to put this code in `ui/components/text_editor`, so that the text editor would always do this, regardless of its context. But, the component doesn\u0027t know about the extensions that are registered in its state. Therefore, I think I had to place it here instead.\n\nThe `EditorState` doesn\u0027t appear to expose the extensions, as alternatively I thought we could put the following in `text_editor`:\n\n```\nThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () \u003d\u003e {\n  this.#activeEditor.dispatch({\n    effects: CodeMirror.StateEffect.reconfigure.of(this.state.extensions),\n  });\n});\n```\n\nMarijn, WDYT about exposing the `extensions` of the editor state so that I can \"flush\" the extensions to recompute the dark theme?",
+      "range": {
+        "startLine": 712,
+        "startChar": 17,
+        "endLine": 712,
+        "endChar": 51
+      },
+      "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
