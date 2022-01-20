@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04646cc1_9d5a27e7",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-20T19:48:18Z",
+      "side": 1,
+      "message": "Out of curiosity, why can\u0027t we omit the call to Boolean here?",
+      "range": {
+        "startLine": 224,
+        "startChar": 11,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "373cb7b7fc138857ada920e1eb63f9b1409d14b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84d4e6cc_2eb5b2a7",
+        "filename": "front_end/models/bindings/BreakpointSyncManager.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-20T19:48:18Z",
+      "side": 1,
+      "message": "Why is this boolean|null? Could not it be just boolean (with the default false)?",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "373cb7b7fc138857ada920e1eb63f9b1409d14b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
