@@ -80,6 +80,30 @@
       },
       "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33f7ea05_abfea33e",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-01-20T10:25:09Z",
+      "side": 1,
+      "message": "Set a default color.\n\nI agree that in general it\u0027s better to use Button instead of IconButton. IconButton\u0027s main strength seems to be buttons with multiple icons and counters such as the error/warning/issue counters we have in menu bars.",
+      "parentUuid": "47246219_c7840330",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 51
+      },
+      "revId": "f7de18b946e9efb380b2cc4f2d841ff4115ef856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
