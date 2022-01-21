@@ -87,6 +87,30 @@
       },
       "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6736f0eb_d75d6b97",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2022-01-21T11:56:47Z",
+      "side": 1,
+      "message": "Looks good, apart from a tiny nit.",
+      "parentUuid": "ed098c1c_e3d111df",
+      "range": {
+        "startLine": 712,
+        "startChar": 17,
+        "endLine": 712,
+        "endChar": 51
+      },
+      "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

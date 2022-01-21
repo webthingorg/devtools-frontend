@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19909528_d2822239",
+        "filename": "front_end/ui/components/text_editor/config.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2022-01-21T11:56:47Z",
+      "side": 1,
+      "message": "This does nothing, so you could use `[]` instead of it, as the old code did.",
+      "revId": "fc6a450f7289b45e8e93ffe40f863ceb1ad7842c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
