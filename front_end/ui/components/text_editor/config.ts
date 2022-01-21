@@ -202,10 +202,12 @@ function themeIsDark(): boolean {
   return setting === 'systemPreferred' ? window.matchMedia('(prefers-color-scheme: dark)').matches : setting === 'dark';
 }
 
-const dummyDarkTheme = CM.EditorView.theme({}, {dark: true});
+export const dummyDarkTheme = CM.EditorView.theme({}, {dark: true});
+export const dummyLightTheme = CM.EditorView.theme({}, {dark: false});
+export const themeSelection = new CM.Compartment();
 
 export function theme(): CM.Extension {
-  return [editorTheme, themeIsDark() ? dummyDarkTheme : []];
+  return [editorTheme, themeIsDark() ? themeSelection.of(dummyDarkTheme) : themeSelection.of(dummyLightTheme)];
 }
 
 let sideBarElement: HTMLElement|null = null;
