@@ -63,6 +63,30 @@
       },
       "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed098c1c_e3d111df",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-21T11:52:52Z",
+      "side": 1,
+      "message": "Ah of course, I forgot about CompartMents. Updated the CL with that solution, which indeed appears to work just fine! Thanks for the suggestion 😊",
+      "parentUuid": "2758790e_29733ad4",
+      "range": {
+        "startLine": 712,
+        "startChar": 17,
+        "endLine": 712,
+        "endChar": 51
+      },
+      "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
