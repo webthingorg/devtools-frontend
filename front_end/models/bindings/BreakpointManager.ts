@@ -94,10 +94,25 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     return `${url}:${lineNumber}` + (typeof columnNumber === 'number' ? `:${columnNumber}` : '');
   }
 
+  hasBreakpointsForUrl(url: string): boolean {
+    const breakpointItems = this.storage.breakpointItems(url);
+    return breakpointItems.length > 0;
+  }
+
   async copyBreakpoints(fromURL: string, toSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     const breakpointItems = this.storage.breakpointItems(fromURL);
     for (const item of breakpointItems) {
       await this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
+    }
+  }
+
+  async restoreBreakpointsForUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    this.restoreBreakpoints(uiSourceCode);
+    const breakpoints = this.#breakpointByStorageId.values();
+    const affectedBreakoints = Array.from(breakpoints).filter(x => x.uiSourceCodes.has(uiSourceCode));
+    // Make sure to properly await their updates
+    for (const bp of affectedBreakoints) {
+      await bp.updateBreakpoint();
     }
   }
 
@@ -159,7 +174,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     if (breakpoint) {
       breakpoint.updateState(condition, enabled);
       breakpoint.addUISourceCode(uiSourceCode);
-      breakpoint.updateBreakpoint();
+      void breakpoint.updateBreakpoint();
       return breakpoint;
     }
     breakpoint = new Breakpoint(this, uiSourceCode, uiSourceCode.url(), lineNumber, columnNumber, condition, enabled);
@@ -468,10 +483,10 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
     this.#enabledInternal = enabled;
     this.#conditionInternal = condition;
     this.breakpointManager.storage.updateBreakpoint(this);
-    this.updateBreakpoint();
+    void this.updateBreakpoint();
   }
 
-  updateBreakpoint(): void {
+  async updateBreakpoint(): Promise<void> {
     if (!this.bound()) {
       this.removeAllUnboundLocations();
       if (!this.isRemoved) {
@@ -479,7 +494,7 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
       }
     }
     for (const modelBreakpoint of this.#modelBreakpoints.values()) {
-      void modelBreakpoint.scheduleUpdateInDebugger();
+      await modelBreakpoint.scheduleUpdateInDebugger();
     }
   }
 
