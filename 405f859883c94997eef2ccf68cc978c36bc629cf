@@ -50,6 +50,24 @@
       "message": "nit: break?",
       "revId": "405f859883c94997eef2ccf68cc978c36bc629cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4041d4d5_ae6a3560",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-01-21T12:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1992314b_96e7a341",
+      "revId": "405f859883c94997eef2ccf68cc978c36bc629cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
