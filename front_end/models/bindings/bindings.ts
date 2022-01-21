@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as BreakpointManager from './BreakpointManager.js';
+import * as BreakpointSyncManager from './BreakpointSyncManager.js';
 import * as CompilerScriptMapping from './CompilerScriptMapping.js';
 import * as ContentProviderBasedProject from './ContentProviderBasedProject.js';
 import * as CSSWorkspaceBinding from './CSSWorkspaceBinding.js';
@@ -23,6 +24,7 @@ import * as TempFile from './TempFile.js';
 
 export {
   BreakpointManager,
+  BreakpointSyncManager,
   CompilerScriptMapping,
   ContentProviderBasedProject,
   CSSWorkspaceBinding,
