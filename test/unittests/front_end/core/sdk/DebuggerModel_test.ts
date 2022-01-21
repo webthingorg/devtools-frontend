@@ -86,6 +86,7 @@ describeWithMockConnection('DebuggerModel', () => {
       const target = createTarget();
       target.markAsNodeJSForTest();
       const model = new SDK.DebuggerModel.DebuggerModel(target);
+      sinon.stub(model, 'debuggerEnabled').callsFake(() => true);
       const {breakpointId} = await model.setBreakpointByURL('fs.js', 1);
       assert.strictEqual(breakpointId, breakpointId1);
     });

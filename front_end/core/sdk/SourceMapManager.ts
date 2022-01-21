@@ -31,6 +31,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
   readonly #sourceMapById: Map<string, SourceMap>;
   #sourceMapIdToLoadingClients: Platform.MapUtilities.Multimap<string, T>;
   #sourceMapIdToClients: Platform.MapUtilities.Multimap<string, T>;
+  readonly #failedSourceMapId: Set<string>;
 
   constructor(target: Target) {
     super();
@@ -45,6 +46,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     this.#sourceMapById = new Map();
     this.#sourceMapIdToLoadingClients = new Platform.MapUtilities.Multimap();
     this.#sourceMapIdToClients = new Platform.MapUtilities.Multimap();
+
+    this.#failedSourceMapId = new Set();
 
     TargetManager.instance().addEventListener(TargetManagerEvents.InspectedURLChanged, this.inspectedURLChanged, this);
   }
@@ -95,6 +98,33 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
       return null;
     }
     return this.#sourceMapById.get(sourceMapId) || null;
+  }
+
+  // Use this method for actively waiting for the source map to attach,
+  // if it hasn't yet.
+  sourceMapForClientPromise(client: T): Promise<SourceMap|null> {
+    const sourceMap = this.sourceMapForClient(client);
+    if (sourceMap) {
+      return Promise.resolve(sourceMap);
+    }
+
+    const sourceMapId = this.#resolvedSourceMapId.get(client);
+    if (sourceMapId && this.#failedSourceMapId.has(sourceMapId)) {
+      return Promise.resolve(null);
+    }
+
+    return new Promise(resolve => {
+      const sourceMapAddedDescriptor = this.addEventListener(Events.SourceMapAttached, event => {
+        this.removeEventListener(Events.SourceMapAttached, sourceMapAddedDescriptor.listener);
+        this.removeEventListener(Events.SourceMapFailedToAttach, sourceMapFailedDescriptor.listener);
+        resolve(event.data.sourceMap);
+      });
+      const sourceMapFailedDescriptor = this.addEventListener(Events.SourceMapFailedToAttach, () => {
+        this.removeEventListener(Events.SourceMapAttached, sourceMapAddedDescriptor.listener);
+        this.removeEventListener(Events.SourceMapFailedToAttach, sourceMapFailedDescriptor.listener);
+        resolve(null);
+      });
+    });
   }
 
   clientsForSourceMap(sourceMap: SourceMap): T[] {
@@ -176,6 +206,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
         return;
       }
       if (!sourceMap) {
+        this.#failedSourceMapId.add(sourceMapId);
         for (const client of clients) {
           this.dispatchEventToListeners(Events.SourceMapFailedToAttach, {client});
         }
@@ -202,6 +233,9 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 
     if (!sourceMapId) {
       return;
+    }
+    if (this.#failedSourceMapId.has(sourceMapId)) {
+      this.#failedSourceMapId.delete(sourceMapId);
     }
     if (!this.#sourceMapIdToClients.hasValue(sourceMapId, client)) {
       if (this.#sourceMapIdToLoadingClients.delete(sourceMapId, client)) {

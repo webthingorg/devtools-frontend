@@ -690,23 +690,11 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
-    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
-      } else if (this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause()) {
-        maybeRescheduleUpdate = true;
       }
-    }
-
-    if (!breakpointIds.length && maybeRescheduleUpdate) {
-      // TODO(crbug.com/1229541): This is a quickfix to prevent #breakpoints from
-      // disappearing if the Debugger is actually not enabled
-      // yet. This quickfix should be removed as soon as we have a solution
-      // to correctly synchronize the front-end with the inspector back-end.
-      void this.scheduleUpdateInDebugger();
-      return;
     }
 
     this.#currentState = newState;
