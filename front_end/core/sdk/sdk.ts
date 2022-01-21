@@ -35,6 +35,7 @@ import * as CSSRule from './CSSRule.js';
 import * as CSSStyleDeclaration from './CSSStyleDeclaration.js';
 import * as CSSStyleSheetHeader from './CSSStyleSheetHeader.js';
 import * as DebuggerModel from './DebuggerModel.js';
+import * as DebuggerStateMachine from './DebuggerStateMachine.js';
 import * as DOMDebuggerModel from './DOMDebuggerModel.js';
 import * as DOMModel from './DOMModel.js';
 import * as EmulationModel from './EmulationModel.js';
@@ -102,6 +103,7 @@ export {
   CSSStyleDeclaration,
   CSSStyleSheetHeader,
   DebuggerModel,
+  DebuggerStateMachine,
   DOMDebuggerModel,
   DOMModel,
   EmulationModel,
