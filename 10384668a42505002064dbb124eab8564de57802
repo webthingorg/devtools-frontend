@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2db8ae_09ef7919",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-21T12:56:35Z",
+      "side": 1,
+      "message": "Part 2 is uploaded: removing the callbacks altogether. I can see this code moving into the BreakpointManager now as you suggested, Jaro. In any case, I\u0027ll concentrate on the conditional breakpoint for now. ",
+      "revId": "10384668a42505002064dbb124eab8564de57802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
