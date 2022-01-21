@@ -5,43 +5,75 @@
 import("./node.gni")
 import("./vars.gni")
 
+declare_args() {
+  devtools_fast_bundle = false
+}
+
 template("rollup") {
   assert(defined(invoker.entrypoint),
          "You must define the 'entrypoint' for a rollup target")
 
-  node_action(target_name) {
-    script = "node_modules/rollup/dist/bin/rollup"
+  if (devtools_fast_bundle) {
+    node_action(target_name) {
+      script = "scripts/build/esbuild.js"
+      forward_variables_from(invoker,
+                             [
+                               "visibility",
+                               "deps",
+                               "public_deps",
+                             ])
 
-    forward_variables_from(invoker,
-                           [
-                             "visibility",
-                             "deps",
-                             "public_deps",
-                           ])
+      inputs = [
+        invoker.entrypoint,
+        devtools_location_prepend + "scripts/build/devtools_plugin.js",
+        devtools_location_prepend + "scripts/devtools_paths.js",
+      ]
 
-    inputs = [
-      invoker.entrypoint,
-      devtools_location_prepend + "scripts/build/rollup.config.js",
-    ]
+      args = [
+        rebase_path(invoker.entrypoint, root_build_dir),
+        rebase_path(invoker.output_file_location, root_build_dir),
+      ]
 
-    args = [
-      # TODO(crbug.com/1098074): We need to hide warnings that are written stderr,
-      # as Chromium does not process the returncode of the subprocess correctly
-      # and instead looks if `stderr` is empty.
-      "--silent",
-      "--config",
-      rebase_path(devtools_location_prepend + "scripts/build/rollup.config.js",
-                  root_build_dir),
-      "--input",
-      rebase_path(invoker.entrypoint, root_build_dir),
-      "--file",
-      rebase_path(invoker.output_file_location, root_build_dir),
-    ]
-
-    if (!devtools_dcheck_always_on) {
-      args += [ "--configDCHECK" ]
+      outputs = [ invoker.output_file_location ]
     }
+  } else {
+    node_action(target_name) {
+      script = "node_modules/rollup/dist/bin/rollup"
 
-    outputs = [ invoker.output_file_location ]
+      forward_variables_from(invoker,
+                             [
+                               "visibility",
+                               "deps",
+                               "public_deps",
+                             ])
+
+      inputs = [
+        invoker.entrypoint,
+        devtools_location_prepend + "scripts/build/rollup.config.js",
+        devtools_location_prepend + "scripts/build/devtools_plugin.js",
+        devtools_location_prepend + "scripts/devtools_paths.js",
+      ]
+
+      args = [
+        # TODO(crbug.com/1098074): We need to hide warnings that are written stderr,
+        # as Chromium does not process the returncode of the subprocess correctly
+        # and instead looks if `stderr` is empty.
+        "--silent",
+        "--config",
+        rebase_path(
+            devtools_location_prepend + "scripts/build/rollup.config.js",
+            root_build_dir),
+        "--input",
+        rebase_path(invoker.entrypoint, root_build_dir),
+        "--file",
+        rebase_path(invoker.output_file_location, root_build_dir),
+      ]
+
+      if (!devtools_dcheck_always_on) {
+        args += [ "--configDCHECK" ]
+      }
+
+      outputs = [ invoker.output_file_location ]
+    }
   }
 }
