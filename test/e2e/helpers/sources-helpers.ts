@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, platform, pressKey, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, platform, pressKey, reloadDevTools, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const ACTIVE_LINE = '.CodeMirror-activeline > pre > span';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
@@ -433,6 +433,12 @@ export async function stepThroughTheCode() {
   await waitFor(PAUSE_INDICATOR_SELECTOR);
 }
 
+export async function getNestedWorkerFilename(selectors: NestedFileSelector) {
+  const workerFile = await expandFileTree(selectors);
+
+  return workerFile.evaluate(node => node.textContent);
+}
+
 export async function openNestedWorkerFile(selectors: NestedFileSelector) {
   await expandFileTree(selectors);
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
@@ -538,4 +544,10 @@ export async function addSelectedTextToWatches() {
   await frontend.keyboard.press('A');
   await frontend.keyboard.up(modifierKey);
   await frontend.keyboard.up('Shift');
+}
+
+export async function refreshDevToolsAndRemoveBackendState(target: puppeteer.Page) {
+  // Navigate to a different site to make sure that back-end state will be removed.
+  await target.goto('about:blank');
+  await reloadDevTools({selectedPanel: {name: 'sources'}});
 }
