@@ -16,6 +16,52 @@
       "message": "Part 2 is uploaded: removing the callbacks altogether. I can see this code moving into the BreakpointManager now as you suggested, Jaro. In any case, I\u0027ll concentrate on the conditional breakpoint for now. ",
       "revId": "10384668a42505002064dbb124eab8564de57802",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b2a7bc5_5278be50",
+        "filename": "front_end/models/bindings/BreakpointSyncManager.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-21T15:33:39Z",
+      "side": 1,
+      "message": "Could you add this whole thing into WorskpaceImpl?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "10384668a42505002064dbb124eab8564de57802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e594fd_5632b082",
+        "filename": "front_end/models/bindings/BreakpointSyncManager.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-21T15:33:39Z",
+      "side": 1,
+      "message": "How about moving the loop into DebuggerModel.enableDebugger and the condition into setBreakpointsForScript? Then you would not need this method at all? (You would also have to register setBreakpointsForScript as the callback...)",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "10384668a42505002064dbb124eab8564de57802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
