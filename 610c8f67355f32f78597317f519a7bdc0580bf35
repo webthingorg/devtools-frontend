@@ -39,6 +39,30 @@
       },
       "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2758790e_29733ad4",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2022-01-21T09:25:21Z",
+      "side": 1,
+      "message": "I think indeed you\u0027d want to generalize this, similar to how the editor listens to setting changes. I don\u0027t think exposing the set of extensions is going to help there—those are opaque, immutable values. Instead, you\u0027d want to put the `dummyDarkTheme` in a compartment, and reconfigure that whenever the devtools theme changes.",
+      "parentUuid": "faf65e7a_ff9a462e",
+      "range": {
+        "startLine": 712,
+        "startChar": 17,
+        "endLine": 712,
+        "endChar": 51
+      },
+      "revId": "610c8f67355f32f78597317f519a7bdc0580bf35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
