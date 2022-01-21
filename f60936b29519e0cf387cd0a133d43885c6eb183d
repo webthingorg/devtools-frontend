@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022c448b_1a7edfb6",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2022-01-21T12:44:31Z",
+      "side": 1,
+      "message": "For future reference, this typo is the cause for crbug.com/1289120.",
+      "range": {
+        "startLine": 1036,
+        "startChar": 38,
+        "endLine": 1036,
+        "endChar": 48
+      },
+      "revId": "f60936b29519e0cf387cd0a133d43885c6eb183d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
