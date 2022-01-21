@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67da346d_7d5d84dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-21T09:45:51Z",
+      "side": 1,
+      "message": "Thanks Jaro for the suggestions; this is part 1 of it: having the set callback and awaiting it in the enableDebugger/paused functions. Also answered on the comment. The part 2 (removing callbacks altogether in BreakpointSyncManager) is currently ongoing, and I\u0027ll send another update on that, but wanted to send this out to answer the comments.",
+      "revId": "3137d07212b01cb31c0ec1d83b3e792d808e8cd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "856d3b2d_a0f3405d",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-21T09:45:51Z",
+      "side": 1,
+      "message": "No need for it; it was introduced by the presubmit upload at some point before (but I don\u0027t remember at which state), but it\u0027s not relevant anymore. Thanks!",
+      "parentUuid": "04646cc1_9d5a27e7",
+      "range": {
+        "startLine": 224,
+        "startChar": 11,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "373cb7b7fc138857ada920e1eb63f9b1409d14b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84d4e6cc_2eb5b2a7",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-20T19:48:18Z",
       "side": 1,
       "message": "Why is this boolean|null? Could not it be just boolean (with the default false)?",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "373cb7b7fc138857ada920e1eb63f9b1409d14b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dffaf30_d185dc86",
+        "filename": "front_end/models/bindings/BreakpointSyncManager.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-01-21T09:45:51Z",
+      "side": 1,
+      "message": "We could change it to boolean only; but this is how it\u0027s currently done everywhere else when it comes to the `instance` method. I kept it to be the same, and",
+      "parentUuid": "84d4e6cc_2eb5b2a7",
       "range": {
         "startLine": 33,
         "startChar": 14,
