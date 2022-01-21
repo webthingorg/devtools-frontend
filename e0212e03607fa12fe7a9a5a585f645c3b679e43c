@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3557c80_26dc8f4b",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-01-21T09:11:55Z",
+      "side": 1,
+      "message": "Is this check needed?",
+      "range": {
+        "startLine": 2133,
+        "startChar": 0,
+        "endLine": 2133,
+        "endChar": 20
+      },
+      "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3274bebb_280d3380",
+        "filename": "front_end/panels/application/InterestGroupStorageModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-01-21T09:11:55Z",
+      "side": 1,
+      "message": "IIUC this is to allow deleting rows from the datagrid. Why would user want to do something like that, given that is has no effect on the underlying interest groups?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 73
+      },
+      "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a6604e_3ae753ff",
+        "filename": "front_end/panels/application/InterestGroupStorageModel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-01-21T09:11:55Z",
+      "side": 1,
+      "message": "We are not expecting multiple matches here, right? \n\nHow about something like\nconst index \u003d this.interestGroupEvents.findIndex((item)\u003d\u003eitem.type\u003d\u003d\u003d....);\nif (index !\u003d -1) this.interestGroupEvents.splice(index,1);",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 8
+      },
+      "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50fb6d4_a5319cc4",
+        "filename": "front_end/panels/application/InterestGroupStorageView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-01-21T09:11:55Z",
+      "side": 1,
+      "message": "Thanks a lot for taking care of UI implementation as well!\n\nUnfortunately we have two implementations of a data grid and generally two different approaches of building UI: legacy that we inherited from a previous team working on this code for the past decade and a more modern one. We really want to avoid using legacy components in a new code. Please see TrustTokensView.ts for an example of using a new data grid and packing view into a lit component. \n\nThe letter is also important for testability. This code notable doesn\u0027t have any tests, which is also not what we want for a new code.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 22
+      },
+      "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
