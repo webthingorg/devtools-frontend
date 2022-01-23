@@ -290,6 +290,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #parsedQueryParameters?: NameValue[];
   #contentDataProvider?: (() => Promise<ContentData>);
   #isSameSiteInternal: boolean|null;
+  #extensionRequestOriginalHeaders?: NameValue[];
+  #extensionRequestReplacedHeaders?: NameValue[];
+  #extensionResponseOriginalHeaders?: NameValue[];
+  #extensionResponseReplacedHeaders?: NameValue[];
 
   private constructor(
       requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: string, documentURL: string,
@@ -363,6 +367,11 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
     this.localizedFailDescription = null;
     this.#isSameSiteInternal = null;
+
+    this.#extensionRequestOriginalHeaders = undefined;
+    this.#extensionRequestReplacedHeaders = undefined;
+    this.#extensionResponseOriginalHeaders = undefined;
+    this.#extensionResponseReplacedHeaders = undefined;
   }
 
   static create(
@@ -1358,6 +1367,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.setRequestHeadersText('');  // Mark request headers as non-provisional
     this.#clientSecurityStateInternal = extraRequestInfo.clientSecurityState;
     this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
+    this.#extensionRequestOriginalHeaders = extraRequestInfo.extensionOriginalHeaders;
+    this.#extensionRequestReplacedHeaders = extraRequestInfo.extensionReplacedHeaders;
   }
 
   hasExtraRequestInfo(): boolean {
@@ -1419,6 +1430,9 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
         }
       }
     }
+
+    this.#extensionResponseOriginalHeaders = extraResponseInfo.extensionOriginalHeaders;
+    this.#extensionResponseReplacedHeaders = extraResponseInfo.extensionReplacedHeaders;
   }
 
   hasExtraResponseInfo(): boolean {
@@ -1462,6 +1476,22 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   isSameSite(): boolean|null {
     return this.#isSameSiteInternal;
+  }
+
+  extensionRequestOriginalHeaders(): NameValue[]|undefined {
+    return this.#extensionRequestOriginalHeaders;
+  }
+
+  extensionRequestReplacedHeaders(): NameValue[]|undefined {
+    return this.#extensionRequestReplacedHeaders;
+  }
+
+  extensionResponseOriginalHeaders(): NameValue[]|undefined {
+    return this.#extensionResponseOriginalHeaders;
+  }
+
+  extensionResponseReplacedHeaders(): NameValue[]|undefined {
+    return this.#extensionResponseReplacedHeaders;
   }
 }
 
@@ -1690,6 +1720,8 @@ export interface ExtraRequestInfo {
   includedRequestCookies: Cookie[];
   clientSecurityState?: Protocol.Network.ClientSecurityState;
   connectTiming: Protocol.Network.ConnectTiming;
+  extensionOriginalHeaders?: NameValue[];
+  extensionReplacedHeaders?: NameValue[];
 }
 
 export interface ExtraResponseInfo {
@@ -1702,6 +1734,8 @@ export interface ExtraResponseInfo {
   responseHeadersText?: string;
   resourceIPAddressSpace: Protocol.Network.IPAddressSpace;
   statusCode: number|undefined;
+  extensionOriginalHeaders?: NameValue[];
+  extensionReplacedHeaders?: NameValue[];
 }
 
 export interface WebBundleInfo {

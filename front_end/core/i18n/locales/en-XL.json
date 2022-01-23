@@ -6608,6 +6608,9 @@
   "panels/network/NetworkItemView.ts | eventstream": {
     "message": "Êv́êńt̂Śt̂ŕêám̂"
   },
+  "panels/network/NetworkItemView.ts | extensions": {
+    "message": "Êx́t̂én̂śîón̂ś"
+  },
   "panels/network/NetworkItemView.ts | headers": {
     "message": "Ĥéâd́êŕŝ"
   },
@@ -6628,6 +6631,9 @@
   },
   "panels/network/NetworkItemView.ts | requestAndResponseCookies": {
     "message": "R̂éq̂úêśt̂ án̂d́ r̂éŝṕôńŝé ĉóôḱîéŝ"
+  },
+  "panels/network/NetworkItemView.ts | requestAndResponseExtensions": {
+    "message": "R̂éq̂úêśt̂ án̂d́ r̂éŝṕôńŝé êx́t̂én̂śîón̂ś"
   },
   "panels/network/NetworkItemView.ts | requestAndResponseTimeline": {
     "message": "R̂éq̂úêśt̂ án̂d́ r̂éŝṕôńŝé t̂ím̂él̂ín̂é"

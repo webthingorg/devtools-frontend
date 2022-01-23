@@ -8994,6 +8994,16 @@ declare namespace Protocol {
        * The client security state set for the request.
        */
       clientSecurityState?: ClientSecurityState;
+      /**
+       * Present if an extension changed the headers for this request. These are the original
+       * headers before the extension modified them.
+       */
+      extensionOriginalHeaders?: Headers;
+      /**
+       * Present if an extension changed the headers for this request. These are the modified
+       * headers after the extension modified them.
+       */
+      extensionReplacedHeaders?: Headers;
     }
 
     /**
@@ -9032,6 +9042,16 @@ declare namespace Protocol {
        * available, such as in the case of HTTP/2 or QUIC.
        */
       headersText?: string;
+      /**
+       * Present if an extension changed the headers for this response. These are the original
+       * headers before the extension modified them.
+       */
+      extensionOriginalHeaders?: Headers;
+      /**
+       * Present if an extension changed the headers for this response. These are the modified
+       * headers after the extension modified them.
+       */
+      extensionReplacedHeaders?: Headers;
     }
 
     export const enum TrustTokenOperationDoneEventStatus {
