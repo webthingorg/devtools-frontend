@@ -6608,6 +6608,9 @@
   "panels/network/NetworkItemView.ts | eventstream": {
     "message": "EventStream"
   },
+  "panels/network/NetworkItemView.ts | extensions": {
+    "message": "Extensions"
+  },
   "panels/network/NetworkItemView.ts | headers": {
     "message": "Headers"
   },
@@ -6628,6 +6631,9 @@
   },
   "panels/network/NetworkItemView.ts | requestAndResponseCookies": {
     "message": "Request and response cookies"
+  },
+  "panels/network/NetworkItemView.ts | requestAndResponseExtensions": {
+    "message": "Request and response extensions"
   },
   "panels/network/NetworkItemView.ts | requestAndResponseTimeline": {
     "message": "Request and response timeline"
