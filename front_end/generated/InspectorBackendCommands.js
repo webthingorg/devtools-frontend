@@ -1687,12 +1687,14 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Network.webTransportCreated', ['transportId', 'url', 'timestamp', 'initiator']);
   inspectorBackend.registerEvent('Network.webTransportConnectionEstablished', ['transportId', 'timestamp']);
   inspectorBackend.registerEvent('Network.webTransportClosed', ['transportId', 'timestamp']);
-  inspectorBackend.registerEvent(
-      'Network.requestWillBeSentExtraInfo',
-      ['requestId', 'associatedCookies', 'headers', 'connectTiming', 'clientSecurityState']);
-  inspectorBackend.registerEvent(
-      'Network.responseReceivedExtraInfo',
-      ['requestId', 'blockedCookies', 'headers', 'resourceIPAddressSpace', 'statusCode', 'headersText']);
+  inspectorBackend.registerEvent('Network.requestWillBeSentExtraInfo', [
+    'requestId', 'associatedCookies', 'headers', 'connectTiming', 'clientSecurityState', 'extensionOriginalHeaders',
+    'extensionReplacedHeaders'
+  ]);
+  inspectorBackend.registerEvent('Network.responseReceivedExtraInfo', [
+    'requestId', 'blockedCookies', 'headers', 'resourceIPAddressSpace', 'statusCode', 'headersText',
+    'extensionOriginalHeaders', 'extensionReplacedHeaders'
+  ]);
   inspectorBackend.registerEnum('Network.TrustTokenOperationDoneEventStatus', {
     Ok: 'Ok',
     InvalidArgument: 'InvalidArgument',

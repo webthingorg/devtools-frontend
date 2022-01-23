@@ -13297,6 +13297,18 @@
                             "description": "The client security state set for the request.",
                             "optional": true,
                             "$ref": "ClientSecurityState"
+                        },
+                        {
+                            "name": "extensionOriginalHeaders",
+                            "description": "Present if an extension changed the headers for this request. These are the original\nheaders before the extension modified them.",
+                            "optional": true,
+                            "$ref": "Headers"
+                        },
+                        {
+                            "name": "extensionReplacedHeaders",
+                            "description": "Present if an extension changed the headers for this request. These are the modified\nheaders after the extension modified them.",
+                            "optional": true,
+                            "$ref": "Headers"
                         }
                     ]
                 },
@@ -13338,6 +13350,18 @@
                             "description": "Raw response header text as it was received over the wire. The raw text may not always be\navailable, such as in the case of HTTP/2 or QUIC.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "extensionOriginalHeaders",
+                            "description": "Present if an extension changed the headers for this response. These are the original\nheaders before the extension modified them.",
+                            "optional": true,
+                            "$ref": "Headers"
+                        },
+                        {
+                            "name": "extensionReplacedHeaders",
+                            "description": "Present if an extension changed the headers for this response. These are the modified\nheaders after the extension modified them.",
+                            "optional": true,
+                            "$ref": "Headers"
                         }
                     ]
                 },
