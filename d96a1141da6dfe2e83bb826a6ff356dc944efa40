@@ -123,6 +123,42 @@
       "parentUuid": "fc8b4b5c_d3f53cd3",
       "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72f012bd_b89c1d80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-24T00:57:20Z",
+      "side": 1,
+      "message": "Although https://crrev.com/c/3403871 is not landed, this is working on devtools specific CQs in https://crrev.com/c/3394572/12 and branch for m99 is created. So let me land this now to make faster build config available to devtools developers.",
+      "parentUuid": "6006bbed_6296a283",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f21073_94d29bab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-24T00:57:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e2551d7_a3b9ef61",
+      "revId": "d96a1141da6dfe2e83bb826a6ff356dc944efa40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
