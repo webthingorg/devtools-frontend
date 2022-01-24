@@ -16,6 +16,24 @@
       "message": "Tim, what about just changing all mouse events to pointer events across entire codebase (in both all event dispatchers and all event listeners)? In this case, there will be no need in two listeners.",
       "revId": "3380050ff71405ca5859f0aaad1439539094ec62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1e3bd1f_4f0e8b90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-24T15:54:06Z",
+      "side": 1,
+      "message": "I thought about that, but given the wide breadth of mouse listeners we have at the moment, I fear we will most likely break something. I would rather make incremental changes so that we can revert as soon as we discover regressions (or fix them, like this CL).",
+      "parentUuid": "3725d9c1_de53a493",
+      "revId": "3380050ff71405ca5859f0aaad1439539094ec62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
