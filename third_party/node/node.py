@@ -44,4 +44,4 @@ if __name__ == '__main__':
         args = sys.argv[2:]
     else:
         output = subprocess.PIPE
-    RunNode(args, output)
+    RunNode(args, None)
