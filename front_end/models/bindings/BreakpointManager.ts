@@ -37,12 +37,14 @@ import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
-export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
+export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
+    SDK.TargetManager.SDKModelObserver<SDK.DebuggerModel.DebuggerModel> {
   readonly storage: Storage;
   readonly #workspace: Workspace.Workspace.WorkspaceImpl;
   readonly targetManager: SDK.TargetManager.TargetManager;
@@ -65,6 +67,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
+    this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
 
   static instance(opts: {
@@ -94,9 +97,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     return `${url}:${lineNumber}` + (typeof columnNumber === 'number' ? `:${columnNumber}` : '');
   }
 
-  hasBreakpointsForUrl(url: string): boolean {
-    const breakpointItems = this.storage.breakpointItems(url);
-    return breakpointItems.length > 0;
+  modelAdded(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    debuggerModel.setSynchronizeBreakpointsCallback(this.#restoreBreakpointsForScript.bind(this));
+  }
+
+  modelRemoved(): void {
   }
 
   async copyBreakpoints(fromURL: string, toSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -106,7 +111,37 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     }
   }
 
-  async restoreBreakpointsForUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+  // This method explicitly awaits the source map (if necessary) and the uiSourceCodes
+  // required to set all breakpoints that are related to this script.
+  async #restoreBreakpointsForScript(script: SDK.Script.Script): Promise<void> {
+    const debuggerModel = script.debuggerModel;
+    if (this.#hasBreakpointsForUrl(script.sourceURL)) {
+      // Handle inline scripts without sourceURL comment separately:
+      // The UISourceCode of inline scripts without sourceURLs will not be availabe
+      // until a later point. Use the v8 script for setting the breakpoint.
+      const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
+      const sourceURL =
+          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
+      const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      await this.#restoreBreakpointsForUrl(uiSourceCode);
+    }
+
+    // Handle source maps and the original sources.
+    if (script.sourceMapURL) {
+      const sourceMap = await debuggerModel.sourceMapManager().sourceMapForClientPromise(script);
+      if (sourceMap) {
+        for (const sourceURL of sourceMap.sourceURLs()) {
+          if (this.#hasBreakpointsForUrl(sourceURL)) {
+            const uiSourceCode =
+                await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+            await this.#restoreBreakpointsForUrl(uiSourceCode);
+          }
+        }
+      }
+    }
+  }
+
+  async #restoreBreakpointsForUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     this.restoreBreakpoints(uiSourceCode);
     const breakpoints = this.#breakpointByStorageId.values();
     const affectedBreakpoints = Array.from(breakpoints).filter(x => x.uiSourceCodes.has(uiSourceCode));
@@ -114,6 +149,11 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     for (const bp of affectedBreakpoints) {
       await bp.updateBreakpoint();
     }
+  }
+
+  #hasBreakpointsForUrl(url: string): boolean {
+    const breakpointItems = this.storage.breakpointItems(url);
+    return breakpointItems.length > 0;
   }
 
   private restoreBreakpoints(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
@@ -690,23 +730,11 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
-    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
-      } else if (this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause()) {
-        maybeRescheduleUpdate = true;
       }
-    }
-
-    if (!breakpointIds.length && maybeRescheduleUpdate) {
-      // TODO(crbug.com/1229541): This is a quickfix to prevent #breakpoints from
-      // disappearing if the Debugger is actually not enabled
-      // yet. This quickfix should be removed as soon as we have a solution
-      // to correctly synchronize the front-end with the inspector back-end.
-      void this.scheduleUpdateInDebugger();
-      return;
     }
 
     this.#currentState = newState;
