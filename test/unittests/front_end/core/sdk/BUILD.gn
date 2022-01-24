@@ -15,6 +15,7 @@ ts_library("sdk") {
     "CookieParser_test.ts",
     "Cookie_test.ts",
     "DebuggerModel_test.ts",
+    "DebuggerStateMachine_test.ts",
     "FrameManager_test.ts",
     "NetworkManager_test.ts",
     "OverlayColorGenerator_test.ts",
