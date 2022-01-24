@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170c614c_4a3945ba",
+        "filename": "front_end/core/sdk/Connections.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-24T18:00:21Z",
+      "side": 1,
+      "message": "Including SDK in the Lighthouse worker directly was causing issues. Lighthouse worker implements this TS interface instead of extending `ParallelConnection` so the dependency on SDK will be removed at compile time.",
+      "revId": "a56cb87c481b9348c161347ce97a8d2a09595cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ee035f_cd4942ec",
+        "filename": "front_end/entrypoints/lighthouse_worker/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-24T18:00:21Z",
+      "side": 1,
+      "message": "This is basically https://chrome-internal.googlesource.com/devtools/devtools-internal/+/refs/heads/main/front_end/panels/recorder/models/PuppeteerConnection.ts, but modified to be compatible with the Lighthouse worker.",
+      "revId": "a56cb87c481b9348c161347ce97a8d2a09595cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
