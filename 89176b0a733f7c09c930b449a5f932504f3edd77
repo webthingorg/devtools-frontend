@@ -16,6 +16,120 @@
       "message": "PTAL",
       "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45275328_eaeb6a3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "Excited to see this happening! Thank you for working on it. LGTM with a few minor suggestions / questions. 👍",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbc7861_234668a9",
+        "filename": "scripts/javascript_natives/helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "Do you want a Map here?\n\nIt seems like it’s being used as a Map, and having it be one would avoid the need for `for…in` iteration as well. If we need to produce an JSON-serializable object we can do that after processing with Object.fromEntries https://v8.dev/features/object-fromentries",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c2adce_7a8914bb",
+        "filename": "scripts/javascript_natives/index.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "Since this is the only thing happening in this script (there’s nothing we can do in parallel), WDYT about using `glob.sync` in this case, to avoid the callback and decrease the indentation?\n\n    const files \u003d glob.sync(…);\n    \n    for (const file of files) {\n      …\n    }",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e46dcc_7cb543fa",
+        "filename": "scripts/javascript_natives/package.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "Since this is not meant to be published, let’s add\n\n    \"private\": true\n    \nhttps://docs.npmjs.com/cli/v7/configuring-npm/package-json#private",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81b7bc2f_2d66de76",
+        "filename": "scripts/javascript_natives/test.d.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "nit: will count → counts",
+      "range": {
+        "startLine": 4,
+        "startChar": 84,
+        "endLine": 4,
+        "endChar": 94
+      },
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c9b9fba_00147103",
+        "filename": "scripts/javascript_natives/test.d.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-24T12:38:03Z",
+      "side": 1,
+      "message": "nit: will count → counts",
+      "range": {
+        "startLine": 13,
+        "startChar": 84,
+        "endLine": 13,
+        "endChar": 94
+      },
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
