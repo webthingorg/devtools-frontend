@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3725d9c1_de53a493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2022-01-24T15:50:57Z",
+      "side": 1,
+      "message": "Tim, what about just changing all mouse events to pointer events across entire codebase (in both all event dispatchers and all event listeners)? In this case, there will be no need in two listeners.",
+      "revId": "3380050ff71405ca5859f0aaad1439539094ec62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
