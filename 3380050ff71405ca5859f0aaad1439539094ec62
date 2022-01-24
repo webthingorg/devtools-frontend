@@ -52,6 +52,24 @@
       "parentUuid": "f1e3bd1f_4f0e8b90",
       "revId": "3380050ff71405ca5859f0aaad1439539094ec62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f075e0f_da57899d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2022-01-24T16:04:53Z",
+      "side": 1,
+      "message": "\u003e I fear we will most likely break something.\n\nThis was my fear and strategy too. That\u0027s why this bug happened.\n\nI\u0027m not sure there aren\u0027t other event listeners in the codebase that are waiting mouse events, but the pointer events is dispatched instead. Just like this place. And it\u0027s just the first place found. There may be more bugs. And duplicating listeners may in each place step by step my be not a good idea.\n\nThat\u0027s my fear now.",
+      "parentUuid": "f1e3bd1f_4f0e8b90",
+      "revId": "3380050ff71405ca5859f0aaad1439539094ec62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
