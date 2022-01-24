@@ -97,6 +97,40 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     return this.#sourceMapById.get(sourceMapId) || null;
   }
 
+  // Use this method for actively waiting for the source map to attach,
+  // if it hasn't yet.
+  sourceMapForClientPromise(client: T): Promise<SourceMap|null> {
+    // TODO: make sure that sourceMapId is existent before we enter here.
+    const sourceMapId = this.#resolvedSourceMapId.get(client);
+    if (!sourceMapId) {
+      // The source map has detached or has never tried to be attached.
+      return Promise.resolve(null);
+    }
+
+    const sourceMap = this.sourceMapForClient(client);
+    if (sourceMap) {
+      return Promise.resolve(sourceMap);
+    }
+
+    if (!this.#sourceMapIdToLoadingClients.has(sourceMapId)) {
+      // The source map failed to attach.
+      return Promise.resolve(null);
+    }
+
+    return new Promise(resolve => {
+      const sourceMapAddedDescriptor = this.addEventListener(Events.SourceMapAttached, event => {
+        this.removeEventListener(Events.SourceMapAttached, sourceMapAddedDescriptor.listener);
+        this.removeEventListener(Events.SourceMapFailedToAttach, sourceMapFailedDescriptor.listener);
+        resolve(event.data.sourceMap);
+      });
+      const sourceMapFailedDescriptor = this.addEventListener(Events.SourceMapFailedToAttach, () => {
+        this.removeEventListener(Events.SourceMapAttached, sourceMapAddedDescriptor.listener);
+        this.removeEventListener(Events.SourceMapFailedToAttach, sourceMapFailedDescriptor.listener);
+        resolve(null);
+      });
+    });
+  }
+
   clientsForSourceMap(sourceMap: SourceMap): T[] {
     const sourceMapId = this.getSourceMapId(sourceMap.compiledURL(), sourceMap.url());
     if (this.#sourceMapIdToClients.has(sourceMapId)) {
