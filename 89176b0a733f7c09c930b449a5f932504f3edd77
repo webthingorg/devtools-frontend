@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "219c1fd2_617218f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "922148d8_18bc8244",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "60187a63_e8d3d61a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "460b2fa0_144e281d",
+        "filename": "scripts/javascript_natives/helpers.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Done. The \"maps\" used here are solely for internal logic so we can definitely just use Map here.",
+      "parentUuid": "acbc7861_234668a9",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24c2adce_7a8914bb",
@@ -82,6 +118,24 @@
       "writtenOn": "2022-01-24T12:38:03Z",
       "side": 1,
       "message": "Since this is the only thing happening in this script (there’s nothing we can do in parallel), WDYT about using `glob.sync` in this case, to avoid the callback and decrease the indentation?\n\n    const files \u003d glob.sync(…);\n    \n    for (const file of files) {\n      …\n    }",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2186215_35daa0c9",
+        "filename": "scripts/javascript_natives/index.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c2adce_7a8914bb",
       "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49def611_1a7aa738",
+        "filename": "scripts/javascript_natives/package.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e46dcc_7cb543fa",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "961e5022_7fa984c8",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-01-24T12:39:03Z",
       "side": 1,
       "message": "Should we add a small README file with instructions? (Not necessarily as part of this CL)",
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ef8929_0dfd8221",
+        "filename": "scripts/javascript_natives/package.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Yep that\u0027s a good idea. I\u0027ll add that to the next steps.",
+      "parentUuid": "961e5022_7fa984c8",
       "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -143,6 +233,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3712b9cf_558b1a5d",
+        "filename": "scripts/javascript_natives/test.d.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "I guess we should file that here :-)\nhttps://github.com/microsoft/TypeScript/blob/main/src/lib/es2022.array.d.ts\nI\u0027ll remove the comments from this file.",
+      "parentUuid": "81b7bc2f_2d66de76",
+      "range": {
+        "startLine": 4,
+        "startChar": 84,
+        "endLine": 4,
+        "endChar": 94
+      },
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c9b9fba_00147103",
@@ -156,6 +270,30 @@
       "writtenOn": "2022-01-24T12:38:03Z",
       "side": 1,
       "message": "nit: will count → counts",
+      "range": {
+        "startLine": 13,
+        "startChar": 84,
+        "endLine": 13,
+        "endChar": 94
+      },
+      "revId": "89176b0a733f7c09c930b449a5f932504f3edd77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39dfa2a_bddbd0d5",
+        "filename": "scripts/javascript_natives/test.d.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-01-24T15:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c9b9fba_00147103",
       "range": {
         "startLine": 13,
         "startChar": 84,
