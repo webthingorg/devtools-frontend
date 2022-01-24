@@ -3,6 +3,13 @@
 // found in the LICENSE file.
 
 import * as Root from '../../core/root/root.js';
+import {getPuppeteerConnection} from './PuppeteerConnection.js';
+import type * as puppeteer from '../../third_party/puppeteer/puppeteer.js';
+import type * as SDK from '../../core/sdk/sdk.js';
+
+let mainTargetId: string|undefined;
+let mainFrameId: string|undefined;
+let mainSessionId: string|undefined;
 
 function disableLoggingForTest(): void {
   console.log = (): void => undefined;  // eslint-disable-line no-console
@@ -33,7 +40,39 @@ class LighthousePort {
   }
 }
 
+class ConnectionProxy implements SDK.Connections.ParallelConnectionInterface {
+  onMessage!: ((arg0: Object) => void)|null;
+  onDisconnect!: ((arg0: string) => void)|null;
+
+  setOnMessage(_onMessage: (arg0: (Object|string)) => void): void {
+    this.onMessage = _onMessage;
+  }
+
+  setOnDisconnect(_onDisconnect: (arg0: string) => void): void {
+    this.onDisconnect = _onDisconnect;
+  }
+
+  getOnDisconnect(): (((arg0: string) => void) | null) {
+    return this.onDisconnect;
+  }
+
+  getSessionId(): string {
+    if (!mainSessionId) {
+      throw new Error('Session ID not initialized');
+    }
+    return mainSessionId;
+  }
+
+  sendRawMessage(message: string): void {
+    notifyFrontendViaWorkerMessage('sendProtocolMessage', {message});
+  }
+
+  async disconnect(): Promise<void> {}
+}
+
 const port = new LighthousePort();
+const rawConnection = new ConnectionProxy();
+let page: puppeteer.Page|undefined|null;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function start(params: any): Promise<unknown> {
@@ -54,14 +93,26 @@ async function start(params: any): Promise<unknown> {
     flags.channel = 'devtools';
     flags.locale = locale;
 
-    // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    const connection = self.setUpWorkerConnection(port);
+    // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
+    // const connection = self.setUpWorkerConnection(port);
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
     const config = self.createConfig(params.categoryIDs, flags.emulatedFormFactor);
     const url = params.url;
+    if (!rawConnection || !mainFrameId || !mainTargetId) {
+      throw new Error('Target info not initialized');
+    }
 
-    // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
-    return await self.runLighthouse(url, flags, config, connection);
+    if (!page) {
+      page = (await getPuppeteerConnection(rawConnection, mainFrameId, mainTargetId)).page;
+    }
+
+    // @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
+    // return await self.runLighthouse(url, flags, config, connection);
+    return await self.lhNavigation({
+      url,
+      config,
+      page,
+    });
   } catch (err) {
     return ({
       fatal: true,
@@ -119,16 +170,21 @@ self.onmessage = async(event: MessageEvent): Promise<void> => {
     const result = await start(messageFromFrontend.params);
     self.postMessage(JSON.stringify({id: messageFromFrontend.id, result}));
   } else if (messageFromFrontend.method === 'dispatchProtocolMessage') {
-    if (port.onMessage) {
-      port.onMessage(messageFromFrontend.params.message);
-    }
+    rawConnection?.onMessage?.(
+      JSON.parse(messageFromFrontend.params.message),
+    );
+    port.onMessage?.(messageFromFrontend.params.message);
+  } else if (messageFromFrontend.method === 'info') {
+    mainTargetId = messageFromFrontend.params.mainTargetId;
+    mainFrameId = messageFromFrontend.params.mainFrameId;
+    mainSessionId = messageFromFrontend.params.mainSessionId;
   } else {
     throw new Error(`Unknown event: ${event.data}`);
   }
 };
 
 // Make lighthouse and traceviewer happy.
-// @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
+// @ts-ignore https://github.com/GoogleChrome/lighthouse/issues/11628
 globalThis.global = self;
 // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
 globalThis.global.isVinn = true;
