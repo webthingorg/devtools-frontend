@@ -12,7 +12,7 @@ declare_args() {
   # TODO(crbug.com/1139220): Remove the flag once we are confident.
   devtools_use_rbe = false
 
-  devtools_skip_typecheck = false
+  devtools_skip_typecheck = true
 }
 
 assert(!devtools_skip_typecheck || !is_official_build,
@@ -166,8 +166,10 @@ template("ts_library") {
       _esbuild = devtools_location_prepend + "third_party/esbuild/esbuild"
       if (is_win) {
         inputs += [ _esbuild + ".exe" ]
+        print("is_win", inputs)
       } else {
         inputs += [ _esbuild ]
+        print("!is_win", inputs)
       }
     }
 
