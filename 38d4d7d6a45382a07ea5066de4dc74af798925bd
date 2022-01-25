@@ -121,6 +121,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8be95104_a456a3ab",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T15:20:28Z",
+      "side": 1,
+      "message": "Indeed, thanks!",
+      "parentUuid": "3de93144_587401af",
+      "range": {
+        "startLine": 278,
+        "startChar": 79,
+        "endLine": 278,
+        "endChar": 92
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "404fda08_2b428a58",
         "filename": "front_end/models/workspace/WorkspaceImpl.ts",
         "patchSetId": 5
