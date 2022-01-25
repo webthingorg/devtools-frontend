@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, platform, pressKey, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const ACTIVE_LINE = '.CodeMirror-activeline > pre > span';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
@@ -104,8 +104,15 @@ export async function openSnippetsSubPane() {
   await waitFor('[aria-label="New snippet"]');
 }
 
-export async function createNewSnippet(snippetName: string) {
-  const {frontend} = await getBrowserAndPages();
+/**
+ * Creates a new snippet. Optionally pre-filling it with the provided content.
+ * The provided `snippetName` must not contain spaces or special characters.
+ * DevTools uses the escaped snippet name for the ARIA label while
+ * `createNewSnippet` does not mirror the escaping of `snippetName`, causing
+ * the function to time out.
+ */
+export async function createNewSnippet(snippetName: string, content?: string) {
+  const {frontend} = getBrowserAndPages();
 
   await click('[aria-label="New snippet"]');
   await waitFor('[aria-label^="Script snippet"]');
@@ -113,6 +120,12 @@ export async function createNewSnippet(snippetName: string) {
   await typeText(snippetName);
 
   await frontend.keyboard.press('Enter');
+  await waitFor(`[aria-label*="${snippetName}"]`);
+
+  if (content) {
+    await pasteText(content);
+    await pressKey('s', {control: true});
+  }
 }
 
 export async function openFileInEditor(sourceFile: string) {
