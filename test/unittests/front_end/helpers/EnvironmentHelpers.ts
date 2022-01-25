@@ -45,6 +45,13 @@ const REGISTERED_EXPERIMENTS = [
   'hideIssuesFeature',
   'wasmDWARFDebugging',
   'keyboardShortcutEditor',
+  'sourcesPrettyPrint',
+];
+
+const MOCKED_VIEW_EXTENSION_IDS = [
+  'sources.jsBreakpoints',
+  'sources.scopeChain',
+  'sources.watch',
 ];
 
 export async function initializeGlobalVars({reset = true} = {}) {
@@ -150,6 +157,9 @@ export async function initializeGlobalVars({reset = true} = {}) {
         Common.Settings.SettingCategory.APPEARANCE, 'uiTheme', 'systemPreferred', Common.Settings.SettingType.ENUM),
     createSettingValue(
         Common.Settings.SettingCategory.APPEARANCE, 'language', 'en-US', Common.Settings.SettingType.ENUM),
+    createSettingValue(Common.Settings.SettingCategory.PERSISTENCE, 'persistenceNetworkOverridesEnabled', false),
+    createSettingValue(
+        Common.Settings.SettingCategory.APPEARANCE, 'sidebarPosition', 'auto', Common.Settings.SettingType.ENUM),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
@@ -172,15 +182,64 @@ export async function initializeGlobalVars({reset = true} = {}) {
   Common.Settings.Settings.instance().createSetting('uiTheme', 'systemPreferred');
   UI.UIUtils.initializeUIUtils(document);
 
+  // Register actions.
+  if (reset) {
+    UI.ActionRegistration.resetActionExtensions();
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.toggle-pause',
+    });
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.step-over',
+    });
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.step-into',
+    });
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.step-out',
+    });
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.step',
+    });
+    UI.ActionRegistration.registerActionExtension({
+      category: UI.ActionRegistration.ActionCategory.DEBUGGER,
+      actionId: 'debugger.toggle-breakpoints-active',
+    });
+  }
+  const actionRegistry = UI.ActionRegistry.ActionRegistry.instance({forceNew: reset});
+  UI.ShortcutRegistry.ShortcutRegistry.instance({forceNew: reset, actionRegistry});
+
+  // Register the mocked view extensions.
+  if (reset) {
+    UI.ViewManager.resetViewExtensions();
+    for (const id of MOCKED_VIEW_EXTENSION_IDS) {
+      UI.ViewManager.registerViewExtension({
+        commandPrompt: i18n.i18n.lockedLazyString('id'),
+        title: i18n.i18n.lockedLazyString('Title ' + id),
+        id,
+        loadView: async () => new UI.Widget.Widget(),
+      });
+    }
+  }
+  UI.ViewManager.ViewManager.instance({forceNew: reset});
+
+  // @ts-ignore
+  self.UI = {panels: {}};
+
   initializeTargetManagerIfNecessary();
 }
 
 export async function deinitializeGlobalVars() {
   // Remove the global SDK.
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  const globalObject = (globalThis as unknown as {SDK?: {}, ls?: {}});
+  const globalObject = (globalThis as unknown as {SDK?: {}, ls?: {}, UI?: {}});
   delete globalObject.SDK;
   delete globalObject.ls;
+  delete globalObject.UI;
 
   Root.Runtime.experiments.clearForTest();
 
@@ -197,6 +256,10 @@ export async function deinitializeGlobalVars() {
   if (UI) {
     UI.ZoomManager.ZoomManager.removeInstance();
     UI.ViewManager.ViewManager.removeInstance();
+    UI.ShortcutRegistry.ShortcutRegistry.removeInstance();
+    UI.ActionRegistry.ActionRegistry.removeInstance();
+    UI.ActionRegistration.resetActionExtensions();
+    UI.ViewManager.resetViewExtensions();
   }
 }
 

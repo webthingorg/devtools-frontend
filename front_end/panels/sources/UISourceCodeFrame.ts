@@ -364,7 +364,14 @@ export class UISourceCodeFrame extends
     this.unloadUISourceCode();
     this.persistenceBinding = binding;
     this.initializeUISourceCode();
+    this.reloadMessages();
     this.reloadPlugins();
+  }
+
+  private reloadMessages(): void {
+    const messages = [...this.allMessages()];
+    const {editor} = this.textEditor;
+    editor.dispatch({effects: setRowMessages.of(RowMessages.create(messages))});
   }
 
   private updateStyle(): void {
@@ -682,7 +689,7 @@ class RowMessageDecorations {
   }
 }
 
-const showRowMessages = CodeMirror.StateField.define<RowMessageDecorations>({
+export const showRowMessages = CodeMirror.StateField.define<RowMessageDecorations>({
   create(state): RowMessageDecorations {
     return RowMessageDecorations.create(new RowMessages([]), state.doc);
   },

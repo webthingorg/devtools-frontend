@@ -138,7 +138,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   }
 }
 
-const registeredActionExtensions: Array<Action> = [];
+let registeredActionExtensions: Array<Action> = [];
 
 const actionIdSet = new Set<string>();
 
@@ -170,6 +170,11 @@ export function maybeRemoveActionExtension(actionId: string): boolean {
   }
   registeredActionExtensions.splice(actionIndex, 1);
   return true;
+}
+
+export function resetActionExtensions() {
+  registeredActionExtensions = [];
+  actionIdSet.clear();
 }
 
 export const enum Platforms {

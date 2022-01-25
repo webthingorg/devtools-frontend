@@ -6,9 +6,13 @@ import("../../../../../third_party/typescript/typescript.gni")
 
 ts_library("sources") {
   testonly = true
-  sources = [ "FilePathScoreFunction_test.ts" ]
+  sources = [
+    "FilePathScoreFunction_test.ts",
+    "UISourceCodeFrame_test.ts",
+  ]
 
   deps = [
+    "../../../../../front_end/core/common:bundle",
     "../../../../../front_end/panels/sources:bundle",
     "../../helpers",
   ]

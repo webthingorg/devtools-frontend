@@ -10,7 +10,7 @@ import {PreRegisteredView} from './ViewManager.js';
 
 import type {Widget} from './Widget.js';
 
-const registeredViewExtensions: Array<PreRegisteredView> = [];
+let registeredViewExtensions: Array<PreRegisteredView> = [];
 
 export const enum ViewPersistence {
   CLOSEABLE = 'closeable',
@@ -139,6 +139,11 @@ export function maybeRemoveViewExtension(viewId: string): boolean {
   }
   registeredViewExtensions.splice(viewIndex, 1);
   return true;
+}
+
+export function resetViewExtensions() {
+  viewIdSet.clear();
+  registeredViewExtensions = [];
 }
 
 const registeredLocationResolvers: Array<LocationResolverRegistration> = [];
