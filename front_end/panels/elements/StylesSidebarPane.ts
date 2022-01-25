@@ -3024,7 +3024,7 @@ export class StylesSidebarPropertyRenderer {
 
   renderName(): Element {
     const nameElement = document.createElement('span');
-    UI.ARIAUtils.setAccessibleName(nameElement, i18nString(UIStrings.cssPropertyName));
+    UI.ARIAUtils.setAccessibleName(nameElement, `${i18nString(UIStrings.cssPropertyName)} ${this.propertyName}`);
     nameElement.className = 'webkit-css-property';
     nameElement.textContent = this.propertyName;
     nameElement.normalize();
@@ -3033,7 +3033,7 @@ export class StylesSidebarPropertyRenderer {
 
   renderValue(): Element {
     const valueElement = document.createElement('span');
-    UI.ARIAUtils.setAccessibleName(valueElement, i18nString(UIStrings.cssPropertyValue));
+    UI.ARIAUtils.setAccessibleName(valueElement, `${i18nString(UIStrings.cssPropertyValue)} ${this.propertyValue}`);
     valueElement.className = 'value';
     if (!this.propertyValue) {
       return valueElement;
