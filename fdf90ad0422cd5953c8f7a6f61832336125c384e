@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98654dc0_003e43f3",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 3103,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-25T12:50:33Z",
+      "side": 1,
+      "message": "let\u0027s make a part of the cssPropertyValue template instead of concatenating?",
+      "range": {
+        "startLine": 3103,
+        "startChar": 50,
+        "endLine": 3103,
+        "endChar": 113
+      },
+      "revId": "fdf90ad0422cd5953c8f7a6f61832336125c384e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
