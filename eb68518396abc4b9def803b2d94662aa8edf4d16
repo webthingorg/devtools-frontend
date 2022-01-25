@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f73c917_a3551cfe",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-25T09:22:51Z",
+      "side": 1,
+      "message": "I think we might need to dispose the connection after it\u0027s no longer used by Lighthouse.",
+      "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "698854c3_5166759b",
         "filename": "front_end/third_party/lighthouse/lighthouse-dt-bundle.js",
         "patchSetId": 2
