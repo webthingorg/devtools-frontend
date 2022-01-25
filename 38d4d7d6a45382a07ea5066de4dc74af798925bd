@@ -95,6 +95,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de93144_587401af",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-25T11:56:02Z",
+      "side": 1,
+      "message": "This appears to be doubly encoded. Isn\u0027t filePath an EncodedPathString?",
+      "parentUuid": "172447a3_6101e629",
+      "range": {
+        "startLine": 278,
+        "startChar": 79,
+        "endLine": 278,
+        "endChar": 92
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "404fda08_2b428a58",

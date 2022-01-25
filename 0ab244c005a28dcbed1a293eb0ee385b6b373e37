@@ -16,6 +16,29 @@
       "message": "PTA(nother)L:)",
       "revId": "0ab244c005a28dcbed1a293eb0ee385b6b373e37",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b2aafe3_b3345640",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-25T11:56:02Z",
+      "side": 1,
+      "message": "I wonder if you could add a substr[ing] method to the tag classes to convince TypeScript that substrings of each branded type are the same branded type? Optional.",
+      "range": {
+        "startLine": 282,
+        "startChar": 17,
+        "endLine": 282,
+        "endChar": 35
+      },
+      "revId": "0ab244c005a28dcbed1a293eb0ee385b6b373e37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
