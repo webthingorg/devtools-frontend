@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "009eb2fa_0cd741d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-25T14:40:17Z",
+      "side": 1,
+      "message": "PTAL, the CL only has an e2e test. I managed to cobble together a unit test as well (after a couple of hours), but its no longer a unit test since it has to boot up the whole bindings and persistence modules, plus actually render the sources panel. The test is barely readable so I left it out for now. ",
+      "revId": "46971d813d1884f30ba1811e64af69ac287db209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
