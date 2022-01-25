@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b414cc_435668df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-25T16:56:00Z",
+      "side": 1,
+      "message": "Prototype of an idea I had while doing code reviews for Kateryna to save a whole lot of casting. What do you think of this approach? Should we put this in a library to be used by other branded string types? Should we not do this in case the behavior of tsc changes?",
+      "revId": "b34e851be4efce70e0c4af12d3cc8deb9984f91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
