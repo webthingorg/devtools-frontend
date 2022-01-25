@@ -235,6 +235,30 @@
       },
       "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff060f87_e28eaaf4",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-25T15:56:32Z",
+      "side": 1,
+      "message": "I think the right fix is to decode this in UISourceCode. Specifically, in the case where the url is successfully parsed, it should decode the last component for the name. In the case where it isn\u0027t a valid URL, probably not? It would be nice to know how to hit that case, though.",
+      "parentUuid": "d60cce00_1f6561de",
+      "range": {
+        "startLine": 75,
+        "startChar": 31,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
