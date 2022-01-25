@@ -22,6 +22,30 @@
       },
       "revId": "06c28cdf3da80d8aad3d1ca6e1d23aaa46375130",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1742715_c64e3c4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2022-01-25T19:10:32Z",
+      "side": 1,
+      "message": "thanks! too many bugs open rn.",
+      "parentUuid": "c610f62c_7a44e40b",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "06c28cdf3da80d8aad3d1ca6e1d23aaa46375130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
