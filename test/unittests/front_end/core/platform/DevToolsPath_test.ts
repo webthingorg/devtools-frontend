@@ -25,6 +25,7 @@ fnExpectingEncodedPathString('foo');
 
 const urlString = 'urlStr' as Platform.DevToolsPath.UrlString;
 fnExpectingUrlString(urlString);
+fnExpectingUrlString(urlString.substring(0, 3));
 // @ts-expect-error Passing a UrlString when RawPathString is expected
 fnExpectingRawPathString(urlString);
 // @ts-expect-error Passing a UrlString when EncodedPathString is expected
@@ -32,6 +33,7 @@ fnExpectingEncodedPathString(urlString);
 
 const rawPathString = 'rawPathStr' as Platform.DevToolsPath.RawPathString;
 fnExpectingRawPathString(rawPathString);
+fnExpectingRawPathString(rawPathString.concat('/', 'subdirectory'));
 // @ts-expect-error Passing a RawPathString when UrlString is expected
 fnExpectingUrlString(rawPathString);
 // @ts-expect-error Passing a RawPathString when EncodedPathString is expected
