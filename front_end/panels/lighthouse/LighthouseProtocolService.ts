@@ -11,6 +11,7 @@ import type * as ReportRenderer from './LighthouseReporterTypes.js';
 let lastId = 1;
 
 export class ProtocolService {
+  private sessionId?: string;
   private rawConnection?: ProtocolClient.InspectorBackend.Connection;
   private lighthouseWorkerPromise?: Promise<Worker>;
   private lighthouseMessageUpdateCallback?: ((arg0: string) => void);
@@ -25,7 +26,7 @@ export class ProtocolService {
     if (!childTargetManager) {
       throw new Error('Unable to find child target manager required for LightHouse');
     }
-    this.rawConnection = await childTargetManager.createParallelConnection(message => {
+    [this.rawConnection, this.sessionId] = await childTargetManager.createParallelConnection(message => {
       if (typeof message === 'string') {
         message = JSON.parse(message);
       }
@@ -84,6 +85,30 @@ export class ProtocolService {
     }
   }
 
+  private async getTargetInfo(): Promise<{mainTargetId: string, mainFrameId: string, mainSessionId?: string}> {
+    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    if (!mainTarget) {
+      throw new Error('Could not find main target');
+    }
+    const childTargetManager = mainTarget.model(SDK.ChildTargetManager.ChildTargetManager);
+    if (!childTargetManager) {
+      throw new Error('Could not get childTargetManager');
+    }
+    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    if (!resourceTreeModel) {
+      throw new Error('Could not get resource tree model');
+    }
+    const mainFrame = resourceTreeModel.mainFrame;
+    if (!mainFrame) {
+      throw new Error('Could not find main frame');
+    }
+    return {
+      mainTargetId: await childTargetManager.getParentTargetId(),
+      mainFrameId: mainFrame.id,
+      mainSessionId: this.sessionId,
+    };
+  }
+
   private initWorker(): Promise<Worker> {
     this.lighthouseWorkerPromise = new Promise<Worker>(resolve => {
       const workerUrl = new URL('../../entrypoints/lighthouse_worker/lighthouse_worker.js', import.meta.url);
@@ -93,6 +118,12 @@ export class ProtocolService {
         workerUrl.searchParams.set('remoteBase', remoteBaseSearchParam);
       }
       const worker = new Worker(workerUrl, {type: 'module'});
+      this.getTargetInfo().then(info => {
+        worker.postMessage(JSON.stringify({method: 'info', params: info}));
+      }).catch(console.error);
+      worker.addEventListener('error', e => {
+        throw e.error;
+      });
 
       worker.addEventListener('message', event => {
         if (event.data === 'workerReady') {
