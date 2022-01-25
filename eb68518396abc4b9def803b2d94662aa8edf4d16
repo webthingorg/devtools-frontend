@@ -16,6 +16,23 @@
       "message": "Hello Mathias, interested in your thoughts on sharing Puppeteer connection impl between Lighthouse and recorder panel like this.",
       "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0da44622_7721ce6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-25T07:56:53Z",
+      "side": 1,
+      "message": "Alex, Jun, could you PTAL?",
+      "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
