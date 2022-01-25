@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbc27d5b_44cdc30e",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "I\u0027ve added a separate method for UrlString parentPath, because then the return type will also be UrlString + unit tests",
+      "parentUuid": "71ad3ce9_1b2453ea",
+      "range": {
+        "startLine": 165,
+        "startChar": 72,
+        "endLine": 165,
+        "endChar": 85
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7aefe16f_801d83e2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-14T15:18:39Z",
       "side": 1,
       "message": "Should be EncodedPathString, and the cast should be in filePathForUISourceCode.",
+      "range": {
+        "startLine": 278,
+        "startChar": 79,
+        "endLine": 278,
+        "endChar": 92
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "172447a3_6101e629",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aefe16f_801d83e2",
       "range": {
         "startLine": 278,
         "startChar": 79,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "354d4651_b4f9bd6c",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "Added another one",
+      "parentUuid": "404fda08_2b428a58",
+      "range": {
+        "startLine": 185,
+        "startChar": 47,
+        "endLine": 185,
+        "endChar": 107
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1823ea3_17e29f53",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-14T15:18:39Z",
       "side": 1,
       "message": "I\u0027m somewhat surprised that a method named \"name\" would return something url-encoded; can it be fixed there?",
+      "range": {
+        "startLine": 75,
+        "startChar": 31,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d60cce00_1f6561de",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "It looks like when it\u0027s set, name (called nameInternal there) can also be a url whether that makes sense or not: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/workspace/UISourceCode.ts;l\u003d92?q\u003dUISourceCode.ts",
+      "parentUuid": "c1823ea3_17e29f53",
       "range": {
         "startLine": 75,
         "startChar": 31,

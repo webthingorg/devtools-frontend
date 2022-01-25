@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3021a87_65b73a3b",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "Answered below",
+      "parentUuid": "a44bf0e5_30375feb",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 39
+      },
+      "revId": "5bbf6dc6f6a39725784107e4fe8c2d7e7276f765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "279e75e1_f98f80a2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-14T15:18:39Z",
       "side": 1,
       "message": "As in other test, it would be better to use getExecutionLine() or create a new helper.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "5bbf6dc6f6a39725784107e4fe8c2d7e7276f765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665abd8b_fe4f0667",
+        "filename": "test/e2e/sources/can-handle-special-characters_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-25T10:58:34Z",
+      "side": 1,
+      "message": "getExecutionLine() doesn\u0027t work properly anymore, I guess code mirror structure used to be a bit different and it probably did work before. Same for getExecutionLineText(), all tests that are using these are disabled.",
+      "parentUuid": "279e75e1_f98f80a2",
       "range": {
         "startLine": 25,
         "startChar": 4,
