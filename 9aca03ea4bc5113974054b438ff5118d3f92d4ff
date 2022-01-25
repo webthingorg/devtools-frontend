@@ -16,6 +16,41 @@
       "message": "Just relanding this after a revert: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3398899\nPTAL:)",
       "revId": "9aca03ea4bc5113974054b438ff5118d3f92d4ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e553929_5597b21c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-25T10:02:59Z",
+      "side": 1,
+      "message": "For the future, its easier for reviewers if you create a \"Reland CL\" and then patch in the changes on top of the reland CL, so reviewers can see the additional changes between original and reland by looking at the diff between the patch sets.",
+      "parentUuid": "50d0a8bf_cd37a267",
+      "revId": "9aca03ea4bc5113974054b438ff5118d3f92d4ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4056c2c2_aed49b4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-25T10:02:59Z",
+      "side": 1,
+      "message": "rubberstamp",
+      "revId": "9aca03ea4bc5113974054b438ff5118d3f92d4ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
