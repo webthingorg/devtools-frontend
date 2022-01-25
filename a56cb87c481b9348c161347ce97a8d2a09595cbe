@@ -33,6 +33,24 @@
       "message": "This is basically https://chrome-internal.googlesource.com/devtools/devtools-internal/+/refs/heads/main/front_end/panels/recorder/models/PuppeteerConnection.ts, but modified to be compatible with the Lighthouse worker.",
       "revId": "a56cb87c481b9348c161347ce97a8d2a09595cbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c5e1f81_0bb2be37",
+        "filename": "front_end/entrypoints/lighthouse_worker/PuppeteerConnection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-25T09:19:52Z",
+      "side": 1,
+      "message": "Could you highlight/summarise the changes please? Also, let\u0027s move it out from the lighthouse_worker entrypoint (so that it can be re-used without a build dependency on lighthouse)?",
+      "parentUuid": "b0ee035f_cd4942ec",
+      "revId": "a56cb87c481b9348c161347ce97a8d2a09595cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
