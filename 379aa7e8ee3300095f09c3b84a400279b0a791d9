@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e25f79c7_0ecd3a01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-01-26T12:46:15Z",
+      "side": 1,
+      "message": "Looking at the code and to my (quite limited) understanding of how the Animation model works, AnimationEffect.iterations() will return Infinity when the element has `animation-iteration-count: infinite` set.\n\nThe code is at: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/animation/AnimationModel.ts;l\u003d333?q\u003danimationmodel.ts\n\nso I think it might not be possible for it to never return Infinity.",
+      "parentUuid": "d0f5228e_e4ae540b",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "379aa7e8ee3300095f09c3b84a400279b0a791d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "984720b7_dfbaf6fc",
