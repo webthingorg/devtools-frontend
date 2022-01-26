@@ -16,6 +16,29 @@
       "message": "Prototype of an idea I had while doing code reviews for Kateryna to save a whole lot of casting. What do you think of this approach? Should we put this in a library to be used by other branded string types? Should we not do this in case the behavior of tsc changes?",
       "revId": "b34e851be4efce70e0c4af12d3cc8deb9984f91f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf8f3d5_74184ede",
+        "filename": "front_end/core/platform/DevToolsPath.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T10:41:48Z",
+      "side": 1,
+      "message": "Per the offline chat, I sadly don\u0027t think this will work and will hide problems. There isn\u0027t a guarantee that calling `.substring` on a path will end up with a legitimate path as well. While annoying to work with branded types, TypeScript is validly pointing out that you have to be absolutely certain that the operations you are performing on the string will lead to valid paths as well.\n\nTherefore, while definitely interesting and cool to see it being feasible, I don\u0027t think we should set these changes here.",
+      "range": {
+        "startLine": 8,
+        "startChar": 50,
+        "endLine": 8,
+        "endChar": 81
+      },
+      "revId": "b34e851be4efce70e0c4af12d3cc8deb9984f91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
