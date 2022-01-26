@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17a6f2c8_12cad1e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-26T12:37:00Z",
+      "side": 1,
+      "message": "Thank you for your review!\n\nI\u0027ll split this CL following your suggestion.\n\nFor third party change, I currently plan to send patches based on https://github.com/evanw/esbuild/issues/1964#issuecomment-1022007863 to upstream. And if those are not merged soon, I\u0027d like to have patches directory with appropriate instruction like\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/zlib/README.chromium for a while.\n\nAnd I\u0027ll also check https://github.com/evanw/esbuild/issues/1964#issuecomment-1022132119 can be applied our codebase.\ne.g. https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/entrypoints/formatter_worker/formatter_worker.ts",
+      "parentUuid": "49ada50e_0e957f95",
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51080c2c_9e988ab1",
         "filename": "scripts/build/devtools_plugin.js",
         "patchSetId": 30
