@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb8ae66_66fa77aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2022-01-26T16:57:28Z",
+      "side": 1,
+      "message": "Hello Victor, would you please review this small change? Thanks!\n\n+Michael on CC as a cppgc expert.",
+      "revId": "1c3cef0b3ccda7af2cd3ed3517bab71467eefe02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
