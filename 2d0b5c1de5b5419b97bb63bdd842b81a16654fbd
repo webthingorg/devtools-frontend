@@ -22,6 +22,30 @@
       },
       "revId": "2d0b5c1de5b5419b97bb63bdd842b81a16654fbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95095668_d03fd22b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2022-01-26T08:16:30Z",
+      "side": 1,
+      "message": "Right, updated.",
+      "parentUuid": "1004ffe7_2011877d",
+      "range": {
+        "startLine": 168,
+        "startChar": 13,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "2d0b5c1de5b5419b97bb63bdd842b81a16654fbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
