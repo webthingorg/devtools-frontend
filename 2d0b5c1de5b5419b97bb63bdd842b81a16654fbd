@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1004ffe7_2011877d",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-26T07:47:57Z",
+      "side": 1,
+      "message": "would not an example be smth like `10px` etc?",
+      "range": {
+        "startLine": 168,
+        "startChar": 13,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "2d0b5c1de5b5419b97bb63bdd842b81a16654fbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
