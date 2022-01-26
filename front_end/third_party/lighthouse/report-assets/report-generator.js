@@ -1,6 +1,4 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('fs')) :
-	typeof define === 'function' && define.amd ? define(['fs'], factory) :
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, (global.Lighthouse = global.Lighthouse || {}, global.Lighthouse.ReportGenerator = factory()));
 }(this, (function () { 'use strict';
 
