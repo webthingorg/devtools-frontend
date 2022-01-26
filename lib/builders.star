@@ -53,11 +53,15 @@ def recipe(
         cipd_package = defaults.cipd_package,
         cipd_version = defaults.cipd_version):
     """Create recipe declaration with dtf defaults"""
+    use_python3 = name in [
+        "devtools/devtools-frontend",
+    ]
     return luci.recipe(
         name = name,
         cipd_package = cipd_package,
         cipd_version = cipd_version,
         use_bbagent = True,
+        use_python3 = use_python3,
     )
 
 def builder(
