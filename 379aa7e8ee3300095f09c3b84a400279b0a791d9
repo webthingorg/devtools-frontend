@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9232dab2_953a524d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T12:50:45Z",
+      "side": 1,
+      "message": "Ah, that\u0027s unfortunate that we fallback to `Infinity` there. I also don\u0027t know what the implications would be of changing that, but that seems like a problem to go wrong at some point 😜 For now, let\u0027s land this as a workaround.",
+      "parentUuid": "f5046cb3_b767b132",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "379aa7e8ee3300095f09c3b84a400279b0a791d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "984720b7_dfbaf6fc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
