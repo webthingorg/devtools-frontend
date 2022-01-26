@@ -10,9 +10,10 @@ const devtools_paths = require('../devtools_paths.js');
 const devtools_plugin = require('./devtools_plugin.js');
 
 // esbuild module uses binary in this path.
-console.log('devtoolsRootPath', devtools_paths.devtoolsRootPath());
-console.log('rootPath', devtools_paths.rootPath());
-console.log('argv', process.argv);
+console.error('devtoolsRootPath', devtools_paths.devtoolsRootPath());
+console.error('rootPath', devtools_paths.rootPath());
+console.error('isInChromiumDirectory', devtools_paths.isInChromiumDirectory());
+console.error('argv', process.argv);
 
 process.env.ESBUILD_BINARY_PATH = path.join(devtools_paths.devtoolsRootPath(), 'third_party', 'esbuild', 'esbuild');
 
