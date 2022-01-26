@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f17a133_a78f5e1f",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 0,
+      "message": "Unfortunately, for both CodeMirror and LightHouse, we can\u0027t make these changes as they are third-party packages. The next time they would be updated, they would revert these changes.\n\nCould you let me know why we need to make these changes here? Is there maybe a way we can workaround it by reconfiguring esbuild or filing an upstream bug for them to resolve the problem?\n\nEdit: aha, I just saw you created https://github.com/evanw/esbuild/issues/1964 Let\u0027s see what the upstream maintainers say.",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

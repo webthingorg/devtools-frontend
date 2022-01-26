@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ada50e_0e957f95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "Yes this approach seems good to me, and nice savings!\n\nFor us to land these changes, I would like to split the changes up into the following:\n\n1. Update `manage_node_deps.py` for esbuild and the corresponding `node_modules` changes\n2. Move `devtools_plugin` out of `rollup.config.js` without any other functional changes\n3. Rename `rollup.gni` to `bundle.gni` (per the design doc, but I think this CL didn\u0027t include that rename yet)\n4. Integrate esbuild changes into `bundle.gni`\n\nPrior to landing 4, we have to wait for https://github.com/evanw/esbuild/issues/1964 to resolve and figure out how we can handle third-party packages, but I think 1-3 can land already.",
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51080c2c_9e988ab1",
+        "filename": "scripts/build/devtools_plugin.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "I initially missed this during my first read of this CL. When we split up this CL for landing, can we make sure that we first verbatim extract the `devtools_plugin` out of the existing Rollup configuration and then in a second change amend the logic to integrate with esbuild? That way, it is easier for me to figure out what is different in logic and what remains the same.\n\nIn this particular case, it isn\u0027t fully clear to me what is meant by \"skip checking\". My assumption was that esbuild/rollup only bundle and don\u0027t do any type checking. Could you clarify what you mean with that?",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 3
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31a88678_de0b160c",
+        "filename": "scripts/build/esbuild.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "Nit: can we also log any errors that we might run into?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c36c20_7c8e06bc",
+        "filename": "scripts/build/ninja/rollup.gni",
+        "patchSetId": 30
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "Nit: we also need to depend on `third_party/esbuild/esbuild`",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b26a860_aa4d5d0f",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 30
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "Interesting, I hadn\u0027t thought of that. I can image some small code to parse DEPS here and check whether they are equivalent (or a simple regex if that\u0027s necessary). Can we add a TODO with a bug to clean this up and enforce that they are equivalent? I am okay with shipping this for now, but I reckon that in the future these versions can diverge.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7628a97_f7575d0c",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 30
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T11:55:12Z",
+      "side": 1,
+      "message": "Ultra-nit: extract this out in a separate variable `ADDITIONAL_NPM_ARGS` to avoid the duplication with the commands below.",
+      "range": {
+        "startLine": 190,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 38
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
