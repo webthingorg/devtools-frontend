@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "969be101_a952de05",
+        "filename": "front_end/models/puppeteer_model/PuppeteerConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-26T19:18:51Z",
+      "side": 1,
+      "message": "Using this TS interface now instead of `SDK.Connections.ParallelConnection`",
+      "revId": "c4a78d9a8692c1b20726138c0992ba282ce85c07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a8bec3_18ef4eb4",
+        "filename": "front_end/models/puppeteer_model/PuppeteerConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-26T19:18:51Z",
+      "side": 1,
+      "message": "I added this guard, noticing some usages of `onmessage \u003d null` in Puppeteer",
+      "revId": "c4a78d9a8692c1b20726138c0992ba282ce85c07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709e839d_7f88b545",
+        "filename": "front_end/models/puppeteer_model/PuppeteerConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-26T19:18:51Z",
+      "side": 1,
+      "message": "Instead of creating a parallel connection and finding the mainFrameId and mainTargetId, it has these values passed in as parameters. This is so we don\u0027t have to use sdk here at runtime.",
+      "revId": "c4a78d9a8692c1b20726138c0992ba282ce85c07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
