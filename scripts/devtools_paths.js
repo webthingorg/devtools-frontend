@@ -59,8 +59,9 @@ function isInChromiumDirectory() {
   }
 
   const normalizedPath = PATH_TO_EXECUTED_FILE.split(path.sep).join('/');
-  const isInChromium = normalizedPath.includes('chromium/src/third_party/devtools-frontend');
-  const potentialChromiumDir = PATH_TO_EXECUTED_FILE.substring(0, PATH_TO_EXECUTED_FILE.indexOf('chromium') + 8);
+  const devtoolsFrontend = 'src/third_party/devtools-frontend';
+  const isInChromium = normalizedPath.includes(devtoolsFrontend);
+  const potentialChromiumDir = PATH_TO_EXECUTED_FILE.substring(0, PATH_TO_EXECUTED_FILE.indexOf(devtoolsFrontend));
   const result = {isInChromium, chromiumDirectory: potentialChromiumDir};
   _lookUpCaches.set('chromium', result);
   return result;
@@ -155,7 +156,9 @@ module.exports = {
   thirdPartyPath,
   nodePath,
   devtoolsRootPath,
+  rootPath,
   nodeModulesPath,
+  isInChromiumDirectory,
   mochaExecutablePath,
   stylelintExecutablePath,
   downloadedChromeBinaryPath
