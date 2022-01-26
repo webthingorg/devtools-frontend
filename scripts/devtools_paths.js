@@ -155,7 +155,9 @@ module.exports = {
   thirdPartyPath,
   nodePath,
   devtoolsRootPath,
+  rootPath,
   nodeModulesPath,
+  isInChromiumDirectory,
   mochaExecutablePath,
   stylelintExecutablePath,
   downloadedChromeBinaryPath
