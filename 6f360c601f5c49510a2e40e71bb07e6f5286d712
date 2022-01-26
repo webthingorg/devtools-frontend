@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "579da12f_d8ff43cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-26T13:36:52Z",
+      "side": 1,
+      "message": "This is looking awesome! (Well, modulo the very long lines.) Thank you for writing this up!",
+      "revId": "6f360c601f5c49510a2e40e71bb07e6f5286d712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
