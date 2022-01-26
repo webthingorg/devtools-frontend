@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04833e53_0a81ae44",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 6
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-01-26T21:32:55Z",
+      "side": 0,
+      "message": "FYI, Those removals indicated switching off the experiment for several builders.",
+      "range": {
+        "startLine": 912,
+        "startChar": 6,
+        "endLine": 915,
+        "endChar": 7
+      },
+      "revId": "a986cb21508c8dbe6a0101e0a0df49c9a9123e7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
