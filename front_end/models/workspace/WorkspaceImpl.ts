@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import type * as Platform from '../../core/platform/platform.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 
 import type {UISourceCodeMetadata} from './UISourceCode.js';
@@ -182,7 +183,10 @@ export class ProjectStore {
 
   renameUISourceCode(uiSourceCode: UISourceCode, newName: string): void {
     const oldPath = uiSourceCode.url();
-    const newPath = uiSourceCode.parentURL() ? uiSourceCode.parentURL() + '/' + newName : newName;
+    const newPath = uiSourceCode.parentURL() ?
+        Common.ParsedURL.ParsedURL.urlFromParentUrlAndName(
+            uiSourceCode.parentURL() as Platform.DevToolsPath.UrlString, newName) :
+        encodeURIComponent(newName);
     const value = this.uiSourceCodesMap.get(oldPath) as {
       uiSourceCode: UISourceCode,
       index: number,
