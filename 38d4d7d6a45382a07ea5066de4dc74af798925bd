@@ -259,6 +259,30 @@
       },
       "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "399e64ee_78720b87",
+        "filename": "front_end/panels/snippets/SnippetsQuickOpen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-26T14:50:12Z",
+      "side": 1,
+      "message": "Looks like we\u0027ve already added that decoding (in UISourceCode) in this CL, removed double-decoding here now",
+      "parentUuid": "ff060f87_e28eaaf4",
+      "range": {
+        "startLine": 75,
+        "startChar": 31,
+        "endLine": 75,
+        "endChar": 81
+      },
+      "revId": "38d4d7d6a45382a07ea5066de4dc74af798925bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
