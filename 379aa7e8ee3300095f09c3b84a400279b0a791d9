@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f5228e_e4ae540b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-26T12:36:25Z",
+      "side": 1,
+      "message": "This sounds unexpected to me, do we know what the root cause of this is? I am okay with landing this as a workaround for now, but I think it would be better if `.iterations()` would always return a strictly positive integer.",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "379aa7e8ee3300095f09c3b84a400279b0a791d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "984720b7_dfbaf6fc",
