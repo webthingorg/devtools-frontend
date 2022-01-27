@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d9beecc_d7bb7fa6",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-27T07:44:38Z",
+      "side": 1,
+      "message": "I think it works when there is a real separate connection but parallel connection is a bit quirky. We ran into some problems like DevTools is not working properly after running a replay if the connection is running over DevTools bindings. It works when the underlying connection is a web socket as that gets disconnected and the backend destroys the agents. This was a while ago so I just mention it so that we can verify that DevTools is still operational after running a Puppeteer connection. Also, the tests are executed using a web socket so the issues were not discovered by the tests, IIRC.",
+      "parentUuid": "fdf4cea0_415ac4f5",
+      "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b51e3639_254d1349",
         "filename": "front_end/entrypoints/lighthouse_worker/PuppeteerConnection.ts",
         "patchSetId": 2
