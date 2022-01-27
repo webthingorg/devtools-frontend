@@ -418,14 +418,13 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     return this.agent.invoke_pauseOnAsyncCall({parentStackTraceId: parentStackTraceId});
   }
 
-  async setBreakpointByURL(url: string, lineNumber: number, columnNumber?: number, condition?: string):
-      Promise<SetBreakpointResult> {
+  async setBreakpointByURL(
+      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number,
+      condition?: string): Promise<SetBreakpointResult> {
     // Convert file url to node-js path.
     let urlRegex;
     if (this.target().type() === Type.Node && url.startsWith('file://')) {
-      // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
-      const platformPath =
-          Common.ParsedURL.ParsedURL.urlToRawPathString(url as Platform.DevToolsPath.UrlString, Host.Platform.isWin());
+      const platformPath = Common.ParsedURL.ParsedURL.urlToRawPathString(url, Host.Platform.isWin());
       urlRegex =
           `${Platform.StringUtilities.escapeForRegExp(platformPath)}|${Platform.StringUtilities.escapeForRegExp(url)}`;
       if (Host.Platform.isWin() && platformPath.match(/^.:\\/)) {
