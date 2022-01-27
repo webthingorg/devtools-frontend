@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "26ef5ff165c3106d1bd79f6bc134f4fa975266f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "497cdc2b_ee03b875",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:19:09Z",
+      "side": 1,
+      "message": "I assume changing the type of FileEntry.fullPath to RawPathString in a separate cl? Can you replace the //TODO that was in this file for UrlString with one for RawPathString?",
+      "range": {
+        "startLine": 175,
+        "startChar": 18,
+        "endLine": 175,
+        "endChar": 71
+      },
+      "revId": "26ef5ff165c3106d1bd79f6bc134f4fa975266f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
