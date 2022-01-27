@@ -216,6 +216,12 @@ export class ParsedURL {
     return devToolsPath.substr(from, length) as typeof devToolsPath;
   }
 
+  static concatenate<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath
+                                                  .RawPathString|Platform.DevToolsPath.EncodedPathString>(
+      devToolsPath: DevToolsPathType, appendage: string): DevToolsPathType {
+    return devToolsPath + appendage as typeof devToolsPath;
+  }
+
   static urlWithoutHash(url: string): string {
     const hashIndex = url.indexOf('#');
     if (hashIndex !== -1) {
