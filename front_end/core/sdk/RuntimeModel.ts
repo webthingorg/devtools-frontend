@@ -442,6 +442,12 @@ export class RuntimeModel extends SDKModel<EventTypes> {
   terminateExecution(): Promise<any> {
     return this.agent.invoke_terminateExecution();
   }
+
+  async getExceptionDetails(errorObjectId: Protocol.Runtime.RemoteObjectId):
+      Promise<Protocol.Runtime.ExceptionDetails|undefined> {
+    const response = await this.agent.invoke_getExceptionDetails({errorObjectId});
+    return response.exceptionDetails;
+  }
 }
 
 /**
