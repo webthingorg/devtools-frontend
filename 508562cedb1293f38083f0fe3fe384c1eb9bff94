@@ -51,6 +51,24 @@
       "parentUuid": "ec0fdd44_438911ad",
       "revId": "508562cedb1293f38083f0fe3fe384c1eb9bff94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9caff8b7_b45aa7a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T16:48:27Z",
+      "side": 1,
+      "message": "Fine either way, but I think you\u0027ll be going in a loop between DebuggerModel, UISourceCode, and Script if you don\u0027t do them all together. And I think at a minimum you should move the casts out of BreakpointManager and into UISourceCode/Script, because so many files get URLs from those classes that it should help you remove casts elsewhere too.",
+      "parentUuid": "09173787_f42331ef",
+      "revId": "508562cedb1293f38083f0fe3fe384c1eb9bff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
