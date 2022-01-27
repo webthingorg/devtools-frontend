@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c727391_6c8be842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:31:55Z",
+      "side": 1,
+      "message": "This looks great!",
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3620537e_9484add4",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:31:55Z",
+      "side": 1,
+      "message": "Optional: If you change this to `...appendage: string[]` and then return `devToolsPath.concat(...appendage)` as DevToolsPathType, you can support concatenating more strings in one call, and then you can change encodedFromParentPathAndName and urlFromParentUrlAndName to use this.",
+      "range": {
+        "startLine": 221,
+        "startChar": 37,
+        "endLine": 221,
+        "endChar": 55
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b05256f_8d7dda80",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:31:55Z",
+      "side": 1,
+      "message": "nit: as DevToolsPathType",
+      "range": {
+        "startLine": 222,
+        "startChar": 36,
+        "endLine": 222,
+        "endChar": 58
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f9b81d_97c2cdd0",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:31:55Z",
+      "side": 1,
+      "message": "Nit: `let tooltip: string \u003d`, then drop the as.",
+      "range": {
+        "startLine": 1363,
+        "startChar": 4,
+        "endLine": 1363,
+        "endChar": 19
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9564f71_2f401f75",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T17:31:55Z",
+      "side": 1,
+      "message": "Likewise, `let titleText: string`",
+      "range": {
+        "startLine": 457,
+        "startChar": 4,
+        "endLine": 457,
+        "endChar": 20
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
