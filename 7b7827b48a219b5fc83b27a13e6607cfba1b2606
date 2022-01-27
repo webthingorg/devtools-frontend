@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1fd298d_a85628fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-27T10:43:34Z",
+      "side": 1,
+      "message": "Only one nit with regards to the target name. Other than that LGTM!",
+      "revId": "7b7827b48a219b5fc83b27a13e6607cfba1b2606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40732cea_adce7194",
+        "filename": "docs/workflows.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-27T10:43:34Z",
+      "side": 1,
+      "message": "Let\u0027s not change the default target here, as I would prefer all DevTools engineers to have typechecking enabled by default, since that\u0027s also our default configuration on DevTools CQ.\n\nInstead, let\u0027s suggest to use the following here:\n\n```\ngn gen out/fast-build --args\u003d\u0027devtools_skip_typecheck\u003dtrue\u0027\n```",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "7b7827b48a219b5fc83b27a13e6607cfba1b2606",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
