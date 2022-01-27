@@ -33,6 +33,24 @@
       "message": "It looks like all the URLs in BreakpointManager come from either Script or from UISourceCode (which in turn gets them from Script.) Scripts are created by DebuggerModel, so you\u0027re not done with UrlStrings in DebuggerModel!\n\nCan you make UISourceCode.url() return a UrlString? If you also strictly type the constructor for Script(), will that cause this CL to explode?\n\nWe\u0027re getting close to the source of all urls here, let\u0027s add typing to UISourceCode and Script and save all the casts downstream.",
       "revId": "508562cedb1293f38083f0fe3fe384c1eb9bff94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09173787_f42331ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-27T16:36:31Z",
+      "side": 1,
+      "message": "I thought I\u0027d do it sequentially in a couple of CLs. But if you prefer that I do these in one CL, I can also do that, wdyt?",
+      "parentUuid": "ec0fdd44_438911ad",
+      "revId": "508562cedb1293f38083f0fe3fe384c1eb9bff94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
