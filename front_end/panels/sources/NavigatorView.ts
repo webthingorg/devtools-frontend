@@ -568,7 +568,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     if (project.type() === Workspace.Workspace.projectTypes.FileSystem) {
       type = Types.FileSystemFolder;
     }
-    const name = path[path.length - 1];
+    const name = decodeURIComponent(path[path.length - 1]);
 
     folderNode = new NavigatorFolderTreeNode(this, project, folderId, type, folderPath, name);
     this.subfolderNodes.set(folderId, folderNode);
@@ -1653,7 +1653,7 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
   }
 
   setTitle(title: string): void {
-    this.title = title;
+    this.title = decodeURIComponent(title);
     if (this.treeElement) {
       this.treeElement.title = this.title;
     }
