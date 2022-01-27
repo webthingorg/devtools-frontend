@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "e9721d5340d81f7c23fd5938a9743d5965b81fce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8cf09ec_e7f13e1c",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-27T13:24:28Z",
+      "side": 1,
+      "message": "Branded types aren\u0027t adding much value here, and we really want to end up with very few casts in centralized locations. Ideally we get to the state where:\n - uiSourceCode.url() returns type UrlString. You could probably add this without complicating this cl too much.\n - We have a helper method to concatenate branded strings and return the same branded type. Given how much you are doing this, it would be good to add it. If you had these first two, no casts would be necessary in this file.\n - FileManager.save() would take a UrlString. That might make things more complicated if there are other callers; see how many call sites have errors to decide if this is worth doing as part of this cl.\n - There are probably casts throughout the code that could be deleted after the first two are implemented, but that should be a separate change. Or maybe the first two should be their own cl that you do first?\n \nIf you just want to get this in I would add \u0027.js\u0027 and not do any casting, and return to this after UISourceCode has been fully typed.",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 2
+      },
+      "revId": "e9721d5340d81f7c23fd5938a9743d5965b81fce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
