@@ -7958,6 +7958,7 @@ export namespace Network {
     SameOriginAllowPopups = 'SameOriginAllowPopups',
     UnsafeNone = 'UnsafeNone',
     SameOriginPlusCoep = 'SameOriginPlusCoep',
+    SameOriginAllowPopupsPlusCoep = 'SameOriginAllowPopupsPlusCoep',
   }
 
   export interface CrossOriginOpenerPolicyStatus {
@@ -9984,6 +9985,7 @@ export namespace Page {
     ChUaPlatform = 'ch-ua-platform',
     ChUaModel = 'ch-ua-model',
     ChUaMobile = 'ch-ua-mobile',
+    ChUaFull = 'ch-ua-full',
     ChUaFullVersion = 'ch-ua-full-version',
     ChUaFullVersionList = 'ch-ua-full-version-list',
     ChUaPlatformVersion = 'ch-ua-platform-version',

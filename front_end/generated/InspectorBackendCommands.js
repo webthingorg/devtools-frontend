@@ -1647,7 +1647,8 @@ export function registerCommands(inspectorBackend) {
     SameOrigin: 'SameOrigin',
     SameOriginAllowPopups: 'SameOriginAllowPopups',
     UnsafeNone: 'UnsafeNone',
-    SameOriginPlusCoep: 'SameOriginPlusCoep'
+    SameOriginPlusCoep: 'SameOriginPlusCoep',
+    SameOriginAllowPopupsPlusCoep: 'SameOriginAllowPopupsPlusCoep'
   });
   inspectorBackend.registerEnum(
       'Network.CrossOriginEmbedderPolicyValue',
@@ -2001,6 +2002,7 @@ export function registerCommands(inspectorBackend) {
     ChUaPlatform: 'ch-ua-platform',
     ChUaModel: 'ch-ua-model',
     ChUaMobile: 'ch-ua-mobile',
+    ChUaFull: 'ch-ua-full',
     ChUaFullVersion: 'ch-ua-full-version',
     ChUaFullVersionList: 'ch-ua-full-version-list',
     ChUaPlatformVersion: 'ch-ua-platform-version',
