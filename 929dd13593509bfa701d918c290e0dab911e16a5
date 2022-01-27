@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95c2ce2e_6b68ab97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 40
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-27T14:30:45Z",
+      "side": 1,
+      "message": "The numbers for the bots look really impressive, very happy about that 😊 Let\u0027s see whether they can resolve the esbuild UMD problem and then see what we have to do to get ourselves unblocked.",
+      "revId": "929dd13593509bfa701d918c290e0dab911e16a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
