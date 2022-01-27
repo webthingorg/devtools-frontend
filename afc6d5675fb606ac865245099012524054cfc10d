@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bdd3bf3_4553007a",
+        "filename": "scripts/build/devtools_plugin.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-27T09:34:33Z",
+      "side": 1,
+      "message": "It seems that rollup doesn\u0027t call plugin for require(...) if we don\u0027t use https://github.com/rollup/plugins/tree/master/packages/commonjs\nBut esbuild calls plugin for such case too. Updated comment.",
+      "parentUuid": "51080c2c_9e988ab1",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 3
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31a88678_de0b160c",
@@ -82,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe74480_d0311d5a",
+        "filename": "scripts/build/esbuild.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-27T09:34:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31a88678_de0b160c",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50c36c20_7c8e06bc",
@@ -95,6 +143,30 @@
       "writtenOn": "2022-01-26T11:55:12Z",
       "side": 1,
       "message": "Nit: we also need to depend on `third_party/esbuild/esbuild`",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd644f4a_18a50acf",
+        "filename": "scripts/build/ninja/rollup.gni",
+        "patchSetId": 30
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-27T09:34:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50c36c20_7c8e06bc",
       "range": {
         "startLine": 31,
         "startChar": 6,
@@ -165,6 +237,30 @@
       "writtenOn": "2022-01-26T11:55:12Z",
       "side": 1,
       "message": "Ultra-nit: extract this out in a separate variable `ADDITIONAL_NPM_ARGS` to avoid the duplication with the commands below.",
+      "range": {
+        "startLine": 190,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 38
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968a67f3_3814533b",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 30
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-27T09:34:33Z",
+      "side": 1,
+      "message": "done in https://crrev.com/c/3419383",
+      "parentUuid": "b7628a97_f7575d0c",
       "range": {
         "startLine": 190,
         "startChar": 20,
