@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3661835f_fa999677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-27T13:15:10Z",
+      "side": 1,
+      "message": "PTAL, the remaining web test and e2e test errors should be fixed once https://crrev.com/c/3420304 has rolled.",
+      "revId": "465b31b10858ff46d58f1f72efaebd3ed8b4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
