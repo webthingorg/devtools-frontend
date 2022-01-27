@@ -130,6 +130,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f575904d_aece2bb0",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 30
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-27T02:02:52Z",
+      "side": 1,
+      "message": "esbuild has such check by themselves\nhttps://github.com/evanw/esbuild/blob/4e98e5fc54913f4204d7f846c07f4ec866a524d4/lib/npm/node-install.ts#L15\n\nSo I think we anyway notice the inconsistency in CQ using esbuild for bundler. Do you want to have our own explicit check like presubmit too?",
+      "parentUuid": "1b26a860_aa4d5d0f",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "afc6d5675fb606ac865245099012524054cfc10d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7628a97_f7575d0c",
         "filename": "scripts/deps/manage_node_deps.py",
         "patchSetId": 30
