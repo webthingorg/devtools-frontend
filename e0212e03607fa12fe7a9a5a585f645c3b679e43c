@@ -187,6 +187,30 @@
       },
       "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9021ac8_35245bd1",
+        "filename": "front_end/panels/application/InterestGroupStorageView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1444807
+      },
+      "writtenOn": "2022-01-28T15:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69819f8c_44122987",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 22
+      },
+      "revId": "e0212e03607fa12fe7a9a5a585f645c3b679e43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
