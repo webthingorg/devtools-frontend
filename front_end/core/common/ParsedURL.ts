@@ -165,13 +165,13 @@ export class ParsedURL {
   // name must be unencoded
   static encodedFromParentPathAndName(parentPath: Platform.DevToolsPath.EncodedPathString, name: string):
       Platform.DevToolsPath.EncodedPathString {
-    return parentPath + '/' + encodeURIComponent(name) as Platform.DevToolsPath.EncodedPathString;
+    return this.concatenate(parentPath, '/', encodeURIComponent(name));
   }
 
   // name must be unencoded
   static urlFromParentUrlAndName(parentUrl: Platform.DevToolsPath.UrlString, name: string):
       Platform.DevToolsPath.UrlString {
-    return parentUrl + '/' + encodeURIComponent(name) as Platform.DevToolsPath.UrlString;
+    return this.concatenate(parentUrl, '/', encodeURIComponent(name));
   }
 
   static encodedPathToRawPathString(encPath: Platform.DevToolsPath.EncodedPathString):
@@ -213,7 +213,13 @@ export class ParsedURL {
   static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
                                          Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
-    return devToolsPath.substr(from, length) as typeof devToolsPath;
+    return devToolsPath.substr(from, length) as DevToolsPathType;
+  }
+
+  static concatenate<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath
+                                                  .RawPathString|Platform.DevToolsPath.EncodedPathString>(
+      devToolsPath: DevToolsPathType, ...appendage: string[]): DevToolsPathType {
+    return devToolsPath.concat(...appendage) as DevToolsPathType;
   }
 
   static urlWithoutHash(url: string): string {
