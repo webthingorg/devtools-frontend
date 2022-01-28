@@ -22,6 +22,30 @@
       },
       "revId": "7518dbb30ea0c1ef7fc85e6dcd931d48172eee18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a40171_138dbc3c",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-28T11:28:40Z",
+      "side": 1,
+      "message": "It can\u0027t find the method without (shows an error)",
+      "parentUuid": "73d45d35_743a5901",
+      "range": {
+        "startLine": 168,
+        "startChar": 11,
+        "endLine": 168,
+        "endChar": 16
+      },
+      "revId": "7518dbb30ea0c1ef7fc85e6dcd931d48172eee18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
