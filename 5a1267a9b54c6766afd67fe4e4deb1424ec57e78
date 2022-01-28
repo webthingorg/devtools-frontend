@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac955ae9_e1321f98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-01-28T13:22:22Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s a trivial fix for the shadowing of private fields in the front-end. Coincidentally private fields are implemented as symbols in ECMAScript, so this change actually makes sense also from an ECMAScript perspective.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "5a1267a9b54c6766afd67fe4e4deb1424ec57e78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
