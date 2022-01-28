@@ -20,6 +20,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38e001ce_da5c95c8",
+        "filename": "front_end/legacy_test_runner/console_test_runner/console_test_runner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-28T12:22:13Z",
+      "side": 1,
+      "message": "Here is the call-site 😊",
+      "revId": "465b31b10858ff46d58f1f72efaebd3ed8b4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec351634_5806e4ab",
+        "filename": "front_end/legacy_test_runner/console_test_runner/console_test_runner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-28T12:22:13Z",
+      "side": 1,
+      "message": "and here :)",
+      "range": {
+        "startLine": 226,
+        "startChar": 24,
+        "endLine": 226,
+        "endChar": 54
+      },
+      "revId": "465b31b10858ff46d58f1f72efaebd3ed8b4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "648cf649_cbd11681",
         "filename": "front_end/panels/console/ConsoleViewMessage.ts",
         "patchSetId": 2
@@ -67,6 +107,24 @@
       "side": 1,
       "message": "That\u0027s a followup change I presume?",
       "parentUuid": "67acc673_3a50b6d7",
+      "revId": "465b31b10858ff46d58f1f72efaebd3ed8b4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca4a5da_194adccd",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-28T12:22:13Z",
+      "side": 1,
+      "message": "Maybe gerrit is bugged or you are looking at the diff between PS1 and PS2? I marked the call-sits with comments :)",
+      "parentUuid": "08d2a5ca_76329a22",
       "revId": "465b31b10858ff46d58f1f72efaebd3ed8b4bf7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
