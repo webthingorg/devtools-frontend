@@ -52,9 +52,6 @@ Persistence.Persistence._NodeSuffix = PersistenceModule.Persistence.NodeSuffix;
 Persistence.PathEncoder = PersistenceModule.Persistence.PathEncoder;
 
 /** @constructor */
-Persistence.PersistenceBinding = PersistenceModule.Persistence.PersistenceBinding;
-
-/** @constructor */
 Persistence.PersistenceUtils = PersistenceModule.PersistenceUtils.PersistenceUtils;
 
 /** @constructor */

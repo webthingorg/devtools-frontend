@@ -8,9 +8,8 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../workspace/workspace.js';
 
-import type {FileSystem} from './FileSystemWorkspaceBinding.js';
-import {FileSystemWorkspaceBinding} from './FileSystemWorkspaceBinding.js';
-import {PersistenceBinding, PersistenceImpl} from './PersistenceImpl.js';
+import {type FileSystem, FileSystemWorkspaceBinding} from './FileSystemWorkspaceBinding.js';
+import {type PersistenceBinding, PersistenceImpl} from './PersistenceImpl.js';
 
 let networkPersistenceManagerInstance: NetworkPersistenceManager|null;
 
@@ -273,7 +272,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (this.bindings.has(fileSystemUISourceCode)) {
       await this.unbind(fileSystemUISourceCode);
     }
-    const binding = new PersistenceBinding(networkUISourceCode, fileSystemUISourceCode);
+    const binding = {network: networkUISourceCode, fileSystem: fileSystemUISourceCode};
     this.bindings.set(networkUISourceCode, binding);
     this.bindings.set(fileSystemUISourceCode, binding);
     await PersistenceImpl.instance().addBinding(binding);

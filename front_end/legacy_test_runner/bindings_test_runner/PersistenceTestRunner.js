@@ -70,7 +70,7 @@ class TestMapping {
 
     const networkUISourceCode = await TestRunner.waitForUISourceCode(urlSuffix, Workspace.projectTypes.Network);
     const fileSystemUISourceCode = await TestRunner.waitForUISourceCode(urlSuffix, Workspace.projectTypes.FileSystem);
-    const binding = new Persistence.PersistenceBinding(networkUISourceCode, fileSystemUISourceCode);
+    const binding = {network: networkUISourceCode, fileSystem: fileSystemUISourceCode};
     this.bindings.add(binding);
     await this.persistence.addBindingForTest(binding);
   }

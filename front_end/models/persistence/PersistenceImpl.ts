@@ -141,7 +141,7 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   }
 
   private async onStatusAdded(status: AutomappingStatus): Promise<void> {
-    const binding = new PersistenceBinding(status.network, status.fileSystem);
+    const binding = {network: status.network, fileSystem: status.fileSystem};
     statusBindings.set(status, binding);
     await this.innerAddBinding(binding);
   }
@@ -395,11 +395,7 @@ export class PathEncoder {
   }
 }
 
-export class PersistenceBinding {
-  network: Workspace.UISourceCode.UISourceCode;
+export interface PersistenceBinding {
   fileSystem: Workspace.UISourceCode.UISourceCode;
-  constructor(network: Workspace.UISourceCode.UISourceCode, fileSystem: Workspace.UISourceCode.UISourceCode) {
-    this.network = network;
-    this.fileSystem = fileSystem;
-  }
+  network: Workspace.UISourceCode.UISourceCode;
 }
