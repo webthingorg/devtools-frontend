@@ -16,6 +16,24 @@
       "message": "would this lead to more regression bugs? e.g. what if the GPU is disabled but we are still limiting the height? What if GPU limits change? Why is there a limit, btw? Can we fix it by using the device scale factor instead?",
       "revId": "8f428ffffb3023d5b07e782e9c6462bba212fbb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ab675f1_319a8cfb",
+        "filename": "front_end/panels/emulation/DeviceModeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-01-28T10:23:43Z",
+      "side": 1,
+      "message": "We already limit the screenshot size by the 2^14 here, so this commit just brings more consistency: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/emulation/DeviceModeModel.ts;l\u003d732\n\n\u003e would this lead to more regression bugs? e.g. what if the GPU is disabled but we are still limiting the height? \n\nCurrently there is a side-effect which makes the behaviour different in case of GPU and non-GPU. This change makes the screenshot logic more consistent.\n\n\u003e What if GPU limits change? \n\nWe would need to change the limit in DevTools anyway.\n\n\u003e Why is there a limit, btw?\n\nThe limit is (as I understand) in the GPU rendering implementation.\n\n\u003e Can we fix it by using the device scale factor instead?\n\nIf you mean calculating limit based on the device scale factor, that requires adding new parameter `cssToPhysicalPixelRation`, which seems quite weird, as in the front end we always rely on the CSS pixels.\n\nIf you mean a device emulation, the problem is the emulation changes the page layout, which leads to incorrect screenshots.",
+      "parentUuid": "454737ed_a97762df",
+      "revId": "8f428ffffb3023d5b07e782e9c6462bba212fbb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
