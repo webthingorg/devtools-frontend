@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d45d35_743a5901",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T10:35:14Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s any reason to use `this` here.",
+      "range": {
+        "startLine": 168,
+        "startChar": 11,
+        "endLine": 168,
+        "endChar": 16
+      },
+      "revId": "7518dbb30ea0c1ef7fc85e6dcd931d48172eee18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

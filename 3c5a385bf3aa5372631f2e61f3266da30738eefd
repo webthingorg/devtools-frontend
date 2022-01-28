@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "944ce90c_cd9a7e08",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T10:35:14Z",
+      "side": 1,
+      "message": "Use `...appendage` so it is a vararg. So you can call it with `concatenate(parentUrl, \u0027/\u0027, encodeURIComponent(name))` or with `concatenate(parentUrl, \u0027.js\u0027)` rather than have to make a list.\n\nAnd you can return `devToolsPath.concat(...appendage)`",
+      "parentUuid": "93a7ce71_7ea2562a",
+      "range": {
+        "startLine": 221,
+        "startChar": 37,
+        "endLine": 221,
+        "endChar": 55
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b05256f_8d7dda80",
         "filename": "front_end/core/common/ParsedURL.ts",
         "patchSetId": 3
