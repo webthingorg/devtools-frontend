@@ -171,7 +171,8 @@ export class TargetManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       sessionId?: string, waitForDebuggerInPage?: boolean, connection?: ProtocolClient.InspectorBackend.Connection,
       targetInfo?: Protocol.Target.TargetInfo): Target {
     const target = new Target(
-        this, id, name, type, parentTarget, sessionId || '', this.#isSuspended, connection || null, targetInfo);
+        this, id, decodeURIComponent(name), type, parentTarget, sessionId || '', this.#isSuspended, connection || null,
+        targetInfo);
     if (waitForDebuggerInPage) {
       void target.pageAgent().invoke_waitForDebugger();
     }
