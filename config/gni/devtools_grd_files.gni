@@ -1255,7 +1255,7 @@ grd_files_debug_sources = [
   "front_end/third_party/acorn-loose/package/dist/acorn-loose.mjs",
   "front_end/third_party/acorn/package/dist/acorn.mjs",
   "front_end/third_party/chromium/client-variations/ClientVariations.js",
-  "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+  "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.mjs",
   "front_end/third_party/codemirror/package/mode/css/css.js",
   "front_end/third_party/codemirror/package/mode/javascript/javascript.js",
   "front_end/third_party/codemirror/package/mode/xml/xml.js",
