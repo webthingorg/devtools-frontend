@@ -46,6 +46,30 @@
       },
       "revId": "7518dbb30ea0c1ef7fc85e6dcd931d48172eee18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c08e394_f3e7d552",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T13:51:18Z",
+      "side": 1,
+      "message": "I see. It looks like other static methods in this class use `ParsedUrl.` instead of `this.`, which accomplishes the same thing but makes more sense to me.",
+      "parentUuid": "82a40171_138dbc3c",
+      "range": {
+        "startLine": 168,
+        "startChar": 11,
+        "endLine": 168,
+        "endChar": 16
+      },
+      "revId": "7518dbb30ea0c1ef7fc85e6dcd931d48172eee18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
