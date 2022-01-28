@@ -33,6 +33,23 @@
       "message": "Friendly ping 😊",
       "revId": "46971d813d1884f30ba1811e64af69ac287db209",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac81128_44218b02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-01-28T12:33:03Z",
+      "side": 1,
+      "message": "Thanks for the fix. I love the informative commit message!\n\n",
+      "revId": "46971d813d1884f30ba1811e64af69ac287db209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
