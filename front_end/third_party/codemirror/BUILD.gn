@@ -13,13 +13,13 @@ devtools_pre_built("codemirror") {
   sources = [
     "codemirror-tsconfig.json",
     "package/addon/runmode/runmode-standalone.d.ts",
-    "package/addon/runmode/runmode-standalone.js",
+    "package/addon/runmode/runmode-standalone.mjs",
     "package/mode/css/css.d.ts",
-    "package/mode/css/css.js",
+    "package/mode/css/css.mjs",
     "package/mode/javascript/javascript.d.ts",
-    "package/mode/javascript/javascript.js",
+    "package/mode/javascript/javascript.mjs",
     "package/mode/xml/xml.d.ts",
-    "package/mode/xml/xml.js",
+    "package/mode/xml/xml.mjs",
   ]
 }
 
