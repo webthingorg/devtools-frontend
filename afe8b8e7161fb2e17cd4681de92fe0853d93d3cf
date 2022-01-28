@@ -22,6 +22,30 @@
       },
       "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4371920c_16078177",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-28T04:38:34Z",
+      "side": 0,
+      "message": "Changing extention of those files to .mjs works with esbuild, but that breaks tsc build like\nhttps://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_linux_dbg/b8823822450801991089/overview\nwith https://crrev.com/c/3422728/1\n\nI\u0027m not sure why we see this kind of error. I tried to add `exclude: [\u0027**/*.mjs\u0027]` around some tsconfig.json, but that doesn\u0027t fix the error.\n\nThis maybe due to that TypeScript doesn\u0027t support ES module yet?\nhttps://www.typescriptlang.org/docs/handbook/esm-node.html\n\nDo you know how to fix this?",
+      "parentUuid": "3f17a133_a78f5e1f",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
