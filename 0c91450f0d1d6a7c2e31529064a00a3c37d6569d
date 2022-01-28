@@ -16,6 +16,92 @@
       "message": "PTAL:)",
       "revId": "0c91450f0d1d6a7c2e31529064a00a3c37d6569d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a21b12_8cc29774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T17:23:11Z",
+      "side": 1,
+      "message": "Looks good, a few minor nits.",
+      "revId": "0c91450f0d1d6a7c2e31529064a00a3c37d6569d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85686f9_556f049c",
+        "filename": "front_end/core/sdk/Resource.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T17:23:11Z",
+      "side": 1,
+      "message": "UrlString?",
+      "range": {
+        "startLine": 46,
+        "startChar": 33,
+        "endLine": 46,
+        "endChar": 39
+      },
+      "revId": "0c91450f0d1d6a7c2e31529064a00a3c37d6569d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96dc97fc_7881a7b3",
+        "filename": "front_end/core/sdk/Resource.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T17:23:11Z",
+      "side": 1,
+      "message": "Set the return type while you\u0027re at it.",
+      "range": {
+        "startLine": 104,
+        "startChar": 13,
+        "endLine": 104,
+        "endChar": 19
+      },
+      "revId": "0c91450f0d1d6a7c2e31529064a00a3c37d6569d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76576026_e4295d95",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-01-28T17:23:11Z",
+      "side": 1,
+      "message": "This class will need to cast data it receives from the extension; leaving the cast here is fine.",
+      "range": {
+        "startLine": 1318,
+        "startChar": 8,
+        "endLine": 1318,
+        "endChar": 114
+      },
+      "revId": "0c91450f0d1d6a7c2e31529064a00a3c37d6569d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
