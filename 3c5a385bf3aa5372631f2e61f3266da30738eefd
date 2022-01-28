@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93a7ce71_7ea2562a",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-28T10:28:29Z",
+      "side": 1,
+      "message": "Applied this as well",
+      "parentUuid": "3620537e_9484add4",
+      "range": {
+        "startLine": 221,
+        "startChar": 37,
+        "endLine": 221,
+        "endChar": 55
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b05256f_8d7dda80",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-27T17:31:55Z",
       "side": 1,
       "message": "nit: as DevToolsPathType",
+      "range": {
+        "startLine": 222,
+        "startChar": 36,
+        "endLine": 222,
+        "endChar": 58
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d670db7_a7e55f90",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-28T10:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b05256f_8d7dda80",
       "range": {
         "startLine": 222,
         "startChar": 36,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad3137f8_e5f66dfa",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-28T10:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4f9b81d_97c2cdd0",
+      "range": {
+        "startLine": 1363,
+        "startChar": 4,
+        "endLine": 1363,
+        "endChar": 19
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9564f71_2f401f75",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-01-27T17:31:55Z",
       "side": 1,
       "message": "Likewise, `let titleText: string`",
+      "range": {
+        "startLine": 457,
+        "startChar": 4,
+        "endLine": 457,
+        "endChar": 20
+      },
+      "revId": "3c5a385bf3aa5372631f2e61f3266da30738eefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b744525a_50dc511a",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-01-28T10:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9564f71_2f401f75",
       "range": {
         "startLine": 457,
         "startChar": 4,
