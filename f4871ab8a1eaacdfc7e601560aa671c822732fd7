@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "155f3ca9_fd2e0023",
+        "filename": "front_end/ui/components/docs/tree_outline/custom-renderers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T12:43:29Z",
+      "side": 0,
+      "message": "Note that this is an observable change, since we go from having 2 microticks to just 1. (It was already an async function, so the `Promise.resolve` just added another needless hop.)",
+      "revId": "f4871ab8a1eaacdfc7e601560aa671c822732fd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
