@@ -70,6 +70,30 @@
       },
       "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a2437c_9e141cff",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T13:47:47Z",
+      "side": 1,
+      "message": "If we’re gonna call it immediately, we wouldn’t use `bind` anymore — `progress.done.bind(progress)()` is equivalent to `progress.done()` (but less efficient and more verbose). \n\nHowever, `progress.done()` does not return a promise either, so I still don’t understand how using `void` here would add consistency.",
+      "parentUuid": "a53f1ecb_7c635097",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 18
+      },
+      "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
