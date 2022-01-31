@@ -46,6 +46,30 @@
       },
       "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53f1ecb_7c635097",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-31T13:35:20Z",
+      "side": 1,
+      "message": "Ah my suggestion was missing the function call. `void progress.done.bind(progress)()` could have worked as well? In any case, I am fine with either way as this is a nit, so feel free to use `queueMicrotask` if that\u0027s most appropriate.",
+      "parentUuid": "49964855_8828c204",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 18
+      },
+      "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
