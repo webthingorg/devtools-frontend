@@ -16,6 +16,24 @@
       "message": "Let\u0027s put it into front_end/services/puppeteer? I am not sure models is suitable as the code is not extending SDK.Model or somehow integrates with the models.",
       "revId": "3a893e5d77577f16305beb921b9fd207223763cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f2695c0_017988aa",
+        "filename": "front_end/models/puppeteer_model/BUILD.gn",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-31T18:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c4d24a8_80af858f",
+      "revId": "3a893e5d77577f16305beb921b9fd207223763cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

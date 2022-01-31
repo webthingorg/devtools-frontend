@@ -209,6 +209,24 @@
       "parentUuid": "fdfd2f54_4db6bd27",
       "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "befbb401_8dc853b6",
+        "filename": "front_end/third_party/lighthouse/lighthouse-dt-bundle.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-01-31T18:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c47fb58a_bb02cbc2",
+      "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
