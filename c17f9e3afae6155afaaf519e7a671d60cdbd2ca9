@@ -50,6 +50,24 @@
       "message": "Unrelated to this specific CL, but out of curiosity; why is the naming of the enum like this (i.e. starting with lower letter)? Maybe that\u0027s what you already hinted at in your comment (web tests).",
       "revId": "c17f9e3afae6155afaaf519e7a671d60cdbd2ca9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b16128b1_9a832992",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-31T14:35:33Z",
+      "side": 1,
+      "message": "I\u0027m assuming that this was at one point an object literal with symbols or string values. That is:\n\n const projectTypes \u003d {\n   fileSystem: Symbol(\u0027filesystem\u0027),\n   ...\n };\n\nor something similar. We later turned it into a TS enum, which required no changes to the web tests. But renaming the export would :(",
+      "parentUuid": "3bcdb9e9_398a603c",
+      "revId": "c17f9e3afae6155afaaf519e7a671d60cdbd2ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
