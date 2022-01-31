@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68bc150d_c05c8308",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T12:42:44Z",
+      "side": 1,
+      "message": "Since this is already an async function, we can reject simply by throwing an exception.",
+      "revId": "c7e1b022ac9d402e870409b9baed3fec2408e748",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
