@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4776162e_bbfb9ee4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-01-31T10:55:47Z",
+      "side": 1,
+      "message": "Note that renaming the enum is a bit cumbersome as its used in web tests.",
+      "revId": "c17f9e3afae6155afaaf519e7a671d60cdbd2ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
