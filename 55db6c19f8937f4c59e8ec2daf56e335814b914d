@@ -39,6 +39,30 @@
       },
       "revId": "55db6c19f8937f4c59e8ec2daf56e335814b914d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ea89c5_7e65e142",
+        "filename": "test/unittests/front_end/core/sdk/PageResourceLoader_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2022-01-31T15:16:59Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "6a54573b_7a41bcc9",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "55db6c19f8937f4c59e8ec2daf56e335814b914d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
