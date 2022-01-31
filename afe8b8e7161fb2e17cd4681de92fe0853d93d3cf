@@ -46,6 +46,30 @@
       },
       "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d068fae1_61d2fb5f",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-31T12:57:01Z",
+      "side": 0,
+      "message": "We will need to update the `.tsconfig.json` files we check in for our third_party projects, e.g. https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/third_party/codemirror/codemirror-tsconfig.json;l\u003d1?q\u003df:codemirror-tsconfig.json\u0026sq\u003d\u0026ss\u003dchromium and https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-tsconfig.json;l\u003d1?q\u003dlighthouse-tsconfig.json\u0026ss\u003dchromium",
+      "parentUuid": "4371920c_16078177",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
