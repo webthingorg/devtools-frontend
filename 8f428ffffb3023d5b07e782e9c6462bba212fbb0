@@ -69,6 +69,24 @@
       "parentUuid": "2ab675f1_319a8cfb",
       "revId": "8f428ffffb3023d5b07e782e9c6462bba212fbb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fbccda5_f760560e",
+        "filename": "front_end/panels/emulation/DeviceModeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2022-01-31T13:48:11Z",
+      "side": 1,
+      "message": "Unfortunately we don\u0027t have a test harness for unit testing screenshots.",
+      "parentUuid": "335680e0_034d3702",
+      "revId": "8f428ffffb3023d5b07e782e9c6462bba212fbb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
