@@ -118,6 +118,30 @@
       },
       "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f225fa2c_eb5929cb",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-01-31T19:40:44Z",
+      "side": 0,
+      "message": "Yes, that doesn\u0027t work. See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3422728 which is a separate CL changing only `runmode-standalone.js` to confirm that.",
+      "parentUuid": "4ed58657_1cc6447a",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
