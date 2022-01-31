@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "709a2d81a31a4e2f4b1a3aaef6b93aa6cfef531e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c10a6e6_4090db57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T13:23:54Z",
+      "side": 1,
+      "message": "Jack is OOO for another while. Simon, could you PTAL?",
+      "revId": "709a2d81a31a4e2f4b1a3aaef6b93aa6cfef531e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
