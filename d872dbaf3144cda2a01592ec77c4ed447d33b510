@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d398bf8_ce17e63a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T13:24:11Z",
+      "side": 1,
+      "message": "Jack is OOO for another while. Simon, could you PTAL?",
+      "revId": "d872dbaf3144cda2a01592ec77c4ed447d33b510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
