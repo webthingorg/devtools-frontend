@@ -22,6 +22,30 @@
       },
       "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49964855_8828c204",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T13:09:50Z",
+      "side": 1,
+      "message": "What consistency are you referring to? I don’t understand. IIUC, we use `void` in accordance with https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/no-floating-promises.md, which says it is used to “explicitly mark a promise as intentionally not awaited”. `Function.prototype.bind` returns a function, not a promise — so why would we mark it as `void`?",
+      "parentUuid": "0c4ca5dd_7a25fcd9",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 18
+      },
+      "revId": "13b6a50a5b2da3d894ae64fbfa611010d8fbe2df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
