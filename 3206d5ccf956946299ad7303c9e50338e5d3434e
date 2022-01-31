@@ -34,6 +34,24 @@
       "parentUuid": "bbe0c161_9fe7fa6c",
       "revId": "3206d5ccf956946299ad7303c9e50338e5d3434e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47f9323_2571350e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 46
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-01-31T13:33:20Z",
+      "side": 1,
+      "message": "Interesting. I had done this, but seems like Gerrit removed it again. LightHouse, PTAL at the above comment.",
+      "parentUuid": "050577c2_51c11cb8",
+      "revId": "3206d5ccf956946299ad7303c9e50338e5d3434e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
