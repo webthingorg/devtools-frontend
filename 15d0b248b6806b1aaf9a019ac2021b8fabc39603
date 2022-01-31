@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6acbbdfa_e71d5953",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2022-01-31T23:39:33Z",
+      "side": 1,
+      "message": "This should be done in a finally clause, otherwise an error may cause the connection to hang.",
+      "revId": "15d0b248b6806b1aaf9a019ac2021b8fabc39603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
