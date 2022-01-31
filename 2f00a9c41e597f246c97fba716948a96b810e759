@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c15d71_d5937cb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-01-31T14:08:20Z",
+      "side": 1,
+      "message": "PTAL. Trailing commas in object and array literals are automatically inserted based on our eslint config, depending on newline usage. But then the auto-formatter does weird things when trailing commas are present. This patch avoids some of the weirdness by removing some of the trailing commas and newlines and then reformatting.",
+      "revId": "2f00a9c41e597f246c97fba716948a96b810e759",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
