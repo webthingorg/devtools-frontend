@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "081465d5_995cdbce",
+        "filename": "front_end/panels/sources/WatchExpressionsSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-01-31T11:43:12Z",
+      "side": 1,
+      "message": "nit: do we need a return?",
+      "revId": "679541f85f7d00f4b0ac2d16e3b005fa685dae8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
