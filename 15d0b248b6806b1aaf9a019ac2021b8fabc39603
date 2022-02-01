@@ -16,6 +16,24 @@
       "message": "This should be done in a finally clause, otherwise an error may cause the connection to hang.",
       "revId": "15d0b248b6806b1aaf9a019ac2021b8fabc39603",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc8eea97_b0965c02",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2022-02-01T18:05:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6acbbdfa_e71d5953",
+      "revId": "15d0b248b6806b1aaf9a019ac2021b8fabc39603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
