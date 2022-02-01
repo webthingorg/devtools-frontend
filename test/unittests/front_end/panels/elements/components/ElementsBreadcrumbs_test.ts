@@ -302,8 +302,7 @@ describe('ElementsBreadcrumbs', () => {
         assert.isFalse(rightButton.disabled);
       });
 
-      // Disabled to unblock merge.
-      it.skip('[crbug.com/1292190] disables the right button once the user has scrolled to the end', async () => {
+      it('disables the right button once the user has scrolled to the end', async () => {
         const thinWrapper = document.createElement('div');
         thinWrapper.style.width = '400px';
         const component = new ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs();
@@ -331,10 +330,8 @@ describe('ElementsBreadcrumbs', () => {
         });
       });
 
-      // Disabled to unblock merge.
-      it.skip(
-          '[crbug.com/1292190] hides the overflow buttons should the user resize the window to be large enough',
-          async () => {
+      it(
+          'hides the overflow buttons should the user resize the window to be large enough', async () => {
             const thinWrapper = document.createElement('div');
             thinWrapper.style.width = '400px';
             const component = new ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs();
@@ -365,10 +362,8 @@ describe('ElementsBreadcrumbs', () => {
             assert.isTrue(rightButton.classList.contains('hidden'));
           });
 
-      // Disabled to unblock merge.
-      it.skip(
-          '[crbug.com/1292190] hides the overflow should the list of nodes change so the crumbs no longer overflow',
-          async () => {
+      it(
+          'hides the overflow should the list of nodes change so the crumbs no longer overflow', async () => {
             const thinWrapper = document.createElement('div');
             thinWrapper.style.width = '400px';
 
@@ -400,10 +395,8 @@ describe('ElementsBreadcrumbs', () => {
             assert.isTrue(rightButton.classList.contains('hidden'));
           });
 
-      // Disabled to unblock merge.
-      it.skip(
-          '[crbug.com/1292190] shows the overflow buttons should the user resize the window down to be small',
-          async () => {
+      it(
+          'shows the overflow buttons should the user resize the window down to be small', async () => {
             const thinWrapper = document.createElement('div');
             thinWrapper.style.width = '800px';
             const component = new ElementsComponents.ElementsBreadcrumbs.ElementsBreadcrumbs();
