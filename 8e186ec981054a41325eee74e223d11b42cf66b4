@@ -34,6 +34,40 @@
       "parentUuid": "ecc57a6c_62872907",
       "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0030a1f4_4acb8b47",
+        "filename": "front_end/third_party/codemirror/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T11:30:16Z",
+      "side": 1,
+      "message": "add explanation for d.ts too?",
+      "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac3cb6cf_643fd934",
+        "filename": "front_end/third_party/lighthouse/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T11:30:16Z",
+      "side": 1,
+      "message": "same",
+      "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
