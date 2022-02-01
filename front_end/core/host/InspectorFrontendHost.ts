@@ -356,6 +356,15 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
     // Extensions are not supported in hosted mode.
   }
 
+  setOriginsForbiddenForExtensions(forbiddenOrigins: string[]): void {
+    // Extensions are not supported in hosted mode.
+  }
+
+  getOriginsForbiddenForExtensions(): string[] {
+    // Extensions are not supported in hosted mode.
+    return [];
+  }
+
   async initialTargetId(): Promise<string|null> {
     return null;
   }
