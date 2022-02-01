@@ -1102,6 +1102,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         parsedURL.pathname.startsWith('/webstore')) {
       return false;
     }
+    if (Host.InspectorFrontendHost.InspectorFrontendHostInstance.getOriginsForbiddenForExtensions().includes(
+            parsedURL.origin)) {
+      return false;
+    }
     return true;
   }
 
