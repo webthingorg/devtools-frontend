@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eba2ccb_5968cd67",
+        "filename": "scripts/build/ninja/bundle.gni",
+        "patchSetId": 52
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-01T12:08:21Z",
+      "side": 1,
+      "message": "Ultra-nit: `!(devtools_fast_bundle \u0026\u0026 is_official_build)` I had to read this particular condition 3 times before I got it and I feel like this is slightly more descriptive in which particular combination we are disallowing.",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "25e23da98eaf0598cfa867c3968e53c2196f9a91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
