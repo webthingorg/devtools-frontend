@@ -16,6 +16,24 @@
       "message": "I originally used a space after the `async` keyword here, but the presubmit hook reformatted it :(",
       "revId": "bab232d0a0cc1a1d080395b024beebc3632a8bc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c18394_0a33929c",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-01T09:05:09Z",
+      "side": 1,
+      "message": "That\u0027s a bit unfortunate :( I would prefer a space as well.",
+      "parentUuid": "48011fb4_c056dea8",
+      "revId": "bab232d0a0cc1a1d080395b024beebc3632a8bc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
