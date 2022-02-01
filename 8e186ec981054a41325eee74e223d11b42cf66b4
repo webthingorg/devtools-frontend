@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d571ce5f_dafd5dd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T11:33:11Z",
+      "side": 1,
+      "message": "I see, then I\u0027m lucky this time. I though there is a possibility of bug in tsc. Thank you!",
+      "parentUuid": "78f5ca43_d76122d5",
+      "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0030a1f4_4acb8b47",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "The `.d.ts` files are not part of the upstream package and they are mentioned in the line before this (we added them).",
       "parentUuid": "0030a1f4_4acb8b47",
+      "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d30be95_12c9265c",
+        "filename": "front_end/third_party/codemirror/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T11:33:11Z",
+      "side": 1,
+      "message": "Oh, I see.",
+      "parentUuid": "01658348_badb3648",
       "revId": "8e186ec981054a41325eee74e223d11b42cf66b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
