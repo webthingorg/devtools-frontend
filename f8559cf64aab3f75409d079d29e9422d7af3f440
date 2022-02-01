@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8563b793_a49affcf",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-01T09:08:37Z",
+      "side": 1,
+      "message": "Should we maybe just un-not this condition and move the `setAsCurrentPanel()` call here?",
+      "range": {
+        "startLine": 1228,
+        "startChar": 8,
+        "endLine": 1228,
+        "endChar": 9
+      },
+      "revId": "f8559cf64aab3f75409d079d29e9422d7af3f440",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
