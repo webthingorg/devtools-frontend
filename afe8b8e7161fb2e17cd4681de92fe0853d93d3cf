@@ -142,6 +142,30 @@
       },
       "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "532f20ca_4aa0d4e2",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T02:25:28Z",
+      "side": 0,
+      "message": "Updated tsconfig in this CL too.",
+      "parentUuid": "f225fa2c_eb5929cb",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
