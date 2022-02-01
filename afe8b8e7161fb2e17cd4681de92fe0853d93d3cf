@@ -166,6 +166,30 @@
       },
       "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e1eca8_6c44696a",
+        "filename": "front_end/third_party/codemirror/package/addon/runmode/runmode-standalone.js",
+        "patchSetId": 30
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-01T11:27:38Z",
+      "side": 0,
+      "message": "Ah sorry about that. I had forgotten that the `.d.ts` also have to be changed to `.mjs.d.ts`, since TypeScript doesn\u0027t completely understand `.mjs` by default. I mailed https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3428452 which should fix this issue. Let\u0027s land that rename separately and then rebase this CL on top of main once it is submitted.",
+      "parentUuid": "532f20ca_4aa0d4e2",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 76
+      },
+      "revId": "afe8b8e7161fb2e17cd4681de92fe0853d93d3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
