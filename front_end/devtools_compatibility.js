@@ -29,6 +29,11 @@
       this._addExtensionCallback = null;
 
       /**
+       * @type {!Array<string>}
+       */
+      this._originsForbiddenForExtensions = [];
+
+      /**
        * @type {!Promise<string>}
        */
       this._initialTargetIdPromise = new Promise(resolve => {
@@ -93,6 +98,20 @@
           this._pendingExtensionDescriptors.push(...extensions);
         }
       }
+    }
+
+    /**
+     * @param {!Array<string>} forbiddenOrigins
+     */
+    setOriginsForbiddenForExtensions(forbiddenOrigins) {
+      this._originsForbiddenForExtensions = forbiddenOrigins;
+    }
+
+    /**
+     * @return {!Array<string>}
+     */
+    getOriginsForbiddenForExtensions() {
+      return this._originsForbiddenForExtensions;
     }
 
     /**
@@ -916,6 +935,19 @@
      */
     setAddExtensionCallback(callback) {
       DevToolsAPI.setAddExtensionCallback(callback);
+    }
+    /**
+     * @param {!Array<string>} forbiddenOrigins
+     */
+    setOriginsForbiddenForExtensions(forbiddenOrigins) {
+      DevToolsAPI.setOriginsForbiddenForExtensions(forbiddenOrigins);
+    }
+
+    /**
+     * @return {!Array<string>}
+     */
+    getOriginsForbiddenForExtensions() {
+      return DevToolsAPI.getOriginsForbiddenForExtensions();
     }
 
     // Backward-compatible methods below this line --------------------------------------------

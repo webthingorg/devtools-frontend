@@ -296,6 +296,10 @@ export interface InspectorFrontendHostAPI {
 
   setAddExtensionCallback(callback: (arg0: ExtensionDescriptor) => void): void;
 
+  setOriginsForbiddenForExtensions(forbiddenOrigins: string[]): void;
+
+  getOriginsForbiddenForExtensions(): string[];
+
   initialTargetId(): Promise<string|null>;
 }
 
