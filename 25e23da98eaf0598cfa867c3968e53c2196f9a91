@@ -22,6 +22,30 @@
       },
       "revId": "25e23da98eaf0598cfa867c3968e53c2196f9a91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1ddfd01_24941230",
+        "filename": "scripts/build/ninja/bundle.gni",
+        "patchSetId": 52
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-01T12:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eba2ccb_5968cd67",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "25e23da98eaf0598cfa867c3968e53c2196f9a91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
