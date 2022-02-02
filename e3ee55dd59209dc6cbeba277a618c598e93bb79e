@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16bbe6a1_f27f3a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-02-02T03:05:07Z",
+      "side": 1,
+      "message": "lgtm % comments",
+      "revId": "e3ee55dd59209dc6cbeba277a618c598e93bb79e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb2560b0_487b5e7f",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-02-02T03:05:07Z",
+      "side": 1,
+      "message": "See comment below -- consider not exposing it on the host.",
+      "revId": "e3ee55dd59209dc6cbeba277a618c598e93bb79e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aed34e2e_90f4ad05",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2022-02-02T03:05:07Z",
+      "side": 1,
+      "message": "We never set this within the front-end, so let\u0027s only keep the getter public. In fact, I think it would be even better to not use InspectorFrontendHost / InspectorFrontEndHostImpl for this altogether and just keep it on DevToolsAPIImpl and access it directly, same as we do with the tabId (https://source.chromium.org/chromium/chromium/src/+/main:out/android-Debug/gen/third_party/devtools-frontend/src/front_end/models/extensions/ExtensionServer.js;drc\u003dcf234c836323b15afa1f08ff40c1e76ecc83c0b8;l\u003d117)",
+      "revId": "e3ee55dd59209dc6cbeba277a618c598e93bb79e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
