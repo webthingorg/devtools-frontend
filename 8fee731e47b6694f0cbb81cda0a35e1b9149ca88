@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "8fee731e47b6694f0cbb81cda0a35e1b9149ca88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982d9d20_c5da34bf",
+        "filename": "test/webtests/http/tests/devtools/a11y-axe-core/sources/call-stack-a11y-test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-02T11:45:21Z",
+      "side": 1,
+      "message": "I am not familiar with the differences between queueMicrotask and promises but does it result in the same call stack? It does not look so from the test expectations (but might be irrelevant for the a11y test)",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "8fee731e47b6694f0cbb81cda0a35e1b9149ca88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
