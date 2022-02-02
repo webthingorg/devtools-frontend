@@ -11,7 +11,7 @@ describe('Runtime', () => {
     describe('getRemoteBase', () => {
       const bundled = 'devtools://devtools/bundled/devtools_app.html';
       const version = '@ffe848af6a5df4fa127e2929331116b7f9f1cb30';
-      const remoteOrigin = 'https://chrome-devtools-frontend.appspot.com/';
+      const remoteOrigin = 'https://chrome-devtools-frontend.appspot-stg.com/';
       const remote = `${remoteOrigin}serve_file/${version}/`;
       const fullLocation = `${bundled}?remoteBase=${remote}&can_dock=true&dockSide=undocked`;
 

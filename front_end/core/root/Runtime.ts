@@ -20,12 +20,8 @@ export function getRemoteBase(location: string = self.location.toString()): {
     return null;
   }
 
-  const version = /\/serve_file\/(@[0-9a-zA-Z]+)\/?$/.exec(remoteBase);
-  if (!version) {
-    return null;
-  }
-
-  return {base: `${url.origin}/remote/serve_file/${version[1]}/`, version: version[1]};
+  const version = '@87a1e60bd5e9fa3c5c465ffbc5f06c5025ea575c';  // 99.0.4844.16.
+  return {base: `${url.origin}/remote/serve_file/${version}/`, version};
 }
 
 export class Runtime {
