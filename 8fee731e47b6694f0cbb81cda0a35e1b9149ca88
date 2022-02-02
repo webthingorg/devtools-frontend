@@ -39,6 +39,30 @@
       },
       "revId": "8fee731e47b6694f0cbb81cda0a35e1b9149ca88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b898d6_2499499c",
+        "filename": "test/webtests/http/tests/devtools/a11y-axe-core/sources/call-stack-a11y-test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-02T12:13:24Z",
+      "side": 1,
+      "message": "`queueMicrotask(fn)` is equivalent to `Promise.resolve().then(fn)` (except `queueMicrotask` doesn’t have a return value). Making this change simplifies the call stack in the test expectations but the behavior should be the same.",
+      "parentUuid": "982d9d20_c5da34bf",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "8fee731e47b6694f0cbb81cda0a35e1b9149ca88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
