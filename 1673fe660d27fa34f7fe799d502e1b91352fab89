@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fae24ac_17a0d953",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-03T07:38:57Z",
+      "side": 1,
+      "message": "For visibility, you could point to the crbug for your NativeFunctions work. Or, file a new crbug to track your efforts on making it part of roll_deps and refer to it here. WDYT?",
+      "revId": "1673fe660d27fa34f7fe799d502e1b91352fab89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
