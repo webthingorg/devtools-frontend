@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d8587d_955adb2e",
+        "filename": "front_end/models/issues_manager/FederatedAuthRequestIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-03T08:32:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b493e25_5c47a014",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f22a17c_5d7b232b",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Last I checked the markdown component only supports simple headings. But might be worth adding.",
       "parentUuid": "3f22a17c_5d7b232b",
+      "range": {
+        "startLine": 1,
+        "startChar": 11,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba04fa4_e4faf703",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestTooManyRequests.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-03T08:32:41Z",
+      "side": 1,
+      "message": "Indeed. Reverted.",
+      "parentUuid": "b019abec_23d009cb",
       "range": {
         "startLine": 1,
         "startChar": 11,
