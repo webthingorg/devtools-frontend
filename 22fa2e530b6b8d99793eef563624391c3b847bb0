@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1476d21d_447aa301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-03T08:12:41Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f22a17c_5d7b232b",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestTooManyRequests.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-03T08:12:41Z",
+      "side": 1,
+      "message": "nit: Enclose in back-ticks?",
+      "range": {
+        "startLine": 1,
+        "startChar": 11,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4929e79b_741c4f12",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestWellKnownHttpNotFound.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-03T08:12:41Z",
+      "side": 1,
+      "message": "nit: Enclose in back-ticks?",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c3488a_63f4ae38",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestWellKnownInvalidResponse.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-03T08:12:41Z",
+      "side": 1,
+      "message": "nit: Enclose in back-ticks?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 24
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d61335_ae64c93e",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestWellKnownNoResponse.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-03T08:12:41Z",
+      "side": 1,
+      "message": "nit: Enclose in back-ticks?",
+      "range": {
+        "startLine": 1,
+        "startChar": 58,
+        "endLine": 1,
+        "endChar": 69
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
