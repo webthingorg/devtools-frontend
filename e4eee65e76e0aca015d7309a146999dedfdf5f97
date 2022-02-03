@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dba5422_dad21b53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-03T10:09:03Z",
+      "side": 1,
+      "message": "Fix LGTM, but it would be good to work on unit test coverage next for these functions (also in `devtools_plugin`). At this point, the logic can become quite complicated and it would be good to have a set of edge cases to confirm everything is working as intended.\n\nWe can add new unit tests in `test/unittests/scripts` (new folder) and we have to add the relevant build dependencies to `test/unittests/BUILD.gn`. Additionally, you will need to update `UNIT_TESTS_FOLDERS` in `test/unittests/karma.conf.js` to pick it up. Then, you can run the tests with `autoninja -C out/Default \u0026\u0026 npm run unittest`.\n\nThat said, let\u0027s do that in a follow-up to unblock the builder while we setup these new tests.",
+      "revId": "e4eee65e76e0aca015d7309a146999dedfdf5f97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
