@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ea365fae_523c604e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-03T11:09:28Z",
+      "side": 1,
+      "message": "Thanks! Anyhow, don’t let this block this CL, which looks great 👍",
+      "parentUuid": "822a4515_0b6229e1",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "e463339b8080d0d25456e99918225fa4283d67ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f27e0b4c_80471e3f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
