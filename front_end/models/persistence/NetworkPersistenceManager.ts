@@ -316,10 +316,10 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
 
   private patternForFileSystemUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
     const relativePathParts = FileSystemWorkspaceBinding.relativePath(uiSourceCode);
-    if (relativePathParts.length < 2) {
+    if (relativePathParts.length < 2 && uiSourceCode.name() !== HEADERS_FILENAME) {
       return '';
     }
-    if (relativePathParts[1] === 'longurls' && relativePathParts.length !== 2) {
+    if (relativePathParts.length > 2 && relativePathParts[1] === 'longurls') {
       return 'http?://' + relativePathParts[0] + '/*';
     }
     return 'http?://' + this.decodeLocalPathToUrlPath(relativePathParts.join('/'));
@@ -363,21 +363,51 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  async generateHeaderPatterns(uiSourceCode: Workspace.UISourceCode.UISourceCode, pattern: string):
+      Promise<Set<string>> {
+    const result = new Set<string>();
+    const content = (await uiSourceCode.requestContent()).content || '';
+    let headerOverrides: HeaderOverride[] = [];
+    try {
+      headerOverrides = JSON.parse(content) as HeaderOverride[];
+      if (!headerOverrides.every(isHeaderOverride)) {
+        throw 'Type mismatch after parsing';
+      }
+    } catch (e) {
+      console.error('Failed to parse', uiSourceCode.url(), 'for locally overriding headers.');
+      return result;
+    }
+    const patternPath = pattern.substring(0, pattern.length - HEADERS_FILENAME.length);
+
+    for (const headerOverride of headerOverrides) {
+      const fullPattern = patternPath + headerOverride.applyTo;
+      result.add(fullPattern);
+      if (fullPattern.endsWith('/' + INDEX_FILENAME)) {
+        result.add(fullPattern.substr(0, fullPattern.length - INDEX_FILENAME.length));
+      }
+    }
+    return result;
+  }
+
   private updateInterceptionPatterns(): void {
     void this.updateInterceptionThrottler.schedule(innerUpdateInterceptionPatterns.bind(this));
 
-    function innerUpdateInterceptionPatterns(this: NetworkPersistenceManager): Promise<void> {
+    async function innerUpdateInterceptionPatterns(this: NetworkPersistenceManager): Promise<void> {
       if (!this.activeInternal || !this.projectInternal) {
         return SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns(
             [], this.interceptionHandlerBound);
       }
-      const patterns = new Set<string>();
-      const indexFileName = 'index.html';
+      let patterns = new Set<string>();
       for (const uiSourceCode of this.projectInternal.uiSourceCodes()) {
         const pattern = this.patternForFileSystemUISourceCode(uiSourceCode);
-        patterns.add(pattern);
-        if (pattern.endsWith('/' + indexFileName)) {
-          patterns.add(pattern.substr(0, pattern.length - indexFileName.length));
+        if (uiSourceCode.name() === HEADERS_FILENAME) {
+          const headerPatterns = await this.generateHeaderPatterns(uiSourceCode, pattern);
+          patterns = new Set([...patterns, ...headerPatterns]);
+        } else {
+          patterns.add(pattern);
+        }
+        if (pattern.endsWith('/' + INDEX_FILENAME)) {
+          patterns.add(pattern.substr(0, pattern.length - INDEX_FILENAME.length));
         }
       }
 
@@ -409,7 +439,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     await this.unbind(uiSourceCode);
   }
 
-  private async setProject(project: Workspace.Workspace.Project|null): Promise<void> {
+  async setProject(project: Workspace.Workspace.Project|null): Promise<void> {
     if (project === this.projectInternal) {
       return;
     }
@@ -452,6 +482,78 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Network.Headers):
+      Protocol.Fetch.HeaderEntry[] {
+    const result: Protocol.Fetch.HeaderEntry[] = [];
+    const mergedHeadersObject: Protocol.Network.Headers = {};
+    for (const header of baseHeaders) {
+      mergedHeadersObject[header.name] = header.value;
+    }
+    for (const [headerName, headerValue] of Object.entries(overrideHeaders)) {
+      mergedHeadersObject[headerName] = headerValue;
+    }
+    for (const [headerName, headerValue] of Object.entries(mergedHeadersObject)) {
+      result.push({name: headerName, value: headerValue as string});
+    }
+    return result;
+  }
+
+  doesUrlMatchPattern(queryUrl: string, patternUrl: string): boolean {
+    let pattern = Platform.StringUtilities.escapeCharacters(patternUrl, '[]{}()\\.^$+?|-,');
+    pattern = pattern.replaceAll('*', '.*');
+    pattern = '^' + pattern + '$';
+    const regex = new RegExp(pattern);
+    return regex.test(queryUrl);
+  }
+
+  splitUrlIntoSegments(url: string): string[] {
+    let path = this.encodedPathFromUrl(url);
+    path = path.substring(0, path.lastIndexOf('/'));
+    const segments = path.split('/');
+    segments.unshift('');
+    return segments;
+  }
+
+  async handleHeaderInterception(interceptedRequest: SDK.NetworkManager.InterceptedRequest, proj: FileSystem):
+      Promise<Protocol.Fetch.HeaderEntry[]> {
+    let result: Protocol.Fetch.HeaderEntry[] = interceptedRequest.responseHeaders || [];
+    const urlSegments = this.splitUrlIntoSegments(interceptedRequest.request.url);
+
+    const requestUrl = new Common.ParsedURL.ParsedURL(interceptedRequest.request.url).urlWithoutScheme();
+    let path = '';
+    for (const segment of urlSegments) {
+      path += segment + '/';
+      const headersUISourceCode = proj.uiSourceCodeForURL(proj.fileSystemPath() + path + HEADERS_FILENAME);
+      if (headersUISourceCode) {
+        const content = (await headersUISourceCode.requestContent()).content || '';
+        let headerOverrides: HeaderOverride[] = [];
+        try {
+          headerOverrides = JSON.parse(content) as HeaderOverride[];
+          if (!headerOverrides.every(isHeaderOverride)) {
+            throw 'Type mismatch after parsing';
+          }
+        } catch (e) {
+          console.error('Failed to parse', headersUISourceCode.url(), 'for locally overriding headers.');
+          headerOverrides = [];
+        }
+        for (const headerOverride of headerOverrides) {
+          // TODO: improve?
+          let pattern = FileSystemWorkspaceBinding.relativePath(headersUISourceCode).join('/');
+          pattern = pattern.substring(0, pattern.length - HEADERS_FILENAME.length) + headerOverride.applyTo;
+          if (this.doesUrlMatchPattern(requestUrl, pattern)) {
+            result = this.mergeHeaders(result, headerOverride.headers);
+          } else if (pattern.endsWith('/index.html')) {
+            const patternWithoutIndex = pattern.substr(0, pattern.length - 'index.html'.length);
+            if (this.doesUrlMatchPattern(requestUrl, patternWithoutIndex)) {
+              result = this.mergeHeaders(result, headerOverride.headers);
+            }
+          }
+        }
+      }
+    }
+    return result;
+  }
+
   private async interceptionHandler(interceptedRequest: SDK.NetworkManager.InterceptedRequest): Promise<void> {
     const method = interceptedRequest.request.method;
     if (!this.activeInternal || (method !== 'GET' && method !== 'POST')) {
@@ -460,8 +562,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const proj = this.projectInternal as FileSystem;
     const path = proj.fileSystemPath() + '/' + this.encodedPathFromUrl(interceptedRequest.request.url);
     const fileSystemUISourceCode = proj.uiSourceCodeForURL(path);
-    if (!fileSystemUISourceCode) {
+    let responseHeaders = await this.handleHeaderInterception(interceptedRequest, proj);
+    if (!fileSystemUISourceCode && !responseHeaders.length) {
       return;
+    }
+    if (!responseHeaders.length) {
+      responseHeaders = interceptedRequest.responseHeaders || [];
     }
 
     let mimeType = '';
@@ -477,32 +583,40 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (!mimeType) {
       const expectedResourceType =
           Common.ResourceType.resourceTypes[interceptedRequest.resourceType] || Common.ResourceType.resourceTypes.Other;
-      mimeType = fileSystemUISourceCode.mimeType();
+      mimeType = fileSystemUISourceCode?.mimeType() || '';
       if (Common.ResourceType.ResourceType.fromMimeType(mimeType) !== expectedResourceType) {
         mimeType = expectedResourceType.canonicalMimeType();
       }
     }
-    const project = fileSystemUISourceCode.project() as FileSystem;
 
-    this.originalResponseContentPromises.set(
-        fileSystemUISourceCode, interceptedRequest.responseBody().then(response => {
-          if (response.error || response.content === null) {
-            return null;
-          }
-          if (response.encoded) {
-            const text = atob(response.content);
-            const data = new Uint8Array(text.length);
-            for (let i = 0; i < text.length; ++i) {
-              data[i] = text.charCodeAt(i);
+    if (fileSystemUISourceCode) {
+      this.originalResponseContentPromises.set(
+          fileSystemUISourceCode, interceptedRequest.responseBody().then(response => {
+            if (response.error || response.content === null) {
+              return null;
             }
-            return new TextDecoder('utf-8').decode(data);
-          }
-          return response.content;
-        }));
+            if (response.encoded) {
+              const text = atob(response.content);
+              const data = new Uint8Array(text.length);
+              for (let i = 0; i < text.length; ++i) {
+                data[i] = text.charCodeAt(i);
+              }
+              return new TextDecoder('utf-8').decode(data);
+            }
+            return response.content;
+          }));
 
-    const blob = await project.requestFileBlob(fileSystemUISourceCode);
-    if (blob) {
-      void interceptedRequest.continueRequestWithContent(new Blob([blob], {type: mimeType}));
+      const project = fileSystemUISourceCode.project() as FileSystem;
+      const blob = await project.requestFileBlob(fileSystemUISourceCode);
+      if (blob) {
+        void interceptedRequest.continueRequestWithContent(new Blob([blob], {type: mimeType}), false, responseHeaders);
+      }
+    } else {
+      const responseBody = await interceptedRequest.responseBody();
+      if (!responseBody.error && responseBody.content) {
+        void interceptedRequest.continueRequestWithContent(
+            new Blob([responseBody.content], {type: mimeType}), true, responseHeaders);
+      }
     }
   }
 }
@@ -511,6 +625,9 @@ const RESERVED_FILENAMES = new Set<string>([
   'con',  'prn',  'aux',  'nul',  'com1', 'com2', 'com3', 'com4', 'com5', 'com6', 'com7',
   'com8', 'com9', 'lpt1', 'lpt2', 'lpt3', 'lpt4', 'lpt5', 'lpt6', 'lpt7', 'lpt8', 'lpt9',
 ]);
+
+const INDEX_FILENAME = 'index.html';
+const HEADERS_FILENAME = '.headers';
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
@@ -521,3 +638,16 @@ export enum Events {
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
 };
+
+interface HeaderOverride {
+  applyTo: string;
+  headers: Protocol.Network.Headers;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isHeaderOverride(arg: any): arg is HeaderOverride {
+  if (!(arg && arg.applyTo && typeof (arg.applyTo === 'string') && arg.headers && Object.keys(arg.headers).length)) {
+    return false;
+  }
+  return Object.values(arg.headers).every(value => typeof value === 'string');
+}
