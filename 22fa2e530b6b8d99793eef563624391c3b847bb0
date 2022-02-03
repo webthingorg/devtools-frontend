@@ -20,6 +20,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd7293a8_1a4aa020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-03T08:21:53Z",
+      "side": 1,
+      "message": "code lgtm\n\nI\u0027m a bit skeptical about all the markdown descriptions. In general we try to aim and make them actionable. That is provide users with an explicit way how to solve any given issue, eg. \"Use y instead of x\", \"valid values for x are\", etc. Do we (or DevRel) have plans to extend the descriptions?",
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b493e25_5c47a014",
+        "filename": "front_end/models/issues_manager/FederatedAuthRequestIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-03T08:21:53Z",
+      "side": 1,
+      "message": "nit: Use private class fields for new code and mark as \"readonly\":\n\n readonly #issueDetails: Protocol.Audits.FederatedAuthRequestIssueDetails;",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f22a17c_5d7b232b",
         "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestTooManyRequests.md",
         "patchSetId": 6
@@ -54,6 +94,30 @@
       "writtenOn": "2022-02-03T08:20:36Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "3f22a17c_5d7b232b",
+      "range": {
+        "startLine": 1,
+        "startChar": 11,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b019abec_23d009cb",
+        "filename": "front_end/models/issues_manager/descriptions/federatedAuthRequestTooManyRequests.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-03T08:21:53Z",
+      "side": 1,
+      "message": "Last I checked the markdown component only supports simple headings. But might be worth adding.",
       "parentUuid": "3f22a17c_5d7b232b",
       "range": {
         "startLine": 1,
