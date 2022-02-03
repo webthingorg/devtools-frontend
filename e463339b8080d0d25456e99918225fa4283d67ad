@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c525cc_c16ebaff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-03T10:58:23Z",
+      "side": 1,
+      "message": "I mostly want to make sure that we don’t forget to regularly update the TypeScript type definitions (separate from the rolls), so that non-WebIDL changes get dealt with regularly as well.\n\nMaybe a tracking bug is not the best mechanism. Any other ideas?",
+      "parentUuid": "15a94774_4b44a65c",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "e463339b8080d0d25456e99918225fa4283d67ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f27e0b4c_80471e3f",
