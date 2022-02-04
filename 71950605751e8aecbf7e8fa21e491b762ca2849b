@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac8ec19_a1e6ec2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-04T12:30:43Z",
+      "side": 1,
+      "message": "Thank you for adding test.",
+      "revId": "71950605751e8aecbf7e8fa21e491b762ca2849b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f346f4_db8f9729",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-04T12:30:43Z",
+      "side": 1,
+      "message": "nit: redundant paren?",
+      "range": {
+        "startLine": 248,
+        "startChar": 7,
+        "endLine": 248,
+        "endChar": 8
+      },
+      "revId": "71950605751e8aecbf7e8fa21e491b762ca2849b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
