@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797ef5df_79641f6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1421792
+      },
+      "writtenOn": "2022-02-04T05:41:41Z",
+      "side": 1,
+      "message": "IIUC we no longer use `.well-known` directory and use `fedcm.json` instead. Adding yigu@ from the eng team.",
+      "revId": "ab68d5b581879ebe960c4bdd0595d22ba49f8d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
