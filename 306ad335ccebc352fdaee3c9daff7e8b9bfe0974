@@ -16,6 +16,23 @@
       "message": "The editing part requires more backend support, so I\u0027ll submit the ability to view first.",
       "revId": "306ad335ccebc352fdaee3c9daff7e8b9bfe0974",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db76493_96ac7eed",
+        "filename": "front_end/core/sdk/CSSQuery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-04T09:59:21Z",
+      "side": 1,
+      "message": "This file would need a good renaming, to something like `CSSAtRule` or `CSSConditionalRule` or something.",
+      "revId": "306ad335ccebc352fdaee3c9daff7e8b9bfe0974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
