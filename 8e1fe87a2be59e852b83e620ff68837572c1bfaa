@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac49eec_ff0f9859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-07T10:12:01Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a trivial fix for hovering `this` in the sources panel.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "8e1fe87a2be59e852b83e620ff68837572c1bfaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
