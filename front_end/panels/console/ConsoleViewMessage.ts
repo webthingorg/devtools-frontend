@@ -1470,10 +1470,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
         continue;
       }
       const formattedLine = document.createElement('span');
-      const prefix = line.substring(0, link.positionLeft);
-      const suffix = `${line.substring(link.positionRight)}${newline}`;
-
-      formattedLine.appendChild(this.linkifyStringAsFragment(prefix));
+      formattedLine.appendChild(this.linkifyStringAsFragment(link.prefix));
       const scriptLocationLink = this.linkifier.linkifyScriptLocation(
           debuggerModel.target(), link.scriptId || null, link.url, link.lineNumber, {
             columnNumber: link.columnNumber,
@@ -1485,21 +1482,21 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       scriptLocationLink.tabIndex = -1;
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: (): void => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
-      formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+      formattedLine.appendChild(this.linkifyStringAsFragment(link.suffix + newline));
       formattedResult.appendChild(formattedLine);
 
       if (!link.enclosedInBraces) {
         continue;
       }
 
-      const prefixWithoutFunction = prefix.substring(0, prefix.lastIndexOf(' ', prefix.length - 3));
+      const prefixWithoutFunction = link.prefix.substring(0, link.prefix.lastIndexOf(' ', link.prefix.length - 3));
 
       // If we were able to parse the function name from the stack trace line, try to replace it with an expansion of
       // any inline frames.
       const selectableChildIndex = this.selectableChildren.length - 1;
       void this
           .expandInlineStackFrames(
-              debuggerModel, prefixWithoutFunction, suffix, link.url, link.lineNumber, link.columnNumber,
+              debuggerModel, prefixWithoutFunction, link.suffix, link.url, link.lineNumber, link.columnNumber,
               formattedResult, formattedLine)
           .then(modified => {
             if (modified) {
