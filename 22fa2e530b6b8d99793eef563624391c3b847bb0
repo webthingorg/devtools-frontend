@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09be8a98_6c25e441",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-07T16:37:25Z",
+      "side": 1,
+      "message": "That\u0027s a very good point, thanks Simon!\n\nEiji is looking into that. Will submit now and update the descriptions later.",
+      "parentUuid": "bd7293a8_1a4aa020",
+      "revId": "22fa2e530b6b8d99793eef563624391c3b847bb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b493e25_5c47a014",
