@@ -16,6 +16,24 @@
       "message": "should we keep width/height too in case the size grows?",
       "revId": "d300d23bc4bc57d0412062297702f04232b41800",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f786b6cc_f1b1643d",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-07T07:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eef54554_dd674197",
+      "revId": "d300d23bc4bc57d0412062297702f04232b41800",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
