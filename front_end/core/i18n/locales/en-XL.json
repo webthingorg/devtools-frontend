@@ -7064,6 +7064,9 @@
   "panels/network/RequestHeadersView.ts | chooseThisOptionIfTheResourceAnd": {
     "message": "Ĉh́ôóŝé t̂h́îś ôṕt̂íôń îf́ t̂h́ê ŕêśôúr̂ćê án̂d́ t̂h́ê d́ôćûḿêńt̂ ár̂é ŝér̂v́êd́ f̂ŕôḿ t̂h́ê śâḿê śît́ê."
   },
+  "panels/network/RequestHeadersView.ts | clickToReveal": {
+    "message": "Ĉĺîćk̂ t́ô ŕêv́êál̂"
+  },
   "panels/network/RequestHeadersView.ts | copyValue": {
     "message": "Ĉóp̂ý v̂ál̂úê"
   },

@@ -198,10 +198,21 @@ const UIStrings = {
    * @example {foo} PH1
    */
   recordedAttribution: 'Recorded attribution with `trigger-data`: {PH1}',
+
+  /**
+   * @description Tooltip for blurred headers.
+   */
+  clickToReveal: 'Click to reveal',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/RequestHeadersView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+const blurredHeaders = new Set([
+  'authorization',
+  'x-authorization',
+  'cookie',
+  'set-cookie',
+]);
 export class RequestHeadersView extends UI.Widget.VBox {
   private request: SDK.NetworkRequest.NetworkRequest;
   private showRequestHeadersText: boolean;
@@ -325,10 +336,18 @@ export class RequestHeadersView extends UI.Widget.VBox {
     fragment.createChild('div', 'header-name').textContent = header.name + colon;
     fragment.createChild('span', 'header-separator');
     if (header.value) {
+      const headerValue = fragment.createChild('div', 'header-value source-code') as HTMLDivElement;
+      headerValue.textContent = header.value.toString();
       if (header.headerValueIncorrect) {
-        fragment.createChild('div', 'header-value source-code header-warning').textContent = header.value.toString();
-      } else {
-        fragment.createChild('div', 'header-value source-code').textContent = header.value.toString();
+        headerValue.classList.add('header-warning');
+      }
+      if (blurredHeaders.has(header.name.toLowerCase())) {
+        headerValue.title = i18nString(UIStrings.clickToReveal);
+        headerValue.classList.add('header-blur');
+        headerValue.addEventListener('click', () => {
+          headerValue.classList.remove('header-blur');
+          headerValue.title = '';
+        });
       }
     }
     if (header.details) {
