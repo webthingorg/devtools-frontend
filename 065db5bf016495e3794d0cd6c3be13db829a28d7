@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9117da90_e0579f45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-07T08:59:29Z",
+      "side": 1,
+      "message": "Code LGTM but I wonder what Peter thinks of the UX",
+      "revId": "065db5bf016495e3794d0cd6c3be13db829a28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67aadeab_909e45af",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-07T08:59:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we set this title only for blurred headers?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 62
+      },
+      "revId": "065db5bf016495e3794d0cd6c3be13db829a28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
