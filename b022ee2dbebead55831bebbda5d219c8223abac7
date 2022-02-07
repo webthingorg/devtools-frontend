@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48170f6f_69d58a00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-07T12:37:52Z",
+      "side": 1,
+      "message": "Hey Jaro,\n\nHere\u0027s a fix to align what\u0027s shown for functions with what\u0027s shown for other types of objects in the popover. Also removes a bit of unnecessary code.\n\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "b022ee2dbebead55831bebbda5d219c8223abac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
