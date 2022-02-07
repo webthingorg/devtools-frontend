@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa4c56f_0c21320d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-07T17:13:06Z",
+      "side": 1,
+      "message": "Benedikt and I had some offline discussions about this change so I\u0027ll also implement a variant where we append the location to the SyntaxError message description itself. The concern is that Error#stack won\u0027t contain this line so it might be confusing for users.\n\nWe are not sure yet what we will pick. I\u0027ll leave the CL open for now.",
+      "revId": "b7cb7474fa86934782d188f83a3aaf53d067bd03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
