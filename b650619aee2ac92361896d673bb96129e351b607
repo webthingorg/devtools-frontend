@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98acbd10_e0293960",
+        "filename": "front_end/panels/network/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1437132
+      },
+      "writtenOn": "2022-02-07T03:13:21Z",
+      "side": 1,
+      "message": "this is quite ad-hoc. is there somewhere better to put this, or maybe even an existing list of this type of sensitive header?",
+      "revId": "b650619aee2ac92361896d673bb96129e351b607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "886a8d4f_740b5fcd",
         "filename": "front_end/panels/network/requestHeadersTree.css",
         "patchSetId": 2
