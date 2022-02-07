@@ -5,7 +5,7 @@
 const {assert} = require('chai');
 const path = require('path');
 
-const {devtoolsPlugin} = require('../devtools_plugin.js');
+const {devtoolsPlugin, esbuildPlugin} = require('../devtools_plugin.js');
 
 describe('devtools_plugin can compute paths with', () => {
   it('same directory import', () => {
@@ -26,5 +26,33 @@ describe('devtools_plugin can compute paths with', () => {
 
   it('importing generated files', () => {
     assert.strictEqual(devtoolsPlugin('../../generated/Protocol.js', 'front_end/core/sdk/FirstFile.js'), null);
+  });
+});
+
+describe('esbuild_plugin can compute paths with', () => {
+  const srcdir = __filename;
+  const outdir = path.join(__filename, 'out');
+  const plugin = esbuildPlugin(outdir);
+  it('same directory import', () => {
+    assert.deepEqual(
+        plugin({path: './AnotherFile.js', importer: path.join(srcdir, 'front_end/core/sdk/FirstFile.js')}),
+        {path: path.join(srcdir, 'front_end', 'core', 'sdk', 'AnotherFile.js')});
+  });
+
+  it('different directory import', () => {
+    assert.deepEqual(
+        plugin({path: '../common/common.js', importer: path.join(srcdir, 'front_end/core/sdk/FirstFile.js')}),
+        {path: './' + path.join('..', 'front_end', 'core', 'common', 'common.js'), external: true});
+  });
+
+  it('node built-in modules', () => {
+    assert.deepEqual(
+        plugin({path: 'fs', importer: path.join(srcdir, 'scripts/some-script.js')}), {path: 'fs', external: true});
+  });
+
+  it('importing generated files', () => {
+    assert.strictEqual(
+        plugin({path: '../../generated/Protocol.js', importer: path.join(srcdir, 'front_end/core/sdk/FirstFile.js')}),
+        null);
   });
 });
