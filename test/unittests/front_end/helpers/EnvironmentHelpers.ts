@@ -18,7 +18,7 @@ import type * as UIModule from '../../../../front_end/ui/legacy/legacy.js';
 // initialization phase.
 let UI: typeof UIModule;
 
-let targetManager: SDK.TargetManager.TargetManager;
+let targetManager: SDK.TargetManager.TargetManager|null;
 
 function initializeTargetManagerIfNecessary() {
   // Create the target manager.
@@ -29,7 +29,7 @@ export function createTarget(
     {id = 'test' as Protocol.Target.TargetID, name = 'test', type = SDK.Target.Type.Frame}:
         {id?: Protocol.Target.TargetID, name?: string, type?: SDK.Target.Type} = {}) {
   initializeTargetManagerIfNecessary();
-  return targetManager.createTarget(id, name, type, null);
+  return targetManager?.createTarget(id, name, type, null);
 }
 
 function createSettingValue(
@@ -150,6 +150,9 @@ export async function initializeGlobalVars({reset = true} = {}) {
         Common.Settings.SettingCategory.APPEARANCE, 'uiTheme', 'systemPreferred', Common.Settings.SettingType.ENUM),
     createSettingValue(
         Common.Settings.SettingCategory.APPEARANCE, 'language', 'en-US', Common.Settings.SettingType.ENUM),
+    createSettingValue(
+        Common.Settings.SettingCategory.PERSISTENCE, 'persistenceNetworkOverridesEnabled', true,
+        Common.Settings.SettingType.BOOLEAN),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
@@ -186,6 +189,7 @@ export async function deinitializeGlobalVars() {
 
   // Remove instances.
   SDK.TargetManager.TargetManager.removeInstance();
+  targetManager = null;
   Root.Runtime.Runtime.removeInstance();
   Common.Settings.Settings.removeInstance();
   Workspace.Workspace.WorkspaceImpl.removeInstance();
