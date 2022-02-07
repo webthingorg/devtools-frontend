@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c797cf63_589dc4a8",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-07T10:57:56Z",
+      "side": 1,
+      "message": "Nit: I think this is equivalent to `__dirname`\n\n(Let\u0027s submit this for now to unblock the roller)",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "36b920402a835f58079a8ba98772349071bf0c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
