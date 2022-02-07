@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed690263_90bfa6e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-07T05:41:01Z",
+      "side": 1,
+      "message": "Interesting idea! I like its simplicity. Could you file a feature request for this first and link it from the CL, please? That\u0027ll make it easier to track potential future work.\n\nI\u0027ll leave the details to Danil for review.\n\nMike, Peter, FYI.",
+      "revId": "acc22e01c07a9b647bb4ad980663d345dc18ad97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
