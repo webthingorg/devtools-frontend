@@ -84,9 +84,11 @@ function devtoolsRootPath() {
     }
   }
   // In Chromium the path to the source code for devtools-frontend is:
-  // third_party/devtools-frontend/src
+  // third_party/devtools-frontend/src, but
+  // third_party/devtools-frontend-internal/devtools-frontend if it's
+  // internal build.
   const {isInChromium} = isInChromiumDirectory();
-  if (isInChromium) {
+  if (isInChromium && !devtoolsRootFolder.includes('devtools-frontend-internal')) {
     return path.join(devtoolsRootFolder, 'src');
   }
 
