@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "886a8d4f_740b5fcd",
+        "filename": "front_end/panels/network/requestHeadersTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1437132
+      },
+      "writtenOn": "2022-02-07T03:12:41Z",
+      "side": 1,
+      "message": "I tried to move this to `ui/legacy/themeColors.css` but vars from that file don\u0027t seem to be included correctly, at least in my local testing. Not sure what to do here.",
+      "revId": "b650619aee2ac92361896d673bb96129e351b607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd58a0b9_848eae43",
+        "filename": "front_end/panels/network/requestHeadersTree.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1437132
+      },
+      "writtenOn": "2022-02-07T03:12:41Z",
+      "side": 1,
+      "message": "using devtools on the devtools suggests this variable is the color of the header values but it also doesn\u0027t seem to be defined. Not sure what I\u0027m doing wrong.",
+      "revId": "b650619aee2ac92361896d673bb96129e351b607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
