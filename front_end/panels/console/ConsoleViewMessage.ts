@@ -56,6 +56,7 @@ import type {Chrome} from '../../../extension-api/ExtensionAPI.js'; // eslint-di
 import {format} from './ConsoleFormat.js';
 import type {ConsoleViewportElement} from './ConsoleViewport.js';
 import consoleViewStyles from './consoleView.css.js';
+import type {ParsedErrorFrame} from './ErrorStackParser.js';
 import {augmentErrorStackWithScriptIds, parseSourcePositionsFromErrorStack} from './ErrorStackParser.js';
 
 const UIStrings = {
@@ -1446,6 +1447,46 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     return true;
   }
 
+  private shouldFormatAsSyntaxError(frames: ParsedErrorFrame[]): boolean {
+    if (frames.length !== 1 || frames[0].link) {
+      return false;
+    }
+    return frames[0].line.startsWith('SyntaxError:') && !frames[0].line.includes('\n');
+  }
+
+  private maybeAddPseudoFrameForSyntaxErrors(
+      debuggerModel: SDK.DebuggerModel.DebuggerModel, frames: ParsedErrorFrame[],
+      exceptionDetails?: Protocol.Runtime.ExceptionDetails): void {
+    if (!this.shouldFormatAsSyntaxError(frames) || !exceptionDetails) {
+      return;
+    }
+
+    const {scriptId, lineNumber, columnNumber} = exceptionDetails;
+    if (!scriptId) {
+      return;
+    }
+
+    // SyntaxErrors might not populate the URL field. Try to resolve it via scriptId.
+    const url = exceptionDetails.url || debuggerModel.scriptForId(scriptId)?.sourceURL;
+    if (!url) {
+      return;
+    }
+
+    const prefix = '    at ';
+    frames.push({
+      line: prefix + url,
+      link: {
+        url,
+        prefix,
+        suffix: '',
+        scriptId,
+        lineNumber,
+        columnNumber,
+        enclosedInBraces: false,
+      },
+    });
+  }
+
   private tryFormatAsError(string: string, exceptionDetails?: Protocol.Runtime.ExceptionDetails): HTMLElement|null {
     const runtimeModel = this.message.runtimeModel();
     if (!runtimeModel) {
@@ -1460,7 +1501,12 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       augmentErrorStackWithScriptIds(linkInfos, exceptionDetails.stackTrace);
     }
 
+    // SyntaxErrors don't have a stack trace, in this case we add a single "pseudo"
+    // stack frame and use the source position from `exceptionDetails` if available.
+    // The check to see if we deal with a SyntaxError is only a heuristic.
     const debuggerModel = runtimeModel.debuggerModel();
+    this.maybeAddPseudoFrameForSyntaxErrors(debuggerModel, linkInfos, exceptionDetails);
+
     const formattedResult = document.createElement('span');
     for (let i = 0; i < linkInfos.length; ++i) {
       const newline = i < linkInfos.length - 1 ? '\n' : '';
