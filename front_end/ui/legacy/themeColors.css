@@ -23,6 +23,7 @@
   --color-background-elevation-0: rgb(248 249 249);
   --color-background-elevation-1: rgb(241 243 244);
   --color-background-elevation-2: rgb(222 225 230);
+  --color-header-blurred: #000000bf;
   /** Used when the elevation is visible only on dark theme */
   --color-background-elevation-dark-only: var(--color-background);
   --color-background-highlight: rgb(218 220 224);
@@ -231,6 +232,7 @@
   --color-syntax-6: rgb(137 137 137);
   --color-syntax-7: rgb(207 208 208);
   --color-syntax-8: rgb(93 176 215);
+  --color-header-blurred: #ffffffbf;
   --drop-shadow:
     0 0 0 1px rgb(255 255 255 / 20%),
     0 2px 4px 2px rgb(0 0 0 / 20%),
