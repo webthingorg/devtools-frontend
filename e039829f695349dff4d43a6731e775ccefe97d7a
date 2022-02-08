@@ -16,6 +16,24 @@
       "message": "We recently added the flag `devtools_skip_typecheck` that is intended for these purposes: https://groups.google.com/a/chromium.org/g/devtools-dev/c/qRMLW5vA6qA Does that flag work for you?",
       "revId": "e039829f695349dff4d43a6731e775ccefe97d7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a93ecb_51c14ff9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1493367
+      },
+      "writtenOn": "2022-02-08T15:00:45Z",
+      "side": 1,
+      "message": "Yes it definitely does, because the latest Chromium builds `devtools` really fast. Also I noted `devtools_fast_bundle` which actually replaces `rollup` step with a faster implementation.\n\nGreat work, you\u0027ve fixed basically everything, thanks! I\u0027m going to close my CL.",
+      "parentUuid": "ab42ebb3_f6c4e198",
+      "revId": "e039829f695349dff4d43a6731e775ccefe97d7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
