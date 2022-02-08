@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9584243_cd00da0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2022-02-08T00:36:17Z",
+      "side": 1,
+      "message": "Please review.\n\nFor details of the visualization change, please see   https://docs.google.com/document/d/1Ek7UH0s_REhtxveWgXWsjiqkEzwCON4Bh9NMT1WC4LY/edit?pli\u003d1#bookmark\u003did.b9zqq0fr7nja",
+      "revId": "39986062610469a3887c69b66ba34da6ae304506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "457635cc_9a1006f2",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2022-02-08T00:36:17Z",
+      "side": 1,
+      "message": "The creation of the dropped frame overlay pattern is similar to \nhttps://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/fec2123b86160ec20e0e32939076436f5e06a11c:front_end/ui/legacy/components/perf_ui/FlameChart.ts;l\u003d284;bpv\u003d1;bpt\u003d0",
+      "range": {
+        "startLine": 1112,
+        "startChar": 9,
+        "endLine": 1112,
+        "endChar": 34
+      },
+      "revId": "39986062610469a3887c69b66ba34da6ae304506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50459ab3_35243123",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2022-02-08T00:36:17Z",
+      "side": 1,
+      "message": "This is a yellow color taken from a CVD optimized color palette (See Figure 2 at https://www.nature.com/articles/nmeth.1618).",
+      "range": {
+        "startLine": 1158,
+        "startChar": 30,
+        "endLine": 1158,
+        "endChar": 36
+      },
+      "revId": "39986062610469a3887c69b66ba34da6ae304506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ee1074_1f6b28b9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2022-02-08T00:36:17Z",
+      "side": 1,
+      "message": "The red color is adjusted from \u0027#f0b7b1\u0027 to \u0027#f08080\u0027 in order to compensate for the perceived \"dilution\" of redness caused by the white overlay.",
+      "range": {
+        "startLine": 1166,
+        "startChar": 30,
+        "endLine": 1166,
+        "endChar": 36
+      },
+      "revId": "39986062610469a3887c69b66ba34da6ae304506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
