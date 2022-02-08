@@ -50,6 +50,24 @@
       "message": "We need to assign #updatePromise",
       "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10365b5_2c30deaf",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-08T09:57:19Z",
+      "side": 1,
+      "message": "Thank you for spotting the botched scheduling!\n\nAs discussed offline, I have by now convinced myself that there is no harm in re-entrant `update`, so I have just completely reverted to the original code without scheduling.",
+      "parentUuid": "a3f6a781_9a1f9a97",
+      "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
