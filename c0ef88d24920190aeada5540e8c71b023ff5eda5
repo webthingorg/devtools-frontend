@@ -68,6 +68,24 @@
       "parentUuid": "a3f6a781_9a1f9a97",
       "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea6f963_9657a0b4",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-08T10:45:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f10365b5_2c30deaf",
+      "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
