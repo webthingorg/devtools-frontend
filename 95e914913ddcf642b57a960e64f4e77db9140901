@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "223de57b_36776aeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-08T03:05:02Z",
+      "side": 1,
+      "message": "OK, I added a few more test cases to cover some more paths. I think those are sufficient for now.",
+      "parentUuid": "1236ada6_e7d0f7a6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "95e914913ddcf642b57a960e64f4e77db9140901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a53bae6_72641230",
         "filename": "scripts/build/tests/plugins_test.js",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-07T10:44:40Z",
       "side": 1,
       "message": "Nit: should this be `__dirname` instead?",
+      "range": {
+        "startLine": 33,
+        "startChar": 17,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "95e914913ddcf642b57a960e64f4e77db9140901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c1ca40f_cb909620",
+        "filename": "scripts/build/tests/plugins_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2022-02-08T03:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a53bae6_72641230",
       "range": {
         "startLine": 33,
         "startChar": 17,
