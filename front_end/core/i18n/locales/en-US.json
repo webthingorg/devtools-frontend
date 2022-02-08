@@ -7067,6 +7067,9 @@
   "panels/network/RequestHeadersView.ts | chooseThisOptionIfTheResourceAnd": {
     "message": "Choose this option if the resource and the document are served from the same site."
   },
+  "panels/network/RequestHeadersView.ts | clickToReveal": {
+    "message": "Click to reveal"
+  },
   "panels/network/RequestHeadersView.ts | copyValue": {
     "message": "Copy value"
   },
