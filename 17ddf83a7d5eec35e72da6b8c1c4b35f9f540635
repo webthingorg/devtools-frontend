@@ -16,6 +16,52 @@
       "message": "Updated. PTAL again.",
       "revId": "17ddf83a7d5eec35e72da6b8c1c4b35f9f540635",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92e3d84_a98a9998",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-08T14:08:04Z",
+      "side": 1,
+      "message": "This converts pattern string into a regexp (twice) at the interception time and also handles optional index.html by manipulating queryUrl, although you already have regexp that could handle optional substring. \n\nThis might be problematic performance-wise as compiling regexp is rather CPU intensive but more importantly it puts complexity into two places: first we do non-trivial processing of the .headers file to set up the interception patterns and then we do another non-trivial processing to identify the match at the interception time. It would be easier to follow the logic (and arguable more performant) to do all the pre-processing while reading .headers file.\n\nYou could have regexp stored in the headers structure in the map already also checking for index.html and the interception logic would be simply testing against this regexp.",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 41
+      },
+      "revId": "17ddf83a7d5eec35e72da6b8c1c4b35f9f540635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93967e0_7c4ad0f8",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-08T14:08:04Z",
+      "side": 1,
+      "message": "We don\u0027t have to put these prefixes in the map key. I think it would be simpler to key map by urlWithoutScheme. You will have less fiddling with slashes then.",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 77
+      },
+      "revId": "17ddf83a7d5eec35e72da6b8c1c4b35f9f540635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

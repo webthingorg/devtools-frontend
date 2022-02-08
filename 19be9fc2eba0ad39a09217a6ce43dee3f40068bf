@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78a8be4d_6c2d9544",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-08T14:08:04Z",
+      "side": 1,
+      "message": "This I can see from the code. What I can\u0027t see is why do we need this. How about something along these lines:\n\nMost servers have a concept of \"directory index\" which is a default resource name for request targeting a \"directory\", e. g. for requesting \"example.com/path/\"  would result in the same response as requesting \"example.com/path/index.html\". To match this behavior we generate addition pattern without \"index.html\" as the longer pattern would not match against a shorter request. (Note that it works in the other directions, i. e. pattern for example.com/path/ does match example.com/path/index.html)",
+      "parentUuid": "2334496b_1a931de3",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 86
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64d12a03_13f123ad",
         "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
         "patchSetId": 8
@@ -196,6 +220,30 @@
       "side": 1,
       "message": "Added a comment.",
       "parentUuid": "00ea74df_3237e051",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 524,
+        "endChar": 25
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ad5e94f_4b9ca859",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-08T14:08:04Z",
+      "side": 1,
+      "message": "That\u0027s a bit too much magic to my taste: Having an explicit check in before the for loop would immediately communicate your intention, and you wouldn\u0027t need this neither this comment nor the function (as it will simply be encodedPathFromUrl(url).split(\u0027/\u0027))",
+      "parentUuid": "61d85f8f_d6f249ac",
       "range": {
         "startLine": 524,
         "startChar": 0,
