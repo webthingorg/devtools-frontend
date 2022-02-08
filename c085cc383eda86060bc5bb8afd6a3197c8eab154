@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc5d0610_35f18331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-08T18:48:59Z",
+      "side": 1,
+      "message": "two questions",
+      "revId": "c085cc383eda86060bc5bb8afd6a3197c8eab154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385b6f1a_8d9875b3",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-08T18:48:59Z",
+      "side": 1,
+      "message": "iirc an earlier revision had a comment explaining why we strip out the sessionId.  could we bring that back?",
+      "revId": "c085cc383eda86060bc5bb8afd6a3197c8eab154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

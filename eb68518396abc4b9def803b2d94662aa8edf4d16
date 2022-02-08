@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b8964a3_013d5475",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-08T18:48:59Z",
+      "side": 1,
+      "message": "What\u0027s the resolution here? I know we\u0027ve faced some oddities when the agents are resumed when we\u0027re disconnecting.\n\nhttps://github.com/GoogleChrome/lighthouse/issues/13273#issuecomment-960001555\nhttps://github.com/GoogleChrome/lighthouse/issues/13396#issuecomment-984291899\n\nThat said, I still barely understand how target/model suspending/resumption works with the parallel connections.",
+      "parentUuid": "4d9beecc_d7bb7fa6",
+      "revId": "eb68518396abc4b9def803b2d94662aa8edf4d16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b51e3639_254d1349",
         "filename": "front_end/entrypoints/lighthouse_worker/PuppeteerConnection.ts",
         "patchSetId": 2
