@@ -33,6 +33,24 @@
       "message": "Note: branch merged don\u0027t have a CQ (use three dots -\u003e Submit) ",
       "revId": "9f86d9231956237e9bbefe04b5b01c1865012ecb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9586334f_046e8ca9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-08T09:30:01Z",
+      "side": 1,
+      "message": "I know that you can\u0027t submit via CQ but I though you could still run the test via CQ. Am I wrong?",
+      "parentUuid": "2ec3fd3a_7862e364",
+      "revId": "9f86d9231956237e9bbefe04b5b01c1865012ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
