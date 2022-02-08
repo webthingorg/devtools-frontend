@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab42ebb3_f6c4e198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-08T14:21:49Z",
+      "side": 1,
+      "message": "We recently added the flag `devtools_skip_typecheck` that is intended for these purposes: https://groups.google.com/a/chromium.org/g/devtools-dev/c/qRMLW5vA6qA Does that flag work for you?",
+      "revId": "e039829f695349dff4d43a6731e775ccefe97d7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
