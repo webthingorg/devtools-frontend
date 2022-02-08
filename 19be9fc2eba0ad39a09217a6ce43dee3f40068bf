@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2334496b_1a931de3",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-08T10:30:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27d311e8_b9d4e16d",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 86
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d12a03_13f123ad",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9cd2e20_40d88c12",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-08T10:30:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d12a03_13f123ad",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 53
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a44bbbca_fcc7d4e0",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-02-07T13:33:31Z",
       "side": 1,
       "message": "Why is this needed?",
+      "range": {
+        "startLine": 522,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 52
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfca46b7_37d4852a",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-08T10:30:47Z",
+      "side": 1,
+      "message": "Thanks, this line is not needed and could actually cause a bug in the case of a directory not being \u0027/\u0027-terminated.",
+      "parentUuid": "a44bbbca_fcc7d4e0",
       "range": {
         "startLine": 522,
         "startChar": 0,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61d85f8f_d6f249ac",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-08T10:30:47Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "00ea74df_3237e051",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 524,
+        "endChar": 25
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7caa0b7b_a69c5b52",
         "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
         "patchSetId": 8
@@ -123,6 +219,30 @@
       "writtenOn": "2022-02-07T13:33:31Z",
       "side": 1,
       "message": "It looks like we reading overrides from the filesystem on every request.\nThis takes extra time, creates extra work and duplicates logic with update patterns logic. Can\u0027t we preprocess overrides while updating patterns and do a quick match check here?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 107
+      },
+      "revId": "19be9fc2eba0ad39a09217a6ce43dee3f40068bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e78a40a_c6181ed3",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-08T10:30:47Z",
+      "side": 1,
+      "message": "Updated so that NetworkPersistenceManager now stores header overrides in a member variable instead.",
+      "parentUuid": "7caa0b7b_a69c5b52",
       "range": {
         "startLine": 536,
         "startChar": 0,
