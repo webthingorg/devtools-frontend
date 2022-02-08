@@ -33,6 +33,24 @@
       "message": "iirc an earlier revision had a comment explaining why we strip out the sessionId.  could we bring that back?",
       "revId": "c085cc383eda86060bc5bb8afd6a3197c8eab154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3077c7ed_2b58958f",
+        "filename": "front_end/services/puppeteer/PuppeteerConnection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-08T19:33:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "385b6f1a_8d9875b3",
+      "revId": "c085cc383eda86060bc5bb8afd6a3197c8eab154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
