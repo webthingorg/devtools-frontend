@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1df500d9_466ffdc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2022-02-08T18:06:19Z",
+      "side": 1,
+      "message": "Turns out the inclusion of certain categories was configurable. It would be good to preserve this ability, unless we want to remove the \u0027screenshots\u0027 and \u0027disable JS sampling\" checkboxes from the performance panel, and turn on the \u0027timeline invalidation tracking\u0027 experiment on by default.",
+      "revId": "b660fa162a276b0eb1f6a1704faa7275a638fd2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
