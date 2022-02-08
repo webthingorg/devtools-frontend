@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "9f86d9231956237e9bbefe04b5b01c1865012ecb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec3fd3a_7862e364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-08T09:24:54Z",
+      "side": 1,
+      "message": "Note: branch merged don\u0027t have a CQ (use three dots -\u003e Submit) ",
+      "revId": "9f86d9231956237e9bbefe04b5b01c1865012ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
