@@ -34,7 +34,7 @@ template("devtools_entrypoint") {
   # In debug mode, the entrypoint is kept as-is. This means we only
   # need to compile with TypeScript, which means it will fetch all
   # of its files as separate network requests.
-  if (is_debug) {
+  if (!devtools_optimize_for_release) {
     _ts_library_target_name = _entrypoint_target_name + "-typescript"
 
     ts_library(_ts_library_target_name) {
