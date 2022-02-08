@@ -16,6 +16,40 @@
       "message": "Could you take a look, please?",
       "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5ff3c6_2ff82396",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-08T06:45:23Z",
+      "side": 1,
+      "message": "LGTM % comment on updatePromise",
+      "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f6a781_9a1f9a97",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-08T06:45:23Z",
+      "side": 1,
+      "message": "We need to assign #updatePromise",
+      "revId": "c0ef88d24920190aeada5540e8c71b023ff5eda5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
