@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7da4bb8_b2d24822",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-08T15:59:38Z",
+      "side": 1,
+      "message": "I\u0027d be surprised if it didn\u0027t accept `return null;`. WDYT?",
+      "range": {
+        "startLine": 392,
+        "startChar": 11,
+        "endLine": 392,
+        "endChar": 35
+      },
+      "revId": "2abd9a6326af109f19d92ac4843c88ff33afc2b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
