@@ -403,6 +403,8 @@ export class TextEditorAutocompleteController implements UI.SuggestBox.SuggestBo
       return false;
     }
     switch (event.keyCode) {
+      case UI.KeyboardShortcut.Keys.Enter.code:
+        return false;
       case UI.KeyboardShortcut.Keys.Tab.code:
         this.suggestBox.acceptSuggestion();
         this.clearAutocomplete();
