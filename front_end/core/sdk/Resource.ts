@@ -42,7 +42,7 @@ import type {ResourceTreeFrame, ResourceTreeModel} from './ResourceTreeModel.js'
 export class Resource implements TextUtils.ContentProvider.ContentProvider {
   readonly #resourceTreeModel: ResourceTreeModel;
   #requestInternal: NetworkRequest|null;
-  #urlInternal!: string;
+  #urlInternal!: Platform.DevToolsPath.UrlString;
   readonly #documentURLInternal: string;
   readonly #frameIdInternal: Protocol.Page.FrameId|null;
   readonly #loaderIdInternal: Protocol.Network.LoaderId|null;
@@ -106,7 +106,8 @@ export class Resource implements TextUtils.ContentProvider.ContentProvider {
   }
 
   set url(x: string) {
-    this.#urlInternal = x;
+    // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
+    this.#urlInternal = x as Platform.DevToolsPath.UrlString;
     this.#parsedURLInternal = new Common.ParsedURL.ParsedURL(x);
   }
 
@@ -150,9 +151,8 @@ export class Resource implements TextUtils.ContentProvider.ContentProvider {
     this.#isGeneratedInternal = val;
   }
 
-  // TODO(crbug.com/1253323): Cast to RawPathString will be removed when migration to branded types is complete.
-  contentURL(): string {
-    return this.#urlInternal;
+  contentURL(): Platform.DevToolsPath.UrlString {
+    return this.#urlInternal as Platform.DevToolsPath.UrlString;
   }
 
   contentType(): Common.ResourceType.ResourceType {
