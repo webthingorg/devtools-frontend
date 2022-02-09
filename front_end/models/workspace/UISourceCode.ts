@@ -119,8 +119,8 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     return this.projectInternal.mimeType(this);
   }
 
-  url(): string {
-    return this.urlInternal;
+  url(): Platform.DevToolsPath.UrlString {
+    return this.urlInternal as Platform.DevToolsPath.UrlString;
   }
 
   parentURL(): string {
