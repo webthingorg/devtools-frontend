@@ -33,6 +33,24 @@
       "message": "I made no edits to this file, the presubmit keeps doing this. I don\u0027t know why, same for the other file. How can I make it stop?",
       "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e7bc05_d74dab57",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-09T13:29:46Z",
+      "side": 1,
+      "message": "These files should only change when you update the `UIStrings` const. Maybe something is wrong in your local checkout? Does this also happen to you when you create a no-op CL?",
+      "parentUuid": "3cac9a3f_4b925b8e",
+      "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
