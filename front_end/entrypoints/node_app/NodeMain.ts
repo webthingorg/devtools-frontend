@@ -102,7 +102,7 @@ export class NodeChildTargetManager extends SDK.SDKModel.SDKModel<void> implemen
   }
 
   attachedToTarget({sessionId, targetInfo}: Protocol.Target.AttachedToTargetEvent): void {
-    const name = i18nString(UIStrings.nodejsS, {PH1: targetInfo.url});
+    const name = decodeURIComponent(i18nString(UIStrings.nodejsS, {PH1: targetInfo.url}));
     const connection = new NodeConnection(this.#targetAgent, sessionId);
     this.#childConnections.set(sessionId, connection);
     const target = this.#targetManager.createTarget(
