@@ -39,6 +39,30 @@
       },
       "revId": "26ef5ff165c3106d1bd79f6bc134f4fa975266f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9076ad26_34d52b78",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-09T14:56:05Z",
+      "side": 1,
+      "message": "As discussed, we should not change type of fullPath as it comes from index.d.ts and the cast here is necessary.",
+      "parentUuid": "497cdc2b_ee03b875",
+      "range": {
+        "startLine": 175,
+        "startChar": 18,
+        "endLine": 175,
+        "endChar": 71
+      },
+      "revId": "26ef5ff165c3106d1bd79f6bc134f4fa975266f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
