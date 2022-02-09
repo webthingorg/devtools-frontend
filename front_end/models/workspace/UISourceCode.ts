@@ -56,7 +56,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
   private projectInternal: Project;
   private urlInternal: string;
   private readonly originInternal: string;
-  private readonly parentURLInternal: string;
+  private readonly parentURLInternal: Platform.DevToolsPath.UrlString;
   private nameInternal: string;
   private contentTypeInternal: Common.ResourceType.ResourceType;
   private requestContentPromise: Promise<TextUtils.ContentProvider.DeferredContent>|null;
@@ -81,7 +81,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     const parsedURL = Common.ParsedURL.ParsedURL.fromString(url);
     if (parsedURL) {
       this.originInternal = parsedURL.securityOrigin();
-      this.parentURLInternal = this.originInternal + parsedURL.folderPathComponents;
+      this.parentURLInternal = this.originInternal + parsedURL.folderPathComponents as Platform.DevToolsPath.UrlString;
       if (parsedURL.queryParams) {
         this.nameInternal = parsedURL.lastPathComponent + '?' + parsedURL.queryParams;
       } else {
@@ -89,7 +89,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
       }
     } else {
       this.originInternal = '';
-      this.parentURLInternal = '';
+      this.parentURLInternal = '' as Platform.DevToolsPath.UrlString;
       this.nameInternal = url;
     }
 
@@ -123,7 +123,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     return this.urlInternal as Platform.DevToolsPath.UrlString;
   }
 
-  parentURL(): string {
+  parentURL(): Platform.DevToolsPath.UrlString {
     return this.parentURLInternal;
   }
 
