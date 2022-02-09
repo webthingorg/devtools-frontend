@@ -370,6 +370,21 @@ export class BackForwardCacheView extends HTMLElement {
     // clang-format on
   }
 
+  #renderReasonData(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
+    if (explanation.reason ==
+        Protocol.Page.BackForwardCacheNotRestoredReason.EmbedderExtensionSentMessageToCachedFrame) {
+      // clang-format off
+      // DO NOT SUBMIT how do I link to an extension?
+    return LitHtml.html`
+      id=<x-link href="chrome://extensions/?id=${explanation.data}" class="link">
+${explanation.data}
+</a>`;
+      // clang-format on
+    } else {
+      return LitHtml.html``
+    }
+  }
+
   #renderReason(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
     // clang-format off
     return LitHtml.html`
@@ -385,7 +400,8 @@ export class BackForwardCacheView extends HTMLElement {
               } as IconButton.Icon.IconData}>
               </${IconButton.Icon.Icon.litTagName}>
             </div>
-            ${NotRestoredReasonDescription[explanation.reason].name()}` :
+    ${NotRestoredReasonDescription[explanation.reason].name()}
+    ${this.#renderReasonData(explanation)}` :
             LitHtml.nothing}
       </${ReportView.ReportView.ReportSection.litTagName}>
       <div class='gray-text'>
