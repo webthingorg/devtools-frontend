@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f5918b9_88eea4fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-09T15:00:27Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "revId": "5eb6ab862e4b21b087d2f7858a18e299a7f55a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1778ceb_52cedc59",
+        "filename": "test/e2e/sources/live-edit-moving-breakpoint_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-09T15:00:27Z",
+      "side": 1,
+      "message": ":-)",
+      "range": {
+        "startLine": 24,
+        "startChar": 70,
+        "endLine": 24,
+        "endChar": 76
+      },
+      "revId": "5eb6ab862e4b21b087d2f7858a18e299a7f55a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad1471d_3551b7c6",
+        "filename": "test/e2e/sources/live-edit-moving-breakpoint_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-09T15:00:27Z",
+      "side": 1,
+      "message": "How about just pressing the \u0027End\u0027 key instead of clicking beyond bounding box? (you are risking clicking beyond the right end of the source window if unlucky).\n\nOr perhaps the key sequence Ctrl+F, \u0027// Insertion marker for newline.\u0027, Esc, End?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 80
+      },
+      "revId": "5eb6ab862e4b21b087d2f7858a18e299a7f55a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
