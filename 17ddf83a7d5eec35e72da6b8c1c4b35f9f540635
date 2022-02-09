@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6f89f76_7fdd915e",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-09T15:49:40Z",
+      "side": 1,
+      "message": "Thanks! Refactored accordingly, so that now the regexes are pre-generated during the setup phase and only matching happens during interception.\n\nIn the index.html/index.htm/index.php case the Regex covers both a request for \u0027www.example.com/index.html\u0027 and \u0027www.example.com/\u0027. I am aware of one missing edge case where a request for \u0027www.example.com/?foo\u003dbar\u0027 will not be matched if the pattern is \u0027www.example.com/index.html?foo\u003dbar\u0027. I want to fix this in a follow-up CL.",
+      "parentUuid": "a92e3d84_a98a9998",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 41
+      },
+      "revId": "17ddf83a7d5eec35e72da6b8c1c4b35f9f540635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d93967e0_7c4ad0f8",
         "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
         "patchSetId": 10
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-08T14:08:04Z",
       "side": 1,
       "message": "We don\u0027t have to put these prefixes in the map key. I think it would be simpler to key map by urlWithoutScheme. You will have less fiddling with slashes then.",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 77
+      },
+      "revId": "17ddf83a7d5eec35e72da6b8c1c4b35f9f540635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5464713_27459b10",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-09T15:49:40Z",
+      "side": 1,
+      "message": "After the refactor I feel that this has been simplified. Those prefixes are still added when setting up the interception, but are not needed during the matching anymore.",
+      "parentUuid": "d93967e0_7c4ad0f8",
       "range": {
         "startLine": 554,
         "startChar": 0,
