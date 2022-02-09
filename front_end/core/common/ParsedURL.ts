@@ -162,6 +162,18 @@ export class ParsedURL {
     return new URL('/' + partiallyEncoded, 'file:///').pathname.substr(1) as Platform.DevToolsPath.EncodedPathString;
   }
 
+  // name must be unencoded
+  static encodedFromParentPathAndName(parentPath: Platform.DevToolsPath.EncodedPathString, name: string):
+      Platform.DevToolsPath.EncodedPathString {
+    return parentPath + '/' + encodeURIComponent(name) as Platform.DevToolsPath.EncodedPathString;
+  }
+
+  // name must be unencoded
+  static urlFromParentUrlAndName(parentUrl: Platform.DevToolsPath.UrlString, name: string):
+      Platform.DevToolsPath.UrlString {
+    return parentUrl + '/' + encodeURIComponent(name) as Platform.DevToolsPath.UrlString;
+  }
+
   static encodedPathToRawPathString(encPath: Platform.DevToolsPath.EncodedPathString):
       Platform.DevToolsPath.RawPathString {
     return decodeURIComponent(encPath) as Platform.DevToolsPath.RawPathString;
@@ -196,6 +208,12 @@ export class ParsedURL {
       return decodedFileURL.substr('file:///'.length).replace(/\//g, '\\') as Platform.DevToolsPath.RawPathString;
     }
     return decodedFileURL.substr('file://'.length) as Platform.DevToolsPath.RawPathString;
+  }
+
+  static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                         Platform.DevToolsPath.EncodedPathString>(
+      devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
+    return devToolsPath.substr(from, length) as typeof devToolsPath;
   }
 
   static urlWithoutHash(url: string): string {
