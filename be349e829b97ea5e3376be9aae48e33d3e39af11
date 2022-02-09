@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8639afa_9dd5fc26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2022-02-09T13:13:46Z",
+      "side": 1,
+      "message": "This CL has more questions than answers...",
+      "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cac9a3f_4b925b8e",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2022-02-09T13:13:46Z",
+      "side": 1,
+      "message": "I made no edits to this file, the presubmit keeps doing this. I don\u0027t know why, same for the other file. How can I make it stop?",
+      "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
