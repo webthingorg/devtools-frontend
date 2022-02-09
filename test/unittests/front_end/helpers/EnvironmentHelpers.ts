@@ -29,7 +29,7 @@ export function createTarget(
     {id = 'test' as Protocol.Target.TargetID, name = 'test', type = SDK.Target.Type.Frame}:
         {id?: Protocol.Target.TargetID, name?: string, type?: SDK.Target.Type} = {}) {
   initializeTargetManagerIfNecessary();
-  return targetManager.createTarget(id, name, type, null);
+  return targetManager.createTarget(id, decodeURIComponent(name), type, null);
 }
 
 function createSettingValue(
