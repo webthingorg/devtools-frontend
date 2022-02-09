@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -31,6 +32,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   private activeInternal: boolean;
   private enabled: boolean;
   private eventDescriptors: Common.EventTarget.EventDescriptor[];
+  #headerOverridesMap: Map<string, HeaderOverrideWithRegex[]> = new Map();
 
   private constructor(workspace: Workspace.Workspace.WorkspaceImpl) {
     super();
@@ -316,10 +318,10 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
 
   private patternForFileSystemUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
     const relativePathParts = FileSystemWorkspaceBinding.relativePath(uiSourceCode);
-    if (relativePathParts.length < 2) {
+    if (relativePathParts.length < 2 && uiSourceCode.name() !== HEADERS_FILENAME) {
       return '';
     }
-    if (relativePathParts[1] === 'longurls' && relativePathParts.length !== 2) {
+    if (relativePathParts.length > 2 && relativePathParts[1] === 'longurls') {
       return 'http?://' + relativePathParts[0] + '/*';
     }
     return 'http?://' + this.decodeLocalPathToUrlPath(relativePathParts.join('/'));
@@ -363,29 +365,92 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
-  private updateInterceptionPatterns(): void {
-    void this.updateInterceptionThrottler.schedule(innerUpdateInterceptionPatterns.bind(this));
-
-    function innerUpdateInterceptionPatterns(this: NetworkPersistenceManager): Promise<void> {
-      if (!this.activeInternal || !this.projectInternal) {
-        return SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns(
-            [], this.interceptionHandlerBound);
+  async generateHeaderPatterns(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<Set<string>> {
+    const result = new Set<string>();
+    const content = (await uiSourceCode.requestContent()).content || '';
+    let headerOverrides: HeaderOverride[] = [];
+    try {
+      headerOverrides = JSON.parse(content) as HeaderOverride[];
+      if (!headerOverrides.every(isHeaderOverride)) {
+        throw 'Type mismatch after parsing';
       }
-      const patterns = new Set<string>();
-      const indexFileName = 'index.html';
-      for (const uiSourceCode of this.projectInternal.uiSourceCodes()) {
-        const pattern = this.patternForFileSystemUISourceCode(uiSourceCode);
-        patterns.add(pattern);
-        if (pattern.endsWith('/' + indexFileName)) {
-          patterns.add(pattern.substr(0, pattern.length - indexFileName.length));
-        }
-      }
-
-      return SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns(
-          Array.from(patterns).map(
-              pattern => ({urlPattern: pattern, requestStage: Protocol.Fetch.RequestStage.Response})),
-          this.interceptionHandlerBound);
+    } catch (e) {
+      console.error('Failed to parse', uiSourceCode.url(), 'for locally overriding headers.');
+      return result;
     }
+    const relativePath = FileSystemWorkspaceBinding.relativePath(uiSourceCode).join('/');
+    const decodedPath = this.decodeLocalPathToUrlPath(relativePath).slice(0, -HEADERS_FILENAME.length);
+
+    const overridesWithRegex: HeaderOverrideWithRegex[] = [];
+    for (const headerOverride of headerOverrides) {
+      result.add('http?://' + decodedPath + headerOverride.applyTo);
+
+      // For patterns which match a folder's default index page, we
+      // add an additional pattern which matches just the folder,
+      // e.g. 'www.example.com/*.html' -> 'www.example.com/'.
+      if (indexMatchesTail(headerOverride.applyTo)) {
+        const tail = getTail(headerOverride.applyTo);
+        const head = headerOverride.applyTo.slice(0, headerOverride.applyTo.length - tail.length);
+        result.add('http?://' + decodedPath + head);
+
+        const pattern = escapeRegex(decodedPath + head) + '(' + escapeRegex(tail) + ')?';
+        const regex = new RegExp('^https?:\/\/' + pattern + '$');
+        overridesWithRegex.push({
+          applyToRegex: regex,
+          headers: headerOverride.headers,
+        });
+      } else {
+        const regex = new RegExp('^https?:\/\/' + escapeRegex(decodedPath + headerOverride.applyTo) + '$');
+        overridesWithRegex.push({
+          applyToRegex: regex,
+          headers: headerOverride.headers,
+        });
+      }
+    }
+    this.#headerOverridesMap.set(decodedPath, overridesWithRegex);
+    return result;
+  }
+
+  getOverridesForTests(): Map<string, HeaderOverrideWithRegex[]> {
+    return this.#headerOverridesMap;
+  }
+
+  async updateInterceptionPatternsForTests(): Promise<void> {
+    await this.#innerUpdateInterceptionPatterns();
+  }
+
+  private updateInterceptionPatterns(): void {
+    void this.updateInterceptionThrottler.schedule(this.#innerUpdateInterceptionPatterns.bind(this));
+  }
+
+  async #innerUpdateInterceptionPatterns(): Promise<void> {
+    this.#headerOverridesMap.clear();
+    if (!this.activeInternal || !this.projectInternal) {
+      return SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns(
+          [], this.interceptionHandlerBound);
+    }
+    let patterns = new Set<string>();
+    for (const uiSourceCode of this.projectInternal.uiSourceCodes()) {
+      const pattern = this.patternForFileSystemUISourceCode(uiSourceCode);
+      if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) &&
+          uiSourceCode.name() === HEADERS_FILENAME) {
+        const headerPatterns = await this.generateHeaderPatterns(uiSourceCode);
+        patterns = new Set([...patterns, ...headerPatterns]);
+      } else {
+        patterns.add(pattern);
+      }
+      // For patterns which match a folder's default index page, we
+      // add an additional pattern which matches just the folder,
+      // e.g. 'www.example.com/index.html' -> 'www.example.com/'.
+      if (indexMatchesTail(pattern)) {
+        patterns.add(pattern.slice(0, pattern.length - getTail(pattern).length));
+      }
+    }
+
+    return SDK.NetworkManager.MultitargetNetworkManager.instance().setInterceptionHandlerForPatterns(
+        Array.from(patterns).map(
+            pattern => ({urlPattern: pattern, requestStage: Protocol.Fetch.RequestStage.Response})),
+        this.interceptionHandlerBound);
   }
 
   private async onUISourceCodeRemoved(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -409,7 +474,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     await this.unbind(uiSourceCode);
   }
 
-  private async setProject(project: Workspace.Workspace.Project|null): Promise<void> {
+  async setProject(project: Workspace.Workspace.Project|null): Promise<void> {
     if (project === this.projectInternal) {
       return;
     }
@@ -452,6 +517,49 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
   }
 
+  mergeHeaders(baseHeaders: Protocol.Fetch.HeaderEntry[], overrideHeaders: Protocol.Network.Headers):
+      Protocol.Fetch.HeaderEntry[] {
+    const result: Protocol.Fetch.HeaderEntry[] = [];
+    const headerMap = new Map<string, string>();
+    for (const header of baseHeaders) {
+      headerMap.set(header.name, header.value);
+    }
+    for (const [headerName, headerValue] of Object.entries(overrideHeaders)) {
+      headerMap.set(headerName, headerValue);
+    }
+    headerMap.forEach((headerValue, headerName) => {
+      result.push({name: headerName, value: headerValue});
+    });
+    return result;
+  }
+
+  #handleHeaderInterceptionHelper(path: string, requestUrl: string, headers: Protocol.Fetch.HeaderEntry[]):
+      Protocol.Fetch.HeaderEntry[] {
+    const headerOverrides = this.#headerOverridesMap.get(path);
+    if (headerOverrides) {
+      for (const headerOverride of headerOverrides) {
+        if (headerOverride.applyToRegex.test(requestUrl)) {
+          headers = this.mergeHeaders(headers, headerOverride.headers);
+        }
+      }
+    }
+    return headers;
+  }
+
+  handleHeaderInterception(interceptedRequest: SDK.NetworkManager.InterceptedRequest): Protocol.Fetch.HeaderEntry[] {
+    let result: Protocol.Fetch.HeaderEntry[] = interceptedRequest.responseHeaders || [];
+    const urlSegments = this.encodedPathFromUrl(interceptedRequest.request.url).split('/');
+    // Traverse the hierarchy of overrides from the most general to the most specific.
+    // e.g. '', 'www.example.com/', 'www.example.com/path/', ...
+    let path = '';
+    result = this.#handleHeaderInterceptionHelper(path, interceptedRequest.request.url, result);
+    for (const segment of urlSegments) {
+      path += segment + '/';
+      result = this.#handleHeaderInterceptionHelper(path, interceptedRequest.request.url, result);
+    }
+    return result;
+  }
+
   private async interceptionHandler(interceptedRequest: SDK.NetworkManager.InterceptedRequest): Promise<void> {
     const method = interceptedRequest.request.method;
     if (!this.activeInternal || (method !== 'GET' && method !== 'POST')) {
@@ -460,8 +568,15 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     const proj = this.projectInternal as FileSystem;
     const path = proj.fileSystemPath() + '/' + this.encodedPathFromUrl(interceptedRequest.request.url);
     const fileSystemUISourceCode = proj.uiSourceCodeForURL(path);
-    if (!fileSystemUISourceCode) {
+    let responseHeaders: Protocol.Fetch.HeaderEntry[] = [];
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES)) {
+      responseHeaders = this.handleHeaderInterception(interceptedRequest);
+    }
+    if (!fileSystemUISourceCode && !responseHeaders.length) {
       return;
+    }
+    if (!responseHeaders.length) {
+      responseHeaders = interceptedRequest.responseHeaders || [];
     }
 
     let mimeType = '';
@@ -477,32 +592,41 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (!mimeType) {
       const expectedResourceType =
           Common.ResourceType.resourceTypes[interceptedRequest.resourceType] || Common.ResourceType.resourceTypes.Other;
-      mimeType = fileSystemUISourceCode.mimeType();
+      mimeType = fileSystemUISourceCode?.mimeType() || '';
       if (Common.ResourceType.ResourceType.fromMimeType(mimeType) !== expectedResourceType) {
         mimeType = expectedResourceType.canonicalMimeType();
       }
     }
-    const project = fileSystemUISourceCode.project() as FileSystem;
 
-    this.originalResponseContentPromises.set(
-        fileSystemUISourceCode, interceptedRequest.responseBody().then(response => {
-          if (response.error || response.content === null) {
-            return null;
-          }
-          if (response.encoded) {
-            const text = atob(response.content);
-            const data = new Uint8Array(text.length);
-            for (let i = 0; i < text.length; ++i) {
-              data[i] = text.charCodeAt(i);
+    if (fileSystemUISourceCode) {
+      this.originalResponseContentPromises.set(
+          fileSystemUISourceCode, interceptedRequest.responseBody().then(response => {
+            if (response.error || response.content === null) {
+              return null;
             }
-            return new TextDecoder('utf-8').decode(data);
-          }
-          return response.content;
-        }));
+            if (response.encoded) {
+              const text = atob(response.content);
+              const data = new Uint8Array(text.length);
+              for (let i = 0; i < text.length; ++i) {
+                data[i] = text.charCodeAt(i);
+              }
+              return new TextDecoder('utf-8').decode(data);
+            }
+            return response.content;
+          }));
 
-    const blob = await project.requestFileBlob(fileSystemUISourceCode);
-    if (blob) {
-      void interceptedRequest.continueRequestWithContent(new Blob([blob], {type: mimeType}));
+      const project = fileSystemUISourceCode.project() as FileSystem;
+      const blob = await project.requestFileBlob(fileSystemUISourceCode);
+      if (blob) {
+        void interceptedRequest.continueRequestWithContent(
+            new Blob([blob], {type: mimeType}), /* encoded */ false, responseHeaders);
+      }
+    } else {
+      const responseBody = await interceptedRequest.responseBody();
+      if (!responseBody.error && responseBody.content) {
+        void interceptedRequest.continueRequestWithContent(
+            new Blob([responseBody.content], {type: mimeType}), /* encoded */ true, responseHeaders);
+      }
     }
   }
 }
@@ -511,6 +635,8 @@ const RESERVED_FILENAMES = new Set<string>([
   'con',  'prn',  'aux',  'nul',  'com1', 'com2', 'com3', 'com4', 'com5', 'com6', 'com7',
   'com8', 'com9', 'lpt1', 'lpt2', 'lpt3', 'lpt4', 'lpt5', 'lpt6', 'lpt7', 'lpt8', 'lpt9',
 ]);
+
+const HEADERS_FILENAME = '.headers';
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
@@ -521,3 +647,38 @@ export enum Events {
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
 };
+
+interface HeaderOverride {
+  applyTo: string;
+  headers: Protocol.Network.Headers;
+}
+
+interface HeaderOverrideWithRegex {
+  applyToRegex: RegExp;
+  headers: Protocol.Network.Headers;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isHeaderOverride(arg: any): arg is HeaderOverride {
+  if (!(arg && arg.applyTo && typeof (arg.applyTo === 'string') && arg.headers && Object.keys(arg.headers).length)) {
+    return false;
+  }
+  return Object.values(arg.headers).every(value => typeof value === 'string');
+}
+
+function getTail(pattern: string): string {
+  const index = pattern.lastIndexOf('/');
+  if (index === -1) {
+    return pattern;
+  }
+  return pattern.slice(index + 1);
+}
+
+export function escapeRegex(pattern: string): string {
+  return Platform.StringUtilities.escapeCharacters(pattern, '[]{}()\\.^$+|-,?').replaceAll('*', '.*');
+}
+
+export function indexMatchesTail(pattern: string): boolean {
+  const regex = new RegExp('^' + escapeRegex(getTail(pattern)) + '$');
+  return regex.test('index.html') || regex.test('index.htm') || regex.test('index.php');
+}
