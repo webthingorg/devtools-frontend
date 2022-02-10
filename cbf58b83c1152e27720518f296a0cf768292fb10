@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a774ed0a_cb6f2240",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T08:47:23Z",
+      "side": 1,
+      "message": "Please keep CL summaries at 80 characters followed by an empty line :)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 73
+      },
+      "revId": "cbf58b83c1152e27720518f296a0cf768292fb10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "52b2339d_6b2a8ab6",
@@ -14,6 +37,46 @@
       "writtenOn": "2022-02-09T15:28:40Z",
       "side": 1,
       "message": "Simon, please review NodeMain.ts:)",
+      "revId": "cbf58b83c1152e27720518f296a0cf768292fb10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f0bb62_1504d131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T08:47:23Z",
+      "side": 1,
+      "message": "Please provide some additional details in the CL description. Especially why we are using a function called \"decodeUriComponent\" on names and titles.",
+      "revId": "cbf58b83c1152e27720518f296a0cf768292fb10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c3b221_7a1804ad",
+        "filename": "front_end/entrypoints/node_app/NodeMain.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T08:47:23Z",
+      "side": 1,
+      "message": "Are we using the \"name\" as a path somewhere? We are decoding a translated string here, so this could really be anything. Is that intended to also decode the translated part? Or should we only decode `targetInfo.url` before we are handing it off for i18n?",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 35
+      },
       "revId": "cbf58b83c1152e27720518f296a0cf768292fb10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
