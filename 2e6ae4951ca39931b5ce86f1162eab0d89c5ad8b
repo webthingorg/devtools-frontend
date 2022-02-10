@@ -50,6 +50,41 @@
       "message": "Adiran, do you have an opinion here. Do you know who might have one?",
       "revId": "2e6ae4951ca39931b5ce86f1162eab0d89c5ad8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c239ee07_2224bd2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308732
+      },
+      "writtenOn": "2022-02-10T04:54:59Z",
+      "side": 1,
+      "message": "I replied on the bug, but I\u0027d say that this is harmless, but unlikely to be anything more than momentarily effective.",
+      "parentUuid": "9f2619e0_bd91b3aa",
+      "revId": "2e6ae4951ca39931b5ce86f1162eab0d89c5ad8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1abd1c64_fcc4cd55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308732
+      },
+      "writtenOn": "2022-02-10T04:54:59Z",
+      "side": 1,
+      "message": "(Removing myself as reviewer since I don\u0027t consider this much of a security mitigation, so don\u0027t really think it makes sense to give a sign-off either way for this CL.)",
+      "revId": "2e6ae4951ca39931b5ce86f1162eab0d89c5ad8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
