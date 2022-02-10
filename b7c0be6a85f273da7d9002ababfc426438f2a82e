@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce57b474_76ce5439",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T15:23:33Z",
+      "side": 1,
+      "message": "FYI Danil: Sorry for the late CC, but when I tried earlier I had a weird LOCK error in gerrit.",
+      "revId": "b7c0be6a85f273da7d9002ababfc426438f2a82e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
