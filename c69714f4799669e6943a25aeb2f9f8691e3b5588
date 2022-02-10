@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f789f39_7a4ffe73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-02-10T10:49:52Z",
+      "side": 1,
+      "message": "Liviu, could you rebase and land this? Similar CLs have landed in other projects already and everything seems to keep working...",
+      "revId": "c69714f4799669e6943a25aeb2f9f8691e3b5588",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
