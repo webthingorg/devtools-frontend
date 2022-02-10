@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76073d09_027aad35",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T13:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1562f2e0_48da17b3",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 66
+      },
+      "revId": "5b4bbf5020a95d818968ae8056f87ba73f9072c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc3048b_cd795f0b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-10T09:45:40Z",
       "side": 1,
       "message": "I think Helper is a very unhelpful name. What does this function do? What belongs to it vs belongs elsewhere?\n\nHow about something like maybeMergeHeadersForPathSegment?",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 107
+      },
+      "revId": "5b4bbf5020a95d818968ae8056f87ba73f9072c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4346637d_30c09332",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T13:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc3048b_cd795f0b",
       "range": {
         "startLine": 542,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d00f8a4_1f7d5256",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T13:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94183de5_3a21fd15",
+      "range": {
+        "startLine": 544,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 63
+      },
+      "revId": "5b4bbf5020a95d818968ae8056f87ba73f9072c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae9f69b9_5c3b64cd",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-10T09:45:40Z",
       "side": 1,
       "message": "You could save some repetition by returning header and tail here, i.e.:\nAt both call sites you first check for a match and then remove the index. \nHow about having a function like\n\nextractDirectoryIndex(pattern) {\n  const lastSlash \u003d pattern.lastIndexOf(\u0027/\u0027);\n  const tail \u003d pattern.slice(lastSlash);\n  const regex \u003d new RegExp(\u0027^\u0027 + escapeRegex(tail) + \u0027$\u0027);\n  if (regex.test(\u0027index.html\u0027) || ...) {\n    return {head: pattern.substring(0, lastSlash), tail};\n  }\n  return {head: pattern};\n}",
+      "range": {
+        "startLine": 689,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 60
+      },
+      "revId": "5b4bbf5020a95d818968ae8056f87ba73f9072c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae91b22a_4af6c892",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T13:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae9f69b9_5c3b64cd",
       "range": {
         "startLine": 689,
         "startChar": 0,
