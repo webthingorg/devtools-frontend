@@ -16,6 +16,29 @@
       "message": "PTAL\nThanks!",
       "revId": "778fbb52248e63452354e6ce7e70b6789b732b56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a63df9a5_64d4bedc",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2022-02-10T10:32:37Z",
+      "side": 1,
+      "message": "I\u0027d just add both. Can be that e.g. the blink unittests require the other service account.",
+      "range": {
+        "startLine": 76,
+        "startChar": 16,
+        "endLine": 76,
+        "endChar": 77
+      },
+      "revId": "778fbb52248e63452354e6ce7e70b6789b732b56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
