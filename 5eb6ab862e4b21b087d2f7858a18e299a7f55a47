@@ -62,6 +62,30 @@
       },
       "revId": "5eb6ab862e4b21b087d2f7858a18e299a7f55a47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d2df23_cf61086a",
+        "filename": "test/e2e/sources/live-edit-moving-breakpoint_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T08:42:12Z",
+      "side": 1,
+      "message": "Done in https://crrev.com/c/3447415",
+      "parentUuid": "4ad1471d_3551b7c6",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 80
+      },
+      "revId": "5eb6ab862e4b21b087d2f7858a18e299a7f55a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
