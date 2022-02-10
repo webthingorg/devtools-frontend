@@ -122,8 +122,8 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     return this.projectInternal.mimeType(this);
   }
 
-  url(): string {
-    return this.urlInternal;
+  url(): Platform.DevToolsPath.UrlString {
+    return this.urlInternal as Platform.DevToolsPath.UrlString;
   }
 
   parentURL(): string {
@@ -178,8 +178,8 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     if (url) {
       this.urlInternal = url;
     } else {
-      this.urlInternal = Common.ParsedURL.ParsedURL.relativePathToUrlString(
-          name as Platform.DevToolsPath.RawPathString, oldURL as Platform.DevToolsPath.UrlString);
+      this.urlInternal =
+          Common.ParsedURL.ParsedURL.relativePathToUrlString(name as Platform.DevToolsPath.RawPathString, oldURL as Platform.DevToolsPath.UrlString);
     }
     if (contentType) {
       this.contentTypeInternal = contentType;

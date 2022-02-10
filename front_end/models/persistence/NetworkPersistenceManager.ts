@@ -249,8 +249,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   private fileUrlFromNetworkUrl(url: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.UrlString {
-    return (this.projectInternal as FileSystem).fileSystemPath() + '/' + this.encodedPathFromUrl(url) as
-        Platform.DevToolsPath.UrlString;
+    return (this.projectInternal as FileSystem).fileSystemPath() + '/' + this.encodedPathFromUrl(url) as Platform.DevToolsPath.UrlString;
   }
 
   private decodeLocalPathToUrlPath(path: string): string {
