@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da953e62_976bb62e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T06:47:45Z",
+      "side": 1,
+      "message": "I admit that I\u0027m having a hard time reviewing this CL. Besides some castings there are a large amount of functional changes and I can\u0027t tell from the CL how they are related or why they are there. Ideally we would split this CL up into smaller parts for easier review but that might not really be possible.\n\nI can rubberstamp if Eric feels comfortable/confident that this CL works as intended.",
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a266ac87_3f4c6873",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T06:47:45Z",
+      "side": 1,
+      "message": "nit: If we turn this (here and below) into a JSDoc comment people will see it on hover in their IDEs:\n\n /**\n  * @param name Must not be encoded\n  */",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad02c26c_5de5a8a0",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T06:47:45Z",
+      "side": 1,
+      "message": "The code reads as if `this.nameInternal` contains either a decoded string, or the original string + queryParams appended but still encoded.\n\nIf that is intended, can you leave a comment on why we do this?",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3da0ab7_0da3ff84",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T06:47:45Z",
+      "side": 1,
+      "message": "How can the URL of a UISourceCode change? I always assumed the URL was static and wouldn\u0027t change over the lifetime of a UISourceCode?",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9373e89_b1cf6ab4",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-10T06:47:45Z",
+      "side": 1,
+      "message": "This helper has an optional second argument for the content of the snippet. You could use that here since we really wanna test breakpoints, not typing in the editor.",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
