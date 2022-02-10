@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21830ff1_7703337b",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T16:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9bef213_04a37eb1",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "c9488a6bead6439356c7869286d9751466a9bb93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3454eebe_af42dda7",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-10T14:36:20Z",
       "side": 1,
       "message": "nit: Please add a space after the colon. Also below.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "c9488a6bead6439356c7869286d9751466a9bb93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "666cc31f_12473d84",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T16:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3454eebe_af42dda7",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb6a61b_d7ec3eeb",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T16:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "908eab9d_9f99964e",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 7
+      },
+      "revId": "c9488a6bead6439356c7869286d9751466a9bb93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e26137e4_c63c2eab",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-10T14:36:20Z",
       "side": 1,
       "message": "Do we need this to always be the same array? otherwise you could simply inline the var.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 66
+      },
+      "revId": "c9488a6bead6439356c7869286d9751466a9bb93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df78606_ea8dec91",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-10T16:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e26137e4_c63c2eab",
       "range": {
         "startLine": 86,
         "startChar": 0,
