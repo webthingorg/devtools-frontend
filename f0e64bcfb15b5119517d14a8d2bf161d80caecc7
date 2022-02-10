@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "789ecfc8_2a82fcba",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a266ac87_3f4c6873",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "503e88f6_8a4e575d",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7daf504e_6ce1b4fb",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "503e88f6_8a4e575d",
+      "range": {
+        "startLine": 196,
+        "startChar": 47,
+        "endLine": 196,
+        "endChar": 53
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3b4461e_18b658ec",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-02-10T15:26:40Z",
       "side": 1,
       "message": "This looks wrong, because I\u0027m pretty sure relativePathToUrlString takes a raw path. Unless this is part of the bug I think we want to leave the logic here unchanged and just `return (this.projectInternal as FileSystem).fileSystemPath() + \u0027/\u0027 + encodedPathFromUrl(url) as Platform.DevToolsPath.UrlString;`",
+      "range": {
+        "startLine": 251,
+        "startChar": 13,
+        "endLine": 251,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f424e2_673a354b",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b4461e_18b658ec",
       "range": {
         "startLine": 251,
         "startChar": 13,
@@ -134,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70018bcf_a5ff85fb",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Added comments",
+      "parentUuid": "66410c04_d5f85ba0",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3da0ab7_0da3ff84",
@@ -181,6 +277,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bed1f98_7a3338e6",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "It changes for example if a snippet or file (Filesystem\u003eAdd folder to workspace) is renamed",
+      "parentUuid": "f3da0ab7_0da3ff84",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9373e89_b1cf6ab4",
@@ -204,6 +324,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cecf7498_29d03dd7",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9373e89_b1cf6ab4",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cfa49c8_605ef08d",
@@ -217,6 +361,30 @@
       "writtenOn": "2022-02-10T15:26:40Z",
       "side": 1,
       "message": "There might still be a race here if we tear down while the debugger hasn\u0027t finished actually resuming. I think it would be a good idea to add an `await waitFor(PAUSE_BUTTON)`.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e2932a_245dba0e",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-10T16:26:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cfa49c8_605ef08d",
       "range": {
         "startLine": 40,
         "startChar": 4,
