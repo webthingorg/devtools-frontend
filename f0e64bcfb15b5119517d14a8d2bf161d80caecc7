@@ -43,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "503e88f6_8a4e575d",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-10T15:26:40Z",
+      "side": 1,
+      "message": "It looks like this should take a RawPathString, just like rawPathToUrlString. Could be a separate cl.",
+      "range": {
+        "startLine": 196,
+        "startChar": 47,
+        "endLine": 196,
+        "endChar": 53
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b4461e_18b658ec",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-10T15:26:40Z",
+      "side": 1,
+      "message": "This looks wrong, because I\u0027m pretty sure relativePathToUrlString takes a raw path. Unless this is part of the bug I think we want to leave the logic here unchanged and just `return (this.projectInternal as FileSystem).fileSystemPath() + \u0027/\u0027 + encodedPathFromUrl(url) as Platform.DevToolsPath.UrlString;`",
+      "range": {
+        "startLine": 251,
+        "startChar": 13,
+        "endLine": 251,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad02c26c_5de5a8a0",
         "filename": "front_end/models/workspace/UISourceCode.ts",
         "patchSetId": 15
@@ -54,6 +100,30 @@
       "writtenOn": "2022-02-10T06:47:45Z",
       "side": 1,
       "message": "The code reads as if `this.nameInternal` contains either a decoded string, or the original string + queryParams appended but still encoded.\n\nIf that is intended, can you leave a comment on why we do this?",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66410c04_d5f85ba0",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-10T15:26:40Z",
+      "side": 1,
+      "message": "A comment here would be a good idea. The question is, what name do we want to show in the sources tab title/navigator view and what filename do we want to suggest if someone tries to \"Save As\" a source? These are the cases where .nameInternal comes up and it\u0027s not too consequential what we choose here, but my feeling when I wrote this was that if it\u0027s a filename it will look best as just an unencoded filename, but if there are query parameters it\u0027s not going to look like a normal filename in any case and so it might as well look like the url. But I am open to other ideas.",
+      "parentUuid": "ad02c26c_5de5a8a0",
       "range": {
         "startLine": 85,
         "startChar": 20,
@@ -89,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "574a5776_1bd7546f",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-10T15:26:40Z",
+      "side": 1,
+      "message": "Depending on the project type, we allow renaming files from the sources view, in which case we update the UISourceCode rather than create a new one.",
+      "parentUuid": "f3da0ab7_0da3ff84",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9373e89_b1cf6ab4",
         "filename": "test/e2e/snippets/breakpoint_test.ts",
         "patchSetId": 15
@@ -105,6 +199,29 @@
         "startChar": 10,
         "endLine": 18,
         "endChar": 26
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfa49c8_605ef08d",
+        "filename": "test/e2e/snippets/breakpoint_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-10T15:26:40Z",
+      "side": 1,
+      "message": "There might still be a race here if we tear down while the debugger hasn\u0027t finished actually resuming. I think it would be a good idea to add an `await waitFor(PAUSE_BUTTON)`.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 31
       },
       "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
