@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29db5a0a_6c1d5ec7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-02-11T19:43:58Z",
+      "side": 1,
+      "message": "Hey Mathias - We found some cases in which the DOM node revealer might have problems with localization. Would you mind taking a look? Thanks!",
+      "revId": "ed361b5e0a5c7e7ef8ee1df64b9c06b3444688f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
