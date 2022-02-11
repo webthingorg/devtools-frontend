@@ -587,6 +587,8 @@ export enum DevtoolsExperiments {
   'stylesPaneCSSChanges' = 55,
   'headerOverrides' = 56,
   'MaxValue' = 57,
+  // TODO: Uncomment once XML changes land in Chromium.
+  // 'lighthousePanelFR' = 58,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
