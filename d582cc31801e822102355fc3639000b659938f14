@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d451154_79a09d5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-11T17:42:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this change does and it\u0027s clearly a behavior change, but it\u0027s not linked to a bug that specifies any bad behavior. (It\u0027s linked to the branded types bug, but this change isn\u0027t doing any branding.) Can you give an example of what the bad behavior you\u0027re fixing is? Is it something that can be tested?",
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd20e079_76589c09",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-11T17:42:33Z",
+      "side": 1,
+      "message": "I think it would be clearer to only decode the lastPathComponentWithFragment, to make it clear we are not expecting the target id to be decoded.\n\nThis is reminiscent of the code in the UISourceCode constructor, and I wonder if there is a good reason for doing this a little differently or if we should be doing exactly the same thing in both places? Is there a reason we\u0027re including the fragment? I also wonder if this is another place where it makes sense to say, if there is a fragment, leave it encoded like the url since it won\u0027t look like a normal filename.",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 118
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29be0fcb_b7a6e17a",
+        "filename": "front_end/entrypoints/node_app/NodeMain.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-11T17:42:33Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like something we would want. If we\u0027re using the full url, we either want the name to be the url (encoded), or the url is actually a path, which I would expect is already unencoded. If this is the right thing to do, can you add a comment here explaining what form targetInfo.url actually takes and what we want to display to the user instead?",
+      "range": {
+        "startLine": 105,
+        "startChar": 47,
+        "endLine": 105,
+        "endChar": 88
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5498d16b_e611a5cb",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-11T17:42:33Z",
+      "side": 1,
+      "message": "We should brand path as EncodedPathString[] and replace this with a helper. Or maybe our expectation should be that path[] is a RawPathString and it ought to be decoded somewhere else? Either could work but we need to make the expectation clear throughout this class so we can see that it is consistent.",
+      "range": {
+        "startLine": 571,
+        "startChar": 17,
+        "endLine": 571,
+        "endChar": 35
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25fe417a_e2bd257f",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-11T17:42:33Z",
+      "side": 1,
+      "message": "This also seems like the wrong place to do this. I would expect the behavior of setTitle to set the title unmodified. What\u0027s calling this?",
+      "range": {
+        "startLine": 1656,
+        "startChar": 17,
+        "endLine": 1656,
+        "endChar": 35
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
