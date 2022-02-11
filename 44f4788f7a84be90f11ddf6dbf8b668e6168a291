@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753059a8_c5763b92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-11T11:02:28Z",
+      "side": 1,
+      "message": "LGTM + question",
+      "revId": "44f4788f7a84be90f11ddf6dbf8b668e6168a291",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a494a38_2974e240",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-11T11:02:28Z",
+      "side": 1,
+      "message": "Would it make sense to add the url as a comment:\n```\n/* file://path/to/src.css */\np {\n  ...\n}\n```\nsuch that the copied text is always valid css?",
+      "range": {
+        "startLine": 1142,
+        "startChar": 25,
+        "endLine": 1142,
+        "endChar": 28
+      },
+      "revId": "44f4788f7a84be90f11ddf6dbf8b668e6168a291",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
