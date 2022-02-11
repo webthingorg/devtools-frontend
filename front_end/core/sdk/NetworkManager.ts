@@ -620,7 +620,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       const lastModifiedHeader = lowercaseHeaders['last-modified'];
       // We missed the requestWillBeSent.
       const eventData: RequestUpdateDroppedEventData = {
-        url: response.url,
+        url: response.url as Platform.DevToolsPath.UrlString,
         frameId: frameId ?? null,
         loaderId: loaderId,
         resourceType: type,
@@ -1709,7 +1709,7 @@ export interface InterceptionPattern {
 export type RequestInterceptor = (request: InterceptedRequest) => Promise<void>;
 
 export interface RequestUpdateDroppedEventData {
-  url: string;
+  url: Platform.DevToolsPath.UrlString;
   frameId: Protocol.Page.FrameId|null;
   loaderId: Protocol.Network.LoaderId;
   resourceType: Protocol.Network.ResourceType;
