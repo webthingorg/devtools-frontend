@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8708a31_e74c4245",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-11T18:59:19Z",
+      "side": 1,
+      "message": "rename to legacynavigation ?",
+      "revId": "ca4a31e19fda53746ae15ac6e3c2dd572dfd4a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
