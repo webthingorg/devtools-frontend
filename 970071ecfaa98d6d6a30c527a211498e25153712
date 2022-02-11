@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3112e9b4_6157c544",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2022-02-11T23:59:58Z",
+      "side": 1,
+      "message": "lgtm! (but I don\u0027t own //scripts)",
+      "revId": "970071ecfaa98d6d6a30c527a211498e25153712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
