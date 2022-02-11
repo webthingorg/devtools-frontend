@@ -33,6 +33,24 @@
       "message": "Did you mean to replace \"add button\" with something else?",
       "revId": "0d5bf01a6ac76796aecbce99ffbd5a3b6f8eda0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0cb9cf_2ea97832",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-11T10:27:32Z",
+      "side": 1,
+      "message": "Yes, good catch. I\u0027ve fixed it. Thanks!",
+      "parentUuid": "a5985e7f_de196797",
+      "revId": "0d5bf01a6ac76796aecbce99ffbd5a3b6f8eda0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
