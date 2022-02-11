@@ -230,6 +230,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "471aeb54_6cfe6528",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-11T06:08:28Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation! I\u0027m ok with the display heuristic as explained and with the added comment it should also be clearer for future readers 😊",
+      "parentUuid": "70018bcf_a5ff85fb",
+      "range": {
+        "startLine": 85,
+        "startChar": 20,
+        "endLine": 85,
+        "endChar": 31
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3da0ab7_0da3ff84",
@@ -291,6 +315,30 @@
       "side": 1,
       "message": "It changes for example if a snippet or file (Filesystem\u003eAdd folder to workspace) is renamed",
       "parentUuid": "f3da0ab7_0da3ff84",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "f0e64bcfb15b5119517d14a8d2bf161d80caecc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c0a004_6e0205dd",
+        "filename": "front_end/panels/sources/TabbedEditorContainer.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-11T06:08:28Z",
+      "side": 1,
+      "message": "Silly me. I forgot about renaming snippets and local files! Thanks for bearing with me.",
+      "parentUuid": "9bed1f98_7a3338e6",
       "range": {
         "startLine": 588,
         "startChar": 4,
