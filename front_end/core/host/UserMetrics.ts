@@ -587,6 +587,7 @@ export enum DevtoolsExperiments {
   'stylesPaneCSSChanges' = 55,
   'headerOverrides' = 56,
   'MaxValue' = 57,
+  'lighthousePanelFR' = 58,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
