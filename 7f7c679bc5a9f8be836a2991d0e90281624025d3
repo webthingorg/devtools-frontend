@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46df9669_131a993d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T15:24:00Z",
+      "side": 1,
+      "message": "Still LGTM, thanks!",
+      "revId": "7f7c679bc5a9f8be836a2991d0e90281624025d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d5a5af_0d93fce4",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T15:24:00Z",
+      "side": 1,
+      "message": "nit: This one doesn\u0027t need `async` (since we don\u0027t need `await` inside of it)",
+      "range": {
+        "startLine": 73,
+        "startChar": 36,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "7f7c679bc5a9f8be836a2991d0e90281624025d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
