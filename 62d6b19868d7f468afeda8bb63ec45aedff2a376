@@ -16,6 +16,46 @@
       "message": "+Alex as FYI",
       "revId": "62d6b19868d7f468afeda8bb63ec45aedff2a376",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d07c53_247ef929",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-14T06:45:01Z",
+      "side": 1,
+      "message": "this should be before MaxValue and max value needs to be incremented. Perhaps it\u0027s worth mentioning this in the comment.",
+      "revId": "62d6b19868d7f468afeda8bb63ec45aedff2a376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9df28a8a_ac46d045",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-14T06:45:01Z",
+      "side": 1,
+      "message": "The id does not match the id used in the chromium CL?",
+      "range": {
+        "startLine": 591,
+        "startChar": 27,
+        "endLine": 591,
+        "endChar": 29
+      },
+      "revId": "62d6b19868d7f468afeda8bb63ec45aedff2a376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
