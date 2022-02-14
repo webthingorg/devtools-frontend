@@ -23,6 +23,7 @@ import {Item, ReportSelector} from './LighthouseReportSelector.js';
 import {StartView} from './LighthouseStartView.js';
 import {StartViewFR} from './LighthouseStartViewFR.js';
 import {StatusView} from './LighthouseStatusView.js';
+import {TimespanView} from './LighthouseTimespanView.js';
 
 const UIStrings = {
   /**
@@ -65,6 +66,7 @@ export class LighthousePanel extends UI.Panel.Panel {
   private readonly controller: LighthouseController;
   private readonly startView: StartView;
   private readonly statusView: StatusView;
+  private readonly timespanView: TimespanView|null;
   private warningText: Nullable<string>;
   private unauditableExplanation: Nullable<string>;
   private readonly cachedRenderedReports: Map<ReportJSON, HTMLElement>;
@@ -81,6 +83,8 @@ export class LighthousePanel extends UI.Panel.Panel {
     network: {conditions: SDK.NetworkManager.Conditions},
   };
   private isLHAttached?: boolean;
+  private currentLighthouseRun: {inspectedURL: string, categoryIDs: string[], flags: Record<string, Object|undefined>}|
+      undefined;
 
   private constructor() {
     super('lighthouse');
@@ -89,8 +93,10 @@ export class LighthousePanel extends UI.Panel.Panel {
     this.controller = new LighthouseController(this.protocolService);
     if (Root.Runtime.experiments.isEnabled('lighthousePanelFR')) {
       this.startView = new StartViewFR(this.controller);
+      this.timespanView = new TimespanView(this.controller);
     } else {
       this.startView = new StartView(this.controller);
+      this.timespanView = null;
     }
     this.statusView = new StatusView(this.controller);
 
@@ -105,10 +111,21 @@ export class LighthousePanel extends UI.Panel.Panel {
     this.controller.addEventListener(Events.PageAuditabilityChanged, this.refreshStartAuditUI.bind(this));
     this.controller.addEventListener(Events.PageWarningsChanged, this.refreshWarningsUI.bind(this));
     this.controller.addEventListener(Events.AuditProgressChanged, this.refreshStatusUI.bind(this));
-    this.controller.addEventListener(Events.RequestLighthouseStart, _event => {
-      void this.startLighthouse();
+    this.controller.addEventListener(Events.RequestLighthouseStart, async _event => {
+      this.timespanView?.show(this.contentElement);
+      await this.startLighthouse();
+      this.timespanView?.ready();
+    });
+    this.controller.addEventListener(Events.RequestLighthouseEnd, async _event => {
+      this.timespanView?.hide();
+      await this.endLighthouse();
+    });
+    this.controller.addEventListener(Events.RequestLighthouseRun, async _event => {
+      await this.startLighthouse();
+      await this.endLighthouse();
     });
     this.controller.addEventListener(Events.RequestLighthouseCancel, _event => {
+      this.timespanView?.hide();
       void this.cancelLighthouse();
     });
 
@@ -147,6 +164,8 @@ export class LighthousePanel extends UI.Panel.Panel {
     if (this.isLHAttached) {
       return;
     }
+
+    this.startView.updateStartButton();
 
     this.unauditableExplanation = evt.data.helpText;
     this.startView.setUnauditableExplanation(evt.data.helpText);
@@ -348,11 +367,29 @@ export class LighthousePanel extends UI.Panel.Panel {
       const categoryIDs = this.controller.getCategoryIDs();
       const flags = this.controller.getFlags();
 
+      this.currentLighthouseRun = {inspectedURL, categoryIDs, flags};
+
       await this.setupEmulationAndProtocolConnection();
 
+      await this.protocolService.startLighthouse(inspectedURL, categoryIDs, flags);
+
+    } catch (err) {
+      await this.resetEmulationAndProtocolConnection();
+      if (err instanceof Error) {
+        this.statusView.renderBugReport(err);
+      }
+    }
+  }
+
+  private async endLighthouse(): Promise<void> {
+    try {
+      if (!this.currentLighthouseRun) {
+        throw new Error('Lighthouse is not started');
+      }
+      const {inspectedURL, categoryIDs, flags} = this.currentLighthouseRun;
       this.renderStatusView(inspectedURL);
 
-      const lighthouseResponse = await this.protocolService.startLighthouse(inspectedURL, categoryIDs, flags);
+      const lighthouseResponse = await this.protocolService.endLighthouse(inspectedURL, categoryIDs, flags);
 
       if (lighthouseResponse && lighthouseResponse.fatal) {
         const error = new Error(lighthouseResponse.message);
@@ -375,10 +412,13 @@ export class LighthousePanel extends UI.Panel.Panel {
       if (err instanceof Error) {
         this.statusView.renderBugReport(err);
       }
+    } finally {
+      this.currentLighthouseRun = undefined;
     }
   }
 
   private async cancelLighthouse(): Promise<void> {
+    this.currentLighthouseRun = undefined;
     this.statusView.updateStatus(i18nString(UIStrings.cancelling));
     await this.resetEmulationAndProtocolConnection();
     this.renderStartView();
