@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee961260_bc933479",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2022-02-14T19:52:43Z",
+      "side": 1,
+      "message": "Remove the cast. It\u0027s unnecessary when you check `if (node)`, above.",
+      "revId": "3de3d33a7cdd6fc225b8d764780bde0ebcd348f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
