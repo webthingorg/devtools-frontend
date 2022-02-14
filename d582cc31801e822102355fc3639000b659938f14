@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1a4a8076_94845267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-14T11:45:35Z",
+      "side": 1,
+      "message": "There is no existing bug associated with it, but as the description says, it decodes the folder names added by \"Add folder to workspace\" in Sources\u003eFilesystem.\nThat\u0027s how it looks like without this change: https://imgur.com/a/MnFroj8",
+      "parentUuid": "3d451154_79a09d5e",
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd20e079_76589c09",
         "filename": "front_end/core/sdk/ChildTargetManager.ts",
         "patchSetId": 11
@@ -31,6 +49,30 @@
       "writtenOn": "2022-02-11T17:42:33Z",
       "side": 1,
       "message": "I think it would be clearer to only decode the lastPathComponentWithFragment, to make it clear we are not expecting the target id to be decoded.\n\nThis is reminiscent of the code in the UISourceCode constructor, and I wonder if there is a good reason for doing this a little differently or if we should be doing exactly the same thing in both places? Is there a reason we\u0027re including the fragment? I also wonder if this is another place where it makes sense to say, if there is a fragment, leave it encoded like the url since it won\u0027t look like a normal filename.",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 118
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa83fae5_d6c54619",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-14T11:45:35Z",
+      "side": 1,
+      "message": "Let\u0027s leave it encoded for the sake of consistency",
+      "parentUuid": "bd20e079_76589c09",
       "range": {
         "startLine": 124,
         "startChar": 10,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab432170_6492f67c",
+        "filename": "front_end/entrypoints/node_app/NodeMain.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-14T11:45:35Z",
+      "side": 1,
+      "message": "I\u0027ve looked into it, the targetInfo.url has the file:// prefix, but is not encoded. It looks the following way (just targetInfo.url, I removed decodeURIComponent here already): https://imgur.com/a/xBPYxPi",
+      "parentUuid": "29be0fcb_b7a6e17a",
+      "range": {
+        "startLine": 105,
+        "startChar": 47,
+        "endLine": 105,
+        "endChar": 88
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5498d16b_e611a5cb",
@@ -87,6 +153,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "222c1196_17539014",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-14T11:45:35Z",
+      "side": 1,
+      "message": "Typed it as EncodedPathString",
+      "parentUuid": "5498d16b_e611a5cb",
+      "range": {
+        "startLine": 571,
+        "startChar": 17,
+        "endLine": 571,
+        "endChar": 35
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25fe417a_e2bd257f",
@@ -100,6 +190,30 @@
       "writtenOn": "2022-02-11T17:42:33Z",
       "side": 1,
       "message": "This also seems like the wrong place to do this. I would expect the behavior of setTitle to set the title unmodified. What\u0027s calling this?",
+      "range": {
+        "startLine": 1656,
+        "startChar": 17,
+        "endLine": 1656,
+        "endChar": 35
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4531c480_6f576e29",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-14T11:45:35Z",
+      "side": 1,
+      "message": "Moved decoding to the call site. In the other call site, where we call this with Target.name(), it can be encoded (the lastPathComponentWithFragment case).",
+      "parentUuid": "25fe417a_e2bd257f",
       "range": {
         "startLine": 1656,
         "startChar": 17,
