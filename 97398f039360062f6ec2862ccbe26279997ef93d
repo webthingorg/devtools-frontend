@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "082793ea_fdc26aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T13:47:18Z",
+      "side": 1,
+      "message": "LGTM % escaping issue",
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9aa501e_4067ee33",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T13:47:18Z",
+      "side": 1,
+      "message": "What if URL contains `*/` e.g. `https://example.com/?q\u003d*/`? Even if URL were to get “normalized” (i.e. run through `new URL(url).toString()`) it would still break out of the CSS comment here.\n\nWDYT about doing something like `.replaceAll(\u0027*/\u0027, \u0027*%2F\u0027)` to guard against this?",
+      "range": {
+        "startLine": 1086,
+        "startChar": 28,
+        "endLine": 1086,
+        "endChar": 31
+      },
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
