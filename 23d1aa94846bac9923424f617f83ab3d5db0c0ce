@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ed95fd_eaef3050",
+        "filename": "test/unittests/front_end/core/sdk/NetworkManager_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-14T16:12:02Z",
+      "side": 1,
+      "message": "This text is supposed to build a sentences staring with \"It\". How about\n\n  it.(\u0027overwrites response headers when intercepted\u0027,...)\n\n?",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 64
+      },
+      "revId": "23d1aa94846bac9923424f617f83ab3d5db0c0ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
