@@ -39,6 +39,30 @@
       },
       "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "462f14c0_1d9406a0",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T13:52:14Z",
+      "side": 1,
+      "message": "\u003e WDYT about doing something like `.replaceAll(\u0027*/\u0027, \u0027*%2F\u0027)` to guard against this?\n\nActually, this is probably not the best approach. It would work for the example I gave:\n\nhttps://example.com/?q\u003d*/\n→\nhttps://example.com/?q\u003d*%2F\n\n(both URLs are equivalent)\n\n…but it would also affect URLs like:\n\nhttps://example.com/*/\n→\nhttps://example.com/*%2F\n\n(I think those two URLs are not equivalent)",
+      "parentUuid": "a9aa501e_4067ee33",
+      "range": {
+        "startLine": 1086,
+        "startChar": 28,
+        "endLine": 1086,
+        "endChar": 31
+      },
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
