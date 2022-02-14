@@ -63,6 +63,30 @@
       },
       "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec5efaa_9d3e6ad8",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-14T14:16:40Z",
+      "side": 1,
+      "message": "(Now is the time to hope for a line comment syntax in CSS).\n\nI can\u0027t think of anything better, so I would say let\u0027s just do `.replaceAll(\u0027*/\u0027, \u0027*%2F\u0027), because I think it would be a rare situation where people copying the changes would rely on an exact matching of URLs to update their CSS sources. WDYT?",
+      "parentUuid": "462f14c0_1d9406a0",
+      "range": {
+        "startLine": 1086,
+        "startChar": 28,
+        "endLine": 1086,
+        "endChar": 31
+      },
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
