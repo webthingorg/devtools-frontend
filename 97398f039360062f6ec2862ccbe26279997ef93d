@@ -87,6 +87,30 @@
       },
       "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a90ccb86_2c0490ec",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T14:34:04Z",
+      "side": 1,
+      "message": "Let’s just fix it. Something like this would support both cases, I think:\n\n    const url \u003d new URL(\u0027https://example.com/*/?q\u003d*/\u0027);\n    const escaped \u003d url.search ? `${url.origin}${url.pathname}${url.search.replaceAll(\u0027*/\u0027, \u0027*%2F\u0027)}${url.hash}` : url.toString();\n\nPerhaps expose it as a helper utility `escapeUrlAsCssComment` or some such, for readability.",
+      "parentUuid": "cec5efaa_9d3e6ad8",
+      "range": {
+        "startLine": 1086,
+        "startChar": 28,
+        "endLine": 1086,
+        "endChar": 31
+      },
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
