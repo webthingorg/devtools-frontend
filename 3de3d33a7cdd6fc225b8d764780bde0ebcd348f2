@@ -16,6 +16,24 @@
       "message": "Remove the cast. It\u0027s unnecessary when you check `if (node)`, above.",
       "revId": "3de3d33a7cdd6fc225b8d764780bde0ebcd348f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2f544d_6fec86c4",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-02-14T21:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee961260_bc933479",
+      "revId": "3de3d33a7cdd6fc225b8d764780bde0ebcd348f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
