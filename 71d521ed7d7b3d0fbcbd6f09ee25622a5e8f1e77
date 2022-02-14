@@ -16,6 +16,23 @@
       "message": "PTAL, this CL appends the source location to the message instead of the pseudo stack frame solution.",
       "revId": "71d521ed7d7b3d0fbcbd6f09ee25622a5e8f1e77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9d7d2f_4bcb23fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-14T13:05:26Z",
+      "side": 1,
+      "message": "Looks good, let\u0027s stick to that for now.",
+      "revId": "71d521ed7d7b3d0fbcbd6f09ee25622a5e8f1e77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
