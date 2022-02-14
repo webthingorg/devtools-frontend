@@ -16,6 +16,23 @@
       "message": "No idea why `inlineFrameIndex` was also not marked as optional. Its default to 0 in most places.",
       "revId": "762c54f38cdc8c4de791070630c89e794844912b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3686c07_bd5b267f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-14T14:03:42Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "762c54f38cdc8c4de791070630c89e794844912b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
