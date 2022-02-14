@@ -111,6 +111,30 @@
       },
       "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ca8939_c5bd4708",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-14T14:35:53Z",
+      "side": 1,
+      "message": "(\"Support\" as in, it would at least not change any input URLs into non-equivalent ones. It would still break out of the CSS comment in the case where `*/` occurs in the path itself.)",
+      "parentUuid": "a90ccb86_2c0490ec",
+      "range": {
+        "startLine": 1086,
+        "startChar": 28,
+        "endLine": 1086,
+        "endChar": 31
+      },
+      "revId": "97398f039360062f6ec2862ccbe26279997ef93d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
