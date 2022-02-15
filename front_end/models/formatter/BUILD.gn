@@ -44,6 +44,7 @@ devtools_entrypoint("bundle") {
     "../../ui/components/text_editor/*",
     "../../ui/legacy/components/object_ui/*",
     "../../ui/legacy/components/source_frame/*",
+    "../source_map_scopes/*",
   ]
 
   visibility += devtools_models_visibility
