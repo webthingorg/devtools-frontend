@@ -201,6 +201,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b7199b6_4854cf68",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-15T07:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "391c6055_b29f9461",
+      "range": {
+        "startLine": 571,
+        "startChar": 17,
+        "endLine": 571,
+        "endChar": 35
+      },
+      "revId": "d582cc31801e822102355fc3639000b659938f14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25fe417a_e2bd257f",
