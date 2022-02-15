@@ -34,6 +34,24 @@
       "parentUuid": "f0cc2a0f_b4cd5a6f",
       "revId": "32eff74c3fc3d988eb8e8d07d4de68ea049242f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02eb044e_6570ea34",
+        "filename": "front_end/panels/sources/SourceMapNamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-15T09:31:33Z",
+      "side": 1,
+      "message": "Ohh, sorry, I overlooked that comment. Thanks for the clarification! Maybe it would be good to loop in Tim for this (whenever this is tackled) since he has been working on removing these legacy files and definitions as much as possible.",
+      "parentUuid": "fb5fdb6e_7e91cbfd",
+      "revId": "32eff74c3fc3d988eb8e8d07d4de68ea049242f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
