@@ -2488,10 +2488,14 @@ export class StylePropertiesSection {
     this.parentPane.setUserOperation(true);
     const cssModel = this.parentPane.cssModel();
     if (cssModel && query.styleSheetId) {
-      const setQueryText =
-          query instanceof SDK.CSSMedia.CSSMedia ? cssModel.setMediaText : cssModel.setContainerQueryText;
-      void setQueryText.call(cssModel, query.styleSheetId, (query.range as TextUtils.TextRange.TextRange), newContent)
-          .then(userCallback.bind(this));
+      const range = query.range as TextUtils.TextRange.TextRange;
+      if (query instanceof SDK.CSSContainerQuery.CSSContainerQuery) {
+        void cssModel.setContainerQueryText(query.styleSheetId, range, newContent).then(userCallback.bind(this));
+      } else if (query instanceof SDK.CSSSupports.CSSSupports) {
+        void cssModel.setSupportsText(query.styleSheetId, range, newContent).then(userCallback.bind(this));
+      } else {
+        void cssModel.setMediaText(query.styleSheetId, range, newContent).then(userCallback.bind(this));
+      }
     }
   }
 
