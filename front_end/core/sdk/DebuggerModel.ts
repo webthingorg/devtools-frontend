@@ -418,14 +418,13 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     return this.agent.invoke_pauseOnAsyncCall({parentStackTraceId: parentStackTraceId});
   }
 
-  async setBreakpointByURL(url: string, lineNumber: number, columnNumber?: number, condition?: string):
-      Promise<SetBreakpointResult> {
+  async setBreakpointByURL(
+      url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number,
+      condition?: string): Promise<SetBreakpointResult> {
     // Convert file url to node-js path.
     let urlRegex;
     if (this.target().type() === Type.Node && url.startsWith('file://')) {
-      // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
-      const platformPath =
-          Common.ParsedURL.ParsedURL.urlToRawPathString(url as Platform.DevToolsPath.UrlString, Host.Platform.isWin());
+      const platformPath = Common.ParsedURL.ParsedURL.urlToRawPathString(url, Host.Platform.isWin());
       urlRegex =
           `${Platform.StringUtilities.escapeForRegExp(platformPath)}|${Platform.StringUtilities.escapeForRegExp(url)}`;
       if (Host.Platform.isWin() && platformPath.match(/^.:\\/)) {
@@ -696,8 +695,8 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   parsedScriptSource(
-      scriptId: Protocol.Runtime.ScriptId, sourceURL: string, startLine: number, startColumn: number, endLine: number,
-      endColumn: number,
+      scriptId: Protocol.Runtime.ScriptId, sourceURL: Platform.DevToolsPath.UrlString, startLine: number,
+      startColumn: number, endLine: number, endColumn: number,
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       executionContextId: number, hash: string, executionContextAuxData: any, isLiveEdit: boolean,
@@ -1058,9 +1057,10 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
       return;
     }
     this.#debuggerModel.parsedScriptSource(
-        scriptId, url, startLine, startColumn, endLine, endColumn, executionContextId, hash, executionContextAuxData,
-        Boolean(isLiveEdit), sourceMapURL, Boolean(hasSourceURL), false, length || 0, isModule || null,
-        stackTrace || null, codeOffset || null, scriptLanguage || null, debugSymbols || null, embedderName || null);
+        scriptId, url as Platform.DevToolsPath.UrlString, startLine, startColumn, endLine, endColumn,
+        executionContextId, hash, executionContextAuxData, Boolean(isLiveEdit), sourceMapURL, Boolean(hasSourceURL),
+        false, length || 0, isModule || null, stackTrace || null, codeOffset || null, scriptLanguage || null,
+        debugSymbols || null, embedderName || null);
   }
 
   scriptFailedToParse({
@@ -1086,9 +1086,10 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
       return;
     }
     this.#debuggerModel.parsedScriptSource(
-        scriptId, url, startLine, startColumn, endLine, endColumn, executionContextId, hash, executionContextAuxData,
-        false, sourceMapURL, Boolean(hasSourceURL), true, length || 0, isModule || null, stackTrace || null,
-        codeOffset || null, scriptLanguage || null, null, embedderName || null);
+        scriptId, url as Platform.DevToolsPath.UrlString, startLine, startColumn, endLine, endColumn,
+        executionContextId, hash, executionContextAuxData, false, sourceMapURL, Boolean(hasSourceURL), true,
+        length || 0, isModule || null, stackTrace || null, codeOffset || null, scriptLanguage || null, null,
+        embedderName || null);
   }
 
   breakpointResolved({breakpointId, location}: Protocol.Debugger.BreakpointResolvedEvent): void {
