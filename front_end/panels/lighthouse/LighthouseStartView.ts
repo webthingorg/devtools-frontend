@@ -41,9 +41,9 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthouseStartView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class StartView extends UI.Widget.Widget {
-  private controller: LighthouseController;
+  protected controller: LighthouseController;
   private readonly settingsToolbarInternal: UI.Toolbar.Toolbar;
-  private startButton!: HTMLButtonElement;
+  protected startButton!: HTMLButtonElement;
   private helpText?: Element;
   private warningText?: Element;
   private shouldConfirm?: boolean;
@@ -120,7 +120,7 @@ export class StartView extends UI.Widget.Widget {
     this.startButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.generateReport),
         () => this.controller.dispatchEventToListeners(
-            Events.RequestLighthouseStart,
+            Events.RequestLighthouseRun,
             /* keyboardInitiated */ this.startButton.matches(':focus-visible')),
         /* className */ '', /* primary */ true);
     this.setDefaultFocusedElement(this.startButton);
@@ -171,6 +171,10 @@ export class StartView extends UI.Widget.Widget {
     this.populateFormControls(fragment);
     this.contentElement.appendChild(fragment.element());
     this.contentElement.style.overflow = 'auto';
+  }
+
+  updateStartButton(): void {
+    // Do nothing in default case.
   }
 
   onResize(): void {

@@ -75,6 +75,7 @@ class ConnectionProxy implements SDK.Connections.ParallelConnectionInterface {
 
 const port = new LighthousePort();
 let rawConnection: ConnectionProxy|undefined;
+let endTimespan: () => unknown | undefined;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function start(method: string, params: any): Promise<unknown> {
@@ -110,6 +111,10 @@ async function start(method: string, params: any): Promise<unknown> {
       return await self.runLighthouse(url, flags, config, connection);
     }
 
+    if (method === 'endTimespan') {
+      return await endTimespan();
+    }
+
     const {mainTargetId, mainFrameId, mainSessionId} = params.target;
     rawConnection = new ConnectionProxy(mainSessionId);
     puppeteerConnection =
@@ -122,6 +127,17 @@ async function start(method: string, params: any): Promise<unknown> {
         config,
         page: puppeteerConnection.page,
       });
+    }
+
+    if (method === 'startTimespan') {
+      // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
+      const timespan = await self.startLighthouseTimespan({
+        url,
+        config,
+        page: puppeteerConnection.page,
+      });
+      endTimespan = timespan.endTimespan;
+      return;
     }
 
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
@@ -137,7 +153,9 @@ async function start(method: string, params: any): Promise<unknown> {
       stack: err.stack,
     });
   } finally {
-    puppeteerConnection?.browser.disconnect();
+    if (method !== 'startTimespan') {
+      puppeteerConnection?.browser.disconnect();
+    }
   }
 }
 
@@ -187,7 +205,8 @@ self.onmessage = async(event: MessageEvent): Promise<void> => {
   const messageFromFrontend = JSON.parse(event.data);
   switch (messageFromFrontend.method) {
     case 'navigation':
-    case 'timespan':
+    case 'startTimespan':
+    case 'endTimespan':
     case 'snapshot':
     case 'legacyNavigation': {
       const result = await start(messageFromFrontend.method, messageFromFrontend.params);
