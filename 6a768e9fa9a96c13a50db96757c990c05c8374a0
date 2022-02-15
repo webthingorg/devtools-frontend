@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5871ccce_89c0eace",
+        "filename": "front_end/core/sdk/Script.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-15T12:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d725e3_8c5f67f9",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 14
+      },
+      "revId": "6a768e9fa9a96c13a50db96757c990c05c8374a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29c9d38e_fdff5dbe",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-15T09:12:24Z",
       "side": 1,
       "message": "It appears there is nothing more to do here.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 122
+      },
+      "revId": "6a768e9fa9a96c13a50db96757c990c05c8374a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1338e819_c77a56c5",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-15T12:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29c9d38e_fdff5dbe",
       "range": {
         "startLine": 44,
         "startChar": 0,
