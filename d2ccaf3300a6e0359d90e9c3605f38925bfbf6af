@@ -16,6 +16,40 @@
       "message": "Could you take a look, please?\n\nEventually, I would like to remove front_end/panels/sources/SourceMapNamesResolver.ts altogether, but that will require some changes in layout tests and some legacy glue in source_map_scopes. Let us do that later.",
       "revId": "d2ccaf3300a6e0359d90e9c3605f38925bfbf6af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8b5d36_83338487",
+        "filename": "front_end/models/source_map_scopes/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-15T09:14:31Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "revId": "d2ccaf3300a6e0359d90e9c3605f38925bfbf6af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b269fc_ccb1c711",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-15T09:14:31Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "revId": "d2ccaf3300a6e0359d90e9c3605f38925bfbf6af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

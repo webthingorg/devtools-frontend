@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0cc2a0f_b4cd5a6f",
+        "filename": "front_end/panels/sources/SourceMapNamesResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-15T09:14:31Z",
+      "side": 1,
+      "message": "I guess these definitions are currently necessary for layout tests? Would it make sense to adapt the layout tests and the runner to reflect the new places instead (not now)?",
+      "revId": "32eff74c3fc3d988eb8e8d07d4de68ea049242f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
