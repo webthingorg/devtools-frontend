@@ -16,6 +16,46 @@
       "message": "PTAL. After uploading I see that the CL does a lot of things. I can split it up if you prefer :)",
       "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7324080_5278e601",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-02-15T11:42:03Z",
+      "side": 1,
+      "message": "lgtm with teeeeeeeeny nit!",
+      "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201cab0d_90e69292",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-02-15T11:42:03Z",
+      "side": 1,
+      "message": "nit: private",
+      "range": {
+        "startLine": 147,
+        "startChar": 40,
+        "endLine": 147,
+        "endChar": 46
+      },
+      "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
