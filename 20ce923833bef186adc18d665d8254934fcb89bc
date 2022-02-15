@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c256b15_622a2ef2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-15T14:12:12Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "20ce923833bef186adc18d665d8254934fcb89bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7977031c_4c8bb8d4",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-15T14:12:12Z",
+      "side": 1,
+      "message": "Let\u0027s add some brief details for translators about what timespan is, on what kind an element it is (e.g., button, input, label) and what happens when if the user interacts with it (if applicable)?",
+      "revId": "20ce923833bef186adc18d665d8254934fcb89bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfac86b1_8be6f904",
