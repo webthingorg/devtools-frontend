@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a478567_7fbbf3be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-15T08:53:41Z",
+      "side": 1,
+      "message": "Hi Danil, PTAL at this roll of protocol and css properties from Blink to frontend, and the enum property changes for FederatedAuthRequestIssueReason. Thanks!",
+      "revId": "9c7b789b5740596fa253ad131fe9bb8056b84751",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
