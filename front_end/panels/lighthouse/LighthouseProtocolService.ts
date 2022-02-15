@@ -59,6 +59,25 @@ export class ProtocolService {
   }
 
   async startLighthouse(auditURL: string, categoryIDs: string[], flags: Record<string, Object|undefined>):
+      Promise<void> {
+    if (!this.targetInfo) {
+      throw new Error('Unable to get target info required for Lighthouse');
+    }
+
+    if (flags.mode !== 'timespan') {
+      return;
+    }
+
+    await this.sendWithResponse('startTimespan', {
+      url: auditURL,
+      categoryIDs,
+      flags,
+      locales: this.getLocales(),
+      target: this.targetInfo,
+    });
+  }
+
+  async endLighthouse(auditURL: string, categoryIDs: string[], flags: Record<string, Object|undefined>):
       Promise<ReportRenderer.RunnerResult> {
     if (!this.targetInfo) {
       throw new Error('Unable to get target info required for Lighthouse');
@@ -67,6 +86,10 @@ export class ProtocolService {
     let mode = flags.mode as string;
     if (mode === 'navigation' && flags.legacyNavigation) {
       mode = 'legacyNavigation';
+    }
+
+    if (mode === 'timespan') {
+      mode = 'endTimespan';
     }
 
     return this.sendWithResponse(mode, {
