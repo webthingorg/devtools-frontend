@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ae12b9d_ee030939",
+        "filename": "front_end/models/formatter/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-15T19:46:28Z",
+      "side": 1,
+      "message": "The resolver depends on the formatter for finding identifiers in JavaScript. \n\nWhat is an invalid dependent? If the resolver is a true dependent, should it be moved to the list above?\n\n(TBH, I just plopped the resolver at the end of the list, I had no idea that the comment applies to all the bundles below it).",
+      "parentUuid": "82c1c0d0_49a3e4d9",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e95f5e35_258a1436",
         "filename": "front_end/models/source_map_scopes/source_map_scopes.ts",
         "patchSetId": 3
@@ -88,6 +112,30 @@
       "writtenOn": "2022-02-15T13:19:14Z",
       "side": 1,
       "message": "Nit: `export {NamesResolver}`",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6555ab40_4600347b",
+        "filename": "front_end/models/source_map_scopes/source_map_scopes.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-15T19:46:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e95f5e35_258a1436",
       "range": {
         "startLine": 7,
         "startChar": 8,
@@ -123,6 +171,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e3f1173_c567a249",
+        "filename": "front_end/models/workspace/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-15T19:46:28Z",
+      "side": 1,
+      "message": "It does depend on workspace\u0027s uiSourceCode, so it might be a true dependent?",
+      "parentUuid": "b361d43a_2af1d85b",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a07af8bc_2453786a",
         "filename": "front_end/panels/sources/SourceMapNamesResolver.ts",
         "patchSetId": 3
@@ -134,6 +206,30 @@
       "writtenOn": "2022-02-15T13:19:14Z",
       "side": 1,
       "message": "Rather than keeping this file around, you can also update `sources-legacy.ts` to import from `source_map_scopes` and expose it there. I think that\u0027s cleaner than keeping this file around here.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 102
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2c7f86_07c02e04",
+        "filename": "front_end/panels/sources/SourceMapNamesResolver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-15T19:46:28Z",
+      "side": 1,
+      "message": "I do not have a strong preference. So far, sources-legacy.ts only imported from sources; it feels weird to import from some other module.",
+      "parentUuid": "a07af8bc_2453786a",
       "range": {
         "startLine": 7,
         "startChar": 0,
