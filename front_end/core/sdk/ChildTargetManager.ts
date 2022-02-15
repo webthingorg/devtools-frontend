@@ -120,8 +120,8 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
       targetName = targetInfo.title;
     } else if (targetInfo.type !== 'iframe' && targetInfo.type !== 'webview') {
       const parsedURL = Common.ParsedURL.ParsedURL.fromString(targetInfo.url);
-      targetName =
-          parsedURL ? parsedURL.lastPathComponentWithFragment() : '#' + (++ChildTargetManager.lastAnonymousTargetId);
+      targetName = decodeURIComponent(
+          parsedURL ? parsedURL.lastPathComponentWithFragment() : '#' + (++ChildTargetManager.lastAnonymousTargetId));
     }
 
     let type = Type.Browser;

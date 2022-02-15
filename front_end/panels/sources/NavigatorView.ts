@@ -1364,7 +1364,7 @@ export class NavigatorUISourceCodeTreeNode extends NavigatorTreeNode {
     this.treeElement.title = titleText;
     this.treeElement.updateIcon();
 
-    let tooltip = this.uiSourceCodeInternal.url();
+    let tooltip: string = this.uiSourceCodeInternal.url();
     if (this.uiSourceCodeInternal.contentType().isFromSourceMap()) {
       tooltip = i18nString(UIStrings.sFromSourceMap, {PH1: this.uiSourceCodeInternal.displayName()});
     }
@@ -1657,7 +1657,7 @@ export class NavigatorGroupTreeNode extends NavigatorTreeNode {
   }
 
   setTitle(title: string): void {
-    this.title = title;
+    this.title = decodeURIComponent(title);
     if (this.treeElement) {
       this.treeElement.title = this.title;
     }
