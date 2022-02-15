@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9221e89_6c04cd43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-15T08:57:09Z",
+      "side": 1,
+      "message": "PTAL. After uploading I see that the CL does a lot of things. I can split it up if you prefer :)",
+      "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
