@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6827b609_7e53a8f6",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-15T16:18:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7977031c_4c8bb8d4",
+      "revId": "20ce923833bef186adc18d665d8254934fcb89bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfac86b1_8be6f904",
