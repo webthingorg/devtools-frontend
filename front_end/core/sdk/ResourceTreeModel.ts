@@ -187,6 +187,18 @@ export class ResourceTreeModel extends SDKModel<EventTypes> {
     return frame;
   }
 
+  navigatedWithinDocument(frameId: Protocol.Page.FrameId, url: string): void {
+    const frame = this.framesInternal.get(frameId);
+    if (frame) {
+      frame.navigateWithinDocument(url);
+      if (frame.isMainFrame()) {
+        this.target().setInspectedURL(frame.url);
+      }
+
+      this.updateSecurityOrigins();
+    }
+  }
+
   frameNavigated(framePayload: Protocol.Page.Frame, type: Protocol.Page.NavigationType|undefined): void {
     const sameTargetParentFrame =
         framePayload.parentId ? (this.framesInternal.get(framePayload.parentId) || null) : null;
@@ -707,6 +719,10 @@ export class ResourceTreeFrame {
     }
   }
 
+  navigateWithinDocument(url: string): void {
+    this.#urlInternal = url;
+  }
+
   resourceTreeModel(): ResourceTreeModel {
     return this.#model;
   }
@@ -1033,7 +1049,8 @@ export class PageDispatcher implements ProtocolProxyApi.PageDispatcher {
   frameClearedScheduledNavigation({}: Protocol.Page.FrameClearedScheduledNavigationEvent): void {
   }
 
-  navigatedWithinDocument({}: Protocol.Page.NavigatedWithinDocumentEvent): void {
+  navigatedWithinDocument({frameId, url}: Protocol.Page.NavigatedWithinDocumentEvent): void {
+    this.#resourceTreeModel.navigatedWithinDocument(frameId, url);
   }
 
   frameResized(): void {
