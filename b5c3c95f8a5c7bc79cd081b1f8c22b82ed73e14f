@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d792ce85_aa37c225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-15T11:10:47Z",
+      "side": 1,
+      "message": "LGTM + question",
+      "revId": "b5c3c95f8a5c7bc79cd081b1f8c22b82ed73e14f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114be89d_79856d3a",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2493,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-15T11:10:47Z",
+      "side": 1,
+      "message": "Could we use `await` here instead and move `userCallback` outside the if-then-else?",
+      "revId": "b5c3c95f8a5c7bc79cd081b1f8c22b82ed73e14f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
