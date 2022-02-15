@@ -16,6 +16,23 @@
       "message": "Could you take a look?\n\nI am not quite sure about the E2E tests location - for now, I reused the sources panel tests, but I can imagine moving the test into the console directory. That said, I think the test might still need to use the sources panel to stop on the debugger statement and verify where we are stopped.",
       "revId": "37eeb62e9cc3caaf2894ea3583d1469781efc523",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad457c7_84b2a835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-15T13:36:36Z",
+      "side": 1,
+      "message": "Nice! LGTM",
+      "revId": "37eeb62e9cc3caaf2894ea3583d1469781efc523",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
