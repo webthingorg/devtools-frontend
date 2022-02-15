@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7378edad_1a1f05c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-15T12:12:08Z",
+      "side": 1,
+      "message": "Could you take a look?\n\nI am not quite sure about the E2E tests location - for now, I reused the sources panel tests, but I can imagine moving the test into the console directory. That said, I think the test might still need to use the sources panel to stop on the debugger statement and verify where we are stopped.",
+      "revId": "37eeb62e9cc3caaf2894ea3583d1469781efc523",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
