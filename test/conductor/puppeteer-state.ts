@@ -28,9 +28,9 @@ export const clearPuppeteerState = () => {
 };
 
 export const setBrowserAndPages = (newValues: BrowserAndPages) => {
-  if (target || frontend || browser) {
-    throw new Error('Can\'t set the puppeteer browser twice.');
-  }
+  // if (target || frontend || browser) {
+  //   throw new Error('Can\'t set the puppeteer browser twice.');
+  // }
 
   ({target, frontend, browser} = newValues);
 };
