@@ -33,6 +33,23 @@
       "message": "Tim, could you have a look?\n\nIn particular, I do not really know what I am doing in config/gni/devtools_grd_files.gni.\n\nIt would be also great if you could share any thoughts on how to get rid of  front_end/panels/sources/SourceMapNamesResolver.ts. My plan is to move the exported symbols to source_map_scopes, but I am not quite sure if I can export them directly from there or if there needs to be some \u0027legacy\u0027 machinery (I hope not).",
       "revId": "18954d4adc2fa722221304767ffc872a30456df2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c03fa71_e3cba50a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-15T13:04:04Z",
+      "side": 1,
+      "message": "Tim is the expert here (general LGTM from me otherwise).",
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
