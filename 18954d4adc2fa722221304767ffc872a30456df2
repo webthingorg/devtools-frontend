@@ -50,6 +50,98 @@
       "message": "Tim is the expert here (general LGTM from me otherwise).",
       "revId": "18954d4adc2fa722221304767ffc872a30456df2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c1c0d0_49a3e4d9",
+        "filename": "front_end/models/formatter/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-15T13:19:14Z",
+      "side": 1,
+      "message": "Nit: is this an invalid dependent? I have a feeling it is, but I mostly wanted to confirm that\u0027s the case. To me, it feels weird that the source map resolver relies on the formatter. I would have expected it to rely on some internal model data, but I don\u0027t know for certain.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95f5e35_258a1436",
+        "filename": "front_end/models/source_map_scopes/source_map_scopes.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-15T13:19:14Z",
+      "side": 1,
+      "message": "Nit: `export {NamesResolver}`",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b361d43a_2af1d85b",
+        "filename": "front_end/models/workspace/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-15T13:19:14Z",
+      "side": 1,
+      "message": "Same question here. I think it is an invalid dependent, but please confirm if that\u0027s the case.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07af8bc_2453786a",
+        "filename": "front_end/panels/sources/SourceMapNamesResolver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-15T13:19:14Z",
+      "side": 1,
+      "message": "Rather than keeping this file around, you can also update `sources-legacy.ts` to import from `source_map_scopes` and expose it there. I think that\u0027s cleaner than keeping this file around here.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 102
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
