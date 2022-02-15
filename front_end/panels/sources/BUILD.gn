@@ -72,6 +72,7 @@ devtools_module("sources") {
     "../../models/formatter:bundle",
     "../../models/issues_manager:bundle",
     "../../models/persistence:bundle",
+    "../../models/source_map_scopes:bundle",
     "../../models/text_utils:bundle",
     "../../models/workspace:bundle",
     "../../models/workspace_diff:bundle",
