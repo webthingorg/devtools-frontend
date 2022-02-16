@@ -84,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69c5134e_5093bdf3",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T13:03:30Z",
+      "side": 1,
+      "message": "No, this is exactly where we don\u0027t want to await. `pair` is already a promise. The next test can start while we re-populate the pool in the background 😊\n\nI\u0027ll add an explicit comment.",
+      "parentUuid": "f396c926_59d3df50",
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d4c37ec_13192fb6",
         "filename": "test/conductor/pool.ts",
         "patchSetId": 1
@@ -95,6 +113,24 @@
       "writtenOn": "2022-02-16T12:55:58Z",
       "side": 1,
       "message": "It took me a while to understand what this is doing. What about storing tab pairs in an array of promises instead?",
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a82b2d71_5941feaf",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T13:03:30Z",
+      "side": 1,
+      "message": "Not sure I understand. Do you mean a single Array\u003cPromise\u003cT\u003e\u003e? I don\u0027t see how that can store both \"ready\" tab pairs. And handle the case where a consumer requests a pair but none are ready.",
+      "parentUuid": "8d4c37ec_13192fb6",
       "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
