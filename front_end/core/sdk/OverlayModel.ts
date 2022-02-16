@@ -732,6 +732,20 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
     }
   }
 
+  showDistances(node: DOMNode, startedFromInspect: boolean): void {
+    if (node.id) {
+      const highlightConfig = this.buildHighlightConfig('all');
+      void this.overlayAgent.invoke_showDistances({highlightConfig, nodeId: node.id, startedFromInspect});
+    }
+  }
+
+  showDistancesRequested({nodeId}: Protocol.Overlay.ShowDistancesRequestedEvent): void {
+    const node = this.#domModel.nodeForId(nodeId);
+    if (node) {
+      this.showDistances(node, true);
+    }
+  }
+
   static setInspectNodeHandler(handler: (arg0: DOMNode) => void): void {
     OverlayModel.inspectNodeHandler = handler;
   }
@@ -753,6 +767,10 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
   screenshotRequested({viewport}: Protocol.Overlay.ScreenshotRequestedEvent): void {
     this.dispatchEventToListeners(Events.ScreenshotRequested, viewport);
     this.dispatchEventToListeners(Events.ExitedInspectMode);
+  }
+
+  inspectModeRequested(): void {
+    void this.setInspectMode(Protocol.Overlay.InspectMode.SearchForNode, false);
   }
 
   inspectModeCanceled(): void {

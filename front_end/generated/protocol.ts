@@ -9751,6 +9751,22 @@ export namespace Overlay {
     selector?: string;
   }
 
+  export interface ShowDistancesRequest {
+    /**
+     * A descriptor for the highlight appearance.
+     */
+    highlightConfig: HighlightConfig;
+    /**
+     * Identifier of the node to highlight.
+     */
+    nodeId?: DOM.NodeId;
+    /**
+     * Should be true if the tool was activated via keyboard from inspect mode, will switch back
+     *  to inspect mode if Alt/Option key is released
+     */
+    startedFromInspect?: boolean;
+  }
+
   export interface HighlightQuadRequest {
     /**
      * Quad to highlight
@@ -9948,6 +9964,13 @@ export namespace Overlay {
    * Fired when the node should be highlighted. This happens after call to `setInspectMode`.
    */
   export interface NodeHighlightRequestedEvent {
+    nodeId: DOM.NodeId;
+  }
+
+  /**
+   * Fired when the node should be highlighted with the NodeDistanceTool
+   */
+  export interface ShowDistancesRequestedEvent {
     nodeId: DOM.NodeId;
   }
 
