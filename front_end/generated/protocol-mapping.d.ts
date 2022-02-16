@@ -316,6 +316,14 @@ export namespace ProtocolMapping {
      */
     'Overlay.nodeHighlightRequested': [Protocol.Overlay.NodeHighlightRequestedEvent];
     /**
+     * Fired when the node should be highlighted with the NodeDistanceTool
+     */
+    'Overlay.showDistancesRequested': [Protocol.Overlay.ShowDistancesRequestedEvent];
+    /**
+     * Fired when switch to inspect mode is requested from NodeDistanceTool
+     */
+    'Overlay.inspectModeRequested': [];
+    /**
      * Fired when user asks to capture screenshot of some area on the page.
      */
     'Overlay.screenshotRequested': [Protocol.Overlay.ScreenshotRequestedEvent];
@@ -2044,6 +2052,10 @@ export namespace ProtocolMapping {
      * objectId must be specified.
      */
     'Overlay.highlightNode': {paramsType: [Protocol.Overlay.HighlightNodeRequest]; returnType: void;};
+    /**
+     * Highlights DOM node with given id and enables NodeDistanceTool to show distances to other nodes
+     */
+    'Overlay.showDistances': {paramsType: [Protocol.Overlay.ShowDistancesRequest]; returnType: void;};
     /**
      * Highlights given quad. Coordinates are absolute with respect to the main frame viewport.
      */

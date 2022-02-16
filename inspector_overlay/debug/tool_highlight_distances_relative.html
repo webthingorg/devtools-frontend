@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Debug</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script type="module" src="/out/Default/resources/inspector_overlay/main.js"></script>
+</head>
+<body>
+  <script type="module">
+    // TODO: cleanup, currently used for testing
+    let content = {
+      X: 535,
+      Y: 25,
+      W: 200,
+      H: 100
+    }
+    dispatch(["setPlatform", "mac"]);
+    dispatch(["setOverlay", "highlight"]);
+    dispatch(["reset"]);
+    // dispatch(["drawHighlight", {"paths":[{"path":["M",200,200,"L",450,200,"L",450,300,"L",200,300,"Z"], "fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"},
+    // {"path":["M",200,190,"L",450,190,"L",450,310,"L",200,310,"Z"],"fillColor":"rgba(246, 178, 107, 0.66)","name":"margin"}], showExtensionLines: false, showRulers: true, colorFormat: "hsl",
+    // distanceInfo: { distanceHighlight: {"paths":[{"path":["M",250,225,"L",400,225,"L",400,275,"L",250,275,"Z"], "fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"}]}}}]);
+
+    dispatch(["drawHighlight", {"paths":[{"path":["M",200,200,"L",450,200,"L",450,300,"L",200,300,"Z"], "fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"},
+    {"path":["M",200,190,"L",450,190,"L",450,310,"L",200,310,"Z"],"fillColor":"rgba(246, 178, 107, 0.66)","name":"margin"}], showExtensionLines: false, showRulers: true, colorFormat: "hsl",
+    distanceInfo: { distanceHighlight: {"paths":[{"path":["M",content.X,content.Y,"L",content.X+content.W,content.Y,"L",content.X+content.W,content.Y+content.H,"L",content.X,content.Y+content.H,"Z"], "fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"}]}}}]);
+  </script>
+</body>
+</html>
