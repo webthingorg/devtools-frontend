@@ -260,9 +260,16 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
       return;
     }
 
-    if (this.contentInternal?.content === updatedContent.content) {
-      this.lastAcceptedContent = null;
-      return;
+    if (this.contentInternal) {
+      const decodedContentInternal = this.contentInternal.isEncoded && this.contentInternal.content ?
+          window.atob(this.contentInternal.content) :
+          this.contentInternal.content;
+      const decodedUpdatedContent =
+          updatedContent.isEncoded ? window.atob(updatedContent.content) : updatedContent.content;
+      if (decodedContentInternal === decodedUpdatedContent) {
+        this.lastAcceptedContent = null;
+        return;
+      }
     }
 
     if (!this.isDirty() || this.workingCopyInternal === updatedContent.content) {
