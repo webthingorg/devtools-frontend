@@ -56,6 +56,30 @@
       },
       "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5627a55_cca7364c",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T06:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "201cab0d_90e69292",
+      "range": {
+        "startLine": 147,
+        "startChar": 40,
+        "endLine": 147,
+        "endChar": 46
+      },
+      "revId": "760afee618c715d0a3a33167ea1f40c5f70b28d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
