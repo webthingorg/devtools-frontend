@@ -1003,14 +1003,14 @@ export class DOMDocument extends DOMNode {
   body: DOMNode|null;
   documentElement: DOMNode|null;
   documentURL: string;
-  baseURL: string;
+  baseURL: Platform.DevToolsPath.UrlString;
   constructor(domModel: DOMModel, payload: Protocol.DOM.Node) {
     super(domModel);
     this.body = null;
     this.documentElement = null;
     this.init(this, false, payload);
     this.documentURL = payload.documentURL || '';
-    this.baseURL = payload.baseURL || '';
+    this.baseURL = (payload.baseURL || '') as Platform.DevToolsPath.UrlString;
   }
 }
 
