@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca4ba3ba_b89a91e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "didnt look at startviewfr or timespanview but wanted to flush comments…\n",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48ef91a_a44a59b9",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "cool. i like it",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016e2fc5_ede1ed47",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "extract a `page` const on L129ish?  duno if DT style will allow \n\n    self.runLighthouseSnapshot({url, config, page});\n    \nbut itd be sweet if so",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c9f7ecf_9004565f",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "seems like we wont do this disconnect() in the endtimespan case, right? shouldn\u0027t we?",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c065e347_0001151f",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "i\u0027d prefer these arrow functions are defined on the class.  this one in particular is too important for it to be so anonymous.  also, that\u0027s more inline with devtools style",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4f647a9_abc5d810",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "you might as well have these start/end methods take the new object instead of the 3 params",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aff79cf_fee74802",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2022-02-16T22:31:10Z",
+      "side": 1,
+      "message": "? still left from debugging?",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
