@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce0a3ec_4459b192",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-16T22:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "016e2fc5_ede1ed47",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c9f7ecf_9004565f",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-02-16T22:31:10Z",
       "side": 1,
       "message": "seems like we wont do this disconnect() in the endtimespan case, right? shouldn\u0027t we?",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6be0662e_0139517c",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-16T22:57:19Z",
+      "side": 1,
+      "message": "Why not it\u0027s the end of a Lighthouse run just like navigation and snapshot. We open a new LH worker and therefore a new browser connection for each one.",
+      "parentUuid": "8c9f7ecf_9004565f",
       "revId": "4f98716905dc79511c86393492870ef177b26667",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5078095_e20713da",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-16T22:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c065e347_0001151f",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4f647a9_abc5d810",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "624cb7de_146a066a",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-16T22:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f647a9_abc5d810",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9aff79cf_fee74802",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-02-16T22:31:10Z",
       "side": 1,
       "message": "? still left from debugging?",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c81242_778e502f",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-16T22:57:19Z",
+      "side": 1,
+      "message": "Ya probably deserves a comment. For snapshot/navigation, everything is done in the `endLighthouse` function on `LighthouseProtocolService`. This is where we separate `timespan` into `startTimespan`/`endTimespan`",
+      "parentUuid": "9aff79cf_fee74802",
       "revId": "4f98716905dc79511c86393492870ef177b26667",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
