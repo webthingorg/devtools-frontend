@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "878b047a_7ee64cc6",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-16T17:24:02Z",
+      "side": 1,
+      "message": "Changing in the following CL",
+      "parentUuid": "0b939313_8cd23ab5",
+      "range": {
+        "startLine": 372,
+        "startChar": 52,
+        "endLine": 372,
+        "endChar": 63
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "137fe100_235ce6b6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-16T17:16:26Z",
       "side": 1,
       "message": "Might as well change the type of contentUrl and move the cast to the constructor.",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 58
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d29735_e94076b7",
+        "filename": "front_end/ui/legacy/components/source_frame/BinaryResourceViewFactory.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-16T17:24:02Z",
+      "side": 1,
+      "message": "Doing it in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3468520/2/front_end/ui/legacy/components/source_frame/BinaryResourceViewFactory.ts#74",
+      "parentUuid": "137fe100_235ce6b6",
       "range": {
         "startLine": 74,
         "startChar": 8,
