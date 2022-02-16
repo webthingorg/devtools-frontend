@@ -22,6 +22,30 @@
       },
       "revId": "54faea8bfb2368af5b4dd101bb2ff3c37bdd7cdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "730edc47_c6fe53bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2022-02-16T18:47:25Z",
+      "side": 1,
+      "message": "Thank you for the review Tim!\nI filed a bug and updated the description. There is a callstack in the bug but if you need more information don\u0027t hesitate to reach out, thanks!",
+      "parentUuid": "1525239c_ad499579",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "54faea8bfb2368af5b4dd101bb2ff3c37bdd7cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
