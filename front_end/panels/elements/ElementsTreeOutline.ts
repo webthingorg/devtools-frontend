@@ -100,6 +100,12 @@ export class ElementsTreeOutline extends
   private treeElementBeingDragged?: ElementsTreeElement;
   private dragOverTreeElement?: ElementsTreeElement;
   private updateModifiedNodesTimeout?: number;
+  /** TODO: find a better solution
+   *
+   * added `skipMouseMoveHandler` as a workaround to not trigger mousemove directly after selecting `showDistances`
+   * from context menu
+   */
+  private skipMouseMoveHandler?: boolean;
 
   constructor(omitRootDOMNode?: boolean, selectEnabled?: boolean, hideGutter?: boolean) {
     super();
@@ -577,6 +583,7 @@ export class ElementsTreeOutline extends
   }
 
   private onmousedown(event: MouseEvent): void {
+    this.skipMouseMoveHandler = false;
     const element = this.treeElementFromEventInternal(event);
 
     if (!element || element.isEventWithinDisclosureTriangle(event)) {
@@ -604,7 +611,7 @@ export class ElementsTreeOutline extends
 
   private onmousemove(event: MouseEvent): void {
     const element = this.treeElementFromEventInternal(event);
-    if (element && this.previousHoveredElement === element) {
+    if (element && this.previousHoveredElement === element || this.skipMouseMoveHandler) {
       return;
     }
 
@@ -629,6 +636,7 @@ export class ElementsTreeOutline extends
   private onmouseleave(_event: MouseEvent): void {
     this.setHoverEffect(null);
     SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+    this.skipMouseMoveHandler = false;
   }
 
   private ondragstart(event: DragEvent): boolean|undefined {
@@ -800,8 +808,16 @@ export class ElementsTreeOutline extends
       ElementsPanel.instance().showAdornerSettingsPane();
     });
 
+    // TODO: UI string
+    contextMenu.viewSection().appendItem('Show distances', this.showNodeDistances.bind(this, treeElement.node()));
+
     contextMenu.appendApplicableItems(treeElement.node());
     void contextMenu.show();
+  }
+
+  private showNodeDistances(node: SDK.DOMModel.DOMNode): void {
+    node.domModel().overlayModel().showDistances(node, false);
+    this.skipMouseMoveHandler = true;
   }
 
   private async saveNodeToTempVariable(node: SDK.DOMModel.DOMNode): Promise<void> {

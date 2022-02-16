@@ -6647,6 +6647,17 @@ experimental domain Overlay
       # Selectors to highlight relevant nodes.
       optional string selector
 
+  # Highlights DOM node with given id and enables NodeDistanceTool to show distances to other nodes
+  command showDistances
+    parameters
+      # A descriptor for the highlight appearance.
+      HighlightConfig highlightConfig
+      # Identifier of the node to highlight.
+      optional DOM.NodeId nodeId
+      # Should be true if the tool was activated via keyboard from inspect mode, will switch back
+      #  to inspect mode if Alt/Option key is released
+      optional boolean startedFromInspect
+
   # Highlights given quad. Coordinates are absolute with respect to the main frame viewport.
   command highlightQuad
     parameters
@@ -6798,6 +6809,14 @@ experimental domain Overlay
   event nodeHighlightRequested
     parameters
       DOM.NodeId nodeId
+
+  # Fired when the node should be highlighted with the NodeDistanceTool
+  event showDistancesRequested
+    parameters
+      DOM.NodeId nodeId
+
+  # Fired when switch to inspect mode is requested from NodeDistanceTool
+  event inspectModeRequested
 
   # Fired when user asks to capture screenshot of some area on the page.
   event screenshotRequested

@@ -2241,6 +2241,11 @@ declare namespace ProtocolProxyApi {
     invoke_highlightNode(params: Protocol.Overlay.HighlightNodeRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
+     * Highlights DOM node with given id and enables NodeDistanceTool to show distances to other nodes
+     */
+    invoke_showDistances(params: Protocol.Overlay.ShowDistancesRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    /**
      * Highlights given quad. Coordinates are absolute with respect to the main frame viewport.
      */
     invoke_highlightQuad(params: Protocol.Overlay.HighlightQuadRequest): Promise<Protocol.ProtocolResponseWithError>;
@@ -2357,6 +2362,16 @@ declare namespace ProtocolProxyApi {
      * Fired when the node should be highlighted. This happens after call to `setInspectMode`.
      */
     nodeHighlightRequested(params: Protocol.Overlay.NodeHighlightRequestedEvent): void;
+
+    /**
+     * Fired when the node should be highlighted with the NodeDistanceTool
+     */
+    showDistancesRequested(params: Protocol.Overlay.ShowDistancesRequestedEvent): void;
+
+    /**
+     * Fired when switch to inspect mode is requested from NodeDistanceTool
+     */
+    inspectModeRequested(): void;
 
     /**
      * Fired when user asks to capture screenshot of some area on the page.

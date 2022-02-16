@@ -14343,6 +14343,29 @@
                     ]
                 },
                 {
+                    "name": "showDistances",
+                    "description": "Highlights DOM node with given id and enables NodeDistanceTool to show distances to other nodes",
+                    "parameters": [
+                        {
+                            "name": "highlightConfig",
+                            "description": "A descriptor for the highlight appearance.",
+                            "$ref": "HighlightConfig"
+                        },
+                        {
+                            "name": "nodeId",
+                            "description": "Identifier of the node to highlight.",
+                            "optional": true,
+                            "$ref": "DOM.NodeId"
+                        },
+                        {
+                            "name": "startedFromInspect",
+                            "description": "Should be true if the tool was activated via keyboard from inspect mode, will switch back\n to inspect mode if Alt/Option key is released",
+                            "optional": true,
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                {
                     "name": "highlightQuad",
                     "description": "Highlights given quad. Coordinates are absolute with respect to the main frame viewport.",
                     "parameters": [
@@ -14660,6 +14683,20 @@
                             "$ref": "DOM.NodeId"
                         }
                     ]
+                },
+                {
+                    "name": "showDistancesRequested",
+                    "description": "Fired when the node should be highlighted with the NodeDistanceTool",
+                    "parameters": [
+                        {
+                            "name": "nodeId",
+                            "$ref": "DOM.NodeId"
+                        }
+                    ]
+                },
+                {
+                    "name": "inspectModeRequested",
+                    "description": "Fired when switch to inspect mode is requested from NodeDistanceTool"
                 },
                 {
                     "name": "screenshotRequested",
