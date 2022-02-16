@@ -17,7 +17,10 @@ interface FrontendTargetTabs {
 export interface FrontedTargetPoolOptions {
   browser: puppeteer.Browser;
   testServerPort: number;
-  /** Defaults to FrontendTargetPool.POOL_SIZE */
+  /**
+   * Defaults to FrontendTargetPool.POOL_SIZE.
+   * Setting `poolSize` to 0 will create target/frontend pairs on-demand.
+   */
   poolSize?: number;
 }
 

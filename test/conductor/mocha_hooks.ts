@@ -10,7 +10,7 @@ import * as reports from 'istanbul-reports';
 import * as path from 'path';
 import * as rimraf from 'rimraf';
 
-import {collectCoverageFromPage, postFileTeardown, preFileSetup, resetPages} from './hooks.js';
+import {collectCoverageFromPage, postFileTeardown, preFileSetup, resetPagesBetweenTests} from './hooks.js';
 import {getTestRunnerConfigSetting} from './test_runner_config.js';
 import {startServer, stopServer} from './test_server.js';
 
@@ -59,6 +59,8 @@ export function mochaGlobalTeardown() {
 const testSuiteCoverageMap = createCoverageMap();
 const SHOULD_GATHER_COVERAGE_INFORMATION = process.env.COVERAGE === '1' && DERIVED_SERVER_TYPE === 'component-docs';
 const INTERACTIONS_COVERAGE_LOCATION = path.join(process.cwd(), 'interactions-coverage/');
+
+let timeAtAfterEach = -1;
 
 // These are the 'root hook plugins': https://mochajs.org/#root-hook-plugins
 // These open and configure the browser before tests are run.
@@ -124,9 +126,17 @@ export const mochaHooks = {
   beforeEach: async function(this: Mocha.Suite) {
     // Sets the timeout higher for this hook only.
     this.timeout(10000);
-    await resetPages();
+    await resetPagesBetweenTests();
+
+    if (timeAtAfterEach > 0) {
+      const resetDuration = performance.now() - timeAtAfterEach;
+      if (resetDuration > 100) {
+        console.warn(`Spent more than 100 ms (${resetDuration}) in-between tests!`);
+      }
+    }
   },
   afterEach: async function(this: Mocha.Suite) {
+    timeAtAfterEach = performance.now();
     if (!SHOULD_GATHER_COVERAGE_INFORMATION) {
       return;
     }
