@@ -75,6 +75,7 @@ class ConnectionProxy implements SDK.Connections.ParallelConnectionInterface {
 
 const port = new LighthousePort();
 let rawConnection: ConnectionProxy|undefined;
+let endTimespan: (() => unknown)|undefined;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function start(method: string, params: any): Promise<unknown> {
@@ -92,6 +93,17 @@ async function start(method: string, params: any): Promise<unknown> {
       undefined;
 
   try {
+    // For timespan we only need to perform setup on startTimespan.
+    // Config, flags, locale, etc. should be stored in the closure of endTimespan.
+    if (method === 'endTimespan') {
+      if (!endTimespan) {
+        throw new Error('Cannot end a timespan before starting one');
+      }
+      const result = await endTimespan();
+      endTimespan = undefined;
+      return result;
+    }
+
     const locale = await fetchLocaleData(params.locales);
     const flags = params.flags;
     flags.logLevel = flags.logLevel || 'info';
@@ -103,7 +115,7 @@ async function start(method: string, params: any): Promise<unknown> {
     const url = params.url;
 
     // Handle legacy Lighthouse runner path.
-    if (method === 'legacyNavigation') {
+    if (method === 'navigation' && flags.legacyNavigation) {
       // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
       const connection = self.setUpWorkerConnection(port);
       // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
@@ -124,6 +136,17 @@ async function start(method: string, params: any): Promise<unknown> {
       });
     }
 
+    if (method === 'startTimespan') {
+      // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
+      const timespan = await self.startLighthouseTimespan({
+        url,
+        config,
+        page: puppeteerConnection.page,
+      });
+      endTimespan = timespan.endTimespan;
+      return;
+    }
+
     // @ts-expect-error https://github.com/GoogleChrome/lighthouse/issues/11628
     return await self.runLighthouseNavigation({
       url,
@@ -137,7 +160,10 @@ async function start(method: string, params: any): Promise<unknown> {
       stack: err.stack,
     });
   } finally {
-    puppeteerConnection?.browser.disconnect();
+    // endTimespan will need to use the same connection as startTimespan.
+    if (method !== 'startTimespan') {
+      puppeteerConnection?.browser.disconnect();
+    }
   }
 }
 
@@ -186,10 +212,10 @@ function notifyFrontendViaWorkerMessage(method: string, params: any): void {
 self.onmessage = async(event: MessageEvent): Promise<void> => {
   const messageFromFrontend = JSON.parse(event.data);
   switch (messageFromFrontend.method) {
-    case 'navigation':
-    case 'timespan':
+    case 'startTimespan':
+    case 'endTimespan':
     case 'snapshot':
-    case 'legacyNavigation': {
+    case 'navigation': {
       const result = await start(messageFromFrontend.method, messageFromFrontend.params);
       self.postMessage(JSON.stringify({id: messageFromFrontend.id, result}));
       break;
