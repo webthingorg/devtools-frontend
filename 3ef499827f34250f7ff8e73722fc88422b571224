@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac2e981_6cd07949",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-02-16T11:38:47Z",
+      "side": 1,
+      "message": "lgtm with suggestion",
+      "revId": "3ef499827f34250f7ff8e73722fc88422b571224",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aab1cf7f_a3a60750",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-02-16T11:31:49Z",
       "side": 1,
       "message": "note: In the future, we will increase this idea for each DevTools frontend tab. So they can\u0027t affect each other via window.localStorage.",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "3ef499827f34250f7ff8e73722fc88422b571224",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9606d3ec_4d9245eb",
+        "filename": "test/conductor/frontend_tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-02-16T11:38:47Z",
+      "side": 1,
+      "message": "Ack. Do you think it\u0027s worth leaving a comment here about why we use this over localhost, similar to the CL description?",
+      "parentUuid": "aab1cf7f_a3a60750",
       "range": {
         "startLine": 56,
         "startChar": 33,
