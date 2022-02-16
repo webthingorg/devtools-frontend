@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9dad006_daa0dc79",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T15:41:50Z",
+      "side": 1,
+      "message": "Should this also be a UrlString?",
+      "range": {
+        "startLine": 1005,
+        "startChar": 2,
+        "endLine": 1005,
+        "endChar": 13
+      },
+      "revId": "3dd4dbce4c74a1584e9bfc879ee892bf20c4ea49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9942b88_86aa374f",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T15:41:50Z",
+      "side": 1,
+      "message": "Looks like you could change the type of this argument and only need one cast.",
+      "range": {
+        "startLine": 646,
+        "startChar": 50,
+        "endLine": 646,
+        "endChar": 53
+      },
+      "revId": "3dd4dbce4c74a1584e9bfc879ee892bf20c4ea49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d6b4d0_e8eb3527",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T15:41:50Z",
+      "side": 1,
+      "message": "Optional: If you\u0027re not trying to verify that ParsedURL.completeURL is returning an UrlString, you could also do `const completeUrl : string \u003d ParsedURL.completURL(...` and then not cast here. Whichever you prefer. You could also create an assertEqualStringUrlString() helper",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 11
+      },
+      "revId": "3dd4dbce4c74a1584e9bfc879ee892bf20c4ea49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2dbe6e_c6995020",
+        "filename": "test/unittests/front_end/core/sdk/SourceMap_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T15:41:50Z",
+      "side": 1,
+      "message": "Creating a constant `const sourceUrl \u003d \u0027\u003cfoo\u003e\u0027 as Platform.DevToolsPath.UrlString` would clean up these casts and make the test clearer.",
+      "range": {
+        "startLine": 36,
+        "startChar": 49,
+        "endLine": 36,
+        "endChar": 91
+      },
+      "revId": "3dd4dbce4c74a1584e9bfc879ee892bf20c4ea49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee43e52_7fe11fb4",
+        "filename": "test/unittests/front_end/core/sdk/SourceMap_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T15:41:50Z",
+      "side": 1,
+      "message": "Here as well, create constants named compiledUrl, sourceMapUrl, sourceCodeUrl, otherSourceCodeUrl and use them throughout the tests.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 8
+      },
+      "revId": "3dd4dbce4c74a1584e9bfc879ee892bf20c4ea49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
