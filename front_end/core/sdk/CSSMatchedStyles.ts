@@ -28,6 +28,7 @@ export class CSSMatchedStyles {
       cssModel: CSSModel, node: DOMNode, inlinePayload: Protocol.CSS.CSSStyle|null,
       attributesPayload: Protocol.CSS.CSSStyle|null, matchedPayload: Protocol.CSS.RuleMatch[],
       pseudoPayload: Protocol.CSS.PseudoElementMatches[], inheritedPayload: Protocol.CSS.InheritedStyleEntry[],
+      inheritedPseudoPayload: Protocol.CSS.InheritedPseudoElementMatches[],
       animationsPayload: Protocol.CSS.CSSKeyframesRule[]) {
     this.#cssModelInternal = cssModel;
     this.#nodeInternal = node;
@@ -47,7 +48,7 @@ export class CSSMatchedStyles {
     }
 
     this.#mainDOMCascade = this.buildMainCascade(inlinePayload, attributesPayload, matchedPayload, inheritedPayload);
-    this.#pseudoDOMCascades = this.buildPseudoCascades(pseudoPayload);
+    this.#pseudoDOMCascades = this.buildPseudoCascades(pseudoPayload, inheritedPseudoPayload);
 
     this.#styleToDOMCascade = new Map();
     for (const domCascade of Array.from(this.#pseudoDOMCascades.values()).concat(this.#mainDOMCascade)) {
@@ -205,12 +206,16 @@ export class CSSMatchedStyles {
     }
   }
 
-  private buildPseudoCascades(pseudoPayload: Protocol.CSS.PseudoElementMatches[]):
+  private buildPseudoCascades(
+      pseudoPayload: Protocol.CSS.PseudoElementMatches[],
+      inheritedPseudoPayload: Protocol.CSS.InheritedPseudoElementMatches[]):
       Map<Protocol.DOM.PseudoType, DOMInheritanceCascade> {
-    const pseudoCascades = new Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>();
+    const pseudoInheritanceCascades = new Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>();
     if (!pseudoPayload) {
-      return pseudoCascades;
+      return pseudoInheritanceCascades;
     }
+
+    const pseudoCascades = new Map<Protocol.DOM.PseudoType, NodeCascade[]>();
     for (let i = 0; i < pseudoPayload.length; ++i) {
       const entryPayload = pseudoPayload[i];
       // PseudoElement nodes are not created unless "content" css property is set.
@@ -226,9 +231,41 @@ export class CSSMatchedStyles {
         }
       }
       const nodeCascade = new NodeCascade(this, pseudoStyles, false /* #isInherited */);
-      pseudoCascades.set(entryPayload.pseudoType, new DOMInheritanceCascade([nodeCascade]));
+      pseudoCascades.set(entryPayload.pseudoType, [nodeCascade]);
     }
-    return pseudoCascades;
+
+    if (inheritedPseudoPayload) {
+      let parentNode: (DOMNode|null) = this.#nodeInternal.parentNode;
+      for (let i = 0; parentNode && i < inheritedPseudoPayload.length; ++i) {
+        const inheritedPseudoMatches = inheritedPseudoPayload[i].pseudoElements;
+        for (let j = 0; j < inheritedPseudoMatches.length; ++j) {
+          const inheritedEntryPayload = inheritedPseudoMatches[j];
+          const pseudoStyles = [];
+          const rules = inheritedEntryPayload.matches || [];
+          for (let k = rules.length - 1; k >= 0; --k) {
+            const pseudoRule = new CSSStyleRule(this.#cssModelInternal, rules[k].rule);
+            pseudoStyles.push(pseudoRule.style);
+            this.#nodeForStyleInternal.set(pseudoRule.style, parentNode);
+            this.#inheritedStyles.add(pseudoRule.style);
+          }
+
+          const nodeCascade = new NodeCascade(this, pseudoStyles, true /* #isInherited */);
+          if (pseudoCascades.get(inheritedEntryPayload.pseudoType)) {
+            pseudoCascades.get(inheritedEntryPayload.pseudoType)!.push(nodeCascade);
+          } else {
+            pseudoCascades.set(inheritedEntryPayload.pseudoType, [nodeCascade]);
+          }
+        }
+
+        parentNode = parentNode.parentNode;
+      }
+    }
+
+    for (const pseudoType of pseudoCascades.keys()) {
+      pseudoInheritanceCascades.set(pseudoType, new DOMInheritanceCascade(pseudoCascades.get(pseudoType)!));
+    }
+
+    return pseudoInheritanceCascades;
   }
 
   private addMatchingSelectors(
