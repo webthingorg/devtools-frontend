@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cb82cd5_e28a533a",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-02-16T12:55:58Z",
+      "side": 1,
+      "message": "it\u0027s the consumer\u0027s",
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d4ee5ba_8424af9f",
         "filename": "test/conductor/pool.ts",
         "patchSetId": 1
@@ -20,6 +37,64 @@
         "endLine": 52,
         "endChar": 32
       },
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b418e025_f7c09e69",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-02-16T12:55:58Z",
+      "side": 1,
+      "message": "Agreed, no need to wait here.",
+      "parentUuid": "8d4ee5ba_8424af9f",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f396c926_59d3df50",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-02-16T12:55:58Z",
+      "side": 1,
+      "message": "await?",
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4c37ec_13192fb6",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-02-16T12:55:58Z",
+      "side": 1,
+      "message": "It took me a while to understand what this is doing. What about storing tab pairs in an array of promises instead?",
       "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
