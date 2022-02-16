@@ -170,3 +170,7 @@ export function collectCoverageFromPage(): Promise<CoverageMapData|undefined> {
 
   return frontend.evaluate('window.__coverage__');
 }
+
+export function getFrontendHostname(): string {
+  return frontendTab.hostname();
+}

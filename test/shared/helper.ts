@@ -6,7 +6,7 @@ import {assert, AssertionError} from 'chai';
 import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
-import {reloadDevTools} from '../conductor/hooks.js';
+import {getFrontendHostname, reloadDevTools} from '../conductor/hooks.js';
 import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
 import {AsyncScope} from './async-scope.js';
@@ -412,6 +412,8 @@ export const getResourcesPath = (host: string = 'localhost') => {
   }
   return `https://${host}:${getTestServerPort()}${resourcesPath}`;
 };
+
+export const getDevToolsFrontendHostname = getFrontendHostname;
 
 export const step = async (description: string, step: Function) => {
   try {
