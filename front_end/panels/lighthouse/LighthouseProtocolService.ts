@@ -10,6 +10,12 @@ import type * as ReportRenderer from './LighthouseReporterTypes.js';
 
 let lastId = 1;
 
+export interface LighthouseRun {
+  inspectedURL: string;
+  categoryIDs: string[];
+  flags: Record<string, Object|undefined>;
+}
+
 export class ProtocolService {
   private targetInfo?: {
     mainSessionId: string,
@@ -58,19 +64,42 @@ export class ProtocolService {
     return [i18n.DevToolsLocale.DevToolsLocale.instance().locale];
   }
 
-  async startLighthouse(auditURL: string, categoryIDs: string[], flags: Record<string, Object|undefined>):
-      Promise<ReportRenderer.RunnerResult> {
+  async startLighthouse(currentLighthouseRun: LighthouseRun): Promise<void> {
+    const {inspectedURL, categoryIDs, flags} = currentLighthouseRun;
+
+    if (!this.targetInfo) {
+      throw new Error('Unable to get target info required for Lighthouse');
+    }
+
+    // Navigation and snapshot modes only need to do work in 1 event.
+    // We do that work in `endTimespan`, so nothing needs to be done here for those modes.
+    if (flags.mode !== 'timespan') {
+      return;
+    }
+
+    await this.sendWithResponse('startTimespan', {
+      url: inspectedURL,
+      categoryIDs,
+      flags,
+      locales: this.getLocales(),
+      target: this.targetInfo,
+    });
+  }
+
+  async endLighthouse(currentLighthouseRun: LighthouseRun): Promise<ReportRenderer.RunnerResult> {
+    const {inspectedURL, categoryIDs, flags} = currentLighthouseRun;
+
     if (!this.targetInfo) {
       throw new Error('Unable to get target info required for Lighthouse');
     }
 
     let mode = flags.mode as string;
-    if (mode === 'navigation' && flags.legacyNavigation) {
-      mode = 'legacyNavigation';
+    if (mode === 'timespan') {
+      mode = 'endTimespan';
     }
 
     return this.sendWithResponse(mode, {
-      url: auditURL,
+      url: inspectedURL,
       categoryIDs,
       flags,
       locales: this.getLocales(),
