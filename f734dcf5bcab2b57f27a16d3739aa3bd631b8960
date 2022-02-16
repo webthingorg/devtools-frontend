@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4ee5ba_8424af9f",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T12:44:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want to wait until the pool is full here. Alternatively we can return immediately. `takeTabPair` will block until the first pair is ready. Wdyt?",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928d7bbc_122acba3",
+        "filename": "test/conductor/pool.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T12:44:55Z",
+      "side": 1,
+      "message": "Note: Both `put` and `take` do not use `await` which makes them \"atomic\" and as such this class should (in theory) be \"correct\".",
+      "revId": "f734dcf5bcab2b57f27a16d3739aa3bd631b8960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
