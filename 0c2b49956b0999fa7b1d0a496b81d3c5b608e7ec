@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e444552_7f387dc4",
+        "filename": "front_end/models/workspace_diff/WorkspaceDiff.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-02-16T10:24:44Z",
+      "side": 1,
+      "message": "non-blocking drive-by suggestion: I know it’s not new code in this patch, but now that we’re moving things around anyway… WDYT about simplifying the regular expression and assigning it to a variable since it’s being reused? Something like:\n\n    const reNewline \u003d /\\r\\n?|\\n/;",
+      "revId": "0c2b49956b0999fa7b1d0a496b81d3c5b608e7ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
