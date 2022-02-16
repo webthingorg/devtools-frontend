@@ -63,6 +63,30 @@
       },
       "revId": "3ef499827f34250f7ff8e73722fc88422b571224",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6da57d_73f46d43",
+        "filename": "test/conductor/frontend_tab.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-16T12:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9606d3ec_4d9245eb",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "3ef499827f34250f7ff8e73722fc88422b571224",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
