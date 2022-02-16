@@ -53,7 +53,7 @@ export class DevToolsFrontendTab {
       throw new Error('Could not load DevTools. hosted-server-devtools-url config not found.');
     }
 
-    const frontendUrl = `https://localhost:${testServerPort}/${devToolsAppURL}?ws=localhost:${
+    const frontendUrl = `https://i1.devtools-frontend.test:${testServerPort}/${devToolsAppURL}?ws=localhost:${
         getDebugPort(browser)}/devtools/page/${targetId}`;
 
     const frontend = await browser.newPage();
