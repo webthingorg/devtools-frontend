@@ -40,6 +40,8 @@ export class DevToolsFrontendTab {
     name: 'elements',
     selector: '.elements',
   };
+  // We use the counter to give each tab a unique origin.
+  private static tabCounter = 0;
 
   private constructor(readonly page: puppeteer.Page, frontendUrl: string) {
     this.#frontendUrl = frontendUrl;
@@ -53,7 +55,8 @@ export class DevToolsFrontendTab {
       throw new Error('Could not load DevTools. hosted-server-devtools-url config not found.');
     }
 
-    const frontendUrl = `https://localhost:${testServerPort}/${devToolsAppURL}?ws=localhost:${
+    const id = DevToolsFrontendTab.tabCounter++;
+    const frontendUrl = `https://devtools${id}-frontend.test:${testServerPort}/${devToolsAppURL}?ws=localhost:${
         getDebugPort(browser)}/devtools/page/${targetId}`;
 
     const frontend = await browser.newPage();
@@ -97,6 +100,12 @@ export class DevToolsFrontendTab {
     if (!queryParams.panel && selectedPanel.selector) {
       await this.page.waitForSelector(selectedPanel.selector);
     }
+  }
+
+  /** Returns the hostname where this DevTools instance is hosted */
+  host(): string {
+    const url = new URL(this.#frontendUrl);
+    return url.hostname;
   }
 }
 

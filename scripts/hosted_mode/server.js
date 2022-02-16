@@ -177,6 +177,12 @@ async function requestHandler(request, response) {
       // This is fine to do given that test invocations run against fresh Chrome profiles.
       headers.set('Cache-Control', 'max-age=3600');
     }
+    if (!headers.has('Access-Control-Allow-Origin')) {
+      // e2e tests use Chromes host-mapping feature where all .test TLD origins
+      // are mapped to 127.0.0.1. This means we need to allow requests from cross-origins
+      // even though we only ever serve on localhost.
+      headers.set('Access-Control-Allow-Origin', '*');
+    }
     headers.forEach((value, header) => {
       response.setHeader(header, value);
     });

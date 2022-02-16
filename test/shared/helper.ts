@@ -6,9 +6,10 @@ import {assert, AssertionError} from 'chai';
 import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
-import {reloadDevTools} from '../conductor/hooks.js';
+import {getFrontendHost as getFrontendHostApi, reloadDevTools} from '../conductor/hooks.js';
 import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
+
 import {AsyncScope} from './async-scope.js';
 
 declare global {
@@ -401,6 +402,10 @@ export const getResourcesPath = (host: string = 'localhost') => {
     resourcesPath = `/${resourcesPath}`;
   }
   return `https://${host}:${getTestServerPort()}${resourcesPath}`;
+};
+
+export const getFrontendHost = () => {
+  return getFrontendHostApi();
 };
 
 export const step = async (description: string, step: Function) => {
