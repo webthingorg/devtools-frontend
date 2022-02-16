@@ -123,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e2e8e4e_2015754d",
+        "filename": "front_end/models/formatter/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-16T12:02:41Z",
+      "side": 1,
+      "message": "It\u0027s mostly a question if we want to have a dependency between this models. If we are okay with that, I think this is fine. But if we don\u0027t want such dependencies between models, then we should consider it \"invalid\".\n\nIn any case, submitting this for now SGTM, we can always revisit later.",
+      "parentUuid": "b51136ce_8c857003",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "18954d4adc2fa722221304767ffc872a30456df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e95f5e35_258a1436",
