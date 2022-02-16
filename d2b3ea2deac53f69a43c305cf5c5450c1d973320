@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b939313_8cd23ab5",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T17:16:26Z",
+      "side": 1,
+      "message": "Is there a reason you\u0027re not changing this type too?",
+      "range": {
+        "startLine": 372,
+        "startChar": 52,
+        "endLine": 372,
+        "endChar": 63
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137fe100_235ce6b6",
+        "filename": "front_end/ui/legacy/components/source_frame/BinaryResourceViewFactory.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-16T17:16:26Z",
+      "side": 1,
+      "message": "Might as well change the type of contentUrl and move the cast to the constructor.",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 58
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
