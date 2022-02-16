@@ -294,7 +294,7 @@ export class CSSModel extends SDKModel<EventTypes> {
     return new CSSMatchedStyles(
         this, (node as DOMNode), response.inlineStyle || null, response.attributesStyle || null,
         response.matchedCSSRules || [], response.pseudoElements || [], response.inherited || [],
-        response.cssKeyframesRules || []);
+        response.inheritedPseudoElements || [], response.cssKeyframesRules || []);
   }
 
   async classNamesPromise(styleSheetId: Protocol.CSS.StyleSheetId): Promise<string[]> {
