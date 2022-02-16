@@ -16,6 +16,23 @@
       "message": "Philip, PTAL\nJack, FYI",
       "revId": "af6b27928dbc6f703c3d77e237ebe9a24d1cdde3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016a7dc3_f71b08e5",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2022-02-16T09:18:31Z",
+      "side": 1,
+      "message": "Is the reason for the local rename to avoid having to import hooks.ts in the tests? Don\u0027t we do that in some places already?",
+      "revId": "af6b27928dbc6f703c3d77e237ebe9a24d1cdde3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
