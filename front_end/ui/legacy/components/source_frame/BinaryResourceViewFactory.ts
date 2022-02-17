@@ -63,9 +63,10 @@ export class BinaryResourceViewFactory {
   }
 
   createBase64View(): ResourceSourceFrame {
+    // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
     return new ResourceSourceFrame(
         TextUtils.StaticContentProvider.StaticContentProvider.fromString(
-            this.contentUrl, this.resourceType, this.base64content),
+            this.contentUrl as Platform.DevToolsPath.UrlString, this.resourceType, this.base64content),
         this.resourceType.canonicalMimeType(), {lineNumbers: false, lineWrapping: true});
   }
 

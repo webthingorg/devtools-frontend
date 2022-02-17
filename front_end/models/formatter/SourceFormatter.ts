@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../bindings/bindings.js';
+import type * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -132,8 +133,9 @@ export class SourceFormatter {
           formattedURL = `${uiSourceCode.url()}:formatted${suffix}`;
           suffix = `:${count++}`;
         } while (this.project.uiSourceCodeForURL(formattedURL));
+        // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
         const contentProvider = TextUtils.StaticContentProvider.StaticContentProvider.fromString(
-            formattedURL, uiSourceCode.contentType(), formattedContent);
+            formattedURL as Platform.DevToolsPath.UrlString, uiSourceCode.contentType(), formattedContent);
         const formattedUISourceCode = this.project.createUISourceCode(formattedURL, contentProvider.contentType());
         const formatData = new SourceFormatData(uiSourceCode, formattedUISourceCode, formattedMapping);
         objectToFormattingResult.set(formattedUISourceCode, formatData);
