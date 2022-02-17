@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53bc41cd_0e765408",
+        "filename": "front_end/models/formatter/SourceFormatter.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-17T16:03:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ecc8677_e0125ed1",
+      "range": {
+        "startLine": 133,
+        "startChar": 25,
+        "endLine": 133,
+        "endChar": 68
+      },
+      "revId": "c009bd13478b189201638c622a23e57642d0123c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70175790_acbfc049",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a2dafc_98f6ab87",
+        "filename": "front_end/ui/legacy/components/source_frame/BinaryResourceViewFactory.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-17T16:03:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70175790_acbfc049",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "c009bd13478b189201638c622a23e57642d0123c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8f9084d_3ab5db5f",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-02-17T12:16:58Z",
       "side": 1,
       "message": "Looks like there are other casts like this in this file; can you cast it once in the constructor instead?",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 62
+      },
+      "revId": "c009bd13478b189201638c622a23e57642d0123c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a62d79_3f77d44f",
+        "filename": "front_end/ui/legacy/components/source_frame/BinaryResourceViewFactory.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-17T16:03:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8f9084d_3ab5db5f",
       "range": {
         "startLine": 69,
         "startChar": 12,
