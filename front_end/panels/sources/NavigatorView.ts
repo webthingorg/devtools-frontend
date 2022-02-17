@@ -914,7 +914,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     if (uiSourceCodeToCopy) {
       content = (await uiSourceCodeToCopy.requestContent()).content || '';
     }
-    const uiSourceCode = await project.createFile(path, null, content);
+    // TODO(crbug.com/1253323): Cast to EncodedPathString will be removed when migration to branded types is complete.
+    const uiSourceCode = await project.createFile(path as Platform.DevToolsPath.EncodedPathString, null, content);
     if (!uiSourceCode) {
       return;
     }
