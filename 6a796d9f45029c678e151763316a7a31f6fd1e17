@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b3f5f2_66ecb423",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-17T13:06:29Z",
+      "side": 1,
+      "message": "nit: Shouldn\u0027t `Platform.DevToolsPath.UrlString|undefined` be the same here?",
+      "range": {
+        "startLine": 402,
+        "startChar": 19,
+        "endLine": 402,
+        "endChar": 96
+      },
+      "revId": "6a796d9f45029c678e151763316a7a31f6fd1e17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
