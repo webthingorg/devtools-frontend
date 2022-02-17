@@ -22,6 +22,30 @@
       },
       "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a172f0_5816becb",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-17T08:10:44Z",
+      "side": 0,
+      "message": "Those are not really avoidable as the type of e.g. response.url is specified in protocol.ts and we don\u0027t want to change that",
+      "parentUuid": "079cb4c5_05c5fdc2",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
