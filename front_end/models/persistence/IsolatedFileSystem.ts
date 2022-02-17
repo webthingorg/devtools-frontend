@@ -252,7 +252,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     }
   }
 
-  deleteFile(path: string): Promise<boolean> {
+  deleteFile(path: Platform.DevToolsPath.EncodedPathString): Promise<boolean> {
     let resolveCallback: (arg0: boolean) => void;
     const promise = new Promise<boolean>(resolve => {
       resolveCallback = resolve;
@@ -298,7 +298,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     });
   }
 
-  requestFileContent(path: string): Promise<TextUtils.ContentProvider.DeferredContent> {
+  requestFileContent(path: Platform.DevToolsPath.EncodedPathString):
+      Promise<TextUtils.ContentProvider.DeferredContent> {
     return this.serializedFileOperation(path, () => this.innerRequestFileContent(path));
   }
 
@@ -341,7 +342,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     return {isEncoded: encoded, content: encoded ? btoa(result) : result};
   }
 
-  async setFileContent(path: string, content: string, isBase64: boolean): Promise<void> {
+  async setFileContent(path: Platform.DevToolsPath.EncodedPathString, content: string, isBase64: boolean):
+      Promise<void> {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.FileSavedInWorkspace);
     let callback: (event?: ProgressEvent<EventTarget>) => void;
     const innerSetFileContent = (): Promise<ProgressEvent<EventTarget>> => {
@@ -385,7 +387,9 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     }
   }
 
-  renameFile(path: string, newName: string, callback: (arg0: boolean, arg1?: string|undefined) => void): void {
+  renameFile(
+      path: Platform.DevToolsPath.EncodedPathString, newName: string,
+      callback: (arg0: boolean, arg1?: string|undefined) => void): void {
     newName = newName ? newName.trim() : newName;
     if (!newName || newName.indexOf('/') !== -1) {
       callback(false);

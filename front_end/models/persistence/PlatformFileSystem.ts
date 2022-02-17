@@ -52,7 +52,7 @@ export class PlatformFileSystem {
     return Promise.resolve(null);
   }
 
-  deleteFile(_path: string): Promise<boolean> {
+  deleteFile(_path: Platform.DevToolsPath.EncodedPathString): Promise<boolean> {
     return Promise.resolve(false);
   }
 
@@ -60,15 +60,18 @@ export class PlatformFileSystem {
     return Promise.resolve(null as Blob | null);
   }
 
-  async requestFileContent(_path: string): Promise<TextUtils.ContentProvider.DeferredContent> {
+  async requestFileContent(_path: Platform.DevToolsPath.EncodedPathString):
+      Promise<TextUtils.ContentProvider.DeferredContent> {
     return {content: null, error: i18nString(UIStrings.unableToReadFilesWithThis), isEncoded: false};
   }
 
-  setFileContent(_path: string, _content: string, _isBase64: boolean): void {
+  setFileContent(_path: Platform.DevToolsPath.EncodedPathString, _content: string, _isBase64: boolean): void {
     throw new Error('Not implemented');
   }
 
-  renameFile(_path: string, _newName: string, callback: (arg0: boolean, arg1?: string|undefined) => void): void {
+  renameFile(
+      _path: Platform.DevToolsPath.EncodedPathString, _newName: string,
+      callback: (arg0: boolean, arg1?: string|undefined) => void): void {
     callback(false);
   }
 
