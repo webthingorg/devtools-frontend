@@ -244,6 +244,24 @@
       "parentUuid": "71c81242_778e502f",
       "revId": "4f98716905dc79511c86393492870ef177b26667",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79789a4_abfe0a49",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "The lhr and artifacts need to be available in the `endLighthouse` function so it makes more sense to have that as the one where most things happen IMO.",
+      "parentUuid": "d2d7d52f_d2687cc7",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

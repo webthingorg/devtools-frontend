@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3f71a02_0a2d82cc",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "I don\u0027t remember doing this lol.",
+      "parentUuid": "ba6739a0_f696b3c3",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2f4e8ab_4a62c2b5",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b20094_9e53e167",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2f4e8ab_4a62c2b5",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de8e3003_662631ae",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-02-17T20:33:50Z",
       "side": 1,
       "message": "L68-69 can turn into an `else if`",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2570557_bed77ab2",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de8e3003_662631ae",
       "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6eb4e7d8_9b2ec00a",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "? I don\u0027t think so it\u0027s in a separate `else` block",
+      "parentUuid": "450ff369_a94a0dd7",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1eb036b6_786fcb65",
         "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
         "patchSetId": 8
@@ -82,6 +154,24 @@
       "writtenOn": "2022-02-17T20:33:50Z",
       "side": 1,
       "message": "i\u0027d suggest `.textContent \u003d \u0027\u0027`  effectively the same but sets off fewer xss alarm bells. (i see devtools does both styles. ohwell)",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac035303_5b132cc6",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T20:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb036b6_786fcb65",
       "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
