@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e5ef3b9_91dfbe73",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T00:55:10Z",
+      "side": 0,
+      "message": "Drive by url is not needed for snapshot",
+      "revId": "61af8306d826437e975d49760aff9a013624ac12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

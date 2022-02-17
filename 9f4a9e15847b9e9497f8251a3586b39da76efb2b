@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3134b1_d53303be",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T00:55:10Z",
+      "side": 1,
+      "message": "Callout for this expected API change.",
+      "revId": "9f4a9e15847b9e9497f8251a3586b39da76efb2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
