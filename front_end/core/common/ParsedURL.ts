@@ -159,7 +159,7 @@ export class ParsedURL {
       return new URL(partiallyEncoded, 'file:///').pathname as Platform.DevToolsPath.EncodedPathString;
     }
     // URL prepends a '/'
-    return new URL('/' + partiallyEncoded, 'file:///').pathname.substr(1) as Platform.DevToolsPath.EncodedPathString;
+    return new URL('/' + partiallyEncoded, 'file:///').pathname.substring(1) as Platform.DevToolsPath.EncodedPathString;
   }
 
   /**
@@ -210,15 +210,20 @@ export class ParsedURL {
     console.assert(fileURL.startsWith('file://'), 'This must be a file URL.');
     const decodedFileURL = decodeURIComponent(fileURL);
     if (isWindows) {
-      return decodedFileURL.substr('file:///'.length).replace(/\//g, '\\') as Platform.DevToolsPath.RawPathString;
+      return decodedFileURL.substring('file:///'.length).replace(/\//g, '\\') as Platform.DevToolsPath.RawPathString;
     }
-    return decodedFileURL.substr('file://'.length) as Platform.DevToolsPath.RawPathString;
+    return decodedFileURL.substring('file://'.length) as Platform.DevToolsPath.RawPathString;
+  }
+
+  static cropUrlToEncodedPathString(url: Platform.DevToolsPath.UrlString, from: number):
+      Platform.DevToolsPath.EncodedPathString {
+    return url.substring(from) as Platform.DevToolsPath.EncodedPathString;
   }
 
   static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
                                          Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
-    return devToolsPath.substr(from, length) as DevToolsPathType;
+    return devToolsPath.substring(from, length) as DevToolsPathType;
   }
 
   static concatenate<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath
@@ -227,10 +232,16 @@ export class ParsedURL {
     return devToolsPath.concat(...appendage) as DevToolsPathType;
   }
 
+  static trim<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                       Platform.DevToolsPath.EncodedPathString>(devToolsPath: DevToolsPathType):
+      DevToolsPathType {
+    return devToolsPath.trim() as DevToolsPathType;
+  }
+
   static urlWithoutHash(url: string): string {
     const hashIndex = url.indexOf('#');
     if (hashIndex !== -1) {
-      return url.substr(0, hashIndex);
+      return url.substring(0, hashIndex);
     }
     return url;
   }
@@ -276,18 +287,18 @@ export class ParsedURL {
     url = ParsedURL.urlWithoutHash(url);
     const indexOfQuestionMark = url.indexOf('?');
     if (indexOfQuestionMark !== -1) {
-      url = url.substr(0, indexOfQuestionMark);
+      url = url.substring(0, indexOfQuestionMark);
     }
     const lastIndexOfSlash = url.lastIndexOf('/');
     if (lastIndexOfSlash !== -1) {
-      url = url.substr(lastIndexOfSlash + 1);
+      url = url.substring(lastIndexOfSlash + 1);
     }
     const lastIndexOfDot = url.lastIndexOf('.');
     if (lastIndexOfDot !== -1) {
-      url = url.substr(lastIndexOfDot + 1);
+      url = url.substring(lastIndexOfDot + 1);
       const lastIndexOfPercent = url.indexOf('%');
       if (lastIndexOfPercent !== -1) {
-        return url.substr(0, lastIndexOfPercent);
+        return url.substring(0, lastIndexOfPercent);
       }
       return url;
     }
@@ -296,9 +307,9 @@ export class ParsedURL {
 
   static extractName(url: string): string {
     let index = url.lastIndexOf('/');
-    const pathAndQuery = index !== -1 ? url.substr(index + 1) : url;
+    const pathAndQuery = index !== -1 ? url.substring(index + 1) : url;
     index = pathAndQuery.indexOf('?');
-    return index < 0 ? pathAndQuery : pathAndQuery.substr(0, index);
+    return index < 0 ? pathAndQuery : pathAndQuery.substring(0, index);
   }
 
   static completeURL(baseURL: Platform.DevToolsPath.UrlString, href: string): Platform.DevToolsPath.UrlString|null {
