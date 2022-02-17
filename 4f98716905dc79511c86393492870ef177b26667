@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "064ddb60_074ac47c",
+        "filename": "front_end/entrypoints/lighthouse_worker/LighthouseService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-17T20:22:59Z",
+      "side": 1,
+      "message": "yah my bad. for whatever reason i thought the early exit in endTimespan was bypassing this `finally` clause. silly me",
+      "parentUuid": "6be0662e_0139517c",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c065e347_0001151f",
@@ -206,6 +224,24 @@
       "side": 1,
       "message": "Ya probably deserves a comment. For snapshot/navigation, everything is done in the `endLighthouse` function on `LighthouseProtocolService`. This is where we separate `timespan` into `startTimespan`/`endTimespan`",
       "parentUuid": "9aff79cf_fee74802",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d7d52f_d2687cc7",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-17T20:22:59Z",
+      "side": 1,
+      "message": "ooooooooohhhhhhh\n\nwow yah okay this throws me for a loop\n\n\ncurrently this `startLighthouse` is basically `startLighthouseButOnlyForTimespan` and then `endLighthouse` is `endLighthouseTimespanOrStartLighthouseNavSlashSnap`\n\n\nto me, it\u0027d make a lot more sense to always start LH in this fn. \nif mode \u003d\u003d timespan, then `startTimespan` else mode\n\nand make endLighthouse a noop for everything but timespan.\n\nwdyt",
+      "parentUuid": "71c81242_778e502f",
       "revId": "4f98716905dc79511c86393492870ef177b26667",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
