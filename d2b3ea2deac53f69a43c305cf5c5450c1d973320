@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f627581b_e3b8976f",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-17T08:16:28Z",
+      "side": 1,
+      "message": "Will discuss this with Eric and open a bug for it, if we won\u0027t be considering empty strings valid UrlStrings!Thanks for raising this question!",
+      "parentUuid": "6b6c632f_1dd51158",
+      "range": {
+        "startLine": 382,
+        "startChar": 56,
+        "endLine": 382,
+        "endChar": 58
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "137fe100_235ce6b6",
