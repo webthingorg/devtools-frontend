@@ -262,6 +262,24 @@
       "parentUuid": "d2d7d52f_d2687cc7",
       "revId": "4f98716905dc79511c86393492870ef177b26667",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3026dab2_f173c64f",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-17T22:23:10Z",
+      "side": 1,
+      "message": "Resolved by renaming these functions",
+      "parentUuid": "c79789a4_abfe0a49",
+      "revId": "4f98716905dc79511c86393492870ef177b26667",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
