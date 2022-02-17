@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a10e17b_71ca087c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-17T07:07:08Z",
+      "side": 1,
+      "message": "lgtm % comment that I\u0027m unsure whether we should treat empty strings as valid UrlStrings.",
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b939313_8cd23ab5",
@@ -43,6 +60,29 @@
         "startChar": 52,
         "endLine": 372,
         "endChar": 63
+      },
+      "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6c632f_1dd51158",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-17T07:07:08Z",
+      "side": 1,
+      "message": "Do we consider empty strings as valid UrlStrings? Maybe it might make sense to pass undefined/null here instead. So when we have a reference of type UrlString we know its not empty. We can do this as a follow-up once the initial migration is done.",
+      "range": {
+        "startLine": 382,
+        "startChar": 56,
+        "endLine": 382,
+        "endChar": 58
       },
       "revId": "d2b3ea2deac53f69a43c305cf5c5450c1d973320",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
