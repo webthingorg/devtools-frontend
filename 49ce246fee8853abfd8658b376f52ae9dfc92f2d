@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354e24a7_07f137a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-18T16:59:50Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "49ce246fee8853abfd8658b376f52ae9dfc92f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cdd716_72a81725",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-18T16:59:50Z",
+      "side": 1,
+      "message": "nit: can you move these 2 arrows so it\u0027s clear which method is the sender/receiver?",
+      "revId": "49ce246fee8853abfd8658b376f52ae9dfc92f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
