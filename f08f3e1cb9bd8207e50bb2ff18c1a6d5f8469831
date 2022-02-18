@@ -16,6 +16,24 @@
       "message": "this still feels misnamed. might as well call this collectLighthouseResults too\n\ni\u0027d just feel bad for future us trying to figure out why navigation LH runs start LH inside of the \u0027end\u0027 method..",
       "revId": "f08f3e1cb9bd8207e50bb2ff18c1a6d5f8469831",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5482443e_d0564b71",
+        "filename": "front_end/panels/lighthouse/LighthousePanel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-02-18T01:05:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13d35ec7_6c92cfca",
+      "revId": "f08f3e1cb9bd8207e50bb2ff18c1a6d5f8469831",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
