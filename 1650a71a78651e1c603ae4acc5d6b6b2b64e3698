@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4be4ccee_0ac176f0",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-18T00:10:43Z",
+      "side": 1,
+      "message": "ah right i see.\n\nwell then in that case i guess the last change broke things.. cuz now it looks like this callback is undefined in the snapshot case, but it was there before.",
+      "parentUuid": "6eb4e7d8_9b2ec00a",
+      "revId": "1650a71a78651e1c603ae4acc5d6b6b2b64e3698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1eb036b6_786fcb65",
         "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
         "patchSetId": 8
