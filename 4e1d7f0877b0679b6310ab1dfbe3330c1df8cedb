@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c41f6a5_1ce36cce",
+        "filename": "test/conductor/puppeteer-state.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-02-18T10:12:09Z",
+      "side": 1,
+      "message": "I was hoping for suggestions how to better solve this. Things i dislike:\n\n* state is shared now between (target,frontend,browser) in puppeteeer-state.ts and frontendTab/targetTab in hooks.ts\n* target/frontend need to be updated in-between tests. This is kind of unavoidable though.\n\nThings I like:\n\n* Old target/frontend tabs are guaranteed to be closed as this is the bottle-neck here to make them available for tests.",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "4e1d7f0877b0679b6310ab1dfbe3330c1df8cedb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
