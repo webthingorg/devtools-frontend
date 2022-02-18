@@ -33,6 +33,24 @@
       "message": "nit: can you move these 2 arrows so it\u0027s clear which method is the sender/receiver?",
       "revId": "49ce246fee8853abfd8658b376f52ae9dfc92f2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c801bdf_ea1b2fd6",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-02-18T22:17:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7cdd716_72a81725",
+      "revId": "49ce246fee8853abfd8658b376f52ae9dfc92f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
