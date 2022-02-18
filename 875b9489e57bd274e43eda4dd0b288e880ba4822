@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc31b6a_ea069bd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-02-18T08:12:57Z",
+      "side": 1,
+      "message": "Hey Wolfgang - I\u0027m following up on Riho\u0027s devtools work. Mind taking a pass over this? I\u0027ve never written typescript before so it might be quite rough.",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
