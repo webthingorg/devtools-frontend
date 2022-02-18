@@ -22,6 +22,30 @@
       },
       "revId": "4e1d7f0877b0679b6310ab1dfbe3330c1df8cedb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b5e670_8b88aa0e",
+        "filename": "test/conductor/puppeteer-state.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-02-18T11:18:06Z",
+      "side": 1,
+      "message": "I had a brief think about this and also can\u0027t really come up with a better way - I think this is OK. I do think there\u0027s some state mix-up across hooks.ts/puppeteer-state.ts, but I\u0027m not sure that\u0027s easily fixed in this CL, so I\u0027d propose landing this, making sure it\u0027s stable and then considering some architectural changes if we think it\u0027s worthwhile.",
+      "parentUuid": "4c41f6a5_1ce36cce",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "4e1d7f0877b0679b6310ab1dfbe3330c1df8cedb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
