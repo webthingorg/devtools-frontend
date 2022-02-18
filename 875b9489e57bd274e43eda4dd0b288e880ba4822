@@ -16,6 +16,154 @@
       "message": "Hey Wolfgang - I\u0027m following up on Riho\u0027s devtools work. Mind taking a pass over this? I\u0027ve never written typescript before so it might be quite rough.",
       "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08117307_521c7e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "Thanks! I like how the result looks like! Added some comments.",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9fb41a8_6ecf80a2",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "It would be great if the messages had separate singular/plural forms.\nDocs:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/localization/adding_strings.md\nExample:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/console_counters/WarningErrorCounter.ts;l\u003d18",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 33
+      },
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf7b311_8909bf3a",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "Should this be displayed even when `maybeRenderFrameTree` does not render anything?",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f84ccb_f2f5e274",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "nit: indentation (was already incorrect before)",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de862180_5a35aed1",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "If `#maybeRenderExplanations` does not render anything, there are now 2 stacked dividers right on top of each other.",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09b0fd9a_c18147c7",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 62
+      },
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14023219_b22a26fc",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "This will traverse the explanationTree once for each reason. How about transforming the tree into a Map\u003cBackForwardCacheNotRestoredReason, string[]\u003e from reason to array of URLs in `maybeRenderExplanations`?\nYou\u0027d only need to traverse the tree once and could pass the filtered array of URLs along to `renderExplanations` instead of the whole explanationTree.",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf71f3ca_049c104a",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-18T15:29:24Z",
+      "side": 1,
+      "message": "DevTools has 2 ways of building the UI: the old way where we imperatively create and append elements, and the new way based on web components with lit-html. We are trying to avoid using the legacy way within new lit-based components.\n\nFortunately, it seems we already have 2 components which could fit here:\nExpandableList[1] or the new TreeOutline[2].\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/expandable_list/ExpandableList.ts\n[2] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/tree_outline/TreeOutline.ts",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
