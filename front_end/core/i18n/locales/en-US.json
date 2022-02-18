@@ -2771,6 +2771,15 @@
   "panels/application/components/BackForwardCacheView.ts | circumstantialExplanation": {
     "message": "These reasons are not actionable i.e. caching was prevented by something outside of the direct control of the page."
   },
+  "panels/application/components/BackForwardCacheView.ts | framesPerIssue": {
+    "message": "{PH1} frames"
+  },
+  "panels/application/components/BackForwardCacheView.ts | framesTitle": {
+    "message": "Frames"
+  },
+  "panels/application/components/BackForwardCacheView.ts | issuesInFrames": {
+    "message": "{PH1} issues found in {PH2} frames"
+  },
   "panels/application/components/BackForwardCacheView.ts | learnMore": {
     "message": "Learn more: back/forward cache eligibility"
   },
