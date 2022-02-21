@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c2a350_fb3b351c",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T10:57:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this cast is necessary at all. If it is necessary, will the following work?\n\n`const completeURL : string \u003d Common.ParsedURL.ParsedURL.completeURL(url, startURL);`\n\nHere and below.",
+      "range": {
+        "startLine": 643,
+        "startChar": 80,
+        "endLine": 643,
+        "endChar": 91
+      },
+      "revId": "a38e2f5b23ade8bdea5c05c9f341464b071fb85f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
