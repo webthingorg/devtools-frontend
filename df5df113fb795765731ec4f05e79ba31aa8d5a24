@@ -16,6 +16,121 @@
       "message": "PTAL",
       "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4507e57_6813cea3",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-21T15:07:08Z",
+      "side": 1,
+      "message": "nit: Given that we have the same logic twice and it is rather verbose, I\u0027d extract it into a function.",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 101
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35533cb0_2f2d6db9",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-21T15:07:08Z",
+      "side": 1,
+      "message": "This probably deserves a comment. Why removing an UISourceCode is an adequate response to the change of view type?.",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 49
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c920d61_a9963a6c",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-21T15:07:08Z",
+      "side": 1,
+      "message": "Please use consistently or remove.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a073d2_6b02d3b7",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-21T15:07:08Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 111
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8f1eef_2854ec99",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-02-21T15:07:08Z",
+      "side": 1,
+      "message": "How hard would it be to test that the new view is created later?\nPotentially in separate test.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 80
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
