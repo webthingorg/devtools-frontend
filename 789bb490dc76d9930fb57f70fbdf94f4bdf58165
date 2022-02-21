@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73bdbbf_5051a4dc",
+        "filename": "front_end/panels/network/ResourceWebSocketFrameView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T10:52:36Z",
+      "side": 1,
+      "message": "Optional: this comment seems unnecessary now.",
+      "range": {
+        "startLine": 465,
+        "startChar": 35,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "789bb490dc76d9930fb57f70fbdf94f4bdf58165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
