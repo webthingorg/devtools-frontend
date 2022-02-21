@@ -8,6 +8,8 @@
 // https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
 import puppeteer = require('puppeteer');
 
+import * as os from 'os';
+
 import type {CoverageMapData} from 'istanbul-lib-coverage';
 
 import {clearPuppeteerState, getBrowserAndPages, registerHandlers, resetPages, setBrowser, setBrowserAndPages, setTestServerPort} from './puppeteer-state.js';
@@ -101,6 +103,9 @@ async function loadTargetPageAndFrontend(testServerPort: number) {
     const poolOptions: FrontedTargetPoolOptions = {browser, testServerPort};
     if (process.env['DEBUG_TEST']) {
       poolOptions.poolSize = 0;
+    } else if (os.platform() === 'darwin') {
+      // Mac is very sensitive to the number of parallel processes.
+      poolOptions.poolSize = 2;
     }
     frontendTargetPool = FrontendTargetPool.create(poolOptions);
     setBrowser(browser);
