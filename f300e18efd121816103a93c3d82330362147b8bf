@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd11f4b3_b36404b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-21T10:31:24Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the fix for the weird autocomplete issue.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "f300e18efd121816103a93c3d82330362147b8bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
