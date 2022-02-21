@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe6b072_e462984e",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T13:56:33Z",
+      "side": 1,
+      "message": "Didn\u0027t you have another cl that has another createFile method take an EncodedPathString? Are these methods unrelated? (Note that this is at least as likely to be a problem with that cl as this one.)",
+      "range": {
+        "startLine": 369,
+        "startChar": 8,
+        "endLine": 369,
+        "endChar": 18
+      },
+      "revId": "3ffae76333ac11e62e68042283c83806c766ce5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef04df9_c9b9c281",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T13:56:33Z",
+      "side": 1,
+      "message": "What type is path?",
+      "range": {
+        "startLine": 223,
+        "startChar": 19,
+        "endLine": 223,
+        "endChar": 23
+      },
+      "revId": "3ffae76333ac11e62e68042283c83806c766ce5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
