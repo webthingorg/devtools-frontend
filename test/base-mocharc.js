@@ -71,7 +71,7 @@ Did you forget to add ${path.relative(process.cwd(), fileName)} to a BUILD.gn?\n
   const {timeout: extraMochaConfigTimeout, ...restOfExtraMochaConfig} = extraMochaConfig;
   // When we are debugging, we don't want to timeout any test. This allows to inspect the state
   // of the application at the moment of the timeout. Here, 0 denotes "indefinite timeout".
-  const timeout = process.env['DEBUG_TEST'] ? 0 : (extraMochaConfigTimeout || 5 * 1000);
+  const timeout = process.env['DEBUG_TEST'] ? 0 : (extraMochaConfigTimeout || 10 * 1000);
 
   const jobs = Number(process.env['JOBS']) || 1;
   const parallel = !process.env['DEBUG_TEST'] && jobs > 1;
