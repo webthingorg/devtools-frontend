@@ -16,6 +16,75 @@
       "message": "PTAL",
       "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2dfe01_caaaed22",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T10:46:54Z",
+      "side": 1,
+      "message": "Would it be possible to type everything named path in these files in one go? It would be nice to see what the whole API looks like so we can see if this is consistent and whether it makes sense.",
+      "range": {
+        "startLine": 118,
+        "startChar": 37,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e2e662_5648d3bf",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T10:46:54Z",
+      "side": 1,
+      "message": "Use the helper here",
+      "range": {
+        "startLine": 129,
+        "startChar": 36,
+        "endLine": 129,
+        "endChar": 54
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19dd3ea5_de42857c",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-02-21T10:46:54Z",
+      "side": 1,
+      "message": "Make encodedPathFromUrl return an EncodedPathString.",
+      "range": {
+        "startLine": 308,
+        "startChar": 4,
+        "endLine": 308,
+        "endChar": 109
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
