@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67547f59_e2975304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-21T12:22:22Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a quickfix for private fields as accessors (basically we need to handle the case where `value` is not present, `get` and/or `set` are).\nPlease take a look.",
+      "revId": "06a772801dd9762d865f559508c1dd1b83aea054",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
