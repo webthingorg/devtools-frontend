@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "951319c7_e9d623ff",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T11:41:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4507e57_6813cea3",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 101
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35533cb0_2f2d6db9",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-21T15:07:08Z",
       "side": 1,
       "message": "This probably deserves a comment. Why removing an UISourceCode is an adequate response to the change of view type?.",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 49
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be151ad6_b7f13b1d",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T11:41:56Z",
+      "side": 1,
+      "message": "Added a comment. Also updated the code so that not only is the existing editor closed, but a new one (of the correct type) is opened as well.",
+      "parentUuid": "35533cb0_2f2d6db9",
       "range": {
         "startLine": 422,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d3199d1_5b024191",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T11:41:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c920d61_a9963a6c",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57a073d2_6b02d3b7",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "027ebfe5_9fcebed3",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T11:41:56Z",
+      "side": 1,
+      "message": "Otherwise there would be an error when trying to create a `SourcesView` instance. Moving it to `initializeGlobalVars()`.",
+      "parentUuid": "57a073d2_6b02d3b7",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 111
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f8f1eef_2854ec99",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-02-21T15:07:08Z",
       "side": 1,
       "message": "How hard would it be to test that the new view is created later?\nPotentially in separate test.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 80
+      },
+      "revId": "df5df113fb795765731ec4f05e79ba31aa8d5a24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc5e6b3_1cb6703e",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T11:41:56Z",
+      "side": 1,
+      "message": "Now that a new view is actually being created, I\u0027ve adapted the test accordingly.",
+      "parentUuid": "8f8f1eef_2854ec99",
       "range": {
         "startLine": 36,
         "startChar": 0,
