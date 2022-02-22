@@ -16,6 +16,23 @@
       "message": "great. thanks!",
       "revId": "176435795c199d76d9409e739bb050a14a9869da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "698c1c38_1f4fd487",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-22T14:56:07Z",
+      "side": 1,
+      "message": "Received LGTM from Peter via chat.",
+      "revId": "176435795c199d76d9409e739bb050a14a9869da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
