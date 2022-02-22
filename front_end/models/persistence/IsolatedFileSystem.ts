@@ -121,7 +121,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     return promise;
   }
 
-  getMetadata(path: string): Promise<Metadata|null> {
+  getMetadata(path: Platform.DevToolsPath.EncodedPathString): Promise<Metadata|null> {
     let fulfill: (arg0: Metadata|null) => void;
     const promise = new Promise<Metadata|null>(f => {
       fulfill = f;
@@ -220,7 +220,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     });
   }
 
-  async createFile(path: string, name: Platform.DevToolsPath.RawPathString|null): Promise<string|null> {
+  async createFile(path: Platform.DevToolsPath.EncodedPathString, name: Platform.DevToolsPath.RawPathString|null):
+      Promise<string|null> {
     const dirEntry = await this.createFoldersIfNotExist(decodeURIComponent(path));
     if (!dirEntry) {
       return null;

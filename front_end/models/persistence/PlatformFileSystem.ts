@@ -23,7 +23,7 @@ export class PlatformFileSystem {
     this.typeInternal = type;
   }
 
-  getMetadata(_path: string): Promise<{modificationTime: Date, size: number}|null> {
+  getMetadata(_path: Platform.DevToolsPath.EncodedPathString): Promise<{modificationTime: Date, size: number}|null> {
     return Promise.resolve(null);
   }
 
@@ -49,7 +49,8 @@ export class PlatformFileSystem {
     return this.typeInternal;
   }
 
-  async createFile(_path: string, _name: Platform.DevToolsPath.RawPathString|null): Promise<string|null> {
+  async createFile(_path: Platform.DevToolsPath.EncodedPathString, _name: Platform.DevToolsPath.RawPathString|null):
+      Promise<string|null> {
     return Promise.resolve(null);
   }
 
