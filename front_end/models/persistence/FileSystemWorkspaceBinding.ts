@@ -61,7 +61,8 @@ export class FileSystemWorkspaceBinding {
 
   static relativePath(uiSourceCode: Workspace.UISourceCode.UISourceCode): Platform.DevToolsPath.EncodedPathString[] {
     const baseURL = (uiSourceCode.project() as FileSystem).fileSystemBaseURL;
-    return uiSourceCode.url().substring(baseURL.length).split('/') as Platform.DevToolsPath.EncodedPathString[];
+    return Common.ParsedURL.ParsedURL.substr(uiSourceCode.url(), baseURL.length).split('/') as
+        Platform.DevToolsPath.EncodedPathString[];
   }
 
   static tooltipForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): string {
@@ -257,7 +258,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
   }
 
   rename(
-      uiSourceCode: Workspace.UISourceCode.UISourceCode, newName: string,
+      uiSourceCode: Workspace.UISourceCode.UISourceCode, newName: Platform.DevToolsPath.RawPathString,
       callback:
           (arg0: boolean, arg1?: string|undefined, arg2?: string|undefined,
            arg3?: Common.ResourceType.ResourceType|undefined) => void): void {
@@ -365,7 +366,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     return true;
   }
 
-  async createFile(path: string, name: string|null, content: string, isBase64?: boolean):
+  async createFile(path: string, name: Platform.DevToolsPath.RawPathString|null, content: string, isBase64?: boolean):
       Promise<Workspace.UISourceCode.UISourceCode|null> {
     const guardFileName = this.fileSystemPathInternal + path + (!path.endsWith('/') ? '/' : '') + name;
     this.creatingFilesGuard.add(guardFileName);
