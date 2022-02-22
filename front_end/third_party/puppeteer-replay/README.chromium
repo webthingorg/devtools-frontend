@@ -1,0 +1,16 @@
+Name: @puppeteer/replay
+Short Name: @puppeteer/replay
+URL: https://github.com/puppeteer/replay
+Version: 0.0.1
+License: Apache-2.0
+License File: package/LICENSE
+Security Critical: no
+
+Description:
+@puppeteer/replay is a Node library which provides a high-level API to replay Chrome DevTools recordings.
+
+To update this package, run the following command (replace version number with updated version number):
+
+```bash
+curl --output - $(npm view @puppeteer/replay dist.tarball) | tar xzf -
+```

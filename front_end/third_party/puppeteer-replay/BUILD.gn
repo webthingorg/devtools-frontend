@@ -1,0 +1,52 @@
+# Copyright 2019 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../scripts/build/ninja/devtools_pre_built.gni")
+import("../visibility.gni")
+
+devtools_pre_built("puppeteer-replay") {
+  sources_are_release = false
+
+  sources = [
+    "package/lib/LineWriter.js",
+    "package/lib/LineWriterImpl.js",
+    "package/lib/PuppeteerRunnerExtension.js",
+    "package/lib/PuppeteerStringifyExtension.js",
+    "package/lib/Runner.js",
+    "package/lib/RunnerExtension.js",
+    "package/lib/Schema.js",
+    "package/lib/SchemaUtils.js",
+    "package/lib/StringifyExtension.js",
+    "package/lib/main.js",
+    "package/lib/stringify.js",
+
+    "package/lib/LineWriter.d.ts",
+    "package/lib/LineWriterImpl.d.ts",
+    "package/lib/PuppeteerRunnerExtension.d.ts",
+    "package/lib/PuppeteerStringifyExtension.d.ts",
+    "package/lib/Runner.d.ts",
+    "package/lib/RunnerExtension.d.ts",
+    "package/lib/Schema.d.ts",
+    "package/lib/SchemaUtils.d.ts",
+    "package/lib/StringifyExtension.d.ts",
+    "package/lib/main.d.ts",
+    "package/lib/stringify.d.ts",
+
+    "puppeteer-replay-tsconfig.json",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "puppeteer-replay.ts"
+
+  deps = [ ":puppeteer-replay" ]
+
+  visibility = [
+    "../../../front_end/*",
+    "../../../test/e2e/puppeteer/*",
+  ]
+
+  visibility += devtools_third_party_visibility
+}

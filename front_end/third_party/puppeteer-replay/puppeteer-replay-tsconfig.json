@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "composite": true
+  },
+  "files": [
+    "package/lib/LineWriter.js",
+    "package/lib/LineWriterImpl.js",
+    "package/lib/PuppeteerRunnerExtension.js",
+    "package/lib/PuppeteerStringifyExtension.js",
+    "package/lib/Runner.js",
+    "package/lib/RunnerExtension.js",
+    "package/lib/Schema.js",
+    "package/lib/SchemaUtils.js",
+    "package/lib/StringifyExtension.js",
+    "package/lib/main.js",
+    "package/lib/stringify.js"
+  ]
+}
