@@ -87,6 +87,24 @@
       "parentUuid": "c5e720c4_b84d3b8d",
       "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d78bce4_0822e1dc",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2022-02-22T00:42:47Z",
+      "side": 1,
+      "message": "Yeah, I assume nobody does that. https://crrev.com/c/3479034 should fix it.",
+      "parentUuid": "b02278aa_bcb36594",
+      "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
