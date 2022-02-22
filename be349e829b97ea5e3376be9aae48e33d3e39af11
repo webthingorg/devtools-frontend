@@ -105,6 +105,24 @@
       "parentUuid": "b02278aa_bcb36594",
       "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5143d696_c0ee8b78",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T13:24:21Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "2d78bce4_0822e1dc",
+      "revId": "be349e829b97ea5e3376be9aae48e33d3e39af11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

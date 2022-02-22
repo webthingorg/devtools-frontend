@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178a56c5_49a8ed85",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T13:24:21Z",
+      "side": 1,
+      "message": "I believe that \u0027chrome://\u0027-URLs are not allowed for x-links. You will probably need a workaround like in https://crrev.com/c/3269825.",
+      "revId": "13ed8c4e485b3adf711c1f10631d2726c4e7240d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ce46dd_e3d772e7",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T13:24:21Z",
+      "side": 1,
+      "message": "nit: `#maybeRenderReasonContext()` to signal that the method does not always render something.",
+      "revId": "13ed8c4e485b3adf711c1f10631d2726c4e7240d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542ef201_8530ab91",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-22T13:24:21Z",
+      "side": 1,
+      "message": "You might need to put these 2 in a wrapper (div) to prevent issues with the grid layout.",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 404,
+        "endChar": 45
+      },
+      "revId": "13ed8c4e485b3adf711c1f10631d2726c4e7240d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
