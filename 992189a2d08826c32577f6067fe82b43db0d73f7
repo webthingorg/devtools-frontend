@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81345117_2a156e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-22T06:04:43Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the final fix for the private accessors bug.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "992189a2d08826c32577f6067fe82b43db0d73f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
