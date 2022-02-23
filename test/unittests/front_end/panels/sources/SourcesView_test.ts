@@ -55,7 +55,8 @@ describe('SourcesView', () => {
     } as unknown as Persistence.FileSystemWorkspaceBinding.FileSystem;
 
     const uiSourceCode = new Workspace.UISourceCode.UISourceCode(
-        fileSystem, 'file:///path/to/overrides/example.html', Common.ResourceType.resourceTypes.Document);
+        fileSystem, 'file:///path/to/overrides/example.html' as Platform.DevToolsPath.UrlString,
+        Common.ResourceType.resourceTypes.Document);
     sourcesView.viewForFile(uiSourceCode);
 
     assert.isTrue(sourcesView.getSourceView(uiSourceCode) instanceof Sources.UISourceCodeFrame.UISourceCodeFrame);

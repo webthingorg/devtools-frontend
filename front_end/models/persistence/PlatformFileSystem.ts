@@ -104,7 +104,7 @@ export class PlatformFileSystem {
     });
   }
 
-  mimeFromPath(_path: string): string {
+  mimeFromPath(_path: Platform.DevToolsPath.UrlString): string {
     throw new Error('Not implemented');
   }
 
@@ -112,7 +112,7 @@ export class PlatformFileSystem {
     return false;
   }
 
-  contentType(_path: string): Common.ResourceType.ResourceType {
+  contentType(_path: Platform.DevToolsPath.UrlString): Common.ResourceType.ResourceType {
     throw new Error('Not implemented');
   }
 

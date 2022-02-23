@@ -542,7 +542,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
         requestId, this.embedderPathInternal, JSON.stringify(this.excludedEmbedderFolders));
   }
 
-  mimeFromPath(path: string): string {
+  mimeFromPath(path: Platform.DevToolsPath.UrlString): string {
     return Common.ResourceType.ResourceType.mimeFromURL(path) || 'text/plain';
   }
 
@@ -550,7 +550,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     return Boolean(path) && this.type() !== 'overrides';
   }
 
-  contentType(path: string): Common.ResourceType.ResourceType {
+  contentType(path: Platform.DevToolsPath.UrlString): Common.ResourceType.ResourceType {
     const extension = Common.ParsedURL.ParsedURL.extractExtension(path);
     if (STYLE_SHEET_EXTENSIONS.has(extension)) {
       return Common.ResourceType.resourceTypes.Stylesheet;

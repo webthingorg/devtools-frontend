@@ -32,7 +32,7 @@ function escapeSnippetName(name: Platform.DevToolsPath.RawPathString): Platform.
   return Common.ParsedURL.ParsedURL.rawPathToEncodedPathString(name);
 }
 
-function unescapeSnippetName(name: Platform.DevToolsPath.EncodedPathString): string {
+function unescapeSnippetName(name: Platform.DevToolsPath.EncodedPathString): Platform.DevToolsPath.RawPathString {
   return Common.ParsedURL.ParsedURL.encodedPathToRawPathString(name);
 }
 
@@ -123,11 +123,11 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
     return matchedSnippets.map(snippet => `snippet:///${escapeSnippetName(snippet.name)}`);
   }
 
-  mimeFromPath(_path: string): string {
+  mimeFromPath(_path: Platform.DevToolsPath.UrlString): string {
     return 'text/javascript';
   }
 
-  contentType(_path: string): Common.ResourceType.ResourceType {
+  contentType(_path: Platform.DevToolsPath.UrlString): Common.ResourceType.ResourceType {
     return Common.ResourceType.resourceTypes.Script;
   }
 

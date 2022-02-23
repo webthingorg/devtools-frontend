@@ -284,7 +284,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
       filePath = Common.ParsedURL.ParsedURL.encodedFromParentPathAndName(parentPath, newName);
       filePath = Common.ParsedURL.ParsedURL.substr(filePath, 1);
       const newURL = Common.ParsedURL.ParsedURL.concatenate(this.fileSystemBaseURL, filePath);
-      const newContentType = this.fileSystemInternal.contentType(newName);
+      const newContentType = this.fileSystemInternal.contentType(newName as Platform.DevToolsPath.UrlString);
       this.renameUISourceCode(uiSourceCode, newName);
       callback(true, newName, newURL, newContentType);
     }
@@ -398,7 +398,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
   }
 
   private addFile(filePath: string): Workspace.UISourceCode.UISourceCode {
-    const contentType = this.fileSystemInternal.contentType(filePath);
+    const contentType = this.fileSystemInternal.contentType(filePath as Platform.DevToolsPath.UrlString);
     const uiSourceCode =
         this.createUISourceCode(Common.ParsedURL.ParsedURL.concatenate(this.fileSystemBaseURL, filePath), contentType);
     this.addUISourceCode(uiSourceCode);
@@ -412,7 +412,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     }
     const uiSourceCode = this.uiSourceCodeForURL(path as Platform.DevToolsPath.UrlString);
     if (!uiSourceCode) {
-      const contentType = this.fileSystemInternal.contentType(path);
+      const contentType = this.fileSystemInternal.contentType(path as Platform.DevToolsPath.UrlString);
       this.addUISourceCode(this.createUISourceCode(path as Platform.DevToolsPath.UrlString, contentType));
       return;
     }
