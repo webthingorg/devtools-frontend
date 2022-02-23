@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bab3f77_36acc726",
+        "filename": "front_end/entrypoints/formatter_worker/Substitute.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T13:08:05Z",
+      "side": 1,
+      "message": "So const will also be handled as a DefinitionKind.Let. Can we add a bit of test cases for const too?",
+      "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7259e65_ca9e6815",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/Substitute_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T13:08:05Z",
+      "side": 1,
+      "message": "Do we want to support substituting mangled properties?",
+      "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

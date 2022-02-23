@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?",
       "revId": "445369e650ccfcfcc5447e7bcb66794c5f07e2b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b9c592_043f0dff",
+        "filename": "front_end/entrypoints/formatter_worker/FormatterWorker.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T13:08:05Z",
+      "side": 1,
+      "message": "Why the rename to  ̀getSubstitution`?",
+      "revId": "445369e650ccfcfcc5447e7bcb66794c5f07e2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
