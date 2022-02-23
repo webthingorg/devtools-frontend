@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25f7bb07_a171363d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-23T11:52:52Z",
+      "side": 1,
+      "message": "Please take a look\n\n`filePathMatchesFileQuery` typed this way, because it\u0027s type in WorkspaceImpl has to match it\u0027s type in SearchConfig. One of these is called with a UrlString, the other with `uiSourceCode.fullDisplayName()`, which can be either Raw- (as in ContentProviderBasedProject) or EncodedPathString (as in FileSystemWorkspaceBinding)",
+      "revId": "f346b9a7e97d5b63c4dc52556dbd813cec9d9692",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
