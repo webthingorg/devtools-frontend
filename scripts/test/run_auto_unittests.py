@@ -12,7 +12,7 @@ import subprocess
 import sys
 from os import path
 
-import run_unittests
+from . import run_unittests
 import devtools_paths
 
 build_scripts_path = path.join(path.dirname(path.abspath(__file__)), '..', 'build')
