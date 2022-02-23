@@ -184,7 +184,8 @@ export class LighthouseReportUIFeatures extends LighthouseReport.ReportUIFeature
     const sanitizedDomain = domain.replace(/[^a-z0-9.-]+/gi, '_');
     const timestamp = Platform.DateUtilities.toISO8601Compact(new Date(this.json.fetchTime));
     const ext = blob.type.match('json') ? '.json' : '.html';
-    const basename = `${sanitizedDomain}-${timestamp}${ext}`;
+    // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
+    const basename = `${sanitizedDomain}-${timestamp}${ext}` as Platform.DevToolsPath.UrlString;
     const text = await blob.text();
     void Workspace.FileManager.FileManager.instance().save(basename, text, true /* forceSaveAs */);
   }

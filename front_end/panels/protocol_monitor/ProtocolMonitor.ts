@@ -466,7 +466,8 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 
   private async saveAsFile(): Promise<void> {
     const now = new Date();
-    const fileName = 'ProtocolMonitor-' + Platform.DateUtilities.toISO8601Compact(now) + '.json';
+    const fileName =
+        'ProtocolMonitor-' + Platform.DateUtilities.toISO8601Compact(now) + '.json' as Platform.DevToolsPath.UrlString;
     const stream = new Bindings.FileUtils.FileOutputStream();
 
     const accepted = await stream.open(fileName);

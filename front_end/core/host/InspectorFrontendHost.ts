@@ -142,7 +142,7 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
         'Show item in folder is not enabled in hosted mode. Please inspect using chrome://inspect');
   }
 
-  save(url: string, content: string, forceSaveAs: boolean): void {
+  save(url: Platform.DevToolsPath.UrlString, content: string, forceSaveAs: boolean): void {
     let buffer = this.#urlsBeingSaved.get(url);
     if (!buffer) {
       buffer = [];
@@ -152,7 +152,7 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
     this.events.dispatchEventToListeners(Events.SavedURL, {url, fileSystemPath: url});
   }
 
-  append(url: string, content: string): void {
+  append(url: Platform.DevToolsPath.UrlString, content: string): void {
     const buffer = this.#urlsBeingSaved.get(url);
     if (buffer) {
       buffer.push(content);
@@ -160,7 +160,7 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
     }
   }
 
-  close(url: string): void {
+  close(url: Platform.DevToolsPath.UrlString): void {
     const buffer = this.#urlsBeingSaved.get(url) || [];
     this.#urlsBeingSaved.delete(url);
     let fileName = '';
