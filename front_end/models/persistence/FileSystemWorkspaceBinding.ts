@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// TODO(crbug.com/1253323): Casts to UrlString will be removed from this file when migration to branded types is complete.
+
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -141,7 +143,8 @@ export class FileSystemWorkspaceBinding {
       if (!fileSystem) {
         continue;
       }
-      paths.removed.get(fileSystemPath).forEach(path => fileSystem.removeUISourceCode(path));
+      paths.removed.get(fileSystemPath)
+          .forEach(path => fileSystem.removeUISourceCode(path as Platform.DevToolsPath.UrlString));
     }
   }
 
@@ -339,7 +342,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     }
   }
 
-  excludeFolder(url: string): void {
+  excludeFolder(url: Platform.DevToolsPath.UrlString): void {
     let relativeFolder = url.substring(this.fileSystemBaseURL.length);
     if (!relativeFolder.startsWith('/')) {
       relativeFolder = '/' + relativeFolder;
@@ -358,7 +361,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     }
   }
 
-  canExcludeFolder(path: string): boolean {
+  canExcludeFolder(path: Platform.DevToolsPath.EncodedPathString): boolean {
     return this.fileSystemInternal.canExcludeFolder(path);
   }
 
@@ -396,7 +399,8 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
 
   private addFile(filePath: string): Workspace.UISourceCode.UISourceCode {
     const contentType = this.fileSystemInternal.contentType(filePath);
-    const uiSourceCode = this.createUISourceCode(this.fileSystemBaseURL + filePath, contentType);
+    const uiSourceCode =
+        this.createUISourceCode(Common.ParsedURL.ParsedURL.concatenate(this.fileSystemBaseURL, filePath), contentType);
     this.addUISourceCode(uiSourceCode);
     return uiSourceCode;
   }
@@ -406,10 +410,10 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     if (this.creatingFilesGuard.has(path)) {
       return;
     }
-    const uiSourceCode = this.uiSourceCodeForURL(path);
+    const uiSourceCode = this.uiSourceCodeForURL(path as Platform.DevToolsPath.UrlString);
     if (!uiSourceCode) {
       const contentType = this.fileSystemInternal.contentType(path);
-      this.addUISourceCode(this.createUISourceCode(path, contentType));
+      this.addUISourceCode(this.createUISourceCode(path as Platform.DevToolsPath.UrlString, contentType));
       return;
     }
     sourceCodeToMetadataMap.delete(uiSourceCode);

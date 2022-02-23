@@ -662,7 +662,9 @@ export class MainImpl {
   #revealSourceLine(event: Common.EventTarget.EventTargetEvent<Host.InspectorFrontendHostAPI.RevealSourceLineEvent>):
       void {
     const {url, lineNumber, columnNumber} = event.data;
-    const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url);
+    // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
+    const uiSourceCode =
+        Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url as Platform.DevToolsPath.UrlString);
     if (uiSourceCode) {
       void Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
       return;

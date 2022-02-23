@@ -108,7 +108,7 @@ export class PlatformFileSystem {
     throw new Error('Not implemented');
   }
 
-  canExcludeFolder(_path: string): boolean {
+  canExcludeFolder(_path: Platform.DevToolsPath.EncodedPathString): boolean {
     return false;
   }
 
