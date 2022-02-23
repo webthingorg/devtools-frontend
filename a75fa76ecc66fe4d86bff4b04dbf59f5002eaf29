@@ -50,6 +50,24 @@
       "message": "As I said in the design doc, if it wouldn\u0027t be better to introducing a new issue type. This CL won\u0027t be necessary and we won\u0027t risk bloating the newly introduced CookieIssues with too much cases. \n\nDon\u0027t get me wrong, I am not convinced that we shouldn\u0027t extend SameSiteCookieIssue to a CookieIssue, I just haven\u0027t seen a convincing arguments to do so.",
       "revId": "a75fa76ecc66fe4d86bff4b04dbf59f5002eaf29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a36eb2_44863dea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1522272
+      },
+      "writtenOn": "2022-02-23T04:01:04Z",
+      "side": 1,
+      "message": "Thank you for taking the time to review. I added a response in the design doc for you to consider.",
+      "parentUuid": "59068559_ee6ae1ad",
+      "revId": "a75fa76ecc66fe4d86bff4b04dbf59f5002eaf29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
