@@ -143,7 +143,7 @@ export class SourcesSearchScope implements Search.SearchConfig.SearchScope {
 
   private projectFilesMatchingFileQuery(
       project: Workspace.Workspace.Project, searchConfig: Workspace.Workspace.ProjectSearchConfig,
-      dirtyOnly?: boolean): string[] {
+      dirtyOnly?: boolean): Platform.DevToolsPath.UrlString[] {
     const result = [];
     const uiSourceCodes = project.uiSourceCodes();
     for (let i = 0; i < uiSourceCodes.length; ++i) {
