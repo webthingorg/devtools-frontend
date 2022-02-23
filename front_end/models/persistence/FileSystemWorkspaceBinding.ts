@@ -366,8 +366,9 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     return true;
   }
 
-  async createFile(path: string, name: Platform.DevToolsPath.RawPathString|null, content: string, isBase64?: boolean):
-      Promise<Workspace.UISourceCode.UISourceCode|null> {
+  async createFile(
+      path: Platform.DevToolsPath.EncodedPathString, name: Platform.DevToolsPath.RawPathString|null, content: string,
+      isBase64?: boolean): Promise<Workspace.UISourceCode.UISourceCode|null> {
     const guardFileName = this.fileSystemPathInternal + path + (!path.endsWith('/') ? '/' : '') + name;
     this.creatingFilesGuard.add(guardFileName);
     const filePath = await this.fileSystemInternal.createFile(path, name);
