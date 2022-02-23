@@ -51,6 +51,24 @@
       "parentUuid": "f2fc709d_7ad53532",
       "revId": "15212a603e792fc26ab4620bbc24853e94657a3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3940174e_ad2abaab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T14:24:34Z",
+      "side": 1,
+      "message": "I have created a test case that covers part of the story (which would already fail in the unmodified version). For the whole story (do not update if we are already updating) we would need more mocks and it gets a bit messy I think (not so much a unit test anymore). PTAL!",
+      "parentUuid": "998dd858_23742174",
+      "revId": "15212a603e792fc26ab4620bbc24853e94657a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
