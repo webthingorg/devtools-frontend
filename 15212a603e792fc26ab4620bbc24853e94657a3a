@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d5f24b_c710177c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T08:49:27Z",
+      "side": 1,
+      "message": "Hi Simon!\n\nI noticed this code when investigating some layout tests and changed it to what I\u0027d expect to happen if we got a notification about a document update: definitely update, except if we have already kicked off an update request.\n\nPTAL!",
+      "revId": "15212a603e792fc26ab4620bbc24853e94657a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
