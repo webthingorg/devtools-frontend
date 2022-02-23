@@ -18,7 +18,7 @@ import argparse
 scripts_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(scripts_path)
 
-import test_helpers
+from . import test_helpers
 import devtools_paths
 
 

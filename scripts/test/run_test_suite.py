@@ -22,7 +22,7 @@ scripts_path = os.path.join(ROOT_DIRECTORY, 'scripts')
 sys.path.append(scripts_path)
 
 import devtools_paths
-import test_helpers
+from . import test_helpers
 
 
 def parse_options(cli_args):
