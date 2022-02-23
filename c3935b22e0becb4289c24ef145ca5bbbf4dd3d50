@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9059efb5_af73e9de",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2022-02-23T11:21:39Z",
+      "side": 1,
+      "message": "!",
+      "revId": "c3935b22e0becb4289c24ef145ca5bbbf4dd3d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
