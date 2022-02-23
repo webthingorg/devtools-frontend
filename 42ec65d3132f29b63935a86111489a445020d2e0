@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "877c85b1_070219f1",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-23T09:34:24Z",
+      "side": 1,
+      "message": "I didn\u0027t want to do that at first for the CL not to be too big. Should I?",
+      "parentUuid": "8f2dfe01_caaaed22",
+      "range": {
+        "startLine": 118,
+        "startChar": 37,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27e2e662_5648d3bf",
         "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-21T10:46:54Z",
       "side": 1,
       "message": "Use the helper here",
+      "range": {
+        "startLine": 129,
+        "startChar": 36,
+        "endLine": 129,
+        "endChar": 54
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62f4b62_1d762783",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-23T09:34:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27e2e662_5648d3bf",
       "range": {
         "startLine": 129,
         "startChar": 36,
@@ -77,6 +125,30 @@
       "writtenOn": "2022-02-21T10:46:54Z",
       "side": 1,
       "message": "Make encodedPathFromUrl return an EncodedPathString.",
+      "range": {
+        "startLine": 308,
+        "startChar": 4,
+        "endLine": 308,
+        "endChar": 109
+      },
+      "revId": "42ec65d3132f29b63935a86111489a445020d2e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58862cb2_fc09781b",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-23T09:34:24Z",
+      "side": 1,
+      "message": "Also changed argument type to UrlString",
+      "parentUuid": "19dd3ea5_de42857c",
       "range": {
         "startLine": 308,
         "startChar": 4,
