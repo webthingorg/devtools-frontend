@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15475e7e_70d7f841",
+        "filename": "front_end/entrypoints/formatter_worker/Substitute.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-02-23T13:27:28Z",
+      "side": 1,
+      "message": "No, I just wanted to have at least one test for const, but I did overlook that test when going through them. LGTM!",
+      "parentUuid": "31d34d86_aba1a47a",
+      "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7259e65_ca9e6815",
