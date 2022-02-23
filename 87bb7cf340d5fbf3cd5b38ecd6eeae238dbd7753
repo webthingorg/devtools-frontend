@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31d34d86_aba1a47a",
+        "filename": "front_end/entrypoints/formatter_worker/Substitute.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-23T13:21:18Z",
+      "side": 1,
+      "message": "Const and Let have the same scoping behavior; \u0027var\u0027s are hoisted.\n\nThe test for the hoisting behavior is on Substitute_test.ts:70. Did you have some other test in mind?",
+      "parentUuid": "8bab3f77_36acc726",
+      "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7259e65_ca9e6815",
         "filename": "test/unittests/front_end/entrypoints/formatter_worker/Substitute_test.ts",
         "patchSetId": 6
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-23T13:08:05Z",
       "side": 1,
       "message": "Do we want to support substituting mangled properties?",
+      "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "046fa64b_31f18449",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/Substitute_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-02-23T13:21:18Z",
+      "side": 1,
+      "message": "Not yet. Source maps cannot express mangled properties at the moment (with the exception of the Dart extension, which is a bit ad-hoc and DevTools ignores that anyways).",
+      "parentUuid": "e7259e65_ca9e6815",
       "revId": "87bb7cf340d5fbf3cd5b38ecd6eeae238dbd7753",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
