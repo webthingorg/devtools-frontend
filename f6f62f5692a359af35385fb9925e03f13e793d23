@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8997189a_78293c04",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-02-23T11:39:50Z",
+      "side": 1,
+      "message": "Could this be simplified?\n\n```\nif \u0027package.json\u0027 in filenames:\n  packages.append(path.join(root, \u0027package.json\u0027))\n```\n\n?",
+      "range": {
+        "startLine": 154,
+        "startChar": 54,
+        "endLine": 154,
+        "endChar": 68
+      },
+      "revId": "f6f62f5692a359af35385fb9925e03f13e793d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8849f1_80079b02",
+        "filename": "scripts/deps/roll-puppeteer-into-frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2022-02-23T11:39:50Z",
+      "side": 1,
+      "message": "You don\u0027t need parse and error, do you?",
+      "revId": "f6f62f5692a359af35385fb9925e03f13e793d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
