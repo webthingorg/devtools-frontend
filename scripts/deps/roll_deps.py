@@ -62,7 +62,7 @@ def update(options):
     subprocess.check_call(['gclient', 'sync'], cwd=options.chromium_dir)
 
 def copy_files(options):
-    for from_path, to_path in FILE_MAPPINGS.items():
+    for from_path, to_path in list(FILE_MAPPINGS.items()):
         from_path = os.path.normpath(from_path)
         to_path = os.path.normpath(to_path)
         print('%s => %s' % (from_path, to_path))
