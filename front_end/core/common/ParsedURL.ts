@@ -238,6 +238,12 @@ export class ParsedURL {
     return devToolsPath.trim() as DevToolsPathType;
   }
 
+  static join<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                       Platform.DevToolsPath.EncodedPathString>(
+      devToolsPaths: DevToolsPathType[], separator?: string): DevToolsPathType {
+    return devToolsPaths.join(separator) as DevToolsPathType;
+  }
+
   static urlWithoutHash(url: string): string {
     const hashIndex = url.indexOf('#');
     if (hashIndex !== -1) {
