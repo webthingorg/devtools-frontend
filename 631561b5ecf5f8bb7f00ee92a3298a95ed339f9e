@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ddf8523_c2f38663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-02-23T10:22:17Z",
+      "side": 1,
+      "message": "Please take a look!\nHad to type fileName to UrlString in a bunch of files as it\u0027s used there only to call `open` (which then calls `save`, which expects a UrlString and is sometimes called with e.g. uiSourceCode.url()). These fileName-s can sometimes look like just names though, e.g.Coverage-${Date}.json",
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
