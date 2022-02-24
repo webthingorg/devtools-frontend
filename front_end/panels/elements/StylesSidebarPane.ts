@@ -65,6 +65,7 @@ import stylesSidebarPaneStyles from './stylesSidebarPane.css.js';
 
 import type {Context} from './StylePropertyTreeElement.js';
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';
+import * as LayersWidget from './LayersWidget.js';
 
 const UIStrings = {
   /**
@@ -187,6 +188,14 @@ const UIStrings = {
   *@description Tooltip text that appears after clicking on the copy CSS changes button
   */
   copiedToClipboard: 'Copied to clipboard',
+  /**
+  *@description Text to for layer
+  */
+  layer: 'Layer',
+  /**
+  *@description Text to for link to reveal layer in layer tree.
+  */
+  clickToRevealLayer: 'Click to reveal layer in layer tree',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/elements/StylesSidebarPane.ts', UIStrings);
@@ -853,6 +862,12 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     const blocks = [new SectionBlock(null)];
     let sectionIdx = 0;
     let lastParentNode: SDK.DOMModel.DOMNode|null = null;
+
+    // We disable the layer widget initially. If we see a layer in
+    // the matched styles we reenable the button.
+    LayersWidget.ButtonProvider.instance().item().setVisible(false);
+    let lastLayers: SDK.CSSLayer.CSSLayer[]|null = null;
+
     const refreshedURLs = new Set<string>();
     for (const style of matchedStyles.nodeStyles()) {
       if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES) && style.parentRule) {
@@ -870,6 +885,16 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         blocks.push(block);
       }
 
+      const parentRule = style.parentRule;
+      if (parentRule instanceof SDK.CSSRule.CSSStyleRule) {
+        const layers = parentRule.layers;
+        if ((layers.length || lastLayers) && lastLayers !== layers) {
+          const block = SectionBlock.createLayerBlock(layers);
+          blocks.push(block);
+          lastLayers = layers;
+        }
+      }
+
       const lastBlock = blocks[blocks.length - 1];
       if (lastBlock) {
         this.idleCallbackManager.schedule(() => {
@@ -880,6 +905,16 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       }
     }
 
+    // If we have seen a layer in matched styles we enable
+    // the layer widget button.
+    if (lastLayers) {
+      LayersWidget.ButtonProvider.instance().item().setVisible(true);
+    } else if (LayersWidget.LayersWidget.instance().isShowing()) {
+      // Since the button for toggling the layers view is now hidden
+      // we ensure that the layers view is not currently toggled.
+      ElementsPanel.instance().showToolbarPane(null, LayersWidget.ButtonProvider.instance().item());
+    }
+
     let pseudoTypes: Protocol.DOM.PseudoType[] = [];
     const keys = matchedStyles.pseudoTypes();
     if (keys.delete(Protocol.DOM.PseudoType.Before)) {
@@ -887,15 +922,26 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     }
     pseudoTypes = pseudoTypes.concat([...keys].sort());
     for (const pseudoType of pseudoTypes) {
-      const block = SectionBlock.createPseudoTypeBlock(pseudoType);
+      blocks.push(SectionBlock.createPseudoTypeBlock(pseudoType));
+      lastLayers = null;
+
       for (const style of matchedStyles.pseudoStyles(pseudoType)) {
+        const parentRule = style.parentRule;
+        if (parentRule instanceof SDK.CSSRule.CSSStyleRule) {
+          const layers = parentRule.layers;
+          if ((layers.length || lastLayers) && lastLayers !== layers) {
+            const block = SectionBlock.createLayerBlock(layers);
+            blocks.push(block);
+            lastLayers = layers;
+          }
+        }
+        const lastBlock = blocks[blocks.length - 1];
         this.idleCallbackManager.schedule(() => {
           const section = new StylePropertiesSection(this, matchedStyles, style, sectionIdx);
           sectionIdx++;
-          block.sections.push(section);
+          lastBlock.sections.push(section);
         });
       }
-      blocks.push(block);
     }
 
     for (const keyframesRule of matchedStyles.keyframes()) {
@@ -1376,6 +1422,23 @@ export class SectionBlock {
       tooltip: undefined,
     });
     separatorElement.appendChild(link);
+    return new SectionBlock(separatorElement);
+  }
+
+  static createLayerBlock(layers: SDK.CSSLayer.CSSLayer[]): SectionBlock {
+    const separatorElement = document.createElement('div');
+    separatorElement.className = 'sidebar-separator layer-separator';
+    UI.UIUtils.createTextChild(separatorElement.createChild('div'), i18nString(UIStrings.layer));
+    if (!layers.length) {
+      UI.UIUtils.createTextChild(separatorElement.createChild('div'), '\xa0user\xa0agent\xa0stylesheet');
+      return new SectionBlock(separatorElement);
+    }
+    const layerLink = separatorElement.createChild('button') as HTMLButtonElement;
+    layerLink.className = 'link';
+    layerLink.title = i18nString(UIStrings.clickToRevealLayer);
+    const name = layers.map(layer => layer.text || '<anonymous>').join('.');
+    layerLink.textContent = name;
+    layerLink.onclick = (): Promise<void> => LayersWidget.LayersWidget.instance().revealLayer(name);
     return new SectionBlock(separatorElement);
   }
 
