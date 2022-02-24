@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0757a4cd_ec05d95b",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-24T15:18:49Z",
+      "side": 1,
+      "message": "Here\u0027s the actual implementation.",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4022249e_30e5be74",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-02-24T15:18:49Z",
+      "side": 1,
+      "message": "This is all sort of boilerplate to retrieve CSS Models.",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
