@@ -31,6 +31,12 @@ self.onmessage = function(event: MessageEvent): void {
     case FormatterActions.JAVASCRIPT_IDENTIFIERS:
       self.postMessage(FormatterWorker.FormatterWorker.javaScriptIdentifiers(params.content));
       break;
+    case FormatterActions.JAVASCRIPT_SUBSTITUTE: {
+      const message = JSON.parse(params.content) as {expression: string, mapping: [string, string][]};
+      const mapping = new Map<string, string>(message.mapping);
+      self.postMessage(FormatterWorker.Substitute.substituteExpression(message.expression, mapping));
+      break;
+    }
     case FormatterActions.EVALUATE_JAVASCRIPT_SUBSTRING:
       self.postMessage(FormatterWorker.FormatterWorker.evaluatableJavaScriptSubstring(params.content));
       break;

@@ -132,6 +132,13 @@ export class FormatterWorkerPool {
         .then(ids => ids || []);
   }
 
+  javaScriptSubstitute(expression: string, mapping: Map<string, string>): Promise<string> {
+    const content = JSON.stringify({expression, mapping: Array.from(mapping.entries())});
+
+    return this.runTask(FormatterActions.FormatterActions.JAVASCRIPT_SUBSTITUTE, {content})
+        .then(result => result || '');
+  }
+
   evaluatableJavaScriptSubstring(content: string): Promise<string> {
     return this.runTask(FormatterActions.FormatterActions.EVALUATE_JAVASCRIPT_SUBSTRING, {content: content})
         .then(text => text || '');
