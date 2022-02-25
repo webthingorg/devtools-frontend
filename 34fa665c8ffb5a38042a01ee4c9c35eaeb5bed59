@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae3198b5_edc8003a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2022-02-25T06:31:44Z",
+      "side": 1,
+      "message": "Just need to wait for the devtools tree to get my CL from the main tree.",
+      "revId": "34fa665c8ffb5a38042a01ee4c9c35eaeb5bed59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
