@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d295bab5_7243c9fd",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "Yes I agree, I\u0027ll do a rename in a follow up.",
+      "parentUuid": "853037e2_4da60b26",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "438f8ce2_db5dc854",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-02-25T09:49:52Z",
       "side": 1,
       "message": "nit: sentence case is probably better `CSS layers`",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd00caa2_92608370",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438f8ce2_db5dc854",
       "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "959adf57_353314ef",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "I decided to go with a legacy Widget as a wrapper around the tree outline component to make it play nice with the legacy Toolbar we use in the sidebar panel. I think we would need quite a bit of plumbing to fully convert to LitHTML here?",
+      "parentUuid": "821084b5_7c7e7655",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2800aa42_7beb05a4",
         "filename": "front_end/panels/elements/LayersWidget.ts",
         "patchSetId": 3
@@ -99,6 +153,24 @@
       "writtenOn": "2022-02-25T09:53:39Z",
       "side": 1,
       "message": "Maybe add a comment or make `5` a constant to explain why we expand at 5?",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ae0b53_98fca5e2",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "Yes good point. I have added a comment. I\u0027m unsure if we should just expand everything TBH",
+      "parentUuid": "2800aa42_7beb05a4",
       "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c812953d_ce30f50b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "I think it is my english in this case :-)\nI\u0027ve added a more meaningful description.",
+      "parentUuid": "d172f8d1_15f58bc7",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "413f2859_6644e10e",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-02-25T09:49:52Z",
       "side": 1,
       "message": "nit: indent",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3641de88_240a00b2",
+        "filename": "test/e2e/resources/elements/css-layers.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-02-25T12:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "413f2859_6644e10e",
       "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
