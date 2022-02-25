@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f301057a_f589383c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-25T09:53:39Z",
+      "side": 1,
+      "message": "+1 % questions. Let\u0027s also discuss if we want to add an experiment in the design doc. We can add the experiment later if we decide so.",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853037e2_4da60b26",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-25T09:53:39Z",
+      "side": 1,
+      "message": "I know we\u0027re just following conventions here, but I don\u0027t really like these method names ending with `Promise`. Do you have the same feeling? Should we rename them in a separate CL maybe?",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "438f8ce2_db5dc854",
@@ -31,6 +65,57 @@
       "writtenOn": "2022-02-25T09:49:52Z",
       "side": 1,
       "message": "nit: sentence case is probably better `CSS layers`",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "821084b5_7c7e7655",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-25T09:53:39Z",
+      "side": 1,
+      "message": "Is there a reason we are using the legacy UI Widget, and this button instance registration to add the layers view, instead of a LitHTML component?",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2800aa42_7beb05a4",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-25T09:53:39Z",
+      "side": 1,
+      "message": "Maybe add a comment or make `5` a constant to explain why we expand at 5?",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d172f8d1_15f58bc7",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-25T09:53:39Z",
+      "side": 1,
+      "message": "Maybe it\u0027s my English, but what do you mean by \"Text to for layer\"?",
       "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
