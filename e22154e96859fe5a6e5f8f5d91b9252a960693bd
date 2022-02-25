@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438f8ce2_db5dc854",
+        "filename": "front_end/panels/elements/LayersWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-25T09:49:52Z",
+      "side": 1,
+      "message": "nit: sentence case is probably better `CSS layers`",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "413f2859_6644e10e",
+        "filename": "test/e2e/resources/elements/css-layers.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-02-25T09:49:52Z",
+      "side": 1,
+      "message": "nit: indent",
+      "revId": "e22154e96859fe5a6e5f8f5d91b9252a960693bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
