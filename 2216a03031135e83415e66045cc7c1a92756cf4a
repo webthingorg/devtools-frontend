@@ -22,6 +22,30 @@
       },
       "revId": "2216a03031135e83415e66045cc7c1a92756cf4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e293c14_74b4a5bf",
+        "filename": "front_end/entrypoints/formatter_worker/formatter_worker-entrypoint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-02-25T08:05:38Z",
+      "side": 1,
+      "message": "We don\u0027t need to use JSON, I think just passing the object/array as-is is fine and consistent.",
+      "parentUuid": "1aae19fd_456c1281",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 101
+      },
+      "revId": "2216a03031135e83415e66045cc7c1a92756cf4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
