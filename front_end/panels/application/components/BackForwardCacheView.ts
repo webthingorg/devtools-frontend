@@ -370,6 +370,24 @@ export class BackForwardCacheView extends HTMLElement {
     // clang-format on
   }
 
+  /* x-link doesn't work with custom click/keydown handlers */
+  /* eslint-disable rulesdir/ban_a_tags_in_lit_html */
+  #maybeRenderReasonContext(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
+    if (explanation.reason ===
+        Protocol.Page.BackForwardCacheNotRestoredReason.EmbedderExtensionSentMessageToCachedFrame) {
+      const link = 'chrome://extensions/?id=' + explanation.context;
+      // clang-format off
+    return LitHtml.html`
+      id=<a href="${link}" class="link" target="_blank"
+        @click=${(e: Event): void => openChromeLink(link, e)}
+        @keydown=${(e: Event): void => openChromeLink(link, e)}>${explanation.context}
+      </a>`;
+      // clang-format on
+    } else {
+      return LitHtml.html``;
+    }
+  }
+
   #renderReason(explanation: Protocol.Page.BackForwardCacheNotRestoredExplanation): LitHtml.TemplateResult {
     // clang-format off
     return LitHtml.html`
@@ -385,7 +403,10 @@ export class BackForwardCacheView extends HTMLElement {
               } as IconButton.Icon.IconData}>
               </${IconButton.Icon.Icon.litTagName}>
             </div>
-            ${NotRestoredReasonDescription[explanation.reason].name()}` :
+            <div>
+              ${NotRestoredReasonDescription[explanation.reason].name()}
+             ${this.#maybeRenderReasonContext(explanation)}
+           </div>` :
             LitHtml.nothing}
       </${ReportView.ReportView.ReportSection.litTagName}>
       <div class='gray-text'>
@@ -393,6 +414,16 @@ export class BackForwardCacheView extends HTMLElement {
       </div>
     `;
     // clang-format on
+  }
+}
+
+// Navigating to a chrome:// link via a normal anchor doesn't work, so we "navigate"
+// there using CDP.
+function openChromeLink(url: string, event: Event): void {
+  if (event.type === 'click' || (event.type === 'keydown' && self.isEnterOrSpaceKey(event))) {
+    const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
+    mainTarget && mainTarget.targetAgent().invoke_createTarget({url});
+    event.consume(true);
   }
 }
 
