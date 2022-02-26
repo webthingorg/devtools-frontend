@@ -406,7 +406,7 @@ export class TimelineModelImpl {
         const last = ranges[ranges.length - 1];
         if (!last || item.from > last.to) {
           ranges.push({from: item.from, to: item.to});
-        } else {
+        } else if (item.to > last.to) {
           last.to = item.to;
         }
         if (item.main) {
