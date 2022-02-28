@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06599065_ade5e913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1532692
+      },
+      "writtenOn": "2022-02-28T10:05:43Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nHere is the tiny change to browser_protocol.pdl separated out. I\u0027ll rebase the main CL afterwards.",
+      "revId": "0b45e943c684befcca2105acd39370fe23116a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
