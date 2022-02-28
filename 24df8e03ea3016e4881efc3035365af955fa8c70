@@ -46,6 +46,30 @@
       },
       "revId": "24df8e03ea3016e4881efc3035365af955fa8c70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6857c16d_26b317f8",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1261292
+      },
+      "writtenOn": "2022-02-28T13:56:58Z",
+      "side": 1,
+      "message": "BTW, that didn\u0027t work. I get\n\n../../third_party/devtools-frontend/src/front_end/panels/application/components/BackForwardCacheView.ts(387,5): error TS2322: Type \u0027symbol\u0027 is not assignable to type \u0027TemplateResult\u003cResultType\u003e\u0027.\n\n\nI don\u0027t understand this but it looks like nothing is OK to use as emptiness inside a LitHtml template but it\u0027s not itself a templateResult.",
+      "parentUuid": "1c99b194_89b4ce33",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 27
+      },
+      "revId": "24df8e03ea3016e4881efc3035365af955fa8c70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
