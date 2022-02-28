@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c54e914c_ae486b11",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-28T16:35:05Z",
+      "side": 1,
+      "message": "I\u0027m creating a component in https://crrev.com/c/3494517 for you to reuse here.",
+      "parentUuid": "d6cd9621_93e999f8",
+      "revId": "13ed8c4e485b3adf711c1f10631d2726c4e7240d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ce46dd_e3d772e7",
         "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
         "patchSetId": 7

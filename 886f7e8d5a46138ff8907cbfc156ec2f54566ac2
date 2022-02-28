@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ffdc502_3d9b1b95",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-28T16:35:05Z",
+      "side": 1,
+      "message": "Could `explanation.context` be null/undefined?",
+      "revId": "886f7e8d5a46138ff8907cbfc156ec2f54566ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b499ff_9e94ad14",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-28T16:35:05Z",
+      "side": 1,
+      "message": "If I\u0027m reading this correctly, the user will see \u0027Extensions with long-lived connection attempted to send messages to frames in back/forward cache. id\u003dsome_id\u0027.\n\nWould rephrasing the last part make it more user-friendly? Maybe something like: `(id of responsible extension: some_id)`. Can there ever be more than 1 extension causing this?",
+      "revId": "886f7e8d5a46138ff8907cbfc156ec2f54566ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

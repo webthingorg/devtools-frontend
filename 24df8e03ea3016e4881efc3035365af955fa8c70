@@ -70,6 +70,30 @@
       },
       "revId": "24df8e03ea3016e4881efc3035365af955fa8c70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79ee2fb_2eac7e56",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-02-28T16:35:05Z",
+      "side": 1,
+      "message": "I believe it should work if you change the method\u0027s return type to `LitHtml.TemplateResult|{}`.",
+      "parentUuid": "6857c16d_26b317f8",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 27
+      },
+      "revId": "24df8e03ea3016e4881efc3035365af955fa8c70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
