@@ -5900,11 +5900,41 @@
   "panels/lighthouse/LighthouseStartViewFR.ts | analyzeSnapshot": {
     "message": "Analyze snapshot"
   },
+  "panels/lighthouse/LighthouseStartViewFR.ts | categories": {
+    "message": "Categories"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | device": {
+    "message": "Device"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | generateLighthouseReport": {
+    "message": "Generate a Lighthouse report"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | lighthouseNavigationReport": {
+    "message": "Lighthouse Navigation Mode"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | lighthouseSnapshotReport": {
+    "message": "Lighthouse Snapshot Mode"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | lighthouseTimespanReport": {
+    "message": "Lighthouse Timespan Mode"
+  },
   "panels/lighthouse/LighthouseStartViewFR.ts | mode": {
     "message": "Mode"
   },
+  "panels/lighthouse/LighthouseStartViewFR.ts | navigationLongDescription": {
+    "message": "Navigation mode analyzes a single page load, exactly like the original Lighthouse reports."
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | plugins": {
+    "message": "Plugins"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | snapshotLongDescription": {
+    "message": "Snapshot reports analyze the page in a particular state, typically after user interactions."
+  },
   "panels/lighthouse/LighthouseStartViewFR.ts | startTimespan": {
     "message": "Start timespan"
+  },
+  "panels/lighthouse/LighthouseStartViewFR.ts | timespanLongDescription": {
+    "message": "Timespan reports analyze an arbitrary period of time, typically containing user interactions."
   },
   "panels/lighthouse/LighthouseStatusView.ts | ahSorryWeRanIntoAnError": {
     "message": "Ah, sorry! We ran into an error."

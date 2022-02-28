@@ -360,6 +360,9 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
     this.dispatchEventToListeners(Events.PageAuditabilityChanged, {helpText});
 
     void this.hasImportantResourcesNotCleared().then(warning => {
+      if (this.getFlags().mode !== 'navigation') {
+        warning = '';
+      }
       this.dispatchEventToListeners(Events.PageWarningsChanged, {warning});
     });
   }
