@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e23188_a9eaf637",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1439,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-02-28T10:10:52Z",
+      "side": 1,
+      "message": "Just for my own knowledge here, when would a layer come from an \"implicit outer layer\"?",
+      "revId": "6478b64e6d31266a7f8d94186e4d24e298d96cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
