@@ -16,6 +16,23 @@
       "message": "Added tvanderlippe@ for `CSSPlugin.ts` owners review",
       "revId": "6dba40d37ecc27fe6c315eeded9448805aedb2f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e06a88_7ce09760",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-03-01T13:55:18Z",
+      "side": 1,
+      "message": "Rubberstamp LGTM",
+      "revId": "6dba40d37ecc27fe6c315eeded9448805aedb2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
