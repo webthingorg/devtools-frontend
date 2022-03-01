@@ -164,6 +164,24 @@
       "message": "DevTools has 2 ways of building the UI: the old way where we imperatively create and append elements, and the new way based on web components with lit-html. We are trying to avoid using the legacy way within new lit-based components.\n\nFortunately, it seems we already have 2 components which could fit here:\nExpandableList[1] or the new TreeOutline[2].\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/expandable_list/ExpandableList.ts\n[2] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/tree_outline/TreeOutline.ts",
       "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9cf4fa3_ebf88f31",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T01:45:56Z",
+      "side": 1,
+      "message": "so i\u0027ve had some trouble following up on this - could you explain a bit more how i\u0027d go about doing that? i haven\u0027t been able to find (using codesearch) any examples of the non-legacy TreeOutline class being used, for example",
+      "parentUuid": "bf71f3ca_049c104a",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
