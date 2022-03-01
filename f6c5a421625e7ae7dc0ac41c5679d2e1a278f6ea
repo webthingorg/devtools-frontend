@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db1d6ea_043f8b73",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-03-01T07:40:18Z",
+      "side": 1,
+      "message": "Is this accessible in the same way \u003clabel\u003e is?",
+      "revId": "f6c5a421625e7ae7dc0ac41c5679d2e1a278f6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df5312c5_b79a165a",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-03-01T07:40:18Z",
+      "side": 1,
+      "message": "non-blocking tip: I generally use append() instead of appendChild() these days.",
+      "revId": "f6c5a421625e7ae7dc0ac41c5679d2e1a278f6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
