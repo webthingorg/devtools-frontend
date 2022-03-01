@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3090d612_aa682187",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T08:22:10Z",
+      "side": 1,
+      "message": "Danil, it seems I did not actually add you as reviewer earlier. PTAL",
+      "revId": "5924f22056015244690a288d0cac876897a32da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
