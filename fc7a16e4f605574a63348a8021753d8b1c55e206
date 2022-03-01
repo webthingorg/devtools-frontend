@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c33737_14bb77d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T12:35:40Z",
+      "side": 1,
+      "message": "Can we have a test verifying that the correct view is instantiated for a .headers UISourceCode?",
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d576f04_9ef1164d",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T12:35:40Z",
+      "side": 1,
+      "message": ".name() \u003d\u003d HEADER_OVERRIDES_FILENAME?",
+      "range": {
+        "startLine": 382,
+        "startChar": 8,
+        "endLine": 382,
+        "endChar": 20
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fcf13f4_86b05350",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T12:35:40Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 71
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6524740b_afc49382",
+        "filename": "front_end/panels/sources/components/HeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T12:35:40Z",
+      "side": 1,
+      "message": "Do we need this extra container. Can\u0027t we have these rules on devtools-sources-headers-view?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
