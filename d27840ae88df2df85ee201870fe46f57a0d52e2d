@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21035ff2_d2c42078",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-01T08:48:33Z",
+      "side": 1,
+      "message": "One last comment: You could add a small unit test that asserts this throw. The test wouldn\u0027t even need to setup the mock connection / mock target for that test. Fine in a follow-up if the CL is already landing.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "d27840ae88df2df85ee201870fe46f57a0d52e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
