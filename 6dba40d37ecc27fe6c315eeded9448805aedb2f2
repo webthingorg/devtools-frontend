@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38cfa5f7_73f95220",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-03-01T12:09:22Z",
+      "side": 1,
+      "message": "Added tvanderlippe@ for `CSSPlugin.ts` owners review",
+      "revId": "6dba40d37ecc27fe6c315eeded9448805aedb2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
