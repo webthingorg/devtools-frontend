@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "299a46ae_c0a02083",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-01T16:16:44Z",
+      "side": 1,
+      "message": "The contents of this are filled in after the fragment is created. We set a11y name and stuff in `populateRuntimeSettingAsRadio`",
+      "parentUuid": "2db1d6ea_043f8b73",
+      "revId": "f6c5a421625e7ae7dc0ac41c5679d2e1a278f6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df5312c5_b79a165a",
         "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-01T07:40:18Z",
       "side": 1,
       "message": "non-blocking tip: I generally use append() instead of appendChild() these days.",
+      "revId": "f6c5a421625e7ae7dc0ac41c5679d2e1a278f6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dda39f7_b0ef7616",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-01T16:16:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df5312c5_b79a165a",
       "revId": "f6c5a421625e7ae7dc0ac41c5679d2e1a278f6ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
