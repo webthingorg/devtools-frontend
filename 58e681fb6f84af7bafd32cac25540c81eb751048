@@ -16,6 +16,86 @@
       "message": "Simon PTAL",
       "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b139ea3b_79b78acf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-01T06:33:09Z",
+      "side": 1,
+      "message": "lgtm % a few comments",
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b5e80d_e0450ee7",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-01T06:33:09Z",
+      "side": 1,
+      "message": "nit: The connected callback might be a better place to schedule the first render.",
+      "range": {
+        "startLine": 27,
+        "startChar": 42,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2673bba_e1cd8959",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-01T06:33:09Z",
+      "side": 1,
+      "message": "We could console.assert or throw an exception if the URL doesn\u0027t start with `chrome://` here. Alternatively we could rename \u0027href\u0027 to \u0027host\u0027 and the component prepends the \u0027chrome://\u0027",
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d5677e_8da380ab",
+        "filename": "front_end/ui/components/chrome_link/chromeLink.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-01T06:33:09Z",
+      "side": 1,
+      "message": "I remember an email from Yang that we no longer want to use cursor: pointer. Could you double check?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
