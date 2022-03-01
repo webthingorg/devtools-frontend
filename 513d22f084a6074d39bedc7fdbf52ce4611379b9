@@ -113,6 +113,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dbe6bee5_e14f384b",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-03-01T11:07:42Z",
+      "side": 1,
+      "message": "We currently (in various panel implementations) assume it doesn\u0027t. When I was testing it, there was always 1 model. There could be multiple frames with different models, but then we should gracefully degrade here so I don\u0027t think that\u0027s an issue.",
+      "parentUuid": "442c29f8_f4ea56a1",
+      "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4022249e_30e5be74",
         "filename": "front_end/panels/sources/CSSPlugin.ts",
         "patchSetId": 1
