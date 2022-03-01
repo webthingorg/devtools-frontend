@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b573d8b_a969e8f2",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T14:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d576f04_9ef1164d",
+      "range": {
+        "startLine": 382,
+        "startChar": 8,
+        "endLine": 382,
+        "endChar": 20
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fcf13f4_86b05350",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86ff20e0_cf110b97",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T14:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fcf13f4_86b05350",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 71
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6524740b_afc49382",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-03-01T12:35:40Z",
       "side": 1,
       "message": "Do we need this extra container. Can\u0027t we have these rules on devtools-sources-headers-view?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78c00366_18d14727",
+        "filename": "front_end/panels/sources/components/HeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T14:30:54Z",
+      "side": 1,
+      "message": "I think it makes sense to have a wrapper, because in the non-error case (covered in the follow-up CLs) we don\u0027t want everything to be centered.",
+      "parentUuid": "6524740b_afc49382",
       "range": {
         "startLine": 11,
         "startChar": 0,
