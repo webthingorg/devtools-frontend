@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a0ae1f3_39400c09",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T15:34:24Z",
+      "side": 1,
+      "message": "I see. Should we call it smth like headerOverrideArray to reflect this in the code?",
+      "parentUuid": "f354dba7_b449bd0b",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50750721_fccc28ad",
         "filename": "front_end/panels/sources/components/HeadersView.ts",
         "patchSetId": 6
@@ -196,6 +220,30 @@
       "side": 1,
       "message": "The caret position is set on each re-render as long as an editable element is focused and the cared position is stored (which happens on every keystroke since every keystroke causes a re-render).",
       "parentUuid": "3e530979_bb76fbe3",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215b24f5_69010d7d",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T15:34:24Z",
+      "side": 1,
+      "message": "Ouch, why do we re-render on every keystroke? This seems very wasteful and potentially buggy.",
+      "parentUuid": "b6a01ede_08239a45",
       "range": {
         "startLine": 300,
         "startChar": 0,
