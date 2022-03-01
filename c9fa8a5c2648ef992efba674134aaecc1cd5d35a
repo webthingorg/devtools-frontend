@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f354dba7_b449bd0b",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T15:11:12Z",
+      "side": 1,
+      "message": "On disk header overrides are stored in `applyTo.headers` as object properties. In the editor UI we want to be able to insert rows at a specific position and access rows by their index. We therefore want an array instead of the object and need to transform back and forth.\n\nAdded explainer comments in the code.",
+      "parentUuid": "768c8c6e_e68b08d8",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50750721_fccc28ad",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-01T14:09:16Z",
       "side": 1,
       "message": "Inline this var?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17fc41f7_e3b932c9",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T15:11:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50750721_fccc28ad",
       "range": {
         "startLine": 161,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7525ec5b_e0949c09",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T15:11:12Z",
+      "side": 1,
+      "message": "Oops, the whole `#onClick()` method is only relevant for the next CL. Removed.",
+      "parentUuid": "1d6b2280_046a30f9",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 39
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e530979_bb76fbe3",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-01T14:09:16Z",
       "side": 1,
       "message": "When do we want to preserve caret position after re-rendering?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a01ede_08239a45",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T15:11:12Z",
+      "side": 1,
+      "message": "The caret position is set on each re-render as long as an editable element is focused and the cared position is stored (which happens on every keystroke since every keystroke causes a re-render).",
+      "parentUuid": "3e530979_bb76fbe3",
       "range": {
         "startLine": 300,
         "startChar": 0,
