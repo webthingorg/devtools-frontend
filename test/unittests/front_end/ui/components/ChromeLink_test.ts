@@ -14,7 +14,7 @@ const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 const {assert} = chai;
 
 describeWithMockConnection('ChromeLink', () => {
-  it('renders a link when given a URL', async () => {
+  it('renders a link when given a \'chrome://\' URL', async () => {
     const target = createTarget();
     const spy = sinon.spy(target.targetAgent(), 'invoke_createTarget');
 
@@ -44,5 +44,18 @@ describeWithMockConnection('ChromeLink', () => {
 
     assert.isTrue(spy.calledOnce);
     assert.deepEqual(spy.firstCall.firstArg, {url: 'chrome://settings'});
+  });
+});
+
+describe('ChromeLink', () => {
+  it('throws an error when given a non-\'chrome://\' URL', async () => {
+    const component = new ChromeLink.ChromeLink.ChromeLink();
+    try {
+      component.href = 'https://www.example.com';
+    } catch (e) {
+      assert.strictEqual(e.message, 'ChromeLink href needs to start with \'chrome://\'');
+      return;
+    }
+    assert.fail('Expected ChromeLink to throw on a non-\'chrome://\' URL.');
   });
 });
