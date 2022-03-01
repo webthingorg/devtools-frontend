@@ -157,6 +157,30 @@
       },
       "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a15e1e5_1f26fd4a",
+        "filename": "front_end/panels/sources/components/HeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-01T14:32:44Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "78c00366_18d14727",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "fc7a16e4f605574a63348a8021753d8b1c55e206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
