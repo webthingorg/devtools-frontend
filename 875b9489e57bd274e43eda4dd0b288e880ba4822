@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c5d07d_14ed1964",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T07:19:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9fb41a8_6ecf80a2",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 33
+      },
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccf7b311_8909bf3a",
@@ -71,6 +95,24 @@
       "writtenOn": "2022-02-18T15:29:24Z",
       "side": 1,
       "message": "Should this be displayed even when `maybeRenderFrameTree` does not render anything?",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "694a5f20_85042696",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T07:19:17Z",
+      "side": 1,
+      "message": "ah, no, have moved this part of the template into the results of maybeRenderFrameTree",
+      "parentUuid": "ccf7b311_8909bf3a",
       "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +151,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8afd698_f63f9306",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T07:19:17Z",
+      "side": 1,
+      "message": "oops, actually i don\u0027t need this divider at all anyway - it\u0027s detritus from some earlier experiments.",
+      "parentUuid": "de862180_5a35aed1",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09b0fd9a_c18147c7",
@@ -132,6 +192,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a03072_5063dac0",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T07:19:17Z",
+      "side": 1,
+      "message": "so something is formatting things automatically and i can\u0027t quite figure out what (I note there\u0027s clang-format off instructions). have fixed it, hopefully it stays put",
+      "parentUuid": "09b0fd9a_c18147c7",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 62
+      },
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14023219_b22a26fc",
@@ -145,6 +229,24 @@
       "writtenOn": "2022-02-18T15:29:24Z",
       "side": 1,
       "message": "This will traverse the explanationTree once for each reason. How about transforming the tree into a Map\u003cBackForwardCacheNotRestoredReason, string[]\u003e from reason to array of URLs in `maybeRenderExplanations`?\nYou\u0027d only need to traverse the tree once and could pass the filtered array of URLs along to `renderExplanations` instead of the whole explanationTree.",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e8f7ff_beeda8fd",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-01T07:19:17Z",
+      "side": 1,
+      "message": "Have taken a crack at that, now using a buildReasonToFramesMap method.",
+      "parentUuid": "14023219_b22a26fc",
       "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
