@@ -56,6 +56,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d99eca81_208d6b44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-01T11:05:31Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0757a4cd_ec05d95b",
         "filename": "front_end/panels/sources/CSSPlugin.ts",
         "patchSetId": 1
@@ -73,6 +90,23 @@
         "endLine": 67,
         "endChar": 34
       },
+      "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "442c29f8_f4ea56a1",
+        "filename": "front_end/panels/sources/CSSPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-01T11:05:31Z",
+      "side": 1,
+      "message": "Would it ever happen that `modalAdded(newerCSSModel)` is called to replace the currently store `#cssModel` with a newer one?",
       "revId": "513d22f084a6074d39bedc7fdbf52ce4611379b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
