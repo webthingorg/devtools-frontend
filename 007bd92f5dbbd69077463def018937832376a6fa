@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "069baacf_bf59027c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T16:16:32Z",
+      "side": 1,
+      "message": "Will take a closer look tomorrow.\n\nI\u0027ve noticed that very long frame names cause some layout issues. I think we\u0027ve solved a very similar problem elsewhere, will dig that up.",
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
