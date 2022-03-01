@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18180594_7890eac4",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T08:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7b5e80d_e0450ee7",
+      "range": {
+        "startLine": 27,
+        "startChar": 42,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2673bba_e1cd8959",
@@ -75,6 +99,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f581f7b3_0fa6b754",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T08:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2673bba_e1cd8959",
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1d5677e_8da380ab",
@@ -88,6 +130,30 @@
       "writtenOn": "2022-03-01T06:33:09Z",
       "side": 1,
       "message": "I remember an email from Yang that we no longer want to use cursor: pointer. Could you double check?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "58e681fb6f84af7bafd32cac25540c81eb751048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a864d9f3_513aeef3",
+        "filename": "front_end/ui/components/chrome_link/chromeLink.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-01T08:44:36Z",
+      "side": 1,
+      "message": "I just checked: we still want `cursor: pointer` for hyperlinks, but not much else.",
+      "parentUuid": "f1d5677e_8da380ab",
       "range": {
         "startLine": 10,
         "startChar": 2,
