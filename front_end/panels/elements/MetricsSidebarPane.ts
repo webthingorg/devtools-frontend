@@ -88,8 +88,8 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
     }
 
     const promises = [
-      cssModel.getComputedStyle(node.id).then(callback.bind(this)),
-      cssModel.getInlineStyles(node.id).then(inlineStyleResult => {
+      cssModel.computedStylePromise(node.id).then(callback.bind(this)),
+      cssModel.inlineStylesPromise(node.id).then(inlineStyleResult => {
         if (inlineStyleResult && this.node() === node) {
           this.inlineStyle = inlineStyleResult.inlineStyle;
         }
