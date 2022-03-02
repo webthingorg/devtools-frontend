@@ -12,6 +12,7 @@ load("//definitions.star", "versions")
 
 defaults.build_numbers.set(True)
 
+# whitespace
 def branch_section(name):
     return config_section(
         name = name,
