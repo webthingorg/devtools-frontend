@@ -56,6 +56,30 @@
       },
       "revId": "098d1467d6c360ccc46c9977093e9d75d78ff213",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a9109f_8d7b8dd0",
+        "filename": "test/unittests/front_end/ui/components/ChromeLink_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-02T08:47:14Z",
+      "side": 1,
+      "message": "Oh, nice, TIL!",
+      "parentUuid": "849ffe44_ca1d5d54",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 76
+      },
+      "revId": "098d1467d6c360ccc46c9977093e9d75d78ff213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
