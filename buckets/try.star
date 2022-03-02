@@ -166,6 +166,7 @@ cq_main = struct(
     experiment_builders = [
         # Quarantine a builder here
         # This will make them experiment 100%
+        "devtools_frontend_linux_blink_light_rel",
     ],
     includable_only_builders = [
         "devtools_frontend_mac_rel",
