@@ -81,7 +81,7 @@ def builder(
     experiments = None
     if recipe_name in ["chromium_integration", "chromium_trybot"]:
         experiments = {
-            "chromium.chromium_tests.use_rdb_results": 100,
+            "chromium.chromium_tests.use_rdb_results": 20,
         }
     luci.builder(
         swarming_tags = swarming_tags,
