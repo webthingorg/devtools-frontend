@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bde082d_b25daae8",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-02T10:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0ae1f3_39400c09",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50750721_fccc28ad",
@@ -244,6 +268,30 @@
       "side": 1,
       "message": "Ouch, why do we re-render on every keystroke? This seems very wasteful and potentially buggy.",
       "parentUuid": "b6a01ede_08239a45",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8a6696_9ce62ebd",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-02T10:24:24Z",
+      "side": 1,
+      "message": "UISourceCode has the notion of a workingCopy which keeps track of unsaved changes. We want to update the workingCopy on the smallest possible updates, so that features like the following work correctly: \n- visual indicator for a file containing unsaved changes\n- \u0027do you want to close unsaved file?\u0027 dialog when closing file with unsaved changes\n\nMy thinking was that the safest way to keep editor state and workingCopy in sync is via two-way data binding: a change in the editor immediately updates workingCopy, and vice versa a change in the workingCopy is immediately sent to the editor via a re-render. Yes, this does cause a lot of re-renders of the editor, but I did not notice any flickering in my experiments. I believe that frameworks like react employ the same strategy when rendering forms.\n\nAs an alternative, I could try removing the listener to onWorkingCopyChanged which causes the re-render, so that the data only flows in 1 direction from the editor to workingCopy. In a quick experiment I already noticed a problem with this:\n- open editor and generate unsaved changes\n- close editor\n- confirm dialog about closing with unsaved changes (which resets the workingCopy)\n- re-open the editor\nThis still shows the unsaved changes we just discarded, because the editor component is not discarded upon closing it in the UI and therefore does not need to be re-created upon re-opening it in the UI. In addition, the indicator for unsaved changes is missing, because the workingCopy has been reset.",
+      "parentUuid": "215b24f5_69010d7d",
       "range": {
         "startLine": 300,
         "startChar": 0,
