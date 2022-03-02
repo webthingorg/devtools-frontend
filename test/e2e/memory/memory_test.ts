@@ -148,7 +148,7 @@ describe('The Memory Panel', async function() {
     await takeHeapSnapshot();
     await waitForNonEmptyHeapSnapshotData();
     await setSearchFilter('Retainer');
-    await waitForSearchResultNumber(8);
+    await waitForSearchResultNumber(9);
     await findSearchResult(async p => {
       const el = await p.$(':scope > td > div > .object-value-object');
       return el !== null && await el.evaluate(el => el.textContent === 'Retainer');

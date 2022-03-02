@@ -6,6 +6,8 @@ import("../../../../scripts/build/ninja/copy.gni")
 
 copy_to_gen("sources") {
   sources = [
+    "breakpoint-hit-on-first-load.html",
+    "breakpoint-hit-on-first-load.js",
     "click-breakpoint.html",
     "click-breakpoint.js",
     "different-workers.html",
