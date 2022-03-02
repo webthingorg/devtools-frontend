@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "098d1467d6c360ccc46c9977093e9d75d78ff213",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a1699ef_bdc45f65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-02T06:09:03Z",
+      "side": 1,
+      "message": "lgtm % nit, thanks for adding the test!",
+      "revId": "098d1467d6c360ccc46c9977093e9d75d78ff213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "849ffe44_ca1d5d54",
+        "filename": "test/unittests/front_end/ui/components/ChromeLink_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-02T06:09:03Z",
+      "side": 1,
+      "message": "nit: \n```\nassert.throws(() \u003d\u003e { component.href \u003d \u0027https://www.example.com\u0027; }, \u0027ChromeLink href needs to start with \\\u0027chrome://\\\u0027);\n```",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 76
+      },
+      "revId": "098d1467d6c360ccc46c9977093e9d75d78ff213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
