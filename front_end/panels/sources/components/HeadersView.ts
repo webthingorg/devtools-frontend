@@ -4,7 +4,7 @@
 
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Persistence from '../../../models/persistence/persistence.js';
-import type * as Workspace from '../../../models/workspace/workspace.js';
+import * as Workspace from '../../../models/workspace/workspace.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -34,9 +34,52 @@ export class HeadersView extends UI.View.SimpleView {
   constructor(uiSourceCode: Workspace.UISourceCode.UISourceCode) {
     super('HeadersView');
     this.#uiSourceCode = uiSourceCode;
+    this.#uiSourceCode.addEventListener(
+        Workspace.UISourceCode.Events.WorkingCopyChanged, this.#onWorkingCopyChanged, this);
+    this.#uiSourceCode.addEventListener(
+        Workspace.UISourceCode.Events.WorkingCopyCommitted, this.#onWorkingCopyCommitted, this);
     this.element.appendChild(this.#headersViewComponent);
+    void this.#setInitialData();
+  }
+
+  async #setInitialData(): Promise<void> {
+    const content = await this.#uiSourceCode.requestContent();
+    this.#setComponentData(content.content || '');
+  }
+
+  #setComponentData(content: string): void {
+    let parsingError = false;
+    let headerOverrides: Persistence.NetworkPersistenceManager.HeaderOverride[] = [];
+    content = content || '[]';
+    try {
+      headerOverrides = JSON.parse(content) as Persistence.NetworkPersistenceManager.HeaderOverride[];
+      if (!headerOverrides.every(Persistence.NetworkPersistenceManager.isHeaderOverride)) {
+        throw 'Type mismatch after parsing';
+      }
+    } catch (e) {
+      console.error('Failed to parse', this.#uiSourceCode.url(), 'for locally overriding headers.');
+      parsingError = true;
+    }
+
+    // Header overrides are stored as the key-value pairs of a JSON object on
+    // disk. For the editor we want them as an array instead, so that we can
+    // access/add/remove entries by their index.
+    const headerOverrideArrayArray: HeaderOverride[] = headerOverrides.map(headerOverride => {
+      return {
+        applyTo: headerOverride.applyTo,
+        headers: Object.entries(headerOverride.headers).map(([headerName, headerValue]) => {
+          return {
+            name: headerName,
+            value: headerValue,
+          };
+        }),
+      };
+    });
+
     this.#headersViewComponent.data = {
+      headerOverrides: headerOverrideArrayArray,
       uiSourceCode: this.#uiSourceCode,
+      parsingError,
     };
   }
 
@@ -44,37 +87,237 @@ export class HeadersView extends UI.View.SimpleView {
     this.#uiSourceCode.commitWorkingCopy();
     Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().updateInterceptionPatterns();
   }
+
+  #onWorkingCopyChanged(): void {
+    this.#setComponentData(this.#uiSourceCode.workingCopy());
+  }
+
+  #onWorkingCopyCommitted(): void {
+    this.#setComponentData(this.#uiSourceCode.workingCopy());
+  }
+
+  dispose(): void {
+    this.#uiSourceCode.removeEventListener(
+        Workspace.UISourceCode.Events.WorkingCopyChanged, this.#onWorkingCopyChanged, this);
+    this.#uiSourceCode.removeEventListener(
+        Workspace.UISourceCode.Events.WorkingCopyCommitted, this.#onWorkingCopyCommitted, this);
+  }
 }
 
+type Header = {
+  name: string,
+  value: string,
+};
+
+type HeaderOverride = {
+  applyTo: string,
+  headers: Header[],
+};
+
 export interface HeadersViewComponentData {
+  headerOverrides: HeaderOverride[];
   uiSourceCode: Workspace.UISourceCode.UISourceCode;
+  parsingError: boolean;
 }
 
 export class HeadersViewComponent extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-sources-headers-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
+  #headerOverrides: HeaderOverride[] = [];
   #uiSourceCode: Workspace.UISourceCode.UISourceCode|null = null;
+  #focusedEditable: HTMLElement|null = null;
+  #caretPosition = -1;
+  #parsingError = false;
+
+  constructor() {
+    super();
+    this.#shadow.addEventListener('focusin', this.#onFocusIn.bind(this));
+    this.#shadow.addEventListener('focusout', this.#onFocusOut.bind(this));
+    this.#shadow.addEventListener('input', this.#onInput.bind(this));
+    this.#shadow.addEventListener('keydown', this.#onKeyDown.bind(this));
+  }
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [HeadersViewStyles];
   }
 
   set data(data: HeadersViewComponentData) {
+    this.#headerOverrides = data.headerOverrides;
     this.#uiSourceCode = data.uiSourceCode;
+    this.#parsingError = data.parsingError;
     this.#render();
   }
 
+  // 'Enter' key should not create a new line in the contenteditable. Focus
+  // on the next contenteditable instead.
+  #onKeyDown(event: Event): void {
+    const keyboardEvent = event as KeyboardEvent;
+    const target = event.target as HTMLElement;
+    if (target.matches('.editable') && keyboardEvent.key === 'Enter') {
+      event.preventDefault();
+      this.#focusNext(target);
+    }
+  }
+
+  #focusNext(target: HTMLElement): void {
+    const elements = Array.from(this.#shadow.querySelectorAll('.editable')) as HTMLElement[];
+    const idx = elements.indexOf(target);
+    if (idx !== -1 && idx + 1 < elements.length) {
+      elements[idx + 1].focus();
+    }
+  }
+
+  #selectAllText(target: HTMLElement): void {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+  }
+
+  #clearSelection(): void {
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+  }
+
+  #onFocusIn(e: Event): void {
+    const target = e.target as HTMLElement;
+    if (target.matches('.editable')) {
+      this.#selectAllText(target);
+      this.#focusedEditable = target;
+    }
+  }
+
+  #onFocusOut(): void {
+    this.#clearSelection();
+    this.#focusedEditable = null;
+    this.#caretPosition = -1;
+  }
+
+  #getCaretPosition(element: HTMLElement): number {
+    if (!element.hasFocus()) {
+      return -1;
+    }
+
+    const selection = element.getComponentSelection();
+    if (!selection || selection.rangeCount === 0 || !selection.isCollapsed) {
+      return -1;
+    }
+    const selectionRange = selection.getRangeAt(0);
+    if (selectionRange.startOffset !== selectionRange.endOffset) {
+      return -1;
+    }
+    return selectionRange.startOffset;
+  }
+
+  #onInput(e: Event): void {
+    // `#onInput()` changes the component's state and updates `#uiSourceCode`'s
+    // working copy which causes a rerender. We need to keep track of the caret
+    // position and explicitly set it during rendering, otherwise the cursor
+    // would be placed at the start of the contenteditable after each keystroke.
+    this.#caretPosition = this.#getCaretPosition(e.target as HTMLElement);
+
+    const target = e.target as HTMLButtonElement;
+    const rowElement = target.closest('.row') as HTMLElement;
+    const blockIndex = Number(rowElement.dataset.blockIndex);
+    const headerIndex = Number(rowElement.dataset.headerIndex);
+    if (target.matches('.header-name')) {
+      this.#headerOverrides[blockIndex].headers[headerIndex].name = target.innerText;
+      this.#onHeadersChanged();
+    }
+    if (target.matches('.header-value')) {
+      this.#headerOverrides[blockIndex].headers[headerIndex].value = target.innerText;
+      this.#onHeadersChanged();
+    }
+    if (target.matches('.apply-to')) {
+      this.#headerOverrides[blockIndex].applyTo = target.innerText;
+      this.#onHeadersChanged();
+    }
+  }
+
+  #onHeadersChanged(): void {
+    // In the editor header overrides are represented by items in an array, so
+    // that we can access/add/remove entries by their index. On disk, they are
+    // stored as key-value pairs of a JSON object instead.
+    const headerOverrideObjectArray: Persistence.NetworkPersistenceManager.HeaderOverride[] =
+        this.#headerOverrides.map(headerOverride => {
+          return {
+            applyTo: headerOverride.applyTo,
+            headers: headerOverride.headers.reduce((a, v) => ({...a, [v.name]: v.value}), {}),
+          };
+        });
+    this.#uiSourceCode?.setWorkingCopy(JSON.stringify(headerOverrideObjectArray, null, 2));
+  }
+
   #render(): void {
-    const fileName = this.#uiSourceCode?.name() || '.headers';
+    if (this.#parsingError) {
+      const fileName = this.#uiSourceCode?.name() || '.headers';
+      // clang-format off
+      LitHtml.render(LitHtml.html`
+        <div class="center-wrapper">
+          <div class="centered">
+            <div class="error-header">${i18nString(UIStrings.errorWhenParsing, {PH1: fileName})}</div>
+            <div class="error-body">${i18nString(UIStrings.parsingErrorExplainer, {PH1: fileName})}</div>
+          </div>
+        </div>
+      `, this.#shadow, {host: this});
+      // clang-format on
+      return;
+    }
+
     // clang-format off
     LitHtml.render(LitHtml.html`
-      <div class="center-wrapper">
-        <div class="centered">
-          <div class="error-header">${i18nString(UIStrings.errorWhenParsing, {PH1: fileName})}</div>
-          <div class="error-body">${i18nString(UIStrings.parsingErrorExplainer, {PH1: fileName})}</div>
-        </div>
-      </div>
+      ${this.#headerOverrides.map((headerOverride, blockIndex) =>
+        LitHtml.html`
+          ${this.#renderApplyToRow(headerOverride.applyTo, blockIndex)}
+          ${headerOverride.headers.map((header, headerIndex) =>
+            LitHtml.html`
+              ${this.#renderHeaderRow(header, blockIndex, headerIndex)}
+            `,
+          )}
+        `,
+      )}
     `, this.#shadow, {host: this});
+    // clang-format on
+
+    // Set caret position. This happens after each keystroke in an editable.
+    if (this.#focusedEditable && this.#caretPosition >= 0) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      // #focusedEditable.childNodes has a comment node (auto-generated by
+      // LitHtml) at index 0, and the text node we care about  at index 1.
+      range.setStart(this.#focusedEditable.childNodes[1], this.#caretPosition);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
+  }
+
+  #renderApplyToRow(pattern: string, blockIndex: number): LitHtml.TemplateResult {
+    // clang-format off
+    return LitHtml.html`
+      <div class="row" data-block-index=${blockIndex}>
+        <div>${i18n.i18n.lockedString('Apply to')}</div>
+        <div class="separator">:</div>
+        ${this.#renderEditable(pattern, 'apply-to')}
+      </div>
+    `;
+    // clang-format on
+  }
+
+  #renderHeaderRow(header: Header, blockIndex: number, headerIndex: number): LitHtml.TemplateResult {
+    // clang-format off
+    return LitHtml.html`
+      <div class="row padded" data-block-index=${blockIndex} data-header-index=${headerIndex}>
+        ${this.#renderEditable(header.name, 'header-name red')}
+        <div class="separator">:</div>
+        ${this.#renderEditable(header.value, 'header-value')}
+    `;
+    // clang-format on
+  }
+
+  #renderEditable(value: string, className?: string): LitHtml.TemplateResult {
+    // clang-format off
+    return LitHtml.html`<span contenteditable="true" class="editable ${className}" tabindex="0">${value}</span>`;
     // clang-format on
   }
 }
