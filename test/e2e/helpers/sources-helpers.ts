@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, reloadDevTools, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const ACTIVE_LINE = '.CodeMirror-activeline > pre > span';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
@@ -334,7 +334,7 @@ declare global {
 export async function reloadPageAndWaitForSourceFile(
     frontend: puppeteer.Page, target: puppeteer.Page, sourceFile: string) {
   await listenForSourceFilesLoaded(frontend);
-  await target.reload();
+  target.reload();
   await waitForSourceLoadedEvent(frontend, sourceFile);
 }
 
@@ -351,6 +351,15 @@ export function listenForSourceFilesLoaded(frontend: puppeteer.Page) {
       window.__sourceFilesLoadedEventListenerAdded = true;
     }
   });
+}
+
+export function abbreviatedNameEquals(abbreviated: string, full: string): boolean {
+  const split = abbreviated.split('…');
+  if (split.length === 1) {
+    return abbreviated === full;
+  }
+  assert.lengthOf(split, 2);
+  return full.startsWith(split[0]) && full.endsWith(split[1]);
 }
 
 export async function waitForSourceLoadedEvent(frontend: puppeteer.Page, fileName: string) {
@@ -557,4 +566,10 @@ export async function addSelectedTextToWatches() {
   await frontend.keyboard.press('A');
   await frontend.keyboard.up(modifierKey);
   await frontend.keyboard.up('Shift');
+}
+
+export async function refreshDevToolsAndRemoveBackendState(target: puppeteer.Page) {
+  // Navigate to a different site to make sure that back-end state will be removed.
+  await target.goto('about:blank');
+  await reloadDevTools({selectedPanel: {name: 'sources'}});
 }
