@@ -540,6 +540,30 @@
       },
       "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a940f3_11c13901",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-03T14:15:34Z",
+      "side": 1,
+      "message": "Yup: https://github.com/lit/lit/issues/572",
+      "parentUuid": "228d6ae5_64fb65ef",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
