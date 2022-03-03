@@ -137,6 +137,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9617a4_b141faa4",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:07:02Z",
+      "side": 1,
+      "message": "Supposed to be interpreted as \u0027array of arrays\u0027 vs. \u0027array of objects\u0027. Now changed to `arrayOfHeaderOverrideArrays` and `arrayOfHeaderOverrideObjects`. Naming is hard 😊",
+      "parentUuid": "e3c95ec4_e59a58a7",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50750721_fccc28ad",
@@ -340,6 +364,30 @@
       "side": 1,
       "message": "I don\u0027t think that React recreated DOM on every keystroke. \n\nEven if it is fine on your machine, I expect it might be problematic on low end devices. I\u0027d encourage you to exhaust other options first.\n\nCan\u0027t we just raise a flag when calling setWorkingCopy here and ignore onWorkingCopyChanged events when it is set?",
       "parentUuid": "3f8a6696_9ce62ebd",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6418ac80_5ea0c62c",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:07:02Z",
+      "side": 1,
+      "message": "React does in fact re-render on every keystroke (https://stackoverflow.com/q/46942476). Not sure whether it does any clever vDOM diffing to optimise performance, but the render function is called on every keystroke.\n\nI\u0027ve followed your advice and introduced a flag to prevent re-rendering when the change is caused by user input. The `contenteditable` elements were not correctly updating in a certain case, so I added a workaround for that.",
+      "parentUuid": "52a479a0_76d7362c",
       "range": {
         "startLine": 300,
         "startChar": 0,
