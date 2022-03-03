@@ -396,6 +396,30 @@
       },
       "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f3bd87_28601d27",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-03T12:40:03Z",
+      "side": 1,
+      "message": "We should be careful here with terminology and the difference between executing the render method and recreating DOM:\n\nReact does not _recreate_ DOM on each render, but it does execute its render method to virtually diff the result of its render call with the actual DOM, and make changes as required.\n\nLit-html works similarly in that regard, if you ask it to render with the same state, it will not actually impact the DOM. This is why its (relatively) in-expensive to call render multiple times and why React (and we, using Lit) can take the option to call the render method on each keystroke if we want to, and if we need to.",
+      "parentUuid": "6418ac80_5ea0c62c",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
