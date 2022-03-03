@@ -492,6 +492,30 @@
       },
       "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af47b95_fda79d17",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-03T13:21:30Z",
+      "side": 1,
+      "message": "I see. So it might be that we re-render just the content editable element.\nThis is less of an issue, but I\u0027d still prefer to avoid it, and the entire caret tracking code at a cost of a single bool.\n\nAs a nit: skipNextRender is a very compact, but the semantics aren\u0027t clear. I\u0027d prefer to have a flag like isUpdatingWorking copy which you would explicitly set to true and to false and only read it in the event handler.",
+      "parentUuid": "b2312072_fda908a0",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
