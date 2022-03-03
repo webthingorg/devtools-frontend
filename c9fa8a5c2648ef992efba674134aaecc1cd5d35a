@@ -444,6 +444,30 @@
       },
       "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf74d9b_5bb35e7b",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-03T13:07:11Z",
+      "side": 1,
+      "message": "Apologies, I was misleading: Lit does not use the virtual DOM.\n\nIf the caret position is being reset, that would imply that Lit is determining that the element is being re-created. That may be desired, or it may be a bug. It might be worth trying to create a standalone example to try to demonstrate this. Here with this example notice how you can type in the input and nothing messes up as lit re-renders, because it knows the input element doesn\u0027t need to change.\n\nhttps://lit.dev/docs/components/rendering/#when-templates-render\n\nhttps://lit.dev/playground/#project\u003dW3sibmFtZSI6InNpbXBsZS1ncmVldGluZy50cyIsImNvbnRlbnQiOiJpbXBvcnQge2h0bWwsIGNzcywgcmVuZGVyfSBmcm9tICdsaXQnO1xuaW1wb3J0IHtjdXN0b21FbGVtZW50LCBwcm9wZXJ0eX0gZnJvbSAnbGl0L2RlY29yYXRvcnMuanMnO1xuXG5leHBvcnQgY2xhc3MgU2ltcGxlR3JlZXRpbmcgZXh0ZW5kcyBIVE1MRWxlbWVudCB7XG4gIGNvdW50ID0gMDtcbiAgY29ubmVjdGVkQ2FsbGJhY2soKSB7XG4gICAgdGhpcy5yZW5kZXIoKTtcbiAgICBzZXRJbnRlcnZhbCgoKSA9PiB7XG4gICAgICB0aGlzLmNvdW50Kz0xO1xuICAgICAgdGhpcy5yZW5kZXIoKTtcbiAgICB9LCAxMDAwKTtcbiAgfVxuICByZW5kZXIoKSB7XG4gICAgcmV0dXJuIHJlbmRlcihodG1sYFxuICAgICAgPHA-dGhlIGNvdW50ZXIgaXMgJHt0aGlzLmNvdW50fTwvcD5cbiAgICAgIDxpbnB1dCB0eXBlPVwidGV4dFwiIC8-XG4gICAgYCwgdGhpcyk7XG4gIH1cbn1cblxuY3VzdG9tRWxlbWVudHMuZGVmaW5lKCdzaW1wbGUtZ3JlZXRpbmcnLCBTaW1wbGVHcmVldGluZyk7In0seyJuYW1lIjoiaW5kZXguaHRtbCIsImNvbnRlbnQiOiI8IURPQ1RZUEUgaHRtbD5cbjxoZWFkPlxuICA8c2NyaXB0IHR5cGU9XCJtb2R1bGVcIiBzcmM9XCIuL3NpbXBsZS1ncmVldGluZy5qc1wiPjwvc2NyaXB0PlxuPC9oZWFkPlxuPGJvZHk-XG4gIDxzaW1wbGUtZ3JlZXRpbmcgbmFtZT1cIldvcmxkXCI-PC9zaW1wbGUtZ3JlZXRpbmc-XG48L2JvZHk-XG4ifSx7Im5hbWUiOiJwYWNrYWdlLmpzb24iLCJjb250ZW50Ijoie1xuICBcImRlcGVuZGVuY2llc1wiOiB7XG4gICAgXCJsaXRcIjogXCJeMi4wLjBcIixcbiAgICBcIkBsaXQvcmVhY3RpdmUtZWxlbWVudFwiOiBcIl4xLjAuMFwiLFxuICAgIFwibGl0LWVsZW1lbnRcIjogXCJeMy4wLjBcIixcbiAgICBcImxpdC1odG1sXCI6IFwiXjIuMC4wXCJcbiAgfVxufSIsImhpZGRlbiI6dHJ1ZX1d",
+      "parentUuid": "d4b0d2f1_eb10deda",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
