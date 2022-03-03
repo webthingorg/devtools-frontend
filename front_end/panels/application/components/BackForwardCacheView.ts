@@ -99,7 +99,7 @@ const UIStrings = {
   supportPendingExplanation:
       'Chrome support for these reasons is pending i.e. they will not prevent the page from being eligible for back/forward cache in a future version of Chrome.',
   /**
-   * @description Text that precedes disaplaying a link to the extension which blocked the page from being eligible for back/forward cache.
+   * @description Text that precedes displaying a link to the extension which blocked the page from being eligible for back/forward cache.
    */
   blockingExtensionId: 'Extension id: ',
 };
