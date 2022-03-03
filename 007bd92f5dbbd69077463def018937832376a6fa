@@ -16,6 +16,46 @@
       "message": "Will take a closer look tomorrow.\n\nI\u0027ve noticed that very long frame names cause some layout issues. I think we\u0027ve solved a very similar problem elsewhere, will dig that up.",
       "revId": "007bd92f5dbbd69077463def018937832376a6fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2324317_1dd42553",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T16:49:38Z",
+      "side": 1,
+      "message": "Here are examples where the new TreeOutline component is being used:\nhttps://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/application/components/OriginTrialTreeView.ts;l\u003d337\n\nhttps://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/elements/AccessibilityTreeView.ts;l\u003d86\n\nhttps://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/elements/LayersWidget.ts;l\u003d101\n\nand in the test:\nhttps://crsrc.org/c/third_party/devtools-frontend/src/test/unittests/front_end/ui/components/TreeOutline_test.ts;l\u003d14",
+      "range": {
+        "startLine": 328,
+        "startChar": 1,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14309de9_e54b3ed5",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T16:49:38Z",
+      "side": 1,
+      "message": "Add `grid-column-start: span 2;` as part of fixing the long frame name overflow issue.",
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

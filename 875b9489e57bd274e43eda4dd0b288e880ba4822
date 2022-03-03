@@ -320,6 +320,24 @@
       "parentUuid": "c9cf4fa3_ebf88f31",
       "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19de773_129f9997",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T16:49:38Z",
+      "side": 1,
+      "message": "I took another stab at this. This (together with https://crrev.com/c/3500428) should fix the overflow issues with long frame names:\n```\n  #renderFramesPerReason(frames: string[]|undefined): LitHtml.TemplateResult|{} {\n    if (frames \u003d\u003d\u003d undefined || frames.length \u003d\u003d\u003d 0) {\n      return LitHtml.nothing;\n    }\n    const rows \u003d [LitHtml.html`\u003cdiv\u003e${i18nString(UIStrings.framesPerIssue, {n: frames.length})}\u003c/div\u003e`];\n    rows.push(...frames.map(url \u003d\u003e LitHtml.html`\u003cdiv class\u003d\u0027text-ellipsis\u0027 title\u003d${url}\u003e${url}\u003c/div\u003e`));\n    return LitHtml.html`\n      \u003cdiv class\u003d\u0027explanation-frames\u0027\u003e\n        \u003c${ExpandableList.ExpandableList.ExpandableList.litTagName} .data\u003d${\n          {rows} as ExpandableList.ExpandableList.ExpandableListData}\u003e\u003c/${\n        ExpandableList.ExpandableList.ExpandableList.litTagName}\u003e\n      \u003c/div\u003e\n    `;\n  }\n```",
+      "parentUuid": "f0b36f0e_95d2ef50",
+      "revId": "875b9489e57bd274e43eda4dd0b288e880ba4822",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
