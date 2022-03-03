@@ -69,6 +69,24 @@
       "parentUuid": "36b499ff_9e94ad14",
       "revId": "886f7e8d5a46138ff8907cbfc156ec2f54566ac2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d24774_caf65375",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:26:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f734bd_817ed188",
+      "revId": "886f7e8d5a46138ff8907cbfc156ec2f54566ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

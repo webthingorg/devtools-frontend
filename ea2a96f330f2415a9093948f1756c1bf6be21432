@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d655172f_5efef1cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:26:33Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "ea2a96f330f2415a9093948f1756c1bf6be21432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149d1f91_145172cd",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:26:33Z",
+      "side": 1,
+      "message": "nit: typo \u0027displaying\u0027",
+      "range": {
+        "startLine": 102,
+        "startChar": 37,
+        "endLine": 102,
+        "endChar": 48
+      },
+      "revId": "ea2a96f330f2415a9093948f1756c1bf6be21432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbc85047_751a6bce",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T10:26:33Z",
+      "side": 1,
+      "message": "nit: comments no needed anymore",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 54
+      },
+      "revId": "ea2a96f330f2415a9093948f1756c1bf6be21432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
