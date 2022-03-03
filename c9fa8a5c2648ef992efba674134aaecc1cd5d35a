@@ -516,6 +516,30 @@
       },
       "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "228d6ae5_64fb65ef",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-03T13:45:25Z",
+      "side": 1,
+      "message": "I just discovered LitHtml\u0027s `live`-directive: \"When determining whether to update the value, checks the expression value against the live DOM value, instead of Lit\u0027s default behavior of checking against the last set value.\" https://lit.dev/docs/templates/directives/#live\n\nThis seems like a good fit for the contenteditable elements. Will give it a try.",
+      "parentUuid": "8af47b95_fda79d17",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 25
+      },
+      "revId": "c9fa8a5c2648ef992efba674134aaecc1cd5d35a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
