@@ -46,6 +46,30 @@
       },
       "revId": "a38e2f5b23ade8bdea5c05c9f341464b071fb85f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef16e48e_94f8f9a2",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-04T10:49:49Z",
+      "side": 1,
+      "message": "In that case you want to assert that it isn\u0027t null. You could change the argument below to `completeURL!`, but I vaguely recall a discussion on team chat about a lint rule disabling this. If that does cause a lint warning, ask the team chat if there is a preferred pattern for non-null assertion.",
+      "parentUuid": "a663517b_d61e33ef",
+      "range": {
+        "startLine": 643,
+        "startChar": 80,
+        "endLine": 643,
+        "endChar": 91
+      },
+      "revId": "a38e2f5b23ade8bdea5c05c9f341464b071fb85f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
