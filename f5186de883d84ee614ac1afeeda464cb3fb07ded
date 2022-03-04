@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afdc13f6_129b3bcf",
+        "filename": "test/unittests/front_end/panels/sources/components/HeadersView_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-04T09:52:35Z",
+      "side": 1,
+      "message": "We probably also want to tests for the select all, deselect and focus next field on enter behaviors.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "f5186de883d84ee614ac1afeeda464cb3fb07ded",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
