@@ -16,6 +16,98 @@
       "message": "Please take a look!\nHad to type fileName to UrlString in a bunch of files as it\u0027s used there only to call `open` (which then calls `save`, which expects a UrlString and is sometimes called with e.g. uiSourceCode.url()). These fileName-s can sometimes look like just names though, e.g.Coverage-${Date}.json",
       "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3d5164_24f5e840",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-04T17:02:12Z",
+      "side": 1,
+      "message": "Can you make the key type a UrlString?",
+      "range": {
+        "startLine": 56,
+        "startChar": 32,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4950a6eb_1e779a8e",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-04T17:02:12Z",
+      "side": 1,
+      "message": "What happens if you change the type of this and openInNewTab?",
+      "range": {
+        "startLine": 125,
+        "startChar": 22,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea8cfb39_25e63c5d",
+        "filename": "front_end/panels/coverage/CoverageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-04T17:02:12Z",
+      "side": 1,
+      "message": "This does not look like a url, is this the right choice?",
+      "range": {
+        "startLine": 510,
+        "startChar": 82,
+        "endLine": 510,
+        "endChar": 113
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478c0d39_46ad73f3",
+        "filename": "front_end/panels/input/InputTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-04T17:02:12Z",
+      "side": 1,
+      "message": "Also doesn\u0027t appear to be a url",
+      "range": {
+        "startLine": 186,
+        "startChar": 85,
+        "endLine": 186,
+        "endChar": 118
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
