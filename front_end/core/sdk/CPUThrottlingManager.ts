@@ -41,6 +41,12 @@ export class CPUThrottlingManager extends Common.ObjectWrapper.ObjectWrapper<Eve
     this.dispatchEventToListeners(Events.RateChanged, this.#cpuThrottlingRateInternal);
   }
 
+  setHardwareConcurrency(concurrency: number): void {
+    for (const emulationModel of TargetManager.instance().models(EmulationModel)) {
+      void emulationModel.setHardwareConcurrency(concurrency);
+    }
+  }
+
   modelAdded(emulationModel: EmulationModel): void {
     if (this.#cpuThrottlingRateInternal !== CPUThrottlingRates.NoThrottling) {
       void emulationModel.setCPUThrottlingRate(this.#cpuThrottlingRateInternal);

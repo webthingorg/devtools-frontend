@@ -264,6 +264,24 @@ export class ThrottlingManager {
     return control;
   }
 
+  createHardwareConcurrencySelector(): UI.Toolbar.ToolbarItem {
+    const input = UI.UIUtils.createInput('devtools-text-input', 'number');
+    input.min = '1';
+    input.value = `${navigator.hardwareConcurrency}`;  // FIXME this should be the target's value
+    const oninput: (ev: Event) => void = event => {
+      const value = Number((event.target as HTMLInputElement).value);
+      if (value >= 1) {
+        this.setHardwareConcurrency(value);
+      }
+    };
+    input.oninput = oninput;
+    return new UI.Toolbar.ToolbarItem(input);
+  }
+
+  setHardwareConcurrency(concurrency: number): void {
+    this.cpuThrottlingManager.setHardwareConcurrency(concurrency);
+  }
+
   private isDirty(): boolean {
     const networkConditions = SDK.NetworkManager.MultitargetNetworkManager.instance().networkConditions();
     const knownCurrentConditions = this.currentNetworkThrottlingConditionsSetting.get();

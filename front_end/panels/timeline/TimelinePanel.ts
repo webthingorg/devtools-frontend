@@ -572,6 +572,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.cpuThrottlingSelect = MobileThrottling.ThrottlingManager.throttlingManager().createCPUThrottlingSelector();
     cpuThrottlingToolbar.appendToolbarItem(this.cpuThrottlingSelect);
 
+    cpuThrottlingToolbar.appendToolbarItem(
+        MobileThrottling.ThrottlingManager.throttlingManager().createHardwareConcurrencySelector());
+
     this.showSettingsPaneSetting.addChangeListener(this.updateSettingsPaneVisibility.bind(this));
     this.updateSettingsPaneVisibility();
   }
