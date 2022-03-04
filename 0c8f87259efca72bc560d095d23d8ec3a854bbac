@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9eca445_fe6e6f1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-04T10:09:18Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jaro,\n\nhere\u0027s the frontend change for the instrumentation breakpoint change only. This is basically just broken out of crrev.com/c/3374982 with some adaptations since it\u0027s only instrumentation breakpoints, and for addressing some layout + e2e tests.\n\nAnother CL for disabling (crrev.com/c/3487867) and enabling (crrev.com/c/3497691\n) is in the pipeline, I\u0027ll send out the disabling one out in a bit.\n\nNote that the disabled tests include: tests with v8 bugs, tests with testing infra timing bugs, and test with problem with frames + instrumentation breaks, and finally those tests that I\u0027ve already adapted (expectation files and test themselves). The latter category will be enabled again in the enabling CL.\n\nPTAL!",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
