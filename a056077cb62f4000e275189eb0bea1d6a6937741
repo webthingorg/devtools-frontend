@@ -102,6 +102,24 @@
       "parentUuid": "2f04e66e_91d229b3",
       "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ae3004_53039bf7",
+        "filename": "front_end/panels/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2022-03-05T13:42:40Z",
+      "side": 1,
+      "message": "Hey hey, AFAIU, Chrome has a global shortcut with \"Ctrl+J\" that opens the downloads (even if we are focused on the DevTools window)\n\nSo, I think \"Ctrl + J\" is not a good option in this regard.\n\nWDYT of \"Ctrl+Shift+h\"?\nIt maps to \"Replace in files\" in VSCode so there isn\u0027t much similarity there. But in overall\n* \"h\" is close to \"y\" in English keyboard layout and is slightly on the right\n* \"h\" can remind people of the word \"hide\"",
+      "parentUuid": "c6d6216c_21c00a77",
+      "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
