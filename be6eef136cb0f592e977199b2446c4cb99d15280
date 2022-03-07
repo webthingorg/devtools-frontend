@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11bdb3b0_049ae8af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-07T08:27:46Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the CL for adding the e2e tests.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "be6eef136cb0f592e977199b2446c4cb99d15280",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
