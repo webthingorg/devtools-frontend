@@ -22,6 +22,30 @@
       },
       "revId": "94e2baf97a9fcbeeb91a2bd7cb32afe582560101",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46ad01c7_20329fd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-07T12:02:50Z",
+      "side": 1,
+      "message": "The design is coming from https://docs.google.com/presentation/d/1OkZkbdh7zj0oMDVrSnoGW4fbLvysRyNw9WV543eS6Gk/edit#slide\u003did.g10f6f31223c_0_86. It\u0027s similar to the UX of the step editor in the recorder panel.",
+      "parentUuid": "d20b0db7_0b286eea",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "94e2baf97a9fcbeeb91a2bd7cb32afe582560101",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
