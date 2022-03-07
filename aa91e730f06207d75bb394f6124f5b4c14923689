@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ce78ad_f688ae32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:34:36Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nadding an await between calling the function on the object and releasing it. PTAL!",
+      "revId": "aa91e730f06207d75bb394f6124f5b4c14923689",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
