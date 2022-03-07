@@ -120,6 +120,24 @@
       "parentUuid": "c6d6216c_21c00a77",
       "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d21dca9_8f27c9fd",
+        "filename": "front_end/panels/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2022-03-07T02:04:19Z",
+      "side": 1,
+      "message": "SGTM!",
+      "parentUuid": "a4ae3004_53039bf7",
+      "revId": "a056077cb62f4000e275189eb0bea1d6a6937741",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
