@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20b0db7_0b286eea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-07T11:37:52Z",
+      "side": 1,
+      "message": "Where does this UX come from? It seems to significantly disagree with Material guidelines.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "94e2baf97a9fcbeeb91a2bd7cb32afe582560101",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
