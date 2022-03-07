@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a3ccd58_cfd24723",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:02:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a163fc55_36cf1cc3",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9663799d_0ed0c0de",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-03-04T14:38:23Z",
       "side": 1,
       "message": "Why do you DCHECK that the callback is non-null and then check whether the callback is trueish below? The DCHECK doesn\u0027t look right to me.",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8df8c80_c64797e4",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:02:11Z",
+      "side": 1,
+      "message": "This should never be null here -- therefore I added the DCHECK there (which would trigger at least when this is not true when running the test). I can remove it if you think this is rather confusing.",
+      "parentUuid": "9663799d_0ed0c0de",
       "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce3a8a20_b6d17678",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:02:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f3dfadf_0fcfe51f",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b396ee38_1a280c77",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c69ff4_f856fb49",
+        "filename": "front_end/models/bindings/BreakpointManager.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:02:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b396ee38_1a280c77",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69802155_71591d1b",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-03-04T14:38:23Z",
       "side": 1,
       "message": "This looks like a random, unrelated change?",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cd19077_2ba3438f",
+        "filename": "front_end/ui/legacy/components/utils/ImagePreview.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:02:11Z",
+      "side": 1,
+      "message": "It\u0027s related, the script running will take longer (the one for `callFunctionJSON`) and the release object will start before we\u0027re done running `callFunctionJSON`. This is the part of the test that failed: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/elements/elements-img-tooltip.js;l\u003d22;drc\u003ddb80066c712022bb2c9ede7ebd4c3221e589d7a9",
+      "parentUuid": "69802155_71591d1b",
       "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
