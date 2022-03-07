@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8de00ae_01c1c3ef",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-07T09:22:20Z",
+      "side": 1,
+      "message": "Per VC discussion: Let\u0027s remove the DCHECK here.",
+      "parentUuid": "e8df8c80_c64797e4",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f3dfadf_0fcfe51f",
         "filename": "front_end/models/bindings/BreakpointManager.ts",
         "patchSetId": 17
