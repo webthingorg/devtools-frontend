@@ -44,8 +44,8 @@ export class StartView extends UI.Widget.Widget {
   protected controller: LighthouseController;
   private readonly settingsToolbarInternal: UI.Toolbar.Toolbar;
   protected startButton!: HTMLButtonElement;
-  private helpText?: Element;
-  private warningText?: Element;
+  protected helpText?: Element;
+  protected warningText?: Element;
   private shouldConfirm?: boolean;
 
   constructor(controller: LighthouseController) {
@@ -91,7 +91,7 @@ export class StartView extends UI.Widget.Widget {
     }
   }
 
-  private populateFormControls(fragment: UI.Fragment.Fragment): void {
+  protected populateFormControls(fragment: UI.Fragment.Fragment): void {
     // Populate the device type
     const deviceTypeFormElements = fragment.$('device-type-form-elements');
     this.populateRuntimeSettingAsRadio('lighthouse.device_type', i18nString(UIStrings.device), deviceTypeFormElements);
@@ -173,7 +173,7 @@ export class StartView extends UI.Widget.Widget {
     this.contentElement.style.overflow = 'auto';
   }
 
-  updateStartButton(): void {
+  updateMode(): void {
     // Do nothing in default case.
   }
 
