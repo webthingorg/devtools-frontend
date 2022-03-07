@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ddb239_7460c59d",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:37:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8de00ae_01c1c3ef",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f3dfadf_0fcfe51f",
@@ -224,6 +242,24 @@
       "side": 1,
       "message": "It\u0027s related, the script running will take longer (the one for `callFunctionJSON`) and the release object will start before we\u0027re done running `callFunctionJSON`. This is the part of the test that failed: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/elements/elements-img-tooltip.js;l\u003d22;drc\u003ddb80066c712022bb2c9ede7ebd4c3221e589d7a9",
       "parentUuid": "69802155_71591d1b",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1ccfc3_870a534d",
+        "filename": "front_end/ui/legacy/components/utils/ImagePreview.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:37:21Z",
+      "side": 1,
+      "message": "As per offline discussion: broke this out into a separate CL (crrev.com/c/3506286)",
+      "parentUuid": "4cd19077_2ba3438f",
       "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

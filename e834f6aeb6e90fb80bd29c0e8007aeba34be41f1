@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "337f2613_06e5d8c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T09:37:21Z",
+      "side": 1,
+      "message": "Thanks for the review, Benedikt. Addressed the comments, also added another edit to the TestExpectations file (skipping a layout test that lives in devtools-frontend).",
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
