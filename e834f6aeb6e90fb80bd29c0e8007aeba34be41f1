@@ -16,6 +16,75 @@
       "message": "Thanks for the review, Benedikt. Addressed the comments, also added another edit to the TestExpectations file (skipping a layout test that lives in devtools-frontend).",
       "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed14e168_ba1c1ca8",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-03-07T11:04:52Z",
+      "side": 1,
+      "message": "Should not this check that the event is for the right client?\n\nI was expecting the handler to start with something like\n\n```\nevent \u003d\u003e {\n  if (event.data.client !\u003d\u003d client)  { return; }\n  this.removeEventListener(...)\n  this.removeEventListener(...)\n  resolve(event.data.sourceMap);\n}\n```",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 122,
+        "endChar": 38
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad6c371a_370246b7",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-03-07T11:04:52Z",
+      "side": 1,
+      "message": "Same here: check that the event is for the right client?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6639bfec_fca356a3",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2022-03-07T11:04:52Z",
+      "side": 1,
+      "message": "Nit: Might be clearer to say \"add a breakpoint to the beginning of the inline script\".\n\nSimilar below (\"add a breakpoint to the beginning of the inline script with sourceUrl\"?).",
+      "range": {
+        "startLine": 123,
+        "startChar": 41,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
