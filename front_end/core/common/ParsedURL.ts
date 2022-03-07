@@ -94,7 +94,7 @@ export class ParsedURL {
     this.lastPathComponent = '';
 
     const isBlobUrl = this.url.startsWith('blob:');
-    const urlToMatch = isBlobUrl ? url.substring(5) : url;
+    const urlToMatch = isBlobUrl ? url.substr(5) : url;
     const match = urlToMatch.match(ParsedURL.urlRegex());
     if (match) {
       this.isValid = true;
@@ -128,8 +128,8 @@ export class ParsedURL {
 
     const lastSlashIndex = this.path.lastIndexOf('/');
     if (lastSlashIndex !== -1) {
-      this.folderPathComponents = this.path.substring(0, lastSlashIndex);
-      this.lastPathComponent = this.path.substring(lastSlashIndex + 1);
+      this.folderPathComponents = this.path.substr(0, lastSlashIndex);
+      this.lastPathComponent = this.path.substr(lastSlashIndex + 1);
     } else {
       this.lastPathComponent = this.path;
     }
@@ -215,6 +215,11 @@ export class ParsedURL {
     return decodedFileURL.substr('file://'.length) as Platform.DevToolsPath.RawPathString;
   }
 
+  static cropUrlToEncodedPathString(url: Platform.DevToolsPath.UrlString, from: number):
+      Platform.DevToolsPath.EncodedPathString {
+    return url.substr(from) as Platform.DevToolsPath.EncodedPathString;
+  }
+
   static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
                                          Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
@@ -225,6 +230,12 @@ export class ParsedURL {
                                                   .RawPathString|Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, ...appendage: string[]): DevToolsPathType {
     return devToolsPath.concat(...appendage) as DevToolsPathType;
+  }
+
+  static trim<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                       Platform.DevToolsPath.EncodedPathString>(devToolsPath: DevToolsPathType):
+      DevToolsPathType {
+    return devToolsPath.trim() as DevToolsPathType;
   }
 
   static urlWithoutHash(url: string): string {
@@ -314,7 +325,7 @@ export class ParsedURL {
     if (parsedHref && parsedHref.scheme) {
       const securityOrigin = parsedHref.securityOrigin();
       const pathText = parsedHref.path;
-      const hrefSuffix = trimmedHref.substring(securityOrigin.length + pathText.length);
+      const hrefSuffix = trimmedHref.substr(securityOrigin.length + pathText.length);
       return securityOrigin + normalizePath(pathText) + hrefSuffix as Platform.DevToolsPath.UrlString;
     }
 
@@ -354,7 +365,7 @@ export class ParsedURL {
       throw new Error('Invalid href');
     }
     let hrefPath: string = hrefMatches[0];
-    const hrefSuffix = href.substring(hrefPath.length);
+    const hrefSuffix = href.substr(hrefPath.length);
     if (hrefPath.charAt(0) !== '/') {
       hrefPath = parsedURL.folderPathComponents + '/' + hrefPath;
     }
@@ -372,7 +383,7 @@ export class ParsedURL {
     let pathAndAfter: string = string;
     if (beforePathMatch) {
       beforePath = beforePathMatch[1];
-      pathAndAfter = string.substring(beforePathMatch[1].length);
+      pathAndAfter = string.substr(beforePathMatch[1].length);
     }
 
     const lineColumnRegEx = /(?::(\d+))?(?::(\d+))?$/;
@@ -394,7 +405,7 @@ export class ParsedURL {
       columnNumber = isNaN(columnNumber) ? undefined : columnNumber - 1;
     }
 
-    let url: string = beforePath + pathAndAfter.substring(0, pathAndAfter.length - lineColumnMatch[0].length);
+    let url: string = beforePath + pathAndAfter.substr(0, pathAndAfter.length - lineColumnMatch[0].length);
     if (lineColumnMatch[1] === undefined && lineColumnMatch[2] === undefined) {
       const wasmCodeOffsetRegex = /wasm-function\[\d+\]:0x([a-z0-9]+)$/g;
       const wasmCodeOffsetMatch = wasmCodeOffsetRegex.exec(pathAndAfter);
@@ -414,7 +425,7 @@ export class ParsedURL {
     if (wasmFunctionIndex === -1) {
       return url;
     }
-    return url.substring(0, wasmFunctionIndex);
+    return url.substr(0, wasmFunctionIndex);
   }
 
   static isRelativeURL(url: string): boolean {
@@ -494,7 +505,7 @@ export class ParsedURL {
 
   urlWithoutScheme(): string {
     if (this.scheme && this.url.startsWith(this.scheme + '://')) {
-      return this.url.substring(this.scheme.length + 3);
+      return this.url.substr(this.scheme.length + 3);
     }
     return this.url;
   }
