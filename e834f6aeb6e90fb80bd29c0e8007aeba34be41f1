@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5f7385_4e80f368",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T14:28:30Z",
+      "side": 1,
+      "message": "Ohh, thanks a lot for catching this!",
+      "parentUuid": "ed14e168_ba1c1ca8",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 122,
+        "endChar": 38
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad6c371a_370246b7",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2a98027_b8f4cc58",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T14:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad6c371a_370246b7",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6639bfec_fca356a3",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-03-07T11:04:52Z",
       "side": 1,
       "message": "Nit: Might be clearer to say \"add a breakpoint to the beginning of the inline script\".\n\nSimilar below (\"add a breakpoint to the beginning of the inline script with sourceUrl\"?).",
+      "range": {
+        "startLine": 123,
+        "startChar": 41,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "e834f6aeb6e90fb80bd29c0e8007aeba34be41f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d76091e_28410971",
+        "filename": "test/e2e/sources/breakpoint-javascript_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-07T14:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6639bfec_fca356a3",
       "range": {
         "startLine": 123,
         "startChar": 41,
