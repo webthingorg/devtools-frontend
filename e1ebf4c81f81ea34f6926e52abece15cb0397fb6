@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4319bfdd_5b2a8e37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-08T14:22:41Z",
+      "side": 1,
+      "message": "PTAL. Given that we currently have no warnings from this rule, I enabled it in this CL too. However I still think this rule is useful to land as this silly mistake cost me a fair amount of debugging time yesterday :D ",
+      "revId": "e1ebf4c81f81ea34f6926e52abece15cb0397fb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
