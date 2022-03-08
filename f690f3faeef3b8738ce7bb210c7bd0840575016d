@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "52c941f6_82dc06bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-08T15:14:01Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "f690f3faeef3b8738ce7bb210c7bd0840575016d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0fc7de0b_7e101f76",
         "filename": "scripts/deps/manage_node_deps.py",
         "patchSetId": 1
