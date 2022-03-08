@@ -16,6 +16,23 @@
       "message": "Changhao, please review",
       "revId": "cbea089978e7f656ef0f5a73713ab8014bc011c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96eea0d4_4015d080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-08T10:39:08Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "cbea089978e7f656ef0f5a73713ab8014bc011c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
