@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc7de0b_7e101f76",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2022-03-08T15:08:00Z",
+      "side": 1,
+      "message": "Here\u0027s the actual fix.",
+      "range": {
+        "startLine": 160,
+        "startChar": 16,
+        "endLine": 160,
+        "endChar": 50
+      },
+      "revId": "f690f3faeef3b8738ce7bb210c7bd0840575016d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
