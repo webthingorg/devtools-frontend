@@ -16,6 +16,23 @@
       "message": "Looks great, thanks!",
       "revId": "8044ce1b115a1f3c720764440da7761ebbe80811",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b11ee1_33eeeafb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-08T12:05:28Z",
+      "side": 1,
+      "message": "Thanks a lot for the reviews, submitting!",
+      "revId": "8044ce1b115a1f3c720764440da7761ebbe80811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

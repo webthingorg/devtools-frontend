@@ -262,6 +262,24 @@
       "parentUuid": "4cd19077_2ba3438f",
       "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3a36ac_06dec6b1",
+        "filename": "front_end/ui/legacy/components/utils/ImagePreview.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-08T12:05:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a1ccfc3_870a534d",
+      "revId": "0c8f87259efca72bc560d095d23d8ec3a854bbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
