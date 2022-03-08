@@ -46,6 +46,30 @@
       },
       "revId": "94e2baf97a9fcbeeb91a2bd7cb32afe582560101",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6682356_795a2852",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-08T05:34:43Z",
+      "side": 1,
+      "message": "As discussed with Peter, we could make it look more Material and consistent by doing the following:\n- icon button styles: remove outlines, maybe change color (clarify with Peter)\n- minus icon for removing both individual headers and applyTo blocks. plus-icon for adding individual headers and regular button with text for adding applyTo-sections\n- fix margins to match the mock\n\nPeter will provide CSS rules.",
+      "parentUuid": "46ad01c7_20329fd4",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "94e2baf97a9fcbeeb91a2bd7cb32afe582560101",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
