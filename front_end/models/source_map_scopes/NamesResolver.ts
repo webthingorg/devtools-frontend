@@ -221,7 +221,7 @@ export const resolveExpression = async(
   if (!subjectText) {
     return '';
   }
-  return await Formatter.FormatterWorkerPool.formatterWorkerPool().evaluatableJavaScriptSubstring(subjectText);
+  return subjectText;
 };
 
 export const resolveThisObject =

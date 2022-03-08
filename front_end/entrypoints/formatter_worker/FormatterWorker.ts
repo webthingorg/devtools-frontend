@@ -33,7 +33,7 @@ import * as Root from '../../core/root/root.js';
 import * as Acorn from '../../third_party/acorn/acorn.js';
 import type * as CodeMirrorModule from '../../third_party/codemirror/codemirror-legacy.js'; // eslint-disable-line @typescript-eslint/no-unused-vars
 
-import {AcornTokenizer, ECMA_VERSION} from './AcornTokenizer.js';
+import {ECMA_VERSION} from './AcornTokenizer.js';
 import {CSSFormatter} from './CSSFormatter.js';
 import {ESTreeWalker} from './ESTreeWalker.js';
 import {FormattedContentBuilder} from './FormattedContentBuilder.js';
@@ -85,48 +85,6 @@ export function createTokenizer(mimeType: string): (
 }
 
 export const AbortTokenization = {};
-
-export function evaluatableJavaScriptSubstring(content: string): string {
-  const tokenizer = Acorn.tokenizer(content, {ecmaVersion: ECMA_VERSION});
-  let result = '';
-  try {
-    let token = tokenizer.getToken();
-    while (token.type !== Acorn.tokTypes.eof && AcornTokenizer.punctuator(token)) {
-      token = tokenizer.getToken();
-    }
-
-    const startIndex = token.start;
-    let endIndex: number = token.end;
-    let openBracketsCounter = 0;
-    while (token.type !== Acorn.tokTypes.eof) {
-      const isIdentifier = AcornTokenizer.identifier(token);
-      const isThis = AcornTokenizer.keyword(token, 'this');
-      const isString = token.type === Acorn.tokTypes.string;
-      if (!isThis && !isIdentifier && !isString) {
-        break;
-      }
-
-      endIndex = token.end;
-      token = tokenizer.getToken();
-      while (AcornTokenizer.punctuator(token, '.[]')) {
-        if (AcornTokenizer.punctuator(token, '[')) {
-          openBracketsCounter++;
-        }
-
-        if (AcornTokenizer.punctuator(token, ']')) {
-          endIndex = openBracketsCounter > 0 ? token.end : endIndex;
-          openBracketsCounter--;
-        }
-
-        token = tokenizer.getToken();
-      }
-    }
-    result = content.substring(startIndex, endIndex);
-  } catch (e) {
-    console.error(e);
-  }
-  return result;
-}
 
 export function javaScriptIdentifiers(content: string): {
   name: (string|undefined),

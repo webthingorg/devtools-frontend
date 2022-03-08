@@ -31,9 +31,6 @@ self.onmessage = function(event: MessageEvent): void {
     case FormatterActions.JAVASCRIPT_IDENTIFIERS:
       self.postMessage(FormatterWorker.FormatterWorker.javaScriptIdentifiers(params.content));
       break;
-    case FormatterActions.EVALUATE_JAVASCRIPT_SUBSTRING:
-      self.postMessage(FormatterWorker.FormatterWorker.evaluatableJavaScriptSubstring(params.content));
-      break;
     case FormatterActions.ARGUMENTS_LIST:
       self.postMessage(FormatterWorker.FormatterWorker.argumentsList(params.content));
       break;

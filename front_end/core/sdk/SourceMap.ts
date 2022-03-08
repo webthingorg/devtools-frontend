@@ -489,8 +489,10 @@ export class TextSourceMap implements SourceMap {
     }
     const startIndex = Platform.ArrayUtilities.lowerBound(
         reverseMappings, {lineNumber: textRange.startLine, columnNumber: textRange.startColumn}, comparator);
-    const endIndex = Platform.ArrayUtilities.upperBound(
-        reverseMappings, {lineNumber: textRange.endLine, columnNumber: textRange.endColumn}, comparator);
+    const endIndex =
+        Platform.ArrayUtilities.upperBound(
+            reverseMappings, {lineNumber: textRange.endLine, columnNumber: textRange.endColumn}, comparator) -
+        1;
 
     if (endIndex >= reverseMappings.length) {
       return null;

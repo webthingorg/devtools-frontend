@@ -8,7 +8,6 @@ export const enum FormatterActions {
   HTML_OUTLINE = 'htmlOutline',
   JAVASCRIPT_OUTLINE = 'javaScriptOutline',
   JAVASCRIPT_IDENTIFIERS = 'javaScriptIdentifiers',
-  EVALUATE_JAVASCRIPT_SUBSTRING = 'evaluatableJavaScriptSubstring',
   ARGUMENTS_LIST = 'argumentsList',
 }
 

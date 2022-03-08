@@ -132,11 +132,6 @@ export class FormatterWorkerPool {
         .then(ids => ids || []);
   }
 
-  evaluatableJavaScriptSubstring(content: string): Promise<string> {
-    return this.runTask(FormatterActions.FormatterActions.EVALUATE_JAVASCRIPT_SUBSTRING, {content: content})
-        .then(text => text || '');
-  }
-
   parseCSS(content: string, callback: (arg0: boolean, arg1: Array<CSSRule>) => void): void {
     this.runChunkedTask(FormatterActions.FormatterActions.PARSE_CSS, {content: content}, onDataChunk);
 
