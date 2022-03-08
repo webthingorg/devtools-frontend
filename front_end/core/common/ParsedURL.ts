@@ -215,16 +215,33 @@ export class ParsedURL {
     return decodedFileURL.substr('file://'.length) as Platform.DevToolsPath.RawPathString;
   }
 
+  static cropUrlToEncodedPathString(url: Platform.DevToolsPath.UrlString, start: number):
+      Platform.DevToolsPath.EncodedPathString {
+    return url.substring(start) as Platform.DevToolsPath.EncodedPathString;
+  }
+
   static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
                                          Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
     return devToolsPath.substr(from, length) as DevToolsPathType;
   }
 
+  static substring<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                            Platform.DevToolsPath.EncodedPathString>(
+      devToolsPath: DevToolsPathType, start: number, end?: number): DevToolsPathType {
+    return devToolsPath.substring(start, end) as DevToolsPathType;
+  }
+
   static concatenate<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath
                                                   .RawPathString|Platform.DevToolsPath.EncodedPathString>(
       devToolsPath: DevToolsPathType, ...appendage: string[]): DevToolsPathType {
     return devToolsPath.concat(...appendage) as DevToolsPathType;
+  }
+
+  static trim<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
+                                       Platform.DevToolsPath.EncodedPathString>(devToolsPath: DevToolsPathType):
+      DevToolsPathType {
+    return devToolsPath.trim() as DevToolsPathType;
   }
 
   static urlWithoutHash(url: string): string {
