@@ -51,7 +51,8 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
     return savedSnippets.map(snippet => escapeSnippetName(snippet.name));
   }
 
-  async createFile(_path: string, _name: Platform.DevToolsPath.RawPathString|null): Promise<string|null> {
+  async createFile(_path: Platform.DevToolsPath.EncodedPathString, _name: Platform.DevToolsPath.RawPathString|null):
+      Promise<string|null> {
     const nextId = this.lastSnippetIdentifierSetting.get() + 1;
     this.lastSnippetIdentifierSetting.set(nextId);
 
@@ -122,11 +123,12 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
     return matchedSnippets.map(snippet => `snippet:///${escapeSnippetName(snippet.name)}`);
   }
 
-  mimeFromPath(_path: string): string {
+  mimeFromPath(_path: Platform.DevToolsPath.UrlString): string {
     return 'text/javascript';
   }
 
-  contentType(_path: string): Common.ResourceType.ResourceType {
+  contentType(_path: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.EncodedPathString|
+              Platform.DevToolsPath.UrlString): Common.ResourceType.ResourceType {
     return Common.ResourceType.resourceTypes.Script;
   }
 
