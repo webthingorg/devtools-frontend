@@ -1127,6 +1127,7 @@ export class DebuggerPlugin extends Plugin {
   // gutter and inline in the code)
   private async computeBreakpointDecoration(state: CodeMirror.EditorState, breakpoints: BreakpointDescription[]):
       Promise<BreakpointDecoration> {
+    console.warn('computeBreakpointDecoration', breakpoints.length);
     const decorations: CodeMirror.Range<CodeMirror.Decoration>[] = [];
     const gutterMarkers: CodeMirror.Range<CodeMirror.GutterMarker>[] = [];
     const breakpointsByLine = new Map<number, Bindings.BreakpointManager.Breakpoint[]>();
@@ -1488,6 +1489,7 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
     this.executionLocation = executionLocation;
+    console.warn('setExecutionLocation', executionLocation?.lineNumber);
 
     if (executionLocation) {
       const editorLocation =
