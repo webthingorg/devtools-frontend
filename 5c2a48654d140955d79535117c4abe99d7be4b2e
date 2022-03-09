@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72b37b2_39ad43c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-09T12:40:47Z",
+      "side": 1,
+      "message": "Hey Jaro,\n\nHere\u0027s the defensive fix for the popover preview. Most importantly adding a lot of tests here.\n\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "5c2a48654d140955d79535117c4abe99d7be4b2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
