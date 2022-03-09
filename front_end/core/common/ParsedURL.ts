@@ -64,6 +64,9 @@ export function normalizePath(path: string): string {
   return normalizedPath;
 }
 
+type BrandedPathString =
+    Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.EncodedPathString;
+
 export class ParsedURL {
   isValid: boolean;
   url: string;
@@ -215,16 +218,28 @@ export class ParsedURL {
     return decodedFileURL.substr('file://'.length) as Platform.DevToolsPath.RawPathString;
   }
 
-  static substr<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
-                                         Platform.DevToolsPath.EncodedPathString>(
+  static cropUrlToEncodedPathString(url: Platform.DevToolsPath.UrlString, start: number):
+      Platform.DevToolsPath.EncodedPathString {
+    return url.substring(start) as Platform.DevToolsPath.EncodedPathString;
+  }
+
+  static substr<DevToolsPathType extends BrandedPathString>(
       devToolsPath: DevToolsPathType, from: number, length?: number): DevToolsPathType {
     return devToolsPath.substr(from, length) as DevToolsPathType;
   }
 
-  static concatenate<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath
-                                                  .RawPathString|Platform.DevToolsPath.EncodedPathString>(
+  static substring<DevToolsPathType extends BrandedPathString>(
+      devToolsPath: DevToolsPathType, start: number, end?: number): DevToolsPathType {
+    return devToolsPath.substring(start, end) as DevToolsPathType;
+  }
+
+  static concatenate<DevToolsPathType extends BrandedPathString>(
       devToolsPath: DevToolsPathType, ...appendage: string[]): DevToolsPathType {
     return devToolsPath.concat(...appendage) as DevToolsPathType;
+  }
+
+  static trim<DevToolsPathType extends BrandedPathString>(devToolsPath: DevToolsPathType): DevToolsPathType {
+    return devToolsPath.trim() as DevToolsPathType;
   }
 
   static urlWithoutHash(url: string): string {
