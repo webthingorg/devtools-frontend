@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+
 import {click, getBrowserAndPages, goToResource, pasteText, step, typeText, waitFor, waitForElementWithTextContent, waitForFunction, waitForFunctionWithTries} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt, getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {clickNthChildOfSelectedElementNode, focusElementsTree, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
-import {addBreakpointForLine, clickOnContextMenu, getBreakpointDecorators, getValuesForScope, openSourceCodeEditorForFile, openSourcesPanel, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_OUT_BUTTON, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, clickOnContextMenu, getValuesForScope, openSourceCodeEditorForFile, openSourcesPanel, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_OUT_BUTTON, STEP_OVER_BUTTON, waitForBreakpointDecorators} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   // Flaky test.
@@ -203,11 +204,11 @@ describe('The Sources Tab', async () => {
   it('updates decorators for removed breakpoints in case of code-splitting (crbug.com/1251675)', async () => {
     const {frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-disjoint.js', 'sourcemap-disjoint.html');
-    assert.deepEqual(await getBreakpointDecorators(), []);
+    assert.deepEqual(await waitForBreakpointDecorators(0), []);
     await addBreakpointForLine(frontend, 2);
-    assert.deepEqual(await getBreakpointDecorators(), [2]);
+    assert.deepEqual(await waitForBreakpointDecorators(1), [2]);
     await removeBreakpointForLine(frontend, 2);
-    assert.deepEqual(await getBreakpointDecorators(), []);
+    assert.deepEqual(await waitForBreakpointDecorators(0), []);
   });
 });
 

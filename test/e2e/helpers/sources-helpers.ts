@@ -231,9 +231,12 @@ export async function checkBreakpointDidNotActivate() {
   });
 }
 
-export async function getBreakpointDecorators(disabledOnly = false) {
+export async function waitForBreakpointDecorators(numberOfDecorators: number, disabledOnly = false) {
   const selector = `.cm-breakpoint${disabledOnly ? '-disabled' : ''}`;
-  const breakpointDecorators = await $$(selector);
+  const breakpointDecorators = await waitForFunction(async () => {
+    const decorators = await $$(selector);
+    return decorators.length === numberOfDecorators ? decorators : undefined;
+  });
   return await Promise.all(
       breakpointDecorators.map(breakpointDecorator => breakpointDecorator.evaluate(n => Number(n.textContent))));
 }
