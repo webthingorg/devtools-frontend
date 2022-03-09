@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142199f2_76a0cfae",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-09T14:31:55Z",
+      "side": 1,
+      "message": "Optional: These types are annoyingly long. It might be nice to do something like:\n\n```\ntype BrandedPathString \u003d Platform.DevToolsPath.UrlString|...\n\nstatic substring\u003cDevToolsPathType extends BrandedPathString\u003e...{...}\nstatic concatenate\u003cDevToolsPathType extends BrandedPathString\u003e...{...}\n...\n```",
+      "range": {
+        "startLine": 229,
+        "startChar": 44,
+        "endLine": 229,
+        "endChar": 112
+      },
+      "revId": "883ab3381b19b5b91d307035fc7b217ee6db7276",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
