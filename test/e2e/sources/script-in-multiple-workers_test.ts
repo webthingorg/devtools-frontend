@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {$$, click, getBrowserAndPages, goToResource, step, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {addBreakpointForLine, createSelectorsForWorkerFile, getBreakpointDecorators, getExecutionLine, getOpenSources, openNestedWorkerFile, PAUSE_BUTTON, RESUME_BUTTON} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, createSelectorsForWorkerFile, getExecutionLine, getOpenSources, openNestedWorkerFile, PAUSE_BUTTON, RESUME_BUTTON, waitForBreakpointDecorators} from '../helpers/sources-helpers.js';
 
 async function validateSourceTabs() {
   await step('Validate exactly one source file is open', async () => {
@@ -44,8 +44,8 @@ describe('Multi-Workers', async function() {
     }
 
     async function validateBreakpoints() {
-      assert.deepEqual(await getBreakpointDecorators(), [6, 12]);
-      assert.deepEqual(await getBreakpointDecorators(true), [6]);
+      assert.deepEqual(await waitForBreakpointDecorators(2), [6, 12]);
+      assert.deepEqual(await waitForBreakpointDecorators(1, true), [6]);
     }
 
     it(`loads scripts exactly once on reload ${withOrWithout}`, async () => {

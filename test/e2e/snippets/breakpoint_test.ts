@@ -3,10 +3,10 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-import {describe, it} from 'mocha';
 
 import {click, getBrowserAndPages, waitFor} from '../../shared/helper.js';
-import {addBreakpointForLine, createNewSnippet, executionLineHighlighted, getBreakpointDecorators, getOpenSources, openSnippetsSubPane, openSourcesPanel, PAUSE_BUTTON, RESUME_BUTTON} from '../helpers/sources-helpers.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
+import {addBreakpointForLine, createNewSnippet, executionLineHighlighted, getOpenSources, openSnippetsSubPane, openSourcesPanel, PAUSE_BUTTON, RESUME_BUTTON, waitForBreakpointDecorators} from '../helpers/sources-helpers.js';
 
 describe('Snippets subpane', () => {
   it('can stop on breakpoints', async () => {
@@ -20,7 +20,7 @@ describe('Snippets subpane', () => {
     assert.deepEqual(await getOpenSources(), [snippetName]);
 
     await addBreakpointForLine(frontend, 2);
-    let decorators = await getBreakpointDecorators();
+    let decorators = await waitForBreakpointDecorators(1);
     assert.deepEqual(decorators, [2]);
 
     await click('[aria-label="Run snippet"]');
@@ -31,7 +31,7 @@ describe('Snippets subpane', () => {
     await executionLineHighlighted();
 
     // The breakpoint is still visible
-    decorators = await getBreakpointDecorators();
+    decorators = await waitForBreakpointDecorators(1);
     assert.deepEqual(decorators, [2]);
     assert.deepEqual(await getOpenSources(), [snippetName]);
 
