@@ -9,7 +9,9 @@ import * as puppeteer from 'puppeteer';
 import {getDevToolsFrontendHostname, reloadDevTools} from '../conductor/hooks.js';
 import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
+
 import {AsyncScope} from './async-scope.js';
+import {takeScreenshots} from './mocha-extensions.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -417,6 +419,7 @@ export const step = async (description: string, step: Function) => {
   try {
     return await step();
   } catch (error) {
+    await takeScreenshots();
     if (error instanceof AssertionError) {
       throw new AssertionError(
           `Unexpected Result in Step "${description}"
