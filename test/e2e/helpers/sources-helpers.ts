@@ -6,6 +6,7 @@ import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
 import {$$, click, getBrowserAndPages, getPendingEvents, getTestServerPort, goToResource, pasteText, platform, pressKey, step, timeout, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {takeScreenshots} from '../../shared/mocha-extensions.js';
 
 export const ACTIVE_LINE = '.CodeMirror-activeline > pre > span';
 export const PAUSE_ON_EXCEPTION_BUTTON = '[aria-label="Pause on exceptions"]';
@@ -193,11 +194,17 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   await navigateToLine(frontend, index);
   const breakpointLine = await getLineNumberElement(index);
   assert.isNotNull(breakpointLine, 'Line is not visible or does not exist');
+  if (!breakpointLine) {
+    throw Error('cannot happen');
+  }
 
   await waitForFunction(async () => !(await isBreakpointSet(index)));
-  await breakpointLine?.click();
-
+  console.error('before adding breakpoint:');
+  await takeScreenshots();
+  await click(breakpointLine);
   await waitForFunction(async () => await isBreakpointSet(index));
+  console.error('after adding breakpoint:');
+  await takeScreenshots();
 }
 
 export async function removeBreakpointForLine(frontend: puppeteer.Page, index: number|string) {
@@ -217,6 +224,7 @@ export function sourceLineNumberSelector(lineNumber: number) {
 export async function isBreakpointSet(lineNumber: number|string) {
   const lineNumberElement = await getLineNumberElement(lineNumber);
   const breakpointLineParentClasses = await lineNumberElement?.evaluate(n => n.className);
+  console.error('classes', breakpointLineParentClasses);
   return breakpointLineParentClasses?.includes('cm-breakpoint');
 }
 
@@ -231,9 +239,12 @@ export async function checkBreakpointDidNotActivate() {
   });
 }
 
-export async function getBreakpointDecorators(disabledOnly = false) {
+export async function waitForBreakpointDecorators(numberOfDecorators: number, disabledOnly = false) {
   const selector = `.cm-breakpoint${disabledOnly ? '-disabled' : ''}`;
-  const breakpointDecorators = await $$(selector);
+  const breakpointDecorators = await waitForFunction(async () => {
+    const decorators = await $$(selector);
+    return decorators.length === numberOfDecorators ? decorators : undefined;
+  });
   return await Promise.all(
       breakpointDecorators.map(breakpointDecorator => breakpointDecorator.evaluate(n => Number(n.textContent))));
 }
