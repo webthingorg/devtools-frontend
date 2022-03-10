@@ -39,6 +39,30 @@
       },
       "revId": "199634cf61df980c47780d5ce15771e52bbbc91a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8edde556_59ae0838",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:31:22Z",
+      "side": 1,
+      "message": "Done in a change to some of the previous CLs",
+      "parentUuid": "03fa4b9f_d6397421",
+      "range": {
+        "startLine": 400,
+        "startChar": 18,
+        "endLine": 400,
+        "endChar": 26
+      },
+      "revId": "199634cf61df980c47780d5ce15771e52bbbc91a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
