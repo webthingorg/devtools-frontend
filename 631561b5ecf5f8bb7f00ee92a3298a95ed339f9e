@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86d3fb1_f202b107",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T14:50:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c3d5164_24f5e840",
+      "range": {
+        "startLine": 56,
+        "startChar": 32,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4950a6eb_1e779a8e",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-04T17:02:12Z",
       "side": 1,
       "message": "What happens if you change the type of this and openInNewTab?",
+      "range": {
+        "startLine": 125,
+        "startChar": 22,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "011b3e26_df1d00da",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T14:50:42Z",
+      "side": 1,
+      "message": "Seems to work",
+      "parentUuid": "4950a6eb_1e779a8e",
       "range": {
         "startLine": 125,
         "startChar": 22,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff904fbe_f27ec782",
+        "filename": "front_end/panels/coverage/CoverageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T14:50:42Z",
+      "side": 1,
+      "message": "Changed to RawPathString as discussed",
+      "parentUuid": "ea8cfb39_25e63c5d",
+      "range": {
+        "startLine": 510,
+        "startChar": 82,
+        "endLine": 510,
+        "endChar": 113
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "478c0d39_46ad73f3",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-04T17:02:12Z",
       "side": 1,
       "message": "Also doesn\u0027t appear to be a url",
+      "range": {
+        "startLine": 186,
+        "startChar": 85,
+        "endLine": 186,
+        "endChar": 118
+      },
+      "revId": "631561b5ecf5f8bb7f00ee92a3298a95ed339f9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c7ccae1_96fc3638",
+        "filename": "front_end/panels/input/InputTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T14:50:42Z",
+      "side": 1,
+      "message": "Same here",
+      "parentUuid": "478c0d39_46ad73f3",
       "range": {
         "startLine": 186,
         "startChar": 85,
