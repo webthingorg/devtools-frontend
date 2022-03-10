@@ -1739,7 +1739,7 @@ export class HeapProfileHeader extends ProfileHeader {
       this.updateSaveProgress(0, 1);
     };
 
-    void fileOutputStream.open(this.fileName).then(onOpen.bind(this));
+    void fileOutputStream.open(this.fileName as Platform.DevToolsPath.UrlString).then(onOpen.bind(this));
   }
 
   onChunkTransferred(reader: Bindings.FileUtils.ChunkedReader): void {
