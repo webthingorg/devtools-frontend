@@ -233,6 +233,11 @@ export class ParsedURL {
     return devToolsPath.substring(start, end) as DevToolsPathType;
   }
 
+  static prepend<DevToolsPathType extends BrandedPathString>(prefix: string, devToolsPath: DevToolsPathType):
+      DevToolsPathType {
+    return prefix + devToolsPath as DevToolsPathType;
+  }
+
   static concatenate<DevToolsPathType extends BrandedPathString>(
       devToolsPath: DevToolsPathType, ...appendage: string[]): DevToolsPathType {
     return devToolsPath.concat(...appendage) as DevToolsPathType;
