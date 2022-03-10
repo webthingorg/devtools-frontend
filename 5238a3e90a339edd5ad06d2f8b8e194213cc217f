@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "023916be_0e7a7d25",
+        "filename": "front_end/models/persistence/EditFileSystemView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:15:52Z",
+      "side": 1,
+      "message": "Should we do something about it here?",
+      "parentUuid": "7cad7dd6_177a705f",
+      "range": {
+        "startLine": 157,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 107
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4eebe28a_63033ba4",
         "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
         "patchSetId": 6
@@ -71,6 +95,30 @@
       "writtenOn": "2022-03-10T17:02:41Z",
       "side": 1,
       "message": "Optional: We might want a joinPath helper that does this for arrays of raw or encoded paths.",
+      "range": {
+        "startLine": 211,
+        "startChar": 11,
+        "endLine": 211,
+        "endChar": 81
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0963c1d_eea51e67",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eebe28a_63033ba4",
       "range": {
         "startLine": 211,
         "startChar": 11,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d46fdc0_bb35779d",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:15:52Z",
+      "side": 1,
+      "message": "It\u0027s not",
+      "parentUuid": "b27c6adc_a463d915",
+      "range": {
+        "startLine": 308,
+        "startChar": 65,
+        "endLine": 308,
+        "endChar": 109
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1eb2a484_c34363cb",
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c205735_4a7cb074",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb2a484_c34363cb",
+      "range": {
+        "startLine": 848,
+        "startChar": 4,
+        "endLine": 848,
+        "endChar": 113
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf85bf89_48ae5760",
@@ -140,6 +236,30 @@
       "writtenOn": "2022-03-10T17:02:41Z",
       "side": 1,
       "message": "Optional: Is this common enough to warrant defining a const EmptyEncodedPath somewhere?",
+      "range": {
+        "startLine": 409,
+        "startChar": 24,
+        "endLine": 409,
+        "endChar": 69
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646e1de0_af809770",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf85bf89_48ae5760",
       "range": {
         "startLine": 409,
         "startChar": 24,
