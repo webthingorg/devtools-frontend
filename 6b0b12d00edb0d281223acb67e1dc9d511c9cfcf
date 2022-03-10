@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8f6ade_c4d2b0fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-10T11:36:51Z",
+      "side": 1,
+      "message": "PTAL\n\nJack: Maybe there is a better location for the css? The icon is used in the Linkifier and could therefore show up anywhere?\n\nPeter: The resulting purple color is not perfect, but because I\u0027m using a filter to get there, I don\u0027t know how to do it any better.",
+      "revId": "6b0b12d00edb0d281223acb67e1dc9d511c9cfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
