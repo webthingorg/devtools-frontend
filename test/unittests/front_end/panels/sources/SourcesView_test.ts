@@ -82,7 +82,8 @@ describe('SourcesView', () => {
   it('creates a HeadersView when the filename is \'.headers\'', async () => {
     const sourcesView = new Sources.SourcesView.SourcesView();
     const uiSourceCode = new Workspace.UISourceCode.UISourceCode(
-        {} as Persistence.FileSystemWorkspaceBinding.FileSystem, 'file:///path/to/overrides/www.example.com/.headers',
+        {} as Persistence.FileSystemWorkspaceBinding.FileSystem,
+        'file:///path/to/overrides/www.example.com/.headers' as Platform.DevToolsPath.UrlString,
         Common.ResourceType.resourceTypes.Document);
     sourcesView.viewForFile(uiSourceCode);
     assert.isTrue(sourcesView.getSourceView(uiSourceCode) instanceof SourcesComponents.HeadersView.HeadersView);
