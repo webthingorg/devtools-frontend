@@ -16,6 +16,92 @@
       "message": "Jack, please kindly take a look, just adding types here, no functional changes:)",
       "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34420639_f1b47cc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-10T09:39:36Z",
+      "side": 1,
+      "message": "LGTM but I think a comment explaining the difference with the types would be really useful.",
+      "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdde888_09ce255f",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-10T09:39:36Z",
+      "side": 1,
+      "message": "I think it might be worth some comments/info here on why we have 3 different types and an example of each one. As a relative newcomer to this code it\u0027s not immediately obvious to me.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 112
+      },
+      "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12edfc82_5783b481",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-10T09:39:36Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think `crop` is the right name here. I think this is more a `slice` to me. wdyt?",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 35
+      },
+      "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "165e2ff7_9130544e",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-10T09:39:36Z",
+      "side": 1,
+      "message": "maybe a future improvement - not needed for this CL, but do you think we should make a factory for these types so here you could do something like:\n\n```\nPlatform.DevToolsPath.RawStringPath(\u0027NewFile\u0027)\n```\n\nwhich I think is a bit cleaner. wdyt?",
+      "range": {
+        "startLine": 230,
+        "startChar": 57,
+        "endLine": 230,
+        "endChar": 105
+      },
+      "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
