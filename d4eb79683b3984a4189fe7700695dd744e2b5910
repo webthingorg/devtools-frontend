@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d472a6_5217f0a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-03-10T18:45:52Z",
+      "side": 1,
+      "message": "This pulls in updated protocol resources.\nPTAL, thanks!",
+      "revId": "d4eb79683b3984a4189fe7700695dd744e2b5910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
