@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "267f27aa_26cc286e",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:39:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04375fca_594f37bb",
+      "range": {
+        "startLine": 178,
+        "startChar": 61,
+        "endLine": 178,
+        "endChar": 82
+      },
+      "revId": "fa9393c102679e4903c388f7ab802875916a50ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87d8fb59_c66024a0",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f9e9d10_3906c463",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:39:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87d8fb59_c66024a0",
+      "range": {
+        "startLine": 305,
+        "startChar": 61,
+        "endLine": 305,
+        "endChar": 82
+      },
+      "revId": "fa9393c102679e4903c388f7ab802875916a50ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e644b86f_99c4dddf",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-03-04T14:40:10Z",
       "side": 1,
       "message": "... and do a search/replace in this file too.",
+      "range": {
+        "startLine": 75,
+        "startChar": 41,
+        "endLine": 75,
+        "endChar": 62
+      },
+      "revId": "fa9393c102679e4903c388f7ab802875916a50ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ae1c2d_1cb97c1d",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-10T18:39:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e644b86f_99c4dddf",
       "range": {
         "startLine": 75,
         "startChar": 41,
