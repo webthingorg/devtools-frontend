@@ -16,6 +16,23 @@
       "message": "Changhao, Jack,\n\nApologies for the delay, but I am currently going through onboarding. I created this new CL because I was not able to trigger CQ on the old CL or upload new patches from my corporate account. Meanwhile, I have added unit tests.\n\nWould you be able to take a look at the code?\n\nMany thanks,\nJan",
       "revId": "103f1a5df33053c355faa82ffbf3a683fce89892",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7280290d_6b6a25b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-10T09:01:07Z",
+      "side": 1,
+      "message": "LGTM - thanks! Glad you\u0027ve got it all up and running locally.\n\nPlease wait for Changhao\u0027s +1 as he\u0027s more familiar with some of this so I\u0027d like his eyes on it too.",
+      "revId": "103f1a5df33053c355faa82ffbf3a683fce89892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
