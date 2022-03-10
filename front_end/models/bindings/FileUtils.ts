@@ -29,6 +29,7 @@
  */
 
 import type * as Common from '../../core/common/common.js';
+import type * as Platform from '../../core/platform/platform.js';
 import * as Workspace from '../workspace/workspace.js';
 
 export interface ChunkedReader {
@@ -206,16 +207,16 @@ export class ChunkedFileReader implements ChunkedReader {
 
 export class FileOutputStream implements Common.StringOutputStream.OutputStream {
   #writeCallbacks: (() => void)[];
-  #fileName!: string;
+  #fileName!: Platform.DevToolsPath.RawPathString;
   #closed?: boolean;
   constructor() {
     this.#writeCallbacks = [];
   }
 
-  async open(fileName: string): Promise<boolean> {
+  async open(fileName: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString): Promise<boolean> {
     this.#closed = false;
     this.#writeCallbacks = [];
-    this.#fileName = fileName;
+    this.#fileName = fileName as Platform.DevToolsPath.RawPathString;
     const saveResponse = await Workspace.FileManager.FileManager.instance().save(this.#fileName, '', true);
     if (saveResponse) {
       Workspace.FileManager.FileManager.instance().addEventListener(
