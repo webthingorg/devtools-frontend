@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af9446cb_698473a3",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-03-10T21:21:51Z",
+      "side": 1,
+      "message": "Found a bug: the panel\u0027s settings cog hides when a report is being displayed.  (But it correctly shows when on the startview)",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce97b6cc_d9bd427d",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-03-10T21:21:51Z",
+      "side": 1,
+      "message": "I have a few thoughts on the UX and layout of this page. I threw it into a doc: https://docs.google.com/document/d/1WNlY5X6Y67Ra3kQrd-lWXVf47xIYpurY1nKhhu6yqdA/edit?usp\u003dsharing",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5967f2a_6ad8d42a",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-03-10T21:21:51Z",
+      "side": 1,
+      "message": "i\u0027d append El to this these var names cuz its not entirely clear that\u0027s what they are.",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7135e971_637ca5a4",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-03-10T21:21:51Z",
+      "side": 1,
+      "message": "missing an e in mode?",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87de19d_be7b5051",
+        "filename": "front_end/panels/lighthouse/lighthouseStartView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2022-03-10T21:21:51Z",
+      "side": 1,
+      "message": "general css note: the layout\u0027s gotta be resilient with all squishy/wide combinations of landscape/portrait.",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
