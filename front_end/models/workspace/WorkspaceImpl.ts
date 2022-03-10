@@ -40,7 +40,8 @@ export interface ProjectSearchConfig {
   ignoreCase(): boolean;
   isRegex(): boolean;
   queries(): string[];
-  filePathMatchesFileQuery(filePath: string): boolean;
+  filePathMatchesFileQuery(filePath: Platform.DevToolsPath.RawPathString|
+                           Platform.DevToolsPath.EncodedPathString|Platform.DevToolsPath.UrlString): boolean;
 }
 
 export interface Project {
@@ -59,7 +60,7 @@ export interface Project {
   rename(
       uiSourceCode: UISourceCode, newName: Platform.DevToolsPath.RawPathString,
       callback: (arg0: boolean, arg1?: string, arg2?: string, arg3?: Common.ResourceType.ResourceType) => void): void;
-  excludeFolder(path: string): void;
+  excludeFolder(path: Platform.DevToolsPath.UrlString): void;
   canExcludeFolder(path: Platform.DevToolsPath.EncodedPathString): boolean;
   createFile(path: Platform.DevToolsPath.EncodedPathString, name: string|null, content: string, isBase64?: boolean):
       Promise<UISourceCode|null>;
@@ -72,7 +73,7 @@ export interface Project {
       searchConfig: ProjectSearchConfig, filesMathingFileQuery: string[],
       progress: Common.Progress.Progress): Promise<string[]>;
   indexContent(progress: Common.Progress.Progress): void;
-  uiSourceCodeForURL(url: string): UISourceCode|null;
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString): UISourceCode|null;
   uiSourceCodes(): UISourceCode[];
 }
 
@@ -92,7 +93,7 @@ export abstract class ProjectStore implements Project {
   private readonly idInternal: string;
   private readonly typeInternal: projectTypes;
   private readonly displayNameInternal: string;
-  private uiSourceCodesMap: Map<string, {
+  private uiSourceCodesMap: Map<Platform.DevToolsPath.UrlString, {
     uiSourceCode: UISourceCode,
     index: number,
   }>;
@@ -124,7 +125,8 @@ export abstract class ProjectStore implements Project {
     return this.workspaceInternal;
   }
 
-  createUISourceCode(url: string, contentType: Common.ResourceType.ResourceType): UISourceCode {
+  createUISourceCode(url: Platform.DevToolsPath.UrlString, contentType: Common.ResourceType.ResourceType):
+      UISourceCode {
     return new UISourceCode(this, url, contentType);
   }
 
@@ -139,7 +141,7 @@ export abstract class ProjectStore implements Project {
     return true;
   }
 
-  removeUISourceCode(url: string): void {
+  removeUISourceCode(url: Platform.DevToolsPath.UrlString): void {
     const uiSourceCode = this.uiSourceCodeForURL(url);
     if (!uiSourceCode) {
       return;
@@ -166,7 +168,7 @@ export abstract class ProjectStore implements Project {
     this.uiSourceCodesList = [];
   }
 
-  uiSourceCodeForURL(url: string): UISourceCode|null {
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString): UISourceCode|null {
     const entry = this.uiSourceCodesMap.get(url);
     return entry ? entry.uiSourceCode : null;
   }
@@ -179,7 +181,7 @@ export abstract class ProjectStore implements Project {
     const oldPath = uiSourceCode.url();
     const newPath = uiSourceCode.parentURL() ?
         Common.ParsedURL.ParsedURL.urlFromParentUrlAndName(uiSourceCode.parentURL(), newName) :
-        encodeURIComponent(newName);
+        encodeURIComponent(newName) as Platform.DevToolsPath.UrlString;
     const value = this.uiSourceCodesMap.get(oldPath) as {
       uiSourceCode: UISourceCode,
       index: number,
@@ -194,7 +196,7 @@ export abstract class ProjectStore implements Project {
       _uiSourceCode: UISourceCode, _newName: string,
       _callback: (arg0: boolean, arg1?: string, arg2?: string, arg3?: Common.ResourceType.ResourceType) => void): void {
   }
-  excludeFolder(_path: string): void {
+  excludeFolder(_path: Platform.DevToolsPath.UrlString): void {
   }
   deleteFile(_uiSourceCode: UISourceCode): void {
   }
@@ -248,12 +250,12 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     workspaceInstance = undefined;
   }
 
-  uiSourceCode(projectId: string, url: string): UISourceCode|null {
+  uiSourceCode(projectId: string, url: Platform.DevToolsPath.UrlString): UISourceCode|null {
     const project = this.projectsInternal.get(projectId);
     return project ? project.uiSourceCodeForURL(url) : null;
   }
 
-  uiSourceCodeForURL(url: string): UISourceCode|null {
+  uiSourceCodeForURL(url: Platform.DevToolsPath.UrlString): UISourceCode|null {
     for (const project of this.projectsInternal.values()) {
       const uiSourceCode = project.uiSourceCodeForURL(url);
       if (uiSourceCode) {
