@@ -602,7 +602,7 @@ export class WritableProfileHeader extends ProfileHeader implements Common.Strin
       this.fileName = `${this.profileType().typeName()}-${now}${fileExtension}`;
     }
 
-    const accepted = await fileOutputStream.open(this.fileName);
+    const accepted = await fileOutputStream.open(this.fileName as Platform.DevToolsPath.UrlString);
     if (!accepted || !this.tempFile) {
       return;
     }

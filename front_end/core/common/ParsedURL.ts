@@ -247,6 +247,11 @@ export class ParsedURL {
     return devToolsPath.trim() as DevToolsPathType;
   }
 
+  static slice<DevToolsPathType extends BrandedPathString>(
+      devToolsPath: DevToolsPathType, start?: number, end?: number): DevToolsPathType {
+    return devToolsPath.slice(start, end) as DevToolsPathType;
+  }
+
   static urlWithoutHash(url: string): string {
     const hashIndex = url.indexOf('#');
     if (hashIndex !== -1) {
