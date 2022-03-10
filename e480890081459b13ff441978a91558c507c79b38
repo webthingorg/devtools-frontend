@@ -16,6 +16,52 @@
       "message": "Please take another look",
       "revId": "e480890081459b13ff441978a91558c507c79b38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062039d7_f018c15d",
+        "filename": "front_end/models/bindings/FileUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T15:58:09Z",
+      "side": 1,
+      "message": "Might this be a URL? fileName and #fileName should have the same type.",
+      "range": {
+        "startLine": 219,
+        "startChar": 4,
+        "endLine": 219,
+        "endChar": 69
+      },
+      "revId": "e480890081459b13ff441978a91558c507c79b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aed9a577_02b421ff",
+        "filename": "front_end/panels/lighthouse/LighthouseReportRenderer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T15:58:09Z",
+      "side": 1,
+      "message": "This cast seems unlikely to be removed.\n\nAlso, it doesn\u0027t matter much, but I think this is actually a RawPathString without a protocol or any slashes, something like \"www.google.com-20220310.json\"",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 110
+      },
+      "revId": "e480890081459b13ff441978a91558c507c79b38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
