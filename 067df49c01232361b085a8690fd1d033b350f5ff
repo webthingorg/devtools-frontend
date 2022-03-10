@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d194c0ba_c17b7ebb",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T13:49:51Z",
+      "side": 1,
+      "message": "cropUrlToEncodedPathString?",
+      "range": {
+        "startLine": 344,
+        "startChar": 29,
+        "endLine": 344,
+        "endChar": 38
+      },
+      "revId": "067df49c01232361b085a8690fd1d033b350f5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82729cb7_24487392",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T13:49:51Z",
+      "side": 1,
+      "message": "It would be good to brand filePath (and also path in the next function) but also I don\u0027t think contentType needs to take a branded type.",
+      "range": {
+        "startLine": 399,
+        "startChar": 48,
+        "endLine": 399,
+        "endChar": 59
+      },
+      "revId": "067df49c01232361b085a8690fd1d033b350f5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3da89abd_f8fa7c0a",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T13:49:51Z",
+      "side": 1,
+      "message": "encodedPathToRawPathString",
+      "range": {
+        "startLine": 532,
+        "startChar": 39,
+        "endLine": 532,
+        "endChar": 57
+      },
+      "revId": "067df49c01232361b085a8690fd1d033b350f5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ea54fa_e95c3d50",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T13:49:51Z",
+      "side": 1,
+      "message": "I think it should be fine not to brand this since it should just be looking at the extension.",
+      "range": {
+        "startLine": 559,
+        "startChar": 2,
+        "endLine": 559,
+        "endChar": 14
+      },
+      "revId": "067df49c01232361b085a8690fd1d033b350f5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eea3e50_24334792",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T13:49:51Z",
+      "side": 1,
+      "message": "This can be left with type string since we only use the extension. May be worth a comment on why we are indifferent to whether this is encoded.",
+      "range": {
+        "startLine": 567,
+        "startChar": 14,
+        "endLine": 567,
+        "endChar": 18
+      },
+      "revId": "067df49c01232361b085a8690fd1d033b350f5ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
