@@ -85,6 +85,42 @@
       "message": "I suppose you can +2 yourself, right? Otherwise let me know, I\u0027ll +2 for you.",
       "revId": "103f1a5df33053c355faa82ffbf3a683fce89892",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4ef6178_47a12241",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537007
+      },
+      "writtenOn": "2022-03-10T09:59:16Z",
+      "side": 1,
+      "message": "By now, I can - thanks!",
+      "parentUuid": "007e7979_0aa29a97",
+      "revId": "103f1a5df33053c355faa82ffbf3a683fce89892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f13ff2ce_38490964",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1537007
+      },
+      "writtenOn": "2022-03-10T09:59:16Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2b4787b8_f0683397",
+      "revId": "103f1a5df33053c355faa82ffbf3a683fce89892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
