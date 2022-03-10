@@ -18,6 +18,7 @@ export const enum Variant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
   TOOLBAR = 'toolbar',
+  ROUND = 'round',
 }
 
 export const enum Size {
@@ -199,10 +200,19 @@ export class Button extends HTMLElement {
         throw new Error('Tooblar button does not accept children');
       }
     }
+    if (this.#props.variant === Variant.ROUND) {
+      if (!this.#props.iconUrl) {
+        throw new Error('Round button requires an icon');
+      }
+      if (!this.#isEmpty) {
+        throw new Error('Round button does not accept children');
+      }
+    }
     const classes = {
       primary: this.#props.variant === Variant.PRIMARY,
       secondary: this.#props.variant === Variant.SECONDARY,
       toolbar: this.#props.variant === Variant.TOOLBAR,
+      round: this.#props.variant === Variant.ROUND,
       'text-with-icon': Boolean(this.#props.iconUrl) && !this.#isEmpty,
       'only-icon': Boolean(this.#props.iconUrl) && this.#isEmpty,
       small: Boolean(this.#props.size === Size.SMALL),
