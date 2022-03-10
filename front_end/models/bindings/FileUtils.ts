@@ -216,7 +216,7 @@ export class FileOutputStream implements Common.StringOutputStream.OutputStream 
   async open(fileName: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString): Promise<boolean> {
     this.#closed = false;
     this.#writeCallbacks = [];
-    this.#fileName = fileName;
+    this.#fileName = fileName as Platform.DevToolsPath.RawPathString;
     const saveResponse = await Workspace.FileManager.FileManager.instance().save(this.#fileName, '', true);
     if (saveResponse) {
       Workspace.FileManager.FileManager.instance().addEventListener(
