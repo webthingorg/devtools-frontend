@@ -96,6 +96,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   async copyBreakpoints(fromURL: string, toSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+    console.warn('copyBreakpoints)', fromURL);
     const breakpointItems = this.storage.breakpointItems(fromURL);
     for (const item of breakpointItems) {
       await this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
@@ -103,6 +104,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   private restoreBreakpoints(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
+    console.warn('restoreBreakpoints', uiSourceCode.url());
     const url = uiSourceCode.url();
     if (!url) {
       return;
@@ -134,6 +136,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
   }
 
   private removeUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): void {
+    console.warn('removeUISourceCode', uiSourceCode.url());
     const breakpoints = this.breakpointLocationsForUISourceCode(uiSourceCode);
     breakpoints.forEach(bp => bp.breakpoint.removeUISourceCode(uiSourceCode));
   }

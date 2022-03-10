@@ -1104,6 +1104,7 @@ export class DebuggerPlugin extends Plugin {
     position: number,
     breakpoint: Bindings.BreakpointManager.Breakpoint,
   }[] {
+    console.warn('fetchBreakpoints', this.uiSourceCode.url());
     if (!this.editor) {
       return [];
     }
@@ -1127,6 +1128,7 @@ export class DebuggerPlugin extends Plugin {
   // gutter and inline in the code)
   private async computeBreakpointDecoration(state: CodeMirror.EditorState, breakpoints: BreakpointDescription[]):
       Promise<BreakpointDecoration> {
+    console.warn('computeBreakpointDecoration', this.uiSourceCode.url(), breakpoints.length);
     const decorations: CodeMirror.Range<CodeMirror.Decoration>[] = [];
     const gutterMarkers: CodeMirror.Range<CodeMirror.GutterMarker>[] = [];
     const breakpointsByLine = new Map<number, Bindings.BreakpointManager.Breakpoint[]>();
@@ -1232,6 +1234,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   private async refreshBreakpoints(): Promise<void> {
+    console.warn('refreshBreakpoints', this.uiSourceCode.url());
     if (this.editor) {
       this.breakpoints = this.fetchBreakpoints();
       const forBreakpoints = this.breakpoints;
@@ -1243,8 +1246,8 @@ export class DebuggerPlugin extends Plugin {
     }
   }
 
-  private breakpointChange(event: Common.EventTarget.EventTargetEvent<Bindings.BreakpointManager.BreakpointLocation>):
-      void {
+  private async breakpointChange(
+      event: Common.EventTarget.EventTargetEvent<Bindings.BreakpointManager.BreakpointLocation>): Promise<void> {
     const {uiLocation} = event.data;
     if (uiLocation.uiSourceCode !== this.uiSourceCode || this.muted) {
       return;
@@ -1255,8 +1258,9 @@ export class DebuggerPlugin extends Plugin {
       }
     }
     // These tend to arrive in bursts, so debounce them
-    window.clearTimeout(this.refreshBreakpointsTimeout);
-    this.refreshBreakpointsTimeout = window.setTimeout(() => this.refreshBreakpoints(), 50);
+    // window.clearTimeout(this.refreshBreakpointsTimeout);
+    // this.refreshBreakpointsTimeout = window.setTimeout(() => this.refreshBreakpoints(), 50);
+    await this.refreshBreakpoints();
   }
 
   onInlineBreakpointMarkerClick(event: MouseEvent, breakpoint: Bindings.BreakpointManager.Breakpoint|null): void {
@@ -1488,6 +1492,7 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
     this.executionLocation = executionLocation;
+    console.warn('setExecutionLocation', executionLocation?.lineNumber);
 
     if (executionLocation) {
       const editorLocation =
