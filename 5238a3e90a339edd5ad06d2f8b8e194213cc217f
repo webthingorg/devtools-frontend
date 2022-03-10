@@ -33,6 +33,121 @@
       "message": "Jack, could you please take a look at this CL as well?",
       "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cad7dd6_177a705f",
+        "filename": "front_end/models/persistence/EditFileSystemView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T17:02:41Z",
+      "side": 1,
+      "message": "Wait, does this come from the UI, and are we expecting users to urlencode the paths they type in? Seems like a bug, though probably not one you\u0027re introducing...",
+      "range": {
+        "startLine": 157,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 107
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eebe28a_63033ba4",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T17:02:41Z",
+      "side": 1,
+      "message": "Optional: We might want a joinPath helper that does this for arrays of raw or encoded paths.",
+      "range": {
+        "startLine": 211,
+        "startChar": 11,
+        "endLine": 211,
+        "endChar": 81
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27c6adc_a463d915",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T17:02:41Z",
+      "side": 1,
+      "message": "Why is this cast necessary?",
+      "range": {
+        "startLine": 308,
+        "startChar": 65,
+        "endLine": 308,
+        "endChar": 109
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eb2a484_c34363cb",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T17:02:41Z",
+      "side": 1,
+      "message": "I\u0027d rather see this as\n\n`const path \u003d (node as NavigatorFolderTreeNode).folderPath || (\u0027\u0027 as Platform.DevToolsPath.EncodedPathString);`\n\nand change the type of NavigatorFolderTreeNode.folderPath to EncodedPathString, and add some casts to NavigatorFolderTreeNode to revisit in a later cl. But I guess it\u0027s fine to leave it like this if you\u0027re going to revisit this in a later cl anyway.",
+      "range": {
+        "startLine": 848,
+        "startChar": 4,
+        "endLine": 848,
+        "endChar": 113
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf85bf89_48ae5760",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-10T17:02:41Z",
+      "side": 1,
+      "message": "Optional: Is this common enough to warrant defining a const EmptyEncodedPath somewhere?",
+      "range": {
+        "startLine": 409,
+        "startChar": 24,
+        "endLine": 409,
+        "endChar": 69
+      },
+      "revId": "5238a3e90a339edd5ad06d2f8b8e194213cc217f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
