@@ -1255,6 +1255,11 @@ export class TreeElement {
   }
 
   onenter(): boolean {
+    if (this.expanded) {
+      this.collapse();
+    } else {
+      this.expand();
+    }
     return false;
   }
 
