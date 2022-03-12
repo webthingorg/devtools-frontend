@@ -4,16 +4,16 @@
 
 import {assert} from 'chai';
 import type {puppeteer} from '../../shared/helper.js';
-import {$$, assertNotNull, click, getBrowserAndPages, goToResource, step, waitFor, waitForElementsWithTextContent, waitForElementWithTextContent, waitForFunction, waitForNoElementsWithTextContent} from '../../shared/helper.js';
+import {$$, assertNotNullOrUndefined, click, getBrowserAndPages, goToResource, step, waitFor, waitForElementsWithTextContent, waitForElementWithTextContent, waitForFunction, waitForNoElementsWithTextContent} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {changeAllocationSampleViewViaDropdown, changeViewViaDropdown, findSearchResult, getDataGridRows, navigateToMemoryTab, setSearchFilter, takeAllocationProfile, takeAllocationTimelineProfile, takeHeapSnapshot, waitForNonEmptyHeapSnapshotData, waitForRetainerChain, waitForSearchResultNumber, waitUntilRetainerChainSatisfies} from '../helpers/memory-helpers.js';
 
 describe('The Memory Panel', async function() {
   // These tests render large chunks of data into DevTools and filter/search
   // through it. On bots with less CPU power, these can fail because the
-  // rendering takes a long time, so we allow a larger timeout.
+  // rendering takes a long time, so we allow a much larger timeout.
   if (this.timeout() !== 0) {
-    this.timeout(35000);
+    this.timeout(100000);
   }
 
   it('Loads content', async () => {
@@ -168,6 +168,10 @@ describe('The Memory Panel', async function() {
     await waitForNonEmptyHeapSnapshotData();
     await setSearchFilter('leaking');
     await waitForSearchResultNumber(4);
+    await findSearchResult(async p => {
+      const el = await p.$(':scope > td > div > .object-value-string');
+      return el !== null && await el.evaluate(el => el.textContent === '"leaking"');
+    });
 
     await waitForFunction(async () => {
       // Wait for all the rows of the data-grid to load.
@@ -226,7 +230,8 @@ describe('The Memory Panel', async function() {
     assert.isTrue(childText[1].includes('inEventListener'));
   });
 
-  it('Shows the correct output for a detached iframe', async () => {
+  // Flaky test causing build failures
+  it.skip('[crbug.com/1239550] Shows the correct output for a detached iframe', async () => {
     await goToResource('memory/detached-iframe.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
@@ -249,7 +254,7 @@ describe('The Memory Panel', async function() {
     });
     const rows = await getDataGridRows('.retaining-paths-view table.data');
     const propertyNameElement = await rows[0].$('span.property-name');
-    assertNotNull(propertyNameElement);
+    assertNotNullOrUndefined(propertyNameElement);
     propertyNameElement.hover();
     const el = await waitFor('div.vbox.flex-auto.no-pointer-events');
     await waitFor('.source-code', el);
@@ -259,8 +264,8 @@ describe('The Memory Panel', async function() {
     const {frontend} = getBrowserAndPages();
     await goToResource('memory/allocations.html');
     await navigateToMemoryTab();
-    takeAllocationProfile(frontend);
-    changeAllocationSampleViewViaDropdown('Chart');
+    void takeAllocationProfile(frontend);
+    void changeAllocationSampleViewViaDropdown('Chart');
     await waitFor('canvas.flame-chart-canvas');
   });
 
@@ -268,7 +273,7 @@ describe('The Memory Panel', async function() {
     const {frontend} = getBrowserAndPages();
     await goToResource('memory/allocations.html');
     await navigateToMemoryTab();
-    takeAllocationTimelineProfile(frontend, {recordStacks: true});
+    void takeAllocationTimelineProfile(frontend, {recordStacks: true});
     await changeViewViaDropdown('Allocation');
 
     const header = await waitForElementWithTextContent('Live Count');
@@ -282,7 +287,7 @@ describe('The Memory Panel', async function() {
     const {frontend} = getBrowserAndPages();
     await goToResource('memory/allocations.html');
     await navigateToMemoryTab();
-    takeAllocationTimelineProfile(frontend, {recordStacks: false});
+    void takeAllocationTimelineProfile(frontend, {recordStacks: false});
     const dropdown = await waitFor('select[aria-label="Perspective"]');
     await waitForNoElementsWithTextContent('Allocation', dropdown);
   });

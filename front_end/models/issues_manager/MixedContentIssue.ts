@@ -9,7 +9,6 @@ import * as Protocol from '../../generated/protocol.js';
 import {Issue, IssueCategory, IssueKind} from './Issue.js';
 import type {MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 
-
 const UIStrings = {
   /**
   *@description Label for the link for Mixed Content Issues
@@ -20,22 +19,22 @@ const str_ = i18n.i18n.registerUIStrings('models/issues_manager/MixedContentIssu
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class MixedContentIssue extends Issue {
-  private issueDetails: Protocol.Audits.MixedContentIssueDetails;
+  #issueDetails: Protocol.Audits.MixedContentIssueDetails;
 
   constructor(issueDetails: Protocol.Audits.MixedContentIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
     super(Protocol.Audits.InspectorIssueCode.MixedContentIssue, issuesModel);
-    this.issueDetails = issueDetails;
+    this.#issueDetails = issueDetails;
   }
 
   requests(): Iterable<Protocol.Audits.AffectedRequest> {
-    if (this.issueDetails.request) {
-      return [this.issueDetails.request];
+    if (this.#issueDetails.request) {
+      return [this.#issueDetails.request];
     }
     return [];
   }
 
   getDetails(): Protocol.Audits.MixedContentIssueDetails {
-    return this.issueDetails;
+    return this.#issueDetails;
   }
 
   getCategory(): IssueCategory {
@@ -51,11 +50,11 @@ export class MixedContentIssue extends Issue {
   }
 
   primaryKey(): string {
-    return JSON.stringify(this.issueDetails);
+    return JSON.stringify(this.#issueDetails);
   }
 
   getKind(): IssueKind {
-    switch (this.issueDetails.resolutionStatus) {
+    switch (this.#issueDetails.resolutionStatus) {
       case Protocol.Audits.MixedContentResolutionStatus.MixedContentAutomaticallyUpgraded:
         return IssueKind.Improvement;
       case Protocol.Audits.MixedContentResolutionStatus.MixedContentBlocked:

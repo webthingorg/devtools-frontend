@@ -32,6 +32,9 @@ COVERAGE_FOLDERS='front_end/ui/components' npm run auto-unittest
 COVERAGE_FOLDERS='front_end/{ui/components,core/common}' npm run auto-unittest
 ```
 
+The code coverage output is written to `/karma-coverage` in the repository root.
+You can open `/karma-coverage/index.html` in a browser to inspect coverage for individual files.
+
 ## Inspecting detailed errors
 
 By default, the Karma testing output is terse, to avoid console output cluttering.
@@ -40,3 +43,9 @@ However, if you want to obtain detailed reporting of a failure you are investiga
 ```bash
 npm run auto-unittest -- --expanded-reporting
 ```
+
+### Debugging with VSCode
+
+To run tests under the debugger, open the "Run and Debug" sidebar,
+select "Run unit tests in VS Code debugger" from the dropdown, and click
+the start button or press F5.

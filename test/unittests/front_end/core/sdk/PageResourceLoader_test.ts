@@ -6,6 +6,7 @@ const {assert} = chai;
 
 import type * as Host from '../../../../../front_end/core/host/host.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 
 interface LoadResult {
   success: boolean;
@@ -15,17 +16,17 @@ interface LoadResult {
 
 describe('PageResourceLoader', () => {
   const loads: Array<{url: string}> = [];
-  const load = (url: string): Promise<LoadResult> => {
+  const load = async(url: string): Promise<LoadResult> => {
     loads.push({url});
 
-    return Promise.resolve({
+    return {
       success: true,
       content: `${url} - content`,
       errorDescription: {message: '', statusCode: 0, netError: 0, netErrorName: '', urlValid: true},
-    });
+    };
   };
 
-  const initiator = {target: null, frameId: '123', initiatorUrl: ''};
+  const initiator = {target: null, frameId: '123' as Protocol.Page.FrameId, initiatorUrl: ''};
 
   beforeEach(() => {
     loads.length = 0;
@@ -60,12 +61,12 @@ describe('PageResourceLoader', () => {
     ];
     assert.deepEqual(loader.getNumberOfResources(), {loading: 3, queued: 2, resources: 3});
 
-    loader._onMainFrameNavigated({
+    loader.onMainFrameNavigated({
       data: {
         isTopFrame() {
           return true;
         },
-      },
+      } as SDK.ResourceTreeModel.ResourceTreeFrame,
     });
     assert.deepEqual(loader.getNumberOfResources(), {loading: 3, queued: 0, resources: 0});
 

@@ -5,9 +5,9 @@
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, goToResource, timeout, waitFor} from '../../shared/helper.js';
+import {$$, assertNotNullOrUndefined, click, getBrowserAndPages, goToResource, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {editQueryRuleText, getComputedStylesForDomNode, getDisplayedCSSPropertyNames, getDisplayedStyleRules, getStyleRule, getStyleSectionSubtitles, waitForContentOfSelectedElementsNode, waitForElementsStyleSection, waitForPropertyToHighlight, waitForStyleRule} from '../helpers/elements-helpers.js';
+import {editQueryRuleText, getComputedStylesForDomNode, getDisplayedCSSPropertyNames, getDisplayedStyleRules, getStyleRule, getStyleSectionSubtitles, waitForPartialContentOfSelectedElementsNode, waitForContentOfSelectedElementsNode, waitForElementsStyleSection, waitForPropertyToHighlight, waitForStyleRule} from '../helpers/elements-helpers.js';
 
 const PROPERTIES_TO_DELETE_SELECTOR = '#properties-to-delete';
 const PROPERTIES_TO_INSPECT_SELECTOR = '#properties-to-inspect';
@@ -17,6 +17,7 @@ const SECOND_PROPERTY_NAME_SELECTOR = '.tree-outline li:nth-of-type(2) > .webkit
 const FIRST_PROPERTY_VALUE_SELECTOR = '.tree-outline li:nth-of-type(1) > .value';
 const RULE1_SELECTOR = '.rule1';
 const RULE2_SELECTOR = '.rule2';
+const LAYER_SEPARATOR_SELECTOR = '.layer-separator';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const deletePropertyByBackspace = async (selector: string, root?: puppeteer.ElementHandle<Element>) => {
@@ -32,7 +33,7 @@ const goToResourceAndWaitForStyleSection = async (path: string) => {
   await waitForElementsStyleSection();
 
   // Check to make sure we have the correct node selected after opening a file.
-  await waitForContentOfSelectedElementsNode('<body>\u200B');
+  await waitForPartialContentOfSelectedElementsNode('<body>\u200B');
 
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(50);
@@ -77,6 +78,20 @@ describe('The Styles pane', async () => {
     await click(FIRST_PROPERTY_VALUE_SELECTOR, {root: testElementRule});
 
     await waitForPropertyToHighlight('html', '--title-color');
+  });
+
+  it('can jump to an unexpanded CSS variable definition', async () => {
+    const {frontend} = getBrowserAndPages();
+    await goToResourceAndWaitForStyleSection('elements/css-variables-many.html');
+
+    // Select div that we will inspect the CSS variables for
+    await frontend.keyboard.press('ArrowRight');
+    await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
+
+    const testElementRule = await getStyleRule(PROPERTIES_TO_INSPECT_SELECTOR);
+    await click(FIRST_PROPERTY_VALUE_SELECTOR, {root: testElementRule});
+
+    await waitForPropertyToHighlight('html', '--color56');
   });
 
   it('displays the correct value when editing CSS var() functions', async () => {
@@ -208,7 +223,8 @@ describe('The Styles pane', async () => {
         'The correct rule is displayed');
   });
 
-  it('can edit multiple constructed stylesheets', async () => {
+  // Flaky on mac after introducing pooled frontend instances.
+  it.skipOnPlatforms(['mac'], '[crbug.com/1297458] can edit multiple constructed stylesheets', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/multiple-constructed-stylesheets.html');
 
@@ -272,8 +288,7 @@ describe('The Styles pane', async () => {
     assert.deepEqual(computedStyles, ['rgb(255, 0, 0)', 'rgb(255, 0, 0)'], 'Styles are not correct after the update');
   });
 
-  // Consistently timing out on Mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/1218736] can display and edit container queries', async () => {
+  it('can display and edit container queries', async () => {
     const {frontend} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/css-container-queries.html');
 
@@ -312,5 +327,80 @@ describe('The Styles pane', async () => {
       await getComputedStylesForDomNode(RULE2_SELECTOR, 'height'),
     ];
     assert.deepEqual(computedStyles, ['0px', '10px'], 'Styles are not correct after the update');
+  });
+
+  it('can display container link', async () => {
+    const {frontend} = getBrowserAndPages();
+    await goToResourceAndWaitForStyleSection('elements/css-container-queries.html');
+
+    // Select the child that has container queries.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1 rule2">\u200B</div>\u200B');
+
+    const rule1PropertiesSection = await getStyleRule(RULE1_SELECTOR);
+    const containerLink = await waitFor('.container-link', rule1PropertiesSection);
+    const nodeLabelName = await waitFor('.node-label-name', containerLink);
+    const nodeLabelNameContent = await nodeLabelName.evaluate(node => node.textContent as string);
+    assert.strictEqual(nodeLabelNameContent, 'body', 'container link name does not match');
+    containerLink.hover();
+    const queriedSizeDetails = await waitFor('.queried-size-details');
+    const queriedSizeDetailsContent =
+        await queriedSizeDetails.evaluate(node => (node as HTMLElement).innerText as string);
+    assert.strictEqual(
+        queriedSizeDetailsContent, '(size) width: 200px height: 0px', 'container queried details does not match');
+  });
+
+  it('can display @supports at-rules', async () => {
+    const {frontend} = getBrowserAndPages();
+    await goToResourceAndWaitForStyleSection('elements/css-supports.html');
+
+    // Select the child that has @supports rules.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
+
+    const rule1PropertiesSection = await getStyleRule(RULE1_SELECTOR);
+    const supportsQuery = await waitFor('.query.editable', rule1PropertiesSection);
+    const supportsQueryText = await supportsQuery.evaluate(node => (node as HTMLElement).innerText as string);
+    assert.deepEqual(supportsQueryText, '@supports (width: 10px)', 'incorrectly displayed @supports rule');
+  });
+
+  it('can display @layer separators', async () => {
+    const {frontend} = getBrowserAndPages();
+    await goToResourceAndWaitForStyleSection('elements/css-layers.html');
+
+    // Select the child that has @layer rules.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
+
+    const layerSeparators = await waitForFunction(async () => {
+      const layers = await $$(LAYER_SEPARATOR_SELECTOR);
+      return layers.length === 6 ? layers : null;
+    });
+    assertNotNullOrUndefined(layerSeparators);
+
+    const layerText = await Promise.all(layerSeparators.map(element => element.evaluate(node => node.textContent)));
+    assert.deepEqual(layerText, [
+      'Layer<anonymous>',
+      'Layerimportant',
+      'Layeroverrule',
+      'Layeroverrule.<anonymous>',
+      'Layerbase',
+      'Layer\xa0user\xa0agent\xa0stylesheet',
+    ]);
+  });
+
+  it('can click @layer separators to open layer tree', async () => {
+    const {frontend} = getBrowserAndPages();
+    await goToResourceAndWaitForStyleSection('elements/css-layers.html');
+
+    // Select the child that has @layer rules.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForContentOfSelectedElementsNode('<div class=\u200B"rule1">\u200B</div>\u200B');
+
+    const overruleButton = await waitFor('overrule[role="button"]', undefined, undefined, 'aria');
+    await click(overruleButton);
+
+    const treeElement = await waitFor('[data-node-key="2: overrule"]');
+    assertNotNullOrUndefined(treeElement);
   });
 });

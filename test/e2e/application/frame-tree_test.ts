@@ -33,13 +33,18 @@ const ensureApplicationPanel = async () => {
   }
 };
 
-describe('The Application Tab', async () => {
+declare global {
+  interface Window {
+    iFrameWindow: Window|null|undefined;
+  }
+}
+describe('[crbug.com/12]: The Application Tab', async () => {
   afterEach(async () => {
     const {target} = getBrowserAndPages();
     await target.evaluate(async () => {
       const registrations = await navigator.serviceWorker.getRegistrations();
       for (const registration of registrations) {
-        registration.unregister();
+        void registration.unregister();
       }
     });
   });
@@ -83,7 +88,6 @@ describe('The Application Tab', async () => {
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
-
   it('shows stack traces for OOPIF', async () => {
     await goToResource('application/js-oopif.html');
     await ensureApplicationPanel();
@@ -117,12 +121,12 @@ describe('The Application Tab', async () => {
     await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
 
     await target.evaluate(() => {
-      window.open('iframe.html');
+      window.iFrameWindow = window.open('iframe.html');
     });
 
     await doubleClickSourceTreeItem(OPENED_WINDOWS_SELECTOR);
     await waitFor(`${OPENED_WINDOWS_SELECTOR} + ol li:first-child`);
-    pressKey('ArrowDown');
+    void pressKey('ArrowDown');
 
     const fieldValuesTextContent = await waitForFunction(async () => {
       const fieldValues = await getTrimmedTextContent('.report-field-value');
@@ -138,6 +142,9 @@ describe('The Application Tab', async () => {
       'Yes',
     ];
     assert.deepEqual(fieldValuesTextContent, expected);
+    await target.evaluate(() => {
+      window.iFrameWindow?.close();
+    });
   });
 
   it('shows dedicated workers in the frame tree', async () => {
@@ -150,7 +157,7 @@ describe('The Application Tab', async () => {
     await target.reload();
     await doubleClickSourceTreeItem(WEB_WORKERS_SELECTOR);
     await waitFor(`${WEB_WORKERS_SELECTOR} + ol li:first-child`);
-    pressKey('ArrowDown');
+    void pressKey('ArrowDown');
 
     const fieldValuesTextContent = await waitForFunction(async () => {
       const fieldValues = await getTrimmedTextContent('.report-field-value');
@@ -168,13 +175,14 @@ describe('The Application Tab', async () => {
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
-  it('shows service workers in the frame tree', async () => {
+  // Flaky test
+  it.skipOnPlatforms(['win32', 'mac'], '[crbug.com/1231056]: shows service workers in the frame tree', async () => {
     await goToResource('application/service-worker-network.html');
     await click('#tab-resources');
     await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
     await doubleClickSourceTreeItem(SERVICE_WORKERS_SELECTOR);
     await waitFor(`${SERVICE_WORKERS_SELECTOR} + ol li:first-child`);
-    pressKey('ArrowDown');
+    void pressKey('ArrowDown');
 
     const fieldValuesTextContent = await waitForFunction(async () => {
       const fieldValues = await getTrimmedTextContent('.report-field-value');

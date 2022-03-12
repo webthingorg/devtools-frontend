@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "baseUrl": ".",
     "checkJs": true,
     "allowJs": true,
 
@@ -12,6 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "useUnknownInCatchVariables": false,
 
     "composite": true,
     "declaration": true,

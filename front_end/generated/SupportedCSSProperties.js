@@ -1,9 +1,8 @@
-// Copyright 2021 The Chromium Authors. All rights reserved.
+// Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 export const generatedProperties = [
-  {'name': '-webkit-app-region', 'keywords': ['none', 'drag', 'no-drag']},
   {'name': '-webkit-border-horizontal-spacing', 'inherited': true},
   {'name': '-webkit-border-image'},
   {'name': '-webkit-border-vertical-spacing', 'inherited': true},
@@ -66,14 +65,6 @@ export const generatedProperties = [
   {'name': '-webkit-tap-highlight-color', 'inherited': true},
   {'name': '-webkit-text-combine', 'inherited': true},
   {'name': '-webkit-text-decorations-in-effect', 'inherited': true},
-  {
-    'longhands': ['-webkit-text-emphasis-style', '-webkit-text-emphasis-color'],
-    'name': '-webkit-text-emphasis',
-    'inherited': true
-  },
-  {'name': '-webkit-text-emphasis-color', 'inherited': true},
-  {'name': '-webkit-text-emphasis-position', 'inherited': true},
-  {'name': '-webkit-text-emphasis-style', 'inherited': true},
   {'name': '-webkit-text-fill-color', 'inherited': true},
   {'name': '-webkit-text-orientation', 'inherited': true},
   {'name': '-webkit-text-security', 'inherited': true, 'keywords': ['none', 'disc', 'circle', 'square']},
@@ -129,6 +120,7 @@ export const generatedProperties = [
       'step-start', 'step-end'
     ]
   },
+  {'name': 'app-region', 'keywords': ['none', 'drag', 'no-drag']},
   {'name': 'appearance'},
   {'name': 'ascent-override'},
   {'name': 'aspect-ratio', 'keywords': ['auto']},
@@ -160,6 +152,7 @@ export const generatedProperties = [
   {'name': 'background-repeat-x'},
   {'name': 'background-repeat-y'},
   {'name': 'background-size', 'keywords': ['auto', 'cover', 'contain']},
+  {'name': 'base-palette'},
   {'name': 'baseline-shift', 'keywords': ['baseline', 'sub', 'super']},
   {'name': 'block-size', 'keywords': ['auto']},
   {
@@ -310,7 +303,7 @@ export const generatedProperties = [
   {'name': 'clip', 'keywords': ['auto']},
   {'name': 'clip-path', 'keywords': ['none']},
   {'name': 'clip-rule', 'inherited': true, 'keywords': ['nonzero', 'evenodd']},
-  {'name': 'color', 'inherited': true, 'keywords': ['currentcolor']},
+  {'name': 'color', 'keywords': ['currentcolor'], 'inherited': true},
   {'name': 'color-interpolation', 'inherited': true, 'keywords': ['auto', 'srgb', 'linearrgb']},
   {'name': 'color-interpolation-filters', 'inherited': true, 'keywords': ['auto', 'srgb', 'linearrgb']},
   {'name': 'color-rendering', 'inherited': true, 'keywords': ['auto', 'optimizespeed', 'optimizequality']},
@@ -332,9 +325,14 @@ export const generatedProperties = [
     'name': 'contain',
     'keywords': ['none', 'strict', 'content', 'size', 'layout', 'style', 'paint', 'inline-size', 'block-size']
   },
-  {'name': 'contain-intrinsic-size', 'keywords': ['auto']},
+  {'name': 'contain-intrinsic-block-size'},
+  {'name': 'contain-intrinsic-height', 'keywords': ['auto', 'none']},
+  {'name': 'contain-intrinsic-inline-size'},
+  {'longhands': ['contain-intrinsic-width', 'contain-intrinsic-height'], 'name': 'contain-intrinsic-size'},
+  {'name': 'contain-intrinsic-width', 'keywords': ['auto', 'none']},
+  {'longhands': ['container-type', 'container-name'], 'name': 'container'},
   {'name': 'container-name', 'keywords': ['none']},
-  {'name': 'container-type', 'keywords': ['none', 'block-size', 'inline-size']},
+  {'name': 'container-type', 'keywords': ['none', 'block-size', 'inline-size', 'size']},
   {'name': 'content'},
   {'name': 'content-visibility', 'keywords': ['visible', 'auto', 'hidden', 'hidden-matchable']},
   {'name': 'counter-increment', 'keywords': ['none']},
@@ -400,7 +398,7 @@ export const generatedProperties = [
   {'name': 'fill-rule', 'inherited': true, 'keywords': ['nonzero', 'evenodd']},
   {'name': 'filter', 'keywords': ['none']},
   {'longhands': ['flex-grow', 'flex-shrink', 'flex-basis'], 'name': 'flex'},
-  {'name': 'flex-basis', 'keywords': ['auto']},
+  {'name': 'flex-basis', 'keywords': ['auto', 'fit-content', 'min-content', 'max-content', 'content']},
   {'name': 'flex-direction', 'keywords': ['row', 'row-reverse', 'column', 'column-reverse']},
   {'longhands': ['flex-direction', 'flex-wrap'], 'name': 'flex-flow'},
   {'name': 'flex-grow'},
@@ -422,6 +420,7 @@ export const generatedProperties = [
   {'name': 'font-feature-settings', 'inherited': true, 'keywords': ['normal']},
   {'name': 'font-kerning', 'inherited': true, 'keywords': ['auto', 'normal', 'none']},
   {'name': 'font-optical-sizing', 'inherited': true, 'keywords': ['auto', 'none']},
+  {'inherited': true, 'keywords': ['normal', 'light', 'dark'], 'name': 'font-palette'},
   {
     'name': 'font-size',
     'inherited': true,
@@ -440,6 +439,14 @@ export const generatedProperties = [
     ]
   },
   {'name': 'font-style', 'inherited': true, 'keywords': ['normal', 'italic', 'oblique']},
+  {
+    'longhands': ['font-synthesis-weight', 'font-synthesis-style', 'font-synthesis-small-caps'],
+    'name': 'font-synthesis',
+    'inherited': true
+  },
+  {'name': 'font-synthesis-small-caps', 'inherited': true, 'keywords': ['auto', 'none']},
+  {'name': 'font-synthesis-style', 'inherited': true, 'keywords': ['auto', 'none']},
+  {'name': 'font-synthesis-weight', 'inherited': true, 'keywords': ['auto', 'none']},
   {
     'longhands': ['font-variant-ligatures', 'font-variant-caps', 'font-variant-numeric', 'font-variant-east-asian'],
     'name': 'font-variant',
@@ -476,7 +483,7 @@ export const generatedProperties = [
   },
   {'name': 'font-variation-settings', 'inherited': true, 'keywords': ['normal']},
   {'name': 'font-weight', 'inherited': true, 'keywords': ['normal', 'bold', 'bolder', 'lighter']},
-  {'name': 'forced-color-adjust', 'inherited': true, 'keywords': ['auto', 'none']},
+  {'name': 'forced-color-adjust', 'inherited': true, 'keywords': ['auto', 'none', 'preserve-parent-color']},
   {'longhands': ['row-gap', 'column-gap'], 'name': 'gap'},
   {
     'longhands': [
@@ -541,66 +548,7 @@ export const generatedProperties = [
   {
     'name': 'list-style-type',
     'inherited': true,
-    'keywords': [
-      'disc',
-      'circle',
-      'square',
-      'disclosure-open',
-      'disclosure-closed',
-      'decimal',
-      'decimal-leading-zero',
-      'arabic-indic',
-      'bengali',
-      'cambodian',
-      'khmer',
-      'devanagari',
-      'gujarati',
-      'gurmukhi',
-      'kannada',
-      'lao',
-      'malayalam',
-      'mongolian',
-      'myanmar',
-      'oriya',
-      'persian',
-      'urdu',
-      'telugu',
-      'tibetan',
-      'thai',
-      'lower-roman',
-      'upper-roman',
-      'lower-greek',
-      'lower-alpha',
-      'lower-latin',
-      'upper-alpha',
-      'upper-latin',
-      'cjk-earthly-branch',
-      'cjk-heavenly-stem',
-      'ethiopic-halehame',
-      'ethiopic-halehame-am',
-      'ethiopic-halehame-ti-er',
-      'ethiopic-halehame-ti-et',
-      'hangul',
-      'hangul-consonant',
-      'korean-hangul-formal',
-      'korean-hanja-formal',
-      'korean-hanja-informal',
-      'hebrew',
-      'armenian',
-      'lower-armenian',
-      'upper-armenian',
-      'georgian',
-      'cjk-ideographic',
-      'simp-chinese-formal',
-      'simp-chinese-informal',
-      'trad-chinese-formal',
-      'trad-chinese-informal',
-      'hiragana',
-      'katakana',
-      'hiragana-iroha',
-      'katakana-iroha',
-      'none'
-    ]
+    'keywords': ['disc', 'circle', 'square', 'disclosure-open', 'disclosure-closed', 'decimal', 'none']
   },
   {'longhands': ['margin-top', 'margin-right', 'margin-bottom', 'margin-left'], 'name': 'margin'},
   {'longhands': ['margin-block-start', 'margin-block-end'], 'name': 'margin-block'},
@@ -636,7 +584,7 @@ export const generatedProperties = [
     'name': 'mix-blend-mode',
     'keywords': [
       'normal', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light',
-      'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'
+      'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity', 'plus-lighter'
     ]
   },
   {'name': 'negative'},
@@ -672,6 +620,7 @@ export const generatedProperties = [
   {'name': 'overflow-wrap', 'inherited': true, 'keywords': ['normal', 'break-word', 'anywhere']},
   {'name': 'overflow-x', 'keywords': ['visible', 'hidden', 'scroll', 'auto', 'overlay', 'clip']},
   {'name': 'overflow-y', 'keywords': ['visible', 'hidden', 'scroll', 'auto', 'overlay', 'clip']},
+  {'name': 'override-colors'},
   {'longhands': ['overscroll-behavior-x', 'overscroll-behavior-y'], 'name': 'overscroll-behavior'},
   {'name': 'overscroll-behavior-block'},
   {'name': 'overscroll-behavior-inline'},
@@ -754,7 +703,7 @@ export const generatedProperties = [
   {'name': 'scroll-snap-align', 'keywords': ['none', 'start', 'end', 'center']},
   {'name': 'scroll-snap-stop', 'keywords': ['normal', 'always']},
   {'name': 'scroll-snap-type', 'keywords': ['none', 'x', 'y', 'block', 'inline', 'both', 'mandatory', 'proximity']},
-  {'name': 'scrollbar-gutter', 'inherited': false, 'keywords': ['auto', 'stable', 'always']},
+  {'name': 'scrollbar-gutter', 'inherited': false, 'keywords': ['auto', 'stable', 'both-edges']},
   {'name': 'scrollbar-width', 'inherited': false, 'keywords': ['auto', 'thin', 'none']},
   {'name': 'shape-image-threshold'},
   {'name': 'shape-margin', 'keywords': ['none']},
@@ -810,10 +759,17 @@ export const generatedProperties = [
     'name': 'text-decoration'
   },
   {'name': 'text-decoration-color', 'keywords': ['currentcolor']},
-  {'name': 'text-decoration-line', 'keywords': ['none', 'underline', 'overline', 'line-through', 'blink']},
+  {
+    'name': 'text-decoration-line',
+    'keywords': ['none', 'underline', 'overline', 'line-through', 'blink', 'spelling-error', 'grammar-error']
+  },
   {'name': 'text-decoration-skip-ink', 'inherited': true, 'keywords': ['none', 'auto']},
   {'name': 'text-decoration-style', 'keywords': ['solid', 'double', 'dotted', 'dashed', 'wavy']},
   {'name': 'text-decoration-thickness', 'inherited': true, 'keywords': ['auto', 'from-font']},
+  {'longhands': ['text-emphasis-style', 'text-emphasis-color'], 'name': 'text-emphasis', 'inherited': true},
+  {'name': 'text-emphasis-color', 'inherited': true, 'keywords': ['currentcolor']},
+  {'name': 'text-emphasis-position', 'inherited': true},
+  {'name': 'text-emphasis-style', 'inherited': true},
   {'name': 'text-indent', 'inherited': true},
   {'name': 'text-justify', 'inherited': true, 'keywords': ['auto', 'none', 'inter-word', 'distribute']},
   {'name': 'text-orientation', 'inherited': true, 'keywords': ['sideways', 'mixed', 'upright']},
@@ -832,7 +788,6 @@ export const generatedProperties = [
   },
   {'name': 'text-underline-offset', 'inherited': true, 'keywords': ['auto']},
   {'name': 'text-underline-position', 'inherited': true, 'keywords': ['auto', 'from-font', 'under', 'left', 'right']},
-  {'name': 'time-range'},
   {'name': 'top', 'keywords': ['auto']},
   {
     'name': 'touch-action',
@@ -872,7 +827,7 @@ export const generatedProperties = [
   {
     'name': 'white-space',
     'inherited': true,
-    'keywords': ['none', 'normal', 'pre', 'pre-wrap', 'pre-line', 'nowrap', '-webkit-nowrap', 'break-spaces']
+    'keywords': ['normal', 'pre', 'pre-wrap', 'pre-line', 'nowrap', '-webkit-nowrap', 'break-spaces']
   },
   {'name': 'widows', 'inherited': true},
   {'name': 'width', 'keywords': ['auto', 'fit-content', 'min-content', 'max-content']},
@@ -886,7 +841,6 @@ export const generatedProperties = [
   {'name': 'zoom'}
 ];
 export const generatedPropertyValues = {
-  '-webkit-app-region': {'values': ['none', 'drag', 'no-drag']},
   '-webkit-box-align': {'values': ['stretch', 'start', 'center', 'end', 'baseline']},
   '-webkit-box-decoration-break': {'values': ['slice', 'clone']},
   '-webkit-box-direction': {'values': ['normal', 'reverse']},
@@ -918,6 +872,7 @@ export const generatedPropertyValues = {
       'step-start', 'step-end'
     ]
   },
+  'app-region': {'values': ['none', 'drag', 'no-drag']},
   'aspect-ratio': {'values': ['auto']},
   'backdrop-filter': {'values': ['none']},
   'backface-visibility': {'values': ['visible', 'hidden']},
@@ -985,9 +940,10 @@ export const generatedPropertyValues = {
   'column-span': {'values': ['none', 'all']},
   'column-width': {'values': ['auto']},
   'contain': {'values': ['none', 'strict', 'content', 'size', 'layout', 'style', 'paint', 'inline-size', 'block-size']},
-  'contain-intrinsic-size': {'values': ['auto']},
+  'contain-intrinsic-height': {'values': ['auto', 'none']},
+  'contain-intrinsic-width': {'values': ['auto', 'none']},
   'container-name': {'values': ['none']},
-  'container-type': {'values': ['none', 'block-size', 'inline-size']},
+  'container-type': {'values': ['none', 'block-size', 'inline-size', 'size']},
   'content-visibility': {'values': ['visible', 'auto', 'hidden', 'hidden-matchable']},
   'counter-increment': {'values': ['none']},
   'counter-reset': {'values': ['none']},
@@ -1039,7 +995,7 @@ export const generatedPropertyValues = {
   'empty-cells': {'values': ['show', 'hide']},
   'fill-rule': {'values': ['nonzero', 'evenodd']},
   'filter': {'values': ['none']},
-  'flex-basis': {'values': ['auto']},
+  'flex-basis': {'values': ['auto', 'fit-content', 'min-content', 'max-content', 'content']},
   'flex-direction': {'values': ['row', 'row-reverse', 'column', 'column-reverse']},
   'flex-wrap': {'values': ['nowrap', 'wrap', 'wrap-reverse']},
   'float': {'values': ['none', 'left', 'right', 'inline-start', 'inline-end']},
@@ -1047,6 +1003,7 @@ export const generatedPropertyValues = {
   'font-feature-settings': {'values': ['normal']},
   'font-kerning': {'values': ['auto', 'normal', 'none']},
   'font-optical-sizing': {'values': ['auto', 'none']},
+  'font-palette': {'values': ['normal', 'light', 'dark']},
   'font-size': {
     'values': [
       'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', 'xxx-large', 'larger', 'smaller',
@@ -1061,6 +1018,9 @@ export const generatedPropertyValues = {
     ]
   },
   'font-style': {'values': ['normal', 'italic', 'oblique']},
+  'font-synthesis-small-caps': {'values': ['auto', 'none']},
+  'font-synthesis-style': {'values': ['auto', 'none']},
+  'font-synthesis-weight': {'values': ['auto', 'none']},
   'font-variant-caps': {
     'values': ['normal', 'small-caps', 'all-small-caps', 'petite-caps', 'all-petite-caps', 'unicase', 'titling-caps']
   },
@@ -1084,7 +1044,7 @@ export const generatedPropertyValues = {
   },
   'font-variation-settings': {'values': ['normal']},
   'font-weight': {'values': ['normal', 'bold', 'bolder', 'lighter']},
-  'forced-color-adjust': {'values': ['auto', 'none']},
+  'forced-color-adjust': {'values': ['auto', 'none', 'preserve-parent-color']},
   'grid-auto-columns': {'values': ['auto', 'min-content', 'max-content']},
   'grid-auto-flow': {'values': ['row', 'column']},
   'grid-auto-rows': {'values': ['auto', 'min-content', 'max-content']},
@@ -1107,68 +1067,8 @@ export const generatedPropertyValues = {
   'line-height': {'values': ['normal']},
   'list-style-image': {'values': ['none']},
   'list-style-position': {'values': ['outside', 'inside']},
-  'list-style-type': {
-    'values': [
-      'disc',
-      'circle',
-      'square',
-      'disclosure-open',
-      'disclosure-closed',
-      'decimal',
-      'decimal-leading-zero',
-      'arabic-indic',
-      'bengali',
-      'cambodian',
-      'khmer',
-      'devanagari',
-      'gujarati',
-      'gurmukhi',
-      'kannada',
-      'lao',
-      'malayalam',
-      'mongolian',
-      'myanmar',
-      'oriya',
-      'persian',
-      'urdu',
-      'telugu',
-      'tibetan',
-      'thai',
-      'lower-roman',
-      'upper-roman',
-      'lower-greek',
-      'lower-alpha',
-      'lower-latin',
-      'upper-alpha',
-      'upper-latin',
-      'cjk-earthly-branch',
-      'cjk-heavenly-stem',
-      'ethiopic-halehame',
-      'ethiopic-halehame-am',
-      'ethiopic-halehame-ti-er',
-      'ethiopic-halehame-ti-et',
-      'hangul',
-      'hangul-consonant',
-      'korean-hangul-formal',
-      'korean-hanja-formal',
-      'korean-hanja-informal',
-      'hebrew',
-      'armenian',
-      'lower-armenian',
-      'upper-armenian',
-      'georgian',
-      'cjk-ideographic',
-      'simp-chinese-formal',
-      'simp-chinese-informal',
-      'trad-chinese-formal',
-      'trad-chinese-informal',
-      'hiragana',
-      'katakana',
-      'hiragana-iroha',
-      'katakana-iroha',
-      'none'
-    ]
-  },
+  'list-style-type':
+      {'values': ['disc', 'circle', 'square', 'disclosure-open', 'disclosure-closed', 'decimal', 'none']},
   'margin-block-end': {'values': ['auto']},
   'margin-block-start': {'values': ['auto']},
   'margin-bottom': {'values': ['auto']},
@@ -1190,7 +1090,7 @@ export const generatedPropertyValues = {
   'mix-blend-mode': {
     'values': [
       'normal', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light',
-      'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'
+      'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity', 'plus-lighter'
     ]
   },
   'object-fit': {'values': ['fill', 'contain', 'cover', 'none', 'scale-down']},
@@ -1237,7 +1137,7 @@ export const generatedPropertyValues = {
   'scroll-snap-align': {'values': ['none', 'start', 'end', 'center']},
   'scroll-snap-stop': {'values': ['normal', 'always']},
   'scroll-snap-type': {'values': ['none', 'x', 'y', 'block', 'inline', 'both', 'mandatory', 'proximity']},
-  'scrollbar-gutter': {'values': ['auto', 'stable', 'always']},
+  'scrollbar-gutter': {'values': ['auto', 'stable', 'both-edges']},
   'scrollbar-width': {'values': ['auto', 'thin', 'none']},
   'shape-margin': {'values': ['none']},
   'shape-outside': {'values': ['none']},
@@ -1255,10 +1155,12 @@ export const generatedPropertyValues = {
   'text-anchor': {'values': ['start', 'middle', 'end']},
   'text-combine-upright': {'values': ['none', 'all']},
   'text-decoration-color': {'values': ['currentcolor']},
-  'text-decoration-line': {'values': ['none', 'underline', 'overline', 'line-through', 'blink']},
+  'text-decoration-line':
+      {'values': ['none', 'underline', 'overline', 'line-through', 'blink', 'spelling-error', 'grammar-error']},
   'text-decoration-skip-ink': {'values': ['none', 'auto']},
   'text-decoration-style': {'values': ['solid', 'double', 'dotted', 'dashed', 'wavy']},
   'text-decoration-thickness': {'values': ['auto', 'from-font']},
+  'text-emphasis-color': {'values': ['currentcolor']},
   'text-justify': {'values': ['auto', 'none', 'inter-word', 'distribute']},
   'text-orientation': {'values': ['sideways', 'mixed', 'upright']},
   'text-overflow': {'values': ['clip', 'ellipsis']},
@@ -1288,8 +1190,7 @@ export const generatedPropertyValues = {
   'vector-effect': {'values': ['none', 'non-scaling-stroke']},
   'vertical-align': {'values': ['baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle']},
   'visibility': {'values': ['visible', 'hidden', 'collapse']},
-  'white-space':
-      {'values': ['none', 'normal', 'pre', 'pre-wrap', 'pre-line', 'nowrap', '-webkit-nowrap', 'break-spaces']},
+  'white-space': {'values': ['normal', 'pre', 'pre-wrap', 'pre-line', 'nowrap', '-webkit-nowrap', 'break-spaces']},
   'width': {'values': ['auto', 'fit-content', 'min-content', 'max-content']},
   'will-change': {'values': ['auto']},
   'word-break': {'values': ['normal', 'break-all', 'keep-all', 'break-word']},
@@ -1300,9 +1201,9 @@ export const generatedPropertyValues = {
 export const generatedAliasesFor = new Map([
   ['-epub-caption-side', 'caption-side'],
   ['-epub-text-combine', '-webkit-text-combine'],
-  ['-epub-text-emphasis', '-webkit-text-emphasis'],
-  ['-epub-text-emphasis-color', '-webkit-text-emphasis-color'],
-  ['-epub-text-emphasis-style', '-webkit-text-emphasis-style'],
+  ['-epub-text-emphasis', 'text-emphasis'],
+  ['-epub-text-emphasis-color', 'text-emphasis-color'],
+  ['-epub-text-emphasis-style', 'text-emphasis-style'],
   ['-epub-text-orientation', '-webkit-text-orientation'],
   ['-epub-text-transform', 'text-transform'],
   ['-epub-word-break', 'word-break'],
@@ -1319,6 +1220,7 @@ export const generatedAliasesFor = new Map([
   ['-webkit-animation-name', 'animation-name'],
   ['-webkit-animation-play-state', 'animation-play-state'],
   ['-webkit-animation-timing-function', 'animation-timing-function'],
+  ['-webkit-app-region', 'app-region'],
   ['-webkit-appearance', 'appearance'],
   ['-webkit-backface-visibility', 'backface-visibility'],
   ['-webkit-background-clip', 'background-clip'],
@@ -1388,6 +1290,10 @@ export const generatedAliasesFor = new Map([
   ['-webkit-shape-image-threshold', 'shape-image-threshold'],
   ['-webkit-shape-margin', 'shape-margin'],
   ['-webkit-shape-outside', 'shape-outside'],
+  ['-webkit-text-emphasis', 'text-emphasis'],
+  ['-webkit-text-emphasis-color', 'text-emphasis-color'],
+  ['-webkit-text-emphasis-position', 'text-emphasis-position'],
+  ['-webkit-text-emphasis-style', 'text-emphasis-style'],
   ['-webkit-text-size-adjust', 'text-size-adjust'],
   ['-webkit-transform', 'transform'],
   ['-webkit-transform-origin', 'transform-origin'],

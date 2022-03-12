@@ -2,17 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
+import type * as Platform from '../platform/platform.js';
+import * as Root from '../root/root.js';
 import type * as Protocol from '../../generated/protocol.js';
 
-import type {CSSModel} from './CSSModel.js'; // eslint-disable-line no-unused-vars
+import type {CSSModel} from './CSSModel.js';
 import {DeferredDOMNode} from './DOMModel.js';
 import type {FrameAssociated} from './FrameAssociated.js';
-import type {PageResourceLoadInitiator} from './PageResourceLoader.js'; // eslint-disable-line no-unused-vars
+import type {PageResourceLoadInitiator} from './PageResourceLoader.js';
 import {ResourceTreeModel} from './ResourceTreeModel.js';
 
 const UIStrings = {
@@ -29,10 +29,10 @@ const str_ = i18n.i18n.registerUIStrings('core/sdk/CSSStyleSheetHeader.ts', UISt
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentProvider, FrameAssociated {
-  _cssModel: CSSModel;
-  id: string;
-  frameId: string;
-  sourceURL: string;
+  #cssModelInternal: CSSModel;
+  id: Protocol.CSS.StyleSheetId;
+  frameId: Protocol.Page.FrameId;
+  sourceURL: Platform.DevToolsPath.UrlString;
   hasSourceURL: boolean;
   origin: Protocol.CSS.StyleSheetOrigin;
   title: string;
@@ -47,22 +47,20 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
   contentLength: number;
   ownerNode: DeferredDOMNode|undefined;
   sourceMapURL: string|undefined;
-  _originalContentProvider: TextUtils.StaticContentProvider.StaticContentProvider|null;
+  #originalContentProviderInternal: TextUtils.StaticContentProvider.StaticContentProvider|null;
 
   constructor(cssModel: CSSModel, payload: Protocol.CSS.CSSStyleSheetHeader) {
-    this._cssModel = cssModel;
+    this.#cssModelInternal = cssModel;
     this.id = payload.styleSheetId;
     this.frameId = payload.frameId;
-    this.sourceURL = payload.sourceURL;
+    this.sourceURL = payload.sourceURL as Platform.DevToolsPath.UrlString;
     this.hasSourceURL = Boolean(payload.hasSourceURL);
     this.origin = payload.origin;
     this.title = payload.title;
     this.disabled = payload.disabled;
     this.isInline = payload.isInline;
     this.isMutable = payload.isMutable;
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.isConstructed = (payload as any).isConstructed;
+    this.isConstructed = payload.isConstructed;
     this.startLine = payload.startLine;
     this.startColumn = payload.startColumn;
     this.endLine = payload.endLine;
@@ -72,22 +70,22 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
       this.ownerNode = new DeferredDOMNode(cssModel.target(), payload.ownerNode);
     }
     this.sourceMapURL = payload.sourceMapURL;
-    this._originalContentProvider = null;
+    this.#originalContentProviderInternal = null;
   }
 
   originalContentProvider(): TextUtils.ContentProvider.ContentProvider {
-    if (!this._originalContentProvider) {
+    if (!this.#originalContentProviderInternal) {
       const lazyContent = (async(): Promise<TextUtils.ContentProvider.DeferredContent> => {
-        const originalText = await this._cssModel.originalStyleSheetText(this);
+        const originalText = await this.#cssModelInternal.originalStyleSheetText(this);
         if (originalText === null) {
           return {content: null, error: i18nString(UIStrings.couldNotFindTheOriginalStyle), isEncoded: false};
         }
         return {content: originalText, isEncoded: false};
       });
-      this._originalContentProvider =
+      this.#originalContentProviderInternal =
           new TextUtils.StaticContentProvider.StaticContentProvider(this.contentURL(), this.contentType(), lazyContent);
     }
-    return this._originalContentProvider;
+    return this.#originalContentProviderInternal;
   }
 
   setSourceMapURL(sourceMapURL?: string): void {
@@ -95,23 +93,27 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
   }
 
   cssModel(): CSSModel {
-    return this._cssModel;
+    return this.#cssModelInternal;
   }
 
   isAnonymousInlineStyleSheet(): boolean {
-    return !this.resourceURL() && !this._cssModel.sourceMapManager().sourceMapForClient(this);
+    return !this.resourceURL() && !this.#cssModelInternal.sourceMapManager().sourceMapForClient(this);
   }
 
   isConstructedByNew(): boolean {
     return this.isConstructed && this.sourceURL.length === 0;
   }
 
-  resourceURL(): string {
-    return this.isViaInspector() ? this._viaInspectorResourceURL() : this.sourceURL;
+  resourceURL(): Platform.DevToolsPath.UrlString {
+    const url = this.isViaInspector() ? this.viaInspectorResourceURL() : this.sourceURL;
+    if (!url && Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES)) {
+      return this.dynamicStyleURL();
+    }
+    return url;
   }
 
-  _viaInspectorResourceURL(): string {
-    const model = this._cssModel.target().model(ResourceTreeModel);
+  private getFrameURLPath(): string {
+    const model = this.#cssModelInternal.target().model(ResourceTreeModel);
     console.assert(Boolean(model));
     if (!model) {
       return '';
@@ -122,12 +124,19 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
     }
     console.assert(Boolean(frame));
     const parsedURL = new Common.ParsedURL.ParsedURL(frame.url);
-    let fakeURL = 'inspector://' + parsedURL.host + parsedURL.folderPathComponents;
-    if (!fakeURL.endsWith('/')) {
-      fakeURL += '/';
+    let urlPath = parsedURL.host + parsedURL.folderPathComponents;
+    if (!urlPath.endsWith('/')) {
+      urlPath += '/';
     }
-    fakeURL += 'inspector-stylesheet';
-    return fakeURL;
+    return urlPath;
+  }
+
+  private viaInspectorResourceURL(): Platform.DevToolsPath.UrlString {
+    return `inspector://${this.getFrameURLPath()}inspector-stylesheet` as Platform.DevToolsPath.UrlString;
+  }
+
+  private dynamicStyleURL(): Platform.DevToolsPath.UrlString {
+    return `stylesheet://${this.getFrameURLPath()}style#${this.id}` as Platform.DevToolsPath.UrlString;
   }
 
   lineNumberInSource(lineNumberInStyleSheet: number): number {
@@ -149,7 +158,7 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
     return afterStart && beforeEnd;
   }
 
-  contentURL(): string {
+  contentURL(): Platform.DevToolsPath.UrlString {
     return this.resourceURL();
   }
 
@@ -163,7 +172,7 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
 
   async requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
     try {
-      const cssText = await this._cssModel.getStyleSheetText(this.id);
+      const cssText = await this.#cssModelInternal.getStyleSheetText(this.id);
       return {content: (cssText as string), isEncoded: false};
     } catch (err) {
       return {

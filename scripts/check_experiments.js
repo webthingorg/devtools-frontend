@@ -15,7 +15,7 @@ const parseOptions = {
   range: true,
 };
 
-const USER_METRICS_ENUM_ENDPOINT = '__lastValidEnumPosition';
+const USER_METRICS_ENUM_ENDPOINT = 'MaxValue';
 
 /**
  * Determines if a node is a class declaration.
@@ -28,7 +28,6 @@ function isClassNameDeclaration(node, className) {
   }
   return isClassDeclaration;
 }
-
 
 /**
  * Determines if a node is an typescript enum declaration.
@@ -125,7 +124,7 @@ function getMainImplExperimentList(mainImplFile, experimentNames) {
   }
 
   // Find function in MainImpl Class
-  const initializeExperimentNode = findFunctionInClass(mainImplClassNode, '_initializeExperiments');
+  const initializeExperimentNode = findFunctionInClass(mainImplClassNode, 'initializeExperiments');
   if (!initializeExperimentNode) {
     return null;
   }
@@ -163,8 +162,7 @@ function getMainImplExperimentList(mainImplFile, experimentNames) {
  * Determines if AST Node is the DevtoolsExperiments Enum declaration
  */
 function isExperimentEnumDeclaration(node) {
-  return node.type === 'ExportNamedDeclaration' && node.declaration.declarations &&
-      node.declaration.declarations[0].id.name === 'DevtoolsExperiments';
+  return node.type === 'ExportNamedDeclaration' && node?.declaration?.id?.name === 'DevtoolsExperiments';
 }
 
 /**
@@ -174,9 +172,7 @@ function getUserMetricExperimentList(userMetricsFile) {
   const userMetricsAST = espree.parse(userMetricsFile, {ecmaVersion: 11, sourceType: 'module', range: true});
   for (const node of userMetricsAST.body) {
     if (isExperimentEnumDeclaration(node)) {
-      return node.declaration.declarations[0].init.properties.map(property => {
-        return property.key.value;
-      });
+      return node.declaration.members.map(member => member.id.value);
     }
   }
   return null;

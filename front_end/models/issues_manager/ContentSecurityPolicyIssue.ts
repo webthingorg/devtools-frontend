@@ -10,7 +10,6 @@ import {Issue, IssueCategory, IssueKind} from './Issue.js';
 import type {LazyMarkdownIssueDescription, MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 import {resolveLazyDescription} from './MarkdownIssueDescription.js';
 
-
 const UIStrings = {
   /**
   *@description Title for CSP url link
@@ -37,16 +36,17 @@ const str_ = i18n.i18n.registerUIStrings('models/issues_manager/ContentSecurityP
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class ContentSecurityPolicyIssue extends Issue {
-  private issueDetails: Protocol.Audits.ContentSecurityPolicyIssueDetails;
+  #issueDetails: Protocol.Audits.ContentSecurityPolicyIssueDetails;
 
   constructor(
-      issueDetails: Protocol.Audits.ContentSecurityPolicyIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
+      issueDetails: Protocol.Audits.ContentSecurityPolicyIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel,
+      issueId?: Protocol.Audits.IssueId) {
     const issueCode = [
       Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue,
       issueDetails.contentSecurityPolicyViolationType,
     ].join('::');
-    super(issueCode, issuesModel);
-    this.issueDetails = issueDetails;
+    super(issueCode, issuesModel, issueId);
+    this.#issueDetails = issueDetails;
   }
 
   getCategory(): IssueCategory {
@@ -54,7 +54,7 @@ export class ContentSecurityPolicyIssue extends Issue {
   }
 
   primaryKey(): string {
-    return JSON.stringify(this.issueDetails, [
+    return JSON.stringify(this.#issueDetails, [
       'blockedURL',
       'contentSecurityPolicyViolationType',
       'violatedDirective',
@@ -68,7 +68,7 @@ export class ContentSecurityPolicyIssue extends Issue {
   }
 
   getDescription(): MarkdownIssueDescription|null {
-    const description = issueDescriptions.get(this.issueDetails.contentSecurityPolicyViolationType);
+    const description = issueDescriptions.get(this.#issueDetails.contentSecurityPolicyViolationType);
     if (!description) {
       return null;
     }
@@ -76,11 +76,11 @@ export class ContentSecurityPolicyIssue extends Issue {
   }
 
   details(): Protocol.Audits.ContentSecurityPolicyIssueDetails {
-    return this.issueDetails;
+    return this.#issueDetails;
   }
 
   getKind(): IssueKind {
-    if (this.issueDetails.isReportOnly) {
+    if (this.#issueDetails.isReportOnly) {
       return IssueKind.Improvement;
     }
     return IssueKind.PageError;
@@ -93,7 +93,7 @@ export class ContentSecurityPolicyIssue extends Issue {
       console.warn('Content security policy issue without details received.');
       return [];
     }
-    return [new ContentSecurityPolicyIssue(cspDetails, issuesModel)];
+    return [new ContentSecurityPolicyIssue(cspDetails, issuesModel, inspectorIssue.issueId)];
   }
 }
 

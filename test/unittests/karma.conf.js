@@ -18,6 +18,9 @@ const DEBUG_ENABLED = Boolean(process.env['DEBUG_TEST']);
 const REPEAT_ENABLED = Boolean(process.env['REPEAT']);
 const COVERAGE_ENABLED = Boolean(process.env['COVERAGE']) || Boolean(USER_DEFINED_COVERAGE_FOLDERS);
 const EXPANDED_REPORTING = Boolean(process.env['EXPANDED_REPORTING']);
+const KARMA_TIMEOUT = process.env['KARMA_TIMEOUT'] ? Number(process.env['KARMA_TIMEOUT']) : undefined;
+
+const MOCHA_FGREP = process.env['MOCHA_FGREP'] || undefined;
 
 // true by default
 const TEXT_COVERAGE_ENABLED = COVERAGE_ENABLED && !process.env['NO_TEXT_COVERAGE'];
@@ -89,19 +92,12 @@ const TEST_FILES =
         })
         .flat();
 
-
 const TEST_FILES_SOURCE_MAPS = TEST_FILES.map(fileName => `${fileName}.map`);
 
 const DEFAULT_PREPROCESSING_FOLDERS = {
-  // We need to exclude `ui/components/docs/` from the coverage report, as it uses top-leve await,
-  // which the processor can't handle. However, minimatch patterns don't allow for exclusions of
-  // nested folders. Therefore, we have to manually exclude `ui` first, add another rule to explicitly
-  // include `ui`, but exclude `ui/components` and then a last rule to include `ui/components`, but not
-  // `ui/components/docs`.
-  [path.join(GEN_DIRECTORY, 'front_end/!(third_party|ui)/**/*.{js,mjs}')]: [...coveragePreprocessors],
-  [path.join(GEN_DIRECTORY, 'front_end/ui/!(components)/**/*.{js,mjs}')]: [...coveragePreprocessors],
-  [path.join(GEN_DIRECTORY, 'front_end/ui/components/!(docs)/**/*.{js,mjs}')]: [...coveragePreprocessors],
+  [path.join(GEN_DIRECTORY, 'front_end/!(third_party)/**/*.{js,mjs}')]: [...coveragePreprocessors],
   [path.join(GEN_DIRECTORY, 'inspector_overlay/**/*.{js,mjs}')]: [...coveragePreprocessors],
+  [path.join(GEN_DIRECTORY, 'front_end/third_party/i18n/**/*.{js,mjs}')]: [...coveragePreprocessors],
 };
 const USER_DEFINED_PROCESSING_FOLDERS = {
   [path.join(GEN_DIRECTORY, `${USER_DEFINED_COVERAGE_FOLDERS}/**/*.{js,mjs}`)]: [...coveragePreprocessors]
@@ -169,6 +165,10 @@ module.exports = function(config) {
        * so.
        */
       targetDir,
+
+      mocha: {
+        grep: MOCHA_FGREP,
+      }
     },
 
     plugins: [
@@ -192,9 +192,17 @@ module.exports = function(config) {
       '/locales': `/base/${targetDir}/front_end/core/i18n/locales`
     },
 
-    coverageReporter: {dir: COVERAGE_OUTPUT_DIRECTORY, subdir: '.', reporters: istanbulReportOutputs},
+    coverageReporter: {
+      dir: COVERAGE_OUTPUT_DIRECTORY,
+      subdir: '.',
+      reporters: istanbulReportOutputs,
+    },
 
     singleRun,
+
+    pingTimeout: KARMA_TIMEOUT,
+    browserNoActivityTimeout: KARMA_TIMEOUT,
+    browserSocketTimeout: KARMA_TIMEOUT,
 
     mochaReporter: {
       showDiff: true,

@@ -6,16 +6,19 @@ import {assert, AssertionError} from 'chai';
 import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
-import {reloadDevTools} from '../conductor/hooks.js';
+import {getDevToolsFrontendHostname, reloadDevTools} from '../conductor/hooks.js';
 import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
-import {AsyncScope} from './mocha-extensions.js';
+import {AsyncScope} from './async-scope.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Window {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     __pendingEvents: Map<string, Event[]>;
+
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    __getRenderCoordinatorPendingFrames(): number;
   }
 }
 
@@ -55,37 +58,46 @@ export const getElementPosition =
     element = selector;
   }
 
-  const rect = await element.evaluate((element: Element) => {
+  const rectData = await element.evaluate((element: Element) => {
     if (!element) {
       return {};
     }
 
-    const {left, top, width, height} = element.getBoundingClientRect();
-    return {left, top, width, height};
-  });
+    const isConnected = element.isConnected;
 
-  if (rect.left === undefined) {
+    const {left, top, width, height} = element.getBoundingClientRect();
+    return {left, top, width, height, isConnected};
+  });
+  if (!rectData.isConnected) {
+    throw new Error('Element is no longer attached to the dom');
+  }
+
+  if (rectData.left === undefined) {
     throw new Error(`Unable to find element with selector "${selector}"`);
   }
 
-  let pixelsFromLeft = rect.width * 0.5;
+  let pixelsFromLeft = rectData.width * 0.5;
   if (maxPixelsFromLeft && pixelsFromLeft > maxPixelsFromLeft) {
     pixelsFromLeft = maxPixelsFromLeft;
   }
 
   return {
-    x: rect.left + pixelsFromLeft,
-    y: rect.top + rect.height * 0.5,
+    x: rectData.left + pixelsFromLeft,
+    y: rectData.top + rectData.height * 0.5,
   };
 };
 
-interface ClickOptions extends puppeteer.ClickOptions {
+export interface ClickOptions {
+  root?: puppeteer.JSHandle;
+  clickOptions?: PuppeteerClickOptions;
+  maxPixelsFromLeft?: number;
+}
+
+interface PuppeteerClickOptions extends puppeteer.ClickOptions {
   modifier?: 'ControlOrMeta';
 }
 
-export const click = async (
-    selector: string|puppeteer.ElementHandle,
-    options?: {root?: puppeteer.JSHandle, clickOptions?: ClickOptions, maxPixelsFromLeft?: number}) => {
+export const click = async (selector: string|puppeteer.ElementHandle, options?: ClickOptions) => {
   const {frontend} = getBrowserAndPages();
   const clickableElement =
       await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
@@ -128,7 +140,8 @@ export const typeText = async (text: string) => {
   await frontend.keyboard.type(text);
 };
 
-export const pressKey = async (key: string, modifiers?: {control?: boolean, alt?: boolean, shift?: boolean}) => {
+export const pressKey =
+    async (key: puppeteer.KeyInput, modifiers?: {control?: boolean, alt?: boolean, shift?: boolean}) => {
   const {frontend} = getBrowserAndPages();
   if (modifiers) {
     if (modifiers.control) {
@@ -146,7 +159,7 @@ export const pressKey = async (key: string, modifiers?: {control?: boolean, alt?
       await frontend.keyboard.down('Shift');
     }
   }
-  await frontend.keyboard.press(key as puppeteer.KeyInput);
+  await frontend.keyboard.press(key);
   if (modifiers) {
     if (modifiers.shift) {
       await frontend.keyboard.up('Shift');
@@ -171,18 +184,20 @@ export const pasteText = async (text: string) => {
 };
 
 // Get a single element handle. Uses `pierce` handler per default for piercing Shadow DOM.
-export const $ = async (selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
+export const $ =
+    async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root as puppeteer.ElementHandle : frontend;
-  const element = await rootElement.$(`${handler}/${selector}`);
+  const element = await rootElement.$<ElementType>(`${handler}/${selector}`);
   return element;
 };
 
 // Get multiple element handles. Uses `pierce` handler per default for piercing Shadow DOM.
-export const $$ = async (selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
+export const $$ =
+    async<ElementType extends Element = Element>(selector: string, root?: puppeteer.JSHandle, handler = 'pierce') => {
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root.asElement() || frontend : frontend;
-  const elements = await rootElement.$$(`${handler}/${selector}`);
+  const elements = await rootElement.$$<ElementType>(`${handler}/${selector}`);
   return elements;
 };
 
@@ -208,10 +223,10 @@ export const $$textContent = async (textContent: string, root?: puppeteer.JSHand
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
-export const waitFor =
-    async (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
+export const waitFor = async<ElementType extends Element = Element>(
+    selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope(), handler?: string) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
-                                 const element = await $(selector, root, handler);
+                                 const element = await $<ElementType>(selector, root, handler);
                                  return (element || undefined);
                                }, asyncScope));
 };
@@ -237,6 +252,10 @@ export const waitForNone =
 
 export const waitForAria = (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
   return waitFor(selector, root, asyncScope, 'aria');
+};
+
+export const waitForAriaNone = (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
+  return waitForNone(selector, root, asyncScope, 'aria');
 };
 
 export const waitForElementWithTextContent =
@@ -352,6 +371,16 @@ export const enableExperiment = async (
   await reloadDevTools(options);
 };
 
+export const setDevToolsSettings = async (settings: Record<string, string>) => {
+  const {frontend} = getBrowserAndPages();
+  await frontend.evaluate(settings => {
+    for (const name in settings) {
+      globalThis.InspectorFrontendHost.setPreference(name, JSON.stringify(settings[name]));
+    }
+  }, settings);
+  await reloadDevTools();
+};
+
 export const goTo = async (url: string) => {
   const {target} = getBrowserAndPages();
   await target.goto(url);
@@ -401,9 +430,9 @@ export const step = async (description: string, step: Function) => {
 };
 
 export const waitForAnimationFrame = async () => {
-  const {target} = getBrowserAndPages();
+  const {frontend} = getBrowserAndPages();
 
-  await target.waitForFunction(() => {
+  await frontend.waitForFunction(() => {
     return new Promise(resolve => {
       requestAnimationFrame(resolve);
     });
@@ -411,11 +440,11 @@ export const waitForAnimationFrame = async () => {
 };
 
 export const activeElement = async(): Promise<puppeteer.ElementHandle> => {
-  const {target} = getBrowserAndPages();
+  const {frontend} = getBrowserAndPages();
 
   await waitForAnimationFrame();
 
-  return target.evaluateHandle(() => {
+  return frontend.evaluateHandle(() => {
     let activeElement = document.activeElement;
 
     while (activeElement && activeElement.shadowRoot) {
@@ -431,18 +460,35 @@ export const activeElementTextContent = async () => {
   return element.evaluate(node => node.textContent);
 };
 
-export const tabForward = async () => {
-  const {target} = getBrowserAndPages();
-
-  await target.keyboard.press('Tab');
+export const activeElementAccessibleName = async () => {
+  const element = await activeElement();
+  return element.evaluate(node => node.getAttribute('aria-label'));
 };
 
-export const tabBackward = async () => {
-  const {target} = getBrowserAndPages();
+export const tabForward = async (page?: puppeteer.Page) => {
+  let targetPage: puppeteer.Page;
+  if (page) {
+    targetPage = page;
+  } else {
+    const {frontend} = getBrowserAndPages();
+    targetPage = frontend;
+  }
 
-  await target.keyboard.down('Shift');
-  await target.keyboard.press('Tab');
-  await target.keyboard.up('Shift');
+  await targetPage.keyboard.press('Tab');
+};
+
+export const tabBackward = async (page?: puppeteer.Page) => {
+  let targetPage: puppeteer.Page;
+  if (page) {
+    targetPage = page;
+  } else {
+    const {frontend} = getBrowserAndPages();
+    targetPage = frontend;
+  }
+
+  await targetPage.keyboard.down('Shift');
+  await targetPage.keyboard.press('Tab');
+  await targetPage.keyboard.up('Shift');
 };
 
 export const selectTextFromNodeToNode = async (
@@ -564,13 +610,20 @@ export const waitForClass = async(element: puppeteer.ElementHandle<Element>, cla
   });
 };
 
-export function assertNotNull<T>(val: T): asserts val is NonNullable<T> {
-  assert.isNotNull(val);
+/**
+ * This is useful to keep TypeScript happy in a test - if you have a value
+ * that's potentially `null` you can use this function to assert that it isn't,
+ * and satisfy TypeScript that the value is present.
+ */
+export function assertNotNullOrUndefined<T>(val: T): asserts val is NonNullable<T> {
+  if (val === null || val === undefined) {
+    throw new Error(`Expected given value to not be null/undefined but it was: ${val}`);
+  }
 }
 
 // We export Puppeteer so other test utils can import it from here and not rely
 // on Node modules resolution to import it.
-export {getBrowserAndPages, getTestServerPort, reloadDevTools, puppeteer};
+export {getBrowserAndPages, getDevToolsFrontendHostname, getTestServerPort, reloadDevTools, puppeteer};
 
 export function matchString(actual: string, expected: string|RegExp): true|string {
   if (typeof expected === 'string') {
@@ -621,10 +674,24 @@ export const matchStringTable = (actual: string[][], expected: (string|RegExp)[]
     matchTable(actual, expected, matchString);
 
 export async function renderCoordinatorQueueEmpty(): Promise<void> {
-  const {frontend} = await getBrowserAndPages();
+  const {frontend} = getBrowserAndPages();
   await frontend.evaluate(() => {
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
+      const pendingFrames = globalThis.__getRenderCoordinatorPendingFrames();
+      if (pendingFrames < 1) {
+        resolve();
+        return;
+      }
       globalThis.addEventListener('renderqueueempty', resolve, {once: true});
     });
   });
+}
+
+export async function setCheckBox(selector: string, wantChecked: boolean): Promise<void> {
+  const checkbox = await waitFor(selector);
+  const checked = await checkbox.evaluate(box => (box as HTMLInputElement).checked);
+  if (checked !== wantChecked) {
+    await click(`${selector} + label`);
+  }
+  assert.strictEqual(await checkbox.evaluate(box => (box as HTMLInputElement).checked), wantChecked);
 }

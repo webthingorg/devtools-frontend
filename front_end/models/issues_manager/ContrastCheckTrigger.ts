@@ -8,14 +8,13 @@ import * as SDK from '../../core/sdk/sdk.js';
 
 let contrastCheckTriggerInstance: ContrastCheckTrigger|null = null;
 
-export class ContrastCheckTrigger extends Common.ObjectWrapper.ObjectWrapper {
-  private pageLoadListeners: WeakMap<SDK.ResourceTreeModel.ResourceTreeModel, Common.EventTarget.EventDescriptor> =
+export class ContrastCheckTrigger {
+  #pageLoadListeners: WeakMap<SDK.ResourceTreeModel.ResourceTreeModel, Common.EventTarget.EventDescriptor> =
       new WeakMap();
-  private frameAddedListeners: WeakMap<SDK.ResourceTreeModel.ResourceTreeModel, Common.EventTarget.EventDescriptor> =
+  #frameAddedListeners: WeakMap<SDK.ResourceTreeModel.ResourceTreeModel, Common.EventTarget.EventDescriptor> =
       new WeakMap();
 
   constructor() {
-    super();
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.ResourceTreeModel.ResourceTreeModel, this);
   }
 
@@ -28,42 +27,45 @@ export class ContrastCheckTrigger extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   async modelAdded(resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel): Promise<void> {
-    this.pageLoadListeners.set(
+    this.#pageLoadListeners.set(
         resourceTreeModel,
-        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, this.pageLoaded, this));
-    this.frameAddedListeners.set(
+        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, this.#pageLoaded, this));
+    this.#frameAddedListeners.set(
         resourceTreeModel,
-        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameAdded, this.frameAdded, this));
+        resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameAdded, this.#frameAdded, this));
   }
 
   modelRemoved(resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel): void {
-    const pageLoadListener = this.pageLoadListeners.get(resourceTreeModel);
+    const pageLoadListener = this.#pageLoadListeners.get(resourceTreeModel);
     if (pageLoadListener) {
-      Common.EventTarget.EventTarget.removeEventListeners([pageLoadListener]);
+      Common.EventTarget.removeEventListeners([pageLoadListener]);
     }
-    const frameAddedListeners = this.frameAddedListeners.get(resourceTreeModel);
+    const frameAddedListeners = this.#frameAddedListeners.get(resourceTreeModel);
     if (frameAddedListeners) {
-      Common.EventTarget.EventTarget.removeEventListeners([frameAddedListeners]);
+      Common.EventTarget.removeEventListeners([frameAddedListeners]);
     }
   }
 
-  private checkContrast(resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel): void {
+  #checkContrast(resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel): void {
     if (!Root.Runtime.experiments.isEnabled('contrastIssues')) {
       return;
     }
-    resourceTreeModel.target().auditsAgent().invoke_checkContrast({});
+    void resourceTreeModel.target().auditsAgent().invoke_checkContrast({});
   }
 
-  private pageLoaded(event: Common.EventTarget.EventTargetEvent): void {
-    const {resourceTreeModel} = event.data as {resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel};
-    this.checkContrast(resourceTreeModel);
+  #pageLoaded(event: Common.EventTarget
+                  .EventTargetEvent<{resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel, loadTime: number}>):
+      void {
+    const {resourceTreeModel} = event.data;
+    this.#checkContrast(resourceTreeModel);
   }
 
-  private async frameAdded(event: Common.EventTarget.EventTargetEvent): Promise<void> {
+  async #frameAdded(event: Common.EventTarget.EventTargetEvent<SDK.ResourceTreeModel.ResourceTreeFrame>):
+      Promise<void> {
     if (!Root.Runtime.experiments.isEnabled('contrastIssues')) {
       return;
     }
-    const frame = event.data as SDK.ResourceTreeModel.ResourceTreeFrame;
+    const frame = event.data;
     if (!frame.isMainFrame()) {
       return;
     }
@@ -72,7 +74,7 @@ export class ContrastCheckTrigger extends Common.ObjectWrapper.ObjectWrapper {
     const response = await frame.resourceTreeModel().target().runtimeAgent().invoke_evaluate(
         {expression: 'document.readyState', returnByValue: true});
     if (response.result && response.result.value === 'complete') {
-      this.checkContrast(frame.resourceTreeModel());
+      this.#checkContrast(frame.resourceTreeModel());
     }
   }
 }

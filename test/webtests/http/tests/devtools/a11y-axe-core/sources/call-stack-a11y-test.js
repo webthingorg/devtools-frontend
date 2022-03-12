@@ -15,7 +15,7 @@
           return;
         }
         wrapper = eval('(function call' + depth + '() { callWithAsyncStack(f, depth - 1) }) //# sourceURL=wrapper.js');
-        Promise.resolve().then(wrapper);
+        queueMicrotask(wrapper);
       }
       function testFunction() {
         callWithAsyncStack(() => {debugger}, 5);
@@ -25,8 +25,7 @@
 
   await SourcesTestRunner.startDebuggerTestPromise(/* quiet */ true);
   await SourcesTestRunner.runTestFunctionAndWaitUntilPausedPromise();
-  await TestRunner.addSnifferPromise(
-      Sources.CallStackSidebarPane.prototype, '_updatedForTest');
+  await TestRunner.addSnifferPromise(Sources.CallStackSidebarPane.prototype, 'updatedForTest');
 
   const callStackPane = Sources.CallStackSidebarPane.instance();
   const callStackElement = callStackPane.contentElement;

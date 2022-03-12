@@ -4,6 +4,7 @@
 
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import nodeTextStyles from './nodeText.css.js';
 
 const {render, html} = LitHtml;
 
@@ -16,36 +17,40 @@ export interface NodeTextData {
 export class NodeText extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-node-text`;
 
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private nodeTitle: string = '';
-  private nodeId?: string = '';
-  private nodeClasses?: string[] = [];
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #nodeTitle: string = '';
+  #nodeId?: string = '';
+  #nodeClasses?: string[] = [];
 
-  set data(data: NodeTextData) {
-    this.nodeTitle = data.nodeTitle;
-    this.nodeId = data.nodeId;
-    this.nodeClasses = data.nodeClasses;
-    this.render();
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [nodeTextStyles];
   }
 
-  private render(): void {
-    const hasId = Boolean(this.nodeId);
-    const hasNodeClasses = Boolean(this.nodeClasses && this.nodeClasses.length > 0);
+  set data(data: NodeTextData) {
+    this.#nodeTitle = data.nodeTitle;
+    this.#nodeId = data.nodeId;
+    this.#nodeClasses = data.nodeClasses;
+    this.#render();
+  }
+
+  #render(): void {
+    const hasId = Boolean(this.#nodeId);
+    const hasNodeClasses = Boolean(this.#nodeClasses && this.#nodeClasses.length > 0);
 
     const parts = [
-      html`<span class="node-label-name">${this.nodeTitle}</span>`,
+      html`<span class="node-label-name">${this.#nodeTitle}</span>`,
     ];
 
-    if (this.nodeId) {
+    if (this.#nodeId) {
       const classes = LitHtml.Directives.classMap({
         'node-label-id': true,
         'node-multiple-descriptors': hasNodeClasses,
       });
-      parts.push(html`<span class=${classes}>#${CSS.escape(this.nodeId)}</span>`);
+      parts.push(html`<span class=${classes}>#${CSS.escape(this.#nodeId)}</span>`);
     }
 
-    if (this.nodeClasses && this.nodeClasses.length > 0) {
-      const text = this.nodeClasses.map(c => `.${CSS.escape(c)}`).join('');
+    if (this.#nodeClasses && this.#nodeClasses.length > 0) {
+      const text = this.#nodeClasses.map(c => `.${CSS.escape(c)}`).join('');
       const classes = LitHtml.Directives.classMap({
         'node-label-class': true,
         'node-multiple-descriptors': hasId,
@@ -55,36 +60,9 @@ export class NodeText extends HTMLElement {
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
-    // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
     render(html`
-      <style>
-        .node-label-name {
-          color: var(--node-text-label-color, --dom-tag-name-color); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-
-        .node-label-class {
-          color: var(--node-text-class-color, --dom-attribute-name-color); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-
-        .node-label-id {
-          color: var(--node-text-id-color); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-
-        .node-label-class.node-multiple-descriptors {
-          color: var(--node-text-multiple-descriptors-class, var(--node-text-class-color, --dom-attribute-name-color)); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-
-        .node-label-id.node-multiple-descriptors {
-          color: var(--node-text-multiple-descriptors-id, var(--node-text-id-color, --dom-attribute-name-color)); /* stylelint-disable-line plugin/use_theme_colors */
-          /* See: crbug.com/1152736 for color variable migration. */
-        }
-      </style>
       ${parts}
-    `, this.shadow, {
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on

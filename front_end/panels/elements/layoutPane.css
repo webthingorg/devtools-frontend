@@ -1,3 +1,9 @@
+/*
+ * Copyright 2021 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
 * {
   box-sizing: border-box;
   font-size: 12px;
@@ -48,6 +54,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-width: 40px;
 }
 
 .checkbox-settings .checkbox-label {
@@ -89,8 +96,7 @@
 
 .elements {
   margin-top: 12px;
-  color: var(--dom-tag-name-color); /* stylelint-disable-line plugin/use_theme_colors */
-  /* See: crbug.com/1152736 for color variable migration. */
+  color: var(--color-token-tag);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
   gap: 8px;
@@ -138,7 +144,7 @@
 }
 
 .color-picker {
-  visibility: hidden;
+  opacity: 0%;
 }
 
 .color-picker-label {
@@ -154,7 +160,7 @@
 }
 /* We set dimensions for the invisible input to support quick highlight a11y feature
 that uses the dimensions to draw an outline around the element. */
-.color-picker-label input[type=color] {
+.color-picker-label input[type="color"] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -174,8 +180,4 @@ that uses the dimensions to draw an outline around the element. */
 
 .node-text-container:hover {
   background-color: var(--item-hover-color);
-}
-
-:host-context(.-theme-with-dark-background) input[type="checkbox"] {
-  filter: invert(80%);
 }

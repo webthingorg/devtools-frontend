@@ -1,4 +1,136 @@
 {
+  "flow-report/src/i18n/ui-strings.js | allReports": {
+    "message": "Alle rapporter"
+  },
+  "flow-report/src/i18n/ui-strings.js | categories": {
+    "message": "Kategorier"
+  },
+  "flow-report/src/i18n/ui-strings.js | categoryAccessibility": {
+    "message": "Tilgjengelighet"
+  },
+  "flow-report/src/i18n/ui-strings.js | categoryBestPractices": {
+    "message": "Gode fremgangsmåter"
+  },
+  "flow-report/src/i18n/ui-strings.js | categoryPerformance": {
+    "message": "Resultater"
+  },
+  "flow-report/src/i18n/ui-strings.js | categoryProgressiveWebApp": {
+    "message": "Progressivt nettprogram"
+  },
+  "flow-report/src/i18n/ui-strings.js | categorySeo": {
+    "message": "SEO"
+  },
+  "flow-report/src/i18n/ui-strings.js | desktop": {
+    "message": "Datamaskin"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpDialogTitle": {
+    "message": "Forstå Lighthouse-flytrapporten"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpLabel": {
+    "message": "Forstå flyter"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseInstructionNavigation": {
+    "message": "Bruk navigasjonsrapporter for å …"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseInstructionSnapshot": {
+    "message": "Bruk oversiktsrapporter for å …"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseInstructionTimespan": {
+    "message": "Bruk tidsromrapporter for å …"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseNavigation1": {
+    "message": "skaffe en Lighthouse-ytelsespoengsum"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseNavigation2": {
+    "message": "måle ytelsesverdier knyttet til sideinnlasting, for eksempel Største innholdsrike opptegning (LCP) og Hastighetsindeks"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseNavigation3": {
+    "message": "vurdere egenskapene til progressive nettprogrammer"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseSnapshot1": {
+    "message": "finne tilgjengelighetsproblemer i enkeltsideapper (SPA-er) og komplekse skjemaer"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseSnapshot2": {
+    "message": "evaluere anbefalte fremgangsmåter for menyer og elementer i brukergrensesnittet som er skjult bak interaksjon"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseTimespan1": {
+    "message": "måle utseendeforskyvninger og JavaScript-kjøretid for en interaksjonsserie"
+  },
+  "flow-report/src/i18n/ui-strings.js | helpUseCaseTimespan2": {
+    "message": "oppdage muligheter til å oppnå bedre ytelse og brukeropplevelse for sider og enkeltsideapper (SPA-er) med lang levetid"
+  },
+  "flow-report/src/i18n/ui-strings.js | highestImpact": {
+    "message": "Høyest effekt"
+  },
+  "flow-report/src/i18n/ui-strings.js | informativeAuditCount": {
+    "message": "{numInformative,plural, =1{{numInformative} informativ revisjon}other{{numInformative} informative revisjoner}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | mobile": {
+    "message": "Mobil"
+  },
+  "flow-report/src/i18n/ui-strings.js | navigationDescription": {
+    "message": "Sideinnlasting"
+  },
+  "flow-report/src/i18n/ui-strings.js | navigationLongDescription": {
+    "message": "Navigasjonsrapporter analyserer en enkelt sideinnlasting, akkurat som de opprinnelige Lighthouse-rapportene."
+  },
+  "flow-report/src/i18n/ui-strings.js | navigationReport": {
+    "message": "Navigasjonsrapport"
+  },
+  "flow-report/src/i18n/ui-strings.js | navigationReportCount": {
+    "message": "{numNavigation,plural, =1{{numNavigation} navigasjonsrapport}other{{numNavigation} navigasjonsrapporter}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | passableAuditCount": {
+    "message": "{numPassableAudits,plural, =1{{numPassableAudits} revisjon som kan bestås}other{{numPassableAudits} revisjoner som kan bestås}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | passedAuditCount": {
+    "message": "{numPassed,plural, =1{{numPassed} revisjon er bestått}other{{numPassed} revisjoner er bestått}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | ratingAverage": {
+    "message": "Gjennomsnitt"
+  },
+  "flow-report/src/i18n/ui-strings.js | ratingError": {
+    "message": "Feil"
+  },
+  "flow-report/src/i18n/ui-strings.js | ratingFail": {
+    "message": "Dårlig"
+  },
+  "flow-report/src/i18n/ui-strings.js | ratingPass": {
+    "message": "God"
+  },
+  "flow-report/src/i18n/ui-strings.js | save": {
+    "message": "Lagre"
+  },
+  "flow-report/src/i18n/ui-strings.js | snapshotDescription": {
+    "message": "Registrert sidetilstand"
+  },
+  "flow-report/src/i18n/ui-strings.js | snapshotLongDescription": {
+    "message": "Oversiktsrapporter analyserer siden i bestemte tilstander, vanligvis etter brukerinteraksjoner."
+  },
+  "flow-report/src/i18n/ui-strings.js | snapshotReport": {
+    "message": "Øyeblikksbilde-rapport"
+  },
+  "flow-report/src/i18n/ui-strings.js | snapshotReportCount": {
+    "message": "{numSnapshot,plural, =1{{numSnapshot} øyeblikksbilderapport}other{{numSnapshot} øyeblikksbilderapporter}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | summary": {
+    "message": "Sammendrag"
+  },
+  "flow-report/src/i18n/ui-strings.js | timespanDescription": {
+    "message": "Brukerinteraksjoner"
+  },
+  "flow-report/src/i18n/ui-strings.js | timespanLongDescription": {
+    "message": "Tidsromrapporter analyserer en vilkårlig tidsperiode, vanligvis med brukerinteraksjoner."
+  },
+  "flow-report/src/i18n/ui-strings.js | timespanReport": {
+    "message": "Tidsspennrapport"
+  },
+  "flow-report/src/i18n/ui-strings.js | timespanReportCount": {
+    "message": "{numTimespan,plural, =1{{numTimespan} tidsspennrapport}other{{numTimespan} tidsspennrapporter}}"
+  },
+  "flow-report/src/i18n/ui-strings.js | title": {
+    "message": "Lighthouse-rapport over brukerflyt"
+  },
   "lighthouse-core/audits/accessibility/accesskeys.js | description": {
     "message": "Med tilgangsnøkler kan brukere raskt fokusere på deler av siden. Hver tilgangsnøkkel må være unik for at navigeringen skal fungere riktig. [Finn ut mer](https://web.dev/accesskeys/)."
   },
@@ -63,7 +195,7 @@
     "message": "ARIA-`meter`-elementer har tilgjengelige navn"
   },
   "lighthouse-core/audits/accessibility/aria-progressbar-name.js | description": {
-    "message": "Når elementer ikke har tilgjengelige navn, beskriver skjermlesere dem med generiske navn. Dermed er de ubrukelige for brukere som er avhengige av skjermlesere. [Finn ut mer](https://web.dev/aria-name/)."
+    "message": "Når `progressbar` elementer ikke har tilgjengelige navn, beskriver skjermlesere dem med generiske navn. Dermed er de ubrukelige for brukere som er avhengige av skjermlesere. [Finn ut mer](https://web.dev/aria-name/)."
   },
   "lighthouse-core/audits/accessibility/aria-progressbar-name.js | failureTitle": {
     "message": "ARIA-`progressbar`-elementer har ikke tilgjengelige navn."
@@ -348,10 +480,10 @@
     "message": "Skjermlesere kan ikke oversette innhold som ikke er tekst. Ved å legge til alternativ tekst i `<object>`-elementer hjelper du skjermlesere med å formidle mening til brukerne. [Finn ut mer](https://web.dev/object-alt/)."
   },
   "lighthouse-core/audits/accessibility/object-alt.js | failureTitle": {
-    "message": "`<object>`-elementer har ikke `[alt]`-tekst"
+    "message": "`<object>`-elementer har ikke alternativ tekst"
   },
   "lighthouse-core/audits/accessibility/object-alt.js | title": {
-    "message": "`<object>`-elementer har `[alt]`-tekst"
+    "message": "`<object>`-elementer har alternativ tekst"
   },
   "lighthouse-core/audits/accessibility/tabindex.js | description": {
     "message": "Større verdier enn 0 antyder en eksplisitt navigeringsrekkefølge. Selv om dette teknisk sett er gyldig, kan det ofte være frustrerende for brukere som er avhengige av assisterende teknologi. [Finn ut mer](https://web.dev/tabindex/)."
@@ -477,7 +609,7 @@
     "message": "Unngå å sende JavaScript i en eldre versjon til moderne nettlesere"
   },
   "lighthouse-core/audits/byte-efficiency/modern-image-formats.js | description": {
-    "message": "Bildeformater som JPEG 2000, JPEG XR og WebP gir ofte bedre komprimering enn PNG eller JPEG, noe som betyr raskere nedlasting og mindre databruk. [Finn ut mer](https://web.dev/uses-webp-images/)."
+    "message": "Bildeformater som WebP og AVIF gir ofte bedre komprimering enn PNG og JPEG, noe som betyr raskere nedlastinger og lavere dataforbruk. [Finn ut mer](https://web.dev/uses-webp-images/)."
   },
   "lighthouse-core/audits/byte-efficiency/modern-image-formats.js | title": {
     "message": "Bruk nyere bildeformater"
@@ -548,6 +680,18 @@
   "lighthouse-core/audits/byte-efficiency/uses-optimized-images.js | title": {
     "message": "Effektiviser omgjøring av bilder til kode"
   },
+  "lighthouse-core/audits/byte-efficiency/uses-responsive-images-snapshot.js | columnActualDimensions": {
+    "message": "Faktiske dimensjoner"
+  },
+  "lighthouse-core/audits/byte-efficiency/uses-responsive-images-snapshot.js | columnDisplayedDimensions": {
+    "message": "Viste dimensjoner"
+  },
+  "lighthouse-core/audits/byte-efficiency/uses-responsive-images-snapshot.js | failureTitle": {
+    "message": "Bildene var større enn visningsstørrelsen"
+  },
+  "lighthouse-core/audits/byte-efficiency/uses-responsive-images-snapshot.js | title": {
+    "message": "Bildene var passende for visningsstørrelsen"
+  },
   "lighthouse-core/audits/byte-efficiency/uses-responsive-images.js | description": {
     "message": "Vis bilder som har passende størrelse, for å spare mobildata og redusere innlastingstiden. [Finn ut mer](https://web.dev/uses-responsive-images/)."
   },
@@ -588,7 +732,7 @@
     "message": "Intensitet"
   },
   "lighthouse-core/audits/csp-xss.js | description": {
-    "message": "En sterk regel for innholdssikkerhet (CSP) reduserer faren for skriptangrep på tvers av nettsteder (XSS) betydelig. [Finn ut mer](https://web.dev/strict-csp/)"
+    "message": "En sterk regel for innholdssikkerhet (CSP) reduserer faren for skriptangrep på tvers av nettsteder (XSS) betydelig. [Finn ut mer](https://web.dev/csp-xss/)"
   },
   "lighthouse-core/audits/csp-xss.js | itemSeveritySyntax": {
     "message": "Syntaks"
@@ -619,18 +763,6 @@
   },
   "lighthouse-core/audits/deprecations.js | title": {
     "message": "Unngår å bruke avviklede API-er"
-  },
-  "lighthouse-core/audits/dobetterweb/appcache-manifest.js | description": {
-    "message": "Programbufferen er avviklet. [Finn ut mer](https://web.dev/appcache-manifest/)."
-  },
-  "lighthouse-core/audits/dobetterweb/appcache-manifest.js | displayValue": {
-    "message": "Fant «{AppCacheManifest}»"
-  },
-  "lighthouse-core/audits/dobetterweb/appcache-manifest.js | failureTitle": {
-    "message": "Bruker programbufferen"
-  },
-  "lighthouse-core/audits/dobetterweb/appcache-manifest.js | title": {
-    "message": "Unngår å bruke programbufferen"
   },
   "lighthouse-core/audits/dobetterweb/charset.js | description": {
     "message": "En tegnkodingsdeklarasjon kreves. Dette kan gjøres med en `<meta>`-tagg i de første 1024 bytene av HTML-koden eller i HTTP-svarhodet «Content-Type». [Finn ut mer](https://web.dev/charset/)."
@@ -688,21 +820,6 @@
   },
   "lighthouse-core/audits/dobetterweb/dom-size.js | title": {
     "message": "Unngå for stor DOM-struktur"
-  },
-  "lighthouse-core/audits/dobetterweb/external-anchors-use-rel-noopener.js | columnFailingAnchors": {
-    "message": "a-tagger som ikke besto kontrollen"
-  },
-  "lighthouse-core/audits/dobetterweb/external-anchors-use-rel-noopener.js | description": {
-    "message": "Legg til `rel=\"noopener\"` eller `rel=\"noreferrer\"` i eksterne linker for å øke ytelsen og forhindre sikkerhetssårbarheter. [Finn ut mer](https://web.dev/external-anchors-use-rel-noopener/)."
-  },
-  "lighthouse-core/audits/dobetterweb/external-anchors-use-rel-noopener.js | failureTitle": {
-    "message": "Linker til opphavsuavhengige destinasjoner er utrygge"
-  },
-  "lighthouse-core/audits/dobetterweb/external-anchors-use-rel-noopener.js | title": {
-    "message": "Linker til opphavsuavhengige destinasjoner er trygge"
-  },
-  "lighthouse-core/audits/dobetterweb/external-anchors-use-rel-noopener.js | warning": {
-    "message": "Kunne ikke avgjøre destinasjonen for ankeret ({anchorHTML}). Hvis ankeret ikke brukes som hyperlink, vurder å fjerne target=_blank."
   },
   "lighthouse-core/audits/dobetterweb/geolocation-on-start.js | description": {
     "message": "Brukere er mistroiske overfor eller blir forvirret av nettsteder som spør om posisjonen deres uten kontekst. Vurder å knytte forespørselen opp mot en brukerhandling i stedet. [Finn ut mer](https://web.dev/geolocation-on-start/)."
@@ -903,10 +1020,10 @@
     "message": "Manifestet inneholder ikke noen av feltene «name» eller «short_name»"
   },
   "lighthouse-core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestet inneholder ikke noe egnet ikon. Ikonet må være i PNG-, SVG- eller WebP-format og ha en størrelse på minst {value0} px, sizes-attributtet må være angitt, og hvis purpose-attributtet er angitt, må det inneholde «any» eller «maskable»."
+    "message": "Manifestet inneholder ikke noe egnet ikon. Ikonet må være i PNG-, SVG- eller WebP-format og ha en størrelse på minst {value0} px, sizes-attributtet må være angitt, og hvis purpose-attributtet er angitt, må det inneholde «any»."
   },
   "lighthouse-core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Ingen oppgitte ikoner har en størrelse på minst {value0} px (kvadrat) og er i PNG-, SVG- eller WebP-format"
+    "message": "Ingen oppgitte ikoner har en størrelse på minst {value0} px (kvadrat) og er i PNG-, SVG- eller WebP-format med purpose-attributtet satt til «any» eller ikke angitt"
   },
   "lighthouse-core/audits/installable-manifest.js | no-icon-available": {
     "message": "Det nedlastede ikonet var tomt eller skadet"
@@ -935,6 +1052,9 @@
   "lighthouse-core/audits/installable-manifest.js | not-offline-capable": {
     "message": "Siden fungerer ikke uten nett"
   },
+  "lighthouse-core/audits/installable-manifest.js | pipeline-restarted": {
+    "message": "Det progressive nettprogrammet er avinstallert, og kontrollene knyttet til om apper kan installeres, blir tilbakestilt."
+  },
   "lighthouse-core/audits/installable-manifest.js | platform-not-supported-on-android": {
     "message": "Den angitte applikasjonsplattformen støttes ikke på Android"
   },
@@ -943,6 +1063,9 @@
   },
   "lighthouse-core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
     "message": "prefer_related_applications støttes kun i Chrome Beta- og Stable-kanalene på Android."
+  },
+  "lighthouse-core/audits/installable-manifest.js | protocol-timeout": {
+    "message": "Lighthouse kunne ikke fastslå om det fantes noen Service Worker. Prøv med en nyere versjon av Chrome."
   },
   "lighthouse-core/audits/installable-manifest.js | start-url-not-valid": {
     "message": "Start-nettadressen til manifestet er ikke gyldig"
@@ -986,21 +1109,6 @@
   "lighthouse-core/audits/is-on-https.js | warning": {
     "message": "Tillatt med advarsel"
   },
-  "lighthouse-core/audits/large-javascript-libraries.js | columnLibraryName": {
-    "message": "Bibliotek"
-  },
-  "lighthouse-core/audits/large-javascript-libraries.js | description": {
-    "message": "Store JavaScript-bibliotek kan føre til lav ytelse. Du bør bruke mindre bibliotek med tilsvarende funksjonalitet for å redusere pakkestørrelsen. [Finn ut mer](https://developers.google.com/web/fundamentals/performance/webpack/decrease-frontend-size#optimize_dependencies)."
-  },
-  "lighthouse-core/audits/large-javascript-libraries.js | displayValue": {
-    "message": "{libraryCount,plural, =1{1 stort bibliotek funnet}other{# store bibliotek funnet}}"
-  },
-  "lighthouse-core/audits/large-javascript-libraries.js | failureTitle": {
-    "message": "Bytt ut unødvendig store JavaScript-bibliotek"
-  },
-  "lighthouse-core/audits/large-javascript-libraries.js | title": {
-    "message": "Unngår store JavaScript-bibliotek der det finnes mindre alternativer"
-  },
   "lighthouse-core/audits/largest-contentful-paint-element.js | description": {
     "message": "Dette er det største innholdsrike elementet som ble tegnet innenfor det synlige området. [Finn ut mer](https://web.dev/lighthouse-largest-contentful-paint/)"
   },
@@ -1015,6 +1123,15 @@
   },
   "lighthouse-core/audits/layout-shift-elements.js | title": {
     "message": "Unngå store utseendeforskyvninger"
+  },
+  "lighthouse-core/audits/lcp-lazy-loaded.js | description": {
+    "message": "Bilder på den synlige delen av nettsiden som lastes inn utsatt, gjengis senere i sidens livssyklus, noe som kan forsinke den største innholdsrike opptegningen (LCP). [Finn ut mer](https://web.dev/lcp-lazy-loading/)."
+  },
+  "lighthouse-core/audits/lcp-lazy-loaded.js | failureTitle": {
+    "message": "Bildet med største innholdsrike opptegning (LCP) ble lastet inn utsatt"
+  },
+  "lighthouse-core/audits/lcp-lazy-loaded.js | title": {
+    "message": "Bildet med største innholdsrike opptegning (LCP) ble ikke lastet inn utsatt"
   },
   "lighthouse-core/audits/long-tasks.js | description": {
     "message": "Viser de lengste oppgavene på hovedtråden. Dette er nyttig for å finne ut hvilke oppgaver som bidrar mest til inndataforsinkelser. [Finn ut mer](https://web.dev/long-tasks-devtools/)"
@@ -1101,7 +1218,7 @@
     "message": "Forsinkelser i tjenerdelen"
   },
   "lighthouse-core/audits/no-unload-listeners.js | description": {
-    "message": "`unload`-hendelsen utløses ikke på en pålitelig måte. Å lytte til den kan forhindre nettleseroptimaliseringer, for eksempel frem-og-tilbake-bufferen. Vurder å bruke hendelsene `pagehide` eller `visibilitychange` i stedet. [Finn ut mer](https://developers.google.com/web/updates/2018/07/page-lifecycle-api#the-unload-event)"
+    "message": "`unload`-hendelsen utløses ikke på en pålitelig måte. Å lytte til den kan forhindre nettleseroptimaliseringer som for eksempel frem-og-tilbake-bufferen. Bruk hendelsene `pagehide` eller `visibilitychange` i stedet. [Finn ut mer](https://web.dev/bfcache/#never-use-the-unload-event)"
   },
   "lighthouse-core/audits/no-unload-listeners.js | failureTitle": {
     "message": "Registrerer en `unload`-lytter"
@@ -1160,15 +1277,6 @@
   "lighthouse-core/audits/preload-lcp-image.js | title": {
     "message": "Forhåndslast bildet med største innholdsrike opptegning"
   },
-  "lighthouse-core/audits/redirects-http.js | description": {
-    "message": "Hvis du allerede har satt opp HTTPS, må du sørge for at du viderekobler all HTTP-trafikk til HTTPS, slik at du gir alle brukerne dine tilgang til sikker nettfunksjonalitet. [Finn ut mer](https://web.dev/redirects-http/)."
-  },
-  "lighthouse-core/audits/redirects-http.js | failureTitle": {
-    "message": "Viderekobler ikke HTTP-trafikk til HTTPS"
-  },
-  "lighthouse-core/audits/redirects-http.js | title": {
-    "message": "Viderekobler HTTP-trafikk til HTTPS"
-  },
   "lighthouse-core/audits/redirects.js | description": {
     "message": "Viderekoblinger fører til flere forsinkelser før siden kan lastes inn. [Finn ut mer](https://web.dev/redirects/)."
   },
@@ -1190,9 +1298,6 @@
   "lighthouse-core/audits/seo/canonical.js | explanationConflict": {
     "message": "Flere motstridende nettadresser ({urlList})"
   },
-  "lighthouse-core/audits/seo/canonical.js | explanationDifferentDomain": {
-    "message": "Peker til et annet domene ({url})"
-  },
   "lighthouse-core/audits/seo/canonical.js | explanationInvalid": {
     "message": "Ugyldig nettadresse ({url})"
   },
@@ -1200,7 +1305,7 @@
     "message": "Peker til en annen `hreflang`-plassering ({url})"
   },
   "lighthouse-core/audits/seo/canonical.js | explanationRelative": {
-    "message": "Relativ nettadresse ({url})"
+    "message": "Er ikke en fullstendig nettadresse ({url})"
   },
   "lighthouse-core/audits/seo/canonical.js | explanationRoot": {
     "message": "Peker til domenets rotadresse (startsiden) i stedet for en tilsvarende side med innhold"
@@ -1533,7 +1638,7 @@
     "message": "Siden har gyldige kildekart"
   },
   "lighthouse-core/audits/viewport.js | description": {
-    "message": "Legg til en `<meta name=\"viewport\">`-tag for å optimalisere appen for mobilskjermer. [Finn ut mer](https://web.dev/viewport/)."
+    "message": "`<meta name=\"viewport\">`-taggen optimaliserer ikke bare appen din for mobilskjermstørrelser, men forhindrer også [at inndata fra brukerne blir forsinket i 300 millisekunder](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away). [Finn ut mer](https://web.dev/viewport/)."
   },
   "lighthouse-core/audits/viewport.js | explanationNoTag": {
     "message": "Fant ingen `<meta name=\"viewport\">`-tag"
@@ -1659,7 +1764,7 @@
     "message": "Disse kontrollene kreves av den grunnleggende [sjekklisten for progressive nettprogrammer](https://developers.google.com/web/progressive-web-apps/checklist), men kontrolleres ikke automatisk av Lighthouse. De påvirker ikke poengsummen din, men det er viktig at du verifiserer dem manuelt."
   },
   "lighthouse-core/config/default-config.js | pwaCategoryTitle": {
-    "message": "Progressivt nettprogram"
+    "message": "PWA (progressive web app – progressivt nettprogram)"
   },
   "lighthouse-core/config/default-config.js | pwaInstallableGroupTitle": {
     "message": "Kan installeres"
@@ -1668,7 +1773,7 @@
     "message": "PWA-optimalisert"
   },
   "lighthouse-core/config/default-config.js | seoCategoryDescription": {
-    "message": "Disse kontrollene sørger for at siden din er optimalisert for god rangering i resultatene fra søkemotorer. Det finnes flere faktorer som Lighthouse ikke kontrollerer, men som kan påvirke søkerangeringen. [Finn ut mer](https://support.google.com/webmasters/answer/35769)."
+    "message": "Disse kontrollene sørger for at siden din følger grunnleggende råd for søkemotoroptimalisering. Det finnes mange tilleggsfaktorer som Lighthouse ikke evaluerer her, men som kan påvirke søkerangeringen din, inkludert ytelse på [Kjernestatistikk for nett](https://web.dev/learn-web-vitals/). [Finn ut mer](https://support.google.com/webmasters/answer/35769)."
   },
   "lighthouse-core/config/default-config.js | seoCategoryManualDescription": {
     "message": "Kjør disse tilleggsvalideringene på nettstedet ditt for å sjekke flere anbefalte fremgangsmåter for SEO."
@@ -1722,7 +1827,7 @@
     "message": "Når base-uri mangler, kan injiserte <base>-tagger sette grunn-nettadressen for alle relative nettadresser (f.eks. skript) til et domene som en angriper kontrollerer. Vurder å sette base-uri til «none» eller «self»."
   },
   "lighthouse-core/lib/csp-evaluator.js | missingObjectSrc": {
-    "message": "Elementer som kontrolleres av object-src, anses som foreldede funksjoner. Vurder å sette object-src til «none» for å forhindre injisering av programtillegg som kjører utrygge skript."
+    "message": "Manglende object-src muliggjør injisering av programtillegg som kjører utrygge skript. Vurder å sette object-src til «none» om du kan."
   },
   "lighthouse-core/lib/csp-evaluator.js | missingScriptSrc": {
     "message": "Direktivet script-src mangler. Dette kan gjøre det mulig å kjøre utrygge skript."
@@ -1736,6 +1841,12 @@
   "lighthouse-core/lib/csp-evaluator.js | nonceLength": {
     "message": "Engangsverdier må være på minst åtte tegn."
   },
+  "lighthouse-core/lib/csp-evaluator.js | plainUrlScheme": {
+    "message": "Unngå bruk av enkle nettadresseordninger ({keyword}) i dette direktivet. Med enkle nettadresseordninger kan skript ha utrygge domener som kilde."
+  },
+  "lighthouse-core/lib/csp-evaluator.js | plainWildcards": {
+    "message": "Unngå bruk av enkle jokertegn ({keyword}) i dette direktivet. Med enkle jokertegn kan skript ha utrygge domener som kilde."
+  },
   "lighthouse-core/lib/csp-evaluator.js | reportToOnly": {
     "message": "Rapporteringsdestinasjonen er bare konfigurert via direktivet report-to. Dette direktivet støttes kun i Chromium-baserte nettlesere, så det anbefales at du også bruker direktivet report-uri."
   },
@@ -1743,7 +1854,7 @@
     "message": "Det er ingen CSP som konfigurerer en rapporteringsdestinasjon. Dette gjør det vanskelig å vedlikeholde CSP-en over tid og følge med på om noe slutter å virke."
   },
   "lighthouse-core/lib/csp-evaluator.js | strictDynamic": {
-    "message": "Godkjenningslister for verter kan ofte forbigås. Vurder å bruke «strict-dynamic» i kombinasjon med CSP-engangsverdier eller -hasher."
+    "message": "Godkjenningslister for verter kan ofte forbigås. Vurder å bruke CSP-engangsverdier eller -hasher i stedet, samt «strict-dynamic» om nødvendig."
   },
   "lighthouse-core/lib/csp-evaluator.js | unknownDirective": {
     "message": "Ukjent CSP-direktiv."
@@ -1955,168 +2066,6 @@
   "lighthouse-core/lib/lh-error.js | urlInvalid": {
     "message": "Nettadressen du oppga, ser ut til å være ugyldig."
   },
-  "lighthouse-core/report/html/renderer/util.js | calculatorLink": {
-    "message": "Se kalkulatoren."
-  },
-  "lighthouse-core/report/html/renderer/util.js | crcInitialNavigation": {
-    "message": "Navigasjonsstart"
-  },
-  "lighthouse-core/report/html/renderer/util.js | crcLongestDurationLabel": {
-    "message": "Maksimum kritisk baneforsinkelse:"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownCopyJSON": {
-    "message": "Kopiér JSON"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownDarkTheme": {
-    "message": "Slå av/på mørkt tema"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownPrintExpanded": {
-    "message": "Skriv ut utvidet rapport"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownPrintSummary": {
-    "message": "Skriv ut sammendrag"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownSaveGist": {
-    "message": "Lagre som Gist"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownSaveHTML": {
-    "message": "Lagre som HTML"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownSaveJSON": {
-    "message": "Lagre som JSON"
-  },
-  "lighthouse-core/report/html/renderer/util.js | dropdownViewer": {
-    "message": "Åpne i Viewer"
-  },
-  "lighthouse-core/report/html/renderer/util.js | errorLabel": {
-    "message": "Feil!"
-  },
-  "lighthouse-core/report/html/renderer/util.js | errorMissingAuditInfo": {
-    "message": "Rapportfeil: ingen revisjonsinformasjon"
-  },
-  "lighthouse-core/report/html/renderer/util.js | footerIssue": {
-    "message": "Opprett sak"
-  },
-  "lighthouse-core/report/html/renderer/util.js | labDataTitle": {
-    "message": "Prøvefunksjonsdata"
-  },
-  "lighthouse-core/report/html/renderer/util.js | lsPerformanceCategoryDescription": {
-    "message": "[Lighthouse](https://developers.google.com/web/tools/lighthouse/)-analyse av den nåværende siden på et emulert mobilnettverk. Verdiene er anslått og kan variere."
-  },
-  "lighthouse-core/report/html/renderer/util.js | manualAuditsGroupTitle": {
-    "message": "Tilleggselementer for manuell kontroll"
-  },
-  "lighthouse-core/report/html/renderer/util.js | notApplicableAuditsGroupTitle": {
-    "message": "Ikke relevant"
-  },
-  "lighthouse-core/report/html/renderer/util.js | opportunityResourceColumnLabel": {
-    "message": "Mulighet"
-  },
-  "lighthouse-core/report/html/renderer/util.js | opportunitySavingsColumnLabel": {
-    "message": "Estimerte besparelser"
-  },
-  "lighthouse-core/report/html/renderer/util.js | passedAuditsGroupTitle": {
-    "message": "Beståtte revisjoner"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeDesktopEmulation": {
-    "message": "Emulert skrivebord"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeMobileEmulation": {
-    "message": "Emulert Moto G4"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeNoEmulation": {
-    "message": "Ingen emulering"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsAxeVersion": {
-    "message": "Axe-versjon"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsBenchmark": {
-    "message": "Prosessor-/minnekraft"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsCPUThrottling": {
-    "message": "Prosessorstruping"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsChannel": {
-    "message": "Kanal"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsDevice": {
-    "message": "Enhet"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsFetchTime": {
-    "message": "Tidspunkt for henting"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsNetworkThrottling": {
-    "message": "Struping av nettverkshastighet"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsTitle": {
-    "message": "Kjøringsinnstillinger"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsUA": {
-    "message": "Brukeragent (vert)"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsUANetwork": {
-    "message": "Brukeragent (nettverk)"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeSettingsUrl": {
-    "message": "Nettadresse"
-  },
-  "lighthouse-core/report/html/renderer/util.js | runtimeUnknown": {
-    "message": "Ukjent"
-  },
-  "lighthouse-core/report/html/renderer/util.js | showRelevantAudits": {
-    "message": "Vis revisjoner som er relevant for:"
-  },
-  "lighthouse-core/report/html/renderer/util.js | snippetCollapseButtonLabel": {
-    "message": "Skjul fragment"
-  },
-  "lighthouse-core/report/html/renderer/util.js | snippetExpandButtonLabel": {
-    "message": "Vis fragment"
-  },
-  "lighthouse-core/report/html/renderer/util.js | thirdPartyResourcesLabel": {
-    "message": "Vis tredjepartsressurser"
-  },
-  "lighthouse-core/report/html/renderer/util.js | throttlingProvided": {
-    "message": "Utført av kjøretidsmiljøet"
-  },
-  "lighthouse-core/report/html/renderer/util.js | toplevelWarningsMessage": {
-    "message": "Det oppsto problemer som påvirker denne kjøringen av Lighthouse:"
-  },
-  "lighthouse-core/report/html/renderer/util.js | varianceDisclaimer": {
-    "message": "Verdiene er anslått og kan variere. [Beregningen av ytelsespoengsummen](https://web.dev/performance-scoring/) er basert direkte på disse verdiene."
-  },
-  "lighthouse-core/report/html/renderer/util.js | viewTreemapLabel": {
-    "message": "Vis trekart"
-  },
-  "lighthouse-core/report/html/renderer/util.js | warningAuditsGroupTitle": {
-    "message": "Revisjoner som er bestått, men med advarsler"
-  },
-  "lighthouse-core/report/html/renderer/util.js | warningHeader": {
-    "message": "Advarsler: "
-  },
-  "lighthouse-treemap/app/src/util.js | allLabel": {
-    "message": "Alt"
-  },
-  "lighthouse-treemap/app/src/util.js | allScriptsDropdownLabel": {
-    "message": "Alle skript"
-  },
-  "lighthouse-treemap/app/src/util.js | coverageColumnName": {
-    "message": "Dekning"
-  },
-  "lighthouse-treemap/app/src/util.js | duplicateModulesLabel": {
-    "message": "Duplikatmoduler"
-  },
-  "lighthouse-treemap/app/src/util.js | resourceBytesLabel": {
-    "message": "Ressursstørrelse i byte"
-  },
-  "lighthouse-treemap/app/src/util.js | tableColumnName": {
-    "message": "Navn"
-  },
-  "lighthouse-treemap/app/src/util.js | toggleTableButtonLabel": {
-    "message": "Slå av/på tabell"
-  },
-  "lighthouse-treemap/app/src/util.js | unusedBytesLabel": {
-    "message": "Ubrukte byte"
-  },
   "node_modules/lighthouse-stack-packs/packs/amp.js | efficient-animated-content": {
     "message": "For animert innhold, bruk [`amp-anim`‏](https://amp.dev/documentation/components/amp-anim/) for å minimere prosessorbruken når innholdet er utenfor skjermen."
   },
@@ -2276,6 +2225,36 @@
   "node_modules/lighthouse-stack-packs/packs/magento.js | uses-rel-preload": {
     "message": "`<link rel=preload>`-tagger kan legges til ved å [endre temalayouten](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/layouts/xml-manage.html)."
   },
+  "node_modules/lighthouse-stack-packs/packs/next.js | modern-image-formats": {
+    "message": "Bruk `Next.js`-API-et for bildeoptimalisering for å vise moderne formater som `WebP` og `AVIF`. [Finn ut mer](https://nextjs.org/docs/api-reference/next/image#acceptable-formats)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | offscreen-images": {
+    "message": "Bruk `next/image`-komponenten, som bruker `loading=\"lazy\"` som standard. [Finn ut mer](https://nextjs.org/docs/api-reference/next/image#loading)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | render-blocking-resources": {
+    "message": "Bruk `next/script`-komponenten til å utsette innlasting av ikke-kritiske tredjepartsskript. [Finn ut mer](https://nextjs.org/docs/basic-features/script)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | unused-css-rules": {
+    "message": "Vurder å konfigurere `PurgeCSS` i `Next.js`-konfigurasjonen for å fjerne ubrukte regler fra stilark. [Finn ut mer](https://purgecss.com/guides/next.html)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | unused-javascript": {
+    "message": "Bruk `Webpack Bundle Analyzer` for å oppdage ubrukt JavaScript-kode. [Finn ut mer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer)"
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | user-timings": {
+    "message": "Vurder å bruke `Next.js Analytics` for å måle appens ytelse i reelle situasjoner. [Finn ut mer](https://nextjs.org/docs/advanced-features/measuring-performance)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | uses-long-cache-ttl": {
+    "message": "Konfigurer bufring for uforanderlige ressurser og `Server-side Rendered` (SSR)-sider. [Finn ut mer](https://nextjs.org/docs/going-to-production#caching)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | uses-optimized-images": {
+    "message": "Bruk `next/image`-komponenten i stedet for `<img>` for å optimalisere bilder. [Finn ut mer](https://nextjs.org/docs/basic-features/image-optimization)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | uses-responsive-images": {
+    "message": "Bruk `next/image`-komponenten for å angi riktig verdi for `sizes`. [Finn ut mer](https://nextjs.org/docs/api-reference/next/image#sizes)."
+  },
+  "node_modules/lighthouse-stack-packs/packs/next.js | uses-text-compression": {
+    "message": "Slå på komprimering på Next.js-tjeneren din. [Finn ut mer](https://nextjs.org/docs/api-reference/next.config.js/compression)."
+  },
   "node_modules/lighthouse-stack-packs/packs/octobercms.js | efficient-animated-content": {
     "message": "[Erstatt animerte GIF-er med video](https://web.dev/replace-gifs-with-videos/) for raskere nettsideinnlasteringer, og vurder å bruke moderne filformater, som [WebM](https://web.dev/replace-gifs-with-videos/#create-webm-videos) eller [AV1](https://developers.google.com/web/updates/2018/09/chrome-70-media-updates#av1-decoder), for å øke komprimeringseffektiviteten med mer enn 30 % sammenlignet med den mest avanserte videokodeken, VP9."
   },
@@ -2380,5 +2359,179 @@
   },
   "node_modules/lighthouse-stack-packs/packs/wordpress.js | uses-text-compression": {
     "message": "Du kan slå på tekstkomprimering i oppsettet av nettjeneren."
+  },
+  "report/renderer/util.js | calculatorLink": {
+    "message": "Se kalkulatoren."
+  },
+  "report/renderer/util.js | collapseView": {
+    "message": "Skjul visningen"
+  },
+  "report/renderer/util.js | crcInitialNavigation": {
+    "message": "Navigasjonsstart"
+  },
+  "report/renderer/util.js | crcLongestDurationLabel": {
+    "message": "Maksimum kritisk baneforsinkelse:"
+  },
+  "report/renderer/util.js | dropdownCopyJSON": {
+    "message": "Kopiér JSON"
+  },
+  "report/renderer/util.js | dropdownDarkTheme": {
+    "message": "Slå av/på mørkt tema"
+  },
+  "report/renderer/util.js | dropdownPrintExpanded": {
+    "message": "Skriv ut utvidet rapport"
+  },
+  "report/renderer/util.js | dropdownPrintSummary": {
+    "message": "Skriv ut sammendrag"
+  },
+  "report/renderer/util.js | dropdownSaveGist": {
+    "message": "Lagre som Gist"
+  },
+  "report/renderer/util.js | dropdownSaveHTML": {
+    "message": "Lagre som HTML"
+  },
+  "report/renderer/util.js | dropdownSaveJSON": {
+    "message": "Lagre som JSON"
+  },
+  "report/renderer/util.js | dropdownViewer": {
+    "message": "Åpne i Viewer"
+  },
+  "report/renderer/util.js | errorLabel": {
+    "message": "Feil!"
+  },
+  "report/renderer/util.js | errorMissingAuditInfo": {
+    "message": "Rapportfeil: ingen revisjonsinformasjon"
+  },
+  "report/renderer/util.js | expandView": {
+    "message": "Utvid visningen"
+  },
+  "report/renderer/util.js | footerIssue": {
+    "message": "Opprett sak"
+  },
+  "report/renderer/util.js | hide": {
+    "message": "Skjul"
+  },
+  "report/renderer/util.js | labDataTitle": {
+    "message": "Prøvefunksjonsdata"
+  },
+  "report/renderer/util.js | lsPerformanceCategoryDescription": {
+    "message": "[Lighthouse](https://developers.google.com/web/tools/lighthouse/)-analyse av den nåværende siden på et emulert mobilnettverk. Verdiene er anslått og kan variere."
+  },
+  "report/renderer/util.js | manualAuditsGroupTitle": {
+    "message": "Tilleggselementer for manuell kontroll"
+  },
+  "report/renderer/util.js | notApplicableAuditsGroupTitle": {
+    "message": "Ikke relevant"
+  },
+  "report/renderer/util.js | opportunityResourceColumnLabel": {
+    "message": "Mulighet"
+  },
+  "report/renderer/util.js | opportunitySavingsColumnLabel": {
+    "message": "Estimerte besparelser"
+  },
+  "report/renderer/util.js | passedAuditsGroupTitle": {
+    "message": "Beståtte revisjoner"
+  },
+  "report/renderer/util.js | runtimeAnalysisWindow": {
+    "message": "Første sideinnlasting"
+  },
+  "report/renderer/util.js | runtimeCustom": {
+    "message": "Egendefinert struping"
+  },
+  "report/renderer/util.js | runtimeDesktopEmulation": {
+    "message": "Emulert skrivebord"
+  },
+  "report/renderer/util.js | runtimeMobileEmulation": {
+    "message": "Emulert Moto G4"
+  },
+  "report/renderer/util.js | runtimeNoEmulation": {
+    "message": "Ingen emulering"
+  },
+  "report/renderer/util.js | runtimeSettingsAxeVersion": {
+    "message": "Axe-versjon"
+  },
+  "report/renderer/util.js | runtimeSettingsBenchmark": {
+    "message": "Prosessor-/minnekraft"
+  },
+  "report/renderer/util.js | runtimeSettingsCPUThrottling": {
+    "message": "Prosessorstruping"
+  },
+  "report/renderer/util.js | runtimeSettingsDevice": {
+    "message": "Enhet"
+  },
+  "report/renderer/util.js | runtimeSettingsNetworkThrottling": {
+    "message": "Struping av nettverkshastighet"
+  },
+  "report/renderer/util.js | runtimeSettingsUANetwork": {
+    "message": "Brukeragent (nettverk)"
+  },
+  "report/renderer/util.js | runtimeSingleLoad": {
+    "message": "Enkelt sideinnlasting"
+  },
+  "report/renderer/util.js | runtimeSingleLoadTooltip": {
+    "message": "Disse dataene er hentet fra én enkelt sideinnlasting, i motsetning til feltdata som oppsummerer mange økter."
+  },
+  "report/renderer/util.js | runtimeSlow4g": {
+    "message": "Treg 4G-struping"
+  },
+  "report/renderer/util.js | runtimeUnknown": {
+    "message": "Ukjent"
+  },
+  "report/renderer/util.js | show": {
+    "message": "Vis"
+  },
+  "report/renderer/util.js | showRelevantAudits": {
+    "message": "Vis revisjoner som er relevant for:"
+  },
+  "report/renderer/util.js | snippetCollapseButtonLabel": {
+    "message": "Skjul fragment"
+  },
+  "report/renderer/util.js | snippetExpandButtonLabel": {
+    "message": "Vis fragment"
+  },
+  "report/renderer/util.js | thirdPartyResourcesLabel": {
+    "message": "Vis tredjepartsressurser"
+  },
+  "report/renderer/util.js | throttlingProvided": {
+    "message": "Utført av kjøretidsmiljøet"
+  },
+  "report/renderer/util.js | toplevelWarningsMessage": {
+    "message": "Det oppsto problemer som påvirker denne kjøringen av Lighthouse:"
+  },
+  "report/renderer/util.js | varianceDisclaimer": {
+    "message": "Verdiene er anslått og kan variere. [Beregningen av ytelsespoengsummen](https://web.dev/performance-scoring/) er basert direkte på disse verdiene."
+  },
+  "report/renderer/util.js | viewTreemapLabel": {
+    "message": "Vis trekart"
+  },
+  "report/renderer/util.js | warningAuditsGroupTitle": {
+    "message": "Revisjoner som er bestått, men med advarsler"
+  },
+  "report/renderer/util.js | warningHeader": {
+    "message": "Advarsler: "
+  },
+  "treemap/app/src/util.js | allLabel": {
+    "message": "Alt"
+  },
+  "treemap/app/src/util.js | allScriptsDropdownLabel": {
+    "message": "Alle skript"
+  },
+  "treemap/app/src/util.js | coverageColumnName": {
+    "message": "Dekning"
+  },
+  "treemap/app/src/util.js | duplicateModulesLabel": {
+    "message": "Duplikatmoduler"
+  },
+  "treemap/app/src/util.js | resourceBytesLabel": {
+    "message": "Ressursstørrelse i byte"
+  },
+  "treemap/app/src/util.js | tableColumnName": {
+    "message": "Navn"
+  },
+  "treemap/app/src/util.js | toggleTableButtonLabel": {
+    "message": "Slå av/på tabell"
+  },
+  "treemap/app/src/util.js | unusedBytesLabel": {
+    "message": "Ubrukte byte"
   }
 }

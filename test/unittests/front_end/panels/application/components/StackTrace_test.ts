@@ -7,7 +7,7 @@ import * as ApplicationComponents from '../../../../../../front_end/panels/appli
 import * as ExpandableList from '../../../../../../front_end/ui/components/expandable_list/expandable_list.js';
 import * as Components from '../../../../../../front_end/ui/legacy/components/utils/utils.js';
 import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
-import {assertElement, assertShadowRoot, dispatchClickEvent, getCleanTextContentFromElements, getElementWithinComponent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
+import {assertElement, assertShadowRoot, dispatchClickEvent, getCleanTextContentFromElements, getElementWithinComponent, getElementsWithinComponent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
@@ -38,6 +38,8 @@ function mockBuildStackTraceRows(
                                    }));
 }
 
+const fakeScriptId = '1' as Protocol.Runtime.ScriptId;
+
 describe('StackTrace', () => {
   it('does not generate rows when there is no data', () => {
     const component = new ApplicationComponents.StackTrace.StackTrace();
@@ -55,14 +57,14 @@ describe('StackTrace', () => {
               url: 'http://www.example.com/script1.js',
               lineNumber: 15,
               columnNumber: 10,
-              scriptId: 'someScriptId',
+              scriptId: fakeScriptId,
             },
             {
               functionName: 'function2',
               url: 'http://www.example.com/script2.js',
               lineNumber: 20,
               columnNumber: 5,
-              scriptId: 'someScriptId',
+              scriptId: fakeScriptId,
             },
           ],
         },
@@ -84,14 +86,22 @@ describe('StackTrace', () => {
     assertElement(expandButton, HTMLButtonElement);
     dispatchClickEvent(expandButton);
 
-    const stackTraceText = getCleanTextContentFromElements(expandableList.shadowRoot, '.stack-trace-row');
+    const stackTraceRows = getElementsWithinComponent(
+        expandableList, 'devtools-stack-trace-row', ApplicationComponents.StackTrace.StackTraceRow);
+    let stackTraceText: string[] = [];
+
+    stackTraceRows.forEach(row => {
+      assertShadowRoot(row.shadowRoot);
+      stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
+    });
+
     assert.deepEqual(stackTraceText, [
       'function1\xA0@\xA0www.example.com/script1.js',
       'function2\xA0@\xA0www.example.com/script2.js',
     ]);
   });
 
-  it('hides hidden rows behind "show all" button', () => {
+  it('hides hidden rows behind "show all" button', async () => {
     const frame = makeFrame({
       getCreationStackTraceData: () => ({
         creationStackTrace: {
@@ -101,14 +111,14 @@ describe('StackTrace', () => {
               url: 'http://www.example.com/script.js',
               lineNumber: 15,
               columnNumber: 10,
-              scriptId: 'someScriptId',
+              scriptId: fakeScriptId,
             },
             {
               functionName: 'function2',
               url: 'http://www.example.com/hidden.js',
               lineNumber: 20,
               columnNumber: 5,
-              scriptId: 'someScriptId',
+              scriptId: fakeScriptId,
             },
           ],
         },
@@ -129,19 +139,42 @@ describe('StackTrace', () => {
     const expandButton = expandableList.shadowRoot.querySelector('button.arrow-icon-button');
     assertElement(expandButton, HTMLButtonElement);
     dispatchClickEvent(expandButton);
+    await new Promise<void>(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 1500);
+    });
 
-    let stackTraceText = getCleanTextContentFromElements(expandableList.shadowRoot, '.stack-trace-row');
+    const stackTraceRows = Array.from(expandableList.shadowRoot.querySelectorAll('[data-stack-trace-row]'));
+    let stackTraceText: string[] = [];
+
+    stackTraceRows.forEach(row => {
+      assertShadowRoot(row.shadowRoot);
+      stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
+    });
+
     assert.deepEqual(stackTraceText, [
       'function1\xA0@\xA0www.example.com/script.js',
       'Show 1 more frame',
     ]);
 
-    const showAllButton = expandableList.shadowRoot.querySelector('.stack-trace-row button.link');
+    const stackTraceLinkButton = getElementWithinComponent(
+        expandableList, 'devtools-stack-trace-link-button', ApplicationComponents.StackTrace.StackTraceLinkButton);
+    assertShadowRoot(stackTraceLinkButton.shadowRoot);
+    const showAllButton = stackTraceLinkButton.shadowRoot.querySelector('.stack-trace-row button.link');
     assertElement(showAllButton, HTMLButtonElement);
     dispatchClickEvent(showAllButton);
 
-    stackTraceText = getCleanTextContentFromElements(expandableList.shadowRoot, '.stack-trace-row');
-    assert.deepEqual(stackTraceText, [
+    const openedStackTraceRows = Array.from(expandableList.shadowRoot.querySelectorAll('[data-stack-trace-row]'));
+    let openedStackTraceText: string[] = [];
+
+    openedStackTraceRows.forEach(row => {
+      assertShadowRoot(row.shadowRoot);
+      openedStackTraceText =
+          openedStackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
+    });
+
+    assert.deepEqual(openedStackTraceText, [
       'function1\xA0@\xA0www.example.com/script.js',
       'function2\xA0@\xA0www.example.com/hidden.js',
     ]);

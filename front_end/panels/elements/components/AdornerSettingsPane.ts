@@ -4,7 +4,9 @@
 
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as Input from '../../../ui/components/input/input.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import adornerSettingsPaneStyles from './adornerSettingsPane.css.js';
 
 import type {AdornerSettingsMap} from './AdornerManager.js';
 
@@ -24,6 +26,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const {render, html} = LitHtml;
 
 export class AdornerSettingUpdatedEvent extends Event {
+  static readonly eventName = 'adornersettingupdated';
   data: {
     adornerName: string,
     isEnabledNow: boolean,
@@ -31,7 +34,7 @@ export class AdornerSettingUpdatedEvent extends Event {
   };
 
   constructor(adornerName: string, isEnabledNow: boolean, newSettings: AdornerSettingsMap) {
-    super('adornersettingupdated', {});
+    super(AdornerSettingUpdatedEvent.eventName, {});
     this.data = {adornerName, isEnabledNow, newSettings};
   }
 }
@@ -42,17 +45,21 @@ export interface AdornerSettingsPaneData {
 
 export class AdornerSettingsPane extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-adorner-settings-pane`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private settings: AdornerSettingsMap = new Map();
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #settings: AdornerSettingsMap = new Map();
+
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [Input.checkboxStyles, adornerSettingsPaneStyles];
+  }
 
   set data(data: AdornerSettingsPaneData) {
-    this.settings = new Map(data.settings.entries());
-    this.render();
+    this.#settings = new Map(data.settings.entries());
+    this.#render();
   }
 
   show(): void {
     this.classList.remove('hidden');
-    const settingsPane = this.shadow.querySelector<HTMLElement>('.adorner-settings-pane');
+    const settingsPane = this.#shadow.querySelector<HTMLElement>('.adorner-settings-pane');
     if (settingsPane) {
       settingsPane.focus();
     }
@@ -62,21 +69,21 @@ export class AdornerSettingsPane extends HTMLElement {
     this.classList.add('hidden');
   }
 
-  private onChange(ev: Event): void {
+  #onChange(ev: Event): void {
     const inputEl = ev.target as HTMLInputElement;
     const adorner = inputEl.dataset.adorner;
     if (adorner === undefined) {
       return;
     }
     const isEnabledNow = inputEl.checked;
-    this.settings.set(adorner, isEnabledNow);
-    this.dispatchEvent(new AdornerSettingUpdatedEvent(adorner, isEnabledNow, this.settings));
-    this.render();
+    this.#settings.set(adorner, isEnabledNow);
+    this.dispatchEvent(new AdornerSettingUpdatedEvent(adorner, isEnabledNow, this.#settings));
+    this.#render();
   }
 
-  private render(): void {
+  #render(): void {
     const settingTemplates = [];
-    for (const [adorner, isEnabled] of this.settings) {
+    for (const [adorner, isEnabled] of this.#settings) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       settingTemplates.push(html`
@@ -94,80 +101,15 @@ export class AdornerSettingsPane extends HTMLElement {
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
-    // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
     render(html`
-      <style>
-        .adorner-settings-pane {
-          display: flex;
-          height: 2.67em;
-          padding: 0 12px;
-          color: var(--color-text-primary);
-          font-size: 12px;
-          align-items: center;
-        }
-
-        .settings-title {
-          font-weight: 500;
-        }
-
-        .setting {
-          margin-left: 1em;
-        }
-
-        .adorner-status {
-          margin: auto 0.4em auto 0;
-        }
-
-        .adorner-status,
-        .adorner-name {
-          vertical-align: middle;
-        }
-
-        .close {
-          position: relative;
-          margin-left: auto;
-          font-size: 1em;
-          width: 1.5em;
-          height: 1.5em;
-          border: none;
-          border-radius: 50%;
-          background-color: var(--color-background-elevation-1);
-          cursor: pointer;
-        }
-
-        .close::before,
-        .close::after {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          width: 1em;
-          height: 0.2em;
-          background-color: var(--color-text-secondary);
-          border-radius: 2px;
-        }
-
-        .close::before {
-          transform: rotate(45deg);
-        }
-
-        .close::after {
-          transform: rotate(-45deg);
-        }
-      </style>
-
       <div class="adorner-settings-pane" tabindex="-1">
         <div class="settings-title">${i18nString(UIStrings.settingsTitle)}</div>
-        <div class="setting-list" @change=${this.onChange}>
+        <div class="setting-list" @change=${this.#onChange}>
           ${settingTemplates}
         </div>
         <button class="close" @click=${this.hide} aria-label=${i18nString(UIStrings.closeButton)}></button>
       </div>
-    `, this.shadow, {
+    `, this.#shadow, {
       host: this,
     });
     // clang-format on

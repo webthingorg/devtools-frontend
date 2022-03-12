@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -61,7 +59,7 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
         content = window.atob(content);
       }
       const url = contentProvider.contentURL();
-      Workspace.FileManager.FileManager.instance().save(url, content as string, true);
+      void Workspace.FileManager.FileManager.instance().save(url, content as string, true);
       Workspace.FileManager.FileManager.instance().close(url);
     }
 
@@ -85,16 +83,16 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
     if (uiSourceCode && NetworkPersistenceManager.instance().canSaveUISourceCodeForOverrides(uiSourceCode)) {
       contextMenu.saveSection().appendItem(i18nString(UIStrings.saveForOverrides), () => {
         uiSourceCode.commitWorkingCopy();
-        NetworkPersistenceManager.instance().saveUISourceCodeForOverrides(
+        void NetworkPersistenceManager.instance().saveUISourceCodeForOverrides(
             uiSourceCode as Workspace.UISourceCode.UISourceCode);
-        Common.Revealer.reveal(uiSourceCode);
+        void Common.Revealer.reveal(uiSourceCode);
       });
     }
 
     const binding = uiSourceCode && PersistenceImpl.instance().binding(uiSourceCode);
     const fileURL = binding ? binding.fileSystem.contentURL() : contentProvider.contentURL();
     if (fileURL.startsWith('file://')) {
-      const path = Common.ParsedURL.ParsedURL.urlToPlatformPath(fileURL, Host.Platform.isWin());
+      const path = Common.ParsedURL.ParsedURL.urlToRawPathString(fileURL, Host.Platform.isWin());
       contextMenu.revealSection().appendItem(
           i18nString(UIStrings.openInContainingFolder),
           () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.showItemInFolder(path));

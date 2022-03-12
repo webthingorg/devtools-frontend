@@ -3,21 +3,28 @@
 // found in the LICENSE file.
 
 import * as ElementsComponents from '../../../../../../front_end/panels/elements/components/components.js';
+import type * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {assertElement, assertElements, assertShadowRoot, dispatchClickEvent, doubleRaf, renderElementIntoDOM, waitForScrollLeft} from '../../../helpers/DOMHelpers.js';
 import {withNoMutations} from '../../../helpers/MutationHelpers.js';
+import {initializeGlobalVars, deinitializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
 
 const {assert} = chai;
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
-
-interface MakeCrumbOptions extends Partial<ElementsComponents.ElementsBreadcrumbsUtils.DOMNode> {
+interface MakeCrumbOptions extends Partial<ElementsComponents.Helper.DOMNode> {
   attributes?: {[x: string]: string};
 }
 
+/*
+ * This very clearly is not a real legacy SDK DOMNode, but for the purposes of
+ * the test we just need something that presents as one, and doesn't need to
+ * implement anything */
+const FAKE_LEGACY_SDK_DOM_NODE = {} as unknown as SDK.DOMModel.DOMNode;
+
 const makeCrumb = (overrides: MakeCrumbOptions = {}) => {
   const attributes = overrides.attributes || {};
-  const newCrumb: ElementsComponents.ElementsBreadcrumbsUtils.DOMNode = {
+  const newCrumb: ElementsComponents.Helper.DOMNode = {
     parentNode: null,
     nodeType: Node.ELEMENT_NODE,
     id: 1,
@@ -25,7 +32,7 @@ const makeCrumb = (overrides: MakeCrumbOptions = {}) => {
     shadowRootType: '',
     nodeName: 'body',
     nodeNameNicelyCased: 'body',
-    legacyDomNode: {},
+    legacyDomNode: FAKE_LEGACY_SDK_DOM_NODE,
     highlightNode: () => {},
     clearHighlight: () => {},
     getAttribute: x => attributes[x] || '',
@@ -35,6 +42,12 @@ const makeCrumb = (overrides: MakeCrumbOptions = {}) => {
 };
 
 describe('ElementsBreadcrumbs', () => {
+  before(async () => {
+    await initializeGlobalVars();
+  });
+  after(async () => {
+    await deinitializeGlobalVars();
+  });
   describe('#determineElementTitle', () => {
     it('returns (text) for text nodes', () => {
       const node = makeCrumb({nodeType: Node.TEXT_NODE});
@@ -229,8 +242,7 @@ describe('ElementsBreadcrumbs', () => {
       });
 
       await withNoMutations(shadowRoot, async shadowRoot => {
-        const newDiv: ElementsComponents.ElementsBreadcrumbsUtils
-            .DOMNode = {...divCrumb, nodeName: 'span', nodeNameNicelyCased: 'span'};
+        const newDiv: ElementsComponents.Helper.DOMNode = {...divCrumb, nodeName: 'span', nodeNameNicelyCased: 'span'};
         component.data = {
           crumbs: [newDiv, bodyCrumb],
           selectedNode: bodyCrumb,

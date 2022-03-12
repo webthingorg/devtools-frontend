@@ -18,6 +18,8 @@ SDK.CPUProfilerModel = SDKModule.CPUProfilerModel.CPUProfilerModel;
 /** @constructor */
 SDK.CPUThrottlingManager = SDKModule.CPUThrottlingManager.CPUThrottlingManager;
 
+SDK.CPUThrottlingManager.CPUThrottlingRates = SDKModule.CPUThrottlingManager.CPUThrottlingRates;
+
 SDK.cssMetadata = SDKModule.CSSMetadata.cssMetadata;
 
 /** @constructor */
@@ -70,9 +72,6 @@ SDK.ConsoleMessage.FrontendMessageSource = SDKModule.ConsoleModel.FrontendMessag
 
 /** @constructor */
 SDK.Cookie = SDKModule.Cookie.Cookie;
-
-/** @constructor */
-SDK.CookieReference = SDKModule.Cookie.CookieReference;
 
 /** @constructor */
 SDK.CookieParser = SDKModule.CookieParser.CookieParser;

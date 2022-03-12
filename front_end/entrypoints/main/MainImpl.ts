@@ -32,8 +32,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
@@ -46,10 +44,10 @@ import * as Extensions from '../../models/extensions/extensions.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as Persistence from '../../models/persistence/persistence.js';
-import * as Recorder from '../../models/recorder/recorder.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as Snippets from '../../panels/snippets/snippets.js';
 import * as Timeline from '../../panels/timeline/timeline.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -58,11 +56,6 @@ import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import {ExecutionContextSelector} from './ExecutionContextSelector.js';
 
 const UIStrings = {
-  /**
-  *@description A message to display prompting the user to reload DevTools if the OS color scheme changes.
-  */
-  theSystempreferredColorSchemeHas:
-      'The system-preferred color scheme has changed. To apply this change to DevTools, reload.',
   /**
   *@description Title of item in main
   */
@@ -117,13 +110,11 @@ const str_ = i18n.i18n.registerUIStrings('entrypoints/main/MainImpl.ts', UIStrin
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class MainImpl {
-  _lateInitDonePromise!: Promise<void>;
+  #lateInitDonePromise!: Promise<void>;
 
   constructor() {
-    MainImpl._instanceForTest = this;
-    Platform.runOnWindowLoad(() => {
-      this._loaded();
-    });
+    MainImpl.instanceForTest = this;
+    void this.#loaded();
   }
 
   static time(label: string): void {
@@ -140,28 +131,53 @@ export class MainImpl {
     console.timeEnd(label);
   }
 
-  async _loaded(): Promise<void> {
+  async #loaded(): Promise<void> {
     console.timeStamp('Main._loaded');
-    await Root.Runtime.appStarted;
     Root.Runtime.Runtime.setPlatform(Host.Platform.platform());
     const prefs = await new Promise<{[key: string]: string}>(resolve => {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreferences(resolve);
     });
 
     console.timeStamp('Main._gotPreferences');
-    this._createSettings(prefs);
+    this.#initializeGlobalsForLayoutTests();
+    this.createSettings(prefs);
     await this.requestAndRegisterLocaleData();
-    this._createAppUI();
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SYNC_SETTINGS)) {
+      Host.userMetrics.syncSetting(
+          Common.Settings.Settings.instance().moduleSetting<boolean>('sync_preferences').get());
+    }
+
+    void this.#createAppUI();
+  }
+
+  #initializeGlobalsForLayoutTests(): void {
+    // @ts-ignore layout test global
+    self.Common = self.Common || {};
+    // @ts-ignore layout test global
+    self.UI = self.UI || {};
+    // @ts-ignore layout test global
+    self.UI.panels = self.UI.panels || {};
+    // @ts-ignore layout test global
+    self.SDK = self.SDK || {};
+    // @ts-ignore layout test global
+    self.Bindings = self.Bindings || {};
+    // @ts-ignore layout test global
+    self.Persistence = self.Persistence || {};
+    // @ts-ignore layout test global
+    self.Workspace = self.Workspace || {};
+    // @ts-ignore layout test global
+    self.Extensions = self.Extensions || {};
+    // @ts-ignore e2e test global
+    self.Host = self.Host || {};
+    // @ts-ignore e2e test global
+    self.Host.userMetrics = self.Host.userMetrics || Host.userMetrics;
+    // @ts-ignore e2e test global
+    self.Host.UserMetrics = self.Host.UserMetrics || Host.UserMetrics;
   }
 
   async requestAndRegisterLocaleData(): Promise<void> {
-    // The language setting is only available when the experiment is enabled.
-    // TODO(crbug.com/1163928): Remove the check when the experiment is gone.
-    let settingLanguage = 'en-US';
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS)) {
-      settingLanguage = Common.Settings.Settings.instance().moduleSetting<string>('language').get();
-    }
-
+    const settingLanguage = Common.Settings.Settings.instance().moduleSetting<string>('language').get();
     const devToolsLocale = i18n.DevToolsLocale.DevToolsLocale.instance({
       create: true,
       data: {
@@ -170,6 +186,8 @@ export class MainImpl {
         lookupClosestDevToolsLocale: i18n.i18n.lookupClosestSupportedDevToolsLocale,
       },
     });
+    // Record the intended locale, regardless whether we are able to fetch it or not.
+    Host.userMetrics.language(devToolsLocale.locale);
 
     if (devToolsLocale.locale !== 'en-US') {
       // Always load en-US locale data as a fallback. This is important, newly added
@@ -187,10 +205,10 @@ export class MainImpl {
     }
   }
 
-  _createSettings(prefs: {
+  createSettings(prefs: {
     [x: string]: string,
   }): void {
-    this._initializeExperiments();
+    this.#initializeExperiments();
     let storagePrefix = '';
     if (Host.Platform.isCustomDevtoolsFrontend()) {
       storagePrefix = '__custom__';
@@ -202,16 +220,38 @@ export class MainImpl {
 
     let localStorage;
     if (!Host.InspectorFrontendHost.isUnderTest() && window.localStorage) {
-      localStorage = new Common.Settings.SettingsStorage(
-          window.localStorage, undefined, undefined, () => window.localStorage.clear(), storagePrefix);
+      const localbackingStore: Common.Settings.SettingsBackingStore = {
+        ...Common.Settings.NOOP_STORAGE,
+        clear: () => window.localStorage.clear(),
+      };
+      localStorage = new Common.Settings.SettingsStorage(window.localStorage, localbackingStore, storagePrefix);
     } else {
-      localStorage = new Common.Settings.SettingsStorage({}, undefined, undefined, undefined, storagePrefix);
+      localStorage = new Common.Settings.SettingsStorage({}, Common.Settings.NOOP_STORAGE, storagePrefix);
     }
-    const globalStorage = new Common.Settings.SettingsStorage(
-        prefs, Host.InspectorFrontendHost.InspectorFrontendHostInstance.setPreference,
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.removePreference,
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.clearPreferences, storagePrefix);
-    Common.Settings.Settings.instance({forceNew: true, globalStorage, localStorage});
+
+    const hostUnsyncedStorage: Common.Settings.SettingsBackingStore = {
+      register: (name: string) =>
+          Host.InspectorFrontendHost.InspectorFrontendHostInstance.registerPreference(name, {synced: false}),
+      set: Host.InspectorFrontendHost.InspectorFrontendHostInstance.setPreference,
+      get: (name: string) => {
+        return new Promise(resolve => {
+          Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreference(name, resolve);
+        });
+      },
+      remove: Host.InspectorFrontendHost.InspectorFrontendHostInstance.removePreference,
+      clear: Host.InspectorFrontendHost.InspectorFrontendHostInstance.clearPreferences,
+    };
+    const hostSyncedStorage: Common.Settings.SettingsBackingStore = {
+      ...hostUnsyncedStorage,
+      register: (name: string) =>
+          Host.InspectorFrontendHost.InspectorFrontendHostInstance.registerPreference(name, {synced: true}),
+    };
+    // `prefs` is retrieved via `getPreferences` host binding and contains both synced and unsynced settings.
+    // As such, we use `prefs` to initialize both the synced and the global storage. This is fine as an individual
+    // setting can't change storage buckets during a single DevTools session.
+    const syncedStorage = new Common.Settings.SettingsStorage(prefs, hostSyncedStorage, storagePrefix);
+    const globalStorage = new Common.Settings.SettingsStorage(prefs, hostUnsyncedStorage, storagePrefix);
+    Common.Settings.Settings.instance({forceNew: true, syncedStorage, globalStorage, localStorage});
 
     // @ts-ignore layout test global
     self.Common.settings = Common.Settings.Settings.instance();
@@ -221,7 +261,7 @@ export class MainImpl {
     }
   }
 
-  _initializeExperiments(): void {
+  #initializeExperiments(): void {
     Root.Runtime.experiments.register('applyCustomStylesheet', 'Allow extensions to load custom stylesheets');
     Root.Runtime.experiments.register('captureNodeCreationStacks', 'Capture node creation stacks');
     Root.Runtime.experiments.register('sourcesPrettyPrint', 'Automatically pretty print in the Sources Panel');
@@ -232,14 +272,8 @@ export class MainImpl {
         'backgroundServicesPaymentHandler', 'Background services section for Payment Handler');
     Root.Runtime.experiments.register(
         'backgroundServicesPushMessaging', 'Background services section for Push Messaging');
-    // TODO(crbug.com/1161439): remove 'blackboxJSFramesOnTimeline', keep 'ignoreListJSFramesOnTimeline'
-    Root.Runtime.experiments.register(
-        'blackboxJSFramesOnTimeline', 'Ignore List for JavaScript frames on Timeline', true);
     Root.Runtime.experiments.register(
         'ignoreListJSFramesOnTimeline', 'Ignore List for JavaScript frames on Timeline', true);
-    Root.Runtime.experiments.register(
-        'cssOverview', 'CSS Overview', undefined, 'https://developer.chrome.com/blog/new-in-devtools-87/#css-overview');
-    Root.Runtime.experiments.register('emptySourceMapAutoStepping', 'Empty sourcemap auto-stepping');
     Root.Runtime.experiments.register('inputEventsOnTimelineOverview', 'Input events on Timeline overview', true);
     Root.Runtime.experiments.register('liveHeapProfile', 'Live heap profile', true);
     Root.Runtime.experiments.register(
@@ -255,7 +289,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'showOptionToNotTreatGlobalObjectsAsRoots',
         'Show option to take heap snapshot where globals are not treated as root');
-    Root.Runtime.experiments.register('sourceDiff', 'Source diff');
     Root.Runtime.experiments.register(
         'sourceOrderViewer', 'Source order viewer', undefined,
         'https://developer.chrome.com/blog/new-in-devtools-92/#source-order');
@@ -263,11 +296,10 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'keyboardShortcutEditor', 'Enable keyboard shortcut editor', true,
         'https://developer.chrome.com/blog/new-in-devtools-88/#keyboard-shortcuts');
-    Root.Runtime.experiments.register(
-        'recorder', 'Recorder', undefined, 'https://developer.chrome.com/blog/new-in-devtools-92/#puppeteer-recorder');
 
-    // Back-forward cache
-    Root.Runtime.experiments.register('bfcacheDebugging', 'Enable back-forward cache debugging support');
+    // Back/forward cache
+    Root.Runtime.experiments.register(
+        'bfcacheDisplayTree', 'Show back/forward cache blocking reasons in the frame tree structure view');
 
     // Timeline
     Root.Runtime.experiments.register('timelineEventInitiators', 'Timeline: event initiators');
@@ -277,9 +309,14 @@ export class MainImpl {
         'timelineV8RuntimeCallStats', 'Timeline: V8 Runtime Call Stats on Timeline', true);
     Root.Runtime.experiments.register('timelineWebGL', 'Timeline: WebGL-based flamechart');
     Root.Runtime.experiments.register('timelineReplayEvent', 'Timeline: Replay input events', true);
+
+    // Debugging
     Root.Runtime.experiments.register(
         'wasmDWARFDebugging', 'WebAssembly Debugging: Enable DWARF support', undefined,
         'https://developer.chrome.com/blog/wasm-debugging-2020/');
+    Root.Runtime.experiments.register(
+        'evaluateExpressionsWithSourceMaps', 'Console: Resolve variable names in expressions using source maps',
+        undefined);
 
     // Dual-screen
     Root.Runtime.experiments.register(
@@ -311,12 +348,55 @@ export class MainImpl {
     // New cookie features.
     Root.Runtime.experiments.register('experimentalCookieFeatures', 'Enable experimental cookie features');
 
+    // Hide Issues Feature.
+    Root.Runtime.experiments.register(
+        'hideIssuesFeature', 'Enable experimental hide issues menu', undefined,
+        'https://developer.chrome.com/blog/new-in-devtools-94/#hide-issues');
+
+    // Hide Issues Feature.
+    Root.Runtime.experiments.register('groupAndHideIssuesByKind', 'Allow grouping and hiding of issues by IssueKind');
+
+    // Checkbox in the Settings UI to enable Chrome Sync is behind this experiment.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.SYNC_SETTINGS, 'Sync DevTools settings with Chrome Sync');
+
+    // Debugging of Reporting API
+    Root.Runtime.experiments.register('reportingApiDebugging', 'Enable Reporting API panel in the Application panel');
+
+    // CSS <length> authoring tool.
+    Root.Runtime.experiments.register(
+        'cssTypeComponentLength',
+        'Enable CSS <length> authoring tool in the Styles pane (https://goo.gle/length-feedback)', undefined,
+        'https://developer.chrome.com/blog/new-in-devtools-96/#length');
+
+    // Display precise changes in the Changes tab.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.PRECISE_CHANGES, 'Display more precise changes in the Changes tab');
+
+    // Integrate CSS changes in the Styles pane.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES, 'Sync CSS changes in the Styles pane');
+
+    // Local overrides for response headers
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.HEADER_OVERRIDES, 'Local overrides for response headers');
+
+    // New Lighthouse panel with timespan and snapshot mode
+    Root.Runtime.experiments.register('lighthousePanelFR', 'Use Lighthouse panel with timespan and snapshot modes');
+
+    // Tooling for CSS layers in Styles sidebar pane.
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.CSS_LAYERS, 'Tooling for CSS layers in the Styles pane');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
+      'hideIssuesFeature',
+      'cssTypeComponentLength',
+      Root.Runtime.ExperimentName.PRECISE_CHANGES,
+      'reportingApiDebugging',
+      Root.Runtime.ExperimentName.SYNC_SETTINGS,
+      Root.Runtime.ExperimentName.CSS_LAYERS,
     ]);
-
-    // Localized DevTools, hide "locale selector" setting behind an experiment.
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.LOCALIZED_DEVTOOLS, 'Enable localized DevTools');
 
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.Runtime.queryParam('enabledExperiments');
@@ -339,15 +419,11 @@ export class MainImpl {
       }
     }
 
-    // TODO(crbug.com/1161439): remove experiment duplication
-    const isBlackboxJSFramesOnTimelineEnabled = Root.Runtime.experiments.isEnabled('blackboxJSFramesOnTimeline');
-    Root.Runtime.experiments.setEnabled('ignoreListJSFramesOnTimeline', isBlackboxJSFramesOnTimelineEnabled);
-
     for (const experiment of Root.Runtime.experiments.enabledExperiments()) {
       Host.userMetrics.experimentEnabledAtLaunch(experiment.name);
     }
   }
-  async _createAppUI(): Promise<void> {
+  async #createAppUI(): Promise<void> {
     MainImpl.time('Main._createAppUI');
 
     // @ts-ignore layout test global
@@ -360,17 +436,29 @@ export class MainImpl {
 
     const defaultThemeSetting = 'systemPreferred';
     const themeSetting = Common.Settings.Settings.instance().createSetting('uiTheme', defaultThemeSetting);
-    UI.UIUtils.initializeUIUtils(document, themeSetting);
-    if (themeSetting.get() === defaultThemeSetting) {
-      const darkThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      darkThemeMediaQuery.addEventListener('change', () => {
-        UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-            i18nString(UIStrings.theSystempreferredColorSchemeHas));
-      });
+    UI.UIUtils.initializeUIUtils(document);
+
+    // Initialize theme support and apply it.
+    if (!ThemeSupport.ThemeSupport.hasInstance()) {
+      ThemeSupport.ThemeSupport.instance({forceNew: true, setting: themeSetting});
     }
+
+    ThemeSupport.ThemeSupport.instance().applyTheme(document);
+
+    const onThemeChange = (): void => {
+      ThemeSupport.ThemeSupport.instance().applyTheme(document);
+    };
+
+    // When the theme changes we instantiate a new theme support and reapply.
+    // Equally if the user has set to match the system and the OS preference changes
+    // we perform the same change.
+    const darkThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkThemeMediaQuery.addEventListener('change', onThemeChange);
+    themeSetting.addChangeListener(onThemeChange);
+
     UI.UIUtils.installComponentRootStyles((document.body as Element));
 
-    this._addMainEventListeners(document);
+    this.#addMainEventListeners(document);
 
     const canDock = Boolean(Root.Runtime.Runtime.queryParam('can_dock'));
     // @ts-ignore layout test global
@@ -380,8 +468,6 @@ export class MainImpl {
     self.UI.inspectorView = UI.InspectorView.InspectorView.instance();
     UI.ContextMenu.ContextMenu.initialize();
     UI.ContextMenu.ContextMenu.installHandler(document);
-    UI.Tooltip.Tooltip.installHandler(document);
-
 
     // These instances need to be created early so they don't miss any events about requests/issues/etc.
     Logs.NetworkLog.NetworkLog.instance();
@@ -391,6 +477,7 @@ export class MainImpl {
       forceNew: true,
       ensureFirst: true,
       showThirdPartyIssuesSetting: IssuesManager.Issue.getShowThirdPartyIssuesSetting(),
+      hideIssueSetting: IssuesManager.IssuesManager.getHideIssueByCodeSetting(),
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
 
@@ -403,7 +490,7 @@ export class MainImpl {
     // @ts-ignore layout test global
     self.SDK.domDebuggerManager = SDK.DOMDebuggerModel.DOMDebuggerManager.instance({forceNew: true});
     SDK.TargetManager.TargetManager.instance().addEventListener(
-        SDK.TargetManager.Events.SuspendStateChanged, this._onSuspendStateChanged.bind(this));
+        SDK.TargetManager.Events.SuspendStateChanged, this.#onSuspendStateChanged.bind(this));
 
     // @ts-ignore layout test global
     self.Workspace.fileManager = Workspace.FileManager.FileManager.instance({forceNew: true});
@@ -448,12 +535,6 @@ export class MainImpl {
         // @ts-ignore https://github.com/microsoft/TypeScript/issues/41397
         'snippet://', new Snippets.ScriptSnippetFileSystem.SnippetFileSystem());
 
-    if (Root.Runtime.experiments.isEnabled('recorder')) {
-      Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance().addPlatformFileSystem(
-          // @ts-ignore https://github.com/microsoft/TypeScript/issues/41397
-          'recording://', new Recorder.RecordingFileSystem.RecordingFileSystem());
-    }
-
     // @ts-ignore layout test global
     self.Persistence.persistence = Persistence.Persistence.PersistenceImpl.instance({
       forceNew: true,
@@ -481,7 +562,7 @@ export class MainImpl {
     // @ts-ignore layout test global
     self.UI.shortcutRegistry =
         UI.ShortcutRegistry.ShortcutRegistry.instance({forceNew: true, actionRegistry: actionRegistryInstance});
-    this._registerMessageSinkListener();
+    this.#registerMessageSinkListener();
 
     MainImpl.timeEnd('Main._createAppUI');
 
@@ -489,10 +570,10 @@ export class MainImpl {
     if (!appProvider) {
       throw new Error('Unable to boot DevTools, as the appprovider is missing');
     }
-    await this._showAppUI(await appProvider.loadAppProvider());
+    await this.#showAppUI(await appProvider.loadAppProvider());
   }
 
-  async _showAppUI(appProvider: Object): Promise<void> {
+  async #showAppUI(appProvider: Object): Promise<void> {
     MainImpl.time('Main._showAppUI');
     const app = (appProvider as Common.AppProvider.AppProvider).createApp();
     // It is important to kick controller lifetime after apps are instantiated.
@@ -504,11 +585,11 @@ export class MainImpl {
     if (toggleSearchNodeAction) {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
           Host.InspectorFrontendHostAPI.Events.EnterInspectElementMode, () => {
-            toggleSearchNodeAction.execute();
+            void toggleSearchNodeAction.execute();
           }, this);
     }
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
-        Host.InspectorFrontendHostAPI.Events.RevealSourceLine, this._revealSourceLine, this);
+        Host.InspectorFrontendHostAPI.Events.RevealSourceLine, this.#revealSourceLine, this);
 
     await UI.InspectorView.InspectorView.instance().createToolbars();
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.loadCompleted();
@@ -518,12 +599,15 @@ export class MainImpl {
       Timeline.TimelinePanel.LoadTimelineHandler.instance().handleQueryParam(value);
     }
 
+    // Initialize ARIAUtils.alert Element
+    UI.ARIAUtils.alertElementInstance();
+
     // Allow UI cycles to repaint prior to creating connection.
-    setTimeout(this._initializeTarget.bind(this), 0);
+    window.setTimeout(this.#initializeTarget.bind(this), 0);
     MainImpl.timeEnd('Main._showAppUI');
   }
 
-  async _initializeTarget(): Promise<void> {
+  async #initializeTarget(): Promise<void> {
     MainImpl.time('Main._initializeTarget');
 
     // We rely on having the early initialization runnables registered in Common when an app loads its
@@ -535,64 +619,64 @@ export class MainImpl {
     // Used for browser tests.
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.readyForTest();
     // Asynchronously run the extensions.
-    setTimeout(this._lateInitialization.bind(this), 100);
+    window.setTimeout(this.#lateInitialization.bind(this), 100);
     MainImpl.timeEnd('Main._initializeTarget');
   }
 
-  _lateInitialization(): void {
+  #lateInitialization(): void {
     MainImpl.time('Main._lateInitialization');
     Extensions.ExtensionServer.ExtensionServer.instance().initializeExtensions();
     const promises: Promise<void>[] =
-        Common.Runnable.lateInitializationRunnables().map(runnableInstance => runnableInstance().run());
+        Common.Runnable.lateInitializationRunnables().map(async lateInitializationLoader => {
+          const runnable = await lateInitializationLoader();
+          return runnable.run();
+        });
     if (Root.Runtime.experiments.isEnabled('liveHeapProfile')) {
       const setting = 'memoryLiveHeapProfile';
       if (Common.Settings.Settings.instance().moduleSetting(setting).get()) {
         promises.push(PerfUI.LiveHeapProfile.LiveHeapProfile.instance().run());
       } else {
-        const changeListener = async(event: Common.EventTarget.EventTargetEvent): Promise<void> => {
+        const changeListener = async(event: Common.EventTarget.EventTargetEvent<unknown>): Promise<void> => {
           if (!event.data) {
             return;
           }
           Common.Settings.Settings.instance().moduleSetting(setting).removeChangeListener(changeListener);
-          PerfUI.LiveHeapProfile.LiveHeapProfile.instance().run();
+          void PerfUI.LiveHeapProfile.LiveHeapProfile.instance().run();
         };
         Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(changeListener);
       }
     }
-    this._lateInitDonePromise = Promise.all(promises).then(() => undefined);
+    this.#lateInitDonePromise = Promise.all(promises).then(() => undefined);
     MainImpl.timeEnd('Main._lateInitialization');
   }
 
   lateInitDonePromiseForTest(): Promise<void>|null {
-    return this._lateInitDonePromise;
+    return this.#lateInitDonePromise;
   }
 
-  _registerMessageSinkListener(): void {
+  #registerMessageSinkListener(): void {
     Common.Console.Console.instance().addEventListener(Common.Console.Events.MessageAdded, messageAdded);
 
-    function messageAdded(event: Common.EventTarget.EventTargetEvent): void {
-      const message = (event.data as Common.Console.Message);
+    function messageAdded({data: message}: Common.EventTarget.EventTargetEvent<Common.Console.Message>): void {
       if (message.show) {
         Common.Console.Console.instance().show();
       }
     }
   }
 
-  _revealSourceLine(event: Common.EventTarget.EventTargetEvent): void {
-    const url = (event.data['url'] as string);
-    const lineNumber = (event.data['lineNumber'] as number);
-    const columnNumber = (event.data['columnNumber'] as number);
-
+  #revealSourceLine(event: Common.EventTarget.EventTargetEvent<Host.InspectorFrontendHostAPI.RevealSourceLineEvent>):
+      void {
+    const {url, lineNumber, columnNumber} = event.data;
     const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url);
     if (uiSourceCode) {
-      Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
+      void Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
       return;
     }
 
-    function listener(event: Common.EventTarget.EventTargetEvent): void {
-      const uiSourceCode = (event.data as Workspace.UISourceCode.UISourceCode);
+    function listener(event: Common.EventTarget.EventTargetEvent<Workspace.UISourceCode.UISourceCode>): void {
+      const uiSourceCode = event.data;
       if (uiSourceCode.url() === url) {
-        Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
+        void Common.Revealer.reveal(uiSourceCode.uiLocation(lineNumber, columnNumber));
         Workspace.Workspace.WorkspaceImpl.instance().removeEventListener(
             Workspace.Workspace.Events.UISourceCodeAdded, listener);
       }
@@ -602,13 +686,13 @@ export class MainImpl {
         Workspace.Workspace.Events.UISourceCodeAdded, listener);
   }
 
-  _postDocumentKeyDown(event: Event): void {
+  #postDocumentKeyDown(event: Event): void {
     if (!event.handled) {
       UI.ShortcutRegistry.ShortcutRegistry.instance().handleShortcut((event as KeyboardEvent));
     }
   }
 
-  _redispatchClipboardEvent(event: Event): void {
+  #redispatchClipboardEvent(event: Event): void {
     const eventCopy = new CustomEvent('clipboard-' + event.type, {bubbles: true});
     // @ts-ignore Used in ElementsTreeOutline
     eventCopy['original'] = event;
@@ -622,27 +706,27 @@ export class MainImpl {
     }
   }
 
-  _contextMenuEventFired(event: Event): void {
+  #contextMenuEventFired(event: Event): void {
     if (event.handled || (event.target as HTMLElement).classList.contains('popup-glasspane')) {
       event.preventDefault();
     }
   }
 
-  _addMainEventListeners(document: Document): void {
-    document.addEventListener('keydown', this._postDocumentKeyDown.bind(this), false);
-    document.addEventListener('beforecopy', this._redispatchClipboardEvent.bind(this), true);
-    document.addEventListener('copy', this._redispatchClipboardEvent.bind(this), false);
-    document.addEventListener('cut', this._redispatchClipboardEvent.bind(this), false);
-    document.addEventListener('paste', this._redispatchClipboardEvent.bind(this), false);
-    document.addEventListener('contextmenu', this._contextMenuEventFired.bind(this), true);
+  #addMainEventListeners(document: Document): void {
+    document.addEventListener('keydown', this.#postDocumentKeyDown.bind(this), false);
+    document.addEventListener('beforecopy', this.#redispatchClipboardEvent.bind(this), true);
+    document.addEventListener('copy', this.#redispatchClipboardEvent.bind(this), false);
+    document.addEventListener('cut', this.#redispatchClipboardEvent.bind(this), false);
+    document.addEventListener('paste', this.#redispatchClipboardEvent.bind(this), false);
+    document.addEventListener('contextmenu', this.#contextMenuEventFired.bind(this), true);
   }
 
-  _onSuspendStateChanged(): void {
+  #onSuspendStateChanged(): void {
     const suspended = SDK.TargetManager.TargetManager.instance().allTargetsSuspended();
     UI.InspectorView.InspectorView.instance().onSuspendStateChanged(suspended);
   }
 
-  static _instanceForTest: MainImpl|null = null;
+  static instanceForTest: MainImpl|null = null;
 }
 
 // @ts-ignore Exported for Tests.js
@@ -725,11 +809,11 @@ export class SearchActionDelegate implements UI.ActionRegistration.ActionDelegat
 let mainMenuItemInstance: MainMenuItem;
 
 export class MainMenuItem implements UI.Toolbar.Provider {
-  _item: UI.Toolbar.ToolbarMenuButton;
+  readonly #itemInternal: UI.Toolbar.ToolbarMenuButton;
   constructor() {
-    this._item = new UI.Toolbar.ToolbarMenuButton(this._handleContextMenu.bind(this), true);
-    this._item.element.classList.add('main-menu');
-    this._item.setTitle(i18nString(UIStrings.customizeAndControlDevtools));
+    this.#itemInternal = new UI.Toolbar.ToolbarMenuButton(this.#handleContextMenu.bind(this), true);
+    this.#itemInternal.element.classList.add('main-menu');
+    this.#itemInternal.setTitle(i18nString(UIStrings.customizeAndControlDevtools));
   }
 
   static instance(opts: {
@@ -744,17 +828,17 @@ export class MainMenuItem implements UI.Toolbar.Provider {
   }
 
   item(): UI.Toolbar.ToolbarItem|null {
-    return this._item;
+    return this.#itemInternal;
   }
 
-  _handleContextMenu(contextMenu: UI.ContextMenu.ContextMenu): void {
+  #handleContextMenu(contextMenu: UI.ContextMenu.ContextMenu): void {
     if (UI.DockController.DockController.instance().canDock()) {
       const dockItemElement = document.createElement('div');
       dockItemElement.classList.add('flex-centered');
       dockItemElement.classList.add('flex-auto');
       dockItemElement.tabIndex = -1;
       UI.ARIAUtils.setAccessibleName(dockItemElement, UIStrings.dockSide);
-      const titleElement = dockItemElement.createChild('span', 'flex-auto');
+      const titleElement = dockItemElement.createChild('span', 'dockside-title');
       titleElement.textContent = i18nString(UIStrings.dockSide);
       const toggleDockSideShorcuts =
           UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutsForAction('main.toggle-dock');
@@ -763,9 +847,7 @@ export class MainMenuItem implements UI.Toolbar.Provider {
           i18nString(UIStrings.placementOfDevtoolsRelativeToThe, {PH1: toggleDockSideShorcuts[0].title()}));
       dockItemElement.appendChild(titleElement);
       const dockItemToolbar = new UI.Toolbar.Toolbar('', dockItemElement);
-      if (Host.Platform.isMac() && !ThemeSupport.ThemeSupport.instance().hasTheme()) {
-        dockItemToolbar.makeBlueOnHover();
-      }
+      dockItemToolbar.makeBlueOnHover();
       const undock = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.undockIntoSeparateWindow), 'largeicon-undock');
       const bottom = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.dockToBottom), 'largeicon-dock-to-bottom');
       const right = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.dockToRight), 'largeicon-dock-to-right');
@@ -775,19 +857,18 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       right.addEventListener(UI.Toolbar.ToolbarButton.Events.MouseDown, event => event.data.consume());
       left.addEventListener(UI.Toolbar.ToolbarButton.Events.MouseDown, event => event.data.consume());
       undock.addEventListener(
-          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.State.Undocked));
+          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.DockState.UNDOCKED));
       bottom.addEventListener(
-          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.State.DockedToBottom));
+          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.DockState.BOTTOM));
       right.addEventListener(
-          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.State.DockedToRight));
+          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.DockState.RIGHT));
       left.addEventListener(
-          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.State.DockedToLeft));
-      undock.setToggled(UI.DockController.DockController.instance().dockSide() === UI.DockController.State.Undocked);
-      bottom.setToggled(
-          UI.DockController.DockController.instance().dockSide() === UI.DockController.State.DockedToBottom);
-      right.setToggled(
-          UI.DockController.DockController.instance().dockSide() === UI.DockController.State.DockedToRight);
-      left.setToggled(UI.DockController.DockController.instance().dockSide() === UI.DockController.State.DockedToLeft);
+          UI.Toolbar.ToolbarButton.Events.Click, setDockSide.bind(null, UI.DockController.DockState.LEFT));
+      undock.setToggled(
+          UI.DockController.DockController.instance().dockSide() === UI.DockController.DockState.UNDOCKED);
+      bottom.setToggled(UI.DockController.DockController.instance().dockSide() === UI.DockController.DockState.BOTTOM);
+      right.setToggled(UI.DockController.DockController.instance().dockSide() === UI.DockController.DockState.RIGHT);
+      left.setToggled(UI.DockController.DockController.instance().dockSide() === UI.DockController.DockState.LEFT);
       dockItemToolbar.appendToolbarItem(undock);
       dockItemToolbar.appendToolbarItem(left);
       dockItemToolbar.appendToolbarItem(bottom);
@@ -812,17 +893,17 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       contextMenu.headerSection().appendCustomItem(dockItemElement);
     }
 
-    const button = (this._item.element as HTMLButtonElement);
+    const button = (this.#itemInternal.element as HTMLButtonElement);
 
-    function setDockSide(side: string): void {
-      UI.DockController.DockController.instance().once(UI.DockController.Events.AfterDockSideChanged).then(() => {
+    function setDockSide(side: UI.DockController.DockState): void {
+      void UI.DockController.DockController.instance().once(UI.DockController.Events.AfterDockSideChanged).then(() => {
         button.focus();
       });
       UI.DockController.DockController.instance().setDockSide(side);
       contextMenu.discard();
     }
 
-    if (UI.DockController.DockController.instance().dockSide() === UI.DockController.State.Undocked) {
+    if (UI.DockController.DockController.instance().dockSide() === UI.DockController.DockState.UNDOCKED) {
       const mainTarget = SDK.TargetManager.TargetManager.instance().mainTarget();
       if (mainTarget && mainTarget.type() === SDK.Target.Type.Frame) {
         contextMenu.defaultSection().appendAction('inspector_main.focus-debuggee', i18nString(UIStrings.focusDebuggee));
@@ -851,7 +932,7 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       if (id === 'issues-pane') {
         moreTools.defaultSection().appendItem(title, () => {
           Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.HamburgerMenu);
-          UI.ViewManager.ViewManager.instance().showView('issues-pane', /* userGesture */ true);
+          void UI.ViewManager.ViewManager.instance().showView('issues-pane', /* userGesture */ true);
         });
         continue;
       }
@@ -862,8 +943,18 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       if (location !== 'drawer-view' && location !== 'panel') {
         continue;
       }
+
+      if (viewExtension.isPreviewFeature()) {
+        const previewIcon = new IconButton.Icon.Icon();
+        previewIcon.data = {iconName: 'ic_preview_feature', color: 'var(--icon-color)', width: '14px', height: '14px'};
+        moreTools.defaultSection().appendItem(title, () => {
+          void UI.ViewManager.ViewManager.instance().showView(id, true, false);
+        }, /* disabled=*/ false, previewIcon);
+        continue;
+      }
+
       moreTools.defaultSection().appendItem(title, () => {
-        UI.ViewManager.ViewManager.instance().showView(id, true, false);
+        void UI.ViewManager.ViewManager.instance().showView(id, true, false);
       });
     }
 
@@ -875,10 +966,10 @@ export class MainMenuItem implements UI.Toolbar.Provider {
 let settingsButtonProviderInstance: SettingsButtonProvider;
 
 export class SettingsButtonProvider implements UI.Toolbar.Provider {
-  _settingsButton: UI.Toolbar.ToolbarButton;
+  readonly #settingsButton: UI.Toolbar.ToolbarButton;
   private constructor() {
     const settingsActionId = 'settings.show';
-    this._settingsButton =
+    this.#settingsButton =
         UI.Toolbar.Toolbar.createActionButtonForId(settingsActionId, {showLabel: false, userActionCode: undefined});
   }
 
@@ -894,30 +985,28 @@ export class SettingsButtonProvider implements UI.Toolbar.Provider {
   }
 
   item(): UI.Toolbar.ToolbarItem|null {
-    return this._settingsButton;
+    return this.#settingsButton;
   }
 }
 
 export class PauseListener {
   constructor() {
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._debuggerPaused, this);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this.#debuggerPaused, this);
   }
 
-  _debuggerPaused(event: Common.EventTarget.EventTargetEvent): void {
+  #debuggerPaused(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): void {
     SDK.TargetManager.TargetManager.instance().removeModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._debuggerPaused, this);
-    const debuggerModel = (event.data as SDK.DebuggerModel.DebuggerModel);
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this.#debuggerPaused, this);
+    const debuggerModel = event.data;
     const debuggerPausedDetails = debuggerModel.debuggerPausedDetails();
     UI.Context.Context.instance().setFlavor(SDK.Target.Target, debuggerModel.target());
-    Common.Revealer.reveal(debuggerPausedDetails);
+    void Common.Revealer.reveal(debuggerPausedDetails);
   }
 }
 
 export function sendOverProtocol(
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    method: ProtocolClient.InspectorBackend.QualifiedName, params: Object|null): Promise<any[]|null> {
+    method: ProtocolClient.InspectorBackend.QualifiedName, params: Object|null): Promise<unknown[]|null> {
   return new Promise((resolve, reject) => {
     const sendRawMessage = ProtocolClient.InspectorBackend.test.sendRawMessage;
     if (!sendRawMessage) {
@@ -955,5 +1044,3 @@ export class ReloadActionDelegate implements UI.ActionRegistration.ActionDelegat
     return false;
   }
 }
-
-new MainImpl();

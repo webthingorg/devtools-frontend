@@ -4,9 +4,9 @@
 
 import {assert} from 'chai';
 
-import {click, getBrowserAndPages, step, waitFor, waitForAria, waitForElementWithTextContent, waitForFunction} from '../../shared/helper.js';
+import {click, getBrowserAndPages, pressKey, step, waitFor, waitForAria, waitForElementWithTextContent, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {navigateToNetworkTab, setCacheDisabled, togglePersistLog, waitForSomeRequestsToAppear} from '../helpers/network-helpers.js';
+import {getAllRequestNames, navigateToNetworkTab, selectRequestByName, setCacheDisabled, setPersistLog, waitForSelectedRequestChange, waitForSomeRequestsToAppear} from '../helpers/network-helpers.js';
 
 describe('The Network Tab', async function() {
   if (this.timeout() !== 0.0) {
@@ -20,6 +20,7 @@ describe('The Network Tab', async function() {
   beforeEach(async () => {
     await navigateToNetworkTab('empty.html');
     await setCacheDisabled(true);
+    await setPersistLog(false);
   });
 
   it('can click on checkbox label to toggle checkbox', async () => {
@@ -88,14 +89,13 @@ describe('The Network Tab', async function() {
     // Open the raw response HTML
     await click('[aria-label="Response"]');
     // Wait for the raw response editor to show up
-    await waitFor('.CodeMirror-code');
+    const codeMirrorEditor = await waitFor('[aria-label="Code editor"]');
 
-    const codeMirrorEditor = await waitFor('.CodeMirror-code');
     const htmlRawResponse = await codeMirrorEditor.evaluate(editor => editor.textContent);
 
     assert.strictEqual(
         htmlRawResponse,
-        '1<html><body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>');
+        '<html><body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>');
   });
 
   it('the correct MIME type when resources came from HTTP cache', async () => {
@@ -119,8 +119,8 @@ describe('The Network Tab', async function() {
     });
 
     assert.deepEqual(await getNetworkRequestSize(), [
-      `${formatByteSize(361)}${formatByteSize(219)}`,
-      `${formatByteSize(362)}${formatByteSize(28)}`,
+      `${formatByteSize(404)}${formatByteSize(219)}`,
+      `${formatByteSize(376)}${formatByteSize(28)}`,
     ]);
     assert.deepEqual(await getNetworkRequestMimeTypes(), [
       'document',
@@ -134,7 +134,7 @@ describe('The Network Tab', async function() {
     await waitForSomeRequestsToAppear(2);
 
     assert.deepEqual(await getNetworkRequestSize(), [
-      `${formatByteSize(361)}${formatByteSize(219)}`,
+      `${formatByteSize(404)}${formatByteSize(219)}`,
       `(memory cache)${formatByteSize(28)}`,
     ]);
 
@@ -221,7 +221,7 @@ describe('The Network Tab', async function() {
     });
 
     assert.sameMembers(await getNetworkRequestSize(), [
-      `${formatByteSize(645)}${formatByteSize(0)}`,
+      `${formatByteSize(688)}${formatByteSize(0)}`,
       `(Web Bundle)${formatByteSize(27)}`,
     ]);
   });
@@ -289,7 +289,7 @@ describe('The Network Tab', async function() {
     ]);
   });
 
-  it('shows preserved pedning requests as unknown', async () => {
+  it('shows preserved pending requests as unknown', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await navigateToNetworkTab('send_beacon_on_unload.html');
@@ -299,19 +299,58 @@ describe('The Network Tab', async function() {
 
     await waitForSomeRequestsToAppear(1);
 
-    await togglePersistLog();
+    await setPersistLog(true);
 
     await navigateToNetworkTab('fetch.html');
     await waitForSomeRequestsToAppear(1);
-    const getNetworkRequestStatus = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.status-column')).slice(3, 4).map(node => node.textContent);
-    });
 
-    const getNetworkRequestTime = () => frontend.evaluate(() => {
-      return Array.from(document.querySelectorAll('.time-column')).slice(3, 4).map(node => node.textContent);
-    });
+    async function getStatusAndTime(name: string) {
+      const statusColumn = await frontend.evaluate(() => {
+        return Array.from(document.querySelectorAll('.status-column')).map(node => node.textContent);
+      });
+      const timeColumn = await frontend.evaluate(() => {
+        return Array.from(document.querySelectorAll('.time-column')).map(node => node.textContent);
+      });
+      const nameColumn = await frontend.evaluate(() => {
+        return Array.from(document.querySelectorAll('.name-column')).map(node => node.textContent);
+      });
+      const index = nameColumn.findIndex(x => x === name);
+      return {status: statusColumn[index], time: timeColumn[index]};
+    }
 
-    assert.deepEqual(await getNetworkRequestStatus(), ['(unknown)']);
-    assert.deepEqual(await getNetworkRequestTime(), ['(unknown)']);
+    // We need to wait for the network log to update.
+    await waitForFunction(async () => {
+      const {status, time} = await getStatusAndTime('sendBeacon');
+      // Depending on timing of the reporting, the status infomation (404) might reach DevTools in time.
+      return (status === '(unknown)' || status === '404') && time === '(unknown)';
+    });
+  });
+
+  it('repeats xhr request on "r" shortcut when the request is focused', async () => {
+    const {target} = getBrowserAndPages();
+
+    await navigateToNetworkTab('xhr.html');
+    await target.reload({waitUntil: 'networkidle0'});
+    await waitForSomeRequestsToAppear(2);
+
+    await selectRequestByName('image.svg');
+    await waitForSelectedRequestChange(null);
+    await pressKey('r');
+    await waitForSomeRequestsToAppear(3);
+
+    const updatedRequestNames = await getAllRequestNames();
+    assert.deepStrictEqual(updatedRequestNames, ['xhr.html', 'image.svg', 'image.svg']);
+  });
+
+  it('shows the request panel when clicked during a websocket message (https://crbug.com/1222382)', async () => {
+    await navigateToNetworkTab('websocket.html?infiniteMessages=true');
+
+    await waitForSomeRequestsToAppear(2);
+
+    // WebSocket messages get sent every 100 milliseconds, so holding the mouse
+    // down for 300 milliseconds should suffice.
+    await selectRequestByName('localhost', {delay: 300});
+
+    await waitFor('.network-item-view');
   });
 });

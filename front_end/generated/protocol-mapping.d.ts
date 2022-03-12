@@ -13,6 +13,15 @@
 export namespace ProtocolMapping {
   export interface Events {
     /**
+     * The loadComplete event mirrors the load complete event sent by the browser to assistive
+     * technology when the web page has finished loading.
+     */
+    'Accessibility.loadComplete': [Protocol.Accessibility.LoadCompleteEvent];
+    /**
+     * The nodesUpdated event is sent every time a previously requested node has changed the in tree.
+     */
+    'Accessibility.nodesUpdated': [Protocol.Accessibility.NodesUpdatedEvent];
+    /**
      * Event for when an animation has been cancelled.
      */
     'Animation.animationCanceled': [Protocol.Animation.AnimationCanceledEvent];
@@ -24,8 +33,6 @@ export namespace ProtocolMapping {
      * Event for animation that has been started.
      */
     'Animation.animationStarted': [Protocol.Animation.AnimationStartedEvent];
-    'ApplicationCache.applicationCacheStatusUpdated': [Protocol.ApplicationCache.ApplicationCacheStatusUpdatedEvent];
-    'ApplicationCache.networkStateUpdated': [Protocol.ApplicationCache.NetworkStateUpdatedEvent];
     'Audits.issueAdded': [Protocol.Audits.IssueAddedEvent];
     /**
      * Called when the recording state for the service has been updated.
@@ -293,6 +300,13 @@ export namespace ProtocolMapping {
      */
     'Network.subresourceWebBundleInnerResponseError': [Protocol.Network.SubresourceWebBundleInnerResponseErrorEvent];
     /**
+     * Is sent whenever a new report is added.
+     * And after 'enableReportingApi' for all existing reports.
+     */
+    'Network.reportingApiReportAdded': [Protocol.Network.ReportingApiReportAddedEvent];
+    'Network.reportingApiReportUpdated': [Protocol.Network.ReportingApiReportUpdatedEvent];
+    'Network.reportingApiEndpointsChangedForOrigin': [Protocol.Network.ReportingApiEndpointsChangedForOriginEvent];
+    /**
      * Fired when the node should be inspected. This happens after call to `setInspectMode` or when
      * user manually inspects an element.
      */
@@ -434,7 +448,7 @@ export namespace ProtocolMapping {
      */
     'Security.visibleSecurityStateChanged': [Protocol.Security.VisibleSecurityStateChangedEvent];
     /**
-     * The security state of the page changed.
+     * The security state of the page changed. No longer being sent.
      */
     'Security.securityStateChanged': [Protocol.Security.SecurityStateChangedEvent];
     'ServiceWorker.workerErrorReported': [Protocol.ServiceWorker.WorkerErrorReportedEvent];
@@ -456,6 +470,10 @@ export namespace ProtocolMapping {
      * The origin's IndexedDB database list has been modified.
      */
     'Storage.indexedDBListUpdated': [Protocol.Storage.IndexedDBListUpdatedEvent];
+    /**
+     * One of the interest groups was accessed by the associated page.
+     */
+    'Storage.interestGroupAccessed': [Protocol.Storage.InterestGroupAccessedEvent];
     /**
      * Issued when attached to target because of auto-attach or `attachToTarget` command.
      */
@@ -698,6 +716,22 @@ export namespace ProtocolMapping {
       returnType: Protocol.Accessibility.GetFullAXTreeResponse;
     };
     /**
+     * Fetches the root node.
+     * Requires `enable()` to have been called previously.
+     */
+    'Accessibility.getRootAXNode': {
+      paramsType: [Protocol.Accessibility.GetRootAXNodeRequest?];
+      returnType: Protocol.Accessibility.GetRootAXNodeResponse;
+    };
+    /**
+     * Fetches a node and all ancestors up to and including the root.
+     * Requires `enable()` to have been called previously.
+     */
+    'Accessibility.getAXNodeAndAncestors': {
+      paramsType: [Protocol.Accessibility.GetAXNodeAndAncestorsRequest?];
+      returnType: Protocol.Accessibility.GetAXNodeAndAncestorsResponse;
+    };
+    /**
      * Fetches a particular accessibility node by AXNodeId.
      * Requires `enable()` to have been called previously.
      */
@@ -759,30 +793,6 @@ export namespace ProtocolMapping {
      * Sets the timing of an animation node.
      */
     'Animation.setTiming': {paramsType: [Protocol.Animation.SetTimingRequest]; returnType: void;};
-    /**
-     * Enables application cache domain notifications.
-     */
-    'ApplicationCache.enable': {paramsType: []; returnType: void;};
-    /**
-     * Returns relevant application cache data for the document in given frame.
-     */
-    'ApplicationCache.getApplicationCacheForFrame': {
-      paramsType: [Protocol.ApplicationCache.GetApplicationCacheForFrameRequest];
-      returnType: Protocol.ApplicationCache.GetApplicationCacheForFrameResponse;
-    };
-    /**
-     * Returns array of frame identifiers with manifest urls for each frame containing a document
-     * associated with some application cache.
-     */
-    'ApplicationCache.getFramesWithManifests':
-        {paramsType: []; returnType: Protocol.ApplicationCache.GetFramesWithManifestsResponse;};
-    /**
-     * Returns manifest URL for document in the given frame.
-     */
-    'ApplicationCache.getManifestForFrame': {
-      paramsType: [Protocol.ApplicationCache.GetManifestForFrameRequest];
-      returnType: Protocol.ApplicationCache.GetManifestForFrameResponse;
-    };
     /**
      * Returns the response body and size if it were re-encoded with the specified settings. Only
      * applies to images.
@@ -967,6 +977,14 @@ export namespace ProtocolMapping {
     'CSS.getStyleSheetText':
         {paramsType: [Protocol.CSS.GetStyleSheetTextRequest]; returnType: Protocol.CSS.GetStyleSheetTextResponse;};
     /**
+     * Returns all layers parsed by the rendering engine for the tree scope of a node.
+     * Given a DOM element identified by nodeId, getLayersForNode returns the root
+     * layer for the nearest ancestor document or shadow root. The layer root contains
+     * the full layer tree for the tree scope and their ordering.
+     */
+    'CSS.getLayersForNode':
+        {paramsType: [Protocol.CSS.GetLayersForNodeRequest]; returnType: Protocol.CSS.GetLayersForNodeResponse;};
+    /**
      * Starts tracking the given computed styles for updates. The specified array of properties
      * replaces the one previously specified. Pass empty array to disable tracking.
      * Use takeComputedStyleUpdates to retrieve the list of nodes that had properties modified.
@@ -1001,6 +1019,11 @@ export namespace ProtocolMapping {
     'CSS.setContainerQueryText': {
       paramsType: [Protocol.CSS.SetContainerQueryTextRequest]; returnType: Protocol.CSS.SetContainerQueryTextResponse;
     };
+    /**
+     * Modifies the expression of a supports at-rule.
+     */
+    'CSS.setSupportsText':
+        {paramsType: [Protocol.CSS.SetSupportsTextRequest]; returnType: Protocol.CSS.SetSupportsTextResponse;};
     /**
      * Modifies the rule selector.
      */
@@ -1081,6 +1104,10 @@ export namespace ProtocolMapping {
      */
     'Cast.setSinkToUse': {paramsType: [Protocol.Cast.SetSinkToUseRequest]; returnType: void;};
     /**
+     * Starts mirroring the desktop to the sink.
+     */
+    'Cast.startDesktopMirroring': {paramsType: [Protocol.Cast.StartDesktopMirroringRequest]; returnType: void;};
+    /**
      * Starts mirroring the tab to the sink.
      */
     'Cast.startTabMirroring': {paramsType: [Protocol.Cast.StartTabMirroringRequest]; returnType: void;};
@@ -1124,7 +1151,7 @@ export namespace ProtocolMapping {
     /**
      * Enables DOM agent for the given page.
      */
-    'DOM.enable': {paramsType: []; returnType: void;};
+    'DOM.enable': {paramsType: [Protocol.DOM.EnableRequest?]; returnType: void;};
     /**
      * Focuses the given element.
      */
@@ -1324,6 +1351,14 @@ export namespace ProtocolMapping {
     'DOM.getContainerForNode':
         {paramsType: [Protocol.DOM.GetContainerForNodeRequest]; returnType: Protocol.DOM.GetContainerForNodeResponse;};
     /**
+     * Returns the descendants of a container query container that have
+     * container queries against this container.
+     */
+    'DOM.getQueryingDescendantsForContainer': {
+      paramsType: [Protocol.DOM.GetQueryingDescendantsForContainerRequest];
+      returnType: Protocol.DOM.GetQueryingDescendantsForContainerResponse;
+    };
+    /**
      * Returns event listeners of the given object.
      */
     'DOMDebugger.getEventListeners': {
@@ -1373,6 +1408,16 @@ export namespace ProtocolMapping {
      * Sets breakpoint on XMLHttpRequest.
      */
     'DOMDebugger.setXHRBreakpoint': {paramsType: [Protocol.DOMDebugger.SetXHRBreakpointRequest]; returnType: void;};
+    /**
+     * Sets breakpoint on particular native event.
+     */
+    'EventBreakpoints.setInstrumentationBreakpoint':
+        {paramsType: [Protocol.EventBreakpoints.SetInstrumentationBreakpointRequest]; returnType: void;};
+    /**
+     * Removes breakpoint on particular native event.
+     */
+    'EventBreakpoints.removeInstrumentationBreakpoint':
+        {paramsType: [Protocol.EventBreakpoints.RemoveInstrumentationBreakpointRequest]; returnType: void;};
     /**
      * Disables DOM snapshot agent for the given page.
      */
@@ -1459,6 +1504,11 @@ export namespace ProtocolMapping {
      */
     'Emulation.setFocusEmulationEnabled':
         {paramsType: [Protocol.Emulation.SetFocusEmulationEnabledRequest]; returnType: void;};
+    /**
+     * Automatically render all web contents using a dark theme.
+     */
+    'Emulation.setAutoDarkModeOverride':
+        {paramsType: [Protocol.Emulation.SetAutoDarkModeOverrideRequest?]; returnType: void;};
     /**
      * Enables CPU throttling to emulate slow CPUs.
      */
@@ -1552,6 +1602,11 @@ export namespace ProtocolMapping {
      */
     'Emulation.setUserAgentOverride': {paramsType: [Protocol.Emulation.SetUserAgentOverrideRequest]; returnType: void;};
     /**
+     * Allows overriding the automation flag.
+     */
+    'Emulation.setAutomationOverride':
+        {paramsType: [Protocol.Emulation.SetAutomationOverrideRequest]; returnType: void;};
+    /**
      * Sends a BeginFrame to the target and returns when the frame was completed. Optionally captures a
      * screenshot from the resulting frame. Requires that the target was created with enabled
      * BeginFrameControl. Designed for use with --run-all-compositor-stages-before-draw, see also
@@ -1638,6 +1693,12 @@ export namespace ProtocolMapping {
      * for example an emoji keyboard or an IME.
      */
     'Input.insertText': {paramsType: [Protocol.Input.InsertTextRequest]; returnType: void;};
+    /**
+     * This method sets the current candidate text for ime.
+     * Use imeCommitComposition to commit the final text.
+     * Use imeSetComposition with empty string as text to cancel composition.
+     */
+    'Input.imeSetComposition': {paramsType: [Protocol.Input.ImeSetCompositionRequest]; returnType: void;};
     /**
      * Dispatches a mouse event to the page.
      */
@@ -1945,6 +2006,11 @@ export namespace ProtocolMapping {
       returnType: Protocol.Network.GetSecurityIsolationStatusResponse;
     };
     /**
+     * Enables tracking for the Reporting API, events generated by the Reporting API will now be delivered to the client.
+     * Enabling triggers 'reportingApiReportAdded' for all existing reports.
+     */
+    'Network.enableReportingApi': {paramsType: [Protocol.Network.EnableReportingApiRequest]; returnType: void;};
+    /**
      * Fetches the resource and returns the content.
      */
     'Network.loadNetworkResource': {
@@ -1986,6 +2052,9 @@ export namespace ProtocolMapping {
     'Overlay.hideHighlight': {paramsType: []; returnType: void;};
     /**
      * Highlights owner element of the frame with given id.
+     * Deprecated: Doesn't work reliablity and cannot be fixed due to process
+     * separatation (the owner node might be in a different process). Determine
+     * the owner node in the client and use highlightNode.
      */
     'Overlay.highlightFrame': {paramsType: [Protocol.Overlay.HighlightFrameRequest]; returnType: void;};
     /**
@@ -2032,6 +2101,8 @@ export namespace ProtocolMapping {
     'Overlay.setShowFlexOverlays': {paramsType: [Protocol.Overlay.SetShowFlexOverlaysRequest]; returnType: void;};
     'Overlay.setShowScrollSnapOverlays':
         {paramsType: [Protocol.Overlay.SetShowScrollSnapOverlaysRequest]; returnType: void;};
+    'Overlay.setShowContainerQueryOverlays':
+        {paramsType: [Protocol.Overlay.SetShowContainerQueryOverlaysRequest]; returnType: void;};
     /**
      * Requests that backend shows paint rectangles
      */
@@ -2047,7 +2118,7 @@ export namespace ProtocolMapping {
     'Overlay.setShowScrollBottleneckRects':
         {paramsType: [Protocol.Overlay.SetShowScrollBottleneckRectsRequest]; returnType: void;};
     /**
-     * Requests that backend shows hit-test borders on layers
+     * Deprecated, no longer has any effect.
      */
     'Overlay.setShowHitTestBorders': {paramsType: [Protocol.Overlay.SetShowHitTestBordersRequest]; returnType: void;};
     /**
@@ -2063,6 +2134,11 @@ export namespace ProtocolMapping {
      * Add a dual screen device hinge
      */
     'Overlay.setShowHinge': {paramsType: [Protocol.Overlay.SetShowHingeRequest?]; returnType: void;};
+    /**
+     * Show elements in isolation mode with overlays.
+     */
+    'Overlay.setShowIsolatedElements':
+        {paramsType: [Protocol.Overlay.SetShowIsolatedElementsRequest]; returnType: void;};
     /**
      * Deprecated, please use addScriptToEvaluateOnNewDocument instead.
      */
@@ -2125,6 +2201,11 @@ export namespace ProtocolMapping {
     'Page.getAppManifest': {paramsType: []; returnType: Protocol.Page.GetAppManifestResponse;};
     'Page.getInstallabilityErrors': {paramsType: []; returnType: Protocol.Page.GetInstallabilityErrorsResponse;};
     'Page.getManifestIcons': {paramsType: []; returnType: Protocol.Page.GetManifestIconsResponse;};
+    /**
+     * Returns the unique (PWA) app id.
+     * Only returns values if the feature flag 'WebAppEnableManifestId' is enabled
+     */
+    'Page.getAppId': {paramsType: []; returnType: Protocol.Page.GetAppIdResponse;};
     /**
      * Returns all browser cookies. Depending on the backend support, will return detailed cookie
      * information in the `cookies` field.
@@ -2210,6 +2291,11 @@ export namespace ProtocolMapping {
       returnType: Protocol.Page.GetPermissionsPolicyStateResponse;
     };
     /**
+     * Get Origin Trials on given frame.
+     */
+    'Page.getOriginTrials':
+        {paramsType: [Protocol.Page.GetOriginTrialsRequest]; returnType: Protocol.Page.GetOriginTrialsResponse;};
+    /**
      * Overrides the values of device screen dimensions (window.screen.width, window.screen.height,
      * window.innerWidth, window.innerHeight, and "device-width"/"device-height"-related CSS media
      * query results).
@@ -2276,18 +2362,9 @@ export namespace ProtocolMapping {
      */
     'Page.stopScreencast': {paramsType: []; returnType: void;};
     /**
-     * Forces compilation cache to be generated for every subresource script.
-     * See also: `Page.produceCompilationCache`.
-     */
-    'Page.setProduceCompilationCache':
-        {paramsType: [Protocol.Page.SetProduceCompilationCacheRequest]; returnType: void;};
-    /**
      * Requests backend to produce compilation cache for the specified scripts.
-     * Unlike setProduceCompilationCache, this allows client to only produce cache
-     * for specific scripts. `scripts` are appeneded to the list of scripts
-     * for which the cache for would produced. Disabling compilation cache with
-     * `setProduceCompilationCache` would reset all pending cache requests.
-     * The list may also be reset during page navigation.
+     * `scripts` are appeneded to the list of scripts for which the cache
+     * would be produced. The list may be reset during page navigation.
      * When script with a matching URL is encountered, the cache is optionally
      * produced upon backend discretion, based on internal heuristics.
      * See also: `Page.compilationCacheProduced`.
@@ -2302,6 +2379,11 @@ export namespace ProtocolMapping {
      * Clears seeded compilation cache.
      */
     'Page.clearCompilationCache': {paramsType: []; returnType: void;};
+    /**
+     * Sets the Secure Payment Confirmation transaction mode.
+     * https://w3c.github.io/secure-payment-confirmation/#sctn-automation-set-spc-transaction-mode
+     */
+    'Page.setSPCTransactionMode': {paramsType: [Protocol.Page.SetSPCTransactionModeRequest]; returnType: void;};
     /**
      * Generates a report for testing.
      */
@@ -2442,6 +2524,18 @@ export namespace ProtocolMapping {
       paramsType: [Protocol.Storage.ClearTrustTokensRequest]; returnType: Protocol.Storage.ClearTrustTokensResponse;
     };
     /**
+     * Gets details for a named interest group.
+     */
+    'Storage.getInterestGroupDetails': {
+      paramsType: [Protocol.Storage.GetInterestGroupDetailsRequest];
+      returnType: Protocol.Storage.GetInterestGroupDetailsResponse;
+    };
+    /**
+     * Enables/Disables issuing of interestGroupAccessed events.
+     */
+    'Storage.setInterestGroupTracking':
+        {paramsType: [Protocol.Storage.SetInterestGroupTrackingRequest]; returnType: void;};
+    /**
      * Returns information about the system.
      */
     'SystemInfo.getInfo': {paramsType: []; returnType: Protocol.SystemInfo.GetInfoResponse;};
@@ -2523,8 +2617,18 @@ export namespace ProtocolMapping {
      * Controls whether to automatically attach to new targets which are considered to be related to
      * this one. When turned on, attaches to all existing related targets as well. When turned off,
      * automatically detaches from all currently attached targets.
+     * This also clears all targets added by `autoAttachRelated` from the list of targets to watch
+     * for creation of related targets.
      */
     'Target.setAutoAttach': {paramsType: [Protocol.Target.SetAutoAttachRequest]; returnType: void;};
+    /**
+     * Adds the specified target to the list of targets that will be monitored for any related target
+     * creation (such as child frames, child workers and new versions of service worker) and reported
+     * through `attachedToTarget`. The specified target is also auto-attached.
+     * This cancels the effect of any previous `setAutoAttach` and is also cancelled by subsequent
+     * `setAutoAttach`. Only available at the Browser target.
+     */
+    'Target.autoAttachRelated': {paramsType: [Protocol.Target.AutoAttachRelatedRequest]; returnType: void;};
     /**
      * Controls whether to discover available targets and notify via
      * `targetCreated/targetInfoChanged/targetDestroyed` events.
@@ -2590,6 +2694,12 @@ export namespace ProtocolMapping {
      * Continues a request supplying authChallengeResponse following authRequired event.
      */
     'Fetch.continueWithAuth': {paramsType: [Protocol.Fetch.ContinueWithAuthRequest]; returnType: void;};
+    /**
+     * Continues loading of the paused response, optionally modifying the
+     * response headers. If either responseCode or headers are modified, all of them
+     * must be present.
+     */
+    'Fetch.continueResponse': {paramsType: [Protocol.Fetch.ContinueResponseRequest]; returnType: void;};
     /**
      * Causes the body of the response to be received from the server and
      * returned as a single string. May only be issued for a request that
@@ -2921,30 +3031,6 @@ export namespace ProtocolMapping {
      */
     'Profiler.takeTypeProfile': {paramsType: []; returnType: Protocol.Profiler.TakeTypeProfileResponse;};
     /**
-     * Enable counters collection.
-     */
-    'Profiler.enableCounters': {paramsType: []; returnType: void;};
-    /**
-     * Disable counters collection.
-     */
-    'Profiler.disableCounters': {paramsType: []; returnType: void;};
-    /**
-     * Retrieve counters.
-     */
-    'Profiler.getCounters': {paramsType: []; returnType: Protocol.Profiler.GetCountersResponse;};
-    /**
-     * Enable run time call stats collection.
-     */
-    'Profiler.enableRuntimeCallStats': {paramsType: []; returnType: void;};
-    /**
-     * Disable run time call stats collection.
-     */
-    'Profiler.disableRuntimeCallStats': {paramsType: []; returnType: void;};
-    /**
-     * Retrieve run time call stats.
-     */
-    'Profiler.getRuntimeCallStats': {paramsType: []; returnType: Protocol.Profiler.GetRuntimeCallStatsResponse;};
-    /**
      * Add handler to promise with given promise object id.
      */
     'Runtime.awaitPromise':
@@ -3047,6 +3133,17 @@ export namespace ProtocolMapping {
      * unsubscribes current runtime agent from Runtime.bindingCalled notifications.
      */
     'Runtime.removeBinding': {paramsType: [Protocol.Runtime.RemoveBindingRequest]; returnType: void;};
+    /**
+     * This method tries to lookup and populate exception details for a
+     * JavaScript Error object.
+     * Note that the stackTrace portion of the resulting exceptionDetails will
+     * only be populated if the Runtime domain was enabled at the time when the
+     * Error was thrown.
+     */
+    'Runtime.getExceptionDetails': {
+      paramsType: [Protocol.Runtime.GetExceptionDetailsRequest];
+      returnType: Protocol.Runtime.GetExceptionDetailsResponse;
+    };
     /**
      * Returns supported domains.
      */

@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as AccessibilityTreeUtils from './AccessibilityTreeUtils.js';
-import * as Adorner from './Adorner.js';
+import * as AccessibilityTreeNode from './AccessibilityTreeNode.js';
 import * as AdornerManager from './AdornerManager.js';
 import * as AdornerSettingsPane from './AdornerSettingsPane.js';
 import * as ComputedStyleProperty from './ComputedStyleProperty.js';
@@ -13,14 +12,15 @@ import * as CSSQuery from './CSSQuery.js';
 import * as ElementsBreadcrumbs from './ElementsBreadcrumbs.js';
 import * as ElementsBreadcrumbsUtils from './ElementsBreadcrumbsUtils.js';
 import * as ElementsPanelLink from './ElementsPanelLink.js';
+import * as Helper from './Helper.js';
 import * as LayoutPane from './LayoutPane.js';
 import * as LayoutPaneUtils from './LayoutPaneUtils.js';
 import * as NodeText from './NodeText.js';
+import * as QueryContainer from './QueryContainer.js';
 import * as StylePropertyEditor from './StylePropertyEditor.js';
 
 export {
-  AccessibilityTreeUtils,
-  Adorner,
+  AccessibilityTreeNode,
   AdornerManager,
   AdornerSettingsPane,
   ComputedStyleProperty,
@@ -30,8 +30,10 @@ export {
   ElementsBreadcrumbs,
   ElementsBreadcrumbsUtils,
   ElementsPanelLink,
+  Helper,
   LayoutPane,
   LayoutPaneUtils,
   NodeText,
+  QueryContainer,
   StylePropertyEditor,
 };

@@ -9,13 +9,13 @@ import type {CSSModel, Edit} from './CSSModel.js';
 import {CSSLocation} from './CSSModel.js';
 import type {CSSStyleSheetHeader} from './CSSStyleSheetHeader.js';
 
-type CSSQueryPayload = Protocol.CSS.CSSMedia|Protocol.CSS.CSSContainerQuery;
+type CSSQueryPayload = Protocol.CSS.CSSMedia|Protocol.CSS.CSSContainerQuery|Protocol.CSS.CSSSupports;
 
 export abstract class CSSQuery {
   text = '';
   range?: TextUtils.TextRange.TextRange|null;
-  styleSheetId?: string;
-  private cssModel: CSSModel;
+  styleSheetId?: Protocol.CSS.StyleSheetId;
+  protected cssModel: CSSModel;
 
   constructor(cssModel: CSSModel) {
     this.cssModel = cssModel;

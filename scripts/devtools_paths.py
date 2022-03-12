@@ -22,7 +22,8 @@ def root_path():
     if path.basename(PARENT_PATH) == 'renderer':
         # Chromium repository
         return path.dirname(path.dirname(path.dirname(PARENT_PATH)))
-    elif path.basename(PARENT_PATH) == 'devtools-frontend':
+    elif path.basename(PARENT_PATH) == 'devtools-frontend' or path.basename(
+            PARENT_PATH) == 'devtools-frontend-internal':
         # External repository, integrated build
         return path.dirname(path.dirname(PARENT_PATH))
     else:
@@ -72,6 +73,10 @@ def typescript_compiler_path():
 
 def hosted_mode_script_path():
     return path.join(devtools_root_path(), 'scripts', 'hosted_mode', 'server.js')
+
+
+def esbuild_path():
+    return path.join(devtools_root_path(), 'third_party', 'esbuild', 'esbuild')
 
 
 def downloaded_chrome_binary_path():

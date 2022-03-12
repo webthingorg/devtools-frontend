@@ -10,7 +10,6 @@ import {Issue, IssueCategory, IssueKind} from './Issue.js';
 import type {LazyMarkdownIssueDescription, MarkdownIssueDescription} from './MarkdownIssueDescription.js';
 import {resolveLazyDescription} from './MarkdownIssueDescription.js';
 
-
 const UIStrings = {
   /**
   *@description Link text for a link to external documentation
@@ -41,23 +40,23 @@ export function isCrossOriginEmbedderPolicyIssue(reason: Protocol.Audits.Blocked
 }
 
 export class CrossOriginEmbedderPolicyIssue extends Issue {
-  private issueDetails: Protocol.Audits.BlockedByResponseIssueDetails;
+  #issueDetails: Protocol.Audits.BlockedByResponseIssueDetails;
 
   constructor(issueDetails: Protocol.Audits.BlockedByResponseIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
     super(`CrossOriginEmbedderPolicyIssue::${issueDetails.reason}`, issuesModel);
-    this.issueDetails = issueDetails;
+    this.#issueDetails = issueDetails;
   }
 
   primaryKey(): string {
-    return `${this.code()}-(${this.issueDetails.request.requestId})`;
+    return `${this.code()}-(${this.#issueDetails.request.requestId})`;
   }
 
   getBlockedByResponseDetails(): Iterable<Protocol.Audits.BlockedByResponseIssueDetails> {
-    return [this.issueDetails];
+    return [this.#issueDetails];
   }
 
   requests(): Iterable<Protocol.Audits.AffectedRequest> {
-    return [this.issueDetails.request];
+    return [this.#issueDetails.request];
   }
 
   getCategory(): IssueCategory {

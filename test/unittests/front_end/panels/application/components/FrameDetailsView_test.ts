@@ -8,7 +8,8 @@ import * as ExpandableList from '../../../../../../front_end/ui/components/expan
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../../../front_end/ui/components/report_view/report_view.js';
 import * as Protocol from '../../../../../../front_end/generated/protocol.js';
-import {assertShadowRoot, getCleanTextContentFromElements, getElementWithinComponent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
+import {assertShadowRoot, getCleanTextContentFromElements, getElementWithinComponent, getElementsWithinComponent, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
+import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -63,7 +64,7 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
       },
       creationStackTraceTarget: null,
     }),
-    getOriginTrials: () => ([
+    getOriginTrials: async () => ([
       {
         trialName: 'AppCache',
         status: 'Enabled',
@@ -81,11 +82,12 @@ const makeFrame = (): SDK.ResourceTreeModel.ResourceTreeFrame => {
         }],
       },
     ]),
+    getPermissionsPolicyState: () => null,
   } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
   return newFrame;
 };
 
-describe('FrameDetailsView', () => {
+describeWithEnvironment('FrameDetailsView', () => {
   it('renders with a title', async () => {
     const frame = makeFrame();
     const component = new ApplicationComponents.FrameDetailsView.FrameDetailsReportView();
@@ -95,6 +97,7 @@ describe('FrameDetailsView', () => {
     };
 
     assertShadowRoot(component.shadowRoot);
+    await coordinator.done();
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
     assertShadowRoot(report.shadowRoot);
 
@@ -122,8 +125,8 @@ describe('FrameDetailsView', () => {
       'Frame Creation Stack Trace',
       'Secure Context',
       'Cross-Origin Isolated',
-      'Cross-Origin Embedder Policy',
-      'Cross-Origin Opener Policy',
+      'Cross-Origin Embedder Policy (COEP)',
+      'Cross-Origin Opener Policy (COOP)',
       'SharedArrayBuffers',
       'Measure Memory',
     ]);
@@ -148,7 +151,16 @@ describe('FrameDetailsView', () => {
     const expandableList =
         getElementWithinComponent(stackTrace, 'devtools-expandable-list', ExpandableList.ExpandableList.ExpandableList);
     assertShadowRoot(expandableList.shadowRoot);
-    const expandableListText = getCleanTextContentFromElements(expandableList.shadowRoot, '.stack-trace-row');
-    assert.deepEqual(expandableListText, ['function1\xA0@\xA0www.example.com/script.js:16']);
+
+    const stackTraceRows = getElementsWithinComponent(
+        expandableList, 'devtools-stack-trace-row', ApplicationComponents.StackTrace.StackTraceRow);
+    let stackTraceText: string[] = [];
+
+    stackTraceRows.forEach(row => {
+      assertShadowRoot(row.shadowRoot);
+      stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
+    });
+
+    assert.deepEqual(stackTraceText, ['function1\xA0@\xA0www.example.com/script.js:16']);
   });
 });

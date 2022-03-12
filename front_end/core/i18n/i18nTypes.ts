@@ -2,10 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-type ValueFn = () => string;
 export type Values = {
-  [key: string]: string|boolean|number|null|undefined|ValueFn|DOMException|Date,
+  [key: string]: string|boolean|number,
 };
 
 export interface SerializedMessage {

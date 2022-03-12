@@ -6,18 +6,17 @@ const {assert} = chai;
 
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Common from '../../../../../front_end/core/common/common.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 
 describe('MultitargetNetworkManager', () => {
   describe('Trust Token done event', () => {
     it('is not lost when arriving before the corresponding requestWillBeSent event', () => {
       // 1) Setup a NetworkManager and listen to "RequestStarted" events.
-      const networkManager = new Common.ObjectWrapper.ObjectWrapper();
+      const networkManager = new Common.ObjectWrapper.ObjectWrapper<SDK.NetworkManager.EventTypes>();
       const startedRequests: SDK.NetworkRequest.NetworkRequest[] = [];
       networkManager.addEventListener(SDK.NetworkManager.Events.RequestStarted, event => {
-        const request = event.data.request as SDK.NetworkRequest.NetworkRequest;
-        startedRequests.push(request);
+        startedRequests.push(event.data.request);
       });
       const networkDispatcher =
           new SDK.NetworkManager.NetworkDispatcher(networkManager as SDK.NetworkManager.NetworkManager);
@@ -62,6 +61,54 @@ describe('NetworkDispatcher', () => {
 
       networkDispatcher.clearRequests();
       assert.notExists(networkDispatcher.requestForId('mockId'));
+    });
+
+    it('response headers are overwritten by request interception', () => {
+      const responseReceivedExtraInfoEvent = {
+        requestId: 'mockId' as Protocol.Network.RequestId,
+        blockedCookies: [],
+        headers: {
+          'test-header': 'first',
+        } as Protocol.Network.Headers,
+        resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
+        statusCode: 200,
+      } as Protocol.Network.ResponseReceivedExtraInfoEvent;
+      const mockResponseReceivedEventWithHeaders =
+          (headers: Protocol.Network.Headers): Protocol.Network.ResponseReceivedEvent => {
+            return {
+              requestId: 'mockId',
+              loaderId: 'mockLoaderId',
+              frameId: 'mockFrameId',
+              timestamp: 581734.083213,
+              type: Protocol.Network.ResourceType.Document,
+              response: {
+                url: 'example.com',
+                status: 200,
+                statusText: '',
+                headers,
+                mimeType: 'text/html',
+                connectionReused: true,
+                connectionId: 12345,
+                encodedDataLength: 100,
+                securityState: 'secure',
+              } as Protocol.Network.Response,
+            } as Protocol.Network.ResponseReceivedEvent;
+          };
+
+      networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
+      networkDispatcher.responseReceivedExtraInfo(responseReceivedExtraInfoEvent);
+
+      // ResponseReceived does not overwrite response headers.
+      networkDispatcher.responseReceived(mockResponseReceivedEventWithHeaders({'test-header': 'second'}));
+      assert.deepEqual(
+          networkDispatcher.requestForId('mockId')?.responseHeaders, [{name: 'test-header', value: 'first'}]);
+
+      // ResponseReceived does overwrite response headers if request is marked as intercepted.
+      SDK.NetworkManager.MultitargetNetworkManager.instance().dispatchEventToListeners(
+          SDK.NetworkManager.MultitargetNetworkManager.Events.RequestIntercepted, 'example.com');
+      networkDispatcher.responseReceived(mockResponseReceivedEventWithHeaders({'test-header': 'third'}));
+      assert.deepEqual(
+          networkDispatcher.requestForId('mockId')?.responseHeaders, [{name: 'test-header', value: 'third'}]);
     });
   });
 

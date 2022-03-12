@@ -5,8 +5,6 @@
 /**
  * Combine the two given colors according to alpha blending.
  */
-/* eslint-disable rulesdir/no_underscored_properties */
-
 export function blendColors(fgRGBA: number[], bgRGBA: number[]): number[] {
   const alpha = fgRGBA[3];
   return [
@@ -17,11 +15,10 @@ export function blendColors(fgRGBA: number[], bgRGBA: number[]): number[] {
   ];
 }
 
-export function rgbaToHsla([r, g, b, a]: number[]): number[] {
+function rgbToHue([r, g, b]: number[]): number {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const diff = max - min;
-  const sum = max + min;
 
   let h;
   if (min === max) {
@@ -33,7 +30,16 @@ export function rgbaToHsla([r, g, b, a]: number[]): number[] {
   } else {
     h = (1 / 6 * (r - g) / diff) + 2 / 3;
   }
+  return h;
+}
 
+export function rgbaToHsla([r, g, b, a]: number[]): number[] {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const diff = max - min;
+  const sum = max + min;
+
+  const h = rgbToHue([r, g, b]);
   const l = 0.5 * sum;
 
   let s;
@@ -48,6 +54,14 @@ export function rgbaToHsla([r, g, b, a]: number[]): number[] {
   }
 
   return [h, s, l, a];
+}
+
+export function rgbaToHwba([r, g, b, a]: number[]): number[] {
+  const h = rgbToHue([r, g, b]);
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+
+  return [h, min, 1 - max, a];
 }
 
 /**
@@ -110,7 +124,8 @@ export function luminanceAPCA([rSRGB, gSRGB, bSRGB]: number[]): number {
  * See https://github.com/Myndex/SAPC-APCA
  */
 export function contrastRatioAPCA(fgRGBA: number[], bgRGBA: number[]): number {
-  return contrastRatioByLuminanceAPCA(luminanceAPCA(fgRGBA), luminanceAPCA(bgRGBA));
+  const blendedFg = blendColors(fgRGBA, bgRGBA);
+  return contrastRatioByLuminanceAPCA(luminanceAPCA(blendedFg), luminanceAPCA(bgRGBA));
 }
 
 function clampLuminance(value: number): number {

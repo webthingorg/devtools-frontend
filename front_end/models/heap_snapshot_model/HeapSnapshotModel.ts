@@ -28,8 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* eslint-disable rulesdir/no_underscored_properties */
-
 export const HeapSnapshotProgressEvent = {
   Update: 'ProgressUpdate',
   BrokenSnapshot: 'BrokenSnapshot',
@@ -282,7 +280,7 @@ export class SearchConfig {
     this.jumpBackward = jumpBackward;
   }
 
-  toSearchRegex(_global?: boolean): RegExp {
+  toSearchRegex(_global?: boolean): {regex: RegExp, fromQuery: boolean} {
     throw new Error('Unsupported operation on search config');
   }
 }

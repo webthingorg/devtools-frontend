@@ -4,17 +4,18 @@
 
 import * as ProtocolClient from '../../../../front_end/core/protocol_client/protocol_client.js';
 import type {ProtocolMapping} from '../../../../front_end/generated/protocol-mapping.js'; // eslint-disable-line rulesdir/es_modules_import
+import type * as ProtocolProxyApi from '../../../../front_end/generated/protocol-proxy-api.js';
 
 import {deinitializeGlobalVars, initializeGlobalVars} from './EnvironmentHelpers.js';
 
 import type * as SDK from '../../../../front_end/core/sdk/sdk.js';
 
-type ProtocolCommand = keyof ProtocolMapping.Commands;
-type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['paramsType'];
-type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['returnType'];
-type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
+export type ProtocolCommand = keyof ProtocolMapping.Commands;
+export type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['paramsType'];
+export type ProtocolResponse<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['returnType'];
+export type ProtocolCommandHandler<C extends ProtocolCommand> = (...params: ProtocolCommandParams<C>) =>
     Omit<ProtocolResponse<C>, 'getError'>;
-type MessageCallback = (result: string|Object) => void;
+export type MessageCallback = (result: string|Object) => void;
 
 // Note that we can't set the Function to the correct handler on the basis
 // that we don't know which ProtocolCommand will be stored.
@@ -43,20 +44,21 @@ export function clearAllMockConnectionResponseHandlers() {
 export function dispatchEvent<E extends keyof ProtocolMapping.Events>(
     target: SDK.Target.Target, eventName: E, ...payload: ProtocolMapping.Events[E]) {
   const event = eventName as ProtocolClient.InspectorBackend.QualifiedName;
-  const [domain, method] = ProtocolClient.InspectorBackend.splitQualifiedName(event);
-  if (!target._dispatchers[domain]) {
-    throw new Error(`No dispatcher for domain "${domain}" on provided target`);
+  const [domain] = ProtocolClient.InspectorBackend.splitQualifiedName(event);
+
+  const registeredEvents =
+      ProtocolClient.InspectorBackend.inspectorBackend.getOrCreateEventParameterNamesForDomainForTesting(
+          domain as keyof ProtocolProxyApi.ProtocolDispatchers);
+  const eventParameterNames = registeredEvents.get(event);
+  if (!eventParameterNames) {
+    // The event is not registered, fake-register with empty parameters.
+    registeredEvents.set(event, []);
   }
 
-  // Register the event if it doesn't exist already.
-  if (!target._dispatchers[domain].hasRegisteredEvent(event)) {
-    target._dispatchers[domain].registerEvent(event, []);
-  }
-
-  target._dispatchers[domain].dispatch(method, {method: event, params: payload[0]});
+  target.dispatch({method: event, params: payload[0]});
 }
 
-function enable({reset = true} = {}) {
+async function enable({reset = true} = {}) {
   if (reset) {
     responseMap.clear();
   }
@@ -64,7 +66,7 @@ function enable({reset = true} = {}) {
   // The DevTools frontend code expects certain things to be in place
   // before it can run. This function will ensure those things are
   // minimally there.
-  initializeGlobalVars({reset});
+  await initializeGlobalVars({reset});
 
   let messageCallback: MessageCallback;
   ProtocolClient.InspectorBackend.Connection.setFactory(() => {
@@ -95,7 +97,7 @@ function enable({reset = true} = {}) {
         // Included only to meet interface requirements.
       },
 
-      _onMessage() {
+      onMessage() {
         // Included only to meet interface requirements.
       },
 
@@ -106,8 +108,8 @@ function enable({reset = true} = {}) {
   });
 }
 
-function disable() {
-  deinitializeGlobalVars();
+async function disable() {
+  await deinitializeGlobalVars();
   // @ts-ignore Setting back to undefined as a hard reset.
   ProtocolClient.InspectorBackend.Connection.setFactory(undefined);
 }
@@ -116,7 +118,7 @@ export function describeWithMockConnection(title: string, fn: (this: Mocha.Suite
   reset: true,
 }) {
   return describe(`mock-${title}`, () => {
-    beforeEach(() => enable(opts));
+    beforeEach(async () => await enable(opts));
     afterEach(disable);
     describe(title, fn);
   });

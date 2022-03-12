@@ -39,6 +39,7 @@ import * as ElementsTreeElementHighlighter from './ElementsTreeElementHighlighte
 import * as ElementsTreeOutline from './ElementsTreeOutline.js';
 import * as EventListenersWidget from './EventListenersWidget.js';
 import * as InspectElementModeController from './InspectElementModeController.js';
+import * as LayersWidget from './LayersWidget.js';
 import * as LayoutSidebarPane from './LayoutSidebarPane.js';
 import * as MarkerDecorator from './MarkerDecorator.js';
 import * as MetricsSidebarPane from './MetricsSidebarPane.js';
@@ -48,6 +49,7 @@ import * as PropertiesWidget from './PropertiesWidget.js';
 import * as StyleEditorWidget from './StyleEditorWidget.js';
 import * as StylePropertyHighlighter from './StylePropertyHighlighter.js';
 import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
+import * as StylePropertyUtils from './StylePropertyUtils.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
 
 export {
@@ -65,6 +67,7 @@ export {
   ElementsTreeOutline,
   EventListenersWidget,
   InspectElementModeController,
+  LayersWidget,
   LayoutSidebarPane,
   MarkerDecorator,
   MetricsSidebarPane,
@@ -74,5 +77,6 @@ export {
   StyleEditorWidget,
   StylePropertyHighlighter,
   StylePropertyTreeElement,
+  StylePropertyUtils,
   StylesSidebarPane,
 };

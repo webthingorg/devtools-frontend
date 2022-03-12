@@ -17,9 +17,9 @@ Run all tests: `npm run e2etest` (note, this requires python2 to be the default 
 
 Some optional, helpful flags:
 * `--jobs=N` — use N parallel runners to speed things up
-* `--chrome-binary=LOCATION` — set a path to the chrome executable
+* `--chrome-binary-path=LOCATION` — set a path to the chrome executable
 * `--chrome-features=FEATURES` — set a comma separated list of chrome features passed as `--enable-features=[FEATURES]` to the chrome binary.
-* `--test-file=FILE_PATTERN` — run tests in selected test files only. The extglob pattern matches paths relative to the test/e2e/ directory. To run all sources panel tests, for example, use `--test-file=sources/*`.
+* `--test-file-pattern=FILE_PATTERN` — run tests in selected test files only. The extglob pattern matches paths relative to the test/e2e/ directory. To run all sources panel tests, for example, use `--test-file=sources/*`.
 
 To use the flags, first append `--` to the `npm` command, e.g.
 `npm run e2etest -- --jobs=4`
@@ -62,6 +62,13 @@ the "DevTools under test" this way.
 * You can debug the puppeteer side by inspecting the Node.js process that runs the e2e suite. Either open `chrome://inspect` or
 click the Node.js icon in any open DevTools window to connect to the puppeteer process. You can step through the puppeteer test
 code this way.
+
+### Debug tests with VSCode
+To debug in VSCode, open the "Run and Debug" sidebar, select "Run end-to-end tests in VS Code debugger" from the dropdown, and
+click the start button or press F5. Current limitations when using VSCode:
+
+* VSCode only attaches to the node portion of the code (mostly the test files and the test helpers), not to Chrome.
+* VSCode debugging only works with headless mode.
 
 ## Debugging flaky tests
 To see if certain tests are flaky you can use E2E stressor bot. Open a CL with your test changes and run the following command specifying your test file:

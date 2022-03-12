@@ -4,13 +4,15 @@
 
 import type {StackTraceData} from './StackTrace.js';
 import {StackTrace} from './StackTrace.js';
+import type {PermissionsPolicySectionData} from './PermissionsPolicySection.js';
+import {PermissionsPolicySection, renderIconLink} from './PermissionsPolicySection.js';
 import * as Bindings from '../../../models/bindings/bindings.js';
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import type * as Platform from '../../../core/platform/platform.js';
 import * as Root from '../../../core/root/root.js';
-import * as SDK from '../../../core/sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../../../core/sdk/sdk.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as ExpandableList from '../../../ui/components/expandable_list/expandable_list.js';
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
@@ -22,6 +24,9 @@ import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as Protocol from '../../../generated/protocol.js';
 import type {OriginTrialTreeViewData} from './OriginTrialTreeView.js';
 import {OriginTrialTreeView} from './OriginTrialTreeView.js';
+import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
+
+import frameDetailsReportViewStyles from './frameDetailsReportView.css.js';
 
 const UIStrings = {
   /**
@@ -42,9 +47,10 @@ const UIStrings = {
   */
   document: 'Document',
   /**
-  *@description Text for web URLs
+  *@description A web URL (for a lot of languages this does not need to be translated, please translate only where necessary)
   */
   url: 'URL',
+  /**
   /**
   *@description Title for a link to the Sources panel
   */
@@ -62,9 +68,11 @@ const UIStrings = {
   */
   clickToRevealInNetworkPanelMight: 'Click to reveal in Network panel (might require page reload)',
   /**
-  *@description Text for the origin of something
+  *@description The origin of a URL (https://web.dev/same-site-same-origin/#origin)
+  *(for a lot of languages this does not need to be translated, please translate only where necessary)
   */
   origin: 'Origin',
+  /**
   /**
   *@description Related node label in Timeline UIUtils of the Performance panel
   */
@@ -110,13 +118,15 @@ const UIStrings = {
   */
   no: 'No',
   /**
-  *@description Row title for in the Frame Details view
+  *@description Label for whether a frame is cross-origin isolated
+  *(https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/)
+  *(for a lot of languages this does not need to be translated, please translate only where necessary)
   */
   crossoriginIsolated: 'Cross-Origin Isolated',
   /**
   *@description Explanatory text in the Frame Details view
   */
-  localhostIsAlwaysASecureContext: 'Localhost is always a secure context',
+  localhostIsAlwaysASecureContext: '`Localhost` is always a secure context',
   /**
   *@description Explanatory text in the Frame Details view
   */
@@ -125,14 +135,6 @@ const UIStrings = {
   *@description Explanatory text in the Frame Details view
   */
   theFramesSchemeIsInsecure: 'The frame\'s scheme is insecure',
-  /**
-  *@description Row title in the Frame Details view
-  */
-  crossoriginEmbedderPolicy: 'Cross-Origin Embedder Policy',
-  /**
-  *@description Row title in the Frame Details view
-  */
-  crossoriginOpenerPolicy: 'Cross-Origin Opener Policy',
   /**
   *@description This label specifies the server endpoints to which the server is reporting errors
   *and warnings through the Report-to API. Following this label will be the URL of the server.
@@ -143,7 +145,9 @@ const UIStrings = {
   */
   apiAvailability: 'API availability',
   /**
-  *@description Explanatory text in the Frame Details view for the API availability section
+  *@description Explanation of why cross-origin isolation is important
+  *(https://web.dev/why-coop-coep/)
+  *(for a lot of languages 'cross-origin isolation' does not need to be translated, please translate only where necessary)
   */
   availabilityOfCertainApisDepends: 'Availability of certain APIs depends on the document being cross-origin isolated.',
   /**
@@ -162,18 +166,22 @@ const UIStrings = {
   *@description Tooltip for the SharedArrayBuffer availability status
   */
   sharedarraybufferConstructorIs:
-      'SharedArrayBuffer constructor is available and SABs can be transferred via postMessage',
+      '`SharedArrayBuffer` constructor is available and `SABs` can be transferred via `postMessage`',
   /**
   *@description Tooltip for the SharedArrayBuffer availability status
   */
   sharedarraybufferConstructorIsAvailable:
-      'SharedArrayBuffer constructor is available but SABs cannot be transferred via postMessage',
+      '`SharedArrayBuffer` constructor is available but `SABs` cannot be transferred via `postMessage`',
   /**
-  *@description Explanation for the SharedArrayBuffer availability status
+  *@description Explanation why SharedArrayBuffer will not be available in the future
+  *(https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/)
+  *(for a lot of languages 'cross-origin isolation' does not need to be translated, please translate only where necessary)
   */
   willRequireCrossoriginIsolated: '⚠️ will require cross-origin isolated context in the future',
   /**
-  *@description Explanation for the SharedArrayBuffer availability status
+  *@description Explanation why SharedArrayBuffer is not available
+  *(https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/)
+  *(for a lot of languages 'cross-origin isolation' does not need to be translated, please translate only where necessary).
   */
   requiresCrossoriginIsolated: 'requires cross-origin isolated context',
   /**
@@ -189,11 +197,12 @@ const UIStrings = {
   /**
   *@description Tooltip for the Measure Memory availability status
   */
-  thePerformanceAPI: 'The performance.measureUserAgentSpecificMemory() API is available',
+  thePerformanceAPI: 'The `performance.measureUserAgentSpecificMemory()` API is available',
   /**
   *@description Tooltip for the Measure Memory availability status
   */
-  thePerformancemeasureuseragentspecificmemory: 'The performance.measureUserAgentSpecificMemory() API is not available',
+  thePerformancemeasureuseragentspecificmemory:
+      'The `performance.measureUserAgentSpecificMemory()` API is not available',
   /**
   *@description Entry in the API availability section of the frame details view
   */
@@ -206,47 +215,13 @@ const UIStrings = {
   *@description Label for a stack trace. If a frame is created programmatically (i.e. via JavaScript), there is a
   * stack trace for the line of code which caused the creation of the iframe. This is the stack trace we are showing here.
   */
-  creationStackTrace: 'Frame Creation Stack Trace',
+  creationStackTrace: 'Frame Creation `Stack Trace`',
   /**
   *@description Tooltip for 'Frame Creation Stack Trace' explaining that the stack
   *trace shows where in the code the frame has been created programmatically
   */
-  creationStackTraceExplanation: 'This frame was created programmatically. The stack trace shows where this happened.',
-  /**
-   *@description Label for a button. When clicked more details (for the content this button refers to) will be shown.
-   */
-  showDetails: 'Show details',
-  /**
-  *@description Label for a button. When clicked some details (for the content this button refers to) will be hidden.
-  */
-  hideDetails: 'Hide details',
-  /**
-  *@description Label for a list of features which are allowed according to the current Permissions policy
-  *(a mechanism that allows developers to enable/disable browser features and APIs (e.g. camera, geolocation, autoplay))
-  */
-  allowedFeatures: 'Allowed Features',
-  /**
-  *@description Label for a list of features which are disabled according to the current Permissions policy
-  *(a mechanism that allows developers to enable/disable browser features and APIs (e.g. camera, geolocation, autoplay))
-  */
-  disabledFeatures: 'Disabled Features',
-  /**
-  *@description Tooltip text for a link to a specific request's headers in the Network panel.
-  */
-  clickToShowHeader: 'Click to reveal the request whose "`Permissions-Policy`" HTTP header disables this feature.',
-  /**
-  *@description Tooltip text for a link to a specific iframe in the Elements panel (Iframes can be nested, the link goes
-  *  to the outer-most iframe which blocks a certain feature).
-  */
-  clickToShowIframe: 'Click to reveal the top-most iframe which does not allow this feature in the elements panel.',
-  /**
-  *@description Text describing that a specific feature is blocked by not being included in the iframe's "allow" attribute.
-  */
-  disabledByIframe: 'missing in iframe "`allow`" attribute',
-  /**
-  *@description Text describing that a specific feature is blocked by a Permissions Policy specified in a request header.
-  */
-  disabledByHeader: 'disabled by "`Permissions-Policy`" header',
+  creationStackTraceExplanation:
+      'This frame was created programmatically. The `stack trace` shows where this happened.',
   /**
   *@description Text descripting why a frame has been indentified as an advertisement.
   */
@@ -260,30 +235,32 @@ const UIStrings = {
   *@description Text descripting why a frame has been indentified as an advertisement.
   */
   createdByAdScriptExplanation:
-      'There was an ad script in the (async) stack when this frame was created. Examining the creation stack trace of this frame might provide more insight.',
+      'There was an ad script in the `(async) stack` when this frame was created. Examining the creation `stack trace` of this frame might provide more insight.',
   /**
-   *@description Label for a list of origin trials that associated with at least one token.
-   */
-  originTrials: 'Origin Trials',
+  *@description Label for a button which when clicked causes some information to be refreshed/updated.
+  */
+  refresh: 'Refresh',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
-  private readonly reportView = new FrameDetailsReportView();
-  private readonly frame: SDK.ResourceTreeModel.ResourceTreeFrame;
+  readonly #reportView = new FrameDetailsReportView();
+  readonly #frame: SDK.ResourceTreeModel.ResourceTreeFrame;
 
   constructor(frame: SDK.ResourceTreeModel.ResourceTreeFrame) {
     super();
-    this.frame = frame;
+    this.#frame = frame;
     this.contentElement.classList.add('overflow-auto');
-    this.contentElement.appendChild(this.reportView);
+    this.contentElement.appendChild(this.#reportView);
     this.update();
   }
 
   async doUpdate(): Promise<void> {
-    this.reportView.data = {frame: this.frame};
+    this.#reportView.data = {frame: this.#frame};
   }
 }
+
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 export interface FrameDetailsReportViewData {
   frame: SDK.ResourceTreeModel.ResourceTreeFrame;
@@ -291,271 +268,94 @@ export interface FrameDetailsReportViewData {
 
 export class FrameDetailsReportView extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-resources-frame-details-view`;
-  private readonly shadow = this.attachShadow({mode: 'open'});
-  private frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
-  private protocolMonitorExperimentEnabled = false;
-  private showPermissionsDisallowedDetails = false;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
+  #protocolMonitorExperimentEnabled = false;
+  #permissionsPolicies: Promise<Protocol.Page.PermissionsPolicyFeatureState[]|null>|null = null;
+  #permissionsPolicySectionData: PermissionsPolicySectionData = {policies: [], showDetails: false};
+  #originTrialTreeView: OriginTrialTreeView = new OriginTrialTreeView();
 
   connectedCallback(): void {
-    this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
+    this.#protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
+    this.#shadow.adoptedStyleSheets = [frameDetailsReportViewStyles];
   }
 
   set data(data: FrameDetailsReportViewData) {
-    this.frame = data.frame;
-    this.render();
-  }
-
-  private async render(): Promise<void> {
-    if (!this.frame) {
-      return;
+    this.#frame = data.frame;
+    if (!this.#permissionsPolicies && this.#frame) {
+      this.#permissionsPolicies = this.#frame.getPermissionsPolicyState();
     }
-
-    // Disabled until https://crbug.com/1079231 is fixed.
-    // clang-format off
-    // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
-    LitHtml.render(LitHtml.html`
-      <style>
-        .text-ellipsis {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-
-        button ~ .text-ellipsis {
-          padding-left: 2px;
-        }
-
-        .link,
-        .devtools-link {
-          color: var(--color-link);
-          text-decoration: underline;
-          cursor: pointer;
-          padding: 2px 0; /* adjust focus ring size */
-        }
-
-        button.link {
-          border: none;
-          background: none;
-          font-family: inherit;
-          font-size: inherit;
-        }
-
-        .inline-comment {
-          padding-left: 1ex;
-          white-space: pre-line;
-        }
-
-        .inline-comment::before {
-          content: "(";
-        }
-
-        .inline-comment::after {
-          content: ")";
-        }
-
-        .inline-name {
-          color: var(--color-text-secondary);
-          padding-left: 2ex;
-          user-select: none;
-          white-space: pre-line;
-        }
-
-        .inline-name::after {
-          content: ':\u00a0';
-        }
-
-        .inline-items {
-          display: flex;
-        }
-
-        .span-cols {
-          grid-column-start: span 2;
-          margin: 0 0 8px 30px;
-          line-height: 28px;
-        }
-
-        .policies-list {
-          padding-top: 3px;
-        }
-      </style>
-      <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.frame.displayName()} as ReportView.ReportView.ReportData}>
-        ${this.renderDocumentSection()}
-        ${this.renderIsolationSection()}
-        ${this.renderApiAvailabilitySection()}
-        ${this.renderOriginTrial()}
-        ${LitHtml.Directives.until(this.renderPermissionPolicy(), LitHtml.nothing)}
-        ${this.protocolMonitorExperimentEnabled ? this.renderAdditionalInfoSection() : LitHtml.nothing}
-      </${ReportView.ReportView.Report.litTagName}>
-    `, this.shadow);
-    // clang-format on
+    void this.#render();
   }
 
-  private renderOriginTrial(): LitHtml.TemplateResult|{} {
-    const originTrials = this.frame?.getOriginTrials();
-    if (!originTrials?.length) {
+  async #render(): Promise<void> {
+    await coordinator.write('FrameDetailsView render', () => {
+      if (!this.#frame) {
+        return;
+      }
+
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      LitHtml.render(LitHtml.html`
+        <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} as ReportView.ReportView.ReportData}>
+          ${this.#renderDocumentSection()}
+          ${this.#renderIsolationSection()}
+          ${this.#renderApiAvailabilitySection()}
+          ${this.#renderOriginTrial()}
+          ${LitHtml.Directives.until(this.#permissionsPolicies?.then(policies => {
+            this.#permissionsPolicySectionData.policies = policies || [];
+            return LitHtml.html`
+              <${PermissionsPolicySection.litTagName}
+                .data=${this.#permissionsPolicySectionData as PermissionsPolicySectionData}
+              >
+              </${PermissionsPolicySection.litTagName}>
+            `;
+          }), LitHtml.nothing)}
+          ${this.#protocolMonitorExperimentEnabled ? this.#renderAdditionalInfoSection() : LitHtml.nothing}
+        </${ReportView.ReportView.Report.litTagName}>
+      `, this.#shadow, {host: this});
+      // clang-format on
+    });
+  }
+
+  #renderOriginTrial(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
+
+    this.#originTrialTreeView.classList.add('span-cols');
+
+    const frame = this.#frame;
+    const refreshOriginTrials: () => void = () => {
+      void frame.getOriginTrials().then(trials => {
+        this.#originTrialTreeView.data = {trials} as OriginTrialTreeViewData;
+      });
+    };
+    refreshOriginTrials();
+
     return LitHtml.html`
-    <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.originTrials)}
+    <${ReportView.ReportView.ReportSectionHeader.litTagName}>
+      ${i18n.i18n.lockedString('Origin Trials')}
+      <${IconButton.IconButton.IconButton.litTagName} class="inline-button" .data=${{
+      clickHandler: refreshOriginTrials,
+      groups: [
+        {
+          iconName: 'refresh_12x12_icon',
+          text: i18nString(UIStrings.refresh),
+          iconColor: 'var(--color-text-primary)',
+        } as IconButton.IconButton.IconWithTextData,
+      ],
+    } as IconButton.IconButton.IconButtonData}>
+      </${IconButton.IconButton.IconButton.litTagName}>
     </${ReportView.ReportView.ReportSectionHeader.litTagName}>
-    <${OriginTrialTreeView.litTagName} class="span-cols"
-      .data=${{trials: originTrials} as OriginTrialTreeViewData}>
-    </${OriginTrialTreeView.litTagName}>
+    ${this.#originTrialTreeView}
     <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
   }
 
-  private async renderPermissionPolicy(): Promise<LitHtml.TemplateResult|{}> {
-    const policies = await (this.frame && this.frame.getPermissionsPolicyState());
-    if (!policies) {
-      return LitHtml.nothing;
-    }
-
-    const toggleShowPermissionsDisallowedDetails = (): void => {
-      this.showPermissionsDisallowedDetails = !this.showPermissionsDisallowedDetails;
-      this.render();
-    };
-
-    const renderAllowed = (): LitHtml.TemplateResult|{} => {
-      const allowed = policies.filter(p => p.allowed).map(p => p.feature).sort();
-      if (!allowed.length) {
-        return LitHtml.nothing;
-      }
-      return LitHtml.html`
-        <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.allowedFeatures)}</${
-          ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName}>
-          ${allowed.join(', ')}
-        </${ReportView.ReportView.ReportValue.litTagName}>
-      `;
-    };
-
-    const renderDisallowed = async(): Promise<LitHtml.TemplateResult|{}> => {
-      const disallowed = policies.filter(p => !p.allowed).sort((a, b) => a.feature.localeCompare(b.feature));
-      if (!disallowed.length) {
-        return LitHtml.nothing;
-      }
-      if (!this.showPermissionsDisallowedDetails) {
-        return LitHtml.html`
-          <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.disabledFeatures)}</${
-            ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName}>
-            ${disallowed.map(p => p.feature).join(', ')}
-            <button class="link" @click=${(): void => toggleShowPermissionsDisallowedDetails()}>
-              ${i18nString(UIStrings.showDetails)}
-            </button>
-          </${ReportView.ReportView.ReportValue.litTagName}>
-        `;
-      }
-
-      const frameManager = SDK.FrameManager.FrameManager.instance();
-      const featureRows = await Promise.all(disallowed.map(async policy => {
-        const frame = policy.locator ? frameManager.getFrame(policy.locator.frameId) : null;
-        const blockReason = policy.locator?.blockReason;
-        const linkTargetDOMNode = await (
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.IframeAttribute && frame &&
-            frame.getOwnerDOMNodeOrDocument());
-        const resource = frame && frame.resourceForURL(frame.url);
-        const linkTargetRequest =
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.Header && resource && resource.request;
-        const blockReasonText = blockReason === Protocol.Page.PermissionsPolicyBlockReason.IframeAttribute ?
-            i18nString(UIStrings.disabledByIframe) :
-            blockReason === Protocol.Page.PermissionsPolicyBlockReason.Header ? i18nString(UIStrings.disabledByHeader) :
-                                                                                '';
-        const revealHeader = async(): Promise<void> => {
-          if (!linkTargetRequest) {
-            return;
-          }
-          const headerName =
-              linkTargetRequest.responseHeaderValue('permissions-policy') ? 'permissions-policy' : 'feature-policy';
-          const requestLocation = NetworkForward.UIRequestLocation.UIRequestLocation.responseHeaderMatch(
-              linkTargetRequest,
-              {name: headerName, value: ''},
-          );
-          await Common.Revealer.reveal(requestLocation);
-        };
-
-        return LitHtml.html`
-          <div class="permissions-row">
-            <div>
-              <${IconButton.Icon.Icon.litTagName} class="allowed-icon"
-                .data=${{color: '', iconName: 'error_icon', width: '14px'} as IconButton.Icon.IconData}>
-              </${IconButton.Icon.Icon.litTagName}>
-            </div>
-            <div class="feature-name text-ellipsis">
-              ${policy.feature}
-            </div>
-            <div class="block-reason">${blockReasonText}</div>
-            <div>
-              ${
-            linkTargetDOMNode ? this.renderIconLink(
-                                    'elements_panel_icon',
-                                    i18nString(UIStrings.clickToShowIframe),
-                                    (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode),
-                                    ) :
-                                LitHtml.nothing}
-              ${
-            linkTargetRequest ? this.renderIconLink(
-                                    'network_panel_icon',
-                                    i18nString(UIStrings.clickToShowHeader),
-                                    revealHeader,
-                                    ) :
-                                LitHtml.nothing}
-            </div>
-          </div>
-        `;
-      }));
-
-      // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
-      return LitHtml.html`
-        <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.disabledFeatures)}</${
-          ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName} class="policies-list">
-          <style>
-            .permissions-row {
-              display: flex;
-              line-height: 22px;
-            }
-
-            .permissions-row div {
-              padding-right: 5px;
-            }
-
-            .feature-name {
-              width: 135px;
-            }
-
-            .allowed-icon {
-              padding: 2.5px 0;
-            }
-
-            .block-reason {
-              width: 215px;
-            }
-          </style>
-          ${featureRows}
-          <div class="permissions-row">
-            <button class="link" @click=${(): void => toggleShowPermissionsDisallowedDetails()}>
-              ${i18nString(UIStrings.hideDetails)}
-            </button>
-          </div>
-        </${ReportView.ReportView.ReportValue.litTagName}>
-      `;
-    };
-
-    return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18n.i18n.lockedString('Permissions Policy')}</${
-        ReportView.ReportView.ReportSectionHeader.litTagName}>
-      ${renderAllowed()}
-      ${LitHtml.Directives.until(renderDisallowed(), LitHtml.nothing)}
-      <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
-        ReportView.ReportView.ReportSectionDivider.litTagName}>
-    `;
-  }
-
-  private renderDocumentSection(): LitHtml.TemplateResult|{} {
-    if (!this.frame) {
+  #renderDocumentSection(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
 
@@ -566,39 +366,39 @@ export class FrameDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
         <div class="inline-items">
-          ${this.maybeRenderSourcesLinkForURL()}
-          ${this.maybeRenderNetworkLinkForURL()}
-          <div class="text-ellipsis" title=${this.frame.url}>${this.frame.url}</div>
+          ${this.#maybeRenderSourcesLinkForURL()}
+          ${this.#maybeRenderNetworkLinkForURL()}
+          <div class="text-ellipsis" title=${this.#frame.url}>${this.#frame.url}</div>
         </div>
       </${ReportView.ReportView.ReportValue.litTagName}>
-      ${this.maybeRenderUnreachableURL()}
-      ${this.maybeRenderOrigin()}
-      ${LitHtml.Directives.until(this.renderOwnerElement(), LitHtml.nothing)}
-      ${this.maybeRenderCreationStacktrace()}
-      ${this.maybeRenderAdStatus()}
+      ${this.#maybeRenderUnreachableURL()}
+      ${this.#maybeRenderOrigin()}
+      ${LitHtml.Directives.until(this.#renderOwnerElement(), LitHtml.nothing)}
+      ${this.#maybeRenderCreationStacktrace()}
+      ${this.#maybeRenderAdStatus()}
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
   }
 
-  private maybeRenderSourcesLinkForURL(): LitHtml.TemplateResult|{} {
-    if (!this.frame || this.frame.unreachableUrl()) {
+  #maybeRenderSourcesLinkForURL(): LitHtml.TemplateResult|{} {
+    if (!this.#frame || this.#frame.unreachableUrl()) {
       return LitHtml.nothing;
     }
-    const sourceCode = this.uiSourceCodeForFrame(this.frame);
-    return this.renderIconLink(
+    const sourceCode = this.#uiSourceCodeForFrame(this.#frame);
+    return renderIconLink(
         'sources_panel_icon',
         i18nString(UIStrings.clickToRevealInSourcesPanel),
         (): Promise<void> => Common.Revealer.reveal(sourceCode),
     );
   }
 
-  private maybeRenderNetworkLinkForURL(): LitHtml.TemplateResult|{} {
-    if (this.frame) {
-      const resource = this.frame.resourceForURL(this.frame.url);
+  #maybeRenderNetworkLinkForURL(): LitHtml.TemplateResult|{} {
+    if (this.#frame) {
+      const resource = this.#frame.resourceForURL(this.#frame.url);
       if (resource && resource.request) {
         const request = resource.request;
-        return this.renderIconLink(
+        return renderIconLink(
             'network_panel_icon', i18nString(UIStrings.clickToRevealInNetworkPanel), (): Promise<void> => {
               const requestLocation = NetworkForward.UIRequestLocation.UIRequestLocation.tab(
                   request, NetworkForward.UIRequestLocation.UIRequestTabs.Headers);
@@ -609,27 +409,7 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private renderIconLink(
-      iconName: string, title: Platform.UIString.LocalizedString,
-      clickHandler: (() => void)|(() => Promise<void>)): LitHtml.TemplateResult {
-    // Disabled until https://crbug.com/1079231 is fixed.
-    // clang-format off
-    return LitHtml.html`
-      <button class="link" role="link" tabindex=0 @click=${clickHandler} title=${title}>
-        <${IconButton.Icon.Icon.litTagName} .data=${{
-          iconName: iconName,
-          color: 'var(--color-primary)',
-          width: '16px',
-          height: '16px',
-        } as IconButton.Icon.IconData}>
-        </${IconButton.Icon.Icon.litTagName}>
-      </button>
-    `;
-    // clang-format on
-  }
-
-  private uiSourceCodeForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): Workspace.UISourceCode.UISourceCode
-      |null {
+  #uiSourceCodeForFrame(frame: SDK.ResourceTreeModel.ResourceTreeFrame): Workspace.UISourceCode.UISourceCode|null {
     for (const project of Workspace.Workspace.WorkspaceImpl.instance().projects()) {
       const projectTarget = Bindings.NetworkProject.NetworkProject.getTargetForProject(project);
       if (projectTarget && projectTarget === frame.resourceTreeModel().target()) {
@@ -642,8 +422,8 @@ export class FrameDetailsReportView extends HTMLElement {
     return null;
   }
 
-  private maybeRenderUnreachableURL(): LitHtml.TemplateResult|{} {
-    if (!this.frame || !this.frame.unreachableUrl()) {
+  #maybeRenderUnreachableURL(): LitHtml.TemplateResult|{} {
+    if (!this.#frame || !this.#frame.unreachableUrl()) {
       return LitHtml.nothing;
     }
     return LitHtml.html`
@@ -651,23 +431,23 @@ export class FrameDetailsReportView extends HTMLElement {
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
         <div class="inline-items">
-          ${this.renderNetworkLinkForUnreachableURL()}
-          <div class="text-ellipsis" title=${this.frame.unreachableUrl()}>${this.frame.unreachableUrl()}</div>
+          ${this.#renderNetworkLinkForUnreachableURL()}
+          <div class="text-ellipsis" title=${this.#frame.unreachableUrl()}>${this.#frame.unreachableUrl()}</div>
         </div>
       </${ReportView.ReportView.ReportValue.litTagName}>
     `;
   }
 
-  private renderNetworkLinkForUnreachableURL(): LitHtml.TemplateResult|{} {
-    if (this.frame) {
-      const unreachableUrl = Common.ParsedURL.ParsedURL.fromString(this.frame.unreachableUrl());
+  #renderNetworkLinkForUnreachableURL(): LitHtml.TemplateResult|{} {
+    if (this.#frame) {
+      const unreachableUrl = Common.ParsedURL.ParsedURL.fromString(this.#frame.unreachableUrl());
       if (unreachableUrl) {
-        return this.renderIconLink(
+        return renderIconLink(
             'network_panel_icon',
             i18nString(UIStrings.clickToRevealInNetworkPanelMight),
             ():
                 void => {
-                  Common.Revealer.reveal(NetworkForward.UIFilter.UIRequestFilter.filters([
+                  void Common.Revealer.reveal(NetworkForward.UIFilter.UIRequestFilter.filters([
                     {
                       filterType: NetworkForward.UIFilter.FilterType.Domain,
                       filterValue: unreachableUrl.domain(),
@@ -684,40 +464,30 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private maybeRenderOrigin(): LitHtml.TemplateResult|{} {
-    if (this.frame && this.frame.securityOrigin && this.frame.securityOrigin !== '://') {
+  #maybeRenderOrigin(): LitHtml.TemplateResult|{} {
+    if (this.#frame && this.#frame.securityOrigin && this.#frame.securityOrigin !== '://') {
       return LitHtml.html`
         <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.origin)}</${
           ReportView.ReportView.ReportKey.litTagName}>
         <${ReportView.ReportView.ReportValue.litTagName}>
-          <div class="text-ellipsis" title=${this.frame.securityOrigin}>${this.frame.securityOrigin}</div>
+          <div class="text-ellipsis" title=${this.#frame.securityOrigin}>${this.#frame.securityOrigin}</div>
         </${ReportView.ReportView.ReportValue.litTagName}>
       `;
     }
     return LitHtml.nothing;
   }
 
-  private async renderOwnerElement(): Promise<LitHtml.TemplateResult|{}> {
-    if (this.frame) {
-      const linkTargetDOMNode = await this.frame.getOwnerDOMNodeOrDocument();
+  async #renderOwnerElement(): Promise<LitHtml.TemplateResult|{}> {
+    if (this.#frame) {
+      const linkTargetDOMNode = await this.#frame.getOwnerDOMNodeOrDocument();
       if (linkTargetDOMNode) {
         // Disabled until https://crbug.com/1079231 is fixed.
         // clang-format off
-        // eslint-disable-next-line rulesdir/ban_style_tags_in_lit_html
         return LitHtml.html`
-          <style>
-            .button-icon-with-text {
-              vertical-align: sub;
-            }
-
-            .without-min-width {
-              min-width: auto;
-            }
-          </style>
             <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.ownerElement)}</${ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName} class="without-min-width">
               <button class="link" role="link" tabindex=0 title=${i18nString(UIStrings.clickToRevealInElementsPanel)}
-              @mouseenter=${(): Promise<void>|undefined => this.frame?.highlight()}
+              @mouseenter=${(): Promise<void>|undefined => this.#frame?.highlight()}
               @mouseleave=${(): void => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight()}
               @click=${(): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode)}
             >
@@ -737,8 +507,8 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private maybeRenderCreationStacktrace(): LitHtml.TemplateResult|{} {
-    const creationStackTraceData = this.frame?.getCreationStackTraceData();
+  #maybeRenderCreationStacktrace(): LitHtml.TemplateResult|{} {
+    const creationStackTraceData = this.#frame?.getCreationStackTraceData();
     if (creationStackTraceData && creationStackTraceData.creationStackTrace) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
@@ -747,7 +517,7 @@ export class FrameDetailsReportView extends HTMLElement {
           i18nString(UIStrings.creationStackTrace)}</${ReportView.ReportView.ReportKey.litTagName}>
         <${ReportView.ReportView.ReportValue.litTagName}>
           <${StackTrace.litTagName} .data=${{
-            frame: this.frame,
+            frame: this.#frame,
             buildStackTraceRows: Components.JSPresentationUtils.buildStackTraceRows,
           } as StackTraceData}>
           </${StackTrace.litTagName}>
@@ -758,7 +528,7 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private getAdFrameTypeStrings(type: Protocol.Page.AdFrameType.Child|Protocol.Page.AdFrameType.Root):
+  #getAdFrameTypeStrings(type: Protocol.Page.AdFrameType.Child|Protocol.Page.AdFrameType.Root):
       {value: Platform.UIString.LocalizedString, description: Platform.UIString.LocalizedString} {
     switch (type) {
       case Protocol.Page.AdFrameType.Child:
@@ -768,8 +538,7 @@ export class FrameDetailsReportView extends HTMLElement {
     }
   }
 
-  private getAdFrameExplanationString(explanation: Protocol.Page.AdFrameExplanation):
-      Platform.UIString.LocalizedString {
+  #getAdFrameExplanationString(explanation: Protocol.Page.AdFrameExplanation): Platform.UIString.LocalizedString {
     switch (explanation) {
       case Protocol.Page.AdFrameExplanation.CreatedByAdScript:
         return i18nString(UIStrings.createdByAdScriptExplanation);
@@ -780,19 +549,18 @@ export class FrameDetailsReportView extends HTMLElement {
     }
   }
 
-
-  private maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
-    if (!this.frame) {
+  #maybeRenderAdStatus(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
-    const adFrameType = this.frame.adFrameType();
+    const adFrameType = this.#frame.adFrameType();
     if (adFrameType === Protocol.Page.AdFrameType.None) {
       return LitHtml.nothing;
     }
-    const typeStrings = this.getAdFrameTypeStrings(adFrameType);
-    const rows = [LitHtml.html`<div title="${typeStrings.description}">${typeStrings.value}</div>`];
-    for (const explanation of this.frame.adFrameStatus()?.explanations || []) {
-      rows.push(LitHtml.html`<div>${this.getAdFrameExplanationString(explanation)}</div>`);
+    const typeStrings = this.#getAdFrameTypeStrings(adFrameType);
+    const rows = [LitHtml.html`<div title=${typeStrings.description}>${typeStrings.value}</div>`];
+    for (const explanation of this.#frame.adFrameStatus()?.explanations || []) {
+      rows.push(LitHtml.html`<div>${this.#getAdFrameExplanationString(explanation)}</div>`);
     }
     return LitHtml.html`
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
@@ -804,8 +572,8 @@ export class FrameDetailsReportView extends HTMLElement {
       `;
   }
 
-  private renderIsolationSection(): LitHtml.TemplateResult|{} {
-    if (!this.frame) {
+  #renderIsolationSection(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
     return LitHtml.html`
@@ -814,30 +582,30 @@ export class FrameDetailsReportView extends HTMLElement {
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.secureContext)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
-        ${this.frame.isSecureContext() ? i18nString(UIStrings.yes) : i18nString(UIStrings.no)}\xA0${
-        this.maybeRenderSecureContextExplanation()}
+        ${this.#frame.isSecureContext() ? i18nString(UIStrings.yes) : i18nString(UIStrings.no)}\xA0${
+        this.#maybeRenderSecureContextExplanation()}
       </${ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.crossoriginIsolated)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
-        ${this.frame.isCrossOriginIsolated() ? i18nString(UIStrings.yes) : i18nString(UIStrings.no)}
+        ${this.#frame.isCrossOriginIsolated() ? i18nString(UIStrings.yes) : i18nString(UIStrings.no)}
       </${ReportView.ReportView.ReportValue.litTagName}>
-      ${LitHtml.Directives.until(this.maybeRenderCoopCoepStatus(), LitHtml.nothing)}
+      ${LitHtml.Directives.until(this.#maybeRenderCoopCoepStatus(), LitHtml.nothing)}
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
   }
 
-  private maybeRenderSecureContextExplanation(): LitHtml.TemplateResult|{} {
-    const explanation = this.getSecureContextExplanation();
+  #maybeRenderSecureContextExplanation(): LitHtml.TemplateResult|{} {
+    const explanation = this.#getSecureContextExplanation();
     if (explanation) {
       return LitHtml.html`<span class="inline-comment">${explanation}</span>`;
     }
     return LitHtml.nothing;
   }
 
-  private getSecureContextExplanation(): Platform.UIString.LocalizedString|null {
-    switch (this.frame?.getSecureContextType()) {
+  #getSecureContextExplanation(): Platform.UIString.LocalizedString|null {
+    switch (this.#frame?.getSecureContextType()) {
       case Protocol.Page.SecureContextType.Secure:
         return null;
       case Protocol.Page.SecureContextType.SecureLocalhost:
@@ -850,19 +618,19 @@ export class FrameDetailsReportView extends HTMLElement {
     return null;
   }
 
-  private async maybeRenderCoopCoepStatus(): Promise<LitHtml.TemplateResult|{}> {
-    if (this.frame) {
-      const model = this.frame.resourceTreeModel().target().model(SDK.NetworkManager.NetworkManager);
-      const info = model && await model.getSecurityIsolationStatus(this.frame.id);
+  async #maybeRenderCoopCoepStatus(): Promise<LitHtml.TemplateResult|{}> {
+    if (this.#frame) {
+      const model = this.#frame.resourceTreeModel().target().model(SDK.NetworkManager.NetworkManager);
+      const info = model && await model.getSecurityIsolationStatus(this.#frame.id);
       if (info) {
         return LitHtml.html`
           ${
-            this.maybeRenderCrossOriginStatus(
-                info.coep, i18nString(UIStrings.crossoriginEmbedderPolicy),
+            this.#maybeRenderCrossOriginStatus(
+                info.coep, i18n.i18n.lockedString('Cross-Origin Embedder Policy (COEP)'),
                 Protocol.Network.CrossOriginEmbedderPolicyValue.None)}
           ${
-            this.maybeRenderCrossOriginStatus(
-                info.coop, i18nString(UIStrings.crossoriginOpenerPolicy),
+            this.#maybeRenderCrossOriginStatus(
+                info.coop, i18n.i18n.lockedString('Cross-Origin Opener Policy (COOP)'),
                 Protocol.Network.CrossOriginOpenerPolicyValue.UnsafeNone)}
         `;
       }
@@ -870,7 +638,7 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private maybeRenderCrossOriginStatus(
+  #maybeRenderCrossOriginStatus(
       info: Protocol.Network.CrossOriginEmbedderPolicyStatus|Protocol.Network.CrossOriginOpenerPolicyStatus|undefined,
       policyName: string,
       noneValue: Protocol.Network.CrossOriginEmbedderPolicyValue|
@@ -893,8 +661,8 @@ export class FrameDetailsReportView extends HTMLElement {
     `;
   }
 
-  private renderApiAvailabilitySection(): LitHtml.TemplateResult|{} {
-    if (!this.frame) {
+  #renderApiAvailabilitySection(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
 
@@ -905,16 +673,16 @@ export class FrameDetailsReportView extends HTMLElement {
         ${i18nString(UIStrings.availabilityOfCertainApisDepends)}
         <x-link href="https://web.dev/why-coop-coep/" class="link">${i18nString(UIStrings.learnMore)}</x-link>
       </div>
-      ${this.renderSharedArrayBufferAvailability()}
-      ${this.renderMeasureMemoryAvailability()}
+      ${this.#renderSharedArrayBufferAvailability()}
+      ${this.#renderMeasureMemoryAvailability()}
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>
     `;
   }
 
-  private renderSharedArrayBufferAvailability(): LitHtml.TemplateResult|{} {
-    if (this.frame) {
-      const features = this.frame.getGatedAPIFeatures();
+  #renderSharedArrayBufferAvailability(): LitHtml.TemplateResult|{} {
+    if (this.#frame) {
+      const features = this.#frame.getGatedAPIFeatures();
       if (features) {
         const sabAvailable = features.includes(Protocol.Page.GatedAPIFeatures.SharedArrayBuffers);
         const sabTransferAvailable =
@@ -954,7 +722,7 @@ export class FrameDetailsReportView extends HTMLElement {
           <${ReportView.ReportView.ReportKey.litTagName}>SharedArrayBuffers</${
             ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName} title=${tooltipText}>
-            ${availabilityText}\xA0${renderHint(this.frame)}
+            ${availabilityText}\xA0${renderHint(this.#frame)}
           </${ReportView.ReportView.ReportValue.litTagName}>
         `;
       }
@@ -962,9 +730,9 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private renderMeasureMemoryAvailability(): LitHtml.TemplateResult|{} {
-    if (this.frame) {
-      const measureMemoryAvailable = this.frame.isCrossOriginIsolated();
+  #renderMeasureMemoryAvailability(): LitHtml.TemplateResult|{} {
+    if (this.#frame) {
+      const measureMemoryAvailable = this.#frame.isCrossOriginIsolated();
       const availabilityText =
           measureMemoryAvailable ? i18nString(UIStrings.available) : i18nString(UIStrings.unavailable);
       const tooltipText = measureMemoryAvailable ? i18nString(UIStrings.thePerformanceAPI) :
@@ -982,8 +750,8 @@ export class FrameDetailsReportView extends HTMLElement {
     return LitHtml.nothing;
   }
 
-  private renderAdditionalInfoSection(): LitHtml.TemplateResult|{} {
-    if (!this.frame) {
+  #renderAdditionalInfoSection(): LitHtml.TemplateResult|{} {
+    if (!this.#frame) {
       return LitHtml.nothing;
     }
 
@@ -994,7 +762,7 @@ export class FrameDetailsReportView extends HTMLElement {
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.frameId)}</${
         ReportView.ReportView.ReportKey.litTagName}>
       <${ReportView.ReportView.ReportValue.litTagName}>
-        <div class="text-ellipsis" title=${this.frame.id}>${this.frame.id}</div>
+        <div class="text-ellipsis" title=${this.#frame.id}>${this.#frame.id}</div>
       </${ReportView.ReportView.ReportValue.litTagName}>
       <${ReportView.ReportView.ReportSectionDivider.litTagName}></${
         ReportView.ReportView.ReportSectionDivider.litTagName}>

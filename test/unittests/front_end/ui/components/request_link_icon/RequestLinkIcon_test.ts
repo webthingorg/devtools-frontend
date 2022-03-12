@@ -10,6 +10,7 @@ import * as RequestLinkIcon from '../../../../../../front_end/ui/components/requ
 import * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
 import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
 
 const {assert} = chai;
 
@@ -26,7 +27,6 @@ const renderRequestLinkIcon = async(data: RequestLinkIcon.RequestLinkIcon.Reques
   await coordinator.done();
   return {component, shadowRoot: component.shadowRoot};
 };
-
 
 export const extractElements = (shadowRoot: ShadowRoot): {
   icon: IconButton.Icon.Icon,
@@ -70,7 +70,7 @@ interface MockRequestResolverEntry {
 class MockRequestResolver {
   private promiseMap: Map<string, MockRequestResolverEntry> = new Map();
 
-  waitForNetworkRequest(requestId?: string) {
+  waitFor(requestId?: string) {
     if (!requestId) {
       if (this.promiseMap.size !== 1) {
         throw new Error('more than one request being awaited, specify a request id');
@@ -105,6 +105,9 @@ class MockRequestResolver {
 }
 
 describe('RequestLinkIcon', () => {
+  const requestId1 = 'r1' as Protocol.Network.RequestId;
+  const requestId2 = 'r2' as Protocol.Network.RequestId;
+
   describe('with simple requests', () => {
     const mockRequest = {
       url() {
@@ -119,14 +122,14 @@ describe('RequestLinkIcon', () => {
     };
 
     const failingRequestResolver = {
-      async waitForNetworkRequest() {
+      async waitFor() {
         throw new Error('Couldn\'t resolve');
       },
     };
 
     it('renders correctly without a request', async () => {
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo'},
+        affectedRequest: {requestId: requestId1},
         requestResolver: failingRequestResolver as unknown as Logs.RequestResolver.RequestResolver,
       });
 
@@ -169,7 +172,7 @@ describe('RequestLinkIcon', () => {
 
     it('renders the request label correctly without a request', async () => {
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: failingRequestResolver as unknown as Logs.RequestResolver.RequestResolver,
         displayURL: true,
       });
@@ -189,7 +192,7 @@ describe('RequestLinkIcon', () => {
 
     it('the style reacts to the absence of a request', async () => {
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: failingRequestResolver as unknown as Logs.RequestResolver.RequestResolver,
       });
 
@@ -208,7 +211,7 @@ describe('RequestLinkIcon', () => {
     it('to change the style correctly', async () => {
       const resolver = new MockRequestResolver();
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: resolver as unknown as Logs.RequestResolver.RequestResolver,
       });
 
@@ -227,7 +230,7 @@ describe('RequestLinkIcon', () => {
     it('to set the label correctly', async () => {
       const resolver = new MockRequestResolver();
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: resolver as unknown as Logs.RequestResolver.RequestResolver,
         displayURL: true,
       });
@@ -247,7 +250,7 @@ describe('RequestLinkIcon', () => {
     it('to set icon color correctly', async () => {
       const resolver = new MockRequestResolver();
       const {shadowRoot} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: resolver as unknown as Logs.RequestResolver.RequestResolver,
         displayURL: true,
       });
@@ -267,7 +270,7 @@ describe('RequestLinkIcon', () => {
     it('handles multiple data assignments', async () => {
       const resolver = new MockRequestResolver();
       const {shadowRoot, component} = await renderRequestLinkIcon({
-        affectedRequest: {requestId: 'never', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId2, url: 'https://alpha.beta/gamma'},
         requestResolver: resolver as unknown as Logs.RequestResolver.RequestResolver,
         displayURL: true,
       });
@@ -280,12 +283,12 @@ describe('RequestLinkIcon', () => {
           return 'http://foo.bar/baz';
         },
         requestId() {
-          return 'foo';
+          return requestId1;
         },
       };
 
       component.data = {
-        affectedRequest: {requestId: 'foo', url: 'https://alpha.beta/gamma'},
+        affectedRequest: {requestId: requestId1, url: 'https://alpha.beta/gamma'},
         requestResolver: resolver as unknown as Logs.RequestResolver.RequestResolver,
         displayURL: true,
       };

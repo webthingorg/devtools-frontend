@@ -34,24 +34,24 @@ describeWithEnvironment('ViewLocation', () => {
   });
 
   it('Adds a tab for a selected view', () => {
-    viewManager.showView('first');
-    viewManager.showView('second');
-    viewManager.showView('third');
+    void viewManager.showView('first');
+    void viewManager.showView('second');
+    void viewManager.showView('third');
 
     assert.deepEqual(tabbedLocation.tabbedPane().tabIds(), ['first', 'second', 'third']);
   });
 
   it('Prepends a tab correctly', () => {
-    const thirdTab = tabbedLocation.tabbedPane()._tabsById.get('third');
+    const thirdTab = tabbedLocation.tabbedPane().tabsById.get('third');
     if (!thirdTab) {
       throw new Error('Could not find a tab');
     }
-    tabbedLocation.tabbedPane()._insertBefore(thirdTab, 0);
+    tabbedLocation.tabbedPane().insertBefore(thirdTab, 0);
     assert.deepEqual(tabbedLocation.tabbedPane().tabIds(), ['third', 'first', 'second']);
   });
 
   it('Appends a tab correctly', () => {
-    viewManager.showView('fourth');
+    void viewManager.showView('fourth');
     assert.deepEqual(tabbedLocation.tabbedPane().tabIds(), ['third', 'first', 'second', 'fourth']);
   });
 

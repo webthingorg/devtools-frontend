@@ -39,7 +39,9 @@ Common.Console = CommonModule.Console.Console;
 /**
  * @interface
  */
-Common.EventTarget = CommonModule.EventTarget.EventTarget;
+Common.EventTarget = {
+  removeEventListeners: CommonModule.EventTarget.removeEventListeners,
+};
 
 /**
  * @interface

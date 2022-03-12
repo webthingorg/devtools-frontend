@@ -28,10 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type * as Common from '../../core/common/common.js'; // eslint-disable-line no-unused-vars
+import type * as Common from '../../core/common/common.js';
+import type * as Platform from '../../core/platform/platform.js';
 
 export abstract class ContentProvider {
-  abstract contentURL(): string;
+  abstract contentURL(): Platform.DevToolsPath.UrlString;
   abstract contentType(): Common.ResourceType.ResourceType;
   abstract contentEncoded(): Promise<boolean>;
   abstract requestContent(): Promise<DeferredContent>;
@@ -39,11 +40,7 @@ export abstract class ContentProvider {
 }
 
 export class SearchMatch {
-  lineNumber: number;
-  lineContent: string;
-  constructor(lineNumber: number, lineContent: string) {
-    this.lineNumber = lineNumber;
-    this.lineContent = lineContent;
+  constructor(public lineNumber: number, public lineContent: string, public columnNumber?: number|undefined) {
   }
 }
 

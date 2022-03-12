@@ -8,7 +8,6 @@ import type * as puppeteer from 'puppeteer';
 import {platform, waitForElementWithTextContent} from '../../shared/helper.js';
 import {$$, click, getBrowserAndPages, pasteText, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
 
-
 const NEW_HEAP_SNAPSHOT_BUTTON = 'button[aria-label="Take heap snapshot"]';
 const MEMORY_PANEL_CONTENT = 'div[aria-label="Memory panel"]';
 const PROFILE_TREE_SIDEBAR = 'div.profiles-tree-sidebar';
@@ -80,7 +79,7 @@ export async function getDataGridRows(selector: string) {
 export async function setClassFilter(text: string) {
   const classFilter = await waitFor(CLASS_FILTER_INPUT);
   await classFilter.focus();
-  pasteText(text);
+  void pasteText(text);
 }
 
 export async function triggerLocalFindDialog(frontend: puppeteer.Page) {
@@ -175,8 +174,8 @@ const normalizRetainerName = (retainerName: string) => {
     return 'Window';
   }
   // Retainers including double-colons :: are names from the C++ implementation
-  // exposed through Chromium's gn arg `enable_additional_blink_object_names`;
-  // these should be considered implementation details, so we normalize them.
+  // exposed through V8's gn arg `cppgc_enable_object_names`; these should be
+  // considered implementation details, so we normalize them.
   if (retainerName.includes('::')) {
     if (retainerName.startsWith('Detached')) {
       return 'Detached InternalNode';
