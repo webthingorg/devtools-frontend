@@ -141,6 +141,37 @@ describe('The Sources Tab', async () => {
     });
   });
 
+  it('step over works at the end of a sourcemapped script (crbug/1305956)', async () => {
+    const {target} = getBrowserAndPages();
+    await openSourceCodeEditorForFile('sourcemap-stepover-at-end.js', 'sourcemap-stepover-at-end.html');
+
+    let scriptEvaluation: Promise<unknown>;
+
+    // DevTools is contracting long filenames with ellipses.
+    // Let us match the location with regexp to match even contracted locations.
+    const breakLocationRegExp = /.*at-end\.js:2$/;
+    const stepLocationRegExp = /.*at-end.html:6$/;
+
+    await step('Run to debugger statement', async () => {
+      scriptEvaluation = target.evaluate('outer();');
+
+      const scriptLocation = await waitForStackTopMatch(breakLocationRegExp);
+      assert.match(scriptLocation, breakLocationRegExp);
+    });
+
+    await step('Step over from debugger statement', async () => {
+      await click(STEP_OVER_BUTTON);
+
+      const stepLocation = await waitForStackTopMatch(stepLocationRegExp);
+      assert.match(stepLocation, stepLocationRegExp);
+    });
+
+    await step('Resume', async () => {
+      await click(RESUME_BUTTON);
+      await scriptEvaluation;
+    });
+  });
+
   it('shows unminified identifiers in scopes and console', async () => {
     const {target, frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-minified.js', 'sourcemap-minified.html');
