@@ -5,7 +5,8 @@
  */
 /* <3 */
 
-.lighthouse-start-view {
+.lighthouse-start-view,
+.lighthouse-start-view-fr {
   font-family: Roboto, sans-serif;
   font-size: var(--font-size);
   line-height: 18px;
@@ -16,11 +17,38 @@
   --report-font-family: roboto, helvetica, arial, sans-serif;
 }
 
+.lighthouse-start-view-fr {
+  margin: 16px;
+}
+
+.lighthouse-separator {
+  background-color: var(--color-background-elevation-1);
+}
+
+.lighthouse-start-view-fr.vbox > .lighthouse-separator {
+  margin: 24px 0;
+  border-top: var(--legacy-divider-border);
+}
+
+.lighthouse-start-view-fr.hbox > .lighthouse-separator {
+  margin: 0 24px;
+  border-left: var(--legacy-divider-border);
+}
+
 .lighthouse-start-view header {
   flex: 2 1;
   padding: 16px;
   display: grid;
   justify-items: center;
+}
+
+.lighthouse-start-view-fr header {
+  display: flex;
+  font-size: 18px;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 16px;
+  margin-bottom: 16px;
 }
 
 .lighthouse-logo {
@@ -30,6 +58,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-image: var(--image-file-lighthouse_logo);
+}
+
+.lighthouse-start-view-fr .lighthouse-logo {
+  width: 45px;
+  height: 45px;
 }
 
 .lighthouse-start-view-text {
@@ -135,4 +168,12 @@ input[type="radio"]:focus {
 .lighthouse-warning-text::before {
   content: "⚠";
   margin-right: 10px;
+}
+
+.lighthouse-mode-info {
+  margin: 0 8px 16px;
+}
+
+.lighthouse-mode-description {
+  margin-top: 8px;
 }
