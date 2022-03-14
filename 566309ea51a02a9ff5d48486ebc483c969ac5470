@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "417ad2bc_03a1e668",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-14T12:32:34Z",
+      "side": 1,
+      "message": "Hey Jaro,\n\nHere\u0027s the fix plus a simplified test case for the Infinity issue.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "566309ea51a02a9ff5d48486ebc483c969ac5470",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
