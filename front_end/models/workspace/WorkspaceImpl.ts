@@ -59,7 +59,9 @@ export interface Project {
   canRename(): boolean;
   rename(
       uiSourceCode: UISourceCode, newName: Platform.DevToolsPath.RawPathString,
-      callback: (arg0: boolean, arg1?: string, arg2?: string, arg3?: Common.ResourceType.ResourceType) => void): void;
+      callback:
+          (arg0: boolean, arg1?: string, arg2?: Platform.DevToolsPath.UrlString,
+           arg3?: Common.ResourceType.ResourceType) => void): void;
   excludeFolder(path: Platform.DevToolsPath.UrlString): void;
   canExcludeFolder(path: Platform.DevToolsPath.EncodedPathString): boolean;
   createFile(path: Platform.DevToolsPath.EncodedPathString, name: string|null, content: string, isBase64?: boolean):
@@ -194,7 +196,9 @@ export abstract class ProjectStore implements Project {
 
   rename(
       _uiSourceCode: UISourceCode, _newName: string,
-      _callback: (arg0: boolean, arg1?: string, arg2?: string, arg3?: Common.ResourceType.ResourceType) => void): void {
+      _callback:
+          (arg0: boolean, arg1?: string, arg2?: Platform.DevToolsPath.UrlString,
+           arg3?: Common.ResourceType.ResourceType) => void): void {
   }
   excludeFolder(_path: Platform.DevToolsPath.UrlString): void {
   }
