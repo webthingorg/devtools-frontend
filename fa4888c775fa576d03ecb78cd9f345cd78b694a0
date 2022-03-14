@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "583f24a4_1a1a8c75",
+        "filename": "front_end/core/common/ParsedURL.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-14T08:55:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfca4df7_8776f2f9",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 112
+      },
+      "revId": "fa4888c775fa576d03ecb78cd9f345cd78b694a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12edfc82_5783b481",
