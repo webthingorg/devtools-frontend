@@ -360,6 +360,9 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
     this.dispatchEventToListeners(Events.PageAuditabilityChanged, {helpText});
 
     void this.hasImportantResourcesNotCleared().then(warning => {
+      if (this.getFlags().mode !== 'navigation') {
+        warning = '';
+      }
       this.dispatchEventToListeners(Events.PageWarningsChanged, {warning});
     });
   }
@@ -456,7 +459,7 @@ export const RuntimeSettings: RuntimeSetting[] = [
       {label: i18nLazyString(UIStrings.timespan), value: 'timespan'},
       {label: i18nLazyString(UIStrings.snapshot), value: 'snapshot'},
     ],
-    learnMore: undefined,
+    learnMore: 'https://web.dev/lighthouse-user-flows/',
   },
   {
     // This setting is disabled, but we keep it around to show in the UI.

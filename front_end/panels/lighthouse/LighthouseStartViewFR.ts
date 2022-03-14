@@ -11,21 +11,48 @@ import {Events} from './LighthouseController.js';
 
 const UIStrings = {
   /**
+   * @description Text displayed as the title of a panel that can be used to audit a web page with Lighthouse.
+   */
+  generateLighthouseReport: 'Generate a Lighthouse report',
+  /**
    * @description Text that refers to the Lighthouse mode
    */
   mode: 'Mode',
+  /**
+   * @description Title in the Lighthouse Start View for list of categories to run during audit
+   */
+  categories: 'Categories',
+  /**
+   * @description Title in the Lighthouse Start View for list of available start plugins
+   */
+  plugins: 'Plugins',
   /**
    * @description Label for a button to start analyzing a page navigation with Lighthouse
    */
   analyzeNavigation: 'Analyze navigation',
   /**
+   * @description Long-form description of a Lighthouse mode that analyzes a page navigation.
+   */
+  navigationLongDescription:
+      'Navigation mode analyzes a single page load, exactly like the original Lighthouse reports.',
+  /**
    * @description Label for a button to start analyzing the current page state with Lighthouse
    */
-  analyzeSnapshot: 'Analyze snapshot',
+  analyzeSnapshot: 'Capture snapshot',
   /**
-   * @description Label for a button that ends a Lighthouse timespan
+   * @description Long-form description of a Lighthouse mode that analyzes the current page state.
+   */
+  snapshotLongDescription:
+      'Snapshot reports analyze the page in a particular state, typically after user interactions.',
+  /**
+   * @description Label for a button that starts a Lighthouse mode that analyzes user interactions over a period of time.
    */
   startTimespan: 'Start timespan',
+  /**
+   * @description Long-form description of a Lighthouse mode that analyzes user interactions over a period of time.
+   */
+  timespanLongDescription:
+      'Timespan reports analyze an arbitrary period of time, typically containing user interactions.',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthouseStartViewFR.ts', UIStrings);
@@ -35,31 +62,79 @@ export class StartViewFR extends StartView {
   protected render(): void {
     super.render();
     const fragment = UI.Fragment.Fragment.build`
-  <div class="lighthouse-form-section">
-  <div class="lighthouse-form-section-label">
-  ${i18nString(UIStrings.mode)}
+<form class="lighthouse-start-view-fr vbox">
+  <div style="width: max-content; max-width: 100%">
+    <header>
+      <div class="lighthouse-logo"></div>
+      <div class="lighthouse-title">${i18nString(UIStrings.generateLighthouseReport)}</div>
+    </header>
+    <div class="lighthouse-options hbox">
+      <div class="lighthouse-form-section">
+        <div class="lighthouse-form-elements" $="device-type-form-elements"></div>
+      </div>
+      <div class="lighthouse-form-section">
+        <div class="lighthouse-form-elements" $="mode-form-elements"></div>
+      </div>
+    </div>
   </div>
-  <div class="lighthouse-form-elements" $="mode-form-elements"></div>
+  <div class="lighthouse-separator"></div>
+  <div>
+    <div class="lighthouse-mode-info">
+      <div class="lighthouse-start-button-container">${this.startButton}</div>
+      <div class="lighthouse-mode-description"></div>
+    </div>
+    <div $="help-text" class="lighthouse-help-text hidden"></div>
+    <div $="warning-text" class="lighthouse-warning-text hidden"></div>
+    <div class="lighthouse-form-categories">
+      <div class="lighthouse-form-section">
+        <div class="lighthouse-form-section-label">${i18nString(UIStrings.categories)}</div>
+        <div class="lighthouse-form-elements" $="categories-form-elements"></div>
+      </div>
+      <div class="lighthouse-form-section">
+        <div class="lighthouse-form-section-label">
+          <div class="lighthouse-icon-label">${i18nString(UIStrings.plugins)}</div>
+        </div>
+        <div class="lighthouse-form-elements" $="plugins-form-elements"></div>
+      </div>
+    </div>
   </div>
+</form>
     `;
+
+    this.helpText = fragment.$('help-text');
+    this.warningText = fragment.$('warning-text');
+
+    this.populateFormControls(fragment);
 
     // Populate the Lighthouse mode
     const modeFormElements = fragment.$('mode-form-elements');
     this.populateRuntimeSettingAsRadio('lighthouse.mode', i18nString(UIStrings.mode), modeFormElements);
 
-    const form = this.contentElement.querySelector('form');
-    form?.appendChild(fragment.element());
-    this.updateStartButton();
+    this.contentElement.textContent = '';
+    this.contentElement.append(fragment.element());
+    this.updateMode();
   }
 
-  updateStartButton(): void {
+  onResize(): void {
+    const useWideLayout = this.contentElement.offsetWidth > 800;
+    const startViewEl = this.contentElement.querySelector('.lighthouse-start-view-fr');
+    if (!startViewEl) {
+      return;
+    }
+    startViewEl.classList.toggle('hbox', useWideLayout);
+    startViewEl.classList.toggle('vbox', !useWideLayout);
+  }
+
+  updateMode(): void {
     const {mode} = this.controller.getFlags();
 
-    let label: Platform.UIString.LocalizedString;
+    let infoDescription: Platform.UIString.LocalizedString;
+    let buttonLabel: Platform.UIString.LocalizedString;
     let callback: () => void;
 
     if (mode === 'timespan') {
-      label = i18nString(UIStrings.startTimespan);
+      infoDescription = i18nString(UIStrings.timespanLongDescription);
+      buttonLabel = i18nString(UIStrings.startTimespan);
       callback = (): void => {
         this.controller.dispatchEventToListeners(
             Events.RequestLighthouseTimespanStart,
@@ -67,7 +142,8 @@ export class StartViewFR extends StartView {
         );
       };
     } else if (mode === 'snapshot') {
-      label = i18nString(UIStrings.analyzeSnapshot);
+      infoDescription = i18nString(UIStrings.snapshotLongDescription);
+      buttonLabel = i18nString(UIStrings.analyzeSnapshot);
       callback = (): void => {
         this.controller.dispatchEventToListeners(
             Events.RequestLighthouseStart,
@@ -75,7 +151,8 @@ export class StartViewFR extends StartView {
         );
       };
     } else {
-      label = i18nString(UIStrings.analyzeNavigation);
+      infoDescription = i18nString(UIStrings.navigationLongDescription);
+      buttonLabel = i18nString(UIStrings.analyzeNavigation);
       callback = (): void => {
         this.controller.dispatchEventToListeners(
             Events.RequestLighthouseStart,
@@ -85,16 +162,21 @@ export class StartViewFR extends StartView {
     }
 
     this.startButton = UI.UIUtils.createTextButton(
-        label,
+        buttonLabel,
         callback,
         /* className */ '',
         /* primary */ true,
     );
 
-    const startButtonContainer = this.contentElement.querySelector('.lighthouse-start-button-container');
-    if (startButtonContainer) {
-      startButtonContainer.textContent = '';
-      startButtonContainer.appendChild(this.startButton);
+    const startButtonContainerEl = this.contentElement.querySelector('.lighthouse-start-button-container');
+    if (startButtonContainerEl) {
+      startButtonContainerEl.textContent = '';
+      startButtonContainerEl.appendChild(this.startButton);
+    }
+
+    const modeDescriptionEl = this.contentElement.querySelector('.lighthouse-mode-description');
+    if (modeDescriptionEl) {
+      modeDescriptionEl.textContent = infoDescription;
     }
   }
 }
