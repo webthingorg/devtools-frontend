@@ -16,6 +16,23 @@
       "message": "This pulls in updated protocol resources.\nPTAL, thanks!",
       "revId": "d4eb79683b3984a4189fe7700695dd744e2b5910",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a59020_764fa249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1326190
+      },
+      "writtenOn": "2022-03-14T19:47:39Z",
+      "side": 1,
+      "message": "alexrudenko@, friendly ping on this review.\nThanks!",
+      "revId": "d4eb79683b3984a4189fe7700695dd744e2b5910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
