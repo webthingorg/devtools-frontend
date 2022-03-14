@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d03e455e_4d2143e8",
+        "filename": "front_end/panels/lighthouse/LighthouseStartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-14T20:58:59Z",
+      "side": 1,
+      "message": "Hmm I\u0027m noticing that with the current LH panel as well. I\u0027ll probably tackle this in a separate CL.",
+      "parentUuid": "af9446cb_698473a3",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce97b6cc_d9bd427d",
         "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
         "patchSetId": 3
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93acc7b_24fdf3dc",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-14T20:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5967f2a_6ad8d42a",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7135e971_637ca5a4",
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afc789c1_54f45596",
+        "filename": "front_end/panels/lighthouse/LighthouseStartViewFR.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-14T20:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7135e971_637ca5a4",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87de19d_be7b5051",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-03-10T21:21:51Z",
       "side": 1,
       "message": "general css note: the layout\u0027s gotta be resilient with all squishy/wide combinations of landscape/portrait.",
+      "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a52c7f_eebc36c0",
+        "filename": "front_end/panels/lighthouse/lighthouseStartView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2022-03-14T20:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f87de19d_be7b5051",
       "revId": "ca5d2677b2bbae1631d1c40bdfebb6c239f92bc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
