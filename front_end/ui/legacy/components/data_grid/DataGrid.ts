@@ -276,6 +276,22 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     } else if (value !== null) {
       DataGridImpl.setElementText(element, (value as string), Boolean(column.longText));
     }
+    const parentElement = element.parentElement;
+    if (parentElement) {
+      const gridNode = this.elementToDataGridNode.get(parentElement);
+      if (gridNode) {
+        let keyText = '';
+        let valText = '';
+        if (element.classList.contains('key-column')) {
+          keyText = element.textContent ? element.textContent : '';
+          valText = element.nextElementSibling?.textContent ? element.nextElementSibling?.textContent : '';
+        } else {
+          valText = element.textContent ? element.textContent : '';
+          keyText = element.previousElementSibling?.textContent ? element.previousElementSibling?.textContent : '';
+        }
+        gridNode.nodeAccessibleText = `${this.columns.key.title}: ${keyText}, ${this.columns.value.title}: ${valText}`;
+      }
+    }
   }
 
   static setElementText(element: Element, newText: string, longText: boolean): void {
