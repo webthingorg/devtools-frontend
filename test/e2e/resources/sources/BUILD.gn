@@ -102,5 +102,8 @@ copy_to_gen("sources") {
     "worker-relative-sourcemap.js.map",
     "worker1.js",
     "worker2.js",
+    "workers-url-clash.html",
+    "workers-url-clash.main.js",
+    "workers-url-clash.worker.js",
   ]
 }

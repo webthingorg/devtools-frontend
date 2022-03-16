@@ -408,6 +408,21 @@ export type NestedFileSelector = {
   fileSelector: string,
 };
 
+export function createSelectorsForFrameFile(
+    frameName: string, folderName: string, fileName: string): NestedFileSelector {
+  const rootSelector = `[aria-label="${frameName}, frame"]`;
+  const domainSelector = `${rootSelector} + ol > [aria-label="localhost:${getTestServerPort()}, domain"]`;
+  const folderSelector = `${domainSelector} + ol > [aria-label^="${folderName}, "]`;
+  const fileSelector = `${folderSelector} + ol > [aria-label="${fileName}, file"]`;
+
+  return {
+    rootSelector,
+    domainSelector,
+    folderSelector,
+    fileSelector,
+  };
+}
+
 export function createSelectorsForWorkerFile(
     workerName: string, folderName: string, fileName: string, workerIndex = 1): NestedFileSelector {
   const rootSelector = new Array(workerIndex).fill(`[aria-label="${workerName}, worker"]`).join(' ~ ');

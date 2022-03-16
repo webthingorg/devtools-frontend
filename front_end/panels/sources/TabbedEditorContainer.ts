@@ -186,7 +186,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
         frame?.currentUISourceCode() === uiSourceCode) {
       Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName(true));
     } else {
-      this.innerShowFile(this.canonicalUISourceCode(uiSourceCode), true);
+      this.innerShowFile(uiSourceCode, true);
     }
   }
 

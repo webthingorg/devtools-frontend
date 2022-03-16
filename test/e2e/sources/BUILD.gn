@@ -27,6 +27,7 @@ node_ts_library("sources") {
     "sourcemap_test.ts",
     "syntax-highlighting_test.ts",
     "worker-relative-sourcemap_test.ts",
+    "workers-url-clash_test.ts",
   ]
 
   deps = [
