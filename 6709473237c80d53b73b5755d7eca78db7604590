@@ -16,6 +16,23 @@
       "message": "This is the frontend change to show highlight inheritance in the styles pane, following up on https://chromium-review.googlesource.com/c/chromium/src/+/3461424.\n\nPTAL, thanks!\n",
       "revId": "6709473237c80d53b73b5755d7eca78db7604590",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c621398_64c0eb98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-03-16T06:28:23Z",
+      "side": 1,
+      "message": "Johan, could you PTAL as you worked on the styles sidebar recently? ",
+      "revId": "6709473237c80d53b73b5755d7eca78db7604590",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
