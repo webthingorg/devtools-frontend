@@ -4883,6 +4883,9 @@
   "panels/elements/StylesSidebarPane.ts | incrementdecrementWithMousewheelOne": {
     "message": "Increment/decrement with mousewheel or up/down keys. {PH1}: R ±1, Shift: G ±1, Alt: B ±1"
   },
+  "panels/elements/StylesSidebarPane.ts | inheritedFromPseudoSOf": {
+    "message": "Inherited from pseudo ::{PH1} of "
+  },
   "panels/elements/StylesSidebarPane.ts | inheritedFroms": {
     "message": "Inherited from "
   },

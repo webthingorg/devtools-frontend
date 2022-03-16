@@ -4883,6 +4883,9 @@
   "panels/elements/StylesSidebarPane.ts | incrementdecrementWithMousewheelOne": {
     "message": "Îńĉŕêḿêńt̂/d́êćr̂ém̂én̂t́ ŵít̂h́ m̂óûśêẃĥéêĺ ôŕ ûṕ/d̂óŵń k̂éŷś. {PH1}: R̂ ±1, Śĥíf̂t́: Ĝ ±1, Ál̂t́: B̂ ±1"
   },
+  "panels/elements/StylesSidebarPane.ts | inheritedFromPseudoSOf": {
+    "message": "Îńĥér̂ít̂éd̂ f́r̂óm̂ ṕŝéûd́ô ::{PH1} óf̂ "
+  },
   "panels/elements/StylesSidebarPane.ts | inheritedFroms": {
     "message": "Îńĥér̂ít̂éd̂ f́r̂óm̂ "
   },
