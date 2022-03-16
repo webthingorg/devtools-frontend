@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e0c2a0_84ac4dd5",
+        "filename": "front_end/core/sdk/Target.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470fde92_af24e592",
+      "range": {
+        "startLine": 179,
+        "startChar": 26,
+        "endLine": 179,
+        "endChar": 63
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7275a5a_9505acd6",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-15T09:46:52Z",
       "side": 1,
       "message": "This looks more like a RawPathString",
+      "range": {
+        "startLine": 460,
+        "startChar": 103,
+        "endLine": 461,
+        "endChar": 39
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e3a33f_17718130",
+        "filename": "front_end/panels/application/BackgroundServiceView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7275a5a_9505acd6",
       "range": {
         "startLine": 460,
         "startChar": 103,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e67466_676d87de",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86d2b7ed_5c099abc",
+      "range": {
+        "startLine": 1081,
+        "startChar": 30,
+        "endLine": 1081,
+        "endChar": 39
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7daeb029_63a002c4",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-15T09:46:52Z",
       "side": 1,
       "message": "Also RawPathString",
+      "range": {
+        "startLine": 1676,
+        "startChar": 91,
+        "endLine": 1676,
+        "endChar": 100
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe95465_952411c4",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7daeb029_63a002c4",
       "range": {
         "startLine": 1676,
         "startChar": 91,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "466ac184_348eb07c",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Looks like line 1716 is the only place where fileName is set.",
+      "parentUuid": "1dfc23f9_57d2190f",
+      "range": {
+        "startLine": 1742,
+        "startChar": 70,
+        "endLine": 1742,
+        "endChar": 79
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "213da6b9_b590e43c",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-03-15T09:46:52Z",
       "side": 1,
       "message": "If it comes from line 602, this is a RawPathString.",
+      "range": {
+        "startLine": 605,
+        "startChar": 88,
+        "endLine": 605,
+        "endChar": 97
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fddc93b9_2f7d6fc4",
+        "filename": "front_end/panels/profiler/ProfileView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "213da6b9_b590e43c",
       "range": {
         "startLine": 605,
         "startChar": 88,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bd9ab1_a337db62",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3806663c_d4edbbdc",
+      "range": {
+        "startLine": 471,
+        "startChar": 109,
+        "endLine": 471,
+        "endChar": 118
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00e33b4e_276d980b",
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ed55c6_7a70a327",
+        "filename": "front_end/panels/screencast/ScreencastView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00e33b4e_276d980b",
+      "range": {
+        "startLine": 748,
+        "startChar": 7,
+        "endLine": 748,
+        "endChar": 46
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b651b3b1_1e16d851",
@@ -215,6 +407,30 @@
       "writtenOn": "2022-03-15T09:46:52Z",
       "side": 1,
       "message": "RawPathString",
+      "range": {
+        "startLine": 640,
+        "startChar": 101,
+        "endLine": 640,
+        "endChar": 110
+      },
+      "revId": "052e145a19d928617ded466e7ce271bb609b8a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "697f02b7_c5c4e7a8",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-16T16:41:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b651b3b1_1e16d851",
       "range": {
         "startLine": 640,
         "startChar": 101,
