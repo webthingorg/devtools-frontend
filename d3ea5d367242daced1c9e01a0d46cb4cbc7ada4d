@@ -50,6 +50,24 @@
       "message": "Nit: `/* what does this mean? */ true`",
       "revId": "d3ea5d367242daced1c9e01a0d46cb4cbc7ada4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5060e20_f6dce5eb",
+        "filename": "front_end/panels/application/ServiceWorkerCacheViews.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-16T19:28:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc3b8255_5abbf46c",
+      "revId": "d3ea5d367242daced1c9e01a0d46cb4cbc7ada4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
