@@ -51,6 +51,24 @@
       "parentUuid": "edd37062_b0a2e7b9",
       "revId": "e29066be07d9c98f02b55d79d76f76b18cece422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b527413_9cb8fb2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-03-16T10:28:12Z",
+      "side": 1,
+      "message": "Ack; I assumed so. Seems fine to be pragmatic in this case then and just land the fix.",
+      "parentUuid": "81ffef0e_e7706dbb",
+      "revId": "e29066be07d9c98f02b55d79d76f76b18cece422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
