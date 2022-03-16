@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5cce41_fe2c0bb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-16T09:51:20Z",
+      "side": 1,
+      "message": "Hey Jaro,\n\nHere\u0027s a fix for the issue that one cannot reveal the correct source in case of an URL clash.\n\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "7048c3c55397ff4b37dc1a3a8596692b2ce2bc28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
