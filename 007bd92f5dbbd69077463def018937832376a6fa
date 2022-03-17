@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fd5f4c4_ff1be079",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-17T02:42:35Z",
+      "side": 1,
+      "message": "So i\u0027ve taken a crack at this (haven\u0027t uploaded the patchset though) and while I\u0027ve got it mostly working, the new widget winds up kind of worse. it doesn\u0027t support icons by default, for example (looks like i\u0027ll need to write my own node renderer for that?) and there\u0027s some odd visual behaviour like highlighting the root element in blue (not sure why).\n\ni\u0027m not sure i\u0027ve got a lot more bandwidth to keep trying with this, so i\u0027d like to push back and suggest we just stick with the old treeview which seems to work as we\u0027d like. i know it\u0027s a legacy widget but it\u0027s all over devtools and one more won\u0027t hurt much...",
+      "parentUuid": "f2324317_1dd42553",
+      "range": {
+        "startLine": 328,
+        "startChar": 1,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14309de9_e54b3ed5",
         "filename": "front_end/panels/application/components/backForwardCacheView.css",
         "patchSetId": 7
@@ -54,6 +78,24 @@
       "writtenOn": "2022-03-03T16:49:38Z",
       "side": 1,
       "message": "Add `grid-column-start: span 2;` as part of fixing the long frame name overflow issue.",
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c429dec3_ebdad262",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-17T02:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14309de9_e54b3ed5",
       "revId": "007bd92f5dbbd69077463def018937832376a6fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
