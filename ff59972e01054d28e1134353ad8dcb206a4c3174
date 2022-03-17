@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d01e32da_d9fe9091",
+        "filename": "test/unittests/front_end/panels/network/RequestHeadersView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-17T09:13:25Z",
+      "side": 1,
+      "message": "This only ensures that the rendered text contains \u0027.headers\u0027 in the correct position. I chose `textContent` because otherwise I\u0027d have to go from element to element via children etc.. There might be a better way to do this?\n\nBut more importantly this does not test the actual functionality (that the link works). For that I\u0027d need to try and set up an e2e-test (enable file access for e2e-tests, set up local overrides, create a \u0027.headers\u0027 file). WDYT?",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 121
+      },
+      "revId": "ff59972e01054d28e1134353ad8dcb206a4c3174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
