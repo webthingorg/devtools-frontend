@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ec5c1e_82797562",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "As this is coming from a CDP event I don\u0027t expect url will ever be branded.",
+      "range": {
+        "startLine": 670,
+        "startChar": 4,
+        "endLine": 670,
+        "endChar": 110
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6d030e_6df41041",
+        "filename": "front_end/models/bindings/FileUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "This cast looks unnecessary.",
+      "range": {
+        "startLine": 219,
+        "startChar": 29,
+        "endLine": 219,
+        "endChar": 69
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ddd9bc_2810149f",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "I\u0027m surprised that we are accepting every path type here; are all of them used?",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c4e41d_1f75b7e8",
+        "filename": "front_end/panels/search/SearchConfig.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "I\u0027d rather leave this as string if we haven\u0027t determined which it\u0027s supposed to be. And if people need to put `( |%20)` in their regexes to match spaces then that seems like a bug.",
+      "range": {
+        "startLine": 97,
+        "startChar": 37,
+        "endLine": 98,
+        "endChar": 98
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a5c0c8_d3268c48",
+        "filename": "front_end/panels/sources/SourcesSearchScope.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "We should not have situations where we know we have a path but don\u0027t know whether it is encoded. Should UISourceCode.fullDisplayName() have a branded type, or is it best understood as just a string?",
+      "range": {
+        "startLine": 162,
+        "startChar": 45,
+        "endLine": 163,
+        "endChar": 53
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43f68d2_b41f64d3",
+        "filename": "front_end/ui/legacy/components/perf_ui/LineLevelProfile.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-17T17:06:24Z",
+      "side": 1,
+      "message": "Ideally you would change this to be UrlString|number and get rid of the cast below. However, I am uncertain whether TypeScript will be able to infer from that that it is a UrlString if its type is \u0027string\u0027. If it can\u0027t, it should be able to if you change the checks to see if the type is \u0027number\u0027, and I doubt that would cause a behavior change.",
+      "range": {
+        "startLine": 190,
+        "startChar": 50,
+        "endLine": 190,
+        "endChar": 65
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
