@@ -6,6 +6,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import type * as Protocol from '../../../../generated/protocol.js';
 
 let performanceInstance: Performance;
@@ -213,7 +214,8 @@ export class Helper {
             }
           }
         } else if (typeof scriptIdOrUrl === 'string') {
-          const uiSourceCode = workspace.uiSourceCodeForURL(scriptIdOrUrl);
+          // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
+          const uiSourceCode = workspace.uiSourceCodeForURL(scriptIdOrUrl as Platform.DevToolsPath.UrlString);
           if (uiSourceCode) {
             decorationsBySource.set(uiSourceCode, lineToDataMap);
           }
