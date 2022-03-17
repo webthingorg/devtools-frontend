@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22aa018a_e2af51e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1391646
+      },
+      "writtenOn": "2022-03-17T05:47:17Z",
+      "side": 1,
+      "message": "Overall I think this patch makes sense, with a few minor comments.\n\nI haven’t had the chance to test this locally because my dev environment isn’t set up for it, but are inherited declarations shown with a strikethrough when overridden in highlight styles like they are in originating styles? I assume the existing cascade code ensures that automatically somehow?",
+      "revId": "1fe5e4af030c6e7c4dde6de5b449121513206121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df64bc6_5af8b317",
+        "filename": "front_end/core/i18n/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 4888,
+      "author": {
+        "id": 1391646
+      },
+      "writtenOn": "2022-03-17T05:47:17Z",
+      "side": 1,
+      "message": "consider “Inherited from ::{PH1} pseudo of ”? same goes for pseudoSElement below, “::{PH1} pseudo-element”, but i realise that one’s not new.",
+      "revId": "1fe5e4af030c6e7c4dde6de5b449121513206121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c344f674_d1d9e980",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1391646
+      },
+      "writtenOn": "2022-03-17T05:47:17Z",
+      "side": 1,
+      "message": "nit: consider (const [key, value] of pseudoCascades.entries()), or even [pseudoType, nodeCascade]?",
+      "revId": "1fe5e4af030c6e7c4dde6de5b449121513206121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "605668cb_852af7cf",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1391646
+      },
+      "writtenOn": "2022-03-17T05:47:17Z",
+      "side": 1,
+      "message": "it’s hard to tell from this test because there are no own selection styles, but are we grouping blocks with the same pseudo or the same inheritance depth together? currently the originating styles are followed by the inherited originating styles, then the styles for each highlight pseudo, which allows the user to see which declarations are being overridden without jumping around, so i think the former makes more sense.",
+      "revId": "1fe5e4af030c6e7c4dde6de5b449121513206121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
