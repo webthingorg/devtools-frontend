@@ -182,8 +182,7 @@ export class InputTimeline extends UI.Widget.VBox implements Timeline.TimelineLo
       return;
     }
 
-    const fileName = `InputProfile-${Platform.DateUtilities.toISO8601Compact(new Date())}.json` as
-        Platform.DevToolsPath.RawPathString;
+    const fileName = `InputProfile-${Platform.DateUtilities.toISO8601Compact(new Date())}.json`;
     const stream = new Bindings.FileUtils.FileOutputStream();
 
     const accepted = await stream.open(fileName);

@@ -30,17 +30,15 @@
 
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
-import type * as Platform from '../../core/platform/platform.js';
 
 let fileManagerInstance: FileManager|null;
 
 interface SaveCallbackParam {
-  fileSystemPath?: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString;
+  fileSystemPath?: string;
 }
 
 export class FileManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
-  private readonly saveCallbacks:
-      Map<Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString, (arg0: SaveCallbackParam|null) => void>;
+  private readonly saveCallbacks: Map<string, (arg0: SaveCallbackParam|null) => void>;
   private constructor() {
     super();
     this.saveCallbacks = new Map();
@@ -61,8 +59,7 @@ export class FileManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     return fileManagerInstance;
   }
 
-  save(url: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString, content: string, forceSaveAs: boolean):
-      Promise<SaveCallbackParam|null> {
+  save(url: string, content: string, forceSaveAs: boolean): Promise<SaveCallbackParam|null> {
     // Remove this url from the saved URLs while it is being saved.
     const result = new Promise<SaveCallbackParam|null>(resolve => this.saveCallbacks.set(url, resolve));
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.save(url, content, forceSaveAs);
@@ -78,7 +75,7 @@ export class FileManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     }
   }
 
-  private canceledSavedURL({data: url}: Common.EventTarget.EventTargetEvent<Platform.DevToolsPath.UrlString>): void {
+  private canceledSavedURL({data: url}: Common.EventTarget.EventTargetEvent<string>): void {
     const callback = this.saveCallbacks.get(url);
     this.saveCallbacks.delete(url);
     if (callback) {
@@ -86,11 +83,11 @@ export class FileManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     }
   }
 
-  append(url: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString, content: string): void {
+  append(url: string, content: string): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.append(url, content);
   }
 
-  close(url: Platform.DevToolsPath.RawPathString|Platform.DevToolsPath.UrlString): void {
+  close(url: string): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.close(url);
   }
 

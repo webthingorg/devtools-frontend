@@ -4,7 +4,6 @@
 
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
-import type * as Platform from '../../../core/platform/platform.js';
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as Buttons from '../buttons/buttons.js';
@@ -39,9 +38,7 @@ export class FeedbackButton extends HTMLElement {
   }
 
   #onFeedbackClick(): void {
-    // TODO(crbug.com/1253323): Cast to UrlString will be removed when migration to branded types is complete.
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
-        this.#props.feedbackUrl as Platform.DevToolsPath.UrlString);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(this.#props.feedbackUrl);
   }
 
   #render(): void {

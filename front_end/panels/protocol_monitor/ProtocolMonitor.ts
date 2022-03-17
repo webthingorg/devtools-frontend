@@ -247,8 +247,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
                 const [domain, method] = String(methodColumn.value).split('.');
                 const type = typeColumn.value === 'sent' ? 'method' : 'event';
                 Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
-                    `https://chromedevtools.github.io/devtools-protocol/tot/${domain}#${type}-${method}` as
-                    Platform.DevToolsPath.UrlString);
+                    `https://chromedevtools.github.io/devtools-protocol/tot/${domain}#${type}-${method}`);
               });
             },
       },
@@ -467,8 +466,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
 
   private async saveAsFile(): Promise<void> {
     const now = new Date();
-    const fileName = 'ProtocolMonitor-' + Platform.DateUtilities.toISO8601Compact(now) + '.json' as
-        Platform.DevToolsPath.RawPathString;
+    const fileName = 'ProtocolMonitor-' + Platform.DateUtilities.toISO8601Compact(now) + '.json';
     const stream = new Bindings.FileUtils.FileOutputStream();
 
     const accepted = await stream.open(fileName);
