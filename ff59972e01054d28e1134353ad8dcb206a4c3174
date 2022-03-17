@@ -22,6 +22,30 @@
       },
       "revId": "ff59972e01054d28e1134353ad8dcb206a4c3174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e56db5_3dc2bd94",
+        "filename": "test/unittests/front_end/panels/network/RequestHeadersView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-17T09:30:30Z",
+      "side": 1,
+      "message": "I think you could be more explicit and check for a button with a class \"headers-link\" here an in the test above. \n\nHaving an e2e test would be indeed nice to have.  What exactly was the problem with file system access?",
+      "parentUuid": "d01e32da_d9fe9091",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 121
+      },
+      "revId": "ff59972e01054d28e1134353ad8dcb206a4c3174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
