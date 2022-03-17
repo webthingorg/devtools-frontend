@@ -489,7 +489,8 @@ export async function getScopeNames() {
   return scopeNames;
 }
 
-export async function getValuesForScope(scope: string, expandCount: number, waitForNoOfValues: number) {
+export async function getNameValueElementsForScope(
+    scope: string, expandCount: number, waitForNoOfValues: number): Promise<puppeteer.ElementHandle<Element>[]> {
   const scopeSelector = `[aria-label="${scope}"]`;
   await waitFor(scopeSelector);
   for (let i = 0; i < expandCount; i++) {
@@ -503,9 +504,15 @@ export async function getValuesForScope(scope: string, expandCount: number, wait
     if (elements.length >= waitForNoOfValues) {
       return elements;
     }
-    return undefined;
+    return [];
   });
-  const values = await Promise.all(valueSelectorElements.map(elem => elem.evaluate(n => n.textContent as string)));
+  return valueSelectorElements;
+}
+
+export async function getValuesForScope(scope: string, expandCount: number, waitForNoOfValues: number) {
+  const valueSelectorElements = await getNameValueElementsForScope(scope, expandCount, waitForNoOfValues);
+  const values = await Promise.all(valueSelectorElements.map(
+      elem => elem.evaluate(n => `${n.textContent} | ${(n.children[0] as HTMLSpanElement).title}`)));
   return values;
 }
 

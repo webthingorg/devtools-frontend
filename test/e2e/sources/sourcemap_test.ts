@@ -7,7 +7,7 @@ import {click, getBrowserAndPages, goToResource, pasteText, step, typeText, wait
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt, getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {clickNthChildOfSelectedElementNode, focusElementsTree, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
-import {addBreakpointForLine, clickOnContextMenu, getBreakpointDecorators, getValuesForScope, openSourceCodeEditorForFile, openSourcesPanel, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_INTO_BUTTON, STEP_OUT_BUTTON, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, clickOnContextMenu, getBreakpointDecorators, getNameValueElementsForScope, openSourceCodeEditorForFile, openSourcesPanel, removeBreakpointForLine, RESUME_BUTTON, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, STEP_INTO_BUTTON, STEP_OUT_BUTTON, STEP_OVER_BUTTON} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   // Flaky test.
@@ -193,6 +193,7 @@ describe('The Sources Tab', async () => {
 
     await step('Check local variable is eventually un-minified', async () => {
       const unminifiedVariable = 'element: div';
+      const unminifiedVariableWithMinifiedName = `${unminifiedVariable} (n)`;
       await clickOnContextMenu('.cm-line', 'Add source map…');
 
       // Enter the source map URL into the appropriate input box.
@@ -201,11 +202,17 @@ describe('The Sources Tab', async () => {
       await typeText('sourcemap-minified.map');
       await frontend.keyboard.press('Enter');
 
-      const scopeValues = await waitForFunction(async () => {
-        const values = await getValuesForScope('Local', 0, 0);
-        return (values && values.includes(unminifiedVariable)) ? values : undefined;
+      const nameValueElements = await waitForFunction(async () => {
+        const elements = await getNameValueElementsForScope('Local', 0, 0);
+        const values = await Promise.all(elements.map(elem => elem.evaluate(n => n.textContent)));
+        return (values && values.includes(unminifiedVariable)) ? elements : undefined;
       });
-      assert.include(scopeValues, unminifiedVariable);
+
+      // Format each name-value element as '<name>: <value> (<tooltip>)'
+      const scopeValues = await Promise.all(nameValueElements.map(
+          elem => elem.evaluate(n => `${n.textContent} (${(n.children[0] as HTMLSpanElement).title})`)));
+
+      assert.include(scopeValues, unminifiedVariableWithMinifiedName);
     });
 
     await step('Check that expression evaluation understands unminified name', async () => {

@@ -471,7 +471,7 @@ export class RemoteObjectImpl extends RemoteObject {
       const propertyValue = property.value ? await this.createRemoteObject(property.value) : null;
       const propertySymbol = property.symbol ? this.runtimeModelInternal.createRemoteObject(property.symbol) : null;
       const remoteProperty = new RemoteObjectProperty(
-          property.name, propertyValue, Boolean(property.enumerable), Boolean(property.writable),
+          property.name, propertyValue, null, Boolean(property.enumerable), Boolean(property.writable),
           Boolean(property.isOwn), Boolean(property.wasThrown), propertySymbol);
 
       if (typeof property.value === 'undefined') {
@@ -487,7 +487,7 @@ export class RemoteObjectImpl extends RemoteObject {
     for (const property of privateProperties) {
       const propertyValue = property.value ? this.runtimeModelInternal.createRemoteObject(property.value) : null;
       const remoteProperty = new RemoteObjectProperty(
-          property.name, propertyValue, true, true, true, false, undefined, false, undefined, true);
+          property.name, propertyValue, null, true, true, true, false, undefined, false, undefined, true);
 
       if (typeof property.value === 'undefined') {
         if (property.get && property.get.type !== 'undefined') {
@@ -509,8 +509,8 @@ export class RemoteObjectImpl extends RemoteObject {
         continue;
       }
       const propertyValue = this.runtimeModelInternal.createRemoteObject(property.value);
-      internalPropertiesResult.push(
-          new RemoteObjectProperty(property.name, propertyValue, true, false, undefined, undefined, undefined, true));
+      internalPropertiesResult.push(new RemoteObjectProperty(
+          property.name, propertyValue, null, true, false, undefined, undefined, undefined, true));
     }
     return {properties: result, internalProperties: internalPropertiesResult};
   }
@@ -715,6 +715,7 @@ export class ScopeRef {
 
 export class RemoteObjectProperty {
   name: string;
+  originalName: string|null;
   value: RemoteObject|null|undefined;
   enumerable: boolean;
   writable: boolean;
@@ -729,13 +730,14 @@ export class RemoteObjectProperty {
   setter: RemoteObject|undefined;
 
   constructor(
-      name: string, value: RemoteObject|null, enumerable?: boolean, writable?: boolean, isOwn?: boolean,
-      wasThrown?: boolean, symbol?: RemoteObject|null, synthetic?: boolean,
+      name: string, value: RemoteObject|null, originalName: string|null = null, enumerable?: boolean,
+      writable?: boolean, isOwn?: boolean, wasThrown?: boolean, symbol?: RemoteObject|null, synthetic?: boolean,
       syntheticSetter?: ((arg0: string) => Promise<RemoteObject|null>), isPrivate?: boolean) {
     this.name = name;
     if (value !== null) {
       this.value = value;
     }
+    this.originalName = originalName;
     this.enumerable = typeof enumerable !== 'undefined' ? enumerable : true;
     const isNonSyntheticOrSyntheticWritable = !synthetic || Boolean(syntheticSetter);
     this.writable = typeof writable !== 'undefined' ? writable : isNonSyntheticOrSyntheticWritable;

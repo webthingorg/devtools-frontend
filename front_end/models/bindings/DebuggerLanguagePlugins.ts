@@ -571,7 +571,8 @@ class StaticallyTypedValueNode extends ValueNode {
           const name = `${i}`;
           const elementField = {name, typeId, offset: elementTypeInfo.typeInfo.size * i};
           properties.push(new SDK.RemoteObject.RemoteObjectProperty(
-              name, await this.expandMember(elementTypeInfo, elementField), /* enumerable=*/ false,
+              name, await this.expandMember(elementTypeInfo, elementField), /* originalName=*/ null,
+              /* enumerable=*/ false,
               /* writable=*/ false,
               /* isOwn=*/ true,
               /* wasThrown=*/ false));
@@ -585,7 +586,8 @@ class StaticallyTypedValueNode extends ValueNode {
         const propertyObject = await this.expandMember(memberTypeInfo, fieldInfo);
         const name = fieldInfo.name || '';
         return new SDK.RemoteObject.RemoteObjectProperty(
-            name, propertyObject, /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true,
+            name, propertyObject, /* originalName=*/ null, /* enumerable=*/ false, /* writable=*/ false,
+            /* isOwn=*/ true,
             /* wasThrown=*/ false);
       }));
       return {properties: await members, internalProperties: []} as SDK.RemoteObject.GetPropertiesResult;
@@ -636,7 +638,7 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
 
     function makeProperty(name: string, obj: SDK.RemoteObject.RemoteObject): SDK.RemoteObject.RemoteObjectProperty {
       return new SDK.RemoteObject.RemoteObjectProperty(
-          name, obj,
+          name, obj, /* originalName=*/ null,
           /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true, /* wasThrown=*/ false);
     }
 

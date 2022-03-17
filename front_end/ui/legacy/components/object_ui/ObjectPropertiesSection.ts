@@ -764,13 +764,13 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       if (property.isOwn && !skipGettersAndSetters) {
         if (property.getter) {
           const getterProperty =
-              new SDK.RemoteObject.RemoteObjectProperty('get ' + property.name, property.getter, false);
+              new SDK.RemoteObject.RemoteObjectProperty('get ' + property.name, property.getter, null, false);
           parentMap.set(getterProperty, value);
           tailProperties.push(getterProperty);
         }
         if (property.setter) {
           const setterProperty =
-              new SDK.RemoteObject.RemoteObjectProperty('set ' + property.name, property.setter, false);
+              new SDK.RemoteObject.RemoteObjectProperty('set ' + property.name, property.setter, null, false);
           parentMap.set(setterProperty, value);
           tailProperties.push(setterProperty);
         }
@@ -1063,7 +1063,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    const name = this.property.name;
+    const name = this.property.originalName ?? this.property.name;
 
     if (this.property.synthetic) {
       UI.Tooltip.Tooltip.install(this.nameElement, name);

@@ -335,8 +335,8 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
           continue;
         }
         newProperties.push(new SDK.RemoteObject.RemoteObjectProperty(
-            name, property.value, property.enumerable, property.writable, property.isOwn, property.wasThrown,
-            property.symbol, property.synthetic));
+            name, property.value, property.name, property.enumerable, property.writable, property.isOwn,
+            property.wasThrown, property.symbol, property.synthetic));
       }
     }
     return {properties: newProperties, internalProperties: internalProperties};
