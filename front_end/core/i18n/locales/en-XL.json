@@ -4886,6 +4886,9 @@
   "panels/elements/StylesSidebarPane.ts | inheritedFroms": {
     "message": "Îńĥér̂ít̂éd̂ f́r̂óm̂ "
   },
+  "panels/elements/StylesSidebarPane.ts | inheritedFromSPseudoOf": {
+    "message": "Îńĥér̂ít̂éd̂ f́r̂óm̂ ::{PH1} ṕŝéûd́ô óf̂ "
+  },
   "panels/elements/StylesSidebarPane.ts | injectedStylesheet": {
     "message": "îńĵéĉt́êd́ ŝt́ŷĺêśĥéêt́"
   },
@@ -4907,14 +4910,14 @@
   "panels/elements/StylesSidebarPane.ts | noMatchingSelectorOrStyle": {
     "message": "N̂ó m̂át̂ćĥín̂ǵ ŝél̂éĉt́ôŕ ôŕ ŝt́ŷĺê"
   },
-  "panels/elements/StylesSidebarPane.ts | pseudoSElement": {
-    "message": "P̂śêúd̂ó ::{PH1} êĺêḿêńt̂"
-  },
   "panels/elements/StylesSidebarPane.ts | sattributesStyle": {
     "message": "{PH1}[Ât́t̂ŕîb́ût́êś Ŝt́ŷĺê]"
   },
   "panels/elements/StylesSidebarPane.ts | showAllPropertiesSMore": {
     "message": "Ŝh́ôẃ Âĺl̂ Ṕr̂óp̂ér̂t́îéŝ ({PH1} ḿôŕê)"
+  },
+  "panels/elements/StylesSidebarPane.ts | spseudoElement": {
+    "message": "::{PH1} p̂śêúd̂ó êĺêḿêńt̂"
   },
   "panels/elements/StylesSidebarPane.ts | styleAttribute": {
     "message": "style ât́t̂ŕîb́ût́ê"
