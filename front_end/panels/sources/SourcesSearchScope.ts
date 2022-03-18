@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+// TODO(crbug.com/1253323): Casts to Branded Types will be removed from this file when migration to branded types is complete.
+
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Bindings from '../../models/bindings/bindings.js';
@@ -156,7 +158,9 @@ export class SourcesSearchScope implements Search.SearchConfig.SearchScope {
       if (dirtyOnly && !uiSourceCode.isDirty()) {
         continue;
       }
-      if (searchConfig.filePathMatchesFileQuery(uiSourceCode.fullDisplayName())) {
+      if (searchConfig.filePathMatchesFileQuery(
+              uiSourceCode.fullDisplayName() as Platform.DevToolsPath.UrlString |
+              Platform.DevToolsPath.EncodedPathString)) {
         result.push(uiSourceCode.url());
       }
     }
@@ -180,7 +184,7 @@ export class SourcesSearchScope implements Search.SearchConfig.SearchScope {
 
     const uiSourceCodes = [];
     for (const file of files) {
-      const uiSourceCode = project.uiSourceCodeForURL(file);
+      const uiSourceCode = project.uiSourceCodeForURL(file as Platform.DevToolsPath.UrlString);
       if (!uiSourceCode) {
         continue;
       }

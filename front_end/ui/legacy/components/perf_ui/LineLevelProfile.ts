@@ -6,6 +6,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import type * as Protocol from '../../../../generated/protocol.js';
 
 let performanceInstance: Performance;
@@ -186,7 +187,7 @@ export class Helper {
       const debuggerModel = target ? target.model(SDK.DebuggerModel.DebuggerModel) : null;
       const scriptToLineMap = (targetToScript[1] as Map<string|number, Map<number, number>>);
       for (const scriptToLine of scriptToLineMap) {
-        const scriptIdOrUrl = (scriptToLine[0] as string | number);
+        const scriptIdOrUrl = (scriptToLine[0] as Platform.DevToolsPath.UrlString | number);
         const lineToDataMap = (scriptToLine[1] as Map<number, number>);
         // debuggerModel is null when the profile is loaded from file.
         // Try to get UISourceCode by the URL in this case.
