@@ -92,11 +92,16 @@ const UIStrings = {
   *@description Separator element text content in Styles Sidebar Pane of the Elements panel
   *@example {scrollbar-corner} PH1
   */
-  pseudoSElement: 'Pseudo ::{PH1} element',
+  spseudoElement: '::{PH1} pseudo element',
   /**
   *@description Text of a DOM element in Styles Sidebar Pane of the Elements panel
   */
   inheritedFroms: 'Inherited from ',
+  /**
+  *@description Text of an inherited psuedo element in Styles Sidebar Pane of the Elements panel
+  *@example {highlight} PH1
+  */
+  inheritedFromSPseudoOf: 'Inherited from ::{PH1} pseudo of ',
   /**
   *@description Tooltip text that appears when hovering over the largeicon add button in the Styles Sidebar Pane of the Elements panel
   */
@@ -921,11 +926,27 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     }
     pseudoTypes = pseudoTypes.concat([...keys].sort());
     for (const pseudoType of pseudoTypes) {
-      blocks.push(SectionBlock.createPseudoTypeBlock(pseudoType));
-      lastLayers = null;
+      lastParentNode = null;
+      const pseudoStyles = matchedStyles.pseudoStyles(pseudoType);
+      for (let i = 0; i < pseudoStyles.length; ++i) {
+        const style = pseudoStyles[i];
+        const parentNode = matchedStyles.isInherited(style) ? matchedStyles.nodeForStyle(style) : null;
 
-      for (const style of matchedStyles.pseudoStyles(pseudoType)) {
-        addLayerSeparator(style);
+        // Start a new SectionBlock if this is the first rule for this pseudo type, or if this
+        // rule is inherited from a different parent than the previous rule.
+        if (i === 0 || parentNode !== lastParentNode) {
+          lastLayers = null;
+          if (parentNode) {
+            const block = await SectionBlock.createInheritedPseudoTypeBlock(pseudoType, parentNode);
+            blocks.push(block);
+          } else {
+            const block = SectionBlock.createPseudoTypeBlock(pseudoType);
+            blocks.push(block);
+          }
+          addLayerSeparator(style);
+        }
+        lastParentNode = parentNode;
+
         const lastBlock = blocks[blocks.length - 1];
         this.idleCallbackManager.schedule(() => {
           const section = new StylePropertiesSection(this, matchedStyles, style, sectionIdx);
@@ -1404,7 +1425,21 @@ export class SectionBlock {
   static createPseudoTypeBlock(pseudoType: Protocol.DOM.PseudoType): SectionBlock {
     const separatorElement = document.createElement('div');
     separatorElement.className = 'sidebar-separator';
-    separatorElement.textContent = i18nString(UIStrings.pseudoSElement, {PH1: pseudoType});
+    separatorElement.textContent = i18nString(UIStrings.spseudoElement, {PH1: pseudoType});
+    return new SectionBlock(separatorElement);
+  }
+
+  static async createInheritedPseudoTypeBlock(pseudoType: Protocol.DOM.PseudoType, node: SDK.DOMModel.DOMNode):
+      Promise<SectionBlock> {
+    const separatorElement = document.createElement('div');
+    separatorElement.className = 'sidebar-separator';
+
+    UI.UIUtils.createTextChild(separatorElement, i18nString(UIStrings.inheritedFromSPseudoOf, {PH1: pseudoType}));
+    const link = await Common.Linkifier.Linkifier.linkify(node, {
+      preventKeyboardFocus: true,
+      tooltip: undefined,
+    });
+    separatorElement.appendChild(link);
     return new SectionBlock(separatorElement);
   }
 

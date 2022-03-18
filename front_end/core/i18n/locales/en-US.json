@@ -4889,6 +4889,9 @@
   "panels/elements/StylesSidebarPane.ts | inheritedFroms": {
     "message": "Inherited from "
   },
+  "panels/elements/StylesSidebarPane.ts | inheritedFromSPseudoOf": {
+    "message": "Inherited from ::{PH1} pseudo of "
+  },
   "panels/elements/StylesSidebarPane.ts | injectedStylesheet": {
     "message": "injected stylesheet"
   },
@@ -4910,14 +4913,14 @@
   "panels/elements/StylesSidebarPane.ts | noMatchingSelectorOrStyle": {
     "message": "No matching selector or style"
   },
-  "panels/elements/StylesSidebarPane.ts | pseudoSElement": {
-    "message": "Pseudo ::{PH1} element"
-  },
   "panels/elements/StylesSidebarPane.ts | sattributesStyle": {
     "message": "{PH1}[Attributes Style]"
   },
   "panels/elements/StylesSidebarPane.ts | showAllPropertiesSMore": {
     "message": "Show All Properties ({PH1} more)"
+  },
+  "panels/elements/StylesSidebarPane.ts | spseudoElement": {
+    "message": "::{PH1} pseudo element"
   },
   "panels/elements/StylesSidebarPane.ts | styleAttribute": {
     "message": "style attribute"
