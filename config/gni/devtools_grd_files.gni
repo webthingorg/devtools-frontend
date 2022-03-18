@@ -965,6 +965,7 @@ grd_files_debug_sources = [
   "front_end/panels/elements/components/ElementsBreadcrumbsUtils.js",
   "front_end/panels/elements/components/ElementsPanelLink.js",
   "front_end/panels/elements/components/Helper.js",
+  "front_end/panels/elements/components/LayoutColorSwatchPopoverIcon.js",
   "front_end/panels/elements/components/LayoutPane.js",
   "front_end/panels/elements/components/LayoutPaneUtils.js",
   "front_end/panels/elements/components/NodeText.js",

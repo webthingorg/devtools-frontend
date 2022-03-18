@@ -4,13 +4,15 @@
 
 import * as Common from '../../../core/common/common.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
-import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import type {BooleanSetting, EnumSetting, Setting} from './LayoutPaneUtils.js';
 import type {LayoutElement} from './LayoutPaneUtils.js';
 
 import type {NodeTextData} from './NodeText.js';
+import * as InlineEditor from '../../../ui/legacy/components/inline_editor/inline_editor.js';
+import {LayoutColorSwatchPopoverIcon} from './LayoutColorSwatchPopoverIcon.js';
+// import {ColorSwatchPopoverIcon} from '../elements';
 import {NodeText} from './NodeText.js';
 import layoutPaneStyles from '../layoutPane.css.js';
 import * as Input from '../../../ui/components/input/input.js';
@@ -19,10 +21,6 @@ import inspectorCommonStyles from '../../../ui/legacy/inspectorCommon.css.js';
 
 import * as i18n from '../../../core/i18n/i18n.js';
 const UIStrings = {
-  /**
-  *@description Title of the input to select the overlay color for an element using the color picker
-  */
-  chooseElementOverlayColor: 'Choose the overlay color for this element',
   /**
   *@description Title of the show element button in the Layout pane of the Elements panel
   */
@@ -55,10 +53,6 @@ const UIStrings = {
   *@description Text in the Layout panel, when no flexbox elements are found
   */
   noFlexboxLayoutsFoundOnThisPage: 'No flexbox layouts found on this page',
-  /**
-  *@description Screen reader announcement when opening color picker tool.
-  */
-  colorPickerOpened: 'Color picker opened.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/components/LayoutPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -100,6 +94,7 @@ export class LayoutPane extends HTMLElement {
   #settings: Readonly<Setting[]> = [];
   #gridElements: Readonly<LayoutElement[]> = [];
   #flexContainerElements?: Readonly<LayoutElement[]> = [];
+  #popoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
 
   constructor() {
     super();
@@ -108,6 +103,7 @@ export class LayoutPane extends HTMLElement {
       layoutPaneStyles,
       inspectorCommonStyles,
     ];
+    this.#popoverHelper = new InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper();
   }
 
   set data(data: LayoutPaneData) {
@@ -217,10 +213,12 @@ export class LayoutPane extends HTMLElement {
     element.reveal();
   }
 
-  #onColorChange(element: LayoutElement, event: HTMLInputElementEvent): void {
-    event.preventDefault();
-    element.setColor(event.target.value);
-    this.#render();
+  #onColorChange(element: LayoutElement, color: Common.Color.Color): void {
+    const colorString = color.asString();
+    if (colorString) {
+      element.setColor(colorString);
+      this.#render();
+    }
   }
 
   #onElementMouseEnter(element: LayoutElement, event: HTMLInputElementEvent): void {
@@ -236,26 +234,8 @@ export class LayoutPane extends HTMLElement {
   #renderElement(element: LayoutElement): LitHtml.TemplateResult {
     const onElementToggle = this.#onElementToggle.bind(this, element);
     const onElementClick = this.#onElementClick.bind(this, element);
-    const onColorChange = this.#onColorChange.bind(this, element);
     const onMouseEnter = this.#onElementMouseEnter.bind(this, element);
     const onMouseLeave = this.#onElementMouseLeave.bind(this, element);
-    const onColorLabelKeyUp = (event: KeyboardEvent): void => {
-      // Handle Enter and Space events to make the color picker accessible.
-      if (event.key !== 'Enter' && event.key !== ' ') {
-        return;
-      }
-      const target = event.target as HTMLLabelElement;
-      const input = target.querySelector('input') as HTMLInputElement;
-      input.click();
-      UI.ARIAUtils.alert(i18nString(UIStrings.colorPickerOpened));
-      event.preventDefault();
-    };
-    const onColorLabelKeyDown = (event: KeyboardEvent): void => {
-      // Prevent default scrolling when the Space key is pressed.
-      if (event.key === ' ') {
-        event.preventDefault();
-      }
-    };
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`<div class="element">
@@ -269,9 +249,7 @@ export class LayoutPane extends HTMLElement {
           } as NodeTextData}></${NodeText.litTagName}>
         </span>
       </label>
-      <label @keyup=${onColorLabelKeyUp} @keydown=${onColorLabelKeyDown} tabindex="0" title=${i18nString(UIStrings.chooseElementOverlayColor)} class="color-picker-label" style="background: ${element.color};">
-        <input @change=${onColorChange} @input=${onColorChange} tabindex="-1" class="color-picker" type="color" value=${element.color} />
-      </label>
+      ${this.#renderColorPicker(element.color, element)}
       <button tabindex="0" @click=${onElementClick} title=${i18nString(UIStrings.showElementInTheElementsPanel)} class="show-element"></button>
     </div>`;
     // clang-format on
@@ -294,6 +272,15 @@ export class LayoutPane extends HTMLElement {
             opt => html`<option value=${opt.value} .selected=${setting.value === opt.value}>${opt.title}</option>`)}
       </select>
     </label>`;
+  }
+
+  #renderColorPicker(color: string, element: LayoutElement): LitHtml.TemplateResult {
+    const colorPicker = new InlineEditor.ColorSwatch.ColorSwatch();
+    colorPicker.showText(false);
+    colorPicker.renderColor(color);
+    const popoverIcon = new LayoutColorSwatchPopoverIcon(this.#popoverHelper, colorPicker);
+    popoverIcon.setColorCallback(this.#onColorChange.bind(this), element);
+    return html`${colorPicker}`;
   }
 }
 

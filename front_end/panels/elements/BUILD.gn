@@ -94,6 +94,7 @@ devtools_module("elements") {
   visibility = [
     "../../../test/unittests/front_end/elements",
     "../../component_docs/*",
+    "./components/*",
   ]
 }
 

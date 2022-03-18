@@ -34,6 +34,7 @@ devtools_module("components") {
     "ElementsBreadcrumbsUtils.ts",
     "ElementsPanelLink.ts",
     "Helper.ts",
+    "LayoutColorSwatchPopoverIcon.ts",
     "LayoutPane.ts",
     "LayoutPaneUtils.ts",
     "NodeText.ts",
@@ -53,6 +54,7 @@ devtools_module("components") {
     "../../../ui/components/survey_link:bundle",
     "../../../ui/components/tree_outline:bundle",
     "../../../ui/legacy:bundle",
+    "../../../ui/legacy/components/inline_editor:bundle",
     "../../../ui/lit-html:bundle",
   ]
 }

@@ -44,6 +44,7 @@ export class ColorSwatch extends HTMLElement {
   private text: string|null = null;
   private color: Common.Color.Color|null = null;
   private format: string|null = null;
+  private willShowText: boolean = true;
 
   constructor() {
     super();
@@ -62,6 +63,10 @@ export class ColorSwatch extends HTMLElement {
 
   getFormat(): string|null {
     return this.format;
+  }
+
+  showText(show: boolean): void {
+    this.willShowText = show;
   }
 
   get anchorBox(): AnchorBox|null {
@@ -122,7 +127,7 @@ export class ColorSwatch extends HTMLElement {
         style="background-color: ${this.text};"
         @click=${this.onClick}
         @mousedown=${this.consume}
-        @dblclick=${this.consume}></span></span><slot><span>${this.text}</span></slot>`,
+        @dblclick=${this.consume}></span></span><slot><span>${this.willShowText ? this.text : ''}</span></slot>`,
       this.shadow, {host: this});
     // clang-format on
   }

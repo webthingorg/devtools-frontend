@@ -13,6 +13,7 @@ import * as ElementsBreadcrumbs from './ElementsBreadcrumbs.js';
 import * as ElementsBreadcrumbsUtils from './ElementsBreadcrumbsUtils.js';
 import * as ElementsPanelLink from './ElementsPanelLink.js';
 import * as Helper from './Helper.js';
+import * as LayoutColorSwatchPopoverIcon from './LayoutColorSwatchPopoverIcon.js';
 import * as LayoutPane from './LayoutPane.js';
 import * as LayoutPaneUtils from './LayoutPaneUtils.js';
 import * as NodeText from './NodeText.js';
@@ -31,6 +32,7 @@ export {
   ElementsBreadcrumbsUtils,
   ElementsPanelLink,
   Helper,
+  LayoutColorSwatchPopoverIcon,
   LayoutPane,
   LayoutPaneUtils,
   NodeText,
