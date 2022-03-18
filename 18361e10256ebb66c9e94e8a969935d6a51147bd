@@ -16,6 +16,24 @@
       "message": "Hey Ari,\n\ndo you plan to introduce l10n for issues in general or only for deprecation issues? Deprecation issues are easier to translate because we basically assemble the markdown in code. This is not true for \"normal\" issue messages and we also don\u0027t want to revert back to assembling issue messages in code in general.\n\nIf we want to do l10n for issue descriptions in general, then we probably need a design doc given the complexity and possible ways to implement it. I\u0027m afraid it will require a parallel pipeline including scripts to collect markdown descriptions, pipe them into TC and extract translated issue descriptions from the TC + runtime code that loads the correct translation.\n\nOne of the main motivations for markdown descriptions was so external contributors (especially DevRel and tech writers) can edit the descriptions more easily. Moving the descriptions back into code defeats that purpose.\n\nOnly limiting translations to deprecation issues introduces an inconsistency (that is they are the only ones translated). I\u0027d like to get some feedback from UX and the wider team if they see that as a problem or not.\n\nFor now, I\u0027d like to hold off on landing this for now, until we are clear if we want to localize only deprecation issues or all issue descriptions, and how we wanna do that. Sorry for the inconvenience!\n\n\n",
       "revId": "18361e10256ebb66c9e94e8a969935d6a51147bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff93c919_6b0f2fb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-18T08:25:05Z",
+      "side": 1,
+      "message": "Hey, after some quick discussions we decided that its ok to translate deprecation issue descriptions this way and its ok if they are the only ones translated for a while.\n\nI push back strongly though on the notion to extend this approach to other issue descriptions. Moving issue descriptions back into code runs counter to why we wanted to have markdown descriptions in the first place.\n\nPlease also note that the existing l10n infrastructure expects plain strings. This means the translated text shouldn\u0027t contain markdown as I don\u0027t know what the translation pipeline will do to it and if translators would preserve formatting or not. That means if we move to the deprecation message we can only support plain strings for now.",
+      "parentUuid": "3290de73_cff213da",
+      "revId": "18361e10256ebb66c9e94e8a969935d6a51147bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
