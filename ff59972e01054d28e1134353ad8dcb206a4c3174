@@ -46,6 +46,30 @@
       },
       "revId": "ff59972e01054d28e1134353ad8dcb206a4c3174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "725c10eb_31db51b8",
+        "filename": "test/unittests/front_end/panels/network/RequestHeadersView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-18T08:08:25Z",
+      "side": 1,
+      "message": "ad 1) done\nad 2) Looking into adding an e2e test in a separate CL.",
+      "parentUuid": "e3e56db5_3dc2bd94",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 121
+      },
+      "revId": "ff59972e01054d28e1134353ad8dcb206a4c3174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
