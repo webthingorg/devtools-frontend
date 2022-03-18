@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "791bd1db_de31661f",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-18T10:43:45Z",
+      "side": 1,
+      "message": "SGTM, let\u0027s keep the old TreeOutline then.\n\nBut there is some odd highlighting behaviour in the current iteration as well. Items clicked on seem to disappear because their color is set to the background color and for the root item the background turns blue.\n\nAlso, long frame names cause overflow here too, but I\u0027m not sure this is easily fixable with the structure of the TreeOutline.",
+      "parentUuid": "8fd5f4c4_ff1be079",
+      "range": {
+        "startLine": 328,
+        "startChar": 1,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "007bd92f5dbbd69077463def018937832376a6fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14309de9_e54b3ed5",
         "filename": "front_end/panels/application/components/backForwardCacheView.css",
         "patchSetId": 7
