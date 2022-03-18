@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41cdc0c_0b88eef8",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "The event is Defined in InspectorFrontendHostAPI.ts, I\u0027ve moved the typing to there",
+      "parentUuid": "76ec5c1e_82797562",
+      "range": {
+        "startLine": 670,
+        "startChar": 4,
+        "endLine": 670,
+        "endChar": 110
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e6d030e_6df41041",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-17T17:06:24Z",
       "side": 1,
       "message": "This cast looks unnecessary.",
+      "range": {
+        "startLine": 219,
+        "startChar": 29,
+        "endLine": 219,
+        "endChar": 69
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b2399e_5ae956a4",
+        "filename": "front_end/models/bindings/FileUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e6d030e_6df41041",
       "range": {
         "startLine": 219,
         "startChar": 29,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88079787_3e750398",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "I\u0027ve been checking it actually by logging, all three types appear there.",
+      "parentUuid": "73ddd9bc_2810149f",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47c4e41d_1f75b7e8",
         "filename": "front_end/panels/search/SearchConfig.ts",
         "patchSetId": 7
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-17T17:06:24Z",
       "side": 1,
       "message": "I\u0027d rather leave this as string if we haven\u0027t determined which it\u0027s supposed to be. And if people need to put `( |%20)` in their regexes to match spaces then that seems like a bug.",
+      "range": {
+        "startLine": 97,
+        "startChar": 37,
+        "endLine": 98,
+        "endChar": 98
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62111fd6_ee95d642",
+        "filename": "front_end/panels/search/SearchConfig.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "We have figured out that it can be each of these 3 types here, should I still return string type in here?",
+      "parentUuid": "47c4e41d_1f75b7e8",
       "range": {
         "startLine": 97,
         "startChar": 37,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f5e9fef_b6a8186a",
+        "filename": "front_end/panels/sources/SourcesSearchScope.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "Hm, I don\u0027t remember how I figured it should be either Raw- or EncodedPathString last time, but I\u0027ve checked it just now and it\u0027s either EncodedPathString or UrlString that I\u0027m seeing here. Changing to these two",
+      "parentUuid": "c6a5c0c8_d3268c48",
+      "range": {
+        "startLine": 162,
+        "startChar": 45,
+        "endLine": 163,
+        "endChar": 53
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b43f68d2_b41f64d3",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-03-17T17:06:24Z",
       "side": 1,
       "message": "Ideally you would change this to be UrlString|number and get rid of the cast below. However, I am uncertain whether TypeScript will be able to infer from that that it is a UrlString if its type is \u0027string\u0027. If it can\u0027t, it should be able to if you change the checks to see if the type is \u0027number\u0027, and I doubt that would cause a behavior change.",
+      "range": {
+        "startLine": 190,
+        "startChar": 50,
+        "endLine": 190,
+        "endChar": 65
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96604b47_d82a5167",
+        "filename": "front_end/ui/legacy/components/perf_ui/LineLevelProfile.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-18T13:37:20Z",
+      "side": 1,
+      "message": "Looks like it does work!",
+      "parentUuid": "b43f68d2_b41f64d3",
       "range": {
         "startLine": 190,
         "startChar": 50,
