@@ -34,6 +34,24 @@
       "parentUuid": "3290de73_cff213da",
       "revId": "18361e10256ebb66c9e94e8a969935d6a51147bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4595668_89232d04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-03-18T19:09:24Z",
+      "side": 1,
+      "message": "I was only seeking to translate deprecation messages for now, so that works. It would be nice to translate other issues, but I understand that that\u0027s a longer term project that needs support for markdown translation and not just moving all strings into code.\n\nI assume an exception was made for deprecations as the strings will almost entirely be in code anyway (and are already).",
+      "parentUuid": "ff93c919_6b0f2fb0",
+      "revId": "18361e10256ebb66c9e94e8a969935d6a51147bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
