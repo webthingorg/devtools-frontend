@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04eaf81_ddcccf4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-21T16:59:37Z",
+      "side": 1,
+      "message": "This looks great!",
+      "revId": "30a115d76bff08862c495ea3cecb69939df863e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b496d2_67f0ce5b",
+        "filename": "front_end/ui/legacy/components/perf_ui/LineLevelProfile.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-21T16:59:37Z",
+      "side": 1,
+      "message": "Why is the `as unknown` necessary, and can you use `Number(node.scriptId)` instead like below?",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 75
+      },
+      "revId": "30a115d76bff08862c495ea3cecb69939df863e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
