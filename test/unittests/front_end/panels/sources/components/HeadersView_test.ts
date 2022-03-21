@@ -9,6 +9,7 @@ import {assertElement, assertShadowRoot, dispatchKeyDownEvent, renderElementInto
 import {deinitializeGlobalVars, initializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
 
 import type * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import * as Common from '../../../../../../front_end/core/common/common.js';
 
 const {assert} = chai;
@@ -86,7 +87,8 @@ describe('HeadersView', async () => {
       type: () => Workspace.Workspace.projectTypes.FileSystem,
     } as unknown as Persistence.FileSystemWorkspaceBinding.FileSystem;
     const uiSourceCode = new Workspace.UISourceCode.UISourceCode(
-        fileSystem, 'file:///path/to/overrides/example.html', Common.ResourceType.resourceTypes.Document);
+        fileSystem, 'file:///path/to/overrides/example.html' as Platform.DevToolsPath.UrlString,
+        Common.ResourceType.resourceTypes.Document);
 
     const editorWrapper = new SourcesComponents.HeadersView.HeadersView(uiSourceCode);
     await coordinator.done();
