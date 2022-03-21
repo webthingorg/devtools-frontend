@@ -16,6 +16,40 @@
       "message": "Thanks for the review!",
       "revId": "355e99aa8f8e205c50c82b87395d3b06599430cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfca6bcc_5b3d4c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-03-21T06:35:07Z",
+      "side": 1,
+      "message": "LGTM % comment on @layer separators",
+      "revId": "355e99aa8f8e205c50c82b87395d3b06599430cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "239dd2ce_1983ac87",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2022-03-21T06:35:07Z",
+      "side": 1,
+      "message": "`lastLayers` is always going to be `null` here, so I don\u0027t think we would ever create a layer separator. Shouldn\u0027t this go outside the `(i \u003d\u003d\u003d 0 || parentNode !\u003d\u003d lastParentNode)` if-block?",
+      "revId": "355e99aa8f8e205c50c82b87395d3b06599430cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
