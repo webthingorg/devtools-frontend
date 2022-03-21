@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da22d12_9ada1124",
+        "filename": "front_end/panels/lighthouse/LighthouseTimespanView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2022-03-21T06:14:21Z",
+      "side": 1,
+      "message": "nit: Lighthouse (same for the other 2 comments below)",
+      "range": {
+        "startLine": 14,
+        "startChar": 92,
+        "endLine": 14,
+        "endChar": 102
+      },
+      "revId": "f48566d899fd6648b6552eb8e09975967d1f0915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
