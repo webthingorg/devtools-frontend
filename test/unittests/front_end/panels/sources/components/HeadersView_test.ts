@@ -9,6 +9,7 @@ import {assertElement, assertShadowRoot, dispatchKeyDownEvent, renderElementInto
 import {deinitializeGlobalVars, initializeGlobalVars} from '../../../helpers/EnvironmentHelpers.js';
 
 import type * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import * as Common from '../../../../../../front_end/core/common/common.js';
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 
