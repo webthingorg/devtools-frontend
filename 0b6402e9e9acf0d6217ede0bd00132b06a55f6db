@@ -166,6 +166,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "720b7706_b0d1245e",
+        "filename": "front_end/models/workspace/WorkspaceImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-21T15:25:26Z",
+      "side": 1,
+      "message": "Done, https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1308383",
+      "parentUuid": "238505e4_014df921",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47c4e41d_1f75b7e8",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "Yeah, leave it as a string.",
       "parentUuid": "62111fd6_ee95d642",
+      "range": {
+        "startLine": 97,
+        "startChar": 37,
+        "endLine": 98,
+        "endChar": 98
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7fa25e_8096650d",
+        "filename": "front_end/panels/search/SearchConfig.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-21T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63f513f2_d9b04e72",
       "range": {
         "startLine": 97,
         "startChar": 37,
@@ -308,6 +356,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3371da_c1775fd6",
+        "filename": "front_end/panels/sources/SourcesSearchScope.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-21T15:25:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c4981bd_107a96aa",
+      "range": {
+        "startLine": 162,
+        "startChar": 45,
+        "endLine": 163,
+        "endChar": 53
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b43f68d2_b41f64d3",
@@ -369,6 +441,30 @@
       "side": 1,
       "message": "I think we can clean this code up more as long as we\u0027re here. On line 140, update the type from `string|number` to `UrlString|number`. Then change both of the for loops in this function to use destructuring assignment so you can get rid of the casts:\n\n```\nfor (const [target, scriptToLineMap] of this.lineData) {\n  const debuggerModel \u003d //...\n  for (const [scriptIdOrUrl, lineToDataMap] of scriptToLineMap) {\n    // debuggerModel is null when...\n```\n\nand update the signature of addLineData as well, and assuming that callFrame.url has already been branded you shouldn\u0027t need to do any casting. (If callFrame.url isn\u0027t branded you can cast on line 126.)",
       "parentUuid": "96604b47_d82a5167",
+      "range": {
+        "startLine": 190,
+        "startChar": 50,
+        "endLine": 190,
+        "endChar": 65
+      },
+      "revId": "0b6402e9e9acf0d6217ede0bd00132b06a55f6db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3801055c_e96533e4",
+        "filename": "front_end/ui/legacy/components/perf_ui/LineLevelProfile.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-21T15:25:26Z",
+      "side": 1,
+      "message": "Done. `callFrame.url` comes from protocol, so we have to type it here.",
+      "parentUuid": "6872b738_169d3734",
       "range": {
         "startLine": 190,
         "startChar": 50,
