@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14436f85_d65a7716",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-22T11:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cc2eb0e_3b6cadaa",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 43
+      },
+      "revId": "77d47b0201094cc476647abc4ccf40eba96a4604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e461c94a_15a6ec60",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-22T11:08:51Z",
       "side": 1,
       "message": "nit: This method can never return null?",
+      "range": {
+        "startLine": 663,
+        "startChar": 31,
+        "endLine": 663,
+        "endChar": 36
+      },
+      "revId": "77d47b0201094cc476647abc4ccf40eba96a4604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56fc8c7a_a91d4938",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-22T11:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e461c94a_15a6ec60",
       "range": {
         "startLine": 663,
         "startChar": 31,
