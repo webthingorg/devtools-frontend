@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c4412d_4f3cf47b",
+        "filename": "front_end/ui/legacy/components/utils/Linkifier.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-22T14:27:49Z",
+      "side": 0,
+      "message": "Meaning _LinkInfo can\u0027t be branded?",
+      "range": {
+        "startLine": 756,
+        "startChar": 6,
+        "endLine": 756,
+        "endChar": 112
+      },
+      "revId": "8879ec5777e1ab970d99b7550324f1cf92917076",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

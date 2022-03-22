@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "a25d385021ef8fe5bb7aa571fa82c093ea7bc234",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52ba2b3_fe8139e3",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-22T14:27:49Z",
+      "side": 1,
+      "message": "Is this defined by the CDP API or do we expect to be able to brand sourceFileURL as well?",
+      "range": {
+        "startLine": 974,
+        "startChar": 34,
+        "endLine": 974,
+        "endChar": 97
+      },
+      "revId": "a25d385021ef8fe5bb7aa571fa82c093ea7bc234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
