@@ -39,6 +39,30 @@
       },
       "revId": "a25d385021ef8fe5bb7aa571fa82c093ea7bc234",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1813ddf2_934079a3",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-22T15:50:29Z",
+      "side": 1,
+      "message": "Is defined in ExtensionAPI.d.ts, I guess is not brandable",
+      "parentUuid": "a52ba2b3_fe8139e3",
+      "range": {
+        "startLine": 974,
+        "startChar": 34,
+        "endLine": 974,
+        "endChar": 97
+      },
+      "revId": "a25d385021ef8fe5bb7aa571fa82c093ea7bc234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
