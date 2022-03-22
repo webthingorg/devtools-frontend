@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5277a561_c0a855a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-22T11:08:51Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "77d47b0201094cc476647abc4ccf40eba96a4604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc2eb0e_3b6cadaa",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-22T11:08:51Z",
+      "side": 1,
+      "message": "q: We initialise both of these unconditionally in the constructor. Do we really need the \"!\"?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 43
+      },
+      "revId": "77d47b0201094cc476647abc4ccf40eba96a4604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e461c94a_15a6ec60",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-22T11:08:51Z",
+      "side": 1,
+      "message": "nit: This method can never return null?",
+      "range": {
+        "startLine": 663,
+        "startChar": 31,
+        "endLine": 663,
+        "endChar": 36
+      },
+      "revId": "77d47b0201094cc476647abc4ccf40eba96a4604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
