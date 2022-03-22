@@ -53,29 +53,26 @@ export class InspectorMainImpl implements Common.Runnable.Runnable {
     let firstCall = true;
     await SDK.Connections.initMainConnection(async () => {
       const type = Root.Runtime.Runtime.queryParam('v8only') ? SDK.Target.Type.Node : SDK.Target.Type.Frame;
-      const waitForDebuggerInPage =
-          type === SDK.Target.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';
+      const pauseDebugger = type === SDK.Target.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';
+      const waitForDebuggerInPage = true;
       const target = SDK.TargetManager.TargetManager.instance().createTarget(
           'main', i18nString(UIStrings.main), type, null, undefined, waitForDebuggerInPage);
 
-      // Only resume target during the first connection,
-      // subsequent connections are due to connection hand-over,
-      // there is no need to pause in debugger.
-      if (!firstCall) {
-        return;
-      }
-      firstCall = false;
-
-      if (waitForDebuggerInPage) {
-        const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
-        if (debuggerModel) {
-          if (!debuggerModel.isReadyToPause()) {
-            await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+      const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+      if (debuggerModel) {
+        if (!debuggerModel.debuggerEnabled()) {
+          await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerWasEnabled);
+        }
+        if (pauseDebugger) {
+          // Only resume target during the first connection,
+          // subsequent connections are due to connection hand-over,
+          // there is no need to pause in debugger.
+          if (firstCall) {
+            firstCall = false;
+            debuggerModel.pause();
           }
-          debuggerModel.pause();
         }
       }
-
       void target.runtimeAgent().invoke_runIfWaitingForDebugger();
     }, Components.TargetDetachedDialog.TargetDetachedDialog.webSocketConnectionLost);
 
@@ -249,4 +246,11 @@ export class BackendSettingsSync implements SDK.TargetManager.Observer {
   }
 }
 
-SDK.ChildTargetManager.ChildTargetManager.install();
+SDK.ChildTargetManager.ChildTargetManager.install(async ({target}) => {
+  const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+  if (debuggerModel) {
+    if (!debuggerModel.debuggerEnabled()) {
+      await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerWasEnabled);
+    }
+  }
+});
