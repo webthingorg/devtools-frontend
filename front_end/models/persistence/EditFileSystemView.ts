@@ -74,13 +74,13 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('models/persistence/EditFileSystemView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class EditFileSystemView extends UI.Widget.VBox implements UI.ListWidget.Delegate<string> {
-  private readonly fileSystemPath: string;
+  private readonly fileSystemPath: Platform.DevToolsPath.UrlString;
   private excludedFolders: string[];
   private readonly eventListeners: Common.EventTarget.EventDescriptor[];
   private readonly excludedFoldersList: UI.ListWidget.ListWidget<string>;
   private muteUpdate?: boolean;
   private excludedFolderEditor?: UI.ListWidget.Editor<string>;
-  constructor(fileSystemPath: string) {
+  constructor(fileSystemPath: Platform.DevToolsPath.UrlString) {
     super(true);
 
     this.fileSystemPath = fileSystemPath;

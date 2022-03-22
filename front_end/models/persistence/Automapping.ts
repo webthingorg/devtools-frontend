@@ -326,8 +326,8 @@ export class Automapping {
       networkPath = networkPath + 'index.html' as Platform.DevToolsPath.EncodedPathString;
     }
 
-    const similarFiles =
-        this.filesIndex.similarFiles(networkPath).map(path => this.fileSystemUISourceCodes.get(path)) as
+    const similarFiles = this.filesIndex.similarFiles(networkPath)
+                             .map(path => this.fileSystemUISourceCodes.get(path as Platform.DevToolsPath.UrlString)) as
         Workspace.UISourceCode.UISourceCode[];
     if (!similarFiles.length) {
       return Promise.resolve(null as AutomappingStatus | null);
@@ -392,23 +392,28 @@ class FilePathIndex {
     this.reversedIndex = new Common.Trie.Trie();
   }
 
-  addPath(path: string): void {
+  addPath(path: Platform.DevToolsPath.UrlString): void {
     const encodedPath = this.encoder.encode(path);
     this.reversedIndex.add(Platform.StringUtilities.reverse(encodedPath));
   }
 
-  removePath(path: string): void {
+  removePath(path: Platform.DevToolsPath.UrlString): void {
     const encodedPath = this.encoder.encode(path);
     this.reversedIndex.remove(Platform.StringUtilities.reverse(encodedPath));
   }
 
-  similarFiles(networkPath: string): string[] {
+  similarFiles(networkPath: Platform.DevToolsPath.EncodedPathString): string[] {
+    console.log('similarFiles arg: ', networkPath);
     const encodedPath = this.encoder.encode(networkPath);
     const reversedEncodedPath = Platform.StringUtilities.reverse(encodedPath);
     const longestCommonPrefix = this.reversedIndex.longestPrefix(reversedEncodedPath, false);
     if (!longestCommonPrefix) {
       return [];
     }
+    console.log(
+        'return type: ',
+        this.reversedIndex.words(longestCommonPrefix)
+            .map(encodedPath => this.encoder.decode(Platform.StringUtilities.reverse(encodedPath))));
     return this.reversedIndex.words(longestCommonPrefix)
         .map(encodedPath => this.encoder.decode(Platform.StringUtilities.reverse(encodedPath)));
   }
@@ -424,9 +429,9 @@ class FolderIndex {
     this.folderCount = new Map();
   }
 
-  addFolder(path: string): boolean {
+  addFolder(path: Platform.DevToolsPath.UrlString): boolean {
     if (path.endsWith('/')) {
-      path = path.substring(0, path.length - 1);
+      path = Common.ParsedURL.ParsedURL.substring(path, 0, path.length - 1);
     }
     const encodedPath = this.encoder.encode(path);
     this.index.add(encodedPath);
@@ -435,9 +440,9 @@ class FolderIndex {
     return count === 0;
   }
 
-  removeFolder(path: string): boolean {
+  removeFolder(path: Platform.DevToolsPath.UrlString): boolean {
     if (path.endsWith('/')) {
-      path = path.substring(0, path.length - 1);
+      path = Common.ParsedURL.ParsedURL.substring(path, 0, path.length - 1);
     }
     const encodedPath = this.encoder.encode(path);
     const count = this.folderCount.get(encodedPath) || 0;
@@ -453,22 +458,22 @@ class FolderIndex {
     return true;
   }
 
-  closestParentFolder(path: string): string {
+  closestParentFolder(path: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.UrlString {
     const encodedPath = this.encoder.encode(path);
     const commonPrefix = this.index.longestPrefix(encodedPath, true);
-    return this.encoder.decode(commonPrefix);
+    return this.encoder.decode(commonPrefix) as Platform.DevToolsPath.UrlString;
   }
 }
 
 class FileSystemUISourceCodes {
-  private readonly sourceCodes: Map<string, Workspace.UISourceCode.UISourceCode>;
+  private readonly sourceCodes: Map<Platform.DevToolsPath.UrlString, Workspace.UISourceCode.UISourceCode>;
 
   constructor() {
     this.sourceCodes = new Map();
   }
 
-  private getPlatformCanonicalFileUrl(path: string): string {
-    return Host.Platform.isWin() ? path.toLowerCase() : path;
+  private getPlatformCanonicalFileUrl(path: Platform.DevToolsPath.UrlString): Platform.DevToolsPath.UrlString {
+    return Host.Platform.isWin() ? Common.ParsedURL.ParsedURL.toLowerCase(path) : path;
   }
 
   add(sourceCode: Workspace.UISourceCode.UISourceCode): void {
@@ -476,12 +481,12 @@ class FileSystemUISourceCodes {
     this.sourceCodes.set(fileUrl, sourceCode);
   }
 
-  get(fileUrl: string): Workspace.UISourceCode.UISourceCode|undefined {
+  get(fileUrl: Platform.DevToolsPath.UrlString): Workspace.UISourceCode.UISourceCode|undefined {
     fileUrl = this.getPlatformCanonicalFileUrl(fileUrl);
     return this.sourceCodes.get(fileUrl);
   }
 
-  delete(fileUrl: string): void {
+  delete(fileUrl: Platform.DevToolsPath.UrlString): void {
     fileUrl = this.getPlatformCanonicalFileUrl(fileUrl);
     this.sourceCodes.delete(fileUrl);
   }

@@ -259,10 +259,13 @@ export class ParsedURL {
     return devToolsPath.slice(start, end) as DevToolsPathType;
   }
 
-  static join<DevToolsPathType extends Platform.DevToolsPath.UrlString|Platform.DevToolsPath.RawPathString|
-                                       Platform.DevToolsPath.EncodedPathString>(
-      devToolsPaths: DevToolsPathType[], separator?: string): DevToolsPathType {
+  static join<DevToolsPathType extends BrandedPathString>(devToolsPaths: DevToolsPathType[], separator?: string):
+      DevToolsPathType {
     return devToolsPaths.join(separator) as DevToolsPathType;
+  }
+
+  static toLowerCase<DevToolsPathType extends BrandedPathString>(devToolsPath: DevToolsPathType): DevToolsPathType {
+    return devToolsPath.toLowerCase() as DevToolsPathType;
   }
 
   static urlWithoutHash(url: string): string {
