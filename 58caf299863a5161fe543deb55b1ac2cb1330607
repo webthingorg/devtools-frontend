@@ -33,6 +33,23 @@
       "message": "Changhao, could you please review this CL? ",
       "revId": "58caf299863a5161fe543deb55b1ac2cb1330607",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dbbe370_6450322f",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-22T14:32:30Z",
+      "side": 1,
+      "message": "I\u0027m not sure adding this behavior at a low level like \"ui/legacy/TreeOutline.ts\" is the best option. If this is only to fix the Computed sidebar pane, maybe there are other higher-level call sites to add this logic?",
+      "revId": "58caf299863a5161fe543deb55b1ac2cb1330607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
