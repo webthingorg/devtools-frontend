@@ -2069,7 +2069,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
          gets to MS Crt parser safely.
 
          The % character is special because MS Crt parser will try and look for
-         ENV variables and fill them in it's place. We cannot escape them with %
+         ENV variables and fill them in its place. We cannot escape them with %
          and cannot escape them with ^ (because it's cmd.exe's escape not MS Crt
          parser); So we can get cmd.exe parser to escape the character after it,
          if it is followed by a valid beginning character of an ENV variable.
@@ -2145,7 +2145,14 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       if (ignoredHeaders.has(name.toLowerCase())) {
         continue;
       }
-      command.push('-H ' + escapeString(name + ': ' + header.value));
+      if (header.value.trim()) {
+        command.push('-H ' + escapeString(name + ': ' + header.value));
+      } else {
+        // A header passed with -H with no value or only whitespace as its
+        // value tells curl to not set the header at all. To post an empty
+        // header, you have to terminate it with a semicolon.
+        command.push('-H ' + escapeString(name + ';'));
+      }
     }
     command = command.concat(data);
     command.push('--compressed');
