@@ -19,6 +19,15 @@
   overflow: hidden;
 }
 
+.explanation-frames {
+  margin: 0 0 15px 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: auto;
+  grid-column-start: span 2;
+}
+
 .help-outline-icon {
   margin: 0 2px;
 }
@@ -48,6 +57,26 @@
 }
 
 .url-value {
+  padding: 0 6px;
+  overflow-wrap: break-word;
+}
+
+.frames {
+  grid-column-start: span 2;
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
+  line-height: 28px;
+}
+
+.frames-key {
+  color: var(--color-text-secondary);
+  min-width: auto;
+  overflow-wrap: break-word;
+  align-self: start;
+}
+
+.frames-value {
   padding: 0 6px;
   overflow-wrap: break-word;
 }
