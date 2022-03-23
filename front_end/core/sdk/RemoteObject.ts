@@ -765,6 +765,20 @@ export class RemoteObjectProperty {
   isAccessorProperty(): boolean {
     return Boolean(this.getter || this.setter);
   }
+
+  match({includeNullOrUndefinedValues, regex}: {includeNullOrUndefinedValues: boolean, regex: RegExp|null}): boolean {
+    if (regex !== null) {
+      if (!regex.test(this.name) && !regex.test(this.value?.description ?? '')) {
+        return false;
+      }
+    }
+    if (!includeNullOrUndefinedValues) {
+      if (!this.isAccessorProperty() && RemoteObject.isNullOrUndefined(this.value)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 // Below is a wrapper around a local object that implements the RemoteObject interface,
