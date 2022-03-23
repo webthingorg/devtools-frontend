@@ -46,6 +46,30 @@
       },
       "revId": "d36c1ed223f26e2718ccf459e5dc50155c053274",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ef4818_54532cc4",
+        "filename": "front_end/models/logs/NetworkLog.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-23T09:55:00Z",
+      "side": 1,
+      "message": "My worry is that some piece of code might take this url and assume its a proper Url, but I\u0027m fine if you think its ok.\n\nCan we leave a comment here though, that this is a URL in general but can also contain \"\u003canonymous\u003e\"?",
+      "parentUuid": "ad492f91_92f854aa",
+      "range": {
+        "startLine": 600,
+        "startChar": 2,
+        "endLine": 600,
+        "endChar": 5
+      },
+      "revId": "d36c1ed223f26e2718ccf459e5dc50155c053274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
