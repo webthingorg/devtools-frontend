@@ -156,6 +156,24 @@
       "parentUuid": "3de5690a_4220bacf",
       "revId": "3bcecfd05f98f190341271a6638d68ab49ee27d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca973662_23f6403e",
+        "filename": "front_end/ui/legacy/components/data_grid/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-23T17:02:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "848eb398_383988be",
+      "revId": "3bcecfd05f98f190341271a6638d68ab49ee27d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
