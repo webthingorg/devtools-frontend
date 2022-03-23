@@ -22,6 +22,30 @@
       },
       "revId": "d36c1ed223f26e2718ccf459e5dc50155c053274",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad492f91_92f854aa",
+        "filename": "front_end/models/logs/NetworkLog.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-23T09:39:16Z",
+      "side": 1,
+      "message": "I think that\u0027s fine. Alternately, if we\u0027re certain the only use of this url is to display it in the UI, then it would also be fine to leave it as string.",
+      "parentUuid": "0da386f5_8b827ce1",
+      "range": {
+        "startLine": 600,
+        "startChar": 2,
+        "endLine": 600,
+        "endChar": 5
+      },
+      "revId": "d36c1ed223f26e2718ccf459e5dc50155c053274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
