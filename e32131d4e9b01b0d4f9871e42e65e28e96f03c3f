@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de71e3ea_96fc16f9",
+        "filename": "test/unittests/front_end/helpers/RealConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-23T15:43:15Z",
+      "side": 1,
+      "message": "lgtm",
+      "parentUuid": "cb6ab3fe_e7ea316b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "070782c2_3a23adee",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "It doesn\u0027t, could be anythig.",
       "parentUuid": "070782c2_3a23adee",
+      "range": {
+        "startLine": 109,
+        "startChar": 34,
+        "endLine": 109,
+        "endChar": 35
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cb94193_d0e841cc",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-23T15:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12b1124c_3ff3b004",
       "range": {
         "startLine": 109,
         "startChar": 34,
