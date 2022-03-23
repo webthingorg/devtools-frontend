@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb6ab3fe_e7ea316b",
+        "filename": "test/unittests/front_end/helpers/RealConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-23T15:35:47Z",
+      "side": 1,
+      "message": "Added a comment. Does it make sense?",
+      "parentUuid": "5789d511_ee77f123",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "070782c2_3a23adee",
         "filename": "test/unittests/karma.conf.js",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-23T15:00:39Z",
       "side": 1,
       "message": "out of interest: does this number matter, or could it theoretically be any port?",
+      "range": {
+        "startLine": 109,
+        "startChar": 34,
+        "endLine": 109,
+        "endChar": 35
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b1124c_3ff3b004",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-23T15:35:47Z",
+      "side": 1,
+      "message": "It doesn\u0027t, could be anythig.",
+      "parentUuid": "070782c2_3a23adee",
       "range": {
         "startLine": 109,
         "startChar": 34,
