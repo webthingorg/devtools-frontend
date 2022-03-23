@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13718c6a_83e119c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-23T15:00:39Z",
+      "side": 1,
+      "message": "lgtm with 2 Qs/nits",
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5789d511_ee77f123",
+        "filename": "test/unittests/front_end/helpers/RealConnection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-23T15:00:39Z",
+      "side": 1,
+      "message": "nit: I think it would be useful to have a comment explaining why we do this. To check my understanding: by making these tests async, we ensure they run after all the rest of the tests which are sync, right?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "070782c2_3a23adee",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2022-03-23T15:00:39Z",
+      "side": 1,
+      "message": "out of interest: does this number matter, or could it theoretically be any port?",
+      "range": {
+        "startLine": 109,
+        "startChar": 34,
+        "endLine": 109,
+        "endChar": 35
+      },
+      "revId": "e32131d4e9b01b0d4f9871e42e65e28e96f03c3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
