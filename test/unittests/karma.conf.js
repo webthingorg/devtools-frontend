@@ -51,7 +51,7 @@ target with is_debug = true in the args.gn file.`;
 
 const GEN_DIRECTORY = path.join(__dirname, '..', '..');
 const ROOT_DIRECTORY = path.join(GEN_DIRECTORY, '..', '..', '..');
-const browsers = DEBUG_ENABLED ? ['Chrome'] : ['ChromeHeadless'];
+const browser = DEBUG_ENABLED ? 'Chrome' : 'ChromeHeadless';
 const singleRun = !(DEBUG_ENABLED || REPEAT_ENABLED);
 
 const coverageReporters = COVERAGE_ENABLED ? ['coverage'] : [];
@@ -154,7 +154,13 @@ module.exports = function(config) {
       ...coverageReporters,
     ],
 
-    browsers,
+    browsers: ['BrowserWithArgs'],
+    customLaunchers: {
+      'BrowserWithArgs': {
+        base: browser,
+        flags: ['--remote-debugging-port=7722'],
+      }
+    },
 
     frameworks: ['mocha', 'chai', 'sinon'],
 
@@ -189,7 +195,8 @@ module.exports = function(config) {
 
     proxies: {
       '/Images': `/base/${targetDir}/front_end/Images`,
-      '/locales': `/base/${targetDir}/front_end/core/i18n/locales`
+      '/locales': `/base/${targetDir}/front_end/core/i18n/locales`,
+      '/json/new': 'http://localhost:7722/json/new',
     },
 
     coverageReporter: {
@@ -203,10 +210,12 @@ module.exports = function(config) {
     pingTimeout: KARMA_TIMEOUT,
     browserNoActivityTimeout: KARMA_TIMEOUT,
     browserSocketTimeout: KARMA_TIMEOUT,
+    clearContext: false,
 
     mochaReporter: {
       showDiff: true,
-    }
+    },
+
   };
 
   config.set(options);
