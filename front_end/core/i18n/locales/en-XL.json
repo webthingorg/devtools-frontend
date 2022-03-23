@@ -6812,6 +6812,9 @@
   "panels/network/NetworkLogView.ts | copyAsPowershell": {
     "message": "Ĉóp̂ý âś PowerShell"
   },
+  "panels/network/NetworkLogView.ts | copyAsPythonRequests": {
+    "message": "Ĉóp̂ý âś Python (requests)"
+  },
   "panels/network/NetworkLogView.ts | copyRequestHeaders": {
     "message": "Ĉóp̂ý r̂éq̂úêśt̂ h́êád̂ér̂ś"
   },
