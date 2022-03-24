@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5201714_25a45450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-24T09:37:00Z",
+      "side": 1,
+      "message": "LGTM with super tiny nit.",
+      "revId": "01ab6bf6b45335c1ef464fd87540426231f9d658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32997612_cb945e1f",
+        "filename": "test/unittests/front_end/panels/profiler/CPUProfileView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-24T09:37:00Z",
+      "side": 1,
+      "message": "Nit: How about appending `as SDK.CPUProfilerModel.CPUProfilerModel` here and using `model.` instead of `model?.` below?",
+      "revId": "01ab6bf6b45335c1ef464fd87540426231f9d658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
