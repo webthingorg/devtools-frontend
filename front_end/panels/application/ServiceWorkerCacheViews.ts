@@ -401,8 +401,8 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
 
     let resourceType = Common.ResourceType.ResourceType.fromMimeType(contentType);
     if (!resourceType) {
-      resourceType =
-          Common.ResourceType.ResourceType.fromURL(entry.requestURL) || Common.ResourceType.resourceTypes.Other;
+      resourceType = Common.ResourceType.ResourceType.fromURL(entry.requestURL as Platform.DevToolsPath.UrlString) ||
+          Common.ResourceType.resourceTypes.Other;
     }
     request.setResourceType(resourceType);
     request.setContentDataProvider(this.requestContent.bind(this, request));

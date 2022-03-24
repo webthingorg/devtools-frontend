@@ -227,7 +227,7 @@ export class ResourceType {
     return null;
   }
 
-  static fromURL(url: string): ResourceType|null {
+  static fromURL(url: Platform.DevToolsPath.UrlString): ResourceType|null {
     return resourceTypeByExtension.get(ParsedURL.extractExtension(url)) || null;
   }
 

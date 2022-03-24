@@ -153,7 +153,7 @@ describeWithEnvironment('ResourceType class', () => {
   });
 
   it('is able to return a resource type from a URL that contains a mapped extension', () => {
-    const result = ResourceType.fromURL('http://www.example.com/test/testFile.js');
+    const result = ResourceType.fromURL('http://www.example.com/test/testFile.js' as Platform.DevToolsPath.UrlString);
     assertNotNullOrUndefined(result);
     assert.instanceOf(result, ResourceType, 'result type is incorrect');
     assert.strictEqual(result.name(), 'script', 'name was not set correctly');
@@ -164,7 +164,7 @@ describeWithEnvironment('ResourceType class', () => {
   });
 
   it('is able to return a resource type from a URL that ends in .avif', () => {
-    const result = ResourceType.fromURL('https://host.example/image.avif');
+    const result = ResourceType.fromURL('https://host.example/image.avif' as Platform.DevToolsPath.UrlString);
     assertNotNullOrUndefined(result);
     assert.instanceOf(result, ResourceType, 'result type is incorrect');
     assert.strictEqual(result.name(), 'image', 'name was not set correctly');
@@ -175,7 +175,7 @@ describeWithEnvironment('ResourceType class', () => {
   });
 
   it('is able to return a resource type from a URL that ends in .jxl', () => {
-    const result = ResourceType.fromURL('https://host.example/image.jxl');
+    const result = ResourceType.fromURL('https://host.example/image.jxl' as Platform.DevToolsPath.UrlString);
     assertNotNullOrUndefined(result);
     assert.instanceOf(result, ResourceType, 'result type is incorrect');
     assert.strictEqual(result.name(), 'image', 'name was not set correctly');
@@ -186,7 +186,7 @@ describeWithEnvironment('ResourceType class', () => {
   });
 
   it('is able to return a resource type from a URL that ends in .woff2', () => {
-    const result = ResourceType.fromURL('https://host.example/image.woff2');
+    const result = ResourceType.fromURL('https://host.example/image.woff2' as Platform.DevToolsPath.UrlString);
     assertNotNullOrUndefined(result);
     assert.instanceOf(result, ResourceType, 'result type is incorrect');
     assert.strictEqual(result.name(), 'font', 'name was not set correctly');
@@ -197,7 +197,8 @@ describeWithEnvironment('ResourceType class', () => {
   });
 
   it('is able to return null from a URL that contains an unmapped extension', () => {
-    const result = ResourceType.fromURL('http://www.example.com/test/testFile.testExt');
+    const result =
+        ResourceType.fromURL('http://www.example.com/test/testFile.testExt' as Platform.DevToolsPath.UrlString);
     assert.isNull(result, 'result is not null');
   });
 
