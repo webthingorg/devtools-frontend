@@ -33,6 +33,24 @@
       "message": "Nit: How about appending `as SDK.CPUProfilerModel.CPUProfilerModel` here and using `model.` instead of `model?.` below?",
       "revId": "01ab6bf6b45335c1ef464fd87540426231f9d658",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45281b9f_65708f18",
+        "filename": "test/unittests/front_end/panels/profiler/CPUProfileView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-24T10:34:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32997612_cb945e1f",
+      "revId": "01ab6bf6b45335c1ef464fd87540426231f9d658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
