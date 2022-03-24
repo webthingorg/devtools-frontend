@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1d7313_fccbf312",
+        "filename": "front_end/core/sdk/ConsoleModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-24T15:55:27Z",
+      "side": 1,
+      "message": "Should this have an `|undefined` added to it? I think as written this implies that details.url is always set, but it shouldn\u0027t be if callFrame is null.",
+      "range": {
+        "startLine": 281,
+        "startChar": 11,
+        "endLine": 281,
+        "endChar": 60
+      },
+      "revId": "3b61bad067b5cf84a2282438851478d23ccacd07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b6ed10_b8b5f5d8",
+        "filename": "front_end/core/sdk/ResourceTreeModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-24T15:55:27Z",
+      "side": 1,
+      "message": "Minor nit: outer parentheses are no longer necessary",
+      "range": {
+        "startLine": 639,
+        "startChar": 3,
+        "endLine": 639,
+        "endChar": 23
+      },
+      "revId": "3b61bad067b5cf84a2282438851478d23ccacd07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a33e54d_7ccd1d93",
+        "filename": "front_end/ui/legacy/components/utils/ImagePreview.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-24T15:55:27Z",
+      "side": 1,
+      "message": "This cast looks unnecessary",
+      "range": {
+        "startLine": 194,
+        "startChar": 20,
+        "endLine": 194,
+        "endChar": 70
+      },
+      "revId": "3b61bad067b5cf84a2282438851478d23ccacd07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e41c6be_e17cc5ef",
+        "filename": "test/unittests/front_end/core/sdk/PageResourceLoader_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2022-03-24T15:55:27Z",
+      "side": 1,
+      "message": "foo2",
+      "range": {
+        "startLine": 21,
+        "startChar": 19,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "3b61bad067b5cf84a2282438851478d23ccacd07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
