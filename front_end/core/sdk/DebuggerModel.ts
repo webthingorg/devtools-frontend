@@ -50,6 +50,7 @@ import type {Target} from './Target.js';
 import {Capability, Type} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import {DebuggerState, DebuggerStateMachine} from './DebuggerStateMachine.js';
 
 const UIStrings = {
   /**
@@ -129,7 +130,6 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   #discardableScripts: Script[];
   continueToLocationCallback: ((arg0: DebuggerPausedDetails) => boolean)|null;
   #selectedCallFrameInternal: CallFrame|null;
-  #debuggerEnabledInternal: boolean;
   #debuggerId: string|null;
   #skipAllPausesTimeout: number;
   #beforePausedCallback: ((arg0: DebuggerPausedDetails) => boolean)|null;
@@ -138,14 +138,15 @@ export class DebuggerModel extends SDKModel<EventTypes> {
                                      end: Location,
                                    }>>)|null;
   #expandCallFramesCallback: ((arg0: Array<CallFrame>) => Promise<Array<CallFrame>>)|null;
-  evaluateOnCallFrameCallback: ((arg0: CallFrame, arg1: EvaluationOptions) => Promise<EvaluationResult|null>)|null;
   #synchronizeBreakpointsCallback: ((script: Script) => Promise<void>)|null;
+  evaluateOnCallFrameCallback: ((arg0: CallFrame, arg1: EvaluationOptions) => Promise<EvaluationResult|null>)|null;
   // We need to be able to register listeners for individual breakpoints. As such, we dispatch
   // on breakpoint ids, which are not statically known. The event #payload will always be a `Location`.
   readonly #breakpointResolvedEventTarget =
       new Common.ObjectWrapper.ObjectWrapper<{[breakpointId: string]: Location}>();
   #autoStepOver: boolean;
   #isPausingInternal: boolean;
+  #stateMachine: DebuggerStateMachine;
 
   constructor(target: Target) {
     super(target);
@@ -163,18 +164,20 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     this.#discardableScripts = [];
     this.continueToLocationCallback = null;
     this.#selectedCallFrameInternal = null;
-    this.#debuggerEnabledInternal = false;
     this.#debuggerId = null;
     this.#skipAllPausesTimeout = 0;
     this.#beforePausedCallback = null;
     this.#computeAutoStepRangesCallback = null;
     this.#expandCallFramesCallback = null;
+    this.#synchronizeBreakpointsCallback = null;
     this.evaluateOnCallFrameCallback = null;
     this.#synchronizeBreakpointsCallback = null;
 
     this.#autoStepOver = false;
 
     this.#isPausingInternal = false;
+    this.#stateMachine = new DebuggerStateMachine();
+
     Common.Settings.Settings.instance()
         .moduleSetting('pauseOnExceptionEnabled')
         .addChangeListener(this.pauseOnExceptionStateChanged, this);
@@ -220,33 +223,70 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   }
 
   debuggerEnabled(): boolean {
-    return Boolean(this.#debuggerEnabledInternal);
+    return this.#stateMachine.state === DebuggerState.Enabled;
   }
 
   private async enableDebugger(): Promise<void> {
-    if (this.#debuggerEnabledInternal) {
-      return;
+    switch (this.#stateMachine.state) {
+      case DebuggerState.Enabled:
+        // Already enabled.
+        return;
+      case DebuggerState.StartingUp:
+        await this.once(Events.DebuggerWasEnabled);
+        return;
+      case DebuggerState.ShuttingDown:
+        await this.once(Events.DebuggerWasDisabled);
+        break;
+      case DebuggerState.Disabled:
+        break;
+      default:
+        console.error(`Unknown debugger state: ${this.#stateMachine.state} when trying to enable debugger`);
+        return;
     }
-    this.#debuggerEnabledInternal = true;
+
+    const stateTransitionSucceeded = this.#stateMachine.transition(DebuggerState.StartingUp);
+    console.assert(stateTransitionSucceeded);
 
     // Set a limit for the total size of collected script sources retained by debugger.
     // 10MB for remote frontends, 100MB for others.
     const isRemoteFrontend = Root.Runtime.Runtime.queryParam('remoteFrontend') || Root.Runtime.Runtime.queryParam('ws');
     const maxScriptsCacheSize = isRemoteFrontend ? 10e6 : 100e6;
-    const enablePromise = this.agent.invoke_enable({maxScriptsCacheSize});
-    const instrumentationPromise = this.agent.invoke_setInstrumentationBreakpoint(
-        {instrumentation: Protocol.Debugger.SetInstrumentationBreakpointRequestInstrumentation.BeforeScriptExecution});
-    this.pauseOnExceptionStateChanged();
-    void this.asyncStackTracesStateChanged();
+
+    // These three calls have to be kept in this particular order; only this way
+    // we can make sure that the target will wait until we can set instrumentation
+    // breakpoints, which are required for properly setting breakpoints on start up.
+    const [enableResult] = await Promise.all([
+      this.agent.invoke_enable({maxScriptsCacheSize}),
+      this.agent.invoke_setInstrumentationBreakpoint({
+        instrumentation: Protocol.Debugger.SetInstrumentationBreakpointRequestInstrumentation.BeforeScriptExecution,
+      }),
+      this.target().runtimeAgent().invoke_runIfWaitingForDebugger(),
+    ]);
+    this.registerDebugger(enableResult);
+
+    if (!this.#stateMachine.transition(DebuggerState.Enabled)) {
+      // This should not happen, as the only valid transition from state StartingUp is state Enabled.
+      console.error(`Unexpected state ${this.#stateMachine.state} when enabling debugger.`);
+      return;
+    }
+
+    void this.pauseOnExceptionStateChanged();
     if (!Common.Settings.Settings.instance().moduleSetting('breakpointsActive').get()) {
-      this.breakpointsActiveChanged();
+      void this.breakpointsActiveChanged();
     }
     if (_scheduledPauseOnAsyncCall) {
       void this.pauseOnAsyncCall(_scheduledPauseOnAsyncCall);
     }
-    this.dispatchEventToListeners(Events.DebuggerWasEnabled, this);
-    const [enableResult] = await Promise.all([enablePromise, instrumentationPromise]);
-    this.registerDebugger(enableResult);
+
+    Platform.DCHECK(() => this.#synchronizeBreakpointsCallback !== null);
+    if (this.#synchronizeBreakpointsCallback) {
+      for (const script of this.scripts()) {
+        void this.#synchronizeBreakpointsCallback(script);
+      }
+    }
+
+    void this.asyncStackTracesStateChanged();
+    void this.dispatchEventToListeners(Events.DebuggerWasEnabled, this);
   }
 
   async syncDebuggerId(): Promise<Protocol.Debugger.EnableResponse> {
@@ -272,11 +312,6 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     const {debuggerId} = response;
     _debuggerIdToModel.set(debuggerId, this);
     this.#debuggerId = debuggerId;
-    this.dispatchEventToListeners(Events.DebuggerIsReadyToPause, this);
-  }
-
-  isReadyToPause(): boolean {
-    return Boolean(this.#debuggerId);
   }
 
   static async modelForDebuggerId(debuggerId: string): Promise<DebuggerModel|null> {
@@ -296,14 +331,45 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     }
   }
 
-  private async disableDebugger(): Promise<void> {
-    if (!this.#debuggerEnabledInternal) {
-      return;
+  static hasInstrumentationBreakReason(reason: Protocol.Debugger.PausedEventReason, auxData: Object|undefined):
+      boolean {
+    if (reason === Protocol.Debugger.PausedEventReason.Instrumentation) {
+      return true;
     }
-    this.#debuggerEnabledInternal = false;
+    if (reason === Protocol.Debugger.PausedEventReason.Ambiguous && auxData) {
+      const {reasons} = auxData as {reasons: PausedAuxData[]};
+      return reasons.some(subReason => subReason.reason === Protocol.Debugger.PausedEventReason.Instrumentation);
+    }
+    return false;
+  }
+
+  private async disableDebugger(): Promise<void> {
+    switch (this.#stateMachine.state) {
+      case DebuggerState.ShuttingDown:
+        return this.once(Events.DebuggerWasDisabled);
+      case DebuggerState.Disabled:
+        return;
+      case DebuggerState.StartingUp:
+        await this.once(Events.DebuggerWasEnabled);
+        break;
+      case DebuggerState.Enabled:
+        break;
+      default:
+        console.error(`Unknown debugger state: ${this.#stateMachine.state} when trying to disable debugger`);
+        return;
+    }
+    const stateTransitionSucceeded = this.#stateMachine.transition(DebuggerState.ShuttingDown);
+    console.assert(stateTransitionSucceeded);
 
     await this.asyncStackTracesStateChanged();
     await this.agent.invoke_disable();
+
+    if (!this.#stateMachine.transition(DebuggerState.Disabled)) {
+      // This should not happen, as the only valid transition from state ShuttingDown is state Disabled.
+      console.error(`Unexpected state ${this.#stateMachine.state} when disabling debugger.`);
+      return;
+    }
+
     this.#isPausingInternal = false;
     this.globalObjectCleared();
     this.dispatchEventToListeners(Events.DebuggerWasDisabled);
@@ -330,7 +396,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     this.#skipAllPausesTimeout = window.setTimeout(this.skipAllPauses.bind(this, false), timeout);
   }
 
-  private pauseOnExceptionStateChanged(): void {
+  private pauseOnExceptionStateChanged(): Promise<Protocol.ProtocolResponseWithError> {
     let state: Protocol.Debugger.SetPauseOnExceptionsRequestState;
     if (!Common.Settings.Settings.instance().moduleSetting('pauseOnExceptionEnabled').get()) {
       state = Protocol.Debugger.SetPauseOnExceptionsRequestState.None;
@@ -340,19 +406,19 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       state = Protocol.Debugger.SetPauseOnExceptionsRequestState.Uncaught;
     }
 
-    void this.agent.invoke_setPauseOnExceptions({state});
+    return this.agent.invoke_setPauseOnExceptions({state});
   }
 
   private asyncStackTracesStateChanged(): Promise<Protocol.ProtocolResponseWithError> {
     const maxAsyncStackChainDepth = 32;
-    const enabled = !Common.Settings.Settings.instance().moduleSetting('disableAsyncStackTraces').get() &&
-        this.#debuggerEnabledInternal;
+    const enabled =
+        !Common.Settings.Settings.instance().moduleSetting('disableAsyncStackTraces').get() && this.debuggerEnabled();
     const maxDepth = enabled ? maxAsyncStackChainDepth : 0;
     return this.agent.invoke_setAsyncCallStackDepth({maxDepth});
   }
 
-  private breakpointsActiveChanged(): void {
-    void this.agent.invoke_setBreakpointsActive(
+  private breakpointsActiveChanged(): Promise<Protocol.ProtocolResponseWithError> {
+    return this.agent.invoke_setBreakpointsActive(
         {active: Common.Settings.Settings.instance().moduleSetting('breakpointsActive').get()});
   }
 
@@ -425,6 +491,10 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   async setBreakpointByURL(
       url: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber?: number,
       condition?: string): Promise<SetBreakpointResult> {
+    if (!this.debuggerEnabled()) {
+      return {breakpointId: null, locations: []};
+    }
+
     // Convert file url to node-js path.
     let urlRegex;
     if (this.target().type() === Type.Node && url.startsWith('file://')) {
@@ -466,6 +536,10 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   async setBreakpointInAnonymousScript(
       scriptId: Protocol.Runtime.ScriptId, scriptHash: string, lineNumber: number, columnNumber?: number,
       condition?: string): Promise<SetBreakpointResult> {
+    if (!this.debuggerEnabled()) {
+      return {breakpointId: null, locations: []};
+    }
+
     const response = await this.agent.invoke_setBreakpointByUrl(
         {lineNumber: lineNumber, scriptHash: scriptHash, columnNumber: columnNumber, condition: condition});
     const error = response.getError();
@@ -486,6 +560,9 @@ export class DebuggerModel extends SDKModel<EventTypes> {
   private async setBreakpointBySourceId(
       scriptId: Protocol.Runtime.ScriptId, lineNumber: number, columnNumber?: number,
       condition?: string): Promise<SetBreakpointResult> {
+    if (!this.debuggerEnabled()) {
+      return {breakpointId: null, locations: []};
+    }
     // This method is required for backward compatibility with V8 before 6.3.275.
     const response = await this.agent.invoke_setBreakpoint(
         {location: {scriptId: scriptId, lineNumber: lineNumber, columnNumber: columnNumber}, condition: condition});
@@ -665,7 +742,6 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       this.resume();
       return;
     }
-
     if (asyncCallStackTraceId) {
       // Note: this is only to support old backends. Newer ones do not send asyncCallStackTraceId.
       _scheduledPauseOnAsyncCall = asyncCallStackTraceId;
@@ -680,7 +756,6 @@ export class DebuggerModel extends SDKModel<EventTypes> {
 
     const pausedDetails =
         new DebuggerPausedDetails(this, callFrames, reason, auxData, breakpointIds, asyncStackTrace, asyncStackTraceId);
-
     if (this.#expandCallFramesCallback) {
       pausedDetails.callFrames = await this.#expandCallFramesCallback.call(null, pausedDetails.callFrames);
     }
@@ -979,6 +1054,11 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       ((arg0: CallFrame, arg1: EvaluationOptions) => Promise<EvaluationResult|null>)|null {
     return this.evaluateOnCallFrameCallback;
   }
+
+  isReadyToParseScripts(): boolean {
+    return this.#stateMachine.state !== DebuggerState.Disabled &&
+        this.#stateMachine.state !== DebuggerState.ShuttingDown;
+  }
 }
 
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -1011,7 +1091,6 @@ export enum Events {
   DiscardedAnonymousScriptSource = 'DiscardedAnonymousScriptSource',
   GlobalObjectCleared = 'GlobalObjectCleared',
   CallFrameSelected = 'CallFrameSelected',
-  DebuggerIsReadyToPause = 'DebuggerIsReadyToPause',
 }
 
 export type EventTypes = {
@@ -1023,7 +1102,6 @@ export type EventTypes = {
   [Events.DiscardedAnonymousScriptSource]: Script,
   [Events.GlobalObjectCleared]: DebuggerModel,
   [Events.CallFrameSelected]: DebuggerModel,
-  [Events.DebuggerIsReadyToPause]: DebuggerModel,
 };
 
 class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
@@ -1070,7 +1148,7 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
     debugSymbols,
     embedderName,
   }: Protocol.Debugger.ScriptParsedEvent): void {
-    if (!this.#debuggerModel.debuggerEnabled()) {
+    if (!this.#debuggerModel.isReadyToParseScripts()) {
       return;
     }
     this.#debuggerModel.parsedScriptSource(
@@ -1099,7 +1177,7 @@ class DebuggerDispatcher implements ProtocolProxyApi.DebuggerDispatcher {
     scriptLanguage,
     embedderName,
   }: Protocol.Debugger.ScriptFailedToParseEvent): void {
-    if (!this.#debuggerModel.debuggerEnabled()) {
+    if (!this.#debuggerModel.isReadyToParseScripts()) {
       return;
     }
     this.#debuggerModel.parsedScriptSource(
@@ -1543,6 +1621,7 @@ export class DebuggerPausedDetails {
   breakpointIds: string[];
   asyncStackTrace: Protocol.Runtime.StackTrace|undefined;
   asyncStackTraceId: Protocol.Runtime.StackTraceId|undefined;
+
   constructor(
       debuggerModel: DebuggerModel, callFrames: Protocol.Debugger.CallFrame[],
       reason: Protocol.Debugger.PausedEventReason, auxData: {
@@ -1593,6 +1672,11 @@ export class DebuggerPausedDetails {
 
 SDKModel.register(DebuggerModel, {capabilities: Capability.JS, autostart: true});
 
+interface PausedAuxData {
+  reason: Protocol.Debugger.PausedEventReason;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  auxData?: any;
+}
 export interface FunctionDetails {
   location: Location|null;
   functionName: string;

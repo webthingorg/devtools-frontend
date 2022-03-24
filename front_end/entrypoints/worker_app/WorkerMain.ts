@@ -55,8 +55,8 @@ SDK.ChildTargetManager.ChildTargetManager.install(async ({target, waitingForDebu
   if (!debuggerModel) {
     return;
   }
-  if (!debuggerModel.isReadyToPause()) {
-    await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
+  if (!debuggerModel.debuggerEnabled()) {
+    await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerWasEnabled);
   }
   debuggerModel.pause();
 });
