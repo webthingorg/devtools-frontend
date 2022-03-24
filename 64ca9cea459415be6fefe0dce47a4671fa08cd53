@@ -16,6 +16,23 @@
       "message": "PTAnotherL",
       "revId": "64ca9cea459415be6fefe0dce47a4671fa08cd53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3363fdc9_206b2db6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-24T16:35:43Z",
+      "side": 1,
+      "message": "Please kindly take a look! Only adding branded types here:)",
+      "revId": "64ca9cea459415be6fefe0dce47a4671fa08cd53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
