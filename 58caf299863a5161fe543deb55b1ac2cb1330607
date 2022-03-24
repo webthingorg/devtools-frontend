@@ -68,6 +68,24 @@
       "parentUuid": "3dbbe370_6450322f",
       "revId": "58caf299863a5161fe543deb55b1ac2cb1330607",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3fc1363_2231f600",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-24T08:40:45Z",
+      "side": 1,
+      "message": "What I meant is that I don\u0027t think this is the default behavior we want for a low-level element like TreeOutline. It seems that most real logic is added on elements that inherit TreeOutline. Another option would be to create a new class, `ComputedStyleWidgetTreeElement` that `extends` the base Treeoutline, and just override the `onenter()` function there, and change the usage of TreeElement in ComputedStyleWidget to this new class.\nI know this is a bit more code involved, but IMO it\u0027s better in architecture. Also since we plan to migrate the ComputedStyleWidget to a new component system, this nice change, if added in Treeoutline, would most likely be lost.",
+      "parentUuid": "23020054_eeb1bafc",
+      "revId": "58caf299863a5161fe543deb55b1ac2cb1330607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
