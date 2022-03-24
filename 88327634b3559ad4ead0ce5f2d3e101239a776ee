@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "981106f8_fba3ffa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-24T10:41:13Z",
+      "side": 1,
+      "message": "Please kindly take a look! Sorry for the huge CL, wanted to type the whole folder, so that one sees the whole picture.",
+      "revId": "88327634b3559ad4ead0ce5f2d3e101239a776ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
