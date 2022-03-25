@@ -33,6 +33,24 @@
       "message": "How do we re-generate the codemirror.next.js file? I\u0027ve tried running the scripts listed in this directory\u0027s README with no success.",
       "revId": "351d51b07587cdbe8f7fe5e2242097f77495d2ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "985d0147_17568e08",
+        "filename": "front_end/third_party/codemirror.next/codemirror.next.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5806,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-25T19:58:02Z",
+      "side": 1,
+      "message": "never mind.  Figured it out.",
+      "parentUuid": "328da820_97dc6524",
+      "revId": "351d51b07587cdbe8f7fe5e2242097f77495d2ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
