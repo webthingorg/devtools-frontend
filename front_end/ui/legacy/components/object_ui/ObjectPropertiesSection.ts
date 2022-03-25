@@ -842,6 +842,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
+    /* istanbul ignore next */
     function invokeGetter(this: Object, arrayStr: string): Object {
       let result: Object = this;
       const properties = JSON.parse(arrayStr);
@@ -1031,6 +1032,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
         void object.callFunction(invokeGetter, [SDK.RemoteObject.RemoteObject.toCallArgument(getter)])
             .then(this.onInvokeGetterClick.bind(this));
 
+        /* istanbul ignore next */
         function invokeGetter(this: Object, getter: Function): Object {
           return Reflect.apply(getter, this, []);
         }
@@ -1460,6 +1462,7 @@ export class ArrayGroupingTreeElement extends UI.TreeOutline.TreeElement {
       treeNode.appendChild(childTreeElement);
     }
 
+    /* istanbul ignore next */
     function buildArrayFragment(
         this: {
           [x: number]: Object,
