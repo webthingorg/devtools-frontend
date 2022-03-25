@@ -36,9 +36,9 @@ import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
-import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
@@ -66,7 +66,6 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
-
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
 
@@ -726,23 +725,11 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
-    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
-      } else if (this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause()) {
-        maybeRescheduleUpdate = true;
       }
-    }
-
-    if (!breakpointIds.length && maybeRescheduleUpdate) {
-      // TODO(crbug.com/1229541): This is a quickfix to prevent #breakpoints from
-      // disappearing if the Debugger is actually not enabled
-      // yet. This quickfix should be removed as soon as we have a solution
-      // to correctly synchronize the front-end with the inspector back-end.
-      void this.scheduleUpdateInDebugger();
-      return;
     }
 
     this.#currentState = newState;
