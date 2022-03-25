@@ -35,7 +35,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
-import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import type {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
 
@@ -192,10 +192,10 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
         return uiLocations;
       }
     }
-    const startLocationsPromise = DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(
+    const startLocationsPromise = this.debuggerWorkspaceBinding.uiLocationToRawLocations(
         uiSourceCode, textRange.startLine, textRange.startColumn);
-    const endLocationsPromise = DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(
-        uiSourceCode, textRange.endLine, textRange.endColumn);
+    const endLocationsPromise =
+        this.debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, textRange.endLine, textRange.endColumn);
     const [startLocations, endLocations] = await Promise.all([startLocationsPromise, endLocationsPromise]);
     const endLocationByModel = new Map<SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Location>();
     for (const location of endLocations) {
@@ -618,7 +618,7 @@ export class ModelBreakpoint {
       let debuggerLocations: SDK.DebuggerModel.Location[] = [];
       for (const uiSourceCode of this.#breakpoint.getUiSourceCodes()) {
         const locations =
-            await DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+            await this.#debuggerWorkspaceBinding.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
         debuggerLocations = locations.filter(location => location.debuggerModel === this.#debuggerModel);
         if (debuggerLocations.length) {
           break;
