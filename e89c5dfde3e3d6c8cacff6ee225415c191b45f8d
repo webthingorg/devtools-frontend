@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8220f95_d842c9eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2022-03-25T09:22:05Z",
+      "side": 1,
+      "message": "Thanks for the CL! Is there a feature request for this feature on crbug.com? I try to see how often users need to export to Python. Also, I wonder if it could be a DevTools extension as the list of copy formats is already quite long. ",
+      "revId": "e89c5dfde3e3d6c8cacff6ee225415c191b45f8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
