@@ -216,13 +216,41 @@ describe('The Sources Tab', async () => {
       const messages = await getCurrentConsoleMessages();
 
       assert.deepEqual(messages, ['\'Hello world!\'']);
-
       await openSourcesPanel();
     });
 
     await step('Resume', async () => {
       await click(RESUME_BUTTON);
       await scriptEvaluation;
+    });
+  });
+
+  it('reliably hits breakpoints on worker with source map', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-breakpoint.html');
+
+    await step('Add a breakpoint at line 4', async () => {
+      await addBreakpointForLine(frontend, 4);
+    });
+
+    await step('Navigate to a different site to refresh devtools and remove back-end state', async () => {
+      await refreshDevToolsAndRemoveBackendState(target);
+    });
+
+    await step('Navigate back to test page', () => {
+      void goToResource('sources/sourcemap-breakpoint.html');
+    });
+
+    await step('wait for pause and check if we stopped at line 4', async () => {
+      await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+      await waitFor(PAUSE_INDICATOR_SELECTOR);
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'sourcemap-stepping-source.js:4');
+    });
+
+    await step('Resume', async () => {
+      await click(RESUME_BUTTON);
     });
   });
 
