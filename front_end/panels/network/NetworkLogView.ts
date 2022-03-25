@@ -249,6 +249,12 @@ const UIStrings = {
   */
   copyAsNodejsFetch: 'Copy as `Node.js` `fetch`',
   /**
+  * @description Text in Network Log View of the Network panel. An action that copies a command to
+  * the developer's clipboard. The command allows the developer to replay this specific network
+  * request using the Python programming language with the requests library.
+  */
+  copyAsPythonRequests: 'Copy as `Python` (`requests`)',
+  /**
   *@description Text in Network Log View of the Network panel. An action that copies a command to
   *the clipboard. It will copy the command in the format compatible with cURL (a program, not
   *translatable).
@@ -1537,6 +1543,9 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             i18nString(UIStrings.copyAsNodejsFetch), this.copyFetchCall.bind(this, request, FetchStyle.NodeJs),
             disableIfBlob);
         footerSection.appendItem(
+            i18nString(UIStrings.copyAsPythonRequests), this.copyPythonRequestsScript.bind(this, request),
+            disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlCmd), this.copyCurlCommand.bind(this, request, 'win'), disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlBash), this.copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
@@ -1555,6 +1564,9 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsNodejsFetch), this.copyFetchCall.bind(this, request, FetchStyle.NodeJs),
+            disableIfBlob);
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAsPythonRequests), this.copyPythonRequestsScript.bind(this, request),
             disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurl), this.copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
@@ -1654,6 +1666,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private async copyAllFetchCall(style: FetchStyle): Promise<void> {
     const commands = await this.generateAllFetchCall(Logs.NetworkLog.NetworkLog.instance().requests(), style);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
+  }
+
+  private async copyPythonRequestsScript(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
+    const command = await this.generatePythonRequestsScript(request);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(command);
   }
 
   private async copyPowerShellCommand(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
@@ -2262,6 +2279,375 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     const nonBlobRequests = this.filterOutBlobRequests(requests);
     const commands = await Promise.all(nonBlobRequests.map(request => this.generatePowerShellCommand(request)));
     return commands.join(';\r\n');
+  }
+
+  private async generatePythonRequestsScript(request: SDK.NetworkRequest.NetworkRequest): Promise<string> {
+    const ignoredHeaders = new Set<string>([
+      // Internal headers
+      'method',
+      'path',
+      'scheme',
+      'version',
+
+      'host',
+      'authority',
+    ]);
+    const commentedOutHeaders: Record<string, string> = {
+      // TODO: what is this header?
+      // TODO: rename to "Host:"?
+      'authority': '',
+      // If Requests doesn't support the same compression schemes that Chrome does
+      // the request could fail.
+      'accept-encoding': '',
+      'accept-charset': '',
+      // The Python code might make a request with a slightly different size.
+      'content-length': '',
+      // Requests doesn't support TE: trailers
+      // https://github.com/psf/requests/issues/2281
+      'te': '',
+      'trailer': '',
+    };
+
+    // https://github.com/psf/requests/blob/1466ad713cf84738cd28f1224a7ab4a19e50e361/requests/__init__.py#L121
+    const methods = new Set<string>([
+      'get',
+      'head',
+      'post',
+      'patch',
+      'put',
+      'delete',
+      'options',
+    ]);
+
+    // https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
+    function escapeString(str: string): string {
+      function escapeCharacter(x: string): string {
+        // TODO: shouldn't it be x.codePointAt(0)?
+        const code = x.charCodeAt(0);
+        let hexString = code.toString(16);
+        while (hexString.length < 4) {
+          hexString = '0' + hexString;
+        }
+
+        return '\\u' + hexString;
+      }
+
+      return '\'' +
+          str.replace(/\\/g, '\\\\')
+              .replace(/\'/g, '\\\'')
+              .replace(/\n/g, '\\n')
+              .replace(/\r/g, '\\r')
+              .replace(/[\0-\x1F\x7F-\x9F!]/g, escapeCharacter) +
+          '\'';
+    }
+
+    function objToPython(
+        obj: object|string|number|boolean|Array<object|string|number|boolean>, indent: number = 0): string {
+      let s = '';
+      switch (typeof obj) {
+        case 'string':
+          s += escapeString(obj);
+          break;
+        case 'number':
+          s += obj;
+          break;
+        case 'boolean':
+          s += obj ? 'True' : 'False';
+          break;
+        case 'object':
+          if (obj === null) {
+            s += 'None';
+          } else if (Array.isArray(obj)) {
+            if (obj.length === 0) {
+              s += '[]';
+            } else {
+              s += '[\n';
+              for (const item of obj) {
+                s += ' '.repeat(indent + 4) + objToPython(item, indent + 4) + ',\n';
+              }
+              s += ' '.repeat(indent) + ']';
+            }
+          } else {
+            const len = Object.keys(obj).length;
+            if (len === 0) {
+              s += '{}';
+            } else {
+              s += '{\n';
+              let entries;
+              try {
+                entries = Object.entries(obj);
+              } catch {
+                throw new Error('unexpected object type: ' + typeof obj);
+              }
+              for (const [k, v] of entries) {
+                // escapeString() because JS object keys must be strings.
+                s += ' '.repeat(indent + 4) + escapeString(k) + ': ' + objToPython(v, indent + 4) + ',\n';
+              }
+              s += ' '.repeat(indent) + '}';
+            }
+          }
+          break;
+        default:
+          throw new Error('unexpected object type: ' + typeof obj);
+      }
+      return s;
+    }
+
+    function entriesToPython(obj: string[][], unique: boolean|void): string {
+      if (unique === undefined) {
+        const uniqueKeys = new Set(obj.map(p => p[0]));
+        unique = obj.length === uniqueKeys.size;
+      }
+
+      let s = unique ? '{' : '[';
+      if (obj.length) {
+        s += '\n';
+      }
+      for (const [key, value] of obj) {
+        if (unique) {
+          s += '    ' + escapeString(key) + ': ' + escapeString(value) + ',\n';
+        } else {
+          s += '    (' + escapeString(key) + ', ' + escapeString(value) + '),\n';
+        }
+      }
+      s += unique ? '}' : ']';
+      return s;
+    }
+
+    function percentEncodeChar(c: string): string {
+      return '%' + c.charCodeAt(0).toString(16).padStart(2, '0').toUpperCase();
+    }
+
+    function percentEncode(s: string): string {
+      // Requests will encode a space as a +
+      return encodeURIComponent(s).replace(/[()*!']/g, percentEncodeChar).replace(/%20/g, '+');
+    }
+
+    function parseQuery(q: string): string[][]|null {
+      const params = [];
+
+      for (const pair of q.split('&')) {
+        const [key, value] = pair.split(/=(.*)/s, 2);
+        if (value === undefined) {
+          return null;
+        }
+        try {
+          // If you pass the query string as a dict to requests, it will percent encode the data
+          // so we only want to convert it to a dict if we will get the same data we started with.
+          // requests uses Python's urllib.parse.quote_plus(), which is slightly different than
+          // JavaScript's percent encoding.
+          const [decodedKey, decodedValue] = [decodeURIComponent(key), decodeURIComponent(value)];
+          const [reencodedKey, reencodedValue] = [percentEncode(decodedKey), percentEncode(decodedValue)];
+          if (reencodedKey !== key || reencodedValue !== value) {
+            return null;
+          }
+          params.push([decodedKey, decodedValue]);
+        } catch {
+          return null;
+        }
+      }
+      return params;
+    }
+
+    function parseCookies(c: string): string[][]|null {
+      const cookies = [];
+      for (const pair of c.split(';')) {
+        const [key, value] = pair.replace(/^ /, '').split(/=(.*)/s, 2);
+        if (value === undefined) {
+          return null;
+        }
+        cookies.push([key, value]);
+      }
+      return cookies;
+    }
+
+    function parseForm(_f: string): string[][]|null {
+      // TODO
+      return null;
+    }
+
+    const lines = ['import requests', ''];
+
+    let url: string = request.url();
+    let params;
+    // TODO: can url have a #fragment here?
+    if (url.includes('?') && !url.includes('#')) {
+      const [urlWithoutQuery, query] = url.split(/\?(.*)/s, 2);
+      params = parseQuery(query);
+      if (params) {
+        url = urlWithoutQuery;
+      }
+    }
+
+    if (params) {
+      lines.push('params = ' + entriesToPython(params));
+      lines.push('');
+    }
+
+    const requestHeaders = request.requestHeaders();
+    const headerData: Headers = requestHeaders.reduce((result, header) => {
+      // TODO: understand H2/H3 headers.
+      // TODO: can we do this, like generateCurlCommand?
+      // const name = header.name.replace(/^:/, '');  // Translate h2 headers to HTTP headers.
+      const name = header.name;
+
+      if (!ignoredHeaders.has(name.toLowerCase()) && !name.includes(':')) {
+        result.append(name, header.value);
+        // TODO: rename :authority to Host?
+      }
+
+      return result;
+    }, new Headers());
+    const headers: HeadersInit = {};
+    for (const headerArray of headerData) {
+      headers[headerArray[0]] = headerArray[1];
+    }
+
+    const cookieHeaders = Object.keys(headers).filter(h => h.toLowerCase() === 'cookie');
+    let cookies;
+    if (cookieHeaders.length === 1) {
+      const cookieHeader = cookieHeaders[0];
+      cookies = parseCookies(headers[cookieHeader]);
+      if (cookies) {
+        const uniqueCookieKeys = new Set(cookies.map(p => p[0]));
+        const cookiesUnique = cookies.length === uniqueCookieKeys.size;
+        if (cookiesUnique) {
+          commentedOutHeaders[cookieHeader] = cookies.length === 1 ? '' : 'Requests sorts cookies alphabetically';
+          lines.push('cookies = ' + entriesToPython(cookies, cookiesUnique));
+          lines.push('');
+        }
+      }
+    }
+
+    const requestBody = await request.requestFormData();
+
+    const contentTypeHeader = requestHeaders.find(({name}) => name.toLowerCase() === 'content-type');
+    const contentType = contentTypeHeader ? contentTypeHeader.value.split(';')[0].trim() : void 0;
+    let dataIsJson = requestBody && contentType && contentType === 'application/json';
+    let dataIsUrlEncoded = requestBody && contentType && contentType === 'application/x-www-form-urlencoded';
+    let dataIsForm = requestBody && contentType && contentType === 'multipart/form-data';
+    let jsonAsPython;
+    let jsonRoundtrips;
+    let urlEncoded;
+    let dataForm;
+
+    // repeat requestBody so that type checker stops thinking it can be null...
+    if (requestBody && dataIsJson) {
+      try {
+        const parsedRequestBody = JSON.parse(requestBody);
+        jsonRoundtrips = JSON.stringify(parsedRequestBody) === requestBody;
+        jsonAsPython = objToPython(parsedRequestBody);
+        commentedOutHeaders['content-type'] = 'passing json= sets this header';
+      } catch {  // TODO: make catch more specific
+        dataIsJson = false;
+      }
+    } else if (requestBody && dataIsUrlEncoded) {
+      try {
+        urlEncoded = parseQuery(requestBody);
+        if (urlEncoded !== null) {
+          commentedOutHeaders['content-type'] = 'passing a dict or list to data= sets this header';
+        } else {
+          dataIsUrlEncoded = false;
+        }
+      } catch {  // TODO: catch something specific
+        dataIsUrlEncoded = false;
+      }
+    } else if (requestBody && dataIsForm) {
+      try {
+        dataForm = parseForm(requestBody);
+        if (dataForm !== null) {
+          // TODO: better wording
+          // TODO: check that actually missing boundary=?
+          commentedOutHeaders['content-type'] = 'Omit to make requests generate a boundary';
+        } else {
+          dataIsForm = false;
+        }
+      } catch {  // TODO: catch something specific
+        dataIsForm = false;
+      }
+    }
+
+    if (Object.keys(headers).length) {
+      lines.push('headers = {');
+      for (let i = 0; i < requestHeaders.length; i++) {
+        const header = requestHeaders[i];
+        const name = header.name.replace(/^:/, '');  // Translate SPDY v3 headers to HTTP headers.
+        const nameLower = name.toLowerCase();
+        if (ignoredHeaders.has(nameLower)) {
+          continue;
+        }
+        const headerLine = escapeString(name) + ': ' + escapeString(header.value) + ',';
+        if (nameLower in commentedOutHeaders) {
+          if (commentedOutHeaders[nameLower]) {
+            lines.push('    # ' + commentedOutHeaders[nameLower]);
+          }
+          lines.push('    # ' + headerLine);
+        } else {
+          lines.push('    ' + headerLine);
+        }
+      }
+      lines.push('}');
+      lines.push('');
+    }
+
+    // requestBody and queryParams are repeated so that the typechecker
+    // doesn't complain that they can be null.
+    if (requestBody && dataIsJson) {
+      lines.push('json_data = ' + jsonAsPython);
+      lines.push('');
+
+      if (!jsonRoundtrips) {
+        lines.push('# If you need the above JSON to be serialized exactly as it was');
+        lines.push('# in the request, pass this as data= instead of json= below and');
+        lines.push('# uncomment Content-Type in headers = above.');
+        lines.push('# data = ' + escapeString(requestBody));
+        lines.push('');
+      }
+    } else if (requestBody && dataIsUrlEncoded && urlEncoded) {
+      // TODO: something more template-like?
+      lines.push('data = ' + entriesToPython(urlEncoded));
+      lines.push('');
+    } else if (requestBody && dataIsForm && dataForm) {
+      lines.push('files = ' + entriesToPython(dataForm));
+      lines.push('');
+    } else if (requestBody) {
+      lines.push('data = ' + escapeString(requestBody));
+      lines.push('');
+    }
+
+    const method = request.requestMethod.toLowerCase();
+    const [fn, args] = methods.has(method) ? [method, []] : ['request', [escapeString(request.requestMethod)]];
+
+    args.push(escapeString(url));
+    if (params) {
+      args.push('params=params');
+    }
+    if (cookies) {
+      args.push('cookies=cookies');
+    }
+    if (Object.keys(headers).length) {
+      args.push('headers=headers');
+    }
+    if (requestBody) {
+      if (dataIsJson) {
+        args.push('json=json_data');
+      } else if (dataIsForm) {
+        args.push('files=files');
+      } else {
+        args.push('data=data');
+      }
+    }
+    if (request.securityState() === Protocol.Security.SecurityState.Insecure) {
+      args.push('verify=False');
+    }
+
+    if (['h2', 'h3'].includes(request.protocol)) {
+      const version = request.protocol.substring(1);
+      lines.push(`# Note: this was a HTTP/${version} request but Requests only supports HTTP/1.1`);
+    }
+    lines.push(`requests.${fn}(${args.join(', ')})`);
+
+    return lines.join('\n');
   }
 
   static getDCLEventColor(): string {
