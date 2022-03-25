@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "980ade5a_99e1b338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-25T14:35:05Z",
+      "side": 1,
+      "message": "Thanks Danil for the test! LGTM % comment",
+      "revId": "065cee981cc496543e0a63ca1278b3f6ef8ad67e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ad6c64_fa038c83",
+        "filename": "test/unittests/front_end/models/bindings/BreakpointManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2022-03-25T14:35:05Z",
+      "side": 1,
+      "message": "This call looks as if we are changing the global state of the BreakpointManager singleton. `setBreakpoint` will create a new `Breakpoint` item which will also create an entry in the BreakpointManager\u0027s storage (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/bindings/BreakpointManager.ts;l\u003d880;drc\u003d3bdf13b6fa9f8a19729c75d07d31f0ee75a9573a).\n\nI think if we need to preserve the state of the breakpoint manager, maybe it would be good to remove the breakpoint after the test?",
+      "revId": "065cee981cc496543e0a63ca1278b3f6ef8ad67e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
