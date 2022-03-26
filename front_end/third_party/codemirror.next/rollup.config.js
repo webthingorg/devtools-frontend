@@ -12,7 +12,10 @@ export default [{
     },
     chunkFileNames(info) {
       for (let mod of Object.keys(info.modules)) {
+        console.log('mod:' + mod);
+        mod = mod.replace(/\\/g, '/');
         let name = (/@codemirror\/([\w-]+)/.exec(mod) || [])[1];
+        console.log(name);
         if (name === 'view') return 'chunk/codemirror.js';
         if (/^lang-/.test(name)) return `chunk/${name.slice(5)}.js`;
         if (name === 'legacy-modes') return 'chunk/legacy.js';
