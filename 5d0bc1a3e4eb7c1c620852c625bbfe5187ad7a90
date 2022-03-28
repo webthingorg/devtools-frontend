@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b7512f_4657a94b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2022-03-28T11:17:01Z",
+      "side": 1,
+      "message": "Simon, please kindly take a look at this as well, also just adding types:)",
+      "revId": "5d0bc1a3e4eb7c1c620852c625bbfe5187ad7a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
