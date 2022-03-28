@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3ea873_1226cbbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-28T06:21:05Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "revId": "4191989861f711fbed127183dc59d979afd95ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc872050_4779e362",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-28T06:21:05Z",
+      "side": 1,
+      "message": "Ouch! 😂",
+      "revId": "4191989861f711fbed127183dc59d979afd95ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
