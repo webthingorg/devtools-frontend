@@ -39,6 +39,30 @@
       },
       "revId": "075364dc930c9f33ee8c97183f237abc76d84507",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93ceb620_2f8d876f",
+        "filename": "test/unittests/front_end/core/common/ParsedURL_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2022-03-29T07:51:26Z",
+      "side": 1,
+      "message": "Exactly. I\u0027m adding that test case, thanks.",
+      "parentUuid": "842f16cb_b2871c88",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "075364dc930c9f33ee8c97183f237abc76d84507",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
