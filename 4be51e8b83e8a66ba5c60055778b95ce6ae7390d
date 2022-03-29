@@ -16,6 +16,23 @@
       "message": "Publishing CL for review.  Should be working now.",
       "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "027092de_1e3c02db",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-29T20:45:53Z",
+      "side": 1,
+      "message": "It seems like the only reason that we need CodeMirror5 is to format the style here. Can we use the formatter in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/formatter/ScriptFormatter.ts;l\u003d59 to format this instead? This way we wouldn\u0027t need to depend on CodeMirror5 and wouldn\u0027t need the extra `formatStyle` function below, which is not tested and adds an extra formatting function to maintain.",
+      "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
