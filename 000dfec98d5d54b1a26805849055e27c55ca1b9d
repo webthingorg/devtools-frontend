@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678ebccd_8d656887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2022-03-29T22:14:03Z",
+      "side": 1,
+      "message": "Hi Benedikt, this CL fixes a corner case in the Network Tab -\u003e Response panel. PTAL.",
+      "revId": "000dfec98d5d54b1a26805849055e27c55ca1b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
