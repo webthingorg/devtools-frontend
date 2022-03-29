@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c41c3f8_84b87a68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-29T15:12:18Z",
+      "side": 1,
+      "message": "Looks great!",
+      "revId": "146e33cd67fb3086cd3c75ead20f6ed5d916d641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b984957c_dbe46ce7",
+        "filename": "test/e2e/network/network-request-view_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-29T15:12:18Z",
+      "side": 1,
+      "message": "Can\u0027t we just check for a request starting with \u0027data:\u0027?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 119
+      },
+      "revId": "146e33cd67fb3086cd3c75ead20f6ed5d916d641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
