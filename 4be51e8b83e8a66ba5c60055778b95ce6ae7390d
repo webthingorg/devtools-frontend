@@ -68,6 +68,24 @@
       "parentUuid": "027092de_1e3c02db",
       "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f32628_bdfa1ead",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-29T22:47:21Z",
+      "side": 1,
+      "message": "I hacked around the dependency cycle to test out the method and it doesn\u0027t work as intended. Here is the result of the formatting: https://imgur.com/1GyBFYN",
+      "parentUuid": "788186b6_23a92ba7",
+      "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
