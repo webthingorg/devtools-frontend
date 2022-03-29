@@ -36,9 +36,9 @@ import type * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';
+import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 import type {LiveLocation} from './LiveLocation.js';
 import {LiveLocationPool} from './LiveLocation.js';
-import {DefaultScriptMapping} from './DefaultScriptMapping.js';
 
 let breakpointManagerInstance: BreakpointManager;
 
@@ -66,7 +66,6 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeAdded, this.uiSourceCodeAdded, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.UISourceCodeRemoved, this.uiSourceCodeRemoved, this);
     this.#workspace.addEventListener(Workspace.Workspace.Events.ProjectRemoved, this.projectRemoved, this);
-
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
 
@@ -118,12 +117,18 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     const debuggerModel = script.debuggerModel;
     if (this.#hasBreakpointsForUrl(script.sourceURL)) {
       // Handle inline scripts without sourceURL comment separately:
-      // The UISourceCode of inline scripts without sourceURLs will not be availabe
-      // until a later point. Use the v8 script for setting the breakpoint.
+      // The UISourceCode of inline scripts without sourceURLs may not be availabe
+      // until a later point. Use the v8 script for setting the breakpoint in that case.
+      let uiSourceCode;
       const isInlineScriptWithoutSourceURL = script.isInlineScript() && !script.hasSourceURL;
-      const sourceURL =
-          isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
-      const uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      if (isInlineScriptWithoutSourceURL) {
+        uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(script.sourceURL);
+      }
+      if (!uiSourceCode) {
+        const sourceURL =
+            isInlineScriptWithoutSourceURL ? DefaultScriptMapping.createV8ScriptURL(script) : script.sourceURL;
+        uiSourceCode = await Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURLPromise(sourceURL);
+      }
       await this.#restoreBreakpointsForUrl(uiSourceCode);
     }
 
@@ -686,20 +691,9 @@ export class ModelBreakpoint {
           };
         });
         newState = new Breakpoint.State(positions, condition);
-      } else if (this.#breakpoint.currentState) {
-        newState = new Breakpoint.State(this.#breakpoint.currentState.positions, condition);
       } else {
-        // TODO(bmeurer): This fallback doesn't make a whole lot of sense, we should
-        // at least signal a warning to the developer that this #breakpoint wasn't
-        // really resolved.
-        const position = {
-          url: this.#breakpoint.url(),
-          scriptId: '' as Protocol.Runtime.ScriptId,
-          scriptHash: '',
-          lineNumber,
-          columnNumber,
-        };
-        newState = new Breakpoint.State([position], condition);
+        // This target doesn't have any script that can be resolved to this breakpoint.
+        return;
       }
     }
 
@@ -726,23 +720,11 @@ export class ModelBreakpoint {
     }));
     const breakpointIds: Protocol.Debugger.BreakpointId[] = [];
     let locations: SDK.DebuggerModel.Location[] = [];
-    let maybeRescheduleUpdate = false;
     for (const result of results) {
       if (result.breakpointId) {
         breakpointIds.push(result.breakpointId);
         locations = locations.concat(result.locations);
-      } else if (this.#debuggerModel.debuggerEnabled() && !this.#debuggerModel.isReadyToPause()) {
-        maybeRescheduleUpdate = true;
       }
-    }
-
-    if (!breakpointIds.length && maybeRescheduleUpdate) {
-      // TODO(crbug.com/1229541): This is a quickfix to prevent #breakpoints from
-      // disappearing if the Debugger is actually not enabled
-      // yet. This quickfix should be removed as soon as we have a solution
-      // to correctly synchronize the front-end with the inspector back-end.
-      void this.scheduleUpdateInDebugger();
-      return;
     }
 
     this.#currentState = newState;
