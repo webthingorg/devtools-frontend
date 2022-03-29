@@ -50,6 +50,24 @@
       "message": "It seems like the only reason that we need CodeMirror5 is to format the style here. Can we use the formatter in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/formatter/ScriptFormatter.ts;l\u003d59 to format this instead? This way we wouldn\u0027t need to depend on CodeMirror5 and wouldn\u0027t need the extra `formatStyle` function below, which is not tested and adds an extra formatting function to maintain.",
       "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788186b6_23a92ba7",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-29T21:11:41Z",
+      "side": 1,
+      "message": "To be clear, we\u0027re still using CodeMirror6 here, but we are just using a legacy CSS Parser from CodeMirror5 designed to be used by CodeMirror6.\n\nI haven\u0027t tested the formatter function you linked, but it appears to introduce a dependency cycle between core/sdk and models/formatter. I don\u0027t believe we would be able to properly use that method without reformatting the surrounding directories. Is this still something you would want to push for? If so, is there an easier way to import that method without restructuring?",
+      "parentUuid": "027092de_1e3c02db",
+      "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
