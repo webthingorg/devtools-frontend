@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63914a09_0ac52ae7",
+        "filename": "test/unittests/front_end/helpers/UISourceCodeHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:37:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22eec2d_a3141185",
+      "revId": "2e8e41857ac5abbdc268972ad07cbfc5e748a62b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "babdc606_5c6785f7",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-03-30T06:57:38Z",
       "side": 1,
       "message": "nit: Is redundant?",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "2e8e41857ac5abbdc268972ad07cbfc5e748a62b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ee1d18_6ab55140",
+        "filename": "test/unittests/front_end/panels/sources/SourcesView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:37:35Z",
+      "side": 1,
+      "message": "Indeed, removed.",
+      "parentUuid": "babdc606_5c6785f7",
       "range": {
         "startLine": 47,
         "startChar": 6,
