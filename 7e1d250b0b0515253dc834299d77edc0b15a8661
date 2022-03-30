@@ -33,6 +33,24 @@
       "message": "Do we have a common place where we could collectively fake-create these objects? This would make it easier for future unit tests.",
       "revId": "7e1d250b0b0515253dc834299d77edc0b15a8661",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ceaa36_e2bcbc29",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T12:28:56Z",
+      "side": 1,
+      "message": "We could have one, however these might be specific to the individual test. I\u0027d create these when it is clear that we repeat code, like I did in the crrev.com/c/3557990",
+      "parentUuid": "e343adf7_902a33cb",
+      "revId": "7e1d250b0b0515253dc834299d77edc0b15a8661",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
