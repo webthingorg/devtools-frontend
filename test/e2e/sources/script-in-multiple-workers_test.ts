@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 
 import {$$, click, getBrowserAndPages, goToResource, step, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe, it, takeScreenshots} from '../../shared/mocha-extensions.js';
 import {addBreakpointForLine, createSelectorsForWorkerFile, getBreakpointDecorators, getExecutionLine, getOpenSources, openNestedWorkerFile, PAUSE_BUTTON, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
 async function validateSourceTabs() {
@@ -124,7 +124,7 @@ describe('Multi-Workers', async function() {
     });
 
     describe(`copies breakpoints between workers ${withOrWithout}`, () => {
-      beforeEach(async () => {
+      async function runBeforeEach() {
         const {frontend} = getBrowserAndPages();
         // Have the target load the page.
         await goToResource(targetPage);
@@ -144,7 +144,10 @@ describe('Multi-Workers', async function() {
         await step('Disable first breakpoint', async () => {
           const bpEntry = await waitFor('.breakpoint-entry');
           const bpCheckbox = await waitFor('input', bpEntry);
+
+          await takeScreenshots();
           await bpCheckbox.evaluate(n => (n as HTMLElement).click());
+
           await waitFor('.cm-breakpoint-disabled');
         });
 
@@ -159,9 +162,10 @@ describe('Multi-Workers', async function() {
         await step('Close tab', async () => {
           await click('[aria-label="Close multi-workers.js"]');
         });
-      });
+      }
 
       it('when opening different file in editor', async () => {
+        await runBeforeEach();
         // Open different worker
         await step('Open different worker', async () => {
           await openNestedWorkerFile(workerFileSelectors(3));
@@ -173,6 +177,7 @@ describe('Multi-Workers', async function() {
       });
 
       it('after reloading', async () => {
+        await runBeforeEach();
         const {target} = getBrowserAndPages();
 
         await step('Reload page', async () => {
