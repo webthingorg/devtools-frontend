@@ -29,7 +29,7 @@ describe('Multi-Workers', async function() {
   // The tests in this suite are particularly slow, as they perform a lot of actions
   this.timeout(10000);
 
-  [false, true].forEach(sourceMaps => {
+  [true].forEach(sourceMaps => {
     const withOrWithout = sourceMaps ? 'with source maps' : 'without source maps';
     const targetPage = sourceMaps ? 'sources/multi-workers-sourcemap.html' : 'sources/multi-workers.html';
     const scriptFile = sourceMaps ? 'multi-workers.min.js' : 'multi-workers.js';
@@ -124,7 +124,7 @@ describe('Multi-Workers', async function() {
     });
 
     describe(`copies breakpoints between workers ${withOrWithout}`, () => {
-      beforeEach(async () => {
+      async function runBeforeEach() {
         const {frontend} = getBrowserAndPages();
         // Have the target load the page.
         await goToResource(targetPage);
@@ -144,7 +144,9 @@ describe('Multi-Workers', async function() {
         await step('Disable first breakpoint', async () => {
           const bpEntry = await waitFor('.breakpoint-entry');
           const bpCheckbox = await waitFor('input', bpEntry);
+          await timeout(200);
           await bpCheckbox.evaluate(n => (n as HTMLElement).click());
+          await timeout(200);
           await waitFor('.cm-breakpoint-disabled');
         });
 
@@ -159,9 +161,10 @@ describe('Multi-Workers', async function() {
         await step('Close tab', async () => {
           await click('[aria-label="Close multi-workers.js"]');
         });
-      });
+      }
 
       it('when opening different file in editor', async () => {
+        await runBeforeEach();
         // Open different worker
         await step('Open different worker', async () => {
           await openNestedWorkerFile(workerFileSelectors(3));
@@ -173,6 +176,7 @@ describe('Multi-Workers', async function() {
       });
 
       it('after reloading', async () => {
+        await runBeforeEach();
         const {target} = getBrowserAndPages();
 
         await step('Reload page', async () => {
