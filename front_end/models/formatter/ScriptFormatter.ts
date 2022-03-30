@@ -56,6 +56,50 @@ export interface FormattedContent {
   formattedMapping: FormatterSourceMapping;
 }
 
+import * as TextUtils from '../text_utils/text_utils.js';
+export async function testFormat(): Promise<string[][]> {
+  // Increment font-size
+  const incrTest =
+      '\n    font-size: 130px;\n    margin: 486px; /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n';
+  const formattedIncrTest = await format(
+      ({isDocumentOrScriptOrStyleSheet: () => true} as Common.ResourceType.ResourceType), 'text/css', incrTest,
+      detectIndentation(incrTest));
+  const expectedIncrTest =
+      '\n    font-size: 131px;\n    margin: 486px; /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n';
+
+  // Remove font-size
+  const removeTest =
+      '\n    ;;\n    margin: 486px;\n    /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n';
+  const formattedRemoveTest = await format(
+      ({isDocumentOrScriptOrStyleSheet: () => true} as Common.ResourceType.ResourceType), 'text/css', removeTest,
+      detectIndentation(removeTest));
+  const expectedRemoveTest =
+      '\n    margin: 486px;\n    /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n';
+
+  // add padding: 1
+  const addTest =
+      '\n    font-size: 133px;\n    margin: 486px;\n    /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n;padding: 1;;';
+  const formattedAddTest = await format(
+      ({isDocumentOrScriptOrStyleSheet: () => true} as Common.ResourceType.ResourceType), 'text/css', addTest,
+      detectIndentation(addTest));
+  const expectedAddTest =
+      '\n    font-size: 133px;\n    margin: 486px;\n    /** comment here \n    goes on to here*/\n    color: var(--color);\n    align-items: baseline;\n    background-color: #414174;\n    padding: 1;\n';
+
+  return [
+    [incrTest, formattedIncrTest.formattedContent, expectedIncrTest],
+    [removeTest, formattedRemoveTest.formattedContent, expectedRemoveTest],
+    [addTest, formattedAddTest.formattedContent, expectedAddTest],
+  ];
+}
+
+function detectIndentation(text: string): string {
+  const lines = text.split('\n');
+  if (lines.length < 2) {
+    return '';
+  }
+  return TextUtils.TextUtils.Utils.lineIndent(lines[1]);
+}
+
 export async function format(
     contentType: Common.ResourceType.ResourceType, mimeType: string, content: string,
     indent: string =
