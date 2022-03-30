@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f982cbb4_5f0c040d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-30T16:29:56Z",
+      "side": 1,
+      "message": "Here is the test code for the formatter",
+      "revId": "c08f4c364e29a3a2bec1486ded0a0cc141f18941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
