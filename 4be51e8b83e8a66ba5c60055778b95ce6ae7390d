@@ -121,6 +121,24 @@
       "parentUuid": "34f32628_bdfa1ead",
       "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c267275_6f93e1aa",
+        "filename": "front_end/core/sdk/CSSProperty.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2022-03-30T16:35:01Z",
+      "side": 1,
+      "message": "Here is a CL with the test code: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3561381\n\nYou can find instructions on how to hit the test function in the CL.\n\nCouple of thoughts here:\n- If we still want to use `ScriptFormatter.format` for this, we would need to create a new method that will handle the newline, spacing and other symbols which will essentially be the `formatStyle` function in this CL.\n- If we somehow get `ScriptFormatter.format` working in this context, we still need to figure out how to break the dependency cycle between `model/formatter` and `core/sdk` which from what I see, will require sizable refactoring.",
+      "parentUuid": "3d9b65f7_09cc02b4",
+      "revId": "4be51e8b83e8a66ba5c60055778b95ce6ae7390d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
