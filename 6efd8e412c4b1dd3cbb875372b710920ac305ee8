@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ee147ff_528da424",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-30T10:42:56Z",
+      "side": 1,
+      "message": "Ok, so I found out that TreeOutline wants parent elements appended before adding children. These steps will fix the tree\u0027s selections and keyboard navigation behaviour:\n1) Move `treeOutline.appendChild(urlTreeElement);` 2 lines up so that it comes before calling `maybeAddFrameSubTree`.\n2) In `maybeAddFrameSubTree` move `root.appendChild(urlTreeElement);` to right after the creation of `urlTreeElement`\n3) Add `if (framecount \u003d\u003d\u003d 0 \u0026\u0026 issuecount \u003d\u003d\u003d 0) root.removeChild(urlTreeElement);` towards the end of that method to remove unneeded elements\n4) Add `treeOutline.registerCSSFiles([backForwardCacheViewStyles]);` to where the `treeOutline` is created.\n5) Add\n```\n.tree-outline li .selection {\n  margin-left: -5px;\n}\n```\nto the css file to prevent the coloured background of selected tree items from covering the frames-key.",
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9599f690_db54f5a8",
         "filename": "front_end/panels/application/components/backForwardCacheView.css",
         "patchSetId": 11
