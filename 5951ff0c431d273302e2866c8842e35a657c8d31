@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ef567b_7c2ecf37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T09:11:14Z",
+      "side": 1,
+      "message": "PTAL, see questions inline :)",
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e36f5f_ea3e9dbd",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T09:11:14Z",
+      "side": 1,
+      "message": "This is a gimmick of hosted mode were we store all recorded metrics. Alternatively the test could spy on the corresponding UserMetrics class. This seemed a bit more robust, since the host bindings are less likely to change compared to the `UserMetrics` class.",
+      "range": {
+        "startLine": 19,
+        "startChar": 68,
+        "endLine": 19,
+        "endChar": 96
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc345fe_356882c7",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T09:11:14Z",
+      "side": 1,
+      "message": "Ideally the test would actually check that these events are sent with a different locale. But that would require booting up DevTools with e.g. Chinese.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c940c154_258fd951",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T09:11:14Z",
+      "side": 1,
+      "message": "Is it ok to select the tab this way or would you do it by finding the tab header element and clicking it? The tabbed view is separate from the \"unit\" we are testing, which is the ElementsPanel, so I thought its fine to do it this way.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 75
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
