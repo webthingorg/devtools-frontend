@@ -113,6 +113,8 @@ export class InplaceFormatterEditorAction implements EditorAction {
     const highlighterType = uiSourceCode.mimeType();
     const {formattedContent, formattedMapping} =
         await Formatter.ScriptFormatter.format(uiSourceCode.contentType(), highlighterType, content);
+    const test = await Formatter.ScriptFormatter.testFormat();
+    test;
     this.formattingComplete(uiSourceCode, formattedContent, formattedMapping);
   }
 
