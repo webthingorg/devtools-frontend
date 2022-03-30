@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49707118_656629ea",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:50:17Z",
+      "side": 1,
+      "message": "nit: add `/*isWebComponent*/` after undefined.\n\nAlso below.",
+      "range": {
+        "startLine": 1046,
+        "startChar": 85,
+        "endLine": 1046,
+        "endChar": 86
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7e36f5f_ea3e9dbd",
         "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
         "patchSetId": 3
@@ -31,6 +54,30 @@
       "writtenOn": "2022-03-30T09:11:14Z",
       "side": 1,
       "message": "This is a gimmick of hosted mode were we store all recorded metrics. Alternatively the test could spy on the corresponding UserMetrics class. This seemed a bit more robust, since the host bindings are less likely to change compared to the `UserMetrics` class.",
+      "range": {
+        "startLine": 19,
+        "startChar": 68,
+        "endLine": 19,
+        "endChar": 96
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6f8f600_8969641b",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:50:17Z",
+      "side": 1,
+      "message": "I agree.",
+      "parentUuid": "c7e36f5f_ea3e9dbd",
       "range": {
         "startLine": 19,
         "startChar": 68,
@@ -66,6 +113,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0698724a_4325f66e",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:50:17Z",
+      "side": 1,
+      "message": "We could have a method in i18n that would simulate a different locale for testing. Could be as simple as ```\ni18.simulateNonEnglishLocaleForTesing \u003d () \u003d\u003e i18.#simulatingLocaleForTesing \u003d true\ni18.getLocalizedString \u003d () \u003d\u003e if (i18.#simulatingLocaleForTesing) return originalValue + \u0027_\u0027;",
+      "parentUuid": "dfc345fe_356882c7",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6db1bbdf_890b0e86",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:50:17Z",
+      "side": 1,
+      "message": "This is cool, I didn\u0027t know we had something like that.",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c940c154_258fd951",
         "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
         "patchSetId": 3
@@ -77,6 +171,30 @@
       "writtenOn": "2022-03-30T09:11:14Z",
       "side": 1,
       "message": "Is it ok to select the tab this way or would you do it by finding the tab header element and clicking it? The tabbed view is separate from the \"unit\" we are testing, which is the ElementsPanel, so I thought its fine to do it this way.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 75
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "636952e2_e7c341da",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2022-03-30T09:50:17Z",
+      "side": 1,
+      "message": "I think it is totally fine precisely for that reason.",
+      "parentUuid": "c940c154_258fd951",
       "range": {
         "startLine": 32,
         "startChar": 4,
