@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15904595_31c7c640",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T10:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49707118_656629ea",
+      "range": {
+        "startLine": 1046,
+        "startChar": 85,
+        "endLine": 1046,
+        "endChar": 86
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7e36f5f_ea3e9dbd",
@@ -137,6 +161,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fc543d4c_be9a52de",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T10:13:15Z",
+      "side": 1,
+      "message": "I\u0027ll leave it as is for now. Should we see more tests that require that we can add it in the future.",
+      "parentUuid": "0698724a_4325f66e",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6db1bbdf_890b0e86",
         "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
         "patchSetId": 3
@@ -148,6 +196,30 @@
       "writtenOn": "2022-03-30T09:50:17Z",
       "side": 1,
       "message": "This is cool, I didn\u0027t know we had something like that.",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "5951ff0c431d273302e2866c8842e35a657c8d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a15a5afe_247ba50f",
+        "filename": "test/unittests/front_end/panels/elements/ElementsPanel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2022-03-30T10:13:15Z",
+      "side": 1,
+      "message": "Yeah, one of my gripes with some of the assertion libraries out there is that they don\u0027t do TS type narrowing.",
+      "parentUuid": "6db1bbdf_890b0e86",
       "range": {
         "startLine": 29,
         "startChar": 4,
