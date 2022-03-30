@@ -11,7 +11,7 @@ describe('Deprecation Issues', async () => {
     await goToResource('empty.html');
   });
 
-  it('should display correct information', async () => {
+  it('untranslated issues with well formed details work', async () => {
     await navigateToIssuesTab();
     const {frontend} = getBrowserAndPages();
     frontend.evaluate(() => {
@@ -26,6 +26,7 @@ describe('Deprecation Issues', async () => {
             },
             message: 'Test',
             deprecationType: 'Test',
+            type: 'Untranslated',
           },
         },
       };
@@ -42,5 +43,109 @@ describe('Deprecation Issues', async () => {
       ['empty.html:2'],
     ];
     await waitForTableFromResourceSectionContents(section.content, expectedTableRows);
+  });
+
+  it('untranslated issues with malformed details work', async done => {
+    await navigateToIssuesTab();
+    const {frontend} = getBrowserAndPages();
+    frontend.evaluate(() => {
+      const issue = {
+        code: 'DeprecationIssue',
+        details: {
+          deprecationIssueDetails: {
+            sourceCodeLocation: {
+              url: 'empty.html',
+              lineNumber: 1,
+              columnNumber: 1,
+            },
+            message: '',
+            deprecationType: '',
+            type: 'Untranslated',
+          },
+        },
+      };
+      // @ts-ignore
+      window.addIssueForTest(issue);
+    });
+
+    // Malformed issues should never appear, thus we expect a timeout.
+    let didEnd = false;
+    setTimeout(() => {
+      didEnd = true;
+      done();
+    }, 500);
+    await expandIssue();
+    if (!didEnd) {
+      done(new Error('Should have timedout'));
+    }
+  });
+
+  it('translated issues with well formed details work', async () => {
+    await navigateToIssuesTab();
+    const {frontend} = getBrowserAndPages();
+    frontend.evaluate(() => {
+      const issue = {
+        code: 'DeprecationIssue',
+        details: {
+          deprecationIssueDetails: {
+            sourceCodeLocation: {
+              url: 'empty.html',
+              lineNumber: 1,
+              columnNumber: 1,
+            },
+            message: '',
+            deprecationType: '',
+            type: 'DeprecationExample',
+          },
+        },
+      };
+      // @ts-ignore
+      window.addIssueForTest(issue);
+    });
+
+    await expandIssue();
+    const issueElement = await getIssueByTitle('Deprecated Feature Used');
+    assertNotNullOrUndefined(issueElement);
+    const section = await getResourcesElement('1 source', issueElement, '.affected-resource-label');
+    await ensureResourceSectionIsExpanded(section);
+    const expectedTableRows = [
+      ['empty.html:2'],
+    ];
+    await waitForTableFromResourceSectionContents(section.content, expectedTableRows);
+  });
+
+  it('translated issues with malformed details work', async done => {
+    await navigateToIssuesTab();
+    const {frontend} = getBrowserAndPages();
+    frontend.evaluate(() => {
+      const issue = {
+        code: 'DeprecationIssue',
+        details: {
+          deprecationIssueDetails: {
+            sourceCodeLocation: {
+              url: 'empty.html',
+              lineNumber: 1,
+              columnNumber: 1,
+            },
+            message: 'Test',
+            deprecationType: 'Test',
+            type: 'DeprecationExample',
+          },
+        },
+      };
+      // @ts-ignore
+      window.addIssueForTest(issue);
+    });
+
+    // Malformed issues should never appear, thus we expect a timeout.
+    let didEnd = false;
+    setTimeout(() => {
+      didEnd = true;
+      done();
+    }, 500);
+    await expandIssue();
+    if (!didEnd) {
+      done(new Error('Should have timedout'));
+    }
   });
 });
