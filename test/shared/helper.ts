@@ -695,3 +695,8 @@ export async function setCheckBox(selector: string, wantChecked: boolean): Promi
   }
   assert.strictEqual(await checkbox.evaluate(box => (box as HTMLInputElement).checked), wantChecked);
 }
+
+export function nonNull<T>(value: T|null|undefined): T {
+  assert.exists(value);
+  return value as T;
+}

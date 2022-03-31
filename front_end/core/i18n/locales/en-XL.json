@@ -6260,8 +6260,14 @@
   "panels/mobile_throttling/ThrottlingManager.ts | dSlowdown": {
     "message": "{PH1}× ŝĺôẃd̂óŵń"
   },
+  "panels/mobile_throttling/ThrottlingManager.ts | excessConcurrency": {
+    "message": "Êx́ĉéêd́îńĝ t́ĥé d̂éf̂áûĺt̂ h́âŕd̂ẃâŕê ćôńĉúr̂ŕêńĉý m̂áŷ ṕr̂ód̂úĉé ûńêx́p̂éĉt́êd́ r̂éŝúl̂t́ŝ."
+  },
   "panels/mobile_throttling/ThrottlingManager.ts | forceDisconnectedFromNetwork": {
     "message": "F̂ór̂ćê d́îśĉón̂ńêćt̂éd̂ f́r̂óm̂ ńêt́ŵór̂ḱ"
+  },
+  "panels/mobile_throttling/ThrottlingManager.ts | hardwareConcurrency": {
+    "message": "Ĥár̂d́ŵár̂é ĉón̂ćûŕr̂én̂ćŷ"
   },
   "panels/mobile_throttling/ThrottlingManager.ts | noThrottling": {
     "message": "N̂ó t̂h́r̂ót̂t́l̂ín̂ǵ"
@@ -10339,6 +10345,9 @@
   },
   "panels/timeline/TimelinePanel.ts | close": {
     "message": "Ĉĺôśê"
+  },
+  "panels/timeline/TimelinePanel.ts | concurrency": {
+    "message": "N̂áv̂íĝát̂ór̂.h́âŕd̂ẃâŕêĆôńĉúr̂ŕêńĉý: "
   },
   "panels/timeline/TimelinePanel.ts | coverage": {
     "message": "Ĉóv̂ér̂áĝé"
