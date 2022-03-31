@@ -951,7 +951,9 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         addLayerSeparator(style);
         const lastBlock = blocks[blocks.length - 1];
         this.idleCallbackManager.schedule(() => {
-          const section = new StylePropertiesSection(this, matchedStyles, style, sectionIdx);
+          const section = SDK.CSSMetadata.cssMetadata().isHighlightPseudoType(pseudoType) ?
+              new HighlightPseudoStylePropertiesSection(this, matchedStyles, style, sectionIdx) :
+              new StylePropertiesSection(this, matchedStyles, style, sectionIdx);
           sectionIdx++;
           lastBlock.sections.push(section);
         });
@@ -3019,6 +3021,16 @@ export class KeyframePropertiesSection extends StylePropertiesSection {
   }
 
   highlight(): void {
+  }
+}
+
+export class HighlightPseudoStylePropertiesSection extends StylePropertiesSection {
+  isPropertyInherited(_propertyName: string): boolean {
+    // For highlight pseudos, all valid properties are treated as inherited.
+    // Note that the meaning is reversed in this context; the result of
+    // returning false here is that properties of inherited pseudos will never
+    // be shown in the darker style of non-inherited properties.
+    return false;
   }
 }
 
