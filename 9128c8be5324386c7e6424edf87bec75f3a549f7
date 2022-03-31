@@ -116,6 +116,30 @@
       },
       "revId": "9128c8be5324386c7e6424edf87bec75f3a549f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aff43b8_4a940324",
+        "filename": "test/e2e/issues/deprecation-issues_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1512447
+      },
+      "writtenOn": "2022-03-31T15:36:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece2ec9c_54dd6ab7",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "9128c8be5324386c7e6424edf87bec75f3a549f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
