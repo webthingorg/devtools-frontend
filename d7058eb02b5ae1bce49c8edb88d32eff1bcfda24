@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc03f2d_59129205",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-31T12:35:14Z",
+      "side": 1,
+      "message": "Nope. I\u0027ve removed it now.",
+      "parentUuid": "af9bb318_1181c75e",
+      "revId": "d7058eb02b5ae1bce49c8edb88d32eff1bcfda24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60be6d49_0b8e961e",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-31T11:48:29Z",
       "side": 1,
       "message": "Simpler:\n\n    item.element.remove();",
+      "revId": "d7058eb02b5ae1bce49c8edb88d32eff1bcfda24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaef8344_874ec3af",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2022-03-31T12:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60be6d49_0b8e961e",
       "revId": "d7058eb02b5ae1bce49c8edb88d32eff1bcfda24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
