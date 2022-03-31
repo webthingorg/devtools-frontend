@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7222a2_579a7d19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-31T17:25:23Z",
+      "side": 1,
+      "message": "LGTM with 1 final nit. Thanks for your persistence :-)",
+      "revId": "62971eb76a60f0f6141fbc86bf413cda1e421b62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc49a091_2b8d6313",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2022-03-31T17:25:23Z",
+      "side": 1,
+      "message": "Please add `line-height: 24px;`. Without it the triangle icons look slightly mis-aligned vertically.",
+      "revId": "62971eb76a60f0f6141fbc86bf413cda1e421b62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
