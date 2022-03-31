@@ -5360,6 +5360,9 @@
   "panels/issues/AttributionReportingIssueDetailsView.ts | untrustworthyOrigin": {
     "message": "Untrustworthy origin"
   },
+  "panels/issues/ComboBoxOfCheckBoxes.ts | genericMenuLabel": {
+    "message": "Menu"
+  },
   "panels/issues/components/HideIssuesMenu.ts | tooltipTitle": {
     "message": "Hide issues"
   },
