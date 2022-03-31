@@ -31,6 +31,10 @@ describeWithRealConnection('BreakpointManager', () => {
         super(target);
       }
 
+      debuggerEnabled() {
+        return true;
+      }
+
       async setBreakpointByURL(
           _url: Platform.DevToolsPath.UrlString, _lineNumber: number, _columnNumber?: number,
           _condition?: string): Promise<SDK.DebuggerModel.SetBreakpointResult> {
