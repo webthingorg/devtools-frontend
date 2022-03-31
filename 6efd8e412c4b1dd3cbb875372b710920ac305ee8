@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a49cd962_f1b538c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Thanks for digging into it - with your changes it seems to work really nicely now.",
+      "parentUuid": "3973b597_a47db9f2",
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ee147ff_528da424",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15e5b96_945efcbd",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee147ff_528da424",
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9599f690_db54f5a8",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-03-29T15:52:09Z",
       "side": 1,
       "message": "`margin: 0 0 5px 56px;` -\u003e less vertical whitespace",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca3e239_0660e32e",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9599f690_db54f5a8",
       "range": {
         "startLine": 13,
         "startChar": 2,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f1223a_aa3c9eac",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e1d9b34_1a17b0ea",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a75a95d_13c7c9a2",
@@ -94,6 +178,30 @@
       "writtenOn": "2022-03-29T15:52:09Z",
       "side": 1,
       "message": "Let\u0027s merge this with `.url`, rename it (`report-line`?, `report-item`?), and in both call sites use this single class.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 1
+      },
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6aabdf1_043dfe3a",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a75a95d_13c7c9a2",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -127,6 +235,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e186d3_c5f58f2f",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fc3d8e2_0f3e990a",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 1
+      },
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a01a3bd9_b3f5a063",
@@ -140,6 +272,30 @@
       "writtenOn": "2022-03-29T15:52:09Z",
       "side": 1,
       "message": "ditto for `.url-value` and `.frames-value`.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 1
+      },
+      "revId": "6efd8e412c4b1dd3cbb875372b710920ac305ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d618fd69_adb505dd",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a01a3bd9_b3f5a063",
       "range": {
         "startLine": 79,
         "startChar": 0,

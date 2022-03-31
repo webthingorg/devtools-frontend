@@ -260,6 +260,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec602138_2abca402",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260485c2_5c63c1db",
+      "range": {
+        "startLine": 343,
+        "startChar": 4,
+        "endLine": 343,
+        "endChar": 88
+      },
+      "revId": "0a02a9ba7e2503c550b97e4e09ebe28bbc741d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96481f01_3a0b137a",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "nit: missed this one",
       "parentUuid": "033d1afe_81329a96",
+      "range": {
+        "startLine": 344,
+        "startChar": 60,
+        "endLine": 344,
+        "endChar": 62
+      },
+      "revId": "0a02a9ba7e2503c550b97e4e09ebe28bbc741d22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "533c26ec_94f042de",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1514233
+      },
+      "writtenOn": "2022-03-31T06:29:37Z",
+      "side": 1,
+      "message": "oops, actually done",
+      "parentUuid": "299eedd7_5f5d1ec3",
       "range": {
         "startLine": 344,
         "startChar": 60,
